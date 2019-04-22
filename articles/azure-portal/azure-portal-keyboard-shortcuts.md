@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359702"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
@@ -30,7 +30,7 @@ Bu makalede, Azure portalında her yerde çalışan klavye kısayolları listele
 
 |Bu işlemi yapma |Tuşuna basın |
 | --- | --- |
-|Kaynak oluştur|G+N|
+|Kaynak oluşturma|G+N|
 |Açık **tüm hizmetleri**|G+B|
 |Kaynakları, hizmetleri ve belgeleri arayın|G+/|
 |Kaynak menü öğelerini ara|CTRL+/ |
@@ -44,7 +44,7 @@ Bu makalede, Azure portalında her yerde çalışan klavye kısayolları listele
 |Odağı komut çubuğuna taşı |G+, |
 |Odağı üst ve sol kenar çubuğu arasında Değiştir | G+. |
 
-## <a name="go-to"></a>Şuraya gidin:
+## <a name="go-to"></a>Git
 
 |Bu konuma Git |Tuşuna basın |
 | --- | --- |

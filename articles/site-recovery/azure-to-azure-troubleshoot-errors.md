@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269631"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
@@ -40,7 +40,7 @@ Hedef konumu bir kapasite kısıtlaması varsa, çoğaltmayı devre dışı bır
 
 Sanal makinede mevcut en yeni güvenilen kök sertifikalar mevcut değilse, "çoğaltmayı etkinleştir" işi başarısız olabilir. Sertifikaları olmadan, Site Recovery hizmeti çağrıları VM'den yetkilendirme ve kimlik doğrulaması başarısız. Başarısız "çoğaltmayı etkinleştir" Site kurtarma işi için hata iletisi görüntülenir:
 
-**Hata kodu** | **Olası neden** | **Öneriler**
+**Hata kodu** | **Olası nedeni** | **Öneriler**
 --- | --- | ---
 151066<br></br>**İleti**: Site Recovery yapılandırması başarısız oldu. | İstenen makinede mevcut olmayan kimlik doğrulaması ve yetkilendirme için kök sertifikalarını kullanılan güvenilir. | -Windows işletim sistemi çalıştıran bir VM için güvenilen kök sertifikalar makinede mevcut olduğundan emin olun. Bilgi için [yapılandırma Güvenilen Kökleri ve izin verilmeyen sertifikaları](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Linux işletim sistemini çalıştıran bir VM için Linux işletim sistemi sürümü dağıtıcı tarafından yayımlanan güvenilen kök sertifikalar için yönergeleri izleyin.
 
@@ -155,21 +155,21 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
 Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>1 sorunu: Azure sanal makinesi (151195) Site Recovery ile kayıt olamadı </br>
-- **Olası neden** </br>
+- **Olası nedeni** </br>
   - Site recovery uç noktalarına DNS çözümleme hatası nedeniyle bağlantı kurulamıyor.
-  - Sanal makine yükünü devretmenize rağmen DNS sunucusuna DR bölgesinden erişilemediğinde yeniden koruma sırasında bu durum daha sık görülür.
+  - Bu daha sık yeniden koruma sırasında sanal makine üzerinde başarısız oldu, ancak DR bölgesindeki DNS sunucusu erişilebilir değil görülür.
 
-- **Çözüm**
+- **Çözümleme**
    - Özel DNS kullanıyorsanız sonra emin olun, DNS sunucusu olağanüstü durum kurtarma bölgeden erişilebilir. Sanal Makineye gidin özel bir DNS olup olmadığını denetlemek için > olağanüstü durum kurtarma ağı > DNS sunucuları. DNS sunucusu sanal makineden erişmeyi deneyin. Erişilebilir değilse, ardından erişilebilir DNS sunucusu üzerinde başarısız olan veya DR ağ DNS arasındaki site satırının oluşturma kolaylaştırır.
 
     ![COM hatası](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Sorun 2: Site Recovery yapılandırması başarısız oldu (151196)
-- **Olası neden** </br>
+- **Olası nedeni** </br>
   - Office 365 kimlik doğrulaması ve kimlik IP4 uç noktaları için bağlantı kurulamıyor.
 
-- **Çözüm**
+- **Çözümleme**
   - Azure Site Recovery, Office 365 IP aralıkları erişimi kimlik doğrulaması için gereklidir.
     VM üzerinde giden ağ bağlantısını denetlemek için Azure ağ güvenlik grubu (NSG) kuralları/güvenlik duvarı proxy'si kullanıyorsanız, O365 aralıkları için iletişime izin vermek emin olun. Oluşturma bir [Azure Active Directory (AAD) hizmet etiketi](../virtual-network/security-overview.md#service-tags) erişimi için AAD karşılık gelen tüm IP adreslerine izin vermek için NSG kural tabanlı
       - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
@@ -178,19 +178,19 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 > Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.micorsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime belirtildiği gibi oluşturma [makale](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3. sorun: Site Recovery yapılandırması başarısız oldu (151197)
-- **Olası neden** </br>
+- **Olası nedeni** </br>
   - Azure Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor.
 
-- **Çözüm**
+- **Çözümleme**
   - Azure Site Recovery gerekli erişim [Site kurtarma IP aralıkları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) bölgeye bağlı olarak. Bu gerekli IP aralıkları sanal makineden erişilebilir olduğundan emin olun.
 
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>4. sorun: Ağ trafiği şirket içi proxy sunucusu üzerinden (151072) çıktığında A2A çoğaltması başarısız oldu.
-- **Olası neden** </br>
+- **Olası nedeni** </br>
   - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 
 
-- **Çözüm**
+- **Çözümleme**
   1. Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
   2. Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
      - ``/usr/local/InMage/config/`` üzerinde ***Linux***

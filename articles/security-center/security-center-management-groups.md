@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045773"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
@@ -58,7 +58,7 @@ Yönetim gruplarına abonelikleri düzenleyebilir ve idare ilkelerini uygulamak 
 2. Yönetim gruplarını görüntülemek için seçin **tüm hizmetleri** Azure ana menüsünden altında.
 3. Altında **genel**seçin **Yönetim grupları**.
 
-    ![Bir yönetim grubu oluşturma](./media/security-center-management-groups/all-services.png)
+    ![Yönetim grubu oluşturma](./media/security-center-management-groups/all-services.png)
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Kiracı düzeyinde görünürlüğe ve ilkeleri atama olanağı verin
 

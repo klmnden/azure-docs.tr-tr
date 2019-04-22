@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
@@ -119,7 +119,7 @@ Azure AD çoklu oturum açma ile TextMagic yapılandırmak için aşağıdaki ad
     | Şirket | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | FirstName               | User.givenName |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | Soyadı            | User.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Telefon               | User.telephoneNumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefon               | User.telephoneNumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -241,6 +241,6 @@ Erişim paneli TextMagic kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258751"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
@@ -76,9 +76,9 @@ Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Seçilen bul
 
 Cihazınızın uyumlu olarak işaretlenebilir önce Azure AD'ye kayıtlı olması gerekir. Bir cihazı kaydetmek için üç seçeneğiniz vardır: 
 
-- [Azure AD kayıtlı cihazlar](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD’ye katılmış cihazlar](../devices/overview.md#azure-ad-joined-devices)  
-- [Hibrit Azure AD’ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Azure AD kayıtlı cihazları](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)  
+- [Hibrit Azure AD'ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Daha fazla bilgi için [yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi zorunlu kılma](require-managed-devices.md).
 

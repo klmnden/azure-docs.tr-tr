@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271807"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
@@ -153,7 +153,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS70007 | UnsupportedResponseMode - uygulama, desteklenmeyen bir değer döndürdü `response_mode` bir belirteç isterken.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - eylemsizlik nedeniyle yenileme belirtecinin süresi doldu. Belirteç XXX verilmiş ve belirli bir süreliğine etkin değil. |
 | AADSTS70011 | Uygulama tarafından istenen kapsam InvalidScope - geçersiz. |
-| AADSTS70012 | MsaServerError - MSA (tüketici) kullanıcı kimlik doğrulaması sırasında sunucu hatası oluştu. Yeniden deneyin. Başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - MSA (tüketici) kullanıcı kimlik doğrulaması sırasında sunucu hatası oluştu. Yeniden deneyin. Bu başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 cihaz akışı hatası. Yetkilendirme beklemede. Cihaz yoklama isteği yeniden deneyecek. |
 | AADSTS70018 | BadVerificationCode - kullanıcı cihazı kod akışı yanlış kullanıcı kodunu yazarak nedeniyle geçersiz doğrulama kodu. Yetkilendirme onaylanmadı. |
 | AADSTS70019 | Doğrulama kodu CodeExpired - süresi. Kullanıcı oturum açma yeniden sahip. |

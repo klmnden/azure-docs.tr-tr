@@ -13,10 +13,10 @@ ms.author: carlrab
 ms.reviewer: ''
 ms.date: 02/08/2019
 ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361427"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralını yapılandırmak için CLI kullanma
@@ -45,13 +45,13 @@ az group delete --name myResourceGroup
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
-| [az grubu oluşturun](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az sql server oluşturun](/cli/azure/sql/server#az-sql-server-create) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |
-| [az sql server güvenlik duvarı oluşturma](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | SQL veritabanı sunucusunda girilen IP adresi aralığındaki bir elastik havuzlar bütün tek veritabanları erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturur. |
-| [az sql db oluşturun](/cli/azure/sql/db#az-sql-db-create) | Tek veritabanı veya elastik havuz oluşturur. |
-| [az grubu Sil](/cli/azure/resource#az-resource-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | SQL veritabanı sunucusunda girilen IP adresi aralığındaki bir elastik havuzlar bütün tek veritabanları erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturur. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Tek veritabanı veya elastik havuz oluşturur. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

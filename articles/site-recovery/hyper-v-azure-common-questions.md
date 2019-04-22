@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357998"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Sık sorulan sorular - Hyper-V'den Azure'a olağanüstü durum kurtarma
@@ -33,9 +33,9 @@ Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.co
 
 Hyper-V ana bilgisayar sunucusu için sahip olmanız gerekenler dağıtım senaryosuna bağlıdır. Aşağıdaki makalelerden Hyper-V önkoşullarını inceleyin:
 
-* [Hyper-V VM'lerini (VMM olmadan) Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
-* [Hyper-V VM'lerini (VMM ile) Azure'a çoğaltma](site-recovery-vmm-to-azure.md)
-* [Hyper-V sanal makinelerini ikincil veri merkezine çoğaltma](site-recovery-vmm-to-vmm.md)
+* [Hyper-V Vm'lerini (VMM olmadan) Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
+* [Hyper-V Vm'lerini (VMM ile) Azure'a çoğaltma](site-recovery-vmm-to-azure.md)
+* [Hyper-V Vm'lerini ikincil bir veri merkezine çoğaltma](site-recovery-vmm-to-vmm.md)
 * Hakkında bilgi edinin ikincil veri merkezine çoğaltma yapıyorsanız [Hyper-V Vm'leri için desteklenen konuk işletim sistemleri](https://technet.microsoft.com/library/mt126277.aspx).
 * Azure'a çoğaltma yapıyorsanız Site Recovery tüm konuk işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -95,7 +95,7 @@ Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kü
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Bir Hyper-V kümesinde yer alan VM'ler çoğaltabilirim?
 
-Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Aşağıdakilere dikkat edin:
+Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Şunlara dikkat edin:
 
 - Kümenin tüm düğümleri aynı kasaya kayıtlı olması gerekir.
 - Kümedeki tüm Hyper-V konakları VMM kullanmıyorsanız, aynı Hyper-V sitesine eklenmesi gerekir.

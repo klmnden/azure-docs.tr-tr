@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258700"
 ---
 # <a name="about-microsoft-identity-platform"></a>Microsoft kimlik platformu hakkında
@@ -62,5 +62,5 @@ Microsoft kimlik platformunun iki uç noktası (v1.0 ve v2.0) ve bu uç noktalar
 
 v1.0 ve v2.0 hakkında daha fazla bilgi edinin.
 
-* [V1.0 hakkında](v1-overview.md)
-* [v2.0 Hakkında](v2-overview.md)
+* [v1.0 hakkında](v1-overview.md)
+* [v2.0 hakkında](v2-overview.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274595"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
@@ -45,7 +45,7 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 1. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışacak şekilde güncelleştirme yönetimi için izin verilmesi gereken öğrenin.
 2. Kopyalanmış görüntüsünü kullanıyorsanız:
    1. Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates` gösterilen durumunda. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
-   2. Çalıştırın `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` öğesini çalıştırın
    3. Çalıştırma `Restart-Service HealthService` yeniden `HealthService`. Bu anahtarı yeniden oluşturun ve yeni UUID oluşturur.
    4. Bu işe yaramazsa, görüntü sysprep ilk ve olaydan sonra MMA aracısını yükleyin.
 
@@ -177,7 +177,7 @@ Tüm özel durum iletisi görmek için kırmızı renkte gösterilen özel durum
 |Özel durum  |Çözüm veya eylem  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | İlgili hata kodunu arama [Windows güncelleştirme hatası kodu listesi](https://support.microsoft.com/help/938205/windows-update-error-code-list) özel durumun nedeni hakkında ek ayrıntıları bulmak için.        |
-|`0x8024402C` or `0x8024401C`     | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |
+|`0x8024402C` veya `0x8024401C`     | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |
 |`0x8024402C`     | Bir WSUS sunucusu kullanıyorsanız, kayıt defteri değerlerini emin `WUServer` ve `WUStatusServer` kayıt defteri anahtarı altında `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` doğru WSUS sunucusu vardır.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows Güncelleştirme Hizmeti (wuauserv) çalıştığından ve devre dışı emin olun.        |
 |Herhangi bir genel durum     | Bir arama olası çözümler için internet ve yerel BT desteği ile çalışır.         |

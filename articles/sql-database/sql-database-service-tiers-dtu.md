@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 05164985c7851ed828e22f4eeafde64a1940ebc0
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357605"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU tabanlı satın alma modeli olarak hizmet katmanları
@@ -36,7 +36,7 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 | :-- | --: |--:| --:|
 |Hedef iş yükü|Geliştirme ve üretim|Geliştirme ve üretim|Geliştirme ve üretim|
 |Çalışma Süresi SLA'sı|%99,99|%99,99|%99,99|
-|Yedekleme bekletme|7 gün|35 gün|35 gün|
+|Yedekleri bekletme|7 gün|35 gün|35 gün|
 |CPU|Düşük|Düşük, Orta, yüksek|Orta, yüksek|
 |GÇ verimliliği (yaklaşık) |2.5 DTU başına IOPS| 2.5 DTU başına IOPS | DTU başına 48 IOPS|
 |GÇ gecikmesi (yaklaşık)|5 ms (okuma), 10 ms (yazma)|5 ms (okuma), 10 ms (yazma)|2 ms (okuma/yazma)|

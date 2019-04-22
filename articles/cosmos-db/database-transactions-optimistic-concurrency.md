@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279521"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>İşlemler ve iyimser eşzamanlılık denetimi
@@ -20,7 +20,7 @@ Veritabanı işlemleri verileri eşzamanlı değişikliklerle başa çıkmak iç
 
 Anlık görüntü yalıtımıyla ACID (kararlılık, tutarlılık, yalıtım, dayanıklılık) uyumlu işlemler tam veritabanı altyapısı, Azure Cosmos DB destekler. Tüm veritabanı işlemlerinin kapsamı içinde bir kapsayıcının [mantıksal bölüm](partition-data.md) işlemsel olarak bölümün çoğaltması tarafından barındırılır veritabanı altyapısının içinde yürütülür. Bu işlemlerin her ikisi de dahil (mantıksal bölüm içindeki bir veya daha fazla öğe güncelleştirme) yazma ve okuma işlemleri. Aşağıdaki tabloda, farklı işlemler ve işlem kapsamı türleri gösterilmektedir:
 
-| **İşlem**  | **İşlem Türü** | **Tek veya çoklu öğe işlem** |
+| **İşlem**  | **İşlem türü** | **Tek veya çoklu öğe işlem** |
 |---------|---------|---------|
 | (Ön/son tetikleyici) Ekle | Yazma | İşlem tek öğe |
 | (Bir ön/son tetikleyici) Ekle | Yazma ve okuma | Birden çok öğe işlem |
@@ -34,7 +34,7 @@ Anlık görüntü yalıtımıyla ACID (kararlılık, tutarlılık, yalıtım, da
 | Sistem tarafından başlatılan bir birleştirme yordamının yürütülmesi | Yazma | Birden çok öğe işlem |
 | Sistem tarafından başlatılan bir öğe süre sonu (TTL) alarak öğeleri silme yürütme | Yazma | Birden çok öğe işlem |
 | Okuma | Okuma | Tek öğeli işlem |
-| Değişiklik akışı | Okuma | Birden çok öğe işlem |
+| Değişiklik Akışı | Okuma | Birden çok öğe işlem |
 | Sayfalandırılmış okuma | Okuma | Birden çok öğe işlem |
 | Sayfalandırılmış sorgu | Okuma | Birden çok öğe işlem |
 | UDF sayfalandırılmış sorgunun bir parçası olarak yürütün | Okuma | Birden çok öğe işlem |
@@ -63,5 +63,5 @@ Hakkında daha fazla veritabanı işlemleri ve iyimser eşzamanlılık denetimi 
 
 - [Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma](databases-containers-items.md)
 - [Tutarlılık düzeyleri](consistency-levels.md)
-- [Çakışma türleri ve çözme ilkeleri](conflict-resolution-policies.md)
+- [Çakışma türlerini ve çözümleme ilkeleri](conflict-resolution-policies.md)
 - [Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler](stored-procedures-triggers-udfs.md)

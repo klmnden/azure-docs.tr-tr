@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265007"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Hızlı Başlangıç: SignalR C kullanarak Service ve Azure işlevleri ile sohbet odası oluşturamadı.\#
@@ -76,4 +76,4 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 Bu hızlı başlangıçta, oluşturulan ve gerçek zamanlı bir sunucusuz uygulama Visual Studio'da çalıştı. Bir sonraki adımda Visual Studio ile nasıl Azure İşlevlerini geliştirip dağıtacağınızı öğrenin.
 
 > [!div class="nextstepaction"]
-> [Visual Studio kullanarak Azure işlevleri geliştirme](../azure-functions/functions-develop-vs.md)
+> [Visual Studio ile Azure İşlevleri geliştirme](../azure-functions/functions-develop-vs.md)

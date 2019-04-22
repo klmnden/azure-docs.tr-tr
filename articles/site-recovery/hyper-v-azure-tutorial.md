@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: da643a4d7a1dc74385b3854c1952af5ba93bd241
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358089"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarma ayarlama
@@ -70,7 +70,7 @@ Kaynak ortamı ayarlamak için Hyper-V sitesi oluşturun ve bir siteye çoğaltm
     ![Hyper-V sunucusu](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 4. Microsoft Azure Site Recovery sağlayıcısı yükleyicisini indirin.
-6. Kasa kayıt anahtarını indir Sağlayıcı yüklemek için bu anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+6. Kasa kayıt anahtarını indirin. Sağlayıcı yüklemek için bu anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Sağlayıcıyı indirin](./media/hyper-v-azure-tutorial/download.png)
     

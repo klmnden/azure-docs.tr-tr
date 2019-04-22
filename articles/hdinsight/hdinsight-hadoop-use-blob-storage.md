@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360788"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
@@ -30,8 +30,8 @@ Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen, sağlam ve genel
 | Depolama hesabı türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları |
 |----------------------|--------------------|-----------------------------|------------------------|
 | Genel amaçlı V2   | Blob               | Standart                    | Sık erişimli, seyrek erişimli ve Arşiv\*    |
-| Genel amaçlı V1   | Blob               | Standart                    | YOK                    |
-| Blob depolama alanı         | Blob               | Standart                    | Sık erişimli, seyrek erişimli ve Arşiv\*    |
+| Genel amaçlı V1   | Blob               | Standart                    | Yok                    |
+| Blob depolama         | Blob               | Standart                    | Sık erişimli, seyrek erişimli ve Arşiv\*    |
 
 İş verilerini depolamak için, varsayılan blob kapsayıcısını kullanmanızı önermiyoruz. Depolama maliyetini azaltmak için blob kapsayıcısının her kullanımdan sonra silinmesi iyi bir uygulamadır. Uygulama ve sistem varsayılan kapsayıcı içeren günlükleri. Kapsayıcıyı silmeden önce günlükleri aldığınızdan emin olun.
 
@@ -51,7 +51,7 @@ HDInsight, işlem düğümlerine yerel olarak bağlı olan dağıtılmış dosya
 
     hdfs://<namenodehost>/<path>
 
-Ayrıca HDInsight, Azure Depolama'da depolanan verilere erişebilmenizi de sağlar. Sözdizimi şöyledir:
+Ayrıca HDInsight, Azure Depolama'da depolanan verilere erişebilmenizi de sağlar. Söz dizimi aşağıdaki gibidir:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -335,7 +335,7 @@ Bu makalede HDFS ile uyumlu Azure Depolama'yı HDInsight ile nasıl kullanacağ�
 Daha fazla bilgi için bkz.
 
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
-* [Azure Data Lake Storage ile çalışmaya başlayın](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md)
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
 * [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
 * [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]

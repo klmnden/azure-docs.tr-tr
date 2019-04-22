@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357630"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
@@ -377,6 +377,6 @@ Ardından, test ve basın bir kesme noktası ayarlamak **F5**.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 İşlevleriniz için otomatik testler yazmak öğrendiniz, bu kaynakları ile devam edin:
-- [HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma](./functions-manually-run-non-http.md)
+- [El ile olmayan HTTP ile tetiklenen bir işlev çalıştırın](./functions-manually-run-non-http.md)
 - [Azure işlevleri hata işleme](./functions-bindings-error-pages.md)
 - [Azure işlevi olay Kılavuzu tetikleyicisi yerel hata ayıklama](./functions-debug-event-grid-trigger-local.md)

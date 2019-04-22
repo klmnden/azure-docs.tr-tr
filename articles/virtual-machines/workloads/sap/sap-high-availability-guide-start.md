@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265075"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
@@ -196,7 +196,7 @@ Bu makale serisi, kapsar:
     > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP üzerinde yüksek kullanılabilirlik:
-  * ![Windows][Logo_Windows]**Windows**kullanarak **Windows Server Yük devretme kümesi (WSFC)** 
+  * ![Windows][Logo_Windows]**Windows**kullanarak **Windows Server Yük devretme kümesi (WSFC)**
   * ![Linux][Logo_Linux] **Linux**kullanarak **Linux küme Framework**
 
 Bu makalelerde, SAP Central Services'in (ASCS/SCS) ve veritabanı yönetim sistemi (DBMS) gibi başarısız (SPOF) bileşenleri tek noktası korunmasına nasıl yardımcı olacağını öğrenin. Ayrıca, azure'da SAP uygulama sunucusu gibi yedekli bileşenler hakkında bilgi.

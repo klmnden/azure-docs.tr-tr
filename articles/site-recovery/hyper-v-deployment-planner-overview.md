@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360289"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında azure'a Hyper-V olağanüstü durum kurtarma
@@ -30,7 +30,7 @@ Araç aşağıdaki bilgileri sağlar:
 
 * Disk sayısı, disk boyutu, IOPS, değişim sıklığı ve bazı VM özelliklerine göre VM uygunluk değerlendirmesi.
 
-**Ağ bant genişliği ile RPO değerlendirmesi karşılaştırması gerekir**
+**Ağ bant genişliği ile RPO değerlendirmesi karşılaştırması**
 
 * Delta çoğaltma için gereken tahmini ağ bant genişliği
 * Azure Site Recovery’nin şirket içinden Azure’a alabileceği aktarım hızı
@@ -70,12 +70,12 @@ Araç aşağıdaki bilgileri sağlar:
 
 ## <a name="support-matrix"></a>Destek matrisi
 
-| | **Vmware’den Azure’a** |**Hyper-V’den Azure’a**|**Azure-Azure arası**|**Hyper-V'den ikincil siteye**|**Vmware'den ikincil siteye**
+| | **Vmware’den Azure’a** |**Hyper-V'den Azure'a**|**Azure'dan Azure'a**|**Hyper-V’den ikincil siteye**|**VMware’den ikincil siteye**
 --|--|--|--|--|--
 Desteklenen senaryolar |Evet|Evet|Hayır|Evet*|Hayır
-Desteklenen Sürüm | vCenter 6.5, 6.0 veya 5.5| Windows Server 2016, Windows Server 2012 R2 | Yok |Windows Server 2016, Windows Server 2012 R2|Yok
-Desteklenen yapılandırma|vCenter, ESXi| Hyper-V kümesi, Hyper-V konağı|Yok|Hyper-V kümesi, Hyper-V konağı|Yok|
-Çalışan Azure Site Recovery Dağıtım Planlayıcısı örneği başına profili oluşturulabilecek sunucu sayısı |Tek (bir vCenter Server ve bir ESXi sunucusuna ait VM’lerin profili aynı anda oluşturulabilir)|Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| Yok |Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| Yok
+Desteklenen Sürüm | vCenter 6.5, 6.0 veya 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Desteklenen yapılandırma|vCenter, ESXi| Hyper-V kümesi, Hyper-V konağı|NA|Hyper-V kümesi, Hyper-V konağı|NA|
+Çalışan Azure Site Recovery Dağıtım Planlayıcısı örneği başına profili oluşturulabilecek sunucu sayısı |Tek (bir vCenter Server ve bir ESXi sunucusuna ait VM’lerin profili aynı anda oluşturulabilir)|Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA |Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA
 
 *Bu araç, öncelikli olarak Hyper-V’den Azure’a olağanüstü durum kurtarma senaryosuna yöneliktir. Hyper-V’den ikincil olağanüstü durum kurtarmaya senaryosunda yalnızca gereken ağ bant genişliği, kaynak Hyper-V sunucuların her birinde gereken boş depolama alanı ve ilk çoğaltmadaki batch numaralarıyla batch açıklamaları gibi kaynak tarafı önerilerin anlaşılması için kullanılabilir.  Rapordaki Azure önerilerini ve maliyetleri dikkate almayın. Ayrıca Aktarım Hızı Alma işlemi, Hyper-V’den ikincil siteye olağanüstü durum kurtarma senaryosu için kullanılamaz.
 
@@ -84,7 +84,7 @@ Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluştur
 
 | Sunucu gereksinimi | Açıklama |
 |---|---|
-|VM listesini alma, profil oluşturma ve aktarım hızı ölçümü |<ul><li>İşletim Sistemi: Microsoft Windows Server 2016 veya Microsoft Windows Server 2012 R2 </li><li>Makine Yapılandırması: 8 Vcpu, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ için Visual Studio 2012 yeniden dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Bu sunucudan Azure’a İnternet erişimi</li><li>Azure depolama hesabı</li><li>Sunucu üzerinde yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>Azure Site Recovery dağıtım planlayıcısı aracını çalıştırdığınız sanal makinenin, tüm Hyper-V sunucularının TrustedHosts listesine eklenmesi gerekir.</li><li>Tüm Hyper-V sunucularının profili oluşturulacak aracı burada çalıştırıldığı istemci VM'nin TrustedHosts listesine eklenmesi gerekir. [TrustedHosts listesine sunucu eklemek için daha fazla bilgi edinin](#steps-to-add-servers-into-trustedhosts-list). </li><li> Araç, PowerShell veya istemci üzerindeki komut satırı konsolu üzerinde yönetici ayrıcalığı ile çalıştırılmalıdır</ul></ul>|
+|VM listesini alma, profil oluşturma ve aktarım hızı ölçümü |<ul><li>İşletim Sistemi: Microsoft Windows Server 2016 veya Microsoft Windows Server 2012 R2 </li><li>Makine Yapılandırması: 8 Vcpu, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012 için Microsoft Visual C++ Yeniden Dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Bu sunucudan Azure’a İnternet erişimi</li><li>Azure depolama hesabı</li><li>Sunucu üzerinde yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>Azure Site Recovery dağıtım planlayıcısı aracını çalıştırdığınız sanal makinenin, tüm Hyper-V sunucularının TrustedHosts listesine eklenmesi gerekir.</li><li>Tüm Hyper-V sunucularının profili oluşturulacak aracı burada çalıştırıldığı istemci VM'nin TrustedHosts listesine eklenmesi gerekir. [TrustedHosts listesine sunucu eklemek için daha fazla bilgi edinin](#steps-to-add-servers-into-trustedhosts-list). </li><li> Araç, PowerShell veya istemci üzerindeki komut satırı konsolu üzerinde yönetici ayrıcalığı ile çalıştırılmalıdır</ul></ul>|
 | Rapor oluşturma | Microsoft Excel 2013 ve üzerinin yüklü olduğu herhangi bir Windows PC ya da Windows Server |
 | Kullanıcı izinleri | VM listesini alma ve profil oluşturma işlemleri sırasında Hyper-V kümesine/Hyper-V konağına erişmek için kullanılacak yönetici hesabı.<br>Profili oluşturulması gereken tüm konakların, aynı kimlik bilgilerine sahip (kullanıcı adı ve parola) bir etki alanı yönetici hesabı olmalıdır
  |

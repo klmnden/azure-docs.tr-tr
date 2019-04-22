@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261471"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler nedir?
@@ -118,17 +118,17 @@ Yönetilen kimlikleri Windows VM ile kullanmayı öğrenin:
 * [Azure Data Lake Store’a erişme](tutorial-windows-vm-access-datalake.md)
 * [Azure Resource Manager’a erişme](tutorial-windows-vm-access-arm.md)
 * [Azure SQL’e erişme](tutorial-windows-vm-access-sql.md)
-* [Bir erişim anahtarı kullanarak Azure depolama](tutorial-windows-vm-access-storage.md)
-* [Paylaşılan erişim imzalarını kullanarak erişim Azure depolama](tutorial-windows-vm-access-storage-sas.md)
-* [Azure Key Vault ile bir Azure olmayan AD kaynağına erişmek](tutorial-windows-vm-access-nonaad.md)
+* [Erişim anahtarı kullanarak Azure Depolama’ya erişme](tutorial-windows-vm-access-storage.md)
+* [Paylaşılan erişim anahtarlarını kullanarak Azure Depolama’ya erişme](tutorial-windows-vm-access-storage-sas.md)
+* [Azure Key Vault ile Azure AD dışı bir kaynağa erişme](tutorial-windows-vm-access-nonaad.md)
 
 Yönetilen kimlikleri Linux VM ile kullanmayı öğrenin:
 
 * [Azure Data Lake Store’a erişme](tutorial-linux-vm-access-datalake.md)
 * [Azure Resource Manager’a erişme](tutorial-linux-vm-access-arm.md)
-* [Bir erişim anahtarı kullanarak Azure depolama](tutorial-linux-vm-access-storage.md)
-* [Paylaşılan erişim imzalarını kullanarak erişim Azure depolama](tutorial-linux-vm-access-storage-sas.md)
-* [Azure Key Vault ile bir Azure olmayan AD kaynağına erişmek](tutorial-linux-vm-access-nonaad.md)
+* [Erişim anahtarı kullanarak Azure Depolama’ya erişme](tutorial-linux-vm-access-storage.md)
+* [Paylaşılan erişim anahtarlarını kullanarak Azure Depolama’ya erişme](tutorial-linux-vm-access-storage-sas.md)
+* [Azure Key Vault ile Azure AD dışı bir kaynağa erişme](tutorial-linux-vm-access-nonaad.md)
 
 Yönetilen kimlikleri diğer Azure hizmetleri ile kullanmayı öğrenin:
 
@@ -149,4 +149,4 @@ Azure kaynakları için yönetilen kimlikler, Azure AD kimlik doğrulamasını d
 Azure kaynakları için yönetilen kimlikler özelliğini kullanmaya başlamak için aşağıdaki hızlı başlangıçlardan yararlanın:
 
 * [Resource Manager’a erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-windows-vm-access-arm.md)
-* [Resource Manager'a erişmek için bir Linux VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-linux-vm-access-arm.md)
+* [Resource Manager’a erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma](tutorial-linux-vm-access-arm.md)

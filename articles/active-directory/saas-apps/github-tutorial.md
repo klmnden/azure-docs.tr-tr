@@ -16,10 +16,10 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Öğretici: GitHub ile Azure Active Directory Tümleştirme
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adım
 
 5. GitHub uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. GitHub uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşleme.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -156,13 +156,13 @@ Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adım
 
     d. Tıklayarak **Düzenle** düzenleme simgesi **imza yöntemi** ve **Özet yöntemi** gelen **RSA SHA1** ve **SHA1**için **RSA-SHA256** ve **SHA256** aşağıda gösterildiği gibi.
 
-    ![görüntü](./media/github-tutorial/tutorial_github_sha.png)
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
 
 5. Tıklayarak **Test SAML yapılandırma** onaylamak için hiçbir doğrulama hataları veya SSO sırasında hata.
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-6. **Kaydet**'e tıklayın.
+6. **Kaydet**’e tıklayın
 
 > [!NOTE]
 > Çoklu oturum açmayı github'da github'da belirli bir kuruluş için doğrular ve Github'daki kimliğini değiştirmez. Bu nedenle, kullanıcının github.com oturumunu dolmuşsa, GitHub'ın kimliği/parola ile çoklu oturum açma işlemi sırasında kimlik doğrulaması istenebilir.
@@ -257,6 +257,6 @@ Erişim paneli GitHub kutucuğa tıkladığınızda, size otomatik olarak SSO'yu
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

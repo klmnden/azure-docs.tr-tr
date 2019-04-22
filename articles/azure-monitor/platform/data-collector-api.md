@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264106"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Azure İzleyici HTTP veri toplayıcı API'sini (genel Önizleme) ile günlük verileri gönderin
@@ -38,7 +38,7 @@ Log Analytics çalışma alanındaki tüm verileri, belirli bir kayıt türü i�
 
 
 
-## <a name="create-a-request"></a>Bir isteği oluştur
+## <a name="create-a-request"></a>İstek oluştur
 HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON) gönderilecek verileri içeren bir POST isteği oluşturun.  Sonraki üç tablolarda her istek için gerekli olan öznitelikler listelenir. Her bir öznitelik makalenin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="request-uri"></a>İstek URI'si
@@ -53,7 +53,7 @@ HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON
 |:--- |:--- |
 | CustomerID |Log Analytics çalışma alanı için benzersiz tanımlayıcı. |
 | Kaynak |API kaynak adı: / api/günlükleri. |
-| API sürümü |Bu istekle kullanılacak API sürümü. Şu anda bu 2016-04-01 olur. |
+| API Sürümü |Bu istekle kullanılacak API sürümü. Şu anda bu 2016-04-01 olur. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 | Üst bilgi | Açıklama |
@@ -202,7 +202,7 @@ Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
 | 404 |Bulunamadı | | Sağlanan URL yanlış veya isteği çok büyük. |
 | 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen istek daha sonra yeniden deneyin. |
-| 500 |İç sunucu hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
+| 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
 | 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama

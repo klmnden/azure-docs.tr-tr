@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280545"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: Amaçlardan tutun Speech SDK'sı kullanarak konuşma tanımaC#
@@ -133,7 +133,7 @@ Daha sonra, `new IntentRecognizer(config)` kullanarak bir amaç tanıyıcı olu�
 
 Intents ekleme, üç bağımsız değişken gerektirir: LUIS modeline (oluşturulup oluşturulmadığını ve adlı `model`), hedefi adı ve bir hedefi kimliği Kimlik ve ad arasındaki fark aşağıda gösterilmiştir.
 
-|`AddIntent()` Bağımsız değişken|Amaç|
+|`AddIntent()` bağımsız değişkeni|Amaç|
 |--------|-------|
 |intentName |LUIS app’te tanımlandığı şekliyle amacın adı. LUIS amacı adıyla tam olarak eşleşmelidir.|
 |intentID    |Konuşma SDK’sı tarafından tanınan amaca atanan kimlik. İstediğiniz kimliği kullanabilirsiniz; LUIS app’te tanımlandığı gibi amaç adına karşılık gelmesi gerekmez. Örneğin, aynı kodla birden çok amaç işleniyorsa, bunlar için aynı kimliği kullanabilirsiniz.|
@@ -188,4 +188,4 @@ Samples/csharp/sharedcontent/console klasöründe bu makaledeki kodu bulabilirsi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşma tanıma nasıl](how-to-recognize-speech-csharp.md)
+> [Konuşmayı algılama](how-to-recognize-speech-csharp.md)

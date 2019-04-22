@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360431"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
@@ -66,7 +66,7 @@ Yönetilen örnek yalnızca özel bir IP adresi, geliştirici kutusundan erişme
 
 Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. Ardından eşlenen iki sanal ağ. Aşağıdaki örnek mimarisi diyagramı, bunu nasıl uygulanabileceği gösterilmektedir.
 
-![Sanal ağ eşleme](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![VNet eşlemesi](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
 Temel altyapıyı ayarlamak aldıktan sonra VPN ağ geçidi yönetilen örneğini barındıran sanal ağdaki IP adresleri görebilmeniz için bazı ayarı değiştirmeniz gerekir. Bunu yapmak için aşağıdaki belirli değişiklik **eşleme ayarları**.
 

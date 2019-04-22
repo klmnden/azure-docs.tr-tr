@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357013"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Yönetilen örnek bir Azure SQL veritabanı oluşturmak için PowerShell kullanma
@@ -46,9 +46,9 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
-| [Yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur.
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur.
 | [Yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Bir sanal ağ oluşturur |
 | [AzVirtualNetworkSubnetConfig ekleyin](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Bir sanal ağa bir alt ağ yapılandırması ekler |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Bir kaynak grubunda bir sanal ağ alır |

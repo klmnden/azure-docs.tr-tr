@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264956"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 3 - Azure Search dizini sorgulamaC#
@@ -34,7 +34,7 @@ Belgeler için salt okunur erişim için kullanılan bir sorgu anahtarı edinin.
 ## <a name="create-a-client"></a>Bir istemci oluşturma
 Bir örneğini oluşturmak `SearchIndexClient` salt okunur erişim için bir sorgu anahtarı verebilir böylece sınıfı (üzerine ağır basıp basmadığını yazma erişim haklarını aksine `SearchServiceClient` Önceki derste kullanılan).
 
-Bu sınıfın birkaç oluşturucusu vardır. Arama hizmeti adınızı, dizin adı istediğinizi alır ve bir [ `SearchCredentials` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) nesnesini parametre olarak. `SearchCredentials` api anahtarınızı sarmalar.
+Bu sınıfın birkaç oluşturucusu vardır. Arama hizmeti adınızı, dizin adı istediğinizi alır ve bir [ `SearchCredentials` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) nesnesini parametre olarak. `SearchCredentials`, api anahtarınızı sarmalar.
 
 Aşağıdaki kod yeni bir oluşturur `SearchIndexClient` arama hizmeti adına ve uygulamanın yapılandırma dosyasında depolanan API anahtarı için değerleri kullanarak "hotels" dizini için (`appsettings.json` durumunda [örnek uygulama](https://aka.ms/search-dotnet-howto)):
 

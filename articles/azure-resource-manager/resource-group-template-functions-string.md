@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278794"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
@@ -33,7 +33,7 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [boş](#empty)
 * [endsWith](#endswith)
 * [ilk](#first)
-* [biçim](#format)
+* [Biçim](#format)
 * [GUID](#guid)
 * [indexOf](#indexof)
 * [Son](#last)
@@ -42,17 +42,17 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [Değiştir](#replace)
-* [atla](#skip)
+* [Atla](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [string](#string)
+* [dize](#string)
 * [alt dize](#substring)
 * [sınav zamanı](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [Kırpma](#trim)
 * [uniqueString](#uniquestring)
-* [uri](#uri)
+* [URI](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276422"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
@@ -83,7 +83,7 @@ Bir kullanıcının erişimi olan veri, aşağıdaki tabloda listelenen çoklu f
 | faktörü | Açıklama |
 |:---|:---|
 | [Erişim modu](#access-modes) | Kullanıcının kullandığı yöntem, çalışma alanına erişir.  Kullanılabilir verilerin kapsamını ve uygulanan erişim denetimi modu tanımlar. |
-| [Erişim denetimi modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
+| [Erişim denetim modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
 | [İzinler](#manage-accounts-and-users) | İzinler, tek tek veya çalışma alanı veya kaynak için kullanıcı gruplarına uygulanır. Hangi verilerin kullanıcı erişimi olacaktır tanımlar. |
 | [Tablo düzeyi RBAC](#table-level-rbac) | İsteğe bağlı ayrıntılı izinler, kullanıcıların erişim modu veya erişim denetim modu bağımsız olarak tüm kullanıcılara uygulanır. Bir kullanıcının hangi veri türlerini tanımlar. |
 

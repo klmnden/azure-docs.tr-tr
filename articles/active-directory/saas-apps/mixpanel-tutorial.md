@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 7fa4c78269464b1a38507acd6512e5f44ed94945
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Öğretici: Mixpanel'a ile Azure Active Directory Tümleştirme
@@ -225,7 +225,7 @@ Erişim paneli Mixpanel'a kutucuğa tıkladığınızda, size otomatik olarak SS
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

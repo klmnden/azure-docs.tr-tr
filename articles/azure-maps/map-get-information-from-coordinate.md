@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256065"
 ---
 # <a name="get-information-from-a-coordinate"></a>Bir koordinattan bilgi alma
@@ -59,7 +59,7 @@ Yukarıdaki kodda, ilk kod bloğunu bir harita nesnesi oluşturur ve bir aboneli
 Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Eşleme](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Açılan menüsü](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
@@ -67,7 +67,7 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Tam kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [A'dan B'ye yönleri gösterme](./map-route.md)
+> [Yönergeleri A'dan B'ye yönleri gösterme](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Trafiği gösterme](./map-show-traffic.md)

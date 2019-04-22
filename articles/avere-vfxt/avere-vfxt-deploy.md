@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: v-erkell
 ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257323"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
@@ -28,7 +28,7 @@ Bu belgedeki yönergeleri uyguladıktan sonra bir sanal ağ, bir alt ağ, bir de
 
 Oluşturma şablonu kullanmadan önce şu önkoşulların giderdik emin olun:  
 
-1. [Yeni abonelik](avere-vfxt-prereqs.md#create-a-new-subscription)
+1. [Yeni Abonelik](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Abonelik sahibi izinleri](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kota vFXT kümesi için](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [(Gerekirse) depolama hizmet uç noktası](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - için gerekli kullanarak mevcut bir sanal ağ ve blob depolama oluşturma dağıtır

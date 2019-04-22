@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280851"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Hızlı Başlangıç: Azure Cosmos DB SQL API hesabı kullanarak bir .NET web uygulaması derleme
@@ -229,5 +229,5 @@ Bu adım isteğe bağlıdır. Bu hızlı başlangıçta, Azure portalında bir v
 Bu hızlı başlangıçta, bir Azure Cosmos DB hesabı oluşturma, veritabanı ve Veri Gezgini'ni kullanarak koleksiyon oluşturma ve verilerinizi güncelleştirmek için bir .NET web uygulamasını çalıştırmayı öğrendiniz. Şimdi Azure Cosmos DB hesabınıza ek veriler aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB'ye veri aktarma](import-data.md)
+> [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)
 

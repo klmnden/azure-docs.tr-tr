@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267155"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
@@ -64,11 +64,11 @@ CNAME kaydı oluşturmak için yeni bir giriş DNS tablosunda özel etki alanın
 
 1. Bulmak için aşağıdaki yöntemlerden birini kullanın **. cloudapp.net** , bulut hizmetine atanan etki alanı adı.
 
-   * Oturum açma [Azure portalında], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **Site URL'si** girişi.
+   * Oturum açma [Azure portal], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **Site URL'si** girişi.
 
        ![site URL'si gösteren Hızlı Bakış bölümü][csurl]
 
-       **OR**
+       **VEYA**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
 
        ```powershell
@@ -97,11 +97,11 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
 
 1. Bulut hizmetinizin IP adresini almak için aşağıdaki yöntemlerden birini kullanın.
 
-   * Oturum açma [Azure portalında], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **genel IP adresleri** girişi.
+   * Oturum açma [Azure portal], bulut hizmetinizi seçin, bakmak **genel bakış** bölümüne ve ardından bulun **genel IP adresleri** girişi.
 
        ![Hızlı Bakış bölümünde VIP gösteriliyor][vip]
 
-       **OR**
+       **VEYA**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
 
        ```powershell

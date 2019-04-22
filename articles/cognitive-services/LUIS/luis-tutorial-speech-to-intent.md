@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273847"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
@@ -66,7 +66,7 @@ Bu makalede bilgisayarınızdaki ses cihazı kullanılmaktadır. Bu mikrofonlu k
 
 Konuşma SDK'sı başvuru olarak eklenmiştir. 
 
-[![SVisual Studio 2017 Microsoft.CognitiveServices.Speech NuGet paketi görüntüleme creenshot](./media/luis-tutorial-speech-to-intent/nuget-package.png "görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Visual Studio 2017 ekran görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini](./media/luis-tutorial-speech-to-intent/nuget-package.png "görüntüleme Microsoft.CognitiveServices.Speech NuGet paketini Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# kodunu değiştirme
 `Program.cs` dosyasını açın ve aşağıdaki değişkenleri değiştirin:
@@ -74,7 +74,7 @@ Konuşma SDK'sı başvuru olarak eklenmiştir.
 |Değişken adı|Amaç|
 |--|--|
 |LUIS_assigned_endpoint_key|Publish (Yayımla) sayfasındaki uç nokta URL'sine atanan abonelik anahtarı değerini gösterir|
-|LUIS_endpoint_key_region|Uç nokta URL'SİNİN ilk alt etki alanı için örneğin karşılık gelir `westus`|
+|LUIS_endpoint_key_region|URL'nin ilk alt etki alanını gösterir, örneğin: `westus`|
 |LUIS_app_ID|Uç nokta URL'si yolunun **apps/** sonrasını gösterir|
 
 `Program.cs` dosyasına İnsan Kaynakları amaçları eşlenmiştir.
@@ -98,6 +98,6 @@ Konuşma SDK'sı, LUIS yanıtının tamamını döndürür.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [LUIS bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS’i bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010558"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
@@ -114,7 +114,7 @@ Azure mantıksal uygulamanızı oluşturduğunda, bu mantıksal uygulamanın iş
 | Özellik | Değer | Açıklama | 
 |----------|-------|-------------|
 | **Principalıd** | <*Sorumlu Kimliği*> | Mantıksal uygulama Azure AD kiracısını ve bazen temsil eden bir genel benzersiz tanıtıcısı (GUID), bir "nesne kimliği" görünür veya `objectID` | 
-| **Kiracı kimliği** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulama şimdi üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
+| **tenantId** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulama şimdi üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
 ||| 
 
 <a name="access-other-resources"></a>

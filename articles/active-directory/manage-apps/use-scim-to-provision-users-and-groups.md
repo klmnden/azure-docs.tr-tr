@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007146"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
@@ -152,10 +152,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 >Nasıl ve ne zaman Azure AD kullanıcı sağlama hizmeti aşağıda açıklanan işlemleri yayan anlamak için bkz [kullanıcı sağlama sırasında ne olur?](user-provisioning.md#what-happens-during-provisioning).
 
 - [Kullanıcı işlemleri](#user-operations)
-  - [Kullanıcı Oluştur](#create-user)
+  - [Create User](#create-user)
     - [İstek](#request)
     - [Yanıt](#response)
-  - [Kullanıcı Al](#get-user)
+  - [Get User](#get-user)
     - [İstek](#request-1)
     - [Yanıt](#response-1)
   - [Kullanıcı tarafından sorgu Al](#get-user-by-query)
@@ -170,14 +170,14 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
   - [Kullanıcı güncelleştirme [tek değerli özellikler]](#update-user-single-valued-properties)
     - [İstek](#request-5)
     - [Yanıt](#response-5)
-  - [Kullanıcıyı Silme](#delete-user)
+  - [Delete User](#delete-user)
     - [İstek](#request-6)
     - [Yanıt](#response-6)
 - [Grup işlemleri](#group-operations)
-  - [Grup Oluşturma](#create-group)
+  - [Create Group](#create-group)
     - [İstek](#request-7)
     - [Yanıt](#response-7)
-  - [Grubu Al](#get-group)
+  - [Get Group](#get-group)
     - [İstek](#request-8)
     - [Yanıt](#response-8)
   - [DisplayName tarafından grubunu Al](#get-group-by-displayname)
@@ -192,7 +192,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
   - [Güncelleştirme grubu [Kaldır üyeleri]](#update-group-remove-members)
     - [İstek](#request-12)
     - [Yanıt](#response-12)
-  - [Grubu Silme](#delete-group)
+  - [Delete Group](#delete-group)
     - [İstek](#request-13)
     - [Yanıt](#response-13)
 
@@ -260,7 +260,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 #### <a name="get-user"></a>Kullanıcı Al
 
 ###### <a name="request"></a>İstek
-*/Users/5d48a0a8e9f04aa38008 Al* 
+*GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
@@ -443,7 +443,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 */Users/5171a35d82074e068ce2 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
-*HTTP/1.1 204 No Content*
+*HTTP/1.1 204 İçerik yok*
 
 ### <a name="group-operations"></a>Grup işlemleri
 
@@ -551,7 +551,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 
 ##### <a name="response"></a>Yanıt
-*HTTP/1.1 204 No Content*
+*HTTP/1.1 204 İçerik yok*
 
 ### <a name="update-group-add-members"></a>Güncelleştirme grubu [üye ekleme]
 
@@ -572,7 +572,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 
 ##### <a name="response"></a>Yanıt
-*HTTP/1.1 204 No Content*
+*HTTP/1.1 204 İçerik yok*
 
 #### <a name="update-group-remove-members"></a>Güncelleştirme grubu [Kaldır üyeleri]
 
@@ -593,7 +593,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 
 ##### <a name="response"></a>Yanıt
-*HTTP/1.1 204 No Content*
+*HTTP/1.1 204 İçerik yok*
 
 #### <a name="delete-group"></a>Grubu Silme
 
@@ -601,7 +601,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
-*HTTP/1.1 204 No Content*
+*HTTP/1.1 204 İçerik yok*
 
 
 ## <a name="building-a-scim-endpoint-using-microsoft-cli-libraries"></a>Microsoft CLI kitaplıklar kullanılarak bir SCIM uç noktası oluşturma
@@ -1262,10 +1262,10 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan `urn:ietf:p
 ## <a name="related-articles"></a>İlgili makaleler
 * [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](user-provisioning.md)
 * [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](customize-application-attributes.md)
-* [Öznitelik Eşlemeleri için İfadeler Yazma](functions-for-customizing-application-data.md)
+* [Öznitelik eşlemeleri için ifadeler yazma](functions-for-customizing-application-data.md)
 * [Kullanıcı sağlama için kapsam oluşturma filtresi](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Hesap Sağlama Bildirimleri](user-provisioning.md)
-* [SaaS Uygulamalarını Tümleştirme Hakkında Öğreticiler Listesi](../saas-apps/tutorial-list.md)
+* [Hesap sağlama bildirimleri](user-provisioning.md)
+* [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

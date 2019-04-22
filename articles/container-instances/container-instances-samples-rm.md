@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006469"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Container Instances için Azure Resource Manager şablonları
@@ -27,7 +27,7 @@ Dağıtım seçenekleri için bkz. [dağıtım](#deployment) bölümü. Azure Co
 | **Uygulamalar** ||
 | [WordPress][app-wp] | Bir kapsayıcı grubunda bir WordPress Web sitesi ve MySQL veritabanı oluşturur. MySQL veritabanı ve WordPress sitesi içeriği bir Azure dosyaları için kalıcı paylaşın. Ayrıca, ortak ağ erişimini WordPress kullanıma sunmak için bir uygulama ağ geçidi oluşturur. |
 | [SQL Server ve IIS ile MS NAV][app-nav] | Tek bir Windows kapsayıcısı ile tam özellikli ve kendi başına bir Dynamics NAV dağıtır / Dynamics 365 Business Central ortam. |
-| **Birimler** ||
+| **Birimleri** ||
 | [emptyDir][vol-emptydir] | EmptyDir birimi paylaşan iki Linux kapsayıcıları dağıtır. |
 | [GitRepo][vol-gitrepo] | GitHub deposuna kopyalar ve bir birim olarak bağlar bir Linux kapsayıcı dağıtır. |
 | [Gizli anahtarı][vol-secret] | Gizli bir birim takılı bir PFX sertifikası ile bir Linux kapsayıcı dağıtır. |

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359634"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
@@ -36,7 +36,7 @@ Aşağıdaki bağlantılar, yeni bir web hizmeti dağıtma hakkında genel bilgi
 * İle bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için başlangıç [öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
 * Bir web hizmetini dağıtma belirli örnekler için bkz:
 
-  * [3. Öğretici: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
+  * [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
   * [Bir web hizmetini birden fazla bölgeye dağıtma](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Web Hizmetleri kaynak sağlayıcı API'leri (Azure Resource Manager API'leri)
@@ -88,8 +88,8 @@ Ek ayrıntılar için örnek kod ve aşağıdaki makalelere bakın:
 Azure Machine Learning Web Hizmetleri portalında web hizmetini test edebilirsiniz. Toplu yürütme hizmeti (BES) arabirimleri ve bu istek-yanıt hizmeti (RRS) test içerir.
 
 * [Yeni bir web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
-* [Azure Machine Learning web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
-* [3. Öğretici: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
+* [Bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md)
+* [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Excel'den
 

@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260553"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
@@ -130,7 +130,7 @@ Başka bir kullanılabilir bir çok kiracılı veritabanında çok sayıda Kirac
 
 *İşleme:*&nbsp; Çok kiracılı veritabanı, tüm kiracılar genelinde işlem ve depolama kaynaklarını paylaşır.  Çalışarak gerçekleştiriyor emin olmak için veritabanı bir bütün olarak izlenebilir.  Ancak, Azure sistem bu kaynakları tek bir kiracı tarafından kullanımını yönetmek veya izlemek için yerleşik bir yolu yoktur.  Bu nedenle, çok kiracılı veritabanı burada bir overactive kiracının iş yükünü aynı veritabanında diğer kiracıların performans deneyimini etkiler gürültücü Komşuları karşılaşıldığında, riski taşır.  Uygulama düzeyinde ek izleme Kiracı düzeyinde performansını izleyebilirsiniz.
 
-#### <a name="lower-cost"></a>Daha düşük maliyet
+#### <a name="lower-cost"></a>Düşük maliyet
 
 Genel olarak, en düşük maliyeti Kiracı başına çok kiracılı veritabanına sahip.  Kaynak maliyetleri tek bir veritabanı için bir eşdeğer boyutta bir elastik havuz için daha düşük.  Buna ek olarak, kiracılar yalnızca sınırlı depolama gereken yere senaryoları için büyük olasılıkla kiracılar milyonlarca tek bir veritabanında depolanabilir.  Elastik havuz yok milyonlarca veritabanında içerebilir.  Bununla birlikte, havuz, 1000 havuzlarıyla başına 1000 veritabanı içeren bir çözüm yönetmek için zahmetli hale at the risk of milyonlarca ölçeğini ulaşabilir.
 

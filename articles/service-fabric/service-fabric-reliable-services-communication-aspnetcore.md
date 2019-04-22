@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268526"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core Service Fabric güvenilir hizmetler
@@ -511,7 +511,7 @@ Yalnızca gelen küme içinde çağrılan durum bilgisi olan hizmetler, birden �
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar, daha önce açıklanan hatalı kimlik sorununu önler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Visual Studio kullanarak Service Fabric uygulamanızı hata ayıklama](service-fabric-debugging-your-application.md)
+[Visual Studio'yu kullanarak Service Fabric uygulamanızda hata ayıklama](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png

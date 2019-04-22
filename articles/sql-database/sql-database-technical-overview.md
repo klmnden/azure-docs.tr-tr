@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358340"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir
@@ -176,7 +176,7 @@ Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleş
 
 [Denetim](sql-database-auditing.md) veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve işletme sorunlarını veya şüpheli güvenlik ihlallerini işaret edebilecek farklılıklar ve anormal durumlar hakkında öngörü sahip olmanıza yardımcı olabilir.
 
-### <a name="data-encryption"></a>Veri şifreleme
+### <a name="data-encryption"></a>Veri şifrelemesi
 
 SQL veritabanı ile Hareket halindeki veriler için şifreleme sağlayarak verilerinizi korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), ile bekleyen veriler için [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan veriler için [ her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
@@ -254,10 +254,10 @@ SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile il
 - Tek veritabanı ve elastik havuz maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 - Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
 
-  - [Azure portalında SQL veritabanı oluşturma](sql-database-single-database-get-started.md)  
-  - [Azure CLI ile bir SQL veritabanı oluşturma](sql-database-get-started-cli.md)
-  - [PowerShell kullanarak SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
+  - [Azure portalda SQL veritabanı oluşturma](sql-database-single-database-get-started.md)  
+  - [Azure CLI ile SQL veritabanı oluşturma](sql-database-get-started-cli.md)
+  - [PowerShell ile SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
 
 - Azure CLI ve PowerShell örnekleri için bkz.:
-  - [SQL veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
-  - [SQL veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)
+  - [SQL Veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
+  - [SQL Veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)

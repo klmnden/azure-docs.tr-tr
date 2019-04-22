@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010201"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
@@ -28,10 +28,10 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 
 | Hizmet | Özellik | Açıklama | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Konuşmayı Metne Dönüştürme](speech-to-text.md) | Konuşmayı metne dönüştürme | Konuşma metin, ses akışları gerçek zamanlı olarak, uygulamalar, Araçlar veya cihazları kullanma veya görüntüleme metne dönüştürür. Konuşma metin ile kullanmak [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) transcribed konuşma tanıma ve sesli komutları üzerinde işlem yapma kullanıcı hedefleri türetmek için. | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Konuşma metin](speech-to-text.md) | Konuşmayı metne dönüştürme | Konuşma metin, ses akışları gerçek zamanlı olarak, uygulamalar, Araçlar veya cihazları kullanma veya görüntüleme metne dönüştürür. Konuşma metin ile kullanmak [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) transcribed konuşma tanıma ve sesli komutları üzerinde işlem yapma kullanıcı hedefleri türetmek için. | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transkripsiyon](batch-transcription.md) | Batch transkripsiyonu, zaman uyumsuz metne dönüştürme konuşma transkripsiyonu büyük hacimdeki verileri sağlar. Bu özelleştirme ve model Yönetimi aynı uç noktasını kullanan bir REST tabanlı hizmetidir. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
 | | [Özelleştirme](#customize-your-speech-experience) | Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
-| [Metin Okuma](text-to-speech.md) | Metin okuma | Metin okuma, giriş metni İnsan benzeri Sentezlenen konuşmaya dönüştürür. Standart seslerle ve sinir kişilerden daha fazlasını seçin (bkz [dil desteği](language-support.md)). | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Metin okuma](text-to-speech.md) | Metin okuma | Metin okuma, giriş metni İnsan benzeri Sentezlenen konuşmaya dönüştürür. Standart seslerle ve sinir kişilerden daha fazlasını seçin (bkz [dil desteği](language-support.md)). | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Özelleştirme](#customize-your-speech-experience) | Özel ses tipi markanız veya ürün için benzersiz oluşturun. | Hayır | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Konuşma Çevirisi](speech-translation.md) | Konuşma çevirisi | Konuşma çevirisi, konuşma, uygulamalar, Araçlar ve cihazlar için gerçek zamanlı, çoklu dil çevirisi sağlar. Konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için bu hizmeti kullanın. | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Hayır |
 
@@ -51,7 +51,7 @@ Hızlı başlangıçlar, en popüler programlama dillerinden, her, kodu 10 dakik
 | Konuşmayı metne dönüştürme (SDK) | Çeviri (SDK) | Metin okuma (REST) | Metin okuma (SDK) |
 |-------------------|-------------------|-----------------------|-----------------------|
 | [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (Tarayıcı)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [JavaScript (tarayıcı)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
 | [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
@@ -81,8 +81,8 @@ Azure konuşma Hizmetleri yerleşik modelleri ile de çalışır, ancak daha faz
 ## <a name="reference-docs"></a>Başvuru belgeleri
 
 * [Konuşma SDK'sı](speech-sdk-reference.md)
-* [Konuşma Cihazları SDK’sı](speech-devices-sdk.md)
-* [REST API: Konuşmayı metne dönüştürme](rest-speech-to-text.md)
+* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
+* [REST API: Konuşma metin](rest-speech-to-text.md)
 * [REST API: Metin okuma](rest-text-to-speech.md)
 * [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 

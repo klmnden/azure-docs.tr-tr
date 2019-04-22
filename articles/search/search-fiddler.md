@@ -11,10 +11,10 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269121"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Hızlı Başlangıç: Postman kullanarak Azure Search REST API'lerini keşfetme
@@ -270,11 +270,11 @@ Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değ
 
 Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) makalesinde yer alır. Bu makaledeki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
 
-**(İn lastRenovationDate desc) boşluklar değiştirilmeden önce:**
+**Boşluklar değiştirilmeden önce (in lastRenovationDate desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**Sonraki boşluklar + ile (in lastRenovationDate + desc) içinde değiştirilir:**
+**Boşluklar + ile değiştirildikten sonra (in lastRenovationDate+desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 

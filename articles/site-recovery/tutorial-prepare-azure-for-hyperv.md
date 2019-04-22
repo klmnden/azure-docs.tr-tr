@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 48101e49429225018381ed2a3b1e8e4e351c15a6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362526"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
@@ -34,7 +34,7 @@ Bu makalede, şirket içi sanal makineleri (Hyper-V) Azure'a çoğaltmak istedi�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [Azure Portal](http://portal.azure.com) oturum açın.
 
@@ -93,11 +93,11 @@ Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda san
 8. Ağda hizmet uç noktası olmadan temel DDoS korumasının varsayılan seçeneklerini bırakıyoruz.
 9. **Oluştur**’a tıklayın.
 
-   ![Sanal ağ oluştur](media/tutorial-prepare-azure/create-network.png)
+   ![Sanal ağ oluşturma](media/tutorial-prepare-azure/create-network.png)
 
    Sanal ağın oluşturulması birkaç saniye sürer. Oluşturulduktan sonra, Azure portalı panosunda görünür.
 
-## <a name="useful-links"></a>Faydalı bağlantılar
+## <a name="useful-links"></a>Yararlı bağlantılar
 
 - Azure ağları [hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) yönetilen diskler.

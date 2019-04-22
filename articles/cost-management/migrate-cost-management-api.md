@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279882"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Kurumsal Sözleşme, Microsoft Müşteri sözleşmesi API'lerine geçiş
@@ -373,10 +373,10 @@ Aşağıdaki tabloda, eski Kurumsal elde fiyat sayfası API'SİNDE alanları gö
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Tam dize değerlerini gösterebilir. |
 | includedQuantity  | includedQuantity | Microsoft Müşteri anlaşmalarını hizmetler için geçerli değildir. |
-| PartNumber  | _Uygulanamaz_ | Bunun yerine, productOrderName (OfferId ile aynı) ve meterid bileşimini kullanın. |
+| partNumber  | _Uygulanamaz_ | Bunun yerine, productOrderName (OfferId ile aynı) ve meterid bileşimini kullanın. |
 | UnitPrice  | UnitPrice | Birim fiyatı, Microsoft Müşteri sözleşmelerde kullanılan hizmetler için geçerlidir. |
 | currencyCode  | pricingCurrency | Microsoft Müşteri sözleşmesi, fiyatlandırma para birimi ve Fatura para birimi fiyat temsilleri olabilir. Microsoft Müşteri anlaşmalarla pricingCurrency currencyCode karşılık gelir. |
-| OfferId | productOrderName | OfferId, yerine productOrderName kullanabilirsiniz ancak OfferId olarak aynı değildir. Ancak, productOrderName ve ölçüm Microsoft Müşteri sözleşmelerde fiyatlandırma meterId ve OfferId ilgili eski kayıtları belirleyin. |
+| offerId | productOrderName | OfferId, yerine productOrderName kullanabilirsiniz ancak OfferId olarak aynı değildir. Ancak, productOrderName ve ölçüm Microsoft Müşteri sözleşmelerde fiyatlandırma meterId ve OfferId ilgili eski kayıtları belirleyin. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>Tüketim fiyatı sayfası API işlemleri
 
@@ -460,7 +460,7 @@ Aşağıdaki alanları olan Microsoft Müşteri sözleşmesi fiyat sayfası API'
 |Devre dışı bırakılan alan| Açıklama|
 |---|---|
 | billingPeriodId | Hayır, uygulanabilir. Fatura için kodu için MCA karşılık gelir. |
-| OfferId | Geçerli değildir. ProductOrderName MCA içinde karşılık gelir. |
+| offerId | Geçerli değildir. ProductOrderName MCA içinde karşılık gelir. |
 | meterCategory  | Geçerli değildir. MCA hizmetinde karşılık gelir. |
 | birim | Geçerli değildir. UnitOfMeasure ayrıştırılamaz. |
 | currencyCode | PricingCurrency MCA içinde aynıdır. |

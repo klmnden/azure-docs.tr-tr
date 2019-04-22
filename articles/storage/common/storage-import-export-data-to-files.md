@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265652"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
@@ -131,7 +131,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
         -  Bu ad yalnızca küçük harf, sayı, kısa çizgi ve alt çizgi içerebilir.
         -  Ad bir harf ile başlamalı ve boşluk içeremez. 
     - Bir abonelik seçin.
-    - Kaynak grubu seçin. 
+    - Kaynak grubunu seçin. 
 
         ![1. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 

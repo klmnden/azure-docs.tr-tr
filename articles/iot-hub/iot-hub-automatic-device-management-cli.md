@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012973"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Azure CLI kullanarak ölçek otomatik IOT cihaz Yönetimi
@@ -196,7 +196,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 Bu makalede, yapılandırma ve izleme IOT cihazlarını uygun ölçekte öğrendiniz. Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları izleyin:
 
-* [Toplu, IOT Hub cihaz kimliklerini yönetme](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub cihaz kimliklerinizi toplu olarak yönetme](iot-hub-bulk-identity-mgmt.md)
 * [IOT hub'ı ölçümleri](iot-hub-metrics.md)
 * [İşlemleri izleme](iot-hub-operations-monitoring.md)
 

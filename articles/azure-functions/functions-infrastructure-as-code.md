@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270916"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri'nde işlev uygulamanız için kaynak dağıtımını otomatikleştirme
@@ -187,7 +187,7 @@ Bu özellikler belirtilen `appSettings` koleksiyonda `siteConfig` özelliği:
 
 Kodunuzu çalıştıran, yükü işlemek için gerekli olan Ölçeklendirmesi eşitlenene ve sonra kod çalışmadığı zamanlarda küçülten tüketim planı otomatik olarak bilgi işlem gücü ayırır. Boş Vm'leri için ödeme yapmanıza gerek yoktur ve kapasite önceden ayırmanıza gerek yoktur. Daha fazla bilgi için bkz. [Azure işlevlerini ölçeklendirme ve barındırma](functions-scale.md#consumption-plan).
 
-Örnek bir Azure Resource Manager şablonu için bkz: [tüketim planı işlev uygulamasını].
+Örnek bir Azure Resource Manager şablonu için bkz: [Tüketim planı üzerinde işlev uygulaması].
 
 ### <a name="create-a-consumption-plan"></a>Tüketim planı oluşturma
 
@@ -384,7 +384,7 @@ Bir Premium planı üzerinde bir işlev uygulamasına sahip olmanız gerekir `se
 
 App Service planında, işlev uygulamanızı ayrılmış sanal makineler üzerinde temel, standart ve Premium SKU'ları, web uygulamaları için benzer çalışır. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/overview-hosting-plans.md).
 
-Örnek bir Azure Resource Manager şablonu için bkz: [işlev uygulamasını Azure App Service planı].
+Örnek bir Azure Resource Manager şablonu için bkz: [Azure App Service planında bir işlev uygulaması].
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 

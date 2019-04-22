@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361477"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory Azure SSIS tümleştirme çalışma zamanı oluşturma
@@ -33,7 +33,7 @@ Bu makale, sağlama Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF)
 
 Bu makalede, Azure-SSIS IR sağlama farklı yöntemler gösterilmektedir:
 
-- [Azure portalı](#azure-portal)
+- [Azure portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager şablonu](#azure-resource-manager-template)
 
@@ -68,18 +68,18 @@ Bunlar SSIR Azure IR için ilgili olarak aşağıdaki tabloda Azure SQL veritaba
 
 | Özellik | tek veritabanı elastik havuz| Yönetilen Örnek |
 |---------|--------------|------------------|
-| **Zamanlanıyor** | SQL Server Aracısı kullanılamıyor.<br/><br/>Bkz: [ADF işlem hattındaki bir paket yürütmeyi zamanlama](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Yönetilen örnek aracı kullanılabilir. |
-| **Authentication** | SSISDB ile ADF yönetilen kimliğe sahip tüm AAD grubu üyesi olarak temsil eden bir bağımsız veritabanı kullanıcısı oluşturabilirsiniz **db_owner** rol.<br/><br/>Bkz: [SSISDB Azure SQL veritabanı sunucusu oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | SSISDB ile ADF yönetilen kimliğini temsil eden bağımsız veritabanı kullanıcısı oluşturabilirsiniz. <br/><br/>Bkz: [Azure SQL veritabanı yönetilen örneği'nde SSISDB oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Zamanlama** | SQL Server Aracısı kullanılamıyor.<br/><br/>Bkz: [ADF işlem hattındaki bir paket yürütmeyi zamanlama](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Yönetilen örnek aracı kullanılabilir. |
+| **Kimlik doğrulaması** | SSISDB ile ADF yönetilen kimliğe sahip tüm AAD grubu üyesi olarak temsil eden bir bağımsız veritabanı kullanıcısı oluşturabilirsiniz **db_owner** rol.<br/><br/>Bkz: [SSISDB Azure SQL veritabanı sunucusu oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | SSISDB ile ADF yönetilen kimliğini temsil eden bağımsız veritabanı kullanıcısı oluşturabilirsiniz. <br/><br/>Bkz: [Azure SQL veritabanı yönetilen örneği'nde SSISDB oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Hizmet katmanı** | Azure-SSIS IR, Azure SQL veritabanı sunucunuzu oluşturduğunuzda, hizmet katmanı için SSISDB seçebilirsiniz. Birden çok hizmet katmanı vardır. | Azure-SSIS IR ile yönetilen Örneğinize oluşturduğunuzda, hizmet katmanı için SSISDB seçemezsiniz. Yönetilen Örneğinize tüm veritabanlarını bu örneğe ayrılan aynı kaynak paylaşın. |
 | **Sanal ağ** | Yalnızca Azure Resource Manager sanal ağları, sanal ağ hizmet uç noktaları ile Azure SQL veritabanı sunucusunu kullanabilir veya şirket içi veri depolarına erişmesi katılmak Azure-SSIS IR için destekler. | Yalnızca Azure Resource Manager sanal ağları Azure-SSIS IR katılmak için destekler. Sanal ağ, her zaman gerekli değildir.<br/><br/>Yönetilen Örneğinize aynı sanal ağ için Azure-SSIS IR katılırsanız, Azure-SSIS IR yönetilen Örneğinize değerinden farklı bir alt ağda olduğundan emin olun. Azure-SSIS IR yönetilen Örneğinize farklı bir sanal ağa katılın, bir sanal ağ eşlemesi veya sanal ağ için sanal ağ bağlantısı öneririz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Dağıtılmış işlemler** | Elastik işlemler desteklenir. Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) işlemler desteklenmez. SSIS paketlerinizi dağıtılmış işlemleri düzenlemesine olanak MSDTC kullanıyorsanız, Azure SQL veritabanı için elastik işlemler için geçiş göz önünde bulundurun. Daha fazla bilgi için bkz. [bulut veritabanlarında dağıtılmış işlemler](../sql-database/sql-database-elastic-transactions-overview.md). | Desteklenmiyor. |
 | | | |
 
-## <a name="azure-portal"></a>Azure portalı
+## <a name="azure-portal"></a>Azure portal
 
 Bu bölümde, Azure portalı, özellikle ADF kullanıcı arabirimi (UI) kullanmanızı / Azure-SSIS IR oluşturmak için uygulama
 
-### <a name="create-a-data-factory"></a>Data factory oluştur
+### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
@@ -325,7 +325,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 }
 ```
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) kullanarak [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -333,7 +333,7 @@ Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-ove
 New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-### <a name="create-a-data-factory"></a>Data factory oluştur
+### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 Veri fabrikası oluşturmak için aşağıdaki komutu çalıştırın.
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012202"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Hızlı Başlangıç: Objective C'de konuşma Speech SDK'sı kullanarak Macos'ta tanıması
@@ -52,7 +52,7 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
     1. Proje dili olarak Objective-C seçildiğinden emin olun.
     1. Görsel Taslaklar kullanın ve belge tabanlı bir uygulama oluşturmak için onay kutularını devre dışı bırakın. Basit kullanıcı Arabirimi için örnek uygulamayı programlı olarak oluşturulur.
     1. Testler ve temel veriler için tüm onay kutularını devre dışı bırakın.
-    ![Proje ayarları](media/sdk/qs-objectivec-macos-project-settings.png)
+    ![Proje Ayarları](media/sdk/qs-objectivec-macos-project-settings.png)
 1. Proje dizini seçin
     1. Proje yerleştirmek için bir dizin seçin. Bu, oluşturur bir `helloworld` dizin giriş dizininizde Xcode projesi için tüm dosyaları içerir.
     1. Bu örnek için Git deposu oluşturmayı devre dışı bırakın.

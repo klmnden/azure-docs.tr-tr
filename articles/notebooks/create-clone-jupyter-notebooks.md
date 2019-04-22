@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282330"
 ---
 # <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
@@ -30,20 +30,20 @@ Bir proje, meta verileri ve özel kurulum adımları ve paket yükleme dahil olm
 
 **Projelerim** Panosu'nda `https://notebooks.azure.com/<userID>/projects` burada görüntüleyin, yönetin ve projeleri oluşturma:
 
-[![MAzure not defterleri Panoda y projeleri](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Azure not defterlerinde projeleri Panom](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Panoda yapabilecekleriniz kullanıcı kimliği sahip bir hesapla oturum mi oturum açmadıysanız bağlıdır:
 
 | Komut | Kimler kullanabilir? | Açıklama |
 | --- | --- | --- |
-| **Çalıştırın** | Sahip | Project server başlar ve Jupyter'de proje klasörünü açar. (Daha yaygın olarak, ilk olarak bir proje klasörüne gidin ve sonra bir not defteri oradan başlatın.) |
-| **İndirme** | Herkes | Seçili projenin bir kopyasını ZIP dosyası olarak indirir. |
+| **Çalıştırma** | Sahip | Project server başlar ve Jupyter'de proje klasörünü açar. (Daha yaygın olarak, ilk olarak bir proje klasörüne gidin ve sonra bir not defteri oradan başlatın.) |
+| **İndir** | Herkes | Seçili projenin bir kopyasını ZIP dosyası olarak indirir. |
 | **Paylaş** | Herkes | Paylaşım açılan menüsü üzerinden Seçili projeye bir URL alabilir, sosyal medyada paylaşın, URL içeren bir e-posta gönderin ve almak için hem HTML veya Markdown kodu ile bir "başlatma Not" rozet görüntüler (bkz [başlatma rozet elde](#obtain-a-launch-badge)) URL ile. |
-| **Sil** | Sahip | Seçili proje siler. Bu işlem geri alınamaz. |
+| **Silme** | Sahip | Seçili proje siler. Bu işlem geri alınamaz. |
 | **Terminal** | Sahip | Project server başlar ve ardından bu sunucu için terminal bash ile yeni bir tarayıcı penceresi açılır. |
 | **+ Yeni Proje** | Sahip | Yeni bir proje oluşturur. Bkz: [yeni bir proje oluşturma](#create-a-new-project). |
 | **GitHub deposunu karşıya yükleme** | Sahip | Bir projeyi Github'dan içeri aktarır. [Bir projeyi Github'dan alma](#import-a-project-from-github). |
-| **Kopyala** | Herkes | Seçilen proje kendi hesabına kopyalar. Oturum imzalamanızı ister. Bkz: [bir projesini kopyalama](#clone-a-project). |
+| **Kopya** | Herkes | Seçilen proje kendi hesabına kopyalar. Oturum imzalamanızı ister. Bkz: [bir projesini kopyalama](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Başlatma rozet alın
 
@@ -123,7 +123,7 @@ Bir proje kopyalamak için:
 - [Örnek Not Defterleri keşfedin](azure-notebooks-samples.md)
 - [Nasıl yapılır: Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
 - [Nasıl yapılır: İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
-- [Nasıl yapılır: Slayt gösterisi yapma](present-jupyter-notebooks-slideshow.md)
-- [Nasıl yapılır: Veri dosyalarıyla çalışma](work-with-project-data-files.md)
-- [Nasıl yapılır: Veri kaynaklarına erişme](access-data-resources-jupyter-notebooks.md)
-- [Nasıl yapılır: Azure Machine Learning Services'i kullanma](use-machine-learning-services-jupyter-notebooks.md)
+- [Nasıl yapılır: Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
+- [Nasıl yapılır: Veri dosyaları ile çalışma](work-with-project-data-files.md)
+- [Nasıl yapılır: Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
+- [Nasıl yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)

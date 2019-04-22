@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009861"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını bir otomatik cihaz Yönetim paketini içeri aktarma
@@ -30,14 +30,14 @@ Geliştirme ortamınızdan otomatik cihaz yönetim yapılandırmasını dışar�
 
 1. Azure portalında, geliştirme ve IOT cihazlarınızı test etmek için kullanmakta olduğunuz IOT hub'ına gidin. Tıklayın **IOT cihaz Yapılandırması**:
 
-    [![Icihaz yapılandırması oT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![IOT cihaz yapılandırması](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. Kullanmak istediğiniz yapılandırma öğesini tıklatın. **Cihaz yapılandırma ayrıntılarını** sayfası görüntülenir:
 
-    [![IoT cihaz yapılandırma ayrıntısı](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+    [![IOT cihaz yapılandırma ayrıntısı](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. Tıklayın **yapılandırma dosyası indirme**:
 
-    [![Dindir yapılandırma dosyası](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
+    [![Yapılandırma dosyasını indirin](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
 1. Adlı bir yerel dosya olarak JSON dosyasının kaydedileceği **configuration.json**.
 

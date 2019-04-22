@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265840"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Maliyet Yönetimi raporlarını anlama Cloudyn
@@ -29,7 +29,7 @@ Zaman içinde Maliyet raporu örneği göz aşağıda verilmiştir. Çoğu Cloud
 
 Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açıklanmıştır:
 
-1. **Tarih Aralığı**
+1. **Tarih aralığı**
 
     Hazır veya özel kullanarak bir raporun zaman aralığını tanımlamak için tarih aralığını listeyi kullanın.
 2. **Kaydedilmiş filtre**
@@ -87,7 +87,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
        - Kullanım ücreti
      - **Müşteri**
        - Belirli bir müşteri, birden çok müşteriyi veya tüm müşterileri seçin.
-     - **Hesap Adı**
+     - **Hesap adı**
        - Hesabı veya aboneliği adı. Azure'da, Azure aboneliğinin adıdır.
      - **Hesap yok**
        - Bir hesap, birden çok hesabı veya tüm hesapları seçin. Azure'da, bu Azure aboneliğinin GUID değeridir.
@@ -99,7 +99,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
        - Varlıklar ve masrafları ilişkili olduğu bulut sağlayıcısı.
      - **Bölge**
        - Kaynak barındırıldığı bölge.
-     - **Kullanılabilirlik Alanı**
+     - **Kullanılabilirlik alanı**
        - Bir bölge içinde yalıtılmış AWS konumları.
      - **Kaynak Türü**
        - Kaynak Kullanım türü.
@@ -116,12 +116,12 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
        - Nokta
      - **Ücret türü**
        - Negatif veya pozitif farkı türü veya her ikisini de seçin.
-     - **Kiracı**
+     - **Kiralama**
        - Olup bir makine adanmış bir makinede çalışıyorsa.
-     - **Kullanım Türü**
+     - **Kullanım türü**
        - Kullanım türü, tek seferlik ücretler veya yinelenen ücretlerini olabilir.
 
-5. **Filtreler**
+5. **Filtreleri**
 
     Aralıkları seçili değerlere ayarlamak için tek veya çoklu seçim filtrelerini kullanın. Bir filtre ayarlamak için tıklayın **Ekle** ve ardından filtre kategorileri ve değerleri seçin.
 
@@ -141,7 +141,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
    İtfa altında seçin **amorti edilmiş maliyet** veya **gerçek maliyet**.
 
-8. **Çözüm**
+8. **Çözümleme**
 
     Çözümleme zamanı çözünürlüğü seçili tarih aralığı içinde seçmek için kullanın. Birimleri nasıl bir raporda görüntülenen ve olabilir, zaman çözünürlüğünü belirler:
     - Günlük
@@ -154,7 +154,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Ayırma kurallarını uygulamak veya maliyet ayırma Maliyeti yeniden hesaplama devre dışı bırakmak için kullanın. Etkinleştirmek veya faturalama verileri için maliyet ayırmayı yeniden hesaplama devre dışı bırakabilirsiniz. Rapordaki seçili kategorilerdeki yeniden hesaplama uygular. Fatura ham verilere karşı maliyet ayırma yeniden hesaplama etkisini değerlendirmenize olanak tanır.
 
-10. **Kategorilendirilmemiş**
+10. **Kategorilere ayrılmamış**
 
     Kategorilere ayrılmamış dahil etmek veya rapordaki Kategorilere ayrılmamış maliyetleri hariç tutmak için kullanın.
 

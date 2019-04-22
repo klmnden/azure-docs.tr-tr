@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.openlocfilehash: 0a5d886558e72ef24b03a49750ed75cf7130bf08
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006392"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure ağ çözümlerini Azure İzleyici'de izleme
@@ -31,7 +31,7 @@ Azure İzleyici, ağ izleme için aşağıdaki çözümleri sunar:
     * Azure Application Gateway günlükleri
     * Azure Application Gateway ölçümleri
 * Ağ bulut ağınızdaki etkinliği izlemek ve denetlemek için çözümler
-    * [Trafik Analizi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Trafik analizi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
     * Azure Ağ Güvenlik Grubu Analizi
 
 ## <a name="network-performance-monitor-npm"></a>Ağ Performansı İzleyicisi'ni (NPM)

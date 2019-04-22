@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006745"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
@@ -254,7 +254,7 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
    a.  Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
      
    b.  Aracısını bağlamak istediğiniz çalışma alanını seçin. Çalışma alanı aynı abonelikte Güvenlik Merkezi'nde kullanın ve çalışma alanı okuma/yazma izinlerine sahip olduğundan emin olun.
-       ![Çalışma alanını seçme][8]
+       ![Çalışma alanı seçin][8]
 3. Fiyatlandırma katmanını ayarlayın.
    ![Fiyatlandırma katmanı seçin][9] 
    >[!NOTE]

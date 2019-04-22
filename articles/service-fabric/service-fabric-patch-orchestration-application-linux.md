@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266146"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Linux işletim sistemi düzeltme eki
@@ -127,7 +127,7 @@ Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA
 
 Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresi olarak geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
-|**Parametre**        |**Type**                          | **Ayrıntılar**|
+|**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Güncelleştirme sonuçları önbelleğe alınması gereken maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Yüklü bir düğümü aynı anda güncelleştirmelerdir. <br>                                                           <b>UpgradeDomainWise</b>. Yüklü bir yükseltme etki alanı aynı anda güncelleştirmelerdir. (En güncelleştirmesi bir yükseltme etki alanına ait olan tüm düğümleri gidebilirsiniz.)
@@ -173,8 +173,7 @@ Kolaylık olması için (Undeploy.ps1) powershell ve bash (Undeploy.sh) betikler
 
 ## <a name="view-the-update-results"></a>Güncelleştirme sonuçları görüntüleyin
 
-Düzeltme eki düzenleme uygulama kullanıcı için geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. Aşağıdaki örnek oluşur:
-```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+Düzeltme eki düzenleme uygulama kullanıcı için geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. Aşağıdaki örnek oluşur: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 

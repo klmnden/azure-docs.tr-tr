@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009377"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure portalı üzerinden Azure HANA Büyük Örnekler denetimi
@@ -79,7 +79,7 @@ Genel Bakış ekranda biriminin şuna benzer bir sunu alıyorsanız:
 
 Gösterilen farklı öznitelikler sırasında bakarak, özniteliklerle Azure VM öznitelikleri zor farklı görünür. Sol taraftaki başlığa, kaynak grubu, Azure bölgesi, abonelik adı ve kimliği yanı sıra, eklediğiniz bazı etiketler gösterir. Varsayılan olarak, HANA büyük örneği birimleri atanmış hiçbir etiket var. Sağ üst tarafında, birim adını dağıtım tamamlandığında atanmış olarak listelenir. İşletim sisteminin yanı sıra IP adresi gösterilir. Olarak CPU sayısı ile HANA büyük örneği birim türü vm'lerle iş parçacıkları ve bellek gösterilmemektedir de. Burada farklı HANA büyük örneği birimleri hakkında daha fazla ayrıntı gösterilir:
 
-- [HLI için kullanılabilir SKU'lar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
+- [HLI için kullanılabilen SKU’lar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [SAP HANA (büyük örnekler) depolama mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 Başka bir alan başlığın sağ sütunda HANA büyük örneği birim güç durumu hakkında sizi bilgilendirir.

@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360492"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın
@@ -49,10 +49,10 @@ Bir Azure sanal makinesi yönetilen örneği'ne bağlanabilmesi için aşağıda
    | ---------------- | ----------------- | ----------- |
    | **Ad** | Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Adres aralığı (CIDR bloğu)** | Geçerli bir aralık | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Ağ güvenlik grubu** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Rota tablosu** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+   | **Ağ güvenlik grubu** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+   | **Yol tablosu** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
    | **Hizmet uç noktaları** | 0 adet seçildi | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
-   | **Alt ağ temsilcisi** | Hiçbiri | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
+   | **Alt ağ temsilci seçme** | None | Bu Hızlı Başlangıç için iyi varsayılan değerdir.|
 
    ![İstemci sanal makine için yeni bir yönetilen örnek alt](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -80,9 +80,9 @@ Tüm gerekli araçları ile bir istemci sanal makine oluşturmak için en kolay 
    | **Kaynak Grubu** |Belirtilen kaynak grubu [yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç.|Bu kaynak grubu, sanal ağın bulunduğu bir olmalıdır.|
    | **Konum** | Kaynak grubu konumu | Bu değer, seçili kaynak grubuna göre doldurulur. |
    | **Sanal makine adı**  | Geçerli bir ad | Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Yönetici Kullanıcı Adı**|Herhangi bir geçerli kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.<br>Bu kullanıcı adı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
+   |**Yönetici kullanıcı adı**|Herhangi bir geçerli kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.<br>Bu kullanıcı adı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
    |**Parola**|Geçerli bir parola|Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.<br>Bu parolayı kullanmak istediğiniz zaman [VM'ye bağlanmak](#connect-to-virtual-machine).|
-   | **Sanal Makine Boyutu** | Herhangi bir geçerli boyut | Bu şablon varsayılan **Standard_B2s** Bu Hızlı Başlangıç için yeterlidir. |
+   | **Sanal makine boyutu** | Herhangi bir geçerli boyut | Bu şablon varsayılan **Standard_B2s** Bu Hızlı Başlangıç için yeterlidir. |
    | **Konum**|[resourceGroup () .location].| Bu değeri değiştirmeyin. |
    | **Sanal ağ adı**|Yönetilen örneğin oluşturulacağı sanal ağı.|
    | **Alt ağ adı**|Önceki yordamda oluşturduğunuz alt ağ adı| Yönetilen örnek oluşturduğunuz alt ağ seçmeyin.|
@@ -100,7 +100,7 @@ Tüm gerekli araçları ile bir istemci sanal makine oluşturmak için en kolay 
 > [!IMPORTANT]
 > SQL Server Management Studio'yu yüklemek oluşturma sonrası betikler için zaman vermek için sanal makine oluşturulduktan sonra yaklaşık 15 dakika kadar devam etmeyin.
 
-## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanın
+## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
 Aşağıdaki adımlarda, uzak masaüstü bağlantısı kullanarak yeni oluşturduğunuz sanal makineye bağlanma işlemi gösterilmektedir.
 

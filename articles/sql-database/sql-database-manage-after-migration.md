@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358425"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
@@ -83,7 +83,7 @@ SQL veritabanı güvenlik ve gizlilik çok ciddi bir şekilde alır. SQL veritab
 
 Vardır [iki kimlik doğrulama yöntemleri](sql-database-control-access.md#authentication) SQL veritabanı'nda sunulan:
 
-- [Azure Active Directory Kimlik Doğrulaması](sql-database-aad-authentication.md)
+- [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md)
 - SQL kimlik doğrulaması
 
 Geleneksel windows kimlik doğrulaması desteklenmiyor. Azure Active Directory (AD) bir merkezi kimlik ve erişim yönetimi hizmetidir. Bu, çok bir kolayca bir çoklu oturum açma erişimi (SSO) için tüm personel, kuruluşunuzda sağlayabilirsiniz. Ne bu kimlik bilgileri daha basit kimlik doğrulaması için tüm Azure hizmetleri arasında paylaşıldığı anlamına gelir. Destekleyen AAD [MFA (çok faktörlü kimlik doğrulamasını)](sql-database-ssms-mfa-authentication.md) ile bir [yalnızca birkaç tıklamayla](../active-directory/hybrid/how-to-connect-install-express.md) AAD Windows Server Active Directory ile tümleştirilebilir. SQL kimlik doğrulaması, tam olarak, geçmişte kullandığınız gibi çalışır. Bir kullanıcı adı/parola sağlayın ve kullanıcıların belirli bir SQL veritabanı sunucu üzerindeki herhangi bir veritabanı için kimlik doğrulaması yapabilir. Bu da çok faktörlü kimlik doğrulaması ve Azure AD etki alanı içinde Konuk kullanıcı hesaplarını sunmak SQL veritabanı ve SQL veri ambarı sağlar. Bir Active Directory şirket içi zaten varsa, dizininize Azure'a genişletmek için Azure Active Directory ile dizin ad'sini birleştirebilir.
@@ -107,7 +107,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 - Sanal ağ hizmet uç noktaları
 - Ayrılmış IP’ler
 
-#### <a name="firewall"></a>Güvenlik Duvarı
+#### <a name="firewall"></a>Güvenlik duvarı
 
 Bir güvenlik duvarı erişimi sunucunuza bir dış varlık SQL veritabanı sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve SQL veritabanı sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, SQL veritabanı sunucusuna erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 
@@ -149,7 +149,7 @@ SQL veritabanı ile veritabanı olaylarını izlemek için ON denetimini kapatab
 SQL veritabanı'nda, varsayılan olarak, depolama alt sisteminin veri ve günlük dosyalarında bekleyen verilerinizi tamamen her zaman aracılığıyla şifrelenir ve [saydam veri şifrelemesi [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Yedeklemeleriniz de şifrelenir. İle TDE bu verilere erişmek, uygulama tarafından gereken bir değişiklik bulunmamaktadır. Şifreleme ve şifre çözme şeffaf bir şekilde gerçekleşir; Bu nedenle adı.
 Uçuşan hassas verilerinizi korumaya ve bekleme sırasında SQL veritabanı adlı bir özellik sağlar. [her zaman şifreli (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE hassas sütunları veritabanında (Veritabanı yöneticileri ve yetkisiz kullanıcıların şifreli olduğu için) şifreleyen istemci tarafı şifreleme bir biçimidir. Sunucu, şifrelenmiş verilerin başlangıç olarak alır. Yalnızca yetkili istemcilerin hassas sütunları şifresini çözmek için her zaman şifreli için anahtar de istemci tarafında depolanır. Şifreleme anahtarları istemcide depolandığından sunucuyu ve veri yöneticilerinin hassas verileri göremez. Uçtan uca, fiziksel diske yetkisiz istemcilerden tablodaki hassas sütun AE şifreler. Dba'lar kendi SQL komutlarını bir parçası olarak şifrelenmiş sütunlar sorgu devam edebilmesi AE eşitlik karşılaştırmaları bugün desteklemektedir. Her zaman şifreli çeşitli anahtar deposu seçenekler ile gibi kullanılabilir [Azure anahtar kasası](sql-database-always-encrypted-azure-key-vault.md), Windows sertifika deposu ve yerel donanım güvenlik modülleri.
 
-|**Özellikler**|**Always Encrypted**|**Saydam Veri Şifrelemesi**|
+|**Özellikleri**|**Her zaman şifreli**|**Saydam veri şifrelemesi**|
 |---|---|---|
 |**Şifreleme yayılma**|Uçtan uca|Bekleyen veriler|
 |**Veritabanı sunucusu gizli verilere erişebilir.**|Hayır|Evet, bekleyen veriler için şifreleme olduğundan|
@@ -203,7 +203,7 @@ Express Route 2 katına için ek ücret satın aldığınız bant genişliği s�
 
 - [Expressroute üzerinde giriş](../expressroute/expressroute-introduction.md)
 - [Önkoşullar](../expressroute/expressroute-prerequisites.md)
-- [İş Akışları](../expressroute/expressroute-workflows.md)
+- [İş akışları](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL veritabanı herhangi bir yasal gereksinimleriyle uyumlu olan ve, kendi kuruluşun uyumu nasıl yardımcı olur
 
@@ -241,7 +241,7 @@ Bu analiz "Advisor" bölümü altında da görüntüleyebilirsiniz:
 
 SQL veritabanı'nda platformunun performansını izlemek ve buna uygun olarak ayarlamak için akıllı Öngörüler yararlanabilirsiniz. Performans ve kaynak kullanımı aşağıdaki yöntemleri kullanarak SQL veritabanı'nda izleyebilirsiniz:
 
-#### <a name="azure-portal"></a>Azure portalı
+#### <a name="azure-portal"></a>Azure portal
 
 Azure portalında veritabanı seçme ve grafik genel bakış bölmesinde tıklatarak bir veritabanlarının kullanımını gösterir. CPU yüzdesi, DTU yüzdesi, veri g/ç yüzdesi, oturumları yüzdesi ve veritabanı boyutunun yüzdesi de dahil olmak üzere birden çok ölçüm göstermek için grafiğin değiştirebilirsiniz.
 

@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273167"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
@@ -71,7 +71,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
 
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
-- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
+- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
 
 > [!NOTE]
 > Şemalar, abonelik düzeyinde de oluşturulabilir. Bir örnek için bkz [abonelik örneğe blueprint oluşturma](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -338,7 +338,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
 
 - `{tenantId}` -Kiracı Kimliğinizle değiştirin.
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
-- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
+- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
 
 1. Azure Blueprints hizmet sorumlusuna hedef abonelikte **Sahip** rolünü atayın. AppID statiktir (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ancak Kiracı tarafından hizmet sorumlusu kimliği değişir. Aşağıdaki REST API ile kiracınıza ait ayrıntılı bilgileri isteyebilirsiniz. Farklı bir yetkilendirme sistemine sahip olan [Azure Active Directory Graph API'sini](../../active-directory/develop/active-directory-graph-api.md) kullanır.
 

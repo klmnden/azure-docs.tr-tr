@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270991"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın
@@ -40,11 +40,11 @@ SharePoint, Dynamics ve SAP, veri hizmetlerini uygulamak amacıyla gibi uygulama
 ### <a name="supported-scenarios"></a>Desteklenen senaryolar
 Site Recovery, SQL Server tabloda özetlendiği gibi koruyabilir.
 
-**Senaryo** | **İkincil siteye** | **Azure’a**
+**Senaryo** | **İkincil bir siteye** | **Azure’a**
 --- | --- | ---
-**Hyper-V** | Yes | Yes
-**VMware** | Yes | Yes
-**Fiziksel sunucu** | Yes | Evet
+**Hyper-V** | Evet | Evet
+**VMware** | Evet | Evet
+**Fiziksel sunucu** | Evet | Evet
 **Azure** |NA| Evet
 
 ### <a name="supported-sql-server-versions"></a>Desteklenen SQL Server sürümleri
@@ -101,7 +101,7 @@ Yapmanız gerekenler şu şekildedir:
 
 1. Betikleri Azure Otomasyon hesabınızda içeri aktarın. Bu betikleri SQL kullanılabilirlik grubu yük devretme içeren içinde bir [Resource Manager sanal makinesi](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) ve [Klasik sanal makine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Dazure'a aşamasıyla](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Azure’a dağıtma](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR SQL FailoverAG kurtarma planının ilk grup bir ön eylem ekleyin.
@@ -179,7 +179,7 @@ SQL Server Standard edition veya SQL Server 2008 R2 çalıştıran bir küme iç
 * Dağıtılmış işlemler uygulamayı kullanıyorsa, dağıttığınız öneririz [Site Recovery SAN çoğaltması ile](site-recovery-vmm-san.md) için bir Hyper-V ortamına veya [VMware VMware/fiziksel sunucuya](site-recovery-vmware-to-vmware.md) VMware ortamı için.
 * DTC olmayan uygulamalar için yerel yüksek güvenilirlik DB yansıtma yararlanarak bir tek başına sunucu olarak kümeyi kurtarmak için yukarıdaki yaklaşımı kullanın.
 
-### <a name="on-premises-to-azure"></a>Şirket içinden azure'a
+### <a name="on-premises-to-azure"></a>Şirket içinden Azure'a
 
 Site Recovery, Konuk sunmaz Azure'a çoğaltırken küme desteği. SQL Server, Standard edition için düşük maliyetli olağanüstü durum kurtarma çözümü de sağlamaz. Bu senaryoda, bir tek başına SQL Server şirket içi SQL Server kümesini koruma ve Azure'da kurtarma öneririz.
 

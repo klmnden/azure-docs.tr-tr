@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359144"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL veritabanı yönetilen örnekleri için yönetilen API Başvurusu
@@ -44,7 +44,7 @@ Azure PowerShell ile yönetilen örnekleri oluşturma ve yönetme hakkında bilg
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Azure SQL yönetilen örneği hakkında bilgi döndürür|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Azure SQL veritabanı yönetilen örneği için özellikleri ayarlar|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği kaldırır|
-|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Bir Azure SQL veritabanı yönetilen örneği veritabanı oluşturur|
+|[Yeni AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Bir Azure SQL veritabanı yönetilen örneği veritabanı oluşturur|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Azure SQL yönetilen örnek veritabanı hakkındaki bilgileri döndürür|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı kaldırır|
 |[Geri yükleme-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı geri yükler|
@@ -79,7 +79,7 @@ Oluşturup örnek veritabanı yönetilen örneği oluşturulduktan sonra yönetm
 
 | Komut | Açıklama |
 | --- | --- |
-|[VERİTABANI OLUŞTUR](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Yeni bir yönetilen örnek veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlı olmanız gerekir.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Yeni bir yönetilen örnek veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlı olmanız gerekir.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Bir Azure SQL yönetilen örnek veritabanını değiştirir.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>REST API: Yönetilen örnekleri oluşturma ve yönetme

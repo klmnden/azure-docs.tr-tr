@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358159"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanmak için en iyi uygulamalar
@@ -136,7 +136,7 @@ Kısmi sorgular için daha fazla eşleşme bulmak için `typeHead` parametresi, 
 
 Aşağıdaki örnekte sorgu, aşağıdaki adresi hizmet arama "Microso" için sorgulanır ile görebilirsiniz `typehead` parametresini **true**. Yanıt gözlemlerseniz, arama hizmeti sorgu kısmi bir sorgu olarak yorumlanır ve sonuçları için sorgu otomatik önerilen yanıt içerdiğini görebilirsiniz.
 
-**Örnek Sorgu:**
+**Örnek sorgu:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
@@ -318,7 +318,7 @@ Sonuçları ve yanıt bilgileri ilgi artırmak için ilgi noktası (POI) arama y
 
 Olalım bir [POI kategori arama](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) Microsoft yerleşkesindeki (Redmond, WA) yakın benzin istasyonlarımıza isteği. Yanıt gözlemlerseniz, döndürülen her POI marka bilgilerini görebilirsiniz.
 
-**Örnek Sorgu:**
+**Örnek sorgu:**
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
@@ -497,7 +497,7 @@ Yalnızca belirli bir konuma etrafında POI sonuçları almak için [arama API's
 
 Azure haritalar için bir adres arama isteği olalım [arama hizmetinizi](https://docs.microsoft.com/rest/api/maps/search) Seattle adresi. İstek URL'SİNDE dikkatle bakarsanız, biz ayarladığınız `countrySet` parametresi **ABD** adres Amerika Birleşik Devletleri, aranacak.
 
-**Örnek Sorgu:**
+**Örnek sorgu:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US

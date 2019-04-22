@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259431"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure şemaları hizmetine genel bakış
@@ -85,9 +85,9 @@ Bir şemanın **Yayımlanmış** tüm **Sürümleri** var olan bir aboneliğe at
 
 Şemaları kullanmak için [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) ile gerekli izinlerin verilmiş olması gerekir. Şema oluşturmak için hesabınız şu izinlere sahip olmalıdır:
 
-- `Microsoft.Blueprint/blueprints/write` -Şema tanımını oluşturma
-- `Microsoft.Blueprint/blueprints/artifacts/write` -Yapılar üzerinde bir şema tanımını oluşturma
-- `Microsoft.Blueprint/blueprints/versions/write` -Bir şemayı Yayımla
+- `Microsoft.Blueprint/blueprints/write` - Şema tanımı oluştur
+- `Microsoft.Blueprint/blueprints/artifacts/write` - Şema tanımında yapıt oluştur
+- `Microsoft.Blueprint/blueprints/versions/write` - Şema yayımla
 
 Şemaları silmek için hesabınız şu izinlere sahip olmalıdır:
 
@@ -100,8 +100,8 @@ Bir şemanın **Yayımlanmış** tüm **Sürümleri** var olan bir aboneliğe at
 
 Bir şemayı atamak veya atamasını kaldırmak için hesabınız şu izinlere sahip olmalıdır:
 
-- `Microsoft.Blueprint/blueprintAssignments/write` -Bir şema Ata
-- `Microsoft.Blueprint/blueprintAssignments/delete` -Bir şema atamasını Kaldır
+- `Microsoft.Blueprint/blueprintAssignments/write` - Şema ata
+- `Microsoft.Blueprint/blueprintAssignments/delete` - Şemanın atamasını kaldır
 
 > [!NOTE]
 > Şema atamaları abonelikte oluşturulduğundan şema atama ve atamasını kaldırma izinlerinin abonelik kapsamında verilmesi veya abonelik kapsamında devralınması gerekir.

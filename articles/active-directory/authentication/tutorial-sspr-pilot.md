@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362130"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Öğretici: Pilot dağıtım eksiksiz bir Azure AD Self Servis parola sıfırlama
@@ -40,15 +40,15 @@ Self servis parola sıfırlama özelliğinin yönetici olmayan hesaplarla test e
    * **Özellikler** sayfasında, **Self servis parola sıfırlama etkinleştirildi** seçeneğinin altında **Seçili**'yi belirleyin ve bir pilot grup seçin.
       * SSPR işlevini yalnızca sizin seçtiğiniz belirli bir Azure AD grubunun üyeleri kullanabilir. Bu işlevin dağıtımını yaparken kavram kanıtı için bir kullanıcı grubu tanımlamanız ve bu ayarı kullanmanız önerilir. Güvenlik gruplarının iç içe geçmesi burada desteklenmiyor.
       * Seçtiğiniz gruptaki kullanıcıların gerekli lisanslara sahip olduğundan emin olun.
-   * **Kaydet**'e tıklayın.
+   * **Kaydet**’e tıklayın
 1. **Kimlik doğrulama yöntemleri** sayfasında
    * Ayarlama **sıfırlamak için gereken yöntemlerin sayısı** için **1**
    * **Kullanıcıların yararlanabileceği yöntemler** bölümünde kuruluşunuzun izin vermek istediği yöntemleri seçin. Bu öğretici için etkinleştirmek için onay kutularını işaretleyin **e-posta**, **cep telefonu**, **ofis telefonu**, **mobil uygulama bildirimi (Önizleme)** ve  **Mobil uygulama kodu (Önizleme)**.
-   * **Kaydet**'e tıklayın.
+   * **Kaydet**’e tıklayın
 1. **Kayıt** sayfasında
    * **Kullanıcılardan oturum açarken kaydolmalarını iste** için **Evet**'i seçin.
    * **Kullanıcıların kimlik doğrulaması bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısı** ayarını **180** olarak belirleyin.
-   * **Kaydet**'e tıklayın.
+   * **Kaydet**’e tıklayın
 1. **Bildirimler** sayfasında
    * **Parola sıfırlamayı kullanıcılara bildirme** seçeneğini **Evet** olarak ayarlayın.
    * **Diğer yöneticiler parolalarını sıfırladığında tüm yöneticilere bildirme** seçeneğini **Evet** olarak ayarlayın.
@@ -60,7 +60,7 @@ Self servis parola sıfırlamayı pilot grubunuzdaki bulut kullanıcıları içi
 
 ## <a name="test-sspr-as-a-user"></a>Self servis parola sıfırlamayı kullanıcı olarak test etme
 
-Self servis parola sıfırlamayı pilot grubunuza üye olan ve yönetici olmayan bir kullanıcıyla deneyin. **Kullanıyorsanız herhangi bir yönetici rol olan bir hesabın kimlik doğrulama yöntemlerini atanmış ve sayı Yönetici İlkesi Microsoft yönettiğinde belirlemiş olduğunuz değerinden farklı unutmayın.**
+Self servis parola sıfırlamayı pilot grubunuza üye olan ve yönetici olmayan bir kullanıcıyla deneyin. **Yönetici rolüne sahip bir kullanıcıyla test ederseniz yönetici ilkesi Microsoft tarafından yönetildiğinden kimlik doğrulama yöntemleri ve sayısı seçtiğinizden farklı olabilir.**
 
 1. Yeni bir InPrivate veya gizli tarayıcı penceresi açın.
 1. Test kullanıcısıyla [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) adresindeki kayıt portalından self servis parola sıfırlama hizmetine kaydolun.
@@ -74,7 +74,7 @@ Bu öğreticide yapılandırdığınız işlevi kullanmak istemediğinize karar 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. **Azure Active Directory**'ye göz atın ve **Parola sıfırlama**'yı seçin.
 1. **Özellikler** sayfasında, **Self servis parola sıfırlama etkinleştirildi** seçeneğinin altında **Yok**'u seçin.
-1. **Kaydet**'e tıklayın.
+1. **Kaydet**’e tıklayın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

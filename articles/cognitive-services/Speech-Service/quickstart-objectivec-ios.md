@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009280"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak iOS Objective-C, konuşma tanıma
@@ -52,16 +52,16 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
     1. Zaten bir Apple geliştirici hesabınız varsa uygun bir kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla, `testorg` gibi herhangi bir ad seçebilirsiniz. Uygulamayı imzalamak için uygun bir sağlama profili gerekir. Başvurmak [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
     1. Proje dili olarak Objective-C seçildiğinden emin olun.
     1. Testler ve temel veriler için tüm onay kutularını devre dışı bırakın.
-    ![Proje ayarları](media/sdk/qs-objectivec-project-settings.png)
+    ![Proje Ayarları](media/sdk/qs-objectivec-project-settings.png)
 1. Proje dizini seçin
     1. Projeyi yerleştirmek için giriş dizininizi seçin. Bu, oluşturur bir `helloworld` dizin giriş dizininizde Xcode projesi için tüm dosyaları içerir.
     1. Bu örnek için Git deposu oluşturmayı devre dışı bırakın.
     1. *Proje Ayarları*’nda SDK yollarını ayarlayın.
         1. İçinde **genel** sekmesinde altında **katıştırılmış ikili dosyalar** üst bilgi bir çerçeve SDK'sı kitaplığı ekleyin: **Katıştırılmış ikili dosyalar ekleme** > **diğer Ekle...**  > Giriş dizinine gidin ve dosyayı seçin `MicrosoftCognitiveServicesSpeech.framework`. Bu SDK'sı kitaplığı üstbilgiye ekler **bağlı çerçeve ve kitaplıklar** otomatik olarak.
-        ![Eklenen Framework](media/sdk/qs-objectivec-framework.png)
+        ![Eklenen Çerçeve](media/sdk/qs-objectivec-framework.png)
         1. **Derleme Ayarları** sekmesine gidin ve **Tümü** ayarını etkinleştirin.
         1. `$(SRCROOT)/..` dizinini **Arama Yolları** başlığı altında *Çerçeve Arama Yolları*’na ekleyin.
-        ![Çerçeve arama yolu ayarını](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Çerçeve Arama Yolu ayarı](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Kullanıcı arabirimini ayarlama
 

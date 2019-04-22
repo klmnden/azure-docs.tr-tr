@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281650"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs - tanılama bırakılan bildirimler
@@ -86,7 +86,7 @@ Bir bildirim gönderdiğinizde eşleşen etiketlerle olmasını sağlamak için 
 
 **Şablon sorunlarını**
 
-Şablonları kullanıyorsanız, açıklanan yönergeleri izlediğinizden emin olun [şablonları].
+Şablonları kullanıyorsanız, açıklanan yönergeleri izlediğinizden emin olun [Şablonlar].
 
 **Geçersiz kayıtlar**
 
@@ -111,7 +111,7 @@ Platform bildirim hizmetlerine sağlam olduğundan, bildirimleri, anında iletme
 
 Bir bildirimi teslim etmek bir anında iletme bildirimi hizmeti çalışır, ancak cihaz çevrimdışı bildirim sınırlı bir süre için anında iletme bildirimi hizmeti tarafından depolanır. Cihaz kullanıma sunulduğunda bildirim cihaza gönderilir.
 
-Her uygulama için yalnızca bir son bildirim depolanır. Bir cihaz çevrimdışı çalışırken birden çok bildirim gönderilen her yeni bir bildirim atılmak üzere önceki bildirim neden olur. Yalnızca en yeni bildirim tutma olarak adlandırılır *birleşim bildirimleri* APN içinde ve *daraltma* FCM (hangi çöken bir anahtar kullanır) içinde. Cihaz uzun bir süredir çevrimdışı kalırsa, cihaz için depolanan tüm bildirimler atılır. Daha fazla bilgi için bkz. [APN genel bakış] ve [hakkında FCM iletileri].
+Her uygulama için yalnızca bir son bildirim depolanır. Bir cihaz çevrimdışı çalışırken birden çok bildirim gönderilen her yeni bir bildirim atılmak üzere önceki bildirim neden olur. Yalnızca en yeni bildirim tutma olarak adlandırılır *birleşim bildirimleri* APN içinde ve *daraltma* FCM (hangi çöken bir anahtar kullanır) içinde. Cihaz uzun bir süredir çevrimdışı kalırsa, cihaz için depolanan tüm bildirimler atılır. Daha fazla bilgi için bkz. [APN genel bakış] ve [FCM iletileri hakkında].
 
 Azure Notification Hubs ile genel SendNotification API'sini kullanarak bir HTTP üst bir birleştirme anahtarı geçirebilirsiniz. Örneğin, .NET SDK için kullanacağınız `SendNotificationAsync`. SendNotification API olarak geçirilen bir HTTP üst bilgileri de alır-ilgili anında iletme bildirimi hizmeti.
 
@@ -261,7 +261,7 @@ Portalda, bildirim hub'ınıza tüm etkinlik hızlı bir genel bakış alabilirs
 
 **Programlı erişim**
 
-Programlı erişim hakkında daha fazla bilgi için bkz: [programlı telemetri erişim].
+Programlı erişim hakkında daha fazla bilgi için bkz: [Telemetri programlı erişim].
 
 > [!NOTE]
 > Telemetri ile ilgili çeşitli özellikler verme ister ve kayıtları ve API'leri aracılığıyla erişim telemetri alma yalnızca standart hizmet katmanında kullanılabilir. Kullanmayı denerseniz, bu özellikleri ücretsiz veya temel hizmet katmanını, REST API'lerini doğrudan özellikleri kullanırsanız SDK'sı ve HTTP 403 (Yasak) hata kullanırsanız, bir özel durum iletisi alırsınız.
@@ -281,7 +281,7 @@ Programlı erişim hakkında daha fazla bilgi için bkz: [programlı telemetri e
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-[Notification Hubs’a genel bakış]: notification-hubs-push-notification-overview.md
+[Notification Hubs'a genel bakış]: notification-hubs-push-notification-overview.md
 [Azure Notification Hubs ile çalışmaya başlama]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Şablonlar]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html

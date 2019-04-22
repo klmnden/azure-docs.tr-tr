@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359037"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
@@ -109,15 +109,15 @@ Sanal makineleri el ile eklemek için:
 
     a. **VM sayısı**
 
-    b. **Iaas boyutu (sizin seçiminiz)**
+    b. **IaaS boyutu (Sizin seçiminiz)**
 
-    c. **Depolama türü standart/Premium**
+    c. **Depolama türü Standart/Premium**
 
     d. **VM toplam depolama alanı boyutu (GB)**
 
-    e. **Yıllık DR Tatbikatları sayısı**
+    e. **Yıllık DR tatbikatları sayısı**
 
-    f. **Her DR Tatbikatının süresi (gün)**
+    f. **Her DR tatbikatının süresi (gün)**
 
     g. **İşletim Sistemi Türü**
 

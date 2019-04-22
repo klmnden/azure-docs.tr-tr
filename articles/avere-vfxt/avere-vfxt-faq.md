@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264463"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Azure için Avere vFXT hakkında SSS
@@ -289,6 +289,6 @@ Azure için Avere vFXT ile çalışmaya başlamak için planlama ve kendi sistem
 * [Avere vFXT sisteminizi planlama](avere-vfxt-deploy-plan.md)
 * [Dağıtıma genel bakış](avere-vfxt-deploy-overview.md)
 * [Bir Avere vFXT kümesi oluşturmak hazırlama](avere-vfxt-prereqs.md)
-* [Avere vFXT kümesi dağıtma](avere-vfxt-deploy.md)
+* [Avere vFXT kümesini dağıtma](avere-vfxt-deploy.md)
 
 Avere vFXT için kullanım örnekleri ve özellikleri hakkında daha fazla bilgi edinmek için şurayı ziyaret edin [Avere vFXT Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361788"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile kullanılmak üzere depolama seçeneklerini karşılaştırma
 
 HDInsight kümeleri oluştururken birkaç farklı Azure depolama hizmetleri arasında seçim yapabilirsiniz:
 
-* Azure Depolama
-* Azure Data Lake Storage 2. Nesil
-* Azure Data Lake Storage 1. Nesil
+* Azure Storage
+* Azure Data Lake Storage Gen2
+* Azure Data Lake Storage Gen1
 
 Bu makalede, bu depolama türleri ve benzersiz özelliklerine genel bakış sağlar.
 
@@ -28,11 +28,11 @@ HDInsight'ın farklı sürümleriyle desteklenen Azure depolama hizmetleri aşa�
 
 | Depolama birimi hizmeti | Hesap türü | Namespace türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları | HDInsight Sürümü | Küme türü |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage 2. Nesil| Genel amaçlı V2 | Hiyerarşik (dosya sistemi) | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
-|Azure Depolama| Genel amaçlı V2 | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
-|Azure Depolama| Genel amaçlı V1 | Nesne | Blob | Standart | YOK | Tümü | Tümü |
-|Azure Depolama| Blob Depolama Alanı | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
-|Azure Data Lake Storage 1. Nesil| YOK | Hiyerarşik (dosya sistemi) | YOK | YOK | YOK | Yalnızca 3.6 | HBase dışında tümü |
+|Azure Data Lake Storage Gen2| Genel amaçlı V2 | Hiyerarşik (dosya sistemi) | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
+|Azure Storage| Genel amaçlı V2 | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
+|Azure Storage| Genel amaçlı V1 | Nesne | Blob | Standart | Yok | Tümü | Tümü |
+|Azure Storage| Blob Depolama | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
+|Azure Data Lake Storage Gen1| Yok | Hiyerarşik (dosya sistemi) | Yok | Yok | Yok | Yalnızca 3.6 | HBase dışında tümü |
 
 Azure depolama erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -42,14 +42,14 @@ Birincil ve isteğe bağlı ikincil depolama hizmetleri farklı birleşimlerini 
 |---|---|---|---|
 | 3.6 & 4.0 | Standard Blob | Standard Blob | Evet |
 | 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | Hayır |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage 1. Nesil | Evet |
+| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Evet |
 | 3.6 & 4.0 | Data Lake depolama 2. nesil * | Data Lake Storage Gen2 | Evet |
 | 3.6 & 4.0 | Data Lake depolama 2. nesil * | Standard Blob | Evet |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage 1. Nesil | Hayır |
-| 3.6 | Data Lake Storage 1. Nesil | Data Lake Storage 1. Nesil | Evet |
-| 3.6 | Data Lake Storage 1. Nesil | Standard Blob | Evet |
-| 3.6 | Data Lake Storage 1. Nesil | Data Lake Storage Gen2 | Hayır |
-| 4.0 | Data Lake Storage 1. Nesil | Herhangi | Hayır |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Hayır |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Evet |
+| 3.6 | Data Lake Storage Gen1 | Standard Blob | Evet |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Hayır |
+| 4.0 | Data Lake Storage Gen1 | Herhangi biri | Hayır |
 
 * = Aynı yönetilen kimliği kümeye erişim için kullanılacak tüm Kurulum oldukları sürece bu bir veya birden çok Data Lake depolama Gen2 hesapları olabilir.
 
@@ -113,7 +113,7 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 
 Daha fazla bilgi için [Azure Data Lake depolama Gen2 URI'si kullanma](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 
-## <a name="azure-storage"></a>Azure Depolama
+## <a name="azure-storage"></a>Azure Storage
 
 Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen güçlü genel amaçlı depolama çözümüdür. HDInsight, Azure Depolama’daki bir blob kapsayıcıyı kümenin varsayılan dosya sistemi olarak kullanabilir. HDFS arabirimi aracılığıyla, eksiksiz bir bileşen HDInsight BLOB olarak depolanan doğrudan yapılandırılmış veya yapılandırılmamış veriler üzerinde çalışabilir.
 
@@ -240,4 +240,4 @@ Data Lake depolama Gen1 verilere erişim hakkında daha fazla bilgi için bkz: [
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Data Lake depolama Gen2'ye Giriş](../storage/blobs/data-lake-storage-introduction.md)
-* [Azure Depolama’ya Giriş](../storage/common/storage-introduction.md)
+* [Azure Depolama’ya giriş](../storage/common/storage-introduction.md)

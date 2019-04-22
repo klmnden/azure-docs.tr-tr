@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009743"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS yerine getirme API sürümü 1 (kullanım dışı)
@@ -61,13 +61,13 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Parametre Adı** |     **Açıklama**                                      |
+|  **Parametre adı** |     **Açıklama**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  API sürümü        |  Bu istek için kullanılacak işlem sürümü.   |
 |  |  |
 
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -79,7 +79,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 |  |  |  |
   
 
-*Yanıt Gövdesi*
+*Yanıt gövdesi*
 
 ``` json
 {
@@ -101,7 +101,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                                         |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Belirteç başarıyla çözümlendi.                                                            |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtilen gereklidir. Belirteci hatalı biçimlendirilmiş ya da süresi dolmuş ya da belirteç olduğu için çözümlenemedi (belirteç yalnızca bir kez oluşturulan 1 saat boyunca geçerlidir). |
@@ -128,15 +128,15 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Benzersiz kimliği, SaaS çözmek API aracılığıyla belirteç çözdükten sonra elde edilen abonelik.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 |  **Üstbilgi anahtarı**        | **Gerekli** |  **Açıklama**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -163,7 +163,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -191,17 +191,17 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni bir plan izin verir.
 
-**PATCH**
+**DÜZELTME EKİ**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**          | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -227,7 +227,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -257,15 +257,15 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -276,7 +276,7 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                           |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | SaaS abonelik etkinleştirme için belirli bir plan aldı.                   |
 | 400                  | `BadRequest`         | Ya da üst bilgileri eksik olan veya JSON gövdesi yanlış biçimlendirilmiş gereklidir. |
@@ -307,15 +307,15 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{Operationıd}*?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | Tetiklenen işlem benzersiz kimliği.                |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -324,7 +324,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  | 
 
-*Yanıt Gövdesi*
+*Yanıt gövdesi*
 
 ```json
 {
@@ -347,7 +347,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |
@@ -375,15 +375,15 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Abonelik kimliği, SaaS.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -392,7 +392,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                                                                    |
 |  |  |  |
 
-*Yanıt Gövdesi*
+*Yanıt gövdesi*
 
 ```json
 {
@@ -409,7 +409,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
@@ -419,7 +419,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |
@@ -450,12 +450,12 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Parametre Adı**  | **Açıklama**                                       |
+| **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-*Üst bilgiler*
+*Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -464,7 +464,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
-*Yanıt Gövdesi*
+*Yanıt gövdesi*
 
 ```json
 {
@@ -481,7 +481,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
@@ -491,7 +491,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 *Yanıt kodları*
 
-| **HTTP durum kodu** | **Hata Kodu**     | **Açıklama**                                                              |
+| **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Get isteği başarıyla çözümlendi ve yanıt gövdesi içerir.    |
 | 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtildi gereklidir. |
@@ -533,7 +533,7 @@ Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildir
 | id  | String       | Tetiklenen işlem benzersiz kimliği.                |
 | activityId   | String        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
 | subscriptionId                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
+| offerId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
 | publisherId                | String        | Yayımcı kimliği SaaS teklifi         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
 | action                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |

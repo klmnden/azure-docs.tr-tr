@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271603"
 ---
 # <a name="show-search-results-on-the-map"></a>Harita üzerinde arama sonuçlarını göster
@@ -67,12 +67,12 @@ Daha fazla bilgi edinin **belirsiz arama**:
 Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Eşleme](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 Tam kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Bir koordinattan bilgi alma](./map-get-information-from-coordinate.md)
+> [Bir Koordinattan bilgi alma](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [A'dan B'ye yönleri gösterme](./map-route.md)
+> [Yönergeleri A'dan B'ye yönleri gösterme](./map-route.md)

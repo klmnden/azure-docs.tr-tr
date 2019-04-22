@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276652"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
@@ -49,7 +49,7 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 1. Azure portalına gidin.
 2. Azure Gözcü oluşturulduğu, aboneliğin seçildiğinden emin olun. 
 3. Azure Sentinel arayın. 
-   ![ara](./media/quickstart-onboard/search-product.png)
+   ![Arama](./media/quickstart-onboard/search-product.png)
 
 1. Tıklayın **+ Ekle**.
 1. Kullanma veya yeni bir tane oluşturmak istediğiniz çalışma alanını seçin. Birden fazla çalışma alanına Azure Gözcü çalıştırabilirsiniz, ancak veriler, tek bir çalışma alanına yalıtılır.

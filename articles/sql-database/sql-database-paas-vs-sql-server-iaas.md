@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360810"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure'da SQL Server seçeneği sağ seçin
@@ -119,7 +119,7 @@ Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleri
 
 Bir bulut platformunu kullanmaya başladığınızda, uygulamanızı çalıştırmanın maliyeti yeni yazılım geliştirme maliyetini ve devam eden yönetim maliyetlerini yanı sıra genel bulut platformu hizmet maliyetlerini içerir.
 
-**Azure SQL Database kullanıldığında:**
+**Azure SQL Veritabanı kullanıldığında:**
 
 - Yüksek oranda azaltılmış yönetim maliyetleri
 - Geçirilen uygulamaları (yönetilen örnekler) için sınırlı geliştirme maliyetleri
@@ -135,7 +135,7 @@ Bir bulut platformunu kullanmaya başladığınızda, uygulamanızı çalıştı
 
 Fiyatlandırma konusunda daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/)
+- [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Sanal makine fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/) için [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) ve [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
 ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274459"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Sınırlı deneme sürümünde projenizi Azure'a taşıma
@@ -33,7 +33,7 @@ Sınırlı deneme kullanımdan kaldırma işleminde anahtar teslim tarihlerine d
     - Azure hesabınız yoksa [hesap oluşturma](https://azure.microsoft.com/free/) ücretsiz.
     - Abonelikler ve kaynaklar Azure kavramlarına giriş için bkz [Azure Geliştirici kılavuzuyla.](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions).
 -  [Python](https://www.python.org/downloads/)
-- [Pip](https://pip.pypa.io/en/stable/installing/)
+- [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portalında özel görüntü işleme kaynakları oluşturma
 

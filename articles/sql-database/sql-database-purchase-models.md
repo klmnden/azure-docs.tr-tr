@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360179"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
@@ -36,7 +36,7 @@ Farklı satın alma modelleri, Azure SQL veritabanı dağıtım modellerinde kul
 
 Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
-|**Satın alma modeli**|**Açıklama**|**En uygun olduğu durum**|
+|**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
 |DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.|
 |vCore tabanlı model|Bu model, işlem ve depolama kaynaklarını bağımsız olarak seçmenizi sağlar. Sanal çekirdek tabanlı satın alma modeli de kullanmanıza olanak tanır [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için.|Esneklik, Denetim ve saydamlık değerini müşteriler için idealdir.|

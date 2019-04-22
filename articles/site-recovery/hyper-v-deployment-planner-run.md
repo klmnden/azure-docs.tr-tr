@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361342"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısını çalıştırın
@@ -254,9 +254,9 @@ Büyümeyi dağıtım planlaması sırasında planlamanız önerilir. Varsayıla
 
 Oluşturulan Microsoft Excel raporu aşağıdaki bilgileri içerir:
 
-* [Şirket içi özeti](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Şirket içi özet](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Öneriler](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-depolama yerleşimi](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM depolama yerleşimi](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Uyumlu VM’ler](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Uyumsuz VM’ler](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Şirket içi depolama gereksinimi](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)

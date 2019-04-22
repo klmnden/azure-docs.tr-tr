@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: cithomas
 ms.openlocfilehash: 8243523887ec9861459b2d196126237cf89bad97
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288374"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core uygulamaları için Application Insights
@@ -100,7 +100,7 @@ ASP.NET Core için Application Insights SDK (Yazılım Geliştirme Seti) burada 
              * Azure Cosmos DB, HTTP/HTTPS kullanılıyorsa otomatik olarak izlenir. TCP modu, Application Insights tarafından yakalanan olmaz.
 
 
-    1. [Performans Sayaçları](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
+    1. [Performans sayaçları](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
         1. ASP.NET Core performans sayaçları için destek aşağıdaki sınırlıdır
             1. SDK'sı sürüm 2.4.1'i ve yukarıda uygulamayı Azure Web uygulaması (Windows) olarak çalışıyorsa performans sayaçlarını toplar
             1. SDK sürümü 2.7.0-beta3 ve yukarıdaki uygulama içinde Windows çalıştıran ve hedefleme performans sayaçlarını toplar `NETSTANDARD2.0` veya üzeri.

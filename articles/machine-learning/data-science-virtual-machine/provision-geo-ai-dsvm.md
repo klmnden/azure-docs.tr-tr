@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008847"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
@@ -42,7 +42,7 @@ Coğrafi AI veri bilimi sanal makinesi örneğini oluşturmak için bir yordam �
 
 1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Seçin **Oluştur** Sihirbazı'na alınması için alt kısımdaki düğmesi.
-![Oluştur-geo-AI-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. Coğrafi-DSVM oluşturma için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adımı** bu şekilde sağ tarafındaki numaralandırılır. Bu adımların her biri yapılandırmak için gerekli girişleri şunlardır:
 
 

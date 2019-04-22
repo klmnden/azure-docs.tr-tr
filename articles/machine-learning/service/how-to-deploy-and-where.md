@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280902"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
@@ -28,7 +28,7 @@ Azure Machine Learning SDK'sı, eğitilen model aşağıdaki konumlara dağıtma
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Hizmeti (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Service (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure Machine Learning işlem (amlcompute)](#azuremlcompute) | Batch çıkarımı | Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
@@ -248,7 +248,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
-| [Azure Kubernetes Hizmeti (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Kubernetes Service (AKS)](#aks) | Web hizmeti (gerçek zamanlı çıkarımı)| Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure ML işlemi](#azuremlcompute) | Web hizmeti (Batch çıkarımı)| Batch tahmin, sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure Container Instances (ACI)](#aci) | Web hizmeti (geliştirme/test)| Geliştirme veya test için iyidir. **Üretim iş yükleri için uygun değildir.** |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |

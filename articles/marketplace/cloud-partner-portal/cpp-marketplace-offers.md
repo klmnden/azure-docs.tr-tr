@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010592"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure ve AppSource Market teklifleri
@@ -56,9 +56,9 @@ Tarafından desteklenen geçerli teklif türleri aşağıdaki tabloda [bulut iş
 | [Danışmanlık hizmeti](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Her ikisi de | Microsoft ile nitelenen danışmanlar özel etki alanı hizmetlerini Azure Market veya Appsource'ta listeleyebilirsiniz.  Uzmanlara sorunlarını değerlendirme oluşturma ve doğru çözümleri dağıtma müşterilerin kendi iş hedeflerinize ulaşmanızı yardımcı olur.  |
 | [Kapsayıcı](./containers/cpp-containers-offer.md)  | Azure | Kubernetes tabanlı bir hizmet veya Azure Container Instances olarak sağlanan bir Docker kapsayıcı görüntüsü çözümüdür. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) genişleten paketi ve iş yönetim sistemi. |
-| [Müşteri Etkileşimi için Dynamics 365](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Bu müşteri genişleten bir paket kaynak yönetimi (CRM) sistemi, satış, hizmet, proje hizmeti ve alan hizmeti modülleri  |
+| [Dynamics 365 müşteri katılımı için](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Bu müşteri genişleten bir paket kaynak yönetimi (CRM) sistemi, satış, hizmet, proje hizmeti ve alan hizmeti modülleri  |
 | [Finans ve operasyon için Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) hizmeti bu Gelişmiş destekler Finans, işlemler, üretim ve tedarik zinciri yönetimi genişleten bir paket |
-| [IoT Edge modülü](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Bir IOT Edge cihazında çalıştırılır ve Docker ile uyumlu kapsayıcısı.  Bu, özel kod, diğer Azure Hizmetleri ve 3. taraf hizmetleri kullanan küçük hesaplama modüller içerir. |
+| [IOT Edge Modülü](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Bir IOT Edge cihazında çalıştırılır ve Docker ile uyumlu kapsayıcısı.  Bu, özel kod, diğer Azure Hizmetleri ve 3. taraf hizmetleri kullanan küçük hesaplama modüller içerir. |
 | [Power BI uygulaması](./power-bi/cpp-power-bi-offer.md) | AppSource | Veri kümeleri, raporlar ve panolar da dahil olmak üzere özelleştirilebilir Power BI içerik paketleri bir Power BI uygulaması |
 | [SaaS uygulama](./saas-app/cpp-saas-offer.md) | Azure | Hangi kullanıcıların Azure Active Directory kullanan özelleştirilmiş bir arabirim oturum açın bir yayımcı tarafından yönetilen bir hizmet olarak yazılım abonelikte çözümüdür. |
 | [Sanal makine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Çözüm, müşterinin hizmet aboneliği dağıtılan tek bir sanal makine içinde yer alır.  |

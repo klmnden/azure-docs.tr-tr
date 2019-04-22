@@ -12,10 +12,10 @@ ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
 ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275517"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure'daki bir sanal makineyi yedekleme
@@ -94,4 +94,4 @@ Sanal makine verilerini nasıl geri yükleyeceğinizi açıklayan bir Yedekleme 
 Bu hızlı başlangıçta bir Kurtarma Hizmetleri kasası oluşturdunuz, bir sanal makine için koruma özelliklerini etkinleştirdiniz ve ilk kurtarma noktasını oluşturdunuz. Azure Backup ve Kurtarma Hizmetleri hakkında daha fazla bilgi edinmek için öğreticilere geçin.
 
 > [!div class="nextstepaction"]
-> [Birden çok Azure Vm'lerini yedekleme](./tutorial-backup-vm-at-scale.md)
+> [Birden fazla Azure sanal makinesini yedekleme](./tutorial-backup-vm-at-scale.md)

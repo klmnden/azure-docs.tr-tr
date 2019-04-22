@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009591"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Azure kaynakları için yönetilen kimlikleri REST API çağrıları kullanarak bir sanal makine ölçek kümesi üzerinde yapılandırma
@@ -92,7 +92,7 @@ Sanal makine ölçek kümesi etkin sistem tarafından atanan yönetilen kimlik i
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -187,7 +187,7 @@ Yönetilen kimlik sistemi atanmış mevcut bir sanal makine ölçek kümesi üze
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -220,7 +220,7 @@ Yönetilen kimlik sistemi atanmış mevcut bir sanal makine ölçek kümesi üze
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. |
  
    **İstek gövdesi**
@@ -254,7 +254,7 @@ Yönetilen kimlik sistemi atanmış mevcut bir sanal makine ölçek kümesi üze
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -298,7 +298,7 @@ Mevcut bir sanal makine ölçek kümesi üzerinde bir sistem tarafından atanan 
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -355,7 +355,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -442,7 +442,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. |
  
    **İstek gövdesi**
@@ -558,7 +558,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -590,7 +590,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -626,7 +626,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -665,7 +665,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -726,7 +726,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -758,7 +758,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
 
    |İstek üstbilgisi  |Açıklama  |
    |---------|---------|
-   |*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+   |*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
    |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
    **İstek gövdesi**
@@ -788,7 +788,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |İstek üstbilgisi  |Açıklama  |
 |---------|---------|
-|*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
 |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
 **İstek gövdesi**
@@ -815,7 +815,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |İstek üstbilgisi  |Açıklama  |
 |---------|---------|
-|*Content-Type*     | Gereklidir. Kümesine `application/json`.        |
+|*İçerik türü*     | Gereklidir. Kümesine `application/json`.        |
 |*Yetkilendirme*     | Gereklidir. Geçerli bir kümesi `Bearer` erişim belirteci. | 
 
 **İstek gövdesi**

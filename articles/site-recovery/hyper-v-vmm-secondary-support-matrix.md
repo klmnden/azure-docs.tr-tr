@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360801"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V Vm'lerini ikincil bir siteye olağanüstü durum kurtarması için destek matrisi
@@ -53,7 +53,7 @@ Yalnızca Linux makineleri aşağıdaki depolama ile çoğaltılmış olabilir:
 
 ## <a name="network-configuration---hostguest-vm"></a>Ağ yapılandırması - konak/Konuk VM
 
-**Yapılandırma** | **Desteklenen**  
+**Yapılandırma** | **Destekleniyor**  
 --- | --- 
 -Konak NIC ekibi oluşturma | Evet 
 Host - VLAN | Evet 
@@ -66,30 +66,30 @@ Konuk VM Windows/Linux - statik IP adresi | Evet
 Konuk VM - Multi-NIC | Evet
 
 
-## <a name="storage"></a>Depolama alanı
+## <a name="storage"></a>Depolama
 
 ### <a name="host-storage"></a>Konak depolama alanı
 
-**Depolama (ana bilgisayarı)** | **Desteklenen**
+**Depolama (ana bilgisayarı)** | **Destekleniyor**
 --- | --- 
-NFS | YOK
+NFS | Yok
 SMB 3.0 |  Evet
 SAN (İSCSI) | Evet
 Çok yollu (MPIO) | Evet
 
 ### <a name="guest-or-physical-server-storage"></a>Konuk veya fiziksel sunucu depolama
 
-**Yapılandırma** | **Desteklenen**
+**Yapılandırma** | **Destekleniyor**
 --- | --- | 
-VMDK |  YOK
+VMDK |  Yok
 VHD/VHDX | Evet (en fazla 16 disk)
 Gen 2 VM | Evet
 Küme diski paylaşılan | Hayır
 Şifrelenmiş diski | Hayır
-UEFI| YOK
+UEFI| Yok
 NFS | Hayır
 SMB 3.0 | Hayır
-RDM | YOK
+RDM | Yok
 Disk > 1 TB | Evet
 Bölüştürülmüş bir disk > 1 TB birim<br/><br/> LVM | Evet
 Depolama alanları | Evet
@@ -99,7 +99,7 @@ Diski hariç tutma | Evet
 
 ## <a name="vaults"></a>Kasalar
 
-**Eylem** | **Desteklenen**
+**Eylem** | **Destekleniyor**
 --- | --- 
 Kasa (içinde veya abonelikler arasında) kaynak grupları arasında taşıma |  Hayır
 Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak grupları arasında taşıma | Hayır
@@ -108,7 +108,7 @@ Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak gruplar
 
 Sağlayıcı, VMM sunucuları arasındaki iletişimi düzenler. 
 
-**En son** | **Güncelleştirmeler**
+**en son** | **Güncelleştirmeler**
 --- | --- 
 5.1.19 ([portalında kullanılabilir](https://aka.ms/downloaddra) | [En son özellikler ve düzeltmeler](https://support.microsoft.com/kb/3155002)
 

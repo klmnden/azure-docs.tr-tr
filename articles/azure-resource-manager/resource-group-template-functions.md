@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280324"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager şablonu işlevleri
@@ -45,7 +45,7 @@ Kendi işlev oluşturmak için bkz [kullanıcı tanımlı işlevleri](resource-g
 ## <a name="array-and-object-functions"></a>Dizi ve nesne işlevleri
 Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevler sunar.
 
-* [array](resource-group-template-functions-array.md#array)
+* [Dizi](resource-group-template-functions-array.md#array)
 * [birleşim](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
 * [içerir](resource-group-template-functions-array.md#contains)
@@ -56,10 +56,10 @@ Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevle
 * [json](resource-group-template-functions-array.md#json)
 * [Son](resource-group-template-functions-array.md#last)
 * [Uzunluğu](resource-group-template-functions-array.md#length)
-* [dk](resource-group-template-functions-array.md#min)
-* [en çok](resource-group-template-functions-array.md#max)
+* [Min](resource-group-template-functions-array.md#min)
+* [en fazla](resource-group-template-functions-array.md#max)
 * [Aralığı](resource-group-template-functions-array.md#range)
-* [atla](resource-group-template-functions-array.md#skip)
+* [Atla](resource-group-template-functions-array.md#skip)
 * [sınav zamanı](resource-group-template-functions-array.md#take)
 * [birleşim](resource-group-template-functions-array.md#union)
 
@@ -72,7 +72,7 @@ Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevle
 ## <a name="comparison-functions"></a>Karşılaştırma işlevleri
 Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitli işlevler sunar.
 
-* [şuna eşittir:](resource-group-template-functions-comparison.md#equals)
+* [eşittir](resource-group-template-functions-comparison.md#equals)
 * [daha az](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
 * [daha büyük](resource-group-template-functions-comparison.md#greater)
@@ -85,7 +85,7 @@ Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitl
 ## <a name="deployment-value-functions"></a>Dağıtım değeri işlevleri
 Resource Manager şablonu ve dağıtımıyla ilgili değerleri bölümlerden değerleri almak için aşağıdaki işlevleri sunar:
 
-* [dağıtım](resource-group-template-functions-deployment.md#deployment)
+* [Dağıtım](resource-group-template-functions-deployment.md#deployment)
 * [parametreler](resource-group-template-functions-deployment.md#parameters)
 * [Değişkenleri](resource-group-template-functions-deployment.md#variables)
 
@@ -100,9 +100,9 @@ Resource Manager, mantıksal koşul ile çalışmak için aşağıdaki işlevler
 
 * [ve](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
+* [Eğer](resource-group-template-functions-logical.md#if)
 * [değil](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [veya](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -118,13 +118,13 @@ Resource Manager, mantıksal koşul ile çalışmak için aşağıdaki işlevler
 ## <a name="numeric-functions"></a>Sayısal işlevler
 Resource Manager, tamsayı ile çalışmak için aşağıdaki işlevleri sunar:
 
-* [add](resource-group-template-functions-numeric.md#add)
+* [Ekleme](resource-group-template-functions-numeric.md#add)
 * [Copyındex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
-* [float](resource-group-template-functions-numeric.md#float)
+* [kayan nokta](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [dk](resource-group-template-functions-numeric.md#min)
-* [en çok](resource-group-template-functions-numeric.md#max)
+* [Min](resource-group-template-functions-numeric.md#min)
+* [en fazla](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [alt](resource-group-template-functions-numeric.md#sub)
@@ -194,7 +194,7 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [boş](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [ilk](resource-group-template-functions-string.md#first)
-* [biçim](resource-group-template-functions-string.md#format)
+* [Biçim](resource-group-template-functions-string.md#format)
 * [GUID](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [Son](resource-group-template-functions-string.md#last)
@@ -203,17 +203,17 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [Değiştir](resource-group-template-functions-string.md#replace)
-* [atla](resource-group-template-functions-string.md#skip)
+* [Atla](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
+* [dize](resource-group-template-functions-string.md#string)
 * [alt dize](resource-group-template-functions-string.md#substring)
 * [sınav zamanı](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
 * [Kırpma](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [uri](resource-group-template-functions-string.md#uri)
+* [URI](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 * [utcNow](resource-group-template-functions-string.md#utcnow)

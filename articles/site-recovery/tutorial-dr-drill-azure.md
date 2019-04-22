@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358172"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
@@ -23,7 +23,7 @@ Bu makalede Azure kullanarak şirket içi makine için olağanüstü durum kurta
 
 Bu, şirket içi makineler için Azure'da olağanüstü durum kurtarma ayarlama gösteren serideki dördüncü öğreticidir.
 
-Bu öğreticide, bilgi nasıl yapılır:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Yük devretme testi için yalıtılmış bir ağ ayarlama

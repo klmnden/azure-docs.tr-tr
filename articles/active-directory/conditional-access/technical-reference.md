@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359006"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
@@ -144,7 +144,7 @@ Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki 
 | Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Ad | 1 |
 | Type | REG_SZ (String) |
-| Veri | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
 
@@ -153,7 +153,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarın
 | Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Ad | 1 |
 | Type | REG_SZ (String) |
-| Veri | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
+| Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
 
 Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur.
 
@@ -207,9 +207,9 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft faturalama
+- Microsoft Invoicing
 - Microsoft Kaizala
-- Microsoft Başlatıcısı
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361795"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
@@ -71,7 +71,7 @@ Azure yedekleme, hem şirket içi makinelerin ve Azure sanal makinelerini yedekl
 **Makine** | **Senaryoyu oluşturan yedekleme**
 --- | ---
 **Şirket içi yedekleme** |  (1) Azure Backup Microsoft Azure kurtarma Hizmetleri (MARS) aracısı şirket içi tek tek dosya ve sistem durumu yedekleme için Windows makineleri çalıştırın. <br/><br/>2) bir yedekleme sunucusuna (System Center Data Protection Manager (DPM) veya Microsoft Azure Backup sunucusu (MABS)) şirket içi makineleri yedekleme ve azure'da bir Azure yedekleme kurtarma Hizmetleri kasasına yedeklemek için backup sunucusu yapılandırın.
-**Azure VM'leri** | (1) tek tek Azure Vm'leri için yedeklemeyi etkinleştirin. Yedeklemeyi etkinleştirdiğinizde, Azure Backup uzantısı VM'de çalışan Azure VM aracısı yükler. Aracı, VM'nin tamamını yedekler.<br/><br/> (2) bir Azure sanal makinesinde MARS Aracısı çalıştırın. Bu VM üzerinde tek tek dosya ve klasörleri yedeklemek istiyorsanız kullanışlıdır.<br/><br/> 3) DPM sunucusuna veya MABS Azure'da çalışan bir Azure VM'yi yedekleme. Ardından DPM sunucusu/MABS kullanarak Azure Backup vault'a yedekleyin.
+**Azure Vm'leri** | (1) tek tek Azure Vm'leri için yedeklemeyi etkinleştirin. Yedeklemeyi etkinleştirdiğinizde, Azure Backup uzantısı VM'de çalışan Azure VM aracısı yükler. Aracı, VM'nin tamamını yedekler.<br/><br/> (2) bir Azure sanal makinesinde MARS Aracısı çalıştırın. Bu VM üzerinde tek tek dosya ve klasörleri yedeklemek istiyorsanız kullanışlıdır.<br/><br/> 3) DPM sunucusuna veya MABS Azure'da çalışan bir Azure VM'yi yedekleme. Ardından DPM sunucusu/MABS kullanarak Azure Backup vault'a yedekleyin.
 
 
 ## <a name="why-use-a-backup-server"></a>Bir yedekleme sunucusu neden kullanmalısınız?
@@ -90,9 +90,9 @@ Daha fazla bilgi edinin [nasıl yedekleme works](backup-architecture.md#architec
 --- | --- | ---
 **Şirket içi Windows Vm'leri** | MARS Aracısı'nı çalıştırın | Dosyaları, klasörleri, sistem durumu yedekleme.<br/><br/> Linux makineleri desteklenmiyor.
 **Şirket içi makineler** | DPM/MABS yedekleme | Yedekleme tarafından korunan herhangi bir şey [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) veya [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs)dosya/klasör/paylaşımları/birimler ve uygulamaya özgü verileri dahil olmak üzere.
-**Azure VM'leri** | Çalıştırma Azure VM Aracısı yedekleme uzantısı | Tüm VM'yi yedekleme
-**Azure VM'leri** | MARS Aracısı'nı çalıştırın | Dosyaları, klasörleri, sistem durumu yedekleme.<br/><br/> Linux makineleri desteklenmiyor.
-**Azure VM'leri** | Azure'da çalışan MABS/DPM yedekleme | Yedekleme tarafından korunan herhangi bir şey [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) veya [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) dosya/klasör/paylaşımları/birimler ve uygulamaya özgü veriler dahil olmak üzere.
+**Azure Vm'leri** | Çalıştırma Azure VM Aracısı yedekleme uzantısı | Tüm VM'yi yedekleme
+**Azure Vm'leri** | MARS Aracısı'nı çalıştırın | Dosyaları, klasörleri, sistem durumu yedekleme.<br/><br/> Linux makineleri desteklenmiyor.
+**Azure Vm'leri** | Azure'da çalışan MABS/DPM yedekleme | Yedekleme tarafından korunan herhangi bir şey [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) veya [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) dosya/klasör/paylaşımları/birimler ve uygulamaya özgü veriler dahil olmak üzere.
 
 ## <a name="what-backup-agents-do-i-need"></a>Hangi yedekleme aracıları ihtiyacım var?
 
@@ -105,7 +105,7 @@ Daha fazla bilgi edinin [nasıl yedekleme works](backup-architecture.md#architec
 
 ## <a name="which-backup-agent-should-i-use"></a>Hangi yedekleme aracısı kullanmam gerekir?
 
-**Yedekle** | **Çözüm** | **Sınırlama**
+**Backup** | **Çözüm** | **Sınırlama**
 --- | --- | ---
 **Tüm bir Azure VM'yi yedekleme istiyorum** | VM için yedeklemeyi etkinleştirin. Backup uzantısı Windows veya Linux Azure VM üzerinde otomatik olarak yapılandırılır. | Tüm VM yedeklenir <br/><br/> Windows VM'ler için uygulamayla tutarlı yedeklemedir. Linux için yedekleme dosyası tutarlıdır. Linux VM'ler için uygulama durumunu algılayan gerekiyorsa bu özel betiklerle yapılandırmanız gerekir.
 **Azure VM'de belirli dosyaları/klasörleri yedeklemek üzere istiyorum** | MARS Aracısı VM üzerinde dağıtın.

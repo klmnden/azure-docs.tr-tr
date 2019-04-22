@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: kfollis
 ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361961"
 ---
 # <a name="export-or-delete-user-settings"></a>Kullanıcı ayarlarını dışarı aktarma veya silme
@@ -44,8 +44,8 @@ Silmeden önce ayarlarınızı gözden geçirin ve dışarı aktarmak iyi bir fi
 
       | Eylem | Açıklama |
       | --- | --- |
-      | **Tüm ayarları dışarı aktar** | Renk teması, Sık Kullanılanlar ve özel panolar gibi kullanıcı ayarlarınızı içeren bir .json dosyası oluşturur.|
-      | **Tüm ayarları ve özel panoları sil** | Portala yaptığınız diğer özel ayarları ve özel panoları tüm bağlantıları siler. |
+      | **Tüm ayarları Dışarı Aktar** | Renk teması, Sık Kullanılanlar ve özel panolar gibi kullanıcı ayarlarınızı içeren bir .json dosyası oluşturur.|
+      | **Tüm ayarları ve özel panoları Sil** | Portala yaptığınız diğer özel ayarları ve özel panoları tüm bağlantıları siler. |
 
 > [!NOTE]
 > Kullanıcı ayarları dinamik doğasını ve verilerin bozulma riskini nedeniyle .json dosyasından ayarlar içeri aktarılamıyor.
@@ -56,4 +56,4 @@ Silmeden önce ayarlarınızı gözden geçirin ve dışarı aktarmak iyi bir fi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure panoları oluşturma ve paylaşma](azure-portal-dashboard-share-access.md)
-* [Ekleme, kaldırma ve sık kullanılanları sıralama](azure-portal-add-remove-sort-favorites.md)
+* [Ekleme, kaldırma ve sıralama Sık Kullanılanlar](azure-portal-add-remove-sort-favorites.md)

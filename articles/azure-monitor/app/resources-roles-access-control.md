@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361864"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Kaynaklar, roller ve erişim denetimi Application ınsights
@@ -77,29 +77,29 @@ Yerleşik rolleri kullanabileceğiniz tüm Azure rol tabanlı erişim denetimi h
 
 ![Ekran görüntüsü, erişim denetim kullanıcı rolü listesi](./media/resources-roles-access-control/0003-user-roles.png)
 
-#### <a name="select-a-role"></a>Rol seçme
+#### <a name="select-a-role"></a>Rol seçin
 
 Uygunsa, biz ilişkili resmi başvuru belgelerinin bağlantısı.
 
 | Rol | Kaynak grubunda |
 | --- | --- |
 | [Sahip](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Kullanıcı erişim dahil her şeyi değiştirebilir. |
-| [Katkıda Bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Tüm kaynaklar da dahil olmak üzere her şeyi düzenleyebilirsiniz. |
+| [Katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Tüm kaynaklar da dahil olmak üzere her şeyi düzenleyebilirsiniz. |
 | [Application Insights bileşeni Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights kaynakları, web testleri ve uyarılar düzenleyebilirsiniz. |
 | [Okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Görüntüleyebilir ancak değişikliği yok. |
 | [Application Insights Snapshot Debugger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Application Insights Snapshot Debugger özelliklerini kullanma izni verir. Bu role sahip ne katkıda bulunan rolü eklendiğini unutmayın. |
 | Azure Service Deploy Release Management Contributor | Azure hizmetini dağıtma dağıtma Hizmetleri için katkıda bulunan rolü. |
-| [Veri Temizleyici](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Kişisel verileri temizleme özel rol. Bkz. bizim [kişisel verilere yönelik rehberlik](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) daha fazla bilgi için.   |
+| [Data Purger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Kişisel verileri temizleme özel rol. Bkz. bizim [kişisel verilere yönelik rehberlik](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) daha fazla bilgi için.   |
 | ExpressRoute yönetici | Delete oluşturabilir ve express rotaları yönetme.|
-| [Log Analytics Katkıda Bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. İzleme ayarlarını düzenleme Vm'lere VM uzantısı ekleme içerir; Azure Depolama'dan günlüklerin toplanmasını yapılandırma yapabilmek için depolama hesabı anahtarlarını okuma; oluşturma ve Otomasyon hesapları yapılandırma; çözümler eklenerek; ve tüm Azure kaynaklarında Azure tanılamayı yapılandırma.  |
-| [Log Analytics Okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
+| [Log Analytics katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. İzleme ayarlarını düzenleme Vm'lere VM uzantısı ekleme içerir; Azure Depolama'dan günlüklerin toplanmasını yapılandırma yapabilmek için depolama hesabı anahtarlarını okuma; oluşturma ve Otomasyon hesapları yapılandırma; çözümler eklenerek; ve tüm Azure kaynaklarında Azure tanılamayı yapılandırma.  |
+| [Log Analytics okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
 | masterreader | Her şeyi görüntüleyebilir ancak değişiklik yapamazlar açmasına olanak sağlar. |
-| [İzleme Katkıda Bulunanı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını güncelleştirebilir. |
-| [İzleme Ölçüm Yayımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlama sağlar. |
-| [İzleme Okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Tüm izleme verilerini okuyabilir. |
+| [İzleme katkıda bulunanı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını güncelleştirebilir. |
+| [İzleme ölçümlerini yayımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlama sağlar. |
+| [İzleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Tüm izleme verilerini okuyabilir. |
 | Kaynak İlkesine Katkıda Bulunan (Önizleme) | EA, kaynak ilkesi oluşturma/değiştirme haklarıyla Ea'dan kullanıcılar destek bileti oluşturun ve kaynak/hiyerarşiyi okuma.  |
 | [Kullanıcı Erişimi Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Diğer kullanıcılara Azure kaynaklarına erişimi yönetmek üzere bir kullanıcı sağlar.|
-| [Web Sitesi Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Web sitelerini (web planlarını değil), ancak onlara yönelik erişimi yönetmenize olanak tanır...|
+| [Web sitesi Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Web sitelerini (web planlarını değil), ancak onlara yönelik erişimi yönetmenize olanak tanır...|
 
 'Düzenleme' oluşturma, silme ve güncelleştirme içerir:
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274051"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
@@ -346,7 +346,7 @@ Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş o
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Tamsayı | CİHAZDAN buluta ileti bayt cinsinden boyutu |
-| **deviceId** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
+| **cihaz kimliği** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
 | **callerLocalTimeUtc** | UTC zaman damgası | Cihaz yerel saat tarafından belirlendiği şekilde iletinin oluşturma zamanı |
 | **calleeLocalTimeUtc** | UTC zaman damgası | IOT Hub Hizmet tarafı saat tarafından belirlendiği şekilde, IOT Hub'ının geçidinde ileti geliş saati |
 

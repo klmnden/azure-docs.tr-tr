@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010582"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS yerine getirme API sürüm 2 
@@ -43,7 +43,7 @@ Bir müşteri satın başlattığında, ISV bir AuthCode bir müşteri etkileşi
 
 ![Bir SaaS hizmet sağlanması için API çağrısı.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>sağlanan
+#### <a name="provisioned"></a>Sağlandı
 
 Bu durum sağlanan bir hizmet kararlı durumudur.
 
@@ -69,7 +69,7 @@ Bu durum, bir müşterinin Ödeme alınan taşınmadığından gösterir. İlke 
 - Abonelik ayarları ya da veri kaybı olmadan tam işlevselliğini geri yüklemek bir kurtarılabilir durumda tutulması gerekir. 
 - Eski duruma getirme isteği yerine getirme API aracılığıyla bu abonelik için veya bir veritabanının sağlama isteği yetkisiz kullanım süresi sonunda almak bekleyebilirsiniz. 
 
-#### <a name="unsubscribed"></a>Aboneliği 
+#### <a name="unsubscribed"></a>Aboneliği silindi 
 
 Abonelikler, yanıt bir açık müşteri isteği veya ödeme nedeniyle, yanıt olarak bu durum ulaşın. ISV gelen Müşteri'nin veri kurtarma isteğinde en az X gün için saklanır ve ardından silinir beklenir. 
 
@@ -102,7 +102,7 @@ Genel olarak benzersiz tanımlayıcıları ([GUID'leri](https://en.wikipedia.org
 Abonelik API aşağıdaki HTTPS işlemleri destekler: **Alma**, **Post**, **düzeltme eki**, ve **Sil**.
 
 
-#### <a name="list-subscriptions"></a>Liste abonelikler
+#### <a name="list-subscriptions"></a>Abonelikleri listele
 
 Bir yayımcı tüm SaaS abonelikleri listeler.
 
@@ -118,7 +118,7 @@ Bir yayımcı tüm SaaS abonelikleri listeler.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| İçerik türü       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-ms-requestid     |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | x-ms-bağıntı kimliği |  İstemci işlemi için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 | Yetkilendirme      |  JSON web token (JWT) taşıyıcı belirteç.  |
@@ -189,7 +189,7 @@ Belirtilen SaaS abonelik alır. Bu çağrı, lisans bilgilerini almak ve planlam
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci işlemi için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteci  |
@@ -227,7 +227,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası<br>
+İç Sunucu Hatası<br>
 
 ```json
 {
@@ -253,7 +253,7 @@ Geçerli kullanıcı için herhangi bir private/public teklif olup olmadığın�
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği  | İstemci işlemi için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteci |
@@ -282,7 +282,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor. <br> 
 
 Kod: 500<br>
-İç sunucu hatası<br>
+İç Sunucu Hatası<br>
 
 ```json
 { 
@@ -308,7 +308,7 @@ Bir kalıcı kaynak kimliği için bir Market belirteç çözmek kullanıcılar�
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci işlemi için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteci  |
@@ -341,7 +341,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası
+İç Sunucu Hatası
 
 ```json
 {
@@ -367,7 +367,7 @@ Kod: 500<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-ms-requestid    | İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği  | İstemci işlemi için benzersiz bir dize değeri. Bu dize istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteci |
@@ -396,7 +396,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası
+İç Sunucu Hatası
 
 ```json
 {
@@ -424,7 +424,7 @@ Güncelleştirme veya bir abonelik planı sağlanan değerlerle değiştirin.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği  |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.    |
 | Yetkilendirme      |  JSON web token (JWT) taşıyıcı belirteç.  |
@@ -463,7 +463,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası
+İç Sunucu Hatası
 
 ```json
 {
@@ -474,7 +474,7 @@ Kod: 500<br>
 }
 ```
 
-#### <a name="delete-a-subscription"></a>Aboneliği silme
+#### <a name="delete-a-subscription"></a>Aboneliği sil
 
 Aboneliği iptal et ve belirtilen abonelik silin.
 
@@ -491,7 +491,7 @@ Aboneliği iptal et ve belirtilen abonelik silin.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.   |
 |  x-ms-bağıntı kimliği  |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.   |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteç.   |
@@ -511,7 +511,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası
+İç Sunucu Hatası
 
 ```json
 {
@@ -546,7 +546,7 @@ Bir abonelik, sağlanan değerlerle güncelleştirin.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteç.  |
@@ -577,7 +577,7 @@ Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya iste
 Kod: 409<br>
 Çakışma oluştu. Örneğin, daha yeni bir işlem zaten karşılamış
 
-Kod: 500<br> İç sunucu hatası
+Kod: 500<br> İç Sunucu Hatası
 
 ```json
 {
@@ -606,7 +606,7 @@ Geçerli kullanıcı için bekleyen işlemleri listeler.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  Yetkilendirme     |  JSON web token (JWT) taşıyıcı belirteç.  |
@@ -641,7 +641,7 @@ Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
 
 Kod: 500<br>
-İç sunucu hatası
+İç Sunucu Hatası
 
 ```json
 {
@@ -669,7 +669,7 @@ Kullanıcının (abonelik/Aboneliği Kaldır/Değiştir planı) belirtilen tetik
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  Yetkilendirme     | JSON web token (JWT) taşıyıcı belirteç.  |
@@ -703,7 +703,7 @@ Hatalı istek doğrulama hataları
 Kod: 403<br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli kullanıcıya ait olmayan bir alım erişmeye çalışıyor.
  
-Kod: 500<br> İç sunucu hatası
+Kod: 500<br> İç Sunucu Hatası
 
 ```json
 {

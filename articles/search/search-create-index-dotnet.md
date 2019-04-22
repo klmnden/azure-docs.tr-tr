@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269053"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 1 - Azure Search dizini oluşturmaC#
@@ -78,7 +78,7 @@ Alternatif olarak, başvurabilirsiniz [bir .NET uygulamasından Azure Search kul
 
 ## <a name="2---create-a-client"></a>2 - bir istemci oluşturma
 
-Azure Search .NET SDK'sını kullanmaya başlamak için bir örneğini oluşturmak `SearchServiceClient` sınıfı. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials` api anahtarınızı sarmalar.
+Azure Search .NET SDK'sını kullanmaya başlamak için bir örneğini oluşturmak `SearchServiceClient` sınıfı. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials`, api anahtarınızı sarmalar.
 
 Aşağıdaki kodu Program.cs dosyasında bulunabilir. Yeni bir oluşturur `SearchServiceClient` arama hizmeti adına ve uygulamanın yapılandırma dosyasında (appsettings.json) depolanan API anahtarı için değerleri kullanarak.
 
@@ -93,7 +93,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 }
 ```
 
-`SearchServiceClient` `Indexes` özelliğine sahiptir. Bu özellik Azure Search dizinlerini oluşturmanız, listelemeniz, güncelleştirmeniz veya silmeniz için gereken tüm yöntemleri sağlar.
+`SearchServiceClient`, `Indexes` özelliğine sahiptir. Bu özellik Azure Search dizinlerini oluşturmanız, listelemeniz, güncelleştirmeniz veya silmeniz için gereken tüm yöntemleri sağlar.
 
 > [!NOTE]
 > `SearchServiceClient` sınıfı, arama hizmetinize yönelik bağlantıları yönetir. Çok fazla bağlantı açmayı önlemek için, mümkünse uygulamanızda tek bir `SearchServiceClient` örneği paylaşmaya çalışmanız gerekir. Yöntemlerinin iş parçacığı bu tür paylaşımları etkinleştirmek için güvenlidir.

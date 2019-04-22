@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274799"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
@@ -252,7 +252,7 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
   Doğrulayıcı düğüm depolama performansı|Dağıtılan Doğrulayıcı düğümler yedekleme yönetilen diskin türü.|Standart SSD veya Premium|Standart SSD
   Doğrulayıcı düğüm sanal makine boyutu|Doğrulayıcı düğümleri için kullanılan sanal makine boyutu.|Standart bir standart D, standart D-v2, standart F serisi, standart DS ve standart FS|Standart D1 v2
 
-[Depolama Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Depolama fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 [Sanal makine fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 

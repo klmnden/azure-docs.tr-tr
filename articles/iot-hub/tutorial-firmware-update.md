@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008911"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Öğretici: Cihaz üretici yazılımı güncelleştirme işlemini uygulayın
@@ -115,10 +115,10 @@ Arka uç uygulaması şu yapılandırmayı oluşturur:
 
 Yapılandırma şu bölümlerden oluşur:
 
-* `content` Seçili cihazlara gönderilen istenen bellenim özelliklerini belirtir.
-* `metrics` üretici yazılımı güncelleştirme durumunu, bu raporu çalıştırmak için sorguları belirtir.
-* `targetCondition` üretici yazılımı güncelleştirmesini alacak cihazların seçer.
-* `priorty` Bu yapılandırma göreli önceliğini diğer yapılandırmalar için ayarlar.
+* `content`, seçilen cihazlara gönderilen cihaz yazılımının istenen özelliklerini belirtir.
+* `metrics`, cihaz yazılımı güncelleştirmesinin durumunu bildiren sorguları belirtir.
+* `targetCondition`, cihaz yazılımı güncelleştirmesini alacak cihazları seçer.
+* `priorty`, bu yapılandırmanın diğer yapılandırmalara göre önceliğini belirler.
 
 Arka uç uygulaması, istenen özellikleri ayarlayacak yapılandırmayı oluşturmak için aşağıdaki kodu kullanır:
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 Bu öğreticide bağlı cihazlarınıza, cihaz yazılımı güncelleştirme işlemi uygulamayı öğrendiniz. Cihaz bağlantısını test etmek için Azure IOT hub'ı portal araçları ve Azure CLI komutlarını kullanma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [IOT hub'ınızla bağlantıyı test etmek için sanal cihaz kullanma](tutorial-connectivity.md)
+> [IoT hub’ınızla bağlantıyı test etmek için bir sanal cihaz kullanma](tutorial-connectivity.md)

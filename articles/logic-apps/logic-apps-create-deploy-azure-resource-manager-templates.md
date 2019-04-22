@@ -11,19 +11,19 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357115"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile mantıksal uygulamaları dağıtma
 
 Mantıksal uygulamanızın dağıtılacağı bir Azure Resource Manager şablonu oluşturduktan sonra şablonunuzu bu yolla dağıtabilirsiniz:
 
-* [Azure portalı](#portal)
+* [Azure portal](#portal)
 * [Azure PowerShell](#powershell)
-* [Azure CLI'si](#cli)
+* [Azure CLI](#cli)
 * [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 * [Azure DevOps Azure işlem hatları](#azure-pipelines)
 
@@ -33,7 +33,7 @@ Mantıksal uygulamanızın dağıtılacağı bir Azure Resource Manager şablonu
 
 Otomatik olarak bir mantıksal uygulama şablonunu Azure'a dağıtmak için aşağıdaki seçebilirsiniz **azure'a Dağıt** , Azure portalında oturum açtıktan ve mantıksal uygulamanızla ilgili daha fazla bilgi ister düğmesi. Ardından, mantıksal uygulama şablonunu veya parametre gerekli değişiklikleri hale getirebilirsiniz.
 
-[![Dazure'a aşamasıyla](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Azure’a dağıtma](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Örneğin, Azure portalında oturum açtıktan sonra bu bilgiyi istenir:
 
@@ -122,4 +122,4 @@ Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.co
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Mantıksal uygulamaları izleme](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Mantıksal Uygulamaları izleme](../logic-apps/logic-apps-monitor-your-logic-apps.md)

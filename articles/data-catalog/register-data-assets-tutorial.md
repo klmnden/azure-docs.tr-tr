@@ -1,5 +1,5 @@
 ---
-title: Azure veri Kataloğu'nda veri varlıklarını kaydetme
+title: Azure Veri Kataloğu’ndaki veri varlıklarını kaydetme
 description: Azure veri Kataloğu'nda veri varlıklarını kaydetme
 author: markingmyname
 ms.author: maghan
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.openlocfilehash: e89bd4806e2bb2369c100e948be51dcf32f2e123
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362507"
 ---
-# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Öğretici: Azure veri Kataloğu'nda veri varlıklarını kaydetme
+# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Öğretici: Azure Veri Kataloğu’ndaki veri varlıklarını kaydetme
 
 Bu öğreticide, Azure SQL veritabanı örnekteki veri varlıklarını kataloğa kaydetmek için kayıt aracını kullanın. Kayıt, veri kaynağı ve içerdiği varlıklara ait adlar, türler ve konumlar gibi önemli yapısal meta verilerin ayıklanması ve meta verilerin kataloğa kopyalanması işlemidir. Veri kaynakları ve veri varlıkları olduğu yerde kalır, ancak katalog tarafından daha kolay bulunabilir ve anlaşılabilir hale getirilmeleri için meta veriler kullanılır.
 
@@ -253,7 +253,7 @@ Bu alıştırmada bağlantı bilgilerini kullanarak veri varlıklarını tümle�
 
 Bu alıştırmada Azure Veri Kataloğu kullanarak bulunan veri varlıklarına bağlandınız. Azure Veri Kataloğu portalı ile **Şurada Aç** menüsüne tümleştirilmiş istemci uygulamalarını kullanarak doğrudan bağlantı kurabilirsiniz. Ayrıca varlık meta verilerine dahil edilen bağlantı konumu bilgilerini kullanarak seçtiğiniz herhangi bir uygulamayla bağlantı kurabilirsiniz. Örneğin, bu öğreticide kaydedilen veri varlıklarındaki verilere erişmek için Azure SQL veritabanına bağlanmak için SQL Server Management Studio'yu kullanabilirsiniz.
 
-1. **SQL Server Management Studio**'yu açın.
+1. **SQL Server Management Studio**’yu açın.
 
 2. **Sunucuya Bağlan** iletişim kutusunda Azure Veri Kataloğu portalındaki **Özellikler** bölmesinde bulunan sunucu adını girin.
 

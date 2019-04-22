@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359733"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
@@ -56,7 +56,7 @@ Rezervasyon boyutu mevcut yakında-için--dağıtılabilir veya tek veritabanlar
     |Bölge      |SQL veritabanı tarafından kapsanan Azure bölgesini kapasite ayırma saklıdır.|
     |Dağıtım Türü|İçin ayırma satın almak istediğiniz SQL kaynak türü.|
     |Performans Katmanı|SQL veritabanı örnekleri için hizmet katmanı.
-    |Dönem        |Bir yıl veya üç yıl.|
+    |Sözleşme Dönemi        |Bir yıl veya üç yıl.|
     |Miktar    |SQL veritabanı içinde satın örneklerinin kapasite ayırma saklıdır. Fatura indirim almak SQL veritabanı örnekleri çalışan sayısını miktarıdır. Doğu ABD bölgesinde 10 SQL veritabanı örneğini çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
     |||
 
@@ -84,13 +84,13 @@ SQL veritabanı'nı yönetme hakkında bilgi edinmek için kapasite ayırma ayr�
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure Ayırmaları nedir?](../billing/billing-save-compute-costs-reservations.md)
-- [Azure ayırmalarını yönetme](../billing/billing-manage-reserved-vm-instance.md)
+- [Azure ayırmaları nelerdir?](../billing/billing-save-compute-costs-reservations.md)
+- [Azure Ayırmalarını yönetme](../billing/billing-manage-reserved-vm-instance.md)
 - [Azure ayırmaları indirim anlama](../billing/billing-understand-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

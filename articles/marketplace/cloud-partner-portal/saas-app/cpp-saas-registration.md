@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012943"
 ---
 # <a name="register-a-saas-application"></a>Bir SaaS uygulaması kaydetme
@@ -79,7 +79,7 @@ HTTP yöntemi
 
 *İstek URL'si*
 
-**https://login.microsoftonline.com/*{Tenantıd}*  /oauth2/belirteç**
+**https://login.microsoftonline.com/*{Tenantıd}*/oauth2/belirteç**
 
 *URI parametresi*
 

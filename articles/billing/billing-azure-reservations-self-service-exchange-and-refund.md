@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281990"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self Servis değişimleri ve Azure ayırmalar için para iadesi
@@ -86,7 +86,7 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 
 - Rezervasyon yönetme konusunda bilgi almak için bkz: [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md).
 - Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
-    - [Azure Ayırmaları nedir?](billing-save-compute-costs-reservations.md)
+    - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
     - [Azure'da ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
     - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
     - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)

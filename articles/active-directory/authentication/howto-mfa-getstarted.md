@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358118"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı bir Azure multi-Factor Authentication'ı planlama
@@ -98,7 +98,7 @@ Kuruluşlar, ağ kullanarak tanımlamak için koşullu erişim kullanmak öneril
    2. Ülkeler/bölgeler kullanıyorsanız
       1. Aşağı açılan menüsünü genişletin ve ülke veya bölgelerde bu adlandırılmış konumu tanımlamak istediğiniz seçin.
       2. Bilinmeyen alanlar dahil edilip edilmeyeceğini karar verin. Bilinmeyen alanlar, bir ülke/bölge ile eşleştirilemeyen IP adresleridir.
-7. **Oluştur**'a tıklayın.
+7. **Oluştur**'a tıklayın
 
 ## <a name="plan-authentication-methods"></a>Kimlik doğrulama yöntemleri planlama
 
@@ -195,7 +195,7 @@ Azure AD kiracınızın dışında yanlışlıkla kilitlenen önlemek önemlidir
    * İSTEĞE BAĞLI OLARAK: Güvenilen konumları yapılandırılmış veya adlandırılmış konumlar, dahil etmek veya ilkeden konumların dışlamak için belirtebilirsiniz.
 1. Altında **Grant**, emin **erişim ver** radyo düğmesi seçili.
     * İçin kutuyu **çok faktörlü kimlik doğrulaması gerektiren**.
-    * Tıklayın **seçin**.
+    * **Seç**'e tıklayın.
 1. Skip **oturumu** bölümü.
 1. Ayarlama **ilkesini etkinleştir** geç **üzerinde**.
 1. **Oluştur**’a tıklayın.
