@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893410"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
@@ -100,7 +100,7 @@ Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 | Gövde |body |HTTP istek gövdesi. |
 | Authentication |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
-**Çıkış ayrıntıları**
+**Çıkış Ayrıntıları**
 
 HTTP yanıtı
 
@@ -125,5 +125,5 @@ HTTP yanıtı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Diğer bağlayıcıları bulma](apis-list.md)

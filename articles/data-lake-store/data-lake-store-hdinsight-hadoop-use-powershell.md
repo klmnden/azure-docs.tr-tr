@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f78ad8d58bb1bc760a31b792b44a4a39ed25e1f3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880109"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure Data Lake depolama Gen1 (olarak, ek depolama alanı) ile bir HDInsight kümesi oluşturmak için Azure PowerShell'i kullanma
@@ -24,7 +24,7 @@ ms.locfileid: "58880109"
 > * [Portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [PowerShell'i kullanma (varsayılan depolama için)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [PowerShell'i kullanma (ek depolama için)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Resource Manager'ı kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Kaynak Yöneticisi'ni kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
@@ -55,7 +55,7 @@ HDInsight, Data Lake depolama Gen1 ile çalışacak şekilde yapılandırma Powe
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 * **Windows SDK'sı**. [Buradan](https://dev.windows.com/en-us/downloads) yükleyebilirsiniz. Bir güvenlik sertifikası oluşturmak için bunu kullanın.
 * **Azure Active Directory Hizmet sorumlusu**. Bu öğreticideki adımlar, Azure AD'de hizmet sorumlusu oluşturma hakkında yönergeler sağlar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir Azure AD Yöneticisi olarak, bu önkoşulu atlayın ve öğreticiyle devam edin.

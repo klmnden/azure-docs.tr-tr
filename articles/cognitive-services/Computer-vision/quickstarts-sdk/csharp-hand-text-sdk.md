@@ -12,10 +12,10 @@ ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878205"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Hızlı Başlangıç: Görüntü işleme kullanarak resimlerdeki el yazısı metinleri ayıklamak C# SDK'sı
@@ -205,4 +205,4 @@ Bkz: [hızlı başlangıç: El yazısı metinleri - REST, ayıklamak C# ](../Qui
 Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin.
 
 > [!div class="nextstepaction"]
-> [Görüntü işleme API'leri keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

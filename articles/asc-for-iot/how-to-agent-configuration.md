@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862786"
 ---
 # <a name="tutorial-configure-security-agents"></a>Öğretici: Güvenlik aracılarını yapılandırma
@@ -140,4 +140,4 @@ Varsayılan değerler doğru şemasında kullanılabilir [Github](https://aka.ms
 
 - [ASC için IOT önerilerini anlama](concept-recommendations.md)
 - [ASC IOT uyarılar için keşfetmek](concept-security-alerts.md)
-- [Ham güvenlik verilerine erişme](how-to-security-data-access.md)
+- [Erişim ham güvenlik verileri](how-to-security-data-access.md)

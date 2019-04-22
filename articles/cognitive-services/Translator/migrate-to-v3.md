@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916725"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
@@ -43,14 +43,14 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 | V2 API yöntemi   | V3 API uyumluluğu |
 |:----------- |:-------------|
-| `Translate`     | [Translate](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
+| `Translate`     | [Çevir](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Çevir](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Diller](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Diller](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Detect](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
+| `Detect`     | [Algılama](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Algılama](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Özelliği artık desteklenmiyor       |
 | `AddTranslationArray`    | Özelliği artık desteklenmiyor          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -141,7 +141,7 @@ Translator API sürümü yok çevirilerinizi bir kaydını oluşturur. Hiçbir z
 ## <a name="links"></a>Bağlantılar
 
 * [Microsoft gizlilik ilkesi](https://privacy.microsoft.com/privacystatement)
-* [Microsoft Azure Yasal Bilgiler](https://azure.microsoft.com/support/legal)
+* [Microsoft Azure yasal bilgiler](https://azure.microsoft.com/support/legal)
 * [Çevrimiçi hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Sonraki adımlar

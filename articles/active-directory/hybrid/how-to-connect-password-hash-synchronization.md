@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916385"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
@@ -143,6 +143,6 @@ Güvenlik ve FIPS hakkında daha fazla bilgi için bkz. [Azure AD parola karma e
 Parola Karması eşitleme ile ilgili sorunlar olup [parola karması eşitleme sorunlarını giderme](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 * [Parola Karması eşitleme için ADFS geçirmek için adım adım dağıtım planı Al](https://aka.ms/authenticationDeploymentPlan)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: dcac701f3c1b6d64a7017c31679c019b91103ba2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904738"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure İzleyici'de günlük verilerini çözümleme
@@ -35,7 +35,7 @@ Azure İzleyicisi'nde sorgular kullanacağını farklı yollar şunlardır:
 - **Panolar.** Herhangi bir sorgu sonuçlarını sabitleyebilirsiniz bir [Azure panosuna](../learn/tutorial-logs-dashboards.md) olan izin, günlük ve ölçüm verileri bir araya görselleştirip, isteğe bağlı olarak diğer Azure kullanıcıları ile paylaşın. 
 - **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](../platform/view-designer.md).  Günlük sorguları tarafından kullanılan verileri sağlar [kutucukları](../platform/view-designer-tiles.md) ve [görselleştirme bölümleri](../platform/view-designer-parts.md) her görünümde.  
 
-- **Dışarı aktarma.**  Aktardığınızda günlük verilerini Azure İzleyici'den Excel'e veya [Power BI](../platform/powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük sorgusu oluşturun.
+- **Dışarı aktarın.**  Aktardığınızda günlük verilerini Azure İzleyici'den Excel'e veya [Power BI](../platform/powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük sorgusu oluşturun.
 - **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell Betiği çalıştırabilirsiniz [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) günlük verilerini Azure İzleyici'den alınamadı.  Bu cmdlet, alınacak verileri belirlemek üzere bir sorgu gerektirir.
 - **Azure İzleyici günlüklerine API.**  [Azure İzleyici günlüklerine API](../platform/alerts-overview.md) çalışma alanından günlük verilerini almak herhangi bir REST API istemcisi sağlar.  API isteği almak için verileri belirlemek için Azure İzleyici'karşı çalışan bir sorgu içerir.
 

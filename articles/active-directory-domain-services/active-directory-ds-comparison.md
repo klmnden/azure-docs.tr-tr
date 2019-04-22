@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892305"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım örneği için doğru
@@ -34,7 +34,7 @@ Azure AD Domain Services'ı kullanmak karar vermek için aşağıdaki okuma malz
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Azure'da kendin YAP AD etki alanına Azure AD Domain Services karşılaştırması
 Aşağıdaki tabloda, Azure AD Domain Services'ı kullanarak azure'da kendi AD altyapınızı yönetme arasında bir karar vermenize yardımcı olur.
 
-| **Özellik** | **Azure AD Domain Services** | **Azure vm'lerde 'Kendin Yap ' türü AD** |
+| **Özellik** | **Azure AD etki alanı Hizmetleri** | **Azure vm'lerde 'Kendin Yap ' türü AD** |
 | --- |:---:|:---:|
 | [**Yönetilen hizmet**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Güvenli dağıtımlar**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Güvenli dağıtım yöneticisinin gerekir. |

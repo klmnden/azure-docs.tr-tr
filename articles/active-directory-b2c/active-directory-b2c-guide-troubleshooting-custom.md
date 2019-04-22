@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880653"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi çerçevesi sorunlarını giderme
@@ -44,7 +44,7 @@ XML kuralları incelenmesi yararlı bulabilirsiniz. Azure AD B2C, algıladığı
 Hata kod parçacığı: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType değeri yanlış veya içinde şema yok.
 * ClaimType değerleri dosyaları ilkesinde en az biri tanımlanmalıdır. 
-    Örneğin: `<ClaimType Id="socialIdpUserId">`
+    Örneğin, `<ClaimType Id="socialIdpUserId">`
 * ClaimType uzantıları dosyasında tanımlanır, ancak ayrıca temel dosya TechnicalProfile değerindeki kullanılır, temel dosyanın karşıya hatayla sonuçlanır.
 
 Hata kod parçacığı: `...makes a reference to a ClaimsTransformation with id...`

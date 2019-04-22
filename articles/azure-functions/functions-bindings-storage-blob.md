@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
 ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895858"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
 Bu makalede, Azure işlevleri'nde Azure Blob Depolama bağlamaları ile nasıl çalışılacağı açıklanmaktadır. Azure işlevleri destekler tetiklemek, giriş ve çıkış bağlamaları blobları için. Makale her bağlama için bir bölüm içerir:
 
-* [Blob tetikleyicisi](#trigger)
+* [BLOB tetikleyicisi](#trigger)
 * [BLOB giriş bağlama](#input)
 * [BLOB çıktı bağlaması](#output)
 
@@ -317,10 +317,10 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blobTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
-|**yön** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
-|**ad** | yok | İşlev kodunu blob temsil eden değişken adı. |
-|**yol** | **BlobPath** |[Kapsayıcı](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) izlemek için.  Olabilir bir [blob adı deseni](#trigger---blob-name-patterns). |
-|**bağlantı** | **Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
+|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı. |
+|**Yolu** | **BlobPath** |[Kapsayıcı](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) izlemek için.  Olabilir bir [blob adı deseni](#trigger---blob-name-patterns). |
+|**bağlantı** | **bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -334,8 +334,8 @@ C# ve C# betiği aşağıdaki parametre türleri için tetikleme blob kullanabil
 * `Byte[]`
 * JSON olarak seri hale getirilebilir bir POCO
 * `ICloudBlob`<sup>1</sup>
-* `CloudBlockBlob`<sup>1.</sup>
-* `CloudPageBlob`<sup>1.</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` bir C# sınıf kitaplığı'nda.
@@ -728,11 +728,11 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blob`. |
-|**yön** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
-|**ad** | yok | İşlev kodunu blob temsil eden değişken adı.|
-|**yol** |**BlobPath** | Blob yolu. |
-|**bağlantı** |**Bağlantı**| İçeren bir uygulama ayarı adı [depolama bağlantı dizesi](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) Bu bağlama için kullanılacak. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|yok | **Access** | Okuma yazma ya da olup olmadığını gösterir. |
+|**direction** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
+|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.|
+|**Yolu** |**BlobPath** | Blob yolu. |
+|**bağlantı** |**bağlantı**| İçeren bir uygulama ayarı adı [depolama bağlantı dizesi](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) Bu bağlama için kullanılacak. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -747,8 +747,8 @@ C# ve C# betiği aşağıdaki parametre türleri için blob giriş bağlama kull
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob`<sup>1</sup>
-* `CloudBlockBlob`<sup>1.</sup>
-* `CloudPageBlob`<sup>1.</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` bir C# sınıf kitaplığı'nda.
@@ -1062,11 +1062,11 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blob`. |
-|**yön** | yok | Ayarlanmalıdır `out` bir çıkış bağlaması için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
-|**ad** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
-|**yol** |**BlobPath** | Blobco yolu. |
-|**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|yok | **Access** | Okuma yazma ya da olup olmadığını gösterir. |
+|**direction** | yok | Ayarlanmalıdır `out` bir çıkış bağlaması için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
+|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
+|**Yolu** |**BlobPath** | Blobco yolu. |
+|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886004"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
@@ -34,10 +34,10 @@ Bu ayarlardan bazıları, MFA sunucusu, Azure mfa'yı veya her ikisi de uygulan�
 | ------- | ----------- |
 | Hesap kilitleme | Geçici olarak kilitleme hesaplar çok faktörlü kimlik doğrulaması hizmeti varsa çok fazla satırda kimlik doğrulama girişimlerini reddedildi. Bu özellik, yalnızca kimlik doğrulaması için PIN giren kullanıcılar için geçerlidir. (MFA sunucusu) |
 | [Kullanıcı engelle/engelini kaldır](#block-and-unblock-users) | MFA sunucusu (şirket içi) belirli kullanıcılar multi-Factor Authentication istekleri almak mümkün olmasını engellemek için kullanılır. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır. |
-| [Sahtekarlık uyarısı](#fraud-alert) | Doğrulama istekleri raporlamak için kullanıcıların özelliğiyle ilgili ayarları yapılandırın |
+| [Sahtekarlık Uyarısı](#fraud-alert) | Doğrulama istekleri raporlamak için kullanıcıların özelliğiyle ilgili ayarları yapılandırın |
 | Bildirimler | MFA sunucusu olay bildirimlerini etkinleştirin. |
 | [OATH belirteçleri](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Bulut tabanlı Azure mfa'yı ortamlarında, kullanıcıların OATH belirteçlerini yönetmek için kullanılır. |
-| [Telefon görüşmesi ayarları](#phone-call-settings) | Telefon aramaları ve Bulut ve şirket içi ortamlar için tebrikler ilgili ayarları yapılandırın. |
+| [Telefon araması ayarları](#phone-call-settings) | Telefon aramaları ve Bulut ve şirket içi ortamlar için tebrikler ilgili ayarları yapılandırın. |
 | Sağlayıcılar | Hesabınızla ilişkili bu var olan tüm kimlik doğrulama sağlayıcılarını gösterir. 1 Eylül 2018'den itibaren yeni kimlik doğrulama sağlayıcıları oluşturulmayabilir |
 
 ## <a name="manage-mfa-server"></a>MFA Sunucusunu yönet
@@ -47,7 +47,7 @@ Bu bölümde MFA sunucusu için yalnızca ayarlarıdır.
 | Özellik | Açıklama |
 | ------- | ----------- |
 | Sunucu ayarları | MFA Sunucusu'nu indirme ve ortamınızı başlatmak için etkinleştirme kimlik bilgileri oluştur |
-| [Bir kerelik geçiş](#one-time-bypass) | Sınırlı bir süre için iki aşamalı doğrulama gerçekleştirmeden kimlik doğrulama açmasına izin verin. |
+| [Bir kerelik atlama](#one-time-bypass) | Sınırlı bir süre için iki aşamalı doğrulama gerçekleştirmeden kimlik doğrulama açmasına izin verin. |
 | [Önbelleğe alma kuralları](#caching-rules) |  Önbelleğe alma, öncelikli olarak VPN gibi şirket içi sistemler, ilk isteği hala devam ederken birden fazla doğrulama isteği gönderdiğinizde kullanılır. Bu özellik, kullanıcı ilk doğrulama devam ediyor başarılı olduktan sonra otomatik olarak başarılı olması sonraki istekleri sağlar. |
 | Sunucu durumu | Sürüm, durum, IP ve son iletişim saat ve tarih dahil olmak üzere şirket içi MFA sunucularınızın durumunu görürsünüz. |
 

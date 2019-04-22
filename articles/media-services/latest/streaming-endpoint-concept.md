@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881027"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
@@ -42,7 +42,7 @@ Türler aşağıdaki tabloda açıklanmıştır:
 |Type|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
 |**Standart Akış Uç Noktası** (önerilen)|0|Varsayılan akış uç noktası olan bir **standart** yazın, ancak Premium türüne değiştirilebilir.<br/> Standart türü, neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türde giden bant genişliği otomatik olarak ölçeklendirilir. Bu tür bir akış uç noktası hizmetin performansını en fazla 600 MB / sn'dir. CDN'de önbelleğe video parçasının, akış uç noktası bant genişliği kullanmaz.<br/>Media Services, gereksinimleri çok yüksek olan müşteriler için kapasitenin en geniş internet kitlelerine göre ölçeklendirilmesini sağlayan **Premium** akış uç noktalarını sunar. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
-|**Premium akış uç noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
+|**Premium Akış Uç Noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
  
 ## <a name="comparing-streaming-types"></a>Akış türlerini karşılaştırma
 

@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894364"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F# Geliştirici Başvurusu
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 Aşağıdaki derlemeleri Azure işlevleri barındırma ortamı tarafından otomatik olarak eklenir:
 
-* `mscorlib`, 
+* `mscorlib`,
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -294,7 +294,7 @@ Yollar sağlar `#load` yönerge olan göreli konumunu, `.fsx` dosya.
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [F#Kılavuzu](/dotnet/articles/fsharp/index)
-* [Azure işlevleri için en iyi uygulamalar](functions-best-practices.md)
+* [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
 * [Azure işlevlerini test etme](functions-test-a-function.md)

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893359"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android Uygulaması oluşturma
@@ -71,10 +71,10 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 Projenizde başvurulan tüm destek paketlerinin aynı sürüme sahip olması gerektiğini unutmayın. [Azure Mobile Apps NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/), Android platformu için `Xamarin.Android.Support.CustomTabs` bağımlılığına sahiptir, yani projeniz daha yeni destek paketleri kullanıyorsa, çakışmaları önlemek için doğrudan gerekli sürüme sahip bu paketi yüklemeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Uygulamanıza çevrimdışı eşitleme özelliği ekleyin](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-android-get-started-users.md)
 * [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-android-get-started-push.md)
-* [Azure Mobile Apps için yönetilen istemci kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png

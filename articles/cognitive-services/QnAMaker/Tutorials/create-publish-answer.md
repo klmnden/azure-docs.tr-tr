@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877287"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Öğretici: Kullanarak C#, bilgi tabanı oluşturan sonra soru yanıtlayın
@@ -32,10 +32,10 @@ Bu öğretici, program aracılığıyla bilgi bankası (KB) oluşturup yayımlam
 
 Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
 
-* [Bilgi Bankası (kb) oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [İşlem ayrıntıları alın](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Bilgi Bankası ayrıntılarını Al](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Bilgi Bankası uç noktalarını alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
+* [Bilgi bankası (KB) oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Bilgi bankası ayrıntılarını alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
+* [Bilgi bankası taban uç noktalarını alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Yayımlama](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -158,7 +158,7 @@ Cevap oluşturulması amacıyla isteğin kimlik doğrulamasından geçirilmesi i
 
 |Üst bilgi adı|Üst bilgi değeri|
 |--|--|
-|Yetkilendirme|`Endpoint` + **Birincil uç nokta**<br>Örnek: `Endpoint xxxxxxx`<br>`Endpoint` metni ile birincil uç nokta değeri arasında boşluk olduğuna dikkat edin. 
+|Yetkilendirme|`Endpoint` + **birincil uç nokta**<br>Örnek: `Endpoint xxxxxxx`<br>`Endpoint` metni ile birincil uç nokta değeri arasında boşluk olduğuna dikkat edin. 
 
 İstek gövdesinde uygun JSON kodunun geçirilmesi gerekir:
 
@@ -248,4 +248,4 @@ Bilgi bankanız oluşturulduktan sonra Soru-Cevap Oluşturma Portalı’nızdaki
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Soru-cevap Oluşturucu (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Soru-Cevap Oluşturma (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -9,10 +9,10 @@ ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881741"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
@@ -988,7 +988,7 @@ FIPS uyumlu algoritmalar Windows üzerinde varsayılan olarak devre dışı bır
 Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ### <a name="azure-storage-documentation"></a>Azure depolama belgeleri:
-* [Azure Depolama’ya Giriş](../storage-introduction.md)
+* [Azure Depolama’ya giriş](../storage-introduction.md)
 * [Net'ten BLOB storage kullanma](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Dosya depolama'yı .NET kullanma](../storage-dotnet-how-to-use-files.md)
 * [Tablo depolama'yı .NET kullanma](../../cosmos-db/table-storage-how-to-use-dotnet.md)

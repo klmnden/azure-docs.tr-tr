@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905549"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Bir iç yük dengeleyici (ILB) uç noktası ile uygulama ağ geçidi yapılandırma
@@ -30,7 +30,7 @@ Bu makalede, öğreneceksiniz nasıl yapılır:
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Adresinden Azure portalında oturum açın <https://portal.azure.com>
+<https://portal.azure.com> adresinden Azure portalında oturum açın
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -70,7 +70,7 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
 3. Sanal makine için şu değerleri girin:
    - *myVM* - Sanal makinenin adı.
    - Yönetici kullanıcı adı için *azureuser*.
-   - *Azure123456!* girin.
+   - *Azure123456!* Parola.
    - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 4. **Tamam** düğmesine tıklayın.
 5. Seçin **DS1_V2** tıklayın ve sanal makine boyutu için **seçin**.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862374"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>IOT mimarisi için Azure Güvenlik Merkezi
@@ -57,7 +57,7 @@ Bu makalede, temel mimarisini ve ASC iş akışı IOT çözümü hakkında bilgi
 
 - [Hizmet önkoşulları](service-prerequisites.md)
 - [Başlarken](getting-started.md)
-- [Çözümünüzü yapılandırma](quickstart-configure-your-solution.md)
+- [Çözümünüzü yapılandırın](quickstart-configure-your-solution.md)
 - [IOT hub'ında güvenliğini etkinleştir](quickstart-onboard-iot-hub.md)
 - [ASC için IOT hakkında SSS](resources-frequently-asked-questions.md)
 - [ASC IOT güvenlik uyarıları](concept-security-alerts.md)

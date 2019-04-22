@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882081"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (Önizleme) çözümü Azure İzleyici'de
@@ -58,7 +58,7 @@ Bununla birlikte, meta verileri görüntülediğiniz için bunların kapsamlı b
 
 Wire Data verilerini Microsoft Bağımlılık Aracısı'ndan alır. Bağımlılık Aracısı'nı, Azure İzleyici, bağlantı için Log Analytics aracısını bağlıdır. Başka bir deyişle, bir sunucuya yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olması gerekir. Aşağıdaki tabloda Wire Data çözümü tarafından desteklenen bağlı kaynaklar açıklanır:
 
-| **Bağlı kaynak** | **Desteklenen** | **Açıklama** |
+| **Bağlı kaynak** | **Destekleniyor** | **Açıklama** |
 | --- | --- | --- |
 | Windows aracıları | Evet | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/agent-windows.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
 | Linux aracıları | Evet | Wire Data, Linux aracı bilgisayarlarından gelen verileri analiz eder ve toplar.<br><br> Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md), Linux aracıları Microsoft bağımlılık Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
@@ -187,7 +187,7 @@ Bağımlılık Aracısı, Windows çalıştıran bilgisayarlara InstallDependenc
 Windows çalıştıran her bilgisayara Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
 1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Windows bilgisayarlardan verileri toplama](../../azure-monitor/platform/agent-windows.md).
-2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısını indirmek ve ardından aşağıdaki komutu kullanarak çalıştırabilirsiniz: `InstallDependencyAgent-Windows.exe`
+2. Önceki bölümde verilen bağlantıyı kullanarak Windows Bağımlılık Aracısı'nı indirin ve ardından şu komutu kullanarak aracıyı çalıştırın: `InstallDependencyAgent-Windows.exe`
 3. Sihirbazı izleyerek aracıyı yükleyin.
 4. Dependency Agent başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -197,7 +197,7 @@ Komut satırından yüklemek için aşağıdaki tabloda yer alan seçenekleri ku
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Bayrağı** | **Açıklama** |
+| **Bayrak** | **Açıklama** |
 | --- | --- |
 | <code>/?</code> | Komut satırı seçeneklerinin listesini alır. |
 | <code>/S</code> | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
@@ -222,7 +222,7 @@ Yükleme bayraklarının listesini görmek için, yükleme programını aşağı
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Bayrağı** | **Açıklama** |
+| **Bayrak** | **Açıklama** |
 | --- | --- |
 | <code>-help</code> | Komut satırı seçeneklerinin listesini alır. |
 | <code>-s</code> | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
@@ -358,7 +358,7 @@ Aracılarınız yüklendikten ve siz çözümü yükledikten sonra, çalışma a
 
 Azure portalında Log Analytics çalışma alanınızın **Genel bakış** sayfasında **Wire Data 2.0** kutucuğuna tıklayarak Wire Data panosunu açın. Pano aşağıdaki tabloda gösterilen dikey pencereleri içerir. Her dikey pencerede, dikey pencerenin belirtilen kapsam ve zaman aralığına yönelik ölçütleriyle eşleşen en fazla 10 öğe listelenir. Dikey pencerenin altındaki **Tümünü göster**’e tıklayarak veya dikey pencere başlığına tıklayarak tüm kayıtları döndüren bir günlük araması yapabilirsiniz.
 
-| **Dikey penceresi** | **Açıklama** |
+| **Dikey pencere** | **Açıklama** |
 | --- | --- |
 | Ağ trafiğini yakalayan aracılar | Ağ trafiğini yakalayan aracıların sayısını gösterir ve trafiği yakalayan ilk 10 bilgisayarı listeler. <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code> günlük araması çalıştırmak için sayıya tıklayın. Yakalanan toplam bayt sayısını döndüren bir günlük araması çalıştırmak için listedeki bir bilgisayara tıklayın. |
 | Yerel Alt Ağlar | Aracıların keşfettiği yerel alt ağların sayısını gösterir.  Tüm alt ağları ve her birinden gönderilen bayt sayısını listeleyen bir <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> günlük araması çalıştırmak için sayıya tıklayın. Alt ağ üzerinden gönderilen toplam bayt sayısını döndüren bir günlük araması çalıştırmak için listedeki bir alt ağa tıklayın. |

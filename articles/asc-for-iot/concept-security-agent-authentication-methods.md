@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862922"
 ---
 # <a name="security-agent-authentication-methods"></a>Güvenlik aracı kimlik doğrulama yöntemleri 
@@ -63,11 +63,11 @@ Bu bağımsız değişkenler aşağıdaki tabloda belirtilmiştir.
 
 |Parametre|Açıklama|Seçenekler|
 |---------|---------------|---------------|
-|**identity**|Kimlik doğrulaması modu| **Modül** veya **cihaz**|
+|**Kimlik**|Kimlik doğrulaması modu| **Modül** veya **cihaz**|
 |**type**|Kimlik doğrulaması türü|**SymmetricKey** veya **SelfSignedCertificate**|
 |**dosya yolu**|Sertifika veya simetrik anahtarı içeren dosyanın tam yolunu mutlak| |
 |**gatewayHostname**|IOT Hub'ın FQDN'si|Örnek: ContosoIotHub.azure-devices.net|
-|**deviceId**|Cihaz Kimliği|Örnek: MyDevice1|
+|**cihaz kimliği**|Cihaz Kimliği|Örnek: MyDevice1|
 |**certificateLocationKind**|Sertifika depolama konumu|**YerelDosya** veya **Store**|
 
 
@@ -114,4 +114,4 @@ Düzen _LocalConfiguration.json_ şu parametrelerle:
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Güvenlik aracıları genel bakış](security-agent-architecture.md)
 - [Güvenlik aracı dağıtma](how-to-deploy-agent.md)
-- [Ham güvenlik verilerine erişme](how-to-security-data-access.md)
+- [Erişim ham güvenlik verileri](how-to-security-data-access.md)

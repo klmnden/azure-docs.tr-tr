@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884474"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen1 arasında veri kopyalamak için Distcp kullanma
 > [!div class="op_single_selector"]
-> * [DistCp kullanma](data-lake-store-copy-data-wasb-distcp.md)
-> * [AdlCopy kullanma](data-lake-store-copy-data-azure-storage-blob.md)
+> * [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
+> * [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
@@ -112,6 +112,6 @@ Taşınacak veri kümesi boyutu olduğunda büyük (örneğin, > 1 TB) veya bir�
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama](data-lake-store-copy-data-azure-storage-blob.md)
-* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

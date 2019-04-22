@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
 ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905860"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
@@ -145,7 +145,7 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
     **databaseName**, oluşturulacak veritabanı için bir ad belirtir. 
    
     ![Parametreleri Düzenle İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. Visual Studio örneğinin dışında bir PowerShell konsolu açılır. İstendiğinde PowerShell konsolunda SQL Server yönetici parolasını girin. **PowerShell konsolunuz diğer öğelerin arkasına gizlenmiş veya görev çubuğunda simge haline getirilmiş olabilir.** Bu konsolu arayın ve parolayı belirtmek için seçin.
+5. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. Visual Studio örneğinin dışında bir PowerShell konsolu açılır. İstendiğinde PowerShell konsolunda SQL Server yönetici parolasını girin. **PowerShell konsolunuz, diğer öğelerin arkasına gizlenmiş veya görev çubuğunda simge haline getirilmiş olabilir.** Bu konsolu arayın ve parolayı belirtmek için seçin.
    
    > [!NOTE]
    > Visual Studio, Azure PowerShell cmdlet'lerini yüklemenizi isteyebilir. İstenirse, bunları yükleyin. Kaynak gruplarını başarıyla dağıtmak için Azure PowerShell modülleri ihtiyacınız vardır. PowerShell betiğini projesinde yeni işe yaramazsa [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az). 

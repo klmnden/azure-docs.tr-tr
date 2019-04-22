@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895792"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
@@ -281,7 +281,7 @@ NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, b
 Azure App Service'te node.js uygulamaları hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
 
 * [Azure App Service’te Node.js web uygulamalarını kullanmaya başlama](app-service-web-get-started-nodejs.md)
-* [Azure App Service’teki bir Node.js web uygulamasına hata ayıklama](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Azure Uygulama Hizmeti’ndeki bir Node.js web uygulamasına hata ayıklama](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Azure uygulamalarıyla Node.js Modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web uygulamaları: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Geliştirici Merkezi](../nodejs-use-node-modules-azure-apps.md)

@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881163"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
-> * [Java'yı kullanma](data-lake-store-service-to-service-authenticate-java.md)
-> * [.NET SDK’sını kullanma](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Java kullanma](data-lake-store-service-to-service-authenticate-java.md)
+> * [.NET SDK’yı kullanma](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Python’u kullanma](data-lake-store-service-to-service-authenticate-python.md)
-> * [REST API kullanma](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [REST API’sini kullanma](data-lake-store-service-to-service-authenticate-rest-api.md)
 >
 >
 
@@ -54,8 +54,8 @@ Bu makalede, Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrula
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
    3. Aşağıdaki NuGet paketlerini arayıp yükleyin:
 
-      * `Microsoft.Azure.Management.DataLake.Store` -Bu öğreticide v2.1.3-preview kullanılır.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Bu öğreticide v2.2.12 kullanılır.
+      * `Microsoft.Azure.Management.DataLake.Store` - Bu öğreticide v2.1.3-preview kullanılır.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.2.12 kullanılır.
 
         ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **NuGet Paket Yöneticisi**'ni kapatın.

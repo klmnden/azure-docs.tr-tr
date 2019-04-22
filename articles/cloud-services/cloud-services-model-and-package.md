@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917320"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Bulut hizmeti modeli ve nasıl paketi nedir?
@@ -92,7 +92,7 @@ Azure'da bulut hizmeti çalışır duruma geçtikten sonra üzerinden yeniden ya
 
 Başvurabilirsiniz [Hizmet tanım düzenini](/previous-versions/azure/reference/ee758711(v=azure.100)) bir daha iyi burada kullanılan XML Şeması anlamak için ancak burada, bazı öğeleri hızlı bir açıklaması:
 
-**Siteler**  
+**Siteleri**  
 IIS7'de barındırılan Web siteleri veya web uygulamaları için tanımları içerir.
 
 **InputEndpoints**  

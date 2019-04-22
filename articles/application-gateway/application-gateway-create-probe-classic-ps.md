@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861888"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Özel bir araştırma için Azure uygulama ağ geçidi (Klasik) PowerShell kullanarak oluşturma
@@ -153,8 +153,8 @@ Yapılandırma parametreleri şunlardır:
 |**Ad** |Özel araştırma için başvuru adı. |
 | **Protokol** | Kullanılan protokol (olası değerler: HTTP veya HTTPS).|
 | **Konak** ve **yolu** | Örneğinin durumunu belirlemek için uygulama ağ geçidi tarafından çağrılan tam URL yolu. Örneğin, bir Web sitesi http varsa:\//için contoso.com/ sonra özel araştırma yapılandırılabilir "http:\//contoso.com/path/custompath.htm" başarılı HTTP yanıt için araştırma denetimleri için.|
-| **Interval** | Saniye cinsinden yoklama aralığı denetimleri yapılandırır.|
-| **Zaman Aşımı** | Bir HTTP yanıt denetimi için yoklama zaman aşımı tanımlar.|
+| **Aralık** | Saniye cinsinden yoklama aralığı denetimleri yapılandırır.|
+| **zaman aşımı** | Bir HTTP yanıt denetimi için yoklama zaman aşımı tanımlar.|
 | **UnhealthyThreshold** | Başarısız HTTP yanıtlarını arka uç örnek olarak işaretlemek için gereken sayıda *sağlıksız*.|
 
 Araştırma adı başvurulduğundan \<BackendHttpSettings\> hangi arka uç havuzuna atamak için yapılandırma özel araştırma ayarlarını kullanır.

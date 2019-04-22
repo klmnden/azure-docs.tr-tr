@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862225"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Hızlı Başlangıç: Bir azureiotsecurity modül ikizi oluşturma
@@ -67,7 +67,7 @@ Bir güvenlik modül ikizi belirli bir cihaz için olup olmadığını doğrulam
 
 1. Azure IOT hub'ına, seçin **IOT cihazları** gelen **gezginler** menüsü.    
 1. Cihaz kimliği girin veya bir seçenek belirleyin **sorgu cihazı alanına** tıklatıp **sorgu cihazları**. 
-    ![Cihazları sorgulama](./media/quickstart/verify-security-module-twin.png)
+    ![Sorgu cihazlar](./media/quickstart/verify-security-module-twin.png)
 1. Cihazı seçin veya çift cihaz ayrıntıları sayfasına açmak için tıklayın. 
 1. Seçin **modülü kimlikleri** menüsünde ve varlığını onaylamak **azureiotsecurity** cihazla ilişkilendirilmiş modülü kimlikleri listesinde modülü. 
     ![Bir cihazla ilişkili modüller](./media/quickstart/verify-security-module-twin-3.png)

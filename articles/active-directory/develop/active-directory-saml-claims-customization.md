@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878579"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
@@ -64,7 +64,7 @@ Gelen **belirleyin adı tanımlayıcı biçimi** açılır listesinde, aşağıd
 | **Varsayılan** | Azure AD, varsayılan kaynak biçimini kullanır. |
 | **Kalıcı** | Azure AD kalıcı Nameıd biçimi kullanır. |
 | **EmailAddress** | Azure AD EmailAddress Nameıd biçimi kullanır. |
-| **Belirtilmedi** | Azure AD belirtilmemiş Nameıd biçimi kullanır. |
+| **Belirtilmemiş** | Azure AD belirtilmemiş Nameıd biçimi kullanır. |
 | **Geçici** | Azure AD, geçici Nameıd biçimi kullanır. |
 
 NameIDPolicy özniteliği hakkında daha fazla bilgi için bkz. [tek oturum açma SAML Protokolü](single-sign-on-saml-protocol.md).
@@ -117,13 +117,13 @@ Talep dönüştürmeleri işlevleri de kullanabilirsiniz.
 | **Contains()** | Giriş belirtilen değerle eşleşiyorsa, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Örneğin, bir talep değeri olduğu kullanıcının e-posta adresi etki alanını içeriyorsa yayma istiyorsanız "@contoso.com", kullanıcı asıl adı çıktısını almak istediğiniz Aksi takdirde. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.email<br/>*Değer*: "@contoso.com"<br/>Parametre 2 (çıkış): user.email<br/>Parametre 3 (eşleşme yoksa çıkış): user.userprincipalname |
 | **EndWith()** | Belirtilen değerle giriş sona ererse, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>EmployeeID "000" ile bitiyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.employeeid<br/>*Değer*: "000"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
 | **StartWith()** | Giriş belirtilen değerle başlayıp başlamadığını öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Ülke "ABD" ile başlıyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: Resource.country<br/>*Değer*: "BİZE"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
-| **Eşleşen sonra Extract()-** | Belirtilen değerle eşleşen sonra alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon" ise, eşleşen değeri olan "Finance_" sonra "BSimon" talebin çıkışı yapılır. |
+| **Extract() - After matching** | Belirtilen değerle eşleşen sonra alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon" ise, eşleşen değeri olan "Finance_" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Before matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "BSimon_US" ise, eşleşen değeri olan "_US" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Between matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon_US" ise, ilk eşleşen değeri olan "Finance_", ikinci eşleşen değeri olan "_US" ve ardından "BSimon" talebin çıkışı yapılır. |
 | **ExtractAlpha() - Prefix** | Dize öneki alfabetik bölümünü döndürür.<br/>Girdinin değer "BSimon_123" ise, örneğin, ardından "BSimon" döndürür. |
 | **ExtractAlpha() - soneki** | Dize soneki alfabetik bölümünü döndürür.<br/>Girdinin değer "123_Simon" ise, örneğin, ardından "BSimon" döndürür. |
 | **ExtractNumeric() - Prefix** | Dize öneki sayısal bölümü döndürür.<br/>Girdinin değer "123_BSimon" ise, örneğin, ardından "123" döndürür. |
-| **ExtractNumeric() - soneki** | Dizesinin soneki sayısal bölümü döndürür.<br/>Girdinin değer "BSimon_123" ise, örneğin, ardından "123" döndürür. |
+| **ExtractNumeric() - Suffix** | Dizesinin soneki sayısal bölümü döndürür.<br/>Girdinin değer "BSimon_123" ise, örneğin, ardından "123" döndürür. |
 | **IfEmpty()** | Giriş null veya boş ise, öznitelik veya sabiti çıkarır.<br/>Örneğin, EmployeeID belirli bir kullanıcı için boş ise bir extensionattribute içinde depolanan bir öznitelik çıkış istiyorsanız. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>Parametre 1(input): user.employeeid<br/>Parametre 2 (çıkış): user.extensionattribute1<br/>Parametre 3 (eşleşme yoksa çıkış): user.employeeid |
 | **IfNotEmpty()** | Giriş null veya boş değilse, öznitelik veya sabiti çıkarır.<br/>Örneğin, EmployeeID belirli bir kullanıcı için boş değilse bir extensionattribute içinde depolanan bir öznitelik çıkış istiyorsanız. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>Parametre 1(input): user.employeeid<br/>Parametre 2 (çıkış): user.extensionattribute1 |
 

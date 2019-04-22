@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895758"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performans ve ölçek dayanıklı işlevler (Azure işlevleri)
@@ -244,4 +244,4 @@ Beklediğiniz üretilen iş sayısı ve CPU görmediğinizden ve bellek kullanı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [İçinde dayanıklı ilk işlevinizi oluşturmaC#](durable-functions-create-first-csharp.md)
+> [C# dilinde ilk dayanıklı işlevinizi oluşturma](durable-functions-create-first-csharp.md)

@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883403"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search Dizin Oluşturucu kullanarak Cosmos DB dizinleme
@@ -25,7 +25,7 @@ Terimleri kafanızı karıştırabilir olduğundan, hatalarının ayıklanabilec
 
 Kullanabileceğiniz [portalı](#cosmos-indexer-portal), Cosmos içeriği dizini oluşturmak için REST API'leri veya .NET SDK'sı. Azure Search'te Cosmos DB dizinleyici gezinebileceği [Azure Cosmos öğeleri](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) bu protokolleri aracılığıyla erişilebilir:
 
-* [SQL API’si](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
+* [SQL API'Sİ](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API'si](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (genel Önizleme modundadır bu API için Azure arama desteği)  
 
 > [!Note]
@@ -171,10 +171,10 @@ Bir veri kaynağı oluşturmak için bir POST isteği düzenleme:
 
 | Alan   | Açıklama |
 |---------|-------------|
-| **ad** | Gereklidir. Veri kaynağı nesnesinin temsil etmek için herhangi bir ad seçin. |
+| **Adı** | Gereklidir. Veri kaynağı nesnesinin temsil etmek için herhangi bir ad seçin. |
 |**type**| Gereklidir. Olmalıdır `documentdb`. |
-|**kimlik bilgileri** | Gereklidir. Bir Cosmos DB bağlantı dizesi olmalıdır.<br/>SQL koleksiyonlar için bağlantı dizesi bu biçimdedir: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB koleksiyonu için ekleyin **api türü MongoDb =** bağlantı dizesi:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Uç nokta URL'si bağlantı noktası numaralarını kaçının. Bağlantı noktası numarası dahil, Azure Search, Azure Cosmos DB veritabanının dizinini oluşturmak mümkün olmayacaktır.|
-| **kapsayıcı** | Aşağıdaki öğeleri içerir: <br/>**Ad**: Gereklidir. Sıralanacak veritabanı koleksiyonu kimliği belirtin.<br/>**Sorgu**: İsteğe bağlı. Azure Search'ün dizin bir düz şemasına rastgele bir JSON belgesi düzleştirmek için sorgu belirtebilirsiniz.<br/>MongoDB koleksiyonlar, sorgular desteklenmez. |
+|**Kimlik bilgileri** | Gereklidir. Bir Cosmos DB bağlantı dizesi olmalıdır.<br/>SQL koleksiyonlar için bağlantı dizesi bu biçimdedir: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB koleksiyonu için ekleyin **api türü MongoDb =** bağlantı dizesi:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Uç nokta URL'si bağlantı noktası numaralarını kaçının. Bağlantı noktası numarası dahil, Azure Search, Azure Cosmos DB veritabanının dizinini oluşturmak mümkün olmayacaktır.|
+| **Kapsayıcı** | Aşağıdaki öğeleri içerir: <br/>**Ad**: Gereklidir. Sıralanacak veritabanı koleksiyonu kimliği belirtin.<br/>**Sorgu**: İsteğe bağlı. Azure Search'ün dizin bir düz şemasına rastgele bir JSON belgesi düzleştirmek için sorgu belirtebilirsiniz.<br/>MongoDB koleksiyonlar, sorgular desteklenmez. |
 | **dataChangeDetectionPolicy** | Önerilir. Bkz: [değiştirilen belgeler dizin](#DataChangeDetectionPolicy) bölümü.|
 |**dataDeletionDetectionPolicy** | İsteğe bağlı. Bkz: [silinen belgeler dizin](#DataDeletionDetectionPolicy) bölümü.|
 

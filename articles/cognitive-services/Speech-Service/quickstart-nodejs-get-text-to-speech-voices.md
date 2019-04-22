@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887108"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak metin okuma seslerini'nın listesini alın
@@ -27,7 +27,7 @@ Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.mic
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* [Düğüm 8.12.x veya üzeri](https://nodejs.org/en/)
+* [Node 8.12.x veya üzeri](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
 * Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin! ](get-started.md).
 
@@ -150,6 +150,6 @@ Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bil
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Metin okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Metin Okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)
 * [Özel ses oluşturma kayıt ses örnekleri](record-custom-voice-samples.md)

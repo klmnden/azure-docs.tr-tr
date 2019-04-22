@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917235"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Bir bulut hizmeti güncelleştirme
@@ -188,5 +188,5 @@ Aşağıdaki diyagramda, nasıl iki rol içeren bir hizmet dağıtılmış iki y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)  
-[Bulut Hizmetlerini İzleme](cloud-services-how-to-monitor.md)  
-[Bulut Hizmetleri Yapılandırma](cloud-services-how-to-configure-portal.md)  
+[Bulut hizmetleri nasıl izlenir?](cloud-services-how-to-monitor.md)  
+[Cloud Services’ı Yapılandırma](cloud-services-how-to-configure-portal.md)  

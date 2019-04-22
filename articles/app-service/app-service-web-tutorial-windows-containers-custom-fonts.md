@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904075"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows kapsayıcısı kullanarak bir ASP.NET uygulamasını Azure App Service'e geçirme (Önizleme)
@@ -31,7 +31,7 @@ ms.locfileid: "58904075"
 
 Bu öğreticiyi tamamlamak için:
 
-- <a href="https://hub.docker.com/" target="_blank">Docker Hub hesabı için kaydolun</a>
+- <a href="https://hub.docker.com/" target="_blank">Docker Hub hesabı için kaydolma</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker for Windows'u yükleyin</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows kapsayıcılarını çalıştırmak için Docker’a geçiş yapın</a>.
 - **ASP.NET ve web geliştirme** ve **Azure geliştirme** iş yükleriyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin. Visual Studio 2017'yi zaten yüklediyseniz:
@@ -119,10 +119,10 @@ Yeni kapsayıcı kayıt defterini aşağıdaki tabloda bulunan değerleri kullan
 
 | Ayar  | Önerilen değer | Daha fazla bilgi edinmek için |
 | ----------------- | ------------ | ----|
-|**DNS ön eki**| Oluşturulan kayıt defteri adını kullanın veya benzersiz bir adla değiştirin. |  |
+|**DNS Ön Eki**| Oluşturulan kayıt defteri adını kullanın veya benzersiz bir adla değiştirin. |  |
 |**Kaynak Grubu**| **Yeni**'ye tıklayın, **myResourceGroup** yazın ve **Tamam**'a tıklayın. |  |
 |**SKU**| Temel | [Fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/container-registry/)|
-|**Kayıt defteri konumu**| Batı Avrupa | |
+|**Kayıt Defteri Konumu**| Batı Avrupa | |
 
 ![Azure Container Registry yapılandırması](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
@@ -144,7 +144,7 @@ Oluşturma arabirimindeki ayarları aşağıdaki tabloya göre yapılandırın:
 | ----------------- | ------------ | ----|
 |**Uygulama Adı**| Benzersiz bir ad yazın. | Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, uygulamanızın adıdır. |
 |**Kaynak Grubu**| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** yazın. |  |
-|**İşletim Sistemi**| Windows (Önizleme) | |
+|**OS**| Windows (Önizleme) | |
 
 ### <a name="configure-app-service-plan"></a>App Service planını yapılandırma
 

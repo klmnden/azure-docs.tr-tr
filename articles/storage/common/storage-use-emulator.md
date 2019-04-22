@@ -9,10 +9,10 @@ ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878596"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
@@ -169,7 +169,7 @@ Seçenek listesini görüntülemek için komut satırına `/help` yazın.
 
 | Seçenek | Açıklama | Komut | Bağımsız Değişkenler |
 | --- | --- | --- | --- |
-| **Başlatma** |Depolama öykünücüsü'kurmak başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: Yeni bir işlem oluşturmak yerine geçerli işlemdeki öykünücüyü başlatın. |
+| **Start** |Depolama öykünücüsü'kurmak başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: Yeni bir işlem oluşturmak yerine geçerli işlemdeki öykünücüyü başlatın. |
 | **Durdur** |Depolama öykünücüsü durdurur. |`AzureStorageEmulator.exe stop` | |
 | **Durum** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
 | **Temizle** |Komut satırında belirtilen tüm hizmetleri verileri temizler. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: Blob verileri temizler. <br/>*Kuyruk*: Kuyruk verileri temizler. <br/>*Tablo*: Temizler, veri tablosu. <br/>*Tüm*: Tüm hizmetlerdeki tüm verileri temizler. |

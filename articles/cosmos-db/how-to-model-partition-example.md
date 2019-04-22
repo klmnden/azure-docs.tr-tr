@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919619"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
@@ -550,7 +550,7 @@ function truncateFeed() {
 | **[Q2]** | 9 ms / 19.54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
 | **[Q3]** | 130 ms / 619.41 RU | 28 ms / 201.54 RU | 4 ms / 6.46 RU |
 | **[C3]** | 7 ms / 8.57 RU | 7 ms / 15.27 RU | 7 ms / 15.27 RU |
-| **[Q4]** | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
+| **[4]** | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
 | **[C4]** | 6 ms / 7.05 RU | 7 ms / 14.67 RU | 7 ms / 14.67 RU |
 | **[Q5]** | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
 | **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
@@ -573,6 +573,6 @@ Tüm bunları güncelleştirmeleri kalıcı olarak başka bir kapsayıcı deposu
 
 Pratik veri modelleme ve bölümleme bu giriş sonra kapsamına kavramlarını gözden geçirmek için aşağıdaki makaleleri denetlemekte isteyebilirsiniz:
 
-- [Veritabanları, kapsayıcılar ve öğelerle çalışma](databases-containers-items.md)
-- [Azure Cosmos DB bölümleme](partitioning-overview.md)
+- [Veritabanları, kapsayıcılar ve öğeleri ile çalışma](databases-containers-items.md)
+- [Azure Cosmos DB'de bölümleme](partitioning-overview.md)
 - [Azure Cosmos DB'de akış değiştirme](change-feed.md)

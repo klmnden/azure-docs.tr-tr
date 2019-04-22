@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904636"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
@@ -45,7 +45,7 @@ Denetim aşamasında pek çok kuruluş bulmak:
 * Ağ bağlantısı her etki alanında en az bir etki alanı denetleyicisi ile en az bir sunucu arasında parola koruması için proxy hizmeti barındıran mevcut olması gerekir. Bu RPC uç nokta Eşleyici bağlantı noktası 135 ve RPC sunucusu bağlantı noktası proxy hizmetine erişmek etki alanı denetleyicisi bağlanmaya izin vermelidir. Varsayılan olarak, dinamik bir RPC bağlantı noktası RPC sunucusu bağlantı noktası olduğu halde şekilde yapılandırılabilir [statik bağlantı noktasını](#static).
 * Proxy hizmeti barındıran tüm makinelerin aşağıdaki uç noktalarına ağ erişimi olması gerekir:
 
-    |**Uç Nokta**|**Amaç**|
+    |**Uç noktası**|**Amacı**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Kimlik doğrulama istekleri|
     |`https://enterpriseregistration.windows.net`|Azure AD parola koruması işlevi|

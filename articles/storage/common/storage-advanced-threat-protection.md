@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904126"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure Depolama için Gelişmiş Tehdit Koruması
 
-Azure depolama için Gelişmiş tehdit koruması, ek bir erişim veya depolama hesapları yararlanma olağan dışı ve zararlı olabilecek girişimleri algılar güvenlik zekası katmanı sağlar. Bu koruma katmanı tehditlerle Uzman güvenlik veya güvenlik izleme sistemlerine yönetmek zorunda kalmadan olanak tanır. 
+Azure Depolama için Gelişmiş Tehdit Koruması, depolama hesaplarına erişmeye veya güvenlik açıklarından yararlanmaya yönelik sıra dışı, zararlı olabilecek girişimleri algılayan güvenlik zekasına sahip ek bir güvenlik katmanı sağlar. Bu koruma katmanı tehditlerle Uzman güvenlik veya güvenlik izleme sistemlerine yönetmek zorunda kalmadan olanak tanır. 
 
 Güvenlik Uyarıları, anomalileri etkinliğinde meydana geldiğinde tetiklenir.  Bu güvenlik uyarıları ile tümleşik olduğu [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)ve ayrıca şüpheli etkinlik ve öneriler tehdit araştırma ve düzeltme konusunda ayrıntılarıyla abonelik yöneticilerine e-postayla gönderilir.
 
@@ -80,7 +80,7 @@ Oluşturmak, güncelleştirmek veya belirli bir depolama hesabına için Gelişm
 
 Aşağıdaki PowerShell cmdlet'lerini kullanın:
 
-  * [Gelişmiş Tehdit Koruması'nı Etkinleştir](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Gelişmiş tehdit korumasını etkinleştirin](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Gelişmiş tehdit koruması](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Gelişmiş tehdit koruması devre dışı bırak](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

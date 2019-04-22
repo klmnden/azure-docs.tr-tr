@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880619"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL geçiş ve uygulama geliştirme iş ortakları
@@ -19,14 +19,14 @@ Uygulama geliştirme için NoSQL geçiş, Azure Cosmos DB çözümlerinizi deste
 
 ## <a name="migration-tools"></a>Geçiş araçları
 
-|**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**İletişim**  |
+|**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**lgili kişi**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Veri geçişi](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) Azure Cosmos DB için MongoDB öğesinden. <br/> Imanis verilerin hızlı ve kolay bir şirket içi geçirmek veya Azure Cosmos DB için MongoDB veritabanları bulut açıdan sağlar. Imanis veri geçişini basitleştirir ve kapalı kalma süresini önemli ölçüde azaltır MongoDB veri depoları için bir bulut aracısız, devamlı artımlı geçiş yaklaşımı sunar.|  ABD  |   [Web sitesi](http://www.imanisdata.com/)      |
 |![Striim][2]    |  [Azure Cosmos DB için gerçek zamanlı veri taşıma](https://www.striim.com/striim-for-azure-cosmos-db/) çeşitli veri kaynakları. <br/> Şirket içi kaynakları, Kurumsal belge ve ilişkisel veritabanları, algılayıcılar ve günlük dosyaları, Azure Cosmos DB'ye dahil olmak üzere çok sayıda farklı veri taşımayı ve gerçek zamanlı koleksiyonu Striim basitleştirir. |   ABD   |  [Web sitesi](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Sistemleri Tümleştirici iş ortakları
 
-|**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**İletişim**  |
+|**İş ortağı**  |**Yeteneklerini ve deneyimini**  |**Desteklenen ülkeler**  |**lgili kişi**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL geçiş; Yeni uygulama geliştirme | ABD | [Web sitesi](https://www.10thmagnitude.com/)|
 |![Altoros geliştirme LLC][3]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |   ABD, Norveç, Finlandiya, Belarus, Arjantin |  [Web sitesi](https://www.altoros.com/)     |

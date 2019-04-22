@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895892"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
@@ -77,7 +77,7 @@ Veri çıktıları ve bunların biçimleri ile çalışmak için yerleşik eylem
 |   |   | 
 |---|---| 
 | [![Yerleşik simgeyi][data-operations-icon]<br/>**veri işlemleri**][data-operations-doc] | Veri işlemlerini gerçekleştirin: <p>- **Compose**: Tek bir çıkış çeşitli türleri ile birden çok giriş oluşturun. <br>- **CSV tablosu oluşturma**: Bir dizi JSON nesnesi içeren bir virgülle ayrılmış değer (CSV) tablo oluşturun. <br>- **HTML tablosu oluşturma**: Bir dizi JSON nesnesi içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: Ölçütlerinizi karşılayan öğeleri başka bir dizide bir dizi oluşturun. <br>- **Birleştirme**: Bir dizideki tüm öğeler bir dize oluşturma ve bu öğeler belirtilen bir sınırlayıcı ile ayırın. <br>- **JSON Ayrıştır**: Bu özellikler, iş akışında kullanabilmeniz için kullanıcı dostu belirteçleri özelliklerini ve değerlerini JSON içeriği oluşturun. <br>- **Seçin**: Bir dizi, öğeleri veya başka bir dizideki değerleri dönüştürme ve öğelerle eşleme için belirtilen özellikleri JSON nesneleriyle oluşturun. | 
-| ![Yerleşik simgesi][date-time-icon]<br/>**Tarih/Saat** | Zaman damgalı işlemleri gerçekleştirin: <p>- **Saate Ekle**: Bir zaman damgası için belirtilen birim sayısını ekleyin. <br>- **Saat dilimini Dönüştür**: Bir zaman damgasını kaynak saat diliminden hedef saat dilimine dönüştürür. <br>- **Geçerli saati**: Geçerli zaman damgasını dize olarak döndürür. <br>- **Gelecekteki saat Al**: Yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. <br>- **Geçmişteki saati Al**: Belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. <br>- **Saatten çıkar**: Bir zaman damgası saat birimleri sayısı çıkarın. |
+| ![Yerleşik simgesi][date-time-icon]<br/>**Tarih saat** | Zaman damgalı işlemleri gerçekleştirin: <p>- **Saate Ekle**: Bir zaman damgası için belirtilen birim sayısını ekleyin. <br>- **Saat dilimini Dönüştür**: Bir zaman damgasını kaynak saat diliminden hedef saat dilimine dönüştürür. <br>- **Geçerli saati**: Geçerli zaman damgasını dize olarak döndürür. <br>- **Gelecekteki saat Al**: Yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. <br>- **Geçmişteki saati Al**: Belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. <br>- **Saatten çıkar**: Bir zaman damgası saat birimleri sayısı çıkarın. |
 | [![Yerleşik simgeyi][variables-icon]<br/>**değişkenleri**][variables-doc] | Değişkenleri ile işlemleri gerçekleştirin: <p>- **Dizi değişkenine Ekle**: Bir dizi değişkeni tarafından depolanan son öğe olarak değer Ekle. <br>- **Dize değişkenine Ekle**: Bir değişkeni tarafından depolanan bir dizedeki son karakter olarak değer Ekle. <br>- **Değişkeni Azalt**: Bir değişken bir sabit değere göre azaltın. <br>- **Artış değişkeni**: Bir değişken bir sabit değere göre artırın. <br>- **Değişkeni başlatmak**: Bir değişken oluşturun ve başlangıç değeri ve veri türü bildirin. <br>- **Değişken Ayarla**: Farklı bir değer var olan bir değişkene atayın. |
 |  |  | 
 
@@ -176,7 +176,7 @@ Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya si
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bulma [bağlayıcılar tam listesi](https://docs.microsoft.com/connectors)
-* [İlk mantıksal uygulamanızı oluşturun](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Logic apps için özel bağlayıcılar oluşturma](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Mantıksal uygulamalar için özel API’ler oluşturma](../logic-apps/logic-apps-create-api-app.md)
 

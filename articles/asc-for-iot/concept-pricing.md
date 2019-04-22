@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862718"
 ---
 # <a name="pricing-and-associated-costs"></a>Fiyatlandırma ve ilişkili maliyetler
@@ -85,6 +85,6 @@ Aşağıdaki tabloda, ilişkili maliyetlerin bir özetini ve her seçeneğin etk
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - Erişim, [ham güvenlik verileri](how-to-security-data-access.md)
-- [Cihazı araştırma](how-to-investigate-device.md)
+- [Bir cihaz araştırın](how-to-investigate-device.md)
 - Anlama ve keşfetme [güvenlik önerileri](concept-recommendations.md)
 - Anlama ve keşfetme [güvenlik uyarıları](concept-security-alerts.md)

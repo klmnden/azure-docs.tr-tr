@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58889847"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
@@ -33,10 +33,10 @@ Farklı işlevleri nasıl uygulayabileceğine ilişkin aşağıdaki örneklerde 
 
 | Örnek senaryo | Tetikleyici | Giriş bağlama | Çıktı bağlaması |
 |-------------|---------|---------------|----------------|
-| Yeni bir kuyruk iletisi, başka bir kuyruğa yazmak için bir işlev çalıştığı ulaşır. | Kuyruk<sup>*</sup> | *None* | Kuyruk<sup>*</sup> |
+| Yeni bir kuyruk iletisi, başka bir kuyruğa yazmak için bir işlev çalıştığı ulaşır. | Kuyruk<sup>*</sup> | *Yok.* | Kuyruk<sup>*</sup> |
 |Zamanlanmış bir iş, Blob Depolama içerikleri okur ve yeni bir Cosmos DB belgesini oluşturur. | Zamanlayıcı | Blob Depolama | Cosmos DB |
 |Event Grid, Blob Depolama ve Cosmos DB belge e-posta göndermek için bir görüntü okumak için kullanılır. | Event Grid | BLOB Depolama ve Cosmos DB | SendGrid |
-| Bir Excel sayfası güncelleştirmek için Microsoft Graph'ı kullanan bir Web kancası. | HTTP | *None* | Microsoft Graph |
+| Bir Excel sayfası güncelleştirmek için Microsoft Graph'ı kullanan bir Web kancası. | HTTP | *Yok.* | Microsoft Graph |
 
 <sup>\*</sup> Farklı kuyruklara temsil eder
 
@@ -90,7 +90,7 @@ Bağlamaları önizlemededir veya üretim kullanımı için onaylanmış olan ha
 - [Bağlama ifadesi kaydetme](./functions-bindings-register.md)
 - Test:
   - [Kodunuzu Azure işlevleri'nde test stratejileri](functions-test-a-function.md)
-  - [HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma](functions-manually-run-non-http.md)
+  - [El ile olmayan HTTP ile tetiklenen bir işlev çalıştırın](functions-manually-run-non-http.md)
 - [Bağlama hataları işleme](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

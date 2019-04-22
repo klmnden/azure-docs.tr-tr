@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878409"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps ile IBM DB2 kaynaklarını yönetme
@@ -88,8 +88,8 @@ Bağlantınızı kurmak için istendiğinde bu bağlantı ayrıntılarını sağ
 | **Şirket içi ağ geçidi üzerinden Bağlan** | Hayır | Yalnızca şirket içi bağlantıları için geçerlidir. |
 | **Bağlantı Adı** | Evet | Örneğin, "MyLogicApp-DB2-connection" bağlantınız için bir ad |
 | **Sunucu** | Evet | DB2 sunucunuz, örneğin, "myDB2server.cloudapp.net:50000" için adres veya diğer adı iki nokta üst üste bağlantı noktası numarası <p><p>**Not**: Bu değer bir TCP/IP adresi temsil eden bir dize ya da IPv4 veya IPv6 biçiminde ya da diğer adını ardından bir iki nokta üst üste ve bir TCP/IP bağlantı noktası numarası. |
-| **Database** | Evet | Veritabanı adı <p><p>**Not**: Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeridir: <p>-DB2 z/OS için burada veritabanı bir "Z/OS için IBM DB2" konumu olarak bilinen bir 16 bayt dizesini kabul eder. <br>-DB2 i burada veritabanı olarak bilinen bir 18 bayt dizesini kabul eder için bir "için IBM DB2 miyim" ilişkisel veritabanı. <br>-LUW DB2 8 baytlık dizisi kabul eder. |
-| **Kullanıcı adı** | Evet | Veritabanı kullanıcı adı <p><p>**Not**: Bu değer, uzunluğu belirli bir veritabanını temel alan bir dizedir: <p><p>-Z/OS için DB2 8 baytlık dizisi kabul eder. <br>-DB2 için i bir 10 bayt dizesini kabul eder. <br>-Linux veya UNIX için DB2 8 baytlık dizisi kabul eder. <br>-Windows için DB2 30-bayt dizesini kabul eder. |
+| **Veritabanı** | Evet | Veritabanı adı <p><p>**Not**: Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeridir: <p>-DB2 z/OS için burada veritabanı bir "Z/OS için IBM DB2" konumu olarak bilinen bir 16 bayt dizesini kabul eder. <br>-DB2 i burada veritabanı olarak bilinen bir 18 bayt dizesini kabul eder için bir "için IBM DB2 miyim" ilişkisel veritabanı. <br>-LUW DB2 8 baytlık dizisi kabul eder. |
+| **Kullanıcı Adı** | Evet | Veritabanı kullanıcı adı <p><p>**Not**: Bu değer, uzunluğu belirli bir veritabanını temel alan bir dizedir: <p><p>-Z/OS için DB2 8 baytlık dizisi kabul eder. <br>-DB2 için i bir 10 bayt dizesini kabul eder. <br>-Linux veya UNIX için DB2 8 baytlık dizisi kabul eder. <br>-Windows için DB2 30-bayt dizesini kabul eder. |
 | **Parola** | Evet | Veritabanı parolası |
 ||||
 
@@ -108,9 +108,9 @@ Bağlantınızı oluşturmadan önce zaten yüklü, şirket içi veri ağ geçid
 | **Şirket içi ağ geçidi üzerinden Bağlan** | Evet | Bir şirket içi bağlantı istediğinizde uygular ve şirket içi bağlantı özelliklerini gösterir. |
 | **Bağlantı Adı** | Evet | Örneğin, "MyLogicApp-DB2-connection" bağlantınız için bir ad | 
 | **Sunucu** | Evet | DB2 sunucunuz, örneğin, "myDB2server:50000" için adres veya diğer adı iki nokta üst üste bağlantı noktası numarası <p><p>**Not**: Bu değer bir TCP/IP adresi temsil eden bir dize ya da IPv4 veya IPv6 biçiminde ya da diğer adını ardından bir iki nokta üst üste ve bir TCP/IP bağlantı noktası numarası. |
-| **Database** | Evet | Veritabanı adı <p><p>**Not**: Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeridir: <p>-DB2 z/OS için burada veritabanı bir "Z/OS için IBM DB2" konumu olarak bilinen bir 16 bayt dizesini kabul eder. <br>-DB2 i burada veritabanı olarak bilinen bir 18 bayt dizesini kabul eder için bir "için IBM DB2 miyim" ilişkisel veritabanı. <br>-LUW DB2 8 baytlık dizisi kabul eder. |
-| **Authentication** | Evet | Bağlantınız için örneğin, "Temel" kimlik doğrulaması türü <p><p>**Not**: Bu değer, temel veya Windows (Kerberos) içeren listeden seçin. |
-| **Kullanıcı adı** | Evet | Veritabanı kullanıcı adı <p><p>**Not**: Bu değer, uzunluğu belirli bir veritabanını temel alan bir dizedir: <p><p>-Z/OS için DB2 8 baytlık dizisi kabul eder. <br>-DB2 için i bir 10 bayt dizesini kabul eder. <br>-Linux veya UNIX için DB2 8 baytlık dizisi kabul eder. <br>-Windows için DB2 30-bayt dizesini kabul eder. |
+| **Veritabanı** | Evet | Veritabanı adı <p><p>**Not**: Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeridir: <p>-DB2 z/OS için burada veritabanı bir "Z/OS için IBM DB2" konumu olarak bilinen bir 16 bayt dizesini kabul eder. <br>-DB2 i burada veritabanı olarak bilinen bir 18 bayt dizesini kabul eder için bir "için IBM DB2 miyim" ilişkisel veritabanı. <br>-LUW DB2 8 baytlık dizisi kabul eder. |
+| **Kimlik doğrulaması** | Evet | Bağlantınız için örneğin, "Temel" kimlik doğrulaması türü <p><p>**Not**: Bu değer, temel veya Windows (Kerberos) içeren listeden seçin. |
+| **Kullanıcı Adı** | Evet | Veritabanı kullanıcı adı <p><p>**Not**: Bu değer, uzunluğu belirli bir veritabanını temel alan bir dizedir: <p><p>-Z/OS için DB2 8 baytlık dizisi kabul eder. <br>-DB2 için i bir 10 bayt dizesini kabul eder. <br>-Linux veya UNIX için DB2 8 baytlık dizisi kabul eder. <br>-Windows için DB2 30-bayt dizesini kabul eder. |
 | **Parola** | Evet | Veritabanı parolası |
 | **Ağ geçidi** | Evet | Yüklü şirket içi veri ağ geçidi adı <p><p>**Not**: Listeden Azure aboneliğinizi ve kaynak grubu içindeki tüm yüklenen veri ağ geçitlerini içerir. Bu değeri seçin. |
 ||||

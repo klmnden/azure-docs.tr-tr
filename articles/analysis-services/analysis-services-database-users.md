@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891693"
 ---
 # <a name="manage-database-roles-and-users"></a>Veritabanı rolleri ve kullanıcıları yönetme
@@ -45,7 +45,7 @@ Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yön
   
     |İzin|Açıklama|  
     |----------------|-----------------|  
-    |**None**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
+    |**Yok.**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
     |**Okuma**|Üyeler (satır filtreleri temel alarak) verileri sorgulayabilirsiniz ancak model şeması değiştiremezsiniz.|  
     |**Okuma ve işleme**|Üye verileri (bağlı olarak satır düzeyi filtreleri) ve çalıştırma işlemi ve işlemin tüm işlemleri sorgulayabilirsiniz ancak model şeması değiştirilemez.|  
     |**İşlem**|Üye işlemi ve işlemin tüm işlemleri de çalıştırabilirsiniz. Model şeması değiştirilemez ve verileri sorgulayamaz.|  

@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904874"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
@@ -440,11 +440,11 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 
 | Azure depolama alanı veya özelliği | Azure İzleyici özelliği günlüğe kaydeder. | Açıklama |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
+| **saat** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
 | **resourceId** | **Kaynak** | Azure Cosmos DB hesabı için Günlükleri etkinleştirildi.|
-| **category** | **Kategori** | Azure Cosmos DB günlükleri **DataPlaneRequests** yalnızca bir değerdir. |
-| **operationName** | **OperationName** | İşlemin adı. Bu değer, aşağıdaki işlemlerden birini olabilir: Oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütün, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
-| **properties** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
+| **Kategori** | **Kategori** | Azure Cosmos DB günlükleri **DataPlaneRequests** yalnızca bir değerdir. |
+| **OperationName** | **OperationName** | İşlemin adı. Bu değer, aşağıdaki işlemlerden birini olabilir: Oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütün, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
+| **Özellikleri** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
 | **activityId** | **activityId_g** | Oturum işlemi için benzersiz GUID. |
 | **UserAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimdir {kullanıcı aracısı adı} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Erişilen kaynak türü. Bu değer, aşağıdaki kaynak türlerinden herhangi birinde olabilir: Veritabanı, kapsayıcı, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
@@ -453,7 +453,7 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 | **clientIpAddress** | **clientIpAddress_s** | İstemcinin IP adresi. |
 | **requestCharge** | **requestCharge_s** | İşlem tarafından kullanılan RU sayısı |
 | **collectionRid** | **collectionId_s** | Koleksiyon için benzersiz kimliği.|
-| **süre** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
+| **Süresi** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
 | **requestLength** | **requestLength_s** | İstek, bayt cinsinden uzunluğu. |
 | **responseLength** | **responseLength_s** | Yanıtın bayt cinsinden uzunluğu.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Bu değer boş olduğunda [kaynak belirteçleri](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) kimlik doğrulaması için kullanılır. Değer, kullanıcının kaynak Kimliğini işaret eder. |

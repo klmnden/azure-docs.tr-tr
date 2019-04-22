@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904194"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory özelliği dağıtım kılavuzu
@@ -46,7 +46,7 @@ Bu aşamada, yöneticilerin almak veya normal kullanıcı hesapları oluşturmad
 | [Birden fazla genel yönetici belirleyin](../users-groups-roles/directory-emergency-access.md) | Acil ise kullanmak için en az iki kalıcı yalnızca bulut genel yönetici hesabı atayın. Bu hesaplar olmayan günlük kullanılması ve uzun ve karmaşık parolalar sahip olmalıdır. | Azure AD Ücretsiz |
 | [Mümkün olduğunda genel olmayan yönetici rollerini kullanın](../users-groups-roles/directory-assign-admin-roles.md) | Yöneticiler, yalnızca ihtiyaç duydukları erişim alanlara yalnızca ihtiyaç duydukları erişim verin. Tüm yöneticilerin genel yönetici olması gerekir. | Azure AD Ücretsiz |
 | [Yönetici rolü kullanımını izleme için Privileged Identity Management'ı etkinleştir](../privileged-identity-management/pim-getting-started.md) | Yönetim rolü kullanımı izlemeye başlamak Privileged Identity Management'ı etkinleştirin. | Azure AD Premium P2 |
-| [Self Servis parola sıfırlama Aktar](../authentication/howto-sspr-deployment.md) | Personel ilkelerini kullanarak kendi parolalarını sıfırlamasına izin vererek parola sıfırlamaları için Yardım Masası aramalarını azaltır, bir yönetici denetimi. | Azure AD Basic |
+| [Self servis parola sıfırlamayı dağıtma](../authentication/howto-sspr-deployment.md) | Personel ilkelerini kullanarak kendi parolalarını sıfırlamasına izin vererek parola sıfırlamaları için Yardım Masası aramalarını azaltır, bir yönetici denetimi. | Azure AD Basic |
 | [Bir kuruluşun belirli özel yasaklı parola listesi oluşturma](../authentication/howto-password-ban-bad-configure.md) | Kullanıcıların, genel sözcükleri veya tümcecikleri kuruluş veya alan dahil parolalar oluşturmasını engeller. | Azure AD Basic |
 | [Azure AD parola koruması ile şirket içi tümleştirmeyi etkinleştir](../authentication/concept-password-ban-bad-on-premises.md) | Şirket küme parolaları da genel uyumlu olduğundan emin olmak için şirket içi dizininize yasaklı parola listesi genişletin ve parola listesi kiracıya özgü yasaklandı. | Azure AD Premium P1 |
 | [Microsoft'un parola kılavuzunu etkinleştirin](https://www.microsoft.com/research/publication/password-guidance/) | Kullanıcıların parolalarını ayarlanan zamanlamada, karmaşıklık gereksinimlerini devre dışı bırakın ve kullanıcılarınızın gerektiren durdurma parolalarını unutmayın ve bunları güvenli bir şey tutun daha apt. | Azure AD Ücretsiz |

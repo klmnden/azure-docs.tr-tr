@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915773"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator metin çevirisi API'si 3.0: Languages
@@ -93,7 +93,7 @@ Başarılı yanıt, istenen her grup için bir özelliği olan bir JSON nesnesid
 
 Her bir özellik değeri aşağıdaki gibidir.
 
-* `translation` özellik
+* `translation` Özelliği
 
   Değerini `translation` özelliktir (anahtar, değer) sözlüğü çiftleri. Her bir BCP 47 dil etiketi anahtardır. Bir anahtar için metin için çevrilmiş veya yapabilirsiniz den çevrilen bir dil tanımlar. Anahtarıyla ilişkilendirilmiş değeri, dil tanımlayan özelliklere sahip bir JSON nesnesidir:
 
@@ -119,7 +119,7 @@ Her bir özellik değeri aşağıdaki gibidir.
   }
   ```
 
-* `transliteration` özellik
+* `transliteration` Özelliği
 
   Değerini `transliteration` özelliktir (anahtar, değer) sözlüğü çiftleri. Her bir BCP 47 dil etiketi anahtardır. Bir anahtar için metin bir komut dosyasından başka bir betiğe dönüştürülebilir bir dil tanımlar. Anahtarıyla ilişkilendirilmiş değeri, dil ve desteklenen, komut dosyaları tanımlayan özelliklere sahip bir JSON nesnesidir:
 
@@ -184,7 +184,7 @@ Her bir özellik değeri aşağıdaki gibidir.
   }
   ```
 
-* `dictionary` özellik
+* `dictionary` Özelliği
 
   Değerini `dictionary` özelliktir (anahtar, değer) sözlüğü çiftleri. Her bir BCP 47 dil etiketi anahtardır. Anahtar alternatif çevirileri ve arka çevirileri kullanılabilir olduğu bir dil tanımlar. Kaynak dili ve kullanılabilir çevirileri hedef dillerle açıklayan bir JSON nesnesi değerdir:
 
@@ -281,7 +281,7 @@ Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTT
 
 Aşağıdaki örnekte, metin çevirisi için desteklenen dilleri alınacak gösterilmektedir.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[Curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

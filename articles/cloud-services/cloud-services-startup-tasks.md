@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917626"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Yapılandırma ve bulut hizmeti için başlangıç görevleri çalıştırma
@@ -128,13 +128,13 @@ Aşağıdaki özniteliklerini açıklayan **görev** öğesinde [ServiceDefiniti
 ## <a name="environment-variables"></a>Ortam değişkenleri
 Ortam değişkenleri, başlangıç görevine eklenmesi bilgi geçirmek için bir yoludur. Örneğin, içeren bir program yüklemek için blob veya rolünüz kullanacağı bağlantı noktası numaralarını ve başlangıç göreviniz özellikleri denetlemek için ayarları yol yerleştirebilirsiniz.
 
-Başlangıç görevleri için ortam değişkenlerini iki çeşit vardır; statik değişkenler ve ortam değişkenlerini göre üyelerinde [RoleEnvironment] sınıfı. Hem bulunan [ortam] bölümünü [ServiceDefinition.csdef] dosya ve her iki kullanımı [değişken] öğesi ve **adı** özniteliği.
+Başlangıç görevleri için ortam değişkenlerini iki çeşit vardır; statik değişkenler ve ortam değişkenlerini göre üyelerinde [RoleEnvironment] sınıfı. Hem bulunan [ortam] bölümünü [ServiceDefinition.csdef] dosya ve her iki kullanımı [Değişkeni] öğesi ve **adı** özniteliği.
 
-Statik ortam değişkenlerini kullanan **değer** özniteliği [değişken] öğesi. Yukarıdaki örnekte ortam değişkenini oluşturur **MyVersionNumber** statik değeri olan "**1.0.0.0**". Başka bir örnek oluşturmak olacaktır bir **StagingOrProduction** değerleri el ile ayarlayabileceğiniz ortam değişkeni "**hazırlama**"veya"**üretim**" gerçekleştirmek için farklı başlatma eylemleri değerini temel alarak **StagingOrProduction** ortam değişkeni.
+Statik ortam değişkenlerini kullanan **değer** özniteliği [Değişkeni] öğesi. Yukarıdaki örnekte ortam değişkenini oluşturur **MyVersionNumber** statik değeri olan "**1.0.0.0**". Başka bir örnek oluşturmak olacaktır bir **StagingOrProduction** değerleri el ile ayarlayabileceğiniz ortam değişkeni "**hazırlama**"veya"**üretim**" gerçekleştirmek için farklı başlatma eylemleri değerini temel alarak **StagingOrProduction** ortam değişkeni.
 
-Ortam değişkenlerini RoleEnvironment sınıfın üyelerinde tabanlı kullanmayın **değer** özniteliği [değişken] öğesi. Bunun yerine, [RoleInstanceValue] uygun alt öğesi **XPath** öznitelik değeri, belirli bir üye üzerinde temel bir ortam değişkenini oluşturmak için kullanılan [ RoleEnvironment] sınıfı. Değerleri **XPath** çeşitli erişmek için öznitelik [RoleEnvironment] değerleri bulunabilir [burada](cloud-services-role-config-xpath.md).
+Ortam değişkenlerini RoleEnvironment sınıfın üyelerinde tabanlı kullanmayın **değer** özniteliği [Değişkeni] öğesi. Bunun yerine, [RoleInstanceValue] uygun alt öğesi **XPath** öznitelik değeri, belirli bir üye üzerinde temel bir ortam değişkenini oluşturmak için kullanılan [RoleEnvironment] sınıfı. Değerleri **XPath** çeşitli erişmek için öznitelik [RoleEnvironment] değerleri bulunabilir [burada](cloud-services-role-config-xpath.md).
 
-Örneğin, bir ortam değişkenini oluşturmak için "**true**" işlem öykünücüsünde örnek çalışırken ve "**false**" bulutta çalışırken, aşağıdaki kullanması [değişkeni ] ve [RoleInstanceValue] öğeleri:
+Örneğin, bir ortam değişkenini oluşturmak için "**true**" işlem öykünücüsünde örnek çalışırken ve "**false**" bulutta çalışırken, aşağıdaki kullanması [Değişkeni] ve [RoleInstanceValue] öğeleri:
 
 ```xml
 <Startup>
@@ -163,8 +163,8 @@ Bazı gerçekleştirmeyi öğreneceksiniz [genel başlangıç görevleri](cloud-
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Görev]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Başlangıç]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Çalışma Zamanı]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Çalışma zamanı]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ortam]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Değişken]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Değişkeni]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

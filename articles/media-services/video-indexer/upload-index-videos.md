@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893461"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
@@ -85,9 +85,9 @@ Müşterinin (bir POST isteği kullanılarak) aşağıdaki olaylar hakkında bil
 
 Ham veya dış kayıtlar arka plan gürültüsü içeriyorsa bu parametreyi kullanın. Bu parametre, dizinleme işlemini yapılandırmak için kullanılır. Aşağıdaki değerleri belirtebilirsiniz:
 
-- `Default` – Dizin ve ses ve video hem kullanarak Öngörüler ayıklayın
-- `AudioOnly` – Dizin ve ses yalnızca (göz ardı video) kullanarak Öngörüler ayıklayın
-- `DefaultWithNoiseReduction` – Dizin ve ses akışı gürültü azaltma algoritmalar uygularken ses hem video içgörüleri ayıklayın
+- `Default`: Ses ve videoyu kullanarak öngörüler ayıklayın ve bunları dizinleyin
+- `AudioOnly`: Yalnızca ses kullanarak (videoyu yok sayarak) öngörüler ayıklayın ve bunları dizinleyin
+- `DefaultWithNoiseReduction`: Ses akışına gürültü azaltma algoritmaları uygulayarak ses ve videodan öngörüler ayıklayın ve bunları dizinleyin
 
 Fiyat, seçilen dizinleme seçeneğine bağlıdır.  
 

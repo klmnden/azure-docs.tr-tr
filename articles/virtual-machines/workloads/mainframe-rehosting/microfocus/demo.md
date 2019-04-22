@@ -6,10 +6,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892492"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın
@@ -270,6 +270,6 @@ Tebrikler! Micro odak kuruluş sunucusu kullanarak Azure'da bir CICS uygulaması
 
 - [Kuruluş sunucusu, Azure üzerinde Docker kapsayıcılarında çalıştırın](run-enterprise-server-container.md)
 - [Ana bilgisayar geçişi - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Sanal Makineler](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Sorun giderme](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Ana bilgisayardan Azure’a geçişi daha iyi anlama](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Azure'a geçiş için ana bilgisayar demystifying](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -8,10 +8,10 @@ ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877650"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB faturanızı anlama
@@ -94,7 +94,7 @@ Ekleme/Azure bölgeleri dünyanın her yerinden Azure Cosmos DB veritabanı hesa
 
 Batı ABD bölgesinde bir Azure Cosmos kapsayıcımız varsayalım. Kapsayıcı 10 K RU/sn aktarım hızı ile oluşturulur ve bu ay 1 TB veri depoladınız. Üç bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) eklediğiniz Azure Cosmos hesabınıza her aynı depolama ve üretilen iş hacmiyle varsayalım. Aylık toplam faturanız (ayda varsayılıyor 30 gün) olacaktır. Faturanız şu şekilde olacaktır: 
 
-|**Öğe** |**Kullanım (aylık)** |**Fiyat** |**Aylık Maliyet** |
+|**Öğesi** |**Kullanım (aylık)** |**Oranı** |**Aylık maliyet** |
 |---------|---------|---------|-------|
 |Batı ABD’deki kapsayıcı için aktarım hızı faturası      | 10 K RU/sn * 24 * 30    |saat başına 100 RU/sn başına $0.008   |$576|
 |3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için aktarım hızı faturası       | 3 * 10K RU/sn * 24 * 30    |saat başına 100 RU/sn başına $0.008  |$1,728|
@@ -108,7 +108,7 @@ Batı ABD bölgesinde bir Azure Cosmos kapsayıcımız varsayalım. Kapsayıcı 
 
 Batı ABD bölgesinde bir Azure Cosmos kapsayıcısı oluşturma varsayalım. Kapsayıcı 10 K RU/sn aktarım hızı ile oluşturulur ve bu ay 1 TB veri depoladınız. Üç bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) eklediğiniz varsayalım ile aynı depolama ve aktarım hızını ve her birinin istediğiniz kapsayıcılarına, Azure Cosmos hesabınızla ilişkili tüm bölgelerde yazma olanağı. Aylık toplam faturanız (30 günlük ay gibi varsayılarak olması):
 
-|**Öğe** |**Kullanım (aylık)**|**Fiyat** |**Aylık Maliyet** |
+|**Öğesi** |**Kullanım (aylık)**|**Oranı** |**Aylık maliyet** |
 |---------|---------|---------|-------|
 |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası       | 10 K RU/sn * 24 * 30    |0,016 başına saat başına 100 RU/sn    |$1,152 |
 |3 ek bölge - Doğu ABD, Kuzey Avrupa ve Doğu Asya (tüm bölgeler yazılabilir) için aktarım hızı faturası        | (3 + 1) * 10 K RU/sn * 24 * 30    |0,016 başına saat başına 100 RU/sn   |$4,608 |
@@ -178,7 +178,7 @@ Görsel olarak toplam sağlanan aktarım hızı 720 saatliğine ay sırasında y
 
 (30 gün/720 saat bir ay içinde varsayılarak) toplam aylık faturanız şu şekilde hesaplanan değer:
 
-|**Saat**  |**RU/sn** |**Öğe** |**Kullanım (saatlik)** |**Maliyet** |
+|**saat**  |**RU/sn** |**Öğesi** |**Kullanım (saatlik)** |**Maliyet** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
@@ -194,7 +194,7 @@ Görsel olarak toplam sağlanan aktarım hızı 720 saatliğine ay sırasında y
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
 |[701-720] |D1:20K <br/>D2:50K <br/>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
-|| |**Aylık Toplam Maliyet**  | |**$38,688**   |
+|| |**Toplam aylık maliyet**  | |**$38,688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Proaktif olarak aylık faturanızı tahmin etme  
 
@@ -218,7 +218,7 @@ Faturanız ayın son önce proaktif olarak tahmin etmek istediğiniz başka bir 
 
 Toplam RU/sn: 500 + 400 = saatlik maliyet 900: 900/100 * $0.008 = $0.072 beklenen aylık Maliyet (31 gün varsayılarak) aktarım hızı: $0.072 * 24 * 31 $53.57 =
 
-**Aylık Toplam Maliyet**
+**Toplam aylık maliyet**
 
 Toplam aylık ücret = aylık depolama maliyeti + toplam aylık maliyet aktarım hızı için aylık ücret = $25.00 + $53.57 $78.57 =
 
@@ -234,7 +234,7 @@ Azure Cosmos DB ayrılmış kapasite tüm Azure Cosmos DB veritabanları ve kaps
 
 Toplam faturanız (olmadan ayrılmış Kapasite) (varsayılıyor 30 gün veya saat 720) şöyle olacaktır: 
 
-|**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birim (RU/sn)**|**Faturalandırılan Tutar (saatlik)**| **Faturalandırılan Tutar (aylık)**|
+|**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birimleri (RU/sn)**|**Faturalandırılan miktar (saat)**| **Faturalandırılan miktar (aylık)**|
 |----|----|----|----|----|
 |Doğu ABD|$0.008 |50 BİN|$4|$2,880 |
 |Japonya Doğu|$0.009 |50 BİN| $4.50 |$3,240 |
@@ -248,7 +248,7 @@ Ayrılmış kapasite bunun yerine, satın aldığınız olduğunu düşünelim. 
 
 Etkili bir şekilde önceden satın aldıklarınızı 8 saatte 100 K RU/sn'ye 6.40 saat başına fiyatına Doğu ABD, liste fiyatı kullanarak kredi olur. Ardından bu ön ödemeli aktarım hızı ayırma sağlanan aktarım hızı kapasitesi herhangi genel bir Azure bölgesinde fiyatlarla ilgili bölgesel listesi için aboneliği ayarlamak için saatlik olarak çizebilirsiniz. Bu örnekte, burada sağladığınız 50 K RU/sn her Doğu ABD, Doğu Japonya, $8.00 değerinde saat başına sağlanan aktarım hızının çizmek mümkün olacaktır ve olacak her saat (veya $360/ay) 0,50 ABD Doları kapasite aşımı olarak faturalandırılır. 
 
-|**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birim (RU/sn)**| **Faturalandırılan Tutar (saatlik)**| **Faturalandırılan Tutar (aylık)**|
+|**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birimleri (RU/sn)**| **Faturalandırılan miktar (saat)**| **Faturalandırılan miktar (aylık)**|
 |----|----|----|----|----|
 |Doğu ABD|$0.008 |50 BİN|$4|$2,880 |
 |Japonya Doğu|$0.009 |50 BİN| $4.50 |$3,240 |

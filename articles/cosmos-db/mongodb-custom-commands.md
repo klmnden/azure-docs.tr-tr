@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876897"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için MongoDB uzantı komutları kullanma 
@@ -43,7 +43,7 @@ Create database uzantı komutu yeni bir MongoDB veritabanı oluşturur. Veritaba
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel   |  string  |   Ad özel komut, "CreateDatabase" olmalıdır.      |
 | offerThroughput | int  | Veritabanı üzerinde ayarladığınız sağlanan aktarım hızı. Bu parametre isteğe bağlıdır. |
@@ -85,7 +85,7 @@ Güncelleştirme veritabanı uzantısı komut belirtilen veritabanıyla ilişkil
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel    |    string     |   Özel komut adı. "UpdateDatabase" olmalıdır.      |
 |  offerThroughput   |  int       |     Veritabanı üzerinde ayarlamak istediğiniz yeni sağlanan aktarım hızı.    |
@@ -118,7 +118,7 @@ Get veritabanı uzantısı komut veritabanı nesnesi döndürür. Veritabanı ad
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  Özel   |   string      |   Özel komut adı. "Getcollection" olmalıdır|
         
@@ -126,7 +126,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 Komut başarılı olursa, yanıt bir belgesiyle aşağıdaki alanları içerir:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `database`    |    `string`        |   Veritabanının adı.      |
@@ -160,7 +160,7 @@ Oluşturma koleksiyonu uzantısı komut yeni bir MongoDB koleksiyonu oluşturur.
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel    | string | Özel komut adı. "CreateDatabase" olmalıdır     |
 | koleksiyon      | string | Koleksiyon adı                                   |
@@ -205,7 +205,7 @@ Güncelleştirme koleksiyonu uzantısı komut belirtilen koleksiyonla ilişkili 
 
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  Özel   |   string      |   Özel komut adı. "UpdateCollection" olmalıdır.      |
 |  koleksiyon   |   string      |   Koleksiyonun adı.       |
@@ -240,7 +240,7 @@ Get koleksiyon özel komutu, koleksiyon nesnesini döndürür.
 Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel    |   string      |   Özel komut adı. "Belirtilmiş" olmalıdır.      |
 | koleksiyon    |    string     |    Koleksiyonun adı.     |
@@ -250,7 +250,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 Komut başarılı olursa, yanıt bir belgesiyle aşağıdaki alanları içerir.
 
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `database`    |    `string`     |   Veritabanının adı.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Belirtilmezse, özel bir yanıt bir belgesiyle aşağıdaki alanları içerir:
 
-|**Alan**|**Type** |**Açıklama** |
+|**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Yanıt durumu. 1 == başarılı. 0 hata ==.      |
 | `code`    |   `int`      |   Komut başarısız oldu, yalnızca döndürülen (yani Tamam == 0). MongoDB hata kodunu içerir. Bu isteğe bağlı bir yanıt parametredir.      |

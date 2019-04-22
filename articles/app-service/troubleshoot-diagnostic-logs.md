@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894927"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
@@ -58,10 +58,10 @@ Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Aşağıdaki
 | Düzey| Dahil edilen günlük kategorileri |
 |-|-|
 |**Devre dışı** | None |
-|**Hata** | Hataları, kritik |
+|**Hata:** | Hataları, kritik |
 |**Uyarı** | Hataları, kritik uyarı|
 |**Bilgi** | Uyarı, bilgi, hataları, kritik|
-|**Ayrıntılı** | İzleme, hata ayıklama, bilgi, uyarı, hata, kritik (tüm kategoriler) |
+|**ayrıntılı** | İzleme, hata ayıklama, bilgi, uyarı, hata, kritik (tüm kategoriler) |
 |-|-|
 
 İçin **uygulama günlüğü**, geçici hata ayıklama amacıyla için dosya sistemi seçeneğini etkinleştirebilirsiniz. Bu seçenek otomatik olarak 12 saat içinde devre dışı bırakır. Günlüklerin yazılacağı bir blob kapsayıcısını seçmek için blob depolama seçeneğinde kapatabilirsiniz.
@@ -126,11 +126,11 @@ Bu komut adlı bir dosyaya ' appname' adlı uygulama için günlüklere kaydeder
 Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirmek için gereken araçları sağlar.
 
 1. Projenizi Visual Studio'da Application Insights SDK'sını ekleyin.
-   * Çözüm Gezgini'nde projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim içeren bir Application Insights kaynağı oluşturma adım adım yol gösterir. [Daha fazla bilgi edinin](../azure-monitor/app/asp-net.md)
+   * Çözüm Gezgini'nde projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim içeren bir Application Insights kaynağı oluşturma adım adım yol gösterir. [Daha fazla bilgi](../azure-monitor/app/asp-net.md)
 2. İzleme dinleyicisi paketini projenize ekleyin.
    * Projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. Seçin `Microsoft.ApplicationInsights.TraceListener` [daha fazla bilgi edinin](../azure-monitor/app/asp-net-trace-logs.md)
 3. Projenize yükleyin ve günlük verileri üretmek için çalıştırabilirsiniz.
-4. İçinde [Azure portalında](https://portal.azure.com/)yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetriyi birlikte günlük verilerinizi görmeniz gerekir. Bazı telemetri gelmesi birkaç dakika sürebilir: Yenile'ye tıklayın. [Daha fazla bilgi edinin](../azure-monitor/app/diagnostic-search.md)
+4. İçinde [Azure portalında](https://portal.azure.com/)yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetriyi birlikte günlük verilerinizi görmeniz gerekir. Bazı telemetri gelmesi birkaç dakika sürebilir: Yenile'ye tıklayın. [Daha fazla bilgi](../azure-monitor/app/diagnostic-search.md)
 
 [Application Insights ile izleme performansıyla ilgili daha fazla bilgi edinin](../azure-monitor/app/azure-web-apps.md)
 

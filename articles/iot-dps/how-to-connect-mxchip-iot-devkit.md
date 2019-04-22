@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904500"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı sağlama hizmeti otomatik sağlama kullanın
@@ -83,7 +83,7 @@ Cihaz kodda belirtmeniz gerekir. [cihaz uç noktası sağlama](/azure/iot-dps/co
   ![Cihaz sağlama Hizmeti uç noktası](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Dolgu `registrationId` kodda değişken. Yalnızca alfasayısal, küçük harf, ve en çok 128 karakterden kısa çizgi birlikte izin verilir. Ayrıca değeri not.
-  ![Kayıt kimliği](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
+  ![Kayıt Kimliği](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
 1. Tıklayın `F1`yazın ve seçin **Azure IOT cihaz Workbench: Cihaz kodu karşıya**. Derleme ve kod Devkit'e karşıya yükleme başlar.
   ![Cihaz yükleme](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
@@ -108,7 +108,7 @@ Cihaz kodda belirtmeniz gerekir. [cihaz uç noktası sağlama](/azure/iot-dps/co
 ## <a name="create-a-device-enrollment-entry"></a>Cihaz kaydı girişi oluşturma
 
 1. Azure portalında cihaz sağlama hizmetinizi açın, kayıtları bölüm yönetmek için gidin ve tıklayın **Ekle bireysel kayıt**.
-  ![Tek kayıt ekle](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
+  ![Tek kayıt ekleme](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
 1. Dosya simgesine tıklayın **birincil sertifika .pem veya .cer dosyası** yüklenecek `.pem` oluşturulan dosya.
   ![.Pem karşıya yükleme](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)

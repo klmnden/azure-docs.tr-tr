@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
 ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904450"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
@@ -56,7 +56,7 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırma** erişiminiz listesi ayırmalar için.
 3. Diğer kullanıcılara erişim vermek istediğiniz ayırma seçin.
-4. Seçin **erişim denetimi (IAM)**.
+4. **Erişim denetimi (IAM)** öğesini seçin.
 5. Seçin **rol ataması Ekle** > **rol** > **sahibi**. Sınırlı erişim vermek istiyorsanız farklı bir rol seçebilirsiniz.
 6. Sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın.
 7. Kullanıcıyı ve ardından **Kaydet**'i seçin.
@@ -98,9 +98,9 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
 
 Ayırma türüne bağlı olarak, iptal etme veya rezervasyon exchange mümkün olabilir. Daha fazla bilgi için İptal ve aşağıdaki konulardaki değişimleri bölümlere bakın:
 
-- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Azure ayırmalardan SUSE yazılım planları için ön ödeme](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Azure Ayırmaları ile SUSE yazılım planları için ön ödeme yapma](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Ayrılmış VM örnekleri için ayar değişiklik iyileştirin
 
@@ -129,13 +129,13 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure için ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 
 Bir hizmet planı satın alın:
-- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Cosmos DB ayrılmış kapasite ile Azure Cosmos DB kaynaklarını için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Yazılım planı satın alın:
 - [Red Hat yazılımı planlarından Azure ayırmalar için ön ödeme](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Azure ayırmalardan SUSE yazılım planları için ön ödeme](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Azure Ayırmaları ile SUSE yazılım planları için ön ödeme yapma](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 İndirim ve kullanımını anlayın:
 - [VM ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)

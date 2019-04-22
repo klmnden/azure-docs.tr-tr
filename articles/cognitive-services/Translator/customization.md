@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918238"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
@@ -47,14 +47,14 @@ Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fa
 
 ## <a name="custom-translator-versus-hub"></a>Özel Translator Hub karşılaştırması
 
-|   | **Merkez** | **Özel Çevirmen**|
+|   | **Hub** | **Özel Translator**|
 |:-----|:----:|:----:|
 |Özelleştirme özelliği durumu   | Genel Erişilebilirlik  | Genel Erişilebilirlik |
 | Metin çevirisi API'si sürümü  | Yalnızca v2   | Yalnızca v3 |
 | SMT özelleştirme | Evet   | Hayır |
 | NMT özelleştirme | Hayır    | Evet |
 | Yeni birleşik konuşma Hizmetleri özelleştirme | Hayır    | Evet |
-| [İzleme Yok](https://www.aka.ms/notrace) | Evet  | Evet |
+| [İzleme yok](https://www.aka.ms/notrace) | Evet  | Evet |
 
 ## <a name="collaborative-translations-framework"></a>İşbirliğine dayalı çevirileri Framework
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883726"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
@@ -415,7 +415,7 @@ Aşağıdaki makalede bu öğreticiyle devam edebilirsiniz:
 
 Stream Analytics hakkında daha fazla bilgi için genel olarak, şu makalelere bakın:
 
-* [Azure Stream Analytics'ne Giriş](stream-analytics-introduction.md)
-* [Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
+* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895165"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Language Understanding (LUIS) Bilişsel hizmetler, müşteri verilerini silebilir ve dışarı aktarma
@@ -37,7 +37,7 @@ Müşteri içeriği, Microsoft bölgesel Azure depolamada şifrelenmiş olarak d
 ## <a name="deleting-customer-data"></a>Müşteri verileri silme
 LUIS kullanıcıların içerik LUIS web portalı veya LUIS (programlama da bilinir) yazma API'leri aracılığıyla herhangi bir kullanıcı silmek için tam denetime sahiptir. Aşağıdaki tabloda, her ikisi de Yardım bağlantıları görüntüler:
 
-| | **Kullanıcı Hesabı** | **Uygulama** | **Örnek Utterance(s)** | **Son kullanıcı sorguları** |
+| | **Kullanıcı hesabı** | **Uygulama** | **Örnek Utterance(s)** | **Son kullanıcı sorguları** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Bağlantı](luis-concept-data-storage.md#delete-an-account) | [Bağlantı](luis-how-to-start-new-app.md#delete-app) | [Bağlantı](luis-concept-data-storage.md#utterances-in-an-intent) | [Etkin öğrenme konuşma](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Oturum uzunluğu](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API'ler** | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +46,7 @@ LUIS kullanıcıların içerik LUIS web portalı veya LUIS (programlama da bilin
 ## <a name="exporting-customer-data"></a>Müşteri verilerini dışarı aktarma
 LUIS yazma (programlı olarak da bilinir) API'leri aracılığıyla dışarı gerekir ancak LUIS kullanıcılar portalı, verileri görüntülemek için tam denetime sahiptir. Aşağıdaki tabloda LUIS yazma (programlı olarak da bilinir) API'leri aracılığıyla verileri dışarı aktarma ile Yardım bağlantıları görüntüler:
 
-| | **Kullanıcı Hesabı** | **Uygulama** | **Utterance(s)** | **Son kullanıcı sorguları** |
+| | **Kullanıcı hesabı** | **Uygulama** | **Utterance(s)** | **Son kullanıcı sorguları** |
 | --- | --- | --- | --- | --- |
 | **API'ler** | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 

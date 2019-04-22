@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896168"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
@@ -158,7 +158,7 @@ Oluşturulan *function.json* dosya içeren bir `configurationSource` çalışma 
 
 Her iki sürümü için kullanılan aynı paket 1.x ve 2.x'i işlevler çalışma zamanı. Hedef Framework'ü ne 1.x proje 2.x projeden ayırır ' dir. İlgili bölümleri şunlardır *.csproj* farklı gösteren dosyalar, hedef çerçeveleri ve aynı `Sdk` paket:
 
-**İşlevler 1.x**
+**1.x işlevleri**
 
 ```xml
 <PropertyGroup>
@@ -169,7 +169,7 @@ Her iki sürümü için kullanılan aynı paket 1.x ve 2.x'i işlevler çalışm
 </ItemGroup>
 ```
 
-**İşlevler 2.x**
+**2.x işlevleri**
 
 ```xml
 <PropertyGroup>

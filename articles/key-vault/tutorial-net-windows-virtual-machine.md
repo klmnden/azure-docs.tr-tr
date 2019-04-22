@@ -13,10 +13,10 @@ ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885426"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Öğretici: Bir Windows sanal makinede .NET ile Azure anahtar kasası
@@ -107,9 +107,9 @@ Bu gizli dizinin değerini depolar **ettiyseniz**.
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 Aşağıdaki yöntemlerden birini kullanarak bir sanal makine oluşturabilirsiniz:
 
-* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [Azure portalı](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Bir kimlik VM'ye atayın
 Bu adımda, Azure CLI içinde aşağıdaki komutu çalıştırarak sanal makine için sistem tarafından atanan bir kimlik oluşturun:
@@ -226,4 +226,4 @@ Artık gerekli olmadığında sanal makine ve anahtar kasanıza silin.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure anahtar kasası REST API'si](https://docs.microsoft.com/rest/api/keyvault/)

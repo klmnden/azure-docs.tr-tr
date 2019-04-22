@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882234"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
@@ -703,14 +703,14 @@ azcopy \
 Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ### <a name="azure-storage-documentation"></a>Azure depolama belgeleri:
-* [Azure Depolama’ya Giriş](../storage-introduction.md)
+* [Azure Depolama’ya giriş](../storage-introduction.md)
 * [Depolama hesabı oluşturma](../storage-create-storage-account.md)
-* [Depolama Gezgini ile blob’ları yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Azure Storage ile Azure CLI kullanma](../storage-azure-cli.md)
+* [Depolama Gezgini ile blobları yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Azure Depolama ile Azure CLI kullanma](../storage-azure-cli.md)
 * [BLOB depolama alanından C++ kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Java’dan Blob Storage kullanma](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Node.js’den Blob Storage kullanma](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Python’dan Blob Storage kullanma](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Node.js'de Blob Depolama'yı kullanma](../blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Python'da Blob Depolama'yı kullanma](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
 * [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)

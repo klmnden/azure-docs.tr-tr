@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
 ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886361"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure ayrılmış HSM ağ
@@ -88,8 +88,8 @@ Global olarak dağıtılmış uygulamaları veya yüksek kullanılabilirlik böl
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Sık sorulan sorular](faq.md)
-- [Desteklenebilirlik](supportability.md)
+- [Desteklenebilirliği](supportability.md)
 - [Yüksek kullanılabilirlik](high-availability.md)
-- [Fiziksel Güvenlik](physical-security.md)
+- [Fiziksel güvenlik](physical-security.md)
 - [İzleme](monitoring.md)
 - [Dağıtım mimarisi](deployment-architecture.md)

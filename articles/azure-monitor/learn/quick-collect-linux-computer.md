@@ -15,10 +15,10 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893971"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics aracısını hibrit ortamlardaki Linux bilgisayarlar için yapılandırma
@@ -72,7 +72,7 @@ Aşağıdaki adımlar Azure’da ve Azure Kamu bulutunda Log Analytics için ara
 
 Linux bilgisayarınızın bir ara sunucu üzerinden Log Analytics’le iletişim kurması gerekiyorsa, ara sunucu yapılandırması komut satırında `-p [protocol://][user:password@]proxyhost[:port]` eklenerek belirtilebilir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder. 
 
-Örneğin: `https://user01:password@proxy01.contoso.com:30443`
+Örneğin, `https://user01:password@proxy01.contoso.com:30443`
 
 1. Linux bilgisayarı Log Analytics’e bağlanmak için yapılandırmak üzere, önceden kopyaladığınız çalışma alanı kimliği ve birincil anahtarı sağlayarak aşağıdaki komutu çalıştırın. Bu komut aracıyı indirir, sağlama toplamını doğrular ve aracıyı yükler. 
     
@@ -148,4 +148,4 @@ Aracıyı kaldırmak için Linux bilgisayarında aşağıdaki komutu çalıştı
 Verileri görüntüleme ve analiz etmeyi öğrenmek için, öğreticiye devam edin.   
 
 > [!div class="nextstepaction"]
-> [Log analytics'te verileri görüntüleme veya çözümleme](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Log Analytics’te verileri görüntüleme veya analiz etme](../../azure-monitor/learn/tutorial-viewdata.md)

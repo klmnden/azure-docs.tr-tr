@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892186"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Öğretici: Temel görüntü Azure container registry güncelleştirildiğinde kapsayıcı görüntü oluşturmayı otomatikleştirme 
@@ -45,9 +45,9 @@ Bu öğreticide, serinin ilk iki öğreticisindeki adımları zaten tamamladığ
 
 Henüz yapmadıysanız, devam etmeden önce ilk iki öğreticiyi tamamlayın:
 
-[Azure kapsayıcı kayıt defteri görevler ile bulutta kapsayıcı görüntüleri oluşturma](container-registry-tutorial-quick-task.md)
+[Azure Container Registry Görevleri ile bulutta kapsayıcı görüntüleri derleme](container-registry-tutorial-quick-task.md)
 
-[Kapsayıcı görüntüsü Azure Container kayıt defteri görevlerle oluşturmayı otomatikleştirme](container-registry-tutorial-build-task.md)
+[Azure Container Registry Görevleri ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Ortamı yapılandırma
 
@@ -244,7 +244,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Bu öğreticide, temel görüntü güncelleştirildiğinde kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görevi kullanmayı öğrendiniz. Artık kapsayıcı kayıt defteriniz için kimlik doğrulaması konusunu öğrenmeye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı kayıt defteri kimlik doğrulaması](container-registry-authentication.md)
+> [Azure Container Registry’de kimlik doğrulaması](container-registry-authentication.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

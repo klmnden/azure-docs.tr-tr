@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
 ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893087"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmet çağırmak için Python'ı kullanma 
@@ -24,7 +24,7 @@ Bu kılavuzda Python ile [Metin Analizi API'sini](//go.microsoft.com/fwlink/?Lin
 
 Bu örnekte, komut satırından veya Jupyter not defteri çalıştırmak [MyBinder](https://mybinder.org) bağlayıcı başlatma sırasında tıklayarak rozet:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
+[![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 ### <a name="command-line"></a>Komut satırı
 
@@ -422,9 +422,9 @@ Başarılı JSON yanıtı:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Power BI ile metin analizi](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Power BI ile Metin Analizi](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin Analizi'ne genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)

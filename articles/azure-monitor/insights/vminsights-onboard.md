@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
 ms.openlocfilehash: 1a4bfae22477e345176971bd40b0afa91c8867fb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885834"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici (Önizleme) VM'ler için dağıtma
@@ -55,9 +55,9 @@ VM'ler için Azure İzleyici, bir Log Analytics çalışma alanı şu bölgelerd
 >
 
 Bir çalışma alanınız yoksa, aşağıdaki yöntemlerden biriyle oluşturabilirsiniz:
-* [The Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure portalı](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Azure portalında tek bir Azure VM için izlemeyi etkinleştirme, bu işlem sırasında bir çalışma alanı oluşturabilirsiniz.

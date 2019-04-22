@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893852"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services PowerShell ile yönetme
@@ -37,7 +37,7 @@ Modül - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 |------------|-----------------| 
 |[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Sunucu örneğinin ayrıntılarını alır.|  
 |[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Bir sunucu örneği oluşturur.|   
-|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Yeni bir Analysis Services güvenlik duvarı yapılandırması oluşturur.|   
+|[Yeni AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Yeni bir Analysis Services güvenlik duvarı yapılandırması oluşturur.|   
 |[Yeni AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Yeni bir Analysis Services güvenlik duvarı kuralı oluşturur.|   
 |[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Bir sunucu örneğini kaldırır.|  
 |[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Bir sunucu örneğini sürdürür.|  
@@ -52,9 +52,9 @@ Modül - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 |Cmdlet|Açıklama| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Azure Analysis Services sunucu cmdlet'i istekleri için kullanılacak bir yetkili hesabı ekler.| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
+|[Dışarı aktarma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
 |[Yeniden başlatma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Analysis Services sunucu örneği şu anda oturum açmış ortamında yeniden başlatılır; Add-AzAnalysisServicesAccount komutunda belirtilen.|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen konumdaki tüm sorgu genişleme örnekleri için belirtilen örneği veritabanında eşitler|  
+|[Eşitleme AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen konumdaki tüm sorgu genişleme örnekleri için belirtilen örneği veritabanında eşitler|  
 
 ## <a name="database-operations"></a>Veritabanı işlemleri
 

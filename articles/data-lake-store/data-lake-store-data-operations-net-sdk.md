@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876964"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
@@ -59,8 +59,8 @@ Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekl
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
    3. Aşağıdaki NuGet paketlerini arayıp yükleyin:
 
-      * `Microsoft.Azure.DataLake.Store` -Bu öğreticide v1.0.0 kullanılır.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Bu öğreticide v2.3.1 kullanılır.
+      * `Microsoft.Azure.DataLake.Store` - Bu öğreticide v1.0.0 kullanılır.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.3.1 kullanılır.
     
       **NuGet Paket Yöneticisi**'ni kapatın.
 
@@ -182,4 +182,4 @@ Data Lake depolama Gen1 dosya sistemi SDK'sını kullanma örnekleri aşağıda 
 * [Data Lake depolama Gen1 .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)

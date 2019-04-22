@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895605"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
@@ -80,7 +80,7 @@ Bu bölümdeki SSS'leri ortak izleme ve sorun giderme soruları kapsar. İzleme 
 * [Neden istemcim önbellekten kesildi?](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>Önceki önbellek teklifi hakkında SSS
-* [Hangi Azure Önbellek teklifi bana uygundur?](#which-azure-cache-offering-is-right-for-me)
+* [Hangi Azure önbellek teklifi bana uygundur?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure önbelleği için Redis nedir?
 Azure önbelleği için Redis popüler açık kaynak yazılım tabanlı [Redis](https://redis.io/). Güvenli ve adanmış bir Azure önbelleği için Redis, Microsoft tarafından yönetilir ve azure'daki herhangi bir uygulamadan erişilebilir için erişmenizi sağlar. Daha ayrıntılı bir genel bakış için bkz. [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/) Azure.com'daki ürün sayfası.
@@ -403,7 +403,7 @@ Bu ayarı yapılandırmak nasıl:
 Etkinleştirme sunucusu GC istemci en iyi duruma getirmek ve StackExchange.Redis kullanırken daha iyi performans ve aktarım hızı sağlar. Sunucusu GC ve nasıl etkinleştirileceği konusunda daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Sunucu GC etkinleştirmek için](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [Çöp toplamanın temelleri](/dotnet/standard/garbage-collection/fundamentals)
+* [Atık Toplamanın Temelleri](/dotnet/standard/garbage-collection/fundamentals)
 * [Çöp toplama ve performans](/dotnet/standard/garbage-collection/performance)
 
 

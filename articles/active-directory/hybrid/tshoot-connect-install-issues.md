@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e11a9c913b93f09058a0bde8982354870e547d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188214"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "58876931"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Sorun giderme: Azure AD Connect yükleme sorunları
 

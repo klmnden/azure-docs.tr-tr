@@ -13,10 +13,10 @@ ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895656"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, İşlevler ve Web işleri nelerdir?
@@ -26,7 +26,7 @@ Bu makalede aşağıdaki Microsoft bulut hizmetleri karşılaştırılır:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure İşlevleri](https://azure.microsoft.com/services/functions/)
-* [Azure App Service Web işleri](../app-service/webjobs-create.md)
+* [Azure App Service Web İşleri](../app-service/webjobs-create.md)
 
 Tüm bu hizmetler, tümleştirme sorunlarını çözebilir ve iş süreçlerini otomatikleştirebilir. Tümü giriş, eylemler, koşullar ve çıkış tanımı yapabilir. Her birini belirli bir zamanlamayla veya tetikleyiciyle çalıştırabilirsiniz. Her hizmetin benzersiz avantajları vardır ve bu makalede farklar açıklanmaktadır.
 
@@ -85,10 +85,10 @@ Azure İşlevleri, WebJobs SDK’da derlendiğinden diğer Azure hizmetlerine y�
 |  | İşlevler | WebJobs SDK ile WebJobs |
 | --- | --- | --- |
 |[Otomatik ölçeklendirme](functions-scale.md#how-the-consumption-and-premium-plans-work) ile [sunucusuz uygulama modeli](https://azure.microsoft.com/solutions/serverless/)|✔||
-|[Tarayıcıda test ve geliştirme](functions-create-first-azure-function.md) |✔||
+|[Tarayıcıda geliştirme ve test etme](functions-create-first-azure-function.md) |✔||
 |[Kullanım başına ödeme fiyatlandırması](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps ile tümleştirme](functions-twitter-email.md)|✔||
-| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md)<br>[Azure depolama kuyrukları ve blobları](functions-bindings-storage-blob.md)<br>[Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/Web (GitHub, Slack) kancası](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Zamanlayıcı](functions-bindings-timer.md)<br>[Azure depolama kuyrukları ve blobları](functions-bindings-storage-blob.md)<br>[Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Dosya sistemi](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md)<br>[Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md)<br>[Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Zamanlayıcı](functions-bindings-timer.md)<br>[Azure Depolama kuyrukları ve blobları](functions-bindings-storage-blob.md)<br>[Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Dosya sistemi](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Desteklenen diller  |C#<br>F#<br>JavaScript<br>Java (önizleme) |C#<sup>1</sup>|
 |Paket yöneticileri|NPM ve NuGet|NuGet<sup>2</sup>|
 
@@ -119,8 +119,8 @@ Microsoft Flow, Logic Apps ve işlevler arasındaki tümleştirme zaman içinde 
 
 Aşağıdaki bağlantıları kullanarak, tümleştirme hizmetleri hakkında daha fazla bilgi alabilirsiniz:
 
-* [Azure işlevleri ve Azure App Service'ten yararlanma-Christopher Anderson tümleştirme senaryoları için yararlanarak](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Charles Lamanna ile kolay tümleştirme](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Tümleştirme senaryoları için Azure İşlevleri ve Azure App Service'ten yararlanma - Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Tümleştirmeler Basitleşti - Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps canlı Web yayını](https://aka.ms/logicappslive)
 * [Microsoft Flow sık sorulan sorular](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
@@ -128,6 +128,6 @@ Aşağıdaki bağlantıları kullanarak, tümleştirme hizmetleri hakkında daha
 
 İlk akışınızı, mantıksal uygulamanızı veya işlev uygulamanızı oluşturarak başlayın. Aşağıdaki bağlantılardan birini seçin:
 
-* [Microsoft Flow’u kullanmaya başlayın](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Microsoft Flow’u kullanmaya başlama](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [İlk Azure işlevinizi oluşturma](functions-create-first-azure-function.md)

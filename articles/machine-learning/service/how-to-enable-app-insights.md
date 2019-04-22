@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885511"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Azure Machine Learning Modellerinizi Application Insights ile izleme
@@ -85,15 +85,15 @@ Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı b
 
 1. Üzerinde **dağıtımları** sekmesinde, Application Insights'ı etkinleştirmek istediğiniz hizmeti seçin.
 
-   [![LİST dağıtımları sekmesinde Hizmetleri](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Dağıtımları sekmesinde hizmetlerin listesi](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. **Düzenle**’yi seçin.
 
-   [![EDüzenle düğmesi](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Düzenle düğmesi](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. İçinde **Gelişmiş ayarlar**seçin **etkinleştirme Appınsights tanılamasını** onay kutusu.
 
-   [![Stanılamayı etkinleştirmek için seçili onay kutusu](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Seçili onay kutusu için tanılamayı etkinleştirme](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Seçin **güncelleştirme** değişiklikleri uygulamak için ekranın alt kısmındaki. 
 
@@ -101,11 +101,11 @@ Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı b
 1. İçinde [Azure portalında](https://portal.azure.com), kendi çalışma alanını açın.
 1. Seçin **dağıtımları**, hizmet seçip **Düzenle**.
 
-   [![Uuygulamaları Düzenle düğmesini](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Düzenle düğmesini kullanın](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. İçinde **Gelişmiş ayarlar**temizleyin **etkinleştirme Appınsights tanılamasını** onay kutusu. 
 
-   [![Ctanılamayı etkinleştirme için onay kutusunu öğrendiklerinizi](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Temizlenmiş onay kutusu için tanılamayı etkinleştirme](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Seçin **güncelleştirme** değişiklikleri uygulamak için ekranın alt kısmındaki. 
  
@@ -119,12 +119,12 @@ Bunu görüntülemek için:
 
 1. Seçin **genel bakış** hizmetiniz için ölçümleri temel kümesini görmek için sekmesinde.
 
-   [![Oçiş genel görünümü](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Genel bakış](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. İçinde özel izlemeler bakmak için seçtikten **Analytics**.
 4. Şema bölümünde **izlemeleri**. Ardından **çalıştırma** sorgunuzu çalıştırılacak. Verileri tablo biçiminde görünür olmalıdır ve özel çağrılarınızı Puanlama dosyanızdaki eşlemelisiniz. 
 
-   [![CÖzel izlemeler](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Özel izlemeler](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Application Insights'ı kullanma hakkında daha fazla bilgi için bkz. [Application Insights nedir?](../../azure-monitor/app/app-insights-overview.md).
     

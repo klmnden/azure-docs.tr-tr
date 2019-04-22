@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891899"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
@@ -105,7 +105,7 @@ Bağlamaları çıkacak hatalarla sorun mu yaşıyorsunuz? Gözden geçirme [Azu
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-* [Kod ve Azure işlevleri yerel olarak test etme](./functions-develop-local.md)
-* [Azure işlevleri için en iyi uygulamalar](functions-best-practices.md)
+* [Azure İşlevleri’ni yerel olarak kodlama ve test etme](./functions-develop-local.md)
+* [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
 * [Azure işlevleri C# Geliştirici Başvurusu](functions-reference-csharp.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)

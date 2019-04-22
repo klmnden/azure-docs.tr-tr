@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006272"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Azure Hizmeti günlüklerini ve ölçümlerini Topla
@@ -32,7 +32,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 
 | Hizmet                 | Kaynak Türü                           | Günlükler        | Ölçümler     | Çözüm |
 | --- | --- | --- | --- | --- |
-| Uygulama ağ geçitleri    | Microsoft.Network/applicationGateways   | Tanılama | Tanılama | [Azure Application Gateway Analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
+| Uygulama ağ geçitleri    | Microsoft.Network/applicationGateways   | Tanılama | Tanılama | [Azure uygulama ağ geçidi analizi](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application ınsights    |                                         | Bağlayıcı   | Bağlayıcı   | [Application Insights Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Önizleme) |
 | Automation hesapları     | Microsoft.Automation/AutomationAccounts | Tanılama |             | [Daha fazla bilgi](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch hesapları          | Microsoft.Batch/batchAccounts           | Tanılama | Tanılama | |
@@ -42,10 +42,10 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
 | Olay hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
 | IoT Hub                | Microsoft.Devices/ıothubs               |             | Tanılama | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [KeyVault Analytics](../insights/azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [Anahtar kasası analizi](../insights/azure-key-vault.md) |
 | Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Tanılama | Tanılama | |
-| Ağ Güvenlik Grupları | Microsoft.Network/networksecuritygroups | Tanılama |             | [Azure Ağ Güvenlik Grubu Analizi](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
+| Ağ Güvenlik Grupları | Microsoft.Network/networksecuritygroups | Tanılama |             | [Azure ağ güvenlik grubu analizi](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
 | Kurtarma kasaları         | Microsoft.RecoveryServices/vaults       |             |             | [Azure kurtarma Hizmetleri analizi (Önizleme)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Hizmet ara         | Microsoft.Search/searchServices         | Tanılama | Tanılama | |
 | Service Bus ad alanı   | Microsoft.ServiceBus/namespaces         | Tanılama | Tanılama | [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

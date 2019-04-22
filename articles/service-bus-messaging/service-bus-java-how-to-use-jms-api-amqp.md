@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885562"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java mesaj hizmeti (JMS) API kullanma
@@ -381,7 +381,7 @@ Bu nasıl yapılır kılavuzunda AMQP 1.0 ve popüler JMS API kullanarak Service
 Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP dahil olmak üzere diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri, iletileri güvenilir bir şekilde gönderip alır ve hizmet veri yolunda AMQP 1.0 kullanarak tam uygunlukta destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Hizmet Veri Yolunda AMQP 1.0 desteği](service-bus-amqp-overview.md)
+* [Azure hizmet veri yolu AMQP 1.0 desteği](service-bus-amqp-overview.md)
 * [Hizmet veri yolu .NET API ile AMQP 1.0 kullanma](service-bus-dotnet-advanced-message-queuing.md)
 * [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)

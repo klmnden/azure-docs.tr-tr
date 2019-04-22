@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881231"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Öğretici: İşleme e-postaları ve ekleri Azure Logic Apps ile otomatikleştirme
@@ -272,7 +272,7 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
       | Ayar | Değer | Açıklama | 
       | ------- | ----- | ----------- | 
       | **Klasör** | Gelen Kutusu | Denetlenecek e-posta klasörü | 
-      | **Interval** | 1 | Denetimler arasında beklenecek aralık sayısı | 
+      | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
       | **Sıklık** | Dakika | Denetimler arası her aralık için zaman birimi | 
       |  |  |  | 
   
@@ -395,8 +395,7 @@ Bu adım, önceden oluşturduğunuz Azure işlevini mantıksal uygulamanıza ekl
 
    ![Azure işlevinizi seçin](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. İşlev şeklinizi şu açıklama ile yeniden adlandırın:
-```Call RemoveHTMLFunction to clean email body```
+5. İşlev şeklinizi şu açıklama ile yeniden adlandırın: ```Call RemoveHTMLFunction to clean email body```
 
 6. Şimdi işlevinizde işlenecek girişi belirtin. 
 
@@ -410,7 +409,7 @@ Bu adım, önceden oluşturduğunuz Azure işlevini mantıksal uygulamanıza ekl
 
       Ayrıca imleciniz **İstek gövdesi** kutusunda olduğunda açılan dinamik içerik listesinden önceki eylemlerde kullanılan özellik değerlerini seçebilirsiniz. 
       
-   2. Dinamik içerik listesinde **Yeni bir e-posta geldiğinde** bölümünde **Gövde** özelliğini seçin. Bu özellik sonra kapanış küme ayracını ekleyin unutmayın: ```}```
+   2. Dinamik içerik listesinde **Yeni bir e-posta geldiğinde** bölümünde **Gövde** özelliğini seçin. Bu özelliğin ardından kapanış küme ayracını eklemeyi unutmayın: ```}```
 
       ![İşleve iletilecek istek gövdesini belirtin](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
@@ -440,8 +439,7 @@ Ardından e-posta gövdesini kaydedebilmek için depolama kapsayıcınızda blob
    | **Depolama Hesabı** | attachmentstorageacct | Ekleri kaydetmek için daha önce oluşturduğunuz depolama hesabının adı | 
    |||| 
 
-4. Yeniden adlandırma **blob Oluştur** eylemi şu açıklama ile:
-```Create blob for email body```
+4. **Blob oluştur** eylemini şu açıklama ile yeniden adlandırın: ```Create blob for email body```
 
 5. **Blob oluştur** eyleminde şu bilgileri sağlayın ve gösterilip açıklandığı gibi blob oluşturmak için şu alanları seçin:
 
@@ -507,8 +505,7 @@ E-postadaki her eki işlemek için mantıksal uygulamanızın iş akışına **h
 
    !["For each" döngüsünü ekleyin](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Döngünüzü şu açıklama ile yeniden adlandırın:
-```For each email attachment```
+2. Döngünüzü şu açıklama ile yeniden adlandırın: ```For each email attachment```
 
 3. Şimdi işlenecek döngü için verileri belirtin. **Önceki adımlardan bir çıkış seçin** kutusunun içine tıklayın ve açılan dinamik içerik listesinden **Ekler**'i seçin. 
 
@@ -531,8 +528,7 @@ Sonra, her eki **ekler** depolama kapsayıcınızda blob olarak kaydeden eylemi 
 
    ![Blob oluşturmak için eylem ekleme](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. Yeniden adlandırma **blob Oluştur 2** eylemi şu açıklama ile:
-```Create blob for each email attachment```
+3. **Blob oluştur 2** eylemini şu açıklama ile yeniden adlandırın: ```Create blob for each email attachment```
 
 4. **Her e-posta eki için blob oluştur** eyleminde şu bilgileri sağlayın ve gösterilip açıklandığı gibi oluşturmak istediğiniz her bir blog için özellikleri seçin:
 
@@ -597,8 +593,7 @@ Sonra mantıksal uygulamanızın ekleri gözden geçirmek üzere e-posta gönder
 
 3. Kimlik bilgileriniz istenirse, Logic Apps’in e-posta hesabınıza yönelik bir bağlantı oluşturması için e-posta hesabınızda oturum açın.
 
-4. Yeniden adlandırma **bir e-posta** eylemi şu açıklama ile:
-```Send email for review```
+4. **E-posta gönder** eylemini şu açıklama ile yeniden adlandırın: ```Send email for review```
 
 5. Bu eylem için bilgileri sağlayın ve gösterilip açıklandığı gibi e-postaya dahil etmek istediğiniz alanları seçin. Bir düzenleme kutusuna boş satır eklemek için Shift + Enter tuşlarını kullanın.  
 
@@ -608,8 +603,8 @@ Sonra mantıksal uygulamanızın ekleri gözden geçirmek üzere e-posta gönder
 
    | Ayar | Değer | Notlar | 
    | ------- | ----- | ----- | 
-   | **Gövde** | ```Please review new applicant:``` <p>```Applicant name:``` **Başlangıç fiyatı** <p>```Application file location:``` **Yol** <p>```Application email content:``` **Gövde** | E-posta gövdesinin içeriği. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinden şu alanları seçin: <p>- **Yeni bir e-posta geldiğinde** bölümünde **Kimden** alanı </br>- **E-posta gövdesi için blob oluşturma** bölümünde **Yol** alanı </br>- **E-posta gövdesini temizlemek için RemoveHTMLFunction işlevini çağırma** bölümünde **Gövde** alanı | 
-   | **Özne**  | ```ASAP - Review applicant for position:``` **Özne** | Dahil etmek istediğiniz e-posta konusu. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinin **Yeni bir e-posta geldiğinde** bölümünde **Konu** alanını seçin. | 
+   | **Gövde** | ```Please review new applicant:``` <p>```Applicant name:``` **Kimden** <p>```Application file location:``` **Yol** <p>```Application email content:``` **Gövde** | E-posta gövdesinin içeriği. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinden şu alanları seçin: <p>- **Yeni bir e-posta geldiğinde** bölümünde **Kimden** alanı </br>- **E-posta gövdesi için blob oluşturma** bölümünde **Yol** alanı </br>- **E-posta gövdesini temizlemek için RemoveHTMLFunction işlevini çağırma** bölümünde **Gövde** alanı | 
+   | **Konu**  | ```ASAP - Review applicant for position:``` **Konu** | Dahil etmek istediğiniz e-posta konusu. Bu kutunun içine tıklayın, örnek metni girin ve dinamik içerik listesinin **Yeni bir e-posta geldiğinde** bölümünde **Konu** alanını seçin. | 
    | **Alıcı** | <*recipient-email-address*> | Test için kendi e-posta adresinizi kullanabilirsiniz. | 
    |||| 
 

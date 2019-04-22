@@ -16,10 +16,10 @@ ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
 ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918255"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
@@ -56,7 +56,7 @@ Veri bilimi sanal makinesi, GPU (Grafik işleme birimleri) tabanlı donanımlar 
 Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan çok sayıda popüler veri bilimi ve derin öğrenme aracı içerir. Ayrıca tahmine dayalı model derlemek için Microsoft ML Server (R, Python) veya büyük ölçekli veri kümeleriyle araştırma yapmak için SQL Server 2017 gibi çeşitli Azure veri ve analiz ürünleriyle çalışmayı kolaylaştıran araçlar da içerir. Açık kaynak topluluğundan ve Microsoft’tan bir dizi başka aracın yanı sıra örnek kod ve not defterleri de sunulmaktadır. Aşağıdaki tabloda Veri Bilimi Sanal Makinesi’nin Windows ve Linux sürümlerine dahil olan ana bileşenler maddeler halinde verilmiş ve karşılaştırılmıştır.
 
 
-| **Tool**                                                           | **Windows sürümü** | **Linux sürümü** |
+| **Araç**                                                           | **Windows Sürümü** | **Linux Sürümü** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | Popüler paketlerin önceden yüklü olduğu [Microsoft R Open](https://mran.microsoft.com/open/)   |E                      | E             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Geliştirici Sürümünün içeriği, <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) paralel ve dağıtılmış yüksek performanslı çerçeve (R ve Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) - Microsoft’un yeni modern ML algoritmaları <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R ve Python İşlemleştirme](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |E                      | E |
@@ -66,7 +66,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | İlişkisel Veritabanları                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Veritabanı araçları                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC sürücüleri| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (sorgulama aracı), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC sürücüleri|
 | SQL Server ML hizmetleri (R, Python) ile ölçeklenebilir veritabanı içi analiz | E     |N              |
-| **[Jupyter Notebook sunucusu](https://jupyter.org/) aşağıdaki çekirdeklere sahip**                                  | E     | E |
+| Aşağıdaki çekirdeklere sahip **[Jupyter Notebook Sunucusu](https://jupyter.org/),**                                  | E     | E |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | E | E |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | E | E |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | E | E |
@@ -75,7 +75,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | E |
 | JupyterHub (Çok kullanıcılı not defteri sunucusu)| N | E |
 | JupyterLab (Çok kullanıcılı not defteri sunucusu) | N | Y (sadece Ubuntu) |
-| **Geliştirme araçları, IDE ve kod düzenleyiciler**| | |
+| **Geliştirme araçları, IDE ve Kod düzenleyiciler**| | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) ve Git Eklentisi, Azure HDInsight (Hadoop), Data Lake, SQL Server Veri araçları, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) ve [Visual Studio için R Araçları (RTVS)](https://microsoft.github.io/RTVS-docs/) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | E | E |
@@ -89,7 +89,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET framework | E | N |
 | Power BI Desktop | E | N |
 | Azure ve Cortana Intelligence Hizmet paketine erişim SDK’ları | E | E |
-| **Veri taşıma ve Yönetim Araçları** | | |
+| **Veri Taşıma ve yönetim araçları** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Depolama Gezgini | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | E | N |
@@ -100,7 +100,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Veri Yönetimi ağ geçidi](https://msdn.microsoft.com/library/dn879362.aspx): Şirket içi ile bulut arasında veri taşıma | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix/Linux Komut Satırı Yardımcı Programları | E | E |
 | Veri keşfi için [Apache Drill](https://drill.apache.org) | E | E |
-| **Machine Learning araçları** |||
+| **Machine Learning Araçları** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ile tümleştirme (R, Python) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | E | E |
@@ -109,7 +109,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (sadece Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (sadece Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (sadece Ubuntu) |
-| **Derin öğrenme araçları** <br>Tüm araçlar GPU veya CPU üzerinde çalışır |  |  |
+| **Derin Öğrenme Araçları** <br>Tüm araçlar GPU veya CPU üzerinde çalışır |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y (Windows 2016) | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
@@ -125,7 +125,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Sürücüsü](https://developer.nvidia.com/cuda-toolkit) | E | E |
-| **Büyük veri Platformu (yalnızca Devtest)**|||
+| **Büyük Veri Platformu (yalnızca Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Yerel [Spark](https://spark.apache.org/) Tek Başına | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Yerel [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) | N | E |
 

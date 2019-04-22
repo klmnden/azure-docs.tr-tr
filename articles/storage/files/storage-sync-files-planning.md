@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918646"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
@@ -294,7 +294,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenlik Duvarı ve Ara sunucu ayarlarını göz önünde bulundurun.](storage-sync-files-firewall-and-proxy.md)
-* [Azure Dosyaları dağıtımı planlama](storage-files-planning.md)
-* [Azure Dosyaları’nı dağıtma](storage-files-deployment-guide.md)
-* [Azure Dosya Eşitleme’yi dağıtma](storage-sync-files-deployment-guide.md)
-* [Azure Dosya Eşitleme’yi izleme](storage-sync-files-monitoring.md)
+* [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
+* [Azure dosyaları'nı dağıtma](storage-files-deployment-guide.md)
+* [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)
+* [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)

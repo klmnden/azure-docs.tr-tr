@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895022"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te uygulama sorunlarını giderme
@@ -259,7 +259,7 @@ Bir App Service uygulamasında çalışan bir ASP.NET uygulama günlükleri aşa
 
 * **Uygulama izleme günlükleri**<br/>
   Yöntemleri çağırarak bu günlükleri uygulamanın oluşturur [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) sınıfı.
-* **Web sunucu günlükleri**<br/>
+* **Web sunucusu günlükleri**<br/>
   Web sunucusu, uygulamayı her HTTP isteği için bir günlük girişi oluşturur.
 * **Ayrıntılı hata iletisi günlükleri**<br/>
   Web sunucusu, bazı ek bilgiler başarısız HTTP isteklerini (durum kodu 400 veya üzeri neden istek) ile bir HTML sayfası oluşturur.
@@ -654,7 +654,7 @@ Internet'te ASP.NET izleme için hiçbir eksiksiz ve güncel tanıtımları vard
   Eski ancak yine de konuya temel bir giriş için iyi bir kaynaktır.
 * [İzleme dinleyicileri](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   İzleme dinleyicileri hakkında bilgi ancak bahsetmek değil [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Çözüm: ASP.NET izleme System.Diagnostics izleme ile tümleştirme](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [İzlenecek yol: ASP.NET izleme System.Diagnostics izleme ile tümleştirme](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Bu makalede ayrıca eski, ancak tanıtım makalede ele alınmamıştır bazı ek bilgiler içerir.
 * [ASP.NET MVC Razor görünümleri izleme](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Razor görünümleri izleme yanı sıra, post, ayrıca bir MVC uygulamasındaki tüm işlenmeyen özel durumları günlüğe kaydetmek için bir hata filtre oluşturmak nasıl açıklar. Tüm işlenmemiş özel bir Web Forms uygulaması'nda oturum hakkında daha fazla bilgi için Global.asax örneğe bakın [tam bir örnek için hata işleyicilerini](/previous-versions/bb397417(v=vs.140)) MSDN'de. MVC veya Web Forms etkinleştirilmesi için işleme de varsayılan çerçeve sağlar ancak belirli özel durumları günlüğe kaydetmek istiyorsanız, catch ve aşağıdaki örnekte olduğu gibi yeniden oluşturma:

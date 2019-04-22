@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916697"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure'da SQL Server Yedekleme sorunlarını giderme
@@ -108,7 +108,7 @@ Geri yükleme işleri başarısız olduğunda, aşağıdaki hata kodları göste
 
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
-| Kurtarma için kullanılan günlük yedeği toplu günlüğe kaydedilen değişiklikler içeriyor. SQL yönergelerine göre zaman içindeki rastgele bir noktada durdurmak için kullanılamaz. | Bir veritabanında toplu günlüğe kaydedilen kurtarma modunda olduğunda, bir toplu işlem ve sonraki günlük işlem arasındaki verileri kurtarılamaz. | Lütfen farklı bir noktaya kurtarma için seçin. [Daha fazla bilgi edinin](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Kurtarma için kullanılan günlük yedeği toplu günlüğe kaydedilen değişiklikler içeriyor. SQL yönergelerine göre zaman içindeki rastgele bir noktada durdurmak için kullanılamaz. | Bir veritabanında toplu günlüğe kaydedilen kurtarma modunda olduğunda, bir toplu işlem ve sonraki günlük işlem arasındaki verileri kurtarılamaz. | Lütfen farklı bir noktaya kurtarma için seçin. [Daha fazla bilgi](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="registration-failures"></a>Kayıt hataları
@@ -169,8 +169,7 @@ Aşağıdaki belirtilerden birini veya daha fazlasını aşağıdaki nedenlerden
   * VM üzerindeki uzantı yapılandırması nedeniyle dolduğu uzun bir süre için kapatıldı
   * VM silindikten sonra ve başka bir sanal Makineye aynı ada sahip ve Silinen sanal Makinenin aynı kaynak grubunda oluşturuldu
   * AG düğümlerinden biri tam yedekleme yapılandırma almadınız, bu ya da kullanılabilirlik grubu kayıt kasaya zaman veya ne zaman yeni bir düğüm eklenir oluşabilir  <br>
-   
-Yukarıdaki senaryolarda, yeniden kayıt işlemi VM'de tetiklemek için önerilir. Bu seçenek yalnızca PowerShell üzerinden kullanılabilir ve yakında Azure portalında kullanıma sunulacak.
+    Yukarıdaki senaryolarda, yeniden kayıt işlemi VM'de tetiklemek için önerilir. Bu seçenek yalnızca PowerShell üzerinden kullanılabilir ve yakında Azure portalında kullanıma sunulacak.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

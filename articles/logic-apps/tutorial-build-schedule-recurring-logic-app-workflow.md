@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884695"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps ile zamanlamaya göre trafik denetleme
@@ -78,8 +78,7 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
 
    !["Zamanlama - Yinelenme" tetikleyicisini bulup ekleyin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. **Yinelenme** şeklinin üzerindeki **üç nokta** (**...**) düğmesini ve ardından **Yeniden Adlandır**’ı seçin. Tetikleyiciyi şu açıklama ile yeniden adlandırın:
-```Check travel time every weekday morning```
+2. **Yinelenme** şeklinin üzerindeki **üç nokta** (**...**) düğmesini ve ardından **Yeniden Adlandır**’ı seçin. Tetikleyiciyi şu açıklama ile yeniden adlandırın: ```Check travel time every weekday morning```
 
    ![Tetikleyiciyi yeniden adlandırma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -91,7 +90,7 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
-   | **Interval** | 1 | Denetimler arasında beklenecek aralık sayısı | 
+   | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
    | **Sıklık** | Hafta | Yinelenme için kullanılacak zaman birimi | 
    | **Saat dilimi** | None | Yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir. Yerel olmayan bir saat dilimi belirtmek için kullanışlıdır. | 
    | **Başlangıç saati** | None | Yinelenme, belirli bir tarih ve saate kadar ertelenir. Daha fazla bilgi için bkz. [Düzenli olarak çalıştırılan görevler ve iş akışları zamanlama](../connectors/connectors-native-recurrence.md). | 
@@ -130,8 +129,7 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
    | **API Anahtarı** | <*your-Bing-Maps-key*> | Daha önce aldığınız Bing Haritalar anahtarını girin. Bing Haritalar anahtarınız yoksa <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">nasıl anahtar alacağınızı</a> öğrenin. | 
    | | | |  
 
-4. Eylemi şu açıklama ile yeniden adlandırın:
-```Get route and travel time with traffic```
+4. Eylemi şu açıklama ile yeniden adlandırın: ```Get route and travel time with traffic```
 
 5. Burada gösterildiği ve açıklandığı gibi **Rota al** eylemi için ayrıntıları sağlayın; örneğin:
 
@@ -142,11 +140,11 @@ Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisin
    | **Güzergah noktası 1** | <*start-location*> | Rotanızın başlangıç noktası | 
    | **Güzergah noktası 2** | <*end-location*> | Rotanızın hedefi | 
    | **Kaçının** | None | Otoyollar, ücretli geçişler vb. gibi rotanızda kaçınılacak öğeler | 
-   | **İyileştirme** | timeWithTraffic | Rotanızı iyileştirmeye yönelik bir parametre; örneğin, mesafe, mevcut trafik ile seyahat süresi vb. Şu parametreyi seçin: "timeWithTraffic" | 
+   | **İyileştir** | timeWithTraffic | Rotanızı iyileştirmeye yönelik bir parametre; örneğin, mesafe, mevcut trafik ile seyahat süresi vb. Şu parametreyi seçin: "timeWithTraffic" | 
    | **Mesafe birimi** | <*your-preference*> | Rotanız için mesafe birimi. Bu makalede şu birim kullanılmaktadır: "Mil"  | 
    | **Seyahat modu** | Sürüş | Rotanız için seyahat modu. Bu mod seçin: "Sürüş" | 
-   | **Geçiş tarihi-saati** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
-   | **Tarih-saat türü** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
+   | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
+   | **Tarih-Saat Türü** | None | Yalnızca toplu ulaşım modu için geçerlidir | 
    |||| 
 
    Bu parametreler hakkında daha fazla bilgi için bkz. [Rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx).
@@ -167,15 +165,14 @@ Varsayılan olarak, önceki **Rota al** eylemi, **Seyahat Süresi Trafik** alan�
 
    !["Değişkenler - Değişken başlat" eylemini seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Bu eylemi şu açıklama ile yeniden adlandırın:
-```Create variable to store travel time```
+3. Bu eylemi şu açıklama ile yeniden adlandırın: ```Create variable to store travel time```
 
 4. Burada açıklandığı gibi değişkeniniz için ayrıntıları sağlayın:
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
    | **Ad** | travelTime | Değişkeninizin adı | 
-   | **Type** | Tamsayı | Değişkeninizin veri türü | 
+   | **Tür** | Tamsayı | Değişkeninizin veri türü | 
    | **Değer** | Geçerli seyahat süresini saniyelerden dakikalara dönüştüren bir ifade (bu tablonun altındaki adımlara bakın). | Değişkeninizin ilk değeri | 
    |||| 
 
@@ -259,8 +256,7 @@ Ardından seyahat süresi, sınırınızı aştığında gerçekleştirilecek ey
 
    Logic Apps, e-posta hesabınıza bir bağlantı oluşturur.
 
-4. Eylemi şu açıklama ile yeniden adlandırın:
-```Send email with travel time```
+4. Eylemi şu açıklama ile yeniden adlandırın: ```Send email with travel time```
 
 5. **Alıcı** kutusuna alıcının e-posta adresini girin. Test amacıyla e-posta adresinizi kullanın.
 

@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896604"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme
@@ -38,7 +38,7 @@ Başlamadan önce şu önkoşulların denetleyin:
 > [!NOTE]
 > Azure Vm'lerine erişim denetimi bir siteden siteye sanal özel ağ (VPN) tüneli veya bir Sıçrama kutusu ayarlamanız iyi bir uygulamadır.
 
-## <a name="install-enterprise-server"></a>Kuruluş sunucusu yükleme
+## <a name="install-enterprise-server"></a>Enterprise Server’ı yükleme
 
 1. Daha iyi güvenlik ve yönetilebilirlik için yalnızca bu proje için yeni bir kaynak grubu oluşturmayı göz önünde bulundurun — Örneğin, **RGMicroFocusEntServer**. Adının ilk bölümü, Azure'da bir listedeki nokta kolaylaştırmak için kaynak türünü belirlemek için kullanın.
 

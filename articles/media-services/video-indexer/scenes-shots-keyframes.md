@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896561"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Planda, görüntüleri ve ana kareler
+# <a name="scenes-shots-and-keyframes"></a>Sahneler, çekimler, ana kareler
 
 Video Indexer, zamana bağlı birimleri yapısal ve anlamsal özelliklerine bağlı olarak ayırarak videoları destekler. Bu özellik, müşterilerin kolayca bulun, yönetin ve düzenleyin üzerinde çeşitli ayrıntı düzeylerinde temel video içeriklerinin sağlar. Örneğin, görünümler, görüntüleri ve ana kareleri, bu konuda açıklanan temel. **Sahne algılama** özelliği şu anda Önizleme aşamasındadır.   
 
-![Planda, görüntüleri ve ana kareler](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Sahneler, çekimler, ana kareler](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>Sahne algılama (Önizleme)
 

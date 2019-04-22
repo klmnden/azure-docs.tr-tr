@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917485"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
@@ -703,7 +703,7 @@ Döngünün her yinelemesinden sonra herhangi bir kuyruk iletisi bulunmazsa prog
 
 Bazı durumlarda bir kuyruk iletisinin içeriği işlemede hataya neden olur. Buna *zehir iletisi* adı verilir ve bir hatayı günlüğe kaydedip döngüyü yeniden başlatırsanız bu iletiyi sonu gelmez bir şekilde işlemeye çalışabilirsiniz.  Bu nedenle, yakalama bloğu uygulamanın geçerli iletiyi işlemeyi kaç kez denediğini denetleyen bir if deyimi içerir ve 5’ten fazla kez denediyse ileti kuyruktan silinir.
 
-`ProcessQueueMessage` bir kuyruk iletisi bulunduğunda çağrılır.
+Bir kuyruk iletisi bulunduğunda `ProcessQueueMessage` çağrılır.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -776,6 +776,6 @@ Azure Storage’da en iyi yöntemler ve yaklaşımlar hakkında bir tanıtım i�
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Cloud Services bölüm 1: Giriş](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [ Cloud Services nasıl yönetilir](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
+* [Azure Depolama](https://docs.microsoft.com/azure/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

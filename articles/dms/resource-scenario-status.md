@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915484"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
@@ -44,10 +44,10 @@ Aşağıdaki tablo, çevrimdışı geçişleri için Azure veritabanı geçiş h
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
-| **Azure SQL DB mı** | SQL Server | ✔ | GA |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **Azure SQL VM** | SQL Server | ✔ | GA |
+| **Azure SQL sanal makinesi** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Genel önizleme |
 | **MySQL için Azure DB** | MySQL |   |   |
@@ -63,10 +63,10 @@ Aşağıdaki tabloda çevrimiçi geçişleri için Azure veritabanı geçiş hiz
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Azure SQL DB mı** | SQL Server | ✔ | GA |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | ✔ | Özel önizleme |
-| **Azure SQL VM** | SQL Server |   |   |
+| **Azure SQL sanal makinesi** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | Genel önizleme |
 | **MySQL için Azure DB** | MySQL | ✔ | GA |

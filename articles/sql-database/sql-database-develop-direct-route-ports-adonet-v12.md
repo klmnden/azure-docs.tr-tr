@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916181"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları
@@ -82,7 +82,7 @@ Bu bölümde, ürün sürümleri başvuran adlar açıklar. Ayrıca, bazı eşle
 * Azure SQL veritabanı V12 yeniden yönlendirmesi aracılığıyla bağlanma https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS Protokolü sürüm listesi](http://www.freetds.org/userguide/tdshistory.htm)
-* [SQL Veritabanı Geliştirmeye Genel Bakış](sql-database-develop-overview.md)
+* [SQL veritabanı geliştirmeye genel bakış](sql-database-develop-overview.md)
 * [Azure SQL veritabanı güvenlik duvarı](sql-database-firewall-configure.md)
 * [Nasıl yapılır: SQL Veritabanı’nda güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md)
 

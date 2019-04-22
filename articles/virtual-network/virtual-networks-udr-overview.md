@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878511"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
@@ -98,7 +98,7 @@ Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama t
 
 Kullanıcı tanımlı yollarda sonraki atlama türü olarak **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** seçeneğini belirtemezsiniz. Sonraki atlama türü **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** olan yollar yalnızca bir sanal ağ eşlemesi ya da hizmet uç noktası yapılandırdığınızda Azure tarafından oluşturulur.
 
-**Sonraki atlama türleri arasında Azure Araçları**
+**Azure araçlarında sonraki atlama türleri**
 
 Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile komut satırı araçları ve Azure Resource Manager ile klasik dağıtım modelleri arasında farklıdır. Aşağıdaki tabloda farklı araçlar ve [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ile her bir sonraki atlama türüne başvurmak için kullanılan adlar listelenir:
 
@@ -181,7 +181,7 @@ Bu makaledeki kavramları göstermek için aşağıdaki bölümlerde şu konular
 ### <a name="requirements"></a>Gereksinimler
 
 1. Aynı Azure bölgesinde iki sanal ağı uygulayın ve kaynakların sanal ağlar arasında iletişim kurmasını etkinleştirin.
-2. Bir şirket içi ağı, İnternet üzerinden bir VPN tüneli aracılığıyla her iki sanal ağ ile güvenli bir şekilde iletişim kurmak için etkinleştirin. *Alternatif olarak, bir ExpressRoute bağlantısı kullanılabilir, ancak bu örnekte, bir VPN bağlantısı kullanılır.*
+2. Bir şirket içi ağı, İnternet üzerinden bir VPN tüneli aracılığıyla her iki sanal ağ ile güvenli bir şekilde iletişim kurmak için etkinleştirin. *Alternatif olarak bir ExpressRoute bağlantısı kullanılabilir, ancak bu örnekte VPN bağlantısı kullanılmaktadır.*
 3. Bir sanal ağdaki alt ağ için:
  
     - Azure Depolama’ya giden trafik ve alt ağ içindeki trafik dışında alt ağdan giden tüm trafiği, inceleme ve günlüğe kaydetme amacıyla bir ağ sanal gerecinden geçmeye zorlayın.
@@ -255,8 +255,8 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Yollar ve ağ sanal Gereci ile kullanıcı tanımlı yönlendirme tablosu oluşturma](tutorial-create-route-table-portal.md)
-- [Bir Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)
+- [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Bir alt ağ için tüm yolları görüntüleme](diagnose-network-routing-problem.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
 - Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.

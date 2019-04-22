@@ -1,25 +1,25 @@
 ---
 title: IOT Önizleme için Azure Güvenlik Merkezi için güvenlik uyarı Kılavuzu | Microsoft Docs
 description: Güvenlik uyarıları ve önerilen düzeltmeyi IOT özelliklerini ve hizmet için Azure Güvenlik Merkezi'ni kullanma hakkında bilgi edinin.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755115"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "58861987"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Güvenlik Merkezi için IOT güvenlik uyarıları
 

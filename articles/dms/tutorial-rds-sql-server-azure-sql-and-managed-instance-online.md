@@ -12,10 +12,10 @@ ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886412"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak
@@ -237,7 +237,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     | ------------- | ------------- |
     | **En fazla paralel olarak yüklemek için tablo sayısı** | DMS, geçiş sırasında paralel olarak yürütülen tablo sayısını belirtir. Varsayılan değer 5'tir, ancak her POC geçişleri dayalı belirli bir geçiş gereksinimlerini karşılamak için en uygun bir değere da ayarlanabilir. |
     | **Zaman kaynak tablosu kesilmiş** | DMS, geçiş sırasında hedef tablosu keser olup olmadığını belirtir. Bu ayar, geçiş işleminin bir parçası bir veya daha fazla tablosu kesilmiş istediğinizde yararlı olabilir. |
-    | **Büyük nesne (LOB) verileri ayarlarını yapılandırın** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Bir sınır yoktur, LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilmiş. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
+    | **Büyük nesne (LOB) verileri ayarlarını yapılandır** | DMS sınırsız LOB verileri geçirir ya da belirli bir boyuta sınırları LOB veri geçişi belirtir.  Bir sınır yoktur, LOB veri geçişi, bu sınırı ötesinde herhangi bir LOB veri kesilmiş. Üretim geçişleri için seçilecek önerilir **LOB boyut izin** veri kaybını önlemek için. Sınırsız LOB boyutunun belirtirken seçin **LOB boyutu (KB) küçük olduğunda tek bir blok LOB geçirme verilerinde belirtilen** performansını artırmak için onay kutusunu işaretleyin. |
     
     ![Gelişmiş çevrimiçi geçiş ayarlarını belirleme](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 

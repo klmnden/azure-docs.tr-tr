@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893716"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın
@@ -312,7 +312,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Hızlı bir görev ile iç döngünüzü test ettikten sonra, kaynak kodunu bir Git deposuna işlediğinizde kapsayıcı görüntüsü derlemelerini tetikleyecek bir **derleme görevi** yapılandırın:
 
 > [!div class="nextstepaction"]
-> [Otomatik tetikleyici görevlerle oluşturur](container-registry-tutorial-build-task.md)
+> [Görevlerle otomatik derlemeler tetikleme](container-registry-tutorial-build-task.md)
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip

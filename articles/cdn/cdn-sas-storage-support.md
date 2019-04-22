@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918561"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
@@ -89,8 +89,7 @@ Bu seçenek yalnızca kullanılabilir **verizon'dan Azure CDN Premium** profille
    ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Yeni kuralın etkin hale geldikten sonra herkes, URL'de bir SAS belirteci olup olmadığını kullanıyorsanız bağımsız olarak CDN uç noktasında belirtilen kapsayıcıdaki dosyalara erişebilirsiniz. Biçim şu şekildedir:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Yeni kuralın etkin hale geldikten sonra herkes, URL'de bir SAS belirteci olup olmadığını kullanıyorsanız bağımsız olarak CDN uç noktasında belirtilen kapsayıcıdaki dosyalara erişebilirsiniz. Biçim şu şekildedir: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Örneğin:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`

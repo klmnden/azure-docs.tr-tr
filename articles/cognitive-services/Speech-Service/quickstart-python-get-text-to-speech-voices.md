@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876589"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Hızlı Başlangıç: Python kullanarak metin okuma seslerini'nın listesini alın
@@ -135,6 +135,6 @@ Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bil
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Metin okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Metin Okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)
 * [Özel ses oluşturma kayıt ses örnekleri](record-custom-voice-samples.md)

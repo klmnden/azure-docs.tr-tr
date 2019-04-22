@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877559"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure depolama blobundan Azure Stream Analytics'i kullanarak Azure Data Lake depolama Gen1 Stream veri
@@ -25,7 +25,7 @@ Bu makalede Azure Data Lake depolama Gen1 Azure Stream Analytics işi için çı
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure Depolama hesabı**. Stream Analytics işine ilişkin veri girişi için bir blob kapsayıcısından bu hesabı kullanır. Bu öğreticide, adlı bir depolama hesabına sahip olduğunuz varsayılır **storageforasa** hesabında bir kapsayıcı adı verilen ve **storageforasacontainer**. Kapsayıcıyı oluşturduktan sonra örnek veri dosyası için karşıya yükleyin. 
   

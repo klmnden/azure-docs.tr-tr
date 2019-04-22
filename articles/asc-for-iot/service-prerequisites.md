@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861698"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Güvenlik Merkezi IOT önkoşulları
@@ -33,7 +33,7 @@ Bu makalede, farklı yapı taşları, Azure Güvenlik Merkezi (hizmet anlamanız
 
 - IOT hub'ı standart katman
     - RBAC rolü **sahibi** düzeyi ayrıcalıklar 
-- [Log Analytics Çalışma Alanı](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [Log Analytics çalışma alanı](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Azure Güvenlik Merkezi (önerilir)
     - Azure Güvenlik Merkezi kullanımı yalnızca bir öneri ve bu olmadan, bir gereksinim değil olsa diğer Azure kaynaklarınızı IOT hub'ının içinden görüntülemeniz mümkün olmayacaktır. 
  

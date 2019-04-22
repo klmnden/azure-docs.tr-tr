@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883199"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanma
@@ -182,7 +182,7 @@ Kaynak grubu Hizmetleri tutan kapsayıcıdır. Çeşitli hizmetler, Azure Machin
 
 Şablonlar hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure Resource Manager Şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonları ile uygulama dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices kaynak türleri](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 

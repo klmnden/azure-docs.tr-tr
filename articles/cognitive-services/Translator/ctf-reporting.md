@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917405"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
@@ -53,7 +53,7 @@ Bu yöntemler sağlar:
 
 Bu yöntem, kullanıcı tarafından oluşturulan çevirileri sayısını alır. Bu çeviri sayıları kullanıcı, minRating ve maxRating İstek parametreleri için uriPrefix göre gruplandırılmış listesini sağlar.
 
-**Sözdizimi**
+**Söz dizimi**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs
@@ -124,7 +124,7 @@ Dizi sonuç kümesini içeren **UserTranslationCount**. Her UserTranslationCount
 
 Bu yöntem, kullanıcı tarafından oluşturulan çevirileri alır. Çevirileri uriPrefix tarafından, kullanıcı, minRating ve maxRating istek parametrelerini gruplandırılmış sağlar.
 
-**Sözdizimi**
+**Söz dizimi**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs

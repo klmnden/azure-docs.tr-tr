@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882421"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
@@ -82,10 +82,10 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
       | **Güzergah noktası 1** | <*Başlangıç*> | Rotanızın girin. | 
       | **Güzergah noktası 2** | <*end*> | Rotanızın hedefi girin. | 
       | **Kaçının** | None | Ücretli geçişler, Otoyollar gibi yönlendiricilerin önlemek ve benzeri öğeleri girin. Olası değerler için bkz. [rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **İyileştirme** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
+      | **İyileştir** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
       | **Mesafe birimi** | <*your-preference*> | Hesaplamak rotanız için mesafe birimi girin. Bu örnekte, bu değeri kullanır: "Mil" | 
       | **Seyahat modu** | Sürüş | Rotanız için seyahat modunu girin. Bu örnekte bu değer "Driving" kullanır. | 
-      | **Geçiş tarihi-saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
+      | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       | **Aktarım türü tarih türü** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       ||||  
 
