@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425942"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
@@ -359,7 +359,7 @@ Bir operatör olarak, aşağıdakileri yapmayı öğrenebilirsiniz:
 Cihaz geliştiricisi olarak, şunları yapmayı öğrenebilirsiniz:
 
 * [Hazırlama ve DevKit cihazı (C) bağlayın](howto-connect-devkit.md)
-* [Raspberry Pi'yi (Python) hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
-* [Raspberry Pi'yi (C#) hazırlama ve bağlama](howto-connect-raspberry-pi-csharp.md)
+* [Hazırlama ve Raspberry Pi'yi (Python) bağlanma](howto-connect-raspberry-pi-python.md)
+* [Hazırlama ve Raspberry Pi'yi bağlanın (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Hazırlama ve Windows 10 IOT core cihazı bağlayın (C#)](howto-connect-windowsiotcore.md)
-* [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)
+* [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)

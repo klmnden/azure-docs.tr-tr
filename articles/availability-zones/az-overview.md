@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
 ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268730"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
@@ -79,13 +79,12 @@ Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek �
 
 
 ## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik alanları ile çalışmaya başlama
-- [Sanal makine oluşturma](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Sanal makine oluşturun](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell kullanarak yönetilen Disk ekleme](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Bölge yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Sanal makineleri ile bölgesel olarak yedekli bir ön uç bir Standard Load Balancer'ı kullanarak bölgeler arasında Yük Dengelemesi](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Bölgesel bir ön uç ile bir Standard Load Balancer'ı kullanarak bir bölge içerisindeki Vm'lerde Yük Dengeleme](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Alanlar arası yedekli depolama
-](../storage/common/storage-redundancy-zrs.md)
+- [Alanlar arası yedekli depolama](../storage/common/storage-redundancy-zrs.md)
 - [SQL Veritabanı](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Event Hubs coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
@@ -93,4 +92,4 @@ Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek �
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Hızlı başlangıç şablonları](https://aka.ms/azqs)
+- [Hızlı Başlangıç şablonları](https://aka.ms/azqs)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191656"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681616"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric desteklenen sürümler
 
@@ -30,7 +30,9 @@ Desteklenen bir Service Fabric sürümünü çalıştırıyor kümenizin tutmak 
 - [Bir Azure kümesinde Service Fabric sürümüne yükseltin](service-fabric-cluster-upgrade.md)
 - [Bir tek başına windows server kümesinde Service Fabric sürümüne yükseltin](service-fabric-cluster-upgrade-windows-server.md)
 
-Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş tarihi aşağıda verilmiştir.
+## <a name="supported-versions"></a>Desteklenen sürümler
+
+Aşağıdaki tabloda, desteklenen bir Service Fabric sürümleri ve Destek bitiş tarihlerinin listeler.
 
 | **Kümedeki Service Fabric çalışma zamanı** | **Doğrudan küme sürümünden yükseltme yapabilirsiniz** |**Uyumlu SDK / NuGet paket sürümleri** | **Destek sonu tarihi** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş t
 | 6.2.* | 6.0.232.* |Sürüm 3.1 küçüktür veya eşittir |Ekim 26,2018   |
 | 6.3.* | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |31,2019 Mart  |
 | 6.4.* | 6.2.301.* |Sürüm 3.3 küçüktür veya eşittir |Geçerli sürümü ve bu nedenle bitiş tarihi |
+
+## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
+
+ Aşağıdaki tabloda, desteklenen bir Service Fabric sürümleri için desteklenen işletim sistemleri listelenmektedir.
+
+| **İşletim Sistemi** | **En erken desteklenen Service Fabric sürümü** |
+| --- | --- |
+| Windows Server 2012 R2 | Tüm sürümler |
+| Windows Server 2016 | Tüm sürümler |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

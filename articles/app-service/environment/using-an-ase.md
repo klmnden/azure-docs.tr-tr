@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630674"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678097"
 ---
 # <a name="use-an-app-service-environment"></a>Bir App Service ortamını kullanma #
 
@@ -137,7 +137,7 @@ Dış ASE ile yayımlama bu seçeneklerin tümü aynı şekilde davranır. Daha 
 
 ILB ASE ile ilgili en önemli fark yayımlama var. Bir ILB ASE ile yayımlama uç noktaları yalnızca ILB ile tüm büyük/küçük harf kullanılabilir. ILB ASE alt ağdaki sanal ağdaki bir özel IP açıktır. ILB ağ erişimi yoksa, bu ASE üzerinde herhangi bir uygulamayı yayımlayamazsınız. Belirtilen [oluşturma ve kullanma ILB ASE][MakeILBASE], DNS, sistemdeki uygulamalar için yapılandırmanız gerekir. Bu, SCM uç noktasının içerir. Bunlar düzgün tanımlanmamışsa, yayımlanamıyor. Ayrıca, IDE'ler doğrudan yayımlamak için ILB ağ erişiminiz olması gerekir.
 
-Internet tabanlı CI sistemleri, GitHub ve Azure DevOps gibi yayımlama uç nokta Internet erişilebilir olmadığı için bir ILB ASE ile çalışmaz. Bunun yerine, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
+Yayımlama uç nokta Internet erişilebilir olmadığı için kullanıma hazır, GitHub ve Azure DevOps gibi Internet tabanlı CI sistemleri bir ILB ASE ile çalışmaz. Azure DevOps için bu sorunu, ILB ulaşabilecekleri iç ağınızda şirket içinde barındırılan bir sürüm aracı yükleyerek çalışabilirsiniz. Alternatif olarak, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanabilirsiniz.
 
 Bir ILB ASE’deki uygulamalar için yayımlama uç noktaları, ILB ASE oluşturulurken kullanılan etki alanını kullanır. Uygulamanın yayımlama profilinde ve uygulamanın portal dikey penceresinde görebilirsiniz (içinde **genel bakış** > **Essentials** ve ayrıca **özellikleri**). 
 

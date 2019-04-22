@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885443"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677774"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Metin analizi docker kapsayıcıları yapılandırın
 
@@ -31,11 +31,11 @@ Metin analizi, ortak bir yapılandırma çerçeve ile her bir kapsayıcı sağla
 
 ## <a name="apikey-configuration-setting"></a>ApiKey yapılandırma ayarı
 
-`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _metin analizi_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
+`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Bilişsel Hizmetler_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Metin analizi'nın** kaynak yönetimi altında **anahtarları**
+* Azure portalı: **Bilişsel Hizmetler** kaynak yönetimi altında **anahtarları**
 
 ## <a name="applicationinsights-setting"></a>Applicationınsights ayarı
 
@@ -43,11 +43,13 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Ayar uç noktası URI'si belirtir, _metin analizi_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve bir _ için geçerli bir uç noktası URI değeri olmalıdır_metin analizi_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
+`Billing` Ayar uç noktası URI'si belirtir, _Bilişsel Hizmetler_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve bir _ için geçerli bir uç noktası URI değeri olmalıdır_Bilişsel Hizmetler_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Metin analizi'nın** etiketli genel bakış `Endpoint`
+* Azure portalı: **Bilişsel Hizmetler** etiketli genel bakış `Endpoint`
+
+Eklemenize gerek `text/analytics/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme.
 
 |Gerekli| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarla
 * **Satır devamlılığı karakteri**: Aşağıdaki bölümlerde docker komutları ters eğik çizgi kullanın `\`, satır devamı karakteri olarak. Bu konak işletim sisteminin gereksinimlerine göre kaldırın veya değiştirin. 
 * **Bağımsız değişken sırası**: Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
 
+Eklemenize gerek `text/analytics/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme.
+
 Yerine {_argument_name_} kendi değerlerinizle:
 
 | Yer tutucu | Değer | Biçim veya örnek |
 |-------------|-------|---|
-|{BILLING_KEY} | Azure portalının metin analizi anahtarlar sayfasında bulunan metin analizi kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fatura uç nokta değerini Azure portalının metin Analizi'ne genel bakış sayfasında kullanılabilir.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | Uç noktası anahtarı `Cognitive Services` kaynak Azure'da sunulan `Cognitive Services` anahtarlar sayfasında. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Azure'da faturalandırma uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
-> ApiKey değer **anahtar** Azure metin analizi kaynak anahtarlar sayfasındaki. 
+> ApiKey değer **anahtarı** Azure `Cognitive Services` kaynak anahtarlar sayfasında. 
 
 ## <a name="keyphrase-extraction-container-docker-examples"></a>Anahtar cümlesi ayıklama kapsayıcı docker örnekleri
 

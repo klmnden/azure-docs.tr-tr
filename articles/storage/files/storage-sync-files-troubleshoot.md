@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 328edac78624c192ee139c40fe0ed1853423c639
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051377"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
@@ -164,12 +164,12 @@ Sunucu uç noktası eşitleme etkinliği aşağıdaki nedenlerden dolayı kayded
 Bu sorun, veri içeren bir bulut uç noktası oluşturun ve bir Azure dosya paylaşımı kullanıyorsanız beklenmektedir. Azure dosya paylaşımının değişiklikleri tarar değişiklik numaralandırma işi, Bulut ve sunucu uç noktaları arasında dosyaları eşitleyebilmeniz için önce tamamlamanız gerekir. İşin tamamlanması için geçen süre, ad alanında Azure dosya paylaşımının boyutuna bağlıdır. Sunucu uç noktası durumu değişiklik numaralandırma işi tamamlandıktan sonra güncelleştirmeniz gerekir.
 
 ### <a id="broken-sync"></a>Eşitleme durumu nasıl izleyebilirim?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Her bir eşitleme grubu içinde tek bir sunucu uç noktalarına son tamamlanan eşitleme oturum durumunu görmek için detaya gidebilirsiniz. Yeşil sistem sütunu ve dosyaları değil eşitleniyor 0 değerini eşitleme beklendiği gibi çalışıp çalışmadığını gösterir. Aşağıdaki durum bu değilse, yaygın eşitleme hatalarıyla ve değil eşitleniyor dosyalarını işlemek nasıl bir listesi için bkz. 
 
 ![Azure portal'ın bir ekran görüntüsü](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# [<a name="server"></a>Sunucu](#tab/server)
+# <a name="servertabserver"></a>[Sunucu](#tab/server)
 Olay Görüntüleyicisi konumunda bulunabilir sunucunun telemetri günlüklerini Git `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Olay 9102 karşılık gelen bir tamamlanmış eşitleme oturumu; Son eşitleme durumu için en son olay kimliği 9102 ile arayın. SyncDirection bir karşıya yükleme ve indirme, bu oturumu olup olmadığını söyler. HResult 0 ise, eşitleme oturumu başarılı oldu. Sıfır olmayan bir HResult, eşitleme sırasında bir hata oluştu anlamına gelir; Aşağıda sık karşılaşılan bir listesi için bkz. PerItemErrorCount 0'dan büyükse, bu, bazı dosyaları veya klasörleri düzgün eşitlenmeyen olduğunu anlamına gelir. HResult 0 ancak 0'dan büyük bir PerItemErrorCount olması mümkündür.
 
 Başarılı bir şekilde karşıya bir örneği aşağıda verilmiştir. Konuyu uzatmamak amacıyla, yalnızca 9102 her koşulda yer alan değerlerden bazıları aşağıda listelenmiştir. 
@@ -201,10 +201,10 @@ Bazen Eşitleme oturumları genel başarısız veya sıfır olmayan PerItemError
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Geçerli bir eşitleme oturumu ilerlemesini nasıl izleyebilirim?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Eşitleme grubunuz içinde sunucu uç noktası için söz konusu gidin ve dosyaları karşıya yüklenen veya indirilen geçerli eşitleme oturumu sayısını görmek için eşitleme etkinliği bölümüne bakın. Bu durum, yaklaşık 5 dakika geciktirilecek ve eşitleme oturumunuz bu süre içinde tamamlanması küçük olursa, bu portalda bildirilmeyebilir unutmayın. 
 
-# [<a name="server"></a>Sunucu](#tab/server)
+# <a name="servertabserver"></a>[Sunucu](#tab/server)
 Arama telemetri en son 9302 olayında oturum sunucuda (Olay Görüntüleyicisi'nde, uygulamaları ve Hizmetleri Logs\Microsoft\FileSync\Agent\Telemetry gidin). Bu olay, geçerli eşitleme oturumu durumunu gösterir. TotalItemCount gösterir eşitlenmesi için kaç dosyalarıdır AppliedItemCount sayısı kadar eşitlenmiş dosyaları ve PerItemErrorCount eşitleme (Bu işlemel öğrenmek için aşağıya bakın) için başarısız olan dosya sayısı.
 
 ```
@@ -219,14 +219,14 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Sunucularım birbiriyle eşitlenmiş olup olmadığını nasıl anlarım?
-# [<a name="portal"></a>Portal](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Verilen eşitleme grubundaki her sunucu için emin olun:
 - Denenen son eşitlemenin hem karşıya yükleme ve indirme için zaman damgası, son.
 - Karşıya yükleme ve indirme için yeşil durumudur.
 - Eşitleme etkinliği alan çok az sayıda gösterir ya da eşitlemek için kalan dosya yok.
 - Dosyaları değil eşitleniyor hem karşıya yükleme ve indirme 0 alandır.
 
-# [<a name="server"></a>Sunucu](#tab/server)
+# <a name="servertabserver"></a>[Sunucu](#tab/server)
 Her sunucu için telemetri olay günlüğündeki 9102 olaylar tarafından işaretlenen tamamlanmış eşitleme oturumlara bakın (Olay Görüntüleyicisi'nde Git `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. Son karşıya yükleme olduğundan emin olun ve indirme başarıyla tamamlandı oturumları istediğiniz belirli herhangi bir sunucu üzerinde. Bunu yapmak için PerItemErrorCount ve HResult 0 hem karşıya yükleme ve indirme olup olmadığını denetleyin (SyncDirection alan belirli bir oturum bir karşıya yükleme veya indirme oturumu olup olmadığını gösterir). Son tamamlanan eşitleme oturumu görmüyorsanız, büyük olasılıkla bir eşitleme oturumu şu anda, yalnızca eklendiğinde veya büyük miktarda veri değiştirildiğinde, beklenen sürüyor olduğundan olduğuna dikkat edin.
@@ -608,14 +608,14 @@ Bu hata, eşitleme veritabanı ile dahili bir sorun nedeniyle oluşur. Bu hata o
 
 ### <a name="common-troubleshooting-steps"></a>Genel sorun giderme adımları
 <a id="troubleshoot-storage-account"></a>**Depolama hesabının var olduğunu doğrulayın.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Depolama eşitleme hizmeti içindeki eşitleme grubuna gidin.
 2. Eşitleme grubu içinde bulut uç noktası seçin.
 3. Açılan bölmede Azure dosya paylaşımı adını not edin.
 4. Bağlı depolama hesabını seçin. Bu bağlantı başarısız olursa, başvurulan depolama hesabı kaldırıldı.
     ![Bir depolama hesabı bağlantısını içeren bulut uç noktası ayrıntıları bölmesinin gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -713,12 +713,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Depolama hesabı herhangi bir ağ kuralı içermediğinden emin olmak için kontrol edin.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Depolama hesabında bir kez seçin **güvenlik duvarları ve sanal ağlar** depolama hesabının sol tarafındaki.
 2. Depolama hesabı içinde **tüm ağlardan erişime izin ver** radyo düğmesini seçili olmalıdır.
     ![Bir depolama hesabı güvenlik duvarı ve ağ kuralları devre dışı gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -729,12 +729,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Azure dosya paylaşımının var olduğundan emin olun.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Tıklayın **genel bakış** ana depolama hesabını sayfasına dönmek için sol taraftaki İçindekiler üzerinde.
 2. Seçin **dosyaları** dosya paylaşımlarının listesini görüntülemek için.
 3. Bulut uç noktası tarafından başvurulan dosya paylaşımı (Bu yukarıdaki 1. adımda not ettiğiniz) dosya paylaşımları listesinde göründüğünü doğrulayın.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -748,7 +748,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Azure dosya eşitleme depolama hesabına erişimi olduğundan emin olun.**  
-# [<a name="portal"></a>Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Tıklayın **erişim denetimi (IAM)** soldaki İçindekiler üzerinde.
 1. Tıklayın **rol atamaları** kullanıcılar ve uygulamalar listesi için sekmesinde (*hizmet sorumluları*), depolama hesabınıza erişimi vardır.
 1. Doğrulama **karma dosya eşitleme hizmeti** listesinde görünür **okuyucu ve veri erişimi** rol. 
@@ -761,7 +761,7 @@ if ($fileShare -eq $null) {
     - İçinde **rol** alanın, Seç **okuyucu ve veri erişimi**.
     - İçinde **seçin** alanına **karma dosya eşitleme hizmeti**, rolü seçin ve tıklayın **Kaydet**.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
@@ -905,7 +905,7 @@ Sorun çözülmezse AFSDiag aracı çalıştırın:
 6. Günlükleri içeren bir .zip dosyası ve izleme dosyaları belirttiğiniz çıkış dizinine kaydedilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-- [Azure Dosya Eşitleme’yi izleme](storage-sync-files-monitoring.md)
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)
 - [Azure dosyaları hakkında sık sorulan sorular](storage-files-faq.md)
-- [Windows Azure dosyaları sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
-- [Linux'ta Azure dosyaları sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)
+- [Windows’ta Azure Dosyalar sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
+- [Linux’ta Azure Dosyalar sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)

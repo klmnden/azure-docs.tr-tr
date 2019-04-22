@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266951"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
@@ -42,7 +42,7 @@ Bir işlev uygulaması oluşturduğunuzda uygulama barındırma planı işlevler
 
 Tüketim planı kullanırken, Azure işlevleri konak örneklerini dinamik olarak eklenir ve gelen olayların sayısına dayalı kaldırıldı. Bu sunucusuz planı otomatik olarak ölçeklenen ve yalnızca işlevlerinizin çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Bir tüketim planında bir işlev yürütmeye yapılandırılabilir bir süre sonunda zaman aşımına uğradı.
 
-Faturalandırma, yürütme, yürütme süresini ve kullanılan bellek sayısına göre belirlenmektedir. Faturalandırma, bir işlev uygulaması içindeki tüm işlevleri üzerinden toplanır. Daha fazla bilgi için [Azure fiyatlandırma sayfasını işlevleri].
+Faturalandırma, yürütme, yürütme süresini ve kullanılan bellek sayısına göre belirlenmektedir. Faturalandırma, bir işlev uygulaması içindeki tüm işlevleri üzerinden toplanır. Daha fazla bilgi için [Azure işlevleri fiyatlandırması sayfası].
 
 Tüketim planı barındırma planı varsayılandır ve aşağıdaki avantajları sunar:
 
@@ -149,7 +149,7 @@ Azure işlevleri kullanan adlı bir bileşen *ölçek denetleyicisi* olayların�
 
 Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş farklı tetikleyicilere sahip olabilir:
 
-* [Olay Hub'ı](functions-bindings-event-hubs.md#trigger---scaling)
+* [Olay Hub’ı](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>En iyi yöntemler ve ölçeklenebilir uygulamaları için desenler
 
@@ -157,7 +157,7 @@ Birçok yönden ne kadar iyi Bu, ana bilgisayar yapılandırması, çalışma za
 
 ### <a name="billing-model"></a>Faturalandırma modeli
 
-Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azure fiyatlandırma sayfasını işlevleri]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodunu yürütülen zaman sayar. Faturalandırma birimler şunlardır:
+Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azure işlevleri fiyatlandırması sayfası]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodunu yürütülen zaman sayar. Faturalandırma birimler şunlardır:
 
 * **Kaynak tüketimi, gigabayt saniye (GB-s) cinsinden**. Bellek boyutu ve yürütme zamanı içinde bir işlev uygulaması tüm işlevler için bir birleşimi olarak hesaplanır. 
 * **Yürütme**. Bir işlev, yanıt olarak bir olay tetikleyicisi yürütülür her zaman sayılır.

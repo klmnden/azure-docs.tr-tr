@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426639"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Log Analytics aracısını hibrit ortamlardaki Windows bilgisayarlar için yapılandırma
@@ -81,7 +81,7 @@ Aşağıdaki adımlar, bilgisayarınızda Microsoft Monitoring Agent'ın kurulum
 8. **Yüklemeye Hazır** sayfasında seçimlerinizi gözden geçirin ve ardından **Yükle**'ye tıklayın.
 9. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 
-Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Yapılandırmanızı gözden geçirebilir ve aracının Log Analytics'e bağlandığını doğrulayabilirsiniz. Bağlandığında **Azure Log Analytics** sekmesinde aracı bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Log Analytics hizmetine başarıyla bağlandı.**<br><br> ![MMA Log analytics'e bağlantı durumu](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Yapılandırmanızı gözden geçirebilir ve aracının Log Analytics'e bağlandığını doğrulayabilirsiniz. Bağlandığında **Azure Log Analytics** sekmesinde aracı bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Log Analytics hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Olay ve performans verilerini toplama
 Log Analytics uzun süreli analiz ve raporlama için belirttiğiniz Windows olay günlüğü ve performans sayaçlarından olayları toplayarak belirli bir koşul algılandığında işlem yapabilir.  Windows olay günlüğünden olayları toplamayı yapılandırmak ve birkaç ortak performans sayacı ile başlamak için bu adımları izleyin.  
@@ -135,4 +135,4 @@ Aracıyı kaldırmak için aşağıdaki adımları izleyin.
 Verileri görüntüleme ve analiz etmeyi öğrenmek için, öğreticiye devam edin.   
 
 > [!div class="nextstepaction"]
-> [Log analytics'te verileri görüntüleme veya çözümleme](tutorial-viewdata.md)
+> [Log Analytics’te verileri görüntüleme veya analiz etme](tutorial-viewdata.md)

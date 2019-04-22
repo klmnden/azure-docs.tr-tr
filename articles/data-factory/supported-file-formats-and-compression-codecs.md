@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257918"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
@@ -103,7 +103,7 @@ JSON dosyalarını ayrıştırmak veya verileri JSON biçiminde yazmak istiyorsa
 
 Kopyalama etkinliği, JSON dosyalarının şu desenlerini ayrıştırabilir:
 
-- **Tür ı: setOfObjects**
+- **1. Tür: setOfObjects**
 
     Her dosya tek bir nesne veya satırlara ayrılmış/bitiştirilmiş birden fazla nesne içerir. Bu seçenek bir çıkış veri kümesinde belirlendiğinde, kopyalama etkinliği her satırda bir nesnenin bulunduğu (satırlara ayrılmış) tek bir JSON dosyası üretir.
 
@@ -157,7 +157,7 @@ Kopyalama etkinliği, JSON dosyalarının şu desenlerini ayrıştırabilir:
         }
         ```
 
-- **Tür: arrayOfObjects**
+- **2. Tür: arrayOfObjects**
 
     Her dosya bir nesne dizisi içerir.
 
@@ -231,7 +231,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Daha fazla bilgi için [hedef dataset sütunları için kaynak veri kümesi sütunlarını eşleme](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` verilerden ayıklanacağı her sütun için JSON yolunu belirtir. Verileri diziden kopyalamak için kullanabilirsiniz `array[x].property` belirtilen özelliğin değerini ayıklamak için `xth` nesne veya kullanabileceğiniz `array[*].property` özelliği içeren herhangi bir nesneden değeri bulunacak.
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için kullanabilirsiniz `array[x].property` belirtilen özelliğin değerini ayıklamak için `xth` nesne veya kullanabileceğiniz `array[*].property` özelliği içeren herhangi bir nesneden değeri bulunacak.
 
 ```json
 "properties": {
@@ -268,7 +268,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 }
 ```
 
-**Örnek 2: çapraz uygulama aynı desene sahip birden çok nesneyi diziden**
+**Örnek 2: diziden aynı desene sahip birden fazla nesneyi çapraz uygulama**
 
 Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki birden fazla kayda dönüştürülmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:
 
@@ -307,7 +307,7 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri d
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Daha fazla bilgi için [hedef dataset sütunları için kaynak veri kümesi sütunlarını eşleme](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` yineleme ve altında aynı desene sahip nesnelerdeki verilerin ayıklamak için gösterir **dizi** `orderlines`.
-- `jsonPathDefinition` verilerden ayıklanacağı her sütun için JSON yolunu belirtir. Bu örnekte, `ordernumber`, `orderdate`, ve `city` JSON yolu başlayarak ile kök nesne altındaki `$.`, ancak `order_pd` ve `order_price` dizi öğesinden türetilen yol ile tanımlanan `$.` .
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Bu örnekte, `ordernumber`, `orderdate`, ve `city` JSON yolu başlayarak ile kök nesne altındaki `$.`, ancak `order_pd` ve `order_price` dizi öğesinden türetilen yol ile tanımlanan `$.` .
 
 ```json
 "properties": {
@@ -593,7 +593,7 @@ Azure Data Factory tarafından desteklenen dosya tabanlı veri depoları için a
 - [Azure Data Lake Store Bağlayıcısı](connector-azure-data-lake-store.md)
 - [Amazon S3 Bağlayıcısı](connector-amazon-simple-storage-service.md)
 - [Dosya sistemi Bağlayıcısı](connector-file-system.md)
-- [FTP bağlayıcısı](connector-ftp.md)
-- [SFTP bağlayıcısı](connector-sftp.md)
+- [FTP Bağlayıcısı](connector-ftp.md)
+- [SFTP Bağlayıcısı](connector-sftp.md)
 - [HDFS Bağlayıcısı](connector-hdfs.md)
 - [HTTP Bağlayıcısı](connector-http.md)

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281191"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
@@ -42,7 +42,7 @@ Microsoft Müşteri sözleşmesi varsa, bir faturalandırma profili sahibi, katk
 
 1. Aboneliğinizden seçin [abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında [faturalar erişimi olan bir kullanıcı](billing-manage-access.md).
 
-2. Seçin **faturalar**.
+2. **Faturalar**'ı seçin.
 
     ![Faturalandırma ve kullanım seçeneğini gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
@@ -58,9 +58,9 @@ Faturanızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için fatura
 
 Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
 
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 2. Faturalandırma profili seçin.
-3. Seçin **faturalar**.
+3. **Faturalar**'ı seçin.
 4. Fatura kılavuzunda, indirmek istediğiniz fatura satırını bulur.
 5. Üç noktaya tıklayın (`...`) satırın sonunda.
 6. İndirme bağlam menüsünde seçin **fatura**.
@@ -108,7 +108,7 @@ Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma d�
 
 Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için de seçebilirsiniz. Tüm faturalandırma profili sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticilerinin e-posta ile fatura alırsınız. Okuyucu, e-posta fatura tercih güncelleştirilemiyor.
 
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 1. Faturalandırma profili seçin.
 1. Altında **ayarları**seçin **özellikleri**.
 1. Altında **e-posta fatura**seçin **güncelleştirme e-posta fatura tercih**.
@@ -119,7 +119,7 @@ Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için d
 
 Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma dışında iyileştirilmiş **çıkma**. Tüm sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticileri kabul faturayı e-posta ile çok alma dışında. Okuyucu, e-posta fatura tercihini değiştiremezsiniz.
 
-## <a name="download-usage"></a>Kullanımı indir
+## <a name="download-usage"></a>Kullanımı indirme
 
  Çoğu abonelikler için günlük kullanım dosyanızda Bul [Azure hesap Merkezi](https://account.azure.com/Subscriptions). EA müşterisiyseniz veya bir Microsoft Müşteri Sözleşmemiz var, kullanımı indirebilirsiniz [Azure portalında](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
@@ -169,9 +169,9 @@ Görüntülemek ve faturalandırma profili için kullanım verilerini indirmek i
 
 #### <a name="download-usage-for-billed-charges"></a>Faturalandırılan ücretler kullanımı indir
 
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 2. Faturalandırma profili seçin.
-3. Seçin **faturalar**.
+3. **Faturalar**'ı seçin.
 4. Fatura kılavuzunda fatura indirmek istediğiniz kullanım için karşılık gelen satırı bulur.
 5. Üç noktaya tıklayın (`...`) satırın sonunda.
 6. İndirme bağlam menüsünde seçin **Azure kullanım ve Ücret**.
@@ -180,7 +180,7 @@ Görüntülemek ve faturalandırma profili için kullanım verilerini indirmek i
 
 Ayrıca, ay başından bu yana kullanım ücretleri henüz faturalandırılmış yok anlamına gelen geçerli fatura dönemi için indirebilirsiniz.
 
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 2. Faturalandırma profili seçin.
 3. İçinde **genel bakış** dikey penceresinde tıklayın **indirme Azure kullanım ve Ücret**.
 

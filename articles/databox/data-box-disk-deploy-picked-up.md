@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425959"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
@@ -79,7 +79,7 @@ Cihaz Avrupa'da döndüren, aşağıdaki adımları uygulayın.
     
 3. Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
 
-      ![Toplamayı zamanla](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
+      ![Toplamayı zamanlama](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Asya Pasifik bölgesinde öğrenilip
 
@@ -157,7 +157,7 @@ Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin o
 - Azure depolama hesabınızda veya hesaplarınızda. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
 
   - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Azure dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
 
@@ -200,6 +200,6 @@ Bu öğreticide aşağıdaki Azure Data Box Disk konularını öğrendiniz:
 Azure portalı yoluyla Data Box Disk'i yönetmeyi öğrenmek için bir sonraki nasıl yapılır makalesine geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Data Box Disk yönetmek için Azure portalını kullanma](./data-box-portal-ui-admin.md)
+> [Azure portalını kullanarak Azure Data Box Disk'i yönetme](./data-box-portal-ui-admin.md)
 
 

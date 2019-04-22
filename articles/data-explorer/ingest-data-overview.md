@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045603"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
@@ -68,7 +68,7 @@ Kusto istemci alma ve verileri sorgulamak için kullanılan SDK'sı sunar:
 
 * [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
+* [Düğüm SDK'sı](/azure/kusto/api/node/kusto-node-client-library)
 
 * [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 

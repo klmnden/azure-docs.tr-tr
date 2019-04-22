@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264208"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Hızlı Başlangıç: SignalR JavaScript kullanarak hizmeti ve Azure işlevleri ile sohbet odası oluşturamadı.
@@ -84,4 +84,4 @@ Azure hesabınızla Azure portalında <https://portal.azure.com/> sayfasında ot
 Bu hızlı başlangıçta, oluşturulan ve gerçek zamanlı bir sunucusuz uygulama VS Code'da çalıştı. Bir sonraki adımda Azure İşlevlerini nasıl VS Code’dan dağıtacağınızı öğrenin.
 
 > [!div class="nextstepaction"]
-> [VS Code ile Azure işlevleri'ni dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [VS Code ile Azure İşlevlerini dağıtma](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489956"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
@@ -68,7 +68,7 @@ Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kul
 
 Çalışma alanının bir taksonomi, aşağıdaki diyagramda gösterilmiştir:
 
-[![Workspace sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Deneme
 
@@ -236,5 +236,5 @@ Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz:
 
 * [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
 * [Bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md)
-* [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)
+* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)
 * [Resource Manager şablonu ile bir çalışma alanı oluşturma](how-to-create-workspace-template.md)

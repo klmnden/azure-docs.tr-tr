@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277792"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Yönetici erişimi için RBAC rollerini ayarlama
@@ -38,6 +38,6 @@ Rolleri, hizmet uç noktasına erişim hakları vermeyin. Arama hizmeti, dizin y
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [PowerShell kullanarak yönetme](search-manage-powershell.md) 
++ [PowerShell’i kullanarak yönetme](search-manage-powershell.md) 
 + [Performans ve iyileştirme Azure Search'te](search-performance-optimization.md)
 + [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).

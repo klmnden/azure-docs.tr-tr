@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259210"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makinesi sağlama
@@ -73,9 +73,9 @@ Bir SQL Server sanal makineyi yapılandırmak için birden çok sekme bulunur. B
 | Adım | Açıklama |
 | --- | --- |
 | **Temel Bilgiler** |[Temel ayarları yapılandırma](#1-configure-basic-settings) |
-| **İsteğe Bağlı Özellikler** |[İsteğe bağlı özellikleri yapılandırma](#2-configure-optional-features) |
-| **SQL Server ayarları** |[SQL server ayarlarını yapılandırma](#3-configure-sql-server-settings) |
-| **Gözden geçirme + oluşturma** | [Özeti gözden geçirme](#4-review--create) |
+| **İsteğe bağlı özellikler** |[İsteğe bağlı özellikleri yapılandırma](#2-configure-optional-features) |
+| **SQL Server ayarları** |[SQL Server ayarlarını yapılandırma](#3-configure-sql-server-settings) |
+| **Gözden geçir + oluştur** | [Özeti gözden geçirme](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Temel ayarları yapılandırma
 
@@ -158,8 +158,8 @@ Bir SQL Server sanal makineyi yapılandırmak için birden çok sekme bulunur. B
 | Ayar |
 | --- |
 | [Bağlantı](#connectivity) |
-| [Authentication](#authentication) |
-| [Azure Anahtar Kasası Tümleştirme](#azure-key-vault-integration) |
+| [Kimlik doğrulaması](#authentication) |
+| [Azure Anahtar Kasası Tümleştirmesi](#azure-key-vault-integration) |
 | [Depolama yapılandırması](#storage-configuration) |
 | [Otomatik Düzeltme Eki Uygulama](#automated-patching) |
 | [Otomatik Yedekleme](#automated-backup) |
@@ -213,7 +213,7 @@ Aşağıdaki tabloda Azure Anahtar Kasası Tümleştirmeyi yapılandırmak için
 | --- | --- | --- |
 | **Anahtar Kasası URL'si** |Anahtar kasası konumu. |https:\//contosokeyvault.vault.azure.net/ |
 | **Asıl ad** |Azure Active Directory hizmet asıl adı. Bu ad İstemci Kimliği olarak da bilinir. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **Asıl gizli anahtar** |Azure Active Directory hizmet asıl gizli anahtarı. Bu gizli anahtar İstemci Gizli Anahtarı olarak da bilinir. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **Asıl parola** |Azure Active Directory hizmet asıl gizli anahtarı. Bu gizli anahtar İstemci Gizli Anahtarı olarak da bilinir. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Kimlik bilgisi adı** |**Kimlik bilgisi adı**: AKV tümleştirme VM'nin anahtar kasasına erişim sağlayan, SQL Server içinde bir kimlik bilgisi oluşturur. Bu kimlik bilgisi için bir ad seçin. |mycred1 |
 
 Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kasası Tümleştirmeyi Yapılandırma](virtual-machines-windows-ps-sql-keyvault.md).

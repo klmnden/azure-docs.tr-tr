@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: 2c98f6d12f4868e5f90874fe3210fe5368f7ca2d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270345"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 hazır ve Video Indexer'ı karşılaştırma 
@@ -39,6 +39,6 @@ Bu makalede yeteneklerini karşılaştırır **Video Indexer API** ve **Media Se
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Video Indexer genel bakış](video-indexer-overview.md)
+[Video Indexer’a genel bakış](video-indexer-overview.md)
 
 [Media Services v3 genel bakış](../latest/media-services-overview.md)

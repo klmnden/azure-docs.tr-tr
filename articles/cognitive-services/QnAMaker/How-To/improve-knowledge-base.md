@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522205"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678998"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Etkin öğrenme bilgi bankanızı geliştirmek için kullanın
 
@@ -156,7 +156,7 @@ Soru-cevap Oluşturucu bir soruya yanıt gönderirken birden fazla üst yanıt d
 
 Kullanıcı mevcut sorulardan birini seçtikten sonra istemci uygulama, kullanıcının seçimini soru-cevap Oluşturucu'nın Train API'sini kullanarak geri bildirim gönderir. Bu geri bildirim tamamlandıktan etkin geri bildirim döngüsü öğrenme. 
 
-Kullanım [Azure Bot C# örnek](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) uçtan uca bir senaryoda etkin olarak öğrenmeye görmek için.
+Kullanım [Azure Bot örnek](https://aka.ms/activelearningsamplebot) uçtan uca bir senaryoda etkin olarak öğrenmeye görmek için.
 
 ## <a name="train-api"></a>Train API
 

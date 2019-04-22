@@ -4,15 +4,15 @@ description: Bu makalede, Azure Cosmos DB veritabanları, kapsayıcıları ve ö
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762914"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678811"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Veritabanları, kapsayıcılar ve öğelerle çalışma
 
@@ -61,7 +61,7 @@ Ayarlayabileceğiniz [yaşam süresi (TTL)](time-to-live.md) bir Azure Cosmos ka
 
 Kullanarak [değişiklik akışı](change-feed.md), her kapsayıcınızın mantıksal bölümler için yönetilen işlem günlüğüne abone olabilirsiniz. Değişiklik akışı ile birlikte kapsayıcısı üzerinde gerçekleştirilen tüm güncelleştirmelerin günlük sağlar önce ve sonra öğeleri görüntüler. Bkz: [değişiklik akışı kullanarak reaktif uygulamalar oluşturmak nasıl](serverless-computing-database.md). Ayrıca bekletme süresini değiştirmek akışı için değişiklik kapsayıcı üzerindeki ilke akışı kullanarak yapılandırabilirsiniz. 
 
-Kaydedebileceğiniz [saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler (UDF'ler)](stored-procedures-triggers-udfs.md) ve [birleştirme yordamları](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) Azure Cosmos kapsayıcınızı ile. 
+Kaydedebileceğiniz [saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler (UDF'ler)](stored-procedures-triggers-udfs.md) ve [birleştirme yordamları](how-to-manage-conflicts.md) Azure Cosmos kapsayıcınızı ile. 
 
 Belirtebileceğiniz bir [benzersiz anahtar kısıtlaması](unique-keys.md) Azure Cosmos kapsayıcınızı üzerinde. Benzersiz anahtar bir ilke oluşturarak, mantıksal bölüm anahtarı başına bir veya daha fazla değerlerin benzersiz olmasını sağlamak. Bir kapsayıcı benzersiz bir anahtar ilke oluşturulduktan sonra tüm yeni veya güncelleştirilmiş öğeleri benzersiz anahtar kısıtlaması tarafından belirtilen değerleri yinelenen değerlere sahip oluşturulmasını engeller. Daha fazla bilgi için bkz. [benzersiz anahtar kısıtlamaları](unique-keys.md).
 

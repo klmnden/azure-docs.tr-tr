@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271637"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
@@ -197,7 +197,7 @@ Yukarıda gösterilen varlık yapısı ile soyadına göre aramasını etkinleş
 * Çalışan varlıklar aynı bölümde dizin varlıklar oluşturun.  
 * Dizin varlıklar bir ayrı bölüm ya da tablo oluşturun.  
 
-<u>#1. seçenek: Blob depolama kullanma</u>  
+<u>#1. seçenek: Blob storage'ı kullanma</u>  
 
 Birinci seçenek için bir listesini her benzersiz son adı ve her blob deposuna blob oluşturma **PartitionKey** (bölüm) ve **RowKey** (çalışan kimliği) son bu ada sahip çalışanlar için değerler. Eklediğinizde veya bir çalışan silme ilgili blobun içeriğini çalışan varlıklarla sonunda tutarlı olduğundan emin olmanız gerekir.  
 
@@ -1109,6 +1109,6 @@ Bu zaman uyumsuz bir örnekte, zaman uyumlu bir sürümünü aşağıdaki deği�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [İlişkileri modelleme](table-storage-design-modeling.md)
-- [Sorgulama için tasarım](table-storage-design-for-query.md)
+- [Sorgulama için Tasarım](table-storage-design-for-query.md)
 - [Tablo verilerini şifreleme](table-storage-design-encrypt-data.md)
-- [Veri değişikliği için tasarım](table-storage-design-for-modification.md)
+- [Veri değişikliği için Tasarım](table-storage-design-for-modification.md)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266962"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Öğretici: Soru-cevap Oluşturucu Portalı'ndan Bilgi Bankası oluşturma
@@ -67,7 +67,7 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
     |Ayar adı|Ayar değeri|Amaç|
     |--|--|--|
     |URL'si|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |URL'deki SSS içeriği, soru-cevap şeklinde biçimlendirilir. Soru-Cevap Oluşturma hizmeti bu biçimi yorumlayarak soruları ve cevaplarını ayıklayabilir.|
-    |Dosya |_Bu öğreticide kullanılan değil_|Bu işlem sorular ve cevaplar için gerekli dosyaları karşıya yükler. |
+    |Dosya |_bu öğreticide kullanılmayacaktır_|Bu işlem sorular ve cevaplar için gerekli dosyaları karşıya yükler. |
     |Chit-chat personality (Konuşma kişiliği)|The friend (Arkadaş)|Bu ayar yaygın sorulara ve cevaplara arkadaş canlısı ve günlük kullanım dilini kullanan bir kişilik ekler. Bu soruları ve cevapları daha sonra düzenleyebilirsiniz. |
 
     ![KB oluşturma işleminin 4. adımı](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)

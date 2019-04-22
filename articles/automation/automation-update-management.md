@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426501"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679083"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -68,7 +68,7 @@ Birden fazla Log Analytics çalışma alanları (çoklu yönlendirmeyi) ortamın
 
 Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesi gösterilir:
 
-|İşletim sistemi  |Notes  |
+|İşletim sistemi  |Notlar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Destekler, yalnızca değerlendirme güncelleştirin.         |
 |Windows Server 2008 R2 SP1 ve üzeri (dahil olmak üzere Windows Server 2012 ve 2016)    |.NET framework 4.5.1 veya üzeri gereklidir. ([İndirme .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 veya üzeri gereklidir. ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1, daha fazla güvenilirlik için önerilir.  ([İndirme WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -208,9 +208,9 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ## <a name="install-updates"></a>Güncelleştirmeleri yükle
 
-Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
+Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Bir güncelleştirme dağıtımı oluşturmak için Otomasyon hesabı yazma erişiminiz olması gerekir ve yazma erişimi tüm Azure VM'ler dağıtıma yöneliktir. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
 
- Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [dinamik gruplar](#using-dynamic-groups), bu grupları dağıtım sırasında çözümlenir ve bir sorgu tarafından tanımlanır.
+Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [dinamik gruplar](#using-dynamic-groups), bu grupları, dağıtım sırasında çözümlenir ve Azure sanal makinelerini veya Azure dışı VM'ler için kayıtlı bir aramayı bir sorgu tarafından tanımlanan.
 
 > [!NOTE]
 > Varsayılan olarak Azure Market'ten dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için ayarlanır. Bu çözümü eklediğinizde veya Windows sanal makineleri çalışma alanınıza eklemek, bu davranış değişmez. Bu çözümü kullanarak güncelleştirmeleri etkin olarak yönetmiyorsanız, varsayılan davranış (güncelleştirmeleri otomatik olarak uygulama için) yöneliktir.
@@ -219,13 +219,13 @@ Güncelleştirmelerin ubuntu'daki bakım penceresinin dışında uygulanmasını
 
 Azure Market'te kullanıma sunulan isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler kayıtlı erişimi [Red Hat Update Infrastructure'a (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) Azure'da dağıtılır. Diğer tüm Linux dağıtımları, dağıtım'ın desteklenen yöntemleri izleyerek dağıtım'ın çevrimiçi dosya deposundan güncelleştirilmelidir.
 
-Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
+Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** sayfası açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
 
 | Özellik | Açıklama |
 | --- | --- |
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Linux veya Windows|
-| Grupları güncelleştir (Önizleme)|Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
+| Grupları güncelleştirmek için |Azure makineler için abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. </br></br>Azure olmayan makineler için mevcut bir Azure olmayan makine dağıtımına dahil edilecek bir grubu seçmek için arama kaydedilmiş seçin. </br></br>Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
 | Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
 |Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Dinamik gruplar kullanılarak
 
-Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Dinamik gruplar, Klasik Vm'leri ile çalışmaz. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
+Güncelleştirme yönetimi, Azure veya Azure olmayan Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları, dağıtım sırasında makineler eklemek için dağıtımınızın düzenlemek zorunda kalmazsınız değerlendirilir.
+
+> [!NOTE]
+> Güncelleştirme dağıtımı oluştururken uygun izinlere sahip olmalıdır. Daha fazla bilgi için bkz. [Güncelleştirmeleri Yükle](#install-updates).
+
+### <a name="azure-machines"></a>Azure makineler
+
+Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Dinamik gruplar, Klasik Vm'leri ile çalışmaz. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
 
 * Abonelik
 * Kaynak grupları
@@ -579,6 +586,12 @@ Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağ
 Dinamik bir Grup sonuçlarını önizlemek için tıklayın **Önizleme** düğmesi. Bu grup üyeliğini başlatıldığında, bu örnekte, biz arama için etiket makinelerle önizlemesini **rol** eşittir **BackendServer**. Daha fazla makine eklenen bu etiket varsa, bu gruba göre tüm gelecekteki dağıtımlar için eklenir.
 
 ![Önizleme grupları](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Azure olmayan makineler
+
+Bilgisayar grupları dinamik bir grup oluşturmak için kullanılan için Azure olmayan makineler, kayıtlı aramalar için de denir. Kayıtlı bir aramayı oluşturmayı öğrenmek için bkz: [bir bilgisayar grubu oluşturmayı](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Grubunuz oluşturulduğunda kayıtlı aramaları listesinden seçebilirsiniz. Tıklayın **Önizleme** bilgisayarların o anda kayıtlı arama önizlemesi için.
+
+![Grupları seçin](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
 
@@ -628,7 +641,7 @@ VM güncelleştirme yönetiminden kaldırmak için:
 Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi almak için öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure Windows sanal makineleriniz için güncelleştirme ve düzeltme eki yönetimi](automation-tutorial-update-management.md)
+> [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
 
 * Te günlük aramalarını kullanın [Azure İzleyici günlükleri](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
 * [Uyarı oluşturma](automation-tutorial-update-management.md#configure-alerts) güncelleştirme dağıtım durumu için.

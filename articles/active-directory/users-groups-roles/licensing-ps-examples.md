@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70e4e56742f45e0f6bfd80455e4d7545523a478b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265789"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri
@@ -26,7 +26,7 @@ ms.locfileid: "59265789"
 Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalında](https://portal.azure.com), ve şu anda PowerShell ve Microsoft Graph desteği sınırlıdır. Ancak, varolan kullanılarak gerçekleştirilebilir faydalı bazı görevler vardır [MSOnline PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) ve Microsoft Graph. Bu belge, nelerin mümkün olduğunu örnekler sağlar.
 
 > [!NOTE]
-> Cmdlet'leri çalıştırmadan başlamadan önce bağlandığınız kuruluşunuz için ilk olarak çalıştırarak emin `Connect-MsolService` cmdlet'i.
+> Cmdlet'leri çalıştırmadan başlamadan önce bağlandığınız kuruluşunuz için ilk olarak çalıştırarak emin `Connect-MsolService`  cmdlet'i.
 
 > [!WARNING]
 > Bu kod, tanıtım amacıyla bir örnek olarak verilmiştir. Ortamınızda kullanmak istiyorsanız, önce küçük ölçekte veya ayrı bir test kiracısında test göz önünde bulundurun. Ortamınıza özgü ihtiyaçları karşılamak için kodu ayarlamanız gerekebilir.
@@ -623,10 +623,10 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 Grupları aracılığıyla lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Azure Active Directory'de grup tabanlı lisanslama nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
+* [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
 * [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](licensing-group-advanced.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](licensing-group-advanced.md)
 * [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](../users-groups-roles/licensing-ps-examples.md)

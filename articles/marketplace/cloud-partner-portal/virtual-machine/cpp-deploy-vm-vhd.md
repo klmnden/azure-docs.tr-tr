@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046691"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Vhd'lerinizden VM dağıtma
@@ -38,7 +38,7 @@ VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderileri
 
 Zaten yapmadıysanız, Azure PowerShell ve Azure CLI aşağıdaki yönergeleri kullanarak yükleyin:
 
-- [Azure PowerShell'i yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Azure PowerShell’i yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 

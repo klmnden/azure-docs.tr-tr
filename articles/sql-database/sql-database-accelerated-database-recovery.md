@@ -11,12 +11,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475457"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677825"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Hızlandırılmış veritabanı kurtarma (Önizleme)
 
@@ -42,11 +42,11 @@ SQL Server veritabanını Kurtarma aşağıdaki [ARIES](https://people.eecs.berk
 
 - **Analiz aşaması**
 
-  Son başarılı denetim (veya en eski LSN sayfa) sona, SQL Server SE zastavil s zaman her bir işlem durumunu belirlemek için başından itibaren işlem günlüğünün taramayı iletin.
+  Son başarılı denetim (veya en eski LSN kirli sayfası) sona, SQL Server SE zastavil s zaman her bir işlem durumunu belirlemek için başından itibaren işlem günlüğünün taramayı iletin.
 
 - **Aşama Yinele**
 
-  Veritabanı yineleme tüm işlemler tarafından kilitlenme zamanında olduğu duruma getirmek için sonuna kadar eski işlenmemiş işlemden işlem günlüğünün taramayı iletin.
+  Veritabanı yineleme tüm kaydedilmiş işlemleri tarafından kilitlenme zamanında olduğu duruma getirmek için sonuna kadar eski işlenmemiş işlemden işlem günlüğünün taramayı iletin.
 
 - **Aşama Geri Al**
 
@@ -56,13 +56,13 @@ Bu tasarımına bağlı olarak, SQL veritabanı altyapısı beklenmeyen bir yeni
 
 Yukarıda açıklandığı gibi aynı geri kurtarma aşamasını kullanarak olarak da iptal ediliyor/bu tasarıma göre büyük bir işlem geri ayrıca bir uzun zaman alabilir.
 
-Ayrıca, olduğunda uzun SQL veritabanı altyapısı işlem günlüğü kesilemiyor karşılık gelen günlük kayıtlarını kurtarma ve geri alma işlemleri için gerekli olduğu işlemler çalışıyor. Bu SQL veritabanı altyapısı tasarımı sonucu olarak, bazı müşteriler işlem günlüğü boyutu çok büyük büyür ve günlük alanının büyük miktarlarda tüketir sorun karşı karşıyadır.
+Ayrıca, olduğunda uzun SQL veritabanı altyapısı işlem günlüğü kesilemiyor karşılık gelen günlük kayıtlarını kurtarma ve geri alma işlemleri için gerekli olduğu işlemler çalışıyor. Bu SQL veritabanı altyapısı tasarımı sonucu olarak, bazı müşteriler işlem günlüğü boyutu çok büyük artar ve büyük miktarda disk alanını kullanır sorun karşı karşıyadır.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Hızlandırılmış veritabanı kurtarma işlemi
 
 ADR tamamen SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını yukarıdaki sorunları ele alır:
 
-- Sabit olun zaman/anında/en eski aktif işlem başına günlük tarama zorunda tarafından. ADR ile son başarılı denetim noktasından (veya eski kirli sayfasındaki günlük sıra Number(LSN). yalnızca işlem günlüğü işlenir Sonuç olarak, Kurtarma süresi uzun tarafından etkilenmez işlemlerin çalıştırılması.
+- Sabit olun zaman/anında/en eski aktif işlem başına günlük tarama zorunda tarafından. ADR ile işlem günlüğünün yalnızca son başarılı denetim noktasından (veya eski kirli sayfa günlük sıra numarası (LSN)) işlenir. Sonuç olarak, Kurtarma süresi uzun tarafından etkilenmez işlemlerin çalıştırılması.
 - Artık bu yana tam işlem günlüğü işlem yapmanız gerekli işlem günlüğü alanını en aza indirin. Sonuç olarak, işlem günlüğü agresif bir biçimde kontrol noktaları kesilebiliyorsa ve yedeklemelerin.
 
 Yüksek bir düzeyde ADR, hızlı veritabanı kurtarma tüm fiziksel veritabanı değişikliklerini ve sınırlıdır ve neredeyse anında geri alınabilir yalnızca geri alma mantıksal işlemleri, sürüm oluşturma tarafından ulaşır. Bir kilitlenme süresini itibariyle etkin herhangi bir işlem iptal edildi olarak işaretlenmiş ve bu nedenle, bu işlemler tarafından oluşturulan tüm sürümleri eş zamanlı kullanıcı sorgular tarafından göz ardı edilebilir.
@@ -73,16 +73,19 @@ ADR kurtarma işlemi, geçerli kurtarma işlemi olarak aynı üç aşamadan olu�
 
 - **Analiz aşaması**
 
-  İşlem bugün sLog yeniden oluşturuluyor ve günlük kayıtları tutulmayan ops için kopyalama eklenmesi ile aynı kalır.
+  İşlem bugün sLog yeniden oluşturuluyor ve günlük kayıtları tutulmayan işlemleri için kopyalama eklenmesi ile aynı kalır.
+  
 - **Yinele** aşaması
 
   Ayrılmış iki aşamaya (P)
   - 1. Aşama
 
       SLog (son denetim noktasından kadar eski işlenmemiş hareket) öğesinden yineler. Yalnızca birkaç kayıtlardan sLog işlenmesi gereken şekilde Yinele hızlı bir işlemdir.
+      
   - 2. Aşama
 
      İşlem günlüğü başlatır (yerine, en eski işlenmemiş işlem) en son kontrol noktasından gelen Yinele
+     
 - **Aşama Geri Al**
 
    Sürüm bilgisi olmayan işlemler geri sLog kullanarak geri alma aşamasında ADR ile neredeyse anında tamamlanır ve kalıcı sürüm Store (PV'ler) gerçekleştirmek için mantıksal geri ile satır düzeyi sürümü tabanlı geri.
@@ -97,7 +100,7 @@ ADR dört anahtar bileşenleri şunlardır:
 
 - **Mantıksal geri döndür**
 
-  Mantıksal geri gerçekleştirme satır düzeyi sürümü tutulan tüm işlemler için anında işlemi geri alma ve geri alma sağlayan bir geri alma - tabanlı zaman uyumsuz işlem sorumludur.
+  Mantıksal geri satır düzeyi sürümü tabanlı geri alma gerçekleştiriliyor - tutulan tüm işlemler için anında işlemi geri alma ve geri alma sağlamak için zaman uyumsuz işlem sorumludur.
 
   - Tüm iptal edilen işlem izler
   - Tüm kullanıcı işlemleri için PV'ler kullanarak geri alma gerçekleştirir

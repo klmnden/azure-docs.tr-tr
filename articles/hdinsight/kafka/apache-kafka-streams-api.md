@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273830"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışlar API'si
@@ -58,7 +58,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 `pom.xml` dosyasında aşağıdaki önemli şeyler anlaşılır:
 
-* Bağımlılıkları: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
+* Bağımlılıklar: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->

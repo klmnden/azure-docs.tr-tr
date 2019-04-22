@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052800"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Danışmanı izinleri
@@ -22,7 +22,7 @@ Azure Danışmanı kullanım ve Azure kaynaklarının ve abonelikleri yapıland�
 
 Aşağıdaki tabloda rolleri ve Danışman içinde sahip oldukları erişimi tanımlar:
 
-| **Rol** | **Önerileri görüntüleme** | **Kuralları Düzenle** | **Abonelik yapılandırmasını düzenle** | **Kaynak grubu Yapılandırması Düzenle**| **Kapat ve öneriler ertele**|
+| **Rol** | **Önerileri görüntüle** | **Kuralları Düzenle** | **Abonelik yapılandırmasını düzenle** | **Kaynak grubu Yapılandırması Düzenle**| **Kapat ve öneriler ertele**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Abonelik sahibi|**X**|**X**|**X**|**X**|**X**|
 |Abonelik katkıda bulunanı|**X**|**X**|**X**|**X**|**X**|
@@ -53,5 +53,5 @@ Erteleyebilir veya bir öneri Kapat çalışırken bir hata alırsanız, yeterli
 
 Bu makalede, Advisor RBAC denetim kullanıcı izinleri nasıl kullandığı ve sık karşılaşılan sorunları çözmek nasıl bir genel bakış getirdi. Advisor hakkında daha fazla bilgi için bkz:
 
-- [Azure Danışmanı nedir?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Azure Advisor’ı kullanmaya başlama](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Azure Advisor nedir?](https://docs.microsoft.com/azure/advisor/advisor-overview)
+- [Azure Advisor'ı kullanmaya başlama](https://docs.microsoft.com/azure/advisor/advisor-get-started)

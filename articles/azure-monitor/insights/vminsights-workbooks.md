@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288719"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure İzleyici çalışma kitapları ile etkileşimli raporlar oluşturun
@@ -120,8 +120,8 @@ Her bölüm ayarları erişilebilir kendi Gelişmiş ayarları olan ![çalışma
 | **Özel bir genişlik**    | Daha iyi grafikler ve tablolar etkileşimli zengin raporlar düzenlemenize olanak sağlayan tek bir satırda öğe sayısını sığacak şekilde rastgele boyutu, bir öğe sağlar.  |
 | **Koşullu olarak görünür** | Okuma modunda olduğunda bir parametresini temel alan adımları gizlemek için bu seçeneği belirtin. |
 | **Parametreyi Dışarı Aktar**| Kılavuz veya değerleri değiştirmesini veya görünür olmasını için sonraki adımları neden grafik seçili bir satır izin verir.  |
-| **Düzenlenmediği sırada sorguyu göster** | Grafiğe veya tabloya bile yukarıdaki sorgunun Okuma modunda olduğunda görüntüler.
-| **Düzenlenmediğinde analizde aç düğmesini göster** | Tek tıklamayla erişim izni vermek için grafiğin sağ köşesinde için mavi Analytics simgesi ekler.|
+| **Düzenlenmediği sırada sorguyu Göster** | Grafiğe veya tabloya bile yukarıdaki sorgunun Okuma modunda olduğunda görüntüler.
+| **Düzenlenmediği sırada analiz düğmesi açık Göster** | Tek tıklamayla erişim izni vermek için grafiğin sağ köşesinde için mavi Analytics simgesi ekler.|
 
 Bu ayarların birçoğu oldukça kolay anlaşılır ancak anlamak için **parametreyi dışarı aktar** bir çalışma kitabı incelemek iyidir yapar bu işlevi kullanın.
 
@@ -167,9 +167,9 @@ Parametre değerlerini sorgu, metin veya diğer parametre bölümleri gibi köş
 |                  |      |
 | ---------------- |:-----|
 | **Metin**    | Bir metin kutusu düzenlemesine olanak tanır ve isteğe bağlı olarak, varsayılan değeri doldurmak için bir sorgu sağlayabilirsiniz. |
-| **Açılır liste** | Kullanıcının bir değerler kümesinden seçmesine izin verir. |
-| **Zaman aralığı seçici**| Önceden tanımlı bir zaman aralığı değerleri kümesinden seçin veya bir özel zaman aralığı seçin izin verir.|
-| **Kaynak seçici** | Çalışma kitabı için seçilen kaynakları arasından seçim izin verir.|
+| **Açılan menü** | Kullanıcının bir değerler kümesinden seçmesine izin verir. |
+| **Zaman aralığı Seçici**| Önceden tanımlı bir zaman aralığı değerleri kümesinden seçin veya bir özel zaman aralığı seçin izin verir.|
+| **Kaynak Seçici** | Çalışma kitabı için seçilen kaynakları arasından seçim izin verir.|
 
 ### <a name="using-a-text-parameter"></a>Bir metin parametresini kullanma
 

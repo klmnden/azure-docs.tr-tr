@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877134"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678692"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Tanı metin Docker kapsayıcıları yapılandırın
 
@@ -31,11 +31,11 @@ ms.locfileid: "58877134"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey yapılandırma ayarı
 
-`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _görüntü işleme_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
+`ApiKey` Ayar belirtir Azure `Cognitive Services` kapsayıcısı için fatura bilgileri izlemek için kullanılan kaynak anahtarı. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Bilişsel Hizmetler_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Görüntü işleme'nın** kaynak yönetimi altında **anahtarları**
+* Azure portalı: **Bilişsel Hizmetler** kaynak yönetimi altında **anahtarları**
 
 ## <a name="applicationinsights-setting"></a>Applicationınsights ayarı
 
@@ -43,11 +43,13 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Ayar uç noktası URI'si belirtir, _görüntü işleme_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _görüntü işleme_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
+`Billing` Ayar uç noktası URI'si belirtir, _Bilişsel Hizmetler_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _Bilişsel Hizmetler_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Görüntü işleme'nın** etiketli genel bakış `Endpoint`
+* Azure portalı: **Bilişsel Hizmetler** etiketli genel bakış `Endpoint`
+
+Eklemeyi unutmayın `vision/v1.0` aşağıdaki tabloda gösterildiği gibi uç nokta URI'si yönlendirme. 
 
 |Gerekli| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarla
 * **Satır devamlılığı karakteri**: Aşağıdaki bölümlerde Docker komutları ters eğik çizgi kullanın `\`, satır devamı karakteri olarak. Bu konak işletim sisteminin gereksinimlerine göre kaldırın veya değiştirin. 
 * **Bağımsız değişken sırası**: Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
 
+Eklemeyi unutmayın `vision/v1.0` aşağıdaki tabloda gösterildiği gibi uç nokta URI'si yönlendirme. 
+
 Yerine {_argument_name_} kendi değerlerinizle:
 
 | Yer tutucu | Değer | Biçim veya örnek |
 |-------------|-------|---|
-|{BILLING_KEY} | Görüntü işleme kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | Bilişsel hizmetler kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Bölge dahil olmak üzere faturalandırma uç nokta değeri.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](computer-vision-how-to-install-containers.md#billing).
-> ApiKey değer **anahtar** Azure bilgisayar işleme kaynak anahtarlar sayfasındaki. 
+> ApiKey değer **anahtarı** Azure `Cognitive Services` kaynak anahtarlar sayfasında. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Metin kapsayıcı Docker örnekler tanıması
 

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
 ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046062"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
@@ -184,4 +184,4 @@ API’leri test etmek için geliştirici portalından da işlem çağırabilirsi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dönüştürme ve yayımlanan API'yi koruma](transform-api.md)
+> [Yayımlanan API’yi dönüştürme ve koruma](transform-api.md)

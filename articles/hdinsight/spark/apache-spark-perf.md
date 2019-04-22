@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283078"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini iyileştirme
@@ -61,8 +61,8 @@ Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı 
 | Store türü | Dosya Sistemi | Hız | Geçici | Kullanım Örnekleri |
 | --- | --- | --- | --- | --- |
 | Azure Blob Depolama | **wasb [s]:**//url/ | **Standart** | Evet | Geçici küme |
-| Azure Data Lake depolama Gen 2| **abfs [s]:**//url/ | **Daha Hızlı** | Evet | Geçici küme |
-| Azure Data Lake Storage Gen 1| **Adl:**//url/ | **Daha Hızlı** | Evet | Geçici küme |
+| Azure Data Lake depolama Gen 2| **abfs [s]:**//url/ | **Daha hızlı** | Evet | Geçici küme |
+| Azure Data Lake Storage Gen 1| **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
 | Yerel HDFS | **hdfs:**//url/ | **Hızlı** | Hayır | Etkileşimli 7/24 küme |
 
 ## <a name="use-the-cache"></a>Önbellek kullanma
@@ -216,6 +216,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 * [Azure HDInsight üzerinde çalışan Apache Spark işlerinde hata ayıklama](apache-spark-job-debugging.md)
 * [HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
 * [Uzak bir Apache Spark kümesine göndermek için Apache Spark REST API kullanma](apache-spark-livy-rest-interface.md)
-* [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Apache Spark'ı ayarlama](https://spark.apache.org/docs/latest/tuning.html)
 * [Bu nedenle gerçekten ayarlamak için Apache Spark işleri nasıl çalışır](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo seri hale getirme](https://github.com/EsotericSoftware/kryo)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044870"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure güvenlik duvarı günlükleri ve ölçümleri izleme
@@ -60,9 +60,9 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 9. **Log Analytics çalışma alanı** sayfasında yeni **Log Analytics çalışma alanı** adı olarak **firewall-oms** yazın.
 10. Aboneliğinizi seçin, var olan güvenlik duvarı kaynak grubunu (**Test-FW-RG**) kullanın, konum olarak **Doğu ABD** seçin ve **Ücretsiz** fiyatlandırma katmanını belirleyin.
 11. **Tamam** düğmesine tıklayın.
-   ![Yapılandırma işlemini başlatma][1] OMS çalışma alanları artık adlandırılır Log Analytics çalışma alanları.  
+   ![Yapılandırma işleminin başlatılmasıyla][1] OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
 12. **Günlük** bölümünde uygulama ve ağ kuralları için günlükleri toplamak için **AzureFirewallApplicationRule** ve **AzureFirewallNetworkRule** girişlerini seçin.
-   ![Tanılama ayarları kaydedin][2]
+   ![Tanılama ayarlarını kaydetme][2]
 13. **Kaydet**’e tıklayın.
 
 ## <a name="enable-logging-with-powershell"></a>PowerShell ile günlüğe kaydetmeyi etkinleştirme

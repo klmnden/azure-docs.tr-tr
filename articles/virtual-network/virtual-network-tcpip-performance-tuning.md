@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426452"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
@@ -140,7 +140,7 @@ Ağ gecikmesi ışık hızını fiber optik ağ üzerinden yönetilir. Ağ aktar
 
 | | | | |
 |-|-|-|-|
-|**Rota**|**Uzaklık**|**Tek yönlü zaman**|**RTT**|
+|**yol**|**uzaklık**|**Tek yönlü zaman**|**RTT**|
 |New York to San Francisco|4,148 km|21 ms|42 ms|
 |Londra'ya New York|5,585 km|28 ms|56 ms|
 |Sidney için New York|15,993 km|80 ms|160 ms|
@@ -236,8 +236,8 @@ Etkin TCP ayarlarını bunlar `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülü<br/>en fazla pencere boyutunu Hesapla**|
-|Devre dışı|Hiçbiri|Hiçbiri|Pencere boyutu|
+|**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülünü<br/>en fazla pencere boyutunu Hesapla**|
+|Devre dışı|None|None|Pencere boyutu|
 |Kısıtlı|4|2^4|Pencere boyutu * (2 ^ 4)|
 |Yüksek oranda kısıtlanmış|2|2^2|Pencere boyutu * (2 ^ 2)|
 |Normal|8|2^8|Pencere boyutu * (2 ^ 8)|
@@ -256,7 +256,7 @@ Daha büyük bir MTU daha büyük bir MSS anlamına gelir çünkü MTU TCP perfo
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Hızlandırılmış ağ iletişimi ve Alma Tarafı Ölçeklendirmesi
 
-#### <a name="accelerated-networking"></a>Hızlandırılmış ağ
+#### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
 
 Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU, tüm sanal ağ yalıtma ve kapsüllemeyi açma işlemi dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Yüksek CPU, daha fazla trafik, ana bilgisayar üzerinden doğru şekilde yükleyin. Ve ana bilgisayar CPU diğer işlemleri ile meşgul ise, bu da ağ aktarım hızı ve gecikme süresini etkiler. Azure hızlandırılmış ağ ile bu sorunu giderir.
 
@@ -376,7 +376,7 @@ Daha fazla bilgi için şu makalelere bakın:
 
 - [Expressroute ağ performansıyla ilgili sorunları giderme](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [Bir sanal ağa yönelik VPN aktarım hızını doğrulama](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [Sanal ağa yönelik VPN aktarım hızını doğrulama](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Verimsiz TCP davranışlarını algılayın
 

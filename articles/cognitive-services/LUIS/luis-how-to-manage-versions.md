@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754898"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678552"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Düzenle ve hazırlık veya üretim uygulamaları etkilemeden test sürümleri kullanın
 
@@ -24,7 +24,7 @@ Sürümleri, farklı modelleri yayımladığınız olanak tanır. Başka bir ge�
 
 Sürümlerle çalışma için uygulamanızın adını seçerek açın **uygulamalarım** sayfasında ve ardından **Yönet** üst çubuktaki seçip **sürümleri** sol gezinti bölmesinde. 
 
-Sürümlerinin listesi göster burada yayımlanmalarından ve hangi sürümü şu anda etkin olan hangi sürümleri yayımlanır. 
+Burada yayımlanmalarından ve hangi sürümü şu anda etkin olan hangi sürümleri yayımlanır sürümlerinin bir listesi gösterilir. 
 
 [![Yönet bölümünün, sürümler sayfasını](./media/luis-how-to-manage-versions/versions-import.png "Yönet bölümünün, sürümler sayfasını")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -67,5 +67,5 @@ Listeden bir sürüm seçin ve ardından **olun etkin** araç çubuğundan.
 
 * İçin **Sil** bir sürümü listeden bir sürüm seçin ve ardından **Sil** araç çubuğundan. **Tamam**’ı seçin. 
 * İçin **Yeniden Adlandır** bir sürümü listeden bir sürüm seçin ve ardından **Yeniden Adlandır** araç çubuğundan. Yeni bir ad girin ve seçin **Bitti**. 
-* İçin **dışarı** bir sürümü listeden bir sürüm seçin ve ardından **dışarı aktarma uygulama** araç çubuğundan. Dosyanın yerel makinenize indirilir. 
+* İçin **dışarı** bir sürümü listeden bir sürüm seçin ve ardından **dışarı aktarma uygulama** araç çubuğundan. JSON öğesini dışarı aktarmak için yedekleme seçin **dışarı aktarmak için kapsayıcı** için [LUIS kapsayıcısında bu uygulamayı kullanmak](luis-container-howto.md).  
 

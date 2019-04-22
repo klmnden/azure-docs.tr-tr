@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273133"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure tablo depolama işlemleri 
@@ -161,7 +161,7 @@ Nasıl yapılır bu makalede PowerShell ile yaygın Azure tablo depolama işleml
 
 Daha fazla bilgi için aşağıdaki makalelere bakın.
 
-* [Depolama PowerShell cmdlet'leri](/powershell/module/az.storage#storage)
+* [Depolama PowerShell cmdlet’leri](/powershell/module/az.storage#storage)
 
 * [Azure PowerShell - AzureRmStorageTable/AzTable PS modülü v2.0 tablolardan ile çalışma](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

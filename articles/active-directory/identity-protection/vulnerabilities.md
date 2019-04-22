@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488243"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açıklarını
@@ -65,4 +65,4 @@ Daha fazla bilgi için [Azure AD Privileged Identity Management](../privileged-i
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Azure Active Directory Kimlik Koruması](../active-directory-identityprotection.md)
+[Azure Active Directory kimlik koruması](../active-directory-identityprotection.md)

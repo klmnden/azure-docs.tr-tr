@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
 ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045376"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
@@ -21,7 +21,7 @@ ms.locfileid: "59045376"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell (Klasik)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell (klasik)](expressroute-howto-linkvnet-classic.md)
 >
 
 Bu makalede, sanal ağlar (Vnet'ler) PowerShell kullanarak Azure ExpressRoute devreleri için bağlantı yardımcı olur. En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Adımlar bu makalede, bağlandığınız her ExpressRoute bağlantı hattı için yeni bir bağlantı oluşturmak için kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir. Bu makale Klasik dağıtım modeli kullanılarak oluşturulan sanal ağlar için geçerlidir.

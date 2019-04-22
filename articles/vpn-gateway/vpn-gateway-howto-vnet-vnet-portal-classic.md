@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046131"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Bir VNet-VNet bağlantısı (Klasik) yapılandırma
@@ -32,8 +32,8 @@ Bu makalede, sanal ağlar arasında bir VPN gateway bağlantısı oluşturmanız
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure portalını (Klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Farklı dağıtım modelleri - Azure portal'ı bağlama](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Farklı dağıtım modellerini bağlama - Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Farklı dağıtım modellerini bağlama - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
@@ -54,7 +54,7 @@ Vnet'ler farklı Aboneliklerde ve farklı bölgelerde olabilir. Sanal ağ, sanal
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
-* **Çapraz bölgede coğrafi yedeklilik ve iletişim durumu**
+* **Çapraz bölge coğrafi artıklığı ve coğrafi-durum**
 
   * Kendi coğrafi çoğaltma veya eşitlemenizi, güvenli bağlantıyla İnternet’te uç noktalara gitmeden ayarlayabilirsiniz.
   * Azure Load Balancer ve Microsoft veya üçüncü taraf Kümeleme Teknolojisi coğrafi yedeklilik ile yüksek oranda kullanılabilir iş yükü birden çok Azure bölgeleri arasında ayarlayabilirsiniz. Buna önemli bir örnek olarak SQL Always On ile birden fazla Azure bölgesine yayılan Kullanılabilirlik Grupları’nı birlikte kurmak verilebilir.

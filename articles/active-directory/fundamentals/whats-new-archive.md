@@ -14,10 +14,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051963"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Yenilikler için arşiv? Azure Active Directory'de
@@ -727,7 +727,7 @@ SAML tabanlı SSO uygulamaları yapılandırırken, yapılandırma sayfasında t
 Daha fazla bilgi için bkz.
 
 - [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
-- [Azure Active Directory'de SAML tabanlı çoklu oturum açma uygulamaları için hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+- [Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 ---
  
@@ -884,7 +884,7 @@ Bazı kullanıcılar, SAML tabanlı çoklu oturum açma için yapılandırılmı
 Daha fazla bilgi için bkz.
 
 - [Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
-- [Azure Active Directory portalındaki denetim etkinliği raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+- [Azure Active Directory portalındaki denetim etkinlik raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
  
@@ -1215,7 +1215,7 @@ Azure AD Connect, Azure AD arasında ve Windows Server Active Directory ve LDAP 
 
 Bu sürüm aşağıdaki güncelleştirmeleri ve değişiklikleri sahiptir:
 
-**Düzeltilen sorunlar**
+**Giderilen sorunlar**
 
 - Sonraki sayfaya geçiş yaparken bölüm filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltmesi.
 
@@ -1665,7 +1665,7 @@ Artık içerir (hariç macOS cihaz platformu koşul olarak Azure AD koşullu eri
 
 Daha fazla bilgi için bkz.
 
-- [Intune ile macOS cihazları için cihaz uyumluluk ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
+- [Intune ile macOS cihazları için cihaz uyumluluğu ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
 - [Azure AD'de koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---

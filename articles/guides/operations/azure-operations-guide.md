@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051179"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
@@ -277,7 +277,7 @@ Resource Manager şablonu dört bölümden oluşur:
 
 - **Değişkenleri**: Bunlar dağıtım kullanılan değerleri tutmak için kullanılır. Parametreleri, dağıtım sırasında bir değişken değeri sağlanmadı. Bunun yerine, kodlanmış veya dinamik olarak oluşturulan zordur.
 
-- **Kaynakları**: Şablonu'nun bu bölümünde, sanal makineler, depolama hesapları ve sanal ağlar gibi dağıtılması için kaynakları tanımlar.
+- **Kaynaklar**: Şablonu'nun bu bölümünde, sanal makineler, depolama hesapları ve sanal ağlar gibi dağıtılması için kaynakları tanımlar.
 
 - **Çıkış**: Bir dağıtım tamamlandıktan sonra Resource Manager dinamik olarak üretilen bağlantı dizeleri gibi veri döndürebilir.
 
@@ -477,7 +477,7 @@ Bir sanal ağı dağıtmak için birkaç seçenek vardır.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Komut Satırı Arabirimi (CLI)](../../virtual-network/quick-create-cli.md)
+- [Komut satırı arabirimi (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Azure Resource Manager şablonları
 
@@ -491,5 +491,5 @@ Bir ağ güvenlik grubu kullanarak güvenli bir Azure sanal ağları yardımcı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Windows VM oluşturma](../../virtual-machines/windows/quick-create-portal.md)
+- [Bir Windows VM oluşturma](../../virtual-machines/windows/quick-create-portal.md)
 - [Linux VM oluşturma](../../virtual-machines/linux/quick-create-portal.md)

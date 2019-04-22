@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264548"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
@@ -97,7 +97,7 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile MapReduce uygulamasını kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 
@@ -112,7 +112,7 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 ### <a name="apache-spark-clusters"></a>Apache Spark kümeleri
 
-* [Scala kullanarak bağımsız uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
+* [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
 * [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)

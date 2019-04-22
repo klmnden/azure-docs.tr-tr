@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268781"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
@@ -139,9 +139,9 @@ Geçerli IP adresinizi konumunu yukarıdaki desteklenmeyen ülkelerden birinde o
 Azure Haritalar'ın yeni özellikleriyle ilgili daha fazla bilgi için:
 
 > [!div class="nextstepaction"]
-> [Rota matrisi, İzokron, IP araması ve daha fazlası](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Yol Matrisi, İzokronlar, IP araması ve daha fazlası](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
 Azure haritalar kullanan örnek uygulamayı deneyin:
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Web uygulaması oluşturma](quick-demo-map-app.md)
+> [Hızlı Başlangıç: Bir web uygulaması oluşturma](quick-demo-map-app.md)

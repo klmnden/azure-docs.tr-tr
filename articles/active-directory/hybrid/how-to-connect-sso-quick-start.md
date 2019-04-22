@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256898"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680918"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -93,7 +93,7 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 ![Azure portalı: Azure AD Connect bölmesi](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` şirket içi AD ormanındaki Active Directory (AD) içinde. `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı emin olun. Bilgisayar hesabının bir kuruluş birimi (OU) içinde yanlışlıkla silinmekten güvenli olduğu ve yalnızca etki alanı yöneticileri erişimi Store.
+> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` şirket içi AD ormanındaki Active Directory (AD) içinde. `AZUREADSSOACC` Bilgisayar hesabını güvenlik nedenleriyle kesin korunması gerekir. Yalnızca Domain Admins bilgisayar hesabını yönetmek görebilmeniz gerekir. Bilgisayar hesabının Kerberos temsilcisi seçmeyi devre dışı bırakılır ve Active Directory içindeki başka bir hesap temsilci izinlerine sahip olduğunu sağlamak `AZUREADSSOACC` bilgisayar hesabı. Bilgisayar hesabının bir kuruluş birimi (OU) içinde yanlışlıkla silinmekten güvenli olduğu ve yalnızca etki alanı yöneticileri erişimi Store.
 
 >[!NOTE]
 > Pass--Hash ve kimlik bilgisi Hırsızlıklarını azaltma mimarileri, şirket içi ortamınızda kullanıyorsanız, emin olmak için gerekli değişiklikleri yapmanızı `AZUREADSSOACC` bilgisayar hesabı bitmiyor karantina kapsayıcısında. 

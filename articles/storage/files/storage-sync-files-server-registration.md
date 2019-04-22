@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048455"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
@@ -193,7 +193,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Azure dosya eşitleme, bir sanal makinede çalışan bir Windows Server sanallaştırma konağında barındırıldığında, depolama g/ç tüketim düzenlemek için depolama hizmet kalitesi (depolama hizmet kalitesi) kullanabilirsiniz. Depolama QoS ilkesi, en fazla (veya sınırı StorageSyncNetwork sınırı üstünde nasıl zorlanır gibi) olarak ya da en az (veya ayırma) olarak ayarlanabilir. En fazla yerine en düşük ayarlanması, diğer iş yükleri kullanmıyorsanız, kullanılabilir depolama bant genişliği kullanılacak veri bloğu Azure dosya eşitleme sağlar. Daha fazla bilgi için [depolama hizmet kalitesi](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-- [Azure Dosya Eşitleme dağıtımı planlama](storage-sync-files-planning.md)
-- [Azure Dosya Eşitleme’yi dağıtma](storage-sync-files-deployment-guide.md)
-- [Azure Dosya Eşitleme’yi izleme](storage-sync-files-monitoring.md)
-- [Azure Dosya Eşitleme ile ilgili sorunları giderme](storage-sync-files-troubleshoot.md)
+- [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
+- [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)
+- [Azure dosya eşitleme sorunlarını giderme](storage-sync-files-troubleshoot.md)

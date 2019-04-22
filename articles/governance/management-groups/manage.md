@@ -7,10 +7,10 @@ ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272487"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
@@ -349,8 +349,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma](create.md)
-- [Değiştirme, silme veya yönetim gruplarınızı yönetme](manage.md)
-- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](/powershell/module/az.resources#resources)
-- [REST API Yönetim gruplarını gözden geçirin](/rest/api/resources/managementgroups)
-- [Azure CLI'de Yönetim gruplarını gözden geçirin](/cli/azure/account/management-group)
+- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
+- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
+- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)

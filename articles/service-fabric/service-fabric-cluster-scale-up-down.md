@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
 ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049190"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Bir kümenin ölçeğini daraltma veya genişletme
@@ -195,7 +195,7 @@ else
 }
 ```
 
-İçinde **sfctl** aşağıdaki kod, aşağıdaki komut almak için kullanılan **düğüm adı** en son oluşturulan düğümün değeri: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+Aşağıdaki **sfctl** kodunda, en son oluşturulan düğümün **node-name** değerini almak için şu komut kullanılır: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed

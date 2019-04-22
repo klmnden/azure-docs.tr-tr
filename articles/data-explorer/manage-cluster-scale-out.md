@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261607"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
@@ -47,7 +47,7 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha ay
     | **Zaman toplama** | Gibi bir toplama ölçütü seçin **ortalama**. |
     | **Ölçüm adı** | Ölçeklendirme işlemi, aşağıdakiler gibi temel alınmasını istediğiniz ölçümü seçin **önbellek kullanımı**. |
     | **Zaman dilimi İstatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
-    | **İşleç** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
+    | **İşleci** | Uygun bir seçeneği gibi belirleyin **büyüktür veya eşittir**. |
     | **Eşik** | Uygun bir değer seçin. Örneğin, önbellek kullanımı için yüzde 80'i iyi bir başlangıç noktası ' dir. |
     | **Süre (dakika cinsinden)** | Uygun miktarda bir sistemin geri ölçümleri hesaplanırken aramak saati seçin. Varsayılan 10 dakika ile başlayın. |
     |  |  |
@@ -67,8 +67,8 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha ay
 
     | Ayar | Açıklama ve değer |
     | --- | --- |
-    | **Minimum** | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
-    | **Maksimum** | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
+    | **En az** | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
+    | **En fazla** | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
     | **Varsayılan** | Varsayılan örnek sayısı. Kaynak ölçümlerin okunmasıyla ile ilgili sorun varsa, bu ayar kullanılır. |
     |  |  |
 

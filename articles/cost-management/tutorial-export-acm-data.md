@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496803"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678148"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
@@ -45,7 +45,13 @@ Azure Depolama hesapları için:
 
 ## <a name="create-a-daily-export"></a>Günlük bir dışarı aktarma oluşturma
 
-Oluşturmak veya bir veri dışarı aktarma görüntülemek için veya verme zamanlamak için Azure portal ve select istenen kapsama açın **maliyet analizi** menüsünde. Örneğin, gitmek **abonelikleri**listeden aboneliği seçin ve ardından **maliyet analizi** menüsünde. Maliyet analizi sayfanın üst kısmında tıklayın **dışarı** dışa aktarma seçeneği seçin. Örneğin, **zamanlama dışarı aktarma**. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
+Oluşturmak veya bir veri dışarı aktarma görüntülemek için veya verme zamanlamak için Azure portal ve select istenen kapsama açın **maliyet analizi** menüsünde. Örneğin, gitmek **abonelikleri**listeden aboneliği seçin ve ardından **maliyet analizi** menüsünde. Maliyet analizi sayfanın üst kısmında tıklayın **dışarı** dışa aktarma seçeneği seçin. Örneğin, **zamanlama dışarı aktarma**.  
+
+> [!NOTE]
+> Abonelikleri yanı sıra, kaynak grupları, hesaplar, bölümler ve kayıtları üzerinde dışarı aktarma oluşturabilirsiniz. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
+> 
+> 
+
 
 Tıklayın **Ekle**dışarı aktarma için bir ad yazın ve ardından **günlük ay başından bu yana maliyetleri verilmesini** seçeneği. **İleri**’ye tıklayın.
 
@@ -113,4 +119,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Boşta olan ve az kullanılan kaynakları belirleyerek verimliliği iyileştirmek ve geliştirmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Gözden geçirme ve iyileştirme önerileri üzerinde işlem yapma](tutorial-acm-opt-recommendations.md)
+> [Önerileri gözden geçirme ve gerekli eylemleri gerçekleştirme](tutorial-acm-opt-recommendations.md)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Öğretici: Azure Active Directory Tümleştirmesi ile SAP Fiori
@@ -135,7 +135,7 @@ Azure AD çoklu oturum açma ile SAP Fiori yapılandırmak için aşağıdaki ad
 6. Değiştirin **sağlayıcı adı** T01122 için gelen `http://T01122` tıklayın **Kaydet**.
 
     > [!NOTE]
-    > Varsayılan sağlayıcı adı ile gelir olarak <sid><client> biçimi ancak Azure AD'ye bekliyor adı biçiminde <protocol>://<name>, sağlayıcı adı ' https://'olarak korumak için önerilen<sid><client> Azure AD'de yapılandırmak birden çok SAP Fiori ABAP altyapıları izin vermek için .
+    > Varsayılan sağlayıcı adı ile gelir olarak <sid> <client> biçimi ancak Azure AD'ye bekliyor adı biçiminde <protocol>://<name>, sağlayıcı adı ' https://'olarak korumak için önerilen<sid> <client> birden çok SAP Fiori izin vermek için Azure AD'de yapılandırmak için ABAP altyapıları.
 
     ![Sertifika indirme bağlantısı](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Azure AD çoklu oturum açma ile SAP Fiori yapılandırmak için aşağıdaki ad
 
     ![SAP Fiori etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
 
-    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
-    `https://<your company instance of SAP Fiori>`
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Kendi örneklerine yapılandırılmış yanlış yanıt URL'sinin bir hata bildirimi, bazı müşterilerin gördük. Herhangi bir hata alırsanız, PowerShell Betiği bir iş yaklaşık Örneğiniz için doğru yanıt URL'sini ayarlamak için kullanabilirsiniz.:
@@ -378,6 +377,6 @@ Bu bölümde, Britta Simon SAP Fiori adlı bir kullanıcı oluşturun. Lütfen �
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046778"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>.NET kullanarak IOT Hub'la cihazınızdan dosyaları buluta yükleyin
@@ -173,8 +173,8 @@ Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bi
 
 Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-* [Programlamalı IoT Hub oluşturma](iot-hub-rm-template-powershell.md)
-* [C SDK'ya Giriş](iot-hub-device-sdk-c-intro.md)
+* [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
+* [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
 * [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
 
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:

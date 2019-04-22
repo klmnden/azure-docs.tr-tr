@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259827"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
@@ -25,7 +25,7 @@ Dizinde oluşturulan ilk yönetim grubu tamamlanması 15 dakika sürebilir. Dizi
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="create-a-management-group"></a>Bir yönetim grubu oluşturma
+## <a name="create-a-management-group"></a>Yönetim grubu oluşturma
 
 Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz. Şu anda, Resource Manager şablonları, Yönetim grupları oluşturmak için kullanamazsınız.
 
@@ -97,8 +97,8 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma](create.md)
-- [Değiştirme, silme veya yönetim gruplarınızı yönetme](manage.md)
-- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](/powershell/module/az.resources#resources)
-- [REST API Yönetim gruplarını gözden geçirin](/rest/api/resources/managementgroups)
-- [Azure CLI'de Yönetim gruplarını gözden geçirin](/cli/azure/account/management-group)
+- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
+- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
+- [Azure PowerShell Kaynak Modülünde yönetim gruplarını gözden geçirme](/powershell/module/az.resources#resources)
+- [REST API'de yönetim gruplarını gözden geçirme](/rest/api/resources/managementgroups)
+- [Azure CLI'de yönetim gruplarını gözden geçirme](/cli/azure/account/management-group)

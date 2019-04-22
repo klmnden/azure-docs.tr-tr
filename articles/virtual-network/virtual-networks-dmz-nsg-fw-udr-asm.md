@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426537"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Örnek 3: Ağları bir güvenlik duvarı, UDR ve Nsg'ler ile korunacak bir çevre ağı oluşturma
@@ -150,7 +150,7 @@ Bu örnekte, rota tablosunu, kullanıcı tanımlı bir yol ekleyin ve sonra yön
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP iletme
+## <a name="ip-forwarding"></a>IP iletimi
 
 IP iletimi UDR için yardımcı özelliğidir. Bu ayar bir sanal gereç üzerinde gerecine gönderilmeyen trafiği alma ve ardından bu trafiğin ultimate hedefine iletecek şekilde sağlar.
 
@@ -635,7 +635,7 @@ Kullanıcı tanımlı değişkenler dosyaları gerektiği gibi değiştirin. Bet
 Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını çalıştırın:
 
 1. Bir Azure aboneliğine Bağlanma
-1. Yeni depolama hesabı oluştur
+1. Yeni depolama hesabı oluşturma
 1. Yeni bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan üç alt ağ oluşturma
 1. Beş sanal makine oluştur: bir güvenlik duvarı ve dört Windows Server Vm'leri
 1. UDR yapılandırın:
@@ -645,7 +645,7 @@ Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını ça
 1. NVA üzerindeki IP iletmeyi etkinleştirin
 1. NSG yapılandırın:
    1. Bir NSG oluşturma
-   1. Kural ekle
+   1. Kural ekleme
    1. NSG için uygun alt ağları bağlama
 
 Bu PowerShell çalıştırma betiği yerel olarak bir internet üzerindeki bilgisayar veya sunucu bağlı.

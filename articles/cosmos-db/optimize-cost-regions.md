@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876749"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB çok bölgeli maliyetini en iyi duruma getirme
@@ -31,7 +31,7 @@ Tek bir yazma bölgesi ile sağlanan aktarım hızı maliyeti $0.008/ saat baş�
 
 Batı ABD'deki kapsayıcı sahip göz önünde bulundurun 10 K RU/sn aktarım hızı ile sağlanan ve 1 TB veri bu ay depolar. Varsayalım üç bölgesi: Doğu ABD, Kuzey Avrupa ve Doğu Asya, eklemek istediğiniz her aynı depolama ve aktarım hızı ve, kapsayıcılara dört tüm bölgelerde küresel olarak dağıtılan uygulamanızdan yazma olanağı. (31 gün varsayılarak) aylık toplam faturanız ayda aşağıdaki gibidir:
 
-|**Öğe**|**Kullanım (aylık)**|**Fiyat**|**Aylık Maliyet**|
+|**Öğesi**|**Kullanım (aylık)**|**Oranı**|**Aylık maliyet**|
 |----|----|----|----|
 |(Birden çok yazma bölgeleri) Batı ABD'deki kapsayıcı için aktarım hızı faturası |10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$1,190.40 |
 |3 ek bölge - Doğu ABD, Kuzey Avrupa ve Doğu Asya (birden çok yazma bölgeleri) için aktarım hızı faturası |(3 + 1) * 10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$4,761.60 |

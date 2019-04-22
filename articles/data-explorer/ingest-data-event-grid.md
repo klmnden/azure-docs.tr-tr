@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/30/2019
 ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051861"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Hızlı Başlangıç: Event Grid Bildirimlere abone olarak, Azure veri Gezgini'ne BLOB'ları alma
@@ -39,13 +39,13 @@ Bu hızlı başlangıçta nasıl kuracağınızı öğrenin bir [Azure Event Gri
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Ad | *Test-grid-bağlantı* | Oluşturmak istediğiniz olay Kılavuzu adı.|
-    | Olay Şeması | *Olay Kılavuz şeması* | Event grid için kullanılan şema. |
+    | Olay Şeması | *Olay ızgarası şeması* | Event grid için kullanılan şema. |
     | Konu Başlığı Türü | *Depolama hesabı* | Olay Kılavuzu konu başlığı türü. |
     | Konu Kaynağı | *gridteststorage* | Depolama hesabınızın adı. |
-    | Tüm olay türlerine abone ol | *temizle* | Tüm olaylar hakkında size bir bildirim yapılmaz. |
+    | Tüm olay türlerine abone ol | *Temizle* | Tüm olaylar hakkında size bir bildirim yapılmaz. |
     | Tanımlanan Olay Türleri | *Oluşturulan blob* | İçin bildirim almak için hangi belirli olayları. |
-    | Uç Nokta Türü | *Event Hubs* | Olayları göndermek uç noktası türü. |
-    | Uç Nokta | *Test hub'ı* | Oluşturduğunuz olay hub'ı. |
+    | Uç Nokta Türü | *Olay hub'ları* | Olayları göndermek uç noktası türü. |
+    | Uç Nokta | *test-hub* | Oluşturduğunuz olay hub'ı. |
     | | |
 
 1. Seçin **ek özellikler** belirli bir kapsayıcıdan dosyaları izlemek istiyorsanız sekmesi. Bildirimler için filtreleri aşağıdaki gibi ayarlayın:
@@ -99,12 +99,12 @@ Böylece test tabloya blob kapsayıcısına akan veriler akışla event grid iç
 
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Veri bağlantısı adı | *Test hub'ı bağlantısı* | Azure veri Gezgini'nde oluşturmak istediğiniz bağlantının adıdır.|
+    | Veri bağlantısı adı | *test-hub-connection* | Azure veri Gezgini'nde oluşturmak istediğiniz bağlantının adıdır.|
     | Depolama hesabı aboneliği | Abonelik Kimliğiniz | Depolama hesabınızın bulunduğu abonelik kimliği.|
     | Depolama hesabı | *gridteststorage* | Daha önce oluşturduğunuz depolama hesabının adı.|
     | Event Grid | *Test-grid-bağlantı* | Oluşturduğunuz event grid adı. |
-    | Olay Hub'ı adı | *Test hub'ı* | Oluşturduğunuz olay hub'ı. Bu alan, bir olay Kılavuzu seçtiğinizde otomatik olarak doldurulur. |
-    | Tüketici grubu | *test grubu* | Tüketici grubu olay hub'da oluşturduğunuz tanımlı. |
+    | Olay Hub'ı adı | *test-hub* | Oluşturduğunuz olay hub'ı. Bu alan, bir olay Kılavuzu seçtiğinizde otomatik olarak doldurulur. |
+    | Tüketici grubu | *test-group* | Tüketici grubu olay hub'da oluşturduğunuz tanımlı. |
     | | |
 
     Hedef Tablo:

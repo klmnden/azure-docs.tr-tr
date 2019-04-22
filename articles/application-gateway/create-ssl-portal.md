@@ -1,44 +1,42 @@
 ---
-title: SSL sonlandırma - Azure portalı ile bir uygulama ağ geçidi yapılandırma | Microsoft Docs
-description: Uygulama ağ geçidi ve Azure portalını kullanarak SSL sonlandırma için bir sertifika eklemek hakkında bilgi edinin.
+title: Öğretici - SSL sonlandırma - Azure portalı ile bir uygulama ağ geçidi yapılandırma
+description: Bu öğreticide, bir uygulama ağ geçidi ve Azure portalını kullanarak SSL sonlandırma için bir sertifika ekleme konusunda bilgi edinin.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.date: 5/15/2018
+ms.topic: tutorial
+ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091843"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677859"
 ---
-# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure portalını kullanarak SSL sonlandırma ile bir uygulama ağ geçidi yapılandırma
+# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak SSL sonlandırma ile bir uygulama ağ geçidi yapılandırma
 
 Azure portalında yapılandırmak için kullanabileceğiniz bir [uygulama ağ geçidi](overview.md) arka uç sunucuları için sanal makineler kullanan SSL sonlandırması için bir sertifika ile.
 
-Bu makalede şunları öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
 > * Sertifikalı bir uygulama ağ geçidi oluşturma
 > * Arka uç sunucular olarak kullanılan sanal makine oluşturma
+> * Uygulama ağ geçidini test etme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
-Bu bölümde, kullandığınız [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) dinleyici için uygulama ağ geçidi oluşturduğunuzda, Azure portalına karşıya otomatik olarak imzalanan bir sertifika oluşturmak için.
+Bu bölümde, kullandığınız [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) otomatik olarak imzalanan bir sertifika oluşturmak için. Dinleyici için uygulama ağ geçidi oluşturduğunuzda, Azure portalında sertifikayı yükleyin.
 
 Yerel bilgisayarınızda yönetici olarak bir Windows PowerShell penceresi açın. Bir sertifika oluşturmak için aşağıdaki komutu çalıştırın:
 
@@ -72,11 +70,11 @@ Export-PfxCertificate \
 
 Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de arka uç sunucuları içindir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz.
 
-1. Tıklayın **yeni** Azure portalının sol üst köşedeki üzerinde bulunamadı.
+1. Seçin **yeni** Azure portalının sol üst köşedeki üzerinde bulunamadı.
 2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
 3. Girin *myAppGateway* uygulama ağ geçidinin adını ve *myResourceGroupAG* yeni kaynak grubu için.
-4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
-5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
+4. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+5. Seçin **bir sanal ağ seçin**seçin **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
    - *myVNet* - Sanal ağın adı.
    - *10.0.0.0/16* - Sanal ağın adres alanı.
@@ -85,10 +83,10 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
      ![Sanal ağ oluşturma](./media/create-ssl-portal/application-gateway-vnet.png)
 
-6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
-7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
-8. Tıklayın **HTTPS** dinleyici protokolü ve bağlantı noktası olarak tanımlandığından emin olun **443**.
-9. Klasör simgesine tıklayın ve göz atın *appgwcert.pfx* karşıya yüklemek için daha önce oluşturduğunuz sertifika.
+6. Seçin **Tamam** sanal ağ ve alt ağ oluşturmak için.
+7. Seçin **genel bir IP adresi seçin**seçin **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+8. Seçin **HTTPS** dinleyici protokolü ve bağlantı noktası olarak tanımlandığından emin olun **443**.
+9. Klasör simgesini seçin ve göz atın *appgwcert.pfx* karşıya yüklemek için daha önce oluşturduğunuz sertifika.
 10. Girin *mycert1* sertifika adını ve *Azure123456!* Parola ve ardından **Tamam**.
 
     ![Yeni uygulama ağ geçidi oluşturma](./media/create-ssl-portal/application-gateway-create.png)
@@ -97,21 +95,21 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 ### <a name="add-a-subnet"></a>Alt ağ ekleme
 
-1. Sol taraftaki menüde **Tüm kaynaklar**’a ve sonra kaynaklar listesinden **myVNet** öğesine tıklayın.
-2. Tıklayın **alt ağlar**ve ardından **alt**.
+1. Seçin **tüm kaynakları** seçin ve soldaki menüden **myVNet** ve kaynak listesinden.
+2. Seçin **alt ağlar**ve ardından **alt**.
 
     ![Alt ağ oluşturma](./media/create-ssl-portal/application-gateway-subnet.png)
 
-3. Alt ağ adı için *myBackendSubnet* girin ve sonra **Tamam**’a tıklayın.
+3. Girin *myBackendSubnet* seçin ve alt ağ adı için **Tamam**.
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak iki sanal makine oluşturacaksınız. Uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS de yükleyin.
+Bu örnekte, application gateway için arka uç sunucular olarak kullanılan iki sanal makine oluşturun. Ayrıca uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS yüklersiniz.
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-1. **Yeni**’ye tıklayın.
-2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.
+1. **Yeni**'yi seçin.
+2. **İşlem**’i ve sonra Öne Çıkanlar listesinde **Windows Server 2016 Datacenter**’ı seçin.
 3. Sanal makine için şu değerleri girin:
 
     - *myVM* - Sanal makinenin adı.
@@ -119,15 +117,15 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
     - *Azure123456!* Parola.
     - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
-4. **Tamam** düğmesine tıklayın.
-5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
+4. **Tamam**’ı seçin.
+5. Seçin **DS1_V2** seçin ve sanal makine boyutu için **seçin**.
 6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
-7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
-8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
+7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğini belirleyin.
+8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’u seçin.
 
 ### <a name="install-iis"></a>IIS yükleme
 
-1. Etkileşimli kabuğu açın ve **PowerShell**’e ayarlandığından emin olun.
+1. Etkileşimli bir kabuk açın ve bu ayarlandığından emin olun **PowerShell**.
 
     ![Özel uzantıyı yükleme](./media/create-ssl-portal/application-gateway-extension.png)
 
@@ -149,17 +147,17 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 
-1. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
-1. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. **appGatewayBackendPool** öğesine tıklayın.
-1. Tıklayın **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
+1. Seçin **tüm kaynakları**ve ardından **myAppGateway**.
+1. Seçin **arka uç havuzları**. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. Seçin **appGatewayBackendPool**.
+1. Seçin **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
 
     ![Arka uç sunucuları ekleme](./media/create-ssl-portal/application-gateway-backend.png)
 
-1. **Kaydet**’e tıklayın.
+1. **Kaydet**’i seçin.
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-1. Tıklayın **tüm kaynakları**ve ardından **myAGPublicIPAddress**.
+1. Seçin **tüm kaynakları**ve ardından **myAGPublicIPAddress**.
 
     ![Uygulama ağ geçidi genel IP adresini kaydetme](./media/create-ssl-portal/application-gateway-ag-address.png)
 
@@ -173,11 +171,5 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Otomatik olarak imzalanan sertifika oluşturma
-> * Sertifikalı bir uygulama ağ geçidi oluşturma
-> * Arka uç sunucular olarak kullanılan sanal makine oluşturma
-
-Uygulama ağ geçitleri ve bunların ilişkili kaynakları hakkında daha fazla bilgi edinmek için nasıl yapılır makaleleriyle devam edin.
+> [!div class="nextstepaction"]
+> [Azure Application Gateway ile yapabilecekleriniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

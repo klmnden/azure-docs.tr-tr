@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052845"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Sizin için önemli olan Azure Danışmanı önerileri görüntüle
@@ -91,7 +91,7 @@ Ertelenen veya kapatıldı bir öneri etkinleştirebilirsiniz. Bu eylem, Azure p
 
 Bu makalede, Azure Danışmanı'nda sizin için önemli olan önerileri nasıl görüntüleyebileceğiniz açıklanır. Advisor hakkında daha fazla bilgi için bkz: 
 
-- [Azure Danışmanı nedir?](advisor-overview.md)
+- [Azure Advisor nedir?](advisor-overview.md)
 - [Advisor'ı kullanmaya başlama](advisor-get-started.md)
 - [Azure Danışmanı izinleri](permissions.md)
 

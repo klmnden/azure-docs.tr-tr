@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276686"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure kaynak grafik sorgu dilini anlama
@@ -26,7 +26,7 @@ Azure Veri Gezgini için belgelere başlatmak için kaynak graf tarafından kull
 Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmiştir:
 
 - [count](/azure/kusto/query/countoperator)
-- [distinct](/azure/kusto/query/distinctoperator)
+- [Farklı](/azure/kusto/query/distinctoperator)
 - [Genişletme](/azure/kusto/query/extendoperator)
 - [Sınırı](/azure/kusto/query/limitoperator)
 - [Sıralama ölçütü](/azure/kusto/query/orderoperator)
@@ -34,13 +34,13 @@ Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmişti
 - [Proje koyma](/azure/kusto/query/projectawayoperator)
 - [Örnek](/azure/kusto/query/sampleoperator)
 - [örnek farklı](/azure/kusto/query/sampledistinctoperator)
-- [sıralama ölçütü](/azure/kusto/query/sortoperator)
+- [Sıralama ölçütü](/azure/kusto/query/sortoperator)
 - [Özetleme](/azure/kusto/query/summarizeoperator)
 - [sınav zamanı](/azure/kusto/query/takeoperator)
 - [Sayfanın Üstü](/azure/kusto/query/topoperator)
 - [üst iç içe geçmiş](/azure/kusto/query/topnestedoperator)
 - [Top-hitters](/azure/kusto/query/tophittersoperator)
-- [nereye](/azure/kusto/query/whereoperator)
+- [Burada](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Desteklenen işlevleri
 
@@ -50,7 +50,7 @@ Kaynak Graph'te desteklenen işlevler listesi aşağıda verilmiştir:
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [ToString()](/azure/kusto/query/tostringfunction)
+- [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Sonraki adımlar

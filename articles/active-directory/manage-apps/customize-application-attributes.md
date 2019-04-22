@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267217"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
@@ -77,7 +77,7 @@ Bu özellik ile birlikte öznitelik eşlemelerini de aşağıdaki öznitelikleri
 - **Hedef öznitelik** – hedef sistemde kullanıcı özniteliği (örnek: ServiceNow).
 - **Bu özniteliği kullanarak nesneleri eşleşen** : Bu eşleme, kullanıcılar kaynak ve hedef sistemleri arasında benzersiz olarak tanımlanabilmesi için kullanılmalıdır. Bu genellikle, userPrincipalName veya posta özniteliğini genellikle hedef uygulama kullanıcı adı alanına eşlenen Azure AD'de ayarlanır.
 - **Eşleşen öncelik** – birden çok öznitelikleri eşleşen ayarlanabilir. Olduğunda birden çok, bu alan tarafından tanımlanan sırayla değerlendirilir. Bir eşleşme bulunduğu sürece başka eşleştirme öznitelikleri değerlendirilir.
-- **Bu eşlemeyi uygula**
+- **Bu eşlemeyi Uygula**
     - **Her zaman** – bu eşlemeyi Uygula her iki kullanıcı oluşturma ve güncelleştirme eylemleri.
     - **Yalnızca oluşturma sırasında** -yalnızca kullanıcı oluşturma eylemleri bu eşlemeyi Uygula.
 
@@ -123,10 +123,10 @@ Desteklenen öznitelikler listesinde düzenlerken, aşağıdaki özellikler sunu
    * *Tamsayı* -özniteliğini içeren bir tamsayı.
    * *Başvuru* -özniteliği başka bir hedef uygulama tablosunda depolanan değeri başvuran bir kimlik içeriyor.
    * *Dize* -özniteliği içeren bir metin dizesi. 
-* **Birincil Anahtar mı?** -Özniteliği hedef nesnenin şeması birincil anahtar alan olarak tanımlı olup olmadığı.
-* **Gerekli mi?** -Özniteliği hedef uygulama ya da sistemin doldurulacak gerekli olup olmadığı.
+* **Birincil anahtar mı?** -Özniteliği hedef nesnenin şeması birincil anahtar alan olarak tanımlı olup olmadığı.
+* **Gerekli?** -Özniteliği hedef uygulama ya da sistemin doldurulacak gerekli olup olmadığı.
 * **Birden çok değerli?** -Olup öznitelik birden çok değer destekler.
-* **Tam büyük/küçük harf eşleşmesi var mı?** -Olup öznitelik değerleri büyük küçük harfe duyarlı bir şekilde değerlendirilir.
+* **Tam çalışması?** -Olup öznitelik değerleri büyük küçük harfe duyarlı bir şekilde değerlendirilir.
 * **API ifadesi** -belirli bir sağlama bağlayıcı (örneğin, Workday) belgelerine bunu belirtilmedikçe kullanmayın.
 * **Başvurulan nesne özniteliği** - bu menü öznitelikle ilişkili değeri içerir hedef uygulamada, özniteliği ve tablo seçmenize olanak sağlar, bir başvuru türü özniteliği. Örneğin, "nesne ayrı bir"Bölümler"tablosunda depolanan değeri başvuruyor departmanı" adlı bir öznitelik varsa, "Departments.Name" seçin. Başvuru tabloları ve belirli bir uygulama için desteklenen birincil kimlik alanları önceden yapılandırılmış ve şu anda Azure portalını kullanarak düzenlenemez, ancak kullanılarak düzenlenebilir [Graph API'si](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
@@ -157,6 +157,6 @@ Sağlama hizmeti çalışırken bu seçeneğin belirlenmesi, tüm kullanıcılar
 * [Öznitelik eşlemeleri için ifadeler yazma](functions-for-customizing-application-data.md)
 * [Kullanıcı sağlama için kapsam oluşturma filtresi](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](use-scim-to-provision-users-and-groups.md)
-* [SaaS Uygulamalarını Tümleştirme Hakkında Öğreticiler Listesi](../saas-apps/tutorial-list.md)
+* [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
 
 

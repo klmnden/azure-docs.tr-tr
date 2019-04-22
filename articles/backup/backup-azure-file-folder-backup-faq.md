@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426265"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup aracısıyla ilgili sorular
@@ -39,7 +39,7 @@ Aşağıdaki sürücüleri/birimleri yedekleyemezsiniz:
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
 Aşağıdaki türler desteklenir:
 
-* Şifrelendi
+* Şifreli
 * Sıkıştırılmış
 * Seyrek
 * Sıkıştırılmış + Seyrek
@@ -68,7 +68,7 @@ Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldırma i
 ### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nın hangi özelliklerin .NET framework 4.5.2 gerektirir ve daha yüksek?
 [Anında geri yükleme](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) sağlayan tek tek dosya ve klasörleri geri yükleme özelliği *veri kurtarma* Sihirbazı, .NET Framework 4.5.2 gerektirir veya üzeri.
 
-## <a name="backup"></a>Yedekle
+## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Azure Backup aracısı için belirtilen önbellek konumunu nasıl değiştiririm?<br/>
 Önbellek konumunu değiştirmek için aşağıdaki listeyi kullanın.
 
@@ -100,7 +100,7 @@ Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra,
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
 Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
-* Şifrelendi
+* Şifreli
 * Yinelenenleri kaldırma işlemi uygulanmış
 * Sıkıştırılmış
 * Seyrek
@@ -111,7 +111,7 @@ Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü içi
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
   Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayabilirsiniz. Adım adım yönergeler için bkz. **[Ağ kapasitesi azaltmayı etkinleştirme](backup-configure-vault.md#enable-network-throttling)**.
 
-## <a name="restore"></a>Geri Yükle
+## <a name="restore"></a>Geri Yükleme
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Ben bir devam eden geri yükleme işi iptal edersem ne olur?
 Devam eden geri yükleme işi iptal edilirse, geri yükleme işlemi durdurur ve tüm dosyaları iptalden önce geri kalın herhangi düzeyine olmadan yapılandırılmış hedef (özgün veya alternatif konum).

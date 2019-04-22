@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009204"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678556"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -90,9 +90,9 @@ Etkin uyarıları ve uyarı tetiklenmesi neden temel kurallarını görüntülem
 
 ![Analytics deneyiminin ekran görüntüsü](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Kümesi cloud_RoleName
+## <a name="set-cloud-role-name"></a>Kümesi bulut rolü adı
 
-Uygulama Haritası kullanan `cloud_RoleName` eşlemedeki bileşenleri tanımlamak için özellik. Application Insights SDK'sını otomatik olarak ekler `cloud_RoleName` bileşenleri tarafından yayılan telemetri özelliği. Örneğin, SDK'sı bir web sitesi veya hizmet rol adı için ekleyeceksiniz `cloud_RoleName` özelliği. Bununla birlikte, varsayılan değeri geçersiz kılmak için burada isteyebileceğiniz durumlar vardır. Cloud_RoleName geçersiz kılmak ve uygulama eşlemesinde görüntülenen değiştirmek için:
+Uygulama Haritası kullanan **bulut rolü adı** eşlemedeki bileşenleri tanımlamak için özellik. Application Insights SDK'sı bileşenleri tarafından yayılan telemetriyi otomatik olarak bulut rolü adı özelliği ekler. Örneğin, SDK'sı bulut rolü adı özelliği için bir web sitesi veya hizmet rolü adı ekleyeceksiniz. Bununla birlikte, varsayılan değeri geçersiz kılmak için burada isteyebileceğiniz durumlar vardır. Bulut rolü adını geçersiz kılacak ve uygulama eşlemesinde görüntülenen değiştirmek için:
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ Spring Boot ile Application Insights Spring Boot Başlatıcı kullanırsanız, y
 
 `spring.application.name=<name-of-app>`
 
-Spring Boot Başlatıcı cloudRoleName spring.application.name özelliği için girdiğiniz değer otomatik olarak atar.
+Spring Boot Başlatıcı bulut rolü adı spring.application.name özelliği için girdiğiniz değer otomatik olarak atar.
 
-Java bağıntı ve cloudRoleName olmayan SpringBoot uygulamalarını kullanıma almak için bu yapılandırma hakkında daha fazla bilgi için [bölümü](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) bağıntı üzerinde.
+Java hakkında daha fazla bilgi için bağıntı ve bulut rolünü yapılandırma olmayan SpringBoot uygulamalarını kullanıma almak için bu ad [bölümü](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) bağıntı üzerinde.
 
 ### <a name="clientbrowser-side-javascript"></a>Tarayıcı/istemci-tarafı JavaScript
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Uygulama Haritası bağlamında Cloud.RoleName anlama
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Bulut rolü adı Uygulama Haritası bağlamında anlama
 
-Birden çok Cloud.RoleNames mevcut olan Cloud.RoleName hakkında düşünmek, bir uygulama Haritası aramak yararlı olabilir nasıl kadar:
+Dikkat etmeniz gereken nasıl sunulan ürünün kendinde **bulut rolü adı**, birden çok bulut rolü adları mevcut olan bir uygulama Haritası aramak yararlı olabilir:
 
 ![Uygulama Haritası ekran görüntüsü](media/app-map/cloud-rolename.png)
 
-Her yeşil kutularında adları üzerinde uygulama eşlemesinde Cloud.RoleName/role farklı yönlerini belirli Bu dağıtılmış uygulama için değerler. Bu uygulama için kendi rolleri oluşur. Bu nedenle: `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`. 
+Her yeşil kutularında adları üzerinde uygulama eşlemesinde bulut rolü adı için belirli Bu dağıtılmış uygulama farklı yönlerini değerlerdir. Bu uygulama için kendi rolleri oluşur. Bu nedenle: `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`. 
 
-Bu uygulamayı her biri söz konusu olduğunda `Cloud.RoleNames` Ayrıca kendi izleme anahtarı ile farklı bir benzersiz Application Insights kaynağını temsil eder. Bu uygulamanın sahibi erişim için bu dört farklı Application Insights kaynakların her biri olduğundan, temel alınan ilişkileri haritasını birleştirmek Uygulama Haritası kuramıyor.
+Söz konusu olduğunda bu uygulamayı her bir bulut rolü adları da farklı bir benzersiz Application Insights kaynağı ile kendi izleme anahtarı temsil eder. Bu uygulamanın sahibi erişim için bu dört farklı Application Insights kaynakların her biri olduğundan, temel alınan ilişkileri haritasını birleştirmek Uygulama Haritası kuramıyor.
 
 İçin [resmi tanımları](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ Bu uygulamayı her biri söz konusu olduğunda `Cloud.RoleNames` Ayrıca kendi i
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Alternatif olarak, Cloud.RoleInstance burada Cloud.RoleName, sorun yere web ön ucu içinde olsa da, web ön ucu birden çok sunucu arasında yük dengeleme olanağı sunan bir katmana daha ayrıntılı incelemek için bunu çalışıyor olabilir bildirir senaryoları için yararlı olabilir sorunu etkileyen Kusto sorgular ve bilerek tüm web ön uç sunucuları/örnek veya yalnızca bir son derece önemli olabilir.
+Alternatif olarak, **bulut rol örneği** senaryoları için faydalı olabilir burada **bulut rolü adı** sorun, web ön ucu yere bağlıdır, ancak web ön uç üzerinde çalışıyor olabilir bildirir Bu nedenle bir katmanda Kusto sorguları aracılığıyla daha derin detaya ve sorunu, tüm web ön uç sunucuları/örnek etkileyen veya yalnızca bir son derece önemli olabilir birden çok yük dengeli sunucuları.
 
-Bir senaryo burada Cloud.RoleInstance için değeri geçersiz kılmak isteyebilirsiniz, burada yalnızca tek sunucu bilmenin verdiği bir sorunu belirlemek için yeterli bilgi olmayabilir, uygulamanızı kapsayıcılı bir ortamda çalışıp çalışmadığını olabilir.
+Bulut rol örneği değeri geçersiz kılmak için isteyebileceğiniz bir senaryo, burada yalnızca tek sunucu bilmenin verdiği bir sorunu belirlemek için yeterli bilgi olmayabilir, uygulamanızı kapsayıcılı bir ortamda çalışıp çalışmadığını olabilir.
 
-Telemetri başlatıcıları cloud_RoleName özelliği geçersiz kılma hakkında daha fazla bilgi için bkz. [özellikleri ekleyin: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Bulut rolü adı özelliği ile telemetri başlatıcılar geçersiz kılma hakkında daha fazla bilgi için bkz. [özellikleri ekleyin: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Uygulama Haritası, beklendiği gibi çalışmaya başlama ile ilgili sorunlar yaşıyorsanız, aşağıdaki adımları deneyin:
+
+### <a name="general"></a>Genel
 
 1. Resmi olarak desteklenen bir SDK kullandığınızdan emin olun. Desteklenmeyen/Topluluk SDK’ları bağıntıyı desteklemeyebilir.
 
@@ -226,9 +228,23 @@ Uygulama Haritası, beklendiği gibi çalışmaya başlama ile ilgili sorunlar y
 
 3. Azure işlevleri ile kullanıyorsanız, C#yükseltmek için [işlevler V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Onayla [cloud_RoleName](#set-cloud_rolename) doğru yapılandırılmış.
+4. Onayla [bulut rolü adı](#set-cloud-role-name) doğru yapılandırılmış.
 
 5. Bir bağımlılık eksikse, bunun [otomatik olarak toplanan bağımlılıklar](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) listesinde bulunduğundan emin olun. Listede yoksa, bunu yine de [izleme bağımlılık çağrısı](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency) kullanarak el ile izleyebilirsiniz.
+
+### <a name="too-many-nodes-on-the-map"></a>Harita üzerinde çok fazla düğüm
+
+Uygulama Haritası, her isteği telemetrinizi mevcut bir benzersiz bulut rolü adı için bir uygulama düğümü ve bir bağımlılık düğümü türü, hedef ve bağımlılık telemetrinizi bulut rolü adı her benzersiz birleşimi için oluşturur. Uygulama Haritası, telemetrinizi 10. 000'den fazla düğüm varsa, tüm düğümlere ve bağlantılara, haritanızı eksik olacak getirilecek mümkün olmayacaktır. Böyle bir durumda eşleme görüntülerken bir uyarı iletisi görüntülenir.
+
+Ayrıca, Uygulama Haritası, yalnızca aynı anda işlenen, 1000 adede kadar ayrı gruplanmamış düğüm destekler. Uygulama Haritası çağıranlar ve aynı türe sahip bağımlılıkları gruplamak tarafından visual karmaşıklığı azaltır, ancak telemetrinizi çok fazla benzersiz bulut rolü adları veya çok fazla bağımlılık türleri varsa, o Gruplamayı yeterli olacaktır ve eşleme oluşturulamıyor işleme.
+
+Bu sorunu gidermek için doğru bulut rolü adı, bağımlılık türü ve bağımlılık hedef alanlarını ayarlamak için izleme değiştirmeniz gerekir.
+
+* Bağımlılık hedefine bir bağımlılık mantıksal adını temsil etmelidir. Çoğu durumda, sunucu veya bağımlılık kaynak adı ile eş değerdir. Örneğin, HTTP bağımlılıklarına söz konusu olduğunda ana bilgisayar adına ayarlanır. Benzersiz kimliklerinin veya başka bir istekten değiştirme parametreleri içermemelidir.
+
+* Bağımlılık türü, mantıksal bir bağımlılık türünü temsil etmelidir. Örneğin, HTTP, SQL veya Azure Blob, tipik bir bağımlılık türleri vardır. Benzersiz kimliklerinin içermemelidir.
+
+* Bulut rolü adı amacı açıklanan [bölümde yukarıdaki](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Portalı geri bildirim
 

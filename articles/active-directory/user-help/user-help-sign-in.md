@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268370"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>İki aşamalı doğrulama veya güvenlik bilgilerini kullanarak oturum açın
@@ -26,7 +26,7 @@ ms.locfileid: "59268370"
 > [!Note]
 > İki aşamalı doğrulama deneyimi yine de kullanıyorsanız, yönergeleri izleyerek kimlik doğrulama yöntemlerinizi ayarlamanız gerekir [hesabım için iki aşamalı doğrulamayı ayarlama](multi-factor-authentication-end-user-first-time.md) makalesi.
 > 
-> Yöneticiniz güvenlik bilgisi deneyimi kapattıysa, adım adım yol gösteren bu makalelerde kullanarak, kimlik doğrulama yöntemlerini ayarlama yapmanız gerekir:<ul><li>[Güvenlik bilgileri ' authentication uygulamasını kullanmak için ayarlama](security-info-setup-auth-app.md)</li><li>[Güvenlik bilgilerini, kısa mesaj kullanacak şekilde](security-info-setup-text-msg.md)</li><li>[Güvenlik bilgileri bir telefon araması kullanacak şekilde](security-info-setup-phone-number.md)</li></ul>
+> Yöneticiniz güvenlik bilgisi deneyimi kapattıysa, adım adım yol gösteren bu makalelerde kullanarak, kimlik doğrulama yöntemlerini ayarlama yapmanız gerekir:<ul><li>[Güvenlik bilgileri ' authentication uygulamasını kullanmak için ayarlama](security-info-setup-auth-app.md)</li><li>[Güvenlik bilgilerini SMS kullanacak şekilde ayarlama](security-info-setup-text-msg.md)</li><li>[Güvenlik bilgileri bir telefon araması kullanacak şekilde](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Mobil cihazınıza bir kimlik doğrulayıcı uygulama bildirimi kullanarak oturum açın
 

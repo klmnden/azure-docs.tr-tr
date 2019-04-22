@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489323"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Öğretici: Azure portalında bir temel yük dengeleyici ile iç trafik Yük Dengeleme
@@ -265,4 +265,4 @@ Bu öğreticide, temel katmanı iç yük dengeleyici oluşturdunuz. Oluşturduğ
 Ardından, sanal makinelerin kullanılabilirlik alanları genelinde Yük Dengelemesi konusunda bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

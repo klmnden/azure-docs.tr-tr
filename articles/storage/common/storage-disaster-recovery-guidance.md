@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051198"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
@@ -180,5 +180,5 @@ Bir bölge önemli bir olağanüstü durum nedeniyle kayıp olduğu olağanüst�
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bir hesap yük devretme (Önizleme) başlatın](storage-initiate-account-failover.md)
-* [RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md)
+* [RA-GRS’yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md)
 * [Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun](../blobs/storage-create-geo-redundant-storage.md) 

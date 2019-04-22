@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050144"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
@@ -35,7 +35,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için gereken önk
 | İşletim sistemi yerel ayarı | English (US)|
 | VMware vSphere PowerCLI sürümü | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server rolleri | Bu rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
-| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında) |
 | IP adresi türü | Statik |
@@ -175,7 +175,7 @@ Makinede yapılandırma sunucusu için proxy ayarlarını aşağıdaki gibi değ
 2. Masaüstü kısayolunu kullanarak cspsconfigtool.exe'yi başlatın.
 3. Tıklayın **kasa kaydı** sekmesi.
 4. Portaldan yeni bir kayıt dosyası indirin ve aracı için giriş olarak sağlayın.
-      ![kayıt yapılandırma sunucusu](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Proxy sunucusu ayrıntıları sağlayın ve tıklayın **kaydetme** düğmesi.  
 6. Bir yönetici PowerShell komut penceresi açın.
 7. Aşağıdaki komutu çalıştırın

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875161"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683182"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -103,7 +103,6 @@ Her ilişkili ödünler ve dezavantajları sorunları gidermek için kullanılan
 Bu tür sorunları giderme hakkında ek bilgi için bkz:
 
 - Bu [parametre smell](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) blog gönderisi
-- Bu [sorun ve geçici çözümler algılaması parametresi](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) blog gönderisi
 - Bu [fil ve fare parametresi algılaması](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blog gönderisi
 - Bu [parametreli sorgular için plan kalite karşı dinamik sql](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog gönderisi
 

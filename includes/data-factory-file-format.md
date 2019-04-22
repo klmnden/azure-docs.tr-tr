@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919383"
 ---
 ## <a name="specifying-formats"></a>Biçim belirtme
 Azure Data Factory şu biçim türlerini destekler:
 
-* [Metin biçimi](#specifying-textformat)
-* [JSON biçimi](#specifying-jsonformat)
-* [Avro biçimi](#specifying-avroformat)
-* [ORC biçimi](#specifying-orcformat)
-* [Parquet biçimi](#specifying-parquetformat)
+* [Metin Biçimi](#specifying-textformat)
+* [JSON Biçimi](#specifying-jsonformat)
+* [Avro Biçimi](#specifying-avroformat)
+* [ORC Biçimi](#specifying-orcformat)
+* [Parquet Biçimi](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>TextFormat belirtme
 Metin dosyalarını ayrıştırmak veya verileri metin biçiminde yazmak istiyorsanız `format` `type` özelliğini **TextFormat** olarak ayarlayın. İsterseniz `format` bölümünde aşağıdaki **isteğe bağlı** özellikleri de belirtebilirsiniz. Yapılandırma adımları için [TextFormat örneği](#textformat-example) bölümünü inceleyin.
@@ -85,7 +85,7 @@ JSON dosyalarını ayrıştırmak veya verileri JSON biçiminde yazmak istiyorsa
 
 Kopyalama etkinliği, JSON dosyalarının şu desenlerini ayrıştırabilir:
 
-- **Tür ı: setOfObjects**
+- **1. Tür: setOfObjects**
 
     Her dosya tek bir nesne veya satırlara ayrılmış/bitiştirilmiş birden fazla nesne içerir. Bu seçenek bir çıkış veri kümesinde belirlendiğinde, kopyalama etkinliği her satırda bir nesnenin bulunduğu (satırlara ayrılmış) tek bir JSON dosyası üretir.
 
@@ -139,7 +139,7 @@ Kopyalama etkinliği, JSON dosyalarının şu desenlerini ayrıştırabilir:
         }
         ```
 
-- **Tür: arrayOfObjects**
+- **2. Tür: arrayOfObjects**
 
     Her dosya bir nesne dizisi içerir.
 
@@ -214,7 +214,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Belirtme yapı tanımı için daha fazla ayrıntı için dikdörtgen veri kümeleri bölümüne bakın.
-- `jsonPathDefinition` verilerden ayıklanacağı her sütun için JSON yolunu belirtir. Verileri diziden kopyalamak için kullanabilirsiniz **array [x] .property** belirtilen özelliğin değerini xth nesne veya, ayıklamak için kullanabileceğiniz **array [*] .property** gibi içeren herhangi bir nesneden değeri bulmak için özellik.
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için kullanabilirsiniz **array [x] .property** belirtilen özelliğin değerini xth nesne veya, ayıklamak için kullanabileceğiniz **array [*] .property** gibi içeren herhangi bir nesneden değeri bulmak için özellik.
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 }
 ```
 
-**Örnek 2: çapraz uygulama aynı desene sahip birden çok nesneyi diziden**
+**Örnek 2: diziden aynı desene sahip birden fazla nesneyi çapraz uygulama**
 
 Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki birden fazla kayda dönüştürülmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:  
 
@@ -287,8 +287,8 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri d
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Belirtme yapı tanımı için daha fazla ayrıntı için dikdörtgen veri kümeleri bölümüne bakın.
-- `jsonNodeReference` yineleme ve altında aynı desene sahip nesnelerdeki verilerin ayıklamak için gösterir **dizi** yineleneceğini.
-- `jsonPathDefinition` verilerden ayıklanacağı her sütun için JSON yolunu belirtir. Bu örnekte "ordernumber", "orderdate" ve "city", kök nesnenin altında ve "$." ile başlayan JSON yolundayken, "order_pd" ve "order_price", "$." olmadan dizi öğesinden türetilen yol kullanılarak tanımlanmıştır.
+- `jsonNodeReference`, **dizi** sipariş satırlarının altında aynı desene sahip nesnelerdeki verilerin yineleneceğini ve ayıklanacağını belirtir.
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Bu örnekte "ordernumber", "orderdate" ve "city", kök nesnenin altında ve "$." ile başlayan JSON yolundayken, "order_pd" ve "order_price", "$." olmadan dizi öğesinden türetilen yol kullanılarak tanımlanmıştır.
 
 ```json
 "properties": {

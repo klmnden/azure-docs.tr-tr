@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278557"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680001"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Adımlarınız tanımladıktan sonra bazılarını veya tümünü bu adımları kullanarak işlem hattını oluşturun.
 
->[!NOTE]
->Adımları tanımlayın veya derleme işlem hattı yok dosyasını veya verileri Azure Machine Learning hizmeti ile yüklenir.
+> [!NOTE]
+> Adımları tanımlayın veya derleme işlem hattı yok dosyasını veya verileri Azure Machine Learning hizmeti ile yüklenir.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Daha fazla bilgi için [azure işlem hattı adımları paket](https://docs.micro
 
 ## <a name="submit-the-pipeline"></a>İşlem hattı gönderin
 
-İşlem hattı gönderdiğinizde, Azure Machine Learning hizmeti her adım için bağımlılıkları denetler ve belirtilen kaynak dizini anlık görüntüsünü yükler. Kaynak dizin belirtilirse, geçerli yerel dizine yüklenir.
+İşlem hattı gönderdiğinizde, Azure Machine Learning hizmeti her adım için bağımlılıkları denetler ve belirtilen kaynak dizini anlık görüntüsünü yükler. Kaynak dizin belirtilirse, geçerli yerel dizine yüklenir. Anlık görüntü, ayrıca çalışma alanınızda denemeler bir parçası olarak depolanır.
 
+> [!IMPORTANT]
+> Anlık görüntüde bulunan dosyaların önlemek için oluşturma bir [.gitignore](https://git-scm.com/docs/gitignore) veya `.amlignore` dosya dizin ve dosyaları ekleyin. `.amlignore` Dosyası aynı sözdizimini kullanır ve olarak desenleri [.gitignore](https://git-scm.com/docs/gitignore) dosya. Her iki dosya varsa, `.amlignore` dosya önceliklidir.
+>
+> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run

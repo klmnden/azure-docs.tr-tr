@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425976"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
@@ -156,11 +156,11 @@ Ne zaman gerçek bir cihaz sağlama durumu değişiklikleri, IOT Central uygulam
 
 Sizin için en kolay yolu Azure cihaz SDK'ları teklif cihazınızın kodunu uygulayın. Aşağıdaki cihaz SDK'ları kullanılabilir:
 
-- [C için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-c)
-- [Python için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-python)
-- [Node.js için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-node)
-- [Java için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-java)
-- [.NET için Azure IoT SDK'sı](https://github.com/azure/azure-iot-sdk-csharp)
+- [C için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-c)
+- [Python için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-python)
+- [Azure IOT SDK'sı için Node.js](https://github.com/azure/azure-iot-sdk-node)
+- [Java için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-java)
+- [.NET için Azure IOT SDK](https://github.com/azure/azure-iot-sdk-csharp)
 
 Her cihaz, cihaz tanımlayan benzersiz bir bağlantı dizesi kullanarak bağlanır. Bir cihaz, yalnızca, kayıtlı olduğu IOT hub'ına bağlanabilir. Azure IOT Central uygulamanızda gerçek bir cihaz oluşturduğunuzda, bağlantı dizesini kullanarak oluşturmak ihtiyacınız olan bilgileri uygulamanın oluşturduğu `dps-keygen`.
 
@@ -181,7 +181,7 @@ Azure IOT Central cihaz özellikleri açın IOT hub'ı özelliklerinden nasıl e
 
 Cihaz SDK'ları kullanma hakkında daha fazla bilgi edinmek için aşağıdaki makalelerden birine örnek kod için bkz:
 
-- [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)
+- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
 - [Azure IOT Central uygulamanıza bir Raspberry Pi cihazı bağlayın](howto-connect-raspberry-pi-python.md)
 - [Azure IOT Central uygulamanıza Devdiv'e Seti cihaz bağlayamama](howto-connect-devkit.md).
 
@@ -206,6 +206,6 @@ Cihazlar ile Azure IOT Central arasında alınıp verilen tüm veriler şifrelen
 Azure IOT Central, cihaz bağlantısı hakkında öğrendiniz, önerilen sonraki adımlar şunlardır:
 
 - [Hazırlama ve DevKit cihazı bağlayın](howto-connect-devkit.md)
-- [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
-- [Genel bir Node.js istemcisi, Azure IOT Central uygulamanızı bağlayın](howto-connect-nodejs.md)
-- [C SDK: Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
+- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
+- [C SDK'SI: Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

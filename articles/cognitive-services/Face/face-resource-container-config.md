@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882132"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677791"
 ---
 # <a name="configure-face-docker-containers"></a>Yüz tanıma Docker kapsayıcıları yapılandırın
 
@@ -31,11 +31,11 @@ ms.locfileid: "58882132"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey yapılandırma ayarı
 
-`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _yüz_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
+`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Bilişsel Hizmetler_ için belirtilen kaynak [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Yüzünün** kaynak yönetimi altında **anahtarları**
+* Azure portalı: **Bilişsel Hizmetler** kaynak yönetimi altında **anahtarları**
 
 ## <a name="applicationinsights-setting"></a>Applicationınsights ayarı
 
@@ -43,11 +43,13 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Ayar uç noktası URI'si belirtir, _yüz_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _yüz_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
+`Billing` Ayar uç noktası URI'si belirtir, _Bilişsel Hizmetler_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _Bilişsel Hizmetler_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
-* Azure portalı: **Yüzünün** etiketli genel bakış `Endpoint`
+* Azure portalı: **Bilişsel Hizmetler** etiketli genel bakış `Endpoint`
+
+Eklemeyi unutmayın _yüz_ örnekte gösterilen şekilde URI uç noktasına yönlendirme. 
 
 |Gerekli| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
@@ -136,12 +138,12 @@ Yerine {_argument_name_} kendi değerlerinizle:
 
 | Yer tutucu | Değer | Biçim veya örnek |
 |-------------|-------|---|
-|{BILLING_KEY} | Yüz tanıma kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Bölge dahil olmak üzere faturalandırma uç nokta değeri.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | Bilişsel hizmetler kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Bölge ve yüz yönlendirme de dahil olmak üzere faturalandırma uç nokta değeri.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](face-how-to-install-containers.md#billing).
-> ApiKey değer **anahtar** Azure yüz kaynak anahtarlar sayfasındaki. 
+> ApiKey değer **anahtarı** Azure `Cognitive Services` kaynak anahtarlar sayfasında. 
 
 ## <a name="face-container-docker-examples"></a>Kapsayıcı Docker örnekler yüz tanıma
 

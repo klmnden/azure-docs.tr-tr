@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283010"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı yönetme
@@ -283,11 +283,11 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 Bu makaleleri okuyun:
 
-* [Tutarlılığı yönetme](how-to-manage-consistency.md)
-* [Bölgeler arasındaki çakışmaları yönetme](how-to-manage-conflicts.md)
+* [Tutarlılık yönetme](how-to-manage-consistency.md)
+* [Bölgeler arasında çakışmalar yönetme](how-to-manage-conflicts.md)
 * [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
 * [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
 * [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Özel bir çakışma çözümleme ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259193"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: Oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
@@ -37,7 +37,7 @@ Bir kaynak ekosisteminiz ONNX modelleri hızlandırma ve görselleştirme araçl
 
 [ONNX modelleri dağıtılabilir](#deploy) Azure Machine Learning ve ONNX çalışma zamanı'nı kullanarak bulutta. Kullanarak Windows 10 cihazlarına da dağıtılabilir [Windows ML](https://docs.microsoft.com/windows/ai/). Bunlar bile ONNX Topluluğu'ndan kullanılabilen dönüştürücüleri kullanarak diğer platformlar için dağıtılabilir. 
 
-[![OEğitim, dönüştürücüler ve dağıtım gösteren NNX Akış Diyagramı](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX akış eğitim, dönüştürücüler ve dağıtım gösteren diyagram](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX modelleri Al
 
@@ -53,12 +53,12 @@ Mevcut modelleri için ONNX dönüştürmek veya eğitim sonunda ONNX kaydedin.
 
 |Model için bir çerçeve|Dönüştürme örnek veya aracı|
 |-----|-------|
-|PyTorch|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|PyTorch|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
 |TensorFlow|[tensorflow onnx dönüştürücü](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Chainer|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn ve CoreML<br/>XGBoost ve libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
-|Microsoft&nbsp;Bilişsel&nbsp;Araç Seti|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|Microsoft&nbsp;Bilişsel&nbsp;Araç Seti|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 Desteklenen çerçeveler ve dönüştürücüler en son listesini bulabilirsiniz [ONNX öğreticiler site](https://github.com/onnx/tutorials).
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
 ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050688"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
@@ -328,5 +328,5 @@ Son seçenek, HDFS güvenli moda girer nadir durumlarda için izlemek için ard�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md)
-* [Kümeleri ölçeklendirme](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
+* [Ölçek kümeleri](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [HDInsight kümelerini Apache Ambari Web arabiriminden yönetme](hdinsight-hadoop-manage-ambari.md)

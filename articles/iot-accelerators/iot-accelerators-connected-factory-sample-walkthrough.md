@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490368"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
@@ -230,7 +230,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 Aşağıdaki makaleleri okuyarak IoT çözümünü kullanmaya başlayabilirsiniz:
 
 * [Azureiotsolutions.com sitesindeki izinler][lnk-permissions]
-* [Bağlı Fabrika çözüm Hızlandırıcı için Windows veya Linux üzerinde bir ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Bağlı Fabrika çözüm hızlandırıcısı için Windows’da ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher başvuru uygulaması](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731098"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678913"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Market ticari işlem özelliklerini ve dikkat edilmesi gerekenler
 
@@ -44,7 +44,7 @@ Liste ve deneme yayımlama seçeneklerini ek olarak, Azure Marketi yayımcılar�
 
 ## <a name="transact-general-overview"></a>Genel bir bakış transact
 
-Transact yayımlama seçeneği kullanılırken, Microsoft'un Müşteri'nin Azure aboneliği için üçüncü taraf yazılım dağıtımı ve satışı sağlar. Yayımcı, Azure altyapı ücretleri Faturalaması dikkate almanız gerekir ve faturalama seçerken yayımcının kendi yazılım lisans ücretleri, modeli ve Azure Marketi'nde türü sunar. 
+Yayımlama seçeneği transact kullanırken, Microsoft üçüncü taraf yazılım satışı ve bazı teklif türleri müşterinin Azure aboneliğine dağıtımını sağlar. Yayımcı, Azure altyapı ücretleri Faturalaması dikkate almanız gerekir ve faturalama seçerken yayımcının kendi yazılım lisans ücretleri, modeli ve Azure Marketi'nde türü sunar.
 
 Azure Marketi'nde Transact yayımlama seçeneği şu anda aşağıdaki teklif türleri için desteklenir: Sanal makineler, Azure uygulamaları veya SaaS uygulamaları.
 
@@ -58,7 +58,7 @@ Sanal makineleri ve Azure uygulamaları için Azure altyapı kullanım ücretler
 
 **SaaS uygulamaları için**
 
-SaaS uygulamaları için yayımcı kullanım ücretleri Azure altyapı ve yazılım lisans ücretleri için tek maliyeti öğesi olarak dikkate alması gerekir.  Müşteri için aylık sabit ücret gösterilir. Azure altyapı kullanım yönetilir ve iş ortağı doğrudan faturalandırılır.  Gerçek altyapı kullanım ücretleri müşteri tarafından görülmez.  Yayımcılar Azure altyapı kullanım ücretleri, yazılım lisans fiyatına paket genellikle tercih etme.  Yazılım Lisans ücretleri ölçülen olmayan veya tüketim temelli.
+SaaS uygulamaları için yayımcı kullanım ücretleri Azure altyapı ve yazılım lisans ücretleri için tek maliyeti öğesi olarak dikkate alması gerekir.  Müşteri için sabit bir ücret gösterilir. Azure altyapı kullanım yönetilir ve iş ortağı doğrudan faturalandırılır.  Gerçek altyapı kullanım ücretleri müşteri tarafından görülmez.  Yayımcılar Azure altyapı kullanım ücretleri, yazılım lisans fiyatına paket genellikle tercih etme.  Yazılım Lisans ücretleri ölçülen olmayan veya tüketim temelli.
 
 ## <a name="transact-billing-models"></a>Faturalandırma modelleri transact
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426401"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
@@ -62,17 +62,17 @@ Aşağıdaki tabloda, izlenen bir küme çoklu küme görünüm için sağlık d
 | |Durum |Kullanılabilirlik |  
 |-------|-------|-----------------|  
 |**Kullanıcı Pod**| | |  
-| |Sağlam |100% |  
+| |Sorunsuz |100% |  
 | |Uyarı |90 - %99 |  
 | |Kritik |< % 90'dır |  
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |  
 |**Sistem Pod**| | |  
-| |Sağlam |100% |
+| |Sorunsuz |100% |
 | |Uyarı |Yok |
 | |Kritik |< % 100 |
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |
-|**Düğüm** | | |
-| |Sağlam |> %85 |
+|**Node** | | |
+| |Sorunsuz |> %85 |
 | |Uyarı |60 - %84 |
 | |Kritik |< % 60 |
 | |Bilinmeyen |Son 30 dakika içerisinde bildirilmedi varsa |
@@ -105,7 +105,7 @@ Kapsayıcılar için Azure İzleyici, Azure İzleyici ayrıca destekler [ölçü
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Ölçüm Gezgini'nde kapsayıcı ölçümlerini görüntüleme
 Ölçüm Gezgini'nde toplanmış düğümü görüntüleyin ve kapsayıcılar için Azure İzleyici'den kullanım ölçümlerini pod. Ölçüm grafikleri kapsayıcı ölçümlerini görselleştirmek için nasıl kullanılacağını anlamanıza yardımcı olması için ayrıntıları aşağıdaki tabloda özetlenmiştir.
 
-|İsim uzayı | Ölçüm |
+|Ad alanı | Ölçüm |
 |----------|--------|
 | insights.Container/Nodes | |
 | | cpuUsageMillicores |
@@ -122,7 +122,7 @@ Uygulayabileceğiniz [bölme](../platform/metrics-charts.md#apply-splitting-to-a
 
 * Denetleyici
 * Kubernetes ad alanı
-* Düğüm
+* Node
 * Aşama
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Düğümler, denetleyicilere ve kapsayıcı durumunun analiz edin

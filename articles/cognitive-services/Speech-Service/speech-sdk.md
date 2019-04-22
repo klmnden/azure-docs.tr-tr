@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
 ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425806"
 ---
 # <a name="about-the-speech-sdk"></a>Konuşma SDK hakkında
@@ -91,5 +91,5 @@ Java SDK'sını da olan parçası [konuşma cihaz SDK'sı](speech-devices-sdk.md
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
+* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 * [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)

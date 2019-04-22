@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094553"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682317"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs başka bir laboratuvarda Vm'lerden içeri aktarma
 Azure DevTest Labs hizmeti geliştirme ve test etkinlikleri için sanal makinelerin (VM'ler) yönetim önemli ölçüde artırır. Başka bir takım olarak bir laboratuvarda bir VM'yi taşıma izin verir veya altyapı gereksinimleri değiştirin. Burada Bunu yapmak gerekebilir bazı yaygın senaryolar aşağıda verilmiştir: 
@@ -42,7 +42,7 @@ Ayrıca, bir VM'nin bir laboratuvarda içeri aktarabilmek için laboratuvar kayn
 Şu anda, bir VM bir laboratuvarda diğerine yalnızca Azure PowerShell ve REST API kullanarak içeri aktarabilirsiniz.
 
 ### <a name="use-powershell"></a>PowerShell kullanma
-PowerShell komut dosyası gelen ImportVirtualMachines.ps1 indirme [Azure DevTest Lab Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) yerel sürücünüze. 
+PowerShell komut dosyası gelen ImportVirtualMachines.ps1 indirme [Azure DevTest Lab Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) yerel sürücünüze. 
 
 #### <a name="import-a-single-vm"></a>Tek bir sanal makine içeri aktarma
 Tek bir VM bir kaynak laboratuvarda hedef laboratuvara içeri aktarmak için ImportVirtualMachines.ps1 betiği çalıştırın. DestinationVirtualMachineName paramer kullanarak kopyalanan VM için yeni bir ad belirtebilirsiniz. 

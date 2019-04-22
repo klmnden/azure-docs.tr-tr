@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489631"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
@@ -99,9 +99,9 @@ Katılımı için ASP.NET istemci-tarafı izleme. İstemci-tarafı izlemeyi etki
 * Seçin **ayarları** > ** ** *** Uygulama ayarları
    * Uygulama ayarları, yeni bir ekleme **uygulama ayarı adı** ve **değer**:
 
-     Ad: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Adı: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Değer: `true`
+     Değer:`true`
 
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 
@@ -120,7 +120,7 @@ Herhangi bir nedenden dolayı istemci-tarafı izlemeyi devre dışı bırakmak i
 
      Adı: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Değer: `false`
+     Değer:`false`
 
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 
@@ -326,7 +326,7 @@ Uzantı hangi sürümünü denetlemek için şu adresi ziyaret edin çalıştır
 1. Uygulama aracılığıyla izlenen onay `ApplicationInsightsAgent`.
     * Bu maddeyi `ApplicationInsightsAgent_EXTENSION_VERSION` uygulama ayarı "~ 2" değerine ayarlanır.
 2. Uygulamanın izlenmesi için gereksinimleri karşıladığından emin olun.
-    * Şu konuma gidin: `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Göz atın `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Ekran görüntüsü https://yoursitename.scm.azurewebsites/applicationinsights sonuçları sayfası](./media/azure-web-apps/app-insights-sdk-status.png)
 

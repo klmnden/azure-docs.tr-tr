@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051766"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Nasıl kullanıcı kaydı ve ürün aboneliği temsilcisi seçin
@@ -69,10 +69,10 @@ Oluşturmak için ihtiyacınız artık **temsilci seçme uç nokta**. Bir dizi e
    * Yukarıda hesaplanan karma değerini karşılaştırmak **sig** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçmek, aksi takdirde isteği reddeder.
 3. Oturum açma isteği alma / kaydolma doğrulayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
 4. Kullanıcı oturum açma veya kaydolma için kullanıcı Arabirimi ile var
-5. Kullanıcı imza, karşılık gelen bir hesap için API Yönetimi'nde oluşturmanız gerekir. [Bir kullanıcı oluşturma] API Management REST API ile. Bunun yapılması, kullanıcı kimliği, kullanıcı deposu ile aynı değer veya takip bir kimlik olarak ayarlandığından emin olun.
+5. Kullanıcı imza, karşılık gelen bir hesap için API Yönetimi'nde oluşturmanız gerekir. [Bir kullanıcı oluşturun] API Management REST API ile. Bunun yapılması, kullanıcı kimliği, kullanıcı deposu ile aynı değer veya takip bir kimlik olarak ayarlandığından emin olun.
 6. Ne zaman kullanıcının başarıyla kimliği:
    
-   * [bir çoklu oturum açma (SSO) belirteci istemek] API Management REST API aracılığıyla
+   * [bir çoklu oturum açma (SSO) belirteci iste] API Management REST API aracılığıyla
    * API çağrısından alınan SSO URL'sine returnUrl sorgu parametresi ekleyin:
      
      > Örneğin, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -130,7 +130,7 @@ Ardından, temsilci seçme uç nokta aşağıdaki eylemleri yapar emin olun:
      > 
    * Yukarıda hesaplanan karma değerini karşılaştırmak **sig** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçmek, aksi takdirde isteği reddeder.
 3. Ürün aboneliği içinde istenen işlem türüne göre işlem **işlemi** - Örneğin, faturalandırma, başka sorularınız varsa, vs.
-4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [REST API'sini çağırmak için ürün aboneliği].
+4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [Ürün aboneliği için REST API çağırma].
 
 ## <a name="delegate-example-code"> </a> Örnek kod
 
@@ -188,6 +188,6 @@ Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın:
 [Bir kullanıcı oluşturun]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
 [Ürün aboneliği için REST API çağırma]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
-[Aşağıda sağlanan kod örneği]: #delegate-example-code
+[aşağıda sağlanan kod örneği]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

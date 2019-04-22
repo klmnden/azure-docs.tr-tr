@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048223"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
@@ -145,7 +145,7 @@ Denetim akışı zincirleme etkinlikleri sıradaki dallanma, bir işlem hattı d
 
 Data Factory kavramları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Veri kümesi ve bağlı hizmetler](concepts-datasets-linked-services.md)
+- [Veri kümeleri ve bağlı hizmetler](concepts-datasets-linked-services.md)
 - [İşlem hatları ve etkinlikler](concepts-pipelines-activities.md)
 - [Tümleştirme çalışma zamanı](concepts-integration-runtime.md)
 
@@ -211,5 +211,5 @@ Kopyalama etkinliği için veri hazırlamak herhangi diğer bağlayıcıları ku
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri Fabrikası oluşturmak adım adım yönergeler için aşağıdaki öğreticilere bakın:
 
-- [Hızlı Başlangıç: Veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
+- [Hızlı Başlangıç: Veri Fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
 - [Öğretici: Bulutta veri kopyalama](tutorial-copy-data-dot-net.md)

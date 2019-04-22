@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048767"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uyarılar ve Azure işlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma
@@ -91,7 +91,7 @@ Bu senaryo, şunları yapar:
     |**Ayar** | **Değer** | **Ayrıntılar** |
     |---|---|---|
     |**Senaryo**|Deneysel|Senaryo türü|
-    |**İşlevinizi adlandırma**|AlertPacketCapturePowerShell|İşlevin adı|
+    |**İşlevinizi adlandırın**|AlertPacketCapturePowerShell|İşlevin adı|
     |**Yetkilendirme düzeyi**|İşlev|Yetkilendirme düzeyi işlevi|
 
 ![Örnek işlevleri][functions1]
@@ -352,7 +352,7 @@ Varolan bir sanal makineye gidin ve ardından bir uyarı kuralı ekleyin. Uyarı
   |**Koşul**|Büyüktür| Ölçüm değerlendirilirken kullanılacak koşul.|
   |**Eşik**|100| Uyarıyı tetikleyen ölçüm değeri. Bu değer, ortamınız için geçerli bir değere ayarlanmalıdır.|
   |**Dönem**|Son beş dakika boyunca| Ölçüm eşiğine aramak süreniz belirler.|
-  |**Web Kancası**|[işlev uygulamasından Web kancası URL'si]| Web kancası URL'si önceki adımlarda oluşturulan işlev uygulamasından.|
+  |**Web kancası**|[işlev uygulamasından Web kancası URL'si]| Web kancası URL'si önceki adımlarda oluşturulan işlev uygulamasından.|
 
 > [!NOTE]
 > Varsayılan olarak TCP segmentleri ölçüm etkin değil. Ek ölçümler ederek etkinleştirme hakkında daha fazla bilgi [izleme ve tanılamayı etkinleştirme](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

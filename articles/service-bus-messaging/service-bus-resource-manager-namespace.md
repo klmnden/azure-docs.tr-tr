@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045091"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
@@ -40,7 +40,7 @@ Bu hızlı başlangıçta, bir Service Bus ad alanı türü oluşturan bir Azure
 ## <a name="quick-deployment"></a>Hızlı Dağıtım
 Herhangi bir JSON yazma ve PowerShell/CLI komutu çalıştırarak örneği olmadan çalıştırmak için aşağıdaki düğmeyi seçin:
 
-[![Dazure'a aşamasıyla](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Azure’a dağıtma](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Oluşturma ve şablon el ile dağıtmak için aşağıdaki bölümlerde bu makaledeki inceleyin.
 
@@ -203,7 +203,7 @@ Azure CLI kullanarak kaynakları dağıtmak için JSON dosyaları klasöre geçi
 Bu makalede, Service Bus ad alanı oluşturdunuz. Bkz. kuyruklar, konular/abonelikler, oluşturma konusunda bilgi almak için diğer hızlı başlangıçlar ve bunları kullanabilirsiniz: 
 
 - [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
-- [Service Bus konuları ile çalışmaya başlama](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Hizmet veri yolu konuları ile çalışmaya başlama](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/

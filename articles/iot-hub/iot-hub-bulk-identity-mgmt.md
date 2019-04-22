@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049981"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>İçeri ve dışarı aktarma IOT Hub cihaz kimliklerinin toplu
@@ -257,10 +257,10 @@ Tek bir önceki işlemleri herhangi bir birleşimini gerçekleştirebilir **Impo
 | --- | --- |
 | **createOrUpdate** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
 | **oluşturmaya** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, hata günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
-| **update** |Bir cihaz zaten belirtilen varsa **kimliği**, var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **Güncelleştirme** |Bir cihaz zaten belirtilen varsa **kimliği**, var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
 | **updateIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, mevcut bilgi ancak varsa sağlanan giriş verileriyle üzerine bir **ETag** eşleşmesi. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. |
 | **createOrUpdateIfMatchETag** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, varsa var olan bilgi ile sağlanan giriş veri yazılır bir **ETag** eşleşmesi. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
-| **delete** |Bir cihaz zaten belirtilen varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **sil** |Bir cihaz zaten belirtilen varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
 | **deleteIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, yalnızca silinmiş bir **ETag** eşleşmesi. Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>ETag uyumsuzluğu varsa, hata günlük dosyasına yazılır. |
 
 > [!NOTE]

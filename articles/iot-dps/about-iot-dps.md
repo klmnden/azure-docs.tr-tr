@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051483"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama
@@ -110,7 +110,7 @@ Her Azure aboneliği varsayılan kota sınırları içerir ve bu sınırlar, IoT
 
 Kota sınırları hakkındaki diğer ayrıntılar için:
 
-* [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md)
+* [Azure Aboneliği Hizmet Sınırları](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>İlgili Azure bileşenleri
 Cihaz Sağlama Hizmeti, cihaz sağlamayı Azure IoT Hub ile otomatikleştirir. [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) hakkında daha fazla bilgi edinin.

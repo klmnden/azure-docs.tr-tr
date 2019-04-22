@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274527"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
@@ -216,6 +216,6 @@ Karşıya yüklenen dosya yapılandırdığınız depolama kapsayıcısında gö
 
 Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-*  [Programlamalı IoT Hub oluşturma](iot-hub-rm-template-powershell.md)
-*  [C SDK'ya Giriş](iot-hub-device-sdk-c-intro.md)
+*  [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
+*  [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
 *  [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)

@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052365"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
@@ -123,8 +123,8 @@ Kullanım Koşulları belgenize son şeklini verdikten sonra, bunları eklemek i
 
     | Şablon | Açıklama |
     | --- | --- |
-    | **Tüm ziyaretçiler için bulut uygulamalarına erişim** | Tüm konuklar ve tüm koşullu erişim ilkesi oluşturulacak bulut uygulamaları. Bu ilke, Azure portalını etkiler. Bu oluşturulduktan sonra oturum kapatma ve oturum açma için gerekli olabilir. |
-    | **Tüm kullanıcılar için bulut uygulamalarına erişim** | Koşullu erişim ilkesi oluşturulur, tüm kullanıcılar ve tüm bulut uygulamaları. Bu ilke, Azure portalını etkiler. Bu oluşturulduktan sonra oturum kapatma ve oturum açma için gerekli olacaktır. |
+    | **Tüm konuklar için bulut uygulamalarına erişim** | Tüm konuklar ve tüm koşullu erişim ilkesi oluşturulacak bulut uygulamaları. Bu ilke, Azure portalını etkiler. Bu oluşturulduktan sonra oturum kapatma ve oturum açma için gerekli olabilir. |
+    | **Bulut uygulamalarında tüm kullanıcılar için erişim** | Koşullu erişim ilkesi oluşturulur, tüm kullanıcılar ve tüm bulut uygulamaları. Bu ilke, Azure portalını etkiler. Bu oluşturulduktan sonra oturum kapatma ve oturum açma için gerekli olacaktır. |
     | **Özel ilke** | Bu Kullanım Koşullarının geçerli olacağı kullanıcıları, grupları ve uygulamaları seçin |
     | **Koşullu erişim ilkesini sonra oluştur** | Bu kullanım koşulları, koşullu erişim ilkesi oluşturulurken denetim verme listesinde görünür. |
 
@@ -387,4 +387,4 @@ Y: Her iki Azure AD Kullanım Koşulları'nı yapılandırdıysanız ve [Intune 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir](require-tou.md)
-- [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md)
+- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](best-practices.md)

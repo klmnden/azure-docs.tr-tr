@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257119"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
@@ -32,7 +32,7 @@ Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha 
 
 Azure Machine Learning hizmeti, veri hazırlama, eğitme, test, dağıtma, yönetme ve makine öğrenimi modelleri izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar.
 
-[![AMachine Learning hizmeti iş akışı zure](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning hizmeti tamamen açık kaynak teknolojilerini destekler. Bu nedenle, makine öğrenimi bileşenleri on binlerce açık kaynak Python paketlerini kullanabilirsiniz. Örnekler PyTorch, TensorFlow ve scikit-öğrenin.
 Zengin Araçlar desteği etkileşimli olarak keşfedin ve verileri hazırlama geliştirme ve test modelleri daha kolay hale getirir. Örnekler [Jupyter not defterleri](https://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) uzantısı.
@@ -52,7 +52,7 @@ Modeliniz dağıtıldıktan sonra elde edilmesi de döndürebilir [gerçek zaman
 Kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">ana Python SDK'sını</a> ve <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK'sını</a> Azure Machine Learning yanı sıra açık kaynak Python paketlerini, derleme ve yüksek oranda doğru makine öğrenimi ve derin öğrenme modelleri eğitme kendiniz bir Azure Machine Learning hizmetinde çalışma alanı.
 Aşağıdaki örnekler gibi açık kaynak Python paketlerini de kullanılabilen bileşenler birçok makine arasından seçim yapabilirsiniz:
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">scikit-öğrenin</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>

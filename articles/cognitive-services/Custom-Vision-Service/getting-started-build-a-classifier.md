@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051487"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
@@ -53,7 +53,7 @@ Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai)
     |Domain|Amaç|
     |---|---|
     |__Genel__| Çok sayıda görüntü sınıflandırma görevleri için en iyi duruma getirilmiş. Diğer etki alanlarıyla uygun yok ya da seçmek için hangi etki alanı emin değilseniz, genel etki alanını seçin. |
-    |__Yiyecek__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|
+    |__Gıda__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|
     |__Yer işareti__|Tanınabilir için yer işareti, doğal ve yapay en iyi duruma getirilmiş. Yer işareti fotoğraf açıkça görünür olduğunda bu etki alanı en iyi şekilde çalışır. Bu etki alanında yer işareti biraz önündeki kişiler tarafından engellendiği bile çalışır.|
     |__Perakende__|Bir alışveriş katalog veya alışveriş Web sitesinde bulunan görüntüleri için en iyi duruma getirilmiş. Elbiselerini pants ve gömlekler arasında yüksek duyarlık sınıflandırmak istiyorsanız, bu etki alanını kullanın.|
     |__Compact etki alanları__| Mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamaları için en iyi duruma getirilmiş. Compact etki alanları tarafından oluşturulan modelleri, yerel olarak çalıştırmak için verilebilir.|
@@ -130,5 +130,5 @@ Her zaman sınıflandırıcınızı eğitmek, yeni oluşturduğunuz _yineleme_ k
 
 Bu kılavuzda, özel görüntü işleme Web sitesini kullanarak bir görüntü sınıflandırma modeli eğitmek ve oluşturma hakkında bilgi edindiniz. Ardından, modelinizi geliştirme, yinelemeli işlemi hakkında daha fazla bilgi alın.
 
-[Test edin ve bir modeli yeniden eğitme](test-your-model.md)
+[Modeli test etme ve yeniden eğitme](test-your-model.md)
 

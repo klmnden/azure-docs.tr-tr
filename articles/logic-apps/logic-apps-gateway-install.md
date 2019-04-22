@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065809"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679134"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -243,9 +243,9 @@ Ağ geçidi bu tam etki alanı adlarını kullanır:
 | *. analysis.windows.net | 443 | HTTPS | 
 | *. core.windows.net | 443 | HTTPS | 
 | *.frontend.clouddatahub.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
 | *.microsoftonline-p.com | 443 | Yapılandırmasına bağlı olarak kimlik doğrulaması için kullanılır. | 
-| *. msftncsi.com | 443 | Ağ geçidi Power BI hizmeti tarafından erişilemez olduğunda internet bağlantısını test etmek için kullanılır. | 
+| *.msftncsi.com | 443 | Ağ geçidi Power BI hizmeti tarafından erişilemez olduğunda internet bağlantısını test etmek için kullanılır. | 
 | *.servicebus.windows.net | 443, 9350-9354 | Dinleyiciler (erişim denetimi belirtecinin alınması için 443 gerekir) TCP üzerinden Service Bus geçişi hakkında | 
 | *.servicebus.windows.net | 5671-5672 | Gelişmiş ileti sıraya alma Protokolü (AMQP) | 
 | login.microsoftonline.com | 443 | HTTPS | 
@@ -262,7 +262,7 @@ Ağ geçidinin Azure Service Bus ile doğrudan TCP yerine HTTPS iletişim kurmak
 
    Aksi takdirde, istemci konumu bulmak için aynı bilgisayardaki Hizmetler konsolunu açın, bulma **şirket içi veri ağ geçidi hizmeti**ve görüntüleme **yürütülebilir dosyanın yolu** özelliği.
 
-2. Açık *yapılandırma* dosyası: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
+2. Açık *yapılandırma* dosyası: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Değişiklik **ServiceBusSystemConnectivityModeString** değerini **otomatik algıla** için **Https**:
 
@@ -435,26 +435,6 @@ Ağ geçidi için olay günlüklerini bulmak için aşağıdaki adımları izley
 
    ![Ağ geçidi için olay günlüklerini görüntüleme](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>Telemetri
-
-Ek izleme ve sorun giderme için açın ve telemetri toplama. 
-
-1. Genellikle, burada bulabilirsiniz şirket içi veri ağ geçidi istemci konumuna göz atın: ```C:\Program Files\On-premises data gateway```
-
-   Aksi takdirde, istemci konumu bulmak için aynı bilgisayardaki Hizmetler konsolunu açın, bulma **şirket içi veri ağ geçidi hizmeti**ve görüntüleme **yürütülebilir dosyanın yolu** özelliği.
-
-2. Açık *yapılandırma* dosyası: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
-
-3. Değişiklik **SendTelemetry** değerini **true**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Yaptığınız değişiklikleri kaydedin ve ardından Windows hizmetini yeniden başlatın.
-
 ### <a name="review-slow-query-performance"></a>Gözden geçirme yavaş sorgu performansı
 
 Sorgular ağ geçidi üzerinden yavaş çalışmasına bulursanız, sorgular ve süreler veren ek günlük kaydını etkinleştirebilirsiniz. Bu günlükler, hangi sorguların yavaş veya uzun süre çalışan bulmanıza yardımcı. Sorgu performansını ayarlamak için olabilir, veri kaynağı örneğin değiştirmek, SQL Server sorguları için dizinleri ayarlama.
@@ -480,7 +460,7 @@ Bir sorgu süresini belirlemek için aşağıdaki adımları izleyin:
      > [!IMPORTANT]
      > Emitquerytraces'in ayarın etkinleştirilmesi, ağ geçidi kullanımına bağlı olarak günlük boyutunu önemli ölçüde artabilir. Günlükleri gözden tamamladıktan sonra Emitquerytraces'in için sıfırlama emin **false** yeniden yerine bu ayarı uzun süreli bırakın.
 
-   * **Microsoft.powerbı.datamovement.Pipeline.Diagnostics.dll.config**
+   * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
 
      Günlük, süreyi gösteren girişler de dahil olmak üzere ayrıntılı girişleri, ağ geçidiniz için değiştirme **TracingVerbosity** değerini **4** için **5** ya da adım gerçekleştirerek: 
 
@@ -526,7 +506,7 @@ Bir sorgu süresini belirlemek için aşağıdaki adımları izleyin:
 
 ### <a name="trace-traffic-with-fiddler"></a>Fiddler ile izleme trafiği
 
-[Fiddler](http://www.telerik.com/fiddler) telerik HTTP trafiğini izleyen ücretsiz bir araçtır. İstemci makinesinden Power BI hizmeti ile bu trafiği gözden geçirebilirsiniz. Bu hizmet, hataları ve diğer ilgili bilgileri gösterebilir.
+[Fiddler](https://www.telerik.com/fiddler) telerik HTTP trafiğini izleyen ücretsiz bir araçtır. İstemci makinesinden Power BI hizmeti ile bu trafiği gözden geçirebilirsiniz. Bu hizmet, hataları ve diğer ilgili bilgileri gösterebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
     

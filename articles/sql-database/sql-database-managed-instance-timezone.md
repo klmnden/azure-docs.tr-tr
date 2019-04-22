@@ -12,10 +12,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/10/2019
 ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489699"
 ---
 # <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Azure SQL veritabanı yönetilen örneği (Önizleme) saat diliminde
@@ -243,5 +243,5 @@ Yük devretme birincil ve ikincil örneği arasında aynı saat diliminde kullan
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [SAAT DİLİMİ (Transact-SQL),](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
 - [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

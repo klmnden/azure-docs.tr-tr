@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263885"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun v4 Bot hizmeti
 
 Gelen bir soru-cevap sohbet Robotu oluşturun **Yayımla** var olan bir Bilgi Bankası için sayfa. Bu bot, Bot Framework SDK v4 kullanır. Bot oluşturmak için kod yazmanız gerekmez, tüm kod size sağlanır.
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -56,11 +56,11 @@ Bilgi Bankası için bir istemci uygulaması olarak bir bot oluşturulabilir.
     |Fiyatlandırma katmanı|`F0`|Ücretsiz katmanı için Azure bot hizmeti.|
     |Uygulama adı|`my-tutorial-kb-bot-app`|Bu yalnızca botunuzun desteklemek için bir web uygulamasıdır. Soru-cevap Oluşturucu hizmetinizi kullanır bu aynı uygulama adı olmamalıdır. Soru-cevap Oluşturucu'nın web uygulamasını başka bir kaynakla desteklenmiyor.|
     |SDK dil|C#|Bot framework SDK'sı tarafından kullanılan temel programlama dili budur. Seçenekleriniz şunlardır C# veya Node.js.|
-    |Soru-cevap kimlik doğrulama anahtarı|**Değiştirme**|Bu değer sizin için doldurulur.|
-    |App service planı/konumu|**Değiştirme**|Bu öğretici için konum önemli değildir.|
-    |Azure Storage|**Değiştirme**|Konuşma verileri Azure depolama tablolarında depolanır.|
-    |Application Insights|**Değiştirme**|Günlük kaydı Application Insights'a gönderilir.|
-    |Microsoft uygulama kimliği|**Değiştirme**|Active directory kullanıcı adı ve parola gereklidir.|
+    |Soru-cevap kimlik doğrulama anahtarı|**Değiştirmeyin.**|Bu değer sizin için doldurulur.|
+    |Uygulama hizmeti planı/Konumu|**Değiştirmeyin.**|Bu öğretici için konum önemli değildir.|
+    |Azure Storage|**Değiştirmeyin.**|Konuşma verileri Azure depolama tablolarında depolanır.|
+    |Application Insights|**Değiştirmeyin.**|Günlük kaydı Application Insights'a gönderilir.|
+    |Microsoft uygulama kimliği|**Değiştirmeyin.**|Active directory kullanıcı adı ve parola gereklidir.|
 
     ![Bilgi Bankası bot bu ayarlarla oluşturun.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 

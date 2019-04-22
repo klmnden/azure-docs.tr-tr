@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094619"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679270"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
 [Apache Storm](https://storm.incubator.apache.org) güvenilir işlenmesini sınırsız veri akışlarını basitleştiren bir dağıtılmış gerçek zamanlı bir hesaplama sistemidir. Bu bölümde, olayları Event Hubs'dan olay almak için bir Azure olay hub'ları Storm spout kullanmayı gösterir. Apache Storm kullanan, farklı düğümlerde barındırılan birden çok işlem arasında olayları bölebilirsiniz. Storm ile Event Hubs tümleştirme olay tüketiminin şeffaf bir şekilde denetim noktası tarafından Storm'ın Zookeeper yükleme, kalıcı denetim noktalarını yönetme, ilerleme durumunu basitleştirir ve paralel Event Hubs'dan alır.
 
 Event Hubs hakkında daha fazla bilgi için desenler almak için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
+
+## <a name="prerequisites"></a>Önkoşullar
+Hızlı Başlangıç ile başlamadan önce **bir Event Hubs ad alanı ve bir olay hub'ı oluşturma**. Kullanım [Azure portalında](https://portal.azure.com) Event Hubs türünde bir ad alanı oluşturma, ardından uygulamanızın olay hub'ı ile iletişim kurmak için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için verilen yordamı izleyin [bu makalede](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Proje oluşturma ve kod ekleme
 

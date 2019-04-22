@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044381"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
@@ -115,13 +115,13 @@ Aşağıdaki liste, sorgulanırken işleri veya iş sonuçları için kullanıla
 
 | Özellik | Açıklama |
 | --- | --- |
-| **iş kimliği** |Uygulama için İş Kimliği sağlanmadı. |
+| **jobId** |Uygulama için İş Kimliği sağlanmadı. |
 | **startTime** |Uygulama, işin başlangıç saati (ISO 8601) sağlanır. |
 | **endTime** |IOT Hub, iş tamamlandığında (ISO 8601) tarihi sağlanır. Yalnızca iş 'Tamamlandı' durumuna ulaştıktan sonra geçerli. |
 | **type** |İşleri türleri: |
 | | **scheduledUpdateTwin**: Bir dizi istenen özellikleri veya etiketleri güncelleştirmek için kullanılan bir proje. |
 | | **scheduledDeviceMethod**: Cihaz ikizlerini kümesi üzerinde bir cihaz yöntemini çağırmak için kullanılan bir proje. |
-| **durum** |İşin geçerli durumu. Durum için olası değerler: |
+| **Durumu** |İşin geçerli durumu. Durum için olası değerler: |
 | | **Bekleyen**: Zamanlanmış ve iş hizmeti tarafından işlenmek üzere bekleniyor. |
 | | **Zamanlanmış**: Gelecekteki bir zamanı için zamanlandı. |
 | | **Çalışan**: Şu anda etkin iş. |

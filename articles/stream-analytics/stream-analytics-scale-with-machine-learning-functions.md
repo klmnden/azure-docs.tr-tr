@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257289"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme
@@ -112,7 +112,7 @@ Tam olarak bölümlenmiş bir Stream Analytics sorgusu, örnek olarak kullanılm
 ## <a name="next-steps"></a>Sonraki adımlar
 Stream Analytics hakkında daha fazla bilgi için bkz:
 
-* [Azure Stream Analytics'i kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
+* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

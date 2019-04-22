@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262916"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
@@ -268,7 +268,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
 
 1. Azure portalında bir Azure Resource Manager şablonu kullanarak bir olay hub'ı oluşturun. Bu makaledeki adımları izlemeden için sağ **azure'a Dağıt** düğmesini ve ardından **yeni pencerede aç**. **Azure'a Dağıt** düğmesi Azure portalına yönlendirilirsiniz.
 
-    [![DAzure düğmesine aşamasıyla](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Azure düğmeye dağıtma](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Bir Event Hubs ad alanı ve tanılama günlükleri için bir olay hub'ı oluşturun.
 
@@ -279,9 +279,9 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
     **Ayar** | **Önerilen değer** | **Açıklama**
     |---|---|---|
     | **Abonelik** | *Aboneliğiniz* | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
-    | **Kaynak grubu** | *Test-resource-group* | Yeni bir kaynak grubu oluşturun. |
+    | **Kaynak grubu** | *test-resource-group* | Yeni bir kaynak grubu oluşturun. |
     | **Konum** | İhtiyaçlarınıza en uygun bölgeyi seçin. | Event Hubs ad alanı, diğer kaynaklar ile aynı konumda oluşturun.
-    | **Ad alanı adı** | *AzureMonitoringData* | Ad alanınızı tanımlayan benzersiz bir ad seçin.
+    | **Namespace adı** | *AzureMonitoringData* | Ad alanınızı tanımlayan benzersiz bir ad seçin.
     | **Olay hub'ı adı** | *DiagnosticLogsData* | Olay hub'ı benzersiz bir kapsayıcı kapsamı sunan ad alanında bulunur. |
     | **Tüketici grubu adı** | *adxpipeline* | Bir tüketici grubu adı oluşturun. Tüketici grupları birden fazla tüketici uygulamasının ayrı olay akışı görünümüne sahip olmasını sağlar. |
     | | |
@@ -367,7 +367,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | **Veri bağlantısı adı** | *DiagnosticsLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | **Olay hub’ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | **Olay hub'ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
     | **Olay hub'ı** | *diagnosticlogsdata* | Oluşturduğunuz olay hub'ı. |
     | **Tüketici grubu** | *adxpipeline* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
     | | |
@@ -396,7 +396,7 @@ Tanılama günlükleri bölümü için veri bağlantısı oluşturma, etkinlik g
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | **Veri bağlantısı adı** | *ActivityLogsConnection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | **Olay hub’ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | **Olay hub'ı ad alanı** | *AzureMonitoringData* | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
     | **Olay hub'ı** | *insights-operational-logs* | Oluşturduğunuz olay hub'ı. |
     | **Tüketici grubu** | *$Default* | Varsayılan bir tüketici grubu. Gerekirse, farklı bir tüketici grubu oluşturabilirsiniz. |
     | | |
@@ -460,4 +460,4 @@ Sorgu sonuçları:
 Aşağıdaki makalede kullanarak Azure veri Gezgini'nde ayıklanan verilerin çok daha fazla sorguları yazma öğrenin:
 
 > [!div class="nextstepaction"]
-> [Azure Veri Gezgini için sorguları yazma](write-queries.md)
+> [Azure Veri Gezgini için sorgu yazma](write-queries.md)

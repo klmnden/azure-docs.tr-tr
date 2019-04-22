@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049500"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
@@ -452,7 +452,7 @@ Tüm değişikliklerinizi kaydedin ve uygulamayı derleyin. Uygulamanızı yayı
 
 **Yayımla**’ta tıklayın.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı penceresi açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ konumuna gidin ve uygulama dağıtımını izleyin. Uygulama dağıtılır, ancak bir hata durumunda görüntünün (Bu görüntü boyutuna bağlı olarak biraz zaman alabilir) küme düğümlerine yüklenene kadar olan: ![Hata][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı penceresi açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ konumuna gidin ve uygulama dağıtımını izleyin. Uygulama dağıtılır, ancak bir hata durumunda görüntünün (Bu görüntü boyutuna bağlı olarak biraz zaman alabilir) küme düğümlerine yüklenene kadar olan: ![Hata:][1]
 
 Uygulama hazır olduğunda ```Ready``` durumu: ![Hazır][2]
 

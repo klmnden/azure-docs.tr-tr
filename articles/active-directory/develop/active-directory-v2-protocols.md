@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490731"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft kimlik platformu protokolleri
@@ -69,7 +69,7 @@ Burada `{tenant}` dört farklı değerden birini alabilir:
 | `common` | Kullanıcıların hem kişisel Microsoft hesapları hem de iş/Okul hesapları ile Azure AD uygulamasına oturum açmak için izin verir. |
 | `organizations` | Yalnızca iş/Okul hesabı olan kullanıcılar Azure AD uygulamasına oturum açmak için izin verir. |
 | `consumers` | Kişisel Microsoft hesapları (MSA) uygulamasına oturum açmak için yalnızca bir kullanıcılarla sağlar. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Uygulamasına oturum açmak için yalnızca belirli bir Azure ad iş/Okul hesabı olan kullanıcılar Kiracı sağlar. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` | Uygulamasına oturum açmak için yalnızca belirli bir Azure ad iş/Okul hesabı olan kullanıcılar Kiracı sağlar. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. |
 
 Bu uç noktaları ile etkileşim öğrenmek için bir belirli uygulama türü seçin [protokolleri](#protocols) bölümünde ve daha fazla bilgi için bağlantıları izleyin.
 

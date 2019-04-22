@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
 ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502486"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Metin analizi API'si için örnek kullanıcı senaryoları
@@ -47,5 +47,5 @@ Kullanıcı ürün geribildirim, ürününüzün twitter veya Facebook sayfasın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Metin Analizi API'si nedir?](overview.md)
+* [Metin analizi API'si nedir?](overview.md)
 * [Metin analizi API'sini kullanarak bir istek gönderinC#](quickstarts/csharp.md)

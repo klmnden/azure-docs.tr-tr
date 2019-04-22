@@ -16,10 +16,10 @@ ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046920"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ağları arasında bir iletişim sorununu tanılama
@@ -115,4 +115,4 @@ VPN ağ geçidini [önkoşullar](#prerequisites) bölümündeki betiği kullanar
 Bu öğreticide, sanal ağ geçidi ile bir sorunu tanılama hakkında bilgi edindiniz. Anormallikleri gözden geçirebilmek için bir VM ile ağ iletişimini günlüğe kaydetmek isteyebilirsiniz. Nasıl yapılacağını öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Bir VM'ye gelen ve giden ağ trafiğini günlüğe kaydetme](network-watcher-nsg-flow-logging-portal.md)
+> [Bir VM’ye gelen ve VM’den giden ağ trafiğini günlüğe kaydetme](network-watcher-nsg-flow-logging-portal.md)

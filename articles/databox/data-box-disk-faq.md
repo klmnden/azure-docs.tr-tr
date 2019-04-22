@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258785"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
@@ -129,8 +129,8 @@ A. Data Box Disk ile kullanılabilir araç takımı üç araçları içerir:
  - **Veri kutusu Disk bölünmüş kopyalama aracı**: Birden çok disk kullanırken, bu aracı kullanın ve bölünmesi ve tüm disklerde kopyalanan gereken büyük bir veri kümeniz mevcut. Bu araç şu anda Windows için kullanılabilir. Bu araç, yönetilen disklerle desteklenmiyor. Bu araç ayrıca veri kopyalar doğrular, bu nedenle bu aracı kullanırken doğrulama adımını atlayabilirsiniz.
 
 Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı buradan indirebilirsiniz:
-- [Data Box Disk araç takımını, Windows için indirin](https://aka.ms/databoxdisktoolswin) 
-- [Data Box Disk araç takımı Linux için indirin](https://aka.ms/databoxdisktoolslinux)
+- [Windows için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolswin) 
+- [Linux için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
 A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.

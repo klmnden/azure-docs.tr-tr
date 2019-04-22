@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549704"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678947"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyasını kopyalayın
 
@@ -25,7 +25,7 @@ Azure SQL veritabanı, aynı sunucuda veya farklı bir sunucu üzerinde mevcut b
 
 ## <a name="overview"></a>Genel Bakış
 
-Veritabanı kopyasını kopya isteğini tarihindeki kaynak veritabanı anlık görüntüsüdür. Aynı sunucuda veya farklı bir sunucu, hizmet katmanını ve işlem boyutu veya bir başka işlem boyutu aynı hizmet katmanında (sürüm) seçebilirsiniz. Kopyalama tamamlandıktan sonra tam olarak işlevsel, bağımsız bir veritabanı haline gelir. Bu noktada, yükseltebilir veya tüm sürüm'e düşürebilir. Oturumlar, kullanıcılar ve izinler bağımsız olarak yönetilebilir.  
+Veritabanı kopyasını kopya isteğini tarihindeki kaynak veritabanı anlık görüntüsüdür. Aynı sunucuda veya farklı bir sunucuya seçebilirsiniz. Ayrıca hizmet katmanını tutun ve işlem boyutu veya bir başka işlem boyutu aynı hizmet katmanında (sürüm) seçebilirsiniz. Kopyalama tamamlandıktan sonra tam olarak işlevsel, bağımsız bir veritabanı haline gelir. Bu noktada, yükseltebilir veya tüm sürüm'e düşürebilir. Oturumlar, kullanıcılar ve izinler bağımsız olarak yönetilebilir.  
 
 > [!NOTE]
 > [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) veritabanı kopyasını oluşturduğunuzda kullanılır.

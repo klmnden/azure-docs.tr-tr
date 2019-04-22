@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490748"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir özel görüntü fabrikası oluşturma
@@ -25,9 +25,9 @@ Bu makale, bir bekletme ilkesi ayarlamak, Fabrika temizleme ve kuruluşunuzdaki 
 ## <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce bu makaleler izlediğinizden emin olun:
 
-- [Görüntü fabrikası oluşturma](image-factory-create.md)
-- [Azure DevOps’tan bir görüntü fabrikası çalıştırma](image-factory-set-up-devops-lab.md)
-- [Özel görüntüleri birden çok laboratuvara kaydetme ve dağıtma](image-factory-save-distribute-custom-images.md)
+- [Bir görüntü fabrikası oluşturma](image-factory-create.md)
+- [Azure DevOps bir görüntü fabrikası çalıştırma](image-factory-set-up-devops-lab.md)
+- [Özel görüntüleri kaydetmek ve dağıtmak için birden çok Laboratuvarları](image-factory-save-distribute-custom-images.md)
 
 Aşağıdaki öğeler zaten koşulların karşılanması:
 

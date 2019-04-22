@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883127"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678573"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Dil anlama Docker kapsayıcıları yapılandırın 
 
@@ -30,23 +30,23 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 |--|--|--|
 |Evet|[ApiKey](#apikey-setting)|Fatura bilgileri izlemek için kullanılır.|
 |Hayır|[ApplicationInsights](#applicationinsights-setting)|Eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği.|
-|Evet|[Faturalandırma](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
+|Evet|[Billing](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
 |Evet|[Eula](#eula-setting)| Kapsayıcı lisansını kabul ettiğinizi gösterir.|
 |Hayır|[Fluentd](#fluentd-settings)|Günlük yazma ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.|
 |Hayır|[HTTP Ara sunucusu](#http-proxy-credentials-settings)|Bir HTTP Proxy'si Giden istekleri yapmak için yapılandırın.|
-|Hayır|[Günlüğe kaydetme](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
-|Evet|[Bağlar](#mount-settings)|Ana bilgisayardaki verileri okuyup kapsayıcıya, kapsayıcıdaki verileri okuyup ana bilgisayara yazar.|
+|Hayır|[Logging](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
+|Evet|[Mounts](#mount-settings)|Ana bilgisayardaki verileri okuyup kapsayıcıya, kapsayıcıdaki verileri okuyup ana bilgisayara yazar.|
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), Ve [ `Eula` ](#eula-setting) ayarları birlikte kullanılır ve bunları; Aksi takdirde, tüm üç için geçerli değerler sağlamanız gerekir kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>ApiKey ayarı
 
-`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Language Understanding_ için belirtilen kaynak [ `Billing` ](#billing-setting) yapılandırma ayarı.
+`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Bilişsel Hizmetler_ için belirtilen kaynak [ `Billing` ](#billing-setting) yapılandırma ayarı.
 
 Bu ayar, aşağıdaki konumlarda bulunabilir:
 
-* Azure portalı: **Language Understanding'i'nın** kaynak yönetimi altında **anahtarları**
+* Azure portalı: **Bilişsel Hizmetler** kaynak yönetimi altında **anahtarları**
 * LUIS portalı: **Anahtarları ve uç nokta ayarları** sayfası. 
 
 Başlangıç veya geliştirme tuşuna kullanmayın. 
@@ -57,14 +57,17 @@ Başlangıç veya geliştirme tuşuna kullanmayın.
 
 ## <a name="billing-setting"></a>Faturalandırma ayarı
 
-`Billing` Ayar uç noktası URI'si belirtir, _Language Understanding_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _Language Understanding_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
+`Billing` Ayar uç noktası URI'si belirtir, _Bilişsel Hizmetler_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _Bilişsel Hizmetler_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 Bu ayar, aşağıdaki konumlarda bulunabilir:
 
-* Azure portalı: **Language Understanding'i'nın** etiketli genel bakış `Endpoint`
+* Azure portalı: **Bilişsel Hizmetler** etiketli genel bakış `Endpoint`
 * LUIS portalı: **Anahtarları ve uç nokta ayarları** URI uç noktasının bir parçası olarak bir sayfa.
 
-|Gereklidir| Ad | Veri türü | Açıklama |
+Dahil etmeyi unutmayın `luis/v2.0` aşağıdaki tabloda gösterildiği gibi URL yönlendirme:
+
+
+|Gerekli| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
 |Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
@@ -109,16 +112,18 @@ Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarla
 * **Satır devamlılığı karakteri**: Aşağıdaki bölümlerde docker komutları ters eğik çizgi kullanın `\`, satır devamı karakteri olarak. Bu konak işletim sisteminin gereksinimlerine göre kaldırın veya değiştirin. 
 * **Bağımsız değişken sırası**: Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
 
+Dahil etmeyi unutmayın `luis/v2.0` aşağıdaki tabloda gösterildiği gibi URL yönlendirme.
+
 Yerine {_argument_name_} kendi değerlerinizle:
 
 | Yer tutucu | Değer | Biçim veya örnek |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | Eğitilen LUIS uygulama uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | Fatura uç nokta değerini Azure portalının dil anlama genel bakış sayfasında kullanılabilir.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | Azure'da faturalandırma uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](luis-container-howto.md#billing).
-> ApiKey değer **anahtar** anahtarları ve uç noktaları sayfasında LUIS portalda ve Azure dil anlama kaynak anahtarlar sayfasında kullanılabilir. 
+> ApiKey değer **anahtarı** anahtarları ve uç noktaları sayfasında LUIS portalda ve Azure üzerinde kullanılabilir `Cognitive Services` kaynak anahtarlar sayfasında. 
 
 ### <a name="basic-example"></a>Temel örnek
 

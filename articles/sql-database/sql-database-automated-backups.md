@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545833"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678607"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
-SQL veritabanı otomatik olarak 7 ila 35 gün arasında tutulduğu veritabanı yedeklemelerini oluşturur ve veri merkezi kullanılamaz durumda olsa bile, korunan emin olmak için Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanır. Bu yedeklemeler, otomatik olarak ve ek ücret olmadan oluşturulur. Bunları gerçekleştirmek için herhangi bir şey yapmanız gerekmez ve yapabilecekleriniz [yedekleme Bekletme dönemi değiştirme](#how-to-change-the-pitr-backup-retention-period). Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi süre (en fazla 10 yıl) uzun bir süre için kullanılabilir olduğunu gerektiriyorsa, yapılandırabileceğiniz bir [uzun süreli saklama](sql-database-long-term-retention.md).
+SQL veritabanı otomatik olarak 7 ila 35 gün arasında tutulduğu veritabanı yedeklemelerini oluşturur ve veri merkezi kullanılamaz durumda olsa bile, korunduğundan emin olmak için Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanır. Bu yedeklemeler, otomatik olarak ve ek ücret olmadan oluşturulur. Bunları gerçekleştirmek için herhangi bir şey yapmanız gerekmez ve yapabilecekleriniz [yedekleme Bekletme dönemi değiştirme](#how-to-change-the-pitr-backup-retention-period). Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi süre (en fazla 10 yıl) uzun bir süre için kullanılabilir olduğunu gerektiriyorsa, yapılandırabileceğiniz bir [uzun süreli saklama](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

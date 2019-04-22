@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049158"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Öğretici: Windows dosya sunucularını Azure Dosya Eşitleme ile genişletme
@@ -308,9 +308,9 @@ Sunucu uç noktası, kayıtlı bir sunucudaki belirli bir konuma temsil eder. Ö
    | ----- | ----- |
    | Değer | Açıklama |
    | **Kayıtlı sunucu** | Oluşturduğunuz sunucunun adı. Kullanım *afsvm101918* Bu öğretici için. |
-   | **Yol** | Oluşturduğunuz sürücü Windows Server yolu. Kullanım *f:\filestosync* bu öğreticideki. |
-   | **Bulut katmanlaması** | Bu öğretici için devre dışı bırakın. |
-   | **Birim boş alanı** | Bu öğretici için boş bırakın. |
+   | **Path** | Oluşturduğunuz sürücü Windows Server yolu. Kullanım *f:\filestosync* bu öğreticideki. |
+   | **Bulutta Katmanlama** | Bu öğretici için devre dışı bırakın. |
+   | **Birim Boş Alanı** | Bu öğretici için boş bırakın. |
 
 1. **Oluştur**’u seçin.
 
@@ -327,4 +327,4 @@ Dosyalarınız artık Azure dosya paylaşımında ve Windows Server’da eşitle
 Bu öğreticide, Azure dosya eşitleme'yi kullanarak bir Windows server depolama kapasitesini genişletmek için temel adımlarını öğrendiniz. Bir Azure dosya eşitleme dağıtımı planlama bir daha kapsamlı bakış için bkz:
 
 > [!div class="nextstepaction"]
-> [Azure dosya eşitleme dağıtımı planlama](./storage-sync-files-planning.md)
+> [Azure Dosya Eşitleme dağıtımı planlama](./storage-sync-files-planning.md)

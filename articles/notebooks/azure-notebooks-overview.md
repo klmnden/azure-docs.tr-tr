@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280120"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure not defterleri genel bakış
 
 Azure Notebooks, yükleme yapmadan Jupyter not defterlerini geliştirmeye ve çalıştırmaya yönelik, ücretsiz ve barındırılan bir hizmettir. [Jupyter](https://jupyter.org/) (eski adıyla Ipython) kolayca olanak tanıyan bir açık kaynak projesi birleştirmek Markdown metin, yürütülebilir kod, kalıcı verileri, grafik ve görselleştirmeler paylaşılabilir, tek bir tuvaline olan *not defteri* (görüntü jupyter.org sayesinde):
 
-[![EJupyter not defterleri xamples](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter not defterleri örnekleri](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Jupyter kodu, grafik ve açıklayıcı metin içeren bu güçlü birleşim nedeniyle, veri bilimi yönergesi, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme ve geliştirmeye yönelik dahil olmak üzere pek çok kullanımı için popüler hale gelmiştir Makine öğrenimi modelleri.
 
@@ -101,22 +101,22 @@ Sorularınızı Azure not defterleri hakkında tartışmak için üzerinde bir s
 
 - Hızlı Başlangıçlar:
 
-  - [Not defteri oluşturma ve paylaşma](quickstart-create-share-jupyter-notebook.md)
-  - [Not defterini kopyalama](quickstart-clone-jupyter-notebook.md)
+  - [Oluşturma ve bir not defteri paylaşma](quickstart-create-share-jupyter-notebook.md)
+  - [Bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md)
   - [Yerel Jupyter not defterini geçirme](quickstart-migrate-local-jupyter-notebook.md)
-  - [Özel ortam kullanma](quickstart-create-jupyter-notebook-project-environment.md)
-  - [Oturum açma ve kullanıcı kimliği ayarlama](quickstart-sign-in-azure-notebooks.md)
+  - [Özel bir ortam kullanma](quickstart-create-jupyter-notebook-project-environment.md)
+  - [Oturum açın ve bir kullanıcı kimliği ayarlayın](quickstart-sign-in-azure-notebooks.md)
 
 - Öğreticiler:
 
-  - [Not defteri oluşturma ve çalıştırma](tutorial-create-run-jupyter-notebook.md  )
+  - [Oluşturma ve bir not defteri çalıştırma](tutorial-create-run-jupyter-notebook.md  )
 
 - Nasıl yapılır makaleleri:
   
-  - [Projeleri oluşturma ve kopyalama](create-clone-jupyter-notebooks.md)
+  - [Oluşturma ve projeleri kopyalama](create-clone-jupyter-notebooks.md)
   - [Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
   - [İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
-  - [Slayt gösterisi yapma](present-jupyter-notebooks-slideshow.md)
-  - [Veri dosyalarıyla çalışma](work-with-project-data-files.md)
-  - [Veri kaynaklarına erişme](access-data-resources-jupyter-notebooks.md)
-  - [Azure Machine Learning Services'i kullanma](use-machine-learning-services-jupyter-notebooks.md)
+  - [Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
+  - [Veri dosyaları ile çalışma](work-with-project-data-files.md)
+  - [Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
+  - [Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)

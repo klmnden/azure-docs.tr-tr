@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043890"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Azure Veri Gezgini ODBC ile bağlanma
@@ -100,6 +100,6 @@ ODBC yapılandırma bitirdikten sonra örnek verileri Tableau getirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini için sorguları yazma](write-queries.md)
+[Azure Veri Gezgini için sorgu yazma](write-queries.md)
 
 [Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)

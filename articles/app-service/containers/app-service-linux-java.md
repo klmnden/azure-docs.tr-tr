@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500473"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680885"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -28,9 +28,9 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak Java geliş
 
 ## <a name="deploying-your-app"></a>Uygulamanızı dağıtma
 
-Maven plugin, .jar hem .war dosyaları dağıtmak için kullanabilirsiniz. Lütfen [bu belgeleri](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) Maven plugin hakkında daha fazla bilgi için.
+Kullanabileceğiniz [Azure App Service için Maven Plugin](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) .jar hem .war dosyaları dağıtmak için. Popüler ıde'lerle dağıtım ile desteklenen ayrıca [Intellij için Azure Araç Seti](/java/azure/intellij/azure-toolkit-for-intellij) veya [Eclipse için Azure Araç Seti](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Maven kullanmıyorsanız, dağıtım yöntemi, arşiv türüne bağlıdır:
+Aksi takdirde, dağıtım yöntemini, arşiv türüne bağlıdır:
 
 - Tomcat için .war dosyaları dağıtmak için kullanın `/api/wardeploy/` Arşiv dosyasının göndermek için uç nokta. Bu API hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Java SE görüntülerindeki .jar dosyalarını dağıtmak için `/api/zipdeploy/` Kudu sitesi uç noktası. Bu API hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -93,7 +93,7 @@ Tomcat ve Java SE ortamlarında ayrılan bellek veya diğer JVM çalışma zaman
 
 Azure portalında altında **uygulama ayarları** adlı yeni bir uygulama ayarı için web app oluşturmak `JAVA_OPTS` gibi ek ayarlar içeren `-Xms512m -Xmx1204m`.
 
-Maven plugin uygulama ayarlarını yapılandırmak için Azure eklentisi bölümünde ayarı/değer etiketler ekleyin. Aşağıdaki örnek, belirli bir minimum ve maksimum Java heapsıze ayarlar:
+Maven plugin uygulama ayarlarını yapılandırmak için Azure eklentisi bölümünde ayarı/değer etiketler ekleyin. Aşağıdaki örnek, belirli bir en düşük ve en çok Java yığın boyutu ayarlar:
 
 ```xml
 <appSettings>
@@ -156,7 +156,7 @@ Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısın
 
 ### <a name="authenticate-users"></a>Kullanıcıların kimliklerini doğrulama
 
-Uygulama kimlik doğrulaması ile Azure portalında ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır.  Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](/azure/app-service/configure-authentication-provider-aad) ve diğer kimlik sağlayıcıları için ilgili makaleler.
+Azure portalında uygulama kimlik doğrulamasını ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır.  Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](/azure/app-service/configure-authentication-provider-aad) ve diğer kimlik sağlayıcıları için ilgili makaleler.
 
 Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) makalesi.
 
@@ -182,9 +182,9 @@ Bu yönergeler, tüm veritabanı bağlantıları için geçerlidir. Yer tutucula
 
 | Database   | Sürücü sınıfı adı                             | JDBC Sürücüsü                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [İndirme](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [İndir](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [İndirme](https://dev.mysql.com/downloads/connector/j/) (Seç "Platform bağımsız") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [İndirme](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [İndir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Tomcat, Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) kullanacak şekilde yapılandırmak için öncelikle özelleştirmek `CATALINA_OPTS` Tomcat başlangıçta tarafından okunan yukarı ortam değişkeni. Bu değerleri bir uygulama ayarı aracılığıyla ayarlamak [App Service Maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -297,7 +297,7 @@ Spring Boot uygulamalarda veri kaynaklarına bağlanmak için bağlantı dizeler
 
     Bu bağlantı dizesini uygulamamız adlı bir ortam değişkeni olarak erişilebilir `CUSTOMCONNSTR_<your-string-name>`. Örneğin, yukarıda oluşturduğumuz bağlantı dizesini adlandırılacağını `CUSTOMCONNSTR_exampledb`.
 
-2. İçinde `application.properties` dosya, bu ortam değişkeni adı bğlntı dizesiyle başvuru. Bizim örneğimizde, biz kullanırsınız.
+2. İçinde `application.properties` dosya, bu bağlantı dizesi ortam değişkeni adı ile başvuru. Bizim örneğimizde, biz kullanırsınız.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}

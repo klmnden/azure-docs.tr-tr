@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489990"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678488"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -63,8 +63,7 @@ Sanal ağlar eşlendiğinde, eşlenmiş sanal ağdaki ağ geçidini şirket içi
 
 ![Sanal ağ eşleme geçişi](./media/virtual-networks-peering-overview/figure04.png)
 
-VNet eşlemesi hem genel sanal ağ eşleme (Önizleme) için ağ geçidi geçişi desteklenir. Önizleme'de genel olarak eşlenmiş sanal ağlardaki ağ geçidi aktarımına izin ver ya da uzak ağ geçitlerini kullan. Önizleme, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor.
-Yalnızca ağ geçidi sanal ağ (Resource Manager) varsa (Resource Manager ve klasik) farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki ağ geçidi geçişi desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+VNet eşlemesi hem küresel VNet eşlemesi için ağ geçidi geçişi desteklenir. Yalnızca ağ geçidi sanal ağ (Resource Manager) varsa (Resource Manager ve klasik) farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki ağ geçidi geçişi desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 
@@ -100,9 +99,9 @@ Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağ
     |Azure dağıtım modeli             | Abonelik  |
     |---------                          |---------|
     |Her ikisi de Resource Manager              |[Aynı](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Fark](create-peering-different-subscriptions.md)|
+    |                                   |[Farklı](create-peering-different-subscriptions.md)|
     |Biri Resource Manager, diğeri klasik  |[Aynı](create-peering-different-deployment-models.md)|
-    |                                   |[Fark](create-peering-different-deployment-models-subscriptions.md)|
+    |                                   |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
 
 * [Hub ve bağlı bileşen ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmayı öğrenin.
 * Tüm [sanal ağ eşleme ayarları ve ayarların nasıl değiştirileceği](virtual-network-manage-peering.md) hakkında bilgi edinin.

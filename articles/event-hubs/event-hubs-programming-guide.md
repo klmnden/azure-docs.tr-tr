@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835444"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678590"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event hubs Programlama Kılavuzu
 Bu makalede, Azure Event Hubs'ı kullanarak kod yazma bazı yaygın senaryolar açıklanmaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md).
@@ -110,7 +110,7 @@ Zaman uyumsuz olarak bir olay hub'ına olayları gönderirsiniz. Zaman uyumsuz g
 Olay işlemeyi başlatmak için örneği [EventProcessorHost][], event hub'ınıza uygun parametreleri sağlayarak. Örneğin:
 
 > [!NOTE]
-> EventProcessorHost ve ilişkili sınıflarının sağlanan **Microsoft.Azure.EventHubs.Processor** paket. Paket konusundaki yönergeleri izleyerek Visual Studio projenize ekleyin. [bu makalede](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) veya aşağıdaki komutu göndererek [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresi:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost ve ilişkili sınıflarının sağlanan **Microsoft.Azure.EventHubs.Processor** paket. Paket konusundaki yönergeleri izleyerek Visual Studio projenize ekleyin. [bu makalede](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) veya aşağıdaki komutu göndererek [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresi:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

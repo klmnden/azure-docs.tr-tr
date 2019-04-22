@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048325"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
@@ -208,6 +208,6 @@ Azure Veri Gezgini, Grafana için veri kaynağı olarak yapılandırma bitirdikt
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini için sorguları yazma](write-queries.md)
+[Azure Veri Gezgini için sorgu yazma](write-queries.md)
 
 [Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)

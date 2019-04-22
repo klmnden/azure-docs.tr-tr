@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263789"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure kaynaklarınızın uyumluluk verilerini al
@@ -56,7 +56,7 @@ Bir abonelik veya kaynak grubu için bir değerlendirme taraması, REST API ça�
 Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
 
 - `{YourRG}` -Kaynak grubunuzun adıyla değiştirin
-- `{subscriptionId}` -Abonelik Kimliğinizle değiştirin.
+- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
 
 Tarama, bir abonelik veya kaynak grubundaki kaynakların değerlendirme destekler. Bir tarama kapsama göre bir REST API'sini kullanmaya başlama **POST** komutunu aşağıdaki URI yapıları kullanarak:
 

@@ -10,10 +10,10 @@ ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 4b179c50af8b1ffc4313a49da978f178915ec9cc
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489905"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Azure Scheduler PowerShell cmdlet'leri başvurusu
@@ -28,7 +28,7 @@ Scheduler işleri ve iş koleksiyonları oluşturmak ve yönetmek için betikler
 | Cmdlet | Açıklama |
 |--------|-------------|
 | [AzSchedulerJobCollection devre dışı bırak](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |İş koleksiyonu devre dışı bırakır. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |İş koleksiyonunu etkinleştirir. |
+| [AzureRmSchedulerJobCollection etkinleştir](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |İş koleksiyonunu etkinleştirir. |
 | [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Scheduler işleri alır. |
 | [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |İş koleksiyonları alır. |
 | [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |İş geçmişini alır. |
@@ -57,6 +57,6 @@ Get-Help <cmdlet name> -Full
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Azure Scheduler nedir?](scheduler-intro.md)
-* [Kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Kavramlar, terminoloji ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 * [Oluşturma ve zamanlama ilk işinizi - Azure portalı](scheduler-get-started-portal.md)
 * [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)

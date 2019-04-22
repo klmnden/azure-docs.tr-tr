@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045493"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD kimlik yönetimi nedir?
@@ -69,7 +69,7 @@ Azure AD Privileged Identity Management (PIM) uyarlanmış ek denetimler sağlar
 Mükemmel bir çözüm ya da her müşteri için öneri olsa da aşağıdaki yapılandırmalar daha güvenli ve üretken bir iş gücü sağlamak için Microsoft öneriyor hangi temel ilkeleri bir kılavuz sağlar.
 
 - [Kimlik ve cihaz erişim yapılandırmaları](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Ayrıcalıklı erişim güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md)
+- [Ayrıcalıklı erişimin güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Erişim gözden geçirmeleri
@@ -81,7 +81,7 @@ Mükemmel bir çözüm ya da her müşteri için öneri olsa da aşağıdaki yap
 
 ### <a name="terms-of-use"></a>Kullanım koşulları
 
-- [Kullanım Koşulları ile ne yapabilirim?](../conditional-access/terms-of-use.md)
+- [Kullanım koşulları ile ne yapabilirim?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 

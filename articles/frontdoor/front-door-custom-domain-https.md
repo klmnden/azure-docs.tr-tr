@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
 ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050986"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Öğretici: Bir ön kapısı özel etki alanı üzerinde HTTPS yapılandırma
@@ -241,7 +241,7 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-1. *Sertifika Sağlayıcısı kimdir ve ne tür bir sertifika kullanılır?*
+1. *Sertifika sağlayıcısı kimdir ve ne tür bir sertifika kullanılır?*
 
     Özel etki alanınız için Digicert tarafından sağlanan ayrılmış/tek bir sertifika kullanılır. 
 
@@ -249,15 +249,15 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 
     Azure Front Door Service SNI TLS/SSL kullanır.
 
-3. *Peki miyim etki alanı doğrulama e-postası almazsam?*
+3. *DigiCert’ten etki alanı doğrulama e-postası almazsam ne olur?*
 
     Özel etki alanınız için doğrudan uç nokta ana bilgisayar adına işaret eden bir CNAME girişiniz varsa (ve afdverify alt etki alanı adını kullanmıyorsanız) etki alanı doğrulama e-postası almazsınız. Doğrulama otomatik olarak gerçekleşir. Ancak CNAME girişiniz yoksa ve e-postayı 24 saat içinde almazsanız Microsoft destek ekibine başvurun.
 
-4. *Ayrılmış sertifika az güvenli bir SAN sertifikası kullanıyor mu?*
+4. *Ayrılmış sertifika kullanmak, SAN sertifikasından daha mı güvenlidir?*
     
     SAN sertifikası, ayrılmış sertifika ile aynı şifreleme ve güvenlik standartlarını uygular. Verilen tüm SSL sertifikaları, gelişmiş sunucu güvenliği için SHA-256 standardını kullanır.
 
-5. *DNS sağlayıcım ile sertifika yetkilisi yetkilendirme kaydı gerekiyor mu?*
+5. *DNS sağlayıcım ile Sertifika Yetkilisi Yetkilendirme kaydı kullanmam gerekir mi?*
 
     Hayır, Sertifika Yetkilisi Yetkilendirme kaydı şu anda gerekli değildir. Ancak, varsa, geçerli CA olarak DigiCert’i içermelidir.
 

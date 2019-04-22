@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047921"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattını değiştirme
@@ -22,7 +22,7 @@ ms.locfileid: "59047921"
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (Klasik)](expressroute-howto-circuit-classic.md)
+> * [PowerShell (klasik)](expressroute-howto-circuit-classic.md)
 >
 
 Bu makalede, durumu, güncelleştirme veya silme denetleyin ve ExpressRoute Klasik dağıtım modeli bağlantı hattı sağlamasını kaldırma adımları gösterilmektedir. Bu makale klasik dağıtım modeli için geçerlidir.
