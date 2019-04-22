@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496138"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS yerel uygulamadan Microsoft Graph API çağırma
@@ -46,14 +46,14 @@ Bu hızlı başlangıç, yerel bir iOS uygulaması ile kişisel, iş ve okul hes
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
 > Çalışmak bu hızlı başlangıç için kod örneği için bir yanıt URL'si olarak eklemek istediğiniz `msal<AppId>://auth` (burada msal\<AppID > Bu uygulama kimliği).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Benim için bu değişiklik yapın]()
+> > [Bu değişikliği benim için yap]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-ios/green-check.png) uygulamanız bu öznitelikle yapılandırılana
+> > ![Zaten yapılandırılmış](media/quickstart-v2-ios/green-check.png) Uygulamanız bu özellikle yapılandırıldı
 
 #### <a name="step-2-download-your-web-server-or-project"></a>2. Adım: Web sunucunuzda veya proje indirme
 
-- [XCode projesi indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [XCode Projesini indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>3. Adım: Projenizi yapılandırın
 
@@ -187,9 +187,9 @@ applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicat
 
 Bu hızlı başlangıcın tam açıklaması dahil olmak üzere uygulama geliştirme ve yeni özelliklere ilişkin tam bir adım adım kılavuzu için iOS öğreticisini deneyin.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Bu hızlı başlangıçta kullanılan uygulamayı oluşturma adımlarını öğrenin
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Bu hızlı başlangıçta kullanılan uygulamayı oluşturmaya yönelik adımları öğrenin
 
 > [!div class="nextstepaction"]
-> [Graph API'si iOS öğreticisini çağırın](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Graph API’si çağırma iOS öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

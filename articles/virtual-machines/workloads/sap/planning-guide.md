@@ -18,10 +18,10 @@ ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501340"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
@@ -628,7 +628,7 @@ Microsoft Azure ile SAP yazılım hayata geçirmek için istediğimiz tüm senar
 * Bir müşterinin şirket içi ağınız ve Azure ağı arasında şirketler arası bağlantı
 * Azure siteler arasında çapraz Azure bölgesi veya veri merkezi bağlantısı
 
-Daha fazla bilgi burada bulunabilir: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Buradan daha fazla bilgi bulabilirsiniz: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Azure'daki adı ve IP çözümü yapılandırmak için birçok farklı olasılık vardır. Kendi DNS sunucunuzu ayarlamak yerine kullanılabilecek bir Azure DNS hizmeti de mevcuttur. Daha fazla bilgi bulunabilir [bu makalede] [ virtual-networks-manage-dns-in-vnet] ve [bu sayfayı](https://azure.microsoft.com/services/dns/).
 
@@ -691,8 +691,8 @@ Yukarıdaki şekilde, IP adresi alt aralıklara kullanım için ayrılmış iki 
 Noktadan siteye VPN ile kendi VPN Azure'a bağlanmak için her bir istemci makine gerekir. SAP senaryoları için arıyoruz, noktadan siteye bağlantı pratik değildir. Bu nedenle, daha fazla başvuru noktadan siteye VPN bağlantısı verilir.
 
 Daha fazla bilgi burada bulunabilir
-* [Azure portalı kullanarak bir sanal ağa Noktadan Siteye bir bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
-* [PowerShell'i kullanarak sanal ağa yönelik bir Noktadan Siteye bağlantısı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+* [Azure portal’ı kullanarak bir sanal ağa yönelik Noktadan Siteye bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [PowerShell'i kullanarak bir sanal ağa yönelik bir Noktadan Siteye bağlantı yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>Çok siteli VPN
 
@@ -722,8 +722,7 @@ Express Route burada açıklandığı gibi bir ExpressRoute bağlantı hattı ü
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Zorlamalı tünel durumunda şirket içi
 Siteden siteye, noktadan siteye veya ExpressRoute aracılığıyla şirket içi etki alanlarına katılma VM'ler için de bu vm'lerdeki tüm kullanıcılar için Internet proxy ayarları dağıtılmasını emin olmanız gerekir. Varsayılan olarak, bu Vm'leri veya kullanıcıların İnternet'e erişmek için bir tarayıcı kullanarak çalışan yazılım şirket proxy üzerinden Git değil, ancak Azure internet üzerinden doğrudan bağlanabilir. Ancak bile proxy ayarı, yazılım ve hizmetlerinin proxy için denetlenecek sorumluluk olduğundan şirket proxy'si üzerinden trafiği yönlendirmek için % 100 çözüm değildir. VM'de çalışan yazılım değil yaptığını, ya da yönetici ayarları yönetir, trafiği İnternet'e yeniden detoured doğrudan Azure internet üzerinden.
 
-Bir tür bir doğrudan internet bağlantısı önlemek için zorlamalı tünel şirket içi ve Azure arasında siteden siteye bağlantı ile yapılandırabilirsiniz. Zorlamalı tünel özellik ayrıntılı açıklamasını buraya yayımlanır
-<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+Bir tür bir doğrudan internet bağlantısı önlemek için zorlamalı tünel şirket içi ve Azure arasında siteden siteye bağlantı ile yapılandırabilirsiniz. Zorlamalı tünel özellik ayrıntılı açıklamasını buraya yayımlanır <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 ExpressRoute ile zorlamalı tünel aracılığıyla ExpressRoute BGP eşliği oturumlarını bir varsayılan yolun tanıtılması müşteriler tarafından etkinleştirilir.
 
@@ -754,8 +753,7 @@ Bir kaba karar ağacı bir SAP sistemiyle Azure sanal makine hizmetlerini ve öz
 
 **1. adım**: En önemli bilgiler ile başlamak için belirli bir SAP sistemine SAP gereksinimidir. SAP sistemine zaten şirket içinde dağıtılması 2 katmanlı yapılandırmasında olsa bile, SAP gereksinimleri DBMS ve SAP uygulama bölümlerini ayrılması gerekir. Mevcut sistemler için genellikle donanım kullanımıyla ilgili SAP belirlenen veya mevcut SAP ölçümlerinde göre tahmini. Sonuçları şurada bulunabilir: <https://sap.com/about/benchmark.html>.
 Yeni dağıtılmış SAP sistemlerini için SAP gereklilikleri sisteminin ve boyutlandırma alıştırma çalıştınız.
-Ayrıca bu blog ve SAP boyutlandırma için ekli belge, Azure üzerinde bakın:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Ayrıca bu blog ve SAP boyutlandırma için ekli belge, Azure üzerinde bakın: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **2. adım**: Mevcut sistemler için g/ç hacmi ve saniye başına g/ç işlemleri DBMS sunucuda ölçülen. Yeni planlı sistemler için yeni sistemi için boyutlandırma alıştırma ayrıca DBMS tarafında g/ç gereksinimlerinin kaba fikirleri vermeniz gerekir. Emin değilseniz, sonunda bir kavram kanıtı yürütmek gerekir.
 
@@ -800,8 +798,7 @@ Yükleme, güncelleştirme ve Azure PowerShell cmdlet'lerini de bulunabilir yap�
 
 Müşteri Deneyimini şimdiye PowerShell (PS) kesinlikle Vm'leri dağıtmak ve özel adımlar VM dağıtımı oluşturma için daha güçlü araç olduğunu olmuştur. Azure'da SAP örnekleri çalışan tüm müşteriler, Azure portalından gerçekleştirin veya bile özel olarak azure'da dağıtımlarını yönetmek için PS cmdlet'leri kullanarak yönetim görevleri tamamlamak için PS cmdlet'leri kullanıyor. 2000'den fazla Windows ile ilgili cmdlet'leri ile aynı adlandırma kuralı Azure özgü cmdlet'lerin paylaşmak olduğundan, bu cmdlet'leri yararlanmak Windows yöneticileri için kolay bir görevi var.
 
-Burada örneğe bakın:
-<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Burada örneğe bakın: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
 SAP için Azure izleme uzantısı dağıtım (bölüm bakın [SAP için Azure izleme çözümü] [ planning-guide-9.1] bu belgedeki) PowerShell veya CLI aracılığıyla yalnızca mümkündür. Bu nedenle ayarlama ve PowerShell veya CLI dağıtma veya azure'da bir SAP NetWeaver sistemini yönetme, yapılandırma için zorunludur.  
@@ -1326,8 +1323,7 @@ Klasik modeli ve ARM mimarisi farkı açıklandığı bkz [bu makalede][virtual-
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>İnternet üzerinden SAP sistemine ve SAP GUI bağlantı yapılandırma
 
-Lütfen bu konunun ayrıntılarını açıklayan bu makaleye bakın:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Lütfen bu konunun ayrıntılarını açıklayan bu makaleye bakın: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM Güvenlik Duvarı ayarlarını değiştirme
 
@@ -2021,12 +2017,10 @@ Ancak, kursunda geçen yıl veri merkezi iş ortaklarının geliştirilmiş orta
 Yedekleme yapmanız (Katman 2 veya 3 katman), burada seçilen SAP yapılandırmasına bağlı olabilir. Veritabanının bir yedeklemesini sağlamak için sanal Makinenin kendisini artı içeriği. DBMS ile ilgili yedekleme veritabanı yöntemleriyle gerçekleştirilmesi beklenir. Ayrıntılı bir açıklaması için farklı veritabanlarını bulunabilir [DBMS Kılavuzu][dbms-guide]. Öte yandan, SAP veri (veritabanı içeriği de dahil) çevrimdışı bir şekilde bu bölümde açıklandığı gibi çevrimiçi veya sonraki bölümde açıklandığı gibi yedeklenebilir.
 
 Çevrimdışı Yedekleme Azure portalından bir VM'nin bir kapatma ve temel VM diskine ve tüm bağlı diskleri olan VM için bir kopyasını temelde gerektirir. Bu görüntü zaman içinde nokta VM ve onun ilişkili disk korumak. Yedekleri farklı bir Azure depolama hesabına kopyalamak için önerilir. Bu bölümde açıklanan yordamı [diskleri Azure depolama hesapları arasında kopyalama] [ planning-guide-5.4.2] bu belgenin uygular.
-Kapatma yanı sıra Azure portalı birini kullanarak da Powershell veya CLI burada açıklandığı bunu yapabilirsiniz:
-<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Kapatma yanı sıra Azure portalı birini kullanarak da Powershell veya CLI burada açıklandığı bunu yapabilirsiniz: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Bu durumu bir geri yükleme temel sanal makinenin özgün diskleri yanı sıra temel VM silme oluşur ve diskler, kaydedilmiş diskler yönetilen disklerin özgün depolama hesabı veya kaynak grubu geri kopyalamak ve ardından sistemi yeniden dağıtmaya gerek bağlı.
-Bu makalede, bu işlemde bir Powershell betiği oluşturmak nasıl bir örnek gösterilmektedir:
-<http://www.westerndevs.com/azure-snapshots/>
+Bu makalede, bu işlemde bir Powershell betiği oluşturmak nasıl bir örnek gösterilmektedir: <http://www.westerndevs.com/azure-snapshots/>
 
 Lütfen yukarıda açıklandığı gibi bir VM yedek geri yeni bir donanım anahtarı oluşturduğundan, yeni bir SAP lisansı yüklediğinizden emin olun.
 
@@ -2050,8 +2044,7 @@ Azure sanal makine yedekleme işlevini kullanarak SAP sistemine içindeki diğer
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Linux'ta Windows VSS eşdeğeri yoktur. Bu nedenle yalnızca dosyayla tutarlı yedekleme olası ancak değil uygulamayla tutarlı yedeklemeler altındadır. SAP DBMS yedekleme yapılmalıdır DBMS işlevini kullanarak. SAP ile ilgili veriler içeren bir dosya sistemi, örneğin, burada açıklandığı gibi hedefi kullanarak kaydedilebilir:
-> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Linux'ta Windows VSS eşdeğeri yoktur. Bu nedenle yalnızca dosyayla tutarlı yedekleme olası ancak değil uygulamayla tutarlı yedeklemeler altındadır. SAP DBMS yedekleme yapılmalıdır DBMS işlevini kullanarak. SAP ile ilgili veriler içeren bir dosya sistemi, örneğin, burada açıklandığı gibi hedefi kullanarak kaydedilebilir: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

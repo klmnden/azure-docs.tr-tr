@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496599"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
@@ -68,8 +68,7 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızda Azure portalında Otomasyon
 
 Bu betiği çalıştırdıktan sonra bu kayıtları yeni JobLogs veya JobStreams yazılmakta olan Azure İzleyici günlüklerine başlamadan önce bir saat sürebilir.
 
-Günlükleri görmek için log analytics günlük araması aşağıdaki sorguyu çalıştırın:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için log analytics günlük araması aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
 
@@ -137,8 +136,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 
 Azure İzleyici günlüklerine, Otomasyon iş günlüklerini göndermeye başladı, şimdi Azure İzleyici günlüklerine içinde bu günlükleri ile neler yapabileceğinize göz atın.
 
-Günlükleri görmek için aşağıdaki sorguyu çalıştırın:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Bir runbook işi başarısız olursa veya askıya alır, bir e-posta Gönder
 Sık karşılaşılan müşteri birini ister bir şeyler ile bir runbook işi yanlış gittiğinde e-posta veya metin gönderme olanağı içindir.   

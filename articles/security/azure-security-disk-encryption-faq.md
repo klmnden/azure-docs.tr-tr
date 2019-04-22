@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493153"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679287"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -45,6 +45,7 @@ Azure tarafından onaylanan değil Linux sunucusu dağıtımı, Azure Disk şifr
 
 | Linux dağıtım | Sürüm | Desteklenen şifreleme için birim türü|
 | --- | --- |--- |
+| Ubuntu | 18.04| İşletim sistemi ve veri diski |
 | Ubuntu | 16.04| İşletim sistemi ve veri diski |
 | Ubuntu | 14.04.5</br>[Azure ile 4.15 veya üzeri için güncelleştirilmiş çekirdek ayarlanmış](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | İşletim sistemi ve veri diski |
 | RHEL | 7.6 | İşletim sistemi ve veri disk * |

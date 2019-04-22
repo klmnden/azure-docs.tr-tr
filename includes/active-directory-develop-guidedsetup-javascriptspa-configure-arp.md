@@ -15,10 +15,10 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 7a6fa45d0f4ea09fbc84d3185aa0e58db165ac19
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502835"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Uygulamanın kayıt bilgilerini uygulamanıza ekleme
@@ -32,7 +32,7 @@ Yapılandırma `Redirect URL` alan index.html sayfanızı web sunucunuzda URL'si
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Yeniden yönlendirme URL'sini almak için visual Studio yönergeleri
 > Yeniden yönlendirme URL'sini almak için aşağıdaki adımları izleyin:
 > 1. İçinde **Çözüm Gezgini**, projeyi seçin ve bakmak **özellikleri** penceresi. Görmüyorsanız, bir **özellikleri** penceresinde, tuşuna **F4**.
-> 2. Değeri Şuradan Kopyala: **URL** Pano için:<br/> ![Proje özellikleri](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 2. Değeri Şuradan Kopyala: **URL** Pano için:<br/> ![Proje Özellikleri](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3. Değeri olarak yapıştırın bir **tekrar yönlendirme URL'sini** bu üst kısmındaki sayfasında ve ardından **güncelleştirme**.
 
 <p>

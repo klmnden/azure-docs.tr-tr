@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494910"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Azure SQL veritabanı ve Azure SQL veri ambarı'nı (MFA için SSMS desteği) ile AAD çok faktörlü kimlik doğrulaması kullanma
@@ -32,8 +32,8 @@ Bu makalede ele alınan tüm özellikler için en az Temmuz 2017, sürüm 17,2 k
 ## <a name="the-five-authentication-options"></a>Beş kimlik doğrulama seçenekleri  
 
 Active Directory Evrensel kimlik doğrulaması iki etkileşimli olmayan kimlik doğrulama yöntemlerini destekler:
-    - `Active Directory - Password` kimlik doğrulaması
-    - `Active Directory - Integrated` kimlik doğrulaması
+    - `Active Directory - Password` Kimlik doğrulaması
+    - `Active Directory - Integrated` Kimlik doğrulaması
 
 Birçok farklı uygulamalarda (ADO.NET, JDCB, ODC, vb.) kullanılabilecek iki etkileşimli olmayan kimlik doğrulama modeli de vardır. Bu iki yöntem açılan iletişim kutularında hiç sonuç: 
 - `Active Directory - Password` 
@@ -71,10 +71,10 @@ Desteklenen konuk kullanıcıları Azure AD B2B senaryoları için azure AD kull
 - Yapılandırma adımları için bkz. [SQL Server Management Studio için Azure SQL veritabanını Yapılandır multi-Factor authentication](sql-database-ssms-mfa-authentication-configure.md).
 - Diğerleri, veritabanınıza erişimi verin: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: Erişim verme](sql-database-manage-logins.md)  
 - Diğer güvenlik duvarı üzerinden bağlanabildiğinden emin olun: [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
-- [Yapılandırma ve SQL veritabanı veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını Yönet](sql-database-aad-authentication-configure.md)  
+- [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server veri katmanı uygulaması çerçevesi (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma](../sql-database/sql-database-import.md)  
-- [Azure SQL veritabanını BACPAC dosyasına dışarı aktarma](../sql-database/sql-database-export.md)  
+- [BACPAC dosyasını yeni bir Azure SQL Veritabanı’na içeri aktarma](../sql-database/sql-database-import.md)  
+- [Azure SQL Veritabanı’nı bir BACPAC dosyasına dışarı aktarma](../sql-database/sql-database-export.md)  
 - C# arabirimi [IUniversalAuthProvider arabirimi](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme ve sonraki sürümlerinde kullanılabilir olan [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**etkinleştirme çizgidir **çıkış** içinde **görünümü** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.  

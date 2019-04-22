@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495320"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
@@ -70,14 +70,14 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
 > Bu hızlı başlangıçtaki kod örneğinin çalışması için, **msal{AppId}://auth** gibi bir yanıt URL'si eklemelisiniz (burada {AppId}, uygulamanızın kimliğidir).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Benim için bu değişiklik yapın]()
+> > [Bu değişikliği benim için yap]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-android/green-check.png) uygulamanız bu özniteliklerle yapılandırılır
+> > ![Zaten yapılandırılmış](media/quickstart-v2-android/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış
 
 #### <a name="step-2-download-the-project"></a>2. Adım: Projenizi indirin
 
-* [Android Studio projesi indirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Android Studio Projesini İndirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>3. Adım: Projenizi yapılandırın
 
@@ -175,7 +175,7 @@ Sonra şu kodu kullanarak MSAL'yi başlatın:
 
 ### <a name="requesting-tokens"></a>Belirteç isteme
 
-MSAL belirteçlerini almak kullanılan iki yöntem vardır: `acquireToken` ve `acquireTokenSilentAsync`
+MSAL’in belirteç almak için kullanılan iki yöntemi vardır: `acquireToken` ve `acquireTokenSilentAsync`
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 
@@ -221,7 +221,7 @@ if (sample.size() == 1) {
 Uygulama oluşturma işlemiyle ve yeni özelliklerle ilgili eksiksiz adım adım yönergeleri almak için Android öğreticisini deneyin. Orada, bu hızlı başlangıcın tam açıklaması da yer alır.
 
 > [!div class="nextstepaction"]
-> [Çağrı Grafı Android API Öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Çağrı Grafı API'si Android öğreticisi](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
 
 ### <a name="msal-for-android-library-wiki"></a>Android için MSAL kitaplığı wiki'si
 

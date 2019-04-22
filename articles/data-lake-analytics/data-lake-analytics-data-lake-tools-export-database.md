@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496198"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL veritabanını dışarı aktarma
@@ -85,6 +85,6 @@ Veritabanı için farklı bir Data Lake Analytics hesap içeri aktarmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [U-SQL veritabanları hakkında bilgi edinin](/u-sql/data-definition-language-ddl-statements) 
-* [Test ve yerel kullanarak çalıştırın ve Azure Data Lake U-SQL SDK'sı tarafından U-SQL işlerinde hata ayıklama](data-lake-analytics-data-lake-tools-local-run.md)
+* [Yerel çalıştırma ve Azure Data Lake U-SQL SDK’sını kullanarak U-SQL işlerini test etme ve hatalarını ayıklama](data-lake-analytics-data-lake-tools-local-run.md)
 
 

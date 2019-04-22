@@ -9,10 +9,10 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492323"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
@@ -125,9 +125,9 @@ Adlı başka bir sanal makineyi yapılandırmak için aşağıdaki tablodaki bil
 
 |Ayar  |Değer  |
 |---------|---------|
-|Alt ağ|**Workload-SN**|
-|Genel IP|**None**|
-|Ortak gelen bağlantı noktası|**None**|
+|Alt ağ|**İş yükü-SN**|
+|Genel IP|**Yok.**|
+|Ortak gelen bağlantı noktası|**Yok.**|
 
 ## <a name="deploy-the-firewall"></a>Güvenlik duvarını dağıtma
 

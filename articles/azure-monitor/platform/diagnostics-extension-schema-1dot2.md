@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496497"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
@@ -99,7 +99,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
 |**WadCfg**|Gereklidir. Toplanacak telemetri verilerini için yapılandırma ayarları.|  
-|**StorageAccount**|Verileri depolamak için Azure depolama hesabı adı. Bu da bir parametre olarak kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
+|**Depolama hesabı**|Verileri depolamak için Azure depolama hesabı adı. Bu da bir parametre olarak kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
 |**LocalResourceDirectory**|Olay verilerini depolamak için izleme aracısı tarafından kullanılacak sanal makinesinde dizin. Aksi halde, varsayılan dizin kullanılır:<br /><br /> Çalışan/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelik şunlardır:<br /><br /> -                      **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizini.<br /><br /> -                      **expandEnvironment** -ortam değişkenlerini yol adına genişletilir olup olmadığını denetler.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
@@ -130,7 +130,7 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**DataSources**|İzlenecek dizinler bir listesi.|  
+|**Veri kaynakları**|İzlenecek dizinler bir listesi.|  
 |**FailedRequestLogs**|Bu öğe yapılandırmada dahil olmak üzere bir IIS sitesi veya uygulama başarısız istekler hakkında günlüklerin toplanmasını sağlar. İzleme seçenekleri altında da etkinleştirmeniz gerekir **sistem. Web sunucusu** içinde **Web.config**.|  
 |**IISLogs**|Bu öğe yapılandırmada dahil olmak üzere IIS günlükler koleksiyonunu sağlar:<br /><br /> **containerName** -Azure depolama hesabınızda IIS günlüklerini depolamak için kullanılacak blob kapsayıcısının adı.|  
 

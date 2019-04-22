@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494653"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC çözümleri oluşturma ve dağıtma için Azure işlem hatlarını kullanın
@@ -51,7 +51,7 @@ Bu örnekte kullanılan codebase yapısı; şuna benzer
 Bu bölümde, sürüm denetimi ve tasarım Resource Manager şablonları ile ilgili bilgi sahibi olduğunuz varsayılır. Bu kavramlarına alışık değilseniz, daha fazla bilgi için aşağıdaki sayfalara bakın.
 
 * [Kaynak Denetimi nedir?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Azure Resource Manager şablonları, söz dizimi ve yapısı anlama](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager şablonlarının yapısını ve söz dizimini anlama](../azure-resource-manager/resource-group-authoring-templates.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 

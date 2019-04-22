@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792408"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680290"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 
@@ -96,7 +96,7 @@ Tarihsel olarak, güncelleştirmeler için eşitleme hizmeti aracılığıyla ş
 
 Daha fazla ayrıntı için [Office 365, Azure veya Intune'daki kullanıcı adları, şirket içi UPN veya alternatif oturum açma kimliği eşleşmiyor](https://support.microsoft.com/kb/2523192).
 
-Bu özelliği etkinleştirmek, şirket değiştirilmiş olduğundan ve parola karması eşitleme kullandığınızda userPrincipalName güncelleştirmek eşitleme altyapısı sağlar. Federasyon kullanıyorsanız, bu özellik desteklenmiyor.
+Bu özelliği etkinleştirmek, şirket değiştirilmiş olduğundan ve parola karması eşitleme veya doğrudan kimlik doğrulaması kullandığınızda userPrincipalName güncelleştirmek eşitleme altyapısı sağlar. Federasyon kullanıyorsanız, bu özellik desteklenmiyor.
 
 Bu özellik için varsayılan olarak yeni Azure AD dizini oluşturulur. Bu özellik, çalıştırarak etkin olup olmadığını görebilirsiniz:  
 

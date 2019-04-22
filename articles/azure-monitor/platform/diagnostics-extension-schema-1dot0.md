@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492728"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure tanılama 1.0 yapılandırma şeması
@@ -154,7 +154,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs öğesi  
@@ -166,7 +166,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ##  <a name="iislogs-element"></a>IISLogs öğesi  
@@ -178,7 +178,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="datasources-element"></a>Veri kaynakları öğesi  
@@ -195,7 +195,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
+|**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 
 ## <a name="absolute-element"></a>Mutlak öğe  
@@ -207,7 +207,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**yol**|string|Gereklidir. İzlemek için dizinin mutlak yolu.|  
+|**Yolu**|string|Gereklidir. İzlemek için dizinin mutlak yolu.|  
 |**expandEnvironment**|boole|Gereklidir. Varsa kümesine **true**, ortam değişkenleri yolun genişletilmiş.|  
 
 ## <a name="localresource-element"></a>LocalResource öğesi  
@@ -219,7 +219,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**ad**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
+|**Adı**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
 |**RelativePath**|string|Gereklidir. İzlemek için yerel kaynak göreli yol.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
@@ -269,5 +269,5 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 |Öznitelik|Type|Açıklama|  
 |---------------|----------|-----------------|  
-|**ad**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
+|**Adı**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
 

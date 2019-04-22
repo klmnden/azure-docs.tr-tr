@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499810"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Service Bus kuyruğu oluşturma
@@ -90,7 +90,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
 
 3. Örnek `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` klasörüne gidin.
 
-4. Henüz yapmadıysanız, aşağıdaki PowerShell cmdlet’ini kullanarak bağlantı dizesini alın. Değiştirdiğinizden emin olun `my-resourcegroup` ve `namespace-name` , belirli değerlere sahip: 
+4. Henüz yapmadıysanız, aşağıdaki PowerShell cmdlet’ini kullanarak bağlantı dizesini alın. `my-resourcegroup`  ve  `namespace-name` değerini kendi değerlerinizle değiştirdiğinizden emin olun: 
 
    ```azurepowershell-interactive
    Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
@@ -128,7 +128,7 @@ Bu bölümde örnek kodun işlevleri hakkında daha fazla ayrıntı bulunmaktad�
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 
-Bağlantı dizesi ve kuyruk adı geçirilir `Main()` yöntemi olarak komut satırı bağımsız değişkenleri. `Main()` Bu değerleri tutmak için iki dize değişkenleri bildirir:
+Bağlantı dizesi ve kuyruk adı geçirilir `Main()` yöntemi olarak komut satırı bağımsız değişkenleri. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
 
 ```csharp
 static void Main(string[] args)
@@ -262,5 +262,5 @@ Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak i�
 > [!div class="nextstepaction"]
 > [İleti alma ve gönderme](service-bus-dotnet-get-started-with-queues.md)
 
-[kredi kazanın]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/install-Az-ps

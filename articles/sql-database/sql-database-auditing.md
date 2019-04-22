@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361269"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680396"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -88,6 +88,9 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
     ![Gezinti bölmesi][3]
 
 5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Azure İzleyici günlüklerine tüketimi için bir Log Analytics çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
+
+   > [!WARNING]
+   > Log Analytics için denetimi etkinleştirme alımı ücretlerine göre ücret ödenmesini gerektirir. Lütfen bu kullanarak ilişkili maliyetini dikkat edilmesi [seçeneği](https://azure.microsoft.com/en-us/pricing/details/monitor/), veya denetim depolama, bir Azure depolama hesabında oturum göz önünde bulundurun.
 
     ![Depolama Seçenekleri](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -203,7 +206,7 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 3. İkincil siteden birincil depolama erişim anahtarı yeniden denetim yapılandırma sayfasına geçin ve ardından Git **Tamam**. Ardından **Kaydet** denetim yapılandırma sayfanın üstünde.
 4. Depolama Yapılandırması sayfasına dönün ve (hazırlığında sonraki anahtarın yenileme döngüsü) ikincil erişim tuşunu yeniden oluşturun.
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 
 - Günlük hakkındaki ayrıntılar için biçimi, depolama klasör hiyerarşisini ve adlandırma kuralları için bkz: [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 

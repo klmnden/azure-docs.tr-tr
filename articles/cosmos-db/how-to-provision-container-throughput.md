@@ -1,39 +1,39 @@
 ---
 title: Azure Cosmos DB’de kapsayıcının aktarım hızını sağlama
 description: Azure Cosmos DB’de kapsayıcı düzeyinde aktarım hızını sağlamayı öğrenin
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: d092844fbd75fc2307cc13ec9b7779ae9237535d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258726"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679713"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısında aktarım hızını sağlama
 
-Bu makalede, Azure Cosmos DB'de bir kapsayıcı (koleksiyon, graf veya tablo) için aktarım hızına açıklanmaktadır. Tek bir kapsayıcı için aktarım hızı sağlayabilir veya [bir veritabanı için sağlama](how-to-provision-database-throughput.md) ve veritabanı içindeki kapsayıcılar arasında paylaşabilirsiniz. Bir kapsayıcı için aktarım hızı, Azure portalı, Azure CLI veya Azure Cosmos DB SDK'ları kullanarak sağlayabilirsiniz.
+Bu makalede, bir kapsayıcı (koleksiyon, graf veya tablo) Azure Cosmos DB'de aktarım hızını sağlamak açıklanmaktadır. Tek bir kapsayıcısında aktarım hızını sağlayabilir veya [bir veritabanı sağlama aktarım hızını](how-to-provision-database-throughput.md) ve veritabanı içindeki kapsayıcılar arasında paylaşabilirsiniz. Azure portalı, Azure CLI veya Azure Cosmos DB SDK'larını kullanarak bir kapsayıcısında aktarım hızını sağlayabilirsiniz.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama aktarım hızı
+## <a name="provision-throughput-using-azure-portal"></a>Azure portalını kullanarak aktarım hızı sağlama
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-sql-api-dotnet.md#create-account), ya da mevcut bir Azure Cosmos hesabını seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni koleksiyon**. Ardından, şu bilgileri sağlayın:
 
    * Yeni bir veritabanı oluşturur veya mevcut bir kullanarak olup olmadığını gösterir.
-   * Bir koleksiyon kimliği (veya tablo veya grafik) girin.
+   * Bir kapsayıcı (veya tablo veya grafik) kimliği girin.
    * Bir bölüm anahtarı değerini girin (örneğin, `/userid`).
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * İstediğiniz bir aktarım hızı sağlamak (örneğin, 1000 RU) girin.
    * **Tamam**’ı seçin.
 
 ![Veri Gezgini'nin ekran vurgulanmış yeni bir koleksiyon](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-by-using-azure-cli"></a>Azure CLI kullanarak sağlama aktarım hızı
+## <a name="provision-throughput-using-azure-cli"></a>Azure CLI kullanarak aktarım hızı sağlama
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,12 +46,12 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-MongoDB için Azure Cosmos DB API'si ile yapılandırılan bir Azure Cosmos DB hesabı için aktarım hızı sağlıyorsanız kullanın `/myShardKey` bölüm anahtar yolu. Cassandra API'si için yapılandırılmış bir Azure Cosmos DB hesabı için aktarım hızı sağlıyorsanız kullanın `/myPrimaryKey` bölüm anahtar yolu.
+MongoDB için Azure Cosmos DB API'si ile yapılandırılan bir Azure Cosmos hesabındaki bir kapsayıcıya aktarım hızını sağlıyorsanız kullanın `/myShardKey` bölüm anahtar yolu. Cassandra API ile yapılandırılmış bir Azure Cosmos hesabındaki bir kapsayıcıya aktarım hızını sağlıyorsanız kullanın `/myPrimaryKey` bölüm anahtar yolu.
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>.NET SDK kullanarak sağlama aktarım hızı
 
 > [!Note]
-> Cassandra API dışında tüm API’lere aktarım hızı sağlamak için SQL API’sini kullanın.
+> Cosmos SDK'ları, Cassandra API dışındaki tüm Cosmos DB API'leri için sağlama aktarım hızı için SQL API'si için kullanın.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin ve Tablo API'leri
 
@@ -81,5 +81,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 Azure Cosmos DB'de aktarım hızı sağlama hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Veritabanı için aktarım hızı sağlama](how-to-provision-database-throughput.md)
+* [Veritabanı aktarım hızını sağlamasını yapma](how-to-provision-database-throughput.md)
 * [Azure Cosmos DB'deki istek birimleri ve aktarım hızı](request-units.md)

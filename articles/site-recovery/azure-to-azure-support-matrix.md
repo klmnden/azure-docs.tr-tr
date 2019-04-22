@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609413"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679015"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
 
@@ -225,6 +225,7 @@ Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
 Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |20 MB/sn | Disk başına 1684 GB
+
 ## <a name="replicated-machines---networking"></a>Çoğaltılan makineler - ağ
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
@@ -236,6 +237,7 @@ NIC'de NSG | Desteklenen | NSG, bir Azure Otomasyonu komut dosyası kullanarak b
 Alt ağda NSG | Desteklenen | NSG, bir kurtarma planında bir Azure Otomasyonu betik kullanarak alt ağı ile ilişkilendirin.
 Ayrılmış (statik) IP adresi | Desteklenen | Kaynak VM NIC'i bir statik IP adresi varsa ve hedef alt ağ aynı IP adresi, atanan devredilen VM'nin için.<br/><br/> Hedef alt ağ, aynı IP adresi yoksa, alt ağdaki kullanılabilir IP adreslerinden oluşan bir VM için ayrılmıştır.<br/><br/> Bir sabit IP adresini ve alt ağ olarak da belirtebilirsiniz **çoğaltılan öğeler** > **ayarları** > **işlem ve ağ**  >  **Ağ arabirimleri**.
 Dinamik IP adresi | Desteklenen | Kaynak NIC dinamik IP adresi varsa, yük devredilen VM NIC de varsayılan olarak dinamiktir.<br/><br/> Bunu sabit bir IP adresi için gerekirse değiştirebilirsiniz.
+Birden çok IP adresi | Desteklenmiyor | Bir NIC ile birden çok IP adresine sahip bir sanal makine yük devretme, yalnızca birincil NIC'nin IP adresi kaynak bölgedeki tutulur. Birden çok IP adresi atamak için Vm'lere ekleyebilirsiniz bir [kurtarma planı](recovery-plan-overview.md) plana ek IP adresleri atamak için bir komut dosyası eklemek ve, elle veya bir betik ile yük devretme işleminden sonra değişiklik yapabilirsiniz. 
 Traffic Manager     | Desteklenen | Traffic Manager, trafiğin uç noktasına düzenli olarak kaynak bölgede ve uç noktaya yük devretme durumunda hedef bölgede yönlendirilmesi önceden yapılandırabilirsiniz.
 Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |

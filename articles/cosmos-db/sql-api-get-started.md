@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: a8d144b2cb8ee18c69dc4c4768b09422d44bade2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617330"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680408"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -91,7 +91,10 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturmak için bu yönergeleri 
 1. Bulmak ve seçmek **Microsoft.Azure.DocumentDB**seçip **yükleme** zaten yüklü değilse.
    
    Azure Cosmos DB SQL API'si İstemci Kitaplığının paket kimliği [Microsoft Azure Cosmos DB İstemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)’dır.
-   
+
+   > [!NOTE]
+   > .NET Core kullanıyorsanız, lütfen bkz [.NET Core belgeleriyle](./sql-api-dotnetcore-get-started.md).
+
    ![Azure Cosmos DB istemci SDK'sını bulmak için NuGet menüsünün ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
    Çözümdeki değişiklikleri önizleme hakkında bir ileti alırsanız seçin **Tamam**. Lisans kabulü hakkında bir ileti alırsanız seçin **kabul ediyorum**.

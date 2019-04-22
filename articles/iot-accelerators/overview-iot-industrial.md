@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491757"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Endüstriyel IOT (Iıot) nedir
@@ -50,4 +50,4 @@ OPC kasa, OPC UA genel bulma sunucusu (yapılandırma, kaydetme ve sertifika ya�
 Endüstriyel IOT ve bileşenlerine giriş vardı, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [OPC Twin nedir?](overview-opc-twin.md)
+> [OPC İkizi nedir](overview-opc-twin.md)

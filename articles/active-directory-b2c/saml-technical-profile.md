@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154380"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680545"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel İlkesi'nde bir SAML teknik profili tanımlama
 
@@ -81,21 +81,6 @@ Aşağıdaki örnek, meta verileri Azure AD B2C'Teknik profili şifreleme bölü
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Kimlik sağlayıcısı tarafından başlatılan akış
-
-IDP tarafından başlatılan bir çoklu oturum açma oturumunda (istenmeyen istek), istenmeyen bir SAML yanıtını için hizmet sağlayıcısı, bu durumda, bir Azure AD B2C'Teknik profili gönderilir. Bu akış, kullanıcı web uygulaması aracılığıyla ilk geçmez, ancak kimlik sağlayıcısına yönlendirilir. Kimlik doğrulaması sayfası isteği gönderildiğinde, kullanıcıya kimlik sağlayıcısı tarafından sağlanır. Kullanıcı oturum açma tamamlandıktan ve ardından Azure AD B2C'ye bir onayları içeren bir SAML yanıtını istek yönlendirilir. Azure AD B2C onaylamaları okur ve yeni bir SAML belirteci verir ve ardından kullanıcının bağlı olan taraf uygulaması yönlendirir. Yeniden yönlendirmeleri yapılır **AssertionConsumerService** öğenin **konumu** özelliği.
-
-
-![SAML IDP tarafından başlatılan](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Bir kimlik sağlayıcısı oluşturma akış başlattığında aşağıdaki ilke gereksinimlerini göz önünde bulundurun:
-
-- İlk düzenleme adımı işaret eden bir SAML teknik profili için exchange tek bir talep olması gerekir.
-- Bir meta veri öğesi adlı teknik profil olmalıdır **IdpInitiatedProfileEnabled** kümesine `true`.
-- Bağlı olan taraf SAML bağlı olan taraf İlkesi gerekir.
-- Bağlı olan taraf İlkesi olmalıdır öğesi adlı bir meta veri **IdpInitiatedProfileEnabled** kümesine `true`.
-- İstenmeyen yanıtın gönderilmesi gerekiyor `/your-tenant/your-policy/samlp/sso/assertionconsumer` uç noktası. Yanıtlı dahil herhangi bir geçiş durumu, bağlı olan tarafın iletilir. Aşağıdaki değerleri değiştirin: **Kiracı your** Kiracı adınızla. **ilke Your** bağlı olan taraf ilke adınızla.
     
 ## <a name="protocol"></a>Protokol
 

@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621490"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678675"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası iş ortakları
 Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin.  Bu makalede, Azure SQL veri ambarı destek resmi iş zekası (BI) çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
@@ -26,7 +26,7 @@ Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektö
 | ![Birst][1] |**Birst**<br>Birst kuruluşun tamamına Örgü sanallaştırılmış BI örnekleri-üstte paylaşılan ortak analitik dokunun, bir ağ üzerinden bağlanır.|[Ürün sayfası][birst_website]<br>[Azure Market][birst_marketplace]<br> |
 | ![ClearStory veri][2] |**ClearStory veri (sürekli bir işe yönelik öngörüleri)**<br>ClearStory verileri SQL veri ambarı'nda depolanan farklı veri arasında döngüsü hızlı analiz sağlar. Spark tabanlı platform ve analiz uygulama hızlı veri erişimi ve birbirinden farklı veri kümelerinden harmonization clearStory'nın tümleşik. Öngörüler elde etmek için kendi olmasını iş kullanıcılara da güç kazandırır hızlı, işbirliğine dayalı araştırma tanırlar. |[Ürün sayfası][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Dundas veri görselleştirme, iş zekası ve veri görselleştirme yazılımı önde gelen, genel bir sağlayıcıdır.  Dundas panolar, raporlama ve görsel verilerini analiz daha iyi kararlar ve daha hızlı öngörüleri etkinleştirme, iş uygulamalarına sorunsuz tümleştirme sağlar.|[Ürün sayfası][dundas_bi_website]<br>[Azure Market][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**IBM Cognos Analytics**< brCognos Analytics ister deneyimli iş Analistin bir geniş tedarik zinciri ya da en iyi duruma getirme bir pazarlamacı kinks İnceleme ister basit, NET ve kullanımı kolay hale getiren Self Servis akıllı özellikleri içeren bir tek bir kampanya. Veri keşfi yönlendirmesine ve kullanıcıların ihtiyaç duydukları cevaplar kolaylaştırmak için ağır işleri için yapay ZEKA ve diğer akıllı özellikler Cognos Analytics kullanır|[Ürün sayfası][cognosanalytics_website]<br>|
+| ![IBM Cognos][3] |**IBM Cognos analizi**<br>Cognos Analytics ister deneyimli iş Analistin bir geniş tedarik zinciri ya da tek bir kampanya en iyi duruma getirme bir pazarlamacı kinks İnceleme ister basit, NET ve kullanımı kolay hale getiren Self Servis akıllı özellikleri içerir. Veri keşfi yönlendirmesine ve kullanıcıların ihtiyaç duydukları cevaplar kolaylaştırmak için ağır işleri için yapay ZEKA ve diğer akıllı özellikler Cognos Analytics kullanır|[Ürün sayfası][cognosanalytics_website]<br>|
 | ![Bilgi oluşturucular][13] |**Bilgi oluşturucular (WebFOCUS)**<br>İş Zekası WebFOCUS stratejik üzerinde ve dışında daha fazla veri kullanan şirketler yardımcı olur. Diverly ve herhangi bir analiz ve BI paylaşım güvenli kullanıcılar ve yöneticiler hızla içerikleri birden çok veri kaynakları ve biçimler birleştirin ve güçlü güvenlik ve sorunsuz, sağlayan kapsamlı idare sağlar panolar oluşturmanıza olanak sağlar içeriği|[Ürün sayfası][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport bir gömülebilir Kurumsal BI çözümüdür. Çözüm raporlar, panolar ve veri analizi bulut, büyük veri ve işlem tabanlı veri kaynakları oluşturmak için kullanıcılara da güç kazandırır. Verileri görselleştirme tarafından üzerinde halindeyken Çevik karar alma için kendi raporlama ve veri bulma gerçekleştirebilir. |[Ürün sayfası][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi analizi**<br>Birlikte Logi Analytics ve Azure SQL veri ambarı, kuruluşunuzun toplamak, çözümlemek ve dünyanın en büyük ve en çok çeşitli veri kümeleri üzerinde hemen işlem sağlar. |[Ürün sayfası][logianalytics_website]<br>|

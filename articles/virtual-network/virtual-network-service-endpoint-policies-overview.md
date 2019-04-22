@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494183"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
@@ -35,13 +35,13 @@ En güncel önizleme bildirimleri için [Azure Sanal Ağ güncelleştirmeleri](h
 
 Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
 
-- __Azure Hizmetleri için sanal ağ trafiğiniz için geliştirilmiş güvenlik__
+- __Azure Hizmetlerine yönelik Sana Ağ trafiğiniz geçin geliştirilmiş güvenlik__
 
   [Ağ güvenlik grupları için Azure hizmet etiketleri](https://aka.ms/servicetags), sanal ağ giden trafiğini belirli Azure hizmetleriyle kısıtlamanıza olanak tanır. Öte yandan, söz konusu Azure hizmetinin tüm kaynaklarına yönelik trafiğe izin verir. 
   
   Uç nokta ilkeleriyle, artık sanal ağ diğer erişimini yalnızca belirli Azure kaynaklarıyla kısıtlayabilirsiniz. Bu sayede, sanal ağınızda erişilen verileri korumak için daha ayrıntılı bir güvenlik denetimine sahip olursunuz. 
 
-- __Azure hizmet trafiğini filtrelemek için ölçeklenebilir, yüksek oranda kullanılabilir ilkeler__
+- __Azure hizmet trafiğini filtrelemek için ölçeklenebilir, yüksek kullanılabilirliğe sahip ilkeler__
 
    Uç nokta ilkeleri, hizmet uç noktaları üzerinden sanal ağlardan gelen Azure hizmeti trafiğini filtrelemek için yatay olarak ölçeklenebilir, yüksek kullanılabilirliğe sahip bir çözüm sağlar. Sanal ağlarınızda bu trafiğe yönelik merkezi ağ aletleri bulundurmak için ek yük gerekmez.
 

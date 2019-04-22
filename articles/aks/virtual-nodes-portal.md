@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755267"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681038"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Önizleme - oluşturma ve Azure portalında sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -32,6 +32,16 @@ Aşağıdaki bölgelerde sanal düğüm dağıtımları için desteklenir:
 * Batı Orta ABD (westcentralus)
 * Batı Avrupa (westeurope)
 * Batı ABD (westus)
+
+## <a name="known-limitations"></a>Bilinen sınırlamalar
+Sanal düğümler işlevleri ACI'ın özellik kümesi üzerinde bağımlılığa sahiptir. Aşağıdaki senaryolar ile sanal düğümü henüz desteklenmiyor
+
+* Çekme ACR görüntülerine hizmet sorumlusu kullanma. [Geçici çözüm](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) kullanmaktır [Kubernetes gizli dizileri](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Sanal ağ kısıtlamaları](../container-instances/container-instances-vnet.md) VNet eşlemesi, Kubernetes ağ ilkeleri ve ağ güvenlik grupları ile İnternet'e giden trafiği de dahil olmak üzere.
+* Init kapsayıcıları
+* [Konak diğer adları](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Bağımsız değişkenler](../container-instances/container-instances-exec.md#restrictions) ACI içindeki exec için
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) pod'ların sanal düğüme dağıtma
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357241"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680868"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
@@ -34,27 +34,27 @@ Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak
 
 En önemli fark tahmin regresyon görev türü ve regresyon arasında görev türü otomatik makine öğrenimi içinde bir özellik gösteren geçerli zaman serisi verilerinizi dahil. Normal zaman serisi iyi tanımlanmış ve tutarlı bir sıklık ve sürekli bir süre içinde her bir örnek noktada bir değerine sahiptir. Bir dosyanın şu anlık görüntüye göz önünde bulundurun `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Bu veri kümesine ilişkin haftalık satış verileri A ve b ayrıca olmak üzere iki farklı mağazalarda sahip bir şirket için basit bir örnektir, bir özellik için `week_of_year` haftalık mevsimsellik algılamaya modeli sağlayacaktır. Alan `week_starting` temiz zaman serisi haftalık bir sıklık ve alanını temsil eder. `sales_quantity` Öngörüler çalıştırmak için hedef sütunudur. Bir Pandas dataframe verileri okumak ve ardından kullanmak `to_datetime` zaman serisi olduğundan emin olmak için işlevi bir `datetime` türü.
+Bu veri kümesi bir günlük satış verilerini iki farklı mağazalarda A ve b ayrıca sahip bir şirket için basit bir örnektir, bir özellik için `week_of_year` haftalık mevsimsellik algılamaya modeli sağlayacaktır. Alan `day_datetime` temiz zaman serisi Günlük Sıklık ve alanını temsil eden `sales_quantity` Öngörüler çalıştırmak için hedef sütunudur. Bir Pandas dataframe verileri okumak ve ardından kullanmak `to_datetime` zaman serisi olduğundan emin olmak için işlevi bir `datetime` türü.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-Bu durumda zaman alana göre artan düzende zaten veriler sıralanır `week_starting`. Ancak, deneme ayarlama ayarlarken, istediğiniz zaman sütunu geçerli zaman serisi oluşturmak için artan düzende sıralanır olun. 1000 kayıt verileri içerdiğini varsayalım ve belirleyici bir bölünmüş verileri eğitim oluşturma ve veri kümelerini test yapın. Ardından hedef alan ayırmak `sales_quantity` tahmin eğitme ve test oluşturmak için ayarlar.
+Bu durumda zaman alana göre artan düzende zaten veriler sıralanır `day_datetime`. Ancak, deneme ayarlama ayarlarken, istediğiniz zaman sütunu geçerli zaman serisi oluşturmak için artan düzende sıralanır olun. 1000 kayıt verileri içerdiğini varsayalım ve belirleyici bir bölünmüş verileri eğitim oluşturma ve veri kümelerini test yapın. Ardından hedef alan ayırmak `sales_quantity` tahmin eğitme ve test oluşturmak için ayarlar.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ Otomatik makine öğrenimi, görevler tahmin için zaman serisi verileri ön iş
 |`time_column_name`|Zaman serisi oluşturmak ve sıklığının çıkarımını yapma için kullanılan giriş veri datetime sütunu belirtmek için kullanılır.|✓|
 |`grain_column_names`|Giriş verilerinde serisine grupları tanımlama adları. Dilimi tanımlanmamışsa, veri kümesi bir zaman serisi olduğu varsayılır.||
 |`max_horizon`|Maksimum zaman serisi sıklık birimi tahmin horizon istenen.|✓|
+|`target_lags`|*n* İleri lag dönemlerine hedef model eğitiminin önce değer.||
+|`target_rolling_window_size`|*n* geçmiş dönemlerini tahmin edilen değerler oluşturmak için kullanılacak < = Eğitim kümesi boyutu. Atlanırsa, *n* tam eğitim boyutu ayarlanır.||
 
-Zaman serisi ayarları bir sözlük nesnesi olarak oluşturun. Ayarlama `time_column_name` için `week_starting` alanındaki veri kümesi. Tanımlama `grain_column_names` emin olmak için parametre **iki ayrı zaman serisi grupları** verilerimizi; depolama A ve b son olarak, bir kümesi için oluşturulan `max_horizon` tahmin için tüm test için 50'ye ayarlayın.
+Zaman serisi ayarları bir sözlük nesnesi olarak oluşturun. Ayarlama `time_column_name` için `day_datetime` alanındaki veri kümesi. Tanımlama `grain_column_names` emin olmak için parametre **iki ayrı zaman serisi grupları** ; depolama A ve b son olarak, bir veri kümesi için oluşturulan `max_horizon` tahmin için tüm test için 50'ye ayarlayın. 10 nokta ile tahmini bir pencere olarak `target_rolling_window_size`ve hedef değer 2 nokta ile gecikme `target_lags` parametresi.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Artık genel doğruluğu belirlenen, model bilinmeyen gelecekteki değerleri tahmin etmek için kullanılacak en gerçekçi bir sonraki adım. Yalnızca sınama kümesi ile aynı biçimde bir veri kümesi kaynağı `X_test` ancak gelecekteki bir tarih/saat ve sonuçta elde edilen tahmini her zaman serisi adım için tahmin edilen değerler kümesidir. Veri kümesindeki son zaman serisi kayıtları olan haftadan itibaren varsayar 12/31 Ocak 2018. Sonraki hafta için talebini tahmin etmek için (veya tahmin etmek gerek duyduğunuz kadar çok nokta < = `max_horizon`), tek bir oluşturma zaman serisi kayıt her mağaza için haftadan itibaren 07/01/2019.
+Artık genel doğruluğu belirlenen, model bilinmeyen gelecekteki değerleri tahmin etmek için kullanılacak en gerçekçi bir sonraki adım. Yalnızca sınama kümesi ile aynı biçimde bir veri kümesi kaynağı `X_test` ancak gelecekteki bir tarih/saat ve sonuçta elde edilen tahmini her zaman serisi adım için tahmin edilen değerler kümesidir. Veri kümesindeki son zaman serisi kayıtları 31/12/2018 için olan varsayılır. Sonraki gün için talebini tahmin etmek için (veya tahmin etmek gerek duyduğunuz kadar çok nokta < = `max_horizon`), tek bir oluşturma zaman serisi kayıt her mağaza için 01/01/2019 için.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Bir dataframe gelecekte bu verileri yüklemek ve sonra çalıştırmak için gerekli olan adımları yineleyin `best_run.predict(X_test)` gelecekteki değerleri tahmin etmek için.
 

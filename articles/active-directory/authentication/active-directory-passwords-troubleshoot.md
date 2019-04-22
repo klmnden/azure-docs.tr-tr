@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496412"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
@@ -285,14 +285,14 @@ Düzgün bir şekilde yardımcı olması için bir servis talebi açılırken m�
 
 Aşağıdaki makaleler Azure AD aracılığıyla parola sıfırlama hakkında daha fazla bilgi sağlar:
 
-* [Sspr'yi başarılı bir sunum nasıl tamamlamak?](howto-sspr-deployment.md)
-* [Sıfırlama veya parolanızı değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
+* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md)
-* [Lisans bir sorunuz var mı?](concept-sspr-licensing.md)
-* [SSPR tarafından kullanılan verileri ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](howto-sspr-authenticationdata.md)
-* [Kimlik doğrulama yöntemleri, kullanıcılara kullanılabilir mi?](concept-sspr-howitworks.md#authentication-methods)
+* [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)
 * [Parola geri yazma nedir ve neden önemlidir?](howto-sspr-writeback.md)
-* [Sspr'de etkinliği nasıl bildirebilirim?](howto-sspr-reporting.md)
-* [Tüm SSPR seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
-* [Başka bir yerde ele değil bir sorum var](active-directory-passwords-faq.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](howto-sspr-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](concept-sspr-howitworks.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)

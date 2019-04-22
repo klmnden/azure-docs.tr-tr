@@ -1,36 +1,36 @@
 ---
 title: Azure Cosmos DB'de kapsayıcı oluşturma
 description: Azure Cosmos DB'de kapsayıcı oluşturmayı öğrenin
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: c075a801a877309709258dd6466e68e46d802eff
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258301"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680443"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısı oluşturma
 
-Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın farklı yollarını açıklar. Azure portalı, Azure CLI veya desteklenen Sdk'lardan kullanırsınız. Bu makalede, bir kapsayıcı oluşturma, bölüm anahtarı belirtin ve aktarım hızına gösterilmektedir.
+Bu makalede bir Azure Cosmos kapsayıcısı (koleksiyon, tablo veya grafik) oluşturmanın farklı yollarını açıklar. Bunun için desteklenen SDK'larını veya Azure portalı, Azure CLI'yı kullanabilirsiniz. Bu makalede, bir kapsayıcı oluşturma, bölüm anahtarı belirtin ve aktarım hızına gösterilmektedir.
 
-## <a name="create-a-container-by-using-azure-portal"></a>Azure portalını kullanarak bir kapsayıcı oluşturma
+## <a name="create-a-container-using-azure-portal"></a>Azure portalını kullanarak kapsayıcı oluşturma
 
 ### <a id="portal-sql"></a>SQL API'Sİ
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-sql-api-dotnet.md#create-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni koleksiyon**. Ardından, şu bilgileri sağlayın:
 
    * Yeni bir veritabanı oluşturur veya mevcut bir kullanarak olup olmadığını gösterir.
    * Bir koleksiyon kimliği girin.
    * Bir bölüm anahtarı girin.
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * (Örneğin, 1000 RU) sağlanacak bir aktarım hızı girin.
    * **Tamam**’ı seçin.
 
 ![Vurgulanmış yeni bir koleksiyon ile veri Gezgini'nin ekran görüntüsü bölmesi](./media/how-to-create-container/partitioned-collection-create-sql.png)
@@ -39,15 +39,14 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-mongodb-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-mongodb-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni koleksiyon**. Ardından, şu bilgileri sağlayın:
 
    * Yeni bir veritabanı oluşturur veya mevcut bir kullanarak olup olmadığını gösterir.
    * Bir koleksiyon kimliği girin.
-   * **Sınırsız** depolama kapasitesi seçin.
    * Bir parça anahtarı girin.
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * (Örneğin, 1000 RU) sağlanacak bir aktarım hızı girin.
    * **Tamam**’ı seçin.
 
 ![Ekran görüntüsü, Azure Cosmos DB API için MongoDB, koleksiyon Ekle iletişim kutusu](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
@@ -56,14 +55,14 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-cassandra-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-cassandra-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni tablo**. Ardından, şu bilgileri sağlayın:
 
    * Yeni bir anahtar alanı oluşturuyorsanız, veya mevcut bir kullanarak olup olmadığını gösterir.
    * Tablo adı girin.
    * Özelliklerini girin ve birincil anahtar belirtin.
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * (Örneğin, 1000 RU) sağlanacak bir aktarım hızı girin.
    * **Tamam**’ı seçin.
 
 ![Ekran görüntüsü, Cassandra API, Tablo Ekle iletişim kutusu](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
@@ -75,7 +74,7 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-graph-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-graph-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni graf**. Ardından, şu bilgileri sağlayın:
 
@@ -83,7 +82,7 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
    * Graf kimliğini girin.
    * **Sınırsız** depolama kapasitesi seçin.
    * Köşe için bölüm anahtarı girin.
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * (Örneğin, 1000 RU) sağlanacak bir aktarım hızı girin.
    * **Tamam**’ı seçin.
 
 ![Ekran görüntüsü, Gremlin API, Grafik Ekle iletişim kutusu](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
@@ -92,13 +91,12 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-table-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-table-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni tablo**. Ardından, şu bilgileri sağlayın:
 
    * Tablo kimliği girin.
-   * **Sınırsız** depolama kapasitesi seçin.
-   * Aktarım hızı (örneğin, 1000 RU) girin.
+   * (Örneğin, 1000 RU) sağlanacak bir aktarım hızı girin.
    * **Tamam**’ı seçin.
 
 ![Ekran görüntüsü, tablo API'si, Tablo Ekle iletişim kutusu](./media/how-to-create-container/partitioned-collection-create-table.png)
@@ -106,7 +104,7 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 > [!Note]
 > Tablo API'si için, her yeni satır eklediğinizde bölüm anahtarı belirtilir.
 
-## <a name="create-a-container-by-using-azure-cli"></a>Azure CLI kullanarak bir kapsayıcı oluşturma
+## <a name="create-a-container-using-azure-cli"></a>Azure CLI kullanarak kapsayıcı oluşturma
 
 ### <a id="cli-sql"></a>SQL API'Sİ
 
@@ -174,7 +172,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-## <a name="create-a-container-by-using-net-sdk"></a>.NET SDK kullanarak bir kapsayıcı oluşturma
+## <a name="create-a-container-using-net-sdk"></a>.NET SDK'sını kullanarak kapsayıcı oluşturma
 
 ### <a id="dotnet-sql-graph"></a>SQL API'si ve Gremlin API'si
 
@@ -198,7 +196,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB kablo protokolüne birimleri istemez. İşleme ile yeni bir koleksiyon oluşturmak için Azure portalı veya SQL API'yi kullanın.
+> MongoDB kablo protokolüne kavramı anlamak [istek birimi](request-units.md). Sağlanan aktarım hızı, üzerinde yeni bir koleksiyon oluşturmak için SQL API'si için Azure portalı veya Cosmos DB SDK'ları kullanın.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
@@ -213,3 +211,6 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure Cosmos DB'de bölümleme](partitioning-overview.md)
+- [İstek birimleri Azure cosmos DB](request-units.md)
+- [Kapsayıcılar ve veritabanları sağlama aktarım hızı](set-throughput.md)
+- [Azure Cosmos hesabıyla çalışma](account-overview.md)

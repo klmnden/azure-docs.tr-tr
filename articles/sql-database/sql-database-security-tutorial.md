@@ -12,10 +12,10 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496446"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Öğretici: Tek veya havuza alınmış veritabanını koruma
@@ -144,7 +144,7 @@ Yapılandırma Azure AD hakkında daha fazla bilgi için bkz:
 - [Şirket içi kimliklerinizi Azure AD ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure artık Windows Server AD ile Federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Azure AD dizinini yönetme](../active-directory/fundamentals/active-directory-administer.md)
+- [Azure AD dizininizi yönetme](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell kullanarak Azure AD'yi yönetme](/powershell/azure/overview?view=azureadps-2.0)
 - [Karma kimlik için gereken bağlantı noktaları ve protokoller](../active-directory/hybrid/reference-connect-ports.md)
 

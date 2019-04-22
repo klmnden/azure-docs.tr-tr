@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493034"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
@@ -76,7 +76,7 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Yeni Grup |Geçerli görünüme başlangıç Görünümü'nde yeni bir grup oluşturmak için bu bağlantıyı seçin. |
 | Simge |Üst bilgisindeki sonucu yanında görüntülenen resim dosyası. |
 | Simge Kullan |Simge görüntülemek için bu bağlantıyı seçin. |
-| **Unvan** | |
+| **Başlık** | |
 | Gösterge |Üst bilgi üst kısmında görüntülenen metin. |
 | Sorgu |Üst bilgisi için çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
@@ -107,7 +107,7 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Simge Kullan |Simge görüntülemek için bu bağlantıyı seçin. |
 | **Başlık Gezinti** | |
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
-| **Unvan** | |
+| **Başlık** | |
 | Gösterge |Üst bilgi üst kısmında görüntülenen metin. |
 | Sorgu |Üst bilgisi için çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Liste** | |
@@ -146,9 +146,9 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Metin |Halka içindeki değeri altında görüntülenen metin. |
 | İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<ul><li>Toplama: Tüm kayıtların değerleri toplar.</li><li>Yüzdesi: Değerler tarafından döndürülen kayıtları oranını **neden merkezdeki işlemde kullanılan değerleri** sorgu toplam kayıtlara.</li></ul> |
 | Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işaretini (+) seçin. Sorgu sonuçlarını kayıtlarını belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz tüm kayıtları sorguya dahil edilir. |
-| **Ek seçenekler** |**> Renkler** |
+| **Ek Seçenekler** |**> Renkler** |
 | Renkli 1<br>Renk 2<br>Renk 3 |Halka, görüntülenen değerleri için renk seçin. |
-| **Ek seçenekler** |**> Gelişmiş renk eşleme** |
+| **Ek Seçenekler** |**> Gelişmiş renk eşleme** |
 | Alan değeri |Halkada yer alıyorsa farklı bir renkte görüntülenecek bir alanı adını yazın. |
 | Renk |Benzersiz alan rengini seçin. |
 | **Liste** | |
@@ -179,7 +179,7 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Simge Kullan |Simge görüntülemek için bu bağlantıyı seçin. |
 | **Başlık Gezinti** | |
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
-| **İlk grafik<br>İkinci grafik** | |
+| **İlk grafik<br>ikinci grafik** | |
 | Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
 | Renk |Sütun serisi için kullanılacak rengi. |
 | Sorgu |İlk seri için çalıştırılacak sorgu. Her zaman aralığı içindeki kayıtları sayısı, grafiğin sütunları tarafından temsil edilir. |
@@ -305,10 +305,10 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Grup başlığı |Kutucuğun üst kısmında görüntülenen metin. |
 | Yeni Grup |Geçerli görünüme başlangıç Görünümü'nde yeni bir grup oluşturmak için bu bağlantıyı seçin. |
 | Simge |Üst bilgisindeki sonucu yanında görüntülenen resim dosyası. |
-| **Grafik 1<br>Grafik 2<br>Grafik 3** |**> Üst bilgi** |
+| **Grafik 1<br>grafik 2<br>grafik 3** |**> Üst bilgi** |
 | Unvan |Grafiğin üst kısmında görüntülenen metin. |
 | Alt Başlık |Grafiğin üst kısmındaki başlık altında görüntülenen metin. |
-| **Grafik 1<br>Grafik 2<br>Grafik 3** |**Çizgi grafik** |
+| **Grafik 1<br>grafik 2<br>grafik 3** |**Çizgi grafik** |
 | Sorgu |Çizgi grafiği için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, grafiğin x ekseninin bu zaman aralığını kullanır. Sorgu içermiyorsa *aralığı* anahtar sözcüğü, saatlik aralıklarla x ekseni kullanır. |
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
 | **Grafik** |**> Y ekseni** |

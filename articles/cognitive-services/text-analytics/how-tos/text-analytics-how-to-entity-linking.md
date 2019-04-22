@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505584"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
@@ -96,7 +96,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 + Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Varlık ayıklama için HTTP uç noktası ayarlayın. Dahil etmelisiniz `/entities` kaynak: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Varlık ayıklama için HTTP uç noktası ayarlayın. `/entities` kaynağını içermelidir: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
@@ -287,9 +287,9 @@ Bu makalede, kavramlar ve iş akışı Bilişsel hizmetler metin analizi kullana
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin Analizi'ne genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)</br>
- [Metin analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Metin Analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -18,10 +18,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491330"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
@@ -78,7 +78,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 > > [Benim için şu değişiklikleri yapın]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Önceden yapılandırılmış](media/quickstart-v2-windows-desktop/green-check.png) uygulamanız bu öznitelikleri ile yapılandırılır.
+> > ![Zaten yapılandırılmış](media/quickstart-v2-windows-desktop/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
@@ -100,7 +100,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
     
     > [!div renderon="docs"]
     >> Konumlar:
-    >> * `Enter_the_Application_Id_Here` -olan **uygulama (istemci) kimliği** , kayıtlı uygulama için.
+    >> * `Enter_the_Application_Id_Here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
     >> * `Enter_the_Tenant_Id_Here` -Bu değerle **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` -Bu değeri 1. adım üzerinde oluşturulan gizli anahtarla değiştirin.
 
@@ -133,7 +133,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 >> Konumlar:
 >> * `Enter_the_Tenant_Id_Here` -Bu değerle **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` -olan **uygulama (istemci) kimliği** , kayıtlı uygulama için.
+>> * `Enter_the_Application_Id_Here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
 
 > [!NOTE]
 > Hatasıyla karşılaşabilirsiniz *' AADSTS50011: Uygulama için hiç yanıt adresi kayıtlı '* sonra önceki URL'yi kullanarak bir uygulamaya izin veriliyor. Bu sorun bu uygulama ve URL yeniden yönlendirme URI'si - olmadığı için lütfen yoksayın hata.
@@ -225,7 +225,7 @@ Daha fazla bilgi için lütfen bkz [başvuru belgeleri `AcquireTokenForClient`](
 İzinler ve onay hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [İzinler ve Onay](v2-permissions-and-consent.md)
+> [İzinler ve onay](v2-permissions-and-consent.md)
 
 Bu senaryo için kimlik doğrulama akışı hakkında daha fazla bilgi edinmek için Oauth 2.0 istemci kimlik bilgileri akışı bakın:
 

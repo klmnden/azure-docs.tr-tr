@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540678"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680919"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -216,7 +216,7 @@ Hayır. Genel Önizleme sürümünde başka bir hizmet katmanına bir hiper öl�
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanına geçişten sonra herhangi bir işlevselliğini veya özellikleri kaybetmeden miyim
 
-Evet. Bazı Azure SQL veritabanı özellikleri hiper ölçekli dahil olmak üzere ancak bunlarla sınırlı olmamak uzun süreli bekletme yedeklemesi, genel Önizleme sırasında desteklenmez. Bu özellikler için hiper ölçekli veritabanlarınızı geçirdikten sonra durabilir.
+Evet. Azure SQL veritabanı uzun süreli saklama yedeklerini, genel Önizleme sırasında hiper ölçekli desteklenmiyor. Bu özellik, veritabanlarınız için hiper ölçekli geçirdikten sonra çalışmayı durduruyor.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Hiper ölçekli için şirket içi SQL Server veritabanını veya SQL Server sanal makine Veritabanım taşıyabilirim
 
@@ -295,7 +295,7 @@ Hayır. Hiper ölçekli veritabanları için depolama biçimi, geleneksel SQL Se
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanına geçişten sonra herhangi bir işlevselliğini veya özellikleri kaybetmeden miyim
 
-Evet. Azure SQL veritabanı özelliklerden bazıları hiper ölçekli ancak bunlarla sınırlı olmamak TDE ve uzun süreli bekletme yedeklemesi, genel Önizleme sırasında desteklenmez. Bu özellikler için hiper ölçekli veritabanlarınızı geçirdikten sonra durabilir.
+Evet. Azure SQL veritabanı uzun süreli saklama yedeklerini, genel Önizleme sırasında hiper ölçekli desteklenmiyor. Bu özellik, veritabanlarınız için hiper ölçekli geçirdikten sonra çalışmayı durduruyor.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>SQL veritabanı hiper ölçekli olacak Polybase çalışma
 

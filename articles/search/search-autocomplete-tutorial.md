@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495745"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Örnek: Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-Yukarıdaki kodu tarayıcıda Otomatik Tamamla "example1a" giriş kutusuna jQuery kullanıcı Arabirimi yapılandırmak için sayfa yükleme çalışır.  `minLength: 3` Arama kutusuna en az üç karakter olduğunda önerileri yalnızca gösterilmesini sağlar.  Kaynak değeri önemlidir:
+Yukarıdaki kodu tarayıcıda Otomatik Tamamla "example1a" giriş kutusuna jQuery kullanıcı Arabirimi yapılandırmak için sayfa yükleme çalışır.  `minLength: 3`, önerilerin yalnızca arama kutusuna en az üç karakter girildiğinde gösterilmesini sağlar.  Kaynak değeri önemlidir:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

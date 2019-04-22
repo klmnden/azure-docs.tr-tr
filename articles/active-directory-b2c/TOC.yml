@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: Yaş sınırını yapılandırma
     href: basic-age-gating.md
-  - name: Belirteçleri yapılandırma
-    href: active-directory-b2c-token-session-sso.md
+  - name: Oturum davranışını yapılandırma
+    href: session-behavior.md
   - name: Dil özelleştirme
     href: active-directory-b2c-reference-language-customization.md
   - name: Parola özelleştirme
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: Kullanıcı arabirimini dinamik olarak özelleştirme
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Belirteçleri özelleştirme
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Özel öznitelikleri tanımlama
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Oturumumu açık bırak seçeneğini etkinleştirme
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Sayfa sözleşmesi
       href: page-contract.md
-    - name: Erişim belirtecini doğrudan geçirme
-      href: idp-pass-through-custom.md
     - name: Parola karmaşıklığı
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Parola değiştirme
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Belirteçler
+      items:
+      - name: Belirteçleri özelleştirme
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Erişim belirtecini doğrudan geçirme
+        href: idp-pass-through-custom.md
     - name: Kullanıcı davranışını izleme
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Başvuru
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: App Auth kullanarak Android
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Erişim belirteci alma
-    href: active-directory-b2c-access-tokens.md
-  - name: Erişim belirtecini doğrudan geçirme
-    href: idp-pass-through-user-flow.md
   - name: Kullanım bildirme
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Kaynak sahibinin parola kimlik bilgileri
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: Self servis parola sıfırlamayı ayarlama
     href: active-directory-b2c-reference-sspr.md
+  - name: Belirteçler
+    items:
+    - name: Belirteçleri yapılandırma
+      href: configure-tokens.md
+    - name: Erişim belirtecini doğrudan geçirme
+      href: idp-pass-through-user-flow.md
+    - name: Erişim belirteci isteme
+      href: active-directory-b2c-access-tokens.md
   - name: b2clogin.com kullanma
     href: b2clogin.md
   - name: Azure AD Graph API’sini kullanma
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886582"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681140"

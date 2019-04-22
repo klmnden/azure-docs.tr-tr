@@ -15,10 +15,10 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505827"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
@@ -27,7 +27,7 @@ Bu kılavuzda oturum Openıd Connect'i kullanarak geleneksel web tarayıcı taba
 
 Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri kişisel hesabı (outlook.com, live.com ve diğerleri dahil) kabul yanı sıra iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş olacaktır.
 
-> Bu kılavuz, Visual Studio 2017'yi gerektirir.  Sizde yok mu?  [Visual Studio 2017'yi ücretsiz olarak indirin](https://www.visualstudio.com/downloads/)
+> Bu kılavuz, Visual Studio 2017'yi gerektirir.  Sizde yok mu?  [Visual Studio 2017’yi ücretsiz indirin](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496087"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
@@ -87,7 +87,7 @@ Azure kaynak rolleri, yalnızca bir abonelik Yöneticisi için bir kaynak sahibi
 
 PIM aşağıdaki senaryoları destekler:
 
-**Bir ayrıcalıklı rol yönetici olarak şunları yapabilirsiniz:**
+**Ayrıcalıklı Rol Yöneticisi olarak şunları yapabilirsiniz:**
 
 - Belirli roller için onay etkinleştirmek
 - İstekleri onaylayacak onaylayan kullanıcıları ve/veya grupları belirlemek

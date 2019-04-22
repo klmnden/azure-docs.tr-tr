@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891438"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679661"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS portalda yeni bir LUIS uygulaması oluşturma
 Çeşitli şekillerde LUIS uygulaması oluşturmak için vardır. Bir LUIS uygulaması oluşturabileceğiniz [LUIS](https://www.luis.ai) portal ya da yazma LUIS aracılığıyla [API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -67,10 +67,19 @@ Olası hatalar şunlardır:
 
 * Bu ada sahip bir uygulama zaten var. Uygulamayı yeniden içeri aktarın ve ayarlama **isteğe bağlı adı** yeni bir ad. 
 
-## <a name="export-app"></a>Uygulamayı dışarı aktarma
+## <a name="export-app-for-backup"></a>Yedekleme için uygulamayı dışarı aktarma
 
-1. Üzerinde **uygulamalarım** sayfasında **alma yeni uygulama**.
-1. İçinde **alma yeni uygulama** iletişim kutusunda LUIS uygulaması tanımlayan JSON dosyasını seçin.
+1. Üzerinde **uygulamalarım** sayfasında **dışarı**.
+1. Seçin **JSON olarak verin**. Tarayıcınız etkin sürümünü yükler.
+1. Bu dosya, model arşivlemek için yedekleme sisteminize ekleyin.
+
+## <a name="export-app-for-containers"></a>Kapsayıcılar için uygulamayı dışarı aktarma
+
+1. Üzerinde **uygulamalarım** sayfasında **dışarı**.
+1. Seçin **dışarı aktarma kapsayıcısı olarak** dışarı aktarmak istediğiniz hangi yayımlanan yuvası (üretim veya aşama)'yi seçin.
+1. Bu dosya ile kullanın, [LUIS kapsayıcı](luis-container-howto.md). 
+
+    Eğitilen bir verme ancak henüz LUIS kapsayıcı ile kullanmak için yayımlanan model içinde ilgileniyorsanız, Git **sürümleri** sayfasında ve buradan dışarı aktarın. 
 
 ## <a name="delete-app"></a>Uygulamayı silme
 

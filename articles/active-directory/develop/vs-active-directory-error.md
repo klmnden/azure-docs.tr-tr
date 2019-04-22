@@ -13,18 +13,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203684"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679117"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory bağlı hizmetini ile hataları tanılama
 
 Azure Active Directory connect önceki kimlik doğrulama kodu algılanırken sunucu uyumlu bir kimlik doğrulama türü algılandı.
 
-Önceki kimlik doğrulama kodu bir projede doğru bir şekilde algılamak için proje oluşturulmalıdır.  Bu hata ile karşılaştı ve önceki bir doğrulama kodu projenizde yoksa, yeniden derleyip tekrar deneyin.
+Önceki kimlik doğrulama kodu bir projede doğru bir şekilde algılamak için proje oluşturulmalıdır.  Bu hatayı ve önceki bir doğrulama kodu projenizde yoksa, yeniden derleyip tekrar deneyin.
 
 ## <a name="project-types"></a>Proje türleri
 
@@ -32,7 +32,7 @@ Bağlı hizmet için projeye sağ kimlik doğrulaması mantığı ekleyebilir, g
 
 ## <a name="compatible-authentication-code"></a>Uyumlu bir kimlik doğrulama kodu
 
-Bağlı hizmet, daha önce yapılandırılmamış olması veya hizmeti ile uyumlu olan kimlik doğrulama ayarları denetler. Tüm ayarları varsa, içe çalışması olarak kabul edilir ve bağlı hizmet açılır ayarları görüntüleyin.  Yalnızca bazı ayarlar varsa, bir hata durumu olarak kabul edilir.
+Bağlı hizmet, daha önce yapılandırılmamış olması veya hizmeti ile uyumlu olan kimlik doğrulama ayarları denetler. Tüm ayarları varsa, bir a çalışması dikkate almıştır ve bağlı hizmet açılır ayarları görüntüleyin.  Yalnızca bazı ayarlar varsa, bir hata durumu dikkate almıştır.
 
 MVC projesinde, bağlı hizmet için önceki ve hizmetin kullanımını neden aşağıdaki ayarlardan birini denetler:
 
@@ -60,7 +60,7 @@ Windows kimlik doğrulaması MVC projesinde algılamak için bağlı arar `authe
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ Bağlı hizmet bir Web API projesinde Windows kimlik doğrulaması algılamak i�
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ Bireysel kullanıcı hesapları kimlik doğrulaması algılamak için bağlı hi
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ Eski bir kurumsal hesap kimlik doğrulaması biçimi algılamak için şu öğed
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

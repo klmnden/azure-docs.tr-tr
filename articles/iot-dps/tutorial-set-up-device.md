@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500983"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak sağlanacak bir cihaz ayarlama
@@ -211,5 +211,5 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Otomatik sağlama için cihazı Azure IoT Hub Cihazı Sağlama Hizmeti’ne kaydederek IoT hub’ına nasıl sağlanacağı hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [IOT hub'ınıza cihazı sağlama](tutorial-provision-device-to-hub.md)
+> [IoT hub’ınıza cihazı sağlama](tutorial-provision-device-to-hub.md)
 

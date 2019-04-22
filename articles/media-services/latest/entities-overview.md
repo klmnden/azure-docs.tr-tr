@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496582"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
@@ -306,4 +306,4 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [d�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir dosya Stream](stream-files-dotnet-quickstart.md)
+[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)

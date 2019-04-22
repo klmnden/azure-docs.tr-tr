@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493884"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Görüntü için öngörüleri almak için bir ınsights belirteci kullanın
@@ -476,7 +476,7 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Görsel arama tek sayfa web uygulaması oluşturma](tutorial-bing-visual-search-single-page-app.md)  
-[Bing Görsel Arama API’si nedir?](overview.md)  
-[Bilişsel Hizmetler’i deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing görsel arama API'si nedir?](overview.md)  
+[Bilişsel Hizmetler'i deneyin](https://aka.ms/bingvisualsearchtryforfree)  
+[Ücretsiz deneme erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Görüntüleri - görsel arama](https://aka.ms/bingvisualsearchreferencedoc)

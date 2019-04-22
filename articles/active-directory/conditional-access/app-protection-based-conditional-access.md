@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496939"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Koşullu erişim (Önizleme) ile bulut uygulaması erişimi için uygulama koruma İlkesi gerektirir.
@@ -97,7 +97,7 @@ Herhangi bir Intune uygulama koruma İlkesi, Kurumsal verilere erişmek için uy
 
 ### <a name="configuration"></a>Yapılandırma
 
-**1. Adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
+**1. adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -126,7 +126,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
     ![Koşullu erişim](./media/app-protection-based-conditional-access/05.png)
  
 
-**2. Adım: Çevrimiçi Exchange ActiveSync (EAS) ile bir Azure AD koşullu erişim ilkesi yapılandırma**
+**2. adım: Çevrimiçi Exchange ActiveSync (EAS) ile bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -152,7 +152,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
     ![Koşullu erişim](./media/app-protection-based-conditional-access/05.png)
 
 
-**3. Adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
+**3. adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
 
 
 ![Koşullu erişim](./media/app-protection-based-conditional-access/09.png)
@@ -180,7 +180,7 @@ Bu senaryoyu olduğunu varsayar:
 
 ### <a name="configuration"></a>Yapılandırma
 
-**1. Adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
+**1. adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -208,15 +208,15 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-   - **Uygulama koruma ilkesi gerektir (önizleme)**
+   - **Uygulama koruma İlkesi (Önizleme) gerektirir**
 
-   - **Seçilen denetimlerden birini gerekli kıl**   
+   - **Seçilen denetimlerden birini gerektir**   
  
      ![Koşullu erişim](./media/app-protection-based-conditional-access/11.png)
 
 
 
-**2. Adım: Çevrimiçi Exchange ActiveSync ile bir Azure AD koşullu erişim ilkesi yapılandırma**
+**2. adım: Çevrimiçi Exchange ActiveSync ile bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -240,15 +240,15 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-   - **Uygulama koruma ilkesi gerektir (önizleme)**
+   - **Uygulama koruma İlkesi (Önizleme) gerektirir**
 
-   - **Seçilen denetimlerden birini gerekli kıl**
+   - **Seçilen denetimlerden birini gerektir**
 
      ![Koşullu erişim](./media/app-protection-based-conditional-access/11.png)
 
 
 
-**3. Adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
+**3. adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
 
 
 ![Koşullu erişim](./media/app-protection-based-conditional-access/09.png)
@@ -282,7 +282,7 @@ Kurumsal verilere erişim sağlanmadan önce herhangi bir Intune uygulama koruma
 
 ### <a name="configuration"></a>Yapılandırma
 
-**1. Adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
+**1. adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -310,7 +310,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-   - **Uygulama koruma ilkesi gerektir (önizleme)**
+   - **Uygulama koruma İlkesi (Önizleme) gerektirir**
 
    - **Seçilen tüm denetimleri gerekli kıl**   
  
@@ -318,7 +318,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
 
 
-**2. Adım: Çevrimiçi Exchange ActiveSync ile bir Azure AD koşullu erişim ilkesi yapılandırma**
+**2. adım: Çevrimiçi Exchange ActiveSync ile bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -342,7 +342,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-   - **Uygulama koruma ilkesi gerektir (önizleme)**
+   - **Uygulama koruma İlkesi (Önizleme) gerektirir**
 
    - **Seçilen tüm denetimleri gerekli kıl**   
  
@@ -351,7 +351,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
 
 
-**3. Adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
+**3. adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
 
 
 ![Koşullu erişim](./media/app-protection-based-conditional-access/09.png)
@@ -389,7 +389,7 @@ Kurumsal verilere erişim sağlanmadan önce herhangi bir Intune uygulama koruma
 
 ### <a name="configuration"></a>Yapılandırma
 
-**1. Adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
+**1. adım: Exchange Online için bir Azure AD koşullu erişim ilkesi yapılandırma**
 
 Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırın:
 
@@ -417,14 +417,14 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
    - **Onaylı istemci uygulaması gerektir**
 
-   - **Uygulama koruma ilkesi gerektir (önizleme)**
+   - **Uygulama koruma İlkesi (Önizleme) gerektirir**
 
-   - **Seçilen denetimlerden birini gerekli kıl**
+   - **Seçilen denetimlerden birini gerektir**
  
      ![Koşullu erişim](./media/app-protection-based-conditional-access/12.png)
 
 
-**2. Adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
+**2. adım: İOS ve Android istemci uygulamaları için Intune uygulama koruma ilkesi yapılandırma**
 
 
 ![Koşullu erişim](./media/app-protection-based-conditional-access/09.png)

@@ -1,78 +1,28 @@
 ---
-title: Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması | Microsoft Docs
-description: Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması.
+title: Oturum ve çoklu oturum açma yapılandırması - Azure Active Directory B2C | Microsoft Docs
+description: Oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1acdb8b5d0054f1dffd1014a350540b6de40d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 674a20fc96cf5b86219222d746525a3559ae9d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171516"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681106"
 ---
-# <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması
 
 Bu özellik, hassas bir denetim üzerinde sağlar bir [kullanıcı akışı başına](active-directory-b2c-reference-policies.md), biri:
 
-- Azure Active Directory (Azure AD) B2C tarafından yayılan güvenlik belirteçlerinin ömrü.
 - Azure AD B2C tarafından yönetilen web uygulaması oturumları ömrü.
-- Azure AD B2C tarafından yayılan güvenlik belirteçlerini önemli Taleplerde biçimleri.
 - Çoklu oturum açma (SSO) davranışı birden fazla uygulama ve kullanıcı Azure AD B2C kiracınızda akar.
-
-Herhangi bir ilke türü bu özelliği kullanabilirsiniz, ancak bu örnek özelliği ile kaydolma veya oturum açma kullanıcı akışı kullanmak nasıl gösterir. Kullanıcı akışları için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi kullanabilirsiniz:
-
-1. Tıklayın **kullanıcı akışları**.
-2. Kullanıcı akışı tıklayarak açın. Örneğin, tıklayarak **b2c_1_siupın**.
-3. **Özellikler**'e tıklayın.
-4. Altında **belirteç uyumluluk ayarları**, istediğiniz değişiklikleri yapın. Sonraki bölümlerde kullanılabilir özellikler hakkında bilgi edinin.
-5. Tıklayın **Kaydet** menüsünün üstünde.
-
-## <a name="token-lifetimes-configuration"></a>Belirteç ömrünü yapılandırma
-
-Azure AD B2C'yi destekleyen [OAuth 2.0 Yetkilendirme Protokolü](active-directory-b2c-reference-protocols.md) korunan kaynaklara güvenli erişimi etkinleştirmek için. Bu destek uygulamak için Azure AD B2C'yi çeşitli yayan [güvenlik belirteçleri](active-directory-b2c-reference-tokens.md). 
-
-Aşağıdaki özellikler, Azure AD B2C tarafından yayılan güvenlik belirteçlerinin ömrü yönetmek için kullanılır:
-
-- **Erişim ve kimlik belirteci ömrü (dakika)** - korunan bir kaynağa erişmek için kullanılan OAuth 2.0 taşıyıcı belirtecinin ömrü.
-    - Varsayılan = 60 dakika.
-    - (Sınırlar dahil) en az 5 dakika.
-    - (Sınırlar dahil) en fazla 1440 dakika =.
-- **Yenileme belirteci ömrü (gün)** - önüne bir yenileme belirteci yeni erişim veya kimlik belirteci almak için kullanılabilir en uzun süre (ve uygulamanızı verilen, isteğe bağlı olarak, yeni bir yenileme belirteci, `offline_access` kapsam).
-    - Varsayılan = 14 gün.
-    - (Sınırlar dahil) en az 1 gün =.
-    - En fazla (sınırlar dahil) = 90 gün.
-- **Yenileme belirteci kayan pencere ömrü (gün)** - kullanıcının kimliğinin yeniden kimlik doğrulaması, bağımsız olarak geçerlilik süresi en son yenileme belirtecinin uygulama tarafından bu zaman süre geçtikten sonra. Anahtar ayarlanırsa yalnızca sağlanabilir **sınırlanmış**. Büyük veya buna eşit olması gereken **yenileme belirteci ömrü (gün)** değeri. Anahtar ayarlanırsa **Unbounded**, belirli bir değerin sağlayamaz.
-    - Varsayılan = 90 gün.
-    - (Sınırlar dahil) en az 1 gün =.
-    - (Sınırlar dahil) en fazla 365 günlük =.
-
-Aşağıdaki kullanım örnekleri, bu özellikleri kullanarak etkinleştirilir:
-
-- Kullanıcı uygulamayı sürekli olarak etkin olduğu sürece, bir mobil uygulamaya oturum açık kalsın açmasına izin verin. Ayarlayabileceğiniz **yenileme belirteci kayan pencere ömrü (gün)** için **Unbounded** oturum açma kullanıcı akışınıza.
-- Uygun erişim belirteç ömrünü ayarlayarak, sektörün güvenlik ve uyumluluk gereksinimlerinizi karşılayın.
-
-Kullanıcı akışları parola sıfırlama için bu ayarlar kullanılamaz. 
-
-## <a name="token-compatibility-settings"></a>Belirteç uyumluluk ayarları
-
-Aşağıdaki özellikler, müşterilerin gerektiğinde iyileştirilmiş izin ver:
-
-- **Verici (iss) talebi** -bu özellik, belirteci veren Azure AD B2C kiracısı tanımlar.
-    - `https://<domain>/{B2C tenant GUID}/v2.0/` -Varsayılan değer budur.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Bu değer, B2C kiracısının hem de belirteci istekte kullanılan kullanıcı akışı için kimliklerini içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](https://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
-- **Konu (sub) talebi** -belirteç için bilgilerini onayladığı varlık bu özelliği tanımlar.
-    - **ObjectID** -bu özellik varsayılan değerdir. Dizine kullanıcının nesne kimliği doldurur `sub` belirtecinde talep.
-    - **Desteklenmeyen** - bu özellik, yalnızca geriye dönük uyumluluk için sağlanır ve için geçiş öneririz **objectID** yapabilecekleriniz hemen sonra.
-- **İlke Kimliğini temsil eden talep** -bu özellik, belirteç istekte kullanılan ilke kimliği doldurulur talep türü tanımlar.
-    - **tfp** -bu özellik varsayılan değerdir.
-    - **ACR** -bu özellik, yalnızca geriye dönük uyumluluk için sağlanır.
 
 ## <a name="session-behavior"></a>Oturum davranışı
 
@@ -98,7 +48,7 @@ B2C kiracınızda birden çok uygulama ve kullanıcı akışları varsa, Kullan�
 - **Kiracı** -Bu ayar varsayılan ayardır. Bu ayar kullanılarak sağlayan birden çok uygulama ve kullanıcı akışları B2C kiracınızda aynı kullanıcı oturumuna paylaşmak için. Bir uygulamaya bir kullanıcı oturum açtıktan sonra Örneğin, kullanıcı aynı zamanda sorunsuz bir şekilde başka bir Contoso eriştiği üzerine ilaç, içine oturum açabilirsiniz.
 - **Uygulama** -diğer uygulamalar bağımsız bir uygulama için yalnızca bir kullanıcı oturumu korumak bu ayarı sağlar. Örneğin, Contoso ilaç için (aynı kimlik bilgileri ile), oturum açmak için kullanıcının kullanıcı zaten Contoso alışveriş imzalansa bile isterseniz, başka bir uygulama aynı B2C Kiracı. 
 - **İlke** -Bu ayar, bir kullanıcı oturumu şemayı kullanan uygulamaların bağımsız bir kullanıcı akışı için özel olarak korumak sağlar. Kullanıcı zaten açık ve çok faktörlü kimlik doğrulaması (MFA) adım tamamlandı, kullanıcı akışa bağlı oturumu süresi dolmadığı sürece Örneğin, kullanıcı erişim daha yüksek güvenlik için birden çok uygulama bölümlerini verilebilir.
-- **Devre dışı bırakılmış** -bu ayarı, ilkenin her yürütme tüm kullanıcı akışını çalıştırmak için kullanıcı zorlar. Örneğin, böylece uygulamanızda (paylaşılan bir masaüstü senaryo) oturum açmak birden fazla kullanıcı, tek bir kullanıcı çalışırken bile tüm süre boyunca oturum açmış durumda kalır.
+- **Devre dışı bırakılmış** -bu ayarı, ilkenin her yürütme tüm kullanıcı akışını çalıştırmak için kullanıcı zorlar.
 
 Kullanıcı akışları parola sıfırlama için bu ayarlar kullanılamaz. 
 

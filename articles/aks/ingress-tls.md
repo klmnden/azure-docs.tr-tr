@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 879b3cabcab6f10d46904bd3a479568756d877b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681072"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir HTTPS giriş denetleyicisini oluşturma
 
@@ -41,10 +41,14 @@ Bu makalede, ayrıca Azure CLI Sürüm 2.0.59 çalıştırdığınız gerektirir
 Giriş denetleyicisine oluşturmak için kullanın `Helm` yüklemek için *ngınx giriş*. Eklenen yedeklilik için NGINX giriş denetleyicilerinin iki çoğaltma ile dağıtılan `--set controller.replicaCount` parametresi. Giriş denetleyicisine çoğaltmalarını çalışmasını tam olarak yararlanmak için AKS kümenizde birden fazla düğüm olduğundan emin olun.
 
 > [!TIP]
-> Aşağıdaki örnek, giriş denetleyicisine yükler `kube-system` ad alanı. İsterseniz, farklı bir ad alanı için ortamınızda belirtebilirsiniz. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` komutlar.
+> Aşağıdaki örnek, bir Kubernetes ad alanı adlı giriş kaynakları oluşturur *giriş temel*. Bir ad alanı, kendi ortamınız için gerektiği şekilde belirtin. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` Helm komutlar.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
+helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
 ```
 
 Yükleme sırasında bir Azure genel IP adresi için giriş denetleyicisini oluşturulur. Bu genel IP adresi-ömrü için giriş denetleyicisini statiktir. Giriş denetleyicisine silerseniz, genel IP adresi ataması kaybolur. Ardından bir ek giriş denetleyicisine oluşturursanız, yeni bir ortak IP adresi atanır. Genel IP adresi kullanımını korumak istiyorsanız, bunun yerine yapabilecekleriniz [giriş denetleyicisine statik bir genel IP adresiyle oluşturma][aks-ingress-static-tls].
@@ -52,7 +56,7 @@ Yükleme sırasında bir Azure genel IP adresi için giriş denetleyicisini olu�
 Genel IP adresini almak için kullanın `kubectl get service` komutu. Hizmete atanan IP adresi için birkaç dakika sürer.
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
+$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                             TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 billowing-kitten-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
@@ -93,36 +97,27 @@ NGINX giriş denetleyicisine TLS sonlandırma destekler. Almak ve HTTPS için se
 Sertifika Yöneticisi denetleyicisi RBAC özellikli bir kümede yüklemek için aşağıdakileri kullanın `helm install` komutu:
 
 ```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Install the CustomResourceDefinition resources separately
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --version v0.6.6
-```
+# Create the namespace for cert-manager
+kubectl create namespace cert-manager
 
-> [!TIP]
-> Gibi bir hata alırsanız `Error: failed to download "stable/cert-manager"`, size sahip başarıyla çalıştırıldığından emin olun `helm repo update` en son kullanılabilir Helm grafikleri bir listesini almak için.
+# Label the cert-manager namespace to disable resource validation
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
 
-Bunun yerine, kümenizin RBAC etkin değilse, aşağıdaki komutu kullanın:
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
 
-```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Update your local Helm chart repository cache
+helm repo update
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --set rbac.create=false \
-    --set serviceAccount.create=false \
-    --version v0.6.6
+# Install the cert-manager Helm chart
+helm install \
+  --name cert-manager \
+  --namespace cert-manager \
+  --version v0.7.0 \
+  jetstack/cert-manager
 ```
 
 Sertifika Yöneticisi yapılandırma hakkında daha fazla bilgi için bkz. [Sertifika Yöneticisi proje][cert-manager].
@@ -138,6 +133,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
+  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -155,54 +151,6 @@ $ kubectl apply -f cluster-issuer.yaml
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
-## <a name="create-a-certificate-object"></a>Bir sertifika nesnesi oluşturun
-
-Ardından, sertifika kaynak oluşturulması gerekir. Sertifika kaynak istenen X.509 sertifikası tanımlar. Daha fazla bilgi için [Sertifika Yöneticisi sertifika][cert-manager-certificates].
-
-Yöneticisi büyük olasılıkla sertifika bir sertifika nesnesi beri v0.2.2 dağıtılan Sertifika Yöneticisi ile giriş-dolgu, kullanılarak sizin için otomatik olarak oluşturulur. Daha fazla bilgi için [giriş dolgu belgeleri][ingress-shim].
-
-Sertifika başarıyla oluşturulduğunu doğrulamak için `kubectl describe certificate tls-secret` komutu. Bir sertifika yayımlandığında, çıktısında *olayları* çıktı aşağıdaki örneğe benzer:
-
-```
-Type    Reason          Age   From          Message
-----    ------          ----  ----          -------
-  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
-  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
-  Normal  IssueCert       10m   cert-manager  Issuing certificate...
-  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
-  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
-```
-
-Bir sertifika kaynak oluşturmanız gerekiyorsa, aşağıdaki örnekte bildirimi ile bunu yapabilirsiniz. Güncelleştirme *dnsNames* ve *etki alanları* bir önceki adımda oluşturduğunuz DNS adı. Yalnızca dahili giriş denetleyicisine kullanırsanız, hizmetiniz için iç DNS adını belirtin.
-
-```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Certificate
-metadata:
-  name: tls-secret
-spec:
-  secretName: tls-secret
-  dnsNames:
-  - demo-aks-ingress.eastus.cloudapp.azure.com
-  acme:
-    config:
-    - http01:
-        ingressClass: nginx
-      domains:
-      - demo-aks-ingress.eastus.cloudapp.azure.com
-  issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
-```
-
-Sertifika kaynak oluşturmak için kullanın `kubectl apply -f certificates.yaml` komutu.
-
-```
-$ kubectl apply -f certificates.yaml
-
-certificate.certmanager.k8s.io/tls-secret created
-```
-
 ## <a name="run-demo-applications"></a>Tanıtım uygulamaları
 
 Giriş denetleyicisine ve sertifika yönetimi çözümü yapılandırıldı. Şimdi, AKS kümesinde uygulamaları çalıştırma iki deneme şimdi. Bu örnekte, iki basit bir 'Merhaba Dünya' uygulaması örneğini dağıtmak için Helm kullanılır.
@@ -216,13 +164,16 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Aşağıdaki komutla bir Helm grafiği ilk demo uygulamasını oluşturun:
 
 ```console
-helm install azure-samples/aks-helloworld
+helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 Şimdi ikinci bir örneğini demo uygulamasını yükleyin. İkinci örnek için iki uygulama görsel olarak benzersiz olacak şekilde yeni bir başlık belirtin. Ayrıca bir benzersiz bir hizmet ad belirtin:
 
 ```console
-helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+helm install azure-samples/aks-helloworld \
+    --namespace ingress-basic \
+    --set title="AKS Ingress Demo" \
+    --set serviceName="ingress-demo"
 ```
 
 ## <a name="create-an-ingress-route"></a>Bir giriş yol oluşturma
@@ -238,6 +189,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
@@ -269,6 +221,56 @@ $ kubectl apply -f hello-world-ingress.yaml
 ingress.extensions/hello-world-ingress created
 ```
 
+## <a name="create-a-certificate-object"></a>Bir sertifika nesnesi oluşturun
+
+Ardından, sertifika kaynak oluşturulması gerekir. Sertifika kaynak istenen X.509 sertifikası tanımlar. Daha fazla bilgi için [Sertifika Yöneticisi sertifika][cert-manager-certificates].
+
+Sertifika Yöneticisi, Sertifika Yöneticisi ile bu yana v0.2.2 otomatik olarak dağıtılan giriş-dolgu kullanılarak sizin için büyük olasılıkla sertifika nesne otomatik olarak oluşturmuştur. Daha fazla bilgi için [giriş dolgu belgeleri][ingress-shim].
+
+Sertifika başarıyla oluşturulduğunu doğrulamak için `kubectl describe certificate tls-secret --namespace ingress-basic` komutu.
+
+Sertifika verilmişse, aşağıdakine benzer bir çıktı görürsünüz:
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
+Bir ek sertifika kaynağı oluşturmanız gerekiyorsa, aşağıdaki örnekte bildirimi ile bunu yapabilirsiniz. Güncelleştirme *dnsNames* ve *etki alanları* bir önceki adımda oluşturduğunuz DNS adı. Yalnızca dahili giriş denetleyicisine kullanırsanız, hizmetiniz için iç DNS adını belirtin.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+  namespace: ingress-basic
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+```
+
+Sertifika kaynak oluşturmak için kullanın `kubectl apply -f certificates.yaml` komutu.
+
+```
+$ kubectl apply -f certificates.yaml
+
+certificate.certmanager.k8s.io/tls-secret created
+```
+
 ## <a name="test-the-ingress-configuration"></a>Giriş yapılandırmayı test etme
 
 Kubernetes giriş denetleyicinizin FQDN'si için bir web tarayıcısı gibi açın *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
@@ -291,7 +293,25 @@ Demo uygulamayı web tarayıcısında gösterilmektedir:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu makalede, giriş bileşenleri, sertifikalar ve örnek uygulamaları yüklemek için Helm kullanılır. Kubernetes kaynak sayısı, bir Helm grafiği dağıttığınızda oluşturulur. Bu kaynaklar, pod'ları, dağıtımlar ve hizmetleri içerir. Temizlemek için önce sertifika kaynakları kaldırın:
+Bu makalede, giriş bileşenleri, sertifikalar ve örnek uygulamaları yüklemek için Helm kullanılır. Kubernetes kaynak sayısı, bir Helm grafiği dağıttığınızda oluşturulur. Bu kaynaklar, pod'ları, dağıtımlar ve hizmetleri içerir. Bu kaynakları temizlemek için ya da tüm örnek ad alanı veya tek tek kaynakları silebilirsiniz.
+
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Örnek ad alanı ve tüm kaynakları silme
+
+Tüm örnek ad alanı silmek için kullanın `kubectl delete` komut ve ad alanı adınızı belirtin. Ad alanındaki tüm kaynaklar silinir.
+
+```console
+kubectl delete namespace ingress-basic
+```
+
+Ardından, AKS Merhaba Dünya uygulaması için Helm deposu kaldırın:
+
+```console
+helm repo remove azure-samples
+```
+
+### <a name="delete-resources-individually"></a>Tek tek kaynakları silme
+
+Alternatif olarak, daha ayrıntılı bir yaklaşım oluşturulan kaynakların silmektir. İlk olarak, sertifika kaynakları kaldırın:
 
 ```console
 kubectl delete -f certificates.yaml
@@ -325,6 +345,12 @@ Ardından, AKS Merhaba Dünya uygulaması için Helm deposu kaldırın:
 
 ```console
 helm repo remove azure-samples
+```
+
+Kendi ad alanı silin. Kullanım `kubectl delete` komut ve ad alanı adınızı belirtin:
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 Son olarak, örnek uygulamalara yönelik trafiği yönlendiren giriş rota kaldırın:

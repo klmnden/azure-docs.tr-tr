@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495917"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data factory'de Web kancası etkinliği
@@ -74,10 +74,10 @@ Web kancası etkinliği kendisini, yalnızca başarısız olduğunda özel uç n
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın:
 
-- [If Condition Etkinliği](control-flow-if-condition-activity.md)
-- [İşlem Hattı Çalıştırma Etkinliği](control-flow-execute-pipeline-activity.md)
-- [Her Bir Etkinlik için](control-flow-for-each-activity.md)
+- [If Koşulu Etkinliği](control-flow-if-condition-activity.md)
+- [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md)
+- [Her etkinlik için](control-flow-for-each-activity.md)
 - [Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md)
 - [Arama Etkinliği](control-flow-lookup-activity.md)
-- [Web Etkinliği](control-flow-web-activity.md)
-- [Until Etkinliği](control-flow-until-activity.md)
+- [Web etkinliği](control-flow-web-activity.md)
+- [Bitiş Etkinliği](control-flow-until-activity.md)

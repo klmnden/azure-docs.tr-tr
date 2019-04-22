@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864069"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678395"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma
 
@@ -27,7 +27,7 @@ Komut satırı parametreleri çeşitli DistCp sağlar ve uygulamanızın kullan�
 * **Data Lake depolama Gen2 özellikleri (hiyerarşik ad alanı) etkin olmayan mevcut bir Azure depolama hesabı**.
 * **Data Lake depolama Gen2 özelliği etkin bir Azure depolama hesabıyla**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
 * **Bir dosya sistemi** , oluşturuldu depolama hesabında etkin hiyerarşik ad alanı.
-* **Azure HDInsight kümesinde** Data Lake depolama Gen2'ye etkin olan bir depolama hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](data-lake-storage-use-hdi-cluster.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Azure HDInsight kümesinde** Data Lake depolama Gen2'ye etkin olan bir depolama hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesinden DistCp kullanma
 

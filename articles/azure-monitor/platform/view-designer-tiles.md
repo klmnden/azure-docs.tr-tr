@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495337"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kutucukları için başvuru kılavuzu
@@ -54,7 +54,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 |:--- |:--- |
 | Ad |Kutucuğun üst kısmında görüntülenen metin. |
 | Açıklama |Kutucuk adı altında görüntülenen metin. |
-| **Kutucuk** | |
+| **kutucuğu** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -72,10 +72,10 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 |:--- |:--- |
 | Ad |Kutucuğun üst kısmında görüntülenen metin. |
 | Açıklama |Kutucuk adı altında görüntülenen metin. |
-| **İlk Kutucuk** | |
+| **İlk kutucuk** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
-| **İkinci Kutucuk** | |
+| **İkinci kutucuk** | |
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492210"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
@@ -49,8 +49,8 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 | apiProfile |Hayır | API sürümleri için kaynak türleri koleksiyonu olarak görev yapan bir API sürümü. API sürümleri için her kaynak şablonda belirtmek zorunda kalmamak için bu değeri kullanın. Resource Manager API sürümü bir API profili sürümü belirttiğinizde ve bu nedenle kaynak türü için bir API sürümü belirtmeyin profilinde tanımlanan kaynak türü için kullanır.<br><br>API Profil özelliği için Azure Stack ve genel Azure gibi farklı ortamlarda şablonu dağıtırken özellikle yararlıdır. Şablonunuzu otomatik olarak her iki ortamlarda desteklenen sürümleri kullandığından emin olmak için API profil sürümü kullanın. Geçerli API profili sürümleri ve API sürümlerini profilinde tanımlanan kaynaklar listesi için bkz: [API profili](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Daha fazla bilgi için [izleme API profillerini kullanarak sürümleri](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parametreler](#parameters) |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
 | [Değişkenleri](#variables) |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
-| [işlevler](#functions) |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
-| [kaynaklar](#resources) |Evet |Dağıtılan ya da bir kaynak grubu veya abonelik güncelleştirilmiş kaynak türleri. |
+| [İşlevleri](#functions) |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
+| [Kaynakları](#resources) |Evet |Dağıtılan ya da bir kaynak grubu veya abonelik güncelleştirilmiş kaynak türleri. |
 | [çıkışlar](#outputs) |Hayır |Dağıtımdan sonra döndürülen değerleri. |
 
 Her öğesinin özellikleri ayarlayabilirsiniz. Bu makalede daha ayrıntılı şablon bölümlerini açıklar.
@@ -786,7 +786,7 @@ Kullanamazsınız `reference` çıktılar bölümünü işlevinde bir [iç içe 
 |---------|---------|
 |[Değişkenleri kopyalayın](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Karmaşık değişkenler oluşturur ve bu değerleri çıkarır. Tüm kaynakları dağıtmaz. |
 |[Genel IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Genel bir IP adresi oluşturur ve kaynak kimliği çıkarır |
-|[Yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Yukarıdaki şablonu bağlar. Kaynak Kimliği, yük dengeleyici oluştururken çıktısında kullanır. |
+|[Yük Dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Yukarıdaki şablonu bağlar. Kaynak Kimliği, yük dengeleyici oluştururken çıktısında kullanır. |
 
 
 <a id="comments" />

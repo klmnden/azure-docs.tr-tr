@@ -2,16 +2,17 @@
 title: 'İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri | Microsoft Docs'
 description: Uygulamaları sırasında veri merkezi arızalarına karşı dayanıklı olmasını sağlamak için Azure bölgesel eşleme hakkında bilgi edinin.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792331"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678879"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -37,6 +38,7 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Avrupa |Kuzey Avrupa |Batı Avrupa |
 | Fransa |Fransa Orta|Fransa Güney|
 | Almanya |Almanya Orta |Almanya Kuzeydoğu |
+| Almanya |Almanya Kuzey | Almanya Orta Batı
 | Hindistan |Orta Hindistan |Güney Hindistan |
 | Hindistan |Batı Hindistan |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
@@ -45,7 +47,14 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Kuzey Amerika |Doğu ABD 2 |Orta ABD |
 | Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
 | Kuzey Amerika |Batı ABD 2 |Batı Orta ABD 
+| Kuzey Amerika |Batı ABD 3 |Doğu ABD
+| Norveç |Norveç Doğu |Norveç Batı
+| Güney Afrika | Güney Afrika Kuzey | Güney Afrika Batı
+| İsveç |İsveç Orta |İsveç Güney
+| İsviçre | İsviçre Kuzey | İsviçre Batı
 | UK |Birleşik Krallık Batı |Birleşik Krallık Güney |
+| UK |UK Kuzey |UK Güney 2
+| Birleşik Arap Emirlikleri | BAE Kuzey | BAE Orta
 | ABD Savunma Bakanlığı |US DoD Doğu |US DoD Orta |
 | ABD Devleti |ABD Devleti Arizona |ABD Devleti Texas |
 | ABD Devleti |US Gov Iowa |ABD Devleti Virginia |
@@ -53,10 +62,11 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 
 Tablo 1 - Azure bölgesel çiftler eşleme
 
-- Batı Hindistan farklı olduğundan, yalnızca bir yöndeki başka bir bölgeyle eşleştirilir. Güney Hindistan Batı Hindistan'ın ikincil bölgeye olduğu halde Orta Hindistan Güney Hindistan'ın ikincil bölgeye olduğu.
-- Brezilya Güney benzersiz olduğundan, kendi Coğrafya dışında bir bölgeyle eşleştirilir. Brezilya Güney'nın ikincil bölgeye Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölgeye Brezilya Güney değil.
-- ABD Devleti Iowa'nın ikincil bölgeye ABD Devleti Virginia, ancak ikincil bölgeye ABD Devleti Virginia'nın ABD Devleti Iowa değil.
-- ABD Devleti Virginia'nın ikincil bölgeye, ABD Devleti Texas olmakla birlikte US Gov Teksas ikincil bölgeye ABD Devleti Virginia değil.
+- Batı Hindistan, tek yönlü eşleştirilir. Güney Hindistan Batı Hindistan'ın ikincil bölgeye olduğu halde Orta Hindistan Güney Hindistan'ın ikincil bölgeye olduğu.
+- Brezilya Güney benzersiz olduğundan, kendi Coğrafya dışında bir bölgeyle eşleştirilir. Brezilya Güney'nın ikincil bölgeye Orta Güney ABD ' dir. Güney Brezilya Güney Orta ABD'ın ikincil bölgeye değil.
+- ABD Devleti Iowa'nın ikincil bölgeye ABD Devleti Virginia ' dir.
+- ABD Devleti Virginia'nın ikincil bölgeye US Gov Teksas ' dir.
+- ABD Devleti Texas ikincil bölgeye ABD Devleti Arizona ' dir.
 
 
 İş sürekliliği, olağanüstü durum kurtarma (BCDR) yapılandırma Azure'un yalıtım ve kullanılabilirlik ilkelerinden yararlanmak için bölgesel çiftler arasında öneririz. Birden çok etkin bölgeler destekleyen uygulamalar için mümkün olduğu durumlarda bir bölge çiftindeki her iki bölgeleri kullanmanızı öneririz. Bu, en iyi uygulamalar ve olağanüstü bir simge durumuna küçültülmüş kurtarma zamanı kullanılabilirliği garanti eder. 

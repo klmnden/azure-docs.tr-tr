@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983177"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678114"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -23,7 +23,7 @@ Yeni Azure izleme ve uyarı yerinde platformu ile biz "izleme ve uyarı içinde 
 
  ![Azure portalında Klasik uyarı](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Kullanmaya başlayın ve yeni platform uyarılarınızı oluşturmanız önerilir. Çok sayıda uyarı olan müşteriler, mevcut Klasik uyarıları kesintiye uğratmadan yeni uyarılar sisteme taşımak için otomatik bir yol sağlamak üzere çalışma veya maliyetleri eklendi.
+Kullanmaya başlayın ve yeni platform uyarılarınızı oluşturmanız önerilir. Çok sayıda uyarı sahip müşteriler, duyuyoruz [aşamaları out içinde çalışırken](alerts-understand-migration.md#roll-out-phases), [gönüllü bir geçiş aracı](alerts-using-migration-tool.md) kesintisi veya ek maliyet olmadan yeni uyarılar sistemde mevcut Klasik uyarıları taşımak için.
 
 > [!IMPORTANT]
 > Etkinlik günlüğü üzerinde oluşturulan Klasik uyarı kuralları kullanım dışı veya geçirildi. Etkinlik günlüğü üzerinde oluşturulan tüm Klasik uyarı kuralları erişilebilen ve olarak kullanılan-yeni Azure İzleyici'deki - uyarılar olduğundan. Daha fazla bilgi için [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme](../../azure-monitor/platform/alerts-activity-log.md). Benzer şekilde, hizmet durumu uyarıları erişilebilen ve olarak kullanılan-yeni hizmet durumu bölümünden olduğu. Ayrıntılar için bkz [hizmet durumu bildirimlerine uyarılarda](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -60,13 +60,14 @@ Tüm Klasik izleme ve sistemlerle ilgili uyarı [API](https://msdn.microsoft.com
 
 Azure İzleyici'de, Haziran 2019 sonunda:
 
-- Klasik izleme ve Uyarılar hizmetinin kullanımdan kaldırılmış ve artık yeni uyarı kuralları oluşturma
+- Klasik izleme ve Uyarılar hizmetinin kullanımdan kaldırma ve yeni uyarı kuralları oluşturulması için artık kullanılabilir olacaktır.
 - Uyarılar (Klasik) Haziran 2019 ötesinde var olmaya devam uyarı kuralları yürütün ve bildirimleri harekete geçin, ancak değişiklik kullanılamaz.
-- Temmuz 2019 başlayarak, hiçbir uyarı kuralları Klasik izleme ve uyarı otomatik olarak Microsoft tarafından eşdeğerine yeni Azure İzleyici platformuna geçirilecektir. İşlem kapalı kalma süresi sorunsuz ve müşterilerinin kapsamı izleme kaybı olmadan olacaktır.
-- Uyarı kuralları geçişi yeni uyarılar platformu izleme kapsamı önceki gibi sağlar ancak yeni yüklerini bildirimi ateşlenir. Herhangi bir e-posta adresi, Web kancası uç noktası veya Klasik bir uyarı kuralı ile ilişkili mantıksal uygulama bağlantısı geçişi olduğunda İleri taşınır, ancak doğru şekilde çalışmayabilir uyarı yükü yeni platformu farklı olarak
+- Başlangıç Temmuz 2019, Klasik izleme ve uyarı, geçirilebilir, uyarı kuralları otomatik olarak Microsoft tarafından yeni platformu Azure İzleyici'taki eşdeğerlerine taşınır. İşlem kapalı kalma süresi sorunsuz ve müşterilerinin kapsamı izleme kaybı olmadan olacaktır.
+- Uyarı kuralları geçişi yeni uyarılar platformu izleme kapsamı önceki gibi sağlar ancak yeni yüklerini bildirimi ateşlenir. Herhangi bir e-posta adresi, Web kancası uç noktası veya Klasik bir uyarı kuralı ile ilişkili mantıksal uygulama bağlantısı geçişi olduğunda İleri taşınır, ancak doğru şekilde çalışmayabilir gibi uyarı yükü yeni platformu farklı olacaktır.
+- Bazı [otomatik olarak geçirilemez Klasik uyarı kuralları](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) ve kullanıcıların el ile gerçekleştirilen eylem Haziran 2020 kadar çalışmaya devam eder.
 
 > [!IMPORTANT]
-> Microsoft Azure İzleyici otomatik olarak yeni platformu açın, Klasik uyarı kuralları yakında konusunda müşterileri için araçlar sağlar. Çalıştırıp onu zorla yine de mevcut, Temmuz 2019 başlayan tüm Klasik uyarı kuralları tarafından. Müşteriler kullanan klasik bir uyarı kuralı yükü yeni yükü işlemek için uyarlanmış Otomasyon sağlamak gerekir [birleşik ölçümleri ve Uyarıları Application ınsights'ta](#unified-metrics-and-alerts-in-application-insights) veya [birleşik ölçümleri ve diğer Azure uyarıları Kaynakları](#unified-metrics-and-alerts-for-other-azure-resources), Klasik uyarı kuralları geçiş sonrası. 
+> Microsoft Azure İzleyici piyasaya sunuluyor aşamalarında [gönüllü olarak geçirmek için aracı](alerts-using-migration-tool.md) , klasik bir uyarı kuralları yakında yeni platformu açın. Çalıştırıp onu zorla hala mevcut ve Temmuz 2019 başlangıç geçirilebilir tüm Klasik uyarı kuralları tarafından. Müşteriler kullanan klasik bir uyarı kuralı yükü yeni yükü işlemek için uyarlanmış Otomasyon sağlamak gerekir [birleşik ölçümleri ve Uyarıları Application ınsights'ta](#unified-metrics-and-alerts-in-application-insights) veya [birleşik ölçümleri ve diğer Azure uyarıları Kaynakları](#unified-metrics-and-alerts-for-other-azure-resources), Klasik uyarı kuralları geçiş sonrası. Daha fazla ayrıntı için [klasik bir uyarı kuralı geçiş için hazırlama](alerts-prepare-migration.md)
 
 Araçlar, uyarılardan gönüllü geçirmenizi yakında sağlayacağız [uyarılar (Klasik) bölümünde](../../azure-monitor/platform/alerts-classic.overview.md) yeni Azure uyarıları için Azure portal'ın. Uyarılar (Klasik), yeni Azure İzleyicisi geçişi yapılandırılan tüm kurallar ücretsiz kalır ve ücret alınmaz. Geçirilen Klasik uyarı kuralları için e-posta, Web kancası veya mantıksal uygulama bildirimleri gönderme herhangi bir ücrete da size aittir değil. Ancak, daha yeni bir bildirim ya da eylem türleri (örneğin, SMS, sesli arama, ITSM tümleştirmesi, vb.) kullanımı için geçirilen veya yeni bir uyarı eklenip ücrete tabi olacaktır. Daha fazla bilgi için [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -84,4 +85,3 @@ Bu makalede, bağlantılar ve yeni Azure İzleyici platformu benimsenmesi kullan
 
 * Hakkında bilgi edinin [yeni birleşik Azure İzleyici](../../azure-monitor/overview.md).
 * Yeni hakkında daha fazla bilgi [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
-

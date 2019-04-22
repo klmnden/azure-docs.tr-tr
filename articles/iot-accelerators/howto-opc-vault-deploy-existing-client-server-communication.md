@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495303"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA güvenli istemci ve OPC UA sunucu uygulaması 
@@ -37,11 +37,11 @@ OPC kasa komut dosyaları:
 **Hızlı Başlangıç**
 1. Git [OPC kasa Web sitesi](https://opcvault.azurewebsites.net/)
 
-1. Şunu seçin: `Register New`
+1. `Register New` seçeneğini belirleyin
 
 1. Önceki testbed ait günlük çıktıda gösterildiği OPC PLC bilgi girin `CreateSigningRequest information` giriş alanlarına alan `Register New OPC UA Application` sayfasında `Server` ApplicationType olarak.
 
-1. Şunu seçin: `Register`
+1. `Register` seçeneğini belirleyin
 
 1. Sonraki sayfada `Request New Certificate for OPC UA Application` seçin `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ OPC kasa komut dosyaları:
 
 1. Sonraki sayfada `Generate a new KeyPair and for an OPC UA Application` girin `CN=OpcPlc` SubjectName, olarak `opcplc-<_OPCVAULTID>` (Değiştir `<_OPCVAULTID>` sizinki ile) DomainName seçin `PEM` PrivateKeyFormat olarak ve bir parola girin (daha sonra olarak diyoruz `<certpassword-string>`)
 
-1. Şunu seçin: `Generate New KeyPair`
+1. `Generate New KeyPair` seçeneğini belirleyin
 
 1. Artık ileriye doğru geçiş yapıyorsanız `View Certificate Request Details`. Bu sayfada sertifika depoları sağlamak için gerekli tüm bilgileri indirebilirsiniz `opc-plc`.
 

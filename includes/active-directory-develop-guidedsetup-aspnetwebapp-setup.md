@@ -15,10 +15,10 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505830"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
@@ -57,7 +57,7 @@ Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğru
 > [!TIP]
 > Projenizin kök klasöründe `Startup.cs` adlı bir dosya yoksa:
 > 1. Projenin kök klasörüne sağ: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Adlandırın `Startup.cs`
+> 2. Bunu, `Startup.cs` olarak adlandırın.
 >
 >> Seçilen sınıfın standart bir C# sınıfı değil OWIN Başlangıç Sınıfı olduğundan emin olun. Doğrulamak için ad alanının üzerinde `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` yazıp yazmadığını kontrol edin.
 

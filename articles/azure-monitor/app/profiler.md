@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493748"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights ile canlı Azure App Service uygulamalarını profili
@@ -27,7 +27,7 @@ Profiler ASP.NET ve ASP.NET Core hakkında temel hizmet katmanı kullanarak Azur
 Bir uygulama için Profiler'ı etkinleştirmek için aşağıdaki yönergeleri izleyin. Farklı türde bir Azure hizmeti çalıştırıyorsanız, desteklenen platformlarda Profiler'ı etkinleştirmek için yönergeler şunlardır:
 * [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric uygulamaları](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Sanal Makineler](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler, uygulama hizmetleri çalışma zamanı bir parçası olarak önceden yüklenir. Aşağıdaki adımlar, uygulama hizmetiniz için etkinleştirme gösterilmektedir. App Insights SDK'sı, uygulamanızın derleme zamanında ekledik olsa bile bu adımları izleyin.
 
@@ -72,7 +72,7 @@ Profiler'ın dosyaları WebDeploy değişiklikleri web uygulamanıza dağıtmak 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Visual Studio’da Application Insights ile çalışma](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+* [Visual Studio'da Application Insights ile çalışma](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png

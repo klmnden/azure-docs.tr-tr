@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB bölgeleri arasındaki çakışmaları yönetme
 description: Azure Cosmos DB'deki çakışmaları yönetme
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: 6f4e6fce88815490ceffd7456cde045b38e32b29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548837"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680222"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de Çakışma çözümlemesi ilkelerini yönetme
 
-Çok bölgeli yazma işlemlerinde oluşan veri çakışmalarını farklı veri çakışması ilkelerini kullanarak çözebilirsiniz. Bu makalede, Çakışma çözümlemesi ilkeleri farklı dil platformları yönetmek açıklar.
+Birden çok istemci aynı öğeye yazdığında, çok bölgeli yazma ile çakışmaları oluşabilir. Bir çakışma oluştuğunda, farklı çakışma çözümlemesi ilkeleri kullanarak çakışmayı çözebilirsiniz. Bu makalede, Çakışma çözümlemesi ilkelerini yönetmek açıklar.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Özel bir çakışma çözümleme ilkesi oluşturma
 
@@ -82,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Bir özel çakışma çözüm ilkesi olan bir saklı yordam oluşturma
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Bir saklı yordamı kullanarak bir özel çakışma çözüm ilkesi oluşturma
 
-Bu örnekler çakışmayı çözümlemek için saklı yordama içeren özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmaları, saklı yordamda hata olmadığı sürece akış çakışma görünmüyor.
+Bu örnekler, bir özel çakışma çözüm İlkesi çakışmayı çözmek için bir saklı yordamı kullanarak bir kapsayıcı ayarlama gösterir. Bu çakışmaları, saklı yordamda hata olmadığı sürece akış çakışma görünmüyor.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -162,9 +162,9 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Son yazıcı WINS çakışma çözüm ilkesi oluşturma
+## <a name="create-a-last-writer-wins-lww-conflict-resolution-policy"></a>Son yazıcı WINS (LWW) çakışma çözüm ilkesi oluşturma
 
-Bu örnekler, son yazıcı WINS çakışma çözüm ilkesi içeren bir kapsayıcıya nasıl gösterir. Yolu ayarlanmamış veya geçersiz ise varsayılan `_ts` özelliği. Bu özellik, zaman damgası alanı olur. Bu çakışmaları çakışması akıştaki gösterme.
+Bu örnekler, son yazıcı WINS çakışma çözüm ilkesi içeren bir kapsayıcıya nasıl gösterir. Yolu ayarlanmamış veya geçersiz ise varsayılan `_ts` özelliği. Bu özellik, zaman damgası alanı olur. Bu çakışmaları çakışması akıştaki gösterilmez.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -233,7 +233,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Çakışma akışından okuma
 
-Bu örnekler, kapsayıcının çakışma akışından okuma yöntemlerini göstermektedir. Yalnızca bunlar otomatik olarak çözümlenip olmayan besleme çakışmayı çakışmaları gösterilir.
+Bu örnekler, kapsayıcının çakışma akışından okuma yöntemlerini göstermektedir. Çakışmaları yalnızca akış çakışmayı bunlar otomatik olarak, örn, el ile çakışma çözüm ilkesi seçtiğiniz ve saklı yordam kaydetmedi çözümlenemedi. varsa gösterilir.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -285,6 +285,10 @@ while conflict:
 
 Aşağıdaki Azure Cosmos DB kavramları hakkında bilgi edinin:
 
+* [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
+* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md).
 * [Bölümleme ve veri dağıtımı](partition-data.md)
 * [Azure Cosmos DB'yi dizine ekleme](indexing-policies.md)

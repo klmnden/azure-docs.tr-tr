@@ -9,15 +9,15 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497377"
 ---
-İşlevleri kolaylaştırır bir işlev uygulaması için Application Insights tümleştirmesi ekleme [Azure portalında].
+İşlevleri kolaylaştırır bir işlev uygulaması için Application Insights tümleştirmesi ekleme [Azure Portal].
 
-1. İçinde [portalı][Azure portalı]seçin **tüm hizmetler > işlev uygulamaları**, işlev uygulamanızı seçin ve ardından **ApplicationInsights** pencerenin üst kısmındaki başlık
+1. İçinde [portalı][azure portal]seçin **tüm hizmetler > işlev uygulamaları**, işlev uygulamanızı seçin ve ardından **ApplicationInsights** pencerenin üst kısmındaki başlık
 
     ![Application Insights portalından etkinleştirme](media/functions-connect-new-app-insights/enable-application-insights.png)
 

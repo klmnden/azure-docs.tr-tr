@@ -69,16 +69,15 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="sql-database-managed-instance#business-critical-service-tier">İş kritik hizmet katmanı</a> artık <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">genel kullanılabilirlik (GA)</a>.'
-          - html: '(Önizleme) Oluşturma <a href="https://aka.ms/managed-instance-aadlogins">örnek düzeyi Azure AD sunucu sorumlusu (oturum açma bilgileri)</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .'
-          - html: '(Önizleme) Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
-          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.'
-          - html: '(Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.'
-          - html: '(Önizleme) <a href="https://aka.ms/managed-instance-tde-byok">Kendi şifreleme anahtarlarınızı Getir</a> geçirme saydam veri şifrelemesi (TDE) zaten etkinleştirilmiş olan şirket içi veritabanlarını sırada.'
-          - html: İle korumalı yönetilen örnekler <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">yerleşik güvenlik duvarı</a>.
-          - html: '(Önizleme) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Bırakılan PowerShell kullanarak veritabanlarını yeniden oluşturma</a>'
-          - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'
           - html: '(Önizleme) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Yapılandırma saat dilimi</a> örnek oluşturma sırasında.'
+          - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'
+          - html: '(Önizleme) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Bırakılan PowerShell kullanarak veritabanlarını yeniden oluşturma</a>'
+          - html: İle korumalı yönetilen örnekler <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">yerleşik güvenlik duvarı</a>.
+          - html: '(Önizleme) <a href="https://aka.ms/managed-instance-tde-byok">Kendi şifreleme anahtarlarınızı Getir</a> geçirme saydam veri şifrelemesi (TDE) zaten etkinleştirilmiş olan şirket içi veritabanlarını sırada.'
+          - html: '(Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.'
+          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.'
+          - html: '(Önizleme) Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
+          - html: '(Önizleme) Oluşturma <a href="https://aka.ms/managed-instance-aadlogins">örnek düzeyi Azure AD sunucu sorumlusu (oturum açma bilgileri)</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .'
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph

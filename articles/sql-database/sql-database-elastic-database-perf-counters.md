@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494927"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Parça eşleme Yöneticisi performansını izlemek için performans sayaçları oluşturma
@@ -68,7 +68,7 @@ Performans sayaçlarını eşlemeleri ve parça eşlemesi üzerinde gerçekleşt
 
 ### <a name="see-also"></a>Ayrıca bkz.
 
-[Elastik veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  
+[Elastik Veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
