@@ -80,7 +80,7 @@ Runbook'ları için özellikler aşağıdaki tabloda açıklanmıştır.
 | runbookType |Runbook türlerini belirtir. <br><br> Betiği - PowerShell Betiği <br>PowerShell - PowerShell iş akışı <br> GraphPowerShell - grafik PowerShell Betiği runbook <br> GraphPowerShellWorkflow - grafik PowerShell iş akışı runbook'u |
 | logProgress |Belirtir olup olmadığını [ilerleme durumu kayıtlarını](../../automation/automation-runbook-output-and-messages.md) runbook için oluşturulması gerekir. |
 | logVerbose |Belirtir olup olmadığını [ayrıntılı kayıtları](../../automation/automation-runbook-output-and-messages.md) runbook için oluşturulması gerekir. |
-| açıklama |Runbook için isteğe bağlı bir açıklama. |
+| description |Runbook için isteğe bağlı bir açıklama. |
 | publishContentLink |Runbook'un içeriğini belirtir. <br><br>Uri - runbook içeriğinin URI'si.  Bu, PowerShell ve komut dosyası runbook'ları için bir .ps1 dosyası ve bir graf runbook için dışarı aktarılan grafik runbook dosyası olacaktır.  <br> Sürüm - runbook kendi izleme için sürümü. |
 
 
@@ -114,7 +114,7 @@ Otomasyon işleri için özellikler aşağıdaki tabloda açıklanmıştır.
 | Özellik | Açıklama |
 |:--- |:--- |
 | runbook |Tek ad varlık başlatmak için runbook'un adına sahip. |
-| parametreler |Varlık için runbook tarafından gerekli her parametre değeri. |
+| parameters |Varlık için runbook tarafından gerekli her parametre değeri. |
 
 İş, runbook adı ve runbook'a gönderilecek tüm parametre değerlerini içerir.  İş gereken [bağımlı]( solutions-solution-file.md#resources) beri runbook başlatılıyor runbook işinden önce oluşturulması gerekir.  Başlatılacak birden çok runbook varsa, ilk çalıştırılması gereken diğer işleri üzerinde bağımlı bir işlem sağlayarak sıralarına tanımlayabilirsiniz.
 
@@ -144,8 +144,8 @@ Sertifikaları kaynakların özellikleri aşağıdaki tabloda açıklanmıştır
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| base64value değeri |Sertifikayı Base 64 değeri. |
-| parmak izi |Sertifikanın parmak izi. |
+| base64Value |Sertifikayı Base 64 değeri. |
+| thumbprint |Sertifikanın parmak izi. |
 
 
 
@@ -171,7 +171,7 @@ Kimlik bilgisi kaynakların özellikleri aşağıdaki tabloda açıklanmıştır
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Kullanıcı adı |Kimlik bilgisi için kullanıcı adı. |
+| userName |Kimlik bilgisi için kullanıcı adı. |
 | password |Parola kimlik bilgisi için. |
 
 
@@ -199,9 +199,9 @@ Zamanlama kaynakların özellikleri aşağıdaki tabloda açıklanmıştır.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| açıklama |Zamanlama için isteğe bağlı bir açıklama. |
+| description |Zamanlama için isteğe bağlı bir açıklama. |
 | startTime |Başlangıç zamanı, zamanlamanın bir DateTime nesnesi olarak belirtir. Geçerli bir DateTime türüne dönüştürülebilir ise bir dize sağlanabilir. |
-| IsEnabled |Zamanlama etkin olup olmadığını belirtir. |
+| isEnabled |Zamanlama etkin olup olmadığını belirtir. |
 | interval |Zamanlama için aralık türü.<br><br>gün<br>saat |
 | frequency |Zamanlama gün veya saat cinsinden yangın sıklığı. |
 
@@ -242,8 +242,8 @@ Bir çözümde zamanlama kaynaklar kullanırken aşağıdaki iki stratejileri ku
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Zamanlama adı |Tek **adı** planının adı olan varlık. |
-| runbook adı  |Tek **adı** runbook'un adı olan varlık.  |
+| schedule name |Tek **adı** planının adı olan varlık. |
+| runbook name  |Tek **adı** runbook'un adı olan varlık.  |
 
 
 
@@ -269,10 +269,10 @@ Değişken kaynakların özellikleri aşağıdaki tabloda açıklanmıştır.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| açıklama | Değişken için isteğe bağlı bir açıklama. |
-| Isencrypted | Değişken şifrelenmesi gerekip gerekmediğini belirtir. |
+| description | Değişken için isteğe bağlı bir açıklama. |
+| isEncrypted | Değişken şifrelenmesi gerekip gerekmediğini belirtir. |
 | type | Bu özellik şu anda hiçbir etkisi olmaz.  Değişkenin veri türü ilk değere göre belirlenir. |
-| değer | Değişken için değeri. |
+| value | Değişken için değeri. |
 
 > [!NOTE]
 > **Türü** özelliği şu anda oluşturulan değişken üzerinde hiçbir etkisi yok.  Değişken için veri türü değeri tarafından belirlenir.  
@@ -282,8 +282,8 @@ Değişken için ilk değeri ayarlarsanız, doğru veri türü olarak yapıland�
 | Veri türü | Açıklama | Örnek | Çözümler |
 |:--|:--|:--|:--|
 | string   | Değer, çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
-| Sayısal  | Tek tırnak işaretleri ile sayısal değer.| "64" | 64 |
-| boole  | **doğru** veya **false** tırnak içinde.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | true |
+| numeric  | Tek tırnak işaretleri ile sayısal değer.| "64" | 64 |
+| boolean  | **doğru** veya **false** tırnak içinde.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | true |
 | datetime | Seri hale getirilmiş bir tarih değeri.<br>Bu değer için belirli bir tarih oluşturmak için PowerShell'de ConvertTo-Json cmdlet'ini kullanabilirsiniz.<br>Örnek: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modüller
