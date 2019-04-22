@@ -7,14 +7,14 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003460"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683611"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -29,8 +29,7 @@ Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz 
     2. Express Route - ExpressRoute, Microsoft veri merkezleri ve şirket içindeki veya ortak yerleşim tesisinizden altyapınız arasında özel bağlantılar oluşturmanızı sağlayan bir Azure hizmetidir. ExpressRoute bağlantıları değil genel Internet üzerinden gidin ve daha yüksek güvenlik, güvenilirlik ve hız tipik daha düşük gecikme süreleriyle Internet üzerinden sunar. Daha fazla bilgi için [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Veri kutusu çevrimiçi veri aktarımı - veri kutusu Edge ve veri kutusu ağ geçidi olan çevrimiçi veri aktarımı ağ ile Azure arasında verileri yönetmek için depolama ağ geçitleri gibi davranan bir ürün. Şirket içi bir ağ cihazı olan Data Box Edge, Azure’ın içine ve dışına veri aktarımı gerçekleştirmesinin yanı sıra verileri işlemek için yapay zeka (AI) özellikli uç işlemini kullanır. Data Box Gateway, depolama ağ geçidi özelliklerine sahip sanal bir gereçtir. Daha fazla bilgi için [Azure veri kutusu belgeleri - Online aktarım](https://docs.microsoft.com/azure/databox-online/).
 1.  Çevrimdışı veri aktarma
-    1. İçeri / dışarı aktarma hizmeti - fiziksel diskleri Azure'a göndermek ve bunlar sizin için yüklenecek. Daha fazla bilgi için [Azure içeri/dışarı aktarma hizmeti nedir?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
-    1. Veri çevrimdışı veri aktarımı - Data Box, Data Box Disk, kutu ve veri kutusu ağır cihazları ağ bir seçenek olmadığı durumlarda Azure'a büyük miktarlarda veri aktarmanıza yardımcı olur. Bu çevrimdışı veri aktarım cihazları kuruluşunuz ile Azure veri merkezi arasında çift yönlü olarak sevk edilebilir. Bunlar aktarım sırasında verilerinizin korunmasına yardımcı olmak için AES şifrelemesi kullanır ve karşıya yükleme sonrası temizlik işlemine tabi tutularak verileriniz cihazdan silinir. Daha fazla bilgi için [Azure veri kutusu belgeleri - çevrimdışı aktarım](https://docs.microsoft.com/azure/databox/).
+    1. Veri çevrimdışı veri aktarımı - Data Box, Data Box Disk, kutu ve veri kutusu ağır cihazları ağ bir seçenek olmadığı durumlarda Azure'a büyük miktarlarda veri aktarmanıza yardımcı olur. Bu çevrimdışı veri aktarım cihazları kuruluşunuz ile Azure veri merkezi arasında çift yönlü olarak sevk edilebilir. Bunlar aktarım sırasında verilerinizin korunmasına yardımcı olmak için AES şifrelemesi kullanır ve karşıya yükleme sonrası temizlik işlemine tabi tutularak verileriniz cihazdan silinir. Data Box çevrimdışı aktarımı cihazlar hakkında daha fazla bilgi için bkz. [Azure veri kutusu belgeleri - çevrimdışı aktarımı](https://docs.microsoft.com/azure/databox/). Hadoop kümelerinin geçiş hakkında daha fazla bilgi için bkz. [bir şirket içi HDFS Mağazası'ndan Azure depolama alanına geçiş yapmayı kullanımı Azure Data Box](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri aktarım süresi vardır. Bir veri kutusu veri geçişi üç hafta daha uzun sürmesi beklendiğinde kullanın.
 

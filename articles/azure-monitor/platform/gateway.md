@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437348"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699279"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>İnternet erişimi olmayan bilgisayarları Azure İzleyici'de Log Analytics ağ geçidini kullanarak bağlan
 
@@ -124,9 +124,9 @@ or
 1. Çalışma alanı dikey penceresinde altında **ayarları**seçin **Gelişmiş ayarlar**.
 1. Git **bağlı kaynaklar** > **Windows sunucuları** seçip **indirme Log Analytics gateway**.
 
-## <a name="install-the-log-analytics-gateway"></a>Log Analytics ağ geçidi yükleme
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Kurulum Sihirbazı'nı kullanarak Log Analytics ağ geçidi yükleme
 
-Bir ağ geçidi yüklemek için aşağıdaki adımları izleyin.  (Log Analytics ileticisi adlı önceki bir sürümü yüklü değilse, bunu bu sürümüne yükseltilir.)
+Kurulum Sihirbazı'nı kullanarak bir ağ geçidi yüklemek için aşağıdaki adımları izleyin. 
 
 1. Hedef klasördeki çift **Log Analytics gateway.msi**.
 1. **Hoş Geldiniz** sayfasında, **İleri**’yi seçin.
@@ -152,6 +152,40 @@ Bir ağ geçidi yüklemek için aşağıdaki adımları izleyin.  (Log Analytics
 
    ![OMS ağ geçidi çalıştığını gösteren ekran görüntüsü yerel Hizmetleri](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Komut satırı kullanarak Log Analytics ağ geçidi yükleme
+İndirilen Dosya ağ geçidi için komut satırı veya başka bir otomatik yöntem sessiz yüklemeyi destekleyen bir Windows Installer paketi olduğunu. Standart komut satırı seçenekleri için Windows Installer alışkın değilseniz bkz [komut satırı seçenekleri](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+Aşağıdaki tabloda kurulum tarafından desteklenen parametreleri vurgular.
+
+|Parametreler| Notlar|
+|----------|------| 
+|PORTNUMBER | Dinlemenin yapılacağı ağ geçidi için TCP bağlantı noktası numarası |
+|PROXY | Proxy sunucusunun IP adresi |
+|INSTALLDIR | Ağ geçidi yazılım dosyaları yükleme dizini belirtmek için tam yolu |
+|KULLANICI ADI | Proxy sunucusu ile kimlik doğrulaması için kullanıcı kimliği |
+|PAROLA | Kullanıcı kimliği ile Ara sunucu kimlik doğrulaması için parola |
+|LicenseAccepted | Bir değer belirleyebilirsiniz **1** lisans sözleşmesini kabul doğrulamak için |
+|HASAUTH | Bir değer belirleyebilirsiniz **1** kullanıcı adı/parola parametrelerini belirtildiği zaman |
+|HASPROXY | Bir değer belirleyebilirsiniz **1** için IP adresi belirtirken **PROXY** parametresi |
+
+Gateway'i sessizce yüklemek ve bir özel proxy adresi, bağlantı noktası numarası ile yapılandırmak için aşağıdaki komutu yazın:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+/Qn komut satırı seçeneğini kullanarak kurulumu gizler, /qb sessiz bir yükleme sırasında Kurulum gösterir.  
+
+Proxy ile kimlik doğrulaması için kimlik bilgilerinin sağlanması gerekiyorsa, aşağıdaki komutu yazın:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Yüklemeden sonra ayarları onaylayabilirsiniz kabul (exlcuding kullanıcı adı ve parola) aşağıdaki PowerShell cmdlet'lerini kullanarak:
+
+- **Get-OMSGatewayConfig** – TCP bağlantı noktası dinleyecek şekilde yapılandırılmış bir ağ geçidi döndürür.
+- **Get-OMSGatewayRelayProxy** – proxy sunucusu ile iletişim kurmak için yapılandırdığınız IP adresini döndürür.
 
 ## <a name="configure-network-load-balancing"></a>Ağ Yükü Dengeleme yapılandırma 
 Ağ geçidi Ağ Yükü Dengeleme (NLB kullanarak ya da Microsoft) kullanarak yüksek kullanılabilirlik için yapılandırabileceğiniz [Ağ Yükü Dengeleme (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), veya donanım tabanlı yük Dengeleyiciler. Yük dengeleyicinin trafiği istenen bağlantılar Log Analytics aracılardan veya Operations Manager yönetim sunucuları arasında düğümlerini yönlendirerek yönetir. Bir ağ geçidi sunucusu kalırsa, trafiğin diğer düğümlere yönlendirilir.

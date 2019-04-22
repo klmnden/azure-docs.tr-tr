@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505609"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698324"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Ana VHD görüntüsünü hazırlama ve özelleştirme
 
@@ -274,7 +274,7 @@ Saat dilimlerini yönlendirmek için:
 1. Active Directory sunucusunda açın **Grup İlkesi Yönetim Konsolu**.
 2. Etki alanı ve Grup İlkesi Nesneleri'ni genişletin.
 3. Sağ **Grup İlkesi nesnesini** seçin ve Grup İlkesi ayarları için oluşturulan **Düzenle**.
-4. İçinde **Grup İlkesi Yönetimi Düzenleyicisi**, gitmek **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows bileşenleri** > **yatay görünüm RDSH Hizmetleri** > **Uzak Masaüstü oturumu Konak** > **cihaz ve kaynak yeniden yönlendirme**.
+4. İçinde **Grup İlkesi Yönetimi Düzenleyicisi**, gitmek **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows bileşenleri** > **Uzak Masaüstü Hizmetleri** > **Uzak Masaüstü oturumu konağı**   >  **Cihaz ve kaynak yeniden yönlendirme**.
 5. Etkinleştirme **saat dilimi yeniden yönlendirmesine izin** ayarı.
 
 Ayrıca, saat dilimlerini yönlendirmek için ana görüntü bu komutu çalıştırabilirsiniz:
@@ -367,8 +367,8 @@ Azure depolama hesabınız, ana görüntü karşıya yükleme aşağıdaki yöne
 
 Bir görüntünüz olduğuna göre oluşturun veya ana bilgisayar havuzları güncelleştirin. Ana bilgisayar havuzları oluşturmak nasıl hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure Resource Manager şablonuyla ana bilgisayar havuzu oluşturma](create-host-pools-arm-template.md)
-- [Öğretici: Azure Market ile ana bilgisayar havuzu oluşturma](create-host-pools-azure-marketplace.md)
-- [PowerShell ile ana bilgisayar havuzu oluşturma](create-host-pools-powershell.md)
-- [Ana bilgisayar havuzu için kullanıcı profili paylaşımı ayarlama](create-host-pools-user-profile.md)
-- [Windows Sanal Masaüstü yük dengeleme yöntemini yapılandırma](configure-host-pool-load-balancing.md)
+- [Bir Azure Resource Manager şablonu ile bir ana makine havuzu oluşturma](create-host-pools-arm-template.md)
+- [Öğretici: Azure Marketi ile konak havuz oluşturma](create-host-pools-azure-marketplace.md)
+- [PowerShell ile bir ana makine havuzu oluşturma](create-host-pools-powershell.md)
+- [Bir ana makine havuzu için bir kullanıcı profili paylaşımını ayarlama](create-host-pools-user-profile.md)
+- [Windows sanal masaüstü yük dengeleme yöntemini yapılandırma](configure-host-pool-load-balancing.md)

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247911"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682806"
 ---
 # <a name="add-an-api-manually"></a>El ile API ekleme
 
-Bu makaledeki adımlar, Azure portalını kullanarak API Management (APIM) örneğine nasıl el ile API ekleneceğini gösterir. Boş bir API oluşturup el ile tanımlamanızı gerektirecek yaygın bir senaryo, API’nin sahte bir kopyasını oluşturmak istediğiniz durumlardır. Bir API’nin sahte bir kopyasını oluşturma hakkında ayrıntılı bilgi için bkz. [Sahte API yanıtları](mock-api-responses.md).
+Bu makaledeki adımlarda, bir API API Management (APIM) örneğine el ile eklemek için Azure portalını kullanmayı gösterir. Boş bir API oluşturup el ile tanımlamanızı gerektirecek yaygın bir senaryo, API’nin sahte bir kopyasını oluşturmak istediğiniz durumlardır. Bir API’nin sahte bir kopyasını oluşturma hakkında ayrıntılı bilgi için bkz. [Sahte API yanıtları](mock-api-responses.md).
 
 Mevcut bir API’yi içeri aktarmak istiyorsanız [ilgili konular](#related-topics) bölümüne bakın.
 
-Bu makalede boş bir API oluşturacak ve [httpbin.org](http://httpbin.org)’u (genel bir test hizmeti) bir arka uç API’si olarak ekleyeceğiz.
+Bu makalede boş bir API oluşturacak ve [httpbin.org](https://httpbin.org)’u (genel bir test hizmeti) bir arka uç API’si olarak ekleyeceğiz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
 
@@ -48,10 +48,10 @@ Bu makalede boş bir API oluşturacak ve [httpbin.org](http://httpbin.org)’u (
     |**Ad**|**Değer**|**Açıklama**|
     |---|---|---|
     |**Görünen ad**|"*Boş API*" |Bu ad, Geliştirici portalında görüntülenir.|
-    |**Web Hizmeti URL’si** (isteğe bağlı)| "*http://httpbin.org*"| Bir API’nin sahte bir kopyasını oluşturmak istiyorsanız hiçbir şey girmeyebilirsiniz. <br/>Bu durumda [http://httpbin.org](http://httpbin.org) değerini gireriz. Bu, genel bir test hizmetidir. <br/>Bir arka uçla otomatik olarak eşlenen bir API’yi içeri aktarmak istiyorsanız [ilgili konular](#related-topics) bölümündeki konulardan birine bakın.|
+    |**Web Hizmeti URL’si** (isteğe bağlı)| "*https://httpbin.org*"| Bir API’nin sahte bir kopyasını oluşturmak istiyorsanız hiçbir şey girmeyebilirsiniz. <br/>Bu durumda [https://httpbin.org](https://httpbin.org) değerini gireriz. Bu, genel bir test hizmetidir. <br/>Bir arka uçla otomatik olarak eşlenen bir API’yi içeri aktarmak istiyorsanız [ilgili konular](#related-topics) bölümündeki konulardan birine bakın.|
     |**URL düzeni**|"*HTTPS*"|Bu durumda, arka ucun HTTP erişimi güvenli olmasa da arka uç için güvenli bir HTTPS APIM erişimi belirtiriz. <br/>Bu tür senaryolara (HTTPS’den HTTP’ye) is HTTPS sonlandırma denir. API’niz HTTPS kullanılmasa bile erişimin güvenli olduğunu bildiğiniz bir sanal ağın içindeyse bunu yapabilirsiniz. <br/>Bazı CPU döngülerinde tasarruf sağlamak için "HTTPS sonlandırma" kullanmak isteyebilirsiniz.|
     |**URL son eki**|"*hbin*"| Son ek, bu APIM örneğinde özel olarak bu API’yi tanımlayan bir addır. Son ekin bu APIM örneğinde benzersiz olması gerekir.|
-    |**Ürünler**|"*Unlimited*" |API’yi bir ürünle ilişkilendirerek yayımlayın. API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.<br/><br/>Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. <br/>Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.<br/><br/> Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir: **Başlangıç** ve **Sınırsız**.| 
+    |**Ürünler**|"*Unlimited*" |API’yi bir ürünle ilişkilendirerek yayımlayın. API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.<br/><br/>Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. <br/>Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.<br/><br/> Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir: **Başlangıç** ve **sınırsız**.| 
 5. **Oluştur**’u seçin.
 
 Bu noktada, APIM üzerinde arka uç API’nizdeki işlemlerle eşleşen herhangi bir işlem yoktur. Arka uç aracılığıyla kullanıma sunulup APIM ile sunulmamış bir işleme çağrı yaparsanız **404** yanıtını alırsınız.

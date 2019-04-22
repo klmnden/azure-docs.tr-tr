@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 36c4757feb367fd39ae94640cb8e8a0f1714a0d3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192134"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737326"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -66,7 +66,7 @@ az sig image-definition create \
 
 ## <a name="create-an-image-version"></a>Görüntü sürümü oluşturma 
  
-Görüntünün sürümü kullanarak gerektiği gibi oluşturma [az görüntü Galerisi oluşturma-görüntü-version](/cli/azure/sig/image-version#az-sig-image-version-create). Görüntü sürümü oluşturmak için temel olarak kullanmak için yönetilen bir görüntü kimliği geçirin gerekecektir. Kullanabileceğiniz [az görüntü listesi](/cli/azure/image?view#az-image-list) bir kaynak grubunda bulunan görüntüleri hakkında daha fazla bilgi edinmek için. Bu örnekte, görüntümüzü sürümüdür *1.0.0* ve 5 toplam çoğaltma oluşturmak için kullanacağız *Batı Orta ABD*, *Orta Güney ABD* ve Doğu ABD 2 * bölgeleri.
+Görüntünün sürümü kullanarak gerektiği gibi oluşturma [az görüntü Galerisi oluşturma-görüntü-version](/cli/azure/sig/image-version#az-sig-image-version-create). Görüntü sürümü oluşturmak için temel olarak kullanmak için yönetilen bir görüntü kimliği geçirin gerekecektir. Kullanabileceğiniz [az görüntü listesi](/cli/azure/image?view#az-image-list) bir kaynak grubunda bulunan görüntüleri hakkında daha fazla bilgi edinmek için. Bu örnekte, görüntümüzü sürümüdür *1.0.0* ve 5 çoğaltma oluşturmak için kullanacağız *Batı Orta ABD* bölge, 1 yinelemede *Orta Güney ABD* bölge ve 1 yinelemedeki *Doğu ABD 2* bölge.
 
 ```azurecli-interactive 
 az sig image-version create \

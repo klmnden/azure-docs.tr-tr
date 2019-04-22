@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/17/2019
+ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260239"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699364"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -96,7 +96,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Günlük oran sınırları (MBps)|2,5|56|7.5|10|12,5|15|17.5|
+|Günlük oran sınırları (MBps)|2,5|5.6|7.5|10|12,5|15|17.5|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|

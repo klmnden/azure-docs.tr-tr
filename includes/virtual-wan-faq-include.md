@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3fa261c6cb76cb95cffc602e5018e480afbb5dae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891124"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737328"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure sanal ağ geçidi (VPN Gateway) ile Azure Sanal WAN vpngateway arasında ne fark vardır?
 
@@ -81,7 +81,7 @@ Evet. Bkz. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-
 
 ### <a name="how-do-i-calculate-price-of-a-hub"></a>Fiyat bir hub'ın nasıl hesaplar?
  
-Hub'ında hizmet için ödeme. Örneğin, 10 dalları veya Azure sanal WAN için bağlanmak için gerektiren şirket içi cihazlar hub'ında VPN Uç noktalara bağlanmak kapsıyor. Sağlayan bu VPN 1 ölçek birimi olduğunu varsayalım = 500 MB/sn, bu 0.361 $/ saat üzerinden ücretlendirilir. Her bağlantı $0.08/saat üzerinden ücretlendirilir. 10 bağlantıları için hizmet/SA toplam ücreti olacaktır 0.361 $ + $. 8 / İK. Trafik bırakmak için veri ücretleri azure uygulanır. 
+Hub'ında hizmet için ödeme. Örneğin, 10 dalları veya Azure sanal WAN için bağlanmak için gerektiren şirket içi cihazlar hub'ında VPN Uç noktalara bağlanmak kapsıyor. Sağlayan bu VPN 1 ölçek birimi olduğunu varsayalım = 500 MB/sn, bu 0.361 $/ saat üzerinden ücretlendirilir. Her bağlantı $0.08/saat üzerinden ücretlendirilir. 10 bağlantıları için hizmet/SA toplam ücreti olacaktır 0.361 $ + $. 8 / İK. Azure trafik için veri ücretleri uygulanır. 
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>İlk iş ortağı listenizde yer almayan yeni iş ortakları nasıl eklenir?
 

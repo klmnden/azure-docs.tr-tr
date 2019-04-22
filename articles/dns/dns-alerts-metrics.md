@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434470"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683044"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS ölçümleri ve Uyarıları
 Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma DNS etki alanları için hizmetidir. Bu makalede, Ölçümler ve Uyarılar için Azure DNS hizmeti açıklanır.
 
 ## <a name="azure-dns-metrics"></a>Azure DNS ölçümleri
 
-Azure DNS, müşterilerin belirli yönlerini olanları hizmette barındırılan DNS izlemek bunları etkinleştirmek ölçümler sağlar. Ayrıca, Azure DNS ölçümlerindeki ile yapılandırın ve ilgi koşullara göre uyarı alacak. Ölçümleri aracılığıyla sağlanan [Azure İzleyici hizmeti](../azure-monitor/index.yml). Azure DNS, DNS bölgeleriniz için Azure İzleyici aracılığıyla aşağıdaki ölçümleri sunar:
+Azure DNS, bunları hizmette barındırılan kendi DNS bölgelerinin belirli işlevlerinin izlemek etkinleştirmek, müşteriler için ölçümleri sağlar. Ayrıca, Azure DNS ölçümlerindeki ile yapılandırın ve ilgi koşullara göre uyarı alacak. Ölçümleri aracılığıyla sağlanan [Azure İzleyici hizmeti](../azure-monitor/index.yml). Azure DNS, DNS bölgeleriniz için Azure İzleyici aracılığıyla aşağıdaki ölçümleri sunar:
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ Bu ölçümler için boyut parçalı düzeyde DNS bölgesidir.
 
 ### <a name="query-volume"></a>Sorgu birim
 
-*Sorgu toplu* ölçümü Azure DNS'de DNS bölgenizi Azure DNS tarafından alınan DNS sorguları (sorgu trafiği) hacmini gösterir. Ölçü birimi sayı ve toplama işlemini bir süre alınan tüm sorguların toplamıdır. Bu ölçüm görüntülemek için Azure portalında izleme sekmesi Gezgini deneyimi ölçümler (Önizleme) seçin. DNS bölgenizi kaynak açılan listeden seçin, sorgu toplu ölçümü seçin ve Sum toplama seçin. Aşağıdaki ekran görüntüsünde, bir örnek gösterilmektedir.  Ölçüm Gezgini hakkında daha fazla bilgi için deneyimi ve grafik, bkz: [Azure İzleyici ölçüm Gezgini'ni](../azure-monitor/platform/metrics-charts.md).
+*Sorgu toplu* ölçümü Azure DNS'de DNS bölgenizi Azure DNS tarafından alınan DNS sorguları (sorgu trafiği) hacmini gösterir. Ölçü birimi sayı ve toplama işlemini bir süre alınan tüm sorguların toplamıdır. 
+
+Bu ölçüm görüntülemek için Azure portalında izleme sekmesi Gezgini deneyimi ölçümler (Önizleme) seçin. DNS bölgenizi kaynak açılan listeden seçin, sorgu toplu ölçümü seçin ve Sum toplama seçin. Aşağıdaki ekran görüntüsünde, bir örnek gösterilmektedir.  Ölçüm Gezgini hakkında daha fazla bilgi için deneyimi ve grafik, bkz: [Azure İzleyici ölçüm Gezgini'ni](../azure-monitor/platform/metrics-charts.md).
 
 ![Sorgu birim](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 

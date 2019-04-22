@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501323"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698461"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft kimlik platformu ve örtük akış verin
 
@@ -52,7 +52,7 @@ Aşağıdaki diyagramda tüm örtük oturum açma akışı nasıl göründüğü
 
 ## <a name="send-the-sign-in-request"></a>Oturum açma isteği gönder
 
-İlk kullanıcı, uygulamada oturum açması için size gönderebilir bir [Openıd Connect](v2-protocols-oidc.md) yetkilendirme isteği ve get bir `id_token` Microsoft kimlik platformu uç noktasından.
+İlk kullanıcı, uygulamada oturum açması için size gönderebilir bir [Openıd Connect](v2-protocols-oidc.md) kimlik doğrulama isteği ve get bir `id_token` Microsoft kimlik platformu uç noktasından.
 
 > [!IMPORTANT]
 > Başarılı bir şekilde uygulama kaydında bir kimlik belirteci istemek için [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfa doğru seçerek etkinleştirilmiş örtük verme akışı olmalıdır **erişim belirteçlerini** ve **Kimlik belirteçlerini** altında **örtük vermeyi** bölümü. Bunu etkin değilse, bir `unsupported_response` hata döndürülür: **'Response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. 'Code' beklenen değerdir**

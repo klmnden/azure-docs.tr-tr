@@ -3,17 +3,17 @@ title: Azure rol tabanlı erişim denetimi ile yedeklemeleri Yönetme '
 description: Kurtarma Hizmetleri kasasına Yedekleme Yönetimi işlemlerinde erişimi yönetmek için rol tabanlı erişim denetimi kullanın.
 services: backup
 author: trinadhk
-manager: shreeshd
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 04/17/2019
 ms.author: trinadhk
-ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674642"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682534"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure Backup kurtarma noktaları yönetmek için rol tabanlı erişim denetimi kullanma
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
@@ -21,7 +21,7 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yö
 > [!IMPORTANT]
 > Azure Backup tarafından sağlanan rolleri Azure portalında veya REST API aracılığıyla gerçekleştirilen eylemlere sınırlı veya PowerShell veya CLI cmdlet'leri kurtarma Hizmetleri kasası. Data Protection Manager kullanıcı arabirimini veya Azure Backup sunucusu kullanıcı Arabirimi denetimi bu rollerden dışında olan Azure Yedekleme aracısı istemcisi kullanıcı Arabirimi veya System center gerçekleştirilen eylemler.
 
-Azure Backup, yedekleme yönetim işlemlerini denetlemek için 3 yerleşik rol sağlar. [Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md) hakkında daha fazla bilgi edinin
+Azure Backup, yedekleme yönetim işlemlerini denetlemek için üç yerleşik rol sağlar. [Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md) hakkında daha fazla bilgi edinin
 
 * [Yedekleme Katılımcısı](../role-based-access-control/built-in-roles.md#backup-contributor) -bu rol oluşturmak ve kurtarma Hizmetleri kasası oluşturmaya ve başkalarına erişim verme dışındaki yedekleme yönetmek için tüm izinlere sahiptir. Bu rol tüm yedekleme Yönetimi işlemi yapmak için Yedekleme Yönetimi Yöneticisi olarak düşünün.
 * [Yedekleme işleci](../role-based-access-control/built-in-roles.md#backup-operator) -bu rolün katkıda bulunan yedekleme ve yönetmeye yedekleme ilkelerini kaldırma dışındaki her şey için izinlere sahip. İçeren yedeklemeyi durdurma verileri silmek ya da şirket içi kaynaklara kaydını kaldırma gibi zararlı işlemler gerçekleştirilemiyor dışında bu rol için katkıda bulunan eşdeğerdir.
@@ -60,7 +60,24 @@ Aşağıdaki tabloda, yedekleme yönetim eylemleri ve bu işlemi gerçekleştirm
 | Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu silme kayıtlı | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 
 > [!IMPORTANT]
-> VM katkıda bulunan bir sanal makine kaynak kapsamda belirtin ve yedekleme VM ayarlarının bir parçası tıklayın, sanal makine zaten yalnızca abonelik düzeyinde yedekleme durumu çalıştığını doğrulamak için bir çağrı olarak yedeklenen olsa bile 'Yedeklemeyi Etkinleştir' ekranı açılır. Bunu önlemek için ya da kasa ve sanal makinenin yedekleme öğesi görünümü açma veya abonelik düzeyinde VM katkıda bulunanı rolü belirtin gidin. 
+> VM katkıda bulunan bir sanal makine kaynak kapsamda belirtin ve yedekleme VM ayarlarının bir parçası tıklayın, sanal makine zaten yalnızca abonelik düzeyinde yedekleme durumu çalıştığını doğrulamak için bir çağrı olarak yedeklenen olsa bile 'Yedeklemeyi Etkinleştir' ekranı açılır. Bunu önlemek için ya da kasa ve sanal makinenin yedekleme öğesi görünümü açma veya abonelik düzeyinde VM katkıda bulunanı rolü belirtin gidin.
+
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Azure dosya paylaşımı yedeklemesi için en düşük rolü gereksinimleri
+Aşağıdaki tabloda, Azure dosya paylaşımı işlemi gerçekleştirmek için gerekli karşılık gelen rol ve yedekleme yönetim eylemleri yakalar.
+
+| Yönetim işlemi | Gerekli rolü | Kaynaklar |
+| --- | --- | --- |
+| Azure dosya paylaşımlarının yedeklemesini etkinleştirin | Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |
+| | Depolama Hesabı | Katkıda bulunan depolama hesabı kaynağı |
+| İsteğe bağlı yedekleme VM | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
+| Dosya paylaşımını geri yükleme | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
+| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
+| Tek tek dosyaları geri yükleme | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
+| | Depolama Hesabı Katılımcısı |   Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
+| Korumayı Durdur | Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |      
+| Depolama hesabından kasa kaydı |   Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |
+| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynağı|
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlayın.

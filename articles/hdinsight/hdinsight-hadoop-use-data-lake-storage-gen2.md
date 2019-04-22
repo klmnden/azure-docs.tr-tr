@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 7e21d4c6705213cb57f058c062fff0ff4957a52a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802550"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681871"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -139,6 +139,5 @@ Verileri sorgulamak için kullanıcıların izinleri ayarlamak için ACL'leri at
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Azure HDInsight Tümleştirmesi ile Data Lake depolama Gen2 Önizleme - ACL ve güvenlik güncelleştirmesi](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Azure Data Lake depolama Gen2 Önizleme giriş](../storage/blobs/data-lake-storage-introduction.md)

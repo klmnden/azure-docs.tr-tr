@@ -1,29 +1,29 @@
 ---
 title: Azure Cosmos DB’de veritabanı aktarım hızını sağlama
 description: Azure Cosmos DB’de aktarım hızını veritabanı düzeyinde sağlamayı öğrenin
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: c0a947c9cf2c1d4a11d310b9bab0774a70534a1e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: da56c06e215e02ee3eefe3d0552c962a8c59011e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259440"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683486"
 ---
-# <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB’de bir veritabanı için aktarım hızını sağlama
+# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB veritabanı aktarım hızını sağlama
 
-Bu makalede Azure Cosmos DB’de bir veritabanına nasıl aktarım hızı sağlandığı açıklanır. Tek bir [kapsayıcıya](how-to-provision-container-throughput.md) aktarım hızı sağlayabilir veya aktarım hızını veritabanına sağlayıp içindeki kapsayıcılar arasında paylaştırabilirsiniz. Ne zaman kapsayıcı düzeyinde ve veritabanı düzeyinde aktarım hızı kullanılacağını öğrenmek için bkz [aktarım hızı kapsayıcılar ve veritabanları hakkında sağlamaya yönelik kullanım](set-throughput.md) makalesi. Azure portal veya Azure Cosmos DB SDK'ları kullanarak veritabanı düzeyinde verimliliği sağlayabilirsiniz.
+Bu makalede, Azure Cosmos DB veritabanı aktarım hızını sağlamak açıklanmaktadır. Tek bir [kapsayıcıya](how-to-provision-container-throughput.md) aktarım hızı sağlayabilir veya aktarım hızını veritabanına sağlayıp içindeki kapsayıcılar arasında paylaştırabilirsiniz. Ne zaman kapsayıcı düzeyinde ve veritabanı düzeyinde aktarım hızı kullanılacağını öğrenmek için bkz [aktarım hızı kapsayıcılar ve veritabanları hakkında sağlamaya yönelik kullanım](set-throughput.md) makalesi. Azure portal veya Azure Cosmos DB SDK'ları kullanarak veritabanı düzeyinde verimliliği sağlayabilirsiniz.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama aktarım hızı
+## <a name="provision-throughput-using-azure-portal"></a>Azure portalını kullanarak aktarım hızı sağlama
 
 ### <a id="portal-sql"></a>SQL (Core) API
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-sql-api-dotnet.md#create-account), ya da mevcut bir Azure Cosmos hesabını seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni veritabanı**. Şu bilgileri sağlayın:
 
@@ -34,10 +34,10 @@ Bu makalede Azure Cosmos DB’de bir veritabanına nasıl aktarım hızı sağla
 
 ![Yeni veritabanı ekran iletişim kutusu](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-by-using-net-sdk"></a>.NET SDK kullanarak sağlama aktarım hızı
+## <a name="provision-throughput-using-net-sdk"></a>.NET SDK’sını kullanarak aktarım hızı sağlama
 
 > [!Note]
-> Tüm API’lere aktarım hızı sağlamak için SQL API’yi kullanın. İsteğe bağlı olarak aşağıdaki örnekte Cassandra API için de kullanabilirsiniz.
+> Tüm API'ler için sağlama aktarım hızı için SQL API'si için Cosmos Sdk'leri kullanabilirler. İsteğe bağlı olarak aşağıdaki örnekte Cassandra API için de kullanabilirsiniz.
 
 ### <a id="dotnet-all"></a>Tüm API’ler
 
@@ -63,7 +63,9 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB'de aktarım hızı sağlama hakkında bilgi edinmek için aşağıdaki makalelere bakın:
+Azure Cosmos DB'de sağlanan aktarım hızı hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
+* [Genel olarak sağlanan aktarım hızını ölçeklendirme](scaling-throughput.md)
+* [Kapsayıcılar ve veritabanları sağlama aktarım hızı](set-throughput.md)
 * [Kapsayıcı için aktarım hızı sağlama](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB'deki istek birimleri ve aktarım hızı](request-units.md)

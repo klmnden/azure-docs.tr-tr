@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052665"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784748"
 ---
-# <a name="cross-network-connectivity"></a>Geçici ağ bağlantısı
+# <a name="cross-network-connectivity"></a>Ağlar arası bağlantı
 
 Fabrikam Inc. büyük bulunmasını ve Doğu ABD Azure dağıtım var. Fabrikam, şirket içi ve ExpressRoute aracılığıyla Azure dağıtımlar arasında arka uç bağlantısı vardır. Benzer şekilde, Contoso Ltd. varlığı ve Batı ABD Azure dağıtımında sahiptir. Contoso, şirket içi ve ExpressRoute aracılığıyla Azure dağıtımlar arasında arka uç bağlantısı vardır.  
 

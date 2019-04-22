@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835478"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683676"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -49,6 +49,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect sunucusu
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
+* Güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle Azure AD Connect, etki alanı denetleyicisine yüklenmesi önerilmez
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
 * Azure AD Connect, Windows Server 2008 R2 veya üzeri yüklü olmalıdır. Bu sunucunun etki alanına katılmamışsa ve bir etki alanı denetleyicisi veya üye sunucu olması gerekir.
 * Windows Server 2008 R2'de Azure AD Connect'i yüklemek, Windows Update'ten en son düzeltmeler uyguladığınızdan emin olun. Yükleme yüklenmemiş bir sunucuyla başlatmanız mümkün değil.
@@ -60,6 +61,19 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * Active Directory Federasyon Hizmetleri dağıtılıyor gerekirse [SSL sertifikaları](#ssl-certificate-requirements).
 * Active Directory Federasyon Hizmetleri dağıtıldığı sonra yapılandırmanız gereken [ad çözümlemesi](#name-resolution-for-federation-servers).
 * Genel Yöneticiler varsa MFA etkin, ardından URL'yi **https://secure.aadcdn.microsoftonline-p.com** Güvenilen siteler listesinde olmalıdır. Bir MFA testini için istenir ve bu önce eklemiştir değil Bu siteyi Güvenilen siteler listesine eklemeniz istenir. Güvenilen siteler listenize eklemek Internet Explorer'ı kullanabilirsiniz.
+* Microsoft, bu kritik bir bileşen BT ortamınızın için güvenlik saldırı yüzeyini azaltmak için Azure AD Connect sunucunuzu sağlamlaştırma önerir.  Aşağıdaki aşağıdaki önerileri, kuruluşunuz için güvenlik risklerini azaltır.
+
+* Azure AD Connect bir etki alanına katılmış sunucuya dağıtma ve etki alanı yöneticileri veya diğer sıkı bir şekilde denetlenen güvenlik gruplarına yönetici erişimi kısıtlayın.
+
+Daha fazla bilgi için bkz: 
+
+* [Yöneticiler grubunun güvenliğini sağlama](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Yerleşik yönetici hesaplarını güvenli hale getirme](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Güvenlik geliştirme ve saldırı yüzeylerini azaltarak sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Active Directory saldırı yüzeyini azaltma](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect tarafından kullanılan SQL Server
 * Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Varsayılan olarak, bir SQL Server 2012 Express LocalDB'nı (SQL Server Express'in hafif bir sürüm) yüklenir. SQL Server Express yaklaşık 100.000 nesneye yönetmenize olanak sağlayan bir 10 GB boyut sınırı vardır. Dizin nesneleri daha yüksek hacimde yönetmeniz gerekiyorsa, Yükleme Sihirbazı'nı farklı bir SQL Server yüklemesine işaret edecek şekilde gerekir.

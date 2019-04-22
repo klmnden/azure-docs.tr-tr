@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880900"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Öğretici: Azure Active Directory Tümleştirmesi ile NET gözden geçirme
 
@@ -38,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD Tümleştirmesi ile NET gözden geçirme yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * Abonelik Temizle gözden geçirme çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -118,33 +119,21 @@ Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Temizle İnceleme istemci Destek ekibine](https://clearreview.com/contact/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-6. NET gözden geçirme uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+6. NET gözden geçirme uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Temizle gözden geçirme uygulama bekliyor **NameIdentifier** ile eşleştirilecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
     ![image](common/edit-attribute.png)
 
-7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
-    
-    | Ad | Kaynak özniteliği | 
-    | ---------------| --------------- |
-    | Ad tanımlayıcısı değeri   | User.Mail |
+7. Üzerinde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+    a. Tıklayın **düzenleme simgesi** sağ tarafındaki **ad tanımlayıcı değeri**.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image](./media/clearreview-tutorial/attribute01.png)
 
-    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
+    b. Gelen **kaynak özniteliği** listesinden **user.mail** öznitelik değeri ilgili satır için.
 
-    c. Bırakın **Namespace** boş.
-
-    d. Kaynağı olarak **özniteliği**.
-
-    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
-
-    f. Tıklayın **Tamam**
-
-    g. **Kaydet**’e tıklayın.
+    c. **Kaydet**’e tıklayın.
 
 8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -156,7 +145,7 @@ Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için 
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -168,7 +157,7 @@ Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için 
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Seçin **değişiklik** sayfanın alt kısmındaki.
+3. İçinde **tümleştirmeler** sayfanın alt kısmındaki bölümde tıklayın **değişiklik** sağındaki düğmeye **çoklu oturum açma ayarları**.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -176,7 +165,7 @@ Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için 
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. İçinde **veren URL'si** metin değerini yapıştırın **Azure Ad tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız.
+    a. İçinde **veren URL'si** metin değerini yapıştırın **Azure AD tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız.
 
     b. İçinde **SAML uç noktası** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.  
 
@@ -184,7 +173,7 @@ Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için 
 
     d. İndirilen sertifikanın Not Defteri'nde açın ve içeriği yapıştırın **X.509 sertifikası** metin.   
 
-5. **Kaydet**’e tıklayın.
+    e. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

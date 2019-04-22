@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544161"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682689"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
+# <a name="rewrite-http-headers-with-application-gateway"></a>Uygulama ağ geçidi ile yeniden yazma HTTP üstbilgileri
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Bu HTTP üstbilgileri yeniden yazma HSTS gibi güvenlikle ilgili üstbilgi alanlarını ekleme gibi birkaç önemli senaryoları gerçekleştirmenize yardımcı olur / X-XSS-koruma yanıt üst bilgisi kaldırma, hassas bilgiler bağlantı noktası bilgilerini şeridi oluşturma gösterebilir alanları X-iletilen-için üst bilgiler, vb. Uygulama ağ geçidi eklemek, kaldırmak veya güncelleştirme isteği sırasında HTTP istek ve yanıt üstbilgileri yeteneğini destekler ve yanıt paketleri istemci ve arka uç havuzları arasında taşıyın. Ayrıca, yalnızca belirli koşullar karşılandığında belirtilen üst bilgiler yazılır emin olmak için koşullar ekleme olanağı sağlar.
+HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Bu HTTP üstbilgileri yeniden yazma HSTS gibi güvenlikle ilgili üstbilgi alanlarını ekleme gibi birkaç önemli senaryoları gerçekleştirmenize yardımcı olur / X-XSS-koruma kaldırma yanıt üst bilgisi, hassas bilgileri kaldırarak bağlantı noktası bilgilerini gösterebilir alanları X-iletilen-için üst bilgiler, vb. Uygulama ağ geçidi eklemek, kaldırmak veya güncelleştirme isteği sırasında HTTP istek ve yanıt üstbilgileri yeteneğini destekler ve yanıt paketleri istemci ve arka uç havuzları arasında taşıyın. Belirtilen üst bilgiler yalnızca belirli koşullar karşılandığında yazılır emin olmak için koşullar ekleme olanağı sağlar. Birkaç özelliği de destekler [sunucu değişkenleri](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) isteklerinin ve yanıtlarının, böylece güçlü yeniden yazma kuralları yapmanızı etkinleştirme hakkında daha fazla bilgi depolamak yardımcı olur.
 > [!NOTE]
 >
 > HTTP üst bilgisi yeniden yazma desteği yalnızca kullanılabilir [yeni SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Üst bilgileri yeniden yazma](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Desteklenen üstbilgileri yeniden yazma
 
@@ -35,7 +37,7 @@ HTTP (S) istekleri ve yanıtları içeriğini değerlendirmek ve üst bilgi ger�
 - HTTP yanıt üstbilgileri
 - Uygulama Ağ Geçidi sunucu değişkenleri
 
-Bir koşul belirli bir değeri belirtilen değişkeni bir tam olarak eşleşip eşleşmediğini veya belirtilen değişkeni tam olarak belirli bir desenle eşleşip eşleşmediğini belirtilen değişkeni mevcut olup olmadığını değerlendirmek için kullanılabilir. [Perl uyumlu normal ifadeler (PCRE) kitaplığı](https://www.pcre.org/) koşullarında eşleşen normal ifade deseni uygulamak için kullanılır. Normal ifade söz dizimi hakkında bilgi edinmek için [Perl normal ifadeler adam sayfa](http://perldoc.perl.org/perlre.html).
+Bir koşul belirli bir değeri belirtilen değişkeni bir tam olarak eşleşip eşleşmediğini veya belirtilen değişkeni tam olarak belirli bir desenle eşleşip eşleşmediğini belirtilen değişkeni mevcut olup olmadığını değerlendirmek için kullanılabilir. [Perl uyumlu normal ifadeler (PCRE) kitaplığı](https://www.pcre.org/) koşullarında eşleşen normal ifade deseni uygulamak için kullanılır. Normal ifade söz dizimi hakkında bilgi edinmek için [Perl normal ifadeler adam sayfa](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Yeniden yazma eylemleri
 
@@ -124,6 +126,18 @@ Ana bilgisayar adını uygulama ağ geçidinin etki alanı adı için konum üst
 Uygulama yanıt olarak gerekli üst bilgileri uygulayarak güvenlik açıklarına düzeltilebilir. Bu güvenlik üst bilgileri bazıları X XSS koruma, katı aktarım güvenliği, içerik-güvenlik-ilke, vs. Tüm yanıtları için bu üst bilgilerini ayarlayacak şekilde uygulama ağ geçidi'ni kullanabilirsiniz.
 
 ![Güvenlik üst bilgisi](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>İstenmeyen üstbilgileri Sil
+
+Arka uç sunucu adı, işletim sistemi, kitaplık ayrıntılarını vb. gibi hassas bilgileri açığa HTTP yanıtı bu üstbilgileri kaldırmak isteyebilirsiniz. Bunları kaldırmak için uygulama ağ geçidi'ni kullanabilirsiniz.
+
+![Üst bilgisi siliniyor](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Bir üst bilgisi varlığını denetleyin
+
+HTTP istek veya yanıt üst bilgisi bir üst bilgi veya sunucu değişkeni varlığını değerlendirebilirsiniz. Yalnızca belirli bir üst bilgisi mevcut olduğunda üstbilgi yeniden gerçekleştirmeyi düşünüyorsanız, bu yararlıdır.
+
+![Bir üst bilgisi varlığını denetleme](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Sınırlamalar
 

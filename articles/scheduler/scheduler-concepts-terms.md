@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651278"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683061"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
@@ -39,21 +39,27 @@ En geniş anlamıyla Scheduler REST API'si, varlıkların yönetilmesi için bu 
 
 ### <a name="job-management"></a>İş yönetimi
 
-İş oluşturma ve düzenleme işlemlerini destekler. Açık oluşturma olmaması için tüm işlerin var olan bir iş koleksiyonuna ait olması gerekir. Daha fazla bilgi için bkz. [Scheduler REST API - İşler](https://docs.microsoft.com/rest/api/scheduler/jobs). Bu işlemlerin URI adresi şu şekilde olacaktır:
+İş oluşturma ve düzenleme işlemlerini destekler. Açık oluşturma olmaması için tüm işlerin var olan bir iş koleksiyonuna ait olması gerekir. Daha fazla bilgi için bkz. [Scheduler REST API - İşler](https://docs.microsoft.com/rest/api/scheduler/jobs). Bu işlemler için URI adresi şöyledir:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>İş koleksiyonu yönetimi
 
-Kotalar ve paylaşılan ayarlarla eşleştirilen işlerin ve iş koleksiyonlarının oluşturulmasını ve düzenlenmesini destekler. Örneğin kotalar, maksimum iş sayısını ve en küçük yineleme aralığını belirtir. Daha fazla bilgi için bkz. [Scheduler REST API - İş Koleksiyonları](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Bu işlemlerin URI adresi şu şekilde olacaktır:
+Kotalar ve paylaşılan ayarlarla eşleştirilen işlerin ve iş koleksiyonlarının oluşturulmasını ve düzenlenmesini destekler. Örneğin kotalar, maksimum iş sayısını ve en küçük yineleme aralığını belirtir. Daha fazla bilgi için bkz. [Scheduler REST API - İş Koleksiyonları](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Bu işlemler için URI adresi şöyledir:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>İş geçmişi yönetimi
 
-Geçen iş süresi ve iş yürütme sonuçları gibi 60 günlük iş yürütme geçmişinin alınması için GET işleminin kullanılmasını destekler. Durum ve duruma göre filtreleme için sorgu dizesi parametresi desteği sunar. Daha fazla bilgi için bkz. [Scheduler REST API - İşler - İş Geçmişini Listeleme](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Bu işlemin URI adresi şu şekilde olacaktır:
+Geçen iş süresi ve iş yürütme sonuçları gibi 60 günlük iş yürütme geçmişinin alınması için GET işleminin kullanılmasını destekler. Durum ve duruma göre filtreleme için sorgu dizesi parametresi desteği sunar. Daha fazla bilgi için bkz. [Scheduler REST API - İşler - İş Geçmişini Listeleme](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Bu işlem için URI adresi şöyledir:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>İş türleri
 
@@ -221,7 +227,7 @@ Birincil **eylemde** olduğu gibi, hata eylemi diğer eylemler temelinde basit y
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>yinelenme
+## <a name="recurrence"></a>yineleme
 
 İşin JSON tanımında **recurrence** nesnesi varsa o iş yinelenir, örneğin:
 
@@ -245,7 +251,7 @@ Birincil **eylemde** olduğu gibi, hata eylemi diğer eylemler temelinde basit y
 | **interval** | Hayır | 1-1000 arası, ikisi de dahil | **frequency** nesnesine göre yinelemeler arasındaki zaman birimi sayısını belirleyen pozitif tamsayı | 
 | **schedule** | Hayır | Değişir | Daha karmaşık ve gelişmiş zamanlamaların ayrıntıları. Bkz. **hours**, **minutes**, **weekDays**, **months** ve **monthDays** | 
 | **hours** | Hayır | 1-24 arası | İşin çalıştırılacağı saati belirten dizi | 
-| **minutes** | Hayır | 1-24 arası | İşin çalıştırılacağı dakikayı belirten dizi | 
+| **minutes** | Hayır | 0-59 | İşin çalıştırılacağı dakikayı belirten dizi | 
 | **months** | Hayır | 1-12 arası | İşin çalıştırılacağı ayı belirten dizi | 
 | **monthDays** | Hayır | Değişir | İşin çalıştırılacağı ayın gününü belirten dizi | 
 | **weekDays** | Hayır | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | İşin çalıştırılacağı haftanın gününü belirten dizi | 

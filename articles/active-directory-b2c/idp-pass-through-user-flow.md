@@ -1,5 +1,5 @@
 ---
-title: Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı aracılığıyla erişim belirteci geçirin | Microsoft Docs
+title: Kullanıcı akışı aracılığıyla erişim belirteci, uygulamanıza - Azure Active Directory B2C geçirin | Microsoft Docs
 description: Bir erişim belirteci OAuth2.0 kimlik sağlayıcıları için Azure Active Directory B2C kullanıcı akışında bir talebi olarak nasıl geçirebilirsiniz öğrenin.
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 7863bea9f3fe6ef146dc1e1f2b29bbfda09a9d6d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428213"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683646"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı aracılığıyla erişim belirteci geçirin
 
@@ -24,23 +24,23 @@ ms.locfileid: "56428213"
 
 A [kullanıcı akışı](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de, uygulamanızın kullanıcıları ıntune'a kaydolma veya bir kimlik sağlayıcısı ile oturum açmak için bir fırsat sağlar. Yolculuğunuzun başladığında, Azure AD B2C alır bir [erişim belirteci](active-directory-b2c-reference-tokens.md) kimlik sağlayıcısından gelen. Azure AD B2C kullanıcı hakkında bilgi almak için bu belirteci kullanır. Bir talep belirteci aracılığıyla Azure AD B2C'de kayıt uygulamaları geçirmek için kullanıcı akışınızı etkinleştirin.
 
-Azure AD B2C'yi destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ve [Openıd Connect](active-directory-b2c-reference-oidc.md) kimlik sağlayıcıları. Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
+Azure AD B2C şu anda yalnızca destekler erişim belirtecini geçirme [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) içeren kimlik sağlayıcıları [Facebook](active-directory-b2c-setup-fb-app.md) ve [Google](active-directory-b2c-setup-goog-app.md). Diğer tüm kimlik sağlayıcıları için talep boş olarak döndürülür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Uygulamanızı kullanarak bir [v2 kullanıcı akışı](user-flow-versions.md).
-- Kullanıcı akışı, OAuth 2.0 veya Openıd Connect kimlik sağlayıcısı ile yapılandırılır.
+- Kullanıcı akışı, OAuth 2.0 kimlik sağlayıcısı ile yapılandırılır.
 
 ## <a name="enable-the-claim"></a>Talep etkinleştir
 
 1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
-4. Seçin **kullanıcı akışları**ve ardından, kullanıcı akışı seçin. Örneğin, **B2C_1_SignupSignIn**.
+4. Seçin **kullanıcı akışları (ilke)** ve ardından, kullanıcı akışı seçin. Örneğin, **B2C_1_signupsignin1**.
 5. **Uygulama talepleri**’ni seçin.
-6. Etkinleştirme **kimlik sağlayıcısı erişim belirteci**.
+6. Etkinleştirme **kimlik sağlayıcısı erişim belirteci** talep.
 
-    ![Uygulama talep](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
+    ![Kimlik sağlayıcısı erişim belirteci talep etkinleştir](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
 
 7. Tıklayın **Kaydet** kullanıcı akışı kaydedin.
 
@@ -58,7 +58,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Belirteçleri hakkında daha fazla bilgi [Azure Active Directory belirteci başvurusu](active-directory-b2c-reference-tokens.md).
+Daha fazla bilgi [Azure AD B2C belirteçleri bakış](active-directory-b2c-reference-tokens.md).
 
 
 

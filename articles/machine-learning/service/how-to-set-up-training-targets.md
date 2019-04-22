@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046164"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683911"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -44,7 +44,7 @@ Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Uzak VM](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -377,7 +377,6 @@ Kullanarak çalışma ile ilişkilendirilen işlem hedefleri erişebileceğiniz 
 
 Daha fazla bilgi için [kaynak yönetimi](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Çalıştırma eğitim gönderin
 
 Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırmak için kullanın.  Eğitim çalıştırma göndermek için kod desenini işlem hedefleri tüm türleri için de aynıdır:
@@ -385,6 +384,13 @@ Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırma
 1. Çalıştırmak için bir deneme oluşturma
 1. Çalıştırma gönderin.
 1. Çalıştırmak için bekleyin.
+
+> [!IMPORTANT]
+> Eğitim çalıştırma gönderdiğinizde, eğitim komut dosyalarınızı içeren dizine anlık görüntüsünü oluşturulur ve işlem hedefine gönderildi. Ayrıca, çalışma alanınızda denemeler bir parçası olarak depolanır. Dosyaları değiştirin ve çalıştırma gönderme yalnızca değiştirilen dosyaların yeniden yüklenecek.
+>
+> Anlık görüntüde bulunan dosyaların önlemek için oluşturma bir [.gitignore](https://git-scm.com/docs/gitignore) veya `.amlignore` dosya dizin ve dosyaları ekleyin. `.amlignore` Dosyası aynı sözdizimini kullanır ve olarak desenleri [.gitignore](https://git-scm.com/docs/gitignore) dosya. Her iki dosya varsa, `.amlignore` dosya önceliklidir.
+> 
+> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Deneme oluşturma
 
@@ -399,8 +405,6 @@ Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırma
 * **kaynak_dizin**: Eğitim komut dosyanızı içeren kaynak dizini
 * **betik**: Eğitim betiği tanımlayın
 * **run_config**: Eğitim gerçekleşeceği sırayla tanımlayan çalıştırma yapılandırmasına.
-
-Bir eğitim çalıştırma gönderdiğinizde, eğitim komut dosyalarınızı içeren dizine anlık görüntüsünü oluşturulur ve işlem hedefine gönderildi. Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
 
 Örneğin, kullanılacak [yerel hedef](#local) yapılandırma:
 
@@ -419,7 +423,7 @@ Veya, şunları yapabilirsiniz:
 
 Bu not defterlerini eğitim çeşitli işlem hedefleri olan örnekler için bkz:
 * [Yardım-How-to-kullanın-azureml/eğitimi](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

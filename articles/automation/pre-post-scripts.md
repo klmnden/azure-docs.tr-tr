@@ -1,22 +1,22 @@
 ---
-title: Yapılandırma (Önizleme), güncelleştirme yönetimi dağıtım öncesi ve sonrası komut dosyaları
+title: Yapılandırma güncelleştirme yönetimi dağıtımınız azure'da öncesi ve sonrası komut dosyaları
 description: Bu makalede, öncesi yapılandırılıp yönetileceği açıklanır ve sonrası betikler için güncelleştirme dağıtımları
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263817"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698751"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
+# <a name="manage-pre-and-post-scripts"></a>Yönetme öncesi ve sonrası betikleri
 
 Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalıştırmak öncesi ve sonrası komut dosyaları sağlar ve sonra (sonrası görev) bir güncelleştirme dağıtımı. Öncesi ve sonrası komut dosyalarını Azure içerik ve yerel olarak çalıştırın. Güncelleştirme dağıtımının başında ön betiklerini çalıştırın. Sonunda dağıtımın ve sonrasında, yapılandırılmış herhangi bir yeniden başlatma sonrası betiklerini çalıştırın.
 
@@ -26,7 +26,7 @@ Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalış
 
 ## <a name="using-a-prepost-script"></a>Ön/son betik kullanarak
 
-Değiştirmek için bir öncesi kullanın ve post bir güncelleştirme dağıtımına komut dosyası, güncelleştirme dağıtımı oluşturarak başlayın. Seçin **ön betiklerini + sonrası betikler (Önizleme)**. Bu eylem açar **seçin Ön betiklerini + sonrası betikler** sayfası.  
+Değiştirmek için bir öncesi kullanın ve post bir güncelleştirme dağıtımına komut dosyası, güncelleştirme dağıtımı oluşturarak başlayın. Seçin **ön betiklerini + sonrası betikler**. Bu eylem açar **seçin Ön betiklerini + sonrası betikler** sayfası.  
 
 ![Komut dosyaları seçin](./media/pre-post-scripts/select-scripts.png)
 
@@ -44,7 +44,7 @@ Güncelleştirme dağıtımınızı yapılandırma tamamlayın.
 
 Güncelleştirme dağıtımınıza tamamlandığında gidebilirsiniz **güncelleştirme dağıtımları** sonuçlarını görüntülemek için. Gördüğünüz gibi betik öncesi ve betik sonrası durumunu sağlanır.
 
-![Güncelleştirme sonuçları](./media/pre-post-scripts/update-results.png)
+![Güncelleştirme Sonuçları](./media/pre-post-scripts/update-results.png)
 
 Güncelleştirme dağıtımını çalıştırmak tıklayarak öncesi ve sonrası betikler için ek ayrıntılar sunulur. Çalışma zamanında betik kaynağı için bir bağlantı sağlanır.
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Azure olmayan makineler ile etkileşim kurma
+## <a name="interacting-with-machines"></a>Makineleri ile etkileşim kurma
+
+Bir runbook Otomasyon hesabınızdaki ve doğrudan dağıtımınızdaki makinelere öncesi ve sonrası görevleri Çalıştır. Öncesi ve sonrası görevler, ayrıca Azure ait içerikte çalıştırmasına ve Azure olmayan makineler erişiminiz yok. Aşağıdaki bölümlerde bir Azure sanal makinesi veya Azure olmayan makine oldukları nasıl makinelerle doğrudan etkileşim kurabileceğine gösterilmektedir:
+
+### <a name="interacting-with-azure-machines"></a>Azure makineleri ile etkileşim kurma
+
+Öncesi ve sonrası görevleri runbook'lar olarak çalıştırıldı ve dağıtımınızda Azure Vm'leriniz üzerinde yerel olarak çalışmaz. Azure Vm'leriniz ile etkileşimde bulunmak üzere, aşağıdaki öğelere sahip olmanız gerekir:
+
+* Bir farklı çalıştır hesabı
+* Çalıştırmak istediğiniz runbook'u
+
+Azure makineleri ile etkileşim kurmak için kullanmalısınız [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) Azure Vm'leriniz ile etkileşim kurmak için cmdlet'i. Bunu yapmak nasıl bir örnek için runbook bkz [güncelleştirme yönetimi - betiğini Çalıştır komutu Çalıştır ile](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Azure olmayan makineler ile etkileşim kurma
 
 Öncesi ve sonrası görevleri Azure bağlamında çalışır ve Azure olmayan makineler erişiminiz yok. Azure olmayan makineler ile etkileşimde bulunmak üzere, aşağıdaki öğelere sahip olmanız gerekir:
 
@@ -215,38 +228,7 @@ $variable = Get-AutomationVariable -Name $runId
 * Yerel olarak çalıştırmak istediğiniz runbook'u
 * Üst runbook
 
-Azure olmayan makineler ile etkileşimde bulunmak üzere üst runbook Azure bağlamında çalıştırılır. Bu runbook'u ile bir alt runbook'u çağırır [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Belirtmelisiniz `-RunOn` parametresi ve karma Runbook çalışanı üzerinde çalışacak bir betik için adını belirtin.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+Azure olmayan makineler ile etkileşimde bulunmak üzere üst runbook Azure bağlamında çalıştırılır. Bu runbook'u ile bir alt runbook'u çağırır [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Belirtmelisiniz `-RunOn` parametresi ve karma Runbook çalışanı üzerinde çalışacak bir betik için adını belirtin. Bunu yapmak nasıl bir örnek için runbook bkz [güncelleştirme yönetimi - betiği yerel olarak çalıştırma](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Düzeltme eki dağıtımı Durdur
 
@@ -268,5 +250,5 @@ if (<My custom error logic>)
 Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi almak için öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure Windows sanal makineleriniz için güncelleştirme ve düzeltme eki yönetimi](automation-tutorial-update-management.md)
+> [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
 

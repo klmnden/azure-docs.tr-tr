@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542421"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737331"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
@@ -261,7 +261,8 @@ Premium depolama diskleri için standart depolama disklerinin kıyasla daha yük
 Azure Premium depolama kullanan yüksek ölçek VM'ler BlobCache adlı çok katmanlı bir önbelleğe alma teknolojisini sahiptir. BlobCache önbelleğe almak için bir sanal makinenin RAM ve yerel SSD bileşimini kullanır. Bu önbellek, Premium depolama kalıcı disk ve VM yerel diskler için kullanılabilir. Varsayılan olarak, önbellek okuma/yazma için işletim sistemi diskleri ve salt okunur için Premium depolama alanında barındırılan veri diskleri için ayar. Premium depolama disklerini etkin disk önbelleğe alma ile yüksek ölçek Vm'leri temel disk performansı aşan son derece yüksek performans düzeyi elde edebilirsiniz.
 
 > [!WARNING]
-> Diski önbelleğe alma, yalnızca 4 TiB kadar disk boyutları için desteklenir.
+> 4 TiB büyük diskler için disk önbelleğe alma desteklenmiyor. Diğer bir deyişle 4 TiB her disk veya birden çok disk, sanal Makinenize eklenir, daha küçük önbelleğe almayı destekler.
+>
 > Bir Azure diskinin önbellek ayarları değiştirmesini ayırır ve hedef disk yeniden ekler. İşletim sistemi diski ise, sanal makine yeniden başlatılır. Tüm uygulamalar/disk önbellek ayarı değiştirmeden önce bu kesintisi tarafından etkilenebilecek hizmetlerini durdurun.
 
 BlobCache nasıl çalıştığı hakkında daha fazla bilgi için iç başvuran [Azure Premium depolama](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog gönderisi.
@@ -353,7 +354,7 @@ Disk bölümleme türüyle önemli bir yapılandırmada stripe boyutudur. Şerit
 
 Uygulamanız tarafından oluşturulan bir g/ç isteği disk stripe boyutundan daha büyük ise, örneğin, depolama sistemi bunu stripe birim sınırları arasında birden fazla diskte yazar. Bu verilere erişmek için zaman olduğunda, isteği tamamlamak için birden fazla stripe birimlerindeki arama gerekecektir. Toplu etkisi, benzer bir davranış önemli performans düşüşüne neden olabilir. Öte yandan, g/ç istek boyutunun stripe boyuttan daha küçükse ve doğası gereği rastgele ise, g/ç istekleri bir performans sorununa neden ve sonuçta g/ç performansının düşmesinde aynı disk üzerinde ekleme.
 
-Uygulamanızı çalıştıran iş yükü türüne bağlı olarak, uygun stripe boyutu seçin. Rastgele küçük g/ç istekleri için stripe daha küçük bir boyut kullanın. Oysa için büyük sıralı g/ç istekleri daha büyük bir Şerit boyutu kullanır. Premium depolama alanında çalışan stripe boyut önerileri için uygulamayı öğrenin. SQL Server için stripe boyutu 64 KB OLTP iş yükleri için veri ambarı iş yükleri için 256 KB ve yapılandırın. Bkz: [Azure vm'lerde SQL Server için en iyi performans](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) daha fazla bilgi için.
+Uygulamanızı çalıştıran iş yükü türüne bağlı olarak, uygun stripe boyutu seçin. Rastgele küçük g/ç istekleri için stripe daha küçük bir boyut kullanın. İçin büyük sıralı g/ç istekleri daha büyük bir Şerit boyutu kullanmasa. Premium depolama alanında çalışan stripe boyut önerileri için uygulamayı öğrenin. SQL Server için stripe boyutu 64 KB OLTP iş yükleri için veri ambarı iş yükleri için 256 KB ve yapılandırın. Bkz: [Azure vm'lerde SQL Server için en iyi performans](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) daha fazla bilgi için.
 
 > [!NOTE]
 > Ayrıca, en fazla 32 premium depolama disklerini DS serisi VM üzerinde ve bir GS serisi VM 64 premium depolama disklerini birlikte stripe.

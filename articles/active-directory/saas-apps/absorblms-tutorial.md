@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861936"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Öğretici: Devralarak LMS ile Azure Active Directory Tümleştirme
 
@@ -38,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD Tümleştirmesi ile devralarak LMS yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * LMS tek oturum açma etkin abonelik Al
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -120,17 +121,21 @@ Azure AD çoklu oturum açma devralarak LMS ile yapılandırmak için aşağıda
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [devralarak LMS istemci Destek ekibine](https://support.absorblms.com/hc/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **meta veri XML**bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+5. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**.
+
+    ![image](common/edit-attribute.png)
+
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-6. Üzerinde **devralarak LMS kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+7. Üzerinde **devralarak LMS kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -162,7 +167,7 @@ Azure AD çoklu oturum açma devralarak LMS ile yapılandırmak için aşağıda
 
     d. İçinde **modu** kutusunda **kimlik sağlayıcısı tarafından başlatılan**.
 
-    e. İçinde **ID özelliği** kutusunda, Azure AD'de kullanıcı tanımlayıcısı yapılandırdığınız öznitelik seçin. Örneğin, varsa *userPrincipalName* Azure AD'de seçin seçili **Username**.
+    e. İçinde **ID özelliği** kutusunda, Azure AD'de kullanıcı tanımlayıcısı yapılandırdığınız öznitelik seçin. Örneğin, varsa *NameIdentifier* Azure AD'de seçin seçili **Username**.
 
     f. Seçin **Sha256** olarak bir **imza türü**.
 
@@ -194,7 +199,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü `brittasimon\@yourcompanydomain.extension`  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -272,7 +277,7 @@ Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapıland
 
 Erişim paneli devralarak LMS kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama LMS etkisini azaltmak için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

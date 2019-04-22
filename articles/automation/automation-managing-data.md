@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916844"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784985"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale, bir Azure Otomasyonu ortamı yönetmek için birden çok konuları içerir.

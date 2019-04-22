@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: a8d071544462361e9750d3fa622467cd0000a040
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 43d0ab6552847df7f1f2a8599dcc7cb9a8fcb57b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056792"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698838"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows Vm'leri için Kıyaslama puanlarını hesaplama
-İşlem performansı için Azure'nın yüksek performanslı VM lineup Windows Server çalıştıran şu SPECInt Kıyaslama puanlarını gösterir. Kıyaslama puanlarını hesaplama için kullanılabilir ayrıca [Linux Vm'leri](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+İşlem performansı için Azure'nın yüksek performanslı VM lineup Windows Server çalıştıran şu SPECInt Kıyaslama puanlarını gösterir. Kıyaslama puanlarını hesaplama için kullanılabilir ayrıca [Linux Vm'leri](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Linux sayılar, kısa süre önce güncelleştirildi ve VM'ler daha kapsamlı bir kümesini içerir.
@@ -31,10 +31,10 @@ ms.locfileid: "39056792"
 ## <a name="a-series---compute-intensive"></a>A serisi - yoğun işlem gücü kullanımlı
 | Boyut | vCPU sayısı | NUMA düğümleri | CPU | Çalıştırmalar | Ortalama taban fiyat | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 \@ 2,6 GHz |10 |236.1 |1.1 |
-| Standard_A9 |16 |2 |Intel Xeon CPU E5-2670 0 \@ 2,6 GHz |10 |450.3 |7.0 |
-| Standard_A10 |8 |1 |Intel Xeon CPU E5-2670 0 \@ 2,6 GHz |5 |235.6 |0.9 |
-| Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 \@ 2,6 GHz |7 |454.7 |4.8 |
+| Standard_A8 |8 |1 |Intel Xeon CPU E5-2670 0 \@ 2.6 GHz |10 |236.1 |1.1 |
+| Standard_A9 |16 |2 |Intel Xeon CPU E5-2670 0 \@ 2.6 GHz |10 |450.3 |7.0 |
+| Standard_A10 |8 |1 |Intel Xeon CPU E5-2670 0 \@ 2.6 GHz |5 |235.6 |0.9 |
+| Standard_A11 |16 |2 |Intel Xeon CPU E5-2670 0 \@ 2.6 GHz |7 |454.7 |4.8 |
 
 ## <a name="dv2-series"></a>Dv2 Serisi
 | Boyut | vCPU sayısı | NUMA düğümleri | CPU | Çalıştırmalar | Ortalama taban fiyat | StdDev |
@@ -52,11 +52,11 @@ ms.locfileid: "39056792"
 ## <a name="g-series-gs-series"></a>G serisi, GS serisi
 | Boyut | vCPU sayısı | NUMA düğümleri | CPU | Çalıştırmalar | Ortalama taban fiyat | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
-| İşler için standart_g1 Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |31 |71.8 |6.5 |
+| Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |31 |71.8 |6.5 |
 | İşler için standart_g2 Standard_GS2 |4 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |5 |133.4 |13.0 |
-| İşler için standart_g3, Standard_GS3 |8 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |6 |242.3 |6.0 |
-| İşler için standart_g4, Standard_GS4 |16 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |15 |398.9 |6.0 |
-| İşler için standart_g5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 \@ 2 GHz |22 |762.8 |3.7 |
+| Standard_G3, Standard_GS3 |8 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |6 |242.3 |6.0 |
+| Standard_G4, Standard_GS4 |16 |1 |Intel Xeon E5-2698B v3 \@ 2 GHz |15 |398.9 |6.0 |
+| Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 \@ 2 GHz |22 |762.8 |3.7 |
 
 ## <a name="h-series"></a>H Serisi
 | Boyut | vCPU sayısı | NUMA düğümleri | CPU | Çalıştırmalar | Ortalama taban fiyat  | StdDev |

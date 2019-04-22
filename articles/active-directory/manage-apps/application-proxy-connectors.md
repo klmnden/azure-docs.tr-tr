@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853025"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684098"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -74,6 +74,8 @@ Birden çok Bağlayıcılarla kiracılar için Otomatik Güncelleştirmeler orta
 Bağlayıcınızı güncelleştirir, kapalı kalma süresi karşılaşabilirsiniz:  
 - Yalnızca tek bir bağlayıcıyı sahip ikinci bir bağlayıcı öneririz ve [bir bağlayıcı grubu oluşturma](application-proxy-connector-groups.md). Kapalı kalma süresini önlemek ve daha yüksek kullanılabilirlik sağlayın.  
 - Güncelleştirme başladığında bir bağlayıcı ortasında bir işlem oluştu. İlk işlem kayıp olsa da, tarayıcınız otomatik olarak işlemi yeniden denemesinin veya sayfanızı yenileyebilirsiniz. İstek gönderilir, trafik için yedek bir bağlayıcı yönlendirilir.
+
+Daha önce yayımlanmış sürümleri ve bunlar değişiklikler hakkındaki bilgileri görmek için eklemek için bkz: [uygulama ara sunucusu - sürüm yayımlama geçmişi](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Bağlayıcı grupları oluşturma
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407428"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684234"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Çakışma türleri ve çözme ilkeleri
 
@@ -37,11 +37,11 @@ Azure Cosmos DB yazma çakışmaları çözümlemek için esnek bir ilke odaklı
   > [!NOTE]
   > Son yazma WINS varsayılan çakışma çözümü ilkesi var. Aşağıdaki API'leri için kullanılabilir: SQL, MongoDB, Cassandra, Gremlin ve tablo.
 
-  Daha fazla bilgi için bkz. [LWW kullanan örnekler Çakışma çözümlemesi ilkelerinin](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Daha fazla bilgi için bkz. [LWW kullanan örnekler Çakışma çözümlemesi ilkelerinin](how-to-manage-conflicts.md).
 
 - **Özel**: Bu çözüm İlkesi uygulama tanımlı semantiği çakışmaları karşılaştırmak için tasarlanmıştır. Bu ilke Azure Cosmos kapsayıcınızın ayarladığınızda, ayrıca kayıt olmanız gereklidir bir *saklı yordam birleştirme*. Bu yordam, çakışma, sunucu üzerindeki veritabanı işlem altında algılandığında otomatik olarak çağrılır. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti.  
 
-  Kapsayıcınızın özel bir çözüm seçeneğiyle yapılandırmak ve kaydetmek kapsayıcı üzerindeki bir birleştirme yordam başarısız veya birleştirme yordamı, çalışma zamanında bir özel durum oluşturur, çakışmaları yazılan *akışı çakışmaları*. Uygulamanızı daha sonra el ile besleme çakışıyor çakışmaları gerekir. Daha fazla bilgi için bkz. [özel çözümleme İlkesi kullanmayı ve akış çakışmaları kullanma örnekleri](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Kapsayıcınızın özel bir çözüm seçeneğiyle yapılandırmak ve kaydetmek kapsayıcı üzerindeki bir birleştirme yordam başarısız veya birleştirme yordamı, çalışma zamanında bir özel durum oluşturur, çakışmaları yazılan *akışı çakışmaları*. Uygulamanızı daha sonra el ile besleme çakışıyor çakışmaları gerekir. Daha fazla bilgi için bkz. [özel çözümleme İlkesi kullanmayı ve akış çakışmaları kullanma örnekleri](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > Özel çakışma çözüm ilkesi yalnızca SQL API'si hesapları için kullanılabilir.
@@ -51,6 +51,5 @@ Azure Cosmos DB yazma çakışmaları çözümlemek için esnek bir ilke odaklı
 Çakışma çözümlemesi ilkelerinin nasıl yapılandırılacağını öğrenin:
 
 * [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
-* [LWW çakışma çözümü İlkesi kullanma](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Özel çakışma çözümü İlkesi kullanma](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Çakışma çözümleme ilkelerini yönetme](how-to-manage-conflicts.md)
 * [Akış çakışmalarından okuma](how-to-manage-conflicts.md#read-from-conflict-feed)

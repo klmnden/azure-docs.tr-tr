@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ea409b1726e82557b564f93fbd35898e9cf2cb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372463"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699124"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -374,7 +374,7 @@ Betiği kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve
 
 2. PowerShell komut isteminde girin **cd "c:\Program Files\Microsoft\AzureMfa\Config"** ve ardından Enter tuşuna basın.
 
-3. Sonraki komut isteminde girin **.\AzureMfsNpsExtnConfigSetup.ps1**ve ardından Enter tuşuna basın. Azure AD PowerShell modülünün yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmezse, komut sizin için modülünü yükler.
+3. Sonraki komut isteminde girin **.\AzureMfaNpsExtnConfigSetup.ps1**ve ardından Enter tuşuna basın. Azure AD PowerShell modülünün yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmezse, komut sizin için modülünü yükler.
 
     ![AzureMfsNpsExtnConfigSetup.ps1 yapılandırma betiğini çalıştırma](./media/howto-mfa-nps-extension-vpn/image38.png)
 

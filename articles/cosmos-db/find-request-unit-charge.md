@@ -4,20 +4,20 @@ description: Bir Azure Cosmos kapsayıcı karşı yürütülen herhangi bir işl
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053170"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683843"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>İstek birimi (RU) ücretsiz olarak Azure Cosmos DB'de bulun.
 
 Bu makalede bulmak için farklı yollar sunar [istek birimi](request-units.md) tüketimi için bir Azure Cosmos kapsayıcı karşı yürütülen herhangi bir işlem. Bu, şu anda Azure portalını kullanarak ya da Azure Cosmos DB Sdk'lardan birini aracılığıyla geri gönderilen yanıt inceleyerek bu tüketim ölçmek mümkündür.
 
-## <a name="core-api"></a>Core API'si
+## <a name="sql-core-api"></a>SQL API (çekirdek)
 
 ### <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
@@ -25,13 +25,13 @@ Azure portalı şu anda yalnızca bir SQL sorgusu için istek yükü bulmanıza 
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-account) ve verilerle akışı veya zaten veri içeriyor. mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-sql-api-dotnet.md#create-account) ve verilerle akışı veya zaten veri içeriyor. mevcut bir Azure Cosmos hesabını seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve üzerinde çalışmak istediğiniz kapsayıcıyı seçin.
 
 1. Tıklayarak **yeni SQL sorgusu**.
 
-1. Geçerli bir sorgu girin ardından tıklayarak **sorguyu Yürüt**.
+1. Geçerli bir sorgu girin ve ardından tıklayarak **sorguyu Yürüt**.
 
 1. Tıklayarak **sorgu istatistikleri** yalnızca yürütülen istek asıl isteğinin ücreti görüntülenecek.
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
-İstek birimi ücretine ek olarak özel kullanıma sunulan [veritabanı komut](https://docs.mongodb.com/manual/reference/command/) adlı `getLastRequestStatistics`. Bu komut, son yürütülen işlemi adını, kendi istek yükü ve süresinin içeren bir belgeyi döndürür.
+İstek birimi ücretine ek olarak özel tarafından sunulan [veritabanı komut](https://docs.mongodb.com/manual/reference/command/) adlı `getLastRequestStatistics.` bu komut yürütülen son işlem adı, kendi istek yükü ve süresinin içeren bir belgeyi döndürür.
 
 ### <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
@@ -155,7 +155,7 @@ Azure portalında şu anda yalnızca bir sorgu için istek yükü bulmanıza ola
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-mongodb-dotnet.md#create-a-database-account) ve verilerle akışı veya zaten veri içeriyor. mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos hesabı oluşturma](create-mongodb-dotnet.md#create-a-database-account) ve verilerle akışı veya zaten veri içeriyor. mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve üzerinde çalışmak istediğiniz koleksiyonu seçin.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>MongoDB Node.js sürücüsü kullanın
 
-Kullanırken [resmi MongoDB Node.js sürücüsü](https://mongodb.github.io/node-mongodb-native/) (bkz [Bu hızlı başlangıçta](create-mongodb-nodejs.md) kullanımı ile ilgili), komutları yürütülebilir çağırarak `command` metodunda bir `Db` nesne.
+Kullanırken [resmi MongoDB Node.js sürücüsü](https://mongodb.github.io/node-mongodb-native/) (bkz [Bu hızlı başlangıçta](create-mongodb-nodejs.md) kullanımı ile ilgili), komutları yürütülebilir çağırarak `command` metodunda bir `db` nesne.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -230,7 +230,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### <a name="use-drivers-and-sdk"></a>Kullanım sürücüleri ve SDK'sı
 
-Gremlin API'si tarafından döndürülen üst bilgiler ve Gremlin .NET ve Java SDK'sı tarafından şu anda öne çıkarılır özel durumu öznitelikler eşlenir. İstek yükü altında kullanılabilir `x-ms-request-charge` anahtarı.
+Gremlin API'si tarafından döndürülen üst bilgiler, şu anda Gremlin .NET ve Java SDK'sı tarafından ortaya çıkmış özel durumu öznitelikleri eşlenir. İstek yükü altında kullanılabilir `x-ms-request-charge` anahtarı.
 
 ### <a name="use-the-net-sdk"></a>.NET SDK’yı kullanma
 
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 İstek birimi tüketiminiz en iyi duruma getirme hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
+* [Azure Cosmos DB'deki istek birimleri ve aktarım hızı](request-units.md)
 * [Azure Cosmos DB'de sağlanan aktarım hızı maliyeti iyileştirin](optimize-cost-throughput.md)
 * [Azure Cosmos DB'de sorgu gerçekleştirerek](optimize-cost-queries.md)
+* [Genel olarak sağlanan aktarım hızını ölçeklendirme](scaling-throughput.md)
+* [Kapsayıcılar ve veritabanları sağlama aktarım hızı](set-throughput.md)
+* [Kapsayıcı için aktarım hızı sağlama](how-to-provision-container-throughput.md)

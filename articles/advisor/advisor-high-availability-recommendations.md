@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881197"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699313"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Danışmanı ile uygulamanızın kullanılabilirliğini artırın
 
@@ -66,6 +66,10 @@ Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/st
 
 Etkin-etkin yapılandırmasında S2S VPN tünelinde şirket içi VPN cihazınız için hem bir VPN ağ geçidi örneklerini oluşturacaktır. Bir ağ geçidi örneğinde planlı bir bakım olayı veya planlanmamış bir olay gerçekleştiğinde, trafiğin diğer etkin IPSec tünel için otomatik olarak geçirilecek. Azure Danışmanı etkin-etkin olarak yapılandırılmamış bir VPN ağ geçitleri tanımlar ve bunları yüksek kullanılabilirlik için yapılandırma önerin.
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Üretim VPN ağ geçitlerinde üretim iş yüklerinizi çalıştırmak için kullanın
+
+Azure Danışmanı'nı temel SKU olan bir VPN ağ geçitleri için denetleyin ve bunun yerine bir üretim SKU'su kullanmanız önerilir. Temel SKU, geliştirme ve test amacıyla tasarlanmıştır. Üretim SKU'ları, daha yüksek bir sayı tüneller, BGP desteği, etkin-etkin yapılandırma seçenekleri, özel IPSec/IKE İlkesi ve daha yüksek kararlılık ve kullanılabilirlik sunar.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışman erişme
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve ardından açın [Advisor](https://aka.ms/azureadvisordashboard).
@@ -76,7 +80,7 @@ Etkin-etkin yapılandırmasında S2S VPN tünelinde şirket içi VPN cihazınız
 
 Danışman önerileri hakkında daha fazla bilgi için bkz:
 * [Azure Danışmanı giriş](advisor-overview.md)
-* [Danışman'ı kullanmaya başlama](advisor-get-started.md)
+* [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 * [Advisor maliyet önerileri](advisor-cost-recommendations.md)
 * [Danışmanı performans önerileri](advisor-performance-recommendations.md)
 * [Advisor güvenlik önerileri](advisor-security-recommendations.md)

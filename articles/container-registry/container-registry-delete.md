@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983260"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683469"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Kapsayıcı görüntülerini Azure Container Registry'de Sil
 
 Azure kapsayıcı kayıt defterinizin boyutunu korumak için düzenli aralıklarla eski görüntü verilerini silmeniz gerekir. Üretim ortamına dağıtmış bazı kapsayıcı görüntülerini daha uzun vadeli depolama gerektirirken, diğerleri genellikle daha hızlı bir şekilde silinebilir. Örneğin, bir otomatik yapı ve test senaryosu, kayıt defterinizin hızla hiçbir zaman dağıtılmış olabilir ve kısa süre içinde derleme ve test geçişi tamamladıktan sonra temizlenebilir görüntüleri ile doldurabilirsiniz.
 
-Görüntü verilerini birkaç farklı yolla silebilirsiniz çünkü her silme işlemi depolama kullanımını nasıl etkilediğini anlamak önemlidir. Bu makalede ilk Docker kayıt defteri ve kapsayıcı görüntüleri alan bileşenleri tanıtır ve ardından görüntü verilerini silmek için çeşitli yöntemler ele alınmaktadır.
+Görüntü verilerini birkaç farklı yolla silebilirsiniz çünkü her silme işlemi depolama kullanımını nasıl etkilediğini anlamak önemlidir. Bu makalede ilk Docker kayıt defteri ve kapsayıcı görüntüleri alan bileşenleri tanıtır ve ardından görüntü verilerini silmek için çeşitli yöntemler ele alınmaktadır. Örnek betikler, silme işlemleri otomatikleştirmek için sağlanır.
 
 ## <a name="registry"></a>Kayıt Defteri
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Depo adı da dahil edebileceğiniz [ad alanları](container-registry-best-practices.md#repository-namespaces). Ad alanları izin grubunda İleri eğik çizgi ile ayrılmış depo adları, örneğin kullanarak görüntüleri:
+Depo adı da dahil edebileceğiniz [ad alanları](container-registry-best-practices.md#repository-namespaces). Ad alanları İleri eğik çizgi ile ayrılmış depo adları, örneğin kullanarak Grup görüntülere izin ver:
 
 ```
 marketing/campaign10-18/web:v2
@@ -50,11 +50,11 @@ Bir kayıt defteri içinde bir kapsayıcı görüntüsü bir veya daha fazla eti
 
 ### <a name="tag"></a>Etiket
 
-Görüntünün *etiketi* sürümünü belirtir. Bir havuz içindeki tek bir görüntü, bir veya daha çok etiketleri atanabilir ve "etiketlenmemiş." olabilir Diğer bir deyişle, görüntünün veri (katmanları) kayıt defteri kalırken tüm etiketleri bir görüntüden silebilirsiniz.
+Görüntünün *etiketi* sürümünü belirtir. Bir havuz içindeki tek bir görüntü, bir veya daha çok etiketleri atanabilir ve "etiketlenmemiş." olabilir Diğer bir deyişle, görüntünün veri (katmanları) kayıt defterinde kalırken tüm etiketleri bir görüntüden silebilirsiniz.
 
 Depo (veya havuzu ve ad alanı) artı bir etiket görüntünün adını tanımlar. İtme veya çekme işleminde adını belirterek bir görüntüyü çekin ve gönderebilir.
 
-Azure Container Registry gibi bir özel kayıt defterindeki görüntü adı kayıt defteri ana bilgisayar tam adı da içerir. ACR görüntü kayıt defteri konak biçimindedir *acrname.azurecr.io*. Örneğin, önceki bölümde 'Pazarlama' ad alanı ilk görüntüde tam adı olacaktır:
+Azure Container Registry gibi bir özel kayıt defterindeki görüntü adı kayıt defteri ana bilgisayar tam adı da içerir. ACR görüntü kayıt defteri konak biçimindedir *acrname.azurecr.io* (tamamı küçük harflerle). Örneğin, "Pazarlama" ad alanı önceki bölümde ilk görüntüde tam adı olacaktır:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Silme *etikete göre* (etiketi kaldırma) bir etiketi silme işlemine kafanız olmamalıdır. Azure CLI komutuyla bir etiketi silebilirsiniz [az acr depo etiketini Kaldır][az-acr-repository-untag]. Görüntü çünkü'etiketini kaldırın, hiçbir alanı boşaltılana kendi [bildirim](#manifest) ve katman kayıt defterindeki veri kalır. Yalnızca etiket başvuru kendisini silinir.
+> Silme *etikete göre* (etiketi kaldırma) bir etiketi silme işlemine kafanız olmamalıdır. Azure CLI komutuyla bir etiketi silebilirsiniz [az acr depo etiketini Kaldır][az-acr-repository-untag]. Görüntü çünkü'etiketini kaldırın, hiçbir alanı boşaltılana kendi [bildirim](#manifest) ve katman verileri kayıt defterinde kalır. Yalnızca etiket başvuru kendisini silinir.
 
 ## <a name="delete-by-manifest-digest"></a>Bildirim özeti tarafından Sil
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-"Acr-helloworld:v2" görüntüsü herhangi bir katman veri görüntüsünü benzersiz olarak kayıt defterinden silindi. Bir bildirim birden çok etiketi ile ilişkili ise, ilişkili tüm etiketleri de silinir.
+`acr-helloworld:v2` Görüntüsü herhangi bir katman veri görüntüsünü benzersiz olarak kayıt defterinden silindi. Bir bildirim birden çok etiketi ile ilişkili ise, ilişkili tüm etiketleri de silinir.
+
+### <a name="list-digests-by-timestamp"></a>Zaman damgası tarafından listesini özetler
+
+Depo veya kayıt defteri boyutunu korumak için düzenli olarak belirli bir tarihten daha eski bildirim özetler silmeniz gerekebilir.
+
+Aşağıdaki Azure CLI komutunu artan sırada belirtilen zaman damgası, daha eski bir depodaki tüm bildirim Özet listeler. Değiştirin `<acrName>` ve `<repositoryName>` ortamınız için uygun değerlerle. Tam tarih-saat ifade veya bu örnekte olduğu gibi bir tarih, zaman damgası olabilir.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>Zaman damgası tarafından özetler Sil
+
+Eski bildirim özetler belirledikten sonra belirtilen bir zaman damgası eski bildirim özetler silmek için aşağıdaki Bash betiğini çalıştırabilirsiniz. Azure CLI'yı gerektirir ve **xargs**. Varsayılan olarak, betik, hiçbir silme gerçekleştirir. Değişiklik `ENABLE_DELETE` değerini `true` görüntü silme işlemini etkinleştirmek için.
+
+> [!WARNING]
+> Aşağıdaki betiğe dikkatle--silinmiş bir görüntü veriler KURTARILAMAZ kullanılır. Bildirim özeti (aksine, görüntü adı) tarafından görüntüleri çekmek sistemleri varsa, bu betikleri çalıştırmamanız gerekir. Bildirim özetler silinmesi, bu sistemlerin görüntülerini kayıt defterinizden çekme öğesinden engeller. Bildirimi tarafından çekmek yerine benimsemeyi göz önünde bir *benzersiz etiketleme* düzeni, bir [önerilen en iyi][tagging-best-practices]. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>Etiketlenmemiş görüntüleri Sil
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>Etiketlenmemiş tüm görüntüleri silin
 
-Aşağıdaki örnek betikler silinmiş--dikkatli görüntü verilerdir KURTARILAMAZ.
+> [!WARNING]
+> Aşağıdaki örnek betikler silinmiş--dikkatli görüntü verilerdir KURTARILAMAZ. Bildirim özeti (aksine, görüntü adı) tarafından görüntüleri çekmek sistemleri varsa, bu betikleri çalıştırmamanız gerekir. Etiketlenmemiş görüntüleri siliniyor, bu sistemlerin görüntülerini kayıt defterinizden çekme öğesinden engeller. Bildirimi tarafından çekmek yerine benimsemeyi göz önünde bir *benzersiz etiketleme* düzeni, bir [önerilen en iyi][tagging-best-practices].
 
 **Bash Azure CLI**
 
 Aşağıdaki Bash betiği, bir depodan tüm etiketlenmemiş görüntüleri siler. Azure CLI'yı gerektirir ve **xargs**. Varsayılan olarak, betik, hiçbir silme gerçekleştirir. Değişiklik `ENABLE_DELETE` değerini `true` görüntü silme işlemini etkinleştirmek için.
-
-> [!WARNING]
-> Bildirim özeti (aksine, görüntü adı) tarafından görüntüleri çekmek sistemleri varsa, bu betiği çalıştırmamanız gerekir. Etiketlenmemiş görüntüleri siliniyor, bu sistemlerin görüntülerini kayıt defterinizden çekme öğesinden engeller. Bildirimi tarafından çekmek yerine benimsemeyi göz önünde bir *benzersiz etiketleme* düzeni, bir [önerilen en iyi][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **PowerShell'de Azure CLI**
 
 Aşağıdaki PowerShell betiğini bir depodan tüm etiketlenmemiş görüntüleri siler. PowerShell ve Azure CLI'yı gerektirir. Varsayılan olarak, betik, hiçbir silme gerçekleştirir. Değişiklik `$enableDelete` değerini `$TRUE` görüntü silme işlemini etkinleştirmek için.
-
-> [!WARNING]
-> Bildirim özeti (aksine, görüntü adı) tarafından görüntüleri çekmek sistemleri varsa, bu betiği çalıştırmamanız gerekir. Etiketlenmemiş görüntüleri siliniyor, bu sistemlerin görüntülerini kayıt defterinizden çekme öğesinden engeller. Bildirimi tarafından çekmek yerine benimsemeyi göz önünde bir *benzersiz etiketleme* düzeni, bir [önerilen en iyi][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!

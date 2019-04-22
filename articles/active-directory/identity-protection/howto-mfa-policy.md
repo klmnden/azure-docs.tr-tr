@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520352"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698971"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Nasıl Yapılır: Çok faktörlü kimlik doğrulaması kayıt ilkesi yapılandırma
 
-Azure AD kimlik koruması bir ilkesi yapılandırarak multi factor authentication (MFA) kaydı üretimi yönetmenize yardımcı olur. Bu makalede, hangi ilke ne amaçla kullanılacağını açıklanmaktadır. nasıl yapılandırılacağına ilişkin bir.
+Azure AD kimlik koruması üretimi multi factor authentication (MFA) kaydı MFA kayıt gerektiren bir ilkeniz yapılandırarak yönetmenize yardımcı olur. Bu makalede, hangi ilke ne amaçla kullanılacağını açıklanmaktadır. nasıl yapılandırılacağına ilişkin bir.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Çok faktörlü kimlik doğrulaması kayıt ilkesi nedir?
 
-Azure çok faktörlü kimlik doğrulaması yalnızca bir kullanıcı adı ve parola kullanılmasını gerektiren kim olduğunuzu doğrulama bir yöntemdir. Bu, ikinci bir kullanıcı oturum açma ve işlemler için güvenlik katmanı sağlar.  
+Azure çok faktörlü kimlik doğrulaması yalnızca bir kullanıcı adı ve parola kullanılmasını gerektiren kim olduğunuzu doğrulama bir yöntemdir. Bu, ikinci bir kullanıcı oturum açma ve işlemler için güvenlik katmanı sağlar. Kullanıcıların MFA isteklerini yanıtlamasına izin için sırada, bunlar için mfa'yı ilk kaydetmelisiniz. 
 
 Öneririz çünkü kullanıcı oturum açma işlemleri için Azure multi-Factor authentication gerektirmesine, onu:
 
@@ -39,7 +39,7 @@ Azure çok faktörlü kimlik doğrulaması yalnızca bir kullanıcı adı ve par
 - Hazırlanması kuruluşunuz korumak ve hesabı ödün kurtarmak için önemli bir rol oynar
 
 
-Daha fazla ayrıntı için [Azure multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
+MFA ile ilgili daha fazla ayrıntı için [Azure multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>MFA kayıt ilkesini nasıl erişim sağlanır?
@@ -53,13 +53,13 @@ MFA kayıt ilkesini bulunduğu **yapılandırma** bölümünde [Azure AD kimlik 
 
 ## <a name="policy-settings"></a>İlke ayarları
 
-Oturum açma riski İlkesi yapılandırdığınızda ayarlamanız gerekir:
+MFA kayıt ilkesini yapılandırırken ayarlamanız gerekir:
 
 - Kullanıcılar ve ilkenin uygulandığı gruplar:
 
     ![Kullanıcılar ve gruplar](./media/howto-mfa-policy/11.png)
 
-- Uygulanmasını istediğiniz erişim türünü:  
+- Zorla-gereksinimi için MFA kaydı istediğiniz denetimi:  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

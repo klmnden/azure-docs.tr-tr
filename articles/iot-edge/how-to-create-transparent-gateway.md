@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482955"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699022"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -260,6 +260,18 @@ Komutu ile bir cihaz üzerinde çalışan modüllerine denetleyebilirsiniz `iote
    ```
 
 6. İçinde **gözden geçirme şablonu** sayfasında **Gönder**.
+
+## <a name="open-ports-on-gateway-device"></a>Ağ geçidi cihazı bağlantı noktalarını Aç
+
+IOT Hub ile tüm iletişimi üzerinden giden bağlantılar yapıldığı için standart IOT Edge cihazları işleve, herhangi bir gelen bağlantı gerekmez. Ancak, aşağı akış cihazlarından iletileri alamaması gerekir çünkü ağ geçidi cihazları farklıdır.
+
+Bir ağ geçidi senaryo çalışmak en az bir IOT Edge hub'ın desteklenen protokoller aşağı akış cihazlardan gelen trafik için açık olmalıdır. Desteklenen portocols MQTT, AMQP ve HTTPS ' dir.
+
+| Bağlantı noktası | Protokol |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Aşağı Akış cihazlardan yönlendirme iletileri
 IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletiler gibi aşağı akış cihazlardan gönderilen iletiler yönlendirebilirsiniz. Bu verileri buluta göndermeden önce ağ geçidi üzerinde çalışan bir modüldeki analiz gerçekleştirmenize olanak sağlar. 

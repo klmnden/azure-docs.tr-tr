@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517547"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699042"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Nasıl Yapılır: Azure Active Directory kimlik koruması (yenilenmiş) risk ilkelerini yapılandırma
 
@@ -41,7 +41,8 @@ Azure AD, her oturum, bir kullanıcının analiz eder. Analiz amacı, oturum aç
 
 Oturum açma riski ilkesi için özel oturum açma risk düzeyini yapılandırabilirsiniz otomatik yanıt ' dir. Yanıt olarak, kaynaklarınıza erişimi engellemek ya da erişim elde etmek için çok faktörlü kimlik doğrulaması (MFA) testini geçerek gerektirir.
 
-   
+Bir kullanıcı oturum açma riski İlkesi tarafından tetiklenen bir MFA istemi başarıyla tamamlandığında, kimlik koruması, oturum açma kullanıcıdan geldiğini geri bildirim sağlar. Bu nedenle, MFA istemi tetikleyen oturum açma risk olayı otomatik olarak kapatılacak ve kimlik koruması, kullanıcı riski yükseltilmesini katkıda bulunan öğesinden bu olay engeller. Oturum açma riski ilkesini etkinleştirme noisiness riskli oturum açma işlemleri görünümünde MFA için istem görüntülendiğinde kendi kendini düzeltme izin vererek ve daha sonra otomatik olarak ilişkili riskli oturum açma kapatma azaltabilir.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Oturum açma riski İlkesi nasıl erişim sağlanır?
    
 Oturum açma riski İlkesi bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

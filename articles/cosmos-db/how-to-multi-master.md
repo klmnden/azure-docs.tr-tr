@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB'de çok ana yapılandırma
 description: Azure Cosmos DB'de uygulamalarınızdaki çok ana yapılandırma hakkında bilgi edinin
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312149"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682279"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Uygulamalarınızda Azure Cosmos DB kullanmayı çok ana yapılandırma
 
-Çok yöneticili özellikleri uygulamalarınızda kullanmak için çok bölgeli yazma etkinleştirmek ve birden çok girişe atanması özelliğini yapılandırmak gerekir. Birden çok giriş, geçerli uygulamanın dağıtıldığı bölge ayarlayarak yapılandırılır.
+Çok yöneticili özelliğini kullanmak için çok bölgeli yazma etkinleştirmek ve Azure Cosmos DB çok girişli özelliğini yapılandırmak gerekir. Çoklu yönlendirmeyi, uygulamanın dağıtıldığı bölge ayarlayarak yapılandırılır.
 
 ## <a id="netv2"></a>.NET SDK'sı v2
 
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK’sı
 
-Çok yöneticili uygulamaları kümenizdeki etkinleştirmek için `policy.setUsingMultipleWriteLocations(true)` true ve yapılandırmak için `policy.setPreferredLocations` bölgeye uygulama dağıtılır ve Cosmos DB çoğaltılır.
+Çok yöneticili uygulamaları kümenizdeki etkinleştirmek için `policy.setUsingMultipleWriteLocations(true)` ve yapılandırma `policy.setPreferredLocations` bölgeye uygulama dağıtılır ve Cosmos DB çoğaltılır.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok yöneticili, genel dağıtım ve Azure Cosmos DB tutarlılık hakkında daha fazla bilgi edinin. Aşağıdaki makalelere bakın:
+Ardından aşağıdaki makaleleri okuyabilirsiniz:
 
 * [Azure Cosmos DB'deki tutarlılık yönetmek için oturum belirteçleri kullanma](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Çakışma türlerini ve Azure Cosmos DB'de çözümleme ilkeleri](conflict-resolution-policies.md)
-
 * [Azure Cosmos DB'de yüksek kullanılabilirlik](high-availability.md)
-
+* [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md)
 * [Azure Cosmos DB'de doğru tutarlılık düzeyi seçme](consistency-levels-choosing.md)
-
 * [Azure Cosmos DB'deki tutarlılık, kullanılabilirlik ve performans seçenekleri](consistency-levels-tradeoffs.md)
+* [Çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri](consistency-levels-tradeoffs.md)
+* [Genel olarak sağlanan aktarım hızı ölçeklendirme](scaling-throughput.md)
+* [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)

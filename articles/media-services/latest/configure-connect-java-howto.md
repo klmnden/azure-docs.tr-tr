@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 9177a1ae1f2939979d1f824c98b6018a83c2779f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502271"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683435"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API'sine - Java bağlanma
 
 Bu makale için Azure Media Services v3 Java SDK'sına nasıl hizmet sorumlusu oturum açma yöntemiyle gösterir.
 
-Bu makalede, Visual Studio Code, bir uygulama geliştirmek için kullanılır.
+Bu makalede, Visual Studio Code, örnek uygulama geliştirmek için kullanılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -54,9 +54,9 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
 
 ## <a name="add-dependencies"></a>Bağımlılıkları ekleyin
 
-1. Visual Studio Code'da projenizi bulunduğu klasörü açın. 
-1. Bulma ve açma `pom.xml`. 
-1. Gerekli bağımlılıkları ekleyin. Bunlardan biri olan [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-medya](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar).
+1. Visual Studio Code'da projenizi bulunduğu klasörü açın.
+1. Bulma ve açma `pom.xml`
+1. Gerekli bağımlılıkları Ekle
 
     ```xml
     <dependency>
@@ -74,7 +74,6 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## <a name="connect-to-the-java-client"></a>Bağlanmak için Java istemcisi
@@ -84,7 +83,7 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
     ```java
     package com.azure.ams;
     ```
-2. Paket bildirimi altında eklemeniz içeri aktarma deyimleri:
+1. Paket bildirimi altında eklemeniz içeri aktarma deyimleri:
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -92,7 +91,7 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. İsteğinde bulunmak için gereken Active Directory kimlik bilgilerini oluşturmak için App sınıfının ana yönteme aşağıdaki kodu ekleyin ve aldığınız değerleri [erişimi API'leri](access-api-cli-how-to.md):
+1. İsteğinde bulunmak için gereken Active Directory kimlik bilgilerini oluşturmak için App sınıfının ana yönteme aşağıdaki kodu ekleyin ve aldığınız değerleri [erişimi API'leri](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -115,16 +114,15 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
       System.out.println(e.toString());
    }
    ```
+1. Uygulamayı çalıştırın.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [Media Services kavramları](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Java başvurusu](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık içerebilir `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` ve varlıkları işleme başlayın.<br/>
-Örneğin, hesabınızdaki tüm varlıkları Al: `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+Artık içerebilir `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` ve varlıkları işleme başlayın.

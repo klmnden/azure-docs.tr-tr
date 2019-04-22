@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438827"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683742"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory rapor saklama ilkeleri
 
@@ -68,8 +68,8 @@ Kullanılacak katılımı, güvenlik sinyalleri için toplama işlemi başlar **
 
 | Rapor                 | Azure AD Ücretsiz | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Dizin Denetimi        | 7 gün        |  7 gün        | 30 gün             | 30 gün             |
-| Oturum Açma Etkinliği       | Yok           |  Yok           | 30 gün             | 30 gün             |
+| Denetim günlükleri             | 7 gün        |  7 gün        | 30 gün             | 30 gün             |
+| Oturum açma işlemleri               | Yok           |  Yok           | 30 gün             | 30 gün             |
 | Azure MFA kullanımı        | 30 gün       |  30 gün       | 30 gün             | 30 gün             |
 
 Azure İzleyicisi'ni kullanarak bir Azure depolama hesabına yönlendirerek yukarıda özetlenen varsayılan saklama süresinden daha uzun denetim ve oturum açma etkinliği verileri koruyabilirsiniz. Daha fazla bilgi için [arşiv Azure AD için bir Azure depolama hesabı günlükleri](quickstart-azure-monitor-route-logs-to-storage-account.md).

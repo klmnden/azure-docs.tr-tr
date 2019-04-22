@@ -3,8 +3,8 @@ title: Windows için Azure özel betik uzantısı | Microsoft Docs
 description: Özel betik uzantısı'nı kullanarak Windows VM yapılandırma görevlerini otomatikleştirme
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: georgewallace
+manager: carmonm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
-ms.author: roiyz
-ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 075813feadfb81fe8f7d337dfc5f7ba01bd41e86
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097932"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698699"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -109,15 +109,15 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
-| Yayımcı | Microsoft.Compute | dize |
-| type | CustomScriptExtension | dize |
+| apiVersion | 2015-06-15 | date |
+| Yayımcı | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | dizi |
+| fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
-| commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 | dize |
-| storageAccountName (örn.) | examplestorageacct | dize |
-| storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | dize |
+| commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 | string |
+| storageAccountName (örn.) | examplestorageacct | string |
+| storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 >[!NOTE]
 >Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunları önlemek için burada gösterildiği gibi adları kullanın.
@@ -208,7 +208,7 @@ Set-AzVMExtension -ResourceGroupName myRG
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorunları giderin
+### <a name="troubleshoot"></a>Sorun giderme
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın:
 

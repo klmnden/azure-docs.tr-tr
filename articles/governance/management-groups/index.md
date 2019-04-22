@@ -4,15 +4,15 @@ description: Yönetim grupları, izinlerinin nasıl çalıştığı ve bu grupla
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804845"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699398"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure yönetim gruplarıyla düzenleme
 
@@ -43,11 +43,11 @@ Yönetim grubunda bir atama olması, farklı abonelikler üzerinde RBAC komut do
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu
 
 Her dizinde "Kök" yönetim grubu olarak adlandırılan tek bir üst düzey yönetim grubu bulunur.
-Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu kök yönetim grubunun altındadır. Bu Kök yönetim grubu, genel ilkelerin ve RBAC atamalarının dizin düzeyinde uygulanmasını sağlar. Başlangıçta bu kök grubunun sahibi olmak için [Azure AD Genel Yöneticisinin kendisini yükseltmesi gerekir](../../role-based-access-control/elevate-access-global-admin.md). Yönetici, grubun sahibi olduktan sonra hiyerarşiyi yönetmek için diğer dizin kullanıcılarına veya gruplara herhangi bir RBAC rolü atayabilir.
+Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu kök yönetim grubunun altındadır. Bu kök yönetim grubu, genel ilkelerin ve RBAC atamalarının dizin düzeyinde uygulanmasını sağlar. Başlangıçta Azure AD Genel Yöneticisinin bu kök grubunun Kullanıcı Erişimi Yönetici rolüne [kendisini yükseltmesi gerekir](../../role-based-access-control/elevate-access-global-admin.md). Yönetici, erişimi yükselttikten sonra hiyerarşiyi yönetmek için diğer dizin kullanıcılarına veya gruplara herhangi bir RBAC rolü atayabilir. Yönetici olarak, kendi hesabınızı kök yönetim grubunun sahibi olarak atayabilirsiniz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Kök yönetim grubu hakkında önemli bilgiler
 
-- Kök yönetim grubunun adı ve kimliği varsayılan olarak verilir. Görünen ad, Azure portalında farklı görünecek şekilde herhangi bir zamanda güncelleştirilebilir.
+- Kök yönetim grubunun adı ve kimliği varsayılan olarak verilir. Görünen ad, Azure portalında farklı görünecek şekilde herhangi bir zamanda güncelleştirilebilir. [Adı değiştirmek için](manage.md#change-the-name-of-a-management-group) hesabınızın kök yönetim grubunun Sahip veya Katkıda Bulunan rolüne atanması gerekir.
   - Ad "Kiracı kök grubu" olacaktır.
   - Kimlik Azure Active Directory Kimliği olacaktır.
 - Diğer yönetim gruplarının aksine kök yönetim grubu taşınamaz veya silinemez.  
@@ -69,7 +69,7 @@ Herhangi bir kullanıcı yönetim gruplarını kullanmaya başladığında gerç
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Tüm abonelikler görüntülenirken oluşan sorun
 
-25 Haziran 2018 tarihinden önce, önizlemenin ilk aşamasında yönetim gruplarını kullanmaya başlayan birkaç dizin, tüm aboneliklerin hiyerarşi içinde yer almamasıyla ilgili bir hatayla karşılaşabiliyordu.  Tüm abonelikleri hiyerarşiye almaya yönelik işlemler, dizindeki kök yönetim grubunda bir rol veya ilke ataması yapıldıktan sonra gerçekleştiriliyordu.
+25 Haziran 2018’den önce, önizlemenin ilk aşamasında yönetim gruplarını kullanmaya başlayan birkaç dizin, tüm aboneliklerin hiyerarşi içinde yer almamasıyla ilgili bir hatayla karşılaşabiliyordu. Tüm abonelikleri hiyerarşiye almaya yönelik işlem, dizindeki kök yönetim grubunda bir rol veya ilke ataması yapıldıktan sonra gerçekleştiriliyordu. 
 
 ### <a name="how-to-resolve-the-issue"></a>Sorunu çözme
 

@@ -1,7 +1,7 @@
 ---
 title: Model yorumlanabilirliği
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Interpretability SDK'sı neden modelinizi tahminlerde açıklamak için kullanmayı öğrenin. Bu eğitim ve çıkarım sırasında nasıl modelinizi tahminlerde anlamak için kullanılabilir.
+description: Neden modelinizin Azure Machine Learning Interpretability SDK'sını kullanarak tahminlerde açıklayacağınızı öğrenin. Bu eğitim ve çıkarım sırasında nasıl modelinizi tahminlerde anlamak için kullanılabilir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494449"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682466"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK'sı
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile model interpretability
 
 Bu makalede, neden modelinizi tahmin yapılan açıklamak nasıl öğreneceksiniz, Azure Machine Learning Interpretability SDK'sını kullanarak yapılır. Modelinizi açıklamak için aşağıdaki nedenlerle önemlidir:
 
@@ -25,9 +25,10 @@ Bu makalede, neden modelinizi tahmin yapılan açıklamak nasıl öğreneceksini
 * Öğrenmek istediğiniz bir veri bilimi insanı **ilgili öngörüleri bulmak için bir modeli sorgulama**. Araçlar hakkında bilgiye dayalı kararlar da ihtiyacınız **modelinizi nasıl**.
 * Bir şirket anlamanız gerekir. **değişen ile model davranışını giriş dağıtımları** ve **nasıl, model davranacağını özel giriş analiz edilirken**.
 
-Machine learning interpretability makine öğrenimi geliştirme döngüsü iki aşamada önemlidir: **eğitim** zaman ve **çıkarım** zaman:
+Machine learning interpretability, makine öğrenimi geliştirme döngüsü iki aşamada önemlidir: 
 
 * Sırasında **eğitim**: Bir modelin çıkış güven oluşturmak için proje katılımcılarına açıklamak için interpretability araçları, model tasarımcılar ve değerlendiricilerini gerektirir. Bunlar ayrıca modelde hata ayıklama ve olup kendi hedefleri davranışı eşleşen hakkında kararlar model Öngörüler gerekir. Son olarak, modeli olmayan ağırlıklı emin olmak gerekir.
+
 * Sırasında **çıkarım**: Öngörüler modelinizi kullanan kişilere explainable olması gerekir. Örneğin, neden modeli bir kredisinin Reddet veya tahmin yatırım Portföy daha yüksek risk taşır?
 
 Azure Machine Learning Interpretability SDK'sı teknolojileri içerir. Microsoft tarafından geliştirilen ve üçüncü taraf kitaplıklar (örneğin, Şekil ve KÜF) kanıtlanmış. SDK'sı arasında tümleşik kitaplıkları ortak bir API oluşturur ve Azure Machine Learning hizmetlerini birleştirir. Bu SDK'sını kullanarak, makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli bir veri noktasında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
@@ -91,7 +92,7 @@ Yerleşik zeka `TabularExplainer` ek olarak başka kitaplıklar SDK'sı ile tüm
 
 Aşağıdaki diyagramda iki doğrudan kümesi meta explainers arasındaki ilişkiyi gösterir.
 
-[![Machine & öğrenme Interpretability mimari](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Machine Learning Interpretability mimarisi](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Desteklenen modeller
 

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272759"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698920"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Paylaşılan Hizmetler şema örneğine genel bakış
 
@@ -36,7 +36,7 @@ Bu ortam, ISO 27001 standartlarında güvenli, tümüyle izlenen, kurumsal kulla
 - Güvenli dağıtımınıza başladığınız andan itibaren tüm eylemlerin ve hizmetlerin merkezi bir konumda günlüğe kaydedildiğinden emin olmak için, ilk Azure hizmeti olarak [Log Analytics](../../../../azure-monitor/overview.md) dağıtılır
 - Şirket içi veri merkezine geri bağlantı için alt ağları destekleyen bir sanal ağ, İnternet bağlantısı için bir giriş ve çıkış yığını ve tam mikro ayrıma yönelik olarak NSG'lerin ve ASG'lerin kullanıldığı paylaşılan bir hizmet alt ağı. Şunları içerir:
   - Yönetim amacıyla kullanılan ve yalnızca giriş yığını alt ağında dağıtılmış [Azure Güvenlik Duvarı](../../../../firewall/overview.md) üzerinden erişilebilen bir atlama kutusu veya kale konağı
-  - Yalnızca atlama kutusundan erişilebilen, yalnızca VPN veya [ExpressRoute](../../../../expressroute/expressroute-introduction.md) bağlantısı ve Active Directory Directory Services (ADDS) ile DNS çalıştıran iki sanal makine (şema tarafından dağıtılmaz)
+  - Yalnızca atlama kutusundan erişilebilen, yalnızca VPN veya [ExpressRoute](../../../../expressroute/expressroute-introduction.md) bağlantısı ve Active Directory Domain Services (ADDS) ile DNS çalıştıran iki sanal makine (şema tarafından dağıtılmaz)
   - [Azure Ağ İzleyicisi](../../../../network-watcher/network-watcher-monitoring-overview.md) ve standart DDoS korumasının kullanılması
 - Paylaşılan hizmetler ortamına dağıtılmış VM'lerin gizli dizilerini barındırmak için kullanılan [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) örneği
 

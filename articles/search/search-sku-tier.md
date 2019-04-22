@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270963"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681582"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -64,35 +64,36 @@ Azure Search'te With Azure Search'te ödemeniz üç yolu vardır ve sabit ve de�
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. Çekirdek hizmet maliyetleri (sabit ve değişken)
 
-Hizmetinde, en düşük ücret ilk arama birimi (1 çoğaltma x 1 bölüm), ve hizmet üzerinde herhangi bir şey bu yapılandırma'dan çalıştırılamaz bu miktar hizmet ömrü boyunca sabit. 
+Hizmetinde, ilk arama birimi (1 çoğaltma x 1 bölüm) en düşük ücretlendirme yapılır ve hizmet üzerinde herhangi bir şey bu yapılandırma'dan çalıştırılamaz hizmet ömrü boyunca sabit bu miktar. 
 
-Aşağıdaki ekran görüntüsünde, ücretsiz, temel ve S1 için birim fiyatlandırma gösterilir (S2, S3, L1 ve L2 gösterilmez). Oluşturduysanız bir **temel**, **standart**, veya **depolama için iyileştirilmiş** hizmet, aylık maliyetiniz ortalama için görüntülenen değeri *fiyat 1*ve *fiyat 2* sırasıyla. İşlem gücü ve depolama kapasitesini art arda her katmanında büyük olduğundan birim maliyetlerini her katman için artar.
+En düşük çoğaltmalar ve bölümler birbirinden bağımsız olarak ekleyebilirsiniz. Örneğin, yalnızca çoğaltmalar veya bölümler yalnızca ekleyebilirsiniz. Kapasite çoğaltmalar ve bölümler arasında artımlı bir artış değişkeni maliyet bileşeni oluşturur. 
+
+Faturalandırma temel bir [formül (çoğaltmaları bölümler x x oranı)](#search-units). Ücreti, seçtiğiniz fiyatlandırma katmanına bağlıdır.
+
+Aşağıdaki ekran görüntüsünde, ücretsiz, temel ve S1 için birim fiyatlandırma gösterilir (S2, S3, L1 ve L2 gösterilmez). Oluşturduysanız bir **temel**, **standart**, veya **depolama için iyileştirilmiş** hizmet, aylık maliyetiniz ortalama için görüntülenen değeri *fiyat 1*ve *fiyat 2* sırasıyla. İşlem gücü ve depolama kapasitesini art arda her katmanında büyük olduğundan birim maliyetlerini her katman için artar. Azure Search fiyatlar yayımlanan [Azure fiyatlandırma sayfasını arama](https://azure.microsoft.com/pricing/details/search/).
 
 ![Birim başına](./media/search-sku-tier/per-unit-pricing.png "birim başına")
 
-Eklentiyi ilk ücret Ek çoğaltmalar ve bölümler var. En düşük yapılandırmayı her biri, bu nedenle bir arama hizmeti bir çoğaltma ve bölüm gerektirir. En düşük, çoğaltmalar ve bölümler birbirinden bağımsız olarak ekleyin. Örneğin, yalnızca çoğaltmalar veya bölümler yalnızca ekleyebilirsiniz. 
+Bir arama çözümü maliyeti, fiyatlandırma ve kapasite (maliyet double'birden fazla kapasite Katlama) doğrusal olmadığına dikkat edin. Formül Works ilişkin bir örnek için bkz. ["çoğaltmalar ve bölümler tahsis etme"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Ek çoğaltmalar ve bölümler ücretlendirilir göre bir [formül](#search-units). Maliyetleri (maliyet double'birden fazla kapasite Katlama) doğrusal değildir. Formül Works ilişkin bir örnek için bkz. ["çoğaltmalar ve bölümler tahsis etme"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Dizin oluşturma sırasında veri çıkış ücretleri
 
-Kullanım [Azure Search dizin oluşturucularında](search-indexer-overview.md) faturalama etkisi Hizmetleri yerleştirildiği bağlı olarak neden olabilir. Tamamen verilerinizi aynı bölgede Azure Search Hizmeti oluşturursanız, veri çıkış ücretlerini ortadan kaldırabilir.
+Kullanım [Azure Search dizin oluşturucularında](search-indexer-overview.md) Hizmetleri bulunduğu yere göre faturalara neden olabilir. Tamamen verilerinizi aynı bölgede Azure Search Hizmeti oluşturursanız, veri çıkış ücretlerini ortadan kaldırabilir. Aşağıdaki noktaları arasındadır [bant genişliği fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ Herhangi bir Azure hizmeti için gelen tüm veriler için ücretlendirme olmayacaktır.
++ Microsoft gelen tüm veriler için herhangi bir Azure hizmeti için veya tüm giden veri için Azure arama doldurmaz.
 
-+ Azure Search giden tüm veriler için ücretlendirme olmayacaktır.
++ Birden çok hizmet çözümlerinde tüm hizmetleri aynı bölgede olması durumunda kablo üzerinden geçmesini veriler için ücretlendirme yoktur.
 
-+ Veri ve SQL DB, Cosmos, Blob Depolama giden dosyalar için herhangi bir ücret (Azure Search gelen) tüm hizmetleri aynı bölgede yer almasıdır.
-
-+ Depolama ve Azure Search, farklı bölgelerde bulunuyorsa ücretleri giden veri veya dosya için geçerlidir.
-
-Azure bölgeleri arasında veri yönlendirme, faturada bu kaynakları için bant genişliği ücretlerini görürsünüz. Bu ücretler, Azure Search faturanıza parçası değildir, ancak dizin oluşturucular veri veya dosya kablo üzerinden çekmek için kullanıyorsanız, bu ücretsiz olarak genel faturanızı görürsünüz çünkü bunlar aşağıda belirtilmiştir.
-
-Dizin oluşturucular kullanmıyorsanız, bant genişliği ücretlendirme yoktur. 
+Hizmetleri farklı bölgelerde bulunuyorsa için giden veri ücretleri uygulanır. Giderlerin Azure Search faturanızı başına uzatılmasında parçası olmayan, ancak veri veya AI zenginleştirilmiş dizin oluşturucular veri çekmek için farklı bölgelerden kullanıyorsanız, bu maliyetleri genel faturanıza yansıtılan görürsünüz çünkü bunlar aşağıda belirtilmiştir. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Yapay ZEKA-zenginleştirilmiş Bilişsel hizmetler kullanarak dizin oluşturma
 
-İçin [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. Doğal dil işleme gibi diğer zenginleştirmelerinin dayalı [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
+İçin [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md), fiyatlandırma katmanını Kullandıkça Öde işleme için Faturalanabilir bir Bilişsel hizmetler kaynağı S0 adresindeki iliştirilirken planlamanız gerekir. "Bilişsel Hizmetleri ekleme ile ilişkili hiçbir sabit ücret" yoktur. Yalnızca gereksinim duyduğunuz işleme için ödeme yaparsınız.
+
+Görüntü ayıklama belge çözme sırasında olan bir Azure Search ücret faturalandırılır, belgeleri ayıklanan görüntülerin göre. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. 
+
+Doğal dil işleme gibi diğer zenginleştirmelerinin dayalı [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi aynı hızda bir Bilişsel hizmetler kaynağı göre faturalandırılır. Daha fazla bilgi için [bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 

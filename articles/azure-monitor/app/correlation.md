@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493646"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683036"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -143,7 +143,7 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`,  `PageView`                 | `Span` ile `span.kind = server`                  |
+| `Request`, `PageView`                 | `Span` ile `span.kind = server`                  |
 | `Dependency`                          | `Span` ile `span.kind = client`                  |
 | `Id` ' ın `Request` ve `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
@@ -217,7 +217,7 @@ Bazen, bileşen adları görüntülenir şekilde özelleştirmek isteyebilirsini
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Yazma [özel telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
-- Daha fazla bilgi edinin [cloud_RoleName ayarlama](../../azure-monitor/app/app-map.md#set-cloud_rolename) diğer SDK'ları için.
+- Daha fazla bilgi edinin [cloud_RoleName ayarlama](../../azure-monitor/app/app-map.md#set-cloud-role-name) diğer SDK'ları için.
 - Ekleme, mikro hizmet Application ınsights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](../../azure-monitor/app/platforms.md).
 - Bkz: [veri modeli](../../azure-monitor/app/data-model.md) Application Insights türleri için.
 - Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](../../azure-monitor/app/api-filtering-sampling.md).

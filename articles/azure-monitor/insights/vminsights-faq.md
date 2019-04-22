@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243782"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698289"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure İzleyici VM'ler (Önizleme) hakkında sık sorulan sorular için
 Bu Microsoft FAQ VM'ler için Azure İzleyici hakkında sık sorulan soruların bir listesidir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -100,7 +100,7 @@ Vm'leri Haritası özelliği için Azure İzleyici, hizmet eşlemesinde bağlıd
 * İzlenen Vm'leri artık istemci grubu düğümü dahil edilir ve halka grafik grubunda izlenen ve izlenmeyen sanal makineler oranını gösterir.  Ayrıca, Grup genişletildiğinde makineler listesine filtre uygulamak için de kullanılabilir.
 * İzlenen sanal makineler artık sunucu bağlantı noktası grubu düğümler dahil edilir ve halka grafik grubunda izlenen ve izlenmeyen makineler oranını gösterir.  Ayrıca, Grup genişletildiğinde makineler listesine filtre uygulamak için de kullanılabilir.
 * Harita stil uygulama anlayışları'ndan Uygulama Haritası ile daha tutarlı olacak şekilde güncelleştirildi.
-* Yan paneller güncelleştirildi, ancak henüz eksiksiz bir listesi, hizmet eşlemesi - güncelleştirme yönetimi, değişiklik izleme, güvenlik ve hizmet Masası desteklenen tümleştirme 's yoktur. 
+* Yan paneller güncelleştirildi ve eksiksiz bir listesi, hizmet eşlemesi - güncelleştirme yönetimi, değişiklik izleme, güvenlik ve hizmet Masası desteklenen tümleştirme 's izniniz yok. 
 * Harita grup ve makineleri seçme seçeneği güncelleştirildi ve artık abonelik, kaynak grupları, Azure sanal makine ölçek kümeleri ve bulut Hizmetleri destekler.
 * Vm'leri Haritası özelliği için Azure İzleyici'de yeni hizmet eşlemesi makine grup oluşturamazsınız.  
 
@@ -125,6 +125,12 @@ Büyük ve karmaşık yapılandırmalar ele eşlemek için geliştirmeler yaptı
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Performans sekmesinde ağ grafik neden Azure VM genel bakış sayfasında ağ grafik farklı görünüyor?
 
 Bir Azure VM için genel bakış sayfasında, konağın Konuk VM etkinliğinde ölçü temel grafik görüntüler.  Azure VM genel ağ grafik için faturalandırılır, ağ trafiği yalnızca görüntüler.  Bu, sanal ağlar arası trafik içermez.  VM'ler için Azure İzleyici için gösterilen grafikler ve veri Konuk VM verilerden dayanır ve ağ grafik gelen ve giden sanal ağlar arası dahil olmak üzere, bu VM'ye tüm TCP/IP'yi trafiğini gösterir.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Yanıt süresi VMConnection içinde depolanan ve çalışma kitapları ve bağlantı paneli içinde görüntülenen verileri için nasıl ölçülür?
+
+Yanıt süresi yaklaşık ' dir. Biz uygulamanın kod işaretleme değil olduğundan, gerçekten bir isteği ne zaman başlar ve yanıt geldiğinde biliyoruz değil. Bunun yerine bir bağlantı üzerinde gönderilen veriler ve bu bağlantı üzerinde geri dönmeyi veri gözlemleyin. Aracımızı bu gönderir ve alır ve bunları eşleştirmeye çalışır: gönderir, bir dizi tarafından izlenen bir dizi aldığı istek/yanıt çifti olarak yorumlanır. Bu işlemler arasında zamanlama yanıt zamanı gelmiştir. Ağ gecikme süresi ve sunucu işleme süresi içerecektir.
+
+Bu tahminin de istek/yanıt tabanlı protokoller için çalışır: bağlantı tek bir isteğin gittiğini ve tek bir yanıt ulaşır. İçin HTTP (S) (ardışık düzen olmadan), ancak diğer protokoller için karşılanmadı böyledir.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics'i ücretsiz fiyatlandırma planına müşterisiysem, kendi sınırlaması var mı?
 Log Analytics çalışma alanını kullanma ile Azure İzleyici yapılandırdıysanız *ücretsiz* Vm'leri eşleme özelliğini yalnızca beş bağlı makine destekleyeceği fiyatlandırma katmanı, Azure İzleyici, çalışma alanına bağlı. Boş bir çalışma alanına bağlı beş Vm'leriniz varsa, Vm'lerden birinin bağlantısını kesip daha sonra yeni bir VM bağlanmak yeni VM izlenen değil ve harita sayfada yansıtılır.  

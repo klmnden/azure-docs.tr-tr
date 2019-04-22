@@ -1,96 +1,89 @@
-items:
 - name: Azure Sentinel Önizleme Belgeleri
   href: index.yml
 - name: Genel Bakış
   href: overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Azure Sentinel’a ekleme
-    href: quickstart-onboard.md
-  - name: Uyarılara yönelik görünürlük elde etme
-    href: quickstart-get-visibility.md
   expanded: true
+  items:
+    - name: Azure Sentinel’a ekleme
+      href: quickstart-onboard.md
+    - name: Uyarılara yönelik görünürlük elde etme
+      href: quickstart-get-visibility.md
 - name: Öğreticiler
   items:
-  - name: Şüpheli tehditleri algılama
-    href: tutorial-detect-threats.md
-  - name: Durumları inceleme
-    href: tutorial-investigate-cases.md
-  - name: Tehditlere yanıt verme
-    href: tutorial-respond-threats-playbook.md
+    - name: Şüpheli tehditleri algılama
+      href: tutorial-detect-threats.md
+    - name: Durumları inceleme
+      href: tutorial-investigate-cases.md
+    - name: Tehditlere yanıt verme
+      href: tutorial-respond-threats-playbook.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Veri kaynaklarını bağlama
-    href: connect-data-sources.md
-    items:
-    - name: Microsoft hizmetlerini bağlama
+    - name: Veri kaynaklarını bağlama
+      href: connect-data-sources.md
       items:
-      - name: Azure AD’yi bağlama
-        href: connect-azure-active-directory.md
-      - name: Office 365'i bağlama
-        href: connect-office-365.md
-      - name: Cloud App Security'yi bağlama
-        href: connect-cloud-app-security.md
-      - name: Azure Etkinlik Günlüğü’nü bağlama
-        href: connect-azure-activity.md
-      - name: Azure AD Kimlik Koruması bağlantısı kurma
-        href: connect-azure-ad-identity-protection.md
-      - name: Azure Information Protection’ı bağlama
-        href: connect-azure-information-protection.md
-      - name: Azure ATP'yi bağlama
-        href: connect-azure-atp.md
-      - name: Azure Güvenlik Merkezi’ni bağlama
-        href: connect-azure-security-center.md
-      - name: Microsoft web uygulaması güvenlik duvarına bağlanma
-        href: connect-microsoft-waf.md
-      - name: Windows güvenlik duvarını bağlama
-        href: connect-windows-firewall.md
-      - name: Windows güvenlik olaylarını bağlama
-        href: connect-windows-security-events.md
-    - name: Dış çözümleri bağlama
+        - name: Microsoft hizmetlerini bağlama
+          items:
+            - name: Azure AD’yi bağlama
+              href: connect-azure-active-directory.md
+            - name: Office 365'i bağlama
+              href: connect-office-365.md
+            - name: Cloud App Security'yi bağlama
+              href: connect-cloud-app-security.md
+            - name: Azure Etkinlik Günlüğü’nü bağlama
+              href: connect-azure-activity.md
+            - name: Azure AD Kimlik Koruması bağlantısı kurma
+              href: connect-azure-ad-identity-protection.md
+            - name: Azure Information Protection’ı bağlama
+              href: connect-azure-information-protection.md
+            - name: Azure ATP'yi bağlama
+              href: connect-azure-atp.md
+            - name: Azure Güvenlik Merkezi’ni bağlama
+              href: connect-azure-security-center.md
+            - name: Microsoft web uygulaması güvenlik duvarına bağlanma
+              href: connect-microsoft-waf.md
+            - name: Windows güvenlik duvarını bağlama
+              href: connect-windows-firewall.md
+            - name: Windows güvenlik olaylarını bağlama
+              href: connect-windows-security-events.md
+        - name: Dış çözümleri bağlama
+          items:
+            - name: Genel CEF’yi bağlama
+              href: connect-common-event-format.md
+            - name: Barracuda’yı bağlama
+              href: connect-barracuda.md
+            - name: Check Point’i bağlama
+              href: connect-checkpoint.md
+            - name: Palo Alto Networks’e bağlanma
+              href: connect-paloalto.md
+            - name: Fortinet’i bağlama
+              href: connect-fortinet.md
+            - name: F5’i bağlama
+              href: connect-f5.md
+            - name: Syslog’u bağlama
+              href: connect-syslog.md
+            - name: Symantec ICDX’i bağlama
+              href: connect-symantec.md
+            - name: Cisco’yu bağlama
+              href: connect-cisco.md
+        - name: Tehdit zekasını bağlama
+          href: connect-threat-intelligence.md
+    - name: Avlanma
+      href: hunting.md
       items:
-      - name: Genel CEF’yi bağlama
-        href: connect-common-event-format.md
-      - name: Barracuda’yı bağlama
-        href: connect-barracuda.md
-      - name: Check Point’i bağlama
-        href: connect-checkpoint.md
-      - name: Palo Alto Networks’e bağlanma
-        href: connect-paloalto.md
-      - name: Fortinet’i bağlama
-        href: connect-fortinet.md
-      - name: F5’i bağlama
-        href: connect-f5.md
-      - name: Syslog’u bağlama
-        href: connect-syslog.md
-      - name: Symantec ICDX’i bağlama
-        href: connect-symantec.md
-      - name: Cisco’yu bağlama
-        href: connect-cisco.md
-    - name: Tehdit zekasını bağlama
-      href: connect-threat-intelligence.md
-  - name: Avlanma
-    href: hunting.md
-    items:
-    - name: Avlanmak için not defterlerini kullanma
-      href: notebooks.md
-    - name: Avlanmak için yer işaretlerini kullanma
-      href: bookmarks.md
-  - name: Fusion etkinleştirme
-    href: connect-fusion.md
+        - name: Avlanmak için not defterlerini kullanma
+          href: notebooks.md
+        - name: Avlanmak için yer işaretlerini kullanma
+          href: bookmarks.md
+    - name: Fusion etkinleştirme
+      href: connect-fusion.md
 - name: Kaynaklar
   items:
-  - name: Yararlı kaynaklar
-    href: resources.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Azure Güvenlik, Gizlilik ve Uyumluluk blogu
-    href: https://blogs.msdn.com/b/azuresecurity/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 886f07fa45e7795251d50880a977cfbc331dfb2b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494011"
+    - name: Yararlı kaynaklar
+      href: resources.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Azure Güvenlik, Gizlilik ve Uyumluluk blogu'
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'

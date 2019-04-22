@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856031"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699056"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -84,7 +84,7 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel
 * Service Bus kuyruklarını garantili FIFO desende Mesajlaşma oturumları gerektirir. Uygulama bir ileti alındığında işlenirken kilitleniyor olay içeren **Özet & Kilitle** modu, sonraki açışınızda bir kuyruk alıcı bir Mesajlaşma oturumunun kabul eder, başlayacak başarısız iletisiyle, yaşam süresi (TTL sonra) Dönem sona eriyor.
 * Uygulama bileşenleri ayırma ölçeklenebilirlik ve dayanıklılık için hataları, artırmak için Yük Dengeleme ve süreç iş akışlarının oluşturulmasını gibi depolama kuyrukları standart sıraya alma senaryolarını desteklemek üzere tasarlanmıştır.
 * Service Bus kuyrukları Destek *en az bir kez* teslim garantisi. 
-* Service Bus oturumları bağlamında ileti işleme onaylamaz tutarsızlıklar oturumunun ileti sırası işleme ilerleme göre uygulamanın durumunu depolamak için oturum durumu kullanmanın ve işlemleri geçici bir çözüm kullanarak önlenebilir sonlandırma, iletileri ve oturum durumu güncelleştiriliyor aldı. Bu tür bir tutarlılık özellik bazen etiketli *tam olarak-bir kez işlenmesini* diğer satıcının ürünleri, ancak işlem hataları redeliveried olmasını iletileri açıkça neden olur ve bu nedenle terimi tam olarak yeterli.
+* Service Bus oturumları bağlamında ileti işleme onaylamaz tutarsızlıklar oturumunun ileti sırası işleme ilerleme göre uygulamanın durumunu depolamak için oturum durumu kullanmanın ve işlemleri geçici bir çözüm kullanarak önlenebilir sonlandırma, iletileri ve oturum durumu güncelleştiriliyor aldı. Bu tür bir tutarlılık özellik bazen etiketli *tam olarak-bir kez işlenmesini* diğer satıcının ürünleri, ancak işlem hataları ileti yeniden teslim edilebilir açıkça neden olur ve bu nedenle terimi tam olarak yeterli.
 * Depolama kuyrukları hem geliştiriciler hem de operasyon ekibi için kuyruklar, tablolar ve Blobları – arasında Tekdüzen ve tutarlı bir programlama modeli sağlar.
 * Service Bus kuyrukları, yerel işlemler tek bir kuyruk için bağlamı desteği sunar.
 * **Alma ve silme** Service Bus tarafından desteklenen modu azaltılmış teslim güvencesi lisanslarınıza Mesajlaşma işlemi sayısı (ve ilişkili maliyetin) azaltma olanağı sağlar.

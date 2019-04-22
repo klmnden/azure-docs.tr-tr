@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 61466f3574ba7a88665a8d78818d0a4c12716bbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269801"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Öğretici: Rackspace SSO ile Azure Active Directory Tümleştirme
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD tümleştirmesi Rackspace SSO ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * Abonelik rackspace SSO çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -101,11 +101,21 @@ Azure AD çoklu oturum açma Rackspace SSO ile yapılandırmak için aşağıdak
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** bölümünde, karşıya yükleme **hizmet sağlayıcısı meta veri dosyası** karşıdan yükleyebileceğiniz [URL](https://login.rackspace.com/federate/sp.xml) ve aşağıdaki adımları gerçekleştirin:
 
-    ![Rackspace SSO etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
+    a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://login.rackspace.com/federate/`
+    ![image](common/upload-metadata.png)
+
+    b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
+
+    ![image](common/browse-upload-metadata.png)
+
+    c. Meta veri dosyası başarıyla karşıya yüklendikten sonra gereken URL'leri otomatik olarak doldurulur otomatik alın.
+
+    d. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://login.rackspace.com/federate/`
+
+    ![Rackspace SSO etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)   
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -143,7 +153,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -189,7 +199,7 @@ Erişim paneli Rackspace SSO kutucuğa tıkladığınızda, size otomatik olarak
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

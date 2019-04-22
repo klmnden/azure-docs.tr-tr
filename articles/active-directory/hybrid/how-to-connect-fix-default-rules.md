@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501264"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698173"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Azure AD Connect'e bağlanan değiştirilmiş varsayılan kuralları Düzelt
 
@@ -76,12 +76,12 @@ Gelen eşitleme kuralı kaynak özniteliği için bir bağlayıcı alanı ve hed
 
  ![Varsayılan kurallar](media/how-to-connect-fix-default-rules/default3a.png)
 
-Kural adı için kendi adlandırma kuralını izler, burada kullandığımız **özel içinde ad - kullanıcı**, bu kuralın özel bir kural ve AD Bağlayıcısı alanından meta veri deposu için bir gelen kuralı olduğunu anlamına gelir. 
+Kural adı için kendi adlandırma kuralını izler, burada kullandığımız **özel içinde ad - kullanıcı**, bu kuralın özel bir kural ve AD Bağlayıcısı alanından meta veri deposu için bir gelen kuralı olduğunu anlamına gelir.   
 
  ![Varsayılan kurallar](media/how-to-connect-fix-default-rules/default3b.png)
 
 Kuralın gelecek bakım kuralın amacı nedir ve neden gerekir gibi kolay, böylece kendi Kural açıklamasını verir.
-Bağlı sistem (orman) seçili öznitelik kaynağı. Sonra bağlı sistem nesne türü ve meta veri deposu nesne türü.
+Bir bağlı sistem (orman) - öznitelik kaynak seçin. Ardından, bağlı sistem nesne türü ve meta veri deposu nesne türü seçin.
 
 0 – arasındaki öncelik değeri belirtin (sayı, daha yüksek öncelik alt) 99. Diğer alanlar 'Tag' gibi 'Parola eşitlemeyi Etkinleştir' ve 'Disabled' varsayılan olarak tutun.
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362192"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784065"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Kritik iş katmanı - Azure SQL veritabanı
 
@@ -27,7 +27,7 @@ ms.locfileid: "59362192"
 Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan üç Mimari modeli vardır:
 - Genel amaçlı/standart 
 - Kritik iş/Premium
-- Hiper ölçek
+- Hiper ölçeklendirme
 
 Premium/iş açısından kritik hizmet katman modeli, veritabanı altyapısı işlemleri kümede temel alır. Bu mimari bir model, her zaman bir kullanılabilir veritabanı altyapısı düğüm Çekirdeği ve en az düzeyde performans etkisi bile bakım etkinlikleri sırasında iş yüküne sahip bir olgu kullanır.
 

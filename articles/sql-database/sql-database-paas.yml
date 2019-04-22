@@ -29,7 +29,7 @@ sections:
           - title: İş sürekliliği
             href: /azure/sql-database/sql-database-business-continuity
             html: '<p>Azure SQL veritabanı, işletmenizi, bilgi işlem altyapısı için özellikle kesintisi karşılaşıldığında çalışmaya devam sağlar.</p>'
-          - title: Yüksek oranda kullanılabilirlik
+          - title: Yüksek kullanılabilirlik
             href: /azure/sql-database/sql-database-high-availability
             html: '<p>Azure SQL veritabanı veritabanlarınızı çalışmaya % 99,99 oranında süresinin, Bakım ve kapalı kalma süreleri hakkında endişelenmeden olmasını sağlar.</p>'
           - title: Otomatik yedeklemeler
@@ -44,7 +44,7 @@ sections:
           - title: Kaynakları ölçeklendirme
             href: /azure/sql-database/sql-database-scale-resources
             html: '<p>Azure SQL veritabanı uzun sağlamanıza gerek kalmadan daha fazla kaynağa (CPU, bellek, depolama) kolayca eklemenize olanak tanır.</p>'
-  - title: Daha fazla kaynak
+  - title: Diğer kaynaklar
     items:
       - type: paragraph
         text: 'Azure SQL veritabanı, daha kolay veritabanlarınızı yönetmek için kullanabileceğiniz bir dizi ek yerleşik PaaS özellik sağlar.'

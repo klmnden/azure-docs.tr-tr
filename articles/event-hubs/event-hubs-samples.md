@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104059"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682406"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git depoları ile Azure Event Hubs için örnekleri 
 Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler, anahtar özelliklerini gösteren [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
@@ -50,7 +50,7 @@ Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-eve
 Azure olay hub'ları için Python örnekleri bulabilirsiniz [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub deposu.
 
 ## <a name="nodejs-samples"></a>Node.js örnekleri
-Azure olay hub'ları için Node.js Örnekleri bulabilirsiniz [azure olay hub'ları düğümünü](https://github.com/Azure/azure-event-hubs-node) GitHub deposu.
+Azure olay hub'ları için Node.js Örnekleri bulabilirsiniz [js için azure SDK'sı](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub deposu.
 
 ## <a name="go-samples"></a>Go örnekleri
 Azure olay hub'ları için Go örnekleri bulabilirsiniz [azure-event-hubs-Git](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub deposu.

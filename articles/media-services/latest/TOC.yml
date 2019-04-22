@@ -1,281 +1,276 @@
-items:
 - name: Media Services Belgeleri
   href: ./index.yml
 - name: Genel Bakış
   items:
-  - name: Media Services hakkında
-    href: media-services-overview.md
+    - name: Media Services hakkında
+      href: media-services-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Stream video dosyaları - .NET
-    href: stream-files-dotnet-quickstart.md
-  - name: Stream video dosyaları - CLI
-    href: stream-files-cli-quickstart.md
-  - name: Video dosyalarını akışla aktarma - Node.js
-    href: stream-files-nodejs-quickstart.md
   expanded: true
+  items:
+    - name: Stream video dosyaları - .NET
+      href: stream-files-dotnet-quickstart.md
+    - name: Stream video dosyaları - CLI
+      href: stream-files-cli-quickstart.md
+    - name: Video dosyalarını akışla aktarma - Node.js
+      href: stream-files-nodejs-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Uzak dosyayı kodlama ve videoyu akışla aktarma – REST
-    displayName: encoding, job, transform
-    href: stream-files-tutorial-with-rest.md
-  - name: Karşıya yüklenen dosyayı kodlama ve videoyu akışla aktarma – .NET
-    displayName: encode, encoding, job, transform
-    href: stream-files-tutorial-with-api.md
-  - name: Canlı akış - .NET
-    href: stream-live-tutorial-with-api.md
-  - name: Videonuzu analiz etme - .NET
-    displayName: job, transform
-    href: analyze-videos-tutorial-with-api.md
-  - name: AES-128 dinamik şifreleme - .NET
-    href: protect-with-aes128.md
+    - name: Uzak dosyayı kodlama ve videoyu akışla aktarma – REST
+      displayName: 'encoding, job, transform'
+      href: stream-files-tutorial-with-rest.md
+    - name: Karşıya yüklenen dosyayı kodlama ve videoyu akışla aktarma – .NET
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
+    - name: Canlı akış - .NET
+      href: stream-live-tutorial-with-api.md
+    - name: Videonuzu analiz etme - .NET
+      displayName: 'job, transform'
+      href: analyze-videos-tutorial-with-api.md
+    - name: AES-128 dinamik şifreleme - .NET
+      href: protect-with-aes128.md
 - name: Örnekler
   items:
-  - name: Azure kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Kavramlar
   href: concepts-overview.md
   items:
-  - name: Bulutta karşıya yükleme ve depolama
-    items:
-    - name: Depolama
-      href: storage-account-concept.md
-    - name: Varlıklar
-      href: assets-concept.md
-  - name: Encoding
-    items:
-    - name: Genel Bakış
-      displayName: Presets
-      href: encoding-concept.md
-    - name: Dönüşümler ve İşler
-      href: transforms-jobs-concept.md
-    - name: Media Encoder Standard biçimleri
-      displayName: containers, codecs
-      href: media-encoder-standard-formats.md
-    - name: Autogen uyarlamalı bit hızı merdiveni
-      href: autogen-bitrate-ladder.md
-    - name: İçeriğe duyarlı kodlama
-      href: cae-experimental.md
-  - name: Medya analizi
-    items:
-    - name: Genel Bakış
-      displayName: Presets
-      href: analyzing-video-audio-files-concept.md
-    - name: Dönüşümler ve İşler
-      href: transforms-jobs-concept.md
-  - name: Paketleme, teslim, koruma
-    items:
-    - name: Paketleme
+    - name: Bulutta karşıya yükleme ve depolama
       items:
-      - name: Dinamik paketleme
-        displayName: packager
-        href: dynamic-packaging-overview.md
-      - name: Dinamik bildirimler
-        href: filters-dynamic-manifest-overview.md
-      - name: Filtreler
-        href: filters-concept.md
-    - name: İçerik koruma
+        - name: Depolama
+          href: storage-account-concept.md
+        - name: Varlıklar
+          href: assets-concept.md
+    - name: Encoding
       items:
-      - name: Akış protokolleri ve şifreleme türleri
-        displayName: Dynamic encryption
-        href: content-protection-overview.md
-      - name: Erişim denetimiyle çoklu DRM sistemi
-        href: design-multi-drm-system-with-access-control.md
-      - name: DRM lisansları
-        items:
-        - name: PlayReady lisans şablonu
-          href: playready-license-template-overview.md
-        - name: Widevine lisans şablonu
-          href: widevine-license-template-overview.md
-        - name: FairPlay lisans gereksinimleri
-          href: fairplay-license-overview.md
-    - name: Akış Uç Noktaları/Kaynak
-      displayName: origins, cdn
-      href: streaming-endpoint-concept.md
-    - name: Akış Bulucuları
-      displayName: URLs
-      href: streaming-locators-concept.md
-    - name: Akış İlkeleri
-      href: streaming-policy-concept.md
-    - name: İçerik Anahtar İlkeleri
-      href: content-key-policy-concept.md
-  - name: Canlı akış
-    items:
-    - name: Genel Bakış
-      href: live-streaming-overview.md
-    - name: Canlı Etkinlikler ve Canlı Çıkışlar
-      href: live-events-outputs-concept.md
-    - name: Önerilen gerçek zamanlı kodlayıcılar
-      href: recommended-on-premises-live-encoders.md
-    - name: Bulut DVR kullanma
-      displayName: archive
-      href: live-event-cloud-dvr.md
-    - name: Özellik karşılaştırması
-      href: live-event-types-comparison.md
-    - name: Durumlar ve faturalandırma
-      href: live-event-states-billing.md
-    - name: Gecikme süresi
-      href: live-event-latency.md
-  - name: İzleme
-    items:
-    - name: Event Grid ile olaylar
-      href: reacting-to-media-services-events.md
-    - name: Event Grid şemaları
-      href: media-services-event-schemas.md
-    - name: Ölçümler ve tanılama günlükleri
-      href: media-services-metrics-diagnostic-logs.md
-    - name: Tanılama günlükleri şemaları
-      href: media-services-diagnostic-logs-schema.md
-  - name: Yürütücü istemcileri
-    items:
-    - name: Azure Media Player
-      href: use-azure-media-player.md
-  - name: v3 API'leriyle geliştirme
-    href: media-services-apis-overview.md
-    items:
-    - name: Sayfa, filtre, düzen varlıkları
-      href: entities-overview.md
-    - name: RBAC
-      href: rbac-overview.md
-  - name: v2’den v3’e geçiş kılavuzu
-    href: migrate-from-v2-to-v3.md
+        - name: Genel Bakış
+          href: encoding-concept.md
+          displayName: Presets
+        - name: Dönüşümler ve İşler
+          href: transforms-jobs-concept.md
+        - name: Media Encoder Standard biçimleri
+          displayName: 'containers, codecs'
+          href: media-encoder-standard-formats.md
+        - name: Autogen uyarlamalı bit hızı merdiveni
+          href: autogen-bitrate-ladder.md
+        - name: İçeriğe duyarlı kodlama
+          href: cae-experimental.md
+    - name: Medya analizi
+      items:
+        - name: Genel Bakış
+          href: analyzing-video-audio-files-concept.md
+          displayName: Presets
+        - name: Dönüşümler ve İşler
+          href: transforms-jobs-concept.md
+    - name: 'Paketleme, teslim, koruma'
+      items:
+        - name: Paketleme
+          items:
+            - name: Dinamik paketleme
+              displayName: packager
+              href: dynamic-packaging-overview.md
+            - name: Dinamik bildirimler
+              href: filters-dynamic-manifest-overview.md
+            - name: Filtreler
+              href: filters-concept.md
+        - name: İçerik koruma
+          items:
+            - name: Akış protokolleri ve şifreleme türleri
+              displayName: Dynamic encryption
+              href: content-protection-overview.md
+            - name: Erişim denetimiyle çoklu DRM sistemi
+              href: design-multi-drm-system-with-access-control.md
+            - name: DRM lisansları
+              items:
+                - name: PlayReady lisans şablonu
+                  href: playready-license-template-overview.md
+                - name: Widevine lisans şablonu
+                  href: widevine-license-template-overview.md
+                - name: FairPlay lisans gereksinimleri
+                  href: fairplay-license-overview.md
+        - name: Akış Uç Noktaları/Kaynak
+          displayName: 'origins, cdn'
+          href: streaming-endpoint-concept.md
+        - name: Akış Bulucuları
+          displayName: URLs
+          href: streaming-locators-concept.md
+        - name: Akış İlkeleri
+          href: streaming-policy-concept.md
+        - name: İçerik Anahtar İlkeleri
+          href: content-key-policy-concept.md
+    - name: Canlı akış
+      items:
+        - name: Genel Bakış
+          href: live-streaming-overview.md
+        - name: Canlı Etkinlikler ve Canlı Çıkışlar
+          href: live-events-outputs-concept.md
+        - name: Önerilen gerçek zamanlı kodlayıcılar
+          href: recommended-on-premises-live-encoders.md
+        - name: Bulut DVR kullanma
+          displayName: archive
+          href: live-event-cloud-dvr.md
+        - name: Özellik karşılaştırması
+          href: live-event-types-comparison.md
+        - name: Durumlar ve faturalandırma
+          href: live-event-states-billing.md
+        - name: Gecikme süresi
+          href: live-event-latency.md
+    - name: İzleme
+      items:
+        - name: Event Grid ile olaylar
+          href: reacting-to-media-services-events.md
+        - name: Event Grid şemaları
+          href: media-services-event-schemas.md
+        - name: Ölçümler ve tanılama günlükleri
+          href: media-services-metrics-diagnostic-logs.md
+        - name: Tanılama günlükleri şemaları
+          href: media-services-diagnostic-logs-schema.md
+    - name: Yürütücü istemcileri
+      items:
+        - name: Azure Media Player
+          href: use-azure-media-player.md
+    - name: v3 API'leriyle geliştirme
+      href: media-services-apis-overview.md
+      items:
+        - name: 'Sayfa, filtre, düzen varlıkları'
+          href: entities-overview.md
+        - name: RBAC
+          href: rbac-overview.md
+    - name: v2’den v3’e geçiş kılavuzu
+      href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: başlarken
-    items:
-    - name: Hesap oluşturma - CLI
-      href: create-account-cli-how-to.md
-    - name: API'lere erişim - CLI
-      href: access-api-cli-how-to.md
-    - name: Medya Ayrılmış Birimlerini Ölçeklendirme - CLI
-      href: media-reserved-units-cli-how-to.md
-    - name: REST ile geliştirme
+    - name: başlarken
       items:
-      - name: Postman ile bağlama
-        href: media-rest-apis-with-postman.md
-    - name: SDK'larla geliştirme
-      href: developers-guide.md
+        - name: Hesap oluşturma - CLI
+          href: create-account-cli-how-to.md
+        - name: API'lere erişim - CLI
+          href: access-api-cli-how-to.md
+        - name: Medya Ayrılmış Birimlerini Ölçeklendirme - CLI
+          href: media-reserved-units-cli-how-to.md
+        - name: REST ile geliştirme
+          items:
+            - name: Postman ile bağlama
+              href: media-rest-apis-with-postman.md
+        - name: SDK'larla geliştirme
+          href: developers-guide.md
+          items:
+            - name: Java ile bağlanma
+              href: configure-connect-java-howto.md
+            - name: .NET ile bağlanma
+              href: configure-connect-dotnet-howto.md
+            - name: Node.js ile bağlanma
+              href: configure-connect-nodejs-howto.md
+            - name: Python ile bağlanma
+              href: configure-connect-python-howto.md
+    - name: İçerik yükleme
       items:
-      - name: Java ile bağlanma
-        href: configure-connect-java-howto.md
-      - name: .NET ile bağlanma
-        href: configure-connect-dotnet-howto.md
-      - name: Node.js ile bağlanma
-        href: configure-connect-nodejs-howto.md
-  - name: İçerik yükleme
-    items:
-    - name: HTTPS’ten - .NET
-      displayName: upload
-      href: job-input-from-http-how-to.md
-    - name: Yerel bir dosyadan - .NET
-      displayName: upload
-      href: job-input-from-local-file-how-to.md
-    - name: Yerel bir dosyadan - REST
-      displayName: upload
-      href: upload-files-rest-how-to.md
-  - name: İçerik kodlama
-    items:
-    - name: İş girişi olarak HTTPS - .NET
-      displayName: encode, encoding
-      href: job-input-from-http-how-to.md
-    - name: İş girişi olarak yerel dosya - .NET
-      displayName: encode, encoding
-      href: job-input-from-local-file-how-to.md
-    - name: Özel Transform ile kodlama
+        - name: HTTPS’ten - .NET
+          displayName: upload
+          href: job-input-from-http-how-to.md
+        - name: Yerel bir dosyadan - .NET
+          displayName: upload
+          href: job-input-from-local-file-how-to.md
+        - name: Yerel bir dosyadan - REST
+          displayName: upload
+          href: upload-files-rest-how-to.md
+    - name: İçerik kodlama
       items:
-      - name: .NET ile
-        href: customize-encoder-presets-how-to.md
-      - name: CLI ile
-        href: custom-preset-cli-howto.md
-      - name: REST ile
-        href: custom-preset-rest-howto.md
-  - name: Event Grid kullanma
-    items:
-    - name: Olayları izleme - Portal
-      href: monitor-events-portal-how-to.md
-    - name: Olayları izleme - CLI
-      href: job-state-events-cli-how-to.md
-  - name: İçerik koruma
-    items:
-    - name: İçerik anahtarı ilkesini edinme - .NET
-      href: get-content-key-policy-dotnet-howto.md
-    - name: DRM dinamik şifreleme - .NET
-      href: protect-with-drm.md
-    - name: iOS için çevrimdışı FairPlay
-      href: offline-fairplay-for-ios.md
-    - name: Android için çevrimdışı Widevine
-      href: offline-widevine-for-android.md
-    - name: Windows 10 için çevrimdışı PlayReady
-      href: offline-plaready-streaming-for-windows-10.md
-  - name: Filtre oluşturma
-    items:
-    - name: .NET ile
-      href: filters-dynamic-manifest-dotnet-howto.md
-    - name: REST ile
-      href: filters-dynamic-manifest-rest-howto.md
-    - name: CLI ile
-      href: filters-dynamic-manifest-cli-howto.md
+        - name: İş girişi olarak HTTPS - .NET
+          displayName: 'encode, encoding'
+          href: job-input-from-http-how-to.md
+        - name: İş girişi olarak yerel dosya - .NET
+          displayName: 'encode, encoding'
+          href: job-input-from-local-file-how-to.md
+        - name: Özel Transform ile kodlama
+          items:
+            - name: .NET ile
+              href: customize-encoder-presets-how-to.md
+            - name: CLI ile
+              href: custom-preset-cli-howto.md
+            - name: REST ile
+              href: custom-preset-rest-howto.md
+    - name: Event Grid kullanma
+      items:
+        - name: Olayları izleme - Portal
+          href: monitor-events-portal-how-to.md
+        - name: Olayları izleme - CLI
+          href: job-state-events-cli-how-to.md
+    - name: İçerik koruma
+      items:
+        - name: İçerik anahtarı ilkesini edinme - .NET
+          href: get-content-key-policy-dotnet-howto.md
+        - name: DRM dinamik şifreleme - .NET
+          href: protect-with-drm.md
+        - name: iOS için çevrimdışı FairPlay
+          href: offline-fairplay-for-ios.md
+        - name: Android için çevrimdışı Widevine
+          href: offline-widevine-for-android.md
+        - name: Windows 10 için çevrimdışı PlayReady
+          href: offline-plaready-streaming-for-windows-10.md
+    - name: Filtre oluşturma
+      items:
+        - name: .NET ile
+          href: filters-dynamic-manifest-dotnet-howto.md
+        - name: REST ile
+          href: filters-dynamic-manifest-rest-howto.md
+        - name: CLI ile
+          href: filters-dynamic-manifest-cli-howto.md
 - name: Başvuru
   items:
-  - name: OpenAPI Belirtimi (Swagger)
-    href: https://aka.ms/ams-v3-rest-sdk
-  - name: REST
-    href: https://aka.ms/ams-v3-rest-ref
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-ref
-    - name: Java
-      href: https://aka.ms/ams-v3-java-ref
-    - name: Python
-      href: https://aka.ms/ams-v3-python-ref
-    - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-ref
-    - name: Başlayın
-      href: https://aka.ms/ams-v3-go-ref
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.media/allversions
+    - name: OpenAPI Belirtimi (Swagger)
+      href: 'https://aka.ms/ams-v3-rest-sdk'
+    - name: REST
+      href: 'https://aka.ms/ams-v3-rest-ref'
+    - name: Azure CLI
+      href: 'https://aka.ms/ams-v3-cli-ref'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://aka.ms/ams-v3-dotnet-ref'
+        - name: Java
+          href: 'https://aka.ms/ams-v3-java-ref'
+        - name: Python
+          href: 'https://aka.ms/ams-v3-python-ref'
+        - name: Node.js
+          href: 'https://aka.ms/ams-v3-nodejs-ref'
+        - name: Başlayın
+          href: 'https://aka.ms/ams-v3-go-ref'
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.media/allversions
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Videolar
-    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-  - name: OpenAPI Belirtimi (Swagger)
-    href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDK'lar/Araçlar
-    items:
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli
-    - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-sdk
-    - name: Java
-      href: https://aka.ms/ams-v3-java-sdk
-    - name: Python
-      href: https://aka.ms/ams-v3-python-sdk
-    - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-sdk
-    - name: Ruby
-      href: https://aka.ms/ams-v3-ruby-sdk
-  - name: AMSE
-    href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Sürüm notları
-    href: release-notes.md
-  - name: Kotalar ve sınırlamalar
-    href: limits-quotas-constraints.md
-  - name: SSS
-    href: frequently-asked-questions.md
-  - name: Azure bulutları ve bölgeleri
-    href: azure-clouds-regions.md
-ms.openlocfilehash: adea36543cd734e61f10cb64bfba2e9557db8cf6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563535"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: OpenAPI Belirtimi (Swagger)
+      href: 'https://aka.ms/ams-v3-rest-sdk'
+    - name: SDK'lar/Araçlar
+      items:
+        - name: Azure CLI
+          href: 'https://aka.ms/ams-v3-cli'
+        - name: .NET
+          href: 'https://aka.ms/ams-v3-dotnet-sdk'
+        - name: Java
+          href: 'https://aka.ms/ams-v3-java-sdk'
+        - name: Python
+          href: 'https://aka.ms/ams-v3-python-sdk'
+        - name: Node.js
+          href: 'https://aka.ms/ams-v3-nodejs-sdk'
+        - name: Ruby
+          href: 'https://aka.ms/ams-v3-ruby-sdk'
+    - name: AMSE
+      href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
+    - name: Sürüm notları
+      href: release-notes.md
+    - name: Kotalar ve sınırlamalar
+      href: limits-quotas-constraints.md
+    - name: SSS
+      href: frequently-asked-questions.md
+    - name: Azure bulutları ve bölgeleri
+      href: azure-clouds-regions.md

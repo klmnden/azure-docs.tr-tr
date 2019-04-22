@@ -1,137 +1,140 @@
 ---
-title: Azure Active Directory B2C erişim belirteçlerinde isteme | Microsoft Docs
-description: Bu makalede erişim belirteci alma ve bir istemci uygulamanın kurulumunu yapmayı gösterir.
+title: İstek bir erişim belirteci - Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C'den bir erişim belirteci isteği öğrenin.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5670d8b3c97cc1f9f6d149e8eadaa60d527e45f5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768360"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683945"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Erişim belirteçleri isteniyor
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, bir erişim belirteci isteği
 
-Bir erişim belirteci (olarak gösterilen **erişim\_belirteci** yanıtlarındaki Azure AD B2C'den) tarafından korunan bir istemci, kaynaklara erişmek için kullanabileceğiniz güvenlik belirteci biçimidir bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md), web API'si gibi. Erişim belirteçleri olarak temsil edilir [Jwt'ler](active-directory-b2c-reference-tokens.md) ve hedeflenen kaynak sunucu ve sunucu için verilen izinleri hakkındaki bilgileri içerir. Kaynak sunucuda çağırırken erişim belirteci HTTP isteğinde bulunması gerekir.
+Bir *erişim belirteci* Apı'leriniz için verilen izinleri belirlemek için Azure Active Directory (Azure AD) B2C'de kullanabileceğiniz talepleri içerir. Kaynak sunucuda çağrılırken bir erişim belirteci HTTP isteğinde bulunması gerekir. Bir erişim belirteci olarak gösterilir **access_token** içinde Azure AD B2C alınan yanıtları. 
 
-Bu makalede, bir istemci uygulamasını yapılandırmak ve almak için web API'si anlatılmaktadır bir **erişim\_belirteci**.
-
-> [!NOTE]
-> **Web API'si zincirleri (On-Behalf-Of) Azure AD B2C tarafından desteklenmiyor.**
->
-> Çoğu mimari başka bir aşağı akış web API'si, hem Azure AD B2C ile güvenliği sağlanan çağırmak için gereken API web içerir. Bu senaryoda, sırasıyla bir Azure AD Graph API gibi Microsoft çevrimiçi hizmeti çağıran bir web API arka ucu sahip yerel istemcilerde yaygındır.
->
-> Bu Zincirli web API'si senaryosu, aksi takdirde On-Behalf-Of akışı bilinen OAuth 2.0 JWT taşıyıcı kimlik bilgileri verme kullanılarak desteklenebilir. Ancak, On-Behalf-Of akışı şu anda Azure AD B2C'de uygulanmamıştır.
-
-## <a name="register-a-web-api-and-publish-permissions"></a>Web API'si kaydetme ve izinleri yayımlama
-
-Bir erişim belirteci isteğinde bulunmadan önce ilk web API'si kaydetme ve verilebilecek izinleri (kapsamları) istemci uygulaması yayımlama gerekir.
-
-### <a name="register-a-web-api"></a>Web API’si kaydetme
-
-1. Azure portalında Azure AD B2C özellikleri menüsünde tıklatın **uygulamaları**.
-2. Tıklayın **+ Ekle** menüsünün üstünde.
-3. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso API" girebilirsiniz.
-4. **Web uygulamasını / web API’sini dahil et** anahtarını **Evet**’e getirin.
-5. Rastgele bir değer girin **yanıt URL'leri**. Örneğin, `https://localhost:44316/` girin. API belirteci doğrudan Azure AD B2C'den almalıdır değil beri değer önemli değildir.
-6. Bir **Uygulama Kimliği URI'si** girin. Bu değer, web API’niz için kullanılan tanımlayıcıdır. Örneğin, 'Not' kutuya girin. **Uygulama kimliği URI'si** ardından olacaktır `https://{tenantName}.onmicrosoft.com/notes`.
-7. Uygulamanızı kaydetmek için **Create (Oluştur)** seçeneğine tıklayın.
-8. Oluşturduğunuz uygulamaya tıklayın ve daha sonra kodunuzda kullanacağınız genel benzersiz **Uygulama İstemci Kimliğini** kopyalayın.
-
-### <a name="publishing-permissions"></a>Yayımlama izinleri
-
-Kapsamlar, izinler için benzer bir API uygulamanızı çağırırken gereklidir. Bazı kapsamların "Okuma" veya "yazma" verilebilir. Web veya yerel uygulamanızı "API'den okumak için" istediğinizi varsayalım. Uygulamanız Azure AD B2C'yi arayın ve "Okuma" kapsamı için erişim sağlayan bir erişim belirteci isteği. Bu tür bir erişim belirteci yaymak Azure AD B2C için uygulamayı "belirli API'SİNDEN okuma" izni gerekir. Bunu yapmak için API'NİZİN ilk "Okuma" kapsam yayımlamak gerekir.
-
-1. Azure AD B2C içinde **uygulamaları** menüsünde, open web API'si uygulaması ("Contoso API").
-2. **Yayımlanan kapsamlar**’a tıklayın. Burada diğer uygulamalara verilebilecek izinleri (kapsamları) tanımlarsınız.
-3. Ekleme **kapsam değerleri** gerektiğinde (örneğin, "Okuma"). Varsayılan olarak, "user_impersonation" kapsamı tanımlanır. İsterseniz, bunu göz ardı edebilirsiniz. Kapsam içinde bir açıklama girin **kapsam adı** sütun.
-4. **Kaydet**’e tıklayın.
-
-> [!IMPORTANT]
-> **Kapsam adı** açıklamasıdır **kapsam değeri**. Kapsam kullanırken kullandığınızdan emin olun **kapsam değeri**.
-
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Bir Web API'sine uygulama izinleri web veya yerel verin
-
-API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygulamasının Azure portalından bu kapsamları verilmesi gerekir.
-
-1. Gidin **uygulamaları** Azure AD B2C özellikleri menüsünde menüsü.
-2. Bir istemci uygulama kaydetme ([web uygulaması](active-directory-b2c-app-registration.md) veya [yerel istemci](active-directory-b2c-app-registration.md)) zaten yoksa. Başlangıç noktası olarak bu kılavuzu takip ediyorsanız, bir istemci uygulaması kaydetmeniz gerekir.
-3. Tıklayarak **API erişimi**.
-4. **Ekle**'ye tıklayın.
-5. Web API'nizi ve vermek istediğiniz kapsamlarınızı (izinler) seçin.
-6. **Tamam** düğmesine tıklayın.
+Bu makalede bir web uygulaması ve web API'si için bir erişim belirteci isteği gösterilmektedir. Azure AD B2C belirteçleri hakkında daha fazla bilgi için bkz. [belirteçler Azure Active Directory B2C genel bakış](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> Azure AD B2C, istemci uygulama kullanıcıları için kendi onay istemez. Bunun yerine, tüm onay, yukarıda açıklanan uygulamalar arasında yapılandırılmış izinlere dayalı olarak bir yönetici tarafından sağlanır. Bir uygulama için bir iznini iptal edilirse, bu izni almak daha önce mümkün tüm kullanıcılar artık bunu mümkün olacaktır.
+> **Web API'si zincirleri (On-Behalf-Of) Azure AD B2C tarafından desteklenmiyor.** -Çoğu mimari başka bir aşağı akış web API'si, hem Azure AD B2C ile güvenliği sağlanan çağırmak için gereken API web içerir. Bu senaryo, sırayla başka bir hizmeti çağıran bir web API arka ucu olan istemcilerde yaygındır. Bu Zincirli web API'si senaryosu, aksi takdirde On-Behalf-Of akışı bilinen OAuth 2.0 JWT taşıyıcı kimlik bilgileri verme kullanılarak desteklenebilir. Ancak, On-Behalf-Of akışı şu anda Azure AD B2C'de uygulanmamıştır.
 
-## <a name="requesting-a-token"></a>Bir belirteç isteme
+## <a name="prerequisites"></a>Önkoşullar
 
-İstemci uygulama bir erişim belirteci isteğinde bulunurken istenen izinler belirtilmesi gerekiyor **kapsam** isteğinin parametresi. Örneğin, belirtmek için **kapsam değeri** "Okuma" olan API için **uygulama kimliği URI'si** , `https://contoso.onmicrosoft.com/notes`, kapsamı olacaktır `https://contoso.onmicrosoft.com/notes/read`. Bir yetkilendirme kodu isteği örneği aşağıdadır `/authorize` uç noktası.
+- [Kullanıcı akışı Oluştur](tutorial-create-user-flows.md) etkinleştirme kullanıcıların kaydolmak ve uygulamanız için oturum açın.
+- Bunu zaten bunu yapmadıysanız [bir web API uygulaması Azure Active Directory B2C kiracınıza ekleme](add-web-application.md).
 
-> [!NOTE]
-> Şu anda, erişim belirteçleri ile birlikte özel etki alanları desteklenmez. İstek URL'sinde tenantName.onmicrosoft.com etki alanınızı kullanmanız gerekir.
+## <a name="scopes"></a>Kapsamlar
+
+Kapsamları korumalı kaynaklara izinleri yönetmek için bir yol sağlar. İstemci uygulama bir erişim belirteci istendiğinde, istenen izinler belirtilmesi gerekiyor **kapsam** isteğinin parametresi. Örneğin belirtmek için **kapsam değeri** , `read` sahip API **uygulama kimliği URI'si** , `https://contoso.onmicrosoft.com/api`, kapsamı olacaktır `https://contoso.onmicrosoft.com/api/read`.
+
+Kapsamlar web API’si tarafından kapsam tabanlı erişim denetimi uygulamak için kullanılır. Örneğin web API'sinin kullanıcıları hem okuma hem de yazma veya yalnızca okuma erişimine sahip olabilir. Aynı istekte birden fazla izin almak için birden çok girişi tek ekleyebilirsiniz **kapsam** boşluklarla ayrılmış istek parametresi.
+
+Aşağıdaki örnek, bir URL çözülmüş kapsamları gösterir:
+
+```
+scope=https://contoso.onmicrosoft.com/api/read openid offline_access
+```
+
+Aşağıdaki örnek, bir URL olarak kodlanmış kapsamları gösterir:
+
+```
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
+```
+
+En az bir izin verilirse, istemci uygulamanız için verilen değerinden daha fazla kapsam istemesi durumunda, çağrı başarılı olur. **Scp** elde edilen erişim belirtecinde talep, başarılı bir şekilde verilmiş izinleri doldurulur. Openıd Connect standart birkaç özel kapsam değerleri belirtir. Aşağıdaki kapsamlar, kullanıcının profilini erişim izni temsil eder:
+
+- **openıd** -kimlik belirteci ister.
+- **offline_access** -istekleri kullanarak bir yenileme belirteci [kimlik doğrulama kodu akışları](active-directory-b2c-reference-oauth-code.md).
+
+Varsa **response_type** parametresinde bir `/authorize` istek içerir `token`, **kapsam** parametre içermelidir en az bir kaynak kapsamı dışında `openid` ve `offline_access`, verilecek. Aksi takdirde, `/authorize` istek başarısız olur.
+
+## <a name="request-a-token"></a>Bir belirteç isteği
+
+Bir erişim belirteci istemek için bir yetkilendirme kodu gerekir. Bir isteğin bir örnek aşağıdadır `/authorize` uç noktası için bir yetkilendirme kodu. Özel etki alanları, erişim belirteçleri ile kullanım için desteklenmez. İstek URL'sindeki Kiracı name.onmicrosoft.com etki alanınızı kullanın.
 
 Aşağıdaki örnekte, bu değerleri değiştirin:
 
 - `<tenant-name>` -Azure AD B2C kiracınızın adı.
 - `<policy-name>` -Özel ilke veya kullanıcı akışınızı adı.
-- `<application-ID>` -Uygulama tanımlayıcısı kaydettiğiniz istemci uygulaması.
+- `<application-ID>` -Kullanıcı akışını desteklemek için kayıtlı web uygulaması uygulama tanımlayıcısı.
 - `<redirect-uri>` - **Yeniden yönlendirme URI'si** istemci uygulaması kaydolurken girdiğiniz.
 
 ```
-https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+client_id=<application-ID>
+&nonce=anyRandomValue
+&redirect_uri=https://jwt.ms
+&scope=https://tenant-name>.onmicrosoft.com/api/read
+&response_type=code 
 ```
 
-Aynı istekte birden fazla izin almak için birden çok girişi tek ekleyebilirsiniz **kapsam** boşluklarla ayırarak parametresi. Örneğin:
-
-Kodu çözülen URL'si:
+Yetkilendirme kodu ile yanıt şu örneğe benzer olmalıdır:
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
+https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-URL olarak kodlanmış:
+Başarılı yetkilendirme kodunu aldıktan sonra bunu bir erişim belirteci istemek için kullanabilirsiniz:
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
+POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+Host: https://<tenant-name>.b2clogin.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&client_id=<application-ID>
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
+&redirect_uri=https://jwt.ms
+&client_secret=2hMG2-_:y12n10vwH...
 ```
 
-İstemci uygulamanız için verilen değerinden bir kaynak için daha fazla kapsamlarınızı (izinler) isteyebilir. Bu durum söz konusu olduğunda, en az bir izin verilirse, çağrı başarılı olur. Ortaya çıkan **erişim\_belirteci** başarıyla verilmiş olan izinleriyle doldurulmuş kendi "scp" talep sahip olur.
+Aşağıdakine benzer bir şey görmeniz gerekir:
 
-> [!NOTE] 
-> İzinler isteyen iki farklı web kaynaklarda aynı istekte desteklemiyoruz. Bu tür bir istek başarısız olur.
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "token_type": "Bearer",
+    "not_before": 1549647431,
+    "expires_in": 3600,
+    "expires_on": 1549651031,
+    "resource": "f2a76e08-93f2-4350-833c-965c02483b11",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiJjNjRhNGY3ZC0zMDkxLTRjNzMtYTcyMi1hM2YwNjk0Z..."
+}
+```
 
-### <a name="special-cases"></a>Özel durumlar
+Kullanırken https://jwt.ms döndürülen erişim belirteci incelemek için aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-Openıd Connect standart birkaç özel "scope" değeri belirtir. Aşağıdaki özel kapsamları "kullanıcının profilini erişim" izni temsil eder:
-
-* **openıd**: Bu istekleri bir kimlik belirteci
-* **Çevrimdışı\_erişim**: Bu bir yenileme belirteci isteklerini (kullanarak [kimlik doğrulama kodu akışları](active-directory-b2c-reference-oauth-code.md)).
-
-Varsa `response_type` parametresinde bir `/authorize` istek içerir `token`, `scope` parametresi en az bir kaynak kapsam içermelidir (dışında `openid` ve `offline_access`), verilecek. Aksi takdirde, `/authorize` isteği ile hata sonlandırılacak.
-
-## <a name="the-returned-token"></a>Döndürülen belirteç
-
-İçinde başarıyla minted **erişim\_belirteci** (veya `/authorize` veya `/token` uç nokta), aşağıdaki talep mevcut olacaktır:
-
-| Ad | İste | Açıklama |
-| --- | --- | --- |
-|Hedef kitle |`aud` |**Uygulama kimliği** tek kaynağının erişim belirteci verir. |
-|Kapsam |`scp` |Kaynak için verilen izinler. Birden çok verilen izinler, boşlukla ayrılmış. |
-|Yetkili taraf |`azp` |**Uygulama kimliği** istemci uygulamasının isteği başlatıldı. |
-
-API'nizi aldığında **erişim\_belirteci**, aşağıdakileri yapmalıdır [belirteci doğrulamak](active-directory-b2c-reference-tokens.md) belirteç gerçek ve doğru talep olduğundan kanıtlamak için.
-
-Her zaman geri bildirim ve öneriler için açık duyuyoruz! Bu konu ile ilgili zorluklarla varsa etiketini kullanarak Stack Overflow sitesinde sonrası ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Özellik istekleri için ekleyebilmesi [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
+}.{
+  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "exp": 1549651031,
+  "nbf": 1549647431,
+  "aud": "f2a76e08-93f2-4350-833c-965...",
+  "oid": "1558f87f-452b-4757-bcd1-883...",
+  "sub": "1558f87f-452b-4757-bcd1-883...",
+  "name": "David",
+  "tfp": "B2C_1_signupsignin1",
+  "nonce": "anyRandomValue",
+  "scp": "read",
+  "azp": "38307aee-303c-4fff-8087-d8d2...",
+  "ver": "1.0",
+  "iat": 1549647431
+}.[Signature]
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir web API'sini kullanarak yapı [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Bir web API'sini kullanarak yapı [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Hakkında bilgi [Azure AD B2C'de belirteçleri yapılandırma](configure-tokens.md)

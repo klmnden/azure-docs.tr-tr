@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541048"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683962"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -29,13 +29,13 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Üst ölçek kümeleri için sık sorulan sorular
 
-**S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Bir ölçek kümesinde kaç tane sanal makinem olabilir?
 
-**C.** Bir ölçek kümesi, platform görüntülerini temel alan 0 ila 1.000 VM'ye veya özel görüntüleri temel alan 0-600 VM'ye sahip olabilir.
+Bir ölçek kümesi, platform görüntülerini temel alan 0 ila 1.000 VM'ye veya özel görüntüleri temel alan 0-600 VM'ye sahip olabilir.
 
-**S.** Ölçek kümelerinde veri diskleri destekleniyor mu?
+### <a name="are-data-disks-supported-within-scale-sets"></a>Ölçek kümelerinde veri diskleri destekleniyor mu?
 
-**C.** Evet. Bir ölçek kümesi, kümedeki tüm sanal makineler için geçerli olan bağlı veri diski yapılandırmasını tanımlayabilir. Daha fazla bilgi için bkz. [Azure ölçek kümeleri ve bağlı veri diskleri](virtual-machine-scale-sets-attached-disks.md). Veri depolamayla ilgili diğer seçenekler şunlardır:
+Evet. Bir ölçek kümesi, kümedeki tüm sanal makineler için geçerli olan bağlı veri diski yapılandırmasını tanımlayabilir. Daha fazla bilgi için bkz. [Azure ölçek kümeleri ve bağlı veri diskleri](virtual-machine-scale-sets-attached-disks.md). Veri depolamayla ilgili diğer seçenekler şunlardır:
 
 * Azure dosyaları (paylaşılan SMB sürücüleri)
 * İşletim sistemi sürücüsü
@@ -43,33 +43,33 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 * Azure veri hizmeti (örneğin Azure tabloları, Azure blobları)
 * Dış veri hizmeti (örneğin, uzak veritabanı)
 
-**S.** Hangi Azure bölgeleri ölçek kümelerini destekler?
+### <a name="which-azure-regions-support-scale-sets"></a>Hangi Azure bölgeleri ölçek kümelerini destekler?
 
-**C.** Tüm bölgeler ölçek kümelerini destekler.
+Tüm bölgeler ölçek kümelerini destekler.
 
-**S.** Özel bir görüntü kullanarak nasıl ölçek kümesi oluşturabilirim?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Özel bir görüntü kullanarak nasıl ölçek kümesi oluşturabilirim?
 
-**C.** Oluşturma ve bir VM görüntüsü yakalayabilir ve ardından, Ölçek kümeniz için kaynak olarak kullanın. Özel bir VM görüntüsü oluşturma ve kullanma hakkında bir öğretici için kullandığınız [Azure CLI](tutorial-use-custom-image-cli.md) veya [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Oluşturma ve bir VM görüntüsü yakalayabilir ve ardından, Ölçek kümeniz için kaynak olarak kullanın. Özel bir VM görüntüsü oluşturma ve kullanma hakkında bir öğretici için kullandığınız [Azure CLI](tutorial-use-custom-image-cli.md) veya [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**S.** Ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılır?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılır?
 
-**C.** Sanal makineler, ölçek kümesinden güncelleştirme etki alanları ve hata etki alanları arasında eşit olacak şekilde kaldırılır. En yüksek kimlik numarasına sahip VM’ler ilk önce kaldırılır.
+Sanal makineler, ölçek kümesinden güncelleştirme etki alanları ve hata etki alanları arasında eşit olacak şekilde kaldırılır. En yüksek kimlik numarasına sahip VM’ler ilk önce kaldırılır.
 
-**S.** Kapasiteyi 15’ten 18’e yükseltirsem ne olur?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Kapasiteyi 15’ten 18’e yükseltirsem ne olur?
 
-**C.** Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (örneğin 20, 21, 22). VM’ler hata etki alanlarında ve güncelleştirme etki alanlarında dengelenir.
+Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (örneğin 20, 21, 22). VM’ler hata etki alanlarında ve güncelleştirme etki alanlarında dengelenir.
 
-**S.** Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
 
-**C.** Evet, Ölçek kümesi kullanabileceğiniz [uzantı sıralama](virtual-machine-scale-sets-extension-sequencing.md).
+Evet, Ölçek kümesi kullanabileceğiniz [uzantı sıralama](virtual-machine-scale-sets-extension-sequencing.md).
 
-**S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
-**C.** Kullanan bölgesel (Bölgesel olmayan) ölçek kümesi *yerleştirme grubuna*, örtülü bir kullanılabilirlik kümesi ile beş hata etki alanları ve beş güncelleştirme etki gibi davranır. 100'den fazla sanal makine ölçek kümeleri birden fazla yerleştirme grubuna'yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
+Kullanan bölgesel (Bölgesel olmayan) ölçek kümesi *yerleştirme grubuna*, örtülü bir kullanılabilirlik kümesi ile beş hata etki alanları ve beş güncelleştirme etki gibi davranır. 100'den fazla sanal makine ölçek kümeleri birden fazla yerleştirme grubuna'yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
 
-**S.** Ölçek kümeleri Azure kullanılabilirlik alanları çalışmak?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Ölçek kümeleri Azure kullanılabilirlik alanları çalışmak?
 
-**C.** Evet! Daha fazla bilgi için [ölçek kümesi bölge doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Evet! Daha fazla bilgi için [ölçek kümesi bölge doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498528"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698742"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services'da desteklenen veri kaynakları
 
@@ -81,13 +81,14 @@ Bağlanan veri kaynaklarından ve Azure AS sunucusuna bir şirket içi ağ geçi
 |Salesforce raporları<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint listesi<sup>[1](#tab1400b)</sup>, <sup> [2](#filesSP)</sup>     |   
 |Sybase Veritabanı     |  
 |TXT dosyası  |
 |XML tablosu<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> tablosal 1400 ve daha yüksek bir model.
+<a name="tab1400b">1</a> -tablosal 1400 ve daha yüksek bir model.   
+<a name="filesSP">2</a> -şirket içi SharePoint dosyalarında desteklenmez.
 
 ## <a name="specifying-a-different-provider"></a>Farklı bir sağlayıcı belirtme
 

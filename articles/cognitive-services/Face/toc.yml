@@ -1,118 +1,111 @@
-items:
 - name: Yüz Tanıma API'si Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Yüz Tanıma API’si nedir?
-    href: Overview.md
   expanded: true
+  items:
+    - name: Yüz Tanıma API’si nedir?
+      href: Overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: İstemci SDK’sini kullanma
-    items:
-    - name: Bir görüntüdeki yüzleri algılama
+    - name: İstemci SDK’sini kullanma
       items:
-      - name: C#
-        href: QuickStarts/csharp-detect-sdk.md
-      - name: Python
-        href: Tutorials/FaceAPIinPythonTutorial.md
-  - name: REST API’sini kullanma
-    items:
-    - name: Bir görüntüdeki yüzleri algılama
+        - name: Bir görüntüdeki yüzleri algılama
+          items:
+            - name: 'C#'
+              href: QuickStarts/csharp-detect-sdk.md
+            - name: Python
+              href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: REST API’sini kullanma
       items:
-      - name: C#
-        href: QuickStarts/CSharp.md
-      - name: cURL
-        href: QuickStarts/curl.md
-      - name: Başlayın
-        href: QuickStarts/go.md
-      - name: Java
-        href: QuickStarts/Java.md
-      - name: JavaScript
-        href: QuickStarts/JavaScript.md
-      - name: Node.js
-        href: QuickStarts/node.md
-      - name: PHP
-        href: QuickStarts/PHP.md
-      - name: Python
-        href: QuickStarts/Python.md
-      - name: Ruby
-        href: QuickStarts/Ruby.md
+        - name: Bir görüntüdeki yüzleri algılama
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp.md
+            - name: cURL
+              href: QuickStarts/curl.md
+            - name: Başlayın
+              href: QuickStarts/go.md
+            - name: Java
+              href: QuickStarts/Java.md
+            - name: JavaScript
+              href: QuickStarts/JavaScript.md
+            - name: Node.js
+              href: QuickStarts/node.md
+            - name: PHP
+              href: QuickStarts/PHP.md
+            - name: Python
+              href: QuickStarts/Python.md
+            - name: Ruby
+              href: QuickStarts/Ruby.md
 - name: Öğreticiler
   items:
-  - name: İstemci SDK’sini kullanma
-    items:
-    - name: C#
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+    - name: İstemci SDK’sini kullanma
+      items:
+        - name: 'C#'
+          href: Tutorials/FaceAPIinCSharpTutorial.md
+        - name: Android
+          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Yüz algılama
-    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Yüz belirleme
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Yüz ekleme
-    href: Face-API-How-to-Topics/how-to-add-faces.md
-  - name: Yüz tanıma modeli belirtme
-    href: Face-API-How-to-Topics/specify-recognition-model.md
-  - name: Büyük ölçek özelliğini kullanma
-    href: Face-API-How-to-Topics/how-to-use-large-scale.md
-  - name: Videoları gerçek zamanlı olarak analiz etme
-    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-  - name: Yüz tanıma verilerini geçirme
-    href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-  - name: Kapsayıcıları kullanma
-    items:
-    - name: Kapsayıcıları yükleme ve çalıştırma
-      href: face-how-to-install-containers.md
-    - name: Kapsayıcıları yapılandırma
-      href: face-resource-container-config.md
-  - name: Yüz Tanıma API'si Bağlı Hizmetini kullanma
-    href: vs-face-connected-service.md
+    - name: Yüz algılama
+      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: Yüz belirleme
+      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+    - name: Yüz ekleme
+      href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Yüz tanıma modeli belirtme
+      href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Büyük ölçek özelliğini kullanma
+      href: Face-API-How-to-Topics/how-to-use-large-scale.md
+    - name: Videoları gerçek zamanlı olarak analiz etme
+      href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+    - name: Yüz tanıma verilerini geçirme
+      href: Face-API-How-to-Topics/how-to-migrate-face-data.md
+    - name: Kapsayıcıları kullanma
+      items:
+        - name: Kapsayıcıları yükleme ve çalıştırma
+          href: face-how-to-install-containers.md
+        - name: Kapsayıcıları yapılandırma
+          href: face-resource-container-config.md
+    - name: Yüz Tanıma API'si Bağlı Hizmetini kullanma
+      href: vs-face-connected-service.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Başvuru
   items:
-  - name: Yüz Tanıma API'si
-    href: APIReference.md
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - name: Android (Java)
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
-    - name: iOS
-      href: https://github.com/Microsoft/Cognitive-Face-iOS
+    - name: Yüz Tanıma API'si
+      href: APIReference.md
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
+        - name: Android (Java)
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable'
+        - name: iOS
+          href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Kaynaklar
   items:
-  - name: Sözlük
-    href: Glossary.md
-  - name: SSS
-    href: FAQ.md
-  - name: Fiyatlandırma ve limitler
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430315-face-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Sürüm notları
-    href: ReleaseNotes.md
-ms.openlocfilehash: 1c03cba2c6f318c87a8a060558e2f851b72f70fe
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804795"
+    - name: Sözlük
+      href: Glossary.md
+    - name: SSS
+      href: FAQ.md
+    - name: Fiyatlandırma ve limitler
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430315-face-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Sürüm notları
+      href: ReleaseNotes.md

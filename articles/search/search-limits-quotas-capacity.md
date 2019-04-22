@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273405"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699175"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**,  **Standart**, veya **depolama için iyileştirilmiş** fiyatlandırma katmanları.
@@ -55,7 +55,7 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 | En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> geç 2017 15 dizinleri, veri kaynağı ve dizin artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir. Temel katmanı, yalnızca SKU ile dizin başına 100 alanların bir alt limit içindir.
+<sup>1</sup> aralık 2017'den önce oluşturulan temel Hizmetleri, dizinleri daha düşük sınırlara (15 yerine 5) sahip. Temel katmanı, yalnızca SKU ile dizin başına 100 alanların bir alt limit içindir.
 
 <a name="document-limits"></a>
 
@@ -81,7 +81,7 @@ Belge limitleri tabi hizmetler için aşağıdaki en yüksek sınırlar geçerli
 
 |  Ücretsiz | Temel | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
+|  10,000 |1&nbsp;milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
 
 Hizmetinizi engelliyor mu sınırları varsa, yeni bir hizmet oluşturun ve sonra bu hizmet için tüm içeriği yeniden yayımlayın. Hizmetinizin Sahne arkasında yeni donanıma sorunsuz bir şekilde çıkış için bir mekanizma yoktur.
 
@@ -99,9 +99,8 @@ Belge boyutunu tutmak, istekten sorgulanamayan verileri dışlamak unutmayın. G
 
 ## <a name="indexer-limits"></a>Dizin Oluşturucu sınırları
 
-Geç 2017'den sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, uzmanlık becerileri ve dizin oluşturucular artan bir sınırı vardır.
+Bakiye ve bir bütün olarak hizmete kararlılık sağlamak için çalışan maksimum sayı var, ancak daha büyük veri kümeleri en fazla izin verdiğinden daha fazla dizin süre gerekebilir. İzin verilen en uzun süre içinde bir dizin oluşturma işi tamamlayamıyor bir zamanlamaya göre çalıştırmayı deneyin. Zamanlayıcı, dizin oluşturma durumunu izler. Zamanlanmış bir dizin oluşturma işi herhangi bir nedenden dolayı kesilirse, dizin oluşturucunun son zamanlanan sonraki çalışmaya kaldığı yukarı seçebilirsiniz.
 
-Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel arama, doğal dil işleme, görüntü analizi gibi diğer dizin oluşturma işleri kullanılabilmesi için en çok kısa çalışan süreleri olması. İzin verilen en uzun süre içinde bir dizin oluşturma işi tamamlayamıyor bir zamanlamaya göre çalıştırmayı deneyin. Zamanlayıcı, dizin oluşturma durumunu izler. Zamanlanmış bir dizin oluşturma işi herhangi bir nedenden dolayı kesilirse, dizin oluşturucunun son zamanlanan sonraki çalışmaya kaldığı yukarı seçebilirsiniz.
 
 | Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
@@ -109,14 +108,15 @@ Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
 | En fazla becerilerini <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
 | Çağrı başına en fazla dizin yükleme |10.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
+| En az bir zamanlama | 5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika | 5 dakika |
 | En fazla çalışma süresi <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |24 saat |24 saat |
 | Bilişsel arama becerilerini veya blob dizini oluşturmanın görüntü Analizi ile çalışan en fazla <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |2 saat |2 saat |
 | BLOB dizin oluşturucu: en yüksek blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |256 |256 |
-| BLOB dizin oluşturucu: bir blobun ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyonluk |4 milyonluk |4 milyonluk |Yok |4 milyonluk |4 milyonluk |
+| BLOB dizin oluşturucu: bir blobun ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4&nbsp;milyon |4&nbsp;milyon |4&nbsp;milyon |Yok |4&nbsp;milyon |4&nbsp;milyon |
 
 <sup>1</sup> blob kaynakları için ve diğer tüm veri kaynakları için 1 dakika dizin oluşturucu en uzun yürütme süresi 3 dakikalık ücretsiz hizmetlere sahip. Bilişsel Hizmetleri çağıran dizin oluşturma, yapay ZEKA için Ücretsiz Hizmetler bir işlem başarıyla zenginleştirme işlem hattı üzerinden geçen bir belge olarak tanımlandığı günde 20 ücretsiz işlem sınırlıdır.
 
-<sup>2</sup> geç 2017 15 dizinleri, veri kaynağı ve dizin artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir.
+<sup>2</sup> aralık 2017'den önce oluşturulan temel Hizmetleri, dizin oluşturucular, veri kaynakları ve becerilerini daha düşük sınırlara (15 yerine 5) sahip.
 
 <sup>3</sup> Hizmetleri S3 HD dizin oluşturucu desteği içermez.
 
@@ -145,7 +145,7 @@ A [bilişsel arama işlem hattı](cognitive-search-concept-intro.md) için metin
 
 <sup>1</sup> , Azure Search, bir istek gövdesi sınırı içeriğine göre her bir alanı veya teorik sınırları sınırlı olduğu değil koleksiyonları izlenmesi 16 MB'lık üst sınır tabidir (bkz [desteklenen veri türleri](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) alanı oluşturma ve kısıtlamaları hakkında daha fazla bilgi için).
 
-## <a name="api-response-limits"></a>API yanıtı sınırları
+## <a name="api-response-limits"></a>API yanıt sınırları
 * Arama sonuçlarının bir sayfa başına döndürülen en fazla 1000 belge
 * Öner API istek döndürülen en fazla 100 önerileri
 

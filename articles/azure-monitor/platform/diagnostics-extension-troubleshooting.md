@@ -4,17 +4,16 @@ description: Azure Tanılama'da Azure sanal makineler, Service Fabric ve Cloud S
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822145"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699107"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).
@@ -82,7 +81,7 @@ Kaynak Kimliği yanlış ise, kontrol **tanılama** **yapılandırma** > **ölç
 Yapılandırma doğru olarak ayarlanmış, ancak yine de ölçüm verilerinin göremiyorsanız, gidermenize yardımcı olması için aşağıdaki yönergeleri kullanın.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure tanılama başlatılıyor değil
+## <a name="azure-diagnostics-is-not-starting"></a>Azure tanılama başlamıyor
 Azure tanılama başlatmak başarısız olma nedenine ilişkin daha fazla bilgi için bkz: **DiagnosticsPluginLauncher.log** ve **DiagnosticsPlugin.log** dosyaları daha önce sağlanan günlük dosyalarının konumu.
 
 Bu günlükler gösteriyorsa `Monitoring Agent not reporting success after launch`, MonAgentHost.exe başlatılırken bir hata oluştu anlamına gelir. Günlükleri için belirtilen konumda bakın `MonAgentHost log file` önceki bölümde.
@@ -97,7 +96,7 @@ Görürseniz bir **negatif** çıkış kodu, başvurmak [çıkış kodu tablosun
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Tanılama verileri Azure Depolama'ya günlüğe kaydedilmez
 Verilerin hiçbiri görüntülenmesini veya bazı verilerin görüntülenmesini belirleyin.
 
-### <a name="diagnostics-infrastructure-logs"></a>Tanılama Altyapısı günlükleri
+### <a name="diagnostics-infrastructure-logs"></a>Tanılama altyapı günlükleri
 Tanılama Tanılama Altyapısı günlükleri tüm hataları kaydeder. Etkinleştirdiğinizden emin olun [yakalama Tanılama Altyapısı günlükleri yapılandırmanızda](#how-to-check-diagnostics-extension-configuration). Görünen ilgili hataları hızlıca arayabilirsiniz sonra `DiagnosticInfrastructureLogsTable` yapılandırılmış depolama hesabınızda tablo.
 
 ### <a name="no-data-is-appearing"></a>Hiçbir veri görünmesini
@@ -105,9 +104,16 @@ Olay verilerini hiç görüntülenmezse en yaygın nedeni, depolama hesabı bilg
 
 Çözüm: Tanılama yapılandırmanızı düzeltin ve tanılama yeniden yükleyin.
 
-Depolama hesabı makinede doğru bir şekilde yapılandırıldığını, uzak erişim ve DiagnosticsPlugin.exe ve MonAgentCore.exe çalıştığından emin olun. Bunlar çalıştırmadığınız, adımları izleyin. Azure Tanılama'da başlatılmıyor.
+Depolama hesabının makinede doğru bir şekilde yapılandırıldığını, uzak erişim ve doğrulayın *DiagnosticsPlugin.exe* ve *MonAgentCore.exe* çalışıyor. Bunlar çalıştırmadığınız, adımları [Azure tanılama başlatılmıyor](#azure-diagnostics-is-not-starting).
 
 İşlemler çalıştırıyorsanız, Git [yerel olarak yakalanan veri?](#is-data-getting-captured-locally) iletideki yönergeleri izleyin.
+
+Bu sorunu çözmezse, deneyin:
+
+1. Aracıyı kaldırma
+2. Dizini C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics Kaldır
+3. Aracıyı yeniden yükleyin
+
 
 ### <a name="part-of-the-data-is-missing"></a>Veri parçası eksik
 Bazı veriler, ancak tüm alıyorsanız, veri koleksiyonu/aktarım işlem hattı düzgün şekilde ayarlandığını anlamına gelir. Sorunu daraltmak için burada alt bölümlere izleyin.

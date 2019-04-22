@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 5d540cbc4bf3cc85d45d9f8e6973ac80a7cb0730
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cef2eb2cde2a26239b774729fa72b4f3ba367df7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331549"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737330"
 ---
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../articles/azure-resource-manager/resource-manager-deployment-model.md).  Bu makale Klasik dağıtım modeli yerine yeni dağıtımlar için Microsoft'un önerdiği Resource Manager dağıtım modelini incelemektedir.
+> Azure, oluşturmak ve bu kaynaklarla çalışmak için kullanabileceğiniz iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik](../articles/azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Resource Manager dağıtım modeli kullanımı anlatılmaktadır. Klasik dağıtım modeli yerine yeni dağıtımlar için Resource Manager dağıtım modeli önerilir.

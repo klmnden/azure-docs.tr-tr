@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004595"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697898"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Azure İzleyici VM'ler (Önizleme) nedir?
 
-Azure sanal makinelerinizi (VM) sanal makineler için Azure İzleyici izler ve uygun ölçekte sanal makine ölçek kümeleri. Windows ve Linux Vm'leri sistem durumu ve performansı analiz eder ve kendi işlemlerini ve diğer kaynakları ve işlemleri dış bağımlılıkları izler. 
+Azure sanal makinelerinizi (VM) sanal makineler için Azure İzleyici izler ve uygun ölçekte sanal makine ölçek kümeleri. İşlemlerini ve diğer kaynaklarla dış işlemlere olan bağımlılıklarını izleyerek Windows ve Linux VM'lerinizin performansını ve sistem durumunu analiz eder. 
 
 VM'ler için Azure İzleyici, bir çözüm olarak, başka bir bulut sağlayıcısında veya şirket içi VM'ler için performans ve uygulama bağımlılıklarını izlemek için destek içerir. Üç anahtar özellik kapsamlı Öngörüler sunun:
 
@@ -39,7 +39,7 @@ VM'ler için Azure İzleyici, bir çözüm olarak, başka bir bulut sağlayıcı
 * Eşleme
 
 >[!NOTE]
->Şu anda, sistem durumu özelliği yalnızca Azure sanal makineler ve sanal makine ölçek kümeleri sunulur. Performans ve harita özelliklerini hem Azure Vm'leri hem de barındırılan sanal makineleri ortamınızda veya diğer bulut sağlayıcısı destekler.
+>Şu anda, sistem durumu özelliği yalnızca Azure sanal makineler için sunulur. Performans ve harita özelliklerini ortamınızda veya diğer bulut sağlayıcısı Azure Vm'leri, Azure VM ölçek kümeleri ve barındırılan sanal makinelerin da destekler.
 
 Azure İzleyici günlüklerine ile tümleştirme, güçlü toplama ve filtreleme sunar ve zaman içinde veri eğilimlerini çözümleyebilirsiniz. Kapsamlı iş yükü izleme gibi Azure İzleyici ya da tek başına hizmet eşlemesi ile elde edilemeyecek.  
 

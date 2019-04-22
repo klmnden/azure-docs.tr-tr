@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579351"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698784"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -342,8 +342,8 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
-| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
+| BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
+| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
 | ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | IndexCapacity     | ADLS Gen2 hiyerarşik dizin tarafından kullanılan depolama miktarı <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
@@ -392,11 +392,12 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 
 | Boyut Adı | Açıklama |
 | ------------------- | ----------------- |
-| BlobType | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob** ve **PageBlob**. Ekleme Blob BlockBlob içinde bulunur. |
-| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li> ServerBusyError: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li> AuthorizationError: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li> NetworkError: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hatası. </li> <li> ClientTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li> ClientOtherError: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li> Başarılı: Başarılı İstek.|
-| GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
-| ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| Authentication | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |
+| **BlobType** | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob**, **PageBlob**, ve **Azure Data Lake Storage**. Ekleme Blob BlockBlob içinde bulunur. |
+| **BlobTier** | Azure depolama, blob nesne verilerini en uygun maliyetli bir şekilde depolamanızı sağlayan farklı erişim katmanı sunuyor. Daha fazla bilgi bkz [Azure depolama blob katmanı](../blobs/storage-blob-storage-tiers.md). Desteklenen değerler şunlardır: <br/> <li>**Sık erişimli**: Sık erişimli katmanı</li> <li>**Seyrek erişimli**: Seyrek erişimli katman</li> <li>**Arşiv**: Arşiv katmanı</li> <li>**Premium**: Premium katman için blok blobu</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Premium sayfa blobu için katman türleri</li> <li>**Standart**: Standard sayfa blobu için katman türü</li> <li>**Untiered**: Genel amaçlı v1 depolama hesabı için katman türü</li> |
+| **GeoType** | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler **birincil** ve **ikincil**. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
+| **ResponseType** | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>**ServerOtherError**: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li>**ServerBusyError**: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li>**ServerTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li>**AuthorizationError**: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li>**NetworkError**: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>**ClientThrottlingError**: İstemci tarafı azaltma hatası. </li> <li>**ClientTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li>**ClientOtherError**: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li>**Success**: Başarılı istek</li> |
+| **ApiName** | İşlem adı. Örneğin: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Kimlik doğrulaması** | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>**AccountKey**: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>**SAS**: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>**OAuth**: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>**Anonim**: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>**AnonymousPreflight**: Denetim öncesi isteği bir işlemdir.</li> |
 
 Ölçümleri destekleyen boyutları için karşılık gelen bir ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri filtrelemek ihtiyacınız blok blobu için **BlobType** ile Boyut **BlockBlob**.
 
