@@ -55,11 +55,11 @@ Veya, bağlantınız zaten varsa, tetikleyici için gerekli bilgileri sağlayın
 
    | Özellik | Gereklidir | Value | Açıklama |
    |----------|----------|-------|-------------|
-   | Arama Sorgusu | Evet | <*search-words*> | Kullanmak istediğiniz arama anahtar sözcükleri girin. |
+   | Search Query | Evet | <*search-words*> | Kullanmak istediğiniz arama anahtar sözcükleri girin. |
    | Market | Evet | <*Yerel ayar*> | Arama yerel ayar. Varsayılan "en-US" olduğu, ancak başka bir değer seçebilirsiniz. |
-   | Güvenli arama | Evet | <*Arama düzeyi*> | Yetişkinlere yönelik içeriğe Dışlama filtresi düzeyi. Varsayılan "Orta" dır, ancak başka bir düzeyi seçin. |
-   | Sayı | Hayır | <*sonuç sayısı*> | Belirtilen sonuç sayısını döndürür. Varsayılan değer 20'dir, ancak başka bir değer belirtebilirsiniz. Döndürülen sonuç gerçek sayı belirtilen sayıdan daha az olabilir. |
-   | Uzaklık | Hayır | <*atlama değeri*> | Sonuç döndürülmeden önce atlanacak sonuç sayısı |
+   | Safe Search | Evet | <*Arama düzeyi*> | Yetişkinlere yönelik içeriğe Dışlama filtresi düzeyi. Varsayılan "Orta" dır, ancak başka bir düzeyi seçin. |
+   | Count | Hayır | <*sonuç sayısı*> | Belirtilen sonuç sayısını döndürür. Varsayılan değer 20'dir, ancak başka bir değer belirtebilirsiniz. Döndürülen sonuç gerçek sayı belirtilen sayıdan daha az olabilir. |
+   | Offset | Hayır | <*atlama değeri*> | Sonuç döndürülmeden önce atlanacak sonuç sayısı |
    |||||
 
    Örneğin:
@@ -106,11 +106,11 @@ Eylem listesinden istediğiniz eylemi seçin.
 
    | Özellik | Gereklidir | Value | Açıklama |
    |----------|----------|-------|-------------|
-   | Arama Sorgusu | Evet | <*search-expression*> | Tetikleyici sonuçlarını sorgulama için bir ifade girin. Dinamik içerik listesindeki alanları seçin veya bir ifade ifade Oluşturucu ile oluşturun. |
+   | Search Query | Evet | <*search-expression*> | Tetikleyici sonuçlarını sorgulama için bir ifade girin. Dinamik içerik listesindeki alanları seçin veya bir ifade ifade Oluşturucu ile oluşturun. |
    | Market | Evet | <*Yerel ayar*> | Arama yerel ayar. Varsayılan "en-US" olduğu, ancak başka bir değer seçebilirsiniz. |
-   | Güvenli arama | Evet | <*Arama düzeyi*> | Yetişkinlere yönelik içeriğe Dışlama filtresi düzeyi. Varsayılan "Orta" dır, ancak başka bir düzeyi seçin. |
-   | Sayı | Hayır | <*sonuç sayısı*> | Belirtilen sonuç sayısını döndürür. Varsayılan değer 20'dir, ancak başka bir değer belirtebilirsiniz. Döndürülen sonuç gerçek sayı belirtilen sayıdan daha az olabilir. |
-   | Uzaklık | Hayır | <*atlama değeri*> | Sonuç döndürülmeden önce atlanacak sonuç sayısı |
+   | Safe Search | Evet | <*Arama düzeyi*> | Yetişkinlere yönelik içeriğe Dışlama filtresi düzeyi. Varsayılan "Orta" dır, ancak başka bir düzeyi seçin. |
+   | Count | Hayır | <*sonuç sayısı*> | Belirtilen sonuç sayısını döndürür. Varsayılan değer 20'dir, ancak başka bir değer belirtebilirsiniz. Döndürülen sonuç gerçek sayı belirtilen sayıdan daha az olabilir. |
+   | Offset | Hayır | <*atlama değeri*> | Sonuç döndürülmeden önce atlanacak sonuç sayısı |
    |||||
 
    Örneğin, kategori adları "teknik" sözcüğünü içeren sonuçları istediğinizi varsayalım.
