@@ -1,109 +1,102 @@
-items:
 - name: Özel Görüntü İşleme Hizmeti Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Özel Görüntü İşleme nedir?
-    href: home.md
+    - name: Özel Görüntü İşleme nedir?
+      href: home.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: .NET SDK’sini kullanma
-    items:
-    - name: Resimleri sınıflandırma
-      href: csharp-tutorial.md
-    - name: Nesne algılama
-      href: csharp-tutorial-od.md
-  - name: Python SDK'yı kullanma
-    items:
-    - name: Resimleri sınıflandırma
-      href: python-tutorial.md
-    - name: Nesne algılama
-      href: python-tutorial-od.md
-  - name: Java SDK'yı kullanma
-    items:
-    - name: Resimleri sınıflandırma
-      href: java-tutorial.md
-    - name: Nesne algılama
-      href: java-tutorial-od.md
-  - name: Node.js SDK'yı kullanma
-    items:
-    - name: Resimleri sınıflandırma
-      href: node-tutorial.md
-    - name: Nesne algılama
-      href: node-tutorial-object-detection.md
-  - name: Go SDK'yı kullanma
-    items:
-    - name: Resimleri sınıflandırma
-      href: go-tutorial.md
-    - name: Nesne algılama
-      href: go-tutorial-object-detection.md
+    - name: .NET SDK’sini kullanma
+      items:
+        - name: Resimleri sınıflandırma
+          href: csharp-tutorial.md
+        - name: Nesne algılama
+          href: csharp-tutorial-od.md
+    - name: Python SDK'yı kullanma
+      items:
+        - name: Resimleri sınıflandırma
+          href: python-tutorial.md
+        - name: Nesne algılama
+          href: python-tutorial-od.md
+    - name: Java SDK'yı kullanma
+      items:
+        - name: Resimleri sınıflandırma
+          href: java-tutorial.md
+        - name: Nesne algılama
+          href: java-tutorial-od.md
+    - name: Node.js SDK'yı kullanma
+      items:
+        - name: Resimleri sınıflandırma
+          href: node-tutorial.md
+        - name: Nesne algılama
+          href: node-tutorial-object-detection.md
+    - name: Go SDK'yı kullanma
+      items:
+        - name: Resimleri sınıflandırma
+          href: go-tutorial.md
+        - name: Nesne algılama
+          href: go-tutorial-object-detection.md
 - name: Öğreticiler
   items:
-  - name: Mobil cihazlar için logo algılayıcısı
-    href: logo-detector-mobile.md
+    - name: Mobil cihazlar için logo algılayıcısı
+      href: logo-detector-mobile.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Sınıflandırıcı oluşturma
-    href: getting-started-build-a-classifier.md
-  - name: Modelinizi test etme
-    href: test-your-model.md
-  - name: Sınıflandırıcınızı geliştirme
-    href: getting-started-improving-your-classifier.md
-  - name: Tahmin API’sini kullanma
-    href: use-prediction-api.md
-  - name: Modelleri dışarı aktarma
-    items:
-    - name: Modelinizi mobil cihaza dışarı aktarma
-      href: export-your-model.md
-    - name: ONNX modelini Windows ML ile kullanma
-      href: custom-vision-onnx-windows-ml.md
-    - name: Python’da TensorFlow modelini çalıştırma
-      href: export-model-python.md
-  - name: Hesap verilerini dışarı aktarma veya silme
-    href: ./export-delete-data.md
-  - name: Sınırlı Deneme projenizi Azure’a taşıma
-    href: ./move-your-project-to-azure.md
-  - name: Uygulamanızı 3.0 API’sine güncelleştirin
-    href: ./update-application-to-3.0-sdk.md
+    - name: Sınıflandırıcı oluşturma
+      href: getting-started-build-a-classifier.md
+    - name: Modelinizi test etme
+      href: test-your-model.md
+    - name: Sınıflandırıcınızı geliştirme
+      href: getting-started-improving-your-classifier.md
+    - name: Tahmin API’sini kullanma
+      href: use-prediction-api.md
+    - name: Modelleri dışarı aktarma
+      items:
+        - name: Modelinizi mobil cihaza dışarı aktarma
+          href: export-your-model.md
+        - name: ONNX modelini Windows ML ile kullanma
+          href: custom-vision-onnx-windows-ml.md
+        - name: Python’da TensorFlow modelini çalıştırma
+          href: export-model-python.md
+    - name: Hesap verilerini dışarı aktarma veya silme
+      href: ./export-delete-data.md
+    - name: Sınırlı Deneme projenizi Azure’a taşıma
+      href: ./move-your-project-to-azure.md
+    - name: Uygulamanızı 3.0 API’sine güncelleştirin
+      href: ./update-application-to-3.0-sdk.md
 - name: Başvuru
   items:
-  - name: Özel Görüntü Eğitim API’si
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: Özel Görüntü Tahmin API’si
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Sözlük
-    href: glossary-of-terms.md
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
-    - name: Go - Eğitim
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
-    - name: Go - Tahmin
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+    - name: Özel Görüntü Eğitim API’si
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: Özel Görüntü Tahmin API’si
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Sözlük
+      href: glossary-of-terms.md
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python'
+        - name: Go - Eğitim
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+        - name: Go - Tahmin
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Kaynaklar
   items:
-  - name: Örnekler
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Limitler ve kotalar
-    href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Sürüm Notları
-    href: release-notes.md
-ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044768"
+    - name: Örnekler
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Limitler ve kotalar
+      href: limits-and-quotas.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Sürüm Notları
+      href: release-notes.md

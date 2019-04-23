@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
 ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916742"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798052"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 

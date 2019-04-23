@@ -153,7 +153,7 @@ GO
 | rejectSampleValue |Reddedilen satırların yüzdesi PolyBase yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olduğu **yüzdesi** |
 | useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünden bu özellik hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |Zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink örneği
 
@@ -276,10 +276,10 @@ Aşağıdaki tabloda belirleme konusunda örnekler **tableName** veri kümesi JS
 
 | DB şema | Tablo adı | tableName JSON özelliği |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ya da dbo.MyTable veya [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable veya [dbo1].[MyTable] |
-| dbo |My.Table |[My.Table] veya [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1].[My.Table] |
+| dbo |MyTable |MyTable ya da dbo. MyTable veya [dbo]. [MyTable] |
+| dbo1 |MyTable |dbo1. MyTable veya [dbo1]. [MyTable] |
+| dbo |My.Table |[My.Table] veya [dbo]. [My.Table] |
+| dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Aşağıdaki hatayı görürseniz, tableName özelliği için belirtilen değer ile ilgili bir sorun olabilir. TableName JSON özellik değerlerini belirtmek doğru şekilde tabloya bakın.
 
@@ -304,32 +304,32 @@ Data Factory, kaynak veri deposundaki aynı tablo adı ile hedef depolama tablos
 | --- | --- |
 | Int | Int |
 | BigInt | BigInt |
-| SmallInt | SmallInt |
-| TinyInt | TinyInt |
-| Bit | Bit |
+| Tamsayı | Tamsayı |
+| Mini tamsayı | Mini tamsayı |
+| bit | bit |
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
-| Money | Money |
-| Real | Real |
-| SmallMoney | SmallMoney |
-| Binary | Binary |
+| money | money |
+| real | real |
+| Küçük para | Küçük para |
+| binary | binary |
 | Varbinary | Varbinary (en fazla 8000) |
-| Date | Date |
+| Tarih | Tarih |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Time | Time |
+| Zaman | Zaman |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (en fazla 8000) |
 | NText | NVarChar (en fazla 4000) |
 | Image | VarBinary (en fazla 8000) |
-| UniqueIdentifier | UniqueIdentifier |
-| Char | Char |
-| NChar | NChar |
+| Benzersiz tanımlayıcı | Benzersiz tanımlayıcı |
+| char | char |
+| nChar | nChar |
 | VarChar | VarChar (en fazla 8000) |
 | NVarChar | NVarChar (en fazla 4000) |
-| Xml | VARCHAR (en fazla 8000) |
+| Xml | Varchar (en fazla 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -354,27 +354,27 @@ Eşleme aynı bir [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| FILESTREAM özniteliğini (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| Numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| rowversion |Byte[] |
+| rowVersion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| küçük para |Decimal |
 | sql_variant |Object * |
-| text |String, Char[] |
+| metin |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| varbinary |Byte[] |
+| Varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

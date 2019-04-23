@@ -1,85 +1,78 @@
-items:
 - name: Azure Databricks Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Databricks nedir?
-    href: what-is-azure-databricks.md
+    - name: Azure Databricks nedir?
+      href: what-is-azure-databricks.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Databricks çalışma alanı oluşturma - Portal
-    href: quickstart-create-databricks-workspace-portal.md
-  - name: Databricks çalışma alanı oluşturma - Kaynak Yöneticisi şablonu
-    href: quickstart-create-databricks-workspace-resource-manager-template.md
-  - name: Databricks çalışma alanı oluşturma - Sanal ağ
-    href: quickstart-create-databricks-workspace-vnet-injection.md
   expanded: true
+  items:
+    - name: Databricks çalışma alanı oluşturma - Portal
+      href: quickstart-create-databricks-workspace-portal.md
+    - name: Databricks çalışma alanı oluşturma - Kaynak Yöneticisi şablonu
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
+    - name: Databricks çalışma alanı oluşturma - Sanal ağ
+      href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Öğreticiler
   items:
-  - name: Docker kapsayıcısında çalışan SQL Server’ı sorgulama
-    href: vnet-injection-sql-server.md
-  - name: ETL işlemleri gerçekleştirme
-    href: databricks-extract-load-sql-data-warehouse.md
-  - name: Event Hubs kullanarak veri akışı sağlama
-    href: databricks-stream-from-eventhubs.md
-  - name: Bilişsel Hizmetler kullanarak yaklaşım analizi
-    href: databricks-sentiment-analysis-cognitive-services.md
-  - name: HDInsight Kafka’dan veri akışı sağlama
-    href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+    - name: Docker kapsayıcısında çalışan SQL Server’ı sorgulama
+      href: vnet-injection-sql-server.md
+    - name: ETL işlemleri gerçekleştirme
+      href: databricks-extract-load-sql-data-warehouse.md
+    - name: Event Hubs kullanarak veri akışı sağlama
+      href: databricks-stream-from-eventhubs.md
+    - name: Bilişsel Hizmetler kullanarak yaklaşım analizi
+      href: databricks-sentiment-analysis-cognitive-services.md
+    - name: HDInsight Kafka’dan veri akışı sağlama
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Spark kümesi oluşturma
-    href: https://docs.azuredatabricks.net/user-guide/clusters/index.html
-  - name: Not defterleri ile çalışma
-    href: https://docs.azuredatabricks.net/user-guide/notebooks/index.html
-  - name: Spark işleri çalıştırma
-    href: https://docs.azuredatabricks.net/user-guide/jobs.html
-  - name: Veri kaynaklarına bağlanma
-    href: databricks-connect-to-data-sources.md
-  - name: Sanal ağ eklemeyi kullanma
-    href: vnet-injection.md
-  - name: Azure Data Factory ile kullanma
-    href: ../data-factory/transform-data-using-databricks-notebook.md
-    maintainContext: true
-  - name: Excel, R ve Python ile bağlanma
-    href: connect-databricks-excel-python-r.md
-  - name: Azure Cloud Shell’den Databricks CLI kullanma
-    href: databricks-cli-from-azure-cloud-shell.md
-  - name: BI araçları kullanma
-    href: https://docs.azuredatabricks.net/user-guide/bi/index.html
-  - name: Olağanüstü durum kurtarma planlama
-    href: howto-regional-disaster-recovery.md
-  - name: MLflow Kılavuzu
-    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
+    - name: Spark kümesi oluşturma
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Not defterleri ile çalışma
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Spark işleri çalıştırma
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Veri kaynaklarına bağlanma
+      href: databricks-connect-to-data-sources.md
+    - name: Sanal ağ eklemeyi kullanma
+      href: vnet-injection.md
+    - name: Azure Data Factory ile kullanma
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
+    - name: 'Excel, R ve Python ile bağlanma'
+      href: connect-databricks-excel-python-r.md
+    - name: Azure Cloud Shell’den Databricks CLI kullanma
+      href: databricks-cli-from-azure-cloud-shell.md
+    - name: BI araçları kullanma
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+    - name: Olağanüstü durum kurtarma planlama
+      href: howto-regional-disaster-recovery.md
+    - name: MLflow Kılavuzu
+      href: 'https://docs.azuredatabricks.net/applications/mlflow/index.html'
 - name: Başvuru
   items:
-  - name: REST API
-    href: /rest/api/databricks
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.databricks/workspaces
+    - name: REST API
+      href: /rest/api/databricks
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.databricks/workspaces
 - name: Kaynaklar
   items:
-  - name: Sık sorulan sorular
-    href: frequently-asked-questions-databricks.md
-  - name: Sürüm notları
-    href: https://docs.azuredatabricks.net/release-notes/index.html
-  - name: Databricks belgeleri
-    href: https://docs.azuredatabricks.net/user-guide/index.html
-  - name: R geliştirici kılavuzu
-    href: ../machine-learning/r-developers-guide.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=analytics
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-databricks
-  - name: Bölge kullanılabilirliği
-    href: https://azure.microsoft.com/regions/services/
-  - name: Destek seçenekleri
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1f0b7bcc369a3f857fe974f8b8ec68b801516589
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256405"
+    - name: Sık sorulan sorular
+      href: frequently-asked-questions-databricks.md
+    - name: Sürüm notları
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
+    - name: Databricks belgeleri
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: R geliştirici kılavuzu
+      href: ../machine-learning/r-developers-guide.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/databricks/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

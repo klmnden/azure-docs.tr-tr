@@ -15,11 +15,11 @@ ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: e48aaa03463bb968ec366b27308ca908aab30d99
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503021"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59805366"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>İOS uygulamanızın içinden Microsoft Graph API'si sorgulanırken test
 

@@ -12,11 +12,11 @@ ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: ec106262653ba6d73c244f5f7c7188abf97d59c4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881220"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796486"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 Şirket içi bir PostgreSQL örneğindeki veritabanlarını minimum çalışmama süresi ile [PostgreSQL için Azure Veritabanı](https://docs.microsoft.com/azure/postgresql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir PostgreSQL 9.6 örneğindeki **DVD Rental** örnek veritabanını PostgreSQL için Azure Veritabanı'na geçireceksiniz.

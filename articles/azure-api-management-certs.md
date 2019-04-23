@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895707"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798630"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Bir Azure Hizmet Yönetim sertifikasını karşıya yükleyin
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli ile kimlik doğrulaması sağlar. Birçok programları ve Araçları (örneğin, Visual Studio ya da Azure SDK'sı) bu sertifikaları yapılandırma ve çeşitli Azure Hizmetleri dağıtımını otomatikleştirmek için kullanın. 

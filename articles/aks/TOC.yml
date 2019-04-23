@@ -1,330 +1,324 @@
-items:
 - name: Azure Kubernetes Hizmeti (AKS)
   href: ./index.yml
 - name: Genel Bakış
   items:
-  - name: AKS hakkında
-    href: intro-kubernetes.md
+    - name: AKS hakkında
+      href: intro-kubernetes.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: AKS kümesi oluşturma - CLI
-    href: kubernetes-walkthrough.md
-  - name: AKS kümesi oluşturma - Portal
-    href: kubernetes-walkthrough-portal.md
-  - name: Uygulama geliştirme
-    items:
-    - name: Java kullanma (VS Code ve CLI)
-      href: ../dev-spaces/quickstart-java.md
-      maintainContext: true
-    - name: .NET Core kullanma (VS Code ve CLI)
-      href: ../dev-spaces/quickstart-netcore.md
-      maintainContext: true
-    - name: .NET Core kullanma (Visual Studio 2017)
-      href: ../dev-spaces/quickstart-netcore-visualstudio.md
-      maintainContext: true
-    - name: Node.js kullanma (VS Code ve CLI)
-      href: ../dev-spaces/quickstart-nodejs.md
-      maintainContext: true
-    expanded: true
   expanded: true
+  items:
+    - name: AKS kümesi oluşturma - CLI
+      href: kubernetes-walkthrough.md
+    - name: AKS kümesi oluşturma - Portal
+      href: kubernetes-walkthrough-portal.md
+    - name: Uygulama geliştirme
+      expanded: true
+      items:
+        - name: Java kullanma (VS Code ve CLI)
+          href: ../dev-spaces/quickstart-java.md
+          maintainContext: true
+        - name: .NET Core kullanma (VS Code ve CLI)
+          href: ../dev-spaces/quickstart-netcore.md
+          maintainContext: true
+        - name: .NET Core kullanma (Visual Studio 2017)
+          href: ../dev-spaces/quickstart-netcore-visualstudio.md
+          maintainContext: true
+        - name: Node.js kullanma (VS Code ve CLI)
+          href: ../dev-spaces/quickstart-nodejs.md
+          maintainContext: true
 - name: Öğreticiler
   items:
-  - name: 1 - Uygulamayı AKS için hazırlama
-    href: tutorial-kubernetes-prepare-app.md
-  - name: 2 - Kapsayıcı kayıt defteri oluşturma
-    href: tutorial-kubernetes-prepare-acr.md
-  - name: 3 - Kubernetes kümesi oluşturma
-    href: tutorial-kubernetes-deploy-cluster.md
-  - name: 4 - Uygulamayı çalıştırma
-    href: tutorial-kubernetes-deploy-application.md
-  - name: 5 - Uygulamayı ölçeklendirme
-    href: tutorial-kubernetes-scale.md
-  - name: 6 - Uygulamayı güncelleştirme
-    href: tutorial-kubernetes-app-update.md
-  - name: 7 - Kümeyi yükseltme
-    href: tutorial-kubernetes-upgrade-cluster.md
+    - name: 1 - Uygulamayı AKS için hazırlama
+      href: tutorial-kubernetes-prepare-app.md
+    - name: 2 - Kapsayıcı kayıt defteri oluşturma
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: 3 - Kubernetes kümesi oluşturma
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - Uygulamayı çalıştırma
+      href: tutorial-kubernetes-deploy-application.md
+    - name: 5 - Uygulamayı ölçeklendirme
+      href: tutorial-kubernetes-scale.md
+    - name: 6 - Uygulamayı güncelleştirme
+      href: tutorial-kubernetes-app-update.md
+    - name: 7 - Kümeyi yükseltme
+      href: tutorial-kubernetes-upgrade-cluster.md
 - name: Kavramlar
   items:
-  - name: Kümeler ve iş yükleri
-    href: concepts-clusters-workloads.md
-  - name: Erişim ve kimlik
-    href: concepts-identity.md
-  - name: Güvenlik
-    href: concepts-security.md
-  - name: Ağ
-    href: concepts-network.md
-  - name: Depolama
-    href: concepts-storage.md
-  - name: Ölçek
-    href: concepts-scale.md
-  - name: En iyi uygulamalar
-    href: best-practices.md
-    items:
-    - name: Küme operatörleri için
+    - name: Kümeler ve iş yükleri
+      href: concepts-clusters-workloads.md
+    - name: Erişim ve kimlik
+      href: concepts-identity.md
+    - name: Güvenlik
+      href: concepts-security.md
+      items: null
+    - name: Ağ
+      href: concepts-network.md
+    - name: Depolama
+      href: concepts-storage.md
+    - name: Ölçek
+      href: concepts-scale.md
+    - name: En iyi uygulamalar
+      href: best-practices.md
       items:
-      - name: Çok kiracılılık ve küme yalıtımı
-        href: operator-best-practices-cluster-isolation.md
-      - name: Temel zamanlayıcı özellikleri
-        href: operator-best-practices-scheduler.md
-      - name: Gelişmiş zamanlayıcı özellikleri
-        href: operator-best-practices-advanced-scheduler.md
-      - name: Kimlik doğrulama ve yetkilendirme
-        href: operator-best-practices-identity.md
-      - name: Küme güvenliği
-        href: operator-best-practices-cluster-security.md
-      - name: Kapsayıcı görüntü yönetimi
-        href: operator-best-practices-container-image-management.md
-      - name: Ağ
-        href: operator-best-practices-network.md
-      - name: Depolama
-        href: operator-best-practices-storage.md
-      - name: İş sürekliliği (BC) ve olağanüstü durum kurtarma (DR)
-        href: operator-best-practices-multi-region.md
-    - name: Uygulama geliştiriciler için
-      items:
-      - name: Kaynak yönetimi
-        href: developer-best-practices-resource-management.md
-      - name: Pod güvenliği
-        href: developer-best-practices-pod-security.md
-  - name: Kotalar ve bölgesel sınırlar
-    href: container-service-quotas.md
-  - name: ACS’den AKS’ye geçiş
-    href: acs-aks-migration.md
-  - name: Desteklenen Kubernetes sürümü
-    href: supported-kubernetes-versions.md
+        - name: Küme operatörleri için
+          items:
+            - name: Çok kiracılılık ve küme yalıtımı
+              href: operator-best-practices-cluster-isolation.md
+            - name: Temel zamanlayıcı özellikleri
+              href: operator-best-practices-scheduler.md
+            - name: Gelişmiş zamanlayıcı özellikleri
+              href: operator-best-practices-advanced-scheduler.md
+            - name: Kimlik doğrulama ve yetkilendirme
+              href: operator-best-practices-identity.md
+            - name: Küme güvenliği
+              href: operator-best-practices-cluster-security.md
+            - name: Kapsayıcı görüntü yönetimi
+              href: operator-best-practices-container-image-management.md
+            - name: Ağ
+              href: operator-best-practices-network.md
+            - name: Depolama
+              href: operator-best-practices-storage.md
+            - name: İş sürekliliği (BC) ve olağanüstü durum kurtarma (DR)
+              href: operator-best-practices-multi-region.md
+        - name: Uygulama geliştiriciler için
+          items:
+            - name: Kaynak yönetimi
+              href: developer-best-practices-resource-management.md
+            - name: Pod güvenliği
+              href: developer-best-practices-pod-security.md
+    - name: Kotalar ve bölgesel sınırlar
+      href: container-service-quotas.md
+    - name: ACS’den AKS’ye geçiş
+      href: acs-aks-migration.md
+    - name: Desteklenen Kubernetes sürümü
+      href: supported-kubernetes-versions.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Küm işlemleri
-    items:
-    - name: AKS kümesi oluşturma
-      href: /cli/azure/aks#az-aks-create
-      maintainContext: true
-    - name: AKS kümesini ölçeklendirme
-      href: scale-cluster.md
-    - name: AKS kümesini yükseltme
-      href: upgrade-cluster.md
-    - name: İşlem düğümü işletim sistemi güncelleştirmeleri
-      href: node-updates-kured.md
-    - name: AKS kümesini silme
-      href: /cli/azure/aks#az-aks-delete
-      maintainContext: true
-    - name: Azure AD etkin AKS
-      href: aad-integration.md
-    - name: Sanal düğümler oluşturma (önizleme)
+    - name: Küm işlemleri
       items:
-      - name: Azure CLI
-        href: virtual-nodes-cli.md
-      - name: Azure portal
-        href: virtual-nodes-portal.md
-    - name: Sanal Kubelet kullanma
-      href: virtual-kubelet.md
-    - name: Küme Otomatik Ölçeklendiricisi kullanma (önizleme)
-      href: cluster-autoscaler.md
-    - name: Terraform ile AKS’yi dağıtma
-      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
-      maintainContext: true
-  - name: Veri hacimlerini yapılandırma
-    items:
-    - name: Azure Disk - Dinamik
-      href: azure-disks-dynamic-pv.md
-    - name: Azure Disk - Statik
-      href: azure-disk-volume.md
-    - name: Azure Dosyaları - Dinamik
-      href: azure-files-dynamic-pv.md
-    - name: Azure Dosyaları - Statik
-      href: azure-files-volume.md
-  - name: Ağ yapılandırması
-    items:
-    - name: Sanal ağ oluşturma veya mevcut bir sanal ağı kullanma
+        - name: AKS kümesi oluşturma
+          href: '/cli/azure/aks#az-aks-create'
+          maintainContext: true
+        - name: AKS kümesini ölçeklendirme
+          href: scale-cluster.md
+        - name: AKS kümesini yükseltme
+          href: upgrade-cluster.md
+        - name: İşlem düğümü işletim sistemi güncelleştirmeleri
+          href: node-updates-kured.md
+        - name: AKS kümesini silme
+          href: '/cli/azure/aks#az-aks-delete'
+          maintainContext: true
+        - name: Azure AD etkin AKS
+          href: aad-integration.md
+        - name: Sanal düğümler oluşturma (önizleme)
+          items:
+            - name: Azure CLI
+              href: virtual-nodes-cli.md
+            - name: Azure portal
+              href: virtual-nodes-portal.md
+        - name: Sanal Kubelet kullanma
+          href: virtual-kubelet.md
+        - name: Küme Otomatik Ölçeklendiricisi kullanma (önizleme)
+          href: cluster-autoscaler.md
+        - name: Terraform ile AKS’yi dağıtma
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
+    - name: Veri hacimlerini yapılandırma
       items:
-      - name: Kubenet kullanma
-        href: configure-kubenet.md
-      - name: Azure-CNI kullanma
-        href: configure-azure-cni.md
-    - name: İç yük dengeleyici oluşturma
-      href: internal-lb.md
-    - name: Statik IP adreslerini kullanma
-      href: static-ip.md
-    - name: Giriş
+        - name: Azure Disk - Dinamik
+          href: azure-disks-dynamic-pv.md
+        - name: Azure Disk - Statik
+          href: azure-disk-volume.md
+        - name: Azure Dosyaları - Dinamik
+          href: azure-files-dynamic-pv.md
+        - name: Azure Dosyaları - Statik
+          href: azure-files-volume.md
+    - name: Ağ yapılandırması
       items:
-      - name: Temel denetleyici oluşturma
-        href: ingress-basic.md
-      - name: HTTP uygulaması yönlendirmeyi kullanma
-        href: http-application-routing.md
-      - name: İç ağ kullanma
-        href: ingress-internal-ip.md
-      - name: TLS’yi kendi sertifikalarınızla kullanma
-        href: ingress-own-tls.md
-      - name: TLS’yi Let’s Encrypt ile kullanma
-        href: ingress-tls.md
-        items:
-        - name: Statik genel IP kullanma
-          href: ingress-static-ip.md
-    - name: Çıkış trafiği
-      href: egress.md
-    - name: CoreDNS’i özelleştirme
-      href: coredns-custom.md
-  - name: Güvenlik ve kimlik doğrulaması
-    items:
-    - name: Hizmet sorumlusu oluşturma
-      href: kubernetes-service-principal.md
-    - name: Küme yapılandırma dosyasına erişimi sınırlama
-      href: control-kubeconfig-access.md
-    - name: Ağ ilkeleri ile pod trafiğinin güvenliğini sağlama (önizleme)
-      href: use-network-policies.md
-    - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
-      href: update-credentials.md
-    - name: ACR ile kimlik doğrulama
-      href: ../container-registry/container-registry-auth-aks.md
-      maintainContext: true
-  - name: İzleme ve günlüğe kaydetme
-    items:
-    - name: Kapsayıcılar için Azure İzleyici
-      href: ../azure-monitor/insights/container-insights-overview.md
-      maintainContext: true
-    - name: Ana bileşen günlüklerini görüntüleme
-      href: view-master-logs.md
-    - name: Kubelet günlüklerini görüntüleme
-      href: kubelet-logs.md
-    - name: Gerçek zamanlı kapsayıcı günlüklerini görüntüleme (önizleme)
-      href: ../azure-monitor/insights/container-insights-live-logs.md
-      maintainContext: true
-  - name: Uygulamaları geliştirme ve çalıştırma
-    items:
-    - name: Dev Spaces ile geliştirme
-      href: ../dev-spaces/azure-dev-spaces.md
+        - name: Sanal ağ oluşturma veya mevcut bir sanal ağı kullanma
+          items:
+            - name: Kubenet kullanma
+              href: configure-kubenet.md
+            - name: Azure-CNI kullanma
+              href: configure-azure-cni.md
+        - name: İç yük dengeleyici oluşturma
+          href: internal-lb.md
+        - name: Statik IP adreslerini kullanma
+          href: static-ip.md
+        - name: Giriş
+          items:
+            - name: Temel denetleyici oluşturma
+              href: ingress-basic.md
+            - name: HTTP uygulaması yönlendirmeyi kullanma
+              href: http-application-routing.md
+            - name: İç ağ kullanma
+              href: ingress-internal-ip.md
+            - name: TLS’yi kendi sertifikalarınızla kullanma
+              href: ingress-own-tls.md
+            - name: TLS’yi Let’s Encrypt ile kullanma
+              href: ingress-tls.md
+              items:
+                - name: Statik genel IP kullanma
+                  href: ingress-static-ip.md
+        - name: Çıkış trafiği
+          href: egress.md
+        - name: CoreDNS’i özelleştirme
+          href: coredns-custom.md
+    - name: Güvenlik ve kimlik doğrulaması
       items:
-      - name: Java (VS Code ve CLI)
-        items:
-        - name: 1 - Kullanmaya başlama
-          href: ../dev-spaces/get-started-java.md
+        - name: Hizmet sorumlusu oluşturma
+          href: kubernetes-service-principal.md
+        - name: Küme yapılandırma dosyasına erişimi sınırlama
+          href: control-kubeconfig-access.md
+        - name: Ağ ilkeleri ile pod trafiğinin güvenliğini sağlama (önizleme)
+          href: use-network-policies.md
+        - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
+          href: update-credentials.md
+        - name: ACR ile kimlik doğrulama
+          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
-        - name: 2 - Birden çok hizmetle geliştirme
-          href: ../dev-spaces/multi-service-java.md
-          maintainContext: true
-        - name: 3 - Ekip geliştirme
-          href: ../dev-spaces/team-development-java.md
-          maintainContext: true
-      - name: .NET Core (VS Code ve CLI)
-        items:
-        - name: 1 - Kullanmaya başlama
-          href: ../dev-spaces/get-started-netcore.md
-          maintainContext: true
-        - name: 2 - Birden çok hizmetle geliştirme
-          href: ../dev-spaces/multi-service-netcore.md
-          maintainContext: true
-        - name: 3 - Ekip geliştirme
-          href: ../dev-spaces/team-development-netcore.md
-          maintainContext: true
-      - name: .NET Core (Visual Studio 2017)
-        items:
-        - name: 1 - Kullanmaya başlama
-          href: ../dev-spaces/get-started-netcore-visualstudio.md
-          maintainContext: true
-        - name: 2 - Birden çok hizmetle geliştirme
-          href: ../dev-spaces/multi-service-netcore-visualstudio.md
-          maintainContext: true
-        - name: 3 - Ekip geliştirme
-          href: ../dev-spaces/team-development-netcore-visualstudio.md
-          maintainContext: true
-      - name: Node.js (VS Code ve CLI)
-        items:
-        - name: 1 - Kullanmaya başlama
-          href: ../dev-spaces/get-started-nodejs.md
-          maintainContext: true
-        - name: 2 - Birden çok hizmetle geliştirme
-          href: ../dev-spaces/multi-service-nodejs.md
-          maintainContext: true
-        - name: 3 - Ekip geliştirme
-          href: ../dev-spaces/team-development-nodejs.md
-          maintainContext: true
-      maintainContext: true
-    - name: Helm ile uygulamaları çalıştırma
-      href: kubernetes-helm.md
-    - name: Draft ile uygulama geliştirme
-      href: kubernetes-draft.md
-    - name: Azure için Açık Hizmet Aracısı’nı kullanma
-      href: integrate-azure.md
-    - name: OSBA ile MongoDB için Cosmos DB API'sini kullanma
-      href: use-cosmosdb-osba-mongo-app.md
-    - name: OpenFaaS kullanma
-      href: openfaas.md
-    - name: Spark işleri çalıştırma
-      href: spark-job.md
-    - name: GPU'ları kullanma
-      href: gpu-cluster.md
-    - name: Istio'yu kullanma
+    - name: İzleme ve günlüğe kaydetme
       items:
-      - name: Yükleme ve yapılandırma
-        href: istio-install.md
-      - name: Akıllı yönlendirme ve kısıtlı dağıtım sürümleri
-        href: istio-scenario-routing.md
-    - name: PostgreSQL için Azure Veritabanı kullanma
-      href: ../postgresql/concepts-aks.md
-      maintainContext: true
-  - name: DevOps
-    items:
-    - name: AKS kümeleri oluşturmak için Ansible kullanma
-      href: /azure/ansible/ansible-create-configure-aks
-      maintainContext: true
-    - name: Jenkins sürekli dağıtım
-      href: jenkins-continuous-deployment.md
-    - name: Azure DevOps Projesi
-      href: ../devops-project/azure-devops-project-aks.md
-      maintainContext: true
-  - name: Kubernetes hakkında temel bilgiler
-    items:
-    - name: Kubernetes panosunu kullanma
-      href: kubernetes-dashboard.md
-  - name: Sorun giderme
-    items:
-    - name: Genel sorunlar
-      href: troubleshooting.md
-    - name: En iyi uygulamaları denetleme
-      href: kube-advisor-tool.md
-    - name: SSH düğümü erişimi
-      href: ssh.md
+        - name: Kapsayıcılar için Azure İzleyici
+          href: ../azure-monitor/insights/container-insights-overview.md
+          maintainContext: true
+        - name: Ana bileşen günlüklerini görüntüleme
+          href: view-master-logs.md
+        - name: Kubelet günlüklerini görüntüleme
+          href: kubelet-logs.md
+        - name: Gerçek zamanlı kapsayıcı günlüklerini görüntüleme (önizleme)
+          href: ../azure-monitor/insights/container-insights-live-logs.md
+          maintainContext: true
+    - name: Uygulamaları geliştirme ve çalıştırma
+      items:
+        - name: Dev Spaces ile geliştirme
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
+          items:
+            - name: Java (VS Code ve CLI)
+              items:
+                - name: 1 - Kullanmaya başlama
+                  href: ../dev-spaces/get-started-java.md
+                  maintainContext: true
+                - name: 2 - Birden çok hizmetle geliştirme
+                  href: ../dev-spaces/multi-service-java.md
+                  maintainContext: true
+                - name: 3 - Ekip geliştirme
+                  href: ../dev-spaces/team-development-java.md
+                  maintainContext: true
+            - name: .NET Core (VS Code ve CLI)
+              items:
+                - name: 1 - Kullanmaya başlama
+                  href: ../dev-spaces/get-started-netcore.md
+                  maintainContext: true
+                - name: 2 - Birden çok hizmetle geliştirme
+                  href: ../dev-spaces/multi-service-netcore.md
+                  maintainContext: true
+                - name: 3 - Ekip geliştirme
+                  href: ../dev-spaces/team-development-netcore.md
+                  maintainContext: true
+            - name: .NET Core (Visual Studio 2017)
+              items:
+                - name: 1 - Kullanmaya başlama
+                  href: ../dev-spaces/get-started-netcore-visualstudio.md
+                  maintainContext: true
+                - name: 2 - Birden çok hizmetle geliştirme
+                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
+                  maintainContext: true
+                - name: 3 - Ekip geliştirme
+                  href: ../dev-spaces/team-development-netcore-visualstudio.md
+                  maintainContext: true
+            - name: Node.js (VS Code ve CLI)
+              items:
+                - name: 1 - Kullanmaya başlama
+                  href: ../dev-spaces/get-started-nodejs.md
+                  maintainContext: true
+                - name: 2 - Birden çok hizmetle geliştirme
+                  href: ../dev-spaces/multi-service-nodejs.md
+                  maintainContext: true
+                - name: 3 - Ekip geliştirme
+                  href: ../dev-spaces/team-development-nodejs.md
+                  maintainContext: true
+        - name: Helm ile uygulamaları çalıştırma
+          href: kubernetes-helm.md
+        - name: Draft ile uygulama geliştirme
+          href: kubernetes-draft.md
+        - name: Azure için Açık Hizmet Aracısı’nı kullanma
+          href: integrate-azure.md
+        - name: OSBA ile MongoDB için Cosmos DB API'sini kullanma
+          href: use-cosmosdb-osba-mongo-app.md
+        - name: OpenFaaS kullanma
+          href: openfaas.md
+        - name: Spark işleri çalıştırma
+          href: spark-job.md
+        - name: GPU'ları kullanma
+          href: gpu-cluster.md
+        - name: Istio'yu kullanma
+          items:
+            - name: Yükleme ve yapılandırma
+              href: istio-install.md
+            - name: Akıllı yönlendirme ve kısıtlı dağıtım sürümleri
+              href: istio-scenario-routing.md
+        - name: PostgreSQL için Azure Veritabanı kullanma
+          href: ../postgresql/concepts-aks.md
+          maintainContext: true
+    - name: DevOps
+      items:
+        - name: AKS kümeleri oluşturmak için Ansible kullanma
+          href: /azure/ansible/ansible-create-configure-aks
+          maintainContext: true
+        - name: Jenkins sürekli dağıtım
+          href: jenkins-continuous-deployment.md
+        - name: Azure DevOps Projesi
+          href: ../devops-project/azure-devops-project-aks.md
+          maintainContext: true
+    - name: Kubernetes hakkında temel bilgiler
+      items:
+        - name: Kubernetes panosunu kullanma
+          href: kubernetes-dashboard.md
+    - name: Sorun giderme
+      items:
+        - name: Genel sorunlar
+          href: troubleshooting.md
+        - name: En iyi uygulamaları denetleme
+          href: kube-advisor-tool.md
+        - name: SSH düğümü erişimi
+          href: ssh.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: /cli/azure/aks
-  - name: REST
-    href: /rest/api/aks
-  - name: PowerShell
-    href: /powershell/module/az.aks#aks
-  - name: .NET
-    href: /dotnet/api/overview/azure/containerservice
-  - name: Python
-    href: /python/api/overview/azure/containerservice
-  - name: Java
-    href: /java/api/overview/azure/containerservice
-  - name: Node.js
-    href: /javascript/api/overview/azure/container-service
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Azure CLI
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/aks
+    - name: PowerShell
+      href: '/powershell/module/az.aks#aks'
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerservice
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Kaynaklar
   items:
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?products=azure-container-instances&azure-container-registry
-  - name: Bölge kullanılabilirliği
-    href: https://azure.microsoft.com/regions/services/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/container-service/
-  - name: Destek ilkeleri
-    href: support-policies.md
-  - name: Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Ürün geri bildirimi sağlama
-    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-service
-  - name: Videolar
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-  - name: SSS
-    href: faq.md
-ms.openlocfilehash: 900af8f0b09ee19b6f49cbec39bb535e9ba3b385
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489011"
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?products=azure-container-instances&azure-container-registry
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Destek ilkeleri
+      href: support-policies.md
+    - name: Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ürün geri bildirimi sağlama
+      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: SSS
+      href: faq.md

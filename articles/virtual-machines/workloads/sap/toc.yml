@@ -1,239 +1,232 @@
-items:
 - name: Genel Bakış
   items:
-  - name: başlarken
-    href: get-started.md
-  - name: Sertifikalar
-    href: sap-certifications.md
+    - name: başlarken
+      href: get-started.md
+    - name: Sertifikalar
+      href: sap-certifications.md
 - name: Azure’da SAP HANA (Büyük Örnekler)
   items:
-  - name: Genel Bakış
-    items:
-    - name: Azure üzerinde SAP HANA (Büyük Örnekler) nedir?
-      href: hana-overview-architecture.md
-    - name: Terimleri öğrenme
-      href: hana-know-terms.md
-    - name: Sertifika
-      href: hana-certification.md
-    - name: HLI için kullanılabilir SKU'lar
-      href: hana-available-skus.md
-    - name: Boyutlandırma
-      href: hana-sizing.md
-    - name: Ekleme gereksinimleri
-      href: hana-onboarding-requirements.md
-    - name: SAP HANA veri katmanlama ve uzantı düğümleri
-      href: hana-data-tiering-extension-nodes.md
-    - name: İşlem modeli ve sorumluluklar
-      href: hana-operations-model.md
-  - name: Mimari
-    items:
-    - name: Genel mimari
-      href: hana-architecture.md
-    - name: Ağ mimarisi
-      href: hana-network-architecture.md
-    - name: Depolama mimarisi
-      href: hana-storage-architecture.md
-    - name: Desteklenen HLI senaryoları
-      href: hana-supported-scenario.md
-  - name: Altyapı ve bağlantı
-    items:
-    - name: HLI dağıtımı
-      href: hana-overview-infrastructure-connectivity.md
-    - name: Azure VM'lerini HANA Büyük Örnekleri'ne bağlama
-      href: hana-connect-azure-vm-large-instances.md
-    - name: Sanal ağı HANA Büyük Örneği ExpressRoute'a bağlama
-      href: hana-connect-vnet-express-route.md
-    - name: Ek ağ gereksinimleri
-      href: hana-additional-network-requirements.md
-  - name: SAP HANA yükleme
-    items:
-    - name: Yapılandırmayı doğrulama
-      href: hana-installation.md
-    - name: Örnek HANA Yüklemesi
-      href: hana-example-installation.md
-  - name: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
-    items:
-    - name: Seçenekler ve önemli noktalar
-      href: hana-overview-high-availability-disaster-recovery.md
-    - name: Yedekleme ve geri yükleme
-      href: hana-backup-restore.md
-    - name: İlkeler ve hazırlık
-      href: hana-concept-preparation.md
-    - name: Olağanüstü durum kurtarma yük devretme yordamı
-      href: hana-failover-procedure.md
-  - name: Sorun giderme ve izleme
-    items:
-    - name: HLI'yi izleme
-      href: troubleshooting-monitoring.md
-    - name: HANA tarafından izleme ve sorun giderme
-      href: hana-monitor-troubleshoot.md
-  - name: Nasıl yapılır
-    items:
-    - name: Azure portalı üzerinden Azure HANA Büyük Örnekler denetimi
-      href: hana-li-portal.md
-    - name: STONITH ile HA Kurulumu
-      href: ha-setup-with-stonith.md
-    - name: Type II SKU'ları için İşletim Sistemi Yedeklemesi
-      href: os-backup-type-ii-skus.md
-    - name: HANA Büyük Örnekleri için İşletim Sistemi Yükseltmesi
-      href: os-upgrade-hana-large-instance.md
-    - name: SUSE Linux için SMT sunucusunu ayarlama
-      href: hana-setup-smt.md
+    - name: Genel Bakış
+      items:
+        - name: Azure üzerinde SAP HANA (Büyük Örnekler) nedir?
+          href: hana-overview-architecture.md
+        - name: Terimleri öğrenme
+          href: hana-know-terms.md
+        - name: Sertifika
+          href: hana-certification.md
+        - name: HLI için kullanılabilir SKU'lar
+          href: hana-available-skus.md
+        - name: Boyutlandırma
+          href: hana-sizing.md
+        - name: Ekleme gereksinimleri
+          href: hana-onboarding-requirements.md
+        - name: SAP HANA veri katmanlama ve uzantı düğümleri
+          href: hana-data-tiering-extension-nodes.md
+        - name: İşlem modeli ve sorumluluklar
+          href: hana-operations-model.md
+    - name: Mimari
+      items:
+        - name: Genel mimari
+          href: hana-architecture.md
+        - name: Ağ mimarisi
+          href: hana-network-architecture.md
+        - name: Depolama mimarisi
+          href: hana-storage-architecture.md
+        - name: Desteklenen HLI senaryoları
+          href: hana-supported-scenario.md
+    - name: Altyapı ve bağlantı
+      items:
+        - name: HLI dağıtımı
+          href: hana-overview-infrastructure-connectivity.md
+        - name: Azure VM'lerini HANA Büyük Örnekleri'ne bağlama
+          href: hana-connect-azure-vm-large-instances.md
+        - name: Sanal ağı HANA Büyük Örneği ExpressRoute'a bağlama
+          href: hana-connect-vnet-express-route.md
+        - name: Ek ağ gereksinimleri
+          href: hana-additional-network-requirements.md
+    - name: SAP HANA yükleme
+      items:
+        - name: Yapılandırmayı doğrulama
+          href: hana-installation.md
+        - name: Örnek HANA Yüklemesi
+          href: hana-example-installation.md
+    - name: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
+      items:
+        - name: Seçenekler ve önemli noktalar
+          href: hana-overview-high-availability-disaster-recovery.md
+        - name: Yedekleme ve geri yükleme
+          href: hana-backup-restore.md
+        - name: İlkeler ve hazırlık
+          href: hana-concept-preparation.md
+        - name: Olağanüstü durum kurtarma yük devretme yordamı
+          href: hana-failover-procedure.md
+    - name: Sorun giderme ve izleme
+      items:
+        - name: HLI'yi izleme
+          href: troubleshooting-monitoring.md
+        - name: HANA tarafından izleme ve sorun giderme
+          href: hana-monitor-troubleshoot.md
+    - name: Nasıl yapılır
+      items:
+        - name: Azure portalı üzerinden Azure HANA Büyük Örnekler denetimi
+          href: hana-li-portal.md
+        - name: STONITH ile HA Kurulumu
+          href: ha-setup-with-stonith.md
+        - name: Type II SKU'ları için İşletim Sistemi Yedeklemesi
+          href: os-backup-type-ii-skus.md
+        - name: HANA Büyük Örnekleri için İşletim Sistemi Yükseltmesi
+          href: os-upgrade-hana-large-instance.md
+        - name: SUSE Linux için SMT sunucusunu ayarlama
+          href: hana-setup-smt.md
 - name: Azure Sanal Makinelerde SAP HANA
   items:
-  - name: Tek örnek SAP HANA yüklemesi
-    href: hana-get-started.md
-  - name: S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu
-    href: cal-s4h.md
-  - name: Azure'da SAP HANA altyapı yapılandırmaları ve işlemleri
-    href: hana-vm-operations.md
-  - name: Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
-    items:
-    - name: Azure Kullanılabilirlik üzerinde SAP HANA'ya genel bakış
-      href: sap-hana-availability-overview.md
-    - name: Azure bölgesi içindeki Azure Kullanılabilirlik üzerinde SAP HANA
-      href: sap-hana-availability-one-region.md
-    - name: Azure bölgeleri arasındaki Azure Kullanılabilirlik üzerinde SAP HANA
-      href: sap-hana-availability-across-regions.md
-    - name: SLES üzerinde SAP HANA Sistem Çoğaltması ayarlama
-      href: sap-hana-high-availability.md
-    - name: RHEL üzerinde SAP HANA Sistem Çoğaltması ayarlama
-      href: sap-hana-high-availability-rhel.md
-    - name: SLES üzerinde SAP HANA ölçek genişletme ve Pacemaker sorunlarını giderme
-      href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
-  - name: SAP HANA yedeklemesine genel bakış
-    href: sap-hana-backup-guide.md
-  - name: SAP HANA dosya düzeyi yedeklemesi
-    href: sap-hana-backup-file-level.md
-  - name: SAP HANA depolama anlık görüntüsü yedeklemeleri
-    href: sap-hana-backup-storage-snapshots.md
-- name: Azure Sanal Makineler üzerinde SAP NetWeaver ve Business One
-  items:
-  - name: SAP iş yükü planlama ve dağıtımı denetim listesi
-    href: sap-deployment-checklist.md
-  - name: Azure üzerinde SAP NetWeaver'ı planlama ve gerçekleştirme
-    href: planning-guide.md
-  - name: SAP NetWeaver Dağıtım kılavuzu
-    href: deployment-guide.md
-  - name: SAP iş yükü için DBMS dağıtım kılavuzları
-    items:
-    - name: SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı
-      href: dbms_guide_general.md
-    - name: SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı
-      href: dbms_guide_sqlserver.md
-    - name: SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı
-      href: dbms_guide_oracle.md
-    - name: SAP iş yükü için IBM Db2 Azure Sanal Makineler DBMS dağıtımı
-      href: dbms_guide_ibm.md
-    - name: SUSE Linux Enterprise Server üzerinde Azure VM’lerindeki IBM Db2 LUW’a yönelik yüksek kullanılabilirlik
-      href: dbms-guide-ha-ibm.md
-    - name: SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı
-      href: dbms_guide_sapase.md
-    - name: Azure'da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı
-      href: dbms_guide_maxdb.md
+    - name: Tek örnek SAP HANA yüklemesi
+      href: hana-get-started.md
+    - name: S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu
+      href: cal-s4h.md
+    - name: Azure'da SAP HANA altyapı yapılandırmaları ve işlemleri
+      href: hana-vm-operations.md
     - name: Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
       items:
-      - name: Azure Kullanılabilirlik üzerinde SAP HANA'ya genel bakış
-        href: sap-hana-availability-overview.md
-      - name: Azure bölgesi içindeki Azure Kullanılabilirlik üzerinde SAP HANA
-        href: sap-hana-availability-one-region.md
-      - name: Azure bölgeleri arasındaki Azure Kullanılabilirlik üzerinde SAP HANA
-        href: sap-hana-availability-across-regions.md
-  - name: Azure Sanal Makineler'de SAP Business One
-    href: business-one-azure.md
-  - name: Windows/SQL Server SAP üzerinde SAP IDES CAL dağıtım kılavuzu
-    href: cal-ides-erp6-erp7-sp3-sql.md
-  - name: Azure için SAP LaMa bağlayıcısı
-    href: lama-installation.md
-  - name: Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
-    items:
-    - name: Genel Bakış
-      href: sap-high-availability-guide-start.md
-    - name: Yüksek Kullanılabilirlik Mimarisi
+        - name: Azure Kullanılabilirlik üzerinde SAP HANA'ya genel bakış
+          href: sap-hana-availability-overview.md
+        - name: Azure bölgesi içindeki Azure Kullanılabilirlik üzerinde SAP HANA
+          href: sap-hana-availability-one-region.md
+        - name: Azure bölgeleri arasındaki Azure Kullanılabilirlik üzerinde SAP HANA
+          href: sap-hana-availability-across-regions.md
+        - name: SLES üzerinde SAP HANA Sistem Çoğaltması ayarlama
+          href: sap-hana-high-availability.md
+        - name: RHEL üzerinde SAP HANA Sistem Çoğaltması ayarlama
+          href: sap-hana-high-availability-rhel.md
+        - name: SLES üzerinde SAP HANA ölçek genişletme ve Pacemaker sorunlarını giderme
+          href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+    - name: SAP HANA yedeklemesine genel bakış
+      href: sap-hana-backup-guide.md
+    - name: SAP HANA dosya düzeyi yedeklemesi
+      href: sap-hana-backup-file-level.md
+    - name: SAP HANA depolama anlık görüntüsü yedeklemeleri
+      href: sap-hana-backup-storage-snapshots.md
+- name: Azure Sanal Makineler üzerinde SAP NetWeaver ve Business One
+  items:
+    - name: SAP iş yükü planlama ve dağıtımı denetim listesi
+      href: sap-deployment-checklist.md
+    - name: Azure üzerinde SAP NetWeaver'ı planlama ve gerçekleştirme
+      href: planning-guide.md
+    - name: SAP NetWeaver Dağıtım kılavuzu
+      href: deployment-guide.md
+    - name: SAP iş yükü için DBMS dağıtım kılavuzları
       items:
-      - name: HA Mimarisi ve Senaryoları
-        href: sap-high-availability-architecture-scenarios.md
-      - name: Yüksek Kullanılabilirlik Mimarisi ve Senaryoları
-        href: sap-higher-availability-architecture-scenarios.md
-      - name: Azure Kullanılabilirlik Alanlarıyla SAP iş yükü yapılandırmaları
-        href: sap-ha-availability-zones.md
-      - name: (A)SCS Örneği için Paylaşılan Diskle Windows üzerinde HA
-        href: sap-high-availability-guide-wsfc-shared-disk.md
-      - name: (A)SCS Örneği için OFS Dosya Paylaşımıyla Windows üzerinde HA
-        href: sap-high-availability-guide-wsfc-file-share.md
-      - name: (A)SCS Örneği için SUSE Linux üzerinde HA
-        href: high-availability-guide-suse.md
-      - name: Azure NetApp Files ile (A)SCS Örneği için SUSE Linux üzerinde HA
-        href: high-availability-guide-suse-netapp-files.md
-      - name: (A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA
-        href: high-availability-guide-rhel.md
-    - name: Azure Altyapı Hazırlığı
+        - name: SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı
+          href: dbms_guide_general.md
+        - name: SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı
+          href: dbms_guide_sqlserver.md
+        - name: SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı
+          href: dbms_guide_oracle.md
+        - name: SAP iş yükü için IBM Db2 Azure Sanal Makineler DBMS dağıtımı
+          href: dbms_guide_ibm.md
+        - name: SUSE Linux Enterprise Server üzerinde Azure VM’lerindeki IBM Db2 LUW’a yönelik yüksek kullanılabilirlik
+          href: dbms-guide-ha-ibm.md
+        - name: SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı
+          href: dbms_guide_sapase.md
+        - name: 'Azure''da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı'
+          href: dbms_guide_maxdb.md
+        - name: Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
+          items:
+            - name: Azure Kullanılabilirlik üzerinde SAP HANA'ya genel bakış
+              href: sap-hana-availability-overview.md
+            - name: Azure bölgesi içindeki Azure Kullanılabilirlik üzerinde SAP HANA
+              href: sap-hana-availability-one-region.md
+            - name: Azure bölgeleri arasındaki Azure Kullanılabilirlik üzerinde SAP HANA
+              href: sap-hana-availability-across-regions.md
+    - name: Azure Sanal Makineler'de SAP Business One
+      href: business-one-azure.md
+    - name: Windows/SQL Server SAP üzerinde SAP IDES CAL dağıtım kılavuzu
+      href: cal-ides-erp6-erp7-sp3-sql.md
+    - name: Azure için SAP LaMa bağlayıcısı
+      href: lama-installation.md
+    - name: Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
       items:
-      - name: (A)SCS Örneği için Paylaşılan Diskle Windows
-        href: sap-high-availability-infrastructure-wsfc-shared-disk.md
-      - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
-        href: sap-high-availability-infrastructure-wsfc-file-share.md
-      - name: SLES üzerinde Azure Sanal Makineler'de NFS için yüksek kullanılabilirlik
-        href: high-availability-guide-suse-nfs.md
-      - name: SAP NetWeaver için Red Hat Enterprise Linux üzerinde Azure Sanal Makineler'de GlusterFS
-        href: high-availability-guide-rhel-glusterfs.md
-      - name: SLES üzerinde Pacemaker
-        href: high-availability-guide-suse-pacemaker.md
-      - name: RHEL üzerinde Pacemaker
-        href: high-availability-guide-rhel-pacemaker.md
-    - name: SAP Yüklemesi
-      items:
-      - name: (A)SCS Örneği için Paylaşılan Diskle Windows
-        href: sap-high-availability-installation-wsfc-shared-disk.md
-      - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
-        href: sap-high-availability-installation-wsfc-file-share.md
-      - name: (A)SCS Örneği için NFS ile SUSE Linux
-        href: high-availability-guide-suse.md
-      - name: Azure NetApp Files ile (A)SCS Örneği için NFS ile SUSE Linux
-        href: high-availability-guide-suse-netapp-files.md
-      - name: Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
-        href: high-availability-guide-rhel.md
-    - name: SAP Çoklu SID
-      items:
-      - name: (A)SCS Örneği için Paylaşılan Diskle Windows
-        href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-      - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
-        href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-  - name: SAP Olağanüstü Durum Kurtarma için Azure Site Recovery
-    href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+        - name: Genel Bakış
+          href: sap-high-availability-guide-start.md
+        - name: Yüksek Kullanılabilirlik Mimarisi
+          items:
+            - name: HA Mimarisi ve Senaryoları
+              href: sap-high-availability-architecture-scenarios.md
+            - name: Yüksek Kullanılabilirlik Mimarisi ve Senaryoları
+              href: sap-higher-availability-architecture-scenarios.md
+            - name: Azure Kullanılabilirlik Alanlarıyla SAP iş yükü yapılandırmaları
+              href: sap-ha-availability-zones.md
+            - name: (A)SCS Örneği için Paylaşılan Diskle Windows üzerinde HA
+              href: sap-high-availability-guide-wsfc-shared-disk.md
+            - name: (A)SCS Örneği için OFS Dosya Paylaşımıyla Windows üzerinde HA
+              href: sap-high-availability-guide-wsfc-file-share.md
+            - name: (A)SCS Örneği için SUSE Linux üzerinde HA
+              href: high-availability-guide-suse.md
+            - name: Azure NetApp Files ile (A)SCS Örneği için SUSE Linux üzerinde HA
+              href: high-availability-guide-suse-netapp-files.md
+            - name: (A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA
+              href: high-availability-guide-rhel.md
+        - name: Azure Altyapı Hazırlığı
+          items:
+            - name: (A)SCS Örneği için Paylaşılan Diskle Windows
+              href: sap-high-availability-infrastructure-wsfc-shared-disk.md
+            - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
+              href: sap-high-availability-infrastructure-wsfc-file-share.md
+            - name: SLES üzerinde Azure Sanal Makineler'de NFS için yüksek kullanılabilirlik
+              href: high-availability-guide-suse-nfs.md
+            - name: SAP NetWeaver için Red Hat Enterprise Linux üzerinde Azure Sanal Makineler'de GlusterFS
+              href: high-availability-guide-rhel-glusterfs.md
+            - name: SLES üzerinde Pacemaker
+              href: high-availability-guide-suse-pacemaker.md
+            - name: RHEL üzerinde Pacemaker
+              href: high-availability-guide-rhel-pacemaker.md
+        - name: SAP Yüklemesi
+          items:
+            - name: (A)SCS Örneği için Paylaşılan Diskle Windows
+              href: sap-high-availability-installation-wsfc-shared-disk.md
+            - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
+              href: sap-high-availability-installation-wsfc-file-share.md
+            - name: (A)SCS Örneği için NFS ile SUSE Linux
+              href: high-availability-guide-suse.md
+            - name: Azure NetApp Files ile (A)SCS Örneği için NFS ile SUSE Linux
+              href: high-availability-guide-suse-netapp-files.md
+            - name: Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
+              href: high-availability-guide-rhel.md
+        - name: SAP Çoklu SID
+          items:
+            - name: (A)SCS Örneği için Paylaşılan Diskle Windows
+              href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+            - name: (A)SCS Örneği için SOFS Dosya Paylaşımıyla Windows
+              href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+    - name: SAP Olağanüstü Durum Kurtarma için Azure Site Recovery
+      href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
 - name: AAD SAP Kimlik Tümleştirmesi ve Çoklu Oturum Açma
   items:
-  - name: SAP Cloud ile Tümleştirme
-    href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP Cloud Platformu ile Çoklu Oturum Açma'yı ayarlama
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP NetWeaver ile AAD Tümleştirmesi
-    href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP Business ByDesign ile AAD Tümleştirmesi
-    href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP HANA DBMS ile AAD Tümleştirmesi
-    href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: Azure AD ile SAP Fiori Launchpad SAML Çoklu Oturum Açma
-    href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+    - name: SAP Cloud ile Tümleştirme
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: SAP Cloud Platformu ile Çoklu Oturum Açma'yı ayarlama
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: SAP NetWeaver ile AAD Tümleştirmesi
+      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: SAP Business ByDesign ile AAD Tümleştirmesi
+      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: SAP HANA DBMS ile AAD Tümleştirmesi
+      href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Azure AD ile SAP Fiori Launchpad SAML Çoklu Oturum Açma
+      href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
 - name: Azure Hizmetlerini SAP ile Tümleştirme
   items:
-  - name: Power BI Desktop'ta SAP HANA Kullanma
-    href: https://docs.microsoft.com/power-bi/desktop-sap-hana
-  - name: DirectQuery ve SAP HANA
-    href: https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana
-  - name: Power BI Desktop'ta SAP BW Bağlayıcısı'nı Kullanma
-    href: https://docs.microsoft.com/power-bi/desktop-sap-bw-connector
-  - name: Azure Data Factory, SAP HANA ve Business Warehouse veri tümleştirmesi sunar
-    href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+    - name: Power BI Desktop'ta SAP HANA Kullanma
+      href: 'https://docs.microsoft.com/power-bi/desktop-sap-hana'
+    - name: DirectQuery ve SAP HANA
+      href: 'https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana'
+    - name: Power BI Desktop'ta SAP BW Bağlayıcısı'nı Kullanma
+      href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
+    - name: 'Azure Data Factory, SAP HANA ve Business Warehouse veri tümleştirmesi sunar'
+      href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: b91931661ad91f813ca84e0c9b7bef4b22e2e975
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489045"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

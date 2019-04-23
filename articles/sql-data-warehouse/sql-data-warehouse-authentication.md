@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917915"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797044"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için kimlik doğrulaması
 Azure SQL veri ambarı'na, Azure Active Directory (AAD) veya SQL Server kimlik doğrulamasını kullanarak kimlik doğrulaması yapmayı öğrenin.

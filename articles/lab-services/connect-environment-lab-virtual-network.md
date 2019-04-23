@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852006"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795538"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs'de sanal ağ, Laboratuvar için bir ortama bağlanın
 Azure DevTest Labs ile bir laboratuvarda sanal makineler oluşturmak kolaylaştırır [yerleşik ağ](devtest-lab-configure-vnet.md). Bir büyük ölçüde esneklik olanağı sahip [çoklu VM ortamları oluşturma](devtest-lab-test-env.md). Bu makalede sanal makineleri bir ortamda Laboratuvar sanal ağa bağlama gösterilmektedir. Bu özellik, kullandığınız bir senaryo, lab VNet izin test Vm'leri Laboratuvardaki erişmek için bağlandığı bir SQL Server veri katmanı ile N katmanlı uygulamanın ayarlıyor.  

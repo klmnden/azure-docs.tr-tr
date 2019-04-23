@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360343"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795041"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -89,7 +89,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık Aracısı'nı yüklemek için komut dosyalarını nasıl kullanabileceğiniz hakkında.
 
 
-## <a name="create-a-group"></a>Grup oluştur
+## <a name="create-a-group"></a>Grup oluşturma
 
 1. Aracıları yükledikten sonra portal ve tıklayın Git **Yönet** > **makineler**.
 2. Aracıların yüklü olduğu makinenin arayın.

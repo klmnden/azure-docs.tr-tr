@@ -1,60 +1,53 @@
-items:
 - name: FHIR için Azure API'si
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: FHIR için Azure API'si hakkında
-    href: overview.md
-  - name: Azure için FHIR Sunucusu hakkında
-    href: overview-open-source-server.md
+    - name: FHIR için Azure API'si hakkında
+      href: overview.md
+    - name: Azure için FHIR Sunucusu hakkında
+      href: overview-open-source-server.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: FHIR için Azure API'sini dağıtma - Portal
-    href: fhir-paas-portal-quickstart.md
-  - name: FHIR için Azure API'sini dağıtma - PowerShell
-    href: fhir-paas-powershell-quickstart.md
-  - name: FHIR için Azure API'sini dağıtma - CLI
-    href: fhir-paas-cli-quickstart.md
-  - name: Azure için FHIR Sunucusu'nu dağıtma - Portal
-    href: fhir-oss-portal-quickstart.md
-  - name: Azure için FHIR Sunucusu'nu dağıtma - PowerShell
-    href: fhir-oss-powershell-quickstart.md
-  - name: Azure için FHIR Sunucusu'nu dağıtma - CLI
-    href: fhir-oss-cli-quickstart.md
-  - name: CORS Yapılandırma
-    href: configure-cross-origin-resource-sharing.md
   expanded: true
+  items:
+    - name: FHIR için Azure API'sini dağıtma - Portal
+      href: fhir-paas-portal-quickstart.md
+    - name: FHIR için Azure API'sini dağıtma - PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - name: FHIR için Azure API'sini dağıtma - CLI
+      href: fhir-paas-cli-quickstart.md
+    - name: Azure için FHIR Sunucusu'nu dağıtma - Portal
+      href: fhir-oss-portal-quickstart.md
+    - name: Azure için FHIR Sunucusu'nu dağıtma - PowerShell
+      href: fhir-oss-powershell-quickstart.md
+    - name: Azure için FHIR Sunucusu'nu dağıtma - CLI
+      href: fhir-oss-cli-quickstart.md
+    - name: CORS Yapılandırma
+      href: configure-cross-origin-resource-sharing.md
 - name: Öğreticiler
-  items:
-  - name: Postman ile FHIR API'ye erişme
-    href: access-fhir-postman-tutorial.md
-  - name: FHIR ara sunucusu üzerinde SMART kullanma
-    href: use-smart-on-fhir-proxy.md
   expanded: false
+  items:
+    - name: Postman ile FHIR API'ye erişme
+      href: access-fhir-postman-tutorial.md
+    - name: FHIR ara sunucusu üzerinde SMART kullanma
+      href: use-smart-on-fhir-proxy.md
 - name: Nasıl yapılır kılavuzları
-  items:
-  - name: Kaynak uygulamasını kaydetme
-    href: register-resource-azure-ad-client-app.md
-  - name: Gizli istemci uygulamasını kaydetme
-    href: register-confidential-azure-ad-client-app.md
-  - name: Genel istemci uygulamasını kaydetme
-    href: register-public-azure-ad-client-app.md
-  - name: Hizmet istemci uygulamasını kaydetme
-    href: register-service-azure-ad-client-app.md
-  - name: FHIR için Azure API'sine yönelik belirteç alma - CLI
-    href: get-healthcare-apis-access-token-cli.md
-  - name: Kimlik nesnesi kimliklerini bulma
-    href: find-identity-object-ids.md
   expanded: false
+  items:
+    - name: Kaynak uygulamasını kaydetme
+      href: register-resource-azure-ad-client-app.md
+    - name: Gizli istemci uygulamasını kaydetme
+      href: register-confidential-azure-ad-client-app.md
+    - name: Genel istemci uygulamasını kaydetme
+      href: register-public-azure-ad-client-app.md
+    - name: Hizmet istemci uygulamasını kaydetme
+      href: register-service-azure-ad-client-app.md
+    - name: FHIR için Azure API'sine yönelik belirteç alma - CLI
+      href: get-healthcare-apis-access-token-cli.md
+    - name: Kimlik nesnesi kimliklerini bulma
+      href: find-identity-object-ids.md
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: fhir-faq.md
-  - name: Desteklenen özellikler
-    href: fhir-features-supported.md
-ms.openlocfilehash: e120b0775e9f0920a1deab4bd1e126f4ad06e132
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862837"
+    - name: SSS
+      href: fhir-faq.md
+    - name: Desteklenen özellikler
+      href: fhir-features-supported.md
