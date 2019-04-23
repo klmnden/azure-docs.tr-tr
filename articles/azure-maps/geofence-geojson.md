@@ -32,10 +32,10 @@ Bölge sınırının veya bölge sınırlarını dizi verilerini tarafından tem
 
 | Ad | Type | Gerekli  | Açıklama |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Tarih saat  | true | Başlangıç tarihi geçerlilik süresini süre. |
-| endTime   | Tarih saat  | true |  Bitiş tarihi geçerlilik süresini süre. |
-| durumu seçilen recurrenceType | string | false |   Yinelenme Türü süresi. Değer olabilir `Daily`, `Weekly`, `Monthly`, veya `Yearly`. Varsayılan değer `Daily`.|
-| businessDayOnly | Boole | false |  Verileri yalnızca iş gün boyunca geçerli olup olmadığını gösterir. Varsayılan değer `false`.|
+| startTime | DateTime  | true | Başlangıç tarihi geçerlilik süresini süre. |
+| endTime   | DateTime  | true |  Bitiş tarihi geçerlilik süresini süre. |
+| recurrenceType | string | false |   Yinelenme Türü süresi. Değer olabilir `Daily`, `Weekly`, `Monthly`, veya `Yearly`. Varsayılan değer `Daily`.|
+| businessDayOnly | Boolean | false |  Verileri yalnızca iş gün boyunca geçerli olup olmadığını gösterir. Varsayılan değer `false`.|
 
 
 * Tüm koordinat değerleri [enlem, boylam] temsil edilir tanımlanan `WGS84`.
