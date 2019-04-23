@@ -1,97 +1,90 @@
-items:
 - name: Azure Storage Belgeleri
   href: /azure/storage/
 - name: Genel Bakış
-  items:
-  - name: Azure Tablo depolamaya genel bakış
-    href: table-storage-overview.md
-  - name: Tablo depolamayı veya Tablo API’sini seçme
-    href: /azure/cosmos-db/table-support
-    maintainContext: true
   expanded: true
+  items:
+    - name: Azure Tablo depolamaya genel bakış
+      href: table-storage-overview.md
+    - name: Tablo depolamayı veya Tablo API’sini seçme
+      href: /azure/cosmos-db/table-support
+      maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: Depolama hesabı oluşturma
-    displayName: resource manager, resource manager template, template, ARM
-    href: /azure/storage/common/storage-quickstart-create-account
-    maintainContext: true
-  - name: Azure portalda tablo oluşturma
-    href: table-storage-quickstart-portal.md
+    - name: Depolama hesabı oluşturma
+      displayName: 'resource manager, resource manager template, template, ARM'
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
+    - name: Azure portalda tablo oluşturma
+      href: table-storage-quickstart-portal.md
 - name: Örnekler
   items:
-  - name: .NET
-    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
-    maintainContext: true
-  - name: F#
-    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-    maintainContext: true
-  - name: Java
-    href: /azure/cosmos-db/table-storage-how-to-use-java
-    maintainContext: true
-  - name: Node.js
-    href: /azure/cosmos-db/table-storage-how-to-use-nodejs
-    maintainContext: true
-  - name: C++
-    href: /azure/cosmos-db/table-storage-how-to-use-c-plus
-    maintainContext: true
-  - name: PHP
-    href: /azure/cosmos-db/table-storage-how-to-use-php
-    maintainContext: true
-  - name: Python
-    href: /azure/cosmos-db/table-storage-how-to-use-python
-    maintainContext: true
-  - name: Ruby
-    href: /azure/cosmos-db/table-storage-how-to-use-ruby
-    maintainContext: true
-  - name: PowerShell
-    href: /azure/storage/tables/table-storage-how-to-use-powershell
-    maintainContext: true
+    - name: .NET
+      href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+      maintainContext: true
+    - name: 'F#'
+      href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+      maintainContext: true
+    - name: Java
+      href: /azure/cosmos-db/table-storage-how-to-use-java
+      maintainContext: true
+    - name: Node.js
+      href: /azure/cosmos-db/table-storage-how-to-use-nodejs
+      maintainContext: true
+    - name: C++
+      href: /azure/cosmos-db/table-storage-how-to-use-c-plus
+      maintainContext: true
+    - name: PHP
+      href: /azure/cosmos-db/table-storage-how-to-use-php
+      maintainContext: true
+    - name: Python
+      href: /azure/cosmos-db/table-storage-how-to-use-python
+      maintainContext: true
+    - name: Ruby
+      href: /azure/cosmos-db/table-storage-how-to-use-ruby
+      maintainContext: true
+    - name: PowerShell
+      href: /azure/storage/tables/table-storage-how-to-use-powershell
+      maintainContext: true
 - name: Kavramlar
   items:
-  - name: Depolama hesapları
-    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    items:
-    - name: Depolama hesabını yönetme
-      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Depolama hesabını yükseltme
-      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-  - name: Ölçeklenebilir ve performansa yönelik tablolar tasarlama
-    href: table-storage-design.md
-  - name: Tablo tasarımı için yönergeler
-    href: table-storage-design-guidelines.md
-  - name: Sorgulama için tasarım
-    href: table-storage-design-for-query.md
-  - name: Veri değişikliği için tasarım
-    href: table-storage-design-for-modification.md
-  - name: Tablo verilerini şifreleme
-    href: table-storage-design-encrypt-data.md
-  - name: İlişkileri modelleme
-    href: table-storage-design-modeling.md
-  - name: Tablo tasarımı desenleri
-    href: table-storage-design-patterns.md
+    - name: Depolama hesapları
+      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      items:
+        - name: Depolama hesabını yönetme
+          href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Depolama hesabını yükseltme
+          href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Ölçeklenebilir ve performansa yönelik tablolar tasarlama
+      href: table-storage-design.md
+    - name: Tablo tasarımı için yönergeler
+      href: table-storage-design-guidelines.md
+    - name: Sorgulama için tasarım
+      href: table-storage-design-for-query.md
+    - name: Veri değişikliği için tasarım
+      href: table-storage-design-for-modification.md
+    - name: Tablo verilerini şifreleme
+      href: table-storage-design-encrypt-data.md
+    - name: İlişkileri modelleme
+      href: table-storage-design-modeling.md
+    - name: Tablo tasarımı desenleri
+      href: table-storage-design-patterns.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Depolama öykünücüsü kullanma
-    href: /azure/storage/common/storage-use-emulator
-    maintainContext: true
-  - name: Veri aktarma
-    items:
-    - name: AzCopy (v10)
-      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Windows üzerinde AzCopy (v8)
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Linux üzerinde AzCopy (v8)
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-  - name: Hesap yük devretmesi başlatma
-    href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Depolama öykünücüsü kullanma
+      href: /azure/storage/common/storage-use-emulator
+      maintainContext: true
+    - name: Veri aktarma
+      items:
+        - name: AzCopy (v10)
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Windows üzerinde AzCopy (v8)
+          href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Linux üzerinde AzCopy (v8)
+          href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Hesap yük devretmesi başlatma
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Kaynaklar
   items:
-  - name: Tablo depolama REST API'leri
-    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
-    maintainContext: true
-ms.openlocfilehash: de554dc0e15e351eb7ba5b36e38fc32f01b700b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894113"
+    - name: Tablo depolama REST API'leri
+      href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
+      maintainContext: true

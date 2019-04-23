@@ -1,55 +1,48 @@
-items:
 - name: Azure Notebooks Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Notebooks nedir?
-    href: azure-notebooks-overview.md
+    - name: Azure Notebooks nedir?
+      href: azure-notebooks-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Oturum açma ve kullanıcı kimliği ayarlama
-    href: quickstart-sign-in-azure-notebooks.md
-  - name: Not defteri oluşturma ve paylaşma
-    href: quickstart-create-share-jupyter-notebook.md
-  - name: Not defterini kopyalama
-    href: quickstart-clone-jupyter-notebook.md
-  - name: Yerel Jupyter not defterini geçirme
-    href: quickstart-migrate-local-jupyter-notebook.md
-  - name: Özel ortam kullanma
-    href: quickstart-create-jupyter-notebook-project-environment.md
+    - name: Oturum açma ve kullanıcı kimliği ayarlama
+      href: quickstart-sign-in-azure-notebooks.md
+    - name: Not defteri oluşturma ve paylaşma
+      href: quickstart-create-share-jupyter-notebook.md
+    - name: Not defterini kopyalama
+      href: quickstart-clone-jupyter-notebook.md
+    - name: Yerel Jupyter not defterini geçirme
+      href: quickstart-migrate-local-jupyter-notebook.md
+    - name: Özel ortam kullanma
+      href: quickstart-create-jupyter-notebook-project-environment.md
 - name: Öğreticiler
   items:
-  - name: Not defteri oluşturma ve çalıştırma
-    href: tutorial-create-run-jupyter-notebook.md
+    - name: Not defteri oluşturma ve çalıştırma
+      href: tutorial-create-run-jupyter-notebook.md
 - name: Örnekler
   items:
-  - name: Örnek not defterleri
-    href: azure-notebooks-samples.md
+    - name: Örnek not defterleri
+      href: azure-notebooks-samples.md
 - name: Kavramlar
   items:
-  - name: Hesaplar
-    href: azure-notebooks-user-account.md
-  - name: Profiller
-    href: azure-notebooks-user-profile.md
+    - name: Hesaplar
+      href: azure-notebooks-user-account.md
+    - name: Profiller
+      href: azure-notebooks-user-profile.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Projeleri oluşturma ve kopyalama
-    href: create-clone-jupyter-notebooks.md
-  - name: Projeleri yönetme ve yapılandırma
-    href: configure-manage-azure-notebooks-projects.md
-  - name: Not defterinde paketleri yükleme
-    href: install-packages-jupyter-notebook.md
-  - name: Slayt gösterisi yapma
-    href: present-jupyter-notebooks-slideshow.md
-  - name: Veri dosyalarıyla çalışma
-    href: work-with-project-data-files.md
-  - name: Veri kaynaklarına erişme
-    href: access-data-resources-jupyter-notebooks.md
-  - name: Azure Machine Learning Services'i kullanma
-    href: use-machine-learning-services-jupyter-notebooks.md
-ms.openlocfilehash: 95122e9ec45fb606e07a29e474e411d6e49278c0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852441"
+    - name: Projeleri oluşturma ve kopyalama
+      href: create-clone-jupyter-notebooks.md
+    - name: Projeleri yönetme ve yapılandırma
+      href: configure-manage-azure-notebooks-projects.md
+    - name: Not defterinde paketleri yükleme
+      href: install-packages-jupyter-notebook.md
+    - name: Slayt gösterisi yapma
+      href: present-jupyter-notebooks-slideshow.md
+    - name: Veri dosyalarıyla çalışma
+      href: work-with-project-data-files.md
+    - name: Veri kaynaklarına erişme
+      href: access-data-resources-jupyter-notebooks.md
+    - name: Azure Machine Learning Services'i kullanma
+      href: use-machine-learning-services-jupyter-notebooks.md

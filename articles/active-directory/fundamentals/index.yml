@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: afe1deb23efcdad88965364aca6ce1d1741117f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103853"
 documentType: LandingData
 title: Azure Active Directory temel öğeler belgeleri
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Active Directory temel öğeler belgeleri
   description: Azure Active Directory’yi kullanırken söz konusu olan temel kavramlar ve süreçler hakkında bilgi edinin.
   services: active-directory
@@ -20,34 +14,34 @@ metadata:
   ms.date: 09/07/2018
   ms.author: lizross
 abstract:
-  description: Kullanmaya başlamak için kullanıcı, grup ve ortam oluşturma gibi temel Azure Active Directory (Azure AD) kavram ve süreçleri hakkında bilgi edinin.
+  description: 'Kullanmaya başlamak için kullanıcı, grup ve ortam oluşturma gibi temel Azure Active Directory (Azure AD) kavram ve süreçleri hakkında bilgi edinin.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure Active Directory portalını kullanmaya başlamayı öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: ./media/index/i_portal.png
-      text: Kiracı oluşturmak için Azure AD’ye erişme
-      href: active-directory-access-create-new-tenant.md
-    - image:
-        src: ./media/index/i_tasks.png
-      text: Grupları ve üyeleri görüntüleme
-      href: active-directory-groups-view-azure-portal.md
-- title: Adım Adım kılavuzlar
-  items:
-  - type: paragraph
-    text: Azure Active Directory ortamınızı ayarlamak için temel görevleri gerçekleştirme hakkında bilgi edinin
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure Active Directory portalını kullanmaya başlamayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_portal.png
+            text: Kiracı oluşturmak için Azure AD’ye erişme
+            href: active-directory-access-create-new-tenant.md
+          - image:
+              src: ./media/index/i_tasks.png
+            text: Grupları ve üyeleri görüntüleme
+            href: active-directory-groups-view-azure-portal.md
+  - title: Adım Adım kılavuzlar
     items:
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium’a kaydolun</a>
-    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Özel bir etki alanı adı ekleme</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Temel bir grup oluşturma ve üye ekleme</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Grup sahibi ekleme</a>
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Yeni kullanıcı ekleme</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Kullanıcılara roller atama</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Kullanıcılara lisans atama</a>
+      - type: paragraph
+        text: Azure Active Directory ortamınızı ayarlamak için temel görevleri gerçekleştirme hakkında bilgi edinin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium’a kaydolun</a>
+          - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Özel bir etki alanı adı ekleme</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Temel bir grup oluşturma ve üye ekleme</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Grup sahibi ekleme</a>
+          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Yeni kullanıcı ekleme</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Kullanıcılara roller atama</a>
+          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Kullanıcılara lisans atama</a>

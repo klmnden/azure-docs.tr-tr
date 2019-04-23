@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4b98648325eaf434d675bfdc1cdd704870912bc3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517224"
 documentType: LandingData
 title: Azure AD Kimlik Koruması
 metadata:
-  document_id: 
-  title: Azure Active Directory Kimlik Koruması Belgeleri - Hızlı başlangıçlar, kavramlar, başvurular | Microsoft Docs
+  document_id: null
+  title: 'Azure Active Directory Kimlik Koruması Belgeleri - Hızlı başlangıçlar, kavramlar, başvurular | Microsoft Docs'
   description: Azure Active Directory Kimlik Koruması’nı yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
   ms.subservice: identity-protection
@@ -22,25 +16,25 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere koşullu erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.
+  description: 'Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere koşullu erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Azure AD Kimlik Koruması’na giriş
-    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    href: 'https://www.youtube.com/watch?v=zI3jn_G0_Ns'
     width: 246
 sections:
-- title: 5 dakikalık hızlı başlangıçlar
-  items:
-  - type: paragraph
-    text: Yaygın erişim senaryolarında oturum açma riski koşullu erişim ilkelerini yapılandırmayı öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 dakikalık hızlı başlangıçlar
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Oturum riski algılandığında erişimi engelleme
-      href: quickstart-sign-in-risk-policy.md
+      - type: paragraph
+        text: Yaygın erişim senaryolarında oturum açma riski koşullu erişim ilkelerini yapılandırmayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Oturum riski algılandığında erişimi engelleme
+            href: quickstart-sign-in-risk-policy.md

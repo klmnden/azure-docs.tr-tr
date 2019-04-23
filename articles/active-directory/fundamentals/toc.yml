@@ -1,93 +1,86 @@
-items:
 - name: Temel öğeler belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Azure Active Directory nedir?
-    href: active-directory-whatis.md
-  - name: Azure Active Directory’deki yenilikler
-    href: whats-new.md
   expanded: true
+  items:
+    - name: Azure Active Directory nedir?
+      href: active-directory-whatis.md
+    - name: Azure Active Directory’deki yenilikler
+      href: whats-new.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Portala erişme ve kiracı oluşturma
-    href: active-directory-access-create-new-tenant.md
-  - name: Atanan üyeler ile gruplarınızı görüntüleme
-    href: active-directory-groups-view-azure-portal.md
+    - name: Portala erişme ve kiracı oluşturma
+      href: active-directory-access-create-new-tenant.md
+    - name: Atanan üyeler ile gruplarınızı görüntüleme
+      href: active-directory-groups-view-azure-portal.md
 - name: Kavramlar
   items:
-  - name: Kimlik secure score’u
-    href: identity-secure-score.md
-  - name: Gruplar ve erişim yönetimi
-    href: active-directory-manage-groups.md
-  - name: Grup tabanlı lisanslama
-    href: active-directory-licensing-whatis-azure-portal.md
-  - name: Azure AD mimarisi
-    href: active-directory-architecture.md
-  - name: Varsayılan kullanıcı izinleri
-    href: users-default-permissions.md
-  - name: Dağıtım 30, 90 ve sonrası
-    href: active-directory-deployment-checklist-p2.md
-  - name: Avrupa müşterileri için kimlik verisi depolama
-    href: active-directory-data-storage-eu.md
+    - name: Kimlik secure score’u
+      href: identity-secure-score.md
+    - name: Gruplar ve erişim yönetimi
+      href: active-directory-manage-groups.md
+    - name: Grup tabanlı lisanslama
+      href: active-directory-licensing-whatis-azure-portal.md
+    - name: Azure AD mimarisi
+      href: active-directory-architecture.md
+    - name: Varsayılan kullanıcı izinleri
+      href: users-default-permissions.md
+    - name: 'Dağıtım 30, 90 ve sonrası'
+      href: active-directory-deployment-checklist-p2.md
+    - name: Avrupa müşterileri için kimlik verisi depolama
+      href: active-directory-data-storage-eu.md
 - name: Nasıl yapılır kılavuzları
-  items:
-  - name: Kuruluş
-    items:
-    - name: Azure AD’ye kuruluş olarak kaydolma
-      href: sign-up-organization.md
-    - name: Azure AD Premium’a kaydolma
-      href: active-directory-get-started-premium.md
-    - name: Özel bir etki alanı adı ekleme
-      href: add-custom-domain.md
-    - name: Şirket markası ekleme
-      href: customize-branding.md
-    - name: Azure aboneliği ilişkilendirme
-      href: active-directory-how-subscriptions-associated-directory.md
-    - name: Gizlilik bilgilerinizi ekleme
-      href: active-directory-properties-area.md
-  - name: Gruplar
-    items:
-    - name: Grup oluşturma ve üye ekleme
-      href: active-directory-groups-create-azure-portal.md
-    - name: Grup üyesi ekleme veya kaldırma
-      href: active-directory-groups-members-azure-portal.md
-    - name: Grubu ve üyelerini silme
-      href: active-directory-groups-delete-group.md
-    - name: Başka bir gruptan grup ekleme veya kaldırma
-      href: active-directory-groups-membership-azure-portal.md
-    - name: Grup bilgilerini düzenleme
-      href: active-directory-groups-settings-azure-portal.md
-    - name: Grup sahibi ekleme veya kaldırma
-      href: active-directory-accessmanagement-managing-group-owners.md
-  - name: Kullanıcılar
-    items:
-    - name: Yeni kullanıcı ekleme veya silme
-      href: add-users-azure-active-directory.md
-    - name: Kullanıcı profili bilgileri ekleme veya değiştirme
-      href: active-directory-users-profile-azure-portal.md
-    - name: Kullanıcı parolasını sıfırlama
-      href: active-directory-users-reset-password-azure-portal.md
-    - name: Kullanıcılara rol atama
-      href: active-directory-users-assign-role-azure-portal.md
-    - name: Kullanıcılara lisans atama veya lisanslarını kaldırma
-      href: license-users-groups.md
-    - name: Silinen bir kullanıcıyı geri yükleme
-      href: active-directory-users-restore.md
   expanded: true
+  items:
+    - name: Kuruluş
+      items:
+        - name: Azure AD’ye kuruluş olarak kaydolma
+          href: sign-up-organization.md
+        - name: Azure AD Premium’a kaydolma
+          href: active-directory-get-started-premium.md
+        - name: Özel bir etki alanı adı ekleme
+          href: add-custom-domain.md
+        - name: Şirket markası ekleme
+          href: customize-branding.md
+        - name: Azure aboneliği ilişkilendirme
+          href: active-directory-how-subscriptions-associated-directory.md
+        - name: Gizlilik bilgilerinizi ekleme
+          href: active-directory-properties-area.md
+    - name: Gruplar
+      items:
+        - name: Grup oluşturma ve üye ekleme
+          href: active-directory-groups-create-azure-portal.md
+        - name: Grup üyesi ekleme veya kaldırma
+          href: active-directory-groups-members-azure-portal.md
+        - name: Grubu ve üyelerini silme
+          href: active-directory-groups-delete-group.md
+        - name: Başka bir gruptan grup ekleme veya kaldırma
+          href: active-directory-groups-membership-azure-portal.md
+        - name: Grup bilgilerini düzenleme
+          href: active-directory-groups-settings-azure-portal.md
+        - name: Grup sahibi ekleme veya kaldırma
+          href: active-directory-accessmanagement-managing-group-owners.md
+    - name: Kullanıcılar
+      items:
+        - name: Yeni kullanıcı ekleme veya silme
+          href: add-users-azure-active-directory.md
+        - name: Kullanıcı profili bilgileri ekleme veya değiştirme
+          href: active-directory-users-profile-azure-portal.md
+        - name: Kullanıcı parolasını sıfırlama
+          href: active-directory-users-reset-password-azure-portal.md
+        - name: Kullanıcılara rol atama
+          href: active-directory-users-assign-role-azure-portal.md
+        - name: Kullanıcılara lisans atama veya lisanslarını kaldırma
+          href: license-users-groups.md
+        - name: Silinen bir kullanıcıyı geri yükleme
+          href: active-directory-users-restore.md
 - name: Kaynaklar
   items:
-  - name: Azure Active Directory için destek alma
-    href: active-directory-troubleshooting-support-howto.md
-  - name: Azure Active Directory ile ilgili SSS
-    href: active-directory-faq.md
-  - name: Azure Active Directory dağıtım planları
-    href: active-directory-deployment-plans.md
-  - name: Azure AD'deki yenilikler arşivi
-    href: whats-new-archive.md
-ms.openlocfilehash: ac750e329a530978979d3ca580ae1f1407d2fa78
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704419"
+    - name: Azure Active Directory için destek alma
+      href: active-directory-troubleshooting-support-howto.md
+    - name: Azure Active Directory ile ilgili SSS
+      href: active-directory-faq.md
+    - name: Azure Active Directory dağıtım planları
+      href: active-directory-deployment-plans.md
+    - name: Azure AD'deki yenilikler arşivi
+      href: whats-new-archive.md

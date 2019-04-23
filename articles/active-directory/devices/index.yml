@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46eb23cf23506b950142068146283345db71a3ea
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520828"
 documentType: LandingData
 title: Azure AD Cihaz Yönetimi Belgeleri
 metadata:
-  document_id: 
-  title: Azure Active Directory Cihaz Yönetimi Belgeleri - Öğreticiler, kavramlar, başvurular | Microsoft Docs
+  document_id: null
+  title: 'Azure Active Directory Cihaz Yönetimi Belgeleri - Öğreticiler, kavramlar, başvurular | Microsoft Docs'
   description: Azure Active cihaz yönetimini yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
   ms.subservice: devices
@@ -22,20 +16,20 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: Kullanıcılarınız, cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak, kuruluşunuzun varlıklarını korumak için bu cihazlar üzerinde denetiminiz olmalıdır. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlarla erişmesini sağlayabilirsiniz.<br>Cihaz yönetimi, cihaz temelli koşullu erişim senaryolarının da altyapıdır. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.
+  description: 'Kullanıcılarınız, cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak, kuruluşunuzun varlıklarını korumak için bu cihazlar üzerinde denetiminiz olmalıdır. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlarla erişmesini sağlayabilirsiniz.<br>Cihaz yönetimi, cihaz temelli koşullu erişim senaryolarının da altyapıdır. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.'
 sections:
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: Şirket içi AD'ye katılan cihazları Azure AD ile tümleştirmeyi öğrenin.
-  - type: list
-    style: icon48
+  - title: Adım adım öğreticiler
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Yönetilen etki alanları
-      href: hybrid-azuread-join-managed-domains.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Federasyon etki alanları
-      href: hybrid-azuread-join-federated-domains.md
+      - type: paragraph
+        text: Şirket içi AD'ye katılan cihazları Azure AD ile tümleştirmeyi öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Yönetilen etki alanları
+            href: hybrid-azuread-join-managed-domains.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Federasyon etki alanları
+            href: hybrid-azuread-join-federated-domains.md

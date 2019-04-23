@@ -1,84 +1,77 @@
-items:
 - name: Azure Güvenlik Duvarı Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Güvenlik Duvarı nedir?
-    href: overview.md
+    - name: Azure Güvenlik Duvarı nedir?
+      href: overview.md
 - name: Öğreticiler
-  items:
-  - name: Dağıtma ve yapılandırma
-    href: tutorial-firewall-deploy-portal.md
-  - name: Hibrit ağda dağıtma
-    href: tutorial-hybrid-ps.md
-  - name: DNAT ile gelen trafiği filtreleme
-    href: tutorial-firewall-dnat.md
-  - name: Tanılama günlüklerini izleme
-    href: tutorial-diagnostics.md
   expanded: true
+  items:
+    - name: Dağıtma ve yapılandırma
+      href: tutorial-firewall-deploy-portal.md
+    - name: Hibrit ağda dağıtma
+      href: tutorial-hybrid-ps.md
+    - name: DNAT ile gelen trafiği filtreleme
+      href: tutorial-firewall-dnat.md
+    - name: Tanılama günlüklerini izleme
+      href: tutorial-diagnostics.md
 - name: Örnekler
   items:
-  - name: Azure PowerShell
-    href: sample-powershell.md
-  - name: Azure İzleyici günlükleri
-    href: log-analytics-samples.md
+    - name: Azure PowerShell
+      href: sample-powershell.md
+    - name: Azure İzleyici günlükleri
+      href: log-analytics-samples.md
 - name: Kavramlar
   items:
-  - name: FQDN etiketleri
-    href: fqdn-tags.md
-  - name: Altyapı FQDN'leri
-    href: infrastructure-fqdns.md
-  - name: Günlükleri ve ölçümler
-    href: logs-and-metrics.md
-  - name: Tehdit bilgileri
-    href: threat-intel.md
-  - name: Kural işleme mantığı
-    href: rule-processing.md
-  - name: Hizmet etiketleri
-    href: service-tags.md
+    - name: FQDN etiketleri
+      href: fqdn-tags.md
+    - name: Altyapı FQDN'leri
+      href: infrastructure-fqdns.md
+    - name: Günlükleri ve ölçümler
+      href: logs-and-metrics.md
+    - name: Tehdit bilgileri
+      href: threat-intel.md
+    - name: Kural işleme mantığı
+      href: rule-processing.md
+    - name: Hizmet etiketleri
+      href: service-tags.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure PowerShell’i kullanarak dağıtma
-    href: deploy-ps.md
-  - name: Şablon kullanarak dağıtma
-    href: deploy-template.md
-  - name: Yük dengeleyici ile tümleştirme
-    href: integrate-lb.md
+    - name: Azure PowerShell’i kullanarak dağıtma
+      href: deploy-ps.md
+    - name: Şablon kullanarak dağıtma
+      href: deploy-template.md
+    - name: Yük dengeleyici ile tümleştirme
+      href: integrate-lb.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: /cli/azure/network
-  - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
-  - name: .NET
-    href: /dotnet/api
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/firewall
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    - name: Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: firewall-faq.md
-  - name: Yazar şablonları
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Topluluk şablonları
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/azure-firewall/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: a5f0125020cd0ed340127bb39c727bbe070721c6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792192"
+    - name: SSS
+      href: firewall-faq.md
+    - name: Yazar şablonları
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Topluluk şablonları
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'

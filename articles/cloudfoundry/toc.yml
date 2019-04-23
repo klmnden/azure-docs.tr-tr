@@ -1,40 +1,33 @@
-items:
 - name: Cloud Foundry Belgeleri
   href: index.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Market şablonu
-    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
   expanded: true
+  items:
+    - name: Market şablonu
+      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
 - name: Öğreticiler
   items:
-  - name: Azure üzerinde CF oluşturma
-    href: /azure/cloudfoundry/create-cloud-foundry-on-azure
-  - name: CF Uygulamasını Azure’a dağıtma
-    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-  - name: Bir Uygulama ile PCF üzerinde OSBA kullanma
-    href: /azure/cloudfoundry/use-osba-pcf-app
-  - name: Azure üzerinde CloudFoundry
-    href: /azure/virtual-machines/linux/cloudfoundry-get-started
-  - name: CF OMS Nozzle dağıtma
-    href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
-  - name: Cloud Foundry ile Azure’ı tümleştirme
-    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+    - name: Azure üzerinde CF oluşturma
+      href: /azure/cloudfoundry/create-cloud-foundry-on-azure
+    - name: CF Uygulamasını Azure’a dağıtma
+      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    - name: Bir Uygulama ile PCF üzerinde OSBA kullanma
+      href: /azure/cloudfoundry/use-osba-pcf-app
+    - name: Azure üzerinde CloudFoundry
+      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    - name: CF OMS Nozzle dağıtma
+      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Cloud Foundry ile Azure’ı tümleştirme
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Cloud Foundry sitesi
-    href: https://docs.cloudfoundry.org/
-  - name: Azure üzerinde CF yükleme
-    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
-  - name: Pivotal ve Azure
-    href: https://pivotal.io/partners/microsoft
-  - name: CF için Azure DevOps eklentisi
-    href: https://github.com/Microsoft/vsts-cloudfoundry
-ms.openlocfilehash: b702d42142bd809e678792f1f07a3e104f1e21c1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229226"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cloud Foundry sitesi
+      href: 'https://docs.cloudfoundry.org/'
+    - name: Azure üzerinde CF yükleme
+      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
+    - name: Pivotal ve Azure
+      href: 'https://pivotal.io/partners/microsoft'
+    - name: CF için Azure DevOps eklentisi
+      href: 'https://github.com/Microsoft/vsts-cloudfoundry'

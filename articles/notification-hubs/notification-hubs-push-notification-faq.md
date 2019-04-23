@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524200"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998932"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -53,17 +53,6 @@ Temel ve standart Notification hub katmanları için düzgün şekilde yapıland
 
 > [!NOTE]
 > Üçüncü taraf Platform bildirim sistemlerinin (örneğin, Apple APNS ve Google FCM) anında iletme bildirimleri bağımlı olduğundan bu iletiler teslim için SLA garantisi yoktur. Bildirim hub'ları, Platform bildirim sistemlerinin (garantili SLA) için toplu işlerin gönderdikten sonra bildirim (SLA garantisi) sunmak için Platform bildirim sistemlerinin sorumluluğundadır.
-
-### <a name="which-customers-are-using-notification-hubs"></a>Hangi müşteriler Notification hubs'ı kullanıyor musunuz?
-
-Birçok müşteri, Notification hubs'ı kullanır. Bazı önemli olanları aşağıda listelenmiştir:
-
-* Soçi 2014: Yüzlerce ilgi alanı gruplarına, 3 + milyon cihazı ve 150 + milyon bildirim iki hafta içinde gönderilir. [Örnek olay incelemesi: Sochi]
-* Skanska: [Örnek olay incelemesi: Skanska]
-* Seattle saatler: [Örnek olay incelemesi: Seattle saatleri]
-* Mural.LY: [Örnek olay incelemesi: Mural.ly]
-* 7Digital: [Örnek olay incelemesi: 7Digital]
-* Bing uygulamalar: Milyonlarca cihaza onlarca, günde 3 milyon bildirim gönderin.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Nasıl yükseltebilir veya my hub veya ad alanı farklı bir katmana düşürme?
 
@@ -219,11 +208,6 @@ Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azu
 [Azure portal]: https://portal.azure.com
 [Notification Hubs fiyatlandırması]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Örnek olay incelemesi: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Örnek olay incelemesi: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Örnek olay incelemesi: Seattle saatleri]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Örnek olay incelemesi: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Örnek olay incelemesi: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification hubs'ı REST API'leri]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification hubs'ı kullanmaya başlama öğreticileri]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome uygulama Öğreticisi]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

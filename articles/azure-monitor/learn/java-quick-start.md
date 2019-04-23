@@ -1,22 +1,22 @@
 ---
 title: Azure Application Insights ile Hızlı Başlangıç | Microsoft Docs
-description: Application Insights ile izleme için Java Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar
+description: Application Insights ile izleme için bir Java Web uygulaması hızlı bir şekilde ayarlamak için yönergeler sağlar
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 07/11/2018
+ms.date: 04/18/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 25335081e594c64b8d8cee02eebec6119e609618
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: MT
+ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891507"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006905"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -36,19 +36,21 @@ Bir Java Dynamic Web Projeniz yoksa [Java web uygulaması oluşturma hızlı ba�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Spring çerçevesini tercih ediyorsanız, [Application Insights kılavuzunu kullanmak için Spring Boot başlatıcı uygulamasını yapılandırmayı](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) deneyin
+Spring framework tercih ediyorsanız [Application Insights Kılavuzu kullanmak için bir Spring Boot Başlatıcı uygulamasını yapılandırma](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
-1. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
+1. **Kaynak oluştur** > **Geliştirici araçları** > **Application Insights** seçeneğini belirleyin.
 
-   ![Application Insights Kaynağı ekleme](./media/java-quick-start/001-j.png)
+   ![Application Insights Kaynağı ekleme](./media/java-quick-start/1createresourseappinsights.png)
+
+   ![Application Insights Kaynağı ekleme](./media/java-quick-start/2createjavaapp.png)
 
    Bir yapılandırma kutusu görünür. Giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
 
@@ -88,23 +90,23 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 > [!NOTE]
 > Java için Application Insights SDK’sı canlı ölçümleri yakalama ve görselleştirme özelliğine sahiptir, ancak telemetri koleksiyonunuzu ilk kez etkinleştirdiğinizde verilerin portalda görünmeye başlaması birkaç dakika sürebilir. Bu uygulama düşük trafikli bir test uygulaması ise, çoğu ölçümün yalnızca etkin istek veya işlem olduğunda yakalandığını aklınızda bulundurun.
 
-## <a name="start-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi başlatın
+## <a name="start-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi başlatma
 
-1. Artık izleme anahtarınızı aldığınız Application Insights **Genel Bakış** sayfasını yeniden açarak o anda çalışan uygulamanıza ilişkin ayrıntıları görüntüleyebilirsiniz.
+1. Artık Application ınsights'ı yeniden açabilirsiniz **genel bakış** şu anda çalışan uygulamanızın hakkında ayrıntıları görüntülemek için Azure portalında sayfası.
 
-   ![Application Insights’a Genel Bakış Menüsü](./media/java-quick-start/overview-001.png)
+   ![Application Insights’a Genel Bakış Menüsü](./media/java-quick-start/3overview.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/java-quick-start/application-map-001.png)
+   ![Uygulama Eşlemesi](./media/java-quick-start/4appmap.png)
 
-3. **Uygulama Analizi** simgesine ![Uygulama Haritası simgesi](./media/java-quick-start/006.png) tıklayın. Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
+3.  Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası simgesi](./media/java-quick-start/006.png) **analytics'te görüntüle**.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
-   ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/java-quick-start/0010-j.png)
+   ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/java-quick-start/5analytics.png)
 
-4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar.
+4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin. Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar.
 
-   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/java-quick-start/overview-perf.png)
+   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/java-quick-start/6kpidashboards.png)
 
    **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
 
@@ -130,13 +132,13 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 5. **Canlı Akış**’a tıklayın. Burada, Java web uygulamanızın performansıyla ilgili canlı ölçümleri bulabilirsiniz. **Canlı Ölçüm Akışı**, gelen istek sayısı, bu isteklerin süresi ve oluşan her türlü hata ile ilgili veriler içerir. Ayrıca, işlemci ve bellek gibi önemli performans ölçümlerini gerçek zamanlı olarak izleyebilirsiniz.
 
-   ![Sunucu ölçüm grafikleri](./media/java-quick-start/livemetricsjava.png)
+   ![Sunucu ölçüm grafikleri](./media/java-quick-start/7livemetrics.png)
 
 Java izleme hakkında daha fazla bilgi için [ek App Insights Java belgelerine](./../../azure-monitor/app/java-get-started.md) bakın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsanız, bu hızlı başlangıçta oluşturulan kaynakları silmeyin. Devam etmeyi planlamıyorsanız, Azure portalda bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
+İşiniz bittiğinde test, kaynak grubunu silebilirsiniz ve tüm ilgili kaynakları. İçin aşağıdaki adımları izleyin.
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**’na tıklayın ve ardından **myResourceGroup**’a tıklayın.
 2. Kaynak grubu sayfanızda, **Sil**’e tıklayın, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**’e tıklayın.

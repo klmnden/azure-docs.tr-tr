@@ -1,154 +1,147 @@
-items:
 - name: Azure AD Domain Services Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure AD Etki Alanı Hizmetleri nedir?
-    href: active-directory-ds-overview.md
-  - name: SSS
-    href: active-directory-ds-faqs.md
-  - name: Bu sizin için geçerli mi?
-    items:
-    - name: Windows Server AD ile karşılaştırma
-      href: active-directory-ds-comparison.md
-    - name: Azure AD'ye katılma ile karşılaştırma
-      href: active-directory-ds-compare-with-azure-ad-join.md
-  - name: Yenilikler
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-  - name: Özellikler
-    href: active-directory-ds-features.md
-  - name: Senaryolar
-    href: active-directory-ds-scenarios.md
-  - name: Eşitleme nasıl çalışır?
-    href: active-directory-ds-synchronization.md
-  - name: Uyumlu üçüncü taraf yazılımı
-    href: active-directory-ds-compatible-software.md
+    - name: Azure AD Etki Alanı Hizmetleri nedir?
+      href: active-directory-ds-overview.md
+    - name: SSS
+      href: active-directory-ds-faqs.md
+    - name: Bu sizin için geçerli mi?
+      items:
+        - name: Windows Server AD ile karşılaştırma
+          href: active-directory-ds-comparison.md
+        - name: Azure AD'ye katılma ile karşılaştırma
+          href: active-directory-ds-compare-with-azure-ad-join.md
+    - name: Yenilikler
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+    - name: Özellikler
+      href: active-directory-ds-features.md
+    - name: Senaryolar
+      href: active-directory-ds-scenarios.md
+    - name: Eşitleme nasıl çalışır?
+      href: active-directory-ds-synchronization.md
+    - name: Uyumlu üçüncü taraf yazılımı
+      href: active-directory-ds-compatible-software.md
 - name: başlarken
   items:
-  - name: '1. Görev: Temel ayarları yapılandırma'
-    href: active-directory-ds-getting-started.md
-  - name: '2. Görev: Ağ ayarlarını yapılandırma'
-    href: active-directory-ds-getting-started-network.md
-  - name: '3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme'
-    href: active-directory-ds-getting-started-admingroup.md
-  - name: '4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme'
-    href: active-directory-ds-getting-started-dns.md
-  - name: '5. Görev: Parola karması eşitlemeyi etkinleştirme'
-    href: active-directory-ds-getting-started-password-sync.md
+    - name: '1. Görev: Temel ayarları yapılandırma'
+      href: active-directory-ds-getting-started.md
+    - name: '2. Görev: Ağ ayarlarını yapılandırma'
+      href: active-directory-ds-getting-started-network.md
+    - name: '3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme'
+      href: active-directory-ds-getting-started-admingroup.md
+    - name: '4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme'
+      href: active-directory-ds-getting-started-dns.md
+    - name: '5. Görev: Parola karması eşitlemeyi etkinleştirme'
+      href: active-directory-ds-getting-started-password-sync.md
 - name: Nasıl yapılır
   items:
-  - name: Yönetilen bir etki alanının sistem durumunu denetleme
-    href: active-directory-ds-check-health.md
-  - name: Azure CSP aboneliklerinde Azure AD Domain Services kullanma
-    href: active-directory-ds-csp.md
-  - name: PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme
-    href: active-directory-ds-enable-using-powershell.md
-  - name: Azure AD’den, yönetilen bir etki alanına kapsamlı eşitleme yapılandırma
-    href: active-directory-ds-scoped-synchronization.md
-  - name: Yönetilen etki alanınızın güvenliğini sağlama
-    href: active-directory-ds-secure-your-domain.md
-  - name: Yönetilen bir etki alanında Kuruluş Birimi oluşturma
-    href: active-directory-ds-admin-guide-create-ou.md
-  - name: Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma
-    href: active-directory-ds-create-gmsa.md
-  - name: Yönetilen etki alanında grup ilkesi yönetme
-    href: active-directory-ds-admin-guide-administer-group-policy.md
-  - name: Yönetilen etki alanında parola ilkelerini yapılandırma
-    href: active-directory-ds-password-policy.md
-  - name: Sanal ağ seçme
-    href: active-directory-ds-networking.md
-  - name: Uygulamaları dağıtma
-    items:
-    - name: SharePoint Server için profil eşitleme desteğini yapılandırma
-      href: active-directory-ds-enable-sharepoint-profile-sync.md
-    - name: Kerberos Kısıtlanmış Temsilini Yapılandırma
-      href: active-directory-ds-enable-kcd.md
-    - name: Azure AD Uygulama Ara Sunucusunu Dağıtma
-      href: active-directory-ds-deploy-azure-app-proxy.md
-  - name: Yönetilen bir etki alanını silme
-    href: active-directory-ds-disable-aadds.md
+    - name: Yönetilen bir etki alanının sistem durumunu denetleme
+      href: active-directory-ds-check-health.md
+    - name: Azure CSP aboneliklerinde Azure AD Domain Services kullanma
+      href: active-directory-ds-csp.md
+    - name: PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme
+      href: active-directory-ds-enable-using-powershell.md
+    - name: 'Azure AD’den, yönetilen bir etki alanına kapsamlı eşitleme yapılandırma'
+      href: active-directory-ds-scoped-synchronization.md
+    - name: Yönetilen etki alanınızın güvenliğini sağlama
+      href: active-directory-ds-secure-your-domain.md
+    - name: Yönetilen bir etki alanında Kuruluş Birimi oluşturma
+      href: active-directory-ds-admin-guide-create-ou.md
+    - name: Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma
+      href: active-directory-ds-create-gmsa.md
+    - name: Yönetilen etki alanında grup ilkesi yönetme
+      href: active-directory-ds-admin-guide-administer-group-policy.md
+    - name: Yönetilen etki alanında parola ilkelerini yapılandırma
+      href: active-directory-ds-password-policy.md
+    - name: Sanal ağ seçme
+      href: active-directory-ds-networking.md
+    - name: Uygulamaları dağıtma
+      items:
+        - name: SharePoint Server için profil eşitleme desteğini yapılandırma
+          href: active-directory-ds-enable-sharepoint-profile-sync.md
+        - name: Kerberos Kısıtlanmış Temsilini Yapılandırma
+          href: active-directory-ds-enable-kcd.md
+        - name: Azure AD Uygulama Ara Sunucusunu Dağıtma
+          href: active-directory-ds-deploy-azure-app-proxy.md
+    - name: Yönetilen bir etki alanını silme
+      href: active-directory-ds-disable-aadds.md
 - name: Yönetilen bir etki alanına katılma
   items:
-  - name: Windows Server VM
-    href: active-directory-ds-admin-guide-join-windows-vm-portal.md
-  - name: Şablondan Windows Server VM
-    href: active-directory-ds-join-windows-vm-template.md
-  - name: CentOS
-    href: active-directory-ds-join-centos-linux-vm.md
-  - name: CoreOS
-    href: active-directory-ds-join-coreos-linux-vm.md
-  - name: Red Hat Enterprise Linux
-    href: active-directory-ds-join-rhel-linux-vm.md
-  - name: Ubuntu Server
-    href: active-directory-ds-join-ubuntu-linux-vm.md
+    - name: Windows Server VM
+      href: active-directory-ds-admin-guide-join-windows-vm-portal.md
+    - name: Şablondan Windows Server VM
+      href: active-directory-ds-join-windows-vm-template.md
+    - name: CentOS
+      href: active-directory-ds-join-centos-linux-vm.md
+    - name: CoreOS
+      href: active-directory-ds-join-coreos-linux-vm.md
+    - name: Red Hat Enterprise Linux
+      href: active-directory-ds-join-rhel-linux-vm.md
+    - name: Ubuntu Server
+      href: active-directory-ds-join-ubuntu-linux-vm.md
 - name: Yönetilen etki alanını yönetme
   items:
-  - name: Yönetilen etki alanını yönetme
-    href: active-directory-ds-admin-guide-administer-domain.md
-  - name: Yönetilen etki alanında DNS’yi yönetme
-    href: active-directory-ds-admin-guide-administer-dns.md
-  - name: E-posta bildirimlerini güncelleştirme
-    href: active-directory-ds-notifications.md
+    - name: Yönetilen etki alanını yönetme
+      href: active-directory-ds-admin-guide-administer-domain.md
+    - name: Yönetilen etki alanında DNS’yi yönetme
+      href: active-directory-ds-admin-guide-administer-dns.md
+    - name: E-posta bildirimlerini güncelleştirme
+      href: active-directory-ds-notifications.md
 - name: Yönetilen bir etki alanı için güvenli LDAP yapılandırma
   items:
-  - name: '1. Görev: Güvenli LDAP için sertifika alma'
-    href: active-directory-ds-admin-guide-configure-secure-ldap.md
-  - name: '2. Görev: Güvenli LDAP sertifikasını dışarı aktarma'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-  - name: '3. Görev: Azure portalı kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-  - name: '4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma'
-    href: active-directory-ds-ldaps-configure-dns.md
-  - name: '5. Görev: Yönetilen etki alanını bağlama ve güvenli LDAP erişimini kilitleme'
-    href: active-directory-ds-ldaps-bind-lockdown.md
-  - name: Güvenli LDAP sorunlarını giderme
-    href: active-directory-ds-ldaps-troubleshoot.md
+    - name: '1. Görev: Güvenli LDAP için sertifika alma'
+      href: active-directory-ds-admin-guide-configure-secure-ldap.md
+    - name: '2. Görev: Güvenli LDAP sertifikasını dışarı aktarma'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+    - name: '3. Görev: Azure portalı kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+    - name: '4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma'
+      href: active-directory-ds-ldaps-configure-dns.md
+    - name: '5. Görev: Yönetilen etki alanını bağlama ve güvenli LDAP erişimini kilitleme'
+      href: active-directory-ds-ldaps-bind-lockdown.md
+    - name: Güvenli LDAP sorunlarını giderme
+      href: active-directory-ds-ldaps-troubleshoot.md
 - name: Sorun giderme
   items:
-  - name: Sorun giderme kılavuzu
-    href: active-directory-ds-troubleshooting.md
-  - name: Sorun giderme uyarıları
-    href: active-directory-ds-troubleshoot-alerts.md
-    items:
-    - name: Bozuk bir NSG yapılandırmasını düzeltme
-      href: active-directory-ds-troubleshoot-nsg.md
-    - name: Eksik hizmet asıl adlarını geri yükleme
-      href: active-directory-ds-troubleshoot-service-principals.md
-    - name: Güvenli LDAP hataları
-      href: active-directory-ds-troubleshoot-ldaps.md
-  - name: Eşleşmeyen kiracı hatalarını düzeltme
-    href: active-directory-ds-mismatched-tenant-error.md
-  - name: Askıya alınan etki alanları
-    href: active-directory-ds-suspension.md
+    - name: Sorun giderme kılavuzu
+      href: active-directory-ds-troubleshooting.md
+    - name: Sorun giderme uyarıları
+      href: active-directory-ds-troubleshoot-alerts.md
+      items:
+        - name: Bozuk bir NSG yapılandırmasını düzeltme
+          href: active-directory-ds-troubleshoot-nsg.md
+        - name: Eksik hizmet asıl adlarını geri yükleme
+          href: active-directory-ds-troubleshoot-service-principals.md
+        - name: Güvenli LDAP hataları
+          href: active-directory-ds-troubleshoot-ldaps.md
+    - name: Eşleşmeyen kiracı hatalarını düzeltme
+      href: active-directory-ds-mismatched-tenant-error.md
+    - name: Askıya alınan etki alanları
+      href: active-directory-ds-suspension.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
 - name: İlgili
   items:
-  - name: Azure Active Directory
-    href: ../active-directory/fundamentals/active-directory-whatis.md
-  - name: Azure Active Directory B2C
-    href: ../active-directory-b2c/active-directory-b2c-overview.md
-  - name: Multi-Factor Authentication
-    href: ../active-directory/authentication/multi-factor-authentication.md
+    - name: Azure Active Directory
+      href: ../active-directory/fundamentals/active-directory-whatis.md
+    - name: Azure Active Directory B2C
+      href: ../active-directory-b2c/active-directory-b2c-overview.md
+    - name: Multi-Factor Authentication
+      href: ../active-directory/authentication/multi-factor-authentication.md
 - name: Kaynaklar
   items:
-  - name: Azure AD geri bildirim forumu
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Bizimle iletişim kurun
-    href: active-directory-ds-contact-us.md
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/active-directory-ds/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-ms.openlocfilehash: 8559569df09bf611286730868f50d0bf1878182b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341127"
+    - name: Azure AD geri bildirim forumu
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Bizimle iletişim kurun
+      href: active-directory-ds-contact-us.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'

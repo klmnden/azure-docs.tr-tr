@@ -1,235 +1,228 @@
-items:
 - name: ExpressRoute Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: ExpressRoute nedir?
-    href: expressroute-introduction.md
+    - name: ExpressRoute nedir?
+      href: expressroute-introduction.md
 - name: Öğreticiler
   items:
-  - name: Bağlantı hattı oluşturma ve değiştirme
-    href: expressroute-howto-circuit-portal-resource-manager.md
-  - name: Eşleme yapılandırması oluşturma ve değiştirme
-    href: expressroute-howto-routing-portal-resource-manager.md
-  - name: ExpressRoute bağlantı hattına bir sanal ağı bağlama
-    href: expressroute-howto-linkvnet-portal-resource-manager.md
-  - name: Microsoft eşlemesi için rota filtreleri yapılandırma
-    href: how-to-routefilter-portal.md
+    - name: Bağlantı hattı oluşturma ve değiştirme
+      href: expressroute-howto-circuit-portal-resource-manager.md
+    - name: Eşleme yapılandırması oluşturma ve değiştirme
+      href: expressroute-howto-routing-portal-resource-manager.md
+    - name: ExpressRoute bağlantı hattına bir sanal ağı bağlama
+      href: expressroute-howto-linkvnet-portal-resource-manager.md
+    - name: Microsoft eşlemesi için rota filtreleri yapılandırma
+      href: how-to-routefilter-portal.md
 - name: Kavramlar
   items:
-  - name: Bağlantı modelleri
-    href: expressroute-connectivity-models.md
-  - name: Bağlantı hatları ve eşleme
-    href: expressroute-circuit-peerings.md
-  - name: Konumlar ve iş ortakları
-    href: expressroute-locations.md
-    items:
-    - name: Konuma göre sağlayıcılar
-      href: expressroute-locations-providers.md
-    - name: Sağlayıcıya Göre Konumlar
+    - name: Bağlantı modelleri
+      href: expressroute-connectivity-models.md
+    - name: Bağlantı hatları ve eşleme
+      href: expressroute-circuit-peerings.md
+    - name: Konumlar ve iş ortakları
       href: expressroute-locations.md
-  - name: Sanal ağ geçitleri hakkında
-    href: expressroute-about-virtual-network-gateways.md
-  - name: Ön koşullar
-    href: expressroute-prerequisites.md
-  - name: İş akışları
-    href: expressroute-workflows.md
-  - name: Yönlendirme gereksinimleri
-    href: expressroute-routing.md
-  - name: ExpressRoute üzerinden BFD
-    href: expressroute-bfd.md
-  - name: QoS gereksinimleri
-    href: expressroute-qos.md
-  - name: Devrelerin klasikten Resource Manager’a taşınması hakkında
-    href: expressroute-move.md
-  - name: ExpressRoute Direct hakkında
-    href: expressroute-erdirect-about.md
-  - name: ExpressRoute Global Reach hakkında
-    href: expressroute-global-reach.md
-  - name: Arka Uç Bağlantısı Birlikte Çalışabilirliği
-    items:
-    - name: Önsöz ve Test Kurulumu
-      href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Test Kurulumu Yapılandırması
-      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Denetim Düzlemi Analizi
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Veri Düzlemi Analizi
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: Ağlar arası bağlantı
-    href: cross-network-connectivity.md
+      items:
+        - name: Konuma göre sağlayıcılar
+          href: expressroute-locations-providers.md
+        - name: Sağlayıcıya Göre Konumlar
+          href: expressroute-locations.md
+    - name: Sanal ağ geçitleri hakkında
+      href: expressroute-about-virtual-network-gateways.md
+    - name: Ön koşullar
+      href: expressroute-prerequisites.md
+    - name: İş akışları
+      href: expressroute-workflows.md
+    - name: Yönlendirme gereksinimleri
+      href: expressroute-routing.md
+    - name: ExpressRoute üzerinden BFD
+      href: expressroute-bfd.md
+    - name: QoS gereksinimleri
+      href: expressroute-qos.md
+    - name: Devrelerin klasikten Resource Manager’a taşınması hakkında
+      href: expressroute-move.md
+    - name: ExpressRoute Direct hakkında
+      href: expressroute-erdirect-about.md
+    - name: ExpressRoute Global Reach hakkında
+      href: expressroute-global-reach.md
+    - name: Arka Uç Bağlantısı Birlikte Çalışabilirliği
+      items:
+        - name: Önsöz ve Test Kurulumu
+          href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Test Kurulumu Yapılandırması
+          href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Denetim Düzlemi Analizi
+          href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Veri Düzlemi Analizi
+          href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Ağlar arası bağlantı
+      href: cross-network-connectivity.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Bağlantı hattı oluşturma ve değiştirme
-    items:
-    - name: Azure portal
-      href: expressroute-howto-circuit-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-circuit-arm.md
-    - name: Azure CLI
-      href: howto-circuit-cli.md
-  - name: Eşleme yapılandırması oluşturma ve değiştirme
-    items:
-    - name: Azure portal
-      href: expressroute-howto-routing-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-routing-arm.md
-    - name: Azure CLI
-      href: howto-routing-cli.md
-  - name: ExpressRoute bağlantı hattına bir sanal ağı bağlama
-    items:
-    - name: Azure portal
-      href: expressroute-howto-linkvnet-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-linkvnet-arm.md
-    - name: Azure CLI
-      href: howto-linkvnet-cli.md
-  - name: Devreler üzerinden trafiği şifreleme
-    items:
-    - name: Microsoft eşlemesi üzerinde siteden siteye VPN bağlantısını yapılandırma
-      href: site-to-site-vpn-over-microsoft-peering.md
-    - name: Windows ana bilgisayarları için IPsec taşıma modunu yapılandırma
-      href: expressroute-howto-ipsec-transport-private-windows.md
-  - name: ExpressRoute Global Reach’i yapılandırma
-    items:
-    - name: Azure PowerShell
-      href: expressroute-howto-set-global-reach.md
-    - name: Azure CLI
-      href: expressroute-howto-set-global-reach-cli.md
-  - name: ExpressRoute için sanal ağ geçidi yapılandırma
-    items:
-    - name: Azure portal
-      href: expressroute-howto-add-gateway-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-add-gateway-resource-manager.md
-  - name: Birlikte bulunan ExpressRoute bağlantıları ve siteden siteye bağlantıları yapılandırma
-    href: expressroute-howto-coexist-resource-manager.md
-  - name: ExpressRoute Direct'i yapılandırma
-    items:
-    - name: Azure PowerShell
-      href: expressroute-howto-erdirect.md
-    - name: Azure CLI
-      href: expressroute-howto-expressroute-direct-cli.md
-  - name: Microsoft eşlemesi için rota filtreleri yapılandırma
-    items:
-    - name: Azure portal
-      href: how-to-routefilter-portal.md
-    - name: Azure PowerShell
-      href: how-to-routefilter-powershell.md
-    - name: Azure CLI
-      href: how-to-routefilter-cli.md
-  - name: Eşlemeleri etkinleştirme ve devre dışı bırakma
-    href: expressroute-howto-reset-peering.md
-  - name: Ortak eşlemeden Microsoft eşlemesine geçiş yapma
-    href: how-to-move-peering.md
-  - name: Bir devreyi klasikten Resource Manager’a taşıma
-    href: expressroute-howto-move-arm.md
-  - name: İlişkili sanal ağları klasikten Resource Manager’a geçirme
-    href: expressroute-migration-classic-resource-manager.md
-  - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
-    href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: ExpressRoute için yönlendirici yapılandırma
-    items:
-    - name: Yönlendirici yapılandırma
-      href: expressroute-config-samples-routing.md
-    - name: NAT için yönlendirici yapılandırma örnekleri
-      href: expressroute-config-samples-nat.md
-  - name: İzleme
-    items:
-    - name: ExpressRoute izleme, ölçümler ve uyarılar
-      href: expressroute-monitoring-metrics-alerts.md
-    - name: ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
-      href: how-to-npm.md
-  - name: Klasik dağıtım modeli makaleleri
-    items:
-    - name: Devreyi değiştirme
-      href: expressroute-howto-circuit-classic.md
+    - name: Bağlantı hattı oluşturma ve değiştirme
+      items:
+        - name: Azure portal
+          href: expressroute-howto-circuit-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-circuit-arm.md
+        - name: Azure CLI
+          href: howto-circuit-cli.md
     - name: Eşleme yapılandırması oluşturma ve değiştirme
-      href: expressroute-howto-routing-classic.md
+      items:
+        - name: Azure portal
+          href: expressroute-howto-routing-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-routing-arm.md
+        - name: Azure CLI
+          href: howto-routing-cli.md
     - name: ExpressRoute bağlantı hattına bir sanal ağı bağlama
-      href: expressroute-howto-linkvnet-classic.md
-    - name: Birlikte bulunan ExpressRoute ve S2S bağlantılarını yapılandırma
-      href: expressroute-howto-coexist-classic.md
-    - name: Sanal ağa ağ geçidi ekleme
-      href: expressroute-howto-add-gateway-classic.md
-  - name: En İyi Uygulamalar
-    items:
-    - name: Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar
-      href: ../best-practices-network-security.md
-    - name: Yönlendirmeyi iyileştirme
-      href: expressroute-optimize-routing.md
-    - name: Asimetrik yönlendirme
-      href: expressroute-asymmetric-routing.md
-    - name: ExpressRoute için NAT
-      href: expressroute-nat.md
-  - name: Sorun giderme
-    items:
-    - name: ExpressRoute bağlantısını doğrulama
-      href: expressroute-troubleshooting-expressroute-overview.md
-    - name: Ağ performansı sorunlarını çözme
-      href: expressroute-troubleshooting-network-performance.md
-    - name: Başarısız olan devreyi sıfırlama
-      href: reset-circuit.md
-    - name: ARP tablolarını alma
-      href: expressroute-troubleshooting-arp-resource-manager.md
-    - name: ARP tablolarını alma (Klasik)
-      href: expressroute-troubleshooting-arp-classic.md
+      items:
+        - name: Azure portal
+          href: expressroute-howto-linkvnet-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-linkvnet-arm.md
+        - name: Azure CLI
+          href: howto-linkvnet-cli.md
+    - name: Devreler üzerinden trafiği şifreleme
+      items:
+        - name: Microsoft eşlemesi üzerinde siteden siteye VPN bağlantısını yapılandırma
+          href: site-to-site-vpn-over-microsoft-peering.md
+        - name: Windows ana bilgisayarları için IPsec taşıma modunu yapılandırma
+          href: expressroute-howto-ipsec-transport-private-windows.md
+    - name: ExpressRoute Global Reach’i yapılandırma
+      items:
+        - name: Azure PowerShell
+          href: expressroute-howto-set-global-reach.md
+        - name: Azure CLI
+          href: expressroute-howto-set-global-reach-cli.md
+    - name: ExpressRoute için sanal ağ geçidi yapılandırma
+      items:
+        - name: Azure portal
+          href: expressroute-howto-add-gateway-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-gateway-resource-manager.md
+    - name: Birlikte bulunan ExpressRoute bağlantıları ve siteden siteye bağlantıları yapılandırma
+      href: expressroute-howto-coexist-resource-manager.md
+    - name: ExpressRoute Direct'i yapılandırma
+      items:
+        - name: Azure PowerShell
+          href: expressroute-howto-erdirect.md
+        - name: Azure CLI
+          href: expressroute-howto-expressroute-direct-cli.md
+    - name: Microsoft eşlemesi için rota filtreleri yapılandırma
+      items:
+        - name: Azure portal
+          href: how-to-routefilter-portal.md
+        - name: Azure PowerShell
+          href: how-to-routefilter-powershell.md
+        - name: Azure CLI
+          href: how-to-routefilter-cli.md
+    - name: Eşlemeleri etkinleştirme ve devre dışı bırakma
+      href: expressroute-howto-reset-peering.md
+    - name: Ortak eşlemeden Microsoft eşlemesine geçiş yapma
+      href: how-to-move-peering.md
+    - name: Bir devreyi klasikten Resource Manager’a taşıma
+      href: expressroute-howto-move-arm.md
+    - name: İlişkili sanal ağları klasikten Resource Manager’a geçirme
+      href: expressroute-migration-classic-resource-manager.md
+    - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: ExpressRoute için yönlendirici yapılandırma
+      items:
+        - name: Yönlendirici yapılandırma
+          href: expressroute-config-samples-routing.md
+        - name: NAT için yönlendirici yapılandırma örnekleri
+          href: expressroute-config-samples-nat.md
+    - name: İzleme
+      items:
+        - name: 'ExpressRoute izleme, ölçümler ve uyarılar'
+          href: expressroute-monitoring-metrics-alerts.md
+        - name: ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
+          href: how-to-npm.md
+    - name: Klasik dağıtım modeli makaleleri
+      items:
+        - name: Devreyi değiştirme
+          href: expressroute-howto-circuit-classic.md
+        - name: Eşleme yapılandırması oluşturma ve değiştirme
+          href: expressroute-howto-routing-classic.md
+        - name: ExpressRoute bağlantı hattına bir sanal ağı bağlama
+          href: expressroute-howto-linkvnet-classic.md
+        - name: Birlikte bulunan ExpressRoute ve S2S bağlantılarını yapılandırma
+          href: expressroute-howto-coexist-classic.md
+        - name: Sanal ağa ağ geçidi ekleme
+          href: expressroute-howto-add-gateway-classic.md
+    - name: En İyi Uygulamalar
+      items:
+        - name: Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar
+          href: ../best-practices-network-security.md
+        - name: Yönlendirmeyi iyileştirme
+          href: expressroute-optimize-routing.md
+        - name: Asimetrik yönlendirme
+          href: expressroute-asymmetric-routing.md
+        - name: ExpressRoute için NAT
+          href: expressroute-nat.md
+    - name: Sorun giderme
+      items:
+        - name: ExpressRoute bağlantısını doğrulama
+          href: expressroute-troubleshooting-expressroute-overview.md
+        - name: Ağ performansı sorunlarını çözme
+          href: expressroute-troubleshooting-network-performance.md
+        - name: Başarısız olan devreyi sıfırlama
+          href: reset-circuit.md
+        - name: ARP tablolarını alma
+          href: expressroute-troubleshooting-arp-resource-manager.md
+        - name: ARP tablolarını alma (Klasik)
+          href: expressroute-troubleshooting-arp-classic.md
 - name: Başvuru
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.network#expressroute
-  - name: Azure CLI
-    href: /cli/azure/network/express-route
-  - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt586720
-  - name: REST (Klasik)
-    href: https://msdn.microsoft.com/library/azure/dn606310
+    - name: Azure PowerShell
+      href: '/powershell/module/az.network#expressroute'
+    - name: Azure CLI
+      href: /cli/azure/network/express-route
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+    - name: REST (Klasik)
+      href: 'https://msdn.microsoft.com/library/azure/dn606310'
 - name: Kaynaklar
   items:
-  - name: ExpressRoute SSS
-    href: expressroute-faqs.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Örnek Olay İncelemeleri
-    href: https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products
-  - name: Ağ Blogu
-    href: https://azure.microsoft.com/blog/topics/networking/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/expressroute/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=expressroute
-  - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/
-  - name: Abonelik ve Hizmet Sınırlamaları
-    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
-    href: expressroute-for-cloud-solution-providers.md
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
-    items:
-    - name: Bir sanal ağ geçidini devreye bağlama
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
-    - name: ExpressRoute için sanal ağ oluşturma
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
-    - name: ExpressRoute için sanal ağ geçidi oluşturma
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
-    - name: ExpressRoute bağlantı hattı oluşturma
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
-    - name: Bağlanılabilirlik için ağ altyapınızı geliştirme
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615124
-    - name: Devreniz için özel eşleme ayarlama
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
-    - name: 'Karma ortaklıklar: Şirket içi senaryoları etkinleştirme'
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615125
-    - name: Devreniz için Microsoft eşleme ayarlama
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-    - name: Devreniz için genel eşleme ayarlama
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 920e0a4f1497378b8f04d52e38392635aaa0a136
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791207"
+    - name: ExpressRoute SSS
+      href: expressroute-faqs.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Örnek Olay İncelemeleri
+      href: 'https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products'
+    - name: Ağ Blogu
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/expressroute/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=expressroute'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: Abonelik ve Hizmet Sınırlamaları
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
+      href: expressroute-for-cloud-solution-providers.md
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=expressroute'
+      items:
+        - name: Bir sanal ağ geçidini devreye bağlama
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/'
+        - name: ExpressRoute için sanal ağ oluşturma
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/'
+        - name: ExpressRoute için sanal ağ geçidi oluşturma
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/'
+        - name: ExpressRoute bağlantı hattı oluşturma
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/'
+        - name: Bağlanılabilirlik için ağ altyapınızı geliştirme
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615124'
+        - name: Devreniz için özel eşleme ayarlama
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/'
+        - name: 'Karma ortaklıklar: Şirket içi senaryoları etkinleştirme'
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615125'
+        - name: Devreniz için Microsoft eşleme ayarlama
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/'
+        - name: Devreniz için genel eşleme ayarlama
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/'

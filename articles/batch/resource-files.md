@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501099"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995634"
 ---
 # <a name="creating-and-using-resource-files"></a>Kaynak dosyaları oluşturma ve kullanma
 
@@ -72,7 +72,7 @@ Bir SAS URL'si oluşturmak için alternatif bir kapsayıcı ve bloblarını Azur
 
 Yapılandırma ve bir SAS URL'si oluşturmak yerine, blob verilerinize erişmek için Azure depolama kapsayıcısının adını kullanabilirsiniz. Depolama kapsayıcısı gereksinimlerine autostorage hesabı olarak da bilinir, Batch hesabınıza bağlı Azure depolama hesabı kullanılır. Autostorage hesabınız depolama kapsayıcı adını kullanarak bir depolama kapsayıcısına erişmek için bir SAS URL'si oluşturma ve yapılandırma atlamanızı sağlar.
 
-Bu örnekte, kaynak dosyası oluşturmak için kullanılacak veri zaten bir Azure depolama hesabını Batch hesabınıza bağlı olduğunu varsayıyoruz. Adımları autostorage hesabınız yoksa bkz [Batch hesabı oluşturma](/create-a-batch-account.md) oluşturmak ve bir hesabı bağlamak hakkında ayrıntılar için.
+Bu örnekte, kaynak dosyası oluşturmak için kullanılacak veri zaten bir Azure depolama hesabını Batch hesabınıza bağlı olduğunu varsayıyoruz. Adımları autostorage hesabınız yoksa bkz [Batch hesabı oluşturma](batch-account-create-portal.md) oluşturmak ve bir hesabı bağlamak hakkında ayrıntılar için.
 
 Bağlı depolama hesabı'nı kullanarak oluşturun ve bir depolama kapsayıcısı için SAS URL yapılandırma gerekmez. Bunun yerine, bağlantılı depolama hesabınızda depolama kapsayıcısını adını sağlayın.
 

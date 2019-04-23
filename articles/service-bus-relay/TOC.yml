@@ -1,96 +1,89 @@
-items:
 - name: Service Bus Geçişi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Geçiş Nedir?
-    href: relay-what-is-it.md
+    - name: Geçiş Nedir?
+      href: relay-what-is-it.md
 - name: Öğreticiler
   items:
-  - name: Karma Bağlantılar
-    items:
-    - name: İleti alma ve gönderme - .NET Web Yuvaları
-      href: relay-hybrid-connections-dotnet-get-started.md
-    - name: İleti alma ve gönderme - .NET HTTP
-      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-    - name: İleti alma ve gönderme - Node Web Yuvaları
-      href: relay-hybrid-connections-node-get-started.md
-    - name: İleti alma ve gönderme - Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md
-  - name: Windows Communication Foundation (WCF)
-    items:
-    - name: Bir şirket içi WCF hizmetini buluttaki bir web uygulamasının kullanımına sunma
-      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
-    - name: Bir şirket içi WCF hizmetini ağınızın dışındaki bir WCF istemcisinin kullanımına sunma
-      href: service-bus-relay-tutorial.md
-    - name: Bir şirket içi WCF REST hizmetini ağınızın dışındaki bir istemcinin kullanımına sunma
-      href: service-bus-relay-rest-tutorial.md
+    - name: Karma Bağlantılar
+      items:
+        - name: İleti alma ve gönderme - .NET Web Yuvaları
+          href: relay-hybrid-connections-dotnet-get-started.md
+        - name: İleti alma ve gönderme - .NET HTTP
+          href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+        - name: İleti alma ve gönderme - Node Web Yuvaları
+          href: relay-hybrid-connections-node-get-started.md
+        - name: İleti alma ve gönderme - Node HTTP
+          href: relay-hybrid-connections-http-requests-node-get-started.md
+    - name: Windows Communication Foundation (WCF)
+      items:
+        - name: Bir şirket içi WCF hizmetini buluttaki bir web uygulamasının kullanımına sunma
+          href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+        - name: Bir şirket içi WCF hizmetini ağınızın dışındaki bir WCF istemcisinin kullanımına sunma
+          href: service-bus-relay-tutorial.md
+        - name: Bir şirket içi WCF REST hizmetini ağınızın dışındaki bir istemcinin kullanımına sunma
+          href: service-bus-relay-rest-tutorial.md
 - name: Örnekler
   items:
-  - name: Karma Bağlantılar
-    href: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
-  - name: WCF Geçişi
-    href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+    - name: Karma Bağlantılar
+      href: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
+    - name: WCF Geçişi
+      href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Kavramlar
   items:
-  - name: Kimlik doğrulama ve yetkilendirme
-    href: relay-authentication-and-authorization.md
-  - name: Karma Bağlantılar protokolü
-    href: relay-hybrid-connections-protocol.md
+    - name: Kimlik doğrulama ve yetkilendirme
+      href: relay-authentication-and-authorization.md
+    - name: Karma Bağlantılar protokolü
+      href: relay-hybrid-connections-protocol.md
 - name: Nasıl yapılır
   items:
-  - name: Planlama ve tasarım
-    items:
-    - name: ACS’den SAS’ye geçiş
-      href: relay-migrate-acs-sas.md
-  - name: Geliştirme
-    items:
-    - name: Ad alanı oluşturma
-      href: relay-create-namespace-portal.md
-    - name: WCF hizmetlerini dış istemcilere sunmak için WCF Geçişini kullanma
-      href: relay-wcf-dotnet-get-started.md
-    - name: Kullanılabilir API’ler
-      href: relay-api-overview.md
+    - name: Planlama ve tasarım
       items:
-      - name: .NET
-        href: relay-hybrid-connections-dotnet-api-overview.md
-      - name: Node
-        href: relay-hybrid-connections-node-ws-api-overview.md
-  - name: Yönetme
-    items:
-    - name: Azure İzleyici ile Azure Relay’i izleme
-      href: relay-metrics-azure-monitor.md
+        - name: ACS’den SAS’ye geçiş
+          href: relay-migrate-acs-sas.md
+    - name: Geliştirme
+      items:
+        - name: Ad alanı oluşturma
+          href: relay-create-namespace-portal.md
+        - name: WCF hizmetlerini dış istemcilere sunmak için WCF Geçişini kullanma
+          href: relay-wcf-dotnet-get-started.md
+        - name: Kullanılabilir API’ler
+          href: relay-api-overview.md
+          items:
+            - name: .NET
+              href: relay-hybrid-connections-dotnet-api-overview.md
+            - name: Node
+              href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Yönetme
+      items:
+        - name: Azure İzleyici ile Azure Relay’i izleme
+          href: relay-metrics-azure-monitor.md
 - name: Başvuru
   items:
-  - name: .NET
-    items:
-    - name: Microsoft.Azure.Relay
-      href: /dotnet/api/microsoft.azure.relay
-    - name: Microsoft.ServiceBus
-      href: /dotnet/api/Microsoft.ServiceBus
-  - name: Özel durumlar
-    href: relay-exceptions.md
-  - name: Bağlantı noktası ayarları
-    href: relay-port-settings.md
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.Relay
+          href: /dotnet/api/microsoft.azure.relay
+        - name: Microsoft.ServiceBus
+          href: /dotnet/api/Microsoft.ServiceBus
+    - name: Özel durumlar
+      href: relay-exceptions.md
+    - name: Bağlantı noktası ayarları
+      href: relay-port-settings.md
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
-  - name: SSS
-    href: relay-faq.md
-  - name: Blog
-    href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/service-bus/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Örnekler
-    href: https://github.com/azure/azure-relay/tree/master/samples
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-servicebusrelay
-ms.openlocfilehash: c90beee9189b54bf3dddc0773ce024eba0762b05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883857"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: SSS
+      href: relay-faq.md
+    - name: Blog
+      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Örnekler
+      href: 'https://github.com/azure/azure-relay/tree/master/samples'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-servicebusrelay'

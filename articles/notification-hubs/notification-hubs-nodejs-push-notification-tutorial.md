@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889799"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995019"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs ve Node.js ile anında iletme bildirimleri gönderme
 
@@ -63,25 +63,24 @@ Azure Notification hubs'ı kullanmak için indirme ve Node.js kullanma için iht
 > Resmi üzerinde NPM yükleme hakkında daha fazla bilgi [NPM blog](https://blog.npmjs.org/post/85484771375/how-to-install-npm).
 
 ### <a name="import-the-module"></a>Modülü içeri aktarın
-
 Bir metin düzenleyicisi kullanarak, üst kısmına aşağıdakileri ekleyin `server.js` uygulamanın dosya:
 
-    ```javascript
-    var azure = require('azure');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>Bir Azure bildirim hub'ı bağlantısı kurma
 
 `NotificationHubService` Nesne, notification hubs ile çalışmanıza olanak tanır. Aşağıdaki kod oluşturur bir `NotificationHubService` adlı bildirim hub'ı için nesne `hubname`. En ekleme `server.js` dosya, azure modülü içeri aktarmak için deyim sonra:
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 Bağlantı elde `connectionstring` değerini [Azure Portal] aşağıdaki adımları gerçekleştirerek:
 
 1. Sol gezinti bölmesinden **Gözat**.
-2. Seçin **Notification hubs'ı**ve ardından örnek için kullanmak istediğiniz hub'ı bulun. Başvurabilirsiniz [Windows Store Başlarken Öğreticisi](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) yeni bir bildirim hub'ı oluşturmayla ilgili Yardım gerekiyorsa.
+2. Seçin **Notification hubs'ı**ve ardından örnek için kullanmak istediğiniz hub'ı bulun. Başvurabilirsiniz [Windows Store Başlarken Öğreticisi](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) yeni bir bildirim hub'ı oluşturma konusunda yardıma ihtiyacınız varsa.
 3. Seçin **ayarları**.
 4. Tıklayarak **erişim ilkeleri**. Hem paylaşılan ve tam erişim bağlantı dizelerini görürsünüz.
 
@@ -111,18 +110,18 @@ Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygu
 
 Aşağıdaki kod `GcmService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm kayıtlı istemcilere anında iletme bildirimi göndermek için.
 
-    ```javascript
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Nasıl yapılır: İOS uygulamaları için anında iletme bildirimleri gönderme
 
@@ -136,16 +135,16 @@ Yük biçimi daha fazla bilgi için **bildirim yükü** bölümünü [yerel ve a
 
 Aşağıdaki kod `ApnsService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm istemcilere bir uyarı iletisi göndermek için:
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Nasıl yapılır: Windows Phone uygulamalarına anında iletme bildirimleri gönderme
 
@@ -162,14 +161,14 @@ Geçerli bir listesi için `TargetName`, `NotificationClass` ve üst bilgi seçe
 
 Aşağıdaki örnek kod kullandığı `MpnsService` örneği tarafından açığa çıkarılan `NotificationHubService` bir anında iletme bildirimi göndermek için:
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Nasıl yapılır: Evrensel Windows Platformu (UWP) uygulamaları için anında iletme bildirimleri gönderme
 
@@ -185,14 +184,14 @@ Geçerli türler ve istek üstbilgileri listesi için bkz: [anında iletme bildi
 
 Aşağıdaki kod `WnsService` örneği tarafından açığa çıkarılan `NotificationHubService` bir UWP uygulamasına bir anında iletme bildirimi göndermek için:
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

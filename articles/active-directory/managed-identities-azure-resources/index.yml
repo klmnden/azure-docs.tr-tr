@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fd9c4513c2cda3fb6283e748f2458043b02ab482
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203581"
 documentType: LandingData
 title: Azure kaynakları için Azure AD yönetilen kimlik belgeleri
 metadata:
-  document_id: 
+  document_id: null
   title: Azure kaynakları için Azure AD yönetilen kimlik belgeleri
   description: Kimlik bilgilerini kaynak kodunuzda saklamaya gerek kalmadan Azure bulut hizmetlerinde güvenle kimlik doğrulaması yapmak amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin.
   services: active-directory
@@ -22,58 +16,58 @@ metadata:
   ms.date: 03/16/2018
   ms.author: priyamo
 abstract:
-  description: Azure kaynakları için yönetilen kimlikler, Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure kaynakları için yönetilen kimlik oluşturmayı ve yönetmeyi öğrenin.
+  description: 'Azure kaynakları için yönetilen kimlikler, Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure kaynakları için yönetilen kimlik oluşturmayı ve yönetmeyi öğrenin.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
     title: Azure kaynakları için yönetilen kimliklere giriş
-    href: https://www.youtube.com/embed/bBi1bll2928
+    href: 'https://www.youtube.com/embed/bBi1bll2928'
     width: 200
 sections:
-- title: 5 dakikalık hızlı başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure Resource Manager API’sine erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
-  - type: list
-    style: unordered
+  - title: 5 dakikalık hızlı başlangıçlar
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Windows Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Linux Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: Azure kaynaklarına güvenle erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
-  - type: paragraph
-    text: Windows VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure Resource Manager API’sine erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Windows Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Linux Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
+  - title: Adım adım öğreticiler
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Azure Data Lake Store’a erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Erişim anahtarı kullanarak Azure Depolama’ya erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Azure SQL’e erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Azure Key Vault’a erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Azure Cosmos DB’ye erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Kullanıcı tarafından atanan bir kimlikle Azure Resource Manager’a erişme</a>
-  - type: paragraph
-    text: Linux VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure kaynaklarına güvenle erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
+      - type: paragraph
+        text: Windows VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Azure Data Lake Store’a erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Erişim anahtarı kullanarak Azure Depolama’ya erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Azure SQL’e erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Azure Key Vault’a erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Azure Cosmos DB’ye erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Kullanıcı tarafından atanan bir kimlikle Azure Resource Manager’a erişme</a>
+      - type: paragraph
+        text: Linux VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Azure Data Lake Store’a erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Erişim anahtarı kullanarak Azure Depolama’ya erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Azure Key Vault’a erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Azure Cosmos DB’ye erişme</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Kullanıcı tarafından atanan bir kimlikle Azure Resource Manager’a erişme</a>
+  - title: Başvuru
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Azure Data Lake Store’a erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Erişim anahtarı kullanarak Azure Depolama’ya erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Azure Key Vault’a erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Azure Cosmos DB’ye erişme</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Kullanıcı tarafından atanan bir kimlikle Azure Resource Manager’a erişme</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/module/az.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: '<p><a href="/powershell/module/az.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>'
+          - title: Diller
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>'

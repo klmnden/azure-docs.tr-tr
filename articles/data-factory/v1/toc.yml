@@ -1,235 +1,229 @@
-items:
 - name: Data Factory V1 Belgeleri
+  href: null
 - name: Geçerli sürüm belgelerine geçiş
   href: ../introduction.md
 - name: Genel Bakış
   items:
-  - name: Azure Data Factory'ye giriş
-    href: data-factory-introduction.md
-  - name: Kavramlar
-    items:
-    - name: İşlem hatları ve etkinlikler
-      href: data-factory-create-pipelines.md
-    - name: Veri kümeleri
-      href: data-factory-create-datasets.md
-    - name: Zamanlama ve yürütme
-      href: data-factory-scheduling-and-execution.md
+    - name: Azure Data Factory'ye giriş
+      href: data-factory-introduction.md
+    - name: Kavramlar
+      items:
+        - name: İşlem hatları ve etkinlikler
+          href: data-factory-create-pipelines.md
+        - name: Veri kümeleri
+          href: data-factory-create-datasets.md
+        - name: Zamanlama ve yürütme
+          href: data-factory-scheduling-and-execution.md
 - name: Başlarken
-  items:
-  - name: Verileri kopyalamak için bir işlem hattı oluşturma
-    href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-    items:
-    - name: Kopyalama Sihirbazı
-      href: data-factory-copy-data-wizard-tutorial.md
-    - name: Azure portalı
-      href: data-factory-copy-activity-tutorial-using-azure-portal.md
-    - name: Visual Studio
-      href: data-factory-copy-activity-tutorial-using-visual-studio.md
-    - name: Azure PowerShell
-      href: data-factory-copy-activity-tutorial-using-powershell.md
-    - name: REST API
-      href: data-factory-copy-activity-tutorial-using-rest-api.md
-    - name: .NET API’si
-      href: data-factory-copy-activity-tutorial-using-dotnet-api.md
-  - name: Verileri dönüştürmek için bir işlem hattı oluşturma
-    href: data-factory-build-your-first-pipeline.md
-    items:
-    - name: Azure portal
-      href: data-factory-build-your-first-pipeline-using-editor.md
-    - name: Visual Studio
-      href: data-factory-build-your-first-pipeline-using-vs.md
-    - name: Azure PowerShell
-      href: data-factory-build-your-first-pipeline-using-powershell.md
-    - name: Azure Resource Manager şablonu
-      href: data-factory-build-your-first-pipeline-using-arm.md
-    - name: REST API
-      href: data-factory-build-your-first-pipeline-using-rest-api.md
-  - name: Şirket içi ile bulut arasında veri taşıma
-    href: data-factory-move-data-between-onprem-and-cloud.md
-  - name: SSS
-    href: data-factory-faq.md
   expanded: true
+  items:
+    - name: Verileri kopyalamak için bir işlem hattı oluşturma
+      href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+      items:
+        - name: Kopyalama Sihirbazı
+          href: data-factory-copy-data-wizard-tutorial.md
+        - name: Azure portalı
+          href: data-factory-copy-activity-tutorial-using-azure-portal.md
+        - name: Visual Studio
+          href: data-factory-copy-activity-tutorial-using-visual-studio.md
+        - name: Azure PowerShell
+          href: data-factory-copy-activity-tutorial-using-powershell.md
+        - name: REST API
+          href: data-factory-copy-activity-tutorial-using-rest-api.md
+        - name: .NET API’si
+          href: data-factory-copy-activity-tutorial-using-dotnet-api.md
+    - name: Verileri dönüştürmek için bir işlem hattı oluşturma
+      href: data-factory-build-your-first-pipeline.md
+      items:
+        - name: Azure portal
+          href: data-factory-build-your-first-pipeline-using-editor.md
+        - name: Visual Studio
+          href: data-factory-build-your-first-pipeline-using-vs.md
+        - name: Azure PowerShell
+          href: data-factory-build-your-first-pipeline-using-powershell.md
+        - name: Azure Resource Manager şablonu
+          href: data-factory-build-your-first-pipeline-using-arm.md
+        - name: REST API
+          href: data-factory-build-your-first-pipeline-using-rest-api.md
+    - name: Şirket içi ile bulut arasında veri taşıma
+      href: data-factory-move-data-between-onprem-and-cloud.md
+    - name: SSS
+      href: data-factory-faq.md
 - name: Nasıl yapılır
   items:
-  - name: Veri taşıma
-    items:
-    - name: Kopyalama Etkinliği’ne Genel Bakış
-      href: data-factory-data-movement-activities.md
-    - name: Data Factory Kopyalama Sihirbazı
-      href: data-factory-azure-copy-wizard.md
+    - name: Veri taşıma
       items:
-      - name: 15 dakika içinde 1 TB yükleme
-        href: data-factory-load-sql-data-warehouse.md
-    - name: Performans ve ayar kılavuzu
-      href: data-factory-copy-activity-performance.md
-    - name: Hataya dayanıklılık
-      href: data-factory-copy-activity-fault-tolerance.md
-    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
-      href: data-factory-data-movement-security-considerations.md
-    - name: Bağlayıcılar
+        - name: Kopyalama Etkinliği’ne Genel Bakış
+          href: data-factory-data-movement-activities.md
+        - name: Data Factory Kopyalama Sihirbazı
+          href: data-factory-azure-copy-wizard.md
+          items:
+            - name: 15 dakika içinde 1 TB yükleme
+              href: data-factory-load-sql-data-warehouse.md
+        - name: Performans ve ayar kılavuzu
+          href: data-factory-copy-activity-performance.md
+        - name: Hataya dayanıklılık
+          href: data-factory-copy-activity-fault-tolerance.md
+        - name: Güvenlikle ilgili dikkat edilmesi gerekenler
+          href: data-factory-data-movement-security-considerations.md
+        - name: Bağlayıcılar
+          items:
+            - name: Amazon Redshift
+              href: data-factory-amazon-redshift-connector.md
+            - name: Amazon S3
+              href: data-factory-amazon-simple-storage-service-connector.md
+            - name: Azure Blob Depolama
+              href: data-factory-azure-blob-connector.md
+            - name: Azure Cosmos DB
+              href: data-factory-azure-documentdb-connector.md
+            - name: Azure Data Lake Storage Gen1
+              href: data-factory-azure-datalake-connector.md
+            - name: Azure Search
+              href: data-factory-azure-search-connector.md
+            - name: Azure SQL Database
+              href: data-factory-azure-sql-connector.md
+            - name: Azure SQL Veri Ambarı
+              href: data-factory-azure-sql-data-warehouse-connector.md
+            - name: Azure Table Storage
+              href: data-factory-azure-table-connector.md
+            - name: Cassandra
+              href: data-factory-onprem-cassandra-connector.md
+            - name: DB2
+              href: data-factory-onprem-db2-connector.md
+            - name: Dosya sistemi
+              href: data-factory-onprem-file-system-connector.md
+            - name: FTP
+              href: data-factory-ftp-connector.md
+            - name: HDFS
+              href: data-factory-hdfs-connector.md
+            - name: HTTP
+              href: data-factory-http-connector.md
+            - name: MongoDB
+              href: data-factory-on-premises-mongodb-connector.md
+            - name: MySQL
+              href: data-factory-onprem-mysql-connector.md
+            - name: OData
+              href: data-factory-odata-connector.md
+            - name: ODBC
+              href: data-factory-odbc-connector.md
+            - name: Oracle
+              href: data-factory-onprem-oracle-connector.md
+            - name: PostgreSQL
+              href: data-factory-onprem-postgresql-connector.md
+            - name: Salesforce
+              href: data-factory-salesforce-connector.md
+            - name: SAP Business Warehouse
+              href: data-factory-sap-business-warehouse-connector.md
+            - name: SAP HANA
+              href: data-factory-sap-hana-connector.md
+            - name: SFTP
+              href: data-factory-sftp-connector.md
+            - name: SQL Server
+              href: data-factory-sqlserver-connector.md
+            - name: Sybase
+              href: data-factory-onprem-sybase-connector.md
+            - name: Teradata
+              href: data-factory-onprem-teradata-connector.md
+            - name: Web tablosu
+              href: data-factory-web-table-connector.md
+        - name: Veri Yönetimi Ağ Geçidi
+          href: data-factory-data-management-gateway.md
+    - name: Verileri Dönüştürme
+      href: data-factory-data-transformation-activities.md
       items:
-      - name: Amazon Redshift
-        href: data-factory-amazon-redshift-connector.md
-      - name: Amazon S3
-        href: data-factory-amazon-simple-storage-service-connector.md
-      - name: Azure Blob Depolama
-        href: data-factory-azure-blob-connector.md
-      - name: Azure Cosmos DB
-        href: data-factory-azure-documentdb-connector.md
-      - name: Azure Data Lake Storage Gen1
-        href: data-factory-azure-datalake-connector.md
-      - name: Azure Search
-        href: data-factory-azure-search-connector.md
-      - name: Azure SQL Database
-        href: data-factory-azure-sql-connector.md
-      - name: Azure SQL Veri Ambarı
-        href: data-factory-azure-sql-data-warehouse-connector.md
-      - name: Azure Table Storage
-        href: data-factory-azure-table-connector.md
-      - name: Cassandra
-        href: data-factory-onprem-cassandra-connector.md
-      - name: DB2
-        href: data-factory-onprem-db2-connector.md
-      - name: Dosya sistemi
-        href: data-factory-onprem-file-system-connector.md
-      - name: FTP
-        href: data-factory-ftp-connector.md
-      - name: HDFS
-        href: data-factory-hdfs-connector.md
-      - name: HTTP
-        href: data-factory-http-connector.md
-      - name: MongoDB
-        href: data-factory-on-premises-mongodb-connector.md
-      - name: MySQL
-        href: data-factory-onprem-mysql-connector.md
-      - name: OData
-        href: data-factory-odata-connector.md
-      - name: ODBC
-        href: data-factory-odbc-connector.md
-      - name: Oracle
-        href: data-factory-onprem-oracle-connector.md
-      - name: PostgreSQL
-        href: data-factory-onprem-postgresql-connector.md
-      - name: Salesforce
-        href: data-factory-salesforce-connector.md
-      - name: SAP Business Warehouse
-        href: data-factory-sap-business-warehouse-connector.md
-      - name: SAP HANA
-        href: data-factory-sap-hana-connector.md
-      - name: SFTP
-        href: data-factory-sftp-connector.md
-      - name: SQL Server
-        href: data-factory-sqlserver-connector.md
-      - name: Sybase
-        href: data-factory-onprem-sybase-connector.md
-      - name: Teradata
-        href: data-factory-onprem-teradata-connector.md
-      - name: Web tablosu
-        href: data-factory-web-table-connector.md
-    - name: Veri Yönetimi Ağ Geçidi
-      href: data-factory-data-management-gateway.md
-  - name: Verileri Dönüştürme
-    href: data-factory-data-transformation-activities.md
-    items:
-    - name: HDInsight Hive Etkinliği
-      href: data-factory-hive-activity.md
-    - name: HDInsight Pig Etkinliği
-      href: data-factory-pig-activity.md
-    - name: HDInsight MapReduce Etkinliği
-      href: data-factory-map-reduce.md
-    - name: HDInsight Akış Etkinliği
-      href: data-factory-hadoop-streaming-activity.md
-    - name: HDInsight Spark Etkinliği
-      href: data-factory-spark.md
-    - name: Machine Learning Batch Yürütme Etkinliği
-      href: data-factory-azure-ml-batch-execution-activity.md
-    - name: Machine Learning Kaynak Güncelleştirme Etkinliği
-      href: data-factory-azure-ml-update-resource-activity.md
-    - name: Saklı Yordam Etkinliği
-      href: data-factory-stored-proc-activity.md
-    - name: Data Lake Analytics U-SQL Etkinliği
-      href: data-factory-usql-activity.md
-    - name: .NET özel etkinliği
-      href: data-factory-use-custom-activities.md
-    - name: R betikleri çağırma
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
-    - name: Azure Analysis Services’de modelleri yeniden işleme
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
-    - name: İşlem Bağlı Hizmetleri
-      href: data-factory-compute-linked-services.md
-  - name: Geliştirme
-    items:
-    - name: Azure Resource Manager şablonu
-      href: data-factory-how-to-use-resource-manager-templates.md
-    - name: Örnekler
-      href: data-factory-samples.md
-    - name: İşlevler ve sistem değişkenleri
-      href: data-factory-functions-variables.md
-    - name: Adlandırma kuralları
-      href: data-factory-naming-rules.md
-    - name: .NET API değişiklik günlüğü
-      href: data-factory-api-change-log.md
-  - name: İzleme ve Yönetme
-    items:
-    - name: İzleme ve Yönetim uygulaması
-      href: data-factory-monitor-manage-app.md
-    - name: Azure Data Factory işlem hatları
-      href: data-factory-monitor-manage-pipelines.md
-    - name: .NET SDK’sını kullanma
-      href: data-factory-create-data-factories-programmatically.md
-    - name: Data Factory'de sorun giderme
-      href: data-factory-troubleshoot.md
-    - name: Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
-      href: data-factory-troubleshoot-gateway-issues.md
-  - name: Saklı yordam etkinliği kullanarak SSIS paketlerini çağırma
-    href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: HDInsight Hive Etkinliği
+          href: data-factory-hive-activity.md
+        - name: HDInsight Pig Etkinliği
+          href: data-factory-pig-activity.md
+        - name: HDInsight MapReduce Etkinliği
+          href: data-factory-map-reduce.md
+        - name: HDInsight Akış Etkinliği
+          href: data-factory-hadoop-streaming-activity.md
+        - name: HDInsight Spark Etkinliği
+          href: data-factory-spark.md
+        - name: Machine Learning Batch Yürütme Etkinliği
+          href: data-factory-azure-ml-batch-execution-activity.md
+        - name: Machine Learning Kaynak Güncelleştirme Etkinliği
+          href: data-factory-azure-ml-update-resource-activity.md
+        - name: Saklı Yordam Etkinliği
+          href: data-factory-stored-proc-activity.md
+        - name: Data Lake Analytics U-SQL Etkinliği
+          href: data-factory-usql-activity.md
+        - name: .NET özel etkinliği
+          href: data-factory-use-custom-activities.md
+        - name: R betikleri çağırma
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+        - name: Azure Analysis Services’de modelleri yeniden işleme
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+        - name: İşlem Bağlı Hizmetleri
+          href: data-factory-compute-linked-services.md
+    - name: Geliştirme
+      items:
+        - name: Azure Resource Manager şablonu
+          href: data-factory-how-to-use-resource-manager-templates.md
+        - name: Örnekler
+          href: data-factory-samples.md
+        - name: İşlevler ve sistem değişkenleri
+          href: data-factory-functions-variables.md
+        - name: Adlandırma kuralları
+          href: data-factory-naming-rules.md
+        - name: .NET API değişiklik günlüğü
+          href: data-factory-api-change-log.md
+    - name: İzleme ve Yönetme
+      items:
+        - name: İzleme ve Yönetim uygulaması
+          href: data-factory-monitor-manage-app.md
+        - name: Azure Data Factory işlem hatları
+          href: data-factory-monitor-manage-pipelines.md
+        - name: .NET SDK’sını kullanma
+          href: data-factory-create-data-factories-programmatically.md
+        - name: Data Factory'de sorun giderme
+          href: data-factory-troubleshoot.md
+        - name: Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
+          href: data-factory-troubleshoot-gateway-issues.md
+    - name: Saklı yordam etkinliği kullanarak SSIS paketlerini çağırma
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=data-factory
-  - name: Azure PowerShell
-    href: /powershell/module/az.datafactory
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.datafactories.models
-  - name: REST
-    href: /rest/api/datafactory/
-  - name: JSON
-    href: data-factory-json-scripting-reference.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
+    - name: Azure PowerShell
+      href: /powershell/module/az.datafactory
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactories.models
+    - name: REST
+      href: /rest/api/datafactory/
+    - name: JSON
+      href: data-factory-json-scripting-reference.md
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Örnek Olay İncelemeleri
-    href: data-factory-customer-case-studies.md
-  - name: Öğrenme yolu
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
-  - name: MSDN Forumu
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/data-factory/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Veri Yönetimi Ağ Geçidi için sürüm notları
-    href: data-factory-gateway-release-notes.md
-  - name: Özellik isteme
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=data-factory
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-data-factory
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=data-factory
-  - name: Data Factory ve Batch kullanarak büyük ölçekli veri kümelerini işleme
-    href: data-factory-data-processing-using-batch.md
-  - name: örnek olay incelemeleri
-    items:
-    - name: Müşteri Profili Oluşturma
-      href: data-factory-customer-profiling-usecase.md
-    - name: Ürün Önerileri
-      href: data-factory-product-reco-usecase.md
-ms.openlocfilehash: 3f1f95be4dc6327c97d5553da76529d58f2a7554
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528857"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Örnek Olay İncelemeleri
+      href: data-factory-customer-case-studies.md
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
+    - name: MSDN Forumu
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Veri Yönetimi Ağ Geçidi için sürüm notları
+      href: data-factory-gateway-release-notes.md
+    - name: Özellik isteme
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
+    - name: Data Factory ve Batch kullanarak büyük ölçekli veri kümelerini işleme
+      href: data-factory-data-processing-using-batch.md
+    - name: örnek olay incelemeleri
+      items:
+        - name: Müşteri Profili Oluşturma
+          href: data-factory-customer-profiling-usecase.md
+        - name: Ürün Önerileri
+          href: data-factory-product-reco-usecase.md

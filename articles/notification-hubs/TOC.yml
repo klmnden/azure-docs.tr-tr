@@ -1,174 +1,167 @@
-items:
 - name: Notification Hubs Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Notification Hubs hakkında
-    href: notification-hubs-push-notification-overview.md
+    - name: Notification Hubs hakkında
+      href: notification-hubs-push-notification-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Bildirim hub'ı oluşturma - Azure portalı
-    href: create-notification-hub-portal.md
-  - name: Bildirim hub'ı yapılandırma - Azure portalı
-    href: configure-notification-hub-portal-pns-settings.md
+    - name: Bildirim hub'ı oluşturma - Azure portalı
+      href: create-notification-hub-portal.md
+    - name: Bildirim hub'ı yapılandırma - Azure portalı
+      href: configure-notification-hub-portal-pns-settings.md
 - name: Öğreticiler
   items:
-  - name: Android
-    items:
-    - name: Firebase Cloud Messaging kullanarak anında iletme bildirimleri gönderme
-      href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Google Cloud Messaging kullanarak anında iletme bildirimleri gönderme
-      href: notification-hubs-android-push-notification-google-gcm-get-started.md
-    - name: Belirli cihazlara anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Xamarin Android uygulamalarına anında iletme bildirimleri gönderme
-      href: xamarin-notification-hubs-push-notifications-android-gcm.md
-  - name: Baidu
-    items:
-    - name: Baidu bulut anında iletme kullanarak anında iletme bildirimleri gönderme
-      href: notification-hubs-baidu-china-android-notifications-get-started.md
-  - name: Chrome
-    items:
-    - name: Chrome uygulamalarına anında iletme bildirimleri gönderme
-      href: notification-hubs-chrome-push-notifications-get-started.md
-  - name: iOS
-    items:
-    - name: iOS uygulamalarına istek bildirimi gönderme
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: Belirli cihazlara anında iletme bildirimleri gönderme
-      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-    - name: Xamarin iOS uygulamalarına istek bildirimi gönderme
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-    - name: iOS cihazlara yerelleştirilmiş anında iletme bildirimleri gönderme
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-  - name: Kindle
-    items:
-    - name: Amazon Device Messaging kullanarak anında iletme bildirimleri gönderme
-      href: notification-hubs-kindle-amazon-adm-push-notification.md
-  - name: Windows Phone
-    items:
-    - name: Uygulamalara anında iletme bildirimleri gönderme
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md
-    - name: Belirli cihazlara anında iletme bildirimleri gönderme
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-  - name: Windows
-    items:
-    - name: Evrensel Windows Platformu uygulamalarına anında iletme bildirimleri gönderme
-      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: Belirli cihazlara anında iletme bildirimleri gönderme
-      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: Uygulamalara yerelleştirilmiş anında iletme bildirimleri gönderme
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-    - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
-      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-    - name: Konum temelli anında iletme bildirimleri gönderme
-      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
+    - name: Android
+      items:
+        - name: Firebase Cloud Messaging kullanarak anında iletme bildirimleri gönderme
+          href: notification-hubs-android-push-notification-google-fcm-get-started.md
+        - name: Google Cloud Messaging kullanarak anında iletme bildirimleri gönderme
+          href: notification-hubs-android-push-notification-google-gcm-get-started.md
+        - name: Belirli cihazlara anında iletme bildirimleri gönderme
+          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+        - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
+          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+        - name: Xamarin Android uygulamalarına anında iletme bildirimleri gönderme
+          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+    - name: Baidu
+      items:
+        - name: Baidu bulut anında iletme kullanarak anında iletme bildirimleri gönderme
+          href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Chrome
+      items:
+        - name: Chrome uygulamalarına anında iletme bildirimleri gönderme
+          href: notification-hubs-chrome-push-notifications-get-started.md
+    - name: iOS
+      items:
+        - name: iOS uygulamalarına istek bildirimi gönderme
+          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+        - name: Belirli cihazlara anında iletme bildirimleri gönderme
+          href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+        - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
+          href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+        - name: Xamarin iOS uygulamalarına istek bildirimi gönderme
+          href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+        - name: iOS cihazlara yerelleştirilmiş anında iletme bildirimleri gönderme
+          href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: Kindle
+      items:
+        - name: Amazon Device Messaging kullanarak anında iletme bildirimleri gönderme
+          href: notification-hubs-kindle-amazon-adm-push-notification.md
+    - name: Windows Phone
+      items:
+        - name: Uygulamalara anında iletme bildirimleri gönderme
+          href: notification-hubs-windows-mobile-push-notifications-mpns.md
+        - name: Belirli cihazlara anında iletme bildirimleri gönderme
+          href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+    - name: Windows
+      items:
+        - name: Evrensel Windows Platformu uygulamalarına anında iletme bildirimleri gönderme
+          href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+        - name: Belirli cihazlara anında iletme bildirimleri gönderme
+          href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+        - name: Uygulamalara yerelleştirilmiş anında iletme bildirimleri gönderme
+          href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+        - name: Belirli kullanıcılara anında iletme bildirimleri gönderme
+          href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+        - name: Konum temelli anında iletme bildirimleri gönderme
+          href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: samples.md
-  - name: PowerShell
-    href: samples-powershell.md
+    - name: Kod örnekleri
+      href: samples.md
+    - name: PowerShell
+      href: samples-powershell.md
 - name: Kavramlar
   items:
-  - name: Kurumsal gönderme mimari kılavuzu
-    href: notification-hubs-enterprise-push-notification-architecture.md
-  - name: Cihaz kayıtları
-    href: notification-hubs-push-notification-registration-management.md
-    items:
-    - name: Kayıtlar için etiketler
-      href: notification-hubs-tags-segment-push-message.md
-    - name: Şablon kayıtları
-      href: notification-hubs-templates-cross-platform-push-messages.md
-  - name: Güvenlik modeli
-    href: notification-hubs-push-notification-security.md
+    - name: Kurumsal gönderme mimari kılavuzu
+      href: notification-hubs-enterprise-push-notification-architecture.md
+    - name: Cihaz kayıtları
+      href: notification-hubs-push-notification-registration-management.md
+      items:
+        - name: Kayıtlar için etiketler
+          href: notification-hubs-tags-segment-push-message.md
+        - name: Şablon kayıtları
+          href: notification-hubs-templates-cross-platform-push-messages.md
+    - name: Güvenlik modeli
+      href: notification-hubs-push-notification-security.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Fiyatlandırma katmanını değiştirme
-    href: change-pricing-tier.md
-  - name: Platformlar arası bildirim gönderme
-    href: notification-hubs-aspnet-cross-platform-notification.md
-  - name: Cihazlara zengin içerik gönderme
-    href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
-  - name: Planlanmış bildirimler gönderme
-    href: notification-hubs-send-push-notifications-scheduled.md
-  - name: Azure PowerShell’i kullanarak bildirim hub’larını dağıtma ve yönetme
-    href: notification-hubs-deploy-and-manage-powershell.md
-  - name: Kullanıcılara güvenli anında iletme bildirimleri gönderme
-    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-  - name: Kayıtları toplu halde dışarı ve içeri aktarma
-    href: export-modify-registrations-bulk.md
-  - name: SDK’ları kullanarak bildirim hub’ı oluşturma
-    items:
-    - name: Bildirim hub’ı oluşturma - .NET
-      href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-    - name: Bildirim hub’ı oluşturma - Node.js
-      href: notification-hubs-nodejs-push-notification-tutorial.md
-    - name: Bildirim hub’ı oluşturma - Java
-      href: notification-hubs-java-push-notification-tutorial.md
-    - name: Bildirim hub’ı oluşturma - PHP
-      href: notification-hubs-php-push-notification-tutorial.md
-    - name: Bildirim hub’ı oluşturma - Python
-      href: notification-hubs-python-push-notification-tutorial.md
-  - name: Platform Bildirim Hizmeti ayarlarını yapılandırma
-    items:
-    - name: Apple Anında İletilen Bildirim Servisi ayarlarını yapılandırma
-      href: configure-apple-push-notification-service.md
-    - name: Google Firebase Cloud Messaging ayarlarını yapılandırma
-      href: configure-google-firebase-cloud-messaging.md
-    - name: Windows Anında İletme Bildirimi Hizmeti'ni yapılandırma
-      href: configure-windows-push-notification-service.md
-    - name: Microsoft Anında İletme Bildirimi Hizmeti'ni yapılandırma
-      href: configure-microsoft-push-notification-service.md
-    - name: Android Device Messaging'i yapılandırma
-      href: configure-android-device-messaging.md
-    - name: Baidu Cloud Push'ı yapılandırma
-      href: configure-baidu-cloud-push.md
-  - name: Uygulama arka ucuna kaydetme
-    href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
-  - name: Apple cihazları ile belirteç temelli kimlik doğrulaması kullanma
-    href: notification-hubs-push-notification-http2-token-authentification.md
-  - name: Bırakılan bildirim sorunlarını giderme
-    href: notification-hubs-push-notification-fixer.md
+    - name: Fiyatlandırma katmanını değiştirme
+      href: change-pricing-tier.md
+    - name: Platformlar arası bildirim gönderme
+      href: notification-hubs-aspnet-cross-platform-notification.md
+    - name: Cihazlara zengin içerik gönderme
+      href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+    - name: Planlanmış bildirimler gönderme
+      href: notification-hubs-send-push-notifications-scheduled.md
+    - name: Azure PowerShell’i kullanarak bildirim hub’larını dağıtma ve yönetme
+      href: notification-hubs-deploy-and-manage-powershell.md
+    - name: Kullanıcılara güvenli anında iletme bildirimleri gönderme
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+    - name: Kayıtları toplu halde dışarı ve içeri aktarma
+      href: export-modify-registrations-bulk.md
+    - name: SDK’ları kullanarak bildirim hub’ı oluşturma
+      items:
+        - name: Bildirim hub’ı oluşturma - .NET
+          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+        - name: Bildirim hub’ı oluşturma - Node.js
+          href: notification-hubs-nodejs-push-notification-tutorial.md
+        - name: Bildirim hub’ı oluşturma - Java
+          href: notification-hubs-java-push-notification-tutorial.md
+        - name: Bildirim hub’ı oluşturma - PHP
+          href: notification-hubs-php-push-notification-tutorial.md
+        - name: Bildirim hub’ı oluşturma - Python
+          href: notification-hubs-python-push-notification-tutorial.md
+    - name: Platform Bildirim Hizmeti ayarlarını yapılandırma
+      items:
+        - name: Apple Anında İletilen Bildirim Servisi ayarlarını yapılandırma
+          href: configure-apple-push-notification-service.md
+        - name: Google Firebase Cloud Messaging ayarlarını yapılandırma
+          href: configure-google-firebase-cloud-messaging.md
+        - name: Windows Anında İletme Bildirimi Hizmeti'ni yapılandırma
+          href: configure-windows-push-notification-service.md
+        - name: Microsoft Anında İletme Bildirimi Hizmeti'ni yapılandırma
+          href: configure-microsoft-push-notification-service.md
+        - name: Android Device Messaging'i yapılandırma
+          href: configure-android-device-messaging.md
+        - name: Baidu Cloud Push'ı yapılandırma
+          href: configure-baidu-cloud-push.md
+    - name: Uygulama arka ucuna kaydetme
+      href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
+    - name: Apple cihazları ile belirteç temelli kimlik doğrulaması kullanma
+      href: notification-hubs-push-notification-http2-token-authentification.md
+    - name: Bırakılan bildirim sorunlarını giderme
+      href: notification-hubs-push-notification-fixer.md
 - name: Başvuru
   items:
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.notificationhubs
-  - name: PowerShell
-    href: /powershell/module/az.notificationhubs
-  - name: REST
-    href: /rest/api/notificationhubs/
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.notificationhubs/allversions
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.notificationhubs
+    - name: PowerShell
+      href: /powershell/module/az.notificationhubs
+    - name: REST
+      href: /rest/api/notificationhubs/
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: notification-hubs-push-notification-faq.md
-  - name: Google GCM’den FCM’ye Geçiş
-    href: notification-hubs-gcm-to-fcm.md
-  - name: SDK’lar
-    href: notification-hubs-sdks.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/notification-hubs/
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-notificationhub
-  - name: Özellik isteme
-    href: https://feedback.azure.com/forums/218849-notification-hubs
-  - name: Bölge kullanılabilirliği
-    href: https://azure.microsoft.com/regions/services/
-  - name: Destek seçenekleri
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1a62b954144db057a19fc39069538f208a1bf035
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521810"
+    - name: SSS
+      href: notification-hubs-push-notification-faq.md
+    - name: Google GCM’den FCM’ye Geçiş
+      href: notification-hubs-gcm-to-fcm.md
+    - name: SDK’lar
+      href: notification-hubs-sdks.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
+    - name: Özellik isteme
+      href: 'https://feedback.azure.com/forums/218849-notification-hubs'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

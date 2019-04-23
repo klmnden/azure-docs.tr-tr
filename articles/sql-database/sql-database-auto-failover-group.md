@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848395"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009081"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -40,7 +40,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Otomatik Yük devretme grubu terminoloji ve özellikleri
 
-- **Yük devretme grubu**
+- **Yük devretme grubu (SİS)**
 
   Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur.
 
@@ -77,11 +77,11 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   - **SQL veritabanı sunucusu için okuma / yazma dinleyici DNS CNAME kaydı**
 
-     Bir SQL veritabanı sunucusunda, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.database.windows.net`.
+     Bir SQL veritabanı sunucusunda, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.database.windows.net`.
 
   - **Örnek DNS CNAME kaydı okuma / yazma dinleyici için yönetilen**
 
-     Bir yönetilen örnek, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.zone_id.database.windows.net`.
+     Bir yönetilen örnek, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.database.windows.net`.
 
 - **Yük devretme grubu salt okunur dinleyicisi**
 
@@ -89,11 +89,11 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   - **SQL veritabanı sunucusu salt okuma dinleyici için DNS CNAME kaydı**
 
-     Bir SQL veritabanı sunucusuna ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.secondary.database.windows.net`.
+     Bir SQL veritabanı sunucusuna ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `'.secondary.database.windows.net`.
 
   - **Örnek DNS CNAME kaydı salt okuma dinleyici için yönetilen**
 
-     Bir yönetilen örnek ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.zone_id.database.windows.net`.
+     Bir yönetilen örnek ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.database.windows.net`.
 
 - **Otomatik Yük devretme İlkesi**
 
@@ -156,11 +156,11 @@ Otomatik Yük devretme grubu, birincil SQL veritabanı sunucusunda yapılandır�
 
 - **OLTP iş yükü için okuma / yazma dinleyici kullanın**
 
-  OLTP işlemleri gerçekleştirirken kullanmak `failover-group-name.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Not yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir DNS kaydı güncelleştirmeniz gerekir.
+  OLTP işlemleri gerçekleştirirken kullanmak `<fog-name>.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Not yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir DNS kaydı güncelleştirmeniz gerekir.
 
 - **Salt okunur iş yükü için salt okunur bir dinleyici kullanın**
 
-  Verilerin belirli eskime dayanıklı olan, mantıksal olarak yalıtılmış bir salt okunur yükünü varsa, ikincil veritabanı uygulamada kullanabilirsiniz. Salt okunur oturumları kullanmanızın `failover-group-name.secondary.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak yönlendirilir ikincil. Ayrıca bağlantı dizesi kullanarak hedefi okuma belirtmek önerilir **ApplicationIntent salt okunur =**.
+  Verilerin belirli eskime dayanıklı olan, mantıksal olarak yalıtılmış bir salt okunur yükünü varsa, ikincil veritabanı uygulamada kullanabilirsiniz. Salt okunur oturumları kullanmanızın `<fog-name>.secondary.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak yönlendirilir ikincil. Ayrıca bağlantı dizesi kullanarak hedefi okuma belirtmek önerilir **ApplicationIntent salt okunur =**.
 
 - **Performans düşüşü için hazırlıklı olmalıdır**
 
@@ -206,7 +206,7 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
 
 - **OLTP iş yükü için okuma / yazma dinleyici kullanın**
 
-  OLTP işlemleri gerçekleştirirken kullanmak `failover-group-name.zone_id.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir için DNS kaydı güncelleştirmeniz gerekir. İkincil örneği ile birincil DNS bölgesi paylaştığından, istemci uygulaması aynı SAN sertifikayı kullanarak yeniden bağlanmanız mümkün olacaktır.
+  OLTP işlemleri gerçekleştirirken kullanmak `<fog-name>.zone_id.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir için DNS kaydı güncelleştirmeniz gerekir. İkincil örneği ile birincil DNS bölgesi paylaştığından, istemci uygulaması aynı SAN sertifikayı kullanarak yeniden bağlanmanız mümkün olacaktır.
 
 - **Coğrafi çoğaltmalı ikincil salt okunur sorgular için doğrudan bağlanma**
 
@@ -214,8 +214,8 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
 
   > [!NOTE]
   > Belirli hizmet katmanlarında, Azure SQL veritabanı kullanımını destekler. [salt okunur çoğaltmalar](sql-database-read-scale-out.md) yüklemek ve bir salt okunur çoğaltma kapasitesini kullanmaya Bakiye salt okunur sorgu iş yükleri için `ApplicationIntent=ReadOnly` bağlantı parametresi dize. Coğrafi çoğaltmalı ikincil yapılandırıldığında, ya da salt okunur çoğaltma birincil konumda veya coğrafi olarak çoğaltılmış bir konuma bağlanmak için bu özelliği kullanabilirsiniz.
-  > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan `failover-group-name.zone_id.database.windows.net`.
-  > - Salt okunur bir çoğaltması ikincil konumdaki bağlanmasını sağlayan `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Salt okunur bir çoğaltması birincil konumda bağlanmasını sağlayan `<fog-name>.zone_id.database.windows.net`.
+  > - Salt okunur bir çoğaltması ikincil konumdaki bağlanmasını sağlayan `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Performans düşüşü için hazırlıklı olmalıdır**
 

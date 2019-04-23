@@ -1,126 +1,119 @@
-items:
 - name: Azure Active Directory B2B Belgeleri
   href: index.yml
   items:
-  - name: Genel Bakış
-    items:
-    - name: B2B konuk kullanıcı erişimi nedir?
-      href: what-is-b2b.md
-    - name: B2B ile B2C Karşılaştırması
-      href: compare-with-b2c.md
-  - name: Hızlı Başlangıçlar
-    items:
-    - name: Portala konuk kullanıcılar ekleme
-      href: b2b-quickstart-add-guest-users-portal.md
-    - name: PowerShell ile konuk kullanıcılar ekleme
-      href: b2b-quickstart-invite-powershell.md
-  - name: Öğreticiler
-    items:
-    - name: B2B konuk kullanıcılarını toplu davet etme
-      href: tutorial-bulk-invite.md
-    - name: Çok faktörlü kimlik doğrulamasını zorlama
-      href: b2b-tutorial-require-mfa.md
-  - name: Örnekler
-    items:
-    - name: Self servis kaydolma portal örneği
-      href: self-service-portal.md
-    - name: Kod ve Azure PowerShell örnekleri
-      href: code-samples.md
-  - name: Kavramlar
-    items:
-    - name: B2B lisansı
-      href: licensing-guidance.md
-    - name: B2B ve Office 365 dış paylaşım
-      href: o365-external-user.md
-    - name: Davet kullanma
-      href: redemption-experience.md
-    - name: Davet e-postası
-      href: invitation-email-elements.md
-    - name: B2B kullanıcısını anlama
-      href: user-properties.md
-    - name: B2B kullanıcı taleplerini eşleme
-      href: claims-mapping.md
-    - name: B2B kullanıcı belirteci
-      href: user-token.md
-    - name: B2B için koşullu erişim
-      href: conditional-access.md
-    - name: Hibrit kuruluşlar için B2B
-      href: hybrid-organizations.md
-    - name: Geçerli sınırlamalar
-      href: current-limitations.md
-    expanded: false
-  - name: Nasıl yapılır kılavuzları
-    items:
-    - name: Davetleri yönetme
+    - name: Genel Bakış
       items:
-      - name: B2B kullanıcıları ekleyen yöneticiler
-        href: add-users-administrator.md
-      - name: B2B kullanıcıları ekleyen bilgi çalışanları
-        href: add-users-information-worker.md
-      - name: Google federasyonu
-        href: google-federation.md
-      - name: Bir kerelik geçiş kodu kimlik doğrulaması
-        href: one-time-passcode.md
-      - name: B2B paylaşım ilkeleri
-        href: delegate-invitations.md
-      - name: Davetlere izin verme veya davetleri engelleme
-        href: allow-deny-list.md
-      - name: Davetiye olmadan B2B kullanıcıları ekleme
-        href: add-user-without-invite.md
-      - name: API ve özelleştirme
-        href: customize-invitation-api.md
-    - name: Konuk hesaplarını yönetme
+        - name: B2B konuk kullanıcı erişimi nedir?
+          href: what-is-b2b.md
+        - name: B2B ile B2C Karşılaştırması
+          href: compare-with-b2c.md
+    - name: Hızlı Başlangıçlar
       items:
-      - name: Bir role B2B kullanıcısı ekleme
-        href: add-guest-to-role.md
-      - name: Dinamik gruplar ve B2B kullanıcıları
-        href: use-dynamic-groups.md
-      - name: B2B kullanıcısını anlama
-        href: user-properties.md
-      - name: Azure AD tümleşik uygulamaları için B2B
-        href: configure-saas-apps.md
-    - name: Karma bir kuruluştaki erişimi yönetme
+        - name: Portala konuk kullanıcılar ekleme
+          href: b2b-quickstart-add-guest-users-portal.md
+        - name: PowerShell ile konuk kullanıcılar ekleme
+          href: b2b-quickstart-invite-powershell.md
+    - name: Öğreticiler
       items:
-      - name: Yerel kullanıcılara bulut uygulamaları erişimi verme
-        href: hybrid-on-premises-to-cloud.md
-      - name: B2B kullanıcılarına yerel uygulama erişimi verme
-        href: hybrid-cloud-to-on-premises.md
-    - name: Kuruluştan ayrılma
-      href: leave-the-organization.md
-    - name: Denetim ve raporlar
-      href: auditing-and-reporting.md
-    - name: B2B sorunlarını giderme
-      href: troubleshoot.md
-    expanded: true
-  - name: Başvuru
-    items:
-    - name: Davet yöneticisi API’si
-      href: customize-invitation-api.md
-  - name: Kaynaklar
-    items:
-    - name: SSS
-      href: faq.md
-    - name: B2B desteği alma
-      href: get-support.md
-    - name: Azure geri bildirim forumu
-      href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Azure Yol Haritası
-      href: https://azure.microsoft.com/roadmap/?category=security-identity
-    - name: MSDN forumu
-      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-    - name: Fiyatlandırma
-      href: https://azure.microsoft.com/pricing/details/active-directory/
-    - name: Fiyatlandırma hesaplayıcı
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Hizmet güncelleştirmeleri
-      href: https://azure.microsoft.com/updates/?product=active-directory
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-active-directory
-    - name: Videolar
-      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: cbd7c39f4c44675896075068697da79643174be4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407844"
+        - name: B2B konuk kullanıcılarını toplu davet etme
+          href: tutorial-bulk-invite.md
+        - name: Çok faktörlü kimlik doğrulamasını zorlama
+          href: b2b-tutorial-require-mfa.md
+    - name: Örnekler
+      items:
+        - name: Self servis kaydolma portal örneği
+          href: self-service-portal.md
+        - name: Kod ve Azure PowerShell örnekleri
+          href: code-samples.md
+    - name: Kavramlar
+      expanded: false
+      items:
+        - name: B2B lisansı
+          href: licensing-guidance.md
+        - name: B2B ve Office 365 dış paylaşım
+          href: o365-external-user.md
+        - name: Davet kullanma
+          href: redemption-experience.md
+        - name: Davet e-postası
+          href: invitation-email-elements.md
+        - name: B2B kullanıcısını anlama
+          href: user-properties.md
+        - name: B2B kullanıcı taleplerini eşleme
+          href: claims-mapping.md
+        - name: B2B kullanıcı belirteci
+          href: user-token.md
+        - name: B2B için koşullu erişim
+          href: conditional-access.md
+        - name: Hibrit kuruluşlar için B2B
+          href: hybrid-organizations.md
+        - name: Geçerli sınırlamalar
+          href: current-limitations.md
+    - name: Nasıl yapılır kılavuzları
+      expanded: true
+      items:
+        - name: Davetleri yönetme
+          items:
+            - name: B2B kullanıcıları ekleyen yöneticiler
+              href: add-users-administrator.md
+            - name: B2B kullanıcıları ekleyen bilgi çalışanları
+              href: add-users-information-worker.md
+            - name: Google federasyonu
+              href: google-federation.md
+            - name: Bir kerelik geçiş kodu kimlik doğrulaması
+              href: one-time-passcode.md
+            - name: B2B paylaşım ilkeleri
+              href: delegate-invitations.md
+            - name: Davetlere izin verme veya davetleri engelleme
+              href: allow-deny-list.md
+            - name: Davetiye olmadan B2B kullanıcıları ekleme
+              href: add-user-without-invite.md
+            - name: API ve özelleştirme
+              href: customize-invitation-api.md
+        - name: Konuk hesaplarını yönetme
+          items:
+            - name: Bir role B2B kullanıcısı ekleme
+              href: add-guest-to-role.md
+            - name: Dinamik gruplar ve B2B kullanıcıları
+              href: use-dynamic-groups.md
+            - name: B2B kullanıcısını anlama
+              href: user-properties.md
+            - name: Azure AD tümleşik uygulamaları için B2B
+              href: configure-saas-apps.md
+        - name: Karma bir kuruluştaki erişimi yönetme
+          items:
+            - name: Yerel kullanıcılara bulut uygulamaları erişimi verme
+              href: hybrid-on-premises-to-cloud.md
+            - name: B2B kullanıcılarına yerel uygulama erişimi verme
+              href: hybrid-cloud-to-on-premises.md
+        - name: Kuruluştan ayrılma
+          href: leave-the-organization.md
+        - name: Denetim ve raporlar
+          href: auditing-and-reporting.md
+        - name: B2B sorunlarını giderme
+          href: troubleshoot.md
+    - name: Başvuru
+      items:
+        - name: Davet yöneticisi API’si
+          href: customize-invitation-api.md
+    - name: Kaynaklar
+      items:
+        - name: SSS
+          href: faq.md
+        - name: B2B desteği alma
+          href: get-support.md
+        - name: Azure geri bildirim forumu
+          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+        - name: Azure Yol Haritası
+          href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+        - name: MSDN forumu
+          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+        - name: Fiyatlandırma
+          href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+        - name: Fiyatlandırma hesaplayıcı
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Hizmet güncelleştirmeleri
+          href: 'https://azure.microsoft.com/updates/?product=active-directory'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+        - name: Videolar
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

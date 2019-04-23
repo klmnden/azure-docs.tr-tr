@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 854e944d91c5d43131cf6a9c05e69d5684267022
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161809"
 documentType: LandingData
 title: Azure Active Directory raporları ve izlemesi
 metadata:
-  document_id: 
-  title: Azure Active Directory raporları ve izleme belgeleri - Öğreticiler, hızlı başlangıçlar, kavramlar | Microsoft Docs
+  document_id: null
+  title: 'Azure Active Directory raporları ve izleme belgeleri - Öğreticiler, hızlı başlangıçlar, kavramlar | Microsoft Docs'
   description: Azure Active Directory raporları ve izleme çözümlerini yapılandırmayı ve test etmeyi öğrenin
   services: active-directory
   ms.subservice: report-monitor
@@ -22,33 +16,33 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: Ortamınıza ilişkin güvenlik ve denetim raporlarını görüntüleme veya kullanım desenleri hakkında fikirler edinmek için bunları zaman içinde izlemeyi öğrenin. Azure Active Directory (Azure AD) raporları ile ortamınızdaki güvenlik ve kullanım desenleri hakkında fikirler edinebilirsiniz. Örneğin aşağıdaki soruları yanıtlayabilirsiniz:<ul><li>Uygulamalar veya hizmetler kullanıcılar tarafından nasıl kullanılıyor?</li><li>Ortamınızın durumunu etkileyebilecek olası riskler nelerdir?</li><li>Kullanıcılarınızın işlerini yapmalarını engelleyen sorunları giderme</li>
+  description: 'Ortamınıza ilişkin güvenlik ve denetim raporlarını görüntüleme veya kullanım desenleri hakkında fikirler edinmek için bunları zaman içinde izlemeyi öğrenin. Azure Active Directory (Azure AD) raporları ile ortamınızdaki güvenlik ve kullanım desenleri hakkında fikirler edinebilirsiniz. Örneğin aşağıdaki soruları yanıtlayabilirsiniz:<ul><li>Uygulamalar veya hizmetler kullanıcılar tarafından nasıl kullanılıyor?</li><li>Ortamınızın durumunu etkileyebilecek olası riskler nelerdir?</li><li>Kullanıcılarınızın işlerini yapmalarını engelleyen sorunları giderme</li>'
 sections:
-- title: 5 dakikalık hızlı başlangıçlar
-  items:
-  - type: paragraph
-    text: Etkinlik raporlarını indirmeyi ve günlüklerinizi Azure depolama hesabına yönlendirmeyi öğrenin
-  - type: list
-    style: unordered
+  - title: 5 dakikalık hızlı başlangıçlar
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Oturum açma raporunu indirme</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Denetim raporunu indirme</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Raporlar için Power BI içerik paketini yükleme</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Günlükleri depolama hesabına yönlendirme</a>
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: Raporlarınıza erişmeyi ve etkinlik günlüklerini dilediğiniz izleme sistemine aktarmayı öğrenin
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Etkinlik raporlarını indirmeyi ve günlüklerinizi Azure depolama hesabına yönlendirmeyi öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Oturum açma raporunu indirme</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Denetim raporunu indirme</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Raporlar için Power BI içerik paketini yükleme</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Günlükleri depolama hesabına yönlendirme</a>
+  - title: Adım adım öğreticiler
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Sertifikalar kullanarak raporlama API’sine programlamayla erişme</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Etkinlik günlüklerini olay hub'ına aktarma</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Raporlarınıza erişmeyi ve etkinlik günlüklerini dilediğiniz izleme sistemine aktarmayı öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Sertifikalar kullanarak raporlama API’sine programlamayla erişme</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Etkinlik günlüklerini olay hub'ına aktarma</a>
+  - title: Başvuru
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Oturum açma hata kodları</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Azure İzleyici’de Azure AD denetim günlüğü şeması</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Azure İzleyici’de Azure AD oturum açma şeması</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Oturum açma hata kodları</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Azure İzleyici’de Azure AD denetim günlüğü şeması</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Azure İzleyici’de Azure AD oturum açma şeması</a>

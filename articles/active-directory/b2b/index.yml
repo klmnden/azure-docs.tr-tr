@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3399ed71635434bc38d0c989118afb68de9fbd4c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338505"
 documentType: LandingData
 title: Azure Active Directory B2B Belgeleri
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Active Directory B2B Belgeleri - Azure Active Directory | Microsoft Docs
-  description: Şirket dışındaki iş ortaklarıyla dosya paylaşmak ve işbirliği yapmak amacıyla B2B konuk erişimini kullanma hakkında bilgi edinmek için öğreticilerimizi, hızlı başlangıçlarımızı ve nasıl yapılır makalelerimizi kullanın.
+  description: 'Şirket dışındaki iş ortaklarıyla dosya paylaşmak ve işbirliği yapmak amacıyla B2B konuk erişimini kullanma hakkında bilgi edinmek için öğreticilerimizi, hızlı başlangıçlarımızı ve nasıl yapılır makalelerimizi kullanın.'
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -22,7 +16,7 @@ metadata:
   ms.date: 09/10/2018
   ms.author: mimart
 abstract:
-  description: Şirketinizin uygulamalarını ve hizmetlerini sizinki haricinde herhangi bir kuruluştaki konuk kullanıcılar ve iş ortakları ile güvenli bir şekilde paylaşmak, bunu yaparken de kurumsal verilerinize yönelik denetiminizi sürdürmek için Azure AD işletmeden işletmeye (B2B) işbirliğini kullanmayı öğrenin.  Önemli özelliklerinden bazıları şunlardır:<ul><li>Basit bir davet ve davet kullanma işlemi ile konuk kullanıcılar, erişmelerini istediğiniz kaynaklar üzerinde işbirliği yapmaya başlayabilir.</li><li>Konuk kullanıcılarınız ve şirket dışındaki iş ortaklarınız Azure AD, sosyal e-posta hesapları veya herhangi bir kimlik sağlayıcı ile kendi kimliklerini yönetirler.</li><li>Kurumsal kaynaklarınızı çok faktörlü kimlik doğrulaması gibi Azure AD özellikleriyle koruyabilirsiniz.</li><li>Deneyimi özelleştirmek için, self servis kaydolma portalı gibi API’leri kullanabilirsiniz.</li></ul>Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.
+  description: 'Şirketinizin uygulamalarını ve hizmetlerini sizinki haricinde herhangi bir kuruluştaki konuk kullanıcılar ve iş ortakları ile güvenli bir şekilde paylaşmak, bunu yaparken de kurumsal verilerinize yönelik denetiminizi sürdürmek için Azure AD işletmeden işletmeye (B2B) işbirliğini kullanmayı öğrenin.  Önemli özelliklerinden bazıları şunlardır:<ul><li>Basit bir davet ve davet kullanma işlemi ile konuk kullanıcılar, erişmelerini istediğiniz kaynaklar üzerinde işbirliği yapmaya başlayabilir.</li><li>Konuk kullanıcılarınız ve şirket dışındaki iş ortaklarınız Azure AD, sosyal e-posta hesapları veya herhangi bir kimlik sağlayıcı ile kendi kimliklerini yönetirler.</li><li>Kurumsal kaynaklarınızı çok faktörlü kimlik doğrulaması gibi Azure AD özellikleriyle koruyabilirsiniz.</li><li>Deneyimi özelleştirmek için, self servis kaydolma portalı gibi API’leri kullanabilirsiniz.</li></ul>Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
   aside:
     image:
       alt: Azure AD B2B açıklaması başlıklı videonun küçük resmi
@@ -30,32 +24,32 @@ abstract:
       src: ./media/index/video.png
       width: 246
     title: Azure AD B2B açıklaması
-    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    href: 'https://www.youtube.com/watch?v=AhwrweCBdsc'
     width: 246
 sections:
-- title: 5 dakikalık hızlı başlangıçlar
-  items:
-  - type: paragraph
-    text: Konuk kullanıcıları davet etme ve B2B işbirliğini kullanmaya başlamayı öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 dakikalık hızlı başlangıçlar
     items:
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Azure portalda konuk kullanıcı ekleme
-      href: b2b-quickstart-add-guest-users-portal.md
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: PowerShell ile konuk kullanıcı ekleme
-      href: b2b-quickstart-invite-powershell.md
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: B2B işbirliğinin ayarlanması ve şirketinizin kaynaklarını güvence altına alma hakkında daha fazla bilgi edinin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Konuk kullanıcıları davet etme ve B2B işbirliğini kullanmaya başlamayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Azure portalda konuk kullanıcı ekleme
+            href: b2b-quickstart-add-guest-users-portal.md
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: PowerShell ile konuk kullanıcı ekleme
+            href: b2b-quickstart-invite-powershell.md
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">PowerShell ile B2B konuk kullanıcılarını toplu davet etme</a>
-    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">B2B işbirliği kullanıcıları için çok faktörlü kimlik doğrulamasını zorlama</a>
+      - type: paragraph
+        text: B2B işbirliğinin ayarlanması ve şirketinizin kaynaklarını güvence altına alma hakkında daha fazla bilgi edinin.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">PowerShell ile B2B konuk kullanıcılarını toplu davet etme</a>
+          - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">B2B işbirliği kullanıcıları için çok faktörlü kimlik doğrulamasını zorlama</a>

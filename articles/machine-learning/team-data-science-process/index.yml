@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451929"
 documentType: LandingData
 title: Team Data Science Process Belgeleri
 metadata:
   title: Team Data Science Process Belgeleri
-  description: Tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisi olan Team Data Science Process’i kullanmayı öğrenin. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.
+  description: 'Tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisi olan Team Data Science Process’i kullanmayı öğrenin. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.'
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
@@ -20,26 +14,26 @@ metadata:
   ms.date: 01/18/2018
   ms.author: cgronlun
 abstract:
-  description: Team Data Science Process, tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisidir. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.
+  description: 'Team Data Science Process, tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisidir. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Team Data Science Process hakkında bilgi edinin:'
-  - type: list
-    style: unordered
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - html: <a href="overview">Genel Bakış</a>
-    - html: <a href="lifecycle">Yaşam döngüsü</a>
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Team Data Science Process’i çeşitli senaryolarda nasıl kullanacağınızı öğrenin:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Team Data Science Process hakkında bilgi edinin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Genel Bakış</a>
+          - html: <a href="lifecycle">Yaşam döngüsü</a>
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="walkthroughs-spark">PySpark ve Scala ile Spark</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">HDInsight Hadoop ile Hive</a>
-    - html: <a href="walkthroughs-azure-data-lake">Azure Data Lake ile U-SQL</a>
-    - html: <a href="walkthroughs-sql-server">R, Python ve T-SQL ile SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL ve Python ile SQL DW</a>
+      - type: paragraph
+        text: 'Team Data Science Process’i çeşitli senaryolarda nasıl kullanacağınızı öğrenin:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">PySpark ve Scala ile Spark</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">HDInsight Hadoop ile Hive</a>
+          - html: <a href="walkthroughs-azure-data-lake">Azure Data Lake ile U-SQL</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python ve T-SQL ile SQL Server</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL ve Python ile SQL DW</a>

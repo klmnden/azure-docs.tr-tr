@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ec8d7df1ab9480fd0b0cd98182b5fb49e957d9e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407366"
 documentType: LandingData
 title: Azure Sanal WAN
 metadata:
-  document_id: 
-  title: Sanal WAN Belgeleri - Öğreticiler, API başvuruları | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+  document_id: null
+  title: 'Sanal WAN Belgeleri - Öğreticiler, API başvuruları | Microsoft Docs'
+  meta.description: 'Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.'
   services: virtual-wan
   author: cherylmc
   manager: jeconnoc
@@ -21,26 +15,26 @@ metadata:
   ms.date: 10/01/2018
   ms.author: cherylmc
 abstract:
-  description: Azure Sanal WAN'ı yapılandırmayı, oluşturmayı ve yönetmeyi öğrenin. Güvenli küresel ölçekli dal bağlantısı oluşturun.
+  description: 'Azure Sanal WAN''ı yapılandırmayı, oluşturmayı ve yönetmeyi öğrenin. Güvenli küresel ölçekli dal bağlantısı oluşturun.'
 sections:
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure Sanal WAN kullanarak bağlantıları yapılandırmayı, oluşturmayı ve yönetmeyi öğrenin.
-  - type: list
-    style: unordered
-    className: spaced Bullet
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Siteden Siteye bağlantılar</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Noktadan Siteye bağlantılar</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute bağlantıları</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Azure Sanal WAN kullanarak bağlantıları yapılandırmayı, oluşturmayı ve yönetmeyi öğrenin.'
+      - type: list
+        style: unordered
+        className: spaced Bullet
+        items:
+          - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Siteden Siteye bağlantılar</a>
+          - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Noktadan Siteye bağlantılar</a>
+          - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute bağlantıları</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API başvurusu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>'
+          - title: REST
+            html: '<p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API başvurusu</a></p>'

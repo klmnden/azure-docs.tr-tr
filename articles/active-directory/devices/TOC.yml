@@ -1,78 +1,71 @@
-items:
 - name: Cihaz Yönetimi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure AD’de cihaz yönetimi nedir?
-    href: overview.md
-  - name: Enterprise State Roaming nedir?
-    href: enterprise-state-roaming-overview.md
+    - name: Azure AD’de cihaz yönetimi nedir?
+      href: overview.md
+    - name: Enterprise State Roaming nedir?
+      href: enterprise-state-roaming-overview.md
 - name: Öğreticiler
-  items:
-  - name: Yönetilen etki alanları için hibrit Azure AD katılımını yapılandırma
-    href: hybrid-azuread-join-managed-domains.md
-  - name: Federasyon etki alanları için hibrit Azure AD katılımını yapılandırma
-    href: hybrid-azuread-join-federated-domains.md
-  - name: Hibrit Azure AD katılımını el ile yapılandırma
-    href: hybrid-azuread-join-manual.md
-  - name: Windows 10’u ilk kez çalıştırma deneyimi sırasında Azure AD katılımını yapılandırma
-    href: azuread-joined-devices-frx.md
   expanded: false
+  items:
+    - name: Yönetilen etki alanları için hibrit Azure AD katılımını yapılandırma
+      href: hybrid-azuread-join-managed-domains.md
+    - name: Federasyon etki alanları için hibrit Azure AD katılımını yapılandırma
+      href: hybrid-azuread-join-federated-domains.md
+    - name: Hibrit Azure AD katılımını el ile yapılandırma
+      href: hybrid-azuread-join-manual.md
+    - name: Windows 10’u ilk kez çalıştırma deneyimi sırasında Azure AD katılımını yapılandırma
+      href: azuread-joined-devices-frx.md
 - name: Kavramlar
-  items:
-  - name: Şirket içi kaynaklarda çoklu oturum açma
-    href: azuread-join-sso.md
   expanded: false
-- name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure portalı kullanarak cihazları yönetme
-    href: device-management-azure-portal.md
-  - name: Eski cihazları yönetme
-    href: manage-stale-devices.md
-  - name: Azure AD katılımınızı uygulamayı planlama
-    href: azureadjoin-plan.md
-  - name: Hibrit Azure AD katılımınızı uygulamayı planlama
-    href: hybrid-azuread-join-plan.md
-  - name: Cihazlarınızın hibrit Azure AD katılımını denetleme
-    href: hybrid-azuread-join-control.md
-  - name: Azure AD'ye katılan cihazlara yerel yöneticiler atama
-    href: assign-local-admin.md
-  - name: Enterprise State Roaming’i etkinleştirme
-    href: enterprise-state-roaming-enable.md
-  - name: Hibrit Azure AD’ye katılmış geçerli Windows cihazlarında sorun giderme
-    href: troubleshoot-hybrid-join-windows-current.md
-  - name: Hibrit Azure AD’ye katılmış eski Windows cihazlarında sorun giderme
-    href: troubleshoot-hybrid-join-windows-legacy.md
-  - name: Enterprise State Roaming sorunlarını giderme
-    href: enterprise-state-roaming-troubleshooting.md
-  - name: SSS
-    href: faq.md
-  - name: Enterprise State’i etkinleştirme SSS’i
-    href: enterprise-state-roaming-faqs.md
+    - name: Şirket içi kaynaklarda çoklu oturum açma
+      href: azuread-join-sso.md
+- name: Nasıl yapılır kılavuzları
   expanded: true
+  items:
+    - name: Azure portalı kullanarak cihazları yönetme
+      href: device-management-azure-portal.md
+    - name: Eski cihazları yönetme
+      href: manage-stale-devices.md
+    - name: Azure AD katılımınızı uygulamayı planlama
+      href: azureadjoin-plan.md
+    - name: Hibrit Azure AD katılımınızı uygulamayı planlama
+      href: hybrid-azuread-join-plan.md
+    - name: Cihazlarınızın hibrit Azure AD katılımını denetleme
+      href: hybrid-azuread-join-control.md
+    - name: Azure AD'ye katılan cihazlara yerel yöneticiler atama
+      href: assign-local-admin.md
+    - name: Enterprise State Roaming’i etkinleştirme
+      href: enterprise-state-roaming-enable.md
+    - name: Hibrit Azure AD’ye katılmış geçerli Windows cihazlarında sorun giderme
+      href: troubleshoot-hybrid-join-windows-current.md
+    - name: Hibrit Azure AD’ye katılmış eski Windows cihazlarında sorun giderme
+      href: troubleshoot-hybrid-join-windows-legacy.md
+    - name: Enterprise State Roaming sorunlarını giderme
+      href: enterprise-state-roaming-troubleshooting.md
+    - name: SSS
+      href: faq.md
+    - name: Enterprise State’i etkinleştirme SSS’i
+      href: enterprise-state-roaming-faqs.md
 - name: Başvuru
   items:
-  - name: Enterprise State Roaming GPO ayarları
-    href: enterprise-state-roaming-group-policy-settings.md
-  - name: Enterprise State Roaming Windows ayarları
-    href: enterprise-state-roaming-windows-settings-reference.md
+    - name: Enterprise State Roaming GPO ayarları
+      href: enterprise-state-roaming-group-policy-settings.md
+    - name: Enterprise State Roaming Windows ayarları
+      href: enterprise-state-roaming-windows-settings-reference.md
 - name: Kaynaklar
   items:
-  - name: Azure geri bildirim forumu
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Hizmet güncelleştirmeleri
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c55f0c43b8af390d95c0dc3b70ff7037793ac7bc
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388279"
+    - name: Azure geri bildirim forumu
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Hizmet güncelleştirmeleri
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

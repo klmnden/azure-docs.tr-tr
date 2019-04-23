@@ -1,340 +1,333 @@
-items:
 - name: Azure AD B2C Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure AD B2C hakkında
-    href: active-directory-b2c-overview.md
-    expanded: true
+    - name: Azure AD B2C hakkında
+      expanded: true
+      href: active-directory-b2c-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Oturum açmayı ayarlama - ASP.NET
-    href: active-directory-b2c-quickstarts-web-app.md
-  - name: Oturum açmayı ayarlama - Masaüstü
-    href: active-directory-b2c-quickstarts-desktop-app.md
-  - name: Oturum açmayı ayarlama - Tek sayfa
-    href: active-directory-b2c-quickstarts-spa.md
   expanded: true
+  items:
+    - name: Oturum açmayı ayarlama - ASP.NET
+      href: active-directory-b2c-quickstarts-web-app.md
+    - name: Oturum açmayı ayarlama - Masaüstü
+      href: active-directory-b2c-quickstarts-desktop-app.md
+    - name: Oturum açmayı ayarlama - Tek sayfa
+      href: active-directory-b2c-quickstarts-spa.md
 - name: Öğreticiler
   items:
-  - name: 1 - B2C kiracısı oluşturma
-    href: tutorial-create-tenant.md
-  - name: 2 - Uygulamayı kaydetme
-    href: tutorial-register-applications.md
-  - name: 3 - Kullanıcı akışları oluşturma
-    href: tutorial-create-user-flows.md
-  - name: Kimlik sağlayıcıları ekleme
-    href: tutorial-add-identity-providers.md
-  - name: Kullanıcı arabirimini özelleştirme
-    href: tutorial-customize-ui.md
-  - name: Hesaplarda kimlik doğrulaması yapma
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-app.md
-    - name: Masaüstü
-      href: active-directory-b2c-tutorials-desktop-app.md
-    - name: Tek sayfa
-      href: active-directory-b2c-tutorials-spa.md
-  - name: API erişimi verme
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-api.md
-    - name: Masaüstü
-      href: active-directory-b2c-tutorials-desktop-app-webapi.md
-    - name: Tek sayfa
-      href: active-directory-b2c-tutorials-spa-webapi.md
+    - name: 1 - B2C kiracısı oluşturma
+      href: tutorial-create-tenant.md
+    - name: 2 - Uygulamayı kaydetme
+      href: tutorial-register-applications.md
+    - name: 3 - Kullanıcı akışları oluşturma
+      href: tutorial-create-user-flows.md
+    - name: Kimlik sağlayıcıları ekleme
+      href: tutorial-add-identity-providers.md
+    - name: Kullanıcı arabirimini özelleştirme
+      href: tutorial-customize-ui.md
+    - name: Hesaplarda kimlik doğrulaması yapma
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-tutorials-web-app.md
+        - name: Masaüstü
+          href: active-directory-b2c-tutorials-desktop-app.md
+        - name: Tek sayfa
+          href: active-directory-b2c-tutorials-spa.md
+    - name: API erişimi verme
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-tutorials-web-api.md
+        - name: Masaüstü
+          href: active-directory-b2c-tutorials-desktop-app-webapi.md
+        - name: Tek sayfa
+          href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Örnekler
   href: code-samples.md
 - name: Kavramlar
   items:
-  - name: Uygulama türleri
-    href: active-directory-b2c-apps.md
-  - name: Kimlik doğrulama protokolleri
-    href: active-directory-b2c-reference-protocols.md
-  - name: Kimlik Deneyimi Altyapısı
-    items:
-    - name: Özel ilkeler
-      href: active-directory-b2c-overview-custom.md
-    - name: Kullanıcı erişimi
-      href: manage-user-access.md
-  - name: OAuth 2.0
-    href: active-directory-b2c-reference-oauth-code.md
-  - name: OpenID Connect
-    href: active-directory-b2c-reference-oidc.md
-  - name: Tek sayfalı oturum açma
-    href: active-directory-b2c-reference-spa.md
-  - name: Belirteçler
-    href: active-directory-b2c-reference-tokens.md
-  - name: Kullanıcı hesapları
-    href: user-overview.md
-  - name: Kullanıcı verileri
-    href: manage-user-data.md
-  - name: Kullanıcı akışları
-    href: active-directory-b2c-reference-policies.md
-  - name: JavaScript ile kullanıcı akışları
-    href: user-flow-javascript-overview.md
-  - name: Kullanıcı arabirimini özelleştirme
-    href: customize-ui-overview.md
+    - name: Uygulama türleri
+      href: active-directory-b2c-apps.md
+    - name: Kimlik doğrulama protokolleri
+      href: active-directory-b2c-reference-protocols.md
+    - name: Kimlik Deneyimi Altyapısı
+      items:
+        - name: Özel ilkeler
+          href: active-directory-b2c-overview-custom.md
+        - name: Kullanıcı erişimi
+          href: manage-user-access.md
+    - name: OAuth 2.0
+      href: active-directory-b2c-reference-oauth-code.md
+    - name: OpenID Connect
+      href: active-directory-b2c-reference-oidc.md
+    - name: Tek sayfalı oturum açma
+      href: active-directory-b2c-reference-spa.md
+    - name: Belirteçler
+      href: active-directory-b2c-reference-tokens.md
+    - name: Kullanıcı hesapları
+      href: user-overview.md
+    - name: Kullanıcı verileri
+      href: manage-user-data.md
+    - name: Kullanıcı akışları
+      href: active-directory-b2c-reference-policies.md
+    - name: JavaScript ile kullanıcı akışları
+      href: user-flow-javascript-overview.md
+    - name: Kullanıcı arabirimini özelleştirme
+      href: customize-ui-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Denetim günlüklerine erişme
-    href: active-directory-b2c-reference-audit-logs.md
-  - name: Web API'si uygulaması ekleme
-    href: add-web-application.md
-  - name: Yerel istemci uygulaması ekleme
-    href: add-native-application.md
-  - name: Yaş sınırını yapılandırma
-    href: basic-age-gating.md
-  - name: Oturum davranışını yapılandırma
-    href: session-behavior.md
-  - name: Dil özelleştirme
-    href: active-directory-b2c-reference-language-customization.md
-  - name: Parola özelleştirme
-    href: active-directory-b2c-reference-password-complexity.md
-  - name: Özel öznitelikleri tanımlama
-    href: active-directory-b2c-reference-custom-attr.md
-  - name: E-posta doğrulamayı devre dışı bırakma
-    href: active-directory-b2c-reference-disable-ev.md
-  - name: MFA’yı etkinleştirme
-    href: active-directory-b2c-reference-mfa.md
-  - name: Kimlik Deneyimi Altyapısı
-    items:
-    - name: Application Insights’ı kullanarak günlük toplama
-      href: active-directory-b2c-troubleshoot-custom.md
-    - name: ROPC’yi yapılandırma
-      href: ropc-custom.md
-    - name: Kullanıcı erişimini yapılandırma
-      href: active-directory-b2c-configure-signup-self-asserted-custom.md
-    - name: Özel ilke oluşturma
-      href: active-directory-b2c-get-started-custom.md
-    - name: Kullanıcı arabirimini özelleştirme
-      href: active-directory-b2c-ui-customization-custom.md
-    - name: Kullanıcı arabirimini dinamik olarak özelleştirme
-      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Denetim günlüklerine erişme
+      href: active-directory-b2c-reference-audit-logs.md
+    - name: Web API'si uygulaması ekleme
+      href: add-web-application.md
+    - name: Yerel istemci uygulaması ekleme
+      href: add-native-application.md
+    - name: Yaş sınırını yapılandırma
+      href: basic-age-gating.md
+    - name: Oturum davranışını yapılandırma
+      href: session-behavior.md
+    - name: Dil özelleştirme
+      href: active-directory-b2c-reference-language-customization.md
+    - name: Parola özelleştirme
+      href: active-directory-b2c-reference-password-complexity.md
     - name: Özel öznitelikleri tanımlama
-      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-    - name: Oturumumu açık bırak seçeneğini etkinleştirme
-      href: active-directory-b2c-reference-kmsi-custom.md
-    - name: RESTful API’lerini tümleştirme
+      href: active-directory-b2c-reference-custom-attr.md
+    - name: E-posta doğrulamayı devre dışı bırakma
+      href: active-directory-b2c-reference-disable-ev.md
+    - name: MFA’yı etkinleştirme
+      href: active-directory-b2c-reference-mfa.md
+    - name: Kimlik Deneyimi Altyapısı
       items:
-      - name: Kullanıcı girişini doğrulama
-        href: active-directory-b2c-rest-api-validation-custom.md
-      - name: Ek talep alma
-        href: active-directory-b2c-rest-api-step-custom.md
-      - name: Kendi RESTful API’nizi ekleme
-        href: active-directory-b2c-custom-rest-api-netfw.md
-      - name: Temel kimlik doğrulama ile RESTful API’leri koruma
-        href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
-      - name: Sertifika kimlik doğrulaması ile RESTful API’leri koruma
-        href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
-    - name: OIDC/OAUTH sağlayıcıları
+        - name: Application Insights’ı kullanarak günlük toplama
+          href: active-directory-b2c-troubleshoot-custom.md
+        - name: ROPC’yi yapılandırma
+          href: ropc-custom.md
+        - name: Kullanıcı erişimini yapılandırma
+          href: active-directory-b2c-configure-signup-self-asserted-custom.md
+        - name: Özel ilke oluşturma
+          href: active-directory-b2c-get-started-custom.md
+        - name: Kullanıcı arabirimini özelleştirme
+          href: active-directory-b2c-ui-customization-custom.md
+        - name: Kullanıcı arabirimini dinamik olarak özelleştirme
+          href: active-directory-b2c-ui-customization-custom-dynamic.md
+        - name: Özel öznitelikleri tanımlama
+          href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+        - name: Oturumumu açık bırak seçeneğini etkinleştirme
+          href: active-directory-b2c-reference-kmsi-custom.md
+        - name: RESTful API’lerini tümleştirme
+          items:
+            - name: Kullanıcı girişini doğrulama
+              href: active-directory-b2c-rest-api-validation-custom.md
+            - name: Ek talep alma
+              href: active-directory-b2c-rest-api-step-custom.md
+            - name: Kendi RESTful API’nizi ekleme
+              href: active-directory-b2c-custom-rest-api-netfw.md
+            - name: Temel kimlik doğrulama ile RESTful API’leri koruma
+              href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
+            - name: Sertifika kimlik doğrulaması ile RESTful API’leri koruma
+              href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
+        - name: OIDC/OAUTH sağlayıcıları
+          items:
+            - name: Amazon
+              href: setup-amazon-custom.md
+            - name: Azure AD (Tek Kiracılı)
+              href: active-directory-b2c-setup-aad-custom.md
+            - name: Azure AD (Çok Kiracılı)
+              href: active-directory-b2c-setup-commonaad-custom.md
+            - name: Google
+              href: active-directory-b2c-custom-setup-goog-idp.md
+            - name: LinkedIn
+              href: active-directory-b2c-custom-setup-li-idp.md
+            - name: Microsoft Hesabı
+              href: active-directory-b2c-custom-setup-msa-idp.md
+            - name: Twitter
+              href: active-directory-b2c-custom-setup-twitter-idp.md
+        - name: Sayfa sözleşmesi
+          href: page-contract.md
+        - name: Parola karmaşıklığı
+          href: active-directory-b2c-reference-password-complexity-custom.md
+        - name: Parola değiştirme
+          href: active-directory-b2c-reference-password-change-custom.md
+        - name: SAML sağlayıcıları
+          items:
+            - name: ADFS
+              href: active-directory-b2c-custom-setup-adfs2016-idp.md
+            - name: Salesforce
+              href: active-directory-b2c-setup-sf-app-custom.md
+        - name: Belirteçler
+          items:
+            - name: Belirteçleri özelleştirme
+              href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+            - name: Erişim belirtecini doğrudan geçirme
+              href: idp-pass-through-custom.md
+        - name: Kullanıcı davranışını izleme
+          href: active-directory-b2c-custom-guide-eventlogger-appins.md
+        - name: Başvuru
+          items:
+            - name: Talep çözümleyicileri
+              href: claim-resolver-overview.md
+            - name: Kimlik Deneyimi Altyapısı şeması
+              items:
+                - name: TrustFrameworkPolicy
+                  href: trustframeworkpolicy.md
+                - name: BuildingBlocks
+                  href: buildingblocks.md
+                  items:
+                    - name: ClaimsSchema
+                      href: claimsschema.md
+                    - name: ClaimsTransformations
+                      href: claimstransformations.md
+                      items:
+                        - name: Boole
+                          href: boolean-transformations.md
+                        - name: Tarih
+                          href: date-transformations.md
+                        - name: Genel
+                          href: general-transformations.md
+                        - name: Tamsayı
+                          href: integer-transformations.md
+                        - name: JSON
+                          href: json-transformations.md
+                        - name: Sosyal hesaplar
+                          href: social-transformations.md
+                        - name: StringCollection
+                          href: stringcollection-transformations.md
+                        - name: Dize
+                          href: string-transformations.md
+                    - name: Koşullar
+                      href: predicates.md
+                    - name: ContentDefinitions
+                      href: contentdefinitions.md
+                    - name: Yerelleştirme
+                      href: localization.md
+                      items:
+                        - name: Yerelleştirme dizesi kimlikleri
+                          href: localization-string-ids.md
+                - name: ClaimsProviders
+                  href: claimsproviders.md
+                  items:
+                    - name: TechnicalProfiles
+                      href: technicalprofiles.md
+                      items:
+                        - name: Teknik profiller hakkında
+                          href: technical-profiles-overview.md
+                        - name: Azure Active Directory
+                          href: active-directory-technical-profile.md
+                        - name: Talepleri dönüştürme
+                          href: claims-transformation-technical-profile.md
+                        - name: JWT belirtecini veren
+                          href: jwt-issuer-technical-profile.md
+                        - name: OAuth1
+                          href: oauth1-technical-profile.md
+                        - name: OAuth2
+                          href: oauth2-technical-profile.md
+                        - name: OpenID Connect
+                          href: openid-connect-technical-profile.md
+                        - name: REST
+                          href: restful-technical-profile.md
+                        - name: SAML
+                          href: saml-technical-profile.md
+                        - name: Kendi kendine onaylanma
+                          href: self-asserted-technical-profile.md
+                        - name: SSO oturumu
+                          href: active-directory-b2c-reference-sso-custom.md
+                        - name: Doğrulama
+                          href: validation-technical-profile.md
+                - name: UserJourneys
+                  href: userjourneys.md
+                - name: RelyingParty
+                  href: relyingparty.md
+            - name: JavaScript örnekleri
+              href: javascript-samples.md
+            - name: Geliştirici notları
+              href: active-directory-b2c-developer-notes-custom.md
+            - name: Güven Altyapısı tanımı
+              href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+    - name: Kimlik sağlayıcıları
       items:
-      - name: Amazon
-        href: setup-amazon-custom.md
-      - name: Azure AD (Tek Kiracılı)
-        href: active-directory-b2c-setup-aad-custom.md
-      - name: Azure AD (Çok Kiracılı)
-        href: active-directory-b2c-setup-commonaad-custom.md
-      - name: Google
-        href: active-directory-b2c-custom-setup-goog-idp.md
-      - name: LinkedIn
-        href: active-directory-b2c-custom-setup-li-idp.md
-      - name: Microsoft Hesabı
-        href: active-directory-b2c-custom-setup-msa-idp.md
-      - name: Twitter
-        href: active-directory-b2c-custom-setup-twitter-idp.md
-    - name: Sayfa sözleşmesi
-      href: page-contract.md
-    - name: Parola karmaşıklığı
-      href: active-directory-b2c-reference-password-complexity-custom.md
-    - name: Parola değiştirme
-      href: active-directory-b2c-reference-password-change-custom.md
-    - name: SAML sağlayıcıları
+        - name: Amazon
+          href: active-directory-b2c-setup-amzn-app.md
+        - name: Azure AD (Tek Kiracılı)
+          href: active-directory-b2c-setup-oidc-azure-active-directory.md
+        - name: Microsoft Hesabı
+          href: active-directory-b2c-setup-msa-app.md
+        - name: Facebook
+          href: active-directory-b2c-setup-fb-app.md
+        - name: GitHub
+          href: active-directory-b2c-setup-github-app.md
+        - name: Google
+          href: active-directory-b2c-setup-goog-app.md
+        - name: LinkedIn
+          href: active-directory-b2c-setup-li-app.md
+        - name: OpenID Connect
+          href: active-directory-b2c-setup-oidc-idp.md
+        - name: Twitter
+          href: active-directory-b2c-setup-twitter-app.md
+    - name: Kullanıcıları geçirme
+      href: active-directory-b2c-user-migration.md
+    - name: Kullanıcıları sosyal kimlikleriyle geçirme
+      href: active-directory-b2c-social-migration.md
+    - name: Mobil ve masaüstü uygulamalar
       items:
-      - name: ADFS
-        href: active-directory-b2c-custom-setup-adfs2016-idp.md
-      - name: Salesforce
-        href: active-directory-b2c-setup-sf-app-custom.md
+        - name: App Auth kullanarak iOS ObjC
+          href: active-directory-b2c-devquickstarts-ios.md
+        - name: App Auth kullanarak Android
+          href: active-directory-b2c-devquickstarts-android.md
+    - name: Kullanım bildirme
+      href: active-directory-b2c-reference-usage-reporting-api.md
+    - name: Kaynak sahibinin parola kimlik bilgileri
+      href: configure-ropc.md
+    - name: Doğrudan oturum açmayı ayarlama
+      href: direct-signin.md
+    - name: Self servis parola sıfırlamayı ayarlama
+      href: active-directory-b2c-reference-sspr.md
     - name: Belirteçler
       items:
-      - name: Belirteçleri özelleştirme
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Erişim belirtecini doğrudan geçirme
-        href: idp-pass-through-custom.md
-    - name: Kullanıcı davranışını izleme
-      href: active-directory-b2c-custom-guide-eventlogger-appins.md
+        - name: Belirteçleri yapılandırma
+          href: configure-tokens.md
+        - name: Erişim belirtecini doğrudan geçirme
+          href: idp-pass-through-user-flow.md
+        - name: Erişim belirteci isteme
+          href: active-directory-b2c-access-tokens.md
+    - name: b2clogin.com kullanma
+      href: b2clogin.md
+    - name: Azure AD Graph API’sini kullanma
+      href: active-directory-b2c-devquickstarts-graph-dotnet.md
     - name: Başvuru
       items:
-      - name: Talep çözümleyicileri
-        href: claim-resolver-overview.md
-      - name: Kimlik Deneyimi Altyapısı şeması
-        items:
-        - name: TrustFrameworkPolicy
-          href: trustframeworkpolicy.md
-        - name: BuildingBlocks
-          href: buildingblocks.md
-          items:
-          - name: ClaimsSchema
-            href: claimsschema.md
-          - name: ClaimsTransformations
-            href: claimstransformations.md
-            items:
-            - name: Boole
-              href: boolean-transformations.md
-            - name: Tarih
-              href: date-transformations.md
-            - name: Genel
-              href: general-transformations.md
-            - name: Tamsayı
-              href: integer-transformations.md
-            - name: JSON
-              href: json-transformations.md
-            - name: Sosyal hesaplar
-              href: social-transformations.md
-            - name: StringCollection
-              href: stringcollection-transformations.md
-            - name: Dize
-              href: string-transformations.md
-          - name: Koşullar
-            href: predicates.md
-          - name: ContentDefinitions
-            href: contentdefinitions.md
-          - name: Yerelleştirme
-            href: localization.md
-            items:
-            - name: Yerelleştirme dizesi kimlikleri
-              href: localization-string-ids.md
-        - name: ClaimsProviders
-          href: claimsproviders.md
-          items:
-          - name: TechnicalProfiles
-            href: technicalprofiles.md
-            items:
-            - name: Teknik profiller hakkında
-              href: technical-profiles-overview.md
-            - name: Azure Active Directory
-              href: active-directory-technical-profile.md
-            - name: Talepleri dönüştürme
-              href: claims-transformation-technical-profile.md
-            - name: JWT belirtecini veren
-              href: jwt-issuer-technical-profile.md
-            - name: OAuth1
-              href: oauth1-technical-profile.md
-            - name: OAuth2
-              href: oauth2-technical-profile.md
-            - name: OpenID Connect
-              href: openid-connect-technical-profile.md
-            - name: REST
-              href: restful-technical-profile.md
-            - name: SAML
-              href: saml-technical-profile.md
-            - name: Kendi kendine onaylanma
-              href: self-asserted-technical-profile.md
-            - name: SSO oturumu
-              href: active-directory-b2c-reference-sso-custom.md
-            - name: Doğrulama
-              href: validation-technical-profile.md
-        - name: UserJourneys
-          href: userjourneys.md
-        - name: RelyingParty
-          href: relyingparty.md
-      - name: JavaScript örnekleri
-        href: javascript-samples.md
-      - name: Geliştirici notları
-        href: active-directory-b2c-developer-notes-custom.md
-      - name: Güven Altyapısı tanımı
-        href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-  - name: Kimlik sağlayıcıları
-    items:
-    - name: Amazon
-      href: active-directory-b2c-setup-amzn-app.md
-    - name: Azure AD (Tek Kiracılı)
-      href: active-directory-b2c-setup-oidc-azure-active-directory.md
-    - name: Microsoft Hesabı
-      href: active-directory-b2c-setup-msa-app.md
-    - name: Facebook
-      href: active-directory-b2c-setup-fb-app.md
-    - name: GitHub
-      href: active-directory-b2c-setup-github-app.md
-    - name: Google
-      href: active-directory-b2c-setup-goog-app.md
-    - name: LinkedIn
-      href: active-directory-b2c-setup-li-app.md
-    - name: OpenID Connect
-      href: active-directory-b2c-setup-oidc-idp.md
-    - name: Twitter
-      href: active-directory-b2c-setup-twitter-app.md
-  - name: Kullanıcıları geçirme
-    href: active-directory-b2c-user-migration.md
-  - name: Kullanıcıları sosyal kimlikleriyle geçirme
-    href: active-directory-b2c-social-migration.md
-  - name: Mobil ve masaüstü uygulamalar
-    items:
-    - name: App Auth kullanarak iOS ObjC
-      href: active-directory-b2c-devquickstarts-ios.md
-    - name: App Auth kullanarak Android
-      href: active-directory-b2c-devquickstarts-android.md
-  - name: Kullanım bildirme
-    href: active-directory-b2c-reference-usage-reporting-api.md
-  - name: Kaynak sahibinin parola kimlik bilgileri
-    href: configure-ropc.md
-  - name: Doğrudan oturum açmayı ayarlama
-    href: direct-signin.md
-  - name: Self servis parola sıfırlamayı ayarlama
-    href: active-directory-b2c-reference-sspr.md
-  - name: Belirteçler
-    items:
-    - name: Belirteçleri yapılandırma
-      href: configure-tokens.md
-    - name: Erişim belirtecini doğrudan geçirme
-      href: idp-pass-through-user-flow.md
-    - name: Erişim belirteci isteme
-      href: active-directory-b2c-access-tokens.md
-  - name: b2clogin.com kullanma
-    href: b2clogin.md
-  - name: Azure AD Graph API’sini kullanma
-    href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Başvuru
-    items:
-    - name: Kod örnekleri
-      href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-    - name: Tanımlama bilgisi tanımları
-      href: cookie-definitions.md
-    - name: Bölge kullanılabilirliği ve veri yerleşikliği
-      href: active-directory-b2c-reference-tenant-type.md
-    - name: Faturalamayı etkinleştirme
-      href: active-directory-b2c-how-to-enable-billing.md
-    - name: Tehdit yönetimi
-      href: active-directory-b2c-reference-threat-management.md
-    - name: Uzantılar uygulaması
-      href: active-directory-b2c-reference-extensions-app.md
-    - name: Kullanıcı akışı sürümleri
-      href: user-flow-versions.md
+        - name: Kod örnekleri
+          href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+        - name: Tanımlama bilgisi tanımları
+          href: cookie-definitions.md
+        - name: Bölge kullanılabilirliği ve veri yerleşikliği
+          href: active-directory-b2c-reference-tenant-type.md
+        - name: Faturalamayı etkinleştirme
+          href: active-directory-b2c-how-to-enable-billing.md
+        - name: Tehdit yönetimi
+          href: active-directory-b2c-reference-threat-management.md
+        - name: Uzantılar uygulaması
+          href: active-directory-b2c-reference-extensions-app.md
+        - name: Kullanıcı akışı sürümleri
+          href: user-flow-versions.md
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Sık sorulan sorular
-    href: active-directory-b2c-faqs.md
-  - name: Yardım alma
-    href: /azure/active-directory/develop/developer-support-help-options
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=active-directory-b2c
-  - name: Çözümler ve eğitim
-    href: solution-articles.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
-  - name: Destek
-    href: active-directory-b2c-support.md
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681140"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Sık sorulan sorular
+      href: active-directory-b2c-faqs.md
+    - name: Yardım alma
+      href: /azure/active-directory/develop/developer-support-help-options
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-b2c'
+    - name: Çözümler ve eğitim
+      href: solution-articles.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework'
+    - name: Destek
+      href: active-directory-b2c-support.md
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'
