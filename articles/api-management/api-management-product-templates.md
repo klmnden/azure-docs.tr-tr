@@ -80,9 +80,9 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Disk belleği bilgiler ürünleri koleksiyonu.|  
-|Filtreleme|[Filtreleme](api-management-template-data-model-reference.md#Filtering) varlık.|Ürün Listesi Sayfası için bir filtre bilgileri.|  
-|Ürünler|Koleksiyonu [ürün](api-management-template-data-model-reference.md#Product) varlıklar.|Geçerli kullanıcıya görünür olan ürünleri.|  
+|Paging|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Disk belleği bilgiler ürünleri koleksiyonu.|  
+|Filtering|[Filtreleme](api-management-template-data-model-reference.md#Filtering) varlık.|Ürün Listesi Sayfası için bir filtre bilgileri.|  
+|Products|Koleksiyonu [ürün](api-management-template-data-model-reference.md#Product) varlıklar.|Geçerli kullanıcıya görünür olan ürünleri.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -205,15 +205,15 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Ürün|[Ürün](api-management-template-data-model-reference.md#Product)|Belirtilen ürün.|  
+|Product|[Ürün](api-management-template-data-model-reference.md#Product)|Belirtilen ürün.|  
 |IsDeveloperSubscribed|boole|Olup geçerli kullanıcının bu ürüne abone olur.|  
 |SubscriptionState|number|Abonelik durumu. Olası durumlar şunlardır:<br /><br /> -   `0 - suspended` – Abonelik engellenir ve abone ürünün herhangi bir API çağrılamaz.<br />-   `1 - active` – Aboneliğinizin etkin olduğunu.<br />-   `2 - expired` – Abonelik ulaştı, sona erme tarihine ve devre dışı bırakıldı.<br />-   `3 - submitted` – abonelik isteğini geliştirici tarafından yapılır, ancak henüz onaylanamıyor veya reddedilemiyor.<br />-   `4 - rejected` – bir yönetici tarafından abonelik isteği reddedildi.<br />-   `5 - cancelled` – Abonelik geliştirici veya yönetici tarafından iptal edildi.|  
-|Sınırlar|array|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
+|Limits|array|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
 |DelegatedSubscriptionEnabled|boole|Olmadığını [temsilci](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) Bu abonelik için etkin.|  
 |DelegatedSubscriptionUrl|dize|Temsilci etkinleştirilirse, temsilci abonelik URL'si.|  
 |IsAgreed|boole|Ürün koşulları varsa, geçerli kullanıcının olup koşulları kabul etmiştir.|  
-|Abonelikler|Koleksiyonu [abonelik Özet](api-management-template-data-model-reference.md#SubscriptionSummary) varlıklar.|Abonelikler ürüne.|  
-|API'leri|Koleksiyonu [API](api-management-template-data-model-reference.md#API) varlıklar.|Bu ürün API'leri.|  
+|Subscriptions|Koleksiyonu [abonelik Özet](api-management-template-data-model-reference.md#SubscriptionSummary) varlıklar.|Abonelikler ürüne.|  
+|Apis|Koleksiyonu [API](api-management-template-data-model-reference.md#API) varlıklar.|Bu ürün API'leri.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boole|Geçerli kullanıcının abonelik sınırını ile ilgili bu ürüne abone için uygun olup olmadığı.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boole|Geçerli kullanıcının veya izin verilmesinden birden çok abonelik ile ilgili bu ürüne abone için uygun olup olmadığı.|  
   
