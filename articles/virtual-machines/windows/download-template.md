@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903123"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798836"
 ---
 # <a name="download-the-template-for-a-vm"></a>VM için şablon indirme
 Portal veya PowerShell kullanarak Azure'da bir VM oluşturduğunuzda, Resource Manager şablonu sizin için otomatik olarak oluşturulur. Bu şablon, bir dağıtımı hızlı bir şekilde çoğaltmak için kullanabilirsiniz. Bu şablon, bir kaynak grubundaki tüm kaynakları hakkında bilgi içerir. Bir sanal makine için bu şablonu VM ağ kaynakları dahil olmak üzere, bu kaynak grubundaki desteklemek üzere oluşturulmuş her şeyi içeren anlamına gelir.

@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046555"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794670"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Bir Azure Veri Gezgini kümesinin durumunu denetleyin
 
