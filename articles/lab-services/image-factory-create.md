@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796319"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148994"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir özel görüntü fabrikası oluşturma
-Bu makalede bulunan örnek betikler kullanarak bir özel görüntü Fabrika ayarlanacağı gösterilmektedir [Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Bu makalede bulunan örnek betikler kullanarak bir özel görüntü Fabrika ayarlanacağı gösterilmektedir [Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>Bir görüntü fabrikası nedir?
 Bir görüntü factory oluşturan ve dağıtan tüm istenen yapılandırmaları ile düzenli aralıklarla otomatik olarak görüntülerinde yapılandırma olarak kodu bir çözümdür. Görüntü Fabrika görüntüleri her zaman güncel olduğundan ve bu işlem otomatik olarak devam eden bakım neredeyse sıfır olarak ayarlanır. Ve tüm gerekli yapılandırmaları görüntüde zaten olduğu için temel işletim sistemi ile bir VM oluşturulduktan sonra el ile sistem yapılandırmasını zaman kazandırır.
@@ -39,7 +39,7 @@ DevTest Labs hazır durumda bir geliştirici Masaüstü almak için önemli Hız
 
 ![Çözüme üst düzey görünümü](./media/create-image-factory/high-level-view-of-solution.png)
 
-Var olan bir [VSTS uzantısı için DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) tek tek adımları yürütmesine olanak sağlar: 
+Var olan bir [VSTS uzantısı için DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) tek tek adımları yürütmesine olanak sağlar:
 
 - Özel görüntü oluşturma
 - VM oluşturma

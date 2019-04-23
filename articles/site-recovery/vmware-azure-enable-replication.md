@@ -1,17 +1,17 @@
 ---
 title: Azure Site Recovery ile azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirme | Microsoft Docs
 description: Bu makalede, Azure Site Recovery kullanarak VMware Vm'lerini azure'a çoğaltma, olağanüstü durum kurtarma için etkinleştirmek açıklar.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418118"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004746"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -89,7 +89,7 @@ Ardından, kaynak sanal makinenin özelliklerini doğrulayın. Azure VM adının
     ![İşlem ve ağ özellikleri penceresi](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM adı: Azure gereksinimleri karşılamak için adı gerekiyorsa değiştirin.
-    * Hedef VM boyutu veya VM türü: Varsayılan VM boyutu kaynak VM boyutu seçilir. Yük devretmeden önce herhangi bir zamanda ihtiyaçlarınıza göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme işleminden sonra değiştirilebilir unutmayın. Disk boyutları ve IOPS fiyatları hakkında daha fazla bilgi [Windows üzerinde VM diskleri için ölçeklenebilirlik ve performans hedefleri](../virtual-machines/windows/disk-scalability-targets.md).
+    * Hedef VM boyutu veya VM türü: Varsayılan VM boyutu bağlı Disk sayısı, NIC sayısı, CPU çekirdek sayısı, bellek ve kullanılabilir sanal makine rolü boyutları hedef Azure bölgeniz dahil birkaç parametre olarak seçilir. Azure Site Recovery tüm ölçütleri karşılayan ilk kullanılabilir VM boyutu seçer. Yük devretmeden önce herhangi bir zamanda ihtiyaçlarınıza göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme işleminden sonra değiştirilebilir unutmayın. Disk boyutları ve IOPS fiyatları hakkında daha fazla bilgi [Windows üzerinde VM diskleri için ölçeklenebilirlik ve performans hedefleri](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Kaynak grubu: Seçebileceğiniz bir [kaynak grubu](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), öğesinden, bir sanal makine yük devretme sonrasında bir parçası haline gelir. Yük devretmeden önce herhangi bir zamanda bu ayarı değiştirebilirsiniz. Farklı kaynak grubuna, sanal makineyi geçirirseniz, sanal makine için koruma ayarları yük devretme sonrasında bölün.
     * Kullanılabilirlik kümesi: Seçebileceğiniz bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) , sanal makine yük devretme sonrasında bir parçası olması gerekiyorsa. Bir kullanılabilirlik kümesi seçtiğinizde, aşağıdaki bilgileri göz önünde bulundurun:

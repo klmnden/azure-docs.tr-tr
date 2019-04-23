@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542497"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148977"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir laboratuvar için bir duyuru gönderin
 
@@ -37,8 +37,8 @@ Duyuru özellik geçici bildirimler için kullanılmak üzere tasarlanmıştır.
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
-1. Duyuru gönderin istediğiniz Laboratuvar labs listesinden seçin.  
-1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  
+1. Duyuru gönderin istediğiniz Laboratuvar labs listesinden seçin.
+1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.
 
     ![Yapılandırması ve ilkelerini düğmesi](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Artık Laboratuvar kullanıcılara bu duyuru göstermek istediğiniz zaman dön�
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
-Aşağıdaki örnekte gösterildiği gibi bir Azure Resource Manager şablonunun bir parçası bir duyuru belirtebilirsiniz: 
+Aşağıdaki örnekte gösterildiği gibi bir Azure Resource Manager şablonunun bir parçası bir duyuru belirtebilirsiniz:
 
 ```json
 {
@@ -119,7 +119,7 @@ Aşağıdaki örnekte gösterildiği gibi bir Azure Resource Manager şablonunun
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Aşağıdaki yöntemlerden birini kullanarak bir Azure Resource Manager şablonu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Laboratuvar ilkesini ayarlamak veya değiştirirseniz, kullanıcılara bildiren bir duyuru gönderin isteyebilirsiniz. [İlke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md) özelleştirilmiş ilkeler kullanılarak aboneliğiniz kısıtlamaları ve kurallarını uygulama hakkında bilgi sağlar.
-* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

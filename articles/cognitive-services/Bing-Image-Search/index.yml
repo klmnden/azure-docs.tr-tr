@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d43a223c2c4f655308660925146504d35b9b95cf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728429"
 documentType: LandingData
 title: Bing Resim Arama API'si Belgeleri
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Resim Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: 'Bing Resim Arama API''si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: Web'de görüntü aramak için Bing Resim Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
   author: nitinme
@@ -24,86 +18,86 @@ metadata:
 abstract:
   description: Bing Resim Arama API'si Bing'in resim arama özelliklerini uygulamalarınızla tümleştirmenize olanak tanır. API ile kullanıcı arama sorguları göndererek bing.com/images benzeri ilgili ve yüksek kaliteli resimler alıp görüntüleyebilirsiniz.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-image-search/overview
+            html: <p>Bing Resim Arama API’si hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing Resim Arama API’si nedir?
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
+            html: <p>Bing Resim Arama API'sine resim arama sorguları göndermeyi öğrenin</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Resim Arama sorguları
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+            html: <p>Bing Resim Arama API'sinin yanıtını anlama</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Resim Arama yanıtı
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/bing-image-search/overview
-      html: <p>Bing Resim Arama API’si hakkında bilgi edinin</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing Resim Arama API’si nedir?
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-      html: <p>Bing Resim Arama API'sine resim arama sorguları göndermeyi öğrenin</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Resim Arama sorguları
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Bing Resim Arama API'sinin yanıtını anlama</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Resim Arama yanıtı
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Aşağıdakileri kullanarak web’de resim arayın:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Aşağıdakileri kullanarak web’de resim arayın:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: image-search-sdk-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: image-sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: image-search-sdk-node-quickstart
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: image-sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: image-search-sdk-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: image-sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: image-search-sdk-node-quickstart
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: image-sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Bing Resim Arama API’sini kullanarak uygulama geliştirmeyi öğrenin:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Resim Arama API’sini kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-bing-image-search-single-page-app">Tek sayfalı web uygulaması</a>
+          - html: <a href="tutorial-image-post">İçgörüler için Bing görüntü yükleme</a>
+  - title: Örnekler
     items:
-    - html: <a href="tutorial-bing-image-search-single-page-app">Tek sayfalı web uygulaması</a>
-    - html: <a href="tutorial-image-post">İçgörüler için Bing görüntü yükleme</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: "Bing Resim Araması API'si örneklerini bulun:"
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Resim Araması API''si örneklerini bulun:'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Kod örnekleri</a>'
+  - title: Başvuru
     items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Kod örnekleri</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Resim Arama API’si v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Resim Arama API’si v5</p>
-    - title: SDK’lar
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/imagesearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch">Go</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Resim Arama API’si v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Resim Arama API’si v5</p>'
+          - title: SDK’lar
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-imagesearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch">Go</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: daeb5bcbfbc609c293a6b3f55e61aaa29566b768
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728531"
 documentType: LandingData
 title: Bing Video Arama API'si Belgeleri
 metadata:
-  title: Bing Video Arama API’si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: 'Bing Video Arama API’si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: Web’de video aramak için Bing Video Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
   author: mikedodaro
@@ -21,85 +15,85 @@ metadata:
   ms.date: 01/31/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Video Arama API'si, Bing'in video arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API’ye arama sorguları göndererek bing.com/videos üzerindekilere benzer, alakalı ve yüksek kaliteli videolar alıp görüntüleyebilirsiniz.
+  description: 'Bing Video Arama API''si, Bing''in video arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API’ye arama sorguları göndererek bing.com/videos üzerindekilere benzer, alakalı ve yüksek kaliteli videolar alıp görüntüleyebilirsiniz.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-video-search/overview
+            html: <p>Bing Video Arama API'si hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing Video Arama API'si nedir?
+          - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+            html: <p>Bing'e Video arama sorgusu göndermeyi öğrenin</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Arama sorguları gönderme
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+            html: '<p>Arama sonuçlarını filtrelemeyi, video küçük resimleri almayı, arama sorgularını genişletmeyi öğrenin</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Web'den video alma
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/bing-video-search/overview
-      html: <p>Bing Video Arama API'si hakkında bilgi edinin</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing Video Arama API'si nedir?
-    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
-      html: <p>Bing'e Video arama sorgusu göndermeyi öğrenin</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Arama sorguları gönderme
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Arama sonuçlarını filtrelemeyi, video küçük resimleri almayı, arama sorgularını genişletmeyi öğrenin</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Web'den video alma
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Aşağıdakileri kullanarak web’de video arayın:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Aşağıdakileri kullanarak web’de video arayın:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: quickstarts/sdk-csharp-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: quickstarts/nodejs
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: quickstarts/sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: quickstarts/sdk-csharp-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: quickstarts/sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Bing Video Arama API’sini kullanarak uygulama geliştirin:'
-  - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">Tek sayfalı web uygulaması</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: 'Bing Video Arama API’si örneklerini bulun:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Video Arama API’sini kullanarak uygulama geliştirin:'
+      - type: paragraph
+        text: <a href="tutorial-bing-video-search-single-page-app">Tek sayfalı web uygulaması</a>
+  - title: Örnekler
     items:
-    - html: <a href="sdk.md">Kod örnekleri</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Bing Video Arama API’si örneklerini bulun:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">Kod örnekleri</a>
+  - title: Başvuru
     items:
-    - title: API'ler
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Arama API’si v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Arama API’si v5</a></p>
-    - title: SDK’lar
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API'ler
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Arama API’si v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Arama API’si v5</a></p>'
+          - title: SDK’lar
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492210"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004440"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -129,7 +129,7 @@ Bir parametre için kullanılabilir özellikler şunlardır:
 | maxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu değeri de dahildir. |
 | minLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için minimum uzunluğu, bu değer büyük/küçük harf dahildir. |
 | maxLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için en fazla uzunluk, bu değer büyük/küçük harf dahildir. |
-| açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. Daha fazla bilgi için [şablonlarında yorum](#comments). |
+| description |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. Daha fazla bilgi için [şablonlarında yorum](#comments). |
 
 ### <a name="define-and-use-a-parameter"></a>Tanımlamak ve bir parametre kullanın
 
@@ -495,8 +495,8 @@ Aşağıdaki yapıya sahip kaynakları tanımlarsınız:
 |:--- |:--- |:--- |
 | koşul | Hayır | Bu dağıtım sırasında kaynak sağlanan olup olmadığını gösteren Boole değeri. Zaman `true`, kaynak dağıtım sırasında oluşturulur. Zaman `false`, bu dağıtım için kaynak atlandı. Bkz: [koşul](#condition). |
 | apiVersion |Evet |Kaynak oluşturmak için REST API sürümü. Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). |
-| type |Evet |Kaynak türü. Kaynak sağlayıcıya ve kaynak türü için ad alanı, bu değer oluşur (gibi **Microsoft.Storage/storageAccounts**). Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). |
-| ad |Evet |Kaynağın adı. Ad URI bileşeni kısıtlamaları RFC3986 içinde tanımlanan izlemelidir. Ayrıca, kaynak adı dışında tarafların emin olmak için adını doğrulamak için kullanıma sunan Azure Hizmetleri başka bir kimlik sızmasını girişimi değildir. |
+| type |Evet |Kaynak türü. Kaynak sağlayıcıya ve kaynak türü için ad alanı, bu değer oluşur (gibi **Microsoft.Storage/storageAccounts**). Kullanılabilir değerleri belirlemek için bkz: [şablon başvurusu](/azure/templates/). Bir alt kaynak için tür biçimi olup, üst kaynak içinde iç içe geçmiş veya üst kaynak dışında tanımlanan bağlıdır. Bkz: [alt kaynakları](#child-resources). |
+| ad |Evet |Kaynağın adı. Ad URI bileşeni kısıtlamaları RFC3986 içinde tanımlanan izlemelidir. Ayrıca, kaynak adı dışında tarafların emin olmak için adını doğrulamak için kullanıma sunan Azure Hizmetleri başka bir kimlik sızmasını girişimi değildir. Bir alt kaynak adının biçimi olup, üst kaynak içinde iç içe geçmiş veya üst kaynak dışında tanımlanan bağlıdır. Bkz: [alt kaynakları](#child-resources). |
 | location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Mevcut konumlardan birini seçebilirsiniz, ancak genellikle kullanıcılarınıza yakın olan bir çekme mantıklıdır. Genellikle, da aynı bölgede birbiriyle etkileşim kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirme, ancak bazı türleri (örneğin, bir rol ataması) bir konuma gerektirmez. |
 | etiketler |Hayır |Kaynakla ilişkili etiketler. Kaynakları aboneliğiniz arasında mantıksal olarak düzenlemek için etiketler. |
 | Açıklamaları |Hayır |Şablonunuzda kaynaklar belgelemek için notlar. Daha fazla bilgi için [şablonlarında yorum](resource-group-authoring-templates.md#comments). |
@@ -506,11 +506,11 @@ Aşağıdaki yapıya sahip kaynakları tanımlarsınız:
 | sku | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlama değerlerini sağlar. Örneğin, bir depolama hesabı için yedeklilik türünü belirtebilirsiniz. |
 | tür | Hayır | Bazı kaynaklar dağıttığınız kaynak türünü tanımlayan bir değeri sağlar. Örneğin, Cosmos DB, oluşturulacak türünü belirtebilirsiniz. |
 | planı | Hayır | Bazı kaynaklar dağıtmayı planlıyorsunuz tanımlayan değerleri sağlar. Örneğin, bir sanal makine için Market görüntüsüne belirtebilirsiniz. | 
-| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Üst kaynak türü gibi tam olarak nitelenmiş tür alt kaynak içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kapsanan değil. Ayrıca, bu bağımlılık açıkça tanımlamanız gerekir. |
+| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Üst Kaynak bağımlılığı kapsanan değil. Ayrıca, bu bağımlılık açıkça tanımlamanız gerekir. Bkz: [alt kaynakları](#child-resources). |
 
 ### <a name="condition"></a>Koşul
 
-Kaynak Oluştur gerekip gerekmediğini dağıtım sırasında karar vermelisiniz kullanırsanız `condition` öğesi. Bu öğenin değeri true veya false olarak çözümler. Değer true ise, bir kaynak oluşturulur. Kaynak değeri false olduğunda oluşturulmadı. Değer yalnızca kaynağın tamamını uygulanabilir.
+Dağıtım sırasında bir kaynak oluşturmak karar vermeniz gerekir, kullanın `condition` öğesi. Bu öğenin değeri true veya false olarak çözümler. Değer true ise, bir kaynak oluşturulur. Kaynak değeri false olduğunda oluşturulmadı. Değer yalnızca kaynağın tamamını uygulanabilir.
 
 Genellikle, yeni bir kaynak oluşturmak veya mevcut bir istediğinizde bu değeri kullanın. Örneğin, yeni bir depolama hesabı dağıtıldığına veya mevcut bir depolama hesabını belirtmek için kullanılan, kullanın:
 
@@ -652,45 +652,57 @@ Aşağıdaki örnek, bir parametre olarak belirtilen bir konuma dağıtılan bir
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-İç içe olduğunda tür kümesine `databases` ancak kendi tam kaynak türü `Microsoft.Sql/servers/databases`. Sağlaması gerekmez `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı kümesine `exampledatabase` ancak üst adı tam adını içerir. Sağlaması gerekmez `exampleserver` üst kaynak varsayıldığından.
-
-Alt kaynak türünün biçimi şu şekildedir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-Alt kaynak adı biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
-
 Ancak veritabanı sunucusu içinde tanımlamanız gerekmez. Alt kaynak en üst düzeyde tanımlayabilirsiniz. Üst kaynak aynı şablonun dağıttıysanız değil veya bu yaklaşımı kullanabilirsiniz kullanmak istediğiniz `copy` birden fazla alt kaynak oluşturmak için. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+Tür ve ad için sağladığınız değerler üst kaynak içinde veya dışında üst kaynak alt kaynak tanımlı olmadığı göre değişir.
+
+Üst kaynak iç içe geçmiş zaman kullanın:
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+Üst kaynak dışında tanımlandığında, kullanın:
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+İç içe olduğunda tür kümesine `databases` ancak yine de tam kaynak türü olan `Microsoft.Sql/servers/databases`. Sağlaması gerekmez `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı kümesine `exampledatabase` ancak üst adı tam adını içerir. Sağlaması gerekmez `exampleserver` üst kaynak varsayıldığından.
 
 Tam başvuru için bir kaynak oluşturulurken, yalnızca bir birleştirme iki tür ve ad kesimlerinden birleştirilecek sırası değildir. Bunun yerine, sonra ad alanı, bir dizi kullanın *türü/ad* en az belirli bir çiftlerinden en belirgin için:
 
@@ -724,8 +736,8 @@ Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 |:--- |:--- |:--- |
 | outputName |Evet |Çıkış değeri adı. Geçerli bir JavaScript tanımlayıcı olmalıdır. |
 | koşul |Hayır | Bu değeri çıktı olup olmadığını gösteren Boole değeri döndürülür. Zaman `true`, değer çıktısı için dağıtım dahildir. Zaman `false`, çıkış değeri bu dağıtım için atlandı. Belirtilmediğinde varsayılan değer: `true`. |
-| type |Evet |Çıkış değeri türü. Çıkış değerleri şablon giriş parametreleri aynı türlerini destekler. |
-| değer |Evet |Değerlendirilen ve çıkış değeri döndürülen şablon dili ifadesi. |
+| type |Evet |Çıkış değeri türü. Çıkış değerleri şablon giriş parametreleri aynı türlerini destekler. Belirtirseniz **securestring** çıktı türü için değer dağıtım geçmişini görüntülenmez ve başka bir şablondan alınamıyor. Gizli değer birden fazla şablonunda kullanmak için gizli bir anahtar Kasası'nda depolayın ve gizli parametre dosyasına başvurun. Daha fazla bilgi için [dağıtım sırasında güvenli bir parametre geçirmek için Azure anahtar kasası kullanım](resource-manager-keyvault-parameter.md). |
+| value |Evet |Değerlendirilen ve çıkış değeri döndürülen şablon dili ifadesi. |
 
 ### <a name="define-and-use-output-values"></a>Tanımlama ve çıkış değerlerini kullanma
 

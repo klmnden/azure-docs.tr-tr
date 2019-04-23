@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049706"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149504"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -185,19 +185,19 @@ Yükleme dosyasını aşağıdaki gibi çalıştırın:
 
 |Parametre Adı| Type | Açıklama| Değerler|
 |-|-|-|-|
-| /ServerMode|Gerekli|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
-|/InstallLocation|Gerekli|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
-|/MySQLCredsFilePath|Gerekli|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
-|/VaultCredsFilePath|Gerekli|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
-|/EnvType|Gerekli|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
-|/PSIP|Gerekli|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/CSIP|Gerekli|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/PassphraseFilePath|Gerekli|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
+| /ServerMode|Gereklidir|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
+|/InstallLocation|Gereklidir|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
+|/MySQLCredsFilePath|Gereklidir|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
+|/VaultCredsFilePath|Gereklidir|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
+|/EnvType|Gereklidir|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
+|/PSIP|Gereklidir|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/CSIP|Gereklidir|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/PassphraseFilePath|Gereklidir|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
 |/BypassProxy|İsteğe bağlı|Yapılandırma sunucusunun Azure'a bir ara sunucu olmadan bağlandığını belirtir|Yapmak için bu değeri Venu’den alın|
 |/ProxySettingsFilePath|İsteğe bağlı|Ara sunucu ayarları (Varsayılan ara sunucu kimlik doğrulaması gerektirir ya da özel bir ara sunucu kullanılır)|Dosya aşağıda belirtilen biçimde olmalıdır|
 |DataTransferSecurePort|İsteğe bağlı|Çoğaltma verileri için kullanılacak PSIP’deki bağlantı noktası numarası| Geçerli Bağlantı Noktası Numarası (varsayılan değer: 9433)|
 |/SkipSpaceCheck|İsteğe bağlı|Önbellek diski için alan denetimini atlama| |
-|/AcceptThirdpartyEULA|Gerekli|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
+|/AcceptThirdpartyEULA|Gereklidir|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
 |/ShowThirdpartyEULA|İsteğe bağlı|Üçüncü taraf EULA belgesini görüntüler. Giriş olarak sağlanırsa, diğer tüm parametreler yoksayılır| |
 
 

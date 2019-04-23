@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609141"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007670"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Coğrafi kullanılabilirlik ve para birimi desteği
 
@@ -42,7 +42,7 @@ Azure Marketi teklifleri 141 coğrafyalardaki müşterinin fatura adresiyle tan�
 | Bolivya                             | BO        | USD          |
 | Bosna Hersek              | BA        | USD          |
 | Botsvana                            | BW        | USD          |
-| Brezilya                              | BR        | BRL          |
+| Brezilya                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaristan                            | BG        | EUR          |
 | Kamerun                            | CM        | USD          |
@@ -164,3 +164,5 @@ Azure Marketi teklifleri 141 coğrafyalardaki müşterinin fatura adresiyle tan�
 | Zambiya                              | ZM        | USD          |
 | Zimbabve                            | ZW        | USD          |
 |   |   |   |
+
+\* Brezilya müşteriler için bulut çözümü sağlayıcıları (CSP) aracılığıyla Market ABD Doları kullanır.

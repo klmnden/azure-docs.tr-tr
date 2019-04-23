@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 8dff81d3f3594798a1b08184af0098f3bd86c12c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607407"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011053"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Python ile blobları Listele
 
-Bu hızlı başlangıçta karşıya yükleyin, indirin ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listelemek için Python kullanma bakın. Basitçe herhangi bir metin veya ikili veriler de (örneğin, görüntüleri, belge, medya akışı, arşiv veri, vb.) miktarını tutabilir ve dosya paylaşımları, şemasız tablolar ve ileti kuyrukları Azure depolamada farklı nesneleri blobudur. (Daha fazla bilgi için [Azure Storage'a giriş](/azure/storage/common/storage-introduction.md).)
+Bu hızlı başlangıçta karşıya yükleyin, indirin ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listelemek için Python kullanma bakın. Basitçe herhangi bir metin veya ikili veriler de (örneğin, görüntüleri, belge, medya akışı, arşiv veri, vb.) miktarını tutabilir ve dosya paylaşımları, şemasız tablolar ve ileti kuyrukları Azure depolamada farklı nesneleri blobudur. (Daha fazla bilgi için [Azure Storage'a giriş](/azure/storage/common/storage-introduction).)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +45,7 @@ Bu komut *Azure-Samples/storage-blobs-python-quickstart* deposunu yerel git klas
 Uygulamada, `BlockBlobService` nesnesi oluşturmak için depolama hesabı adınızı ve hesap anahtarınızı sağlayın. IDE'nizdeki Çözüm Gezgini'nde *example.py* dosyasını açın. `accountname` ve `accountkey` değerlerini hesap adınız ve anahtarınız ile değiştirin. 
 
 ```python 
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
@@ -92,11 +92,11 @@ Bulut Blobu kapsayıcınız olduktan sonra, ilgilendiğiniz bloba işaret eden *
 Bu bölümde nesne örneği ve yeni bir kapsayıcı oluşturacak ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak şekilde ayarlayacaksınız. Bu kapsayıcının adı **quickstartblobs**’dur. 
 
 ```python 
-# Create the BlockBlockService that is used to call the Blob service for the storage account
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+# Create the BlockBlockService that is used to call the Blob service for the storage account.
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
  
 # Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
+container_name = 'quickstartblobs'
 block_blob_service.create_container(container_name) 
 
 # Set the permission so the blobs are public.
@@ -106,29 +106,29 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır.  
 
-Bir dosyayı bloba yüklemek için, yerel diskinizdeki dizin adıyla dosya adını birleştirerek dosyanın tam yolunu alın. Sonra, dosyayı belirtilen yola `create\_blob\_from\_path` yöntemiyle yükleyebilirsiniz. 
+Bir dosyayı bloba yüklemek için, yerel diskinizdeki dizin adıyla dosya adını birleştirerek dosyanın tam yolunu alın. Sonra, dosyayı belirtilen yola `create_blob_from_path` yöntemiyle yükleyebilirsiniz. 
 
-Örnek kod, karşıya yükleme ve indirme için kullanılacak yerel bir dosya oluşturur, karşıya yüklenecek dosyayı `file\_path\_to\_file` olarak ve blob adını `local\_file\_name` olarak depolar. Aşağıdaki örnek, dosyayı **quickstartblobs** adlı kapsayıcınıza yükler.
+Örnek kod karşıya yükleme ve olarak karşıya yüklenecek dosya indirme için kullanılacak yerel bir dosya oluşturur, *full_path_to_file* blob adını *local_file_name*. Aşağıdaki örnek, dosyayı **quickstartblobs** adlı kapsayıcınıza yükler.
 
 ```python
 # Create a file in Documents to test the upload and download.
-local_path=os.path.expanduser("~\Documents")
-local_file_name ="QuickStart_" + str(uuid.uuid4()) + ".txt"
-full_path_to_file =os.path.join(local_path, local_file_name)
+local_path = os.path.expanduser("~\Documents")
+local_file_name = "QuickStart_" + str(uuid.uuid4()) + ".txt"
+full_path_to_file = os.path.join(local_path, local_file_name)
 
 # Write text to the file.
-file = open(full_path_to_file,  'w')
+file = open(full_path_to_file, 'w')
 file.write("Hello, World!")
 file.close()
 
 print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
-# Upload the created file, use local_file_name for the blob name
+# Upload the created file, use local_file_name for the blob name.
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Blob depolamayla kullanabileceğiniz çeşitli karşıya yükleme yöntemleri vardır. Örneğin, bir bellek akışınız varsa `create\_blob\_from\_path` yerine `create\_blob\_from\_stream` yöntemini kullanabilirsiniz. 
+Blob depolamayla kullanabileceğiniz çeşitli karşıya yükleme yöntemleri vardır. Örneğin, bir bellek akışınız varsa `create_blob_from_path` yerine `create_blob_from_stream` yöntemini kullanabilirsiniz. 
 
 Blok bloblarının boyutu 4,7 TB'yi bulabilir ve bu bloblar Excel elektronik tablolarından büyük video dosyalarına kadar birçok türde olabilir. Sayfa blobları öncelikli olarak IaaS VM'lerini destekleyen VHD dosyalarında kullanılır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
 
@@ -137,7 +137,7 @@ Blok bloblarının boyutu 4,7 TB'yi bulabilir ve bu bloblar Excel elektronik tab
 `list_blobs` yöntemiyle kapsayıcıdaki dosya listesini alın. Bu yöntem bir oluşturucu döndürür. Aşağıdaki kod blob listesini alır, &mdash;ardından bu bloblarda döngü yapar&mdash; ve kapsayıcıda bulunan blobların adlarını gösterir.  
 
 ```python
-# List the blobs in the container
+# List the blobs in the container.
 print("\nList blobs in the container")
 generator = block_blob_service.list_blobs(container_name)
 for blob in generator:
@@ -146,21 +146,21 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Blobları indirme
 
-`the get\_blob\_to\_path` yöntemini kullanarak blobları yerel diskinize indirin. Aşağıdaki kod, önceki bir bölüme yüklenen blobu indirir. Yerel diskte yer alan iki dosyayı da görebilmeniz için, blob adının sonuna *_DOWNLOADED* son eki getirilir. 
+Yerel disk kullanarak blobları indirin `get_blob_to_path` yöntemi. Aşağıdaki kod, önceki bir bölüme yüklenen blobu indirir. Yerel diskte yer alan iki dosyayı da görebilmeniz için, blob adının sonuna *_DOWNLOADED* son eki getirilir. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name ,'.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, `delete\_container` yöntemini kullanarak kapsayıcının tamamını silebilirsiniz. Bunun yerine tek tek dosyaları silmek için `delete\_blob` yöntemini kullanın.
+Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, `delete_container` yöntemini kullanarak kapsayıcının tamamını silebilirsiniz. Bunun yerine tek tek dosyaları silmek için `delete_blob` yöntemini kullanın.
 
 ```python
-# Clean up resources. This includes the container and the temp files
+# Clean up resources. This includes the container and the temp files.
 block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)

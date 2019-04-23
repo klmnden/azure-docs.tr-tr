@@ -7,40 +7,25 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: 09574647aae8725a614dd20fd0247b0f8cf8b68a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 6cf05437d5fc181a9fadae110a44efd88d06a2da
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446978"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011642"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell, denetlemek ve iş yüklerinizi azure'da yönetimini ve dağıtımı otomatik hale getirmek için kullanılabilir. Bu makalede, nasıl yöneteceğinizi öğrenin [Apache Hadoop](https://hadoop.apache.org/) Azure PowerShell kullanarak Azure HDInsight kümeleri. HDInsight PowerShell cmdlet'leri listesi için bkz: [HDInsight cmdlet başvurusu](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell, denetlemek ve iş yüklerinizi azure'da yönetimini ve dağıtımı otomatik hale getirmek için kullanılabilir. Bu makalede, nasıl yöneteceğinizi öğrenin [Apache Hadoop](https://hadoop.apache.org/) Az Azure PowerShell modülünü kullanarak Azure HDInsight kümeleri. HDInsight PowerShell cmdlet'leri listesi için bkz: [Az.HDInsight başvuru](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-**Önkoşullar**
+## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
-
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-Azure PowerShell sürüm 0.9 yüklediyseniz x kaldırmanız gerekir, daha yeni sürümü yüklemeden önce.
-
-Yüklü PowerShell sürümü denetlemek için:
-
-```powershell
-Get-Module *Az*
-```
-
-Eski sürümü kaldırmak için Denetim Masası'ndaki Programlar ve Özellikler'ı çalıştırın.
+* PowerShell [Az modül](https://docs.microsoft.com/powershell/azure/overview) yüklü.
 
 ## <a name="create-clusters"></a>Küme oluşturma
 Bkz: [Azure PowerShell kullanarak HDInsight oluşturma Linux tabanlı kümeler](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -75,9 +60,6 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
 Özellik ölçeklendirme kümesi Azure HDInsight kümesini yeniden oluşturmak zorunda kalmadan çalışan bir küme tarafından kullanılan çalışan düğümlerinin sayısını değiştirmenize izin verir.
 
-> [!NOTE]  
-> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [kümeleri Listele ve Göster](hdinsight-administer-use-portal-linux.md#showClusters).
-
 HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
 * Apache Hadoop
@@ -90,9 +72,9 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
     Sorunsuz bir şekilde ekleyebilir veya çalışırken düğümleri HBase kümenize kaldırın. Bölge sunucuları ölçeklendirme işlemi tamamladıktan birkaç dakika içinde otomatik olarak dengelenir. Ancak, el ile küme baş düğümüne oturum açarak bölgesel sunucular dengelemek ve ardından bir komut istemi penceresinden aşağıdaki komutları çalıştırın:
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
 * Apache Storm
@@ -169,6 +151,10 @@ Aynı Grant/revoke HTTP erişim yordam var. Kümenin HTTP erişim verilmişse, �
 ## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
 Aşağıdaki PowerShell Betiği, varsayılan depolama hesabı adını ve ilgili bilgi almak gösterilmektedir:
 
+> [!IMPORTANT]  
+> Değerleri `DefaultStorageAccount`, ve `DefaultStorageContainer` döndürülen değil [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) olduğunda [güvenli aktarım](../storage/common/storage-require-secure-transfer.md) depolama hesabı etkinleştirilir.
+
+
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -226,34 +212,14 @@ Bkz: [HDInsight ile Apache Sqoop'u kullanma](hadoop/hdinsight-use-sqoop.md).
 Bkz: [tanımlamak ve iş akışı çalıştırma HDInsight için Apache Hadoop ile Apache Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
-Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
+
+Bkz: [HDInsight için verileri karşıya yükleme](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Ayrıca Bkz.
+
 * [HDInsight cmdlet başvurusu belgeleri](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md)
-* [Bir komut satırı arabirimi ile HDInsight'ı yönetme][hdinsight-admin-cli]
-* [HDInsight kümeleri oluşturma][hdinsight-provision]
-* [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [Program aracılığıyla Apache Hadoop işlerini gönderme][hdinsight-submit-jobs]
-* [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-
-[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+* [Bir komut satırı arabirimi ile HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
+* [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
+* [Program aracılığıyla Apache Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)

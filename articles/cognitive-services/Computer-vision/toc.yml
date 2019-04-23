@@ -1,208 +1,201 @@
-items:
 - name: Görüntü İşleme API'si Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Görüntü İşleme nedir?
-    href: Home.md
   expanded: true
+  items:
+    - name: Görüntü İşleme nedir?
+      href: Home.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: REST API’sini kullanma
-    items:
-    - name: Uzak resmi çözümleme
+    - name: REST API’sini kullanma
       items:
-      - name: cURL
-        href: QuickStarts/curl-analyze.md
-      - name: Başlayın
-        href: QuickStarts/go-analyze.md
-      - name: Java
-        href: QuickStarts/java-analyze.md
-      - name: JavaScript
-        href: QuickStarts/javascript-analyze.md
-      - name: Node.js
-        href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
-      - name: Python
-        href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
-    - name: Yerel resmi çözümleme
+        - name: Uzak resmi çözümleme
+          items:
+            - name: cURL
+              href: QuickStarts/curl-analyze.md
+            - name: Başlayın
+              href: QuickStarts/go-analyze.md
+            - name: Java
+              href: QuickStarts/java-analyze.md
+            - name: JavaScript
+              href: QuickStarts/javascript-analyze.md
+            - name: Node.js
+              href: QuickStarts/node-analyze.md
+            - name: PHP
+              href: QuickStarts/php-analyze.md
+            - name: Python
+              href: QuickStarts/python-analyze.md
+            - name: Ruby
+              href: QuickStarts/ruby-analyze.md
+        - name: Yerel resmi çözümleme
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-analyze.md
+            - name: Python
+              href: QuickStarts/python-disk.md
+        - name: Küçük resim oluşturma
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-thumb.md
+            - name: cURL
+              href: QuickStarts/curl-thumb.md
+            - name: Başlayın
+              href: QuickStarts/go-thumb.md
+            - name: Java
+              href: QuickStarts/java-thumb.md
+            - name: JavaScript
+              href: QuickStarts/javascript-thumb.md
+            - name: Node.js
+              href: QuickStarts/node-thumb.md
+            - name: PHP
+              href: QuickStarts/php-thumb.md
+            - name: Python
+              href: QuickStarts/python-thumb.md
+            - name: Ruby
+              href: QuickStarts/ruby-thumb.md
+        - name: Yazdırılan metni ayıklama
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-print-text.md
+            - name: cURL
+              href: QuickStarts/curl-print-text.md
+            - name: Başlayın
+              href: QuickStarts/go-print-text.md
+            - name: Java
+              href: QuickStarts/java-print-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-print-text.md
+            - name: Node.js
+              href: QuickStarts/node-print-text.md
+            - name: PHP
+              href: QuickStarts/php-print-text.md
+            - name: Python
+              href: QuickStarts/python-print-text.md
+            - name: Ruby
+              href: QuickStarts/ruby-print-text.md
+        - name: El yazısı metni ayıklama
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Etki alanı modeli kullanma
+          items:
+            - name: PHP
+              href: QuickStarts/php-domain.md
+            - name: Python
+              href: QuickStarts/python-domain.md
+    - name: .NET SDK’sini kullanma
       items:
-      - name: C#
-        href: QuickStarts/CSharp-analyze.md
-      - name: Python
-        href: QuickStarts/python-disk.md
-    - name: Küçük resim oluşturma
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-thumb.md
-      - name: cURL
-        href: QuickStarts/curl-thumb.md
-      - name: Başlayın
-        href: QuickStarts/go-thumb.md
-      - name: Java
-        href: QuickStarts/java-thumb.md
-      - name: JavaScript
-        href: QuickStarts/javascript-thumb.md
-      - name: Node.js
-        href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
-      - name: Python
-        href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
-    - name: Yazdırılan metni ayıklama
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-print-text.md
-      - name: cURL
-        href: QuickStarts/curl-print-text.md
-      - name: Başlayın
-        href: QuickStarts/go-print-text.md
-      - name: Java
-        href: QuickStarts/java-print-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-print-text.md
-      - name: Node.js
-        href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
-      - name: Python
-        href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
-    - name: El yazısı metni ayıklama
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-hand-text.md
-      - name: Java
-        href: QuickStarts/java-hand-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-hand-text.md
-      - name: Python
-        href: QuickStarts/python-hand-text.md
-    - name: Etki alanı modeli kullanma
-      items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
-      - name: Python
-        href: QuickStarts/python-domain.md
-  - name: .NET SDK’sini kullanma
-    items:
-    - name: Resim çözümleme
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: Küçük resim oluşturma
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Metin ayıklama
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
-  - name: Python SDK'yı kullanma
-    href: quickstarts-sdk/python-sdk.md
+        - name: Resim çözümleme
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Küçük resim oluşturma
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Metin ayıklama
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
+    - name: Python SDK'yı kullanma
+      href: quickstarts-sdk/python-sdk.md
 - name: Öğreticiler
   items:
-  - name: Resimler için meta verileri oluşturma
-    href: Tutorials/storage-lab-tutorial.md
+    - name: Resimler için meta verileri oluşturma
+      href: Tutorials/storage-lab-tutorial.md
 - name: Kavramlar
   items:
-  - name: Resimleri etiketleme
-    href: concept-tagging-images.md
-  - name: Nesneleri seçme
-    href: concept-object-detection.md
-  - name: Marka algılama
-    href: concept-brand-detection.md
-  - name: Resimleri kategorilere ayırma
-    href: concept-categorizing-images.md
-  - name: Resimleri açıklama
-    href: concept-describing-images.md
-  - name: Yüz algılama
-    href: concept-detecting-faces.md
-  - name: Görüntü türünü algılama
-    href: concept-detecting-image-types.md
-  - name: Etki alanına özgü içeriği algılama
-    href: concept-detecting-domain-content.md
-  - name: Renk şemalarını algılama
-    href: concept-detecting-color-schemes.md
-  - name: Küçük resimler oluşturma
-    href: concept-generating-thumbnails.md
-  - name: Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
-    href: concept-recognizing-text.md
-  - name: Yetişkinlere yönelik ve müstehcen içerikleri algılama
-    href: concept-detecting-adult-content.md
+    - name: Resimleri etiketleme
+      href: concept-tagging-images.md
+    - name: Nesneleri seçme
+      href: concept-object-detection.md
+    - name: Marka algılama
+      href: concept-brand-detection.md
+    - name: Resimleri kategorilere ayırma
+      href: concept-categorizing-images.md
+    - name: Resimleri açıklama
+      href: concept-describing-images.md
+    - name: Yüz algılama
+      href: concept-detecting-faces.md
+    - name: Görüntü türünü algılama
+      href: concept-detecting-image-types.md
+    - name: Etki alanına özgü içeriği algılama
+      href: concept-detecting-domain-content.md
+    - name: Renk şemalarını algılama
+      href: concept-detecting-color-schemes.md
+    - name: Küçük resimler oluşturma
+      href: concept-generating-thumbnails.md
+    - name: Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
+      href: concept-recognizing-text.md
+    - name: Yetişkinlere yönelik ve müstehcen içerikleri algılama
+      href: concept-detecting-adult-content.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Görüntü İşleme’yi kullanma
-    items:
-    - name: Java
-      href: Tutorials/java-tutorial.md
-    - name: JavaScript
-      href: Tutorials/javascript-tutorial.md
-    - name: Python
-      href: Tutorials/PythonTutorial.md
-  - name: Abonelik anahtarları alma
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
-  - name: Görüntü İşleme API’sini çağırma
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Kapsayıcıları kullanma
-    items:
-    - name: Kapsayıcıları yükleme ve çalıştırma
-      href: computer-vision-how-to-install-containers.md
-    - name: Kapsayıcıları yapılandırma
-      href: computer-vision-resource-container-config.md
-  - name: Görüntü İşleme Bağlı Hizmetini kullanma
-    href: vs-computer-vision-connected-service.md
-  - name: Videoları gerçek zamanlı olarak analiz etme
-    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Görüntü İşleme’yi kullanma
+      items:
+        - name: Java
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: Görüntü İşleme API’sini çağırma
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: Kapsayıcıları kullanma
+      items:
+        - name: Kapsayıcıları yükleme ve çalıştırma
+          href: computer-vision-how-to-install-containers.md
+        - name: Kapsayıcıları yapılandırma
+          href: computer-vision-resource-container-config.md
+    - name: Görüntü İşleme Bağlı Hizmetini kullanma
+      href: vs-computer-vision-connected-service.md
+    - name: Videoları gerçek zamanlı olarak analiz etme
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Görüntü İşleme API’si v2.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
-  - name: Görüntü İşleme API’si v1.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
-    - name: Android (Java)
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
-    - name: Swift
-      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Görüntü İşleme API’si v2.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: Görüntü İşleme API’si v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
+        - name: Android (Java)
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: Kaynaklar
   items:
-  - name: Örnekler
-    items:
-    - name: Görüntü işleme uygulamasını inceleme
-      href: Tutorials/CSharpTutorial.md
-    - name: Diğer Görüntü İşleme örnekleri
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: SSS
-    href: FAQ.md
-  - name: Fiyatlandırma ve limitler
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Kategori sınıflandırma
-    href: Category-Taxonomy.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 2fc31b518155f49cd17b86780e6accbacc2ba354
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192318"
+    - name: Örnekler
+      items:
+        - name: Görüntü işleme uygulamasını inceleme
+          href: Tutorials/CSharpTutorial.md
+        - name: Diğer Görüntü İşleme örnekleri
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: SSS
+      href: FAQ.md
+    - name: Kategori sınıflandırma
+      href: Category-Taxonomy.md
+    - name: Dil desteği
+      href: language-support.md
+    - name: Fiyatlandırma ve limitler
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

@@ -1,7 +1,6 @@
 ---
-title: SUSE Linux planları - Azure rezervasyon satın alın | Microsoft Docs
-description: SUSE kullanımınız için ön ödeme ve, Kullandıkça Öde maliyetlerinden tasarruf hakkında bilgi edinin.
-services: virtual-machines-linux
+title: Yazılım planları - Azure ayırmaları ön ödeme | Microsoft Docs
+description: Nasıl, yazılım planlarını, Kullandıkça Öde maliyetlerinden tasarruf için ön ödeme öğrenin.
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,52 +10,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2019
-ms.author: yashar
-ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.date: 04/12/2019
+ms.author: banders
+ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745988"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011104"
 ---
-# <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Azure ayırmalardan SUSE yazılım planları için ön ödeme
+# <a name="prepay-for-azure-software-plans"></a>Azure yazılım planları için ön ödeme
 
-SUSE kullanımınız için ön ödeme ve, Kullandıkça Öde maliyetlerinden tasarruf edin. İndirimler yalnızca SUSE ölçümleri ve değil, sanal makine kullanımı için geçerlidir. Sanal makineler, ayrı olarak daha fazla tasarruf etmek için rezervasyon satın alabilirsiniz.
+Azure, SUSE ve RedHat yazılım kullanımı için ön ödeme, Kullandıkça Öde maliyetlerinden tasarruf. İndirimleri, SUSE ve RedHat oranları ve sanal makine kullanımı değil, yalnızca geçerli. Ek tasarruf için ayrı ayrı sanal makineler için ayırma satın alabilirsiniz.
 
-Azure portalında SUSE yazılım planları satın alabilirsiniz. Bir plan satın almak için:
+Azure portalında, SUSE ve RedHat yazılım planları satın alabilirsiniz. Bir plan satın almak için:
 
-- En az bir kuruluş veya Kullandıkça Öde aboneliğine sahip rolünde olması gerekir.
-- Kurumsal abonelikler için **ayrılmış örnekleri ekleme** içinde etkinleştirilmelidir [EA portal](https://ea.azure.com). Veya bu ayarı devre dışıysa, aboneliğini bir EA yönetici olması gerekir.
-- Bulut çözümü sağlayıcısı (CSP) programı için yönetim aracılarını veya satış aracılarının SUSE planları satın alabilirsiniz.
+- En az bir kuruluş veya Kullandıkça Öde aboneliğine sahip rolüne sahip olmalıdır.
+- Kurumsal abonelikler için **ayrılmış örnekleri ekleme** seçeneği etkinleştirilmelidir [EA portal](https://ea.azure.com/). Ayarı devre dışıysa, abonelik için EA yönetici olmanız gerekir.
+- Bulut çözümü sağlayıcısı (CSP) programı için yönetim aracılarını veya satış aracılarının yazılım planları satın alabilirsiniz.
 
-## <a name="buy-a-suse-software-plan"></a>SUSE yazılım planı satın alın
+## <a name="buy-a-software-plan"></a>Yazılım planı satın alın
 
-1. Git [ayırmaları](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) Azure portalında.
-1. Seçin **Ekle** ve SUSE Linux'ı seçin.
-1. Gerekli alanları doldurun. Tüm SUSE Linux VM ne satın öznitelikleri eşleşen indirim alır. Kapsam ve seçilen miktar indirim almak dağıtımları gerçek sayısını bağlıdır.
+1. Oturum açma için Azure portalını ve Git [ayırmaları](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Tıklayın **Ekle** ve ardından satın almak istediğiniz yazılım planı seçin.
+Gerekli alanları doldurun. Herhangi bir SUSE Linux VM veya RedHat ne satın öznitelikleri eşleşen VM indirim alır. Kapsam ve seçilen miktar indirim almak dağıtımları gerçek sayısını bağlıdır.
+3. Bir abonelik seçin. Bu plan için ödeme yapmayı kullanılır.
+Abonelik ödeme yöntemi, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P).
+    - Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir.
+    - Bir Kullandıkça Öde aboneliğine ücretleri aboneliğin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.
+4. Bir kapsam seçin. Kapsam bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele.
+    - Abonelik kullanımı eşleşen tek bir abonelik - planı indirim uygulanır.
+    - Paylaşılan - planı indirimi, eşleşen herhangi bir abonelikte fatura Bağlamınızı durumlarda uygulanır. Kurumsal müşteriler için fatura bağlamı kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için fatura tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan bağlamdır.
+5. VM boyutu ve resim türü seçmek için bir ürün seçin. Yalnızca seçilen VM boyutuna indirim uygulanır.
+6. Bir yıllık veya üç yıllık bir terim seçin.
+7. Fatura indirim almak ön ödemeli VM örneği sayısı bir miktar seçin.
+8. Sepet, gözden geçirme ve satın alma için ürün ekleyin.
 
-    | Alan      | Açıklama|
-    |:------------|:--------------|
-    |Ad        |Bu satın alma adı.|
-    |Abonelik|Bu plan için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR - 0023 P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|
-    |Kapsam       |Kapsam bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Bu abonelikte SUSE Linux kullanımı tek bir abonelik - planı indirim uygulanır. </li><li>Paylaşılan - planı indirim SUSE Linux kullanımı herhangi bir abonelik, fatura bağlamı içinde uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
-    |Yazılım planı     |SUSE Linux planı seçin. Satın almanız gereken planı belirleme konusunda yardım için bkz. [SUSE Linux Enterprise yazılım ayırma indiriminin nasıl uygulandığını anlama](../../billing/billing-understand-suse-reservation-charges.md).|
-    |VM boyutu     |SUSE Linux fiyatlandırma, VM Vcpu sayısına bağlıdır. SUSE Linux vm'lerde Vcpu sayısını temsil eden bir seçenek belirleyin.|
-    |Sözleşme Dönemi        |Bir yıl veya üç yıl.|
-    |Miktar    |Bu SUSE Linux plan için satın alıyorsunuz sanal makine sayısı. Fatura indirim almak SUSE Linux örnekleri çalışan sayısını miktarıdır.|
-1. **Satın al**'ı seçin.
-1. Seçin **bu rezervasyonu görüntüle** satın alma işleminizi durumunu görmek için.
+Ayırma indirimi, önceden ödeme yaparsınız yazılım ölçer için otomatik olarak uygulanır. VM işlem ücretlerini planı kapsamında değildir. VM ayırmaları ayrı olarak satın alabilirsiniz.
 
-Ayırma indirimi, tüm çalışan SUSE sanal ayırma eşleşen makinelere otomatik olarak uygulanır. İndirim yalnızca SUSE ölçüm için geçerlidir. Bu planı tarafından VM işlem ücretlerini kapsamaz.
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>İndirimi, farklı SUSE VM boyutları için geçerlidir.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>İndirim örneği boyutu esnekliği ile farklı VM boyutları için geçerlidir.
+Ayrılmış VM örnekleri gibi SUSE Linux planları örneği boyutu esnekliği sunar. Satın aldığınız SUSE planından farklı bir boyutta bir sanal makine dağıttığınızda, indirim uygulanır. Daha fazla bilgi için [yazılım planı indirim nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).
 
-Ayrılmış VM örnekleri gibi SUSE Linux planları örneği boyutu esnekliği sunar. Başka bir deyişle, satın aldığınız SUSE planından farklı bir boyutta bir VM dağıtımı yaparken bile, indirim uygulanır. Daha fazla bilgi için [SUSE Linux Enterprise yazılım ayırma indirimi nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).
+## <a name="redhat-plan-discount"></a>RedHat-planı indirim
+
+Planlar yalnızca Red Hat Enterprise Linux sanal makineler için kullanılabilir. İndirim, RedHat Enterprise Linux SAP HANA Vm'lerinde veya RedHat Enterprise Linux SAP Business Apps Vm'leri için geçerli değildir.
+
+Satın alım zamanında seçtiğiniz VM boyutuna RedHat planı indirimleri uygulanır. RHEL planları para iadesi veya satın almanızdan sonra akar.
+
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>İptal ve değişimleri izin verilmiyor
 
-Satın aldığınız SUSE planını iptal edemez veya değiştiremezsiniz. Kullanımınızı denetleyerek doğru planı satın aldığınızdan emin olun. Satın almanız gereken planı belirleme konusunda yardım için bkz. [SUSE Linux Enterprise yazılım ayırma indiriminin nasıl uygulandığını anlama](../../billing/billing-understand-suse-reservation-charges.md).
+İptal edemezsiniz veya satın aldığınız bir SUSE veya RedHat planı exchange. Kullanımınızı denetleyerek doğru planı satın aldığınızdan emin olun. Senaryonuzda satın almak daha fazla yardım için bkz: [yazılım planı indirim nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).
+
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -69,7 +78,3 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [SUSE ayırma indirimi nasıl uygulanacağını anlama](../../billing/billing-understand-suse-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../../billing/billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](../../billing/billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

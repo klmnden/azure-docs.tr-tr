@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049447"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004593"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -54,13 +54,16 @@ Atama ve kullanıcılar için sanal masaüstlerinizi bağlanın:
 
 Windows sanal masaüstü bağlantısı kurma ve kullanıcılarınızın Windows Masaüstü ve uygulamalar için başarıyla bağlanması için gereken birkaç nokta vardır.
 
-İlk olarak, sahip olduğunuzdan emin olun [uygun lisansları](https://azure.microsoft.com/pricing/details/virtual-desktop/) Masaüstü ve uygulamaları dağıtmayı planladığınız göre kullanıcılarınız için:
+Windows sanal masaüstü yalnızca şu anda aşağıdaki iki işletim sistemi destekler:
+- Windows 10 Enterprise çok oturum
+- Windows Server 2016
+
+Aşağıdaki işletim sistemleri için destek eklemek için bu nedenle sahip olduğunuzdan emin olun planlıyoruz [uygun lisansları](https://azure.microsoft.com/pricing/details/virtual-desktop/) Masaüstü ve uygulamaları dağıtmayı planladığınız göre kullanıcılarınız için:
 
 |İşletim Sistemi|Gerekli lisans|
 |---|---|
-|Windows 10 Enterprise çok oturum veya Windows 10 tek oturum|Microsoft 365 E3, E5, A3, A5, iş, F1<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, iş, F1<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Yazılım Güvencesine sahip RDS istemci erişim lisansı (CAL)|
+
+| Windows 10 Enterprise çok oturum veya Windows 10 Enterprise | Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5 | | Windows 7 Enterprise | Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5 | | Windows Server 2012 R2, 2016, 2019 | Yazılım Güvencesine sahip RDS istemci erişim lisansı (CAL) |
 
 Altyapınızı Windows sanal masaüstü desteklemek için aşağıdakiler gerekir:
 

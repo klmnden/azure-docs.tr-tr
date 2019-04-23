@@ -242,6 +242,9 @@
       href: /azure/templates/microsoft.media/allversions
 - name: Kaynaklar
   items:
+    - name: Azure Media Services topluluğu
+      displayName: 'forums, twitter, feedback'
+      href: media-services-community.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: Fiyatlandırma

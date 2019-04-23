@@ -1,112 +1,105 @@
-items:
 - name: Metin Analizi API’si Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Metin Analizi API'si nedir?
-    href: overview.md
-  - name: Örnek kullanıcı senaryoları
-    href: text-analytics-user-scenarios.md
   expanded: true
+  items:
+    - name: Metin Analizi API'si nedir?
+      href: overview.md
+    - name: Örnek kullanıcı senaryoları
+      href: text-analytics-user-scenarios.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Başlayın
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Başlayın
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Öğreticiler
   items:
-  - name: Müşteri geri bildirimini analiz etmek için Power BI’ı tümleştirme
-    href: Tutorials/tutorial-power-bi-key-phrases.md
-  - name: Power Apps’te Metin Analizi
-    href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
-  - name: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi
-    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-    maintainContext: true
-  - name: Metin çevirmek, yaklaşımı analiz etmek ve konuşmayı birleştirmek için Flask kullanma
-    href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
-    maintainContext: true
+    - name: Müşteri geri bildirimini analiz etmek için Power BI’ı tümleştirme
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Power Apps’te Metin Analizi
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
+    - name: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi
+      maintainContext: true
+      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    - name: 'Metin çevirmek, yaklaşımı analiz etmek ve konuşmayı birleştirmek için Flask kullanma'
+      maintainContext: true
+      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Kaydolma
-    href: How-tos/text-analytics-how-to-signup.md
-  - name: Bir erişim anahtarı alma
-    href: How-tos/text-analytics-how-to-access-key.md
-  - name: Metin Analizi API’sini çağırma
-    href: How-tos/text-analytics-how-to-call-api.md
-  - name: Dili algılama
-    href: How-tos/text-analytics-how-to-language-detection.md
-  - name: Yaklaşımı analiz etme
-    href: How-tos/text-analytics-how-to-sentiment-analysis.md
-  - name: Anahtar ifadeleri ayıklama
-    href: How-tos/text-analytics-how-to-keyword-extraction.md
-  - name: Adlandırılmış varlık tanımayı çağırma
-    href: How-tos/text-analytics-how-to-entity-linking.md
-  - name: Kapsayıcıları kullanma
-    items:
-    - name: Kapsayıcıları yükleme ve çalıştırma
-      href: how-tos/text-analytics-how-to-install-containers.md
-    - name: Kapsayıcıları yapılandırma
-      href: text-analytics-resource-container-config.md
-    - name: Azure Kubernetes Service üzerinde çalıştırma
-      href: How-tos/text-analytics-how-to-use-container-instance.md
-  - name: Metin Analizi Bağlı Hizmetini kullanma
-    href: vs-text-connected-service.md
+    - name: Kaydolma
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Bir erişim anahtarı alma
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: Metin Analizi API’sini çağırma
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Dili algılama
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Yaklaşımı analiz etme
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Anahtar ifadeleri ayıklama
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+    - name: Adlandırılmış varlık tanımayı çağırma
+      href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Kapsayıcıları kullanma
+      items:
+        - name: Kapsayıcıları yükleme ve çalıştırma
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: Kapsayıcıları yapılandırma
+          href: text-analytics-resource-container-config.md
+        - name: Azure Kubernetes Service üzerinde çalıştırma
+          href: How-tos/text-analytics-how-to-use-container-instance.md
+    - name: Metin Analizi Bağlı Hizmetini kullanma
+      href: vs-text-connected-service.md
 - name: Başvuru
   items:
-  - name: CLI başvurusu
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: PowerShell başvurusu
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Metin Analizi API’si
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
+    - name: CLI başvurusu
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: PowerShell başvurusu
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Metin Analizi API’si
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: Kaynaklar
   items:
-  - name: MS Flow ile bir Yammer grubundaki yorumların yaklaşımını tanımlama
-    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
-  - name: Dış içerik ve topluluk içeriği
-    href: text-analytics-resource-external-community.md
-  - name: SSS
-    href: text-analytics-resource-faq.md
-  - name: Dil ve bölge desteği
-    href: language-support.md
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/text-analytics-api
-  - name: Abonelik anahtarı
-    href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
-  - name: Deneyin!
-    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 6c25fe6b6fa10c592cb9462e9fb712575f61bdd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788148"
+    - name: MS Flow ile bir Yammer grubundaki yorumların yaklaşımını tanımlama
+      href: 'https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure'
+    - name: Dış içerik ve topluluk içeriği
+      href: text-analytics-resource-external-community.md
+    - name: SSS
+      href: text-analytics-resource-faq.md
+    - name: Dil ve bölge desteği
+      href: language-support.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: Abonelik anahtarı
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
+    - name: Deneyin!
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

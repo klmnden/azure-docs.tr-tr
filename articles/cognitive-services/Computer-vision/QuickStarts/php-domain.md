@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Etki alanına özel görüntü içeriğini - REST, PHP'
+title: 'Hızlı Başlangıç: Etki alanına özgü içerik - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’sini kullanarak bir görüntüdeki yer işaretlerini tanımlamak için alan modeli kullanacaksınız.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877029"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011121"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Hızlı Başlangıç: REST API ve PHP ile görüntü işleme kullanan etki alanına özgü içerikleri
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 - [PHP](https://secure.php.net/downloads.php) yüklenmiş olmalıdır.
 - [Pear](https://pear.php.net) yüklenmiş olmalıdır.
-- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 

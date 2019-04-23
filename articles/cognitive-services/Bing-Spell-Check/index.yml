@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888245"
 documentType: LandingData
 title: Bing Yazım Denetimi API'si Belgeleri
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Yazım Denetimi API’si Belgeleri - Öğreticiler, API Başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs
+  title: 'Bing Yazım Denetimi API’si Belgeleri - Öğreticiler, API Başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs'
   description: Metin belgelerine yönelik önerilen düzeltileri elde etmek için Bing Yazım Denetimi API’sini kullanmayı öğrenin. Öğreticilerde API kullanan uygulamaların nasıl derleneceği gösterilmektedir.
   services: cognitive-services
   author: aahill
@@ -22,87 +16,87 @@ metadata:
   ms.date: 02/19/2019
   ms.author: aahi
 abstract:
-  description: Bing Yazım Denetimi API'si, bağlamsal dil bilgisi ve yazım denetimi gerçekleştirmenize olanak sağlar. Bing, sürekli olarak gelişen ve yüksek düzeyde bağlamsal olan bir algoritmayı dinamik bir şekilde eğitmek için makine öğrenimi ve istatistiksel makine çevirisinden yararlanan web tabanlı bir yazım denetleyicisi geliştirmiştir. Yazım denetleyicisi, web aramalarından ve belgelerden oluşan dev bir gövdeyi temel alır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle içeriği farklı şekillerde analiz etmeyi öğrenin.
+  description: 'Bing Yazım Denetimi API''si, bağlamsal dil bilgisi ve yazım denetimi gerçekleştirmenize olanak sağlar. Bing, sürekli olarak gelişen ve yüksek düzeyde bağlamsal olan bir algoritmayı dinamik bir şekilde eğitmek için makine öğrenimi ve istatistiksel makine çevirisinden yararlanan web tabanlı bir yazım denetleyicisi geliştirmiştir. Yazım denetleyicisi, web aramalarından ve belgelerden oluşan dev bir gövdeyi temel alır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle içeriği farklı şekillerde analiz etmeyi öğrenin.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-spell-check/overview
+            html: <p>Bing Yazım Denetimi API’si hakkında bilgi edinin.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing Yazım Denetimi API’si nedir?
+          - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+            html: <p>Bing Yazım Denetimi API’sine yazım denetimi istekleri göndermeyi öğrenin.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Yazım denetimi istekleri
+          - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+            html: <p>API’nin farklı yazım denetimi modlarını kullanmayı öğrenin.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Resim Arama yanıtı
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/bing-spell-check/overview
-      html: <p>Bing Yazım Denetimi API’si hakkında bilgi edinin.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing Yazım Denetimi API’si nedir?
-    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
-      html: <p>Bing Yazım Denetimi API’sine yazım denetimi istekleri göndermeyi öğrenin.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Yazım denetimi istekleri
-    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
-      html: <p>API’nin farklı yazım denetimi modlarını kullanmayı öğrenin.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Resim Arama yanıtı
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Yazım Denetimi API’sini kullanmaya başlayın:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Yazım Denetimi API’sini kullanmaya başlayın:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            href: quickstarts/csharp
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            href: quickstarts/java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: quickstarts/nodejs
+          - image:
+              src: media/index/logo_php.svg
+            text: PHP
+            href: quickstarts/php
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: quickstarts/python
+          - image:
+              src: media/index/logo_ruby.svg
+            text: Ruby
+            href: quickstarts/ruby
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image:
-        src: media/index/logo_php.svg
-      text: PHP
-      href: quickstarts/php
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image:
-        src: media/index/logo_ruby.svg
-      text: Ruby
-      href: quickstarts/ruby
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Bing Yazım Denetimi API’sini kullanarak uygulama geliştirmeyi öğrenin:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Yazım Denetimi API’sini kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorials/spellcheck.md">Tek sayfalı Web uygulaması</a>
+  - title: Örnekler
     items:
-    - html: <a href="tutorials/spellcheck.md">Tek sayfalı Web uygulaması</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: 'Bing Yazım Denetimi API’si örneklerini bulun:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Yazım Denetimi API’si örneklerini bulun:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">Kod örnekleri</a>
+  - title: Başvuru
     items:
-    - html: <a href="sdk.md">Kod örnekleri</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">Bing Yazım Denetimi API’si v7 Başvurusu</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Yazım Denetimi API’si v5 Başvurusu</a> (eski sürüm)</p>
-    - title: SDK’lar
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">Bing Yazım Denetimi API’si v7 Başvurusu</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Yazım Denetimi API’si v5 Başvurusu</a> (eski sürüm)</p>'
+          - title: SDK’lar
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-spellcheck?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

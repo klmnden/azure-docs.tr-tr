@@ -16,22 +16,22 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b520eade584cc10f6c2e905cb9ec628f9a45e1ca
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 74f23881ae6aca479c976adfbdbb6a46b23e42af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771659"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007653"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell ile bir kullanılabilirlik alanında Windows sanal makinesi oluşturma
 
 Bu makalede, Azure PowerShell kullanarak bir Azure kullanılabilirlik alanında Windows Server 2016 çalıştıran bir Azure sanal makinesi oluşturma hakkında detaylı bilgiler sağlanmaktadır. [Kullanılabilirlik alanı](../../availability-zones/az-overview.md), bir Azure bölgesinde fiziksel olarak ayrılmış bir alandır. Uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumak için kullanılabilirlik alanlarından yararlanın.
 
-Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#regions-that-support-availability-zones) sanal makinenizi oluşturun.
+Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#services-support-by-region) sanal makinenizi oluşturun.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 `Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 

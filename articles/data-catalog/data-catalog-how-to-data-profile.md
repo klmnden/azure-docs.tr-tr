@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu veri kaynakları profil oluşturma verilerini kullanma
 description: Nasıl yapılır makalesi Azure veri Kataloğu'nda veri kaynaklarını kaydetme, tablo ve sütun düzeyinde veri profiller ekleme ve veri kaynaklarını anlamasına olanak veri profilleri kullanma vurgulama.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: b40bbe7d1eb89f934d6ae07688e698f1949f8e76
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410247"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004321"
 ---
 # <a name="data-profile-data-sources"></a>Veri profili veri kaynakları
 ## <a name="introduction"></a>Giriş

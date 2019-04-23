@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762506"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004763"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
@@ -88,7 +88,7 @@ SDK'ları kullanarak program aracılığıyla bir kapsayıcı veya bir veritaban
 
 .NET SDK'sı kullanırken [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) yöntemi bir kapsayıcı veya bir veritabanının en düşük aktarım hızı almanızı sağlar. 
 
-Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım hızını ölçeklendirebilirsiniz. Boşta kalma süresi 4 saat sonra ölçek azaltma işlemi çalıştırabilirsiniz. Boşta kalma süresi zaman olarak tanımlanır (içeren ölçek büyütme ve ölçek azaltma) değiştirme işlemlerini bir kapsayıcı veya bir veritabanı teklif yok, dönem. 
+Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım hızını ölçeklendirebilirsiniz. 
 
 ## <a name="comparison-of-models"></a>Modellerin karşılaştırması
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667999"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011189"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -84,7 +84,7 @@ Varsayılan olarak, Service Fabric dağıtır ve hizmet işlemleri olarak etkinl
 ### <a name="reliable-actors"></a>Reliable Actors
 Reliable Services üzerinde oluşturulmuş [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework, aktör tasarım deseni temel alınarak sanal gerçekleştiren deseni, uygulayan bir uygulama altyapısıdır. Reliable Actor çerçeve yürütme aktörler olarak adlandırılan tek iş parçacıklı işlem durumu ve bağımsız bir birim kullanır. Reliable Actor çerçevesi sağlar, iletişim aktörler için yerleşik ve durumu kalıcı ve genişleme yapılandırmaları önceden ayarlayın.
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>ASP.NET Çekirdeği
 Service Fabric ile tümleştirilir [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) web ve API uygulamaları oluşturmak için birinci sınıf bir programlama modeli olarak.  ASP.NET Core, Service Fabric iki farklı şekillerde kullanılabilir:
 
 - Konuk tarafından yürütülebilir bir dosya olarak barındırılan. Bu, öncelikli olarak mevcut ASP.NET Core uygulamaları kod değişikliği olmadan Service Fabric üzerinde çalıştırmak için kullanılır.
@@ -165,7 +165,7 @@ Raporlama alanından yapılabilir:
 * Service Fabric düğümleri üzerinde çalışmak, ancak Service Fabric Hizmetleri uygulanmaz ve iç watchdogs.
 * Service Fabric kümesine (örneğin, izleme hizmeti Gomez gibi) dışında kaynak araştırma dış watchdogs.
 
-Kullanıma hazır, Service Fabric bileşenleri kümedeki tüm varlıklarda sistem durumu rapor. [Sistem durumu raporlarını](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) küme ve uygulama işlevselliğini ve bayrağı sorunları üzerinden sistem durumu görünürlük sağlar. Uygulamalar ve hizmetler için sistem durumu raporlarını varlıkları uygulanır ve Service Fabric çalışma açısından doğru davrandığını doğrulayın. Raporlar tüm sistem durumu hizmetinin iş mantığını izleme sağlamaz veya askıdaki işlemleri algılamak. Hizmetinizin mantığı, özel sistem durumu bilgileri eklemek [özel durum raporlama uygulamak](service-fabric-report-health.md) hizmetlerinizdeki.
+Kullanıma hazır, Service Fabric bileşenleri kümedeki tüm varlıklarda sistem durumu rapor. [Sistem durumu raporlarını](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) küme ve uygulama işlevselliğini ve bayrağı sorunları üzerinden sistem durumu görünürlük sağlar. Uygulamalar ve hizmetler için sistem durumu raporlarını varlıkları uygulanır ve Service Fabric çalışma açısından doğru davrandığını doğrulayın. Raporlar tüm sistem durumu hizmetinin iş mantığını izleme sağlamaz veya yanıt vermeyi durdurdu işlemlerini algılama. Hizmetinizin mantığı, özel sistem durumu bilgileri eklemek [özel durum raporlama uygulamak](service-fabric-report-health.md) hizmetlerinizdeki.
 
 Service Fabric için birden çok yol sağlar [sistem durumu raporları görüntüleme](service-fabric-view-entities-aggregated-health.md) health store içinde toplanır:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) veya diğer görselleştirme araçları.
