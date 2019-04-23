@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848001"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790000"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure İzleyici adlandırma ve terminoloji değişiklikleri
 Önemli değişiklikler için Azure İzleyici kısa bir süre önce Azure müşterileri için izlemeyi basitleştirmek için birleştirilmiş farklı hizmetlerle yapıldı. Bu makalede, en son adı ve Azure İzleyici belgeleri terminolojisi değişiklikleri açıklar.

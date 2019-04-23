@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59363076"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792089"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell kullanarak bir web uygulaması güvenlik duvarı ilkesi yapılandırma
 Azure web uygulaması Güvenlik Duvarı (WAF) ilkesi ön Kapıda bir istek ulaştığında gerekli incelemeleri tanımlar.
@@ -31,7 +31,7 @@ Azure PowerShell, Azure kaynaklarınızı yönetmek için [Azure Resource Manage
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)'i yerel makinenize yükleyebilir ve herhangi bir PowerShell oturumunda kullanabilirsiniz. Azure kimlik bilgilerinizle oturum açmak için bu sayfadaki yönergeleri izleyin ve Az PowerShell modülünü yükleyin.
 
-#### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+#### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 ```
 Connect-AzAccount
 

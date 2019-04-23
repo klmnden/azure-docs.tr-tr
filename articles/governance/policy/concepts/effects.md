@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256864"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793953"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure İlkesi etkilerini anlama
 

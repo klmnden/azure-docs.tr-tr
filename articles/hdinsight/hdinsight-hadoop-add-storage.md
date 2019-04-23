@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357762"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792292"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight için ek depolama hesapları ekleme
 
@@ -31,7 +31,7 @@ Ek Azure depolama alanı eklemek için betik eylemleri kullanmayı öğrenin *he
 * Azure CLI'yi yüklemediyseniz, bkz. [Azure komut satırı arabirimi (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 * Bash veya bir windows komut istemi'ni kullanırken, ayrıca gerekir **jq**, bir komut satırı JSON işlemcisine giden.  Bkz: [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/). Windows 10 üzerinde Ubuntu'da bash için bkz: [Linux Yükleme Kılavuzu için Windows 10 için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/install-win10).
 
-## <a name="how-it-works"></a>Nasıl çalışır
+## <a name="how-it-works"></a>Nasıl çalışır?
 
 Bu betik, aşağıdaki parametreleri alır:
 
@@ -87,7 +87,7 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Kullanarak [az hdınsight betik eylemi Yürüt](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Değiştirin `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, ve `ACCOUNTKEY` uygun değerlerle.
 
@@ -101,7 +101,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### <a name="azure-portal"></a>Azure portalı
+### <a name="azure-portal"></a>Azure portal
 
 Bkz: [betik eylemi çalıştıran bir kümeye uygulama](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 

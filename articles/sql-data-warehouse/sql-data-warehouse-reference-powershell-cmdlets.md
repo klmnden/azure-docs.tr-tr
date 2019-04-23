@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e62f12123ae9af4f5e09d19622ba1558c2f43184
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846433"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790681"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell cmdlet'leri ve REST API'leri için SQL veri ambarı
 Birçok SQL veri ambarı yönetim görevleri, Azure PowerShell cmdlet'lerini veya REST API'leri kullanılarak yönetilebilir.  SQL veri ambarı ortak görevleri otomatikleştirmek için PowerShell komutlarını kullanmayı bazı örnekler aşağıdadır.  Bazı iyi diğer örnekler için bkz [REST ölçeklenebilirliğiyle yönetme][Manage scalability with REST].

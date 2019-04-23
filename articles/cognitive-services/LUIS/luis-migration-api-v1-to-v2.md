@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894090"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793562"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 

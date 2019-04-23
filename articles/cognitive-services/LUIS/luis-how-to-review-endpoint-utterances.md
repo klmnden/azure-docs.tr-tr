@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
 ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895916"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791065"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Etkin öğrenme LUIS Portalı'nda konuşma uç noktası İnceleme
 

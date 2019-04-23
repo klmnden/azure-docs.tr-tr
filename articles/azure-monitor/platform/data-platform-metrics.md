@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358882"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794261"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure İzleyicisi'nde ölçümler
 
@@ -34,13 +34,13 @@ Aşağıdaki tabloda, ölçüm verilerini Azure İzleyici'de kullanabileceğiniz
 
 |  |  |
 |:---|:---|
-| Çözümle | Kullanım [ölçüm Gezgini](metrics-charts.md) bir grafikteki toplanan ölçümlerin analiz edin ve farklı kaynaklardan ölçümleri karşılaştırmak için. |
-| Görselleştir | Ölçüm Gezgini için bir grafik sabitleme bir [Azure panosuna](../learn/tutorial-app-dashboards.md).<br>Oluşturma bir [çalışma kitabı](../app/usage-workbooks.md) birden çok etkileşimli bir rapordaki veri kümesi ile birleştirilecek. Sorgu sonuçlarını dışarı aktarma [Grafana](grafana-plugin.md) kendi yönelik Kompozit yararlanın ve diğer veri kaynaklarıyla birleştirmek için. |
+| Çözümleme | Kullanım [ölçüm Gezgini](metrics-charts.md) bir grafikteki toplanan ölçümlerin analiz edin ve farklı kaynaklardan ölçümleri karşılaştırmak için. |
+| Görselleştirme | Ölçüm Gezgini için bir grafik sabitleme bir [Azure panosuna](../learn/tutorial-app-dashboards.md).<br>Oluşturma bir [çalışma kitabı](../app/usage-workbooks.md) birden çok etkileşimli bir rapordaki veri kümesi ile birleştirilecek. Sorgu sonuçlarını dışarı aktarma [Grafana](grafana-plugin.md) kendi yönelik Kompozit yararlanın ve diğer veri kaynaklarıyla birleştirmek için. |
 | Uyarı | Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) ölçüm değeri bir eşiği aştığında zaman. |
-| Otomatikleştir |  Kullanım [otomatik ölçeklendirme](autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüm değeri temel alarak kaynakları. |
-| Dışarı Aktar | [Rota ölçümleri günlüklerine](diagnostic-logs-stream-log-store.md) Azure İzleyici ölçümleri verileri birlikte Azure İzleyici günlüklerine verileri analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için.<br>Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) dış sisteme yönlendirmek. |
+| Otomatikleştirme |  Kullanım [otomatik ölçeklendirme](autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüm değeri temel alarak kaynakları. |
+| Dışarı Aktarma | [Rota ölçümleri günlüklerine](diagnostic-logs-stream-log-store.md) Azure İzleyici ölçümleri verileri birlikte Azure İzleyici günlüklerine verileri analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için.<br>Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) dış sisteme yönlendirmek. |
 | Al | Erişim ölçüm değerleri kullanarak bir komut satırı [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Ölçüm değerleri kullanarak özel uygulama erişimi [REST API](rest-api-walkthrough.md).<br>Erişim ölçüm değerleri kullanarak bir komut satırı [CLI](/cli/azure/monitor/metrics). |
-| Arşivle | [Arşiv](..//learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi. |
+| Arşiv | [Arşiv](..//learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi. |
 
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Azure İzleyici ölçümleri yapılandırılmış verileri nasıl mi?

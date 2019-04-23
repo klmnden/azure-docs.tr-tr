@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357160"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793595"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Ön kapısı bir coğrafi filtreleme WAF İlkesi ayarlama
 Bu öğreticide, örnek bir coğrafi filtreleme ilkesi oluşturmak ve bu ilkeyi mevcut bir Front Door ön uç konağı ile ilişkilendirmek için Azure PowerShell kullanma gösterilmektedir. Bu örnek coğrafi filtreleme ilkesi, Birleşik Devletler dışındaki diğer tüm ülkelerden gelen istekleri engeller.

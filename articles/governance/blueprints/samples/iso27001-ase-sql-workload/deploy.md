@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281208"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791020"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema örneği dağıtma
 
@@ -76,7 +76,7 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
 
    - Temel Bilgiler
 
-     - **Abonelikleri**: Bir veya daha fazla yönetim grubuna olduğunuz abonelikleri için şema örnek kopyanızın kaydedilen seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
+     - **Abonelikler**: Bir veya daha fazla yönetim grubuna olduğunuz abonelikleri için şema örnek kopyanızın kaydedilen seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
      - **Ödev adı**: Şema adını temel alarak, önceden doldurulmuş adıdır.
        Gerektiği gibi değiştirin ya da olduğu gibi bırakın.
      - **Konum**: Yönetilen kimlikle oluşturulması için bir bölge seçin. Azure Blueprint bu yönetilen kimliği kullanarak tüm yapıtları atanmış şemaya dağıtır. Daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikler](../../../../active-directory/managed-identities-azure-resources/overview.md).

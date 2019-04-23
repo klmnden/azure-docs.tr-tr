@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360942"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791224"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
@@ -211,7 +211,7 @@ Gereksinim duyduğunuz **objectID** ilkeyi atamak istediğiniz hizmet sorumlular
 
 Portalı kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [Graph Gezgini aracını](https://developer.microsoft.com/graph/graph-explorer) ve oturum açma için Azure AD hesabınız kuruluşunuzun tüm hizmet sorumlularını görmek için. PowerShell kullanıldığı için hizmet sorumlularını ve kimliklerini listelemek için get-azureadserviceprincipal cmdlet'ini cmdlet'ini kullanabilirsiniz.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. adım: Hizmet sorumlunuzu ilke atama  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. Adım: Hizmet sorumlunuzu ilke atama  
 Sonra **objectID** otomatik hızlandırmayı yapılandırmak istediğiniz uygulama hizmet sorumlusu, aşağıdaki komutu çalıştırın. Bu komut, 2. adımda bulduğunuz hizmet sorumlusu ile 1. adımda oluşturduğunuz HRD İlkesi'ni ilişkilendirir.
 
 ``` powershell
@@ -257,7 +257,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. Adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

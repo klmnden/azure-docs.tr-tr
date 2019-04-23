@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267932"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792410"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 paylaşılan hizmetler blueprint örneği dağıtma
 
@@ -68,7 +68,7 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
 
    - Temel Bilgiler
 
-     - **Abonelikleri**: Bir veya daha fazla yönetim grubuna olduğunuz abonelikleri için şema örnek kopyanızın kaydedilen seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
+     - **Abonelikler**: Bir veya daha fazla yönetim grubuna olduğunuz abonelikleri için şema örnek kopyanızın kaydedilen seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
      - **Ödev adı**: Şema adını temel alarak, önceden doldurulmuş adıdır.
        Gerektiği gibi değiştirin ya da olduğu gibi bırakın.
      - **Konum**: Yönetilen kimlikle oluşturulması için bir bölge seçin. Azure Blueprint bu yönetilen kimliği kullanarak tüm yapıtları atanmış şemaya dağıtır. Daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikler](../../../../active-directory/managed-identities-azure-resources/overview.md).
@@ -107,10 +107,10 @@ Aşağıdaki tabloda, yapıt parametreleri şema listesi sağlar:
 
 |Yapıt adı|Yapıt türü|Parametre adı|Açıklama|
 |-|-|-|-|
-|[Önizleme]: Linux VM ölçek kümeleri (VMSS) için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Kapsama eklemek için Linux işletim sistemi desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
-|[Önizleme]: Linux Vm'leri için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Kapsama eklemek için Linux işletim sistemi desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
-|[Önizleme]: Windows VM ölçek kümeleri (VMSS) için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Windows işletim sistemi kapsamına eklenecek desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
-|[Önizleme]: Windows Vm'leri için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Windows işletim sistemi kapsamına eklenecek desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
+|[Önizleme]\: Linux VM ölçek kümeleri (VMSS) için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Kapsama eklemek için Linux işletim sistemi desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
+|[Önizleme]\: Linux Vm'leri için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Kapsama eklemek için Linux işletim sistemi desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
+|[Önizleme]\: Windows VM ölçek kümeleri (VMSS) için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Windows işletim sistemi kapsamına eklenecek desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
+|[Önizleme]\: Windows Vm'leri için log Analytics aracısını dağıtmayı|İlke ataması|İsteğe bağlı: Windows işletim sistemi kapsamına eklenecek desteklenen bir VM görüntüsü listesi|(İsteğe bağlı) Varsayılan değer _["none"]_.|
 |İzin verilen kaynak türleri|İlke ataması|İzin verilen kaynak türleri|Dağıtılacak izin verilen kaynak türleri listesi. Bu liste, paylaşılan hizmetlerinde dağıtılan tüm kaynak türleri, oluşur.|
 |İzin verilen depolama hesabı SKU'ları|İlke ataması|İzin verilen depolama SKU'ları|Liste tanılama depolama hesabı SKU'ları izin günlüğe kaydeder. Varsayılan değer _["Standard_LRS"]_.|
 |İzin verilen sanal makine SKU'ları|İlke ataması|Dağıtılacak sanal makine SKU'ların listesini izin. Varsayılan değer _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
