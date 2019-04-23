@@ -1,81 +1,74 @@
-items:
 - name: Genel Bakış
   items:
-  - name: Power BI Çalışma Alanı Koleksiyonları nedir?
-    href: what-are-power-bi-workspace-collections.md
-  - name: Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
-    href: whats-new.md
+    - name: Power BI Çalışma Alanı Koleksiyonları nedir?
+      href: what-are-power-bi-workspace-collections.md
+    - name: Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
+      href: whats-new.md
 - name: başlarken
   items:
-  - name: Power BI Çalışma Alanı Koleksiyonları’nı kullanmaya başlama
-    href: get-started.md
-  - name: Bir örnek ile kullanmaya başlama
-    href: get-started-sample.md
-  - name: SSS
-    href: faq.md
+    - name: Power BI Çalışma Alanı Koleksiyonları’nı kullanmaya başlama
+      href: get-started.md
+    - name: Bir örnek ile kullanmaya başlama
+      href: get-started-sample.md
+    - name: SSS
+      href: faq.md
 - name: Nasıl yapılır
   items:
-  - name: Planlama ve tasarım
-    items:
-    - name: Genel senaryolar
-      href: scenarios.md
-  - name: Yönetme
-    items:
-    - name: Bir veri kaynağına bağlanma
-      href: connect-datasource.md
-    - name: Power BI raporu ekleme
-      href: embed-report.md
-    - name: Raporlarla etkileşim kurma
-      href: interact-with-reports.md
-    - name: Veri kümesinden yeni rapor oluşturma
-      href: create-report-from-dataset.md
-    - name: Raporları kaydetme
-      href: save-reports.md
-    - name: Görüntüleme ve düzenleme arasında geçiş yapma
-      href: toggle-mode.md
-  - name: Güvenlik
-    items:
-    - name: Kimlik doğrulama ve yetkilendirme
-      href: app-token-flow.md
-    - name: Power BI Çalışma Alanı Koleksiyonları ile satır düzeyinde güvenlik
-      href: row-level-security.md
+    - name: Planlama ve tasarım
+      items:
+        - name: Genel senaryolar
+          href: scenarios.md
+    - name: Yönetme
+      items:
+        - name: Bir veri kaynağına bağlanma
+          href: connect-datasource.md
+        - name: Power BI raporu ekleme
+          href: embed-report.md
+        - name: Raporlarla etkileşim kurma
+          href: interact-with-reports.md
+        - name: Veri kümesinden yeni rapor oluşturma
+          href: create-report-from-dataset.md
+        - name: Raporları kaydetme
+          href: save-reports.md
+        - name: Görüntüleme ve düzenleme arasında geçiş yapma
+          href: toggle-mode.md
+    - name: Güvenlik
+      items:
+        - name: Kimlik doğrulama ve yetkilendirme
+          href: app-token-flow.md
+        - name: Power BI Çalışma Alanı Koleksiyonları ile satır düzeyinde güvenlik
+          href: row-level-security.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
-  - name: PowerShell
-    href: /powershell/module/az.powerbiembedded
-  - name: .NET Azure Resource Manager
-    href: /dotnet/api/microsoft.azure.management.powerbiembedded
-  - name: .NET SDK indirmesi
-    href: https://www.nuget.org/profiles/powerbi
-  - name: JavaScript
-    href: https://github.com/Microsoft/PowerBI-JavaScript/wiki
-  - name: Yönetim REST API’leri
-    href: https://docs.microsoft.com/rest/api/power-bi-workspace-collections/
-  - name: REST API'leri
-    href: https://msdn.microsoft.com/library/azure/mt711507.aspx
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
+    - name: PowerShell
+      href: /powershell/module/az.powerbiembedded
+    - name: .NET Azure Resource Manager
+      href: /dotnet/api/microsoft.azure.management.powerbiembedded
+    - name: .NET SDK indirmesi
+      href: 'https://www.nuget.org/profiles/powerbi'
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
+    - name: Yönetim REST API’leri
+      href: 'https://docs.microsoft.com/rest/api/power-bi-workspace-collections/'
+    - name: REST API'leri
+      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: JavaScript örnek ekleme
-    href: https://microsoft.github.io/PowerBI-JavaScript/demo/
-  - name: JavaScript Git deposu
-    href: https://github.com/Microsoft/PowerBI-JavaScript
-  - name: Power BI C# Git deposu
-    href: https://github.com/Microsoft/PowerBI-CSharp
-  - name: Power BI topluluğu
-    href: https://community.powerbi.com/t5/Developer/bd-p/Developer
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Örnek uygulama
-    href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/powerbi
-ms.openlocfilehash: 5d43ccee59baebec93416845597bf437e57bc46b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846478"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: JavaScript örnek ekleme
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+    - name: JavaScript Git deposu
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+    - name: 'Power BI C# Git deposu'
+      href: 'https://github.com/Microsoft/PowerBI-CSharp'
+    - name: Power BI topluluğu
+      href: 'https://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Örnek uygulama
+      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/powerbi'
