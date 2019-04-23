@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260332"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786074"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>PostgreSQL için Azure veritabanı Gelişmiş tehdit koruması
 
@@ -31,7 +31,7 @@ PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması, yeni katma
 
 ![Gelişmiş tehdit koruması kavramı](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları 
+## <a name="advanced-threat-protection-alerts"></a>Gelişmiş Tehdit Koruması uyarıları 
 PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
 - **Olağan dışı bir konumdan erişim**: Bir PostgreSQL sunucusu, burada birisi PostgreSQL sunucusu için Azure veritabanına olağan dışı bir coğrafi konumdan oturum açmış olduğu için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
 - **Azure veri merkezinden erişim**: Bir PostgreSQL sunucusu, burada birisi sunucuya bu sunucuda son dönemde görülmemiş bir Azure veri Merkezi'nde oturum açmış olduğu için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulamanızın sorgu Düzenleyicisi PostgreSQL için Azure, Power BI, Azure veritabanında) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.

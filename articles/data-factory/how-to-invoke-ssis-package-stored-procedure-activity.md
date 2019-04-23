@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256303"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786719"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data factory'de saklı yordam etkinliği ile bir SSIS paketi çalıştırma
 Bu makalede bir saklı yordam etkinliği kullanarak SSIS paketi bir Azure Data Factory işlem hattında çalıştırmayı öğrenin. 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 136b9141ccccfedf8d37fa0832b0673495d82417
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846558"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786464"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Nasıl bağlanın ve bir Azure Windows çalıştıran sanal makine için oturum açın
 Bir Windows masaüstü bilgisayarından Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalında **Bağlan** düğmesini kullanırsınız. Önce sanal makineye bağlanın ve ardından oturum açın.
