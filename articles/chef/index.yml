@@ -1,60 +1,54 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e320bdc98de75141aed4783d343571971287f37
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052548"
 documentType: LandingData
 title: Azure üzerinde Chef Software belgeleri
 metadata:
-  title: Azure üzerinde Chef Software belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar
-  description: Chef Software, Linux ve Windows için fiziksel ve sanal sunucu yapılandırmalarının yönetilmesine olanak sağlayan bir DevOps otomasyon platformu sunar. Hızlı başlangıç kılavuzları ve öğreticilerle kod olarak altyapı (IaC) tariflerini otomatikleştirmenin yanı sıra Azure üzerinde sanal makineleri yönetmek ve dağıtmak için Chef Software ürünlerini kullanmayı öğrenin.
+  title: 'Azure üzerinde Chef Software belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar'
+  description: 'Chef Software, Linux ve Windows için fiziksel ve sanal sunucu yapılandırmalarının yönetilmesine olanak sağlayan bir DevOps otomasyon platformu sunar. Hızlı başlangıç kılavuzları ve öğreticilerle kod olarak altyapı (IaC) tariflerini otomatikleştirmenin yanı sıra Azure üzerinde sanal makineleri yönetmek ve dağıtmak için Chef Software ürünlerini kullanmayı öğrenin.'
   ms.service: chef
-  keywords: chef, azure, devops, öğreticiler, örnekler, başvuru
+  keywords: 'chef, azure, devops, öğreticiler, örnekler, başvuru'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing page
   ms.date: 08/27/2018
 abstract:
-  description: Chef Software, Linux ve Windows için fiziksel ve sanal sunucu yapılandırmalarının yönetilmesine olanak sağlayan bir DevOps otomasyon platformu sunar. Hızlı başlangıç kılavuzları ve öğreticilerle kod olarak altyapı (IaC) tariflerini otomatikleştirmenin yanı sıra Azure üzerinde sanal makineleri yönetmek ve dağıtmak için Chef Software ürünlerini kullanmayı öğrenin.
+  description: 'Chef Software, Linux ve Windows için fiziksel ve sanal sunucu yapılandırmalarının yönetilmesine olanak sağlayan bir DevOps otomasyon platformu sunar. Hızlı başlangıç kılavuzları ve öğreticilerle kod olarak altyapı (IaC) tariflerini otomatikleştirmenin yanı sıra Azure üzerinde sanal makineleri yönetmek ve dağıtmak için Chef Software ürünlerini kullanmayı öğrenin.'
   aside:
     image:
       alt: Chef logosu
       height: 133
       width: 48
       src: media/chef.png
-    title: 
+    title: null
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Chef’i yükleyip yapılandırın ve Azure’da bir Linux sanal makinesi oluşturmak için kullanın.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: /azure/media/index/azure_dev-9.svg
-      text: Chef’i yükleme ve yapılandırma
-      href: ./chef-extension-portal.md
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Chef Software araçlarını kullanarak Azure işlem ve ağ altyapısı oluşturmayı ve yönetmeyi öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Chef’i yükleyip yapılandırın ve Azure’da bir Linux sanal makinesi oluşturmak için kullanın.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/azure_dev-9.svg
+            text: Chef’i yükleme ve yapılandırma
+            href: ./chef-extension-portal.md
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/virtual-machines/windows/chef-automation">Chef ile Azure Sanal Makine dağıtımını otomatikleştirin</a>.
-- title: Kaynaklar ve Araçlar
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Chef Software araçlarını kullanarak Azure işlem ve ağ altyapısı oluşturmayı ve yönetmeyi öğrenin.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-machines/windows/chef-automation">Chef ile Azure Sanal Makine dağıtımını otomatikleştirin</a>.
+  - title: Kaynaklar ve Araçlar
     items:
-    - title: Chef Automate
-      html: <p><a href="https://docs.chef.io/chef_automate.html">Chef Automate genel bakışı</a></p> <p><a href="https://docs.chef.io/install_chef_automate.html">Chef Automate yükleme kılavuzu</a></p> <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Azure Market’te Chef Automate</a></p>
-    - title: Chef Software araçları
-      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef Azure DevOps uzantısı</a></p> <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat Azure DevOps uzantısı</a></p>
-    - title: Chef Software haberleri
-      html: <p><a href="https://blog.chef.io/">Chef Software blogu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Chef Automate
+            html: '<p><a href="https://docs.chef.io/chef_automate.html">Chef Automate genel bakışı</a></p> <p><a href="https://docs.chef.io/install_chef_automate.html">Chef Automate yükleme kılavuzu</a></p> <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Azure Market’te Chef Automate</a></p>'
+          - title: Chef Software araçları
+            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef Azure DevOps uzantısı</a></p> <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat Azure DevOps uzantısı</a></p>'
+          - title: Chef Software haberleri
+            html: '<p><a href="https://blog.chef.io/">Chef Software blogu</a></p>'

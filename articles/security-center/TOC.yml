@@ -1,203 +1,196 @@
-items:
 - name: Güvenlik Merkezi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Güvenlik Merkezi hakkında
-    href: security-center-intro.md
-  - name: Güvenlik Merkezi’nin desteklenen platformları ve özellikleri
-    href: security-center-os-coverage.md
+    - name: Güvenlik Merkezi hakkında
+      href: security-center-intro.md
+    - name: Güvenlik Merkezi’nin desteklenen platformları ve özellikleri
+      href: security-center-os-coverage.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Azure abonelikleri
-    href: security-center-get-started.md
-  - name: Windows bilgisayarları
-    href: quick-onboard-windows-computer.md
-  - name: Linux bilgisayarları
-    href: quick-onboard-linux-computer.md
-  - name: Azure Stack sanal makineleri
-    href: quick-onboard-azure-stack.md
   expanded: true
+  items:
+    - name: Azure abonelikleri
+      href: security-center-get-started.md
+    - name: Windows bilgisayarları
+      href: quick-onboard-windows-computer.md
+    - name: Linux bilgisayarları
+      href: quick-onboard-linux-computer.md
+    - name: Azure Stack sanal makineleri
+      href: quick-onboard-azure-stack.md
 - name: Öğreticiler
   items:
-  - name: Kaynaklarınızı koruma
-    href: tutorial-protect-resources.md
-  - name: Olaylara yanıt verme
-    href: tutorial-security-incident.md
-  - name: Mevzuat uyumluluğunuzu artırma
-    href: security-center-compliance-dashboard.md
+    - name: Kaynaklarınızı koruma
+      href: tutorial-protect-resources.md
+    - name: Olaylara yanıt verme
+      href: tutorial-security-incident.md
+    - name: Mevzuat uyumluluğunuzu artırma
+      href: security-center-compliance-dashboard.md
 - name: Kavramlar
   items:
-  - name: İzinler
-    href: security-center-permissions.md
-  - name: Veri güvenliği
-    href: security-center-data-security.md
-  - name: Güvenliği artırmak için önerileri kullanın
-    href: security-center-using-recommendations.md
-  - name: Olay yanıtı
-    href: security-center-incident-response.md
+    - name: İzinler
+      href: security-center-permissions.md
+    - name: Veri güvenliği
+      href: security-center-data-security.md
+    - name: Güvenliği artırmak için önerileri kullanın
+      href: security-center-using-recommendations.md
+    - name: Olay yanıtı
+      href: security-center-incident-response.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Secure score’unuzu iyileştirme
-    href: security-center-secure-score.md
-  - name: Gelişmiş güvenliğe yükseltme
-    href: security-center-onboarding.md
-  - name: Windows Defender ATP ile sunucu koruması
-    href: security-center-wdatp.md
-  - name: App Service'i koruma
-    href: security-center-app-services.md
-  - name: Güvenlik ilkeleriyle çalışma
-    href: tutorial-security-policy.md
-  - name: Bilgi koruma ilkesini özelleştirme
-    href: security-center-info-protection-policy.md
-  - name: Güvenlik çözümlerini yönetme
-    href: security-center-partner-integration.md
-  - name: PowerShell kullanarak eklemeyi otomatikleştirme
-    href: security-center-powershell-onboarding.md
-  - name: Güvenlik Merkezi ayarları
-    href: security-center-policies-overview.md
-    items:
-    - name: Veri toplama
-      href: security-center-enable-data-collection.md
-    - name: Yerleşik güvenlik ilkeleri
-      href: security-center-policy-definitions.md
-    - name: E-posta bildirimleri
-      href: security-center-provide-security-contact-details.md
-    - name: Fiyatlandırma katmanı
-      href: security-center-pricing.md
-    - name: Güvenlik yapılandırmaları
-      href: security-center-customize-os-security-config.md
-    - name: Kiracı çapında görünürlük
-      href: security-center-management-groups.md
-  - name: Güvenlik önerileri uygulama
-    href: security-center-recommendations.md
-    items:
-    - name: Güvenlik duruşunu güçlendirme
-      href: security-center-monitoring.md
-    - name: Makinelerinizi ve uygulamalarınızı koruma
-      href: security-center-virtual-machine-protection.md
-    - name: Ağ kaynaklarını koruma
-      href: security-center-network-recommendations.md
-    - name: SQL hizmetini ve verilerini koruma
-      href: security-center-sql-service-recommendations.md
-    - name: Kimliği ve erişimi koruma
-      href: security-center-identity-access.md
-  - name: Bulut savunmalarını uygulama
-    items:
-    - name: Tam zamanında erişimi yönetme
-      href: security-center-just-in-time.md
-    - name: Uyarlamalı uygulama denetimleri
-      href: security-center-adaptive-application.md
-    - name: Dosya bütünlüğünü izleme
-      href: security-center-file-integrity-monitoring.md
-    - name: Uyarlamalı ağ sağlamlaştırma
-      href: security-center-adaptive-network-hardening.md
-  - name: Tehditleri algılama
-    href: security-center-detection-capabilities.md
-    items:
-    - name: Güvenlik uyarıları
-      href: security-center-managing-and-responding-alerts.md
-    - name: Güvenlik olayları
-      href: security-center-incident.md
-    - name: Güvenlik uyarılarını anlama
-      href: security-center-alerts-type.md
-    - name: Uyarı doğrulaması
-      href: security-center-alert-validation.md
-    - name: Azure kaynakları ve kullanıcıları için UEBA
-      href: security-center-ueba-mcas.md
-  - name: Arşiv
-    items:
-    - name: Disk şifrelemesi uygulayın
-      href: security-center-apply-disk-encryption.md
-    - name: Sistem güncelleştirmelerini uygulayın
-      href: security-center-apply-system-updates.md
-    - name: Depolama hesabı için şifrelemeyi etkinleştirme
-      href: security-center-enable-encryption-for-storage-account.md
-    - name: VM Aracısını etkinleştirin
-      href: security-center-enable-vm-agent.md
-    - name: Endpoint Protection yükleyin
-      href: security-center-install-endpoint-protection.md
-    - name: Sistem güncelleştirmelerinden sonra yeniden başlatın
-      href: security-center-apply-system-updates.md#reboot-after-system-updates
-    - name: Güvenlik yapılandırmalarını düzeltme
-      href: security-center-remediate-os-vulnerabilities.md
-    - name: İşletim sistemi sürümünü güncelleştirme
-      href: security-center-update-os-version.md
-    - name: Güvenlik açığı değerlendirmesi yüklü değil
-      href: security-center-vulnerability-assessment-recommendations.md
-    - name: Web uygulaması güvenlik duvarı ekleme
-      href: security-center-add-web-application-firewall.md
-    - name: Uygulama korumasını sonlandırma
-      href: security-center-add-web-application-firewall.md#finalize-application-protection
-    - name: Yeni nesil güvenlik duvarı ekleme
-      href: security-center-add-next-generation-firewall.md
-    - name: Ağ Güvenlik Gruplarını Etkinleştirme
-      href: security-center-enable-network-security-groups.md
-    - name: İnternet’e yönelik uç noktalarla erişimi sınırlama
-      href: security-center-restrict-access-through-internet-facing-endpoints.md
-    - name: Trafiği yalnızca NGFW aracılığıyla yönlendirme
-      href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
-      href: security-center-enable-auditing-on-sql-databases.md
-    - name: SQL sunucularında denetim ve tehdit algılamayı etkinleştirme
-      href: security-center-enable-auditing-on-sql-servers.md
-    - name: Saydam Veri Şifrelemesini Etkinleştirme
-      href: security-center-enable-transparent-data-encryption.md
-    - name: Tehdit raporları
-      href: security-center-threat-report.md
-    - name: Özel uyarılar
-      href: security-center-custom-alert.md
-    - name: Güvenilirlik puanı uyarısı
-      href: security-center-confidence-score.md
-    - name: Güvenlik uyarıları haritası ve tehdit bilgileri
-      href: security-center-threat-intel.md
-    - name: Araştırma
-      href: security-center-investigation.md
-    - name: Araştırma kullanıcı verilerini yönetme
-      href: security-center-investigation-user-data.md
-    - name: Logic Apps playbook’ları
-      href: security-center-playbooks.md
-    - name: Etkinlikleri görüntüleme
-      href: security-center-events-dashboard.md
-    - name: Arama
-      href: security-center-search.md
-    - name: Planlama ve işlemler
-      href: security-center-planning-and-operations-guide.md
+    - name: Secure score’unuzu iyileştirme
+      href: security-center-secure-score.md
+    - name: Gelişmiş güvenliğe yükseltme
+      href: security-center-onboarding.md
+    - name: Windows Defender ATP ile sunucu koruması
+      href: security-center-wdatp.md
+    - name: App Service'i koruma
+      href: security-center-app-services.md
+    - name: Güvenlik ilkeleriyle çalışma
+      href: tutorial-security-policy.md
+    - name: Bilgi koruma ilkesini özelleştirme
+      href: security-center-info-protection-policy.md
+    - name: Güvenlik çözümlerini yönetme
+      href: security-center-partner-integration.md
+    - name: PowerShell kullanarak eklemeyi otomatikleştirme
+      href: security-center-powershell-onboarding.md
+    - name: Güvenlik Merkezi ayarları
+      href: security-center-policies-overview.md
+      items:
+        - name: Veri toplama
+          href: security-center-enable-data-collection.md
+        - name: Yerleşik güvenlik ilkeleri
+          href: security-center-policy-definitions.md
+        - name: E-posta bildirimleri
+          href: security-center-provide-security-contact-details.md
+        - name: Fiyatlandırma katmanı
+          href: security-center-pricing.md
+        - name: Güvenlik yapılandırmaları
+          href: security-center-customize-os-security-config.md
+        - name: Kiracı çapında görünürlük
+          href: security-center-management-groups.md
+    - name: Güvenlik önerileri uygulama
+      href: security-center-recommendations.md
+      items:
+        - name: Güvenlik duruşunu güçlendirme
+          href: security-center-monitoring.md
+        - name: Makinelerinizi ve uygulamalarınızı koruma
+          href: security-center-virtual-machine-protection.md
+        - name: Ağ kaynaklarını koruma
+          href: security-center-network-recommendations.md
+        - name: SQL hizmetini ve verilerini koruma
+          href: security-center-sql-service-recommendations.md
+        - name: Kimliği ve erişimi koruma
+          href: security-center-identity-access.md
+    - name: Bulut savunmalarını uygulama
+      items:
+        - name: Tam zamanında erişimi yönetme
+          href: security-center-just-in-time.md
+        - name: Uyarlamalı uygulama denetimleri
+          href: security-center-adaptive-application.md
+        - name: Dosya bütünlüğünü izleme
+          href: security-center-file-integrity-monitoring.md
+        - name: Uyarlamalı ağ sağlamlaştırma
+          href: security-center-adaptive-network-hardening.md
+    - name: Tehditleri algılama
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Güvenlik uyarıları
+          href: security-center-managing-and-responding-alerts.md
+        - name: Güvenlik olayları
+          href: security-center-incident.md
+        - name: Güvenlik uyarılarını anlama
+          href: security-center-alerts-type.md
+        - name: Uyarı doğrulaması
+          href: security-center-alert-validation.md
+        - name: Azure kaynakları ve kullanıcıları için UEBA
+          href: security-center-ueba-mcas.md
+    - name: Arşiv
+      items:
+        - name: Disk şifrelemesi uygulayın
+          href: security-center-apply-disk-encryption.md
+        - name: Sistem güncelleştirmelerini uygulayın
+          href: security-center-apply-system-updates.md
+        - name: Depolama hesabı için şifrelemeyi etkinleştirme
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: VM Aracısını etkinleştirin
+          href: security-center-enable-vm-agent.md
+        - name: Endpoint Protection yükleyin
+          href: security-center-install-endpoint-protection.md
+        - name: Sistem güncelleştirmelerinden sonra yeniden başlatın
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Güvenlik yapılandırmalarını düzeltme
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: İşletim sistemi sürümünü güncelleştirme
+          href: security-center-update-os-version.md
+        - name: Güvenlik açığı değerlendirmesi yüklü değil
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Web uygulaması güvenlik duvarı ekleme
+          href: security-center-add-web-application-firewall.md
+        - name: Uygulama korumasını sonlandırma
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Yeni nesil güvenlik duvarı ekleme
+          href: security-center-add-next-generation-firewall.md
+        - name: Ağ Güvenlik Gruplarını Etkinleştirme
+          href: security-center-enable-network-security-groups.md
+        - name: İnternet’e yönelik uç noktalarla erişimi sınırlama
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Trafiği yalnızca NGFW aracılığıyla yönlendirme
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: SQL sunucularında denetim ve tehdit algılamayı etkinleştirme
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Saydam Veri Şifrelemesini Etkinleştirme
+          href: security-center-enable-transparent-data-encryption.md
+        - name: Tehdit raporları
+          href: security-center-threat-report.md
+        - name: Özel uyarılar
+          href: security-center-custom-alert.md
+        - name: Güvenilirlik puanı uyarısı
+          href: security-center-confidence-score.md
+        - name: Güvenlik uyarıları haritası ve tehdit bilgileri
+          href: security-center-threat-intel.md
+        - name: Araştırma
+          href: security-center-investigation.md
+        - name: Araştırma kullanıcı verilerini yönetme
+          href: security-center-investigation-user-data.md
+        - name: Logic Apps playbook’ları
+          href: security-center-playbooks.md
+        - name: Etkinlikleri görüntüleme
+          href: security-center-events-dashboard.md
+        - name: Arama
+          href: security-center-search.md
+        - name: Planlama ve işlemler
+          href: security-center-planning-and-operations-guide.md
 - name: Başvuru
   items:
-  - name: REST API'leri
-    href: https://docs.microsoft.com/rest/api/securitycenter/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=security-center
+    - name: REST API'leri
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: Kaynaklar
   items:
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?term=securityS
-  - name: Kullanıcı verilerini yönetme
-    href: security-center-privacy.md
-  - name: SSS
-    href: security-center-faq.md
-  - name: Azure Güvenlik
-    href: /azure/security/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Hazırlık Yol Haritası
-    href: security-center-readiness-roadmap.md
-  - name: Azure Güvenlik, Gizlilik ve Uyumluluk blogu
-    href: https://blogs.msdn.com/b/azuresecurity/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=security-center
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/security-center/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Sorun giderme
-    href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: 702e8fe5f5fec2488135104614936762e054b98c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520940"
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?term=securityS
+    - name: Kullanıcı verilerini yönetme
+      href: security-center-privacy.md
+    - name: SSS
+      href: security-center-faq.md
+    - name: Azure Güvenlik
+      href: /azure/security/
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Hazırlık Yol Haritası
+      href: security-center-readiness-roadmap.md
+    - name: 'Azure Güvenlik, Gizlilik ve Uyumluluk blogu'
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Sorun giderme
+      href: security-center-troubleshooting-guide.md

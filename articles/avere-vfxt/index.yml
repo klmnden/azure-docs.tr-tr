@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669158"
 documentType: LandingData
 title: Azure için Avere vFXT Belgeleri
 metadata:
@@ -17,14 +11,14 @@ metadata:
   ms.date: 10/31/2018
   ms.author: v-erkell
 abstract:
-  description: Azure için Avere vFXT yoğun veri kullanan yüksek performanslı bilgi işlem (HPC) görevlerinde bulut tabanlı bir önbellek katmanı sağlar. Avere vFXT dosyaları bilgi işlem düğümlerinizin yakınında önbelleğe alarak okuma sürelerini kısaltır ve en yoğun yükte bile sorunsuz çalışmanıza olanak tanır. Avere vFXT, en iyi 1.000 ile 40.000 istemci çekirdeği olan sistemlerde çalışır. <p>Avere vFXT mevcut şirket içi veri depolamanızla birlikte çalışarak, Azure tabanlı bilgi işlem kaynaklarının veri merkezinizde uzun dönem için depolanmış olan etkin dosyalara yerel olarak erişmesini sağlayabilir.
+  description: 'Azure için Avere vFXT yoğun veri kullanan yüksek performanslı bilgi işlem (HPC) görevlerinde bulut tabanlı bir önbellek katmanı sağlar. Avere vFXT dosyaları bilgi işlem düğümlerinizin yakınında önbelleğe alarak okuma sürelerini kısaltır ve en yoğun yükte bile sorunsuz çalışmanıza olanak tanır. Avere vFXT, en iyi 1.000 ile 40.000 istemci çekirdeği olan sistemlerde çalışır. <p>Avere vFXT mevcut şirket içi veri depolamanızla birlikte çalışarak, Azure tabanlı bilgi işlem kaynaklarının veri merkezinizde uzun dönem için depolanmış olan etkin dosyalara yerel olarak erişmesini sağlayabilir.'
 sections:
-- title: Azure için Avere vFXT ile çalışmaya başlama
-  items:
-  - type: list
-    style: unordered
+  - title: Azure için Avere vFXT ile çalışmaya başlama
     items:
-    - html: <a href="avere-vfxt-deploy-plan">Azure için Avere vFXT sisteminizi planlama</a>
-    - html: <a href="avere-vfxt-deploy-overview">Avere vFXT dağıtımı hakkında bilgi edinin</a>
-    - html: <a href="avere-vfxt-prereqs">Ön koşulları karşılama</a>
-    - html: <a href="avere-vfxt-deploy">Avere vFXT kümesini dağıtma</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="avere-vfxt-deploy-plan">Azure için Avere vFXT sisteminizi planlama</a>
+          - html: <a href="avere-vfxt-deploy-overview">Avere vFXT dağıtımı hakkında bilgi edinin</a>
+          - html: <a href="avere-vfxt-prereqs">Ön koşulları karşılama</a>
+          - html: <a href="avere-vfxt-deploy">Avere vFXT kümesini dağıtma</a>

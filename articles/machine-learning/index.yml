@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519946"
 abstract:
-  description: Bu Azure Machine Learning ürünlerini kullanarak uygulamalara ve web sitelerine akıllı algoritma eklemeyi öğrenin.  Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
+  description: 'Bu Azure Machine Learning ürünlerini kullanarak uygulamalara ve web sitelerine akıllı algoritma eklemeyi öğrenin.  Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.'
 documentType: LandingData
 metadata:
   author: j-martens
-  description: Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
+  description: 'Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.'
   ms.author: jmartens
   ms.subservice: core
   ms.date: 12/04/2018
@@ -19,86 +13,86 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   services: machine-learning
-  title: Azure Machine Learning Belgeleri - Öğreticiler, API başvurusu | Microsoft Docs
+  title: 'Azure Machine Learning Belgeleri - Öğreticiler, API başvurusu | Microsoft Docs'
 sections:
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Bu hizmetin veri bilimcilerinin yapay zeka çözümlerini geliştirmesine ve yönetmesine nasıl yardımcı olduğunu keşfedin<br/> Azure CLI ve Python araçlarıyla kitaplıklarını çeşitli Azure veri ve işlem hizmetleriyle kullanın. Daha fazla bilgi edinin...</p>
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning Hizmeti
-    style: cards
-    type: list
-- items:
-  - text: 'Azure Machine Learning hizmetini ayarlayın ve kullanmaya başlayın:'
-    type: paragraph
-  - text: <b>Hızlı Başlangıçlar:</b>
-    type: paragraph
   - items:
-    - html: <a href="service/quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez)
-    - html: <a href="service/quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir)
-    style: unordered
-    type: list
-  - text: <b>MNIST verileriyle görüntü sınıflandırma öğreticisi:</b>
-    type: paragraph
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/machine-learning/service/overview-what-is-azure-ml
+            html: <p>Bu hizmetin veri bilimcilerinin yapay zeka çözümlerini geliştirmesine ve yönetmesine nasıl yardımcı olduğunu keşfedin<br/> Azure CLI ve Python araçlarıyla kitaplıklarını çeşitli Azure veri ve işlem hizmetleriyle kullanın. Daha fazla bilgi edinin...</p>
+            image:
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
+            title: Azure Machine Learning Hizmeti
+        style: cards
+        type: list
   - items:
-    - html: '1. Bölüm: <a href="service/tutorial-train-models-with-aml">Kendi modelinizi eğitme</a>'
-    - html: '2. Bölüm: <a href="service/tutorial-deploy-models-with-aml">Bu modeli dağıtma</a>'
-    style: unordered
-    type: list
-  - text: <b>NYC taksi verileriyle regresyon modelleme öğreticisi:</b>
-    type: paragraph
+      - text: 'Azure Machine Learning hizmetini ayarlayın ve kullanmaya başlayın:'
+        type: paragraph
+      - text: '<b>Hızlı Başlangıçlar:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez)
+          - html: <a href="service/quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir)
+        style: unordered
+        type: list
+      - text: '<b>MNIST verileriyle görüntü sınıflandırma öğreticisi:</b>'
+        type: paragraph
+      - items:
+          - html: '1. Bölüm: <a href="service/tutorial-train-models-with-aml">Kendi modelinizi eğitme</a>'
+          - html: '2. Bölüm: <a href="service/tutorial-deploy-models-with-aml">Bu modeli dağıtma</a>'
+        style: unordered
+        type: list
+      - text: '<b>NYC taksi verileriyle regresyon modelleme öğreticisi:</b>'
+        type: paragraph
+      - items:
+          - html: '1. Bölüm: <a href="service/tutorial-data-prep">Verileri modelleme için hazırlama</a>'
+          - html: '2. Bölüm: <a href="service/tutorial-auto-train-models">Otomatik ML''nin modelleri sizin için eğitmesine olanak tanıma</a>'
+        style: unordered
+        type: list
+      - text: '<b>Modellerinizi kullanma:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/how-to-consume-web-service">İstek-yanıt modeli kullanma</a>
+          - html: <a href="service/how-to-run-batch-predictions">ML işlem hatlarıyla toplu tahminler</a>
+        style: unordered
+        type: list
+    title: Hızlı başlangıçlar ve öğreticiler
   - items:
-    - html: '1. Bölüm: <a href="service/tutorial-data-prep">Verileri modelleme için hazırlama</a>'
-    - html: "2. Bölüm: <a href=\"service/tutorial-auto-train-models\">Otomatik ML'nin modelleri sizin için eğitmesine olanak tanıma</a>"
-    style: unordered
-    type: list
-  - text: <b>Modellerinizi kullanma:</b>
-    type: paragraph
-  - items:
-    - html: <a href="service/how-to-consume-web-service">İstek-yanıt modeli kullanma</a>
-    - html: <a href="service/how-to-run-batch-predictions">ML işlem hatlarıyla toplu tahminler</a>
-    style: unordered
-    type: list
-  title: Hızlı başlangıçlar ve öğreticiler
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/cognitive-services/
-      html: <p>Uygulamalarınız, web siteleriniz ve botlarınız için akıllı algoritmalar sağlayan API’ler.</p>
-      image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Bilişsel Hizmetler
-    - href: /azure/machine-learning/studio/
-      html: <p>R veya Python ile verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı, sürükle ve bırak özellikli bir araç. </p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>Hem R hem de Python desteği içeren, veritabanında analiz hizmetidir.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning Hizmetleri
-    - href: /machine-learning-server/
-      html: <p>Windows, Linux ve HDInsight Spark ile Hadoop kümelerinde R ve Python dağıtımlarını destekleyen esnek kurumsal makine öğrenimi platformudur.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning Sunucusu
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>Takımların tahmine dayalı analiz çözümlerini ve akıllı uygulamaları etkili bir şekilde sunmasına yardımcı olan, işbirliğine dayalı bir veri bilimi metodolojisidir.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: Team Data Science Process
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Veri Bilimi (DSVM) ve Derin Öğrenme (DLVM) sanal makinelerini kullanarak yazılım yüklemeden veya yapılandırmadan denemeler yapın. Popüler veri analizi, makine öğrenimi ve yapay zeka araçları önceden yüklenmiştir.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: Veri Bilimi Sanal Makinesi
-    style: cards
-    type: list
-  title: Diğer Microsoft makine öğrenmesi teknolojileri
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/cognitive-services/
+            html: '<p>Uygulamalarınız, web siteleriniz ve botlarınız için akıllı algoritmalar sağlayan API’ler.</p>'
+            image:
+              src: /azure/machine-learning/media/index/cognitive-services.png
+            title: Bilişsel Hizmetler
+          - href: /azure/machine-learning/studio/
+            html: "<p>R veya Python ile verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı, sürükle ve bırak özellikli bir araç.\_</p>"
+            image:
+              src: /azure/machine-learning/media/index/machine-learning-studio.svg
+            title: Azure Machine Learning Studio
+          - href: /sql/advanced-analytics/r/r-services
+            html: '<p>Hem R hem de Python desteği içeren, veritabanında analiz hizmetidir.</p>'
+            image:
+              src: /azure/machine-learning/media/index/logo_sql.png
+            title: SQL Server Machine Learning Hizmetleri
+          - href: /machine-learning-server/
+            html: '<p>Windows, Linux ve HDInsight Spark ile Hadoop kümelerinde R ve Python dağıtımlarını destekleyen esnek kurumsal makine öğrenimi platformudur.</p>'
+            image:
+              src: /azure/machine-learning/media/index/ml-server.png
+            title: Microsoft Machine Learning Sunucusu
+          - href: /azure/machine-learning/team-data-science-process
+            html: '<p>Takımların tahmine dayalı analiz çözümlerini ve akıllı uygulamaları etkili bir şekilde sunmasına yardımcı olan, işbirliğine dayalı bir veri bilimi metodolojisidir.</p>'
+            image:
+              src: /azure/machine-learning/media/index/tdsp.png
+            title: Team Data Science Process
+          - href: /azure/machine-learning/data-science-virtual-machine/
+            html: '<p>Veri Bilimi (DSVM) ve Derin Öğrenme (DLVM) sanal makinelerini kullanarak yazılım yüklemeden veya yapılandırmadan denemeler yapın. Popüler veri analizi, makine öğrenimi ve yapay zeka araçları önceden yüklenmiştir.</p>'
+            image:
+              src: /azure/machine-learning/media/index/virtualmachine.svg
+            title: Veri Bilimi Sanal Makinesi
+        style: cards
+        type: list
+    title: Diğer Microsoft makine öğrenmesi teknolojileri
 title: Azure Machine Learning Belgeleri

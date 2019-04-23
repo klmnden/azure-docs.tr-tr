@@ -1,47 +1,40 @@
-items:
 - name: Translator Konuşma Çevirisi API'si Belgeleri
 - name: Genel Bakış
   items:
-  - name: Translator Konuşma Çevirisi API'si hakkında
-    href: Overview.md
-  - name: Desteklenen diller
-    href: languages.md
+    - name: Translator Konuşma Çevirisi API'si hakkında
+      href: Overview.md
+    - name: Desteklenen diller
+      href: languages.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: Python
-    href: quickstarts/python.md
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: Python
+      href: quickstarts/python.md
 - name: Öğreticiler
   items:
-  - name: Translator uygulaması
-    href: tutorial-translator-speech-csharp.md
+    - name: Translator uygulaması
+      href: tutorial-translator-speech-csharp.md
 - name: Örnekler
   items:
-  - name: GitHub’daki örnekler
-    href: https://aka.ms/TranslatorGitHub
+    - name: GitHub’daki örnekler
+      href: 'https://aka.ms/TranslatorGitHub'
 - name: Başvuru
   href: reference.md
   items:
-  - name: Diller
-    href: languages-reference.md
+    - name: Diller
+      href: languages-reference.md
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: https://www.microsoft.com/en-us/translator/faq.aspx
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-speech-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/558796-translator
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-translator
-ms.openlocfilehash: 8519e4a514f7fa1a811966ff971c64a331378ce8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604091"
+    - name: SSS
+      href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-speech-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

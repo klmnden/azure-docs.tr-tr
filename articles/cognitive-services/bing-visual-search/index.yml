@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a59bc4f320cb0c7a1c99bf6983da2414a5bae69e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733614"
 documentType: LandingData
 title: Bing Görsel Arama API'si Belgeleri
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Bing Görsel Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: 'Bing Görsel Arama API''si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: Bir resim hakkında içgörüler elde etmek için Bing Görsel Arama API’sini kullanmayı öğrenin.
   services: cognitive-services
   author: swhite-msft
@@ -22,78 +16,78 @@ metadata:
   ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilenlere benzer resim ayrıntıları sağlar. Bir görüntü karşıya yüklendiğinde veya görüntü URL'si sağlandığında, API bu görüntü hakkında çeşitli ayrıntılarını tanımlayabilir. Bunlar arasında görsel olarak benzer görüntüler, satın alma kaynakları, görüntüyü içeren web sayfaları ve daha fazlası vardır.
+  description: 'Bing Görsel Arama API''si, Bing.com/images sayfasında gösterilenlere benzer resim ayrıntıları sağlar. Bir görüntü karşıya yüklendiğinde veya görüntü URL''si sağlandığında, API bu görüntü hakkında çeşitli ayrıntılarını tanımlayabilir. Bunlar arasında görsel olarak benzer görüntüler, satın alma kaynakları, görüntüyü içeren web sayfaları ve daha fazlası vardır.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-visual-search/overview
+            html: <p>Bing Görsel Arama API’si hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing Görsel Arama API’si nedir?
+          - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+            html: <p>Bing Görsel Arama API'sine arama isteği göndermeyi öğrenin.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Arama sorguları gönderme
+          - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+            html: <p>Görüntüyü Bing Görsel Arama API'sine yüklemek için Bing Resim Arama API'sinden bir içgörü belirteci kullanın</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Haber arama
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/bing-visual-search/overview
-      html: <p>Bing Görsel Arama API’si hakkında bilgi edinin</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing Görsel Arama API’si nedir?
-    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
-      html: <p>Bing Görsel Arama API'sine arama isteği göndermeyi öğrenin.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Arama sorguları gönderme
-    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
-      html: <p>Görüntüyü Bing Görsel Arama API'sine yüklemek için Bing Resim Arama API'sinden bir içgörü belirteci kullanın</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Haber arama
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: "Bing Görsel Arama API'sini kullanarak resim hakkında içgörüler elde edin:"
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Bing Görsel Arama API''sini kullanarak resim hakkında içgörüler elde edin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: visual-search-sdk-c-sharp
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/java
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: visual-search-sdk-node
+            text: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            href: visual-search-sdk-python
+            text: Python
+        rows:
+          - title: ''
+            values:
+              - href: visual-search-sdk-c-sharp
+              - href: java
+              - href: visual-search-sdk-node
+              - href: visual-search-sdk-python
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: visual-search-sdk-c-sharp
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/java
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: visual-search-sdk-node
-      text: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      href: visual-search-sdk-python
-      text: Python
-    rows:
-    - title: ''
-      values:
-      - href: visual-search-sdk-c-sharp
-      - href: java
-      - href: visual-search-sdk-node
-      - href: visual-search-sdk-python
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Bing Görsel Arama API’sini kullanarak uygulama geliştirmeyi öğrenin:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Bing Görsel Arama API’sini kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-bing-visual-search-single-page-app">Tek Sayfalı Web uygulaması</a>
+  - title: Başvuru
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Tek Sayfalı Web uygulaması</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST v7 API
-      html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">API Başvurusu</a></p>
-    - title: SDK’lar
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST v7 API
+            html: '<p><a href="https://aka.ms/bingvisualsearchreferencedoc">API Başvurusu</a></p>'
+          - title: SDK’lar
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

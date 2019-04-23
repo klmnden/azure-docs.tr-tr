@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: eea379cbf2fae2f443fc077111ede517e3fa3647
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175970"
 documentType: LandingData
 title: Azure AD Etki Alanı Hizmetleri belgeleri
 metadata:
   title: Azure AD Etki Alanı Hizmetleri belgeleri
-  description: Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.
-  keywords: Azure AD, Azure, etki alanına katılma, grup ilkesi, LDAP, Kerberos, etki alanı denetleyicisi, DC, lift-and-shift
+  description: 'Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.'
+  keywords: 'Azure AD, Azure, etki alanına katılma, grup ilkesi, LDAP, Kerberos, etki alanı denetleyicisi, DC, lift-and-shift'
   author: mahesh-unnikrishnan
   ms.author: maheshu
   manager: daveba
@@ -20,83 +14,83 @@ metadata:
   ms.service: active-directory
   ms.subservice: domain-services
 sections:
-- items:
-  - type: markdown
-    text: Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: markdown
+        text: 'Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: active-directory-ds-overview.md
+            html: <p>Azure AD Domain Services'in sizin için neler yapabileceğini okuyun.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
+            title: Azure AD Etki Alanı Hizmetleri nedir?
+          - href: active-directory-ds-getting-started.md
+            html: <p>Bu basit yönergelerle kendi yönetilen etki alanınızı oluşturun.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            title: başlarken
+          - href: active-directory-ds-contact-us.md
+            html: <p>İhtiyacınız olduğunda yardım alın.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_support.svg'
+            title: Destek alın
+          - href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+            html: <p>Azure AD Domain Services'teki yeni özelliklere bakın.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
+            title: Yenilikler
+  - title: Videolar
     items:
-    - href: active-directory-ds-overview.md
-      html: <p>Azure AD Domain Services'in sizin için neler yapabileceğini okuyun.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_investigate.svg
-      title: Azure AD Etki Alanı Hizmetleri nedir?
-    - href: active-directory-ds-getting-started.md
-      html: <p>Bu basit yönergelerle kendi yönetilen etki alanınızı oluşturun.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_deploy.svg
-      title: başlarken
-    - href: active-directory-ds-contact-us.md
-      html: <p>İhtiyacınız olduğunda yardım alın.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_support.svg
-      title: Destek alın
-    - href: https://azure.microsoft.com/updates/?product=active-directory-ds
-      html: <p>Azure AD Domain Services'teki yeni özelliklere bakın.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_whats-new.svg
-      title: Yenilikler
-- title: Videolar
-  items:
-  - type: markdown
-    text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
-- title: Planlama makaleleri
-  items:
-  - type: list
-    style: unordered
+      - type: markdown
+        text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
+  - title: Planlama makaleleri
     items:
-    - html: <a href="active-directory-ds-comparison.md">Hizmetin sizin için doğru olup olmadığına karar verin?</a>
-    - html: <a href="active-directory-ds-features.md">Azure AD Domain Services özellikleri</a>
-    - html: <a href="active-directory-ds-scenarios.md">Hizmeti nasıl kullanabilirsiniz?</a>
-    - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services'te eşitlemenin nasıl çalıştığını öğrenin</a>
-    - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services fiyatlandırması</a>
-- title: Uygulamalar ve Azure AD Domain Services
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-comparison.md">Hizmetin sizin için doğru olup olmadığına karar verin?</a>
+          - html: <a href="active-directory-ds-features.md">Azure AD Domain Services özellikleri</a>
+          - html: <a href="active-directory-ds-scenarios.md">Hizmeti nasıl kullanabilirsiniz?</a>
+          - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services'te eşitlemenin nasıl çalıştığını öğrenin</a>
+          - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services fiyatlandırması</a>'
+  - title: Uygulamalar ve Azure AD Domain Services
     items:
-    - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD Uygulama Ara Sunucusu</a>
-    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">SharePoint Server için profil eşitleme</a>
-    - html: <a href="active-directory-ds-enable-kcd.md">Kerberos Kısıtlanmış Temsilini Yapılandırma</a>
-- title: Nasıl yapılır makaleleri
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD Uygulama Ara Sunucusu</a>
+          - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">SharePoint Server için profil eşitleme</a>
+          - html: <a href="active-directory-ds-enable-kcd.md">Kerberos Kısıtlanmış Temsilini Yapılandırma</a>
+  - title: Nasıl yapılır makaleleri
     items:
-    - html: <a href="active-directory-ds-check-health.md">Yönetilen bir etki alanının sistem durumunu denetleme </a>
-    - html: <a href="active-directory-ds-csp.md">Azure CSP Abonelikleri ve Azure AD Domain Services</a>
-    - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS'yi yönetme</a>
-    - html: <a href="active-directory-ds-networking.md">Sanal ağ seçme</a>
-    - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Güvenli LDAP'yi yapılandırma</a>
-    - html: <a href="active-directory-ds-admin-guide-create-ou.md">OU oluşturma</a>
-    - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Grup İlkesi'ni yönetme</a>
-- title: Sorun giderme makaleleri
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-check-health.md">Yönetilen bir etki alanının sistem durumunu denetleme </a>
+          - html: <a href="active-directory-ds-csp.md">Azure CSP Abonelikleri ve Azure AD Domain Services</a>
+          - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS'yi yönetme</a>
+          - html: <a href="active-directory-ds-networking.md">Sanal ağ seçme</a>
+          - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Güvenli LDAP'yi yapılandırma</a>
+          - html: <a href="active-directory-ds-admin-guide-create-ou.md">OU oluşturma</a>
+          - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Grup İlkesi'ni yönetme</a>
+  - title: Sorun giderme makaleleri
     items:
-    - html: <a href="active-directory-ds-troubleshooting.md">Sorun giderme kılavuzu</a>
-    - html: <a href="active-directory-ds-troubleshoot-alerts.md">Yönetilen etki alanınızdaki uyarılarla ilgili sorun giderme</a>
-    - html: <a href="active-directory-ds-faqs.md">Sık Sorulan Sorular</a>
-    - html: <a href="https://azure.microsoft.com/support/options/">Destek alın</a>
-- title: Diğer kaynaklar
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-troubleshooting.md">Sorun giderme kılavuzu</a>
+          - html: <a href="active-directory-ds-troubleshoot-alerts.md">Yönetilen etki alanınızdaki uyarılarla ilgili sorun giderme</a>
+          - html: <a href="active-directory-ds-faqs.md">Sık Sorulan Sorular</a>
+          - html: '<a href="https://azure.microsoft.com/support/options/">Destek alın</a>'
+  - title: Diğer kaynaklar
     items:
-    - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">UserVoice'te Azure AD Domain Services için geri bildirim gönderme</a>
-    - html: <a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure Yol Haritası</a>
-    - html: <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Bize Ulaşın</a>
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://feedback.azure.com/forums/169401-azure-active-directory/">UserVoice''te Azure AD Domain Services için geri bildirim gönderme</a>'
+          - html: '<a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure Yol Haritası</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Bize Ulaşın</a>'

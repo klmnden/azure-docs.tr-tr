@@ -1,181 +1,174 @@
-items:
 - name: Kullanıcı yönetimi belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Kullanıcılar, gruplar, lisans ve roller
-    href: directory-overview-user-model.md
+    - name: 'Kullanıcılar, gruplar, lisans ve roller'
+      href: directory-overview-user-model.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Kullanıcıları Azure AD’ye ekleme
-    href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Kullanıcılara lisans atama
-    href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Grupların süre sonunu ayarlama
-    href: groups-quickstart-expiration.md
-  - name: Grup adlandırma ilkesini ayarlama
-    href: groups-quickstart-naming-policy.md
+    - name: Kullanıcıları Azure AD’ye ekleme
+      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Kullanıcılara lisans atama
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Grupların süre sonunu ayarlama
+      href: groups-quickstart-expiration.md
+    - name: Grup adlandırma ilkesini ayarlama
+      href: groups-quickstart-naming-policy.md
 - name: Öğreticiler
   items:
-  - name: Dinamik olarak doldurulan grup oluşturma
-    href: groups-dynamic-tutorial.md
+    - name: Dinamik olarak doldurulan grup oluşturma
+      href: groups-dynamic-tutorial.md
 - name: Kavramlar
-  items:
-  - name: Azure AD yönetici rollerini devretme
-    href: roles-concept-delegation.md
-  - name: Varsayılan kullanıcı izinlerini karşılaştırma
-    href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure ile Azure AD rollerini karşılaştırma
-    href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Grup tabanlı lisanslama ile ilgili temel bilgiler
-    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   expanded: true
+  items:
+    - name: Azure AD yönetici rollerini devretme
+      href: roles-concept-delegation.md
+    - name: Varsayılan kullanıcı izinlerini karşılaştırma
+      href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Azure ile Azure AD rollerini karşılaştırma
+      href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Grup tabanlı lisanslama ile ilgili temel bilgiler
+      href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: Nasıl yapılır kılavuzları
-  items:
-  - name: Kullanıcıları yönetme
-    items:
-    - name: Azure AD’ye yeni kullanıcı ekleme
-      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Kullanıcı profillerini yönetme
-      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Kullanıcı hesaplarını paylaşma
-      href: users-sharing-accounts.md
-    - name: Kullanıcıları yönetici rollerine atama
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Silinen bir kullanıcıyı geri yükleme
-      href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: B2B kullanıcısı ekleme
-      href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: B2B kullanıcısına lisans atama
-      href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Dinamik gruplar ve B2B
-      href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Dizininizi yönetme
-    items:
-    - name: Dizininizi yönetme
-      href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Etki alanı adlarını yönetme
-      href: domains-manage.md
-    - name: Bir dizini silme
-      href: directory-delete-howto.md
-    - name: Birden fazla dizin
-      href: licensing-directory-independence.md
-    - name: Self servis kaydolma
-      href: directory-self-service-signup.md
-    - name: Dizin devralma
-      href: domains-admin-takeover.md
-    - name: Azure AD Connect
-      href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Grupları yönetme
-    items:
-    - name: Gruplarla erişimi yönetme
-      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Grupları Azure portalda yönetme
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Grupları Graph için Azure AD PowerShell (v2) ile yönetme
-      href: groups-settings-v2-cmdlets.md
-    - name: Grupları PowerShell MSOnline ile yönetme
-      href: groups-settings-cmdlets.md
-    - name: Grup üyelerini yönetme
-      href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Grup sahiplerini yönetme
-      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Grupları gruplar ile yönetme
-      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: SaaS uygulamalarına grup erişimi ekleme
-      href: groups-saasapps.md
-    - name: Grup adlandırma başvurusu
-      href: groups-naming-policy.md
-    - name: Gruplarda süre sonu başvurusu
-      href: groups-lifecycle.md
-    - name: Süresi dolan ya da silinen grupları geri yükleme
-      href: groups-restore-deleted.md
-    - name: Grup ayarlarını yönetme
-      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Grup self servisi kurma
-      href: groups-self-service-management.md
-    - name: Dinamik gruplar
-      items:
-      - name: Dinamik grup oluşturma
-        href: groups-create-rule.md
-      - name: Dinamik grup kuralları
-        href: groups-dynamic-membership.md
-      - name: Grup üyeliği türünü değiştirme
-        href: groups-change-type.md
-  - name: Lisans atama
-    items:
-    - name: Bir gruba lisans atama
-      href: licensing-groups-assign.md
-    - name: Grup lisans sorunlarını çözme
-      href: licensing-groups-resolve-problems.md
-    - name: Kullanıcıları grup lisanslamaya geçirme
-      href: licensing-groups-migrate-users.md
-    - name: Kullanıcı lisanslarını değiştirme
-      href: licensing-groups-change-licenses.md
-    - name: İlave senaryolar
-      href: licensing-group-advanced.md
-    - name: PowerShell ile grup lisanslama
-      href: licensing-ps-examples.md
-    - name: Lisanslama için hizmet planı kimlikleri
-      href: licensing-service-plan-reference.md
-  - name: Azure AD yönetici rolleri
-    items:
-    - name: Roller ve izinler
-      href: directory-assign-admin-roles.md
-    - name: Rolleri görüntüleme ve atama
-      href: directory-manage-roles-portal.md
-    - name: PowerShell ile roller atama
-      href: roles-assign-powershell.md
-    - name: Uygulama yönetici rollerine temsilci seçme
-      href: roles-delegate-app-roles.md
-    - name: Göreve göre en az ayrıcalıklı roller
-      href: roles-delegate-by-task.md
-    - name: Microsoft 365 rolleri
-      href: roles-m365-workload-docs.md
-    - name: Yönetici rolü güvenliği
-      items:
-      - name: Rol güvenliği planlaması
-        href: directory-admin-roles-secure.md
-      - name: Acil durum hesabı oluşturma
-        href: directory-emergency-access.md
-    - name: Yönetim birimleri
-      href: directory-administrative-units.md
-  - name: Oturum açmayı yönetme
-    items:
-    - name: Şirket markası özelleştirme
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Oturum açma seçenekleri
-      href: signin-account-support.md
-    - name: Giriş Bölgesi Bulma
-      href: signin-realm-discovery.md
-  - name: Hizmetleri Azure AD ile tümleştirme
-    items:
-    - name: LinkedIn’i Azure AD ile tümleştirme
-      href: linkedin-integration.md
-    - name: LinkedIn veri paylaşımı
-      href: linkedin-user-consent.md
-  - name: Sorun giderme
-    items:
-    - name: Azure AD için destek alma
-      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Gruplarla ilgili sorunları giderme
-      href: groups-troubleshooting.md
-    - name: Grup lisanslamayla ilgili sorunları giderme
-      href: licensing-groups-resolve-problems.md
   expanded: true
+  items:
+    - name: Kullanıcıları yönetme
+      items:
+        - name: Azure AD’ye yeni kullanıcı ekleme
+          href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Kullanıcı profillerini yönetme
+          href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Kullanıcı hesaplarını paylaşma
+          href: users-sharing-accounts.md
+        - name: Kullanıcıları yönetici rollerine atama
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Silinen bir kullanıcıyı geri yükleme
+          href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: B2B kullanıcısı ekleme
+          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: B2B kullanıcısına lisans atama
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Dinamik gruplar ve B2B
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Dizininizi yönetme
+      items:
+        - name: Dizininizi yönetme
+          href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Etki alanı adlarını yönetme
+          href: domains-manage.md
+        - name: Bir dizini silme
+          href: directory-delete-howto.md
+        - name: Birden fazla dizin
+          href: licensing-directory-independence.md
+        - name: Self servis kaydolma
+          href: directory-self-service-signup.md
+        - name: Dizin devralma
+          href: domains-admin-takeover.md
+        - name: Azure AD Connect
+          href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Grupları yönetme
+      items:
+        - name: Gruplarla erişimi yönetme
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Grupları Azure portalda yönetme
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Grupları Graph için Azure AD PowerShell (v2) ile yönetme
+          href: groups-settings-v2-cmdlets.md
+        - name: Grupları PowerShell MSOnline ile yönetme
+          href: groups-settings-cmdlets.md
+        - name: Grup üyelerini yönetme
+          href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Grup sahiplerini yönetme
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Grupları gruplar ile yönetme
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: SaaS uygulamalarına grup erişimi ekleme
+          href: groups-saasapps.md
+        - name: Grup adlandırma başvurusu
+          href: groups-naming-policy.md
+        - name: Gruplarda süre sonu başvurusu
+          href: groups-lifecycle.md
+        - name: Süresi dolan ya da silinen grupları geri yükleme
+          href: groups-restore-deleted.md
+        - name: Grup ayarlarını yönetme
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Grup self servisi kurma
+          href: groups-self-service-management.md
+        - name: Dinamik gruplar
+          items:
+            - name: Dinamik grup oluşturma
+              href: groups-create-rule.md
+            - name: Dinamik grup kuralları
+              href: groups-dynamic-membership.md
+            - name: Grup üyeliği türünü değiştirme
+              href: groups-change-type.md
+    - name: Lisans atama
+      items:
+        - name: Bir gruba lisans atama
+          href: licensing-groups-assign.md
+        - name: Grup lisans sorunlarını çözme
+          href: licensing-groups-resolve-problems.md
+        - name: Kullanıcıları grup lisanslamaya geçirme
+          href: licensing-groups-migrate-users.md
+        - name: Kullanıcı lisanslarını değiştirme
+          href: licensing-groups-change-licenses.md
+        - name: İlave senaryolar
+          href: licensing-group-advanced.md
+        - name: PowerShell ile grup lisanslama
+          href: licensing-ps-examples.md
+        - name: Lisanslama için hizmet planı kimlikleri
+          href: licensing-service-plan-reference.md
+    - name: Azure AD yönetici rolleri
+      items:
+        - name: Roller ve izinler
+          href: directory-assign-admin-roles.md
+        - name: Rolleri görüntüleme ve atama
+          href: directory-manage-roles-portal.md
+        - name: PowerShell ile roller atama
+          href: roles-assign-powershell.md
+        - name: Uygulama yönetici rollerine temsilci seçme
+          href: roles-delegate-app-roles.md
+        - name: Göreve göre en az ayrıcalıklı roller
+          href: roles-delegate-by-task.md
+        - name: Microsoft 365 rolleri
+          href: roles-m365-workload-docs.md
+        - name: Yönetici rolü güvenliği
+          items:
+            - name: Rol güvenliği planlaması
+              href: directory-admin-roles-secure.md
+            - name: Acil durum hesabı oluşturma
+              href: directory-emergency-access.md
+        - name: Yönetim birimleri
+          href: directory-administrative-units.md
+    - name: Oturum açmayı yönetme
+      items:
+        - name: Şirket markası özelleştirme
+          href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Oturum açma seçenekleri
+          href: signin-account-support.md
+        - name: Giriş Bölgesi Bulma
+          href: signin-realm-discovery.md
+    - name: Hizmetleri Azure AD ile tümleştirme
+      items:
+        - name: LinkedIn’i Azure AD ile tümleştirme
+          href: linkedin-integration.md
+        - name: LinkedIn veri paylaşımı
+          href: linkedin-user-consent.md
+    - name: Sorun giderme
+      items:
+        - name: Azure AD için destek alma
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Gruplarla ilgili sorunları giderme
+          href: groups-troubleshooting.md
+        - name: Grup lisanslamayla ilgili sorunları giderme
+          href: licensing-groups-resolve-problems.md
 - name: Başvuru
   items:
-  - name: Graph API
-    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
-  - name: Azure AD CLI
-    href: https://docs.microsoft.com/cli/azure/ad
-  - name: Graph için Azure AD PowerShell
-    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-  - name: Azure AD hizmet sınırlamaları
-    href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 97c2ebbe65f3382ee59d8c3bdb9dad9060cf31b6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577672"
+    - name: Graph API
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'
+    - name: Azure AD CLI
+      href: 'https://docs.microsoft.com/cli/azure/ad'
+    - name: Graph için Azure AD PowerShell
+      href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
+    - name: Azure AD hizmet sınırlamaları
+      href: directory-service-limits-restrictions.md

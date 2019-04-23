@@ -1,81 +1,74 @@
-items:
 - name: Koşullu Erişim Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Koşullu erişim nedir?
-    href: overview.md
+    - name: Koşullu erişim nedir?
+      href: overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Belirli uygulamalar için MFA gerektirme
-    href: app-based-mfa.md
-  - name: Kullanım koşullarının kabul edilmesini gerektirme
-    href: require-tou.md
-  - name: Oturum riski algılandığında erişimi engelleme
-    href: app-sign-in-risk.md
+    - name: Belirli uygulamalar için MFA gerektirme
+      href: app-based-mfa.md
+    - name: Kullanım koşullarının kabul edilmesini gerektirme
+      href: require-tou.md
+    - name: Oturum riski algılandığında erişimi engelleme
+      href: app-sign-in-risk.md
 - name: Öğreticiler
   items:
-  - name: Klasik MFA ilkesini geçirme
-    href: policy-migration-mfa.md
+    - name: Klasik MFA ilkesini geçirme
+      href: policy-migration-mfa.md
 - name: Kavramlar
-  items:
-  - name: Ana Hat Koruma
-    href: baseline-protection.md
-  - name: Koşullar
-    href: conditions.md
-  - name: Konum koşulları
-    href: location-condition.md
-  - name: Denetimler
-    href: controls.md
-  - name: Hizmet bağımlılıkları
-    href: service-dependencies.md
-  - name: Durum aracı
-    href: what-if-tool.md
   expanded: false
-- name: Nasıl yapılır kılavuzları
   items:
-  - name: Koşullu erişim dağıtımınızı planlama
-    href: plan-conditional-access.md
-  - name: En iyi uygulamalar
-    href: best-practices.md
-  - name: Eski kimlik doğrulamasını engelleme
-    href: block-legacy-authentication.md
-  - name: Exchange Online ve SharePoint Online'a erişimi denetleme
-    href: conditional-access-for-exo-and-spo.md
-  - name: Klasik ilkeleri geçirme
-    href: policy-migration.md
-  - name: Onaylı istemci uygulamaları gerektirme
-    href: app-based-conditional-access.md
-  - name: Uygulama koruma ilkesi gerektir
-    href: app-protection-based-conditional-access.md
-  - name: Yönetilen cihazları gerektirme
-    href: require-managed-devices.md
-  - name: Güvenilmeyen ağlardan gelen erişim denemeleri için MFA gerektirme
-    href: untrusted-networks.md
-  - name: Kullanım koşullarını gerekli kılma
-    href: terms-of-use.md
+    - name: Ana Hat Koruma
+      href: baseline-protection.md
+    - name: Koşullar
+      href: conditions.md
+    - name: Konum koşulları
+      href: location-condition.md
+    - name: Denetimler
+      href: controls.md
+    - name: Hizmet bağımlılıkları
+      href: service-dependencies.md
+    - name: Durum aracı
+      href: what-if-tool.md
+- name: Nasıl yapılır kılavuzları
   expanded: true
+  items:
+    - name: Koşullu erişim dağıtımınızı planlama
+      href: plan-conditional-access.md
+    - name: En iyi uygulamalar
+      href: best-practices.md
+    - name: Eski kimlik doğrulamasını engelleme
+      href: block-legacy-authentication.md
+    - name: Exchange Online ve SharePoint Online'a erişimi denetleme
+      href: conditional-access-for-exo-and-spo.md
+    - name: Klasik ilkeleri geçirme
+      href: policy-migration.md
+    - name: Onaylı istemci uygulamaları gerektirme
+      href: app-based-conditional-access.md
+    - name: Uygulama koruma ilkesi gerektir
+      href: app-protection-based-conditional-access.md
+    - name: Yönetilen cihazları gerektirme
+      href: require-managed-devices.md
+    - name: Güvenilmeyen ağlardan gelen erişim denemeleri için MFA gerektirme
+      href: untrusted-networks.md
+    - name: Kullanım koşullarını gerekli kılma
+      href: terms-of-use.md
 - name: Başvuru
   items:
-  - name: Teknik başvuru
-    href: technical-reference.md
+    - name: Teknik başvuru
+      href: technical-reference.md
 - name: Kaynaklar
   items:
-  - name: Azure geri bildirim forumu
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Hizmet güncelleştirmeleri
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 1db270043ea996b72f47ee00dbd07f1bd33a1e48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787041"
+    - name: Azure geri bildirim forumu
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Hizmet güncelleştirmeleri
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

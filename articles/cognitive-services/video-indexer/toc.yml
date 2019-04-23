@@ -1,55 +1,48 @@
-items:
 - name: Video Indexer Belgeleri
 - name: Genel Bakış
   items:
-  - name: Video Indexer nedir?
-    href: ../../media-services/video-indexer/video-indexer-overview.md
-  - name: Kavramlar
-    href: ../../media-services/video-indexer/video-indexer-concepts.md
+    - name: Video Indexer nedir?
+      href: ../../media-services/video-indexer/video-indexer-overview.md
+    - name: Kavramlar
+      href: ../../media-services/video-indexer/video-indexer-concepts.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: başlarken
-    href: ../../media-services/video-indexer/video-indexer-get-started.md
   expanded: true
+  items:
+    - name: başlarken
+      href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: v1'den v2'ye geçiş
-    href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
-  - name: Azure'a Bağlanma
-    href: ../../media-services/video-indexer/connect-to-azure.md
-  - name: Azure’a bağlı hesabı yönetme
-    href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
-  - name: Video Indexer API'sini kullanma
-    href: ../../media-services/video-indexer/video-indexer-use-apis.md
-  - name: Videoları karşıya yüklemek ve dizine almak için API kullanma
-    href: ../../media-services/video-indexer/upload-index-videos.md
-  - name: Video Indexer çıkışını inceleme
-    href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
-  - name: Videoların içinde belirli anları bulma
-    href: ../../media-services/video-indexer/video-indexer-search.md
-  - name: Video Indexer içgörülerini görüntüleme ve düzenleme
-    href: ../../media-services/video-indexer/video-indexer-view-edit.md
-  - name: Mevcut videolardan video içgörüleri oluşturma
-    href: ../../media-services/video-indexer/video-indexer-create-new.md
-  - name: Uygulamanıza pencere öğeleri ekleme
-    href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
+    - name: v1'den v2'ye geçiş
+      href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
+    - name: Azure'a Bağlanma
+      href: ../../media-services/video-indexer/connect-to-azure.md
+    - name: Azure’a bağlı hesabı yönetme
+      href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
+    - name: Video Indexer API'sini kullanma
+      href: ../../media-services/video-indexer/video-indexer-use-apis.md
+    - name: Videoları karşıya yüklemek ve dizine almak için API kullanma
+      href: ../../media-services/video-indexer/upload-index-videos.md
+    - name: Video Indexer çıkışını inceleme
+      href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
+    - name: Videoların içinde belirli anları bulma
+      href: ../../media-services/video-indexer/video-indexer-search.md
+    - name: Video Indexer içgörülerini görüntüleme ve düzenleme
+      href: ../../media-services/video-indexer/video-indexer-view-edit.md
+    - name: Mevcut videolardan video içgörüleri oluşturma
+      href: ../../media-services/video-indexer/video-indexer-create-new.md
+    - name: Uygulamanıza pencere öğeleri ekleme
+      href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: Başvuru
   items:
-  - name: Video Indexer API'si
-    href: https://api-portal.videoindexer.ai/
+    - name: Video Indexer API'si
+      href: 'https://api-portal.videoindexer.ai/'
 - name: Kaynaklar
   items:
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598144-video-indexer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-ms.openlocfilehash: 5283cc39c64c31d6b9014043bf37e066cef582a7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290765"
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

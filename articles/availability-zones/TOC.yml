@@ -1,105 +1,98 @@
-items:
 - name: Azure’da Dayanıklılık
   items:
-  - name: Azure’da Dayanıklılık özellik sayfası
-    href: https://azure.microsoft.com/features/resiliency
-  - name: Azure için dayanıklı uygulamalar tasarlama
-    href: https://docs.microsoft.com/azure/architecture/resiliency/
+    - name: Azure’da Dayanıklılık özellik sayfası
+      href: 'https://azure.microsoft.com/features/resiliency'
+    - name: Azure için dayanıklı uygulamalar tasarlama
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
 - name: Yüksek Kullanılabilirlik
   items:
-  - name: Azure uygulamaları için yüksek kullanılabilirlik
-    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
-  - name: Kullanılabilirlik Alanları Belgeleri
-    items:
-    - name: Kullanılabilirlik Alanları nedir?
-      href: az-overview.md
-    - name: Sanal makineler
+    - name: Azure uygulamaları için yüksek kullanılabilirlik
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Kullanılabilirlik Alanları Belgeleri
       items:
-      - name: CLI ile bir Kullanılabilirlik Alanında Linux VM oluşturma
-        href: ../virtual-machines/linux/create-cli-availability-zone.md
-      - name: PowerShell ile bir Kullanılabilirlik Alanında Windows VM oluşturma
-        href: ../virtual-machines/windows/create-powershell-availability-zone.md
-      - name: Azure portalı ile bir Kullanılabilirlik Alanında Windows VM oluşturma
-        href: ../virtual-machines/windows/create-portal-availability-zone.md
-    - name: Yönetilen diskler
-      items:
-      - name: CLI ile Kullanılabilirlik Alanına yönetilen disk ekleme
-        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
-      - name: PowerShell ile Kullanılabilirlik Alanına yönetilen disk ekleme
-        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
-    - name: Sanal makine ölçek kümeleri
-      items:
-      - name: Kullanılabilirlik Alanında ölçek kümesi oluşturma
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
-    - name: Load Balancer
-      items:
-      - name: Yük Dengeleyici nedir?
-        href: ../load-balancer/load-balancer-standard-overview.md
-      - name: Load Balancer Standart ve Kullanılabilirlik Bölgeleri
-        href: ../load-balancer/load-balancer-standard-availability-zones.md
-      - name: Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma
-        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
-        items:
-        - name: Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
-        - name: Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
-      - name: Bölgesel, genel bir Standard Load Balancer oluşturma
-        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
-        items:
-        - name: Bölgesel, genel bir Standard Load Balancer oluşturma (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-        - name: Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
-      - name: Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme
-        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
-        items:
-        - name: Azure CLI’si ile kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme
-          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
-    - name: Genel IP adresi
-      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
-    - name: SQL Veritabanı
-      items:
-      - name: SQL Veritabanı ile kullanılabilirlik alanları
-        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
-    - name: Depolama
-      items:
-      - name: >
-          Alanlar arası yedekli depolama
-        href: ../storage/common/storage-redundancy-zrs.md
-    - name: Event Hubs
-      items:
-      - name: Event Hubs coğrafi olağanüstü durum kurtarma
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
-    - name: Service Bus
-      items:
-      - name: Service Bus coğrafi olağanüstü durum kurtarma
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
-    - name: VPN Gateway
-      items:
-      - name: Alanlar arası yedekli sanal ağ geçidi oluşturma
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
-    - name: ExpressRoute
-      items:
-      - name: Alanlar arası yedekli sanal ağ geçidi oluşturma
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Kullanılabilirlik Alanları nedir?
+          href: az-overview.md
+        - name: Sanal makineler
+          items:
+            - name: CLI ile bir Kullanılabilirlik Alanında Linux VM oluşturma
+              href: ../virtual-machines/linux/create-cli-availability-zone.md
+            - name: PowerShell ile bir Kullanılabilirlik Alanında Windows VM oluşturma
+              href: ../virtual-machines/windows/create-powershell-availability-zone.md
+            - name: Azure portalı ile bir Kullanılabilirlik Alanında Windows VM oluşturma
+              href: ../virtual-machines/windows/create-portal-availability-zone.md
+        - name: Yönetilen diskler
+          items:
+            - name: CLI ile Kullanılabilirlik Alanına yönetilen disk ekleme
+              href: '../virtual-machines/linux/add-disk.md#use-managed-disks'
+            - name: PowerShell ile Kullanılabilirlik Alanına yönetilen disk ekleme
+              href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
+        - name: Sanal makine ölçek kümeleri
+          items:
+            - name: Kullanılabilirlik Alanında ölçek kümesi oluşturma
+              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+        - name: Load Balancer
+          items:
+            - name: Yük Dengeleyici nedir?
+              href: ../load-balancer/load-balancer-standard-overview.md
+            - name: Load Balancer Standart ve Kullanılabilirlik Bölgeleri
+              href: ../load-balancer/load-balancer-standard-availability-zones.md
+            - name: 'Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma'
+              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              items:
+                - name: 'Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (PowerShell)'
+                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                - name: 'Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (CLI)'
+                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+            - name: 'Bölgesel, genel bir Standard Load Balancer oluşturma'
+              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              items:
+                - name: 'Bölgesel, genel bir Standard Load Balancer oluşturma (PowerShell)'
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                - name: 'Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma (CLI)'
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+            - name: Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme
+              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              items:
+                - name: Azure CLI’si ile kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme
+                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+        - name: Genel IP adresi
+          href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
+        - name: SQL Veritabanı
+          items:
+            - name: SQL Veritabanı ile kullanılabilirlik alanları
+              href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
+        - name: Depolama
+          items:
+            - name: |
+                Alanlar arası yedekli depolama
+              href: ../storage/common/storage-redundancy-zrs.md
+        - name: Event Hubs
+          items:
+            - name: Event Hubs coğrafi olağanüstü durum kurtarma
+              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones-preview'
+        - name: Service Bus
+          items:
+            - name: Service Bus coğrafi olağanüstü durum kurtarma
+              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview'
+        - name: VPN Gateway
+          items:
+            - name: Alanlar arası yedekli sanal ağ geçidi oluşturma
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: ExpressRoute
+          items:
+            - name: Alanlar arası yedekli sanal ağ geçidi oluşturma
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
 - name: Olağanüstü Durum Kurtarma
   items:
-  - name: Azure Site Recovery’yi kullanma
-    href: https://docs.microsoft.com/azure/site-recovery/
+    - name: Azure Site Recovery’yi kullanma
+      href: 'https://docs.microsoft.com/azure/site-recovery/'
 - name: Azure Backup
   items:
-  - name: Azure Backup'ı kullanma
-    href: https://docs.microsoft.com/azure/backup/
+    - name: Azure Backup'ı kullanma
+      href: 'https://docs.microsoft.com/azure/backup/'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Azure Bölgeleri
-    href: https://azure.microsoft.com/regions/
-ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340685"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure Bölgeleri
+      href: 'https://azure.microsoft.com/regions/'

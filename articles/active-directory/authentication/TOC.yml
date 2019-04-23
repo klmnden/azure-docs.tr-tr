@@ -1,239 +1,232 @@
-items:
 - name: Kimlik Doğrulaması Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Kimlik doğrulaması nedir?
-    href: overview-authentication.md
+    - name: Kimlik doğrulaması nedir?
+      href: overview-authentication.md
 - name: Hızlı Başlangıç
   items:
-  - name: Parola sıfırlamayı yapılandırma
-    href: quickstart-sspr.md
+    - name: Parola sıfırlamayı yapılandırma
+      href: quickstart-sspr.md
 - name: Öğreticiler
   items:
-  - name: 1 Uygulamalar için MFA’yı etkinleştirme
-    href: tutorial-mfa-applications.md
-  - name: 2 SSPR pilotunu etkinleştirme
-    href: tutorial-sspr-pilot.md
-  - name: SSPR şirket içi tümleştirmeyi etkinleştirme
-    href: tutorial-enable-writeback.md
-  - name: Windows 10 parola sıfırlamayı etkinleştirme
-    href: tutorial-sspr-windows.md
-  - name: Azure Identity Protection’ı tümleştirme
-    href: tutorial-risk-based-sspr-mfa.md
+    - name: 1 Uygulamalar için MFA’yı etkinleştirme
+      href: tutorial-mfa-applications.md
+    - name: 2 SSPR pilotunu etkinleştirme
+      href: tutorial-sspr-pilot.md
+    - name: SSPR şirket içi tümleştirmeyi etkinleştirme
+      href: tutorial-enable-writeback.md
+    - name: Windows 10 parola sıfırlamayı etkinleştirme
+      href: tutorial-sspr-windows.md
+    - name: Azure Identity Protection’ı tümleştirme
+      href: tutorial-risk-based-sspr-mfa.md
 - name: Kavramlar
-  items:
-  - name: Kimlik doğrulama yöntemleri
-    href: concept-authentication-methods.md
-  - name: Birleşik kayıt
-    href: concept-registration-mfa-sspr-combined.md
-  - name: Parola sıfırlama
-    items:
-    - name: Parola sıfırlama nasıl çalışır?
-      href: concept-sspr-howitworks.md
-    - name: Parola sıfırlama seçenekleri
-      href: concept-sspr-customization.md
-    - name: Parola sıfırlama ilkeleri
-      href: concept-sspr-policy.md
-    - name: Hangi lisansa ihtiyacım var?
-      href: concept-sspr-licensing.md
-    - name: Şirket içi tümleştirme
-      href: concept-sspr-writeback.md
-  - name: Multi-Factor Authentication
-    items:
-    - name: MFA nasıl çalışır?
-      href: concept-mfa-howitworks.md
-    - name: Hangi sürüm doğrudur?
-      href: concept-mfa-whichversion.md
-    - name: Kullanıcılarınıza lisans verme
-      href: concept-mfa-licensing.md
-    - name: Kimlik Doğrulama Sağlayıcısı yönetme
-      href: concept-mfa-authprovider.md
-    - name: Güvenlik kılavuzu
-      href: multi-factor-authentication-security-best-practices.md
-    - name: Office 365 için MFA
-      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
-    - name: MFA SSS
-      href: multi-factor-authentication-faq.md
-  - name: Azure AD parola koruması
-    items:
-    - name: Bulutta zayıf parolaları ortadan kaldırma
-      href: concept-password-ban-bad.md
-    - name: Şirket içinde zayıf parolaları ortadan kaldırma
-      href: concept-password-ban-bad-on-premises.md
-  - name: Dayanıklı erişim denetimleri
-    href: concept-resilient-controls.md
   expanded: true
+  items:
+    - name: Kimlik doğrulama yöntemleri
+      href: concept-authentication-methods.md
+    - name: Birleşik kayıt
+      href: concept-registration-mfa-sspr-combined.md
+    - name: Parola sıfırlama
+      items:
+        - name: Parola sıfırlama nasıl çalışır?
+          href: concept-sspr-howitworks.md
+        - name: Parola sıfırlama seçenekleri
+          href: concept-sspr-customization.md
+        - name: Parola sıfırlama ilkeleri
+          href: concept-sspr-policy.md
+        - name: Hangi lisansa ihtiyacım var?
+          href: concept-sspr-licensing.md
+        - name: Şirket içi tümleştirme
+          href: concept-sspr-writeback.md
+    - name: Multi-Factor Authentication
+      items:
+        - name: MFA nasıl çalışır?
+          href: concept-mfa-howitworks.md
+        - name: Hangi sürüm doğrudur?
+          href: concept-mfa-whichversion.md
+        - name: Kullanıcılarınıza lisans verme
+          href: concept-mfa-licensing.md
+        - name: Kimlik Doğrulama Sağlayıcısı yönetme
+          href: concept-mfa-authprovider.md
+        - name: Güvenlik kılavuzu
+          href: multi-factor-authentication-security-best-practices.md
+        - name: Office 365 için MFA
+          href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
+        - name: MFA SSS
+          href: multi-factor-authentication-faq.md
+    - name: Azure AD parola koruması
+      items:
+        - name: Bulutta zayıf parolaları ortadan kaldırma
+          href: concept-password-ban-bad.md
+        - name: Şirket içinde zayıf parolaları ortadan kaldırma
+          href: concept-password-ban-bad-on-premises.md
+    - name: Dayanıklı erişim denetimleri
+      href: concept-resilient-controls.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Self servis parola sıfırlama
-    items:
-    - name: Self servis parola sıfırlamayı dağıtma
-      href: howto-sspr-deployment.md
-    - name: Kimlik doğrulama verilerini önceden kaydetme
-      href: howto-sspr-authenticationdata.md
-    - name: Parola geri yazmayı etkinleştirme
-      href: howto-sspr-writeback.md
-    - name: Windows 7, 8 ve 8.1 için SSPR
-      href: howto-sspr-windows-7-8.md
-  - name: Bulut tabanlı MFA
-    items:
-    - name: Bulut tabanlı MFA dağıtma
-      href: howto-mfa-getstarted.md
-    - name: Kullanıcı başına MFA
-      href: howto-mfa-userstates.md
-    - name: Kullanıcı ve cihaz ayarları
-      href: howto-mfa-userdevicesettings.md
-    - name: Ayarları yapılandırma
-      href: howto-mfa-mfasettings.md
-    - name: Dizin Federasyonu
+    - name: Self servis parola sıfırlama
       items:
-      - name: Windows Server 2016 AD FS Bağdaştırıcısı
-        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
-      - name: Federasyon Hizmetleri
-        href: multi-factor-authentication-get-started-adfs.md
-      - name: AD FS kullanma
-        href: howto-mfa-adfs.md
-    - name: RADIUS Tümleştirmesi
+        - name: Self servis parola sıfırlamayı dağıtma
+          href: howto-sspr-deployment.md
+        - name: Kimlik doğrulama verilerini önceden kaydetme
+          href: howto-sspr-authenticationdata.md
+        - name: Parola geri yazmayı etkinleştirme
+          href: howto-sspr-writeback.md
+        - name: 'Windows 7, 8 ve 8.1 için SSPR'
+          href: howto-sspr-windows-7-8.md
+    - name: Bulut tabanlı MFA
       items:
-      - name: Mevcut ağ ilkesi sunucularını kullanma
-        href: howto-mfa-nps-extension.md
-      - name: NPS uzantısı için gelişmiş yapılandırma
-        href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN ve Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
-      - name: Uzak Masaüstü Ağ Geçidi
-        href: howto-mfa-nps-extension-rdg.md
-      - name: VPN
-        href: howto-mfa-nps-extension-vpn.md
-  - name: Birleşik kayıt
-    items:
-    - name: Birleşik kaydı etkinleştirme
-      href: howto-registration-mfa-sspr-combined.md
-    - name: Birleşik kayıtla ilgili sorunları giderme
-      href: howto-registration-mfa-sspr-combined-troubleshoot.md
-  - name: Azure AD parola koruması
-    items:
-    - name: Engellenen parola listesini yapılandırma
-      href: howto-password-ban-bad-configure.md
-    - name: Şirket içi tümleştirme
+        - name: Bulut tabanlı MFA dağıtma
+          href: howto-mfa-getstarted.md
+        - name: Kullanıcı başına MFA
+          href: howto-mfa-userstates.md
+        - name: Kullanıcı ve cihaz ayarları
+          href: howto-mfa-userdevicesettings.md
+        - name: Ayarları yapılandırma
+          href: howto-mfa-mfasettings.md
+        - name: Dizin Federasyonu
+          items:
+            - name: Windows Server 2016 AD FS Bağdaştırıcısı
+              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+            - name: Federasyon Hizmetleri
+              href: multi-factor-authentication-get-started-adfs.md
+            - name: AD FS kullanma
+              href: howto-mfa-adfs.md
+        - name: RADIUS Tümleştirmesi
+          items:
+            - name: Mevcut ağ ilkesi sunucularını kullanma
+              href: howto-mfa-nps-extension.md
+            - name: NPS uzantısı için gelişmiş yapılandırma
+              href: howto-mfa-nps-extension-advanced.md
+            - name: Azure VPN ve Azure MFA
+              href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+            - name: Uzak Masaüstü Ağ Geçidi
+              href: howto-mfa-nps-extension-rdg.md
+            - name: VPN
+              href: howto-mfa-nps-extension-vpn.md
+    - name: Birleşik kayıt
       items:
-      - name: Azure AD parola korumasını dağıtma
-        href: howto-password-ban-bad-on-premises-deploy.md
-      - name: Azure AD parola korumasını yapılandırma
-        href: howto-password-ban-bad-on-premises-operations.md
-      - name: Azure AD parola korumasını izleme
-        href: howto-password-ban-bad-on-premises-monitor.md
-      - name: Azure AD parola korumasıyla ilgili sorunları çözme
-        href: howto-password-ban-bad-on-premises-troubleshoot.md
-      - name: Sık sorulan sorular
-        href: howto-password-ban-bad-on-premises-faq.md
-      - name: Şirket içi aracı sürüm geçmişi
-        href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Azure AD akıllı kilitleme
-    href: howto-password-smart-lockout.md
-  - name: İş İçin Windows Hello
-    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Parolasız telefonla oturum açma
-    href: howto-authentication-phone-sign-in.md
-  - name: Sertifika tabanlı kimlik doğrulaması
-    items:
-    - name: Sertifika yetkilendirmesine başlarken
-      href: active-directory-certificate-based-authentication-get-started.md
+        - name: Birleşik kaydı etkinleştirme
+          href: howto-registration-mfa-sspr-combined.md
+        - name: Birleşik kayıtla ilgili sorunları giderme
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: Azure AD parola koruması
       items:
-      - name: Android Cihazlarında CBA
-        href: active-directory-certificate-based-authentication-android.md
-      - name: iOS Cihazlarında CBA
-        href: active-directory-certificate-based-authentication-ios.md
-  - name: Geliştirme
-    items:
-    - name: Özel uygulamaların içinde MFA derleme
-      href: howto-mfa-sdk.md
-  - name: Raporlama
-    items:
-    - name: SSPR Raporları
-      href: howto-sspr-reporting.md
-    - name: MFA Raporları
-      href: howto-mfa-reporting.md
-    - name: Veri toplama
-      href: howto-mfa-reporting-datacollection.md
-  - name: MFA Sunucusu
-    items:
-    - name: Şirket içi MFA dağıtma
-      href: howto-mfaserver-deploy.md
-    - name: Kullanıcı portalını yükleme
-      href: howto-mfaserver-deploy-userportal.md
-    - name: Mobil Uygulama Web Hizmeti
-      href: howto-mfaserver-deploy-mobileapp.md
-    - name: Yüksek kullanılabilirliği yapılandırma
-      href: howto-mfaserver-deploy-ha.md
-    - name: MFA Sunucusu’nu yükseltme
-      href: howto-mfaserver-deploy-upgrade.md
-    - name: PhoneFactor'den yükseltme
-      href: howto-mfaserver-deploy-upgrade-pf.md
-    - name: Windows Kimlik Doğrulaması
-      href: howto-mfaserver-windows.md
-    - name: IIS web uygulamaları
-      href: howto-mfaserver-iis.md
-    - name: Dizin Tümleştirme
+        - name: Engellenen parola listesini yapılandırma
+          href: howto-password-ban-bad-configure.md
+        - name: Şirket içi tümleştirme
+          items:
+            - name: Azure AD parola korumasını dağıtma
+              href: howto-password-ban-bad-on-premises-deploy.md
+            - name: Azure AD parola korumasını yapılandırma
+              href: howto-password-ban-bad-on-premises-operations.md
+            - name: Azure AD parola korumasını izleme
+              href: howto-password-ban-bad-on-premises-monitor.md
+            - name: Azure AD parola korumasıyla ilgili sorunları çözme
+              href: howto-password-ban-bad-on-premises-troubleshoot.md
+            - name: Sık sorulan sorular
+              href: howto-password-ban-bad-on-premises-faq.md
+            - name: Şirket içi aracı sürüm geçmişi
+              href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Azure AD akıllı kilitleme
+      href: howto-password-smart-lockout.md
+    - name: İş İçin Windows Hello
+      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Parolasız telefonla oturum açma
+      href: howto-authentication-phone-sign-in.md
+    - name: Sertifika tabanlı kimlik doğrulaması
       items:
-      - name: LDAP Kimlik Doğrulaması
-        href: howto-mfaserver-dir-ldap.md
-      - name: RADIUS Kimlik Doğrulaması
-        href: howto-mfaserver-dir-radius.md
-      - name: Active Directory
-        href: howto-mfaserver-dir-ad.md
-    - name: Dizin Federasyonu
+        - name: Sertifika yetkilendirmesine başlarken
+          href: active-directory-certificate-based-authentication-get-started.md
+          items:
+            - name: Android Cihazlarında CBA
+              href: active-directory-certificate-based-authentication-android.md
+            - name: iOS Cihazlarında CBA
+              href: active-directory-certificate-based-authentication-ios.md
+    - name: Geliştirme
       items:
-      - name: AD FS 2.0 kullanma
-        href: howto-mfaserver-adfs-2.md
-      - name: Windows Server 2012 R2 AD FS kullanma
-        href: howto-mfaserver-adfs-2012.md
-    - name: RADIUS Tümleştirmesi
+        - name: Özel uygulamaların içinde MFA derleme
+          href: howto-mfa-sdk.md
+    - name: Raporlama
       items:
-      - name: Uzak Masaüstü Ağ Geçidi
-        href: howto-mfaserver-nps-rdg.md
-      - name: Gelişmiş VPN Yapılandırmaları
-        href: howto-mfaserver-nps-vpn.md
-      - name: NPS uzantı hataları
-        href: howto-mfa-nps-extension-errors.md
-  - name: Sorun giderme
-    items:
-    - name: SSPR sorunlarını giderme
-      href: active-directory-passwords-troubleshoot.md
-    - name: SSPR SSS
-      href: active-directory-passwords-faq.md
-    - name: MFA SSS
-      href: multi-factor-authentication-faq.md
-    - name: NPS uzantısı
-      href: howto-mfa-nps-extension-errors.md
+        - name: SSPR Raporları
+          href: howto-sspr-reporting.md
+        - name: MFA Raporları
+          href: howto-mfa-reporting.md
+        - name: Veri toplama
+          href: howto-mfa-reporting-datacollection.md
+    - name: MFA Sunucusu
+      items:
+        - name: Şirket içi MFA dağıtma
+          href: howto-mfaserver-deploy.md
+        - name: Kullanıcı portalını yükleme
+          href: howto-mfaserver-deploy-userportal.md
+        - name: Mobil Uygulama Web Hizmeti
+          href: howto-mfaserver-deploy-mobileapp.md
+        - name: Yüksek kullanılabilirliği yapılandırma
+          href: howto-mfaserver-deploy-ha.md
+        - name: MFA Sunucusu’nu yükseltme
+          href: howto-mfaserver-deploy-upgrade.md
+        - name: PhoneFactor'den yükseltme
+          href: howto-mfaserver-deploy-upgrade-pf.md
+        - name: Windows Kimlik Doğrulaması
+          href: howto-mfaserver-windows.md
+        - name: IIS web uygulamaları
+          href: howto-mfaserver-iis.md
+        - name: Dizin Tümleştirme
+          items:
+            - name: LDAP Kimlik Doğrulaması
+              href: howto-mfaserver-dir-ldap.md
+            - name: RADIUS Kimlik Doğrulaması
+              href: howto-mfaserver-dir-radius.md
+            - name: Active Directory
+              href: howto-mfaserver-dir-ad.md
+        - name: Dizin Federasyonu
+          items:
+            - name: AD FS 2.0 kullanma
+              href: howto-mfaserver-adfs-2.md
+            - name: Windows Server 2012 R2 AD FS kullanma
+              href: howto-mfaserver-adfs-2012.md
+        - name: RADIUS Tümleştirmesi
+          items:
+            - name: Uzak Masaüstü Ağ Geçidi
+              href: howto-mfaserver-nps-rdg.md
+            - name: Gelişmiş VPN Yapılandırmaları
+              href: howto-mfaserver-nps-vpn.md
+            - name: NPS uzantı hataları
+              href: howto-mfa-nps-extension-errors.md
+    - name: Sorun giderme
+      items:
+        - name: SSPR sorunlarını giderme
+          href: active-directory-passwords-troubleshoot.md
+        - name: SSPR SSS
+          href: active-directory-passwords-faq.md
+        - name: MFA SSS
+          href: multi-factor-authentication-faq.md
+        - name: NPS uzantısı
+          href: howto-mfa-nps-extension-errors.md
 - name: Başvuru
   items:
-  - name: MFA kullanıcı kılavuzu
-    href: ./end-user/current/multi-factor-authentication-end-user.md
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
-  - name: Azure PowerShell cmdlet’leri
-    href: /powershell/azure/overview
-  - name: Hizmet sınırlamaları ve kısıtlamalar
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    - name: MFA kullanıcı kılavuzu
+      href: ./end-user/current/multi-factor-authentication-end-user.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
+    - name: Azure PowerShell cmdlet’leri
+      href: /powershell/azure/overview
+    - name: Hizmet sınırlamaları ve kısıtlamalar
+      href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Kaynaklar
   items:
-  - name: Azure geri bildirim forumu
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Hizmet güncelleştirmeleri
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c109feb0e75268027e0732efc8e922285c65e81e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58174299"
+    - name: Azure geri bildirim forumu
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Hizmet güncelleştirmeleri
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

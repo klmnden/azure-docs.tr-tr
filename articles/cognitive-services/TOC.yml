@@ -1,40 +1,33 @@
-items:
 - name: Azure Bilişsel Hizmetler Belgeleri
   href: index.md
 - name: Genel Bakış
-  items:
-  - name: Bilişsel Hizmetler nedir?
-    href: Welcome.md
-  - name: Dil desteği
-    href: language-support.md
-  - name: Kapsayıcı desteği
-    href: cognitive-services-container-support.md
   expanded: true
+  items:
+    - name: Bilişsel Hizmetler nedir?
+      href: Welcome.md
+    - name: Dil desteği
+      href: language-support.md
+    - name: Kapsayıcı desteği
+      href: cognitive-services-container-support.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Hesap oluşturma
-    href: cognitive-services-apis-create-account.md
-  - name: Kimlik Doğrulaması
-    href: authentication.md
+    - name: Hesap oluşturma
+      href: cognitive-services-apis-create-account.md
+    - name: Kimlik Doğrulaması
+      href: authentication.md
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Videolar
-    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Kullanım kuralları
-    href: https://go.microsoft.com/fwlink/?LinkId=698895
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 975c681b3cd30fe7f5b3bd6cd39371a9d66ff27a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545422"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Kullanım kuralları
+      href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase'

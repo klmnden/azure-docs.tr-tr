@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 00752e0b42b907699e9f314c2f216b69c9d3b2e8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506745"
 documentType: LandingData
 title: Kurumsal kullanıcı yönetimi belgeleri - Azure Active Directory
 metadata:
-  document_id: 
-  title: Azure Active Directory kullanıcıları, grupları, rolleri ve lisanslarıyla ilgili belgeler
-  description: Kiracınızdaki Azure bulut hizmetlerinde kimlik doğrulamasını yönetmek için kullanıcıları, grupları, rolleri ve lisansları kullanmayı öğrenin.
+  document_id: null
+  title: 'Azure Active Directory kullanıcıları, grupları, rolleri ve lisanslarıyla ilgili belgeler'
+  description: 'Kiracınızdaki Azure bulut hizmetlerinde kimlik doğrulamasını yönetmek için kullanıcıları, grupları, rolleri ve lisansları kullanmayı öğrenin.'
   services: active-directory
   ms.subservice: users-groups-roles
   author: curtand
@@ -20,33 +14,33 @@ metadata:
   ms.date: 01/31/2019
   ms.author: curtand
 abstract:
-  description: Gruplar ve yönetici rolü atamaları gibi Azure AD kullanıcı yönetimi araçları, önemli görevleri daha hızlı bir şekilde gerçekleştirmenize ve büyüme odaklı planlar yapmanıza yardımcı olur. Lisansları veya erişimi kişiler yerine SaaS uygulamaları atayabilir veya izinleri devrederek Azure AD kimlik yönetimi yükünü diğer kullanıcılara dağıtabilirsiniz.
+  description: 'Gruplar ve yönetici rolü atamaları gibi Azure AD kullanıcı yönetimi araçları, önemli görevleri daha hızlı bir şekilde gerçekleştirmenize ve büyüme odaklı planlar yapmanıza yardımcı olur. Lisansları veya erişimi kişiler yerine SaaS uygulamaları atayabilir veya izinleri devrederek Azure AD kimlik yönetimi yükünü diğer kullanıcılara dağıtabilirsiniz.'
 sections:
-- title: 5 dakikalık hızlı başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure Active Directory'deki yönetim araçlarını kullanmayı öğrenin
-  - type: list
-    style: unordered
+  - title: 5 dakikalık hızlı başlangıçlar
     items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Kullanıcıları Azure AD’ye ekleme</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Kullanıcılara lisans atama</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium’a kaydolun</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Kullanıcı tarafından oluşturulan gruplar için süre sonunu ayarlama</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Kullanıcı tarafından oluşturulan gruplar için adlandırma ilkesini ayarlama</a>
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: Azure Active Directory'deki grupları dinamik olarak doldurmayı öğrenin
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure Active Directory'deki yönetim araçlarını kullanmayı öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Kullanıcıları Azure AD’ye ekleme</a>
+          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Kullanıcılara lisans atama</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium’a kaydolun</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Kullanıcı tarafından oluşturulan gruplar için süre sonunu ayarlama</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Kullanıcı tarafından oluşturulan gruplar için adlandırma ilkesini ayarlama</a>
+  - title: Adım adım öğreticiler
     items:
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Dinamik olarak doldurulan grup oluşturma</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Azure Active Directory'deki grupları dinamik olarak doldurmayı öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Dinamik olarak doldurulan grup oluşturma</a>
+  - title: Başvuru
     items:
-    - title: Başvuru bağlantıları
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlet'leri</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Başvuru bağlantıları
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlet''leri</a></p>'

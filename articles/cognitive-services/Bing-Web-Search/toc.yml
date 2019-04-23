@@ -1,124 +1,117 @@
-items:
 - name: Bing Web Araması API'si Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Web Araması nedir?
-    href: overview.md
-    expanded: true
-  - name: Bing Arama API'lerini karşılaştırma
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    - name: Bing Web Araması nedir?
+      href: overview.md
+      expanded: true
+    - name: Bing Arama API'lerini karşılaştırma
+      href: ../Bing-Web-Search/bing-api-comparison.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: REST API'leri
-    items:
-    - name: C#
-      href: quickstarts/csharp.md
-    - name: Başlayın
-      href: quickstarts/go.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-  - name: SDK’lar
-    items:
-    - name: C#
-      href: web-search-sdk-quickstart.md
-    - name: Java
-      href: web-sdk-java-quickstart.md
-    - name: Node.js
-      href: web-search-sdk-node-quickstart.md
-    - name: Python
-      href: web-sdk-python-quickstart.md
+    - name: REST API'leri
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Başlayın
+          href: quickstarts/go.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: SDK’lar
+      items:
+        - name: 'C#'
+          href: web-search-sdk-quickstart.md
+        - name: Java
+          href: web-sdk-java-quickstart.md
+        - name: Node.js
+          href: web-search-sdk-node-quickstart.md
+        - name: Python
+          href: web-sdk-python-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması oluşturma
-    href: tutorial-bing-web-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması oluşturma
+      href: tutorial-bing-web-search-single-page-app.md
 - name: Örnekler
   items:
-  - name: REST örnekleri
-    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples
-  - name: SDK örnekleri
-    href: sdk-samples.md
+    - name: REST örnekleri
+      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples'
+    - name: SDK örnekleri
+      href: sdk-samples.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Yanıtları filtreleme
-    href: filter-answers.md
-  - name: Sonuçları sıralama
-    href: rank-results.md
-  - name: İsabet vurgulamayı gerçekleştirme
-    href: hit-highlighting.md
-  - name: Sonuçları sayfalama
-    href: paging-webpages.md
-  - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-    href: resize-and-crop-thumbnails.md
-  - name: v5’ten v7’ye yükseltme
-    href: bing-web-upgrade-guide-v5-to-v7.md
+    - name: Yanıtları filtreleme
+      href: filter-answers.md
+    - name: Sonuçları sıralama
+      href: rank-results.md
+    - name: İsabet vurgulamayı gerçekleştirme
+      href: hit-highlighting.md
+    - name: Sonuçları sayfalama
+      href: paging-webpages.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-web-upgrade-guide-v5-to-v7.md
 - name: Kavramlar
   items:
-  - name: Arama terimlerini otomatik önerme
-    href: autosuggest-bing-search-terms.md
-  - name: Arama yanıtları
-    href: search-responses.md
-  - name: İstekleri azaltma
-    href: throttling-requests.md
+    - name: Arama terimlerini otomatik önerme
+      href: autosuggest-bing-search-terms.md
+    - name: Arama yanıtları
+      href: search-responses.md
+    - name: İstekleri azaltma
+      href: throttling-requests.md
 - name: Başvuru
   items:
-  - name: Bing Web Araması API’si v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
-  - name: Bing Web Araması API’si v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
-  - name: Kullanım ve görüntüleme gereksinimleri
-    href: Use-display-requirements.md
+    - name: Bing Web Araması API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: Bing Web Araması API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch'
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: Use-display-requirements.md
 - name: Kaynaklar
   items:
-  - name: API anahtarını alma
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: Bing Web Araması uç noktası
-    href: web-search-endpoints.md
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Dil ve bölge desteği
-    href: language-support.md
-  - name: Bing Web Araması API'si Analizleri
-    href: bing-web-stats.md
-  - name: Destek
-    items:
-    - name: UserVoice Forumu
-      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-    - name: Stack Overflow
-      href: https://stackoverflow.com/search?q=bing+web+search
-    - name: Bilgi Bankası
-      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 75b3f3b85150d4db586281c45a8ba3ff1f35971f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236048"
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: Bing Web Araması uç noktası
+      href: web-search-endpoints.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Dil ve bölge desteği
+      href: language-support.md
+    - name: Bing Web Araması API'si Analizleri
+      href: bing-web-stats.md
+    - name: Destek
+      items:
+        - name: UserVoice Forumu
+          href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/search?q=bing+web+search'
+        - name: Bilgi Bankası
+          href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

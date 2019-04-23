@@ -1,63 +1,56 @@
-items:
 - name: Azure Advisor Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Danışmanı nedir?
-    href: advisor-overview.md
+    - name: Azure Danışmanı nedir?
+      href: advisor-overview.md
 - name: Öğreticiler
   items:
-  - name: Danışman'ı kullanmaya başlama
-    href: advisor-get-started.md
+    - name: Danışman'ı kullanmaya başlama
+      href: advisor-get-started.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure uygulamasının kullanılabilirliğini geliştirme
-    href: advisor-high-availability-recommendations.md
-  - name: Kaynakları daha güvenli hale getirme
-    href: advisor-security-recommendations.md
-  - name: Azure uygulamalarının performansını geliştirme
-    href: advisor-performance-recommendations.md
-  - name: Hizmet maliyetlerini azaltma
-    href: advisor-cost-recommendations.md
-  - name: Önerileri yapılandırma
-    href: view-recommendations.md
-  - name: İzinler ve engellenen eylemler
-    href: permissions.md
+    - name: Azure uygulamasının kullanılabilirliğini geliştirme
+      href: advisor-high-availability-recommendations.md
+    - name: Kaynakları daha güvenli hale getirme
+      href: advisor-security-recommendations.md
+    - name: Azure uygulamalarının performansını geliştirme
+      href: advisor-performance-recommendations.md
+    - name: Hizmet maliyetlerini azaltma
+      href: advisor-cost-recommendations.md
+    - name: Önerileri yapılandırma
+      href: view-recommendations.md
+    - name: İzinler ve engellenen eylemler
+      href: permissions.md
 - name: Başvuru
   items:
-  - name: Güvenlik Merkezi
-    href: https://azure.microsoft.com/services/security-center/
-  - name: SQL DB Danışmanı
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
-  - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
-  - name: REST API
-    href: https://docs.microsoft.com/rest/api/advisor/
-  - name: CLI
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
-  - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    - name: Güvenlik Merkezi
+      href: 'https://azure.microsoft.com/services/security-center/'
+    - name: SQL DB Danışmanı
+      href: 'https://azure.microsoft.com/documentation/articles/sql-database-advisor/'
+    - name: App Service
+      href: 'https://docs.microsoft.com/azure/app-service/app-service-best-practices'
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/advisor/'
+    - name: CLI
+      href: 'https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest'
+    - name: PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/advisor
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=advisor
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
-  - name: Videolar
-    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=azure+advisor
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=advisor
-ms.openlocfilehash: 5df886b26bf81ffefc7e8e18f9a0aa0c6412ab2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793690"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/advisor'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=advisor'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=advisor'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=advisor'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=azure+advisor'
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=advisor'

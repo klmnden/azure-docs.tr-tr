@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 19e4fbed8f8ea9b051ffb493b0c6b9a1f4eb48b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162399"
 documentType: LandingData
 title: Azure DevOps Projeleri
 metadata:
-  document_id: 
+  document_id: null
   title: Azure DevOps Projeleri Belgeleri - Hızlı başlangıçlar ve öğreticiler
-  meta.description: 
+  meta.description: null
   services: devops-project
   author: mlearned
   manager: douge
@@ -21,61 +15,61 @@ metadata:
   ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
-  description: Azure DevOps Projeleri, mevcut kodunuzu ve Git deponuzu getirdiğiniz ya da Azure’da bir sürekli tümleştirme (CI) ve sürekli teslim (CD) işlem hattı oluşturmak üzere örnek uygulamalardan birini seçtiğiniz basitleştirilmiş bir deneyim sunar.
+  description: 'Azure DevOps Projeleri, mevcut kodunuzu ve Git deponuzu getirdiğiniz ya da Azure’da bir sürekli tümleştirme (CI) ve sürekli teslim (CD) işlem hattı oluşturmak üzere örnek uygulamalardan birini seçtiğiniz basitleştirilmiş bir deneyim sunar.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: _img\video-devops-project.png
       width: 250
-    title: DevOps Projeleri ile CI/CD oluşturma videosu (8:53)
-    href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+    title: 'DevOps Projeleri ile CI/CD oluşturma videosu (8:53)'
+    href: 'https://channel9.msdn.com/Events/Connect/2017/T174/player/'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Uygulama türünüzü derleme ve seçtiğiniz Azure hizmetine dağıtma hakkında bilgi edinin:'
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: media\logo_net.svg
-      text: .NET
-      href: /azure/devops-project/azure-devops-project-aspnet-core
-    - image:
-        src: media\logo_nodejs.svg
-      text: Node.js
-      href: /azure/devops-project/azure-devops-project-nodejs
-    - image:
-        src: media\logo_java.svg
-      text: Java
-      href: /azure/devops-project/azure-devops-project-java
-    - image:
-        src: media\logo_python.svg
-      text: Python
-      href: /azure/devops-project/azure-devops-project-python
-    - image:
-        src: media\logo_php.svg
-      text: PHP
-      href: /azure/devops-project/azure-devops-project-php
-    - image:
-        src: media\logo_ruby.svg
-      text: Ruby
-      href: /azure/devops-project/azure-devops-project-ruby
-    - image:
-        src: media\logo_gopher.svg
-      text: Başlayın
-      href: /azure/devops-project/azure-devops-project-go
-- title: Adım adım öğreticiler
-  items:
-  - type: paragraph
-    text: DevOps Projelerini kullanarak yayın işlem hatları oluşturmayı öğrenin
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Uygulama türünüzü derleme ve seçtiğiniz Azure hizmetine dağıtma hakkında bilgi edinin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media\logo_net.svg
+            text: .NET
+            href: /azure/devops-project/azure-devops-project-aspnet-core
+          - image:
+              src: media\logo_nodejs.svg
+            text: Node.js
+            href: /azure/devops-project/azure-devops-project-nodejs
+          - image:
+              src: media\logo_java.svg
+            text: Java
+            href: /azure/devops-project/azure-devops-project-java
+          - image:
+              src: media\logo_python.svg
+            text: Python
+            href: /azure/devops-project/azure-devops-project-python
+          - image:
+              src: media\logo_php.svg
+            text: PHP
+            href: /azure/devops-project/azure-devops-project-php
+          - image:
+              src: media\logo_ruby.svg
+            text: Ruby
+            href: /azure/devops-project/azure-devops-project-ruby
+          - image:
+              src: media\logo_gopher.svg
+            text: Başlayın
+            href: /azure/devops-project/azure-devops-project-go
+  - title: Adım adım öğreticiler
     items:
-    - html: <a href="/azure/devops-project/azure-devops-project-github">GitHub ile kendi kodunuzu getirme</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-vms">ASP.NET uygulamanızı Azure Sanal Makineler'e dağıtma</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">ASP.NET uygulamanızı ve Azure SQL Veritabanınızı dağıtma</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-aks">Uygulamanızı Azure Container Service ve Kubernetes’e dağıtma</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Uygulamanızı Azure Service Fabric’e dağıtma</a>
+      - type: paragraph
+        text: DevOps Projelerini kullanarak yayın işlem hatları oluşturmayı öğrenin
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/devops-project/azure-devops-project-github">GitHub ile kendi kodunuzu getirme</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-vms">ASP.NET uygulamanızı Azure Sanal Makineler'e dağıtma</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-sql-database">ASP.NET uygulamanızı ve Azure SQL Veritabanınızı dağıtma</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-aks">Uygulamanızı Azure Container Service ve Kubernetes’e dağıtma</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Uygulamanızı Azure Service Fabric’e dağıtma</a>

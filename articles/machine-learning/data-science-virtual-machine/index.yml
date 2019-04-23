@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 08426b9cb6dee2abd445f2e29eb4bf4d20a6e06d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475694"
 documentType: LandingData
 title: Azure Veri Bilimi Sanal Makinesi Belgeleri
 metadata:
@@ -21,45 +15,45 @@ metadata:
   ms.date: 01/18/2018
   ms.author: gokuma
 abstract:
-  description: Veri Bilimi ve Kapsamlı Öğrenim Sanal Makineleri, Azure’da gelişmiş analiz için akıllı uygulamalar oluşturmak amacıyla kullanılan veri bilimi araçlarıyla yüklü VM görüntüleridir.
+  description: 'Veri Bilimi ve Kapsamlı Öğrenim Sanal Makineleri, Azure’da gelişmiş analiz için akıllı uygulamalar oluşturmak amacıyla kullanılan veri bilimi araçlarıyla yüklü VM görüntüleridir.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Windows veya Linux tabanlı bir Veri Bilimi VM’sini nasıl ayarlayacağınızı öğrenin:'
-  - type: list
-    style: unordered
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - html: <a href="provision-vm.md">Windows</a>
-    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Veri Bilimi VM’lerini nasıl sağlayacağınızı ve kullanacağınızı öğrenin:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Windows veya Linux tabanlı bir Veri Bilimi VM’sini nasıl ayarlayacağınızı öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="provision-vm.md">Windows</a>
+          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="provision-vm">Bir Windows DSVM’sini sağlama</a>
-    - html: <a href="vm-do-ten-things">Bir Windows DSVM’sini kullanma</a>
-    - html: <a href="linux-dsvm-intro">Bir Linux CentOS DSVM’sini sağlama</a>
-    - html: <a href="dsvm-ubuntu-intro">Bir Linux Ubuntu DSVM’sini sağlama</a>
-    - html: <a href="linux-dsvm-walkthrough">Bir Linux DSVM’sini kullanma</a>
-- title: Diğer Azure Machine Learning Teknolojileri
-  items:
-  - type: paragraph
-    text: 'Azure Machine Learning’de kullanılabilen diğer teknolojiler:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Veri Bilimi VM’lerini nasıl sağlayacağınızı ve kullanacağınızı öğrenin:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="provision-vm">Bir Windows DSVM’sini sağlama</a>
+          - html: <a href="vm-do-ten-things">Bir Windows DSVM’sini kullanma</a>
+          - html: <a href="linux-dsvm-intro">Bir Linux CentOS DSVM’sini sağlama</a>
+          - html: <a href="dsvm-ubuntu-intro">Bir Linux Ubuntu DSVM’sini sağlama</a>
+          - html: <a href="linux-dsvm-walkthrough">Bir Linux DSVM’sini kullanma</a>
+  - title: Diğer Azure Machine Learning Teknolojileri
     items:
-    - title: Azure Machine Learning hizmeti (önizleme)
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+      - type: paragraph
+        text: 'Azure Machine Learning’de kullanılabilen diğer teknolojiler:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning hizmeti (önizleme)
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/

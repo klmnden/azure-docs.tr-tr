@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62d81da206e60c90c636e8c7dd0193d7761ba9b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183603"
 documentType: LandingData
 title: Azure Veritabanı Geçiş Hizmeti Belgeleri
 metadata:
@@ -21,60 +15,60 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/12/2019
 abstract:
-  description: Azure Veritabanı Geçiş Hizmeti çok kısa kapalı kalma süreleriyle birden çok veri kaynağından Azure Veri platformlarına sorunsuz geçiş sağlar. Hizmet, geçişi yapmadan önce yapılması gereken değişiklikler konusunda size yol gösteren önerilerin sağlandığı değerlendirme raporlarını oluşturmak için Data Migration Yardımcısı'nı kullanır. Geçiş işlemine başlamaya hazır olduğunuzda, Azure Veritabanı Geçiş Hizmeti tüm gerekli adımları uygular.
+  description: 'Azure Veritabanı Geçiş Hizmeti çok kısa kapalı kalma süreleriyle birden çok veri kaynağından Azure Veri platformlarına sorunsuz geçiş sağlar. Hizmet, geçişi yapmadan önce yapılması gereken değişiklikler konusunda size yol gösteren önerilerin sağlandığı değerlendirme raporlarını oluşturmak için Data Migration Yardımcısı''nı kullanır. Geçiş işlemine başlamaya hazır olduğunuzda, Azure Veritabanı Geçiş Hizmeti tüm gerekli adımları uygular.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/video-thumb-intro2dms.png
       width: 250
-    title: Azure DMS'ye giriş (1:30)
-    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    title: 'Azure DMS''ye giriş (1:30)'
+    href: 'https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: "Veritabanı Geçiş Hizmeti'yle şirket içi SQL Server'ı Azure SQL Veritabanına nasıl geçireceğinizi öğrenin:"
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: /azure/dms/quickstart-create-data-migration-service-portal
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: "Veritabanı Geçiş Hizmeti'yle veritabanlarını nasıl geçireceğinizi öğrenin:"
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Veritabanı Geçiş Hizmeti''yle şirket içi SQL Server''ı Azure SQL Veritabanına nasıl geçireceğinizi öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: /azure/dms/quickstart-create-data-migration-service-portal
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">DMS kullanarak SQL Server'ı çevrimiçi Azure SQL Veritabanı'na geçirme</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">DMS kullanarak çevrimiçi biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
-    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">DMS kullanarak çevrimiçi ortamda RDS SQL Server'ı Azure SQL Veritabanı’na veya Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
-    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">DMS hizmetini kullanarak MySQL'i MySQL için Azure Veritabanı'na çevrimiçi geçirme</a>
-    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme</a>
-    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">MongoDB'yi çevrimdışı ortamda DMS kullanarak Azure Cosmos DB Mongo API'sine geçirme</a>
-    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">MongoDB'yi çevrimiçi ortamda DMS kullanarak Azure Cosmos DB Mongo API'sine geçirme</a>
-- title: Örnekler
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Veritabanı Geçiş Hizmeti''yle veritabanlarını nasıl geçireceğinizi öğrenin:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">DMS kullanarak SQL Server'ı çevrimiçi Azure SQL Veritabanı'na geçirme</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">DMS kullanarak çevrimiçi biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
+          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">DMS kullanarak çevrimiçi ortamda RDS SQL Server'ı Azure SQL Veritabanı’na veya Azure SQL Veritabanı Yönetilen Örneği'ne geçirme</a>
+          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">DMS hizmetini kullanarak MySQL'i MySQL için Azure Veritabanı'na çevrimiçi geçirme</a>
+          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">MongoDB'yi çevrimdışı ortamda DMS kullanarak Azure Cosmos DB Mongo API'sine geçirme</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">MongoDB'yi çevrimiçi ortamda DMS kullanarak Azure Cosmos DB Mongo API'sine geçirme</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Azure PowerShell kullanarak şirket içi SQL Server’dan Azure SQL DB'ye geçiş</a>
-    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Azure PowerShell kullanarak şirket içi SQL Server’dan Azure SQL DB Yönetilen Örneği'ne geçiş</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Azure PowerShell kullanarak şirket içi SQL Server’dan Azure SQL DB'ye geçiş</a>
+          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Azure PowerShell kullanarak şirket içi SQL Server’dan Azure SQL DB Yönetilen Örneği'ne geçiş</a>
+  - title: Başvuru
     items:
-    - html: <a href="/azure/dms/resource-scenario-status">Azure Veritabanı Geçiş Hizmeti tarafından desteklenen geçiş senaryolarının durumu</a>
-    - html: <a href="/azure/dms/pre-reqs">Azure Veritabanı Geçiş Hizmeti'ni kullanmak için önkoşullara genel bakış</a>
-    - html: <a href="/azure/dms/faq">Azure Veritabanı Geçiş Hizmeti'ni kullanma hakkında SSS</a>
-    - html: <a href="/azure/dms/known-issues-azure-sql-online">Azure SQL DB'ye çevrimiçi geçişlerle ilgili bilinen sorunlar/geçiş sınırlamaları</a>
-    - html: <a href="/azure/dms/dms-tools-matrix">Veri geçişi senaryolarına yönelik hizmet ve araçlar</a>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/dms/resource-scenario-status">Azure Veritabanı Geçiş Hizmeti tarafından desteklenen geçiş senaryolarının durumu</a>
+          - html: <a href="/azure/dms/pre-reqs">Azure Veritabanı Geçiş Hizmeti'ni kullanmak için önkoşullara genel bakış</a>
+          - html: <a href="/azure/dms/faq">Azure Veritabanı Geçiş Hizmeti'ni kullanma hakkında SSS</a>
+          - html: <a href="/azure/dms/known-issues-azure-sql-online">Azure SQL DB'ye çevrimiçi geçişlerle ilgili bilinen sorunlar/geçiş sınırlamaları</a>
+          - html: <a href="/azure/dms/dms-tools-matrix">Veri geçişi senaryolarına yönelik hizmet ve araçlar</a>

@@ -1,62 +1,55 @@
-items:
 - name: Azure Governance Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Azure Yönetimi
-    href: azure-management.md
   expanded: true
+  items:
+    - name: Azure Yönetimi
+      href: azure-management.md
 - name: Bileşenler ve Hizmetler
-  items:
-  - name: Yönetim Grupları
-    items:
-    - name: Genel Bakış
-      href: management-groups/index.md
-    - name: Oluştur
-      href: management-groups/create.md
-    - name: Yönetme
-      href: management-groups/manage.md
-  - name: Kaynak Grafiği
-    href: resource-graph/overview.md
-  - name: İlke
-    href: policy/overview.md
-  - name: Şemalar
-    href: blueprints/overview.md
   expanded: true
+  items:
+    - name: Yönetim Grupları
+      items:
+        - name: Genel Bakış
+          href: management-groups/index.md
+        - name: Oluştur
+          href: management-groups/create.md
+        - name: Yönetme
+          href: management-groups/manage.md
+    - name: Kaynak Grafiği
+      href: resource-graph/overview.md
+    - name: İlke
+      href: policy/overview.md
+    - name: Şemalar
+      href: blueprints/overview.md
 - name: Uygulamalar
-  items:
-  - name: Kurumsal Bulut Benimsemesi
-    items:
-    - name: Bulut kaynak idaresi nedir?
-      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Azure’da kaynak erişim idaresi
-      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: Tek bir ekibe yönelik idare tasarımı
-      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: Birden çok ekibe yönelik idare tasarımı
-      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-  - name: Azure Kurumsal İskelesi
-    items:
-    - name: Öngörücü Abonelik İdaresi
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-    - name: Azure Kurumsal İskelesini Uygulama
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
   expanded: true
+  items:
+    - name: Kurumsal Bulut Benimsemesi
+      items:
+        - name: Bulut kaynak idaresi nedir?
+          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+        - name: Azure’da kaynak erişim idaresi
+          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+        - name: Tek bir ekibe yönelik idare tasarımı
+          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+        - name: Birden çok ekibe yönelik idare tasarımı
+          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+    - name: Azure Kurumsal İskelesi
+      items:
+        - name: Öngörücü Abonelik İdaresi
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+        - name: Azure Kurumsal İskelesini Uygulama
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
 - name: Kaynaklar
   items:
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: User Voice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: İdare Videosu
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-  - name: Governance YouTube Kanalı
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673913"
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: User Voice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: İdare Videosu
+      href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
+    - name: Governance YouTube Kanalı
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

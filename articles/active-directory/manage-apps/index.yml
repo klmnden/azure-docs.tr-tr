@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335887"
 documentType: LandingData
 title: Uygulama Yönetimi Belgeleri
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory bulut ve şirket içi uygulamalara güvenli ve sorunsuz erişim sağlar. Ayrıca parolaları yönetmeye gerek yoktur. Son kullanıcılarınız tek bir kez oturum açarak Office 365’e ve diğer binlerce uygulamaya erişebilir. Hızlı başlangıçlarımız, öğreticilerimiz ve rehberimizle uygulamaları nasıl yönetip dağıtacağınızı öğrenin.
+  description: 'Azure Active Directory bulut ve şirket içi uygulamalara güvenli ve sorunsuz erişim sağlar. Ayrıca parolaları yönetmeye gerek yoktur. Son kullanıcılarınız tek bir kez oturum açarak Office 365’e ve diğer binlerce uygulamaya erişebilir. Hızlı başlangıçlarımız, öğreticilerimiz ve rehberimizle uygulamaları nasıl yönetip dağıtacağınızı öğrenin.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Azure AD ile uygulamalarınıza güvenli erişim (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Azure AD ile uygulamalarınıza güvenli erişim (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure Active Directory üzerinden erişebilmeleri için kullanıcılara yönelik uygulama eklemeyi öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Uygulama ekleme
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Uygulamalarınızı görüntüleyin
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Uygulamalarınız için basit ve güvenli bir oturum açma işlemini etkinleştirmeyi öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure Active Directory üzerinden erişebilmeleri için kullanıcılara yönelik uygulama eklemeyi öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Uygulama ekleme
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Uygulamalarınızı görüntüleyin
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">SaaS uygulaması öğreticileri</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Çoklu oturum açmayı yapılandırma</a>
+      - type: paragraph
+        text: Uygulamalarınız için basit ve güvenli bir oturum açma işlemini etkinleştirmeyi öğrenin.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">SaaS uygulaması öğreticileri</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Çoklu oturum açmayı yapılandırma</a>

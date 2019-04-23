@@ -1,100 +1,93 @@
-items:
 - name: Privileged Identity Management belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure AD PIM nedir?
-    href: pim-configure.md
+    - name: Azure AD PIM nedir?
+      href: pim-configure.md
 - name: Kavramlar
   items:
-  - name: Lisans gereksinimleri
-    href: subscription-requirements.md
-  - name: Yönetemeyeceğiniz roller
-    href: pim-roles.md
-  - name: Güvenli ayrıcalıklı erişim
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA ve PIM
-    href: pim-how-to-require-mfa.md
-  - name: Panolara genel bakış
-    href: pim-resource-roles-overview-dashboards.md
-  - name: E-posta bildirimleri
-    href: pim-email-notifications.md
-  - name: Microsoft Graph API'leri
-    href: pim-apis.md
+    - name: Lisans gereksinimleri
+      href: subscription-requirements.md
+    - name: Yönetemeyeceğiniz roller
+      href: pim-roles.md
+    - name: Güvenli ayrıcalıklı erişim
+      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: MFA ve PIM
+      href: pim-how-to-require-mfa.md
+    - name: Panolara genel bakış
+      href: pim-resource-roles-overview-dashboards.md
+    - name: E-posta bildirimleri
+      href: pim-email-notifications.md
+    - name: Microsoft Graph API'leri
+      href: pim-apis.md
 - name: Nasıl yapılır kılavuzları
-  items:
-  - name: PIM dağıtma
-    href: pim-deployment-plan.md
-  - name: PIM kullanmaya başlama
-    href: pim-getting-started.md
-  - name: Rollerimi etkinleştir
-    items:
-    - name: Azure AD rollerimi etkinleştirme
-      href: pim-how-to-activate-role.md
-    - name: Azure kaynağı rollerimi etkinleştirme
-      href: pim-resource-roles-activate-your-roles.md
-  - name: PIM'yi yapılandırma
-    items:
-    - name: Güvenlik sihirbazı
-      href: pim-security-wizard.md
-    - name: Azure kaynaklarını bulma
-      href: pim-resource-roles-discover-resources.md
-    - name: Başkalarına PIM’yi yönetmek için erişim izni verme
-      href: pim-how-to-give-access-to-pim.md
-    - name: Tüm abonelikleri yönetmek için erişimi yükseltme
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Azure AD rollerini yönetme
-    items:
-    - name: Rol atama
-      href: pim-how-to-add-role-to-user.md
-    - name: İstekleri onaylama
-      href: azure-ad-pim-approval-workflow.md
-    - name: Rol ayarlarını yapılandırma
-      href: pim-how-to-change-default-settings.md
-    - name: Uyarı yapılandırma
-      href: pim-how-to-configure-security-alerts.md
-    - name: Denetim geçmişini görüntüleme
-      href: pim-how-to-use-audit-log.md
-  - name: Azure kaynağı rollerini yönetme
-    items:
-    - name: Rol atama
-      href: pim-resource-roles-assign-roles.md
-    - name: Dış kullanıcıları davet etme
-      href: pim-resource-roles-external-users.md
-    - name: İstekleri onaylama
-      href: pim-resource-roles-approval-workflow.md
-    - name: Rolleri genişletme veya yenileme
-      href: pim-resource-roles-renew-extend.md
-    - name: Rol ayarlarını yapılandırma
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Uyarı yapılandırma
-      href: pim-resource-roles-configure-alerts.md
-    - name: Etkinlik ve denetim geçmişini görüntüleme
-      href: azure-pim-resource-rbac.md
-    - name: Özel rolleri kullanma
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Erişimi gözden geçirme
-    items:
-    - name: Azure AD rolleri
-      items:
-      - name: Azure AD rollerimi gözden geçirme
-        href: pim-how-to-perform-security-review.md
-      - name: Erişim gözden geçirmesi başlatma
-        href: pim-how-to-start-security-review.md
-      - name: Erişim gözden geçirmesi tamamlama
-        href: pim-how-to-complete-review.md
-    - name: Azure kaynağı rolleri
-      items:
-      - name: Azure kaynağı rollerimi gözden geçirme
-        href: pim-resource-roles-perform-access-review.md
-      - name: Erişim gözden geçirmesi başlatma
-        href: pim-resource-roles-start-access-review.md
-      - name: Erişim gözden geçirmesi tamamlama
-        href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575802"
+  items:
+    - name: PIM dağıtma
+      href: pim-deployment-plan.md
+    - name: PIM kullanmaya başlama
+      href: pim-getting-started.md
+    - name: Rollerimi etkinleştir
+      items:
+        - name: Azure AD rollerimi etkinleştirme
+          href: pim-how-to-activate-role.md
+        - name: Azure kaynağı rollerimi etkinleştirme
+          href: pim-resource-roles-activate-your-roles.md
+    - name: PIM'yi yapılandırma
+      items:
+        - name: Güvenlik sihirbazı
+          href: pim-security-wizard.md
+        - name: Azure kaynaklarını bulma
+          href: pim-resource-roles-discover-resources.md
+        - name: Başkalarına PIM’yi yönetmek için erişim izni verme
+          href: pim-how-to-give-access-to-pim.md
+        - name: Tüm abonelikleri yönetmek için erişimi yükseltme
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Azure AD rollerini yönetme
+      items:
+        - name: Rol atama
+          href: pim-how-to-add-role-to-user.md
+        - name: İstekleri onaylama
+          href: azure-ad-pim-approval-workflow.md
+        - name: Rol ayarlarını yapılandırma
+          href: pim-how-to-change-default-settings.md
+        - name: Uyarı yapılandırma
+          href: pim-how-to-configure-security-alerts.md
+        - name: Denetim geçmişini görüntüleme
+          href: pim-how-to-use-audit-log.md
+    - name: Azure kaynağı rollerini yönetme
+      items:
+        - name: Rol atama
+          href: pim-resource-roles-assign-roles.md
+        - name: Dış kullanıcıları davet etme
+          href: pim-resource-roles-external-users.md
+        - name: İstekleri onaylama
+          href: pim-resource-roles-approval-workflow.md
+        - name: Rolleri genişletme veya yenileme
+          href: pim-resource-roles-renew-extend.md
+        - name: Rol ayarlarını yapılandırma
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Uyarı yapılandırma
+          href: pim-resource-roles-configure-alerts.md
+        - name: Etkinlik ve denetim geçmişini görüntüleme
+          href: azure-pim-resource-rbac.md
+        - name: Özel rolleri kullanma
+          href: pim-resource-roles-custom-role-policy.md
+    - name: Erişimi gözden geçirme
+      items:
+        - name: Azure AD rolleri
+          items:
+            - name: Azure AD rollerimi gözden geçirme
+              href: pim-how-to-perform-security-review.md
+            - name: Erişim gözden geçirmesi başlatma
+              href: pim-how-to-start-security-review.md
+            - name: Erişim gözden geçirmesi tamamlama
+              href: pim-how-to-complete-review.md
+        - name: Azure kaynağı rolleri
+          items:
+            - name: Azure kaynağı rollerimi gözden geçirme
+              href: pim-resource-roles-perform-access-review.md
+            - name: Erişim gözden geçirmesi başlatma
+              href: pim-resource-roles-start-access-review.md
+            - name: Erişim gözden geçirmesi tamamlama
+              href: pim-resource-roles-complete-access-review.md
