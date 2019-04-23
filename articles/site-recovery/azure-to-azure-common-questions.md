@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649892"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149742"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -67,7 +67,7 @@ Site Recovery ile çoğaltma ve aynı coğrafi kümedeki her iki bölge arasınd
 
 Hayır, Site Recovery, Internet bağlantısı gerektirmez. Ancak, Site Recovery hizmeti URL'lerine ve IP aralıklarının belirtildiği gibi erişmesi [bu makalede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Ayrı bir kaynak grubu ayrı katmanlara yönelik olan uygulama çoğaltabilirim? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Ayrı bir kaynak grubu ayrı katmanlara yönelik olan uygulama çoğaltabilirim?
 Evet, uygulama çoğaltma ve olağanüstü durum kurtarma yapılandırması ayrı bir kaynak grubunda çok tutun.
 Örneğin, bir uygulama ile varsa her uygulama, db ve ayrı bir kaynak grubundaki web katmanlarını ardından tıklayarak [çoğaltma sihirbazını](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice tüm katmanlarda korumak için. ASR, üç farklı bir kaynak grubunda bu üç katmanda çoğaltır.
 
@@ -89,11 +89,12 @@ Bugün, çoğu uygulama iyi kilitlenme ile tutarlı anlık görüntülerden kurt
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Kilitlenmeyle tutarlı kurtarma noktası oluşturma işlemi sıklığını nedir?
 Site Recovery, her 5 dakikada bir kilitlenme ile tutarlı kurtarma noktası oluşturur.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>Uygulamayla tutarlı kurtarma noktası nedir? 
-Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı kurtarma noktaları, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
+### <a name="what-is-an-application-consistent-recovery-point"></a>Uygulamayla tutarlı kurtarma noktası nedir?
+Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı kurtarma noktaları, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın.
+Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Uygulamayla tutarlı kurtarma noktası uygulama performansı üzerindeki etkisi nedir?
-Uygulamayla tutarlı kurtarma noktalarını yakalar tüm verileri bellek içinde ve işlem dikkate framework sessiz moda alın, uygulama için windows VSS gibi gerektirir. Bu, çok sık yapıldığında olabilir performans etkisi iş yükü çok meşgul ise. Genellikle düşük sıklık düzeyi veritabanı olmayan iş yükleri için ve veritabanı iş yükü için bile uygulama ile tutarlı kurtarma noktaları için 1 saat kullanmayı düşürebilmek önerilir. 
+Uygulamayla tutarlı kurtarma noktalarını yakalar tüm verileri bellek içinde ve işlem dikkate framework sessiz moda alın, uygulama için windows VSS gibi gerektirir. Bu, çok sık yapıldığında olabilir performans etkisi iş yükü çok meşgul ise. Genellikle düşük sıklık düzeyi veritabanı olmayan iş yükleri için ve veritabanı iş yükü için bile uygulama ile tutarlı kurtarma noktaları için 1 saat kullanmayı düşürebilmek önerilir.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Uygulamayla tutarlı kurtarma noktası oluşturma işlemi en az sıklığı nedir?
 Site Recovery oluşturur bir uygulamayla tutarlı kurtarma noktası ile en az bir sıklığı 1 saat içinde.
@@ -144,7 +145,7 @@ Bir çoğaltma grubunda birlikte 16 sanal makinelerini çoğaltabilirsiniz.
 CPU bakımından yoğun olduğundan, çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir. Yalnızca makineler aynı iş yükünü çalıştırıyorsa ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır. Örneğin, bir uygulamada iki SQL Server örneği ve iki web sunucusu varsa, yalnızca SQL Server örnekleri için çoklu VM tutarlılığı olmalıdır.
 
 
-## <a name="failover"></a>Yük devret
+## <a name="failover"></a>Yük devretme
 
 ### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Kapasite hedef bölgede Azure Vm'leri için nasıl sağlanır?
 Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
@@ -216,7 +217,11 @@ Bu, durumunuza bağlıdır. Örneğin, VM Kaynak bölgesi varsa, kaynak ve hedef
 Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer.
 
 ## <a name="capacity"></a>Kapasite
-### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery, ayrılmış örnek ile çalışır mı?
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Nasıl kapasite Azure Vm'leri için hedef bölgede sağlanmıştır?
+Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery, ayrılmış örnekleri ile çalışır mı?
 Evet, satın [rezerve örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR bölge ve ASR yük devretme işlemlerini bunları kullanır. </br> Müşteriler, ek yapılandırma gereklidir.
 
 

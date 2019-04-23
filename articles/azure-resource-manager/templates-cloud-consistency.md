@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089480"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008231"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager şablon bulut tutarlılık için geliştirme
 
@@ -673,5 +673,5 @@ Test ve Otomasyon için aşağıdaki ipuçlarını göz önünde bulundurun:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Resource Manager şablonu konuları](../azure-stack/user/azure-stack-develop-templates.md)
+* [Azure Resource Manager şablonu konuları](/azure-stack/user/azure-stack-develop-templates)
 * [Azure Resource Manager şablonları için en iyi uygulamalar](resource-group-authoring-templates.md)

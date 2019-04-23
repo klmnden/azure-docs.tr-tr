@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278777"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994716"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Kullanılabilirlik alanları kullanan bir sanal makine ölçek kümesi oluşturma
 
@@ -62,7 +62,7 @@ Bir sanal makine ölçek kümesi dağıtırken, tek bir kullanılabilirlik alan�
 
 Bir ölçek kümesi tek bir bölge, hangi bölgede tüm VM örnekleri çalıştırmak ve ölçek kümesi yönetilen, denetimini ve yalnızca ilgili bölge içinde daralttığında oluşturduğunuzda. Bölgesel olarak yedekli ölçek kümesi, birden çok bölgeyi kapsayan tek bir ölçek kümesi oluşturmanızı sağlar. Sanal makine örnekleri oluşturulduğunda varsayılan olarak, eşit olarak bölgeler arasında dengelenir. Bir kesintinin bölgelerinden biri oluşursa, bir ölçek kümesini otomatik olarak kapasitesini artırmak için ölçeği değil. CPU veya bellek kullanımına göre otomatik ölçeklendirme kurallarını yapılandırmak için en iyi yöntem olacaktır. Otomatik ölçeklendirme kurallarını ölçek kümesindeki VM örnekleri, bir bölgede kaybı kalan çalışma alanlarında yeni örnekleri genişletme yanıt çalıştırmasına olanak tanır.
 
-Kullanılabilirlik alanları kullanmak için ölçek kümeniz oluşturulmalıdır bir [desteklenen bir Azure bölgesinde](../availability-zones/az-overview.md#regions-that-support-availability-zones). Kullanılabilirlik alanları aşağıdaki yöntemlerden biriyle kullanan bir ölçek kümesi oluşturabilirsiniz:
+Kullanılabilirlik alanları kullanmak için ölçek kümeniz oluşturulmalıdır bir [desteklenen bir Azure bölgesinde](../availability-zones/az-overview.md#services-support-by-region). Kullanılabilirlik alanları aşağıdaki yöntemlerden biriyle kullanan bir ölçek kümesi oluşturabilirsiniz:
 
 - [Azure portal](#use-the-azure-portal)
 - Azure CLI

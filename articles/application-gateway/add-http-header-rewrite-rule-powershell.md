@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548328"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005630"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>HTTP istek ve yanıt üst bilgilerini Azure Application Gateway - Azure PowerShell ile yeniden yazma
 
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bu öğretici için Azure PowerShell’i yerel olarak çalıştırmanız gerekir. Sonraki bir sürümünün yüklü veya modülü sürüm 1.0.0 Az olmalıdır. Çalıştırma `Import-Module Az` ardından`Get-Module Az` sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzAccount` komutunu çalıştırın.
-- Üst bilgiyi yeniden beri özellik SKU v1 SKU için desteklenmiyor bir uygulama ağ geçidi v2 olması gerekir. V2 SKU yoksa, oluşturun bir [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) başlamadan önce.
+- Üst bilgiyi yeniden beri özellik SKU v1 SKU için desteklenmiyor bir uygulama ağ geçidi v2 olması gerekir. V2 SKU yoksa, oluşturun bir [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) başlamadan önce.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Üstbilgi yeniden yazmak için gerekli nedir
 

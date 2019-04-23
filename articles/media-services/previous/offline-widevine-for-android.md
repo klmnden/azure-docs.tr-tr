@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309751"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995328"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine  
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Sürüm 3](../latest/offline-widevine-for-android.md)
 > * [Sürüm 2](offline-widevine-for-android.md)
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Çevrimiçi akış içeriği korumaya ek olarak, abonelik ve internet'e bağlı olmadıkları sırada çalışır kiralama Hizmetleri teklif indirilebilir içeriği medya içerik. Telefonunuzu üzerine içerik indirmek ihtiyacınız olabilecek veya tablet çıkış, uçak modu, kayıttan yürütme için ağdan bağlantısı kesilebilir. İçerik indirmek isteyebileceğiniz ek senaryolar:
 

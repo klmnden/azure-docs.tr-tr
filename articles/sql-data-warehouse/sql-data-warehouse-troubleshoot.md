@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679338"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003862"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu makalede, genel sorun giderme soru listelenmektedir.
@@ -33,7 +33,7 @@ Bu makalede, genel sorun giderme soru listelenmektedir.
 | Sorun                                                        | Çözüm                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | AAD kullanıcıları Visual Studio nesne Gezgini'nde eksik           | Bu bilinen bir sorundur.  Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals][sys.database_principals].  Bkz: [kimlik doğrulaması için Azure SQL veri ambarı] [ Authentication to Azure SQL Data Warehouse] SQL veri ambarı ile Azure Active Directory kullanma hakkında daha fazla bilgi edinmek için. |
-| Komut dosyası, komut dosyası Sihirbazı'nı kullanarak veya SSMS ile bağlanma kılavuzdur, yavaş, askıda veya üretim hataları | Ana veritabanında kullanıcılar oluşturduğunuzdan emin olun. Betik oluşturma seçenekleri, ayrıca altyapı sürümü "Microsoft Azure SQL veri ambarı sürümü olarak" olarak ayarlanır ve "Microsoft Azure SQL veritabanı" altyapısı türüdür emin olun. |
+| Yanıt vermiyor veya hatalar üretme komut dosyası, komut dosyası Sihirbazı'nı kullanarak veya SSMS ile bağlanma el ile de yavaş | Ana veritabanında kullanıcılar oluşturduğunuzdan emin olun. Betik oluşturma seçenekleri, ayrıca altyapı sürümü "Microsoft Azure SQL veri ambarı sürümü olarak" olarak ayarlanır ve "Microsoft Azure SQL veritabanı" altyapısı türüdür emin olun. |
 | SSMS'de betikleri başarısız oluştur                             | ' % S'seçeneği "Bağımlı nesneler için betik oluştur" seçeneği "True" olarak ayarlanmışsa SQL veri ambarı için bir komut dosyası oluşturma başarısız Geçici çözüm olarak, kullanıcıların el ile Araçlar gerekir -> Seçenekler -> SQL Server Nesne Gezgini bağımlı seçenekleri için betik Oluştur -> ve false olarak ayarlayın |
 
 ## <a name="performance"></a>Performans

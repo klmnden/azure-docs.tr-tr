@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439341"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006470"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -28,7 +28,7 @@ ms.locfileid: "57439341"
 
 ## <a name="list-access"></a>Erişimi listeleme
 
-Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde, aşağıdakilerden birini kullanmak için [rol atamaları: liste](/rest/api/authorization/roleassignments/list) REST API'leri. Sonuçlarınızı daraltmak için bir kapsam ve isteğe bağlı bir filtre belirtin. API'yi çağırmak için erişiminiz olması gerekir `Microsoft.Authorization/roleAssignments/read` belirtilen kapsamda işlemi. Birkaç [Azure kaynakları için yerleşik roller](built-in-roles.md) bu işlem için erişim izni verilir.
+Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde, aşağıdakilerden birini kullanmak için [rol atamaları: liste](/rest/api/authorization/roleassignments/list) REST API'leri. Sonuçlarınızı daraltmak için bir kapsam ve isteğe bağlı bir filtre belirtin.
 
 1. Aşağıdaki isteği başlatın:
 

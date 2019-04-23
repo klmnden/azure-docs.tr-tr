@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f289830fce184f99a0bd2dc7a21bd9457f5183ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b05c91138f3140abe6a08964fa06caef988e5f49
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699211"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Öğretici: GreenOrbit ile Azure Active Directory Tümleştirme
 
@@ -195,7 +195,7 @@ Erişim paneli GreenOrbit kutucuğa tıkladığınızda, size otomatik olarak SS
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

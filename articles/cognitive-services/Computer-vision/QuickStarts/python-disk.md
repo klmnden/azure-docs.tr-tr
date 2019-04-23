@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ec6ddeb48a9a24cdd8bd9bc2c28b6cbe70b3e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630060"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003233"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme REST API ve Python kullanarak yerel bir resmi çözümleme
 
@@ -31,9 +31,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
-- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 - Aşağıdaki Python paketleri yüklü olması gerekir. Kullanabileceğiniz [pip](https://packaging.python.org/tutorials/installing-packages/) Python paketlerini yükleyin.
-    - [İstekleri](http://docs.python-requests.org/en/master/)
+    - istek
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 

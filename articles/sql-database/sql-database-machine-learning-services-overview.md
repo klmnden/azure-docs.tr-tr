@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı Machine Learning Hizmetleri ile R (Önizleme) genel bakış
-description: Bu konu, Azure SQL veritabanı Machine Learning Hizmetleri (R ile) açıklar ve nasıl çalıştığı açıklanmaktadır.
+description: Bu makalede Azure SQL veritabanı Machine Learning Hizmetleri (R ile) ve nasıl çalıştığını açıklar.
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762068"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997487"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL veritabanı Machine Learning Hizmetleri ile R (Önizleme)
 
@@ -35,21 +35,23 @@ Machine Learning Hizmetleri, Azure SQL veritabanı, veritabanı R betikleri yür
 
 ## <a name="what-you-can-do-with-r"></a>R ile yapabilecekleriniz
 
-Gelişmiş analiz ve makine öğrenimi veritabanında sunmak üzere R dilinin gücünü kullanın. Bu yetenek, hesaplamaları ve verilerin bulunduğu işlem, ağ üzerinden veri çekmek için ihtiyacını getirir. Ayrıca, ölçeğinde Gelişmiş analiz sağlamak üzere Kurumsal R paketleri gücünden yararlanın.
+Gelişmiş analiz ve makine öğrenimi veritabanında sunmak üzere R dilinin gücünü kullanın. Bu yetenek, hesaplamaları ve verilerin bulunduğu işlem, ağ üzerinden veri çekmek için ihtiyacını getirir. Ayrıca, Gelişmiş analiz ölçekte sunmak için Kurumsal R paketleri gücünden yararlanabilirsiniz.
 
 Machine Learning Hizmetleri ile Kurumsal R paketleri Microsoft gelen yayılan r, temel bir dağıtım içerir. Microsoft R işlevleri ve algoritmaları, ölçek ve Tahmine dayalı analiz, modelleme, veri görselleştirmeleri ve öncü makine öğrenimi algoritması sunmaya yardımcı programı için tasarlanmıştır.
 
 ### <a name="r-packages"></a>R paketleri
 
-En sık kullanılan açık kaynak R paketleri Machine Learning Hizmetleri önceden yüklenmiş durumdadır. Microsoft şu R paketlerini de eklenmiştir:
+En sık kullanılan açık kaynaklı R paketleri Machine Learning Hizmetleri önceden yüklenmiş durumdadır. Microsoft şu R paketlerini de eklenmiştir:
 
 | R paketi | Açıklama|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open r Microsoft Gelişmiş dağıtımıdır. Bu, istatistiksel analiz ve veri bilimine yönelik eksiksiz bir açık kaynak platformudur. Bu açık ve %100 R ile uyumlu temel ve Gelişmiş performans ve yeniden üretilebilirliğini için ek özellikler içerir. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open r Microsoft Gelişmiş dağıtımıdır. İstatistiksel analiz ve veri bilimine yönelik eksiksiz bir açık kaynak platformu olduğu. Bu açık ve %100 R ile uyumlu temel ve Gelişmiş performans ve yeniden üretilebilirliğini için ek özellikler içerir. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | Bu Kitaplığı'nda ölçeklenebilir r işlevleri arasında en yaygın kullanılan için RevoScaleR birincil kitaplığıdır. Veri dönüşümlerini ve işleme, istatistiksel özetleme, Görselleştirme ve modelleme çözümlemeler ve çok sayıda formlar bu kitaplıkları bulunamadı. Ayrıca, bu kitaplıkları olarak işlevleri otomatik olarak iş yükleri kullanılabilir çekirdek sayısı için paralel işleme öbekler halinde düzenlenir ve hesaplama altyapısı tarafından yönetilen veri çubuğunda çalışma olanağı ile dağıtabilirsiniz. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | Metin analizi, görüntü analizi ve yaklaşım analizi için özel modeller oluşturmak için machine learning algoritmaları MicrosoftML ekler. |
 
-Önceden yüklenmiş paketlerine ek olarak şunları yapabilirsiniz [ek paketler yüklemek](sql-database-connect-query-r.md#add-package).
+<!-- Add this back when the new package-related article is written
+In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
+-->
 
 <a name="signup"></a>
 
@@ -61,7 +63,7 @@ Genel önizlemeye kaydolmak için aşağıdaki adımları izleyin:
 
 2. Microsoft'ta bir e-posta göndermek [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) genel önizlemeye kaydolmak için. Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir.
 
-Programda kaydedildikten sonra Microsoft tarafından yerleşik, veritabanını etkinleştir R için mevcut veya yeni ve genel önizlemeye sunuldu.
+Programa kayıtlı olduğunuz sonra Microsoft tarafından yerleşik, veritabanını etkinleştir R için mevcut veya yeni ve genel önizlemeye sunuldu.
 
 R ile Machine Learning Hizmetleri için üretim iş yükü, genel Önizleme sırasında önerilmez.
 

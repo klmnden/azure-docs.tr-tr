@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850050"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000309"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services’a genel bakış 
 
@@ -75,12 +75,6 @@ Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](
 Ayrıntılı bilgi için bkz. [AMS senaryoları ve veri merkezleri arasında özelliklerin ve hizmetlerin kullanılabilirliği](scenarios-and-availability.md).
 
 ## <a name="service-level-agreement-sla"></a>Hizmet Düzeyi Sözleşmesi (SLA)
-
-* Media Services Kodlama için, REST API işlemlerinin %99,9 kullanılabilirliğini garanti ediyoruz.
-* Akış için, standart veya premium akış uç noktası satın alındığında mevcut medya içeriğinin %99,9 kullanılabilirliği garantisi ile isteklere başarıyla hizmet vereceğiz.
-* Canlı Kanallar için, çalışan Kanalların en az %99,9 oranda dış bağlantıya sahip olacağını garanti ediyoruz.
-* Content Protection için, önemli istekleri en az %99,9 oranda başarıyla karşılayacağımızı garanti ediyoruz.
-* Dizin Oluşturucu için, bir Kodlamaya Ayrılan Birim ile işlenen Dizin Oluşturucu Görevi isteklerine %99,9 oranda başarıyla hizmet vereceğiz.
 
 Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 

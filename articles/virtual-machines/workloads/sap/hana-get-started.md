@@ -16,116 +16,115 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618133"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001380"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure sanal Makineler'de el ile yükleme
 ## <a name="introduction"></a>Giriş
-Bu kılavuz, tek örnek SAP HANA Azure sanal makinelerinde (VM'ler) SAP NetWeaver 7.5 ve SAP HANA 1.0 SP12 el ile yüklediğinizde ayarlamanıza yardımcı olur. Bu kılavuzun odak noktası, Azure üzerinde SAP HANA dağıtma hakkında ' dir. SAP belgelerindeki değiştirmez. 
+Bu kılavuzda bir Azure sanal Makineler'de tek örnek SAP HANA, SAP NetWeaver 7.5 ve SAP HANA 1.0 SP12 el ile yüklediğinizde ayarlamanıza yardımcı olur. Bu kılavuzun odak noktası, Azure üzerinde SAP HANA dağıtma açıktır. Bu, SAP belgelerindeki yerini almaz. 
 
->[!Note]
->Bu kılavuzda, Azure Vm'lerinde SAP hana dağıtımlarını açıklanmaktadır. SAP HANA HANA büyük örnekleri dağıtma hakkında daha fazla bilgi için bkz: [Azure sanal makinelerinde (VM'ler) SAP kullanma](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
+> [!NOTE]
+> Bu kılavuzda, Azure Vm'lerinde SAP hana dağıtımlarını açıklanmaktadır. SAP HANA HANA büyük örnekleri dağıtma hakkında daha fazla bilgi için bkz: [kullanım SAP Azure sanal Makineler'de](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
 ## <a name="prerequisites"></a>Önkoşullar
 Bu kılavuz, böyle bir altyapı bir hizmet (Iaas) temel olarak aşina olduğunuzu varsayar:
- * Sanal makine veya sanal ağlar Azure portal veya PowerShell aracılığıyla dağıtma
- * Azure platformlar arası komut satırı seçeneği JavaScript nesne gösterimi (JSON) şablonlarını kullanma dahil olmak üzere arabirimi (CLI).
+ * Sanal makine (VM) ya da sanal ağlar Azure portal veya PowerShell aracılığıyla dağıtma
+ * Azure platformlar arası komut satırı JavaScript nesne gösterimi (JSON) şablonları kullanma seçeneğini içeren arabirimi (CLI).
 
-Bu kılavuz, ayrıca aşina olduğunuzu varsayar:
+Bu kılavuz Ayrıca, alışık olduğunuz varsayılır:
 * SAP HANA ve SAP NetWeaver ve bunları şirket içinde yükleme.
-* Yükleme ve SAP HANA ve Azure üzerinde SAP uygulama örnekleri.
+* Nasıl yükleyin ve SAP HANA ve SAP uygulama örnekleri, Azure üzerinde çalışır.
 * Aşağıdaki kavramlar ve yordamlar:
-   * Azure sanal ağ planlama ve Azure depolama alanı kullanımı dahil olmak üzere, Azure üzerinde SAP dağıtımını planlama. Bkz: [Azure Virtual Machines'de (VM'ler) - SAP NetWeaver planlama ve Uygulama Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
+   * Azure sanal ağ planlama ve Azure depolama alanı kullanımı içeren Azure üzerinde SAP dağıtımını planlama. Bkz: [Azure sanal makineler üzerinde - SAP NetWeaver planlama ve Uygulama Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Dağıtım ilkeleri ve azure'da VM'ler dağıtmak için yol. Bkz: [SAP için Azure sanal makineler dağıtımı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
-   * Yüksek kullanılabilirlik için azure'da Ağıranlar (kuyruğa çoğaltma sunucusu) SAP NetWeaver ASCS (ABAP SAP Central Services'in) ve SCS (SAP Central Services'in). Bkz: [Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
-   * ASCS/SCS azure'da çoklu SID yüklenmesini yararlanarak, verimliliği geliştirmeye ilişkin ayrıntıları. Bkz: [SAP NetWeaver çoklu SID yapılandırmasını oluşturun](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
-   * Azure'da Linux tabanlı sanal makineler üzerinde çalışan SAP NetWeaver ilkeler temel. Bkz: [Microsoft Azure SUSE Linux Vm'lerde SAP NetWeaver'ı çalıştıran](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Bu kılavuz, düzgün bir şekilde Linux VM'ler için Azure depolama diskleri ekleme konusunda Linux Azure sanal makinelerini ve Ayrıntılar için belirli ayarlarını sağlar.
+   * Yüksek kullanılabilirlik için azure'da kuyruğa çoğaltma sunucusuna (Ağıranlar) SAP NetWeaver ABAP SAP merkezi Hizmetleri (ascs) gelir ve SAP Central Hizmetleri (SCS). Bkz: [Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+   * ASCS/SCS azure'da çoklu SID yüklenmesini verimliliği geliştirmeye ilişkin ayrıntıları. Bkz: [SAP NetWeaver çoklu SID yapılandırmasını oluşturun](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
+   * Azure'da Linux tabanlı sanal makineler üzerinde çalışan SAP NetWeaver ilkeler temel. Bkz: [Microsoft Azure SUSE Linux Vm'lerde SAP NetWeaver çalıştırma](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Bu kılavuz, Azure sanal makinelerinde Linux belirli ayarlarını sağlar. Ayrıca, düzgün bir şekilde Linux VM'ler için Azure depolama diskleri ekleme hakkında bilgi sağlar.
 
 Üretim senaryoları için kullanılabilecek Azure VM türleri listelenen [IAAS için SAP belgelerindeki](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Üretim dışı senaryolar için çok çeşitli yerel Azure VM türleri kullanılabilir.
-VM üzerinde daha fazla ayrıntı için yapılandırma ve işlemleri belge başvurun [SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
-SAP HANA yüksek kullanılabilirlik için bkz: [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+VM yapılandırması ve işlemleri hakkında daha fazla bilgi için bkz. [SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+SAP HANA yüksek kullanılabilirlik için bkz: [SAP HANA yüksek kullanılabilirlik için Azure sanal makineler](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-Bir SAP HANA örneği veya S/4HANA veya BW/4hana'yı sistem çok hızlı bir sürede dağıtılan almak arıyorsanız kullanımını dikkate almanız gereken [SAP Cloud Appliance Library](https://cal.sap.com). Örneğin, bir S/4hana'yı sistemi içinde Azure üzerinde SAP CAL aracılığıyla dağıtma hakkında belgeler bulabilirsiniz [bu kılavuzda](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Tek ihtiyacınız olan bir Azure aboneliği ve SAP Cloud Appliance Library ile kayıtlı bir SAP kullanıcısı.
+SAP HANA örneği veya hızlı bir şekilde dağıtılan S/4HANA veya BW/4hana'yı sistem almak istiyorsanız, kullanmayı [SAP Cloud Appliance Library](https://cal.sap.com). Örneğin, Azure üzerinde SAP Cloud Appliance Library aracılığıyla S/4hana'yı sistem içinde dağıtma hakkında belgeleri bulabilirsiniz [bu kılavuzda](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Tek ihtiyacınız olan bir Azure aboneliği ve SAP Cloud Appliance Library ile kayıtlı bir SAP kullanıcısı.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 ### <a name="sap-hana-backup"></a>SAP HANA yedeklemesi
-Azure Vm'leri üzerinde SAP HANA veritabanlarını yedekleme hakkında daha fazla bilgi için bkz:
-* [SAP HANA için yedekleme Kılavuzu Azure sanal Makineler'de](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-* [SAP HANA dosya düzeyi Azure yedekleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-* [Depolama anlık görüntülerine dayalı SAP HANA yedeklemesi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+Azure Vm'leri üzerinde SAP HANA veritabanlarını yedeklemek nasıl daha fazla bilgi için bkz:
+* [SAP HANA için yedekleme Kılavuzu Azure sanal Makineler'de](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide).
+* [SAP HANA dosya düzeyi Azure yedekleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level).
+* [SAP HANA yedeklemesi depolama anlık görüntülerine dayalı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots).
 
 ### <a name="sap-cloud-appliance-library"></a>SAP Cloud Appliance Library'de
 S/4HANA veya BW/4hana'yı dağıtmak için SAP Cloud Appliance Library kullanma hakkında daha fazla bilgi için bkz: [dağıtma SAP S/4HANA veya BW/4hana'yı Microsoft Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>SAP HANA tarafından desteklenen işletim sistemleri
-SAP HANA desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz: [SAP destek Not #2235581 - SAP HANA: Desteklenen işletim sistemleri](https://launchpad.support.sap.com/#/notes/2235581/E). Azure sanal makineler yalnızca bir alt kümesini bu işletim sistemlerini destekler. Azure'da SAP HANA dağıtmak için aşağıdaki işletim sistemleri desteklenir: 
+SAP HANA desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz: [SAP notu 2235581 - SAP HANA: Desteklenen işletim sistemleri](https://launchpad.support.sap.com/#/notes/2235581/E). Azure sanal makineler yalnızca bir alt kümesini bu işletim sistemlerini destekler. Azure'da SAP HANA dağıtmak için aşağıdaki işletim sistemleri desteklenir: 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 SAP HANA ve farklı Linux işletim sistemleri hakkında ek SAP belgeleri için bkz:
 
-* [Destek Not #171356 - SAP yazılım Linux üzerinde SAP:  Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP destek Not #1944799 - SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
-* [SAP destek Not #2205917 - SAP HANA veritabanı işletim sistemi için SLES 12 SAP uygulamaları için önerilen ayarları](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [SAP destek Not #1984787 - SUSE Linux Enterprise Server 12:  Yükleme notları](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP destek Not #1391070 - Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070)
-* [SAP destek Not #2009879 - Red Hat Enterprise Linux (RHEL) işletim sistemi için SAP HANA Kılavuzu](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 - SAP HANA VERİTABANI: RHEL 7 için önerilen işletim sistemi ayarları](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [SAP notu 171356: Linux'ta SAP yazılım: Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787).
+* [SAP notu 1944799: SLES işletim sistemi yüklemesi için SAP HANA yönergeleri](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html).
+* [SAP notu 2205917: SAP HANA veritabanı önerilen SAP uygulamaları için işletim sistemi ayarlarını SLES 12](https://launchpad.support.sap.com/#/notes/2205917/E).
+* [SAP notu 1391070: Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070).
+* [SAP notu 2009879: Red Hat Enterprise Linux (RHEL) işletim sistemi için SAP HANA yönergeleri](https://launchpad.support.sap.com/#/notes/2009879).
+* [SAP notu 2292690: SAP HANA VERİTABANI: İşletim sistemi ayarları RHEL 7 için önerilen](https://launchpad.support.sap.com/#/notes/2292690/E).
 
 ### <a name="sap-monitoring-in-azure"></a>SAP Azure'da izleme
-SAP Azure'da izleme hakkında daha fazla bilgi için bkz:
+Azure'da SAP izleme hakkında daha fazla bilgi için:
 
-* [SAP notu 2191498](https://launchpad.support.sap.com/#/notes/2191498/E). Bu Not SAP "Gelişmiş izleme" ile Linux Vm'leri Azure'da ele alınmaktadır. 
-* [SAP notu 1102124](https://launchpad.support.sap.com/#/notes/1102124/E). Bu Not, Linux SAPOSCOL hakkındaki bilgiler ele alınmaktadır. 
-* [SAP notu 2178632](https://launchpad.support.sap.com/#/notes/2178632/E). Bu Not, Microsoft Azure üzerinde SAP için ana izleme ölçümleri açıklanır.
+* [SAP notu 2191498](https://launchpad.support.sap.com/#/notes/2191498/E) azure'da Linux VM'ler ile İzleme Gelişmiş SAP açıklanır. 
+* [SAP notu 1102124](https://launchpad.support.sap.com/#/notes/1102124/E) Linux SAPOSCOL hakkındaki bilgiler ele alınmaktadır. 
+* [SAP notu 2178632](https://launchpad.support.sap.com/#/notes/2178632/E) ana izleme ölçümleri, Microsoft Azure'da SAP için açıklanır.
 
 ### <a name="azure-vm-types"></a>Azure VM türleri
 Azure VM türleri ve SAP HANA ile kullanılan SAP tarafından desteklenen iş yükü senaryoları bölümünde belgelenmiştir [SAP sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-SAP NetWeaver veya S/4hana'yı uygulama katmanı tarafından SAP sertifikalı azure VM türleri belgelenir [SAP notu 1928533 - azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E).
+SAP NetWeaver veya S/4hana'yı uygulama katmanı tarafından SAP sertifikalı azure VM türleri belgelenir [SAP notu 1928533: Azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E).
 
->[!Note]
->SAP Linux Azure tümleştirmesi yalnızca Azure Resource Manager ve klasik dağıtım modeli için desteklenir. 
+> [!NOTE]
+> SAP Linux Azure tümleştirmesi yalnızca Azure Resource Manager ve klasik dağıtım modeli için desteklenir. 
 
 ## <a name="manual-installation-of-sap-hana"></a>SAP hana el ile yükleme
 
 > [!IMPORTANT]
-> Seçtiğiniz işletim sistemi kullanmakta olduğunuz belirli VM türleri üzerinde SAP HANA için sertifikalıdır SAP olduğundan emin olun. Bu, aranabilir için VM türleri ve işletim sistemi sürümleri listesi, SAP HANA sertifikalı [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). SAP HANA tam listesini almak için listelenen VM türü ayrıntılarına tıkladığınızdan emin olun, işletim sistemi sürümleri için belirli bir sanal makine türü desteklenmiyor. Bu belgedeki örnekte biz M serisi VM'ler üzerinde SAP HANA için SAP tarafından desteklenmeyen bir SLES işletim sistemi sürümü kullandığınız farkında olun.
+> Seçtiğiniz işletim sistemi kullandığınız belirli VM türleri üzerinde SAP HANA için sertifikalıdır SAP olduğundan emin olun. VM türleri ve işletim sistemi sürümleri için de bu VM türleri aranabilir listesi, SAP HANA sertifikalı [SAP HANA sertifikalı ve Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Belirli bir sanal makine türü için SAP HANA tarafından desteklenen işletim sistemi sürümleri tam listesini almak için listelenen VM türü detayına tıkladığınızdan emin olun. Bu belge örnek için M serisi VM'ler üzerinde SAP HANA için SAP tarafından desteklenmeyen bir SUSE Linux Enterprise Server (SLES) işletim sistemi sürüm kullandık.
 >
 
 Bu kılavuz, el ile Azure Vm'leri üzerinde SAP HANA iki farklı şekilde yükleme açıklanmaktadır:
 
-* "Yükleme veritabanı örneği" adımda dağıtılmış NetWeaver yüklemesinin parçası olarak, SAP yazılım sağlama Yöneticisi (SWPM) kullanarak
-* SAP HANA'yı kullanarak veritabanı lifecycle manager aracı, HDBLCM ve NetWeaver'ı yükleme
+* SAP yazılım sağlama Yöneticisi (SWPM), "yükleme veritabanı örneği" adımda dağıtılmış NetWeaver yüklemesinin parçası olarak kullanın.
+* SAP HANA veritabanı yaşam döngüsü (HDBLCM) manager aracını kullanın ve NetWeaver'ı yükleyin.
 
-Ayrıca SWPM (SAP HANA, SAP uygulama sunucusu ve örneği ASCS) tüm bileşenleri tek bir VM ile yüklemek için bu konuda açıklandığı gibi kullanabileceğiniz [SAP HANA blog duyurusuna](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/). Bu seçenek, bu hızlı başlangıç kılavuzunda açıklanan değildir, ancak dikkate almalısınız sorunları aynıdır.
+SWPM, tek bir VM ile SAP HANA, SAP uygulama sunucusu ve ASCS örneği gibi tüm bileşenlerini yüklemek için de kullanabilirsiniz. Adımlar, bu konuda açıklanan [SAP HANA blog duyurusuna](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/). Bu seçenek, bu hızlı başlangıç kılavuzunda açıklanan değildir, ancak dikkate almanız gereken sorunlar aynıdır.
 
-Yükleme başlamadan önce okumanızı öneririz "hazırlama Azure Vm'leri için SAP hana el ile yükleme" bölümünde bu kılavuzun devamında. Bunun yapılması, yalnızca bir varsayılan Azure VM yapılandırması kullanırken oluşabilecek çeşitli temel hataları önlemeye yardımcı olabilir.
+Yükleme başlamadan önce okumanızı öneririz "hazırlama Azure Vm'lerde SAP hana el ile yükleme" bölümünde bu kılavuzun devamında. Bunun yapılması, yalnızca bir varsayılan Azure VM yapılandırması kullanırken oluşabilecek çeşitli temel hataları önlemeye yardımcı olabilir.
 
 ## <a name="key-steps-for-sap-hana-installation-when-you-use-sap-swpm"></a>SAP SWPM kullandığınızda SAP HANA yüklemesi için temel adımlar
 Bu bölümde, bir dağıtılmış SAP NetWeaver 7.5 yüklemeyi gerçekleştirmek için SAP SWPM kullandığınızda el ile tek örnek SAP HANA yüklemesi için temel adımları listelenir. Her bir adım ekran görüntüleri bu kılavuzun devamında daha ayrıntılı açıklanmıştır.
 
 1. İki test sanal makineleri içeren bir Azure sanal ağı oluşturun.
-2. Azure Resource Manager modeline göre (örneğimizde, SUSE Linux Enterprise Server (SLES) ve SLES SAP uygulamaları 12 SP1), işletim sistemleri ile iki Azure Vm'leri dağıtın.
-3. İki Azure standart veya premium depolama disklerini (örneğin, 75 GB ya da 500 GB disk), uygulama sunucusu VM'sine ekleyin.
-4. Premium depolama diski HANA veritabanı sunucusu VM'sine. Ayrıntılar için bu kılavuzun ilerleyen bölümlerindeki "Disk" Kurulum"bölümüne bakın.
-5. Boyutu veya aktarım gereksinimlerine bağlı olarak birden çok disk ve VM içindeki işletim sistemi düzeyinde mantıksal birim yönetimi ya da cihazları birden çok yönetim aracını (MDADM) kullanarak şeritli birimler oluşturun.
+2. Azure Resource Manager modeline göre işletim sistemleriyle iki Azure sanal makine dağıtın. Bu örnek, SUSE Linux Enterprise Server ve SLES SAP uygulamaları 12 SP1 için kullanır. 
+3. İki Azure standart veya premium depolama diskleri, örneğin, 75 GB veya 500 GB disk, uygulama sunucusu VM'sine ekleyin.
+4. Premium depolama diski HANA veritabanı sunucusu VM'sine. Daha fazla bilgi için bu kılavuzun ilerleyen bölümlerindeki "Disk" Kurulum"bölümüne bakın.
+5. Boyutu veya aktarım gereksinimlerine bağlı olarak, birden fazla disk ekleyin. Ardından Bölüştürülmüş birimler oluşturun. VM içindeki işletim sistemi düzeyinde mantıksal birim yönetimi (LVM) ya da cihazları birden çok (mdadm) Yönetim Aracı'nı kullanın.
 6. XFS dosya sistemleri, bağlı diskleri veya mantıksal birimler oluşturun.
-7. İşletim sistemi düzeyinde yeni XFS dosya sistemlerine bağlayın. Bir dosya sistemi tüm SAP yazılımı kullanın. Bir dosya sistemi /sapmnt dizin ve yedeklemeler için örneğin kullanın. SAP HANA veritabanı sunucusunda XFS dosya sistemleri /hana ve /usr/sap olarak premium depolama disklerindeki bağlayın. Bu işlem, Linux Azure VM üzerinde büyük değilse, kök dosya sistemi dolmaya önlemek gereklidir.
+7. İşletim sistemi düzeyinde yeni XFS dosya sistemlerine bağlayın. Bir dosya sistemi tüm SAP yazılımı kullanın. Bir dosya sistemi /sapmnt dizin ve yedeklemeler için örneğin kullanın. SAP HANA veritabanı sunucusunda XFS dosya sistemleri /hana ve /usr/sap olarak premium depolama disklerindeki bağlayın. Bu işlem, kök dosya sistemine dolmaya önlemek gereklidir. Kök dosya sistemine Linux Azure VM üzerinde büyük değil. 
 8. / Etc/Hosts dosyasında test Vm'leri yerel IP adreslerini girin.
 9. Girin **nofail**  /etc/fstab dosyasında parametre.
-10. Kullanmakta olduğunuz Linux işletim sistemi sürüm göre Linux çekirdek parametrelerini ayarlayın. Daha fazla bilgi için uygun SAP notları HANA ve bu kılavuzdaki "Çekirdek parametreleri" bölümüne bakın.
+10. Kullandığınız Linux işletim sistemi sürüm göre Linux çekirdek parametrelerini ayarlayın. Daha fazla bilgi için SAP notları HANA ve bu kılavuzdaki "Çekirdek parametreleri" bölümüne bakın.
 11. Takas alanı ekleyin.
 12. İsteğe bağlı olarak, bir grafik Masaüstü Vm'leri testinden yükleyin. Aksi takdirde, bir uzak SAPinst yüklemesini kullanın.
 13. SAP yazılımı SAP Service Marketplace ' indirin.
 14. SAP ASCS örnek uygulama sunucusuna VM yükleyin.
 15. Test sanal makineleri arasında /sapmnt dizin NFS kullanarak paylaşın. VM uygulama sunucusunun NFS sunucusudur.
-16. HANA veritabanı sunucusunda VM SWPM kullanarak dahil olmak üzere, bir veritabanı örneğini yükleyin.
+16. DB sunucusunda VM SWPM'ı kullanarak, HANA içeren veritabanı örneğini yükleyin.
 17. Birincil uygulama sunucusunda (PA'lar), VM uygulama sunucusuna yükleyin.
 18. SAP Yönetim Konsolu'nu (SAP MC) başlatın. Örneğin, SAP GUI veya HANA Studio ile bağlanın.
 
@@ -133,27 +132,27 @@ Bu bölümde, bir dağıtılmış SAP NetWeaver 7.5 yüklemeyi gerçekleştirmek
 Bu bölümde, bir dağıtılmış SAP NetWeaver 7.5 yüklemeyi gerçekleştirmek için SAP HDBLCM kullandığınızda el ile tek örnek SAP HANA yüklemesi için temel adımları listelenir. Her bir adım ekran görüntüleri bu kılavuz boyunca daha ayrıntılı açıklanmıştır.
 
 1. İki test sanal makineleri içeren bir Azure sanal ağı oluşturun.
-2. Azure Resource Manager modeline göre işletim sistemleri (örneğimizde, SLES ve SLES SAP uygulamaları 12 SP1) ile iki Azure sanal makine dağıtın.
-3. İki Azure standart veya premium depolama disklerini (örneğin, 75 GB ya da 500 GB disk), uygulama sunucusu VM'sine ekleyin.
-4. Premium depolama diski HANA veritabanı sunucusu VM'sine. Ayrıntılar için bu kılavuzun ilerleyen bölümlerindeki "Disk" Kurulum"bölümüne bakın.
-5. Boyutu veya aktarım gereksinimlerine bağlı olarak birden çok disk ve VM içindeki işletim sistemi düzeyinde mantıksal birim yönetimi ya da cihazları birden çok yönetim aracını (MDADM) kullanarak Bölüştürülmüş birimler oluşturun.
+2. Azure Resource Manager modeline göre işletim sistemleriyle iki Azure sanal makine dağıtın. Bu örnek, SLES ve SLES SAP uygulamaları 12 SP1 için kullanır.
+3. İki Azure standart veya premium depolama diskleri, örneğin, 75 GB veya 500 GB disk, uygulama sunucusu VM'sine ekleyin.
+4. Premium depolama diski HANA veritabanı sunucusu VM'sine. Daha fazla bilgi için bu kılavuzun ilerleyen bölümlerindeki "Disk" Kurulum"bölümüne bakın.
+5. Boyutu veya aktarım gereksinimlerine bağlı olarak, birden fazla disk ekleyin. Şeritli birimler, VM içindeki işletim sistemi düzeyinde mantıksal birim yönetimi veya mdadm aracı kullanarak oluşturursunuz.
 6. XFS dosya sistemleri, bağlı diskleri veya mantıksal birimler oluşturun.
-7. İşletim sistemi düzeyinde yeni XFS dosya sistemlerine bağlayın. Bir dosya sistemi tüm SAP yazılımı kullanın ve örneğin /sapmnt dizin ve yedeklemeler için bir tane kullanın. SAP HANA veritabanı sunucusunda XFS dosya sistemleri /hana ve /usr/sap olarak premium depolama disklerindeki bağlayın. Bu işlem, Linux Azure VM üzerinde büyük değilse, kök dosya sistemi dolmaya önlemek amacıyla gereklidir.
+7. İşletim sistemi düzeyinde yeni XFS dosya sistemlerine bağlayın. Bir dosya sistemi tüm SAP yazılımı kullanın. Bir dosya sistemi /sapmnt dizin ve yedeklemeler için örneğin kullanın. SAP HANA veritabanı sunucusunda XFS dosya sistemleri /hana ve /usr/sap olarak premium depolama disklerindeki bağlayın. Bu işlem, kök dosya sistemine dolmaya engellemek yardımcı olmak gereklidir. Kök dosya sistemine Linux Azure VM üzerinde büyük değil.
 8. / Etc/Hosts dosyasında test Vm'leri yerel IP adreslerini girin.
 9. Girin **nofail**  /etc/fstab dosyasında parametre.
-10. Kullanmakta olduğunuz Linux işletim sistemi sürüm göre çekirdek parametrelerini ayarlayın. Daha fazla bilgi için uygun SAP notları HANA ve bu kılavuzdaki "Çekirdek parametreleri" bölümüne bakın.
+10. Kullandığınız Linux işletim sistemi sürüm göre çekirdek parametrelerini ayarlayın. Daha fazla bilgi için SAP notları HANA ve bu kılavuzdaki "Çekirdek parametreleri" bölümüne bakın.
 11. Takas alanı ekleyin.
 12. İsteğe bağlı olarak, bir grafik Masaüstü Vm'leri testinden yükleyin. Aksi takdirde, bir uzak SAPinst yüklemesini kullanın.
 13. SAP yazılımı SAP Service Marketplace ' indirin.
 14. HANA veritabanı sunucusunda VM grubu kimliği 1001 sapsys, bir grup oluşturun.
-15. SAP HANA veritabanı sunucusunda VM, HANA veritabanı Lifecycle Manager'ı (HDBLCM) kullanarak yükleyin.
+15. SAP HANA, HANA veritabanı yaşam döngüsü Yöneticisi'ni kullanarak VM DB sunucuya yükleyin.
 16. SAP ASCS örnek uygulama sunucusuna VM yükleyin.
 17. Test sanal makineleri arasında /sapmnt dizin NFS kullanarak paylaşın. VM uygulama sunucusunun NFS sunucusudur.
-18. HANA, HANA veritabanı sunucusunda VM SWPM kullanarak dahil olmak üzere, bir veritabanı örneğini yükleyin.
-19. Birincil uygulama sunucusunda (PA'lar), VM uygulama sunucusuna yükleyin.
+18. HANA veritabanı sunucusunda VM SWPM'ı kullanarak, HANA içeren veritabanı örneğini yükleyin.
+19. Birincil uygulama sunucusunda VM uygulama sunucusunda yükleyin.
 20. SAP MC başlatın. SAP GUI veya HANA Studio bağlanın.
 
-## <a name="preparing-azure-vms-for-a-manual-installation-of-sap-hana"></a>Azure sanal makineleri el ile bir SAP HANA yüklemesi için hazırlama
+## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>Azure sanal makineleri el ile bir SAP HANA yüklemesi için hazırlama
 Bu bölümde aşağıdaki konuları içerir:
 
 * İşletim sistemi güncelleştirmeleri
@@ -164,20 +163,33 @@ Bu bölümde aşağıdaki konuları içerir:
 * / Etc/fstab dosyası
 
 ### <a name="os-updates"></a>İşletim sistemi güncelleştirmeleri
-Linux işletim sistemi güncelleştirmeleri ve düzeltmeleri ek yazılım yüklemeden önce denetleyin. Bir düzeltme eki yükleyerek destek masasına bir çağrı önlemek mümkün olabilir.
+Ek yazılım yüklemeden önce Linux işletim sistemi güncelleştirmeleri ve düzeltmeleri denetleyin. Bir düzeltme eki yükleyerek destek masasına bir çağrı almayabilirsiniz.
 
 Kullandığınızdan emin olun:
 * SUSE Linux Enterprise Server SAP uygulamaları için.
 * Red Hat Enterprise Linux için SAP uygulamaları veya SAP HANA için Red Hat Enterprise Linux. 
 
-Henüz yapmadıysanız, işletim sistemi dağıtımı Linux satıcının Linux aboneliğinizi kaydedin. SUSE zaten hizmetleri içeren ve otomatik olarak kayıtlı SAP uygulamaları için işletim sistemi görüntüleri olduğuna dikkat edin.
+Henüz yapmadıysanız, işletim sistemi dağıtımı Linux satıcının Linux aboneliğinizi kaydedin. SUSE, zaten hizmetleri içeren ve otomatik olarak kayıtlı SAP uygulamaları için işletim sistemi görüntülerine sahiptir.
 
-İşte bir örnek kullanarak için SUSE Linux için kullanılabilecek bir düzeltme ekleri denetleme **zypper** komutu:
+İşte bir örnek için kullanılabilecek bir düzeltme ekleri için SUSE Linux kullanarak denetlemek nasıl **zypper** komutu:
 
  `sudo zypper list-patches`
 
-Sorun türünü bağlı olarak, düzeltme ekleri, kategori ve önem derecesine göre sınıflandırılır. Kategori için yaygın olarak kullanılan değerler: **güvenlik**, **önerilen**, **isteğe bağlı**, **özellik**, **belge**, veya **yast**.
-Önem derecesi için yaygın olarak kullanılan değerler: **kritik**, **önemli**, **orta**, **düşük**, veya **belirtilmemiş**.
+Sorun türünü bağlı olarak, düzeltme ekleri, kategori ve önem derecesine göre sınıflandırılır. Kategori için yaygın olarak kullanılan değerler şunlardır: 
+- Güvenlik
+- Önerilen
+- İsteğe bağlı
+- Özellik
+- Belge
+- yast
+
+Önem derecesi için yaygın olarak kullanılan değerler şunlardır:
+
+- Kritik
+- Önemli
+- Orta
+- Düşük
+- Belirtilmedi
 
 **Zypper** komutu yalnızca yüklü paketlerinizdeki gerektiren güncelleştirmeler için arar. Örneğin, bu komutu kullanabilirsiniz:
 
@@ -187,52 +199,54 @@ Parametre ekleyebilirsiniz `--dry-run` sistem güncelleştirmeden güncelleştir
 
 
 ### <a name="disk-setup"></a>Disk Kurulumu
-Azure'da bir Linux VM kök dosya sisteminde bir boyut sınırlaması vardır. Bu nedenle, SAP çalıştırmak için bir Azure sanal makinesi için ek disk alanı eklemek gereklidir. SAP uygulama sunucusu için Azure sanal makinelerini, Azure standart depolama disklerinin yeterli olabilir. Bununla birlikte, SAP HANA DBMS Azure Vm'leri için üretim ve üretim dışı uygulamaları için Azure Premium depolama diskleri kullanılması zorunludur.
+Azure'da bir Linux VM kök dosya sisteminde bir boyut sınırlaması vardır. Bu nedenle, bir Azure VM'ye SAP çalıştırmak için ek disk alanı eklemek gerekir. SAP uygulama sunucusu için Azure sanal makinelerini, Azure standart depolama disklerinin yeterli olabilir. SAP HANA DBMS Azure Vm'leri için üretim ve üretim uygulamaları için Azure premium depolama disklerini kullanılması zorunludur.
 
-Temel [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), aşağıdaki Azure Premium depolama yapılandırması önerilir: 
+Temel [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), aşağıdaki Azure premium depolama yapılandırması önerilir: 
 
-| VM SKU | RAM |  / hana/veri ve/hana/günlük <br /> LVM'yi veya MDADM Şerit | / hana/paylaşılan | / root birimi | / usr/sap |
+| VM SKU | RAM |  / hana/veri ve/hana/günlük <br /> LVM'yi veya mdadm Şerit | / hana/paylaşılan | / root birimi | / usr/sap |
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya MDADM şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure Premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. Yeterli depolama alanı yapılandırma emin olmak için başvurun [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](../../windows/disks-types.md). 
+Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya mdadm şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. 
 
-Veritabanı veya işlem günlüğü yedeklemeleri depolamak için HANA DBMS VM'ler için daha fazla premium depolama diski ekleyebilirsiniz.
+Yeterli depolama alanı yapılandırma emin olmak için bkz: [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı premium depolama ve VM'ler için yönetilen diskler](../../windows/disks-types.md). 
 
-Şeritleme yapılandırmak için kullanılan iki ana araçları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Daha fazla premium depolama disklerini veritabanı veya işlem günlüğü yedeklemeleri depolamak için HANA DBMS VM'ler ekleyebilirsiniz.
 
-* [Linux'ta yazılım RAID yapılandırma](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure'da Linux sanal makinesi üzerinde LVM'yi yapılandırma](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Şeritleme yapılandırmak için kullanılan iki ana araçları hakkında daha fazla bilgi için bkz:
 
-Azure konuk işletim sistemi olarak Linux çalıştıran Vm'leri için diskleri ekleme ile ilgili daha fazla bilgi için bkz: [bir Linux VM'ye disk ekleme](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Linux'ta yazılım RAID yapılandırma](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Azure'da Linux sanal makinesi üzerinde LVM'yi yapılandırma](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure premium SSD disk modu önbellekleme tanımlamanıza olanak sağlar. /Hana/Data ve /hana/log şeritli kümesi için diski önbelleğe alma işlemi devre dışı bırakılmalıdır. Diğer birimleri için (diskler), önbelleğe alma modu ayarlanmalıdır **salt okunur**.
+Azure konuk işletim sistemi olarak Linux çalıştıran Vm'leri diskleri ekleme hakkında daha fazla bilgi için bkz. [bir Linux VM'ye disk ekleme](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-VM oluşturmak için örnek JSON şablonları bulmak için Git [Azure hızlı başlangıç şablonları](https://github.com/Azure/azure-quickstart-templates).
-Bir temel şablon vm basit sles şablonudur. Bu, bir yazılım bölümünde listelenmişse ek 100 GB veri diski içerir. Bu şablon, temel olarak kullanılabilir. Şablon, belirli bir yapılandırma için uyarlayabilirsiniz.
+Azure premium SSD ile diski önbelleğe alma modu tanımlayabilirsiniz. /Hana/data ve /hana/log tutan şeritli kümesi için diski önbelleğe alma işlemi devre dışı bırakın. Diğer birimleri için diğer bir deyişle, diskleri kümesine önbelleğe alma modu **salt okunur**.
 
->[!Note]
->Açıklandığı gibi bir UUID'ye kullanarak Azure depolama diski eklemek önemlidir [Microsoft Azure SUSE Linux vm'lerde SAP NetWeaver'ı çalıştıran](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Sanal makineler oluşturmak için kullanılacak örnek JSON şablonları bulmak için bkz: [Azure hızlı başlangıç şablonları](https://github.com/Azure/azure-quickstart-templates).
+Bir temel şablon vm basit sles şablonudur. Bu, bir yazılım bölümünde listelenmişse ek 100 GB veri diski içerir. Temel olarak bu şablonu kullanın. Şablon, belirli bir yapılandırma için uyarlayabilirsiniz.
 
-Test ortamında aşağıdaki ekran görüntüsünde gösterildiği gibi SAP uygulama sunucusu VM'sine, iki Azure standart depolama disklerinin eklenmedi. Bir disk (NetWeaver 7.5, GUI SAP ve SAP HANA gibi) tüm SAP yazılım yüklemesi için depolanır. İkinci bir disk güvence altına yeterli boş alan için aynı SAP ortamı ait tüm VM'ler arasında paylaşılacak /sapmnt dizini (diğer bir deyişle, SAP profilleri) ve ek gereksinimler (örneğin, yedekleme ve test verileri) için kullanılabilir hale gelir.
+> [!NOTE]
+> Açıklandığı gibi bir UUID'ye kullanarak Azure depolama diski eklemek önemlidir [Microsoft Azure SUSE Linux vm'lerde SAP NetWeaver'ı çalıştırmak](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Test ortamında aşağıdaki ekran görüntüsünde gösterildiği gibi SAP uygulama sunucusu VM'sine, iki Azure standart depolama diskleri eklenir. Bir disk tüm SAP gibi yazılımları NetWeaver 7.5, GUI SAP ve SAP HANA yüklemesi için depolar. İkinci bir disk, yeterli boş alana ek gereksinimler için kullanılabilir olmasını sağlar. Örneğin, aynı SAP ortamı için ait tüm VM'ler arasında paylaşılması yedekleme ve test verileri ve /sapmnt dizini, diğer bir deyişle, SAP profilleri gerekir.
 
 ![SAP HANA uygulama sunucu diskleri penceresinde iki veri diski ve boyutlarının görüntüleme](./media/hana-get-started/image003.jpg)
 
 
 ### <a name="kernel-parameters"></a>Çekirdek parametreleri
-SAP HANA, standart Azure galeri görüntüleri parçası değildir ve el ile ayarlamanız gerekir belirli Linux çekirdek ayarlarını gerektirir. SUSE veya Red Hat kullanmadığınıza bağlı olarak, parametrelerin farklı olabilir. Daha önce listelenen SAP notları bu parametreler hakkında bilgi verin. Ekran görüntülerinde gösterilen SUSE Linux 12 SP1 kullanıldı. 
+SAP HANA belirli Linux çekirdek ayarlarını gerektirir. Bu çekirdek ayarları standart Azure galeri görüntüleri dahil değildir ve el ile ayarlamanız gerekir. SUSE veya Red Hat kullanmadığınıza bağlı olarak, parametrelerin farklı olabilir. Listelenen SAP notları, daha önce bu parametreler hakkında bilgi verin. Ekran görüntülerinde gösterilen SUSE Linux 12 SP1 kullanıldı. 
 
-SLES SAP uygulamaları 12 genel kullanım için ve SLES SAP uygulamaları 12 SP1 için yeni bir aracı yüklü **ayarlanmış adm**, bu eski yerini **sapconf** aracı. Özel bir SAP HANA profili için kullanılabilir **ayarlanmış adm**. SAP HANA için sistem ayarlamak için bir kök kullanıcı olarak aşağıdakileri girin:
+SLES SAP uygulamaları 12 genel kullanılabilirlik ve SLES SAP uygulamaları 12 SP1 için yeni bir aracı yüklü **ayarlanmış adm**, bu eski yerini **sapconf** aracı. Özel bir SAP HANA profili için kullanılabilir **ayarlanmış adm**. SAP HANA için sistem ayarlamak için aşağıdaki profili kök kullanıcı olarak girin:
 
    `tuned-adm profile sap-hana`
 
 Hakkında daha fazla bilgi için **ayarlanmış adm**, bkz: [ayarlanmış adm SUSE belgelerine](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-Aşağıdaki ekran görüntüsünde görebilirsiniz nasıl **ayarlanmış adm** değiştirilen `transparent_hugepage` ve `numa_balancing` gerekli SAP HANA ayarlara göre bir değer.
+Aşağıdaki ekran görüntüsünde görebilirsiniz nasıl **ayarlanmış adm** değiştirilen `transparent_hugepage` ve `numa_balancing` değerler, gerekli SAP HANA ayarlara göre:
 
 ![Gerekli SAP HANA ayarlara göre değerler ayarlanmış adm aracı değiştirir](./media/hana-get-started/image005.jpg)
 
-SAP HANA çekirdek ayarlarını kalıcı yapma, **grub2** SLES 12 üzerinde. Hakkında daha fazla bilgi için **grub2**Git [yapılandırma dosya yapısı](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) SUSE belgelerin bölümü.
+SAP HANA çekirdek ayarlarını kalıcı yapma, **grub2** SLES 12 üzerinde. Hakkında daha fazla bilgi için **grub2**, bkz: [yapılandırma dosya yapısı](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) SUSE belgelerin bölümü.
 
 Aşağıdaki ekran görüntüsüne nasıl çekirdek ayarlarını yapılandırma dosyasında değiştirildi ve ardından kullanılarak derlenmiş gösterir **grub2 mkconfig**:
 
@@ -243,48 +257,48 @@ YaST kullanarak ayarları değiştirmek için başka bir seçenektir ve **önyü
 ![Çekirdek parametreleri ayarlar sekmesinde YaST önyükleme yükleyicisi](./media/hana-get-started/image007.jpg)
 
 ### <a name="file-systems"></a>Dosya sistemleri
-Aşağıdaki ekran görüntüsünde, iki bağlı Azure standart depolama diskleri üzerinde SAP uygulama sunucusu VM üzerinde oluşturulan iki dosya sistemleri gösterir. Her iki dosya sistemleri XFS türüdür ve /sapdata ve /sapsoftware bağlanır.
+Aşağıdaki ekran görüntüsünde, iki bağlı Azure standart depolama diskleri üzerinde SAP uygulama sunucusu VM üzerinde oluşturulan iki dosya sistemleri gösterir. Her iki dosya sistemleri XFS türünü ve /sapdata ve /sapsoftware bağlanır.
 
-Bu şekilde, dosya sistemleri yapısı için zorunlu değildir. Disk alanı yapılandırma için diğer seçeneğiniz vardır. Kök dosya sistemi boş alan çalışmasını önlemek için en önemli husustur bakın.
+Bu şekilde, dosya sistemleri yapısı için zorunlu değildir. Diğer seçenekler için disk alanı nasıl var. Kök dosya sistemi boş alan çalışmasını önlemek için en önemli husustur bakın.
 
 ![SAP uygulama sunucusu VM üzerinde oluşturulmuş iki dosya sistemleri](./media/hana-get-started/image008.jpg)
 
-SAPinst (SWPM) kullandığınızda, SAP HANA DB VM veritabanı yüklemesi sırasında ilgili ve **tipik** yükleme seçeneği, her şeyi /hana ve /usr/sap altında yüklenir. Altında /usr/sap SAP HANA günlük yedekleme için varsayılan konumdur. Yeniden emin olun, kök dosya sistemi depolama alanınızın bitmesi önlemek önemlidir çünkü yeterli boş alan olduğundan /hana ve /usr/sap altında SWPM kullanarak SAP HANA yüklemeden önce.
+SAP HANA DB VM SAPinst SWPM ile kullandığınızda bir veritabanı yüklemesi sırasında ve **tipik** yükleme seçeneği, her şeyin /hana ve /usr/sap altında yüklendiğinden. Altında /usr/sap SAP HANA günlük yedekleme için varsayılan konumdur. Yeniden kök dosya sistemi depolama alanınızın bitmesi önlemek önemlidir. SAP HANA SWPM kullanarak yüklemeden önce /hana ve /usr/sap altında yeterli boş alan olduğundan emin olun.
 
 SAP hana standart dosya sistemi Düzen açıklaması için bkz: [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 
 ![SAP uygulama sunucusu VM üzerinde oluşturulan ek dosya sistemleri](./media/hana-get-started/image009.jpg)
 
-Standart bir SLES/SLES SAP uygulamaları 12 Azure galeri görüntüsü için SAP NetWeaver'ı yüklediğinizde, aşağıdaki ekran görüntüsünde gösterildiği gibi hiçbir takas alanı belirten bir ileti görüntülenir. Bu iletiyi kapatmak için el ile takas dosyası kullanarak ekleyebilirsiniz **GG**, **mkswap**, ve **swapon**. Bilgi edinmek için nasıl arama "dosyayı el ile ekleme" [YaST Bölümleyici kullanarak](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) SUSE belgelerin bölümü.
+Standart bir SLES/SLES SAP uygulamaları 12 Azure galeri görüntüsü için SAP NetWeaver'ı yüklediğinizde, aşağıdaki ekran görüntüsünde gösterildiği gibi hiçbir takas alanı belirten bir ileti görüntüler. Bu iletiyi kapatmak için el ile takas dosyası kullanarak ekleyebilirsiniz **GG**, **mkswap**, ve **swapon**. Bilgi edinmek için nasıl arama "dosyayı el ile ekleme" [YaST bölümleyici kullanarak](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) SUSE belgelerin bölümü.
 
-Linux VM Aracısı'nı kullanarak takas alanı yapılandırma başka bir seçenektir. Daha fazla bilgi için [Azure Linux Aracısı Kullanım Kılavuzu](../../extensions/agent-linux.md).
+Linux VM Aracısı'nı kullanarak takas alanı yapılandırma başka bir seçenektir. Daha fazla bilgi için bkz. [Azure Linux Aracısı kullanıcı kılavuzu](../../extensions/agent-linux.md).
 
 ![Yetersiz takas alanı olduğunu bildiren bir açılır ileti](./media/hana-get-started/image010.jpg)
 
 
 ### <a name="the-etchosts-file"></a>/ Etc/hosts dosyası
-SAP yüklemeye başlamadan önce ana bilgisayar adları ve IP adresleri SAP sanal makinelerin/Etc/Hosts dosyasında eklediğinizden emin olun. Bir Azure sanal ağ içindeki tüm SAP sanal makineleri dağıtmak ve iç IP adresleri, burada gösterildiği gibi kullanın:
+SAP yüklemeye başlamadan önce ana bilgisayar adları ve IP adresleri SAP sanal makinelerin/Etc/Hosts dosyasında eklediğinizden emin olun. Bir Azure sanal ağ içindeki tüm SAP sanal makineleri dağıtın. İç IP adreslerini, ardından burada gösterildiği gibi kullanın:
 
 ![Ana bilgisayar adları ve IP adresleri/Etc/Hosts dosyasında listelenen SAP VM](./media/hana-get-started/image011.jpg)
 
 ### <a name="the-etcfstab-file"></a>/ Etc/fstab dosyası
 
-Eklemek yararlıdır **nofail** fstab dosyasını parametresi. Bir diskle sorun yaşanırsa bu şekilde, VM'yi önyükleme işleminin yanıt durdurmaz. Ancak ek disk alanı kullanılabilir olmayabilir ve kök dosya sistemi işlemleri dolgu unutmayın. /Hana eksikse, SAP HANA başlatılamıyor.
+Eklemek yararlıdır **nofail** fstab dosyasını parametresi. Bir diskle sorun yaşanırsa bu şekilde, VM'yi önyükleme işleminin yanıt vermeyi durdurur değil. Ancak ek disk alanı kullanılabilir olmayabilir ve kök dosya sistemi işlemleri dolgu unutmayın. /Hana eksikse, SAP HANA başlatılamıyor.
 
 ![Fstab dosyaya nofail parametre ekleyin](./media/hana-get-started/image000c.jpg)
 
 ## <a name="graphical-gnome-desktop-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES SAP uygulamaları 12 için grafik GNOME Masaüstü
-Bu bölümde aşağıdaki konuları içerir:
+Bu bölümde açıklanmaktadır nasıl yapılır:
 
-* GNOME Masaüstü ve xrdp SLES 12/SLES üzerinde SAP uygulamaları 12 için yükleme
-* Firefox SLES 12/SLES üzerinde SAP uygulamaları 12 kullanarak Java tabanlı SAP MC çalıştırma
+* GNOME Masaüstü ve xrdp SLES 12/SLES üzerinde SAP uygulamaları 12 yükleyin.
+* Firefox SLES 12/SLES üzerinde SAP uygulamaları 12 kullanarak Java tabanlı SAP MC çalıştırın.
 
-Xterminal veya VNC (Bu kılavuzda açıklanan değil) gibi alternatifleri de kullanabilirsiniz.
+Bu kılavuzda açıklanan olmayan Xterminal veya VNC, gibi alternatifleri de kullanabilirsiniz.
 
-### <a name="installing-the-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>GNOME Masaüstü ve xrdp SLES 12/SLES üzerinde SAP uygulamaları 12 için yükleme
-Windows arka plan varsa, Firefox, SAPinst, GUI SAP, SAP MC veya HANA Studio çalıştırın ve bir Windows bilgisayarından Uzak Masaüstü Protokolü (RDP) üzerinden VM bağlanmak için bir grafik Desktop'ta doğrudan SAP sanal makineleri kolayca kullanabilirsiniz. Üretim ve üretim dışı Linux için grafik kullanıcı arabirimleri ekleme hakkında daha fazla şirket ilkelerinizi bağlıdır tabanlı sistemler, sunucunuzda GNOME yüklemek isteyebilirsiniz. GNOME Masaüstü SAP uygulamaları 12 VM için bir Azure SLES 12/SLES yüklemek için:
+### <a name="install-the-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>GNOME Masaüstü ve xrdp SLES 12/SLES üzerinde SAP uygulamaları 12 yükleyin.
+Windows arka plan varsa, Firefox, SAPinst, GUI SAP, SAP MC veya HANA Studio çalıştırmak için bir grafik Desktop'ta doğrudan SAP sanal makineleri kolayca kullanabilirsiniz. Ardından, sanal makineye Uzak Masaüstü Protokolü (RDP) aracılığıyla bir Windows bilgisayardan bağlanabilirsiniz. Üretim ve üretim dışı Linux tabanlı sistemler GUI'ler ekleme hakkında daha fazla şirket ilkelerinize bağlı olarak, sunucunuzda GNOME yüklemek isteyebilirsiniz. GNOME Masaüstü SAP uygulamaları 12 VM için bir Azure SLES 12/SLES yüklemek için aşağıdaki adımları izleyin.
 
-1. GNOME Masaüstü (örneğin, bir pencerede PuTTY) aşağıdaki komutu girerek yükleyin:
+1. GNOME Masaüstü PuTTY penceresinde aşağıdaki komutu, örneğin, girerek yükleyin:
 
    `zypper in -t pattern gnome-basic`
 
@@ -300,7 +314,7 @@ Windows arka plan varsa, Firefox, SAPinst, GUI SAP, SAP MC veya HANA Studio çal
 
    `chkconfig -level 3 xrdp on`
 
-5. RDP bağlantısıyla ilgili bir sorun varsa, yeniden başlatmayı deneyin (penceresinden PuTTY, örneğin):
+5. RDP bağlantısıyla ilgili bir sorun varsa, örneğin, bir PuTTY penceresinden yeniden deneyin:
 
    `/etc/xrdp/xrdp.sh restart`
 
@@ -310,14 +324,14 @@ Windows arka plan varsa, Firefox, SAPinst, GUI SAP, SAP MC veya HANA Studio çal
 
    Aranacak `xrdp.pid`. Bulursanız, kaldırın ve yeniden deneyin.
 
-### <a name="starting-sap-mc"></a>SAP MC başlatılıyor
-GNOME Masaüstü yükledikten sonra bir listelenen içinde Azure SLES 12/SLES SAP uygulamaları 12 VM için çalıştırılırken grafik Java tabanlı SAP MC Firefox başlayarak eksik Java tarayıcı nedeniyle eklenti hata görüntülenebilir.
+### <a name="start-sap-mc"></a>SAP MC Başlat
+GNOME Masaüstü yükledikten sonra grafik Java tabanlı SAP MC Firefox ' başlatın. SAP uygulamalarını 12 VM için bir listelenen içinde Azure SLES 12/SLES çalışırsa bir hata görüntülenebilir. Eksik Java tarayıcı nedeniyle eklenti hata oluşur.
 
 SAP MC başlatmak için URL `<server>:5<instance_number>13`.
 
-Daha fazla bilgi için [SAP Yönetim Web tabanlı konsolunda başlangıç](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm).
+Daha fazla bilgi için [SAP Yönetim web tabanlı konsolunda başlangıç](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm).
 
-Java-tarayıcı eklentisini eksik olduğundan görüntülenen hata iletisi aşağıdaki ekran gösterilir:
+Aşağıdaki ekran görüntüsünde, Java-tarayıcı eklentisini eksik olduğunda görüntülenen hata iletisini gösterir:
 
 ![Tarayıcı eklentisi eksik Java grafiği belirten hata iletisi](./media/hana-get-started/image013.jpg)
 
@@ -325,38 +339,39 @@ Sorunu çözmenin bir yolu, YaST, kullanarak aşağıdaki ekran görüntüsünde
 
 ![Eksik'ı yüklemek için YaST kullanma](./media/hana-get-started/image014.jpg)
 
-SAP Yönetim Konsolu URL'si yeniden girdiğinizde, eklenti etkinleştirmek isteyen bir ileti görüntülenir:
+SAP Yönetim Konsolu URL'si girin, eklentiyi etkinleştirmeniz istenir:
 
 ![Eklenti etkinleştirme isteyen bir iletişim kutusu](./media/hana-get-started/image015.jpg)
 
-Ayrıca, eksik bir dosya ile ilgili bir hata iletisi alabilirsiniz javafx.properties. Bu Oracle Java 1.8 SAP GUI 7.4 yönelik gereksinimi ilişkilidir. (Bkz ['lu SAP notuna 2059429](https://launchpad.support.sap.com/#/notes/2059424).) IBM Java sürümü ne SLES/SLES SAP uygulamaları 12 için teslim openjdk paketi gerekli javafx.properties dosyasını içerir. Java SE 8 Oracle'dan indirip çözümüdür.
+Ayrıca, eksik bir dosya ile ilgili bir hata iletisi alabilirsiniz javafx.properties. Oracle Java 1.8 gereksinimini SAP GUI 7.4 ilgilidir. Daha fazla bilgi için [SAP notu 2059429](https://launchpad.support.sap.com/#/notes/2059424).
+IBM Java sürümü ve SLES/SLES SAP uygulamaları 12 için teslim edilen openjdk paketi gerekli javafx.properties dosyayı içermez. Java SE 8 Oracle'dan indirip çözümüdür.
 
 Tartışma openSUSE üzerinde openjdk ile benzer bir sorun hakkında ek bilgi için bkz. [Sapguı 7.4 Java openSUSE 42.1 için Leap](https://scn.sap.com/thread/3908306).
 
 ## <a name="manual-installation-of-sap-hana-swpm"></a>SAP HANA el ile yükleme: SWPM
-Bu bölümdeki ekran görüntüleri bir dizi SWPM (SAPinst) kullandığınızda, SAP NetWeaver 7.5 ve SAP HANA SP12 yükleme için temel adımları gösterir. NetWeaver 7.5 yüklemesinin bir parçası olarak, SWPM HANA veritabanı tek bir örnek olarak da yükleyebilirsiniz.
+Bu bölümdeki ekran görüntüleri bir dizi SWPM SAPinst ile kullandığınızda, SAP NetWeaver 7.5 ve SAP HANA SP12 yükleme için temel adımları gösterir. NetWeaver 7.5 yüklemesinin bir parçası olarak, SWPM HANA veritabanı tek bir örnek olarak da yükleyebilirsiniz.
 
-Örnek test ortamında, biz yalnızca bir Gelişmiş iş uygulaması programlama (ABAP) uygulama sunucusu yüklü. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullandık **dağıtılmış sistemi** ASCS ve birincil uygulama sunucu örneğinin veritabanı sistem başka bir Azure VM olarak bir Azure VM ve SAP HANA yüklemek için seçeneği.
+Örnek test ortamında bir Gelişmiş iş uygulaması programlama (ABAP) uygulama sunucusu yüklediğimiz. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullandık **dağıtılmış sistemi** ASCS ve birincil uygulama sunucu örnekleri, bir Azure sanal Makinesinde yüklemek için seçeneği. SAP HANA veritabanı sistem başka bir Azure VM olarak kullandık.
 
 ![ASCS ve Dağıtılmış Sistem seçeneği kullanılarak yüklenen birincil uygulama sunucu örnekleri](./media/hana-get-started/image012.jpg)
 
-ASCS örneği VM uygulama sunucusunda yüklü olduğundan ve SAP yönetim konsolundaki "green" kümesine (aşağıdaki ekran görüntüsünde gösterilen) sonra /sapmnt dizini (SAP profil dizini dahil) SAP HANA veritabanı sunucusu VM ile paylaşılması gerekir. DB yükleme adımı, bu bilgilere erişmesi gerekir. Erişim sağlamak için en iyi yolu YaST kullanarak yapılandırılabilecek NFS kullanmaktır.
+ASCS örnek uygulama sunucusunda VM yüklendikten sonra SAP yönetim konsolunda yeşil bir simge tarafından tanımlanır. SAP HANA veritabanı sunucusuyla VM SAP profili dizin içeren dizin /sapmnt paylaşılması gerekir. DB yükleme adımı, bu bilgilere erişmesi gerekir. Erişim sağlamak için en iyi yolu YaST kullanarak yapılandırılabilecek NFS kullanmaktır.
 
-![SAP yönetim ASCS örneği gösteren konsol uygulama sunucusuna VM ve "green" için ayarlayın](./media/hana-get-started/image016.jpg)
+![SAP yönetim yeşil bir simge kullanarak VM uygulama sunucusunda yüklü ASCS örneği gösteren konsol](./media/hana-get-started/image016.jpg)
 
-Uygulama sunucusunda VM /sapmnt dizini NFS kullanarak paylaşılması **rw** ve **no_root_squash** seçenekleri. Varsayılanlar **ro** ve **root_squash**, hangi neden olabilir sorunları veritabanı örneğini yüklediğinizde.
+Uygulama sunucusunda VM kullanarak /sapmnt dizini NFS paylaşılan **rw** ve **no_root_squash** seçenekleri. Varsayılanlar **ro** ve **root_squash**, hangi neden olabilir sorunları veritabanı örneğini yüklediğinizde.
 
 ![Rw ve no_root_squash seçenekleri kullanarak NFS aracılığıyla /sapmnt dizine paylaşma](./media/hana-get-started/image017b.jpg)
 
-Sonraki ekran görüntüsünde gösterildiği gibi uygulama sunucusu VM'SİNDEN /sapmnt paylaşımı SAP HANA veritabanı sunucusunda VM kullanarak yapılandırılmalıdır **NFS İstemcisi** (ve YaST).
+Sonraki ekran görüntüsünde gösterildiği gibi uygulama sunucusu VM'SİNDEN /sapmnt paylaşımı SAP HANA veritabanı sunucusunda VM kullanarak yapılandırılmalıdır **NFS İstemcisi** ve YaST:
 
 ![NFS İstemcisi kullanılarak yapılandırılan /sapmnt paylaşımı](./media/hana-get-started/image018b.jpg)
 
-Dağıtılmış bir NetWeaver 7.5 yüklemeyi gerçekleştirmek için (**veritabanı örneği**), aşağıdaki ekran görüntüsünde olarak gösterilen, SAP HANA veritabanı sunucusu VM'sine oturum açın ve SWPM başlatın.
+Bir dağıtılmış NetWeaver 7.5, diğer bir deyişle, yüklemesi için bir **veritabanı örneği**, SAP HANA veritabanı sunucusu VM'sine oturum açın ve SWPM başlatın:
 
 ![SAP HANA veritabanı sunucusu VM'sine oturum açma ve başlangıç SWPM bir veritabanı örneğini yükleme](./media/hana-get-started/image019.jpg)
 
-Seçtikten sonra **tipik** Kurulum ve yükleme medyasını yolunu DB SID, ana bilgisayar adı, örnek numarasını ve DB sistem yöneticisi parolasını girin.
+Seçtikten sonra **tipik** Kurulum ve yükleme medyasını yolunu DB SID, ana bilgisayar adı, örnek numarasını ve DB sistem yöneticisi parolasını girin:
 
 ![SAP HANA veritabanı sistem yönetici oturum açma sayfası](./media/hana-get-started/image035b.jpg)
 
@@ -372,11 +387,11 @@ Her görev tamamlandıktan sonra DB yükleme işleminin her aşamada yanında ye
 
 ![Görev tamamlandı penceresi onay iletisi](./media/hana-get-started/image023.jpg)
 
-Başarılı yüklemeden sonra SAP Yönetim Konsolu ayrıca veritabanı örneğiniz "green" olarak gösterebilir ve SAP HANA işlemleri (hdbindexserver, hdbcompileserver ve diğerleri) tam listesini görüntüleyin.
+Başarılı yüklemeden sonra SAP Yönetim Konsolu yeşil bir simge ile DB örnek ayrıca gösterir. SAP HANA süreçlerinize hdbindexserver ve hdbcompileserver tam listesini görüntüler.
 
 ![SAP HANA işlemlerin listesi ile SAP Yönetim Konsolu penceresi](./media/hana-get-started/image024.jpg)
 
-Aşağıdaki ekran görüntüsünde, parçaları SWPM HANA yükleme işlemi sırasında oluşturulan /hana/shared dizin altında dosya yapısı gösterilmektedir. Farklı bir yol belirtmek için seçeneği olduğundan, SAP HANA yüklemeden önce /hana dizini altında ek disk alanı SWPM kullanarak bağlamak önemlidir. Bu kök dosya sistemi boş alanınızın bitmesi engeller.
+Aşağıdaki ekran görüntüsünde, parçaları SWPM HANA yükleme işlemi sırasında oluşturulan /hana/shared dizin altında dosya yapısı gösterilmektedir. Farklı bir yol belirtmek için seçeneği olduğundan, SAP HANA yüklemeden önce /hana dizini altında ek disk alanı SWPM kullanarak bağlamak önemlidir. Bu adım kök dosya sistemi boş alan çalışmasını engeller.
 
 ![HANA yükleme işlemi sırasında oluşturulan /hana/shared dizin dosya yapısı](./media/hana-get-started/image025.jpg)
 
@@ -392,7 +407,7 @@ Birincil uygulama sunucusu örneği ve SAP GUI yüklendikten sonra kullanılacak
 
 ![DBA Cockpit penceresi başarılı yüklemesini onaylamak](./media/hana-get-started/image028b.jpg)
 
-Son adım olarak, ilk yüklemede HANA Studio SAP app server VM istediğiniz ve DB sunucusu VM üzerinde çalışan SAP HANA örneği bağlanın:
+Son adım olarak, ilk yüklemede HANA Studio SAP app server VM isteyebilirsiniz. Ardından DB sunucusu VM üzerinde çalışan SAP HANA örneği bağlanın.
 
 ![SAP HANA Studio SAP app server VM yükleme](./media/hana-get-started/image038b.jpg)
 
@@ -401,26 +416,28 @@ SAP HANA SWPM kullanarak dağıtılmış yüklemesinin bir parçası yüklemenin
 
 HANA HDBLCM aracı hakkında daha fazla bilgi için bkz:
 
-* [Göreviniz için doğru SAP HANA HDBLCM seçme](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA yaşam döngüsü Yönetim Araçları](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
-* [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+* [Göreviniz için doğru SAP HANA HDBLCM seçin](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm).
+* [SAP HANA yaşam döngüsü Yönetim Araçları](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm).
+* [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf).
 
-İçin varsayılan grup kimliği ayarı sorunlarını önlemek için `\<HANA SID\>adm user` (HDBLCM araç tarafından oluşturulan) adlı yeni bir grup tanımlayın `sapsys` grup kimliği kullanarak `1001` SAP HANA HDBLCM aracılığıyla yüklemeden önce:
+İçin varsayılan grup kimliği ayarı sorunlarını önlemek istediğiniz `\<HANA SID\>adm user`, HDBLCM araç tarafından oluşturuldu. SAP HANA HDBLCM aracılığıyla yüklemeden önce adlı yeni bir grup tanımlayın `sapsys` grup kimliği kullanarak `1001`:
 
 !["Yeni Grup sapsys kullanılarak tanımlanmış" Grup Kimliği 1001](./media/hana-get-started/image030.jpg)
 
-HDBLCM ilk kez başlattığınızda, bir basit başlangıç menüsünde görüntülenir. 1 öğe seç **yeni sisteme yüklemek**aşağıdaki ekran görüntüsünde gösterildiği gibi:
+HDBLCM ilk kez başlattığınızda, basit bir Başlat menüsünde görüntüler. 1 öğe seç **yeni sisteme yüklemek**:
 
 !["Yeni sistemi yükle" seçeneği HDBLCM başlangıç penceresi](./media/hana-get-started/image031.jpg)
 
 Aşağıdaki ekran görüntüsünde, daha önce seçtiğiniz anahtar seçenekleri görüntüler.
 
 > [!IMPORTANT]
-> HANA günlük ve veri birimlerini yanı sıra yükleme yolu (hana Bu örnekte, paylaşılan /) ve /usr/sap, için adlı dizin kök dosya sisteminin parçası olmamalıdır. Bu dizinler ("Disk Kurulumu" bölümünde açıklanan) sanal makineye bağlı Azure veri diskleri ait. Bu yaklaşım kök dosya sistemi alanı yetersiz çalışmasını engeller. Aşağıdaki ekran görüntüsünde, HANA sistem yöneticisinin kullanıcı kimliği olduğunu görebilir `1005` parçası `sapsys` grubu (kimliği `1001`) yüklemeden önce tanımlandı.
+> Bu örnek ve /usr/sap /hana/shared olan yükleme yolu HANA günlük ve veri birimleri için adlı dizinleri kök dosya sisteminin bir parçası olmalıdır. Bu dizinler VM'ye bağlı Azure veri diskleri ait. Daha fazla bilgi için "Disk" Kurulum"bölümüne bakın. 
+
+Bu yaklaşım kök dosya sistemi alanı yetersiz çalışmasını engeller. HANA sistem yöneticisinin kullanıcı kimliği olduğunu göreceksiniz `1005` parçası `sapsys` Grup Kimliğine sahip `1001`, yüklemeden önce tanımlandı.
 
 ![Daha önce seçtiğiniz tüm anahtar SAP HANA bileşenlerin listesi](./media/hana-get-started/image032.jpg)
 
-Denetleyebilirsiniz `\<HANA SID\>adm user` (`azdadm` aşağıdaki ekran görüntüsünde) / etc/parola dizin ayrıntıları:
+Denetleme  `\<HANA SID\>adm user` /etc/parola dizin ayrıntıları. Aranacak `azdadm`aşağıdaki ekran görüntüsünde gösterildiği gibi:
 
 ![HANA \<HANA SID\>listelenen/etc/parola dizinde adm kullanıcı ayrıntıları](./media/hana-get-started/image033.jpg)
 
@@ -428,7 +445,7 @@ SAP HANA HDBLCM kullanarak yükledikten sonra aşağıdaki ekran görüntüsünd
 
 ![SAP HANA Studio SAP HANA dosya yapısı](./media/hana-get-started/image034.jpg)
 
-SAP HANA yükledikten sonra SAP NetWeaver çıktıklarını yükleyebilirsiniz. Aşağıdaki ekran görüntüsünde gösterildiği gibi yükleme (önceki bölümde açıklandığı gibi) SWPM kullanarak dağıtılmış bir yükleme olarak gerçekleştirildi. SWPM kullanarak veritabanı örneğini yüklediğinizde, aynı verileri (örneğin, ana bilgisayar adı, HANA SID ve örnek numarası) HDBLCM kullanarak girin. SWPM mevcut HANA yüklemesi kullanır ve başka şemalar ekler.
+SAP HANA yükledikten sonra SAP NetWeaver çıktıklarını yükleyebilirsiniz. Aşağıdaki ekran görüntüsünde gösterildiği gibi yükleme SWPM kullanarak dağıtılmış bir yükleme olarak gerçekleştirildi. Bu işlem, önceki bölümde açıklanmıştır. Veritabanı örneği SWPM kullanarak yüklediğinizde, aynı verileri HDBLCM kullanarak girin. Örneğin, ana bilgisayar adı, HANA SID ve örnek numarasını girin. SWPM mevcut HANA yüklemesi kullanır ve başka şemalar ekler.
 
 ![SWPM kullanılarak gerçekleştirilen bir dağıtılmış yükleme](./media/hana-get-started/image035b.jpg)
 
@@ -444,7 +461,7 @@ SWPM veritabanı örneği yüklemesi tamamlandıktan sonra SAP HANA Studio SAPAB
 
 ![SAP HANA Studio SAPABAP1 şeması](./media/hana-get-started/image038b.jpg)
 
-SAP uygulama sunucusu ve SAP GUI yükleme tamamlandıktan sonra son olarak, HANA veritabanı örneği kullanarak doğrulayabilirsiniz **DBA Cockpit** işlem:
+SAP uygulama sunucusu ve SAP GUI yükleme tamamlandıktan sonra son olarak, HANA veritabanı örneği kullanarak doğrulamak **DBA Cockpit** işlem:
 
 ![DBA Cockpit işlemle doğrulandı HANA veritabanı örneği](./media/hana-get-started/image039b.jpg)
 
@@ -454,9 +471,9 @@ Aşağıdaki ekran görüntülerinde gösterildiği gibi SAP Service Marketplace
 
 NetWeaver 7.5, Linux/HANA yükleyin:
 
- ![NetWeaver 7.5 indirme için SAP Service yükleme ve yükseltme penceresi](./media/hana-get-started/image001.jpg)
+ ![NetWeaver 7.5 karşıdan yüklemek için SAP service yükleme ve yükseltme penceresi](./media/hana-get-started/image001.jpg)
 
 HANA SP12 Platform Edition'ı yükleyin:
 
- ![HANA SP12 Platform sürümü karşıdan yüklemek için SAP Service yükleme ve yükseltme penceresi](./media/hana-get-started/image002.jpg)
+ ![HANA SP12 Platform sürümü karşıdan yüklemek için SAP service yükleme ve yükseltme penceresi](./media/hana-get-started/image002.jpg)
 

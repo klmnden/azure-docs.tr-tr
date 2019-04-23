@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700630"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005511"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik alanında Linux sanal makinesi oluşturma
 
 Azure kullanılabilirlik alanında Linux VM oluşturmak için Azure CLI aracılığıyla bu makalede adımları. [Kullanılabilirlik alanı](../../availability-zones/az-overview.md), bir Azure bölgesinde fiziksel olarak ayrılmış bir alandır. Uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumak için kullanılabilirlik alanlarından yararlanın.
 
-Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#regions-that-support-availability-zones) sanal makinenizi oluşturun.
+Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#services-support-by-region) sanal makinenizi oluşturun.
 
 En son yüklediğinizden emin olun [Azure CLI](/cli/azure/install-az-cli2) ile bir Azure hesabında oturum açtığınızdan [az login](/cli/azure/reference-index).
 
@@ -102,7 +102,7 @@ VM’nin oluşturulması birkaç dakika sürebilir. VM oluşturulduktan sonra, A
 
 VM için yönetilen disk, sanal Makineyi bir kullanılabilirlik alanında dağıtıldığında, aynı kullanılabilirlik alanında oluşturulur. Varsayılan olarak, bir genel IP adresi de bu bölgede oluşturulur. Aşağıdaki örnekler, bu kaynaklar hakkında bilgi alın.
 
-Yönetilen disk sanal makinenin kullanılabilirlik alanında olduğunu doğrulamak için [az vm show](/cli/azure/vm) disk kimliğini döndürmek için komutu. Bu örnekte disk kimliği sonraki adımlardan birinde kullanılan bir değişkende depolanır. 
+Yönetilen disk sanal makinenin kullanılabilirlik alanında olduğunu doğrulamak için [az vm show](/cli/azure/vm) disk kimliğini döndürmek için komutu Bu örnekte disk kimliği sonraki adımlardan birinde kullanılan bir değişkende depolanır. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

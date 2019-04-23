@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548842"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010390"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -179,7 +179,7 @@ Bkz: [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master
 
 ## <a name="configure-your-experiment-settings"></a>Deneme ayarlarınızı yapılandırın
 
-Otomatik makine öğrenimi deneme yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne. Bkz: [AutoMLConfig sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) parametrelerin tam bir listesi için.  
+Otomatik makine öğrenimi deneme yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne. Bkz: [AutoMLConfig sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) parametrelerin tam bir listesi için.  
 
 Bazı örnekler:
 
@@ -210,7 +210,7 @@ Bazı örnekler:
         n_cross_validations=5)
     ```
 
-Üç farklı `task` parametre değerleri uygulamak için algoritmalar listesini belirleyin.  Kullanım `whitelist` veya `blacklist` ek yinelemeler dahil etmek veya hariç tutmak için kullanılabilir algoritmalar ile değiştirmek için parametreleri. Desteklenen modellerin listesi bulunabilir [SupportedAlgorithms sınıfı](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+Üç farklı `task` parametre değerleri uygulamak için algoritmalar listesini belirleyin.  Kullanım `whitelist` veya `blacklist` ek yinelemeler dahil etmek veya hariç tutmak için kullanılabilir algoritmalar ile değiştirmek için parametreleri. Desteklenen modellerin listesi bulunabilir [SupportedAlgorithms sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
 ## <a name="primary-metric"></a>Birincil Metrik
 Birincil metric; Yukarıdaki örneklerde gösterildiği gibi iyileştirme için modeli eğitimi sırasında kullanılacak ölçüm belirler. Birincil ölçüm seçebilirsiniz, seçtiğiniz görev türüne göre belirlenir. Ölçümlerin bir listesi aşağıda verilmiştir.
@@ -240,43 +240,6 @@ Kullanırsanız `preprocess=True`, ön işleme adımları olarak aşağıdaki ve
 
 ## <a name="ensemble-models"></a>Topluluğu modelleri
 Topluluğu öğrenme, machine learning sonuçları ve öngörülebilir performans sınıfını tek modelleri kullanarak çok sayıda model tarayan tarafından artırır. Machine learning kullanarak otomatikleştirilmiş, topluluğu modelleri kullanarak eğitebilirsiniz [Caruana topluluğu seçimi algoritması ile sıralanmış topluluğu başlatma](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Topluluğu yineleme çalıştırmanızın son yineleme görünür.
-
-## <a name="time-series-forecasting"></a>Zaman serilerini tahmin etme
-Zaman serisi tahmin görev türü için ek parametreler tanımlamak için vardır.
-1. time_column_name - Bu, eğitim veri içeren tarih/saat serisinde sütunun adını tanımlayan gerekli bir parametredir. 
-1. max_horizon - Bu eğitim verilerin dönemselliği üzerinde temel kullanıma tahmin etmek istediğiniz süreyi tanımlar. Örneğin günlük zaman grains ile eğitim verileriniz varsa, ne kadar out modelini eğitmek için istediğiniz gün tanımlayın.
-1. grain_column_names - Bu, tek tek zaman serisi verilerinde görülen eğitim verilerinizi içeren bir sütun adını tanımlar. Örneğin, mağaza tarafından belirli bir marka satışları tahmin etme özelliği, depolama ve marka sütunları dilimi sütunlar tanımlarsınız.
-
-Bu örnek aşağıda kullanılan ayarları, Not Defteri örneği kullanılabilir [burada](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>Denemeyi çalıştırma
 

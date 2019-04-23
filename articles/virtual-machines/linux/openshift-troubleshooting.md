@@ -4,7 +4,7 @@ description: Azure'da OpenShift dağıtım sorunlarını giderin.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540355"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001125"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure'da OpenShift dağıtım sorunlarını giderme
 
@@ -42,9 +42,9 @@ SSH ansible playbook konağa. Ana-0 konak OKD şablonu (sürüm 3,9 ve öncesi) 
 
 ## <a name="log-files"></a>Günlük dosyaları
 
-Konak hazırlama komut dosyaları için günlük dosyaları (stderr ve stdout) /var/lib/waagent/custom-script/download/0 tüm konaklarda yer alır. Konak hazırlanırken bir hata oluştu, hata belirlemek için bu günlük dosyaları görüntüleyin.
+Konak hazırlama komut dosyaları için günlük dosyaları (stderr ve stdout) bulunan `/var/lib/waagent/custom-script/download/0` tüm konaklarda. Konak hazırlanırken bir hata oluştu, hata belirlemek için bu günlük dosyaları görüntüleyin.
 
-Hazırlama betikleri başarıyla çalıştırılmışsa günlük dosyalarını ansible playbook konağının /var/lib/waagent/custom-script/download/1 dizinde incelenmesi gerekecektir. Stdout dosyası, OpenShift gerçek yüklenirken hata oluştu, hata görüntülenir. Daha fazla yardım için desteğe başvurmak için bu bilgileri kullanın.
+Hazırlama betikleri başarıyla çalıştırılmışsa sonra günlük dosyalarını `/var/lib/waagent/custom-script/download/1` ansible playbook ana dizin incelenmesi gerekiyor. Stdout dosyası, OpenShift gerçek yüklenirken hata oluştu, hata görüntülenir. Daha fazla yardım için desteğe başvurmak için bu bilgileri kullanın.
 
 Örnek çıktı
 
@@ -93,11 +93,11 @@ Yükleme sırasında en yaygın hatalar şunlardır:
 
 ### <a name="private-key-has-a-passphrase"></a>Özel anahtara sahip bir parola
 
-SSH için izni bir hata görürsünüz. SSH özel anahtarı bir parola olup olmadığını denetlemek için ansible playbook konağa.
+İçin ssh izni bir hata görürsünüz. SSH özel anahtarı bir parola olup olmadığını denetlemek için ansible playbook konağa.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Özel anahtar ile anahtar kasası gizli dizi doğru biçimde oluşturulmadıysa
 
-Özel anahtar, ansible playbook ana bilgisayar - ~/.ssh/id_rsa eklenmiş olur. Bu dosyayı doğru olduğunu onaylayın. Ansible playbook konaktan küme düğümlerinden biri için bir SSH oturumu açıp test edin.
+Özel anahtar, ansible playbook ana bilgisayar - ~/.ssh/id_rsa kopyalanır. Bu dosyayı doğru olduğunu onaylayın. Ansible playbook konaktan küme düğümlerinden biri için bir SSH oturumu açıp test edin.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Hizmet sorumlusu kimlik bilgileri yanlış girilmiş
 

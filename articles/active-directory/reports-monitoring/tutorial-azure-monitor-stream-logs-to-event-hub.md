@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Bir Azure olay hub'ına Azure Active Directory günlüğü akışı yapma (önizleme) | Microsoft Docs"
-description: Azure Tanılama'yı kullanarak Azure Active Directory günlüklerini bir olay hub'ına göndermeyi öğrenin (önizleme)
+title: Öğretici - Stream Azure Active Directory, Azure olay hub'ına kaydeder | Microsoft Docs
+description: Azure Active Directory günlükleri Olay hub'ına göndermek için Azure Tanılama'yı ayarlama hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436940"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995612"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Öğretici: Stream Azure Active Directory günlükleri Azure olay hub'ına (Önizleme)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Öğretici: Azure olay hub'ına Stream Azure Active Directory günlükleri
 
 Bu öğreticide, Azure İzleyici tanılama ayarları günlüklerinin akışını Azure Active Directory (Azure AD) bir Azure olay hub'ı için ayarlama konusunda bilgi edinin. Bu mekanizmayı kullanarak günlüklerinizi Splunk ve QRadar gibi üçüncü taraf Güvenlik Bilgileri ve Olay Yönetimi (SIEM) araçlarıyla tümleştirebilirsiniz.
 

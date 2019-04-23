@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543195"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001057"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -104,7 +104,7 @@ Aşağıdaki bölümlerde, daha karmaşık yaygın senaryolar açıklanmaktadır
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Senaryo: Uygulama üzerinde-behalf-of akışı gerçekleştirme
 
-Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmeti [bir aşağı akış hizmeti çağırmak amacıyla he "on-behalf-of" flow. yapar Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
+Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmet bir aşağı akış hizmeti çağırmak amacıyla "on-behalf-of" akışını yapar. Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
 
 ![Uygulama üzerinde temsili Akış Diyagramı gerçekleştirme](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,7 +145,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Uygulama yeni bir belirteç isteğinde birden çok hizmetlerine erişme](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Uygulama ADAL kitaplığı kullanıyorsa, belirteci almak için bir hata her zaman etkileşimli olarak denenir. Bu etkileşimli istek ortaya çıktığında, son kullanıcı koşullu erişim ile uyumlu fırsatına sahiptir. İstek olmadığı sürece bu doğrudur bir `AcquireTokenSilentAsync` veya `PromptBehavior.Never` etkileşimli gerçekleştirmek için bu durumda uygulamanın gereksinim duyduğu ```AcquireToken``` son kullanım ilkesiyle uyumlu fırsatı sunmak için istek.
+Uygulama ADAL kitaplığı kullanıyorsa, belirteci almak için bir hata her zaman etkileşimli olarak denenir. Bu etkileşimli istek ortaya çıktığında, son kullanıcı koşullu erişim ile uyumlu fırsatına sahiptir. İstek olmadığı sürece bu doğrudur bir `AcquireTokenSilentAsync` veya `PromptBehavior.Never` etkileşimli gerçekleştirmek için bu durumda uygulamanın gereksinim duyduğu ```AcquireToken``` kullanıcıdan ilkeye uymak fırsatı sunmak için istek.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Senaryo: ADAL.js kullanarak tek sayfalı uygulama (SPA)
 

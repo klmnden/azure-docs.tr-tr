@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093744"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002910"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Öğretici: El ile yük devretme gerçekleştirmek için IOT hub (genel Önizleme)
 
@@ -49,9 +49,6 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 
     **Bölge**: Önizleme kapsamındaki bölgelerden size yakın olanı seçin. Bu öğreticide `westus2` kullanılır. Yük devretme yalnızca coğrafi olarak eşleştirilmiş Azure bölgeleri arasında gerçekleştirilebilir. westus2 ile coğrafi olarak eşleştirilmiş bölge WestCentralUS bölgesidir.
     
-   > [!NOTE]
-   > El ile yük devretme şu anda genel Önizleme aşamasındadır ve ise *değil* Azure şu bölgelerde kullanılabilir: Doğu ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Güney Brezilya ve Güney Orta ABD.
-
    **IoT Hub'ı Adı**: IoT hub'ınıza bir ad verin. Hub adının genel olarak benzersiz olması gerekir. 
 
    ![IoT hub'ı oluşturmak için Temel Bilgiler bölmesini gösteren ekran görüntüsü](./media/tutorial-manual-failover/create-hub-02-basics.png)

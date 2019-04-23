@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338301"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000071"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Azure HDInsight - depolama en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -89,9 +89,9 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Azure portalını kullanarak Data Lake Store ile HDInsight kümeleri oluşturma](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Data Lake Storage Azure HDInsight kümeleri ile kullanma](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2'ye (Önizleme)
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake depolama Gen2, en son depolama sunar ve bu makalenin yazıldığı sırada bu kağıt Önizleme aşamasındadır. Azure Data Lake Storage first neslini gelen çekirdek özellikler, Azure Blob depolama alanına doğrudan tümleştirilmiş bir Hadoop uyumlu bir dosya sistemi uç noktası ile birleştirir. Bu geliştirme nesne depolama ölçek ve maliyet avantajlarını genellikle yalnızca şirket içi dosya sistemleri ile ilişkili performans ve güvenilirliği ile birleştirir.
+Azure Data Lake depolama Gen2, en son depolama teklifidir. Azure Data Lake Storage first neslini gelen çekirdek özellikler, Azure Blob depolama alanına doğrudan tümleştirilmiş bir Hadoop uyumlu bir dosya sistemi uç noktası ile birleştirir. Bu geliştirme nesne depolama ölçek ve maliyet avantajlarını genellikle yalnızca şirket içi dosya sistemleri ile ilişkili performans ve güvenilirliği ile birleştirir.
 
 ADLS Gen 2 üzerine kurulmuştur [Azure Blob Depolama](../../storage/blobs/storage-blobs-introduction.md) ve her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerle arabirim sağlar. Öğesinden özellikleri [Azure Data Lake depolama Gen1](../../data-lake-store/index.md), dosya sistemi sematiğini gibi dosya düzeyinde güvenlik ve ölçek, düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özellikleri ve büyük bir SDK/Araçları ile birleştirilir ekosisteminden [Azure Blob Depolama](../../storage/blobs/storage-blobs-introduction.md). Analiz için iş yükleri için iyileştirilmiş bir dosya sistemi arabirimi avantajları ekleme sırasında nesne depolama, tüm kalitelerini Data Lake depolama Gen2 ' kalır.
 
@@ -115,7 +115,7 @@ Aşağıdaki biçimlerden birini ADLS 2. nesil'deki depolanan verilere erişmek 
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Azure Data Lake depolama Gen2 Önizleme giriş](../../storage/data-lake-storage/introduction.md)
+- [Azure Data Lake depolama Gen2'ye Giriş](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob dosya sistemi sürücü (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 

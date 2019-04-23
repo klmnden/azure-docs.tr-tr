@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7d38120c530b89230893b85829d201c14a8cba04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697303"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003250"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
@@ -38,6 +38,14 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
 ## <a name="create-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu oluşturma
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+
+    | Anahtar | Value |
+    |---|---|
+    | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
+
+    Bırakın **etiket** ve **içerik türü** şimdilik boş.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
@@ -114,4 +122,4 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
 Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir Azure işlevi ile kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure kaynaklarını tümleştirme için yönetilen kimlik](./howto-integrate-azure-managed-service-identity.md)
+> [Yönetilen kimlik tümleştirme](./howto-integrate-azure-managed-service-identity.md)

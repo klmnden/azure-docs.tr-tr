@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579133"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002499"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform, geleneksel uygulama kodu olmadan uygulamalar oluşturmak, iş uzmanları için tasarlanmıştır. Profesyonel Geliştiriciler, Azure işlevleri, PowerApps uygulama derleyicileri from teknik ayrıntıları koruma sırasında PowerApps, yeteneklerini genişletmek için kullanabilirsiniz.
@@ -38,6 +38,9 @@ Bu konu başlığında, şunların nasıl yapılır:
 > * Uygulamasında verileri görüntülemek için denetimler ekleme.
 > * İşlev çağrısı ve verileri görüntülemek için denetimler ekleme.
 > * Bir onarım uygun maliyetli olup olmadığını belirlemek için uygulamayı çalıştırın.
+
+> [!IMPORTANT]
+> Openapı özelliği şu anda Önizleme aşamasındadır ve yalnızca sürüm için kullanılabilir Azure işlevleri çalışma zamanının 1.x.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

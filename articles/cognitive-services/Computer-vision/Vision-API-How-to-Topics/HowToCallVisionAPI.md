@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011268"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Örnek: Görüntü işleme API'sini çağırma
 
@@ -47,8 +47,7 @@ Aşağıdaki örneklerde, aşağıdaki özellikler gösterilmektedir:
 
 Görüntü İşleme API’sine yapılan her çağrı için bir abonelik anahtarı gerekir. Bu anahtarın bir sorgu dizesi parametresi aracılığıyla geçirilmesi veya istek üst bilgisinde belirtilmesi gerekir.
 
-Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Ücretsiz bir deneme sürümü anahtarı almak için bkz: [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 
 1. Sorgu dizesi aracılığıyla abonelik anahtarını geçirme, Görüntü İşleme API’si örneği olarak aşağıdaki örneğe bakın:
 
@@ -170,7 +169,7 @@ Alan | Type | İçerik
 Etiketler  | `object` | Etiket dizisi için üst düzey nesnedir
 tags[].Name | `string`  | Etiketler sınıflandırıcısındaki anahtar sözcüktür
 tags[].Score    | `number`  | 0 ile 1 arasında güven puanıdır
-açıklama  | `object` | Açıklama için üst düzey nesnedir.
+description  | `object` | Açıklama için üst düzey nesnedir.
 description.tags[] |    `string`    | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
 description.captions[].text | `string`  | Görüntüyü açıklayan bir ifadedir.
 description.captions[].confidence   | `number`  | İfade için güven düzeyidir.

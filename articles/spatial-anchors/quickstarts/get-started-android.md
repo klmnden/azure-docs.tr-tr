@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880056"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995906"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android uygulaması oluşturma
 
-Bu hızlı başlangıçta kullanarak bir Android uygulaması oluşturmak nasıl etkinleştireceğinizi de açıklar [Azure uzamsal bağlayıcılarını](../overview.md) Java veya C + +/ NDK. Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedin ve uzamsal bağlantı Hatırlayacağınız bir ARCore Android uygulaması oluşturmuş olacaksınız.
+Bu hızlı başlangıçta kullanarak bir Android uygulaması oluşturmak nasıl etkinleştireceğinizi de açıklar [Azure uzamsal bağlayıcılarını](../overview.md) ya da Java veya C++/NDK. Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedin ve uzamsal bağlantı Hatırlayacağınız bir ARCore Android uygulaması oluşturmuş olacaksınız.
 
 Şunları öğrenirsiniz:
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
   - Macos'ta çalıştırılıyorsa, Git HomeBrew yüklü alın. Tek satırlık bir Terminal içinde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Ardından çalıştırın `brew install git`.
   - NDK örneği oluşturmak için Android Studio'da CMake 3.6 SDK Tools ve NDK yüklemek gerekir.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">etkin Geliştirici</a> ve <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore özellikli</a> Android cihaz.
-- Uygulamanızı ARCore (ARCore 1.6 + için destek yakında sunulacaktır) 1.5 hedeflemesi gerekir
+- Uygulamanızı ARCore 1.7 hedeflemesi gerekir.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Android NDK örnek oluşturuyorsanız, indirmeniz gerekir `arcore_c_api.h` gelen [burada](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h) ve yerleştirebilir `Android\NDK\libraries\include`.
+Android NDK örnek oluşturuyorsanız, indirmeniz gerekir `arcore_c_api.h` gelen [burada](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) ve yerleştirebilir `Android\NDK\libraries\include`.
 
 Android Studio’yu açın.
 

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: c54acd4da9f595f3c8cb37651c3804f23d53d063
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014680"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006123"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Büyük veri analiz çözümlerinizi Azure Data Lake depolama 2. nesil için Azure Data Lake depolama Gen1 ' yükseltme
 
@@ -92,7 +92,7 @@ Bu bölümde, Data Lake depolama 2. nesil'deki şu anda kullanılabilir hangi Da
 
 Bu tablo API'si için özel uygulamalarınızın kullanılabilir olan ayarlayan açıklar. Şeyler biraz daha anlaşılır hale getirmek için Biz bu API kümeleri 2 türlerini ayrılmış: Yönetim API'leri ve dosya sistemi API'ları.
 
-Yönetim API'leri, dosya sistemi API yardım ederken, dosyalar ve klasörler üzerinde çalışılacak hesapları yönetmenize yardımcı.
+API yönetim hesapları, dosya sistemi API'leri, dosyalar ve klasörler üzerinde çalışan yardımcı sırasında yönetmenize yardımcı.
 
 |  API kümesi                           |  Data Lake Storage Gen1                                                                                                                                                                                                                                                                                                   | Paylaşılan anahtar kimlik doğrulaması için Data Lake depolama Gen2 - kullanılabilirlik | OAuth kimlik doğrulaması için Data Lake depolama Gen2 - kullanılabilirlik                                                                                                  |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -131,7 +131,7 @@ Data Lake depolama Gen1 kullanırken, Microsoft Hizmetleri ve ürünleriyle çe�
 | Tüketim          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Henüz kullanılamıyor*                                                                                                                                                          | *Henüz kullanılamıyor*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Henüz kullanılamıyor*                                                                                                                                                          | *Henüz kullanılamıyor*                                                                                                                             |
 |                      | [Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Henüz kullanılamıyor*                                                                                                                                                          | *Henüz kullanılamıyor*                                                                                                                             |
-| Üretkenlik         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Desteklenmiyor*                                                                                                                                                              | Hesap Yönetimi *– kullanıma sunuldu* <br><br>Veri işlemleri *–**henüz kullanılamıyor*                                                                   |
+| Üretkenlik         | [Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Desteklenmiyor*                                                                                                                                                              | Hesap Yönetimi *– kullanıma sunuldu* <br><br>Veri işlemleri *–**henüz kullanılamıyor*                                                                   |
 |                      | [Visual Studio için Data Lake araçları](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Henüz kullanılamıyor*                                                                                                                                                          | *Henüz kullanılamıyor*                                                                                                                             |
 |                      | [Azure Depolama Gezgini](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Kullanıma sunuldu*                                                                                                                                                              | *Kullanıma sunuldu*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Henüz kullanılamıyor*                                                                                                                                                          | *Henüz kullanılamıyor*                                                                                                                             |
@@ -235,7 +235,7 @@ Data Lake depolama Gen2'ye yükseltme için Data Lake depolama Gen1 Yukarıdaki 
 
 * ACL'ler kopyalamaz bir araç kullanmanız veya ACL'ler kopyalamak istemiyorsanız, ACL'leri uygun en üst düzey hedefte el ile ayarlamanız gerekir. Depolama Gezgini'ni kullanarak yapabilirsiniz. Bu ACL'ler böylece kopyalayabilirsiniz, klasör ve dosya bunları devralmasını varsayılan ACL'ler olduğundan emin olun.
 
-* Data Lake depolama Gen1 içinde ACL'leri ayarlayabilirsiniz en üst düzey hesabının kök dizininde ' dir. Data Lake depolama Gen2'içinde kök klasöründe bir dosya sistemi, tüm hesap almaz ancak ACL'leri ayarlayabilirsiniz en üst düzey altındadır. Hesap düzeyinde varsayılan ACL'ler ayarlamak istiyorsanız, bu nedenle, Data Lake depolama Gen2 hesabınızdaki tüm dosya sistemleri kullananlar çoğaltmak gerekir.
+* Data Lake depolama Gen1 içinde ACL'leri ayarlayabilirsiniz en üst düzey hesabının kök dizininde ' dir. Data Lake depolama Gen2'içinde ancak ACL'leri ayarlayabilirsiniz yüksek Kök klasörde bir dosya sistemi, tüm hesap düzeydir. Hesap düzeyinde varsayılan ACL'ler ayarlamak istiyorsanız, bu nedenle, Data Lake depolama Gen2 hesabınızdaki tüm dosya sistemleri kullananlar çoğaltmak gerekir.
 
 * Dosya adlandırma kısıtlamaları, iki depolama sistemleri arasında farklılık gösterir. Bu fark özellikle ne zaman ilgili ikinci daha kısıtlamaları kısıtlı olduğundan, Data Lake depolama Gen1 için Data Lake depolama Gen2 ' kopyalama.
 
@@ -245,11 +245,11 @@ Data Lake depolama Gen1 veya Data Lake depolama 2. nesil uygulamalar oluşturmak
 
 #### <a name="uri-changes"></a>URI değişiklikleri
 
-Adl çevirmek için aşağıda ana görev olduğunu: / / Mevcut iş bir abfss içinde kullanılan URI: / / URI.
+Burada ana görevi öneki olan URI'si Çevir, `adl://` sahip URI'si içine bir `abfss://` önek.
 
 Data Lake depolama Gen1 URI şeması bahsedilen [burada](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) ayrıntı, ancak genel anlamda içinde olduğu *adl://mydatalakestore.azuredatalakestore.net/\<Dosya_yolu\>.*
 
-Data Lake depolama Gen2 dosyalara erişmek için URI şeması açıklanan [burada](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) ayrıntı, ancak genel anlamda içinde olduğu *abfss: / /\<FILE_SYSTEM_NAME\> \@ \< ACCOUNT_NAME\>.dfs.core.widows.net/\<yolu\>.*
+Data Lake depolama Gen2 dosyalara erişmek için URI şeması açıklanan [burada](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) ayrıntı, ancak genel anlamda içinde olduğu `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Var olan uygulamalarınız gidin ve bir URI'leri uygun şekilde için Data Lake depolama Gen2'ye işaret edecek şekilde değiştirdiğinizi emin olmak ihtiyacınız olanları. Ayrıca, uygun kimlik bilgilerini eklemeniz gerekecektir. Son olarak, özgün uygulamaları devre dışı bırakma ve yeni bir uygulama ile değiştirmek nasıl genel yükseltme stratejinizi yakından hizalanması gerekir.
 
@@ -327,7 +327,7 @@ Seçtiğiniz strateji bağlı olarak ve bu aşama, çözümünüzün karmaşıkl
 
 ### <a name="post-upgrade"></a>Yükseltme sonrası
 
-Geçiş işlemi tamamlandıktan sonra tam doğrulama ilişkin son adımlar içerir. Bu dahil ancak bunlarla sınırlı değildir veri doğrulama kopyalandı üzerinden güvenilir bir şekilde, ACL'ler doğru ayarlandığını doğrulama, doğrulama e2e işlem hatları düzgün vb. çalışmaktadır. Doğrulamaları tamamladıktan sonra artık eski, işlem hattını Aç, kaynak Data Lake depolama Gen1 hesaplarınızı silebilir ve Data Lake depolama Gen2 tabanlı çözümlerinizi tam hız gidin.
+Geçiş işlemi tamamlandıktan sonra tam doğrulama ilişkin son adımlar içerir. Bu dahil ancak bunlarla sınırlı değildir veri doğrulama kopyalandı üzerinden güvenilir bir şekilde, doğrulanıyor uçtan uca işlem hatları düzgün vb. doğrulanıyor ACL'leri doğru şekilde ayarlandı. Doğrulamaları tamamladıktan sonra artık eski, işlem hattını Aç, kaynak Data Lake depolama Gen1 hesaplarınızı silebilir ve Data Lake depolama Gen2 tabanlı çözümlerinizi tam hız gidin.
 
 ## <a name="conclusion"></a>Sonuç
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546600"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148909"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Başka bir laboratuar ortamında Azure DevTest Labs sanal makineleri içeri aktarın
-Bu makalede sanal makineleri başka bir laboratuvarda, laboratuvarda içeri aktarma hakkında bilgi sağlar. 
+Bu makalede sanal makineleri başka bir laboratuvarda, laboratuvarda içeri aktarma hakkında bilgi sağlar.
 
 ## <a name="scenarios"></a>Senaryolar
-Vm'leri, başka bir laboratuvarda bir laboratuvarda alma gerek duyduğunuz senaryolara bazı senaryolar aşağıda verilmiştir: 
+Vm'leri, başka bir laboratuvarda bir laboratuvarda alma gerek duyduğunuz senaryolara bazı senaryolar aşağıda verilmiştir:
 
 - Bir kişi takımdaki kuruluş içinde başka bir gruba taşınacağını ve yeni takımın DevTest Labs kullanarak Geliştirici Masaüstü almak ister.
 - Grup erişti bir [abonelik düzeyi kota](../azure-subscription-service-limits.md) ve birkaç aboneliği teams'e yukarı split istiyor
@@ -34,8 +34,8 @@ Bu özellik, Vm'leri (kaynak) bir laboratuar ortamında başka bir laboratuvara 
 
 Bu işlem biraz zaman alabilir ve aşağıdaki faktörlerden etkilenir:
 
-- Sayı/boyutu (bir kopyalama işlemi ve taşıma işlemi olduğundan) kaynak makineye bağlı diskler 
-- ' % S'hedef (örneğin, Güneydoğu Asya Doğu ABD bölgesinde) uzaklık.  
+- Sayı/boyutu (bir kopyalama işlemi ve taşıma işlemi olduğundan) kaynak makineye bağlı diskler
+- ' % S'hedef (örneğin, Güneydoğu Asya Doğu ABD bölgesinde) uzaklık.
 
 İşlem tamamlandıktan sonra kaynak sanal makine kapatma ve yeni bir hedef laboratuvarda çalıştırıyorsa kalır.
 
@@ -47,12 +47,12 @@ Sanal makineleri bir laboratuar ortamında başka bir laboratuvara aktarmak plan
 - Şu anda bu özellik yalnızca Powershell ve REST API desteklenir.
 
 ## <a name="use-powershell"></a>PowerShell kullanma
-ImportVirtualMachines.ps1 dosyası indirin [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Betik, tek bir VM veya kaynak Laboratuvardaki tüm VM'ler hedef laboratuara içeri aktarmak için kullanabilirsiniz. 
+ImportVirtualMachines.ps1 dosyası indirin [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Betik, tek bir VM veya kaynak Laboratuvardaki tüm VM'ler hedef laboratuara içeri aktarmak için kullanabilirsiniz.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Tek bir VM için PowerShell kullanma
 Bu powershell betiği yürütülürken, VM kaynak ve hedef Laboratuvar tanımlama ve isteğe bağlı olarak hedef makine için kullanılacak yeni bir ad sağlayarak gerektirir:
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ Bu powershell betiği yürütülürken, VM kaynak ve hedef Laboratuvar tanımlam
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Kaynak Laboratuvardaki tüm sanal makineleri içeri aktarmak için PowerShell kullanma
 Kaynak sanal makinenin belirtilmezse, betik DevTest labs'teki tüm sanal makineler otomatik olarak içeri aktarır.  Örneğin:
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki makalelere bakın: 
+Aşağıdaki makalelere bakın:
 
 - [Bir laboratuvara yönelik ilkeleri ayarlama](devtest-lab-get-started-with-lab-policies.md)
 - [Sık sorulan sorular](devtest-lab-faq.md)

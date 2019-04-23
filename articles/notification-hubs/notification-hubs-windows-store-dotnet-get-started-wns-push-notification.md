@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs kullanarak Evrensel Windows Platformu uygulamalarına bildirimler gönderme | Microsoft Docs
-description: Bu öğreticide, bir Windows Evrensel Platform uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
+description: Bir Windows Evrensel Platform uygulamasına anında iletme bildirimleri için Azure Notification hubs'ı kullanmayı Yasla.
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403213"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006939"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs'ı kullanarak evrensel Windows platformu uygulamaları için bildirimler gönderin
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Bu öğreticide, bir Evrensel Windows Platformu (UWP) uygulamasına anında iletme bildirimleri göndermek için bir bildirim hub’ı oluşturursunuz. Windows Anında Bildirim Hizmeti’ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Mağazası uygulaması oluşturursunuz. Daha sonra uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub’ınızı kullanabilirsiniz.
+Bu öğreticide, bir Evrensel Windows Platformu (UWP) uygulamasına anında iletme bildirimleri göndermek için bir bildirim hub’ı oluşturursunuz. Windows Anında Bildirim Hizmeti’ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Mağazası uygulaması oluşturursunuz. Ardından, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri için bildirim hub'ı kullanın.
 
 > [!NOTE]
 > Bu öğreticinin tamamlanan kodunu [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)'da bulabilirsiniz.
 
-Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
+Aşağıdaki adımları uygulayın:
 
 > [!div class="checklist"]
 > * Windows Mağazası’nda bir uygulama oluşturma
@@ -45,6 +45,11 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 - [Microsoft Visual Studio Community 2015 veya üstü](https://www.visualstudio.com/products/visual-studio-community-vs).
 - [UWP uygulama geliştirme araçlarının yüklü olması](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Etkin bir Windows Mağazası hesabı
+- Onaylayın **uygulamaları ve diğer Gönderenler bildirimleri Al** seçeneği etkinleştirilmiştir. 
+    - Başlatma **ayarları** bilgisayarınızda penceresi.
+    - Seçin **sistem** Döşe.
+    - Seçin **bildirimler ve Eylemler** sol menüden. 
+    - Onaylayın **uygulamaları ve diğer Gönderenler bildirimleri Al** seçeneği etkinleştirilmiştir. Etkin değilse, bunu etkinleştirin. 
 
 Bu öğreticiyi tamamlamak UWP uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
@@ -170,8 +175,7 @@ Uygulamanız şimdi bildirim almaya hazırdır.
     ![Bildirim iletisi](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, portalı veya konsol uygulamasını kullanarak tüm Windows cihazlarınıza yayın bildirimleri gönderdiniz. Belirli cihazlara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
+Portalı veya konsol uygulamasını kullanarak tüm Windows cihazlarınıza yayın bildirimleri gönderdiniz. Belirli cihazlara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
 >[Belirli cihazlara anında iletme bildirimleri gönderme](

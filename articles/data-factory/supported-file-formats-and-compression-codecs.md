@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257918"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150045"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -478,7 +478,7 @@ Aşağıdaki noktalara dikkat edin:
 
 * Değil karmaşık veri türleri desteklenmez (STRUCT, MAP, listesi, UNION).
 * Sütun adı boşluk desteklenmiyor.
-* ORC dosyasına sahip üç [sıkıştırmayla ilgili seçenekleri](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir ORC dosyasına yazarken varsayılan ORC değeri olan ZLIB seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+* ORC dosyasına sahip üç [sıkıştırmayla ilgili seçenekleri](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir ORC dosyasına yazarken varsayılan ORC değeri olan ZLIB seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
 
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için ORC dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK**  IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.

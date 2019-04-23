@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 96a2e9f2f6e114c9a4b74111cd6a6d085022a4c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f8b89b9a1354345235bacd227270c214f1a65799
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872679"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007449"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme node.js'de ile REST API kullanarak uzak bir resmi çözümleme
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 - [Node.js](https://nodejs.org) 4.x veya sonraki bir sürüm yüklenmiş olmalıdır.
 - [Npm](https://www.npmjs.com/) yüklenmiş olmalıdır.
-- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 

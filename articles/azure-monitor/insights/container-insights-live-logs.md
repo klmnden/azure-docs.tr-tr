@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788844"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997708"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Itanium tabanlı sistemler için kapsayıcı günlükleri gerçek zamanlı Azure İzleyici ile kapsayıcılar (Önizleme) için görüntüleme
 Şu anda önizlemede olan bu özellik, kubectl komutlarını çalıştırmak zorunda kalmadan Azure Kubernetes Service (AKS), kapsayıcı günlüklerini (stdout/stderr) gerçek zamanlı bir görünüm sağlar. Bu seçeneği belirlediğinizde, yeni bölmesi altında kapsayıcıları performans veri tablosu üzerinde görünür. **kapsayıcıları** görünümü.  Bu, daha fazla gerçek zamanlı sorunları gidermeye yardımcı olması için kapsayıcı altyapısı tarafından oluşturulan dinamik günlüğü gösterir. **Katkıda bulunan** erişim küme kaynağı için bu özelliğin çalışması için gereklidir.
@@ -65,7 +65,7 @@ Kubernetes RBAC yetkilendirme etkinleştirilirse, küme rolü bağlama uygulamak
 2. Aşağıdaki komutu çalıştırarak küme kural bağlama oluşturur: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>AKS ile Azure Active Directory'yi yapılandırma
-AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu ilk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/aad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/aad-integration.md#create-client-application) belirtin **yeniden yönlendirme URI'si**, başka bir URI listeye eklemeniz `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu ilk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/azure-ad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/azure-ad-integration.md#create-client-application) belirtin **yeniden yönlendirme URI'si**, başka bir URI listeye eklemeniz `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Kimlik doğrulama işlemini yapılandırmayı Azure Active Directory ile çoklu oturum açma için yalnızca yeni bir AKS kümesi ilk dağıtım sırasında gerçekleştirilebilir. Çoklu oturum zaten dağıtılmış bir AKS kümesi için üzerinde yapılandıramazsınız.  
@@ -92,4 +92,5 @@ Otomatik kaydırma askıya alma ve okuma yeni günlük verilerine el ile kaydır
 ![Canlı günlükler bölmesi duraklatma Canlı görünümü](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure İzleyici ve diğer yönleri AKS kümenizi izlemek öğrenme devam etmek için bkz: [görünümü Azure Kubernetes hizmeti sistem durumu](container-insights-analyze.md).
+- Azure İzleyici ve diğer yönleri AKS kümenizi izlemek öğrenme devam etmek için bkz: [görünümü Azure Kubernetes hizmeti sistem durumu](container-insights-analyze.md).
+- Görünüm [sorgu örnekleri oturum](container-insights-log-search.md#search-logs-to-analyze-data) önceden tanımlanmış sorgular ve değerlendirme veya uyarı, görselleştirme veya kümelerinizi çözümleme için özelleştirmek için örnekler görmek için.

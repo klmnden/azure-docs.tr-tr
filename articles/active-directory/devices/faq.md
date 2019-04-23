@@ -16,16 +16,16 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf17971bde840743d17dd0b66078630c2d4e7c1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518805"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996076"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
-###<a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Ya da cihaz sahibinin katılmış cihazların hibrit Azure Active Directory (Azure AD) için yok olarak neden işaretlenmiş?
+### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Ya da cihaz sahibinin katılmış cihazların hibrit Azure Active Directory (Azure AD) için yok olarak neden işaretlenmiş?
 
 **C:** Hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmüyor altında **kullanıcı cihazları**.
 Kullanım **tüm cihazlar** Azure portalında görünümü. Bir PowerShell de kullanabilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.

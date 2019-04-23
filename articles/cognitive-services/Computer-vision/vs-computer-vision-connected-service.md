@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450955"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995073"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio'daki Bağlı Hizmetler özelliğini kullanarak Görüntü İşleme API'sine bağlanma
 
@@ -38,15 +38,15 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
 1. **Çözüm Gezgini**’nde **Ekle** > **Bağlı Hizmet** seçeneklerini belirleyin.
    Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 
-   ![Visual Studio proje üzerinde sağ tıklama menüsünün ekran görüntüsü: Ekle > bağlı hizmeti](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Visual Studio Proje menüsünde sağ tıklayın: Ekle > bağlı hizmeti](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Kullanılabilir hizmetler menüsünde **Bilişsel Hizmetler Görüntü İşleme API'sini** seçin.
 
-   ![Görüntü işleme analiz görüntülerle vurgulama bağlı hizmetler menüsü](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Bağlı hizmetler menüsü: Görüntüleri analiz edin... ana hatlarıyla açıklanmıştır](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir.
 
-   ![Bir "Görüntü işleme API'si" Visual Studio vurgulanmış abonelik açılır penceresi](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Bilgisayar işleme API'si penceresiyle vurgulanmış abonelik açılır](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Kullanmak istediğiniz aboneliği seçin ve sonra Görüntü İşleme API'si için bir ad seçin veya otomatik olarak oluşturulan adı değiştirmek için Düzenle bağlantısını seçin, kaynak grubunu ve Fiyatlandırma Katmanını seçin.
 
@@ -98,7 +98,7 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
 
 1. Görüntü dosyasına sağ tıklayın, Özellikler’i seçin ve ardından **Yeniyse kopyala** seçeneğini belirleyin. 
 
-   ![Görüntü Özellikleri penceresinde; Çıkış Dizinine Kopyala yeniyse Kopyala ayarlanır](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Görüntü Özellikleri penceresinde; Yeniyse Kopyala ayarlamak çıkış dizinine Kopyala](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Görüntü İşleme API'sine erişmek ve bir görüntüyü test etmek için aşağıdaki kod ile Yapılandırma yöntemini değiştirin.
 
@@ -256,7 +256,7 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
 
 Artık gerekli değilse kaynak grubunu silin. Böylece bilişsel hizmet ve ilgili kaynaklar silinir. Kaynak grubunu portal aracılığıyla silmek için:
 
-1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu Hızlı Başlangıçta kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
+1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu hızlı başlangıçta kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
 2. **Kaynak grubunu sil**'i seçin.
 3. **KAYNAK GRUBU ADINI YAZIN:** kutusuna kaynak grubunun adını yazın ve **Sil**’i seçin.
 

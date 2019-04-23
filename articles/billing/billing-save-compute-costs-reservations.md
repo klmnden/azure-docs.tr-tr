@@ -1,34 +1,24 @@
 ---
 title: Azure Ayırmaları nedir? | Microsoft Docs
 description: Sanal makinelerinizde, SQL veritabanları, Azure Cosmos DB ve diğer kaynak maliyetleri kaydetmek için Azure ayırmaları ve fiyatlandırma hakkında bilgi edinin.
-services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1349a05e1dd235c7b375335ae2c9fed16170a61f
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: b20983c45cd62b9812cdb52de32a6e29da459efe
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649401"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149206"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Ayırmaları nedir?
 
 Azure ayırmalar için bir yıllık ön ödeme yaparak paradan tasarruf etmek veya kapasite, Azure Cosmos DB, aktarım hızı veya diğer Azure kaynaklarını üç yıl sanal makineler, SQL veritabanı, işlem. Önceden ödeme kullandığınız kaynaklar üzerinde bir indirim almak sağlar. Rezervasyonlar, sanal makine, SQL veritabanı işlem, Azure Cosmos DB, önemli ölçüde azaltabilir ya da diğer kaynak en fazla %72 Kullandıkça Öde fiyatlarında maliyetlerini. Rezervasyon faturalandırma indirim sağlar ve kaynaklarınızın çalışma zamanı durumunu etkilemez.
 
-Rezervasyon satın alabileceğiniz [Azure portalında](https://aka.ms/reservations). Daha fazla bilgi için aşağıdaki makalelere bakın:
-
-Hizmet planları:
-- [Azure ayrılmış VM örnekleri ile sanal makineler](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure Cosmos DB ile Azure Cosmos DB kaynaklarını ayrılmış kapasite](../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Azure SQL veritabanı ile SQL veritabanı işlem kaynakları ayrılmış kapasite](../sql-database/sql-database-reserved-capacity.md)
-
-Yazılım planları:
-- [Red Hat yazılımı planlarından Azure ayırmalar](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Azure ayırmalardan SUSE yazılım planları](../virtual-machines/linux/prepay-suse-software-charges.md)
+Rezervasyon satın alabileceğiniz [Azure portalında](https://aka.ms/reservations).
 
 ## <a name="why-buy-a-reservation"></a>Neden bir rezervasyon satın?
 
@@ -41,7 +31,6 @@ Hizmet planları:
 - Ayrılmış sanal makine örneği: Ayırma, yalnızca sanal makine işlem maliyetlerini kapsar. Bu, ek yazılım, ağ ve depolama ücretleri ele alınmamıştır.
 - Azure Cosmos DB, kapasite ayrılmıştır: Rezervasyon kaynaklarınız için sağlanan aktarım hızı kapsar. Depolama ve ağ ücretleri ele alınmamıştır.
 - SQL veritabanı sanal çekirdek ayrılmıştır: Ayırma ile yalnızca işlem maliyetleri dahildir. Lisans ayrı olarak faturalandırılır.
-- Azure Cosmos DB, kapasite ayrılmıştır: Kaynaklarınız için sağlanan aktarım hızı bir ayırma kapsar, depolama ve ağ ücretleri ele alınmamıştır.
 
 Windows sanal makineler ve SQL veritabanı için lisanslama maliyetleri kapsayan [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -53,28 +42,46 @@ EA müşterileri, satın alma işlemleri EA yöneticilere devre dışı bırakar
 
 Ayırma indirimi, yalnızca Enterprise, Kullandıkça Öde ya da CSP aboneliği türleriyle ilişkili kaynaklar için geçerlidir.
 
+## <a name="reservation-scope"></a>Ayırma kapsamı
+
+Ayırma indirimi uygulandığı kaynakları ayırma kapsamı belirler. Ayırma kapsamı, aşağıdaki değerleri içerebilir:
+
+**Paylaşılan kapsam** -ayırma indirimi uygun Aboneliklerdeki fatura bağlam içinde eşleşen kaynaklara uygulanır.
+
+- Kurumsal Anlaşma müşterileri için fatura bağlamı kaydı değil.
+ Kullandıkça Öde müşterileri için faturalama Hesap Yöneticisi tarafından oluşturulan tüm uygun abonelikleri kapsamıdır.
+
+**Tek bir abonelik** -ayırma indirimi, seçili Abonelikteki eşleşen kaynaklara uygulanır.
+
+Yapabilecekleriniz [rezervasyon satın aldıktan sonra kapsam güncelleştirme](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+## <a name="discounted-subscription-and-offer-types"></a>İndirimli abonelik ve teklif türleri
+
+Ayırma indirim uygulamak için aşağıdaki uygun abonelikleri ve türleri sunulur.
+
+- Kurumsal Anlaşma (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P)
+- Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR - 0023 P)
+- CSP abonelikleri
+
+Ayırma indirimi çalıştıran diğer teklif türleri ile bir Abonelikteki kaynakları almaz.
+
 ## <a name="how-is-a-reservation-billed"></a>Rezervasyon nasıl faturalandırılır?
 
 Ayırma, aboneliğe bağlı ödeme yöntemi için ücretlendirilir. Bir kurumsal abonelik varsa, rezervasyon maliyeti parasal taahhüt bakiyeniz çıkarılır. Parasal taahhüt bakiyeniz rezervasyon maliyeti yoksa, faturalandırılırsınız kapasite aşımı. Bir Kullandıkça Öde aboneliği varsa, kredi kartı hesabınızda sahip hemen faturalandırılır. Fatura ile faturalandırılırsınız sonraki faturanızı ücretleri görürsünüz.
 
 ## <a name="how-reservation-discount-is-applied"></a>Ayırma indirimi nasıl uygulanır
 
-Ayırma indirimi, rezervasyon satın aldığınızda seçtiğiniz öznitelikleri eşleşen kaynak kullanımı için geçerlidir. Öznitelikler, eşleşen VM'ler, SQL veritabanları, Azure Cosmos DB veya diğer kaynaklara çalıştırdığı kapsamı içerir. Örneğin, Batı ABD bölgesindeki dört standart D2 sanal makineler için bir ayırma indirimi istiyorsanız, sanal makinelerin çalıştığı aboneliği seçin. Kayıt/hesabınızda farklı Aboneliklerde bulunan sanal makineleri çalıştırıyorsanız, kapsam olarak paylaşılan seçin. Paylaşılan kapsam ayırma indirimi, abonelikler arasında uygulanmasına olanak tanır. Rezervasyon satın alma sonra kapsam değiştirebilirsiniz. Daha fazla bilgi için [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md).
+Ayırma indirimi, rezervasyon satın aldığınızda seçtiğiniz öznitelikleri eşleşen kaynak kullanımı için geçerlidir. Öznitelikler, eşleşen VM'ler, SQL veritabanları, Azure Cosmos DB veya diğer kaynaklara çalıştırdığı kapsamı içerir. Örneğin, Batı ABD bölgesindeki dört standart D2 sanal makineler için bir ayırma indirimi istiyorsanız, ardından sanal makinelerin çalıştığı aboneliği seçin.
+
+Ayırma indirimi olan "*kullanın-BT-veya-kaybetmek-BT*". Ardından kaynakları için saat eşleştirme yoksa, bu saat için bir ayırma miktarını kaybedersiniz. Yerine getirilemiyor kullanılmayan ayrılmış saat iletin.
+
+Bir kaynak kapattığınızda, ayırma indirimini Belirtilen kapsam içinde başka bir eşleşen kaynak otomatik olarak uygular. Belirtilen kapsamda bulunan eşleşen kaynak yok sonra ayrılmış saatleri *kayıp*.
+
+Örneğin, olabileceğiniz daha sonra bir kaynak oluşturmak ve potansiyelinden az kullanılmasına neden eşleşen bir ayırma vardır. Ayırma indirimi, bu örnekte, yeni eşleşen kaynağı otomatik olarak uygular.
+
+Kayıt/hesabınızda farklı Aboneliklerde bulunan sanal makineleri çalıştırıyorsanız, kapsam olarak paylaşılan seçin. Paylaşılan kapsam ayırma indirimi, abonelikler arasında uygulanmasına olanak tanır. Rezervasyon satın alma sonra kapsam değiştirebilirsiniz. Daha fazla bilgi için [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md).
 
 Ayırma indirimi, yalnızca Enterprise, Kullandıkça Öde ya da CSP aboneliği türleriyle ilişkili kaynaklar için geçerlidir. Ayırma indirimi çalıştıran diğer teklif türleri ile bir Abonelikteki kaynakları almaz.
-
-Ayırmalar, faturalandırma nasıl etkilediğini daha iyi anlamak için aşağıdaki makalelere bakın:
-
-Hizmet planları:
-
-- [Azure ayrılmış VM örnekleri indirim anlama](billing-understand-vm-reservation-charges.md)
-- [Azure ayırma indirimi anlama](billing-understand-vm-reservation-charges.md)
-- [Azure Cosmos DB ayırma indirimi anlama](billing-understand-cosmosdb-reservation-charges.md)
-
-Yazılım planları:
-
-- [Azure ayırma indirimi ve kullanım için Red Hat anlama](billing-understand-rhel-reservation-charges.md)
-- [Azure ayırma indirimi ve kullanım için SUSE anlama](billing-understand-suse-reservation-charges.md)
 
 ## <a name="when-the-reservation-term-expires"></a>Ayırma dönemi sona erdiğinde
 
@@ -96,10 +103,16 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Sanal makinelerinizde satın alarak kaydetme başlangıç bir [ayrılmış VM örneği](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL veritabanı ayrılan kapasite](../sql-database/sql-database-reserved-capacity.md), veya [Azure Cosmos DB ayrılan kapasite](../cosmos-db/cosmos-db-reserved-capacity.md).
 - Azure ayırmaları hakkında daha fazla bilgi içeren aşağıdaki makaleleri öğrenin:
     - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
     - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
     - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
     - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
-    - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)
+    - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](/partner-center/azure-reservations)
+
+- Hizmet planları için ayırma hakkında daha fazla bilgi edinin:
+    - [Azure ayrılmış VM örnekleri ile sanal makineler](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Cosmos DB ile Azure Cosmos DB kaynaklarını ayrılmış kapasite](../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [Azure SQL veritabanı ile SQL veritabanı işlem kaynakları ayrılan kapasite](../sql-database/sql-database-reserved-capacity.md) ayırmaları yazılım planları hakkında daha fazla bilgi edinin:
+    - [Red Hat yazılımı planlarından Azure ayırmalar](../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Azure ayırmalardan SUSE yazılım planları](../virtual-machines/linux/prepay-suse-software-charges.md)

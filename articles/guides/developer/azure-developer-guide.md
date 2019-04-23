@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: caddb542e806457e085db096813e504ddc278ac0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108333"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011645"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -68,7 +68,7 @@ Kullanarak mevcut uygulamalarınızı App Service'e geçirebilirsiniz [çevrimi�
 > 
 > **Şimdi deneyin**: App Service, Azure hesabı için kaydolun gerek kalmadan, platformu denemek için bir kısa süreli uygulaması sağlama sağlar. Platform deneyin ve [Azure App Service uygulamanızı oluşturma](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Azure sanal makineleri
+#### <a name="azure-virtual-machines"></a>Azure Sanal Makineler
 
 Olarak altyapı (Iaas) sağlayıcısı olarak, Azure, dağıtmak veya uygulamanızı Windows veya Linux sanal makineleri geçirme olanak tanır. Azure sanal ağ ile birlikte Azure sanal makineler, Windows veya Linux sanal makinelerinizi Azure'da dağıtılmasını destekler. Vm'leri, makinenin yapılandırması üzerinde tam denetim sahibi sahip. Sanal makineleri kullanırken, tüm sunucu yazılım yükleme, yapılandırma, Bakım ve işletim sistemi düzeltme ekleri için sorumlu olursunuz.
 
@@ -221,7 +221,7 @@ Azure, uygulamalarınızı ve hizmetlerinizi Bash, Terminal, komut istemini veya
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell kullanarak Azure kaynaklarını yönetmenizi sağlayan cmdlet'ler ile bir modül kümesini sağlar.
 
-### <a name="azure-portal"></a>Azure portalı
+### <a name="azure-portal"></a>Azure portal
 
 Azure portalında oluşturmak, yönetmek ve Azure kaynaklarını ve Hizmetleri kaldırmak için kullanabileceğiniz bir web tabanlı bir uygulamadır. Azure portalında şu konumdadır <https://portal.azure.com>. Özelleştirilebilir bir pano, Azure kaynaklarını yönetmek için Araçlar içerir ve erişim için Abonelik ayarları ve fatura bilgilerini. Daha fazla bilgi için [Azure portalına genel bakış](../../azure-portal-overview.md).
 
@@ -267,7 +267,7 @@ Her Azure aboneliği bir Azure AD örneğiyle güven ilişkisine sahiptir. Bu; A
 
 Kimlikleri olarak da bilinir, tek tek Azure tanımlanmasına ek olarak hesap *kullanıcılar*, ayrıca tanımlayabilirsiniz *grupları* Azure AD'de. Kullanıcı grubu oluşturmak, rol tabanlı erişim denetimi (RBAC) kullanarak bir Abonelikteki kaynakları erişimi yönetmek için iyi bir yoludur. Grupları oluşturmayı öğrenmek için bkz: [Azure Active Directory önizlemesinde bir grup oluşturma](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Ayrıca oluşturma ve yönetme grupları tarafından [PowerShell kullanarak](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
-### <a name="manage-your-subscriptions"></a>Aboneliklerinizi yönetin
+### <a name="manage-your-subscriptions"></a>Aboneliklerinizi yönetme
 
 Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetlerini bir aboneliktir. Tek bir Azure hesabı, birden fazla abonelik içerebilir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Kullanılabilir abonelik teklifleri türüne göre bir listesi için bkz. [Microsoft Azure Teklif Ayrıntıları](https://azure.microsoft.com/support/legal/offer-details/). Abonelik üzerinde tam denetime sahip bir Hesap Yöneticisi ve tüm hizmetleri denetime sahip abonelikte Hizmet Yöneticisi, Azure aboneliğiniz yok. Klasik abonelik yöneticileri hakkında daha fazla bilgi için bkz: [ekleme veya değiştirme Azure aboneliği yöneticileri](../../billing/billing-add-change-azure-subscription-administrator.md). Yöneticiler ek olarak, bireysel hesaplar verilebilir ayrıntılı denetim kullanarak Azure kaynaklarınızın [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md).
 
@@ -281,7 +281,7 @@ Azure kaynak Gezgini, aboneliğinizde zaten oluşturduğunuz kaynakları görsel
 
 Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi gerçekleştirmek için gereken en az ayrıcalık ile kullanıcılara sağlamak için en iyi uygulama olan.
 
-- **Rol tabanlı erişim denetimi (RBAC)**: Azure'da, belirli bir kapsamda kullanıcı hesapları (asıl hesaplar) erişimi verebilir: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca, hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
+- **Rol tabanlı erişim denetimi (RBAC)**: Azure'da, belirli bir kapsamda kullanıcı hesapları (asıl hesaplar) erişimi verebilir: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 
   > **Ne zaman kullanılacağı**: Ayrıntılı erişim yönetimi, bir kullanıcı bir abonelik sahibi olmak gerektiğinde veya kullanıcılar ve gruplar için gerektiğinde.
   > 
@@ -295,7 +295,7 @@ Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi g
 
 Azure Resource Manager kaynakların için özel etiketler atama olanak sağlar. Faturalandırma veya izleme kaynakları düzenlemek gerektiğinde etiketleri, anahtar-değer çiftleridir yararlı olabilir. Etiketler, birden çok kaynak gruplarındaki kaynakların izlemek için bir yol sağlar. Portalında, Azure Resource Manager şablonunda veya programlama yoluyla, REST API, Azure CLI veya PowerShell kullanarak etiketler atayabilirsiniz. Her kaynak için birden çok etiket atayabilirsiniz. Daha fazla bilgi için bkz. [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../../resource-group-using-tags.md).
 
-### <a name="billing"></a>Faturalama
+### <a name="billing"></a>Faturalandırma
 
 Şirket içinden bulutta barındırılan hizmetlere bilgi işlem hareket izleme ve hizmet kullanımı ve ilgili maliyetleri tahmin etme önemli edilir. Yeni kaynaklar aylık olarak çalıştırmak için maliyet tahmin edebilmek önemlidir. Geçerli harcama dayalı belirli bir ay için faturalandırma nasıl görüneceğini gösteren proje olması gerekir.
 

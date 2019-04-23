@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677774"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011767"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Metin analizi docker kapsayıcıları yapılandırın
 
@@ -51,9 +51,9 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 Eklemenize gerek `text/analytics/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme.
 
-|Gerekli| Ad | Veri türü | Açıklama |
+|Gereklidir| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
-|Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>EULA'yı ayarlama
 
@@ -79,7 +79,7 @@ Giriş metin analizi kapsayıcıları kullanma ya da eğitim veya hizmeti verile
 
 Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, [ana bilgisayar](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s bağlama konumu docker hizmet hesabı tarafından kullanılan izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir ve konak yeri izinleri bağlayın. 
 
-|İsteğe bağlı| Ad | Veri türü | Açıklama |
+|İsteğe bağlı| Name | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
 |İzin verilmedi| `Input` | String | Metin analizi kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -98,15 +98,15 @@ Yerine {_argument_name_} kendi değerlerinizle:
 | Yer tutucu | Değer | Biçim veya örnek |
 |-------------|-------|---|
 |{BILLING_KEY} | Uç noktası anahtarı `Cognitive Services` kaynak Azure'da sunulan `Cognitive Services` anahtarlar sayfasında. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Azure'da faturalandırma uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | Azure'da faturalandırma uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
 > ApiKey değer **anahtarı** Azure `Cognitive Services` kaynak anahtarlar sayfasında. 
 
-## <a name="keyphrase-extraction-container-docker-examples"></a>Anahtar cümlesi ayıklama kapsayıcı docker örnekleri
+## <a name="key-phrase-extraction-container-docker-examples"></a>Anahtar ifade ayıklama kapsayıcı docker örnekleri
 
-Aşağıdaki docker için anahtar cümlesi ayıklama kapsayıcı verilebilir. 
+Aşağıdaki docker için anahtar ifade ayıklama kapsayıcı verilebilir. 
 
 ### <a name="basic-example"></a>Temel örnek 
 

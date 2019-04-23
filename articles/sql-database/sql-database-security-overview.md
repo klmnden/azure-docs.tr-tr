@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523707"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001091"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -88,9 +88,9 @@ SQL veritabanı denetim ve tehdit algılama özellikleri sağlayarak müşteri v
 
 SQL veritabanı denetimi veritabanı etkinliklerini izler ve veritabanı olaylarını bir denetim kaydı tarafından güvenlik standartlarıyla uyumluluğu sürdürmesine yardımcı olur, müşteriye ait Azure depolama hesabında oturum. Denetim, kullanıcıların devam eden veritabanı etkinliklerini izleme yanı sıra analiz ve olası tehditleri veya kötüye kullanım ve güvenlik ihlallerini tespit edildiğinde alınan önlemlerin belirlemek için geçmiş etkinlikleri araştırın sağlar. Daha fazla bilgi için bkz: ile çalışmaya başlama [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Tehdit algılama
+### <a name="advanced-threat-protection"></a>Gelişmiş Tehdit Koruması
 
-Tehdit algılama, olağan dışı davranış için denetim günlüklerini analiz tarafından denetim ve potansiyel olarak zararlı geliştirir, erişim veya veritabanı açıklarından yararlanmaya dener. Uyarılar, şüpheli etkinlikler veya SQL ekleme saldırıları, olası veri habersiz kalabilir ve parola deneme yanılma saldırıları gibi anormal erişim desenleri için oluşturulur. Tehdit algılama uyarıları, gelen görüntülendiğinde [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)burada kuşkulu etkinliklerin Ayrıntılar verilmiştir ve öneriler için daha fazla araştırma tehdidi azaltmak için Eylemler ile birlikte verilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için [SQL veritabanı tehdit algılamayı kullanmaya başlama](sql-database-threat-detection.md).
+Gelişmiş tehdit koruması, olağan dışı davranış ve veritabanı açıklıklarından yararlanmaya yönelik erişim zararlı olabilecek girişimleri algılamak için SQL Server günlüklerini analiz ediyor. Uyarılar, SQL ekleme, olası veri habersiz kalabilir ve deneme yanılma saldırıları zorla veya anomalileri erişim desenleri ayrıcalık yükseltmeleri ve ihlal edilen kimlik bilgilerini yakalamak için kullanmak gibi şüpheli etkinlikler için oluşturulur. Gelen uyarılar görüntülendiğinde [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)burada kuşkulu etkinliklerin Ayrıntılar verilmiştir ve öneriler için daha fazla araştırma tehdidi azaltmak için Eylemler ile birlikte verilir. Gelişmiş tehdit koruması, ek bir ücret karşılığında sunucu başına etkinleştirilebilir. Daha fazla bilgi için [SQL veritabanı Gelişmiş tehdit koruması ile çalışmaya başlama](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

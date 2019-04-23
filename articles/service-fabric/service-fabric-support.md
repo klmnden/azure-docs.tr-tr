@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889446"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005052"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -33,6 +33,11 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
  
 - [Azure için Microsoft desteğine](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier desteği](https://support.microsoft.com/en-us/premier).
+
+> [!Note]
+> Bronz güvenilirlik katmanı üzerinde çalıştıran kümeler yalnızca test iş yüklerini çalıştırmanıza olanak tanır. Bronz güvenilirlik üzerinde çalışan bir küme ile ilgili sorun yaşıyorsanız, Microsoft destek ekibi, sorunu giderme de yardımcı olur, ancak kök neden analizi gerçekleştirmez. Lütfen [güvenilirliği kümenin](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) daha fazla ayrıntı için.
+>
+> Üretime hazır bir küme için gerekli olan hakkında daha fazla bilgi için bkz [üretim hazırlık denetim](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

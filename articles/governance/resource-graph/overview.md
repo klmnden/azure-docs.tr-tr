@@ -3,16 +3,16 @@ title: Azure Kaynak Grafiği'ne Genel Bakış
 description: Uygun ölçekte kaynakların karmaşık sorgulama Azure kaynak Graph hizmeti nasıl sağladığını öğrenin.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789003"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002893"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure kaynak Graph hizmetine genel bakış
 
@@ -21,11 +21,13 @@ Azure Kaynak Grafiği, ortamınızı etkili bir biçimde idare edebilmeniz için
 - Karmaşık filtreleme, gruplandırma ve kaynak özelliklerine göre sıralama ile kaynakları sorgulama özelliği.
 - Kaynakları idare gereksinimlerine göre yinelemeli keşfetme ve ortaya çıkan ifadeyi bir ilke tanımına dönüştürme özelliği.
 - Uygulanan ilkenin geniş bir bulut ortamındaki etkisini değerlendirme özelliği.
+- Olanağı [ayrıntı kaynak özelliklerine yapılan değişiklikler](./how-to/get-resource-changes.md) (Önizleme).
 
 Bu belgede her özelliği ayrıntılı olarak inceleyeceksiniz.
 
 > [!NOTE]
-> Azure Kaynak Grafiği, Azure portalın yeni ‘Tüm kaynaklara’ gözat deneyimi tarafından kullanılır. Büyük ölçekli ortamlarda yönetme gereksinimi ile müşterilerine yardımcı olmak için tasarlanmıştır.
+> Azure kaynak Graph, Azure portal'ın 'Tüm kaynaklar' deneyimi yeni göz atma ve Azure İlkesi'nin tarafından kullanılır [değişiklik geçmişini](../policy/how-to/determine-non-compliance.md#change-history-preview).
+> _görsel fark_. Bu, müşterilerin büyük ölçekli ortamlarda yönetmesine yardımcı olmak amacıyla tasarlanmıştır.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Kaynak Grafiği, Azure Resource Manager'ı nasıl tamamlar
 
@@ -33,13 +35,19 @@ Azure Resource Manager şu anda verileri, özellikle kaynak adı, Kimlik, Tür, 
 
 Azure Kaynak Grafiği ile, her kaynak sağlayıcısına tek tek çağrı yapmanıza gerek kalmadan, kaynak sağlayıcılarının geri döndürdüğü bu özelliklere erişebilirsiniz. Desteklenen kaynak türleri listesi için Ara bir **Evet** içinde [tam modda dağıtımlar için kaynakları](../../azure-resource-manager/complete-mode-deletion.md) tablo.
 
+Azure kaynak grafiği ile şunları yapabilirsiniz:
+
+- Her kaynak sağlayıcısı için çağrıları tek tek yapmaya gerek kalmadan kaynak sağlayıcıları tarafından döndürülen özelliklerine erişin.
+- Son 14 gün özellikleri nelerin değiştiğini görmek için bu kaynağa yapılan değişiklik geçmişini görüntüleme ve ne zaman. (önizleme)
+
 ## <a name="the-query-language"></a>Sorgu dili
 
 Artık Azure Kaynak Grafiği’nin ne olduğuna dair daha iyi bir anlayışa sahip olduğunuza göre, sorguların nasıl oluşturulacağına bakalım.
 
 Azure Kaynak grafiğin sorgu diline dayalı anlaşılması önemlidir [Kusto sorgu dili](../../data-explorer/data-explorer-overview.md) Azure Veri Gezgini tarafından kullanılır.
 
-Önce, Azure Kaynak Grafiği ile kullanılabilecek işlemler ve işlevler hakkında ayrıntılar için, bkz. [Kaynak Grafiği sorgu dili](./concepts/query-language.md). Kaynakları göz atmak için, bkz, [kaynakları keşfedin](./concepts/explore-resources.md).
+Önce, Azure Kaynak Grafiği ile kullanılabilecek işlemler ve işlevler hakkında ayrıntılar için, bkz. [Kaynak Grafiği sorgu dili](./concepts/query-language.md).
+Kaynakları göz atmak için, bkz, [kaynakları keşfedin](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Kaynak Grafiği’nde izinler
 
@@ -58,7 +66,7 @@ Kaynak Grafiği, .NET için Azure CLI, Azure PowerShell ve Azure SDK'yı destekl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure CLI](first-query-azurecli.md) ile ilk sorgunuzu çalıştırma
-- [Azure PowerShell](first-query-powershell.md) ile ilk sorgunuzu çalıştırma
-- [Başlangıç Sorguları](./samples/starter.md) ile başlama
-- [Gelişmiş Sorgular](./samples/advanced.md) ile anlayışınızı geliştirme
+- İlk Sorgunuzu çalıştırmak [Azure CLI](first-query-azurecli.md).
+- İlk Sorgunuzu çalıştırmak [Azure PowerShell](first-query-powershell.md).
+- İle başlayan [başlangıç sorguları](./samples/starter.md).
+- Anlayışınızı ile geliştirmek [Gelişmiş sorgular](./samples/advanced.md).

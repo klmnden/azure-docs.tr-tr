@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247050"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148926"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara etiket ekleme
 
@@ -42,8 +42,8 @@ Her etiket oluşan bir **adı**/**değer** çifti. Örneğin, adında bir etiket
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**.
-1. Labs listesinden eklemek veya etiketleri yönetmek istediğiniz Laboratuvar seçin.  
-1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  
+1. Labs listesinden eklemek veya etiketleri yönetmek istediğiniz Laboratuvar seçin.
+1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.
 
     ![Yapılandırması ve ilkelerini düğmesi](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Her etiket oluşan bir **adı**/**değer** çifti. Örneğin, adında bir etiket
 
 Etiketler için aşağıdaki sınırlamalar geçerlidir:
 
-* Her kaynak veya kaynak grubu en fazla 15 etiket adı/değer çifti içerebilir. Bu sınırlama yalnızca kaynak grubu veya kaynağa doğrudan uygulanan etiketler için geçerlidir. Kaynak grupları, her biri 15 etiket adı/değer çiftine sahip çok sayıda kaynak içerebilir. 
+* Her kaynak veya kaynak grubu en fazla 15 etiket adı/değer çifti içerebilir. Bu sınırlama yalnızca kaynak grubu veya kaynağa doğrudan uygulanan etiketler için geçerlidir. Kaynak grupları, her biri 15 etiket adı/değer çiftine sahip çok sayıda kaynak içerebilir.
 * Etiket adı 512 karakter ile sınırlıdır ve etiket değeri 256 karakter ile sınırlıdır. Depolama hesapları için etiket adı 128 karakter ile sınırlıdır ve etiket değeri 256 karakter ile sınırlıdır.
 * Kaynak grubuna uygulanan etiketler, bu kaynak grubundaki kaynaklar tarafından devralınmaz.
 
@@ -66,4 +66,4 @@ Etiketler için aşağıdaki sınırlamalar geçerlidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Özelleştirilmiş ilkeler kullanarak, aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke, tüm kaynakların belirli bir etiket için bir değer olmasını gerektirebilir. Daha fazla bilgi için [ilke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md).
-* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

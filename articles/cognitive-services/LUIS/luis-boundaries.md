@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897529"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006837"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
@@ -47,16 +47,16 @@ Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LU
 
 * Varsayılan karakter en fazla 50 karakterdir. 
 
-## <a name="intent-and-entity-naming"></a>Amacı ve varlık adlandırma
-Amacı ve varlık adları şu karakterleri kullanmayın:
+<a name="intent-and-entity-naming"></a>
 
-|Karakter|Ad|
+## <a name="object-naming"></a>Adlandırma nesnesi
+
+Aşağıdaki adları şu karakterleri kullanmayın.
+
+|Object|Karakterleri hariç tut|
 |--|--|
-|`{`|Sol küme ayracı|
-|`}`|Sağa süslü ayraç|
-|`[`|Sol köşeli ayraç|
-|`]`|Sağ köşeli ayraç|
-|`\`|Ters eğik çizgi|
+|Amaç, varlık ve rol adları|`:`<br>`$`|
+|Sürüm adı|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Anahtar kullanımı
 

@@ -1,7 +1,6 @@
 ---
 title: Azure kaynakları için ayırmaları görüntüleme | Microsoft Docs
 description: Azure portalında Azure rezervasyonların öğrenin.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650232"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995532"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portalında Azure rezervasyonların
 
 Abonelik türü ve izinlerine bağlı olarak çeşitli şekillerde Azure için ayırmaları görüntülemek için vardır.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Rezervasyonları sahibi veya okuyucu olarak görüntüleme
+## <a name="view-purchased-reservations"></a>Satın alınan ayırmaları görüntüleme
 
-Varsayılan olarak, bir ayırma satın aldığınızda ve Hesap Yöneticisi ayırma görüntüleyebilirsiniz. Otomatik olarak siz ve Hesap Yöneticisi sahip rolü üzerinde ayırma alın. Görüntülemek diğer kişilere izin vermek için bunları olarak eklemelisiniz bir **sahibi** veya **okuyucu** rezervasyonu. Daha fazla bilgi için [rezervasyon yönetebilirsiniz ekleme veya değiştirme kullanıcılar](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Varsayılan olarak, bir ayırma satın aldığınızda ve Hesap Yöneticisi ayırma görüntüleyebilirsiniz. Rezervasyon siparişi ve ayırma sahip rolü ve Hesap Yöneticisi otomatik olarak Al Görüntülemek diğer kişilere izin vermek için bunları olarak eklemelisiniz bir **sahibi** veya **okuyucu** rezervasyon siparişi veya ayırma.
+
+Daha fazla bilgi için [rezervasyon yönetebilirsiniz ekleme veya değiştirme kullanıcılar](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Bir sahibi veya okuyucu olarak görüntülemek için
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Arama **ayırmaları**.
-
-    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. Sahip veya okuyucu rolüne sahip olduğunuz ayırmaları listesini görürsünüz.
+2. Arama **ayırmaları**.
+    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-reservation-search.png)  
+3. Liste sahibi veya okuyucu rolüne sahip olduğunuz tüm ayırmaları gösterir. Her ayırma son bilinen kullanım yüzdesini gösterir.  
+    ![Rezervasyonlar listesini gösteren örnek](./media/billing-view-reservation/view-reservations.png)
+4. Rezervasyon seçin ve son beş gün boyunca kullanım eğilimi bakın.  
+    ![Örnek gösteren ayırma kullanım eğilimi](./media/billing-view-reservation/reservation-utilization.png)
+5. Ayrıca Al [ayırma kullanımı](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) ayrılmış örnek kullanım API'si kullanarak ile [Microsoft Azure tüketim öngörüleri Power BI içerik paketi](/power-bi/service-connect-to-azure-consumption-insights).
 
 Rezervasyon kapsamı değiştirmeniz gerekiyorsa, bölünmüş bir ayırma veya bir ayırma yönetebilen değişiklik bkz [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md).
 
@@ -46,7 +49,7 @@ Rezervasyon kapsamı değiştirmeniz gerekiyorsa, bölünmüş bir ayırma veya 
 Azure portalında ayırma işlemleri görüntülemek için
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-cm-billing-search.png)
 
@@ -82,6 +85,6 @@ Kullanımını anlayın:
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

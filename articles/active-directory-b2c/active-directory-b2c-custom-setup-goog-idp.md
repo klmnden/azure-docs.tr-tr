@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a958650a80df9eba27b99e11cce72a1ad62db14c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 30f3301fd404f23705e8ba04dc750cb82eed89b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153071"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009268"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak Google hesabıyla oturum açma özelliğini ayarlama
 
@@ -48,7 +48,7 @@ Kullanıcıların bir Google hesabı için oturum açma etkinleştirmek için Go
 Azure AD B2C kiracınıza daha önce kaydettiğiniz istemci gizli anahtarı depolamak gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
@@ -90,7 +90,7 @@ Bir talep sağlayıcısı olarak bir Google hesabı ekleyerek tanımlayabilirsin
             <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
@@ -147,13 +147,13 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak oturumu-kaydolma/oturum aç
 Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için bir Google hesabı ile iletişim kurmak için Azure AD B2C içindir.
 
 1. Bulma **OrchestrationStep** içeren `Order="2"` kullanıcı giden.
-2. Aşağıdaki **ClaimsExchange** öğe için aynı değeri kullanın sağlamaktan **kimliği** için kullanılan **TargetClaimsExchangeId**:
+2. Aşağıdaki **ClaimsExchange** öğesi için kullanılan kimliği için aynı değeri kullanın sağlamaktan **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
     
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `Google-OAuth`.
+    Değerini güncelleştirin **TechnicalProfileReferenceId** daha önce oluşturduğunuz teknik profil kimliği. Örneğin, `Google-OAuth`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -162,7 +162,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girin, örneğin *testapp1*.

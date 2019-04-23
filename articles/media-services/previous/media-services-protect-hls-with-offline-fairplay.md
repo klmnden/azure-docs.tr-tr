@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: a0e3b0758f8c70bec14d533ef62ce75f57a198cb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259661"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002672"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>İOS için çevrimdışı FairPlay Streaming 
 
@@ -27,7 +27,10 @@ ms.locfileid: "58259661"
 > * [Sürüm 3](../latest/offline-fairplay-for-ios.md)
 > * [Sürüm 2](media-services-protect-hls-with-offline-fairplay.md)
 
- Azure Media Services sağlar, iyi tasarlanmış bir dizi [içerik koruma hizmetleri](https://azure.microsoft.com/services/media-services/content-protection/) kapsayan:
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
+Azure Media Services sağlar, iyi tasarlanmış bir dizi [içerik koruma hizmetleri](https://azure.microsoft.com/services/media-services/content-protection/) kapsayan:
 
 - Microsoft PlayReady
 - Google Widevine

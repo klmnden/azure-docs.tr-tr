@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549261"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149011"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Azure DevTest Labs altyapı kuruluşunuzdaki ayarlama
-Kuruluşların hızla nedeniyle bulut benimseme kendi [avantajları](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) çeviklik, esneklik ve ekonomik içerir. Müşterilerin bulut kullanmak ortak bir ilk adım, geliştirme ve test iş yükleri ile başlatmaktır.  DevTest Labs sağlar [özellikleri](devtest-lab-concepts.md) Kurumsal ve Destek avantajı [anahtar Kurumsal geliştirme ve test senaryoları](devtest-lab-guidance-get-started.md).
+Kuruluşların hızla nedeniyle bulut benimseme kendi [avantajları](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) çeviklik, esneklik ve ekonomik içerir. Müşterilerin bulut kullanmak ortak bir ilk adım, geliştirme ve test iş yükleri ile başlatmaktır.  DevTest Labs sağlar [özellikleri](devtest-lab-concepts.md) Kurumsal ve Destek avantajı [anahtar Kurumsal geliştirme ve test senaryoları](devtest-lab-guidance-get-started.md).
 
 Bu iş yüklerinin buluta geçiş yaparken kaygıları ortak bir dizi şöyledir:
 
@@ -35,6 +35,10 @@ Bu iş yüklerinin buluta geçiş yaparken kaygıları ortak bir dizi şöyledir
 
 ## <a name="intended-audience"></a>Hedef kitle
 Kurumsal odaklı belgeleri BT planlayıcıları ve mimarları oluşturma ve genel dağıtımları gözden geçirme ve işlemleri yöntemler gözlemledikten sorumlu yöneticileri için tasarlanmıştır. Sonuç olarak, bu belge genel işlem vurgular ve sonuçta bir kuruluştaki Azure DevTest Labs benimseme sürücüleri bir güvenli, kararlı geliştirme/test ortamını, yükseltmek için tasarım ilkeleri önerilir.
+
+## <a name="enterprise-customers"></a>Kurumsal müşteriler
+
+Birçok geçerli DevTest Labs Kurumsal müşteriler, geliştirme ve test iş yükleri, kuruluşları için DevTest Labs başarıyla kullanın. [Daha fazla bilgi edinin](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir kuruluş için başvuru mimarisi](devtest-lab-reference-architecture.md)

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250461"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995481"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2 hesabındaki verileri yönetmek için Azure Depolama Gezgini'ni kullanma
 
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta nasıl kullanılacağını öğrenin [Azure Depolama G
 
 Bu hızlı başlangıç Azure Depolama Gezgini'ni yüklemenizi gerektirir. Windows, Macintosh veya Linux işletim sisteminde Azure Depolama Gezgini’ni yüklemek için bkz. [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="log-in-to-storage-explorer"></a>Depolama Gezgini oturumu açma
+## <a name="sign-in-to-storage-explorer"></a>Depolama Gezgini için oturum açın
 
 Uygulamayı ilk kez başlattığınızda **Microsoft Azure Depolama Gezgini - Bağlan** penceresi görüntülenir. Depolama Gezgini depolama hesaplarına bağlamak için birçok yol sağlar ancak yalnızca bir yolu şu anda ACL'leri yönetmek için desteklenir.
 
@@ -38,11 +38,11 @@ Uygulamayı ilk kez başlattığınızda **Microsoft Azure Depolama Gezgini - Ba
 
 ![Microsoft Azure Depolama Gezgini - Bağlan penceresi](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi gösterilir. Bu görünümde tüm Azure depolama hesaplarınıza ek olarak [Azure Depolama Öykünücüsü](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hesapları veya [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ortamları üzerinden yapılandırılan yerel depolama alanlarını görebilirsiniz.
+Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi gösterilir. Bu görünümde tüm Azure depolama hesaplarınıza ek olarak [Azure Depolama Öykünücüsü](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hesapları veya [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ortamları üzerinden yapılandırılan yerel depolama alanlarını görebilirsiniz.
 
 ![Microsoft Azure Depolama Gezgini - Bağlan penceresi](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-filesystem"></a>Bir dosya sistemi oluşturun
+## <a name="create-a-file-system"></a>Bir dosya sistemi oluşturun
 
 Bloblar her zaman bir dizine yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f6f76806cfe7625416e79d2489a80d2778fda7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a847ea34182994eb6465905e042bfa0218993491
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685167"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Sectigo Sertifika Yöneticisi
 
@@ -220,7 +220,7 @@ Erişim paneli Sectigo Sertifika Yöneticisi'ni döşemede tıklattığınızda,
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

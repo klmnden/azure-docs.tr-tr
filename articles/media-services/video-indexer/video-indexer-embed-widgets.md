@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784901"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006497"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -28,7 +28,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 **Bilişsel İçgörüler** pencere öğeleri, video dizini oluşturma işleminizden elde edilen tüm görsel içgörüleri içerir. İçgörüler pencere öğesi, aşağıdaki isteğe bağlı URL parametrelerini destekler:
 
-|Ad|Tanım|Açıklama|
+|Name|Tanım|Açıklama|
 |---|---|---|
 |widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** Pencere öğeleri URL parametre 2 sürümünde desteklenmiyor. |
 
@@ -36,7 +36,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 **Yürütücü** pencere öğeleri, bit hızı uyarlamalı video akışı yapmanıza olanak tanır. Yürütücü pencere öğesi, aşağıdaki isteğe bağlı URL parametrelerini destekler:
 
-|Ad|Tanım|Açıklama|
+|Name|Tanım|Açıklama|
 |---|---|---|
 |t|Başlangıçtan itibaren saniye sayısı|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: t=60|
 |captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: captions=en-US|
@@ -69,9 +69,9 @@ Ekleme kodlarını açılan ekleme pencerelerinden (önceki bölümde gösterild
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-[**İçgörüler Pencere Öğesini Al**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API’sini kullanarak Bilişsel İçgörüler pencere öğesi içeriği alın ya da [**Video Erişim Belirtecini Al**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)’ı kullanarak bu belirteci yukarıda gösterildiği gibi URL’ye sorgu parametresi olarak ekleyin. Bu URL’yi **iframe**'in **src** değeri olarak belirtin.
+[**İçgörüler Pencere Öğesini Al**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API’sini kullanarak Bilişsel İçgörüler pencere öğesi içeriği alın ya da [**Video Erişim Belirtecini Al**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)’ı kullanarak bu belirteci yukarıda gösterildiği gibi URL’ye sorgu parametresi olarak ekleyin. Bu URL’yi **iframe**'in **src** değeri olarak belirtin.
 
-Ekli pencere öğenizde içgörü düzenleme özellikleri sağlamak istiyorsanız (web uygulamamızda olduğu gibi) düzenleme izinlerine sahip bir erişim belirteci geçirmeniz gerekir. [**İçgörüler Pencere Öğesini Al**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) veya [**Video Erişim Belirtecini Al**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) ile **&allowEdit=true** parametre değerini kullanın. 
+Ekli pencere öğenizde içgörü düzenleme özellikleri sağlamak istiyorsanız (web uygulamamızda olduğu gibi) düzenleme izinlerine sahip bir erişim belirteci geçirmeniz gerekir. [**İçgörüler Pencere Öğesini Al**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) veya [**Video Erişim Belirtecini Al**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) ile **&allowEdit=true** parametre değerini kullanın. 
 
 ## <a name="widgets-interaction"></a>Pencere öğeleri etkileşimi
 

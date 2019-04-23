@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248257"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149869"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Kotalar ve sınırlar DevTest Labs'de ölçeklendirin
 DevTest Labs'de çalışırken, DevTest Labs hizmet etkileyebilecek bazı Azure kaynakları için bazı varsayılan limitler olduğunu fark edebilirsiniz. Bu sınırlar denir **kotalar**.
@@ -28,7 +28,7 @@ DevTest Labs'de çalışırken, DevTest Labs hizmet etkileyebilecek bazı Azure 
 
 Her Azure kaynağı kotasına ulaşana kadar kullanabilirsiniz. Her abonelik ayrı bir kotası bulunur ve abonelik başına kullanım izlenir.
 
-Örneğin, her aboneliğin, varsayılan olarak 20 çekirdek kotası vardır. Laboratuvarınızda dört çekirdek içeren VM'ler oluşturuyorsanız, bu nedenle, daha sonra yalnızca beş VM'ler oluşturabilirsiniz. 
+Örneğin, her aboneliğin, varsayılan olarak 20 çekirdek kotası vardır. Laboratuvarınızda dört çekirdek içeren VM'ler oluşturuyorsanız, bu nedenle, daha sonra yalnızca beş VM'ler oluşturabilirsiniz.
 
 [Azure abonelik ve hizmet sınırlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits) Azure kaynakları için en yaygın kotalar bazıları listelenmektedir. Kaynakları bir laboratuar ortamında en yaygın olarak kullanılan ve hangi karşılaşabileceğiniz için kotaları dahil sanal makine çekirdeklerine, genel IP adresleri, ağ arabirimi, yönetilen diskler, RBAC rolü ataması ve ExpressRoute bağlantı hatları.
 
@@ -67,4 +67,4 @@ Bu adımlarda aracılığıyla bir kota artırım talebinde bulunmak gösterilme
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Sonraki adımlar
-* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

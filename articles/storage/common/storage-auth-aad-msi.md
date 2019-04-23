@@ -1,31 +1,29 @@
 ---
-title: Azure kaynakları - Azure depolama BLOB'ları ve kuyrukları ile Azure Active Directory tarafından yönetilen kimlikleri için erişimi kimlik doğrulaması | Microsoft Docs
-description: Azure Blob ve kuyruk depolama, Azure kaynakları için yönetilen kimliklerle Azure Active Directory kimlik doğrulamasını destekler. Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan erişim BLOB'lar ve Kuyruklar için kimlik doğrulaması için kullanabilirsiniz. Yönetilen kimlik kullanarak Azure kaynakları ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.
+title: Azure kaynakları - Azure depolama BLOB'ları ve kuyrukları yönetilen kimliklerle için erişimi kimlik doğrulaması | Microsoft Docs
+description: Azure Blob ve kuyruk depolama, Azure kaynakları için yönetilen kimliklerle Azure Active Directory kimlik doğrulamasını destekler. Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan erişim BLOB'lar ve Kuyruklar için kimlik doğrulaması için kullanabilirsiniz.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dfdb419a5c06dc50717c0a8a3bdaffb302db52d0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793025"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148858"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Azure kaynakları için BLOB'ları ve kuyrukları yönetilen kimliklerle erişimi kimlik doğrulaması
+# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure kaynakları için erişim BLOB'lar ve Kuyruklar ile Azure Active Directory ve yönetilen kimlikleri için kimlik doğrulaması
 
-Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Kimlikleri yönetilen Azure kaynaklarını bloblara erişimi kimlik doğrulaması için ve Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan Azure AD kimlik bilgilerini kullanarak sıralar. Yönetilen kimlik kullanarak Azure kaynakları ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
+Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Kimlikler Azure kaynaklarına erişimini BLOB yetkilendirebilirsiniz için ve Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğer Hizmetleri çalışan uygulamalardan Azure AD kimlik bilgilerini kullanarak kuyruk verileri yönetilen. Azure AD kimlik doğrulaması ile birlikte Azure kaynakları için yönetilen kimlik kullanarak, bulut uygulamalarınız ile kimlik bilgilerini depolama önleyebilirsiniz.  
 
-Yönetilen bir kimlik bir blob kapsayıcısı veya kuyruğa izinler vermek için uygun kapsamda bu kaynak için izinleri kapsayan yönetilen kimlik için rol tabanlı erişim denetimi (RBAC) rolüne atayın. Depolamadaki RBAC rolleri hakkında daha fazla bilgi için bkz. [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md). 
-
-Bu makalede, Azure Blob veya kuyruk depolama ile yönetilen bir kimlik için bir Azure VM'den kimlik doğrulaması yapmayı gösterir.  
+Bu makalede, bir Azure VM'den yönetilen bir kimlik ile blob veya kuyruğa verilere erişim yetkisi gösterilmektedir. 
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Bir VM'de yönetilen kimlikleri etkinleştir
 
-BLOB'lar ve Kuyruklar makinenizden kimlik doğrulaması yapmak için Azure kaynakları için yönetilen kimlikleri kullanabilmeniz için önce VM üzerindeki Azure kaynakları için önce yönetilen kimlikleri etkinleştirmeniz gerekir. Azure kaynakları için yönetilen kimlikleri etkinleştirme konusunda bilgi edinmek için şu makalelerden birine bakın:
+BLOB'lar ve Kuyruklar makinenizden erişim yetkisi vermek için Azure kaynakları için yönetilen kimlikleri kullanabilmeniz için önce VM üzerindeki Azure kaynakları için önce yönetilen kimlikleri etkinleştirmeniz gerekir. Azure kaynakları için yönetilen kimlikleri etkinleştirme konusunda bilgi edinmek için şu makalelerden birine bakın:
 
 - [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -33,52 +31,105 @@ BLOB'lar ve Kuyruklar makinenizden kimlik doğrulaması yapmak için Azure kayna
 - [Azure Resource Manager şablonu](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure SDK'ları](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Bir yönetilen Azure AD kimlik için bir RBAC rolü atayın
+## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Bir yönetilen Azure AD kimlik izinler
 
-Azure Storage uygulamanızı bir yönetilen kimlik doğrulamak için önce yönetilen kimliğe için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Yönetilen kimliği bir yönetilen kimlik için RBAC rolü atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+Azure Storage uygulamanızı içinde yönetilen bir kimlik gelen Blob veya kuyruk hizmetine bir istek yetkilendirmek için önce yönetilen kimliğe için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama, blob ve kuyruk veriler için izinleri kapsayacak RBAC rolleri tanımlar. RBAC rolü için bir yönetilen kimlik atandığında, yönetilen kimlik blob veya sıra verilerinize uygun kapsamda bu izinleri verilir. 
 
-## <a name="get-a-managed-identity-access-token"></a>Yönetilen kimlik erişim belirteci alma
+RBAC rollerini atama hakkında daha fazla bilgi için aşağıdaki makalelerden birine bakın:
 
-İle yönetilen bir kimlik doğrulamak için uygulama veya betik bir yönetilen kimlik erişim belirtecini almalıdır. Erişim belirteci alma hakkında bilgi edinmek için [bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlikleri kullanmak nasıl](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+- [Azure blob ve kuyruk verilere RBAC ile Azure portalında erişim izni ver](storage-auth-aad-rbac-portal.md)
+- [Azure CLI kullanarak RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-cli.md)
+- [PowerShell ile RBAC ile Azure blob ve kuyruk verilere erişim izni ver](storage-auth-aad-rbac-powershell.md)
 
-Bir OAuth belirteci ile BLOB ve kuyruk işlemlerini yetkilendirmek için HTTPS kullanmalıdır.
+## <a name="authorize-with-a-managed-identity-access-token"></a>Bir yönetilen kimlik erişim belirteciyle Yetkilendir
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET kod örneği: Bir blok blobu oluştur
+Blob ve kuyruk depolama ile bir yönetilen kimlik istekler yetkilendirmek için uygulama veya betiğin bir OAuth belirteci edinmeniz gerekir. [Microsoft Azure uygulama kimlik doğrulamasını](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) .NET (Önizleme) için istemci kitaplığı alınırken ve kodunuzdan bir belirteç yenileme işlemini basitleştirir.
 
-Kod örneği, bir yönetilen kimlik erişim belirteci sahibi olduğunuzu varsayar. Erişim belirteci, bir blok blobu oluşturmak için yönetilen kimlik yetkilendirmek için kullanılır.
+Uygulama kimlik doğrulaması istemci kitaplığı, kimlik doğrulama otomatik olarak yönetir. Kitaplığı, yerel geliştirme sırasında kimlik doğrulaması yapmak için Geliştirici kimlik bilgilerini kullanır. Azure AD kimlik bilgileri oluşturun veya paylaşım geliştiricileri arasında kimlik bilgileri gerekmez çünkü, yerel geliştirme sırasında Geliştirici kimlik bilgilerinizi kullanarak daha güvenlidir. Çözüm, daha sonra Azure'a dağıtıldığında kitaplığı uygulama kimlik bilgilerini kullanarak otomatik olarak geçer.
 
-### <a name="add-references-and-using-statements"></a>Başvurular ekleyin ve using deyimleri  
+Uygulama kimlik doğrulaması Kitaplığı'nda bir Azure Storage uygulamasını kullanmak için en son Önizleme paketinden yüklemek [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), en son sürümünü yanı sıra [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Aşağıdaki **kullanarak** kodunuzda ifadeleri:
 
-Visual Studio'da Azure depolama istemci Kitaplığı yükleyin. Gelen **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Konsolunda aşağıdaki komutu yazın:
-
-```powershell
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
-```
-
-Aşağıdaki using deyimlerini kodunuz:
-
-```dotnet
+```csharp
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-managed-identity-access-token"></a>Yönetilen kimlik erişim belirtecinden kimlik bilgileri oluşturma
+Uygulama kimlik doğrulama kitaplığını sağlar **AzureServiceTokenProvider** sınıfı. Bu sınıfın bir örneği, bir belirteç alır ve ardından süresi dolmadan önce belirtecini yeniler. bir geri çağırma için geçirilebilir.
 
-Blok blobu oluşturmak için kullanın **TokenCredentials** sınıfı. Yeni bir örneğini oluşturmak **TokenCredentials**, daha önce edindiğiniz yönetilen kimlik erişim belirtecinde geçen:
+Aşağıdaki örnek bir belirteç alır ve yeni bir blob oluşturmak için kullanır, sonra bir blobun okunabilmesi için aynı belirteci kullanır.
 
-```dotnet
-// Create storage credentials from your managed identity access token.
-TokenCredential tokenCredential = new TokenCredential(accessToken);
+```csharp
+const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
+
+// Get the initial access token and the interval at which to refresh it.
+AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider, 
+                                            CancellationToken.None).GetAwaiter().GetResult();
+
+// Create storage credentials using the initial token, and connect the callback function 
+// to renew the token just before it expires
+TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token, 
+                                                        TokenRenewerAsync,
+                                                        azureServiceTokenProvider, 
+                                                        tokenAndFrequency.Frequency.Value);
+
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
-// Create a block blob using the credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
-``` 
+// Create a blob using the storage credentials.
+CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName), 
+                                            storageCredentials);
+
+// Upload text to the blob.
+blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+
+// Continue to make requests against Azure Storage. 
+// The token is automatically refreshed as needed in the background.
+do
+{
+    // Read blob contents
+    Console.WriteLine("Time accessed: {0} Blob Content: {1}", 
+                        DateTimeOffset.UtcNow, 
+                        blob.DownloadTextAsync().Result);
+
+    // Sleep for ten seconds, then read the contents of the blob again.
+    Thread.Sleep(TimeSpan.FromSeconds(10));
+} while (true);
+```
+
+Geri çağırma yöntemi, belirtecin süre sonu zamanı denetler ve gerektiği şekilde yenilenir:
+
+```csharp
+private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+{
+    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
+    const string StorageResource = "https://storage.azure.com/";  
+
+    // Use the same token provider to request a new token.
+    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
+
+    // Renew the token 5 minutes before it expires.
+    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
+    if (next.Ticks < 0)
+    {
+        next = default(TimeSpan);
+        Console.WriteLine("Renewing token...");
+    }
+
+    // Return the new token and the next refresh time.
+    return new NewTokenAndFrequency(authResult.AccessToken, next);
+}
+```
+
+Uygulama kimlik doğrulaması Kitaplığı hakkında daha fazla bilgi için bkz. [.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması](../../key-vault/service-to-service-authentication.md). 
+
+Erişim belirteci alma hakkında daha fazla bilgi için bkz: [bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlikleri kullanmak nasıl](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 > [!NOTE]
-> Azure depolama ile Azure AD tümleştirmesi, Azure depolama işlemleri için HTTPS kullanmanızı gerektirir.
+> Azure AD ile blob veya kuyruğa verilerine yönelik isteklerini yetkilendirmek için bu istekleri için HTTPS kullanmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - RBAC rolleri için Azure depolama hakkında daha fazla bilgi için bkz: [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 - Kapsayıcılar ve kuyruklardaki depolama uygulamalarınızda erişim yetkisi verme konusunda bilgi almak için bkz: [depolama uygulamaları ile kullanmak üzere Azure AD](storage-auth-aad-app.md).
-- Azure CLI ve PowerShell için bir Azure AD kimlikleriyle oturum açma bilgi edinmek için [CLI veya PowerShell ile Azure depolamaya erişmek için bir Azure AD kimlik kullanmak](storage-auth-aad-script.md).
+- Azure AD kimlik bilgileriyle Azure CLI ve PowerShell komutlarını çalıştırma hakkında bilgi edinmek için [blob veya sıra verilerinize erişmek için Azure CLI'yı çalıştırmak veya PowerShell komutları Azure AD kimlik bilgileriyle](storage-auth-aad-script.md).

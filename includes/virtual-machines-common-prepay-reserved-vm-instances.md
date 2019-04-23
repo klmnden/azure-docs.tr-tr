@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671783"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118932"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -35,6 +35,12 @@ Rezervasyon satın almalıyım belirlemeye yardımcı olması için ayırma öne
 - Azure Danışmanı için bireysel abonelikler satın alma önerileri sağlar.  
 - API'leri, hem Paylaşılan kapsam hem de tek abonelik kapsamında satın alma önerileri almak için kullanabilirsiniz. Daha fazla bilgi için [ayrılmış örnek satın alma öneri API'leri, Kurumsal müşteriler için](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - EA müşterileri, paylaşılan satın alma önerileri ve tek bir abonelik kapsamları ile kullanılabilir [Azure tüketim öngörüleri Power BI içerik paketi](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Klasik VM'ler ve bulut Hizmetleri
+
+Ayrılmış sanal makine örnekleri otomatik olarak her iki Klasik Vm'leri için geçerli ve bulut Hizmetleri örneği boyutu esnekliği etkinleştirildiğinde. Klasik sanal makineleri veya Bulut Hizmetleri için özel bir SKU değildir. Aynı VM SKU'ları için geçerlidir.
+
+Örneğin, Azure Resource Manager tabanlı VM'ler için Klasik sanal makineleri veya cloud services dönüştürebilir. Bu örnekte, ayırma indirimi, eşleşen Vm'leri otomatik olarak uygular. Gerekli olmadığı için *exchange* mevcut bir ayrılmış örnek - otomatik olarak uygular.
 
 ### <a name="analyze-your-usage-information"></a>Kullanım bilgilerinizi analiz edin
 Hangi rezervasyon satın almanız gerekir belirlenebilmesine yardımcı olmak üzere kullanım bilgilerinizi çözümlemeniz gerekir.
@@ -66,22 +72,16 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 
     | Alan      | Açıklama|
     |------------|--------------|
-    |Ad        |Bu rezervasyon adı.|
-    |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR - 0023 P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
+    |Name        |Bu rezervasyon adı.|
+    |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
     |Kapsam       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - ayırma indirimini bu abonelikte Vm'lere uygulanır. </li><li>Paylaşılan - ayırma indirimi herhangi bir abonelik, fatura bağlamı içinde çalışan Vm'lere uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
     |Bölge    |Ayırma tarafından kapsanan Azure bölgesi.|    
     |VM Boyutu     |Sanal makine örneği boyutu.|
     |En iyi duruma getir:     |Sanal makine örneği boyutu esnekliği, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
-    |Dönem        |Bir yıl veya üç yıl.|
+    |Sözleşme Dönemi        |Bir yıl veya üç yıl.|
     |Miktar    |İçinde rezervasyon satın örnek sayısı. Çalışan faturalandırma indirim almak sanal makine örneği sayısını miktarıdır. Doğu ABD bölgesinde 10 işler için standart_d2 VM çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
-5. Seçtiğinizde, rezervasyon maliyeti görüntüleyebilirsiniz **maliyeti hesaplamak**.
 
-    ![Rezervasyon satın alma göndermeden önce ekran görüntüsü](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. **Satın al**'ı seçin.
-7. Seçin **bu rezervasyonu görüntüle** satın alma işleminizi durumunu görmek için.
-
-    ![Rezervasyon satın alma gönderdikten sonra ekran görüntüsü](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Rezervasyon satın alma sonra Değiştir
 

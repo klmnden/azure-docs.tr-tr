@@ -4,17 +4,17 @@ description: Güncelleştirme yönetimi Aracısı ile ilgili sorunları giderme 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813118"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150124"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Linux Aracısı onay sonuçlarında anlama
 
@@ -25,6 +25,9 @@ Aşağıdaki listede, bir makine olabilir üç hazır olma durumlarından şunla
 * **Hazır** -Güncelleştirme Aracısı dağıtılır ve son 1 saatten önce görüldü.
 * **Bağlantısı kesilmiş** -Güncelleştirme Aracısı dağıtıldıktan ve üzerinde 1 saat önce son kez görüldü.
 * **Yapılandırılmamış** -Windows update Aracısı, bulunamadığında veya ekleme işlemi tamamlanmadı.
+
+> [!NOTE]
+> Hangi Azure portalında gösterilir ve makinenin geçerli durumu arasında bir gecikme olabilir.
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048121"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149640"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
 
@@ -115,7 +115,7 @@ Mobility Aracısı göndererek yükleme sırasında aşağıdaki adımları ger�
 #### <a name="installation-settings"></a>Yükleme ayarları
 **Ayar** | **Ayrıntılar**
 --- | ---
-Kullanım | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform "VmWare" / silent
+Kullanım | UnifiedAgent.exe/role < MS/MT > /InstallLocation  <Install Location> /Platform "VmWare" / silent
 Kurulum günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında.
 / Rol | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 /InstallLocation| İsteğe bağlı parametre. Mobility hizmeti yükleme konumuna (herhangi bir klasör) belirtir.
@@ -154,7 +154,7 @@ Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 #### <a name="installation-settings"></a>Yükleme ayarları
 **Ayar** | **Ayrıntılar**
 --- | ---
-Kullanım | . / install -d \<yükleme konumu > - r < MS|MT > - v, VmWare - q
+Kullanım | . / install -d <Install Location> - r < MS/MT > - v VmWare - q
 -r | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 -d | İsteğe bağlı parametre. Mobility hizmeti yükleme konumunu belirtir: /usr/local/ASR.
 -v | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için.

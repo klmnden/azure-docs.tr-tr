@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851923"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149385"
 ---
 # <a name="common-alert-schema"></a>Ortak uyarı şeması
 
@@ -39,14 +39,14 @@ Ortak uyarı şema öncelikle kendisi, Uyarı bildirimlerini bildirilmez. Görec
 |:---|:---|
 | SMS | Tüm uyarı türleri için tutarlı bir SMS şablonu. |
 | Email | Bir bakışta sorunlarını kolayca tanılamanıza olanak tanıyan tutarlı ve ayrıntılı bir e-posta şablonu. Portal ve etkilenen kaynak uyarı örneği için katıştırılmış derin bağlantılar hızlı düzeltme işlemine geçebilirsiniz emin olun. |
-| Web kancası/Logic App/Azure işlevi | Tümleştirmeler farklı uyarı türleri arasında kolayca oluşturmanıza olanak tanıyan tutarlı bir JSON yapı tüm uyarı türleri için. |
+| Web kancası/Logic App/Azure işlevi/Otomasyon Runbook'u | Tümleştirmeler farklı uyarı türleri arasında kolayca oluşturmanıza olanak tanıyan tutarlı bir JSON yapı tüm uyarı türleri için. |
 
 Yeni Şema ayrıca daha zengin bir uyarı tüketim deneyimi Azure portalı ve Azure mobil uygulaması yakın gelecekte etkinleştirecektir. 
 
-[Web kancaları/Logic Apps/Azure işlevleri için şema tanımları hakkında daha fazla bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
+[Web kancaları/Logic Apps/Azure işlevleri/Automation runbook'ları için şema tanımları hakkında daha fazla bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> Ortak uyarı Şeması aşağıdaki eylemleri desteklemez: ITSM Bağlayıcısı, Otomasyon Runbook'u.
+> Ortak uyarı Şeması aşağıdaki eylemleri desteklemez: ITSM Bağlayıcısı.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>Ortak uyarı şema nasıl etkinleştirebilirim?
 
@@ -54,11 +54,10 @@ REST API ve her iki portal üzerinde eylem grupları aracılığıyla ortak uyar
 
 > [!NOTE]
 > 1. Aşağıdaki uyarı türleri varsayılan olarak ortak şema desteği (hiçbir iyileştirilmiş gerekli):
->     * Hatası anomali uyarıları
+>     * Akıllı algılama uyarıları
 > 1. Aşağıdaki uyarı türleri, ortak şema şu anda desteklemez:
->     * Hizmet durumu uyarıları
->     * Etkinlik günlüğü - güvenlik uyarıları
 >     * Tarafından oluşturulan uyarıların [VM'ler için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Tarafından oluşturulan uyarıların [Azure maliyet Yönetimi](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Azure portalı üzerinden
 
@@ -69,7 +68,7 @@ REST API ve her iki portal üzerinde eylem grupları aracılığıyla ortak uyar
 
 ### <a name="through-the-action-groups-rest-api"></a>Eylem grupları REST API
 
-Ayrıca [Eylem grupları API](https://docs.microsoft.com/rest/api/monitor/actiongroups) içinde ortak uyarı şemaya katılmak için. Yapma sırasında [oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API çağrısı, "'(kabul et) doğru olarak ' bayrağı useCommonAlertSchema" veya 'false' (geri çevirmek için) - Web kancası/e-posta/logic app/Azure işlevi aşağıdaki eylemlerden herhangi birini ayarlayabilirsiniz.
+Ayrıca [Eylem grupları API](https://docs.microsoft.com/rest/api/monitor/actiongroups) içinde ortak uyarı şemaya katılmak için. Yapma sırasında [oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API çağrısı, "'(kabul et) doğru olarak ' bayrağı useCommonAlertSchema" veya 'false' (geri çevirmek için) - Web kancası/e-posta/logic app/Azure işlevi/Otomasyon runbook'u aşağıdaki eylemlerden herhangi birini ayarlayabilirsiniz.
 
 Örneğin, aşağıdaki istek gövdesi yapılan [oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API aşağıdakileri yapın:
 
@@ -125,7 +124,7 @@ Ayrıca [Eylem grupları API](https://docs.microsoft.com/rest/api/monitor/action
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Web kancaları/Logic Apps/Azure işlevleri için genel uyarı şema tanımları.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Web kancaları/Logic Apps/Azure işlevleri/Automation runbook'ları için ortak uyarı şema tanımları.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

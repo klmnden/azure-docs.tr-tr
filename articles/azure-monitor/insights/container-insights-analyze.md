@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426401"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004049"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -40,8 +40,9 @@ Dağıtılan tüm AKS küme sistem durumunu görüntülemek için seçin **İzle
 Üzerinde **izlenen kümeleri** sekmesinde tarafından aşağıdaki öğrenin:
 
 1. Kaç (Bilinmeyen durumu adlandırılır) sağlam veya Raporlama olmayan karşı kritik veya sağlıksız durumda kaç kümeleri misiniz?
-1. Tümü my [Azure Kubernetes altyapısı (altyapısı AKS)](https://github.com/Azure/aks-engine) dağıtımları Sağlıklı?
-1. Küme kaç düğümleri, kullanıcı ve sistem pod'ların dağıtılır.  
+2. Tümü my [Azure Kubernetes altyapısı (altyapısı AKS)](https://github.com/Azure/aks-engine) dağıtımları Sağlıklı?
+3. Küme kaç düğümleri, kullanıcı ve sistem pod'ların dağıtılır?
+4. Ne kadar disk alanı kullanılabilir ve kapasite sorun yok?
 
 Dahil edilen sistem durumu durumlar şunlardır: 
 
@@ -55,7 +56,7 @@ Dahil edilen sistem durumu durumlar şunlardır:
 * **Yapılandırılmış MIS** -kapsayıcılar için Azure İzleyici belirtilen çalışma alanı doğru yapılandırılmamış.
 * **Hiçbir veri** -veri değil olarak son 30 dakika içerisinde çalışma alanına bildirdi.
 
-Sistem durumu olarak genel küme durumunu hesaplar *en kötü*"üç bildiren bir özel durumla – üç durumdan birini ise *bilinmeyen*, genel küme durumunu gösterir **bilinmiyor**.  
+Sistem durumu olarak genel küme durumunu hesaplar *en kötü* üç bildiren bir özel durumla – üç durumdan birini ise *bilinmeyen*, genel küme durumunu gösterir **bilinmiyor**.  
 
 Aşağıdaki tabloda, izlenen bir küme çoklu küme görünüm için sağlık durumlarını denetleme hesaplama dökümünü sağlar.
 
@@ -131,9 +132,9 @@ Uygulayabileceğiniz [bölme](../platform/metrics-charts.md#apply-splitting-to-a
 
 ![Örnek Kubernetes Perspektifler Özellikler bölmesi](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Özellikler bölmesinde güncelleştirmeleri hiyerarşideki nesneler genişlettikçe tabanlı seçili nesne üzerinde. Bölmesinden, ayrıca önceden tanımlanmış günlük aramalarının Kubernetes olaylarıyla tıklayarak görüntüleyebilirsiniz **görünümü Kubernetes olay günlüklerini** bölmenin üstündeki bağlantısı. Kubernetes günlük verilerini görüntüleme hakkında daha fazla bilgi için bkz. [arama verileri çözümlemek için günlükleri](#search-logs-to-analyze-data). İçindeki kapsayıcılarınızı Raporu'ndaki **kapsayıcıları** görünümü, kapsayıcı günlükleri gerçek zamanlı olarak görebilirsiniz. Bu özellik ve verme ve erişimini denetlemek için gerekli yapılandırma hakkında daha fazla bilgi için bkz: [kapsayıcılar için Azure İzleyici ile kapsayıcı günlükleri gerçek zamanlı görüntüleme](container-insights-live-logs.md). 
+Özellikler bölmesinde güncelleştirmeleri hiyerarşideki nesneler genişlettikçe tabanlı seçili nesne üzerinde. Bölmesinden, ayrıca önceden tanımlanmış günlük aramalarının Kubernetes olaylarıyla tıklayarak görüntüleyebilirsiniz **görünümü Kubernetes olay günlüklerini** bölmenin üstündeki bağlantısı. Kubernetes günlük verilerini görüntüleme hakkında daha fazla bilgi için bkz. [arama verileri çözümlemek için günlükleri](container-insights-log-search.md). İçindeki kapsayıcılarınızı Raporu'ndaki **kapsayıcıları** görünümü, kapsayıcı günlükleri gerçek zamanlı olarak görebilirsiniz. Bu özellik ve verme ve erişimini denetlemek için gerekli yapılandırma hakkında daha fazla bilgi için bkz: [kapsayıcılar için Azure İzleyici ile kapsayıcı günlükleri gerçek zamanlı görüntüleme](container-insights-live-logs.md). 
 
-Kullanım **+ Filtre Ekle** gruplama için sonuçları filtrelemek için sayfanın üst kısmında seçeneğinden **hizmet**, **düğüm**, veya **Namespace** ve sonra Filtre kapsamı seçildikten sonra gösterilen değerlerden birinden seçtiğiniz **seçin değerleri** alan.  Filtre yapılandırdıktan sonra AKS kümesinin herhangi bir perspektif görüntülerken genel olarak uygulanır.  Formül eşittir işareti yalnızca destekler.  Sonuçlarınızı daraltmak için birinci üzerine ek filtreler ekleyebilirsiniz.  Örneğin, bir filtre tarafından belirtilen **düğüm**, ikinci filtreniz yalnızca seçmenizi izin **hizmet** veya **Namespace**.  
+Kullanım **+ Filtre Ekle** gruplama için sonuçları filtrelemek için sayfanın üst kısmında seçeneğinden **hizmet**, **düğüm**, **Namespace**, veya  **Düğüm havuzu** seçip filtre kapsamı seçtikten sonra gösterilen değerlerden birinden **seçin değerleri** alan.  Filtre yapılandırdıktan sonra AKS kümesinin herhangi bir perspektif görüntülerken genel olarak uygulanır.  Formül eşittir işareti yalnızca destekler.  Sonuçlarınızı daraltmak için birinci üzerine ek filtreler ekleyebilirsiniz.  Örneğin, bir filtre tarafından belirtilen **düğüm**, ikinci filtreniz yalnızca seçmenizi izin **hizmet** veya **Namespace**.  
 
 ![Örnek sonuçları daraltmak için filtre kullanma](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -258,49 +259,6 @@ Durum alanı simgeleri, aşağıdaki tabloda açıklandığı gibi çevrimiçi, 
 | ![Sonlandırılan durum simgesi](./media/container-insights-analyze/containers-terminated-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|  
 | ![Başarısız durum simgesi](./media/container-insights-analyze/containers-failed-icon.png) | Durumu başarısız |  
 
-
-## <a name="container-data-collection-details"></a>Kapsayıcı veri toplama ayrıntıları
-Kapsayıcı öngörüleri kapsayıcı konağında ve kapsayıcıların çeşitli performans ölçümleri ve günlük verilerini toplar. Üç dakikada bir toplanan veriler.
-
-### <a name="container-records"></a>Kapsayıcı kayıt
-
-Kapsayıcılar ve günlük arama sonuçlarında görünmesini veri türleri için Azure İzleyici tarafından toplanan kayıtları örnekleri aşağıdaki tabloda görüntülenir:
-
-| Veri türü | Günlük araması'nda veri türü | Alanlar |
-| --- | --- | --- |
-| Konaklar ve kapsayıcılar için performans | `Perf` | Bilgisayar, ObjectName, CounterName &#40;% işlemci zamanı, Disk okuma MB, MB, bellek kullanımı MB Disk Yazar ağ bayt alma, ağ gönderme bayt, işlemci kullanımı sn, ağ&#41;, Ort, TimeGenerated, sayaç yolu, Analytics'teki |
-| Kapsayıcı envanteri | `ContainerInventory` | TimeGenerated, bilgisayar, kapsayıcı adı, ContainerHostname, görüntü, ImageTag, ContainerState, ExitCode, EnvironmentVar, komut, oluşturulma zamanı, StartedTime, FinishedTime, Analytics'teki, Containerıd, ImageID |
-| Kapsayıcı görüntüsü envanterinin | `ContainerImageInventory` | TimeGenerated, bilgisayar, görüntü, ImageTag, ImageSize, VirtualSize, çalışıyor, durduruldu, durduruldu, başarısız, Analytics'teki, ImageID TotalContainer |
-| Kapsayıcı günlüğü | `ContainerLog` | TimeGenerated, bilgisayar, görüntü kimliği, LogEntrySource LogEntry, Analytics'teki, Containerıd kapsayıcı adı |
-| Kapsayıcı hizmeti günlüğü | `ContainerServiceLog`  | TimeGenerated, bilgisayar, TimeOfCommand, görüntü, komut, Analytics'teki, Containerıd |
-| Kapsayıcı düğümü envanteri | `ContainerNodeInventory_CL`| TimeGenerated, bilgisayar, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, Analytics'teki|
-| Kapsayıcı işlemi | `ContainerProcess_CL` | TimeGenerated, bilgisayar, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, Analytics'teki |
-| Bir Kubernetes kümesinin pod envanterini | `KubePodInventory` | TimeGenerated, bilgisayar, Lclusterıd, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, HizmetAdı, ControllerKind, ControllerName, ContainerStatus Containerıd, kapsayıcı adı, ad, PodLabel, Namespace, PodStatus, ClusterName, Podıp, Analytics'teki |
-| Bir Kubernetes kümesinin düğümleri bölümünün envanteri | `KubeNodeInventory` | TimeGenerated, bilgisayar, ClusterName, Lclusterıd, LastTransitionTimeReady, etiketler, durum, KubeletVersion, KubeProxyVersion, CreationTimeStamp, Analytics'teki | 
-| Kubernetes olayları | `KubeEvents_CL` | TimeGenerated, bilgisayar, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message, Analytics'teki | 
-| Kubernetes kümesindeki Hizmetleri | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, Analytics'teki | 
-| Kubernetes küme düğümleri parçası için performans ölçümleri | Perf &#124; nerede ObjectName "K8SNode" == | Bilgisayar, ObjectName, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, Ort, TimeGenerated, sayaç yolu, Analytics'teki | 
-| Kubernetes kümesine kapsayıcıları parçası için performans ölçümleri | Perf &#124; nerede ObjectName "K8SContainer" == | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, Ort, TimeGenerated, sayaç yolu, Analytics'teki | 
-
-## <a name="search-logs-to-analyze-data"></a>Verileri çözümlemek için günlüklerinde arama yapma
-Log Analytics'e eğilimlerini arayın, performans sorunlarını tanılamanıza yardımcı olur, yardımcı olabilecek tahmin ve performanstaki veri geçerli küme yapılandırmasını en uygun şekilde çalışıp çalışmadığını belirleyin. Önceden tanımlanmış günlük aramaları, hemen kullanmaya başlayın ya da istediğiniz gibi bilgileri döndürmek için özelleştirmek için sağlanır. 
-
-Etkileşimli veri analizi seçerek çalışma alanında gerçekleştirebilirsiniz **görünümü Kubernetes olay günlüklerini** veya **kapsayıcı günlüklerini görüntüleme** önizleme bölmesinde seçeneği. **Günlük araması** bulunduğunuz Azure portal sayfasının sağındaki sayfası görüntülenir.
-
-![Log Analytics’te verileri analiz etme](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-Log Analytics'e iletilir kapsayıcı günlüklerini çıktısı, STDOUT ve STDERR alınır. Azure İzleyici, Azure tarafından yönetilen Kubernetes (AKS) izleme için Kube-system büyük oluşturulan veri hacmi nedeniyle bugün toplanmaz. 
-
-### <a name="example-log-search-queries"></a>Örnek günlük arama sorguları
-Genellikle, bir örnek veya iki ile başlayıp ardından bunları gereksinimlerinize uyacak şekilde değiştirin sorguları oluşturmak kullanışlıdır. Daha gelişmiş sorgular oluşturmanıza yardımcı olmak için aşağıdaki örnek sorgularda ile denemeler yapabilirsiniz:
-
-| Sorgu | Açıklama | 
-|-------|-------------|
-| ContainerInventory<br> &#124;Proje bilgisayar, ad, resim, ImageTag, ContainerState, oluşturulma zamanı, StartedTime, FinishedTime<br> &#124;Tablo oluşturma | Tüm bir kapsayıcının yaşam döngüsü bilgilerini Listele| 
-| KubeEvents_CL<br> &#124;Burada not(isempty(Namespace_s))<br> &#124;TimeGenerated desc göre sırala<br> &#124;Tablo oluşturma | Kubernetes olayları|
-| ContainerImageInventory<br> &#124;Summarize aggregatedvalue = count() ImageTag, görüntü tarafından çalıştırma | Görüntü envanteri | 
-| **Çizgi grafik görüntüleme seçeneğini**:<br> Perf<br> &#124;Burada ObjectName "K8SContainer" ve CounterName == "cpuUsageNanoCores" == &#124; AvgCPUUsageNanoCores özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı CPU | 
-| **Çizgi grafik görüntüleme seçeneğini**:<br> Perf<br> &#124;Burada ObjectName "K8SContainer" ve CounterName == "memoryRssBytes" == &#124; AvgUsedRssMemoryBytes özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı belleği |
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Kapsayıcılar için Azure İzleyici, kopyalamak ve Destek süreçleri ve yordamları göre değiştirmek için uyarılar önceden tanımlanmış bir dizi içermez. Gözden geçirme [performans uyarıları, kapsayıcılar için Azure İzleyici ile oluşturma](container-insights-alerts.md) yüksek CPU ve bellek kullanımı için önerilen uyarılar oluşturma hakkında bilgi edinmek için.  
+- Gözden geçirme [performans uyarıları, kapsayıcılar için Azure İzleyici ile oluşturma](container-insights-alerts.md) DevOps veya çalışma süreçleri ve yordamları desteklemek yüksek CPU ve bellek kullanımı için uyarı oluşturma hakkında bilgi edinmek için. 
+- Görünüm [sorgu örnekleri oturum](container-insights-log-search.md#search-logs-to-analyze-data) önceden tanımlanmış sorgular ve değerlendirme veya uyarı, görselleştirme veya kümelerinizi çözümleme için özelleştirmek için örnekler görmek için.

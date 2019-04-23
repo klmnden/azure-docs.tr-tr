@@ -1,24 +1,24 @@
 ---
-title: Birden çok web siteleri - Azure portal'ı barındıran bir uygulama ağ geçidi oluşturma
-description: Azure portalını kullanarak birden çok web sitesini barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
+title: Öğretici - Azure portalını kullanarak birden çok web sitesini barındıran bir uygulama ağ geçidi oluşturma
+description: Bu öğreticide, Azure portalını kullanarak birden çok web sitesini barındıran bir uygulama ağ geçidi oluşturma konusunda bilgi edinin.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080176"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999034"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak birden çok web sitelerini barındırmak için bir uygulama ağ geçidi yapılandırma
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Öğretici: Oluşturma ve Azure portalını kullanarak birden çok web sitelerini barındırmak için bir uygulama ağ geçidi yapılandırma
 
-Azure portalında kullandığınız [birden çok web sitesini barındırmayı yapılandırma](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu makalede, sanal makineleri kullanarak arka uç adres havuzları tanımlayın. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu makalede, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www.contoso.com* ve *www.fabrikam.com*.
+Azure portalında kullandığınız [birden çok web sitesini barındırmayı yapılandırma](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu öğreticide, sanal makineleri kullanarak arka uç adres havuzları tanımlayın. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu öğreticide birden çok etki alanına sahip olduğunuz varsayılır ve *www.contoso.com* ve *www.fabrikam.com* örnekleri kullanılır.
 
-Bu makalede şunları öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uygulama ağ geçidi oluşturma
@@ -146,7 +146,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
 Kurallar listelendikleri sırayla işlenir ve trafik belirginlikten bağımsız olarak eşleşen ilk kural kullanarak yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
 
-Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluştururken oluşturduğunuz varsayılan kuralı silersiniz. 
+Bu örnekte, iki yeni kurallar oluşturabilir ve uygulama ağ geçidi oluşturduğunuzda oluşturulan varsayılan kuralını silin.
 
 1. Tıklayın **kuralları** ve ardından **temel**.
 2. Girin *contosoRule* adı.
@@ -179,6 +179,18 @@ Uygulama ağ geçidi genel IP adresiyle oluşturulduktan sonra DNS adresini alab
 
     ![Uygulama ağ geçidinde fabrikam sitesini test etme](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Application gateway ile oluşturduğunuz kaynaklara artık ihtiyacınız olduğunda, kaynak grubunu kaldırın. Kaynak grubu kaldırarak, ayrıca uygulama ağ geçidi ve tüm ilgili kaynakları kaldırın.
+
+Kaynak grubunu kaldırmak için:
+
+1. Azure portal'ın sol menüsünde **kaynak grupları**.
+2. Üzerinde **kaynak grupları** sayfasında, arama **myResourceGroupAG** listesinde seçin.
+3. Üzerinde **kaynak grubu sayfasını**seçin **kaynak grubunu Sil**.
+4. Girin *myResourceGroupAG* için **kaynak grubu adını yazın** seçip **Sil**
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Application Gateway ile App Service'ı yapılandırma](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Azure Application Gateway ile yapabilecekleriniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

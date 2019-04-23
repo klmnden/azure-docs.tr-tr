@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616365"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005256"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA tarafından izleme ve sorun giderme
 
@@ -63,7 +63,7 @@ Grafı yükleyin, yüksek CPU tüketimi veya yüksek tüketim geçmişte göster
 
 ![Geçmişte yüksek CPU tüketimi veya yüksek tüketim yük grafını Göster](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Yüksek CPU kullanımı nedeniyle tetiklenen uyarı, ancak bunlarla sınırlı olmamak de dahil olmak üzere çeşitli nedenlerden kaynaklanabilir: belirli işlemleri, veri yükleme, asılı SQL deyimlerini ve hatalı sorgu performansı (örneğin, BW on HANA ve uzun süre çalışan işlerin yürütülmesi Küpler).
+Yüksek CPU kullanımı nedeniyle tetiklenen uyarı, ancak bunlarla sınırlı olmamak de dahil olmak üzere çeşitli nedenlerden kaynaklanabilir: belirli işlemleri, veri yükleme, SQL deyimlerini ve hatalı sorgu performansı (örneğin, uzun süre çalışan yanıt vermiyor işleri yürütme bant genişliği ile HANA küpleri üzerinde).
 
 Başvurmak [SAP HANA sorunlarını giderme: CPU ilgili neden olur ve çözümleri](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 

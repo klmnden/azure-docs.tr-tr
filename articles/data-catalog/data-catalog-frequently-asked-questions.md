@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu hakkında sık sorulan sorular
 description: Veri kaynağı bulma, açıklama ve yönetim özelliklerini de dahil olmak üzere, Azure veri Kataloğu hakkında sık sorulan sorular.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231473"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998470"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure veri Kataloğu hakkında sık sorulan sorular
 Bu makalede, Azure veri Kataloğu hizmeti ile ilgili sık sorulan soruların yanıtlarını sağlar.
@@ -27,10 +27,10 @@ Veri Kataloğu veri kaynağı bulma ve "veri" sorunlarını ele alır, bu kullan
 ## <a name="what-are-its-target-audiences"></a>Hedef kitlelere nelerdir?
 Veri Kataloğu dahil olmak üzere teknik ve teknik olmayan kullanıcılar için tasarlanmıştır:
 
-* Veri geliştiricileri ve BI ve analiz uzmanları: başkalarının kullanmak veri ve analiz içeriği oluşturmaktan sorumlu olan kişiler.
-* Veri stewards: veri, ne anlama geldiğini ve nasıl kullanılması amaçlanmıştır hakkında bilgi olan kişiler.
-* Veri tüketicileri: kolayca bulmak için gereken kişilere anlama ve kendi istediğiniz aracı kullanarak, işini yapması için ihtiyaç duydukları verilere bağlanın.
-* Merkezi BT: yüzlerce veri kaynağına İşletme kullanıcıları tarafından bulunabilir hale getirmek gereksinim duyan ve verilerin nasıl kullanıldığı ve kim tarafından gözetim korumak gereksinim duyan kişilere.
+* Veri geliştiricileri ve BI ve analiz uzmanları için: Başkalarının kullanmak veri ve analiz içeriği oluşturmaktan sorumlu olan kişiler.
+* Veri stewards: Veriler, ne anlama geldiğini ve nasıl kullanılması amaçlanmıştır hakkında bilgiye sahip kişiler.
+* Veri tüketicileri: Kolayca bulmak için gereken kişilere anlama ve kendi istediğiniz aracı kullanarak, işini yapması için ihtiyaç duydukları verilere bağlanın.
+* Merkezi BT: Yüzlerce veri kaynağına İşletme kullanıcıları tarafından bulunabilir hale getirmek gereksinim duyan ve verilerin nasıl kullanıldığı ve kim tarafından gözetim korumak gereksinim duyan kişiler.
 
 ## <a name="what-is-its-availability-by-region"></a>Bölgelere göre kullanılabilirliğini nedir?
 Veri Kataloğu Hizmetleri şu veri merkezlerinde şu anda kullanılabilir:

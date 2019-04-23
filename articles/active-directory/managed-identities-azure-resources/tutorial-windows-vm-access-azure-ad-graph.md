@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523367"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997793"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Öğretici: Azure AD Graph API hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, grup üyeliklerini almak için Microsoft Graph API’ye erişmek amacıyla, Windows sanal makinesi (VM) için sistem tarafından atanmış bir yönetilen kimliği nasıl kullanacağınız gösterilmektedir. Azure kaynaklarına yönelik yönetilen kimlikler Azure tarafından otomatik olarak yönetilir ve kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır.  Bu öğreticide, VM kimliğinizin Azure AD gruplarındaki üyeliğini sorgulayacaksınız. Örnek verecek olursak, grup bilgileri genellikle yetkilendirme kararlarında kullanılır. Arka planda, sanal makinenizin yönetilen kimliği Azure AD’de bir **Hizmet Sorumlusu** ile temsil edilir. Grup sorgusu yapmadan önce, VM'nin kimliğini temsil eden hizmet sorumlusunu Azure AD'deki bir gruba ekleyin. Azure PowerShell, Azure AD PowerShell veya Azure CLI kullanarak bunu yapabilirsiniz.
+Bu öğretici, sistem tarafından atanan yönetilen bir kimlik bir Windows sanal makine (VM) için kendi grup üyeliklerini almak için Azure AD Graph API'sine erişmek için nasıl kullanılacağını gösterir. Azure kaynaklarına yönelik yönetilen kimlikler Azure tarafından otomatik olarak yönetilir ve kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır.  Bu öğreticide, VM kimliğinizin Azure AD gruplarındaki üyeliğini sorgulayacaksınız. Örnek verecek olursak, grup bilgileri genellikle yetkilendirme kararlarında kullanılır. Arka planda, sanal makinenizin yönetilen kimliği Azure AD’de bir **Hizmet Sorumlusu** ile temsil edilir. Grup sorgusu yapmadan önce, VM'nin kimliğini temsil eden hizmet sorumlusunu Azure AD'deki bir gruba ekleyin. Azure PowerShell, Azure AD PowerShell veya Azure CLI kullanarak bunu yapabilirsiniz.
 
 > [!div class="checklist"]
 > * Azure AD'ye Bağlanma

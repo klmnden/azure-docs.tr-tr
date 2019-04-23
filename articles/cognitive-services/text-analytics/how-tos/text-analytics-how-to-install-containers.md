@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd2f257119595311e9d31ad2068fd12c8cf51ee
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683385"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005885"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -32,11 +32,11 @@ Herhangi bir metin analizi kapsayıcıları çalıştırmak için ana bilgisayar
 
 Metin analizi kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri karşılaması gerekir:
 
-|Gerekli|Amaç|
+|Gereklidir|Amaç|
 |--|--|
 |Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
-|`Cognitive Services` Kaynak |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A [ _Bilişsel Hizmetler_ ](text-analytics-how-to-access-key.md) fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalında Bilişsel hizmetleri genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir. Eklemenize gerek `text/analytics/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme.<br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` Kaynak |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A [ _Bilişsel Hizmetler_ ](text-analytics-how-to-access-key.md) fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalında Bilişsel hizmetleri genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir. Eklemenize gerek `text/analytics/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme.<br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>Ana bilgisayar
 
@@ -110,7 +110,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır ve Azure portal üzerinde kullanılabilir `Cognitive Services` anahtarlar sayfasında.  |
 |{BILLING_ENDPOINT_URI} | Azure'da faturalandırma uç noktası URI değeri kullanılabilir `Cognitive Services` genel bakış sayfası. <br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

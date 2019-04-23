@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009422"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009472"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye Giriş
 
@@ -43,7 +43,7 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 -   **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](storage-lifecycle-management-concepts.md).
 
--   **En iyi duruma getirilmiş sürücü**: Abfs sürücü [özellikle en iyi duruma getirilmiş](data-lake-storage-abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
+-   **En iyi duruma getirilmiş sürücü**: ABFS sürücü [özellikle en iyi duruma getirilmiş](data-lake-storage-abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API uç noktası aracılığıyla çıkmış `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Ölçeklenebilirlik
 
@@ -64,7 +64,7 @@ Eşdeğer varlıklar farklı kavramları açıklandığı aşağıda verilmişti
 | Kavram                                | Üst düzey kuruluş | Daha düşük bir düzenleme düzeyi                                            | Veri kapsayıcısı |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | BLOB'lar-genel amaçlı nesne depolama | Kapsayıcı              | Sanal dizin (SDK'sı yalnızca – sağlamaz atomik işleme) | Blob           |
-| ADLS Gen2 – depolama analizi          | dosya sistemi             | Dizin                                                           | Dosya           |
+| ADLS Gen2 – depolama analizi          | Dosya sistemi             | Dizin                                                           | Dosya           |
 
 ## <a name="supported-open-source-platforms"></a>Açık kaynak platformlar desteklenir
 

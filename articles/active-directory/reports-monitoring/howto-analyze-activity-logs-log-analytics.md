@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici günlüklerine (Önizleme) kullanarak Azure Active Directory etkinlik günlüklerini çözümleme | Microsoft Docs
-description: Azure İzleyici günlüklerine (Önizleme) kullanarak Azure Active Directory etkinlik günlükleri analiz etmeyi öğrenin
+title: Azure İzleyici günlüklerini kullanarak Azure Active Directory etkinlik günlüklerini çözümleme | Microsoft Docs
+description: Azure İzleyici günlüklerini kullanarak Azure Active Directory etkinlik günlükleri analiz etmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436821"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005545"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure AD çözümleme Azure İzleyici günlüklerine (Önizleme) ile etkinlik günlükleri
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD çözümleme Azure İzleyici günlükleri ile etkinlik günlükleri
 
 Çalıştırdıktan sonra [Azure AD tümleştirme etkinlik günlükleri ile Azure İzleyici günlüklerine](howto-integrate-activity-logs-with-log-analytics.md), ortamınız hakkında Öngörüler elde etmek için Azure İzleyici günlüklerine gücünü kullanın. Ayrıca yükleyebilirsiniz [oturum Analiz görünümleri için Azure AD etkinlik günlükleri](howto-install-use-log-analytics-views.md) ortamınıza erişmek için Denetim ve oturum açma olaylarını önceden oluşturulmuş raporları.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046305"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005872"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -83,14 +83,15 @@ Yeni bir depolama kaynağı kaynaklar bölümüne ekleyerek şablonuna ekleyin.
 
 ```json
 {
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Storage/storageAccounts",
-  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
-  "location": "[parameters('computeLocation')]",
-  "sku": {
-    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+    "location": "[parameters('computeLocation')]",
+    "sku": {
+    "name": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "tier": "standard"
   },
-  "tags": {
+    "tags": {
     "resourceType": "Service Fabric",
     "clusterName": "[parameters('clusterName')]"
   }

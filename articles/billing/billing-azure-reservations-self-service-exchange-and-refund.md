@@ -1,7 +1,6 @@
 ---
 title: Self Servis değişimleri ve Azure ayırmalar için para iadesi | Microsoft Docs
 description: Bilgi nasıl değiştirebilir ya da para iadesi Azure ayırmalar.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281990"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009319"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self Servis değişimleri ve Azure ayırmalar için para iadesi
 
-Azure ayırmalar, gelişen gereksinimlerini karşılamaya yardımcı olmak için esneklik sağlar. Aynı türdeki başka bir ayırma için bir ayırma değiştirebilir. Artık ihtiyacınız kalmadığında en fazla 50.000 ABD Doları, yılda bir ayırma geri ödeme.
+Azure ayırmalar, gelişen gereksinimlerini karşılamaya yardımcı olmak için esneklik sağlar. Bir rezervasyonu aynı türdeki başka bir rezervasyonla değiştirebilirsiniz. İhtiyaç duymadığınız rezervasyonları da iade ederek yılda 50.000 ABD dolarına kadar para iadesi alabilirsiniz.
 
-Self Servis exchange ve iptal etme yeteneği, ABD kamu Kurumsal Anlaşma müşterileri için kullanılamaz. Kullandıkça Öde ve CSP dahil olmak üzere diğer US Government aboneliği türleri desteklenir.
+Self servis değişim ve iptal özelliği US Government Kurumsal Anlaşma müşterileri tarafından kullanılamaz. Kullandıkça Öde ve CSP dahil olmak üzere diğer US Government aboneliği türleri desteklenir.
+
+Exchange veya mevcut bir ayırma para iadesi için rezervasyon siparişi sahibi erişiminiz olmalıdır.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Mevcut bir ayrılmış örnek değişimi
 
@@ -32,14 +33,14 @@ Self Servis exchange ve iptal etme yeteneği, ABD kamu Kurumsal Anlaşma müşte
 
 1. Para iadesi ve istediğiniz ayırmaları seçin **Exchange**.  
     ![Döndürülecek ayırmaları gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Satın almak ve bir miktar yazın, istediğiniz VM ürün seçin. Yeni satın alma toplam dönüş toplam birden fazla olduğundan emin olun. [Satın aldığınız önce doğru boyutta belirlemek](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Satın almak istediğiniz VM ürününü seçip miktar girin. Yeni satın alma toplam dönüş toplam birden fazla olduğundan emin olun. [Satın aldığınız önce doğru boyutta belirlemek](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Bir exchange ile satın almak için VM ürün gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Gözden geçirin ve işlemi tamamlayın.  
     ![Bir exchange dönüş tamamlama, satın almak için VM ürün gösteren örnek resim](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Rezervasyon para iadesi için şuraya gidin: **rezervasyon ayrıntıları** tıklatıp **para iadesi**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Nasıl geri dönün ve exchange işlemleri işlendi
+## <a name="how-transactions-are-processed"></a>İşlemler nasıl işlenir
 
 İlk olarak, Microsoft var olan ayırmayı iptal eder ve eşit olarak miktarın bu ayırma için. Bir exchange varsa, yeni satın alma işlenir. Microsoft, ödeme yöntemini ve hesap türüne bağlı olarak, aşağıdaki yöntemlerden birini kullanarak para iadelerini işleme:
 
@@ -49,7 +50,7 @@ Para değişimleri için parasal taahhüt eklenir ve satın alma biri kullanıla
 
 Satın alma bir kapasite aşımı olarak yapıldıysa, Microsoft iade faturası verir.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Kullandıkça Öde fatura ödeme müşterileri ve bulut çözümü sağlayıcısı programı
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Kullandıkça Öde faturalı ödemeleri ve CSP programı
 
 Orijinal rezervasyon satın alma fatura iptal ve ardından yeni bir fatura para iadesi oluşturulur. Değişimleri için yeni bir fatura para iadesi ve yeni satın alma işlemini gösterir. İade miktarı, satın alma karşı ayarlanır. Yalnızca bir rezervasyonu para iadesi, Microsoft ile eşit olarak bölünmüş miktarı kalır ve bir sonraki rezervasyon satın alma karşı ayarlanır.
 
@@ -74,7 +75,7 @@ Orijinal rezervasyon satın alma fatura iptal ve ardından yeni bir fatura para 
 - Yalnızca ayırma sahipleri bir para iadesi işleyebilir. [Bilgi ayırma yönetebilen ekleme veya değiştirme kullanıcılara nasıl](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Ceza ücret şu anda değil ancak Microsoft % 12 cezası herhangi döndürür için ücret hakkını saklı tutar.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Premium olmayan depolama bir premium depolama ayırma için VM ayırma değişimi
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Premium depolama için Exchange premium olmayan depolama
 
 Satın alınan yapan karşılık gelen bir VM boyutu için premium depolama desteği olmayan bir VM boyutu için bir ayırma değiştirebilir. Örneğin, bir _F1_ için bir _F1s_. Değişikliği yapmak için ayırma ayrıntılarına gidin ve **Exchange**. Exchange ayrılmış örnek dönemi sıfırlama değil ya da yeni bir işlem oluşturun.
 

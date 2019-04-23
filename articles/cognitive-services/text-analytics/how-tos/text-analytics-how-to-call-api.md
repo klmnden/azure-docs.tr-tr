@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122884"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011271"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -26,7 +26,7 @@ Her isteğin erişim anahtarınız ve bir HTTP uç noktası eklemeniz gerekir. Y
 Metin analizi yönetmek için hiçbir veri varlıklarını zorlaştırıyorsa durum bilgisiz olduğunu hatırlayın. Metninizi alındığında analiz karşıya yüklendikten ve sonuçları hemen çağıran uygulamaya döndürülür.
 
 > [!Tip]
-> API nasıl çalıştığını görmek tek seferlik çağrıları için yerleşik POST istekleri gönderebilirsiniz **API sınama Konsolu**, tüm kullanılabilir [API belge sayfasında](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Kurulumu yok ve tek gereksinim bir erişim anahtarı ve JSON belgeleri istek yapıştırmak üzeresiniz. 
+> API nasıl çalıştığını görmek tek seferlik çağrıları için yerleşik POST istekleri gönderebilirsiniz **API sınama Konsolu**, tüm kullanılabilir [API belge sayfasında](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Kurulumu yok ve tek gereksinim bir erişim anahtarı ve JSON belgeleri istek yapıştırmak üzeresiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,8 +42,8 @@ Giriş JSON içinde yapılandırılmamış ham metin olmalıdır. XML desteklenm
 
 | Öğe | Geçerli değerler | Gerekli mi? | Kullanım |
 |---------|--------------|-----------|-------|
-|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gerekli | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
-|`text` | Yapılandırılmamış ham metni, en çok 5.120 karakter. | Gerekli | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
+|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gereklidir | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
+|`text` | Yapılandırılmamış ham metni, en çok 5.120 karakter. | Gereklidir | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
 |`language` | 2 karakterli [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) için kod bir [dil desteklenmiyor](../text-analytics-supported-languages.md) | Değişir | Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama için gerekli; dil algılama için isteğe bağlı. Hata yoktur, hariç tutarsanız, ancak analiz olmadan zayıflar. Dil kodu karşılık gelmelidir `text` size sağlar. |
 
 Sınırları hakkında daha fazla bilgi için bkz. [metin Analizi'ne genel bakış > veri sınırları](../overview.md#data-limits). 
@@ -60,10 +60,10 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
 
    Kaynak uç noktası (bölgenizi değişebilir) aşağıdaki gibi şunlardır:
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Üç istek üst bilgilerini ayarla:
 
@@ -81,10 +81,10 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
 
 5. İstenen analiz için geçerli bir biçimde bazı JSON belgeleri olarak yapıştırın. Belirli bir çözümleme hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-   + [Dil algılama](text-analytics-how-to-language-detection.md)  
-   + [Anahtar ifade ayıklama](text-analytics-how-to-keyword-extraction.md)  
-   + [Yaklaşım analizi](text-analytics-how-to-sentiment-analysis.md)  
-   + [Varlık tanıma (Önizleme)](text-analytics-how-to-entity-linking.md)  
+  + [Dil algılama](text-analytics-how-to-language-detection.md)  
+  + [Anahtar ifade ayıklama](text-analytics-how-to-keyword-extraction.md)  
+  + [Yaklaşım analizi](text-analytics-how-to-sentiment-analysis.md)  
+  + [Varlık tanıma](text-analytics-how-to-entity-linking.md)  
 
 
 6. Tıklayın **Gönder** isteği göndermek için. Dakika başına en fazla 100 istek gönderebilirsiniz. 

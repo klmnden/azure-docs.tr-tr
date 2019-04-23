@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877080"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000054"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services Topluluğu  
 
@@ -37,10 +37,13 @@ Bu Azure Media Services (AMS) topluluğu sayfası AMS hakkındaki güncelleştir
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Tartışma
+
 ### <a name="twitter"></a>Twitter
+
 Kullanım [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter tanıtıcısı bizimle iletişim kurun veya güncelleştirmeleri Twitter'da takip edin. Kullanabileceğiniz [ @AzureSupport ](https://twitter.com/azuresupport) Twitter'da destek istemek için twitter tanıtıcısı.  
 
 ### <a name="online-forums"></a>Çevrimiçi forumlar
+
 Aşağıdaki forumları geçerli ürünleri ve özellikleri hakkında sorular sormak için kullanılabilir.
 
 Şu anda, MSDN, Media Services takımın birincil Topluluk Forumu aşamasındadır.
@@ -48,9 +51,11 @@ Aşağıdaki forumları geçerli ürünleri ve özellikleri hakkında sorular so
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 Takım, Stack Overflow sitesinde 'azure-media-services ile' etiketli sorular da izler.
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Ekibe ulaşın
+
 Azure Media Services birincil destek e-posta: **amshelp\@microsoft.com**.
 
 Aşağıdaki tabloda, e-posta özelliği alt takımlar listelenmektedir:

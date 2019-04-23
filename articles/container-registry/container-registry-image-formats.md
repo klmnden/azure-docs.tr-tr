@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 04/18/2019
 ms.author: danlep
-ms.openlocfilehash: e7155604339bc634078fd022e05ede5f902bc0d8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
-ms.translationtype: MT
+ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634730"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997079"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry'de desteklenen içerik biçimleri
 
@@ -21,16 +21,19 @@ ms.locfileid: "51634730"
 
 ## <a name="docker-compatible-container-images"></a>Docker ile uyumlu kapsayıcı görüntüleri
 
+Aşağıdaki Docker kapsayıcı görüntüsü biçimleri desteklenir:
+
 * [Docker görüntüsü bildirim V2, Şeması 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
 * [Docker görüntüsü bildirim V2, şema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) -bildirim tek "image: tag" başvuru altında birden çok platform görüntüleri depolamak kayıt defterleri sağlayan listeler içerir
 
-* [Açık kapsayıcı girişim (OCI) görüntü biçim belirtimi](https://github.com/opencontainers/image-spec/blob/master/spec.md) 
+## <a name="oci-images"></a>OCI görüntüleri
 
+Azure Container Registry de karşılayan görüntüleri destekler [açık kapsayıcı girişim (OCI) görüntü biçim belirtimi](https://github.com/opencontainers/image-spec/blob/master/spec.md). Paketleme biçimler [Singularity görüntü biçimi (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
 
 ## <a name="helm-charts"></a>Helm grafikleri
 
-Azure Container Registry de depolar için ana bilgisayar [Helm grafikleri](https://helm.sh/), hızlı bir şekilde yönetmek ve Kubernetes için uygulamaları dağıtmak için kullanılan bir paketleme biçimi. [Helm istemci](https://docs.helm.sh/using_helm/#installing-helm) 2.11.0 sürümü veya üzeri desteklenir.
+Azure Container Registry için depoları barındırabilir [Helm grafikleri](https://helm.sh/), hızlı bir şekilde yönetmek ve Kubernetes için uygulamaları dağıtmak için kullanılan bir paketleme biçimi. [Helm istemci](https://docs.helm.sh/using_helm/#installing-helm) 2.11.0 sürümü veya üzeri desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

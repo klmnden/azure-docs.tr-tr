@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42528038b5744f001422620031a1e5300bb4146d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898270"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996297"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Hızlı Başlangıç: C + Azure uzamsal bağlayıcıları ile bir HoloLens uygulaması oluşturma +/ WinRT ve DirectX
 
-Bu hızlı başlangıçta HoloLens kullanarak uygulama oluşturma konusunu kapsar [Azure uzamsal bağlayıcılarını](../overview.md) C + +/ WinRT ve DirectX. Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı Hatırlayacağınız bir HoloLens uygulaması gerekir.
+Bu hızlı başlangıçta HoloLens kullanarak uygulama oluşturma konusunu kapsar [Azure uzamsal bağlayıcılarını](../overview.md) içinde C++/WinRT ve DirectX. Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı Hatırlayacağınız bir HoloLens uygulaması gerekir.
 
 Şunları öğrenirsiniz:
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıçta HoloLens kullanarak uygulama oluşturma konusunu kapsa
 Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 - Bir Windows makineyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> ile yüklenen **Evrensel Windows platformu geliştirme** iş yükü ve **Windows 10 SDK (10.0.17763.0 ya da daha yeni)** bileşeni ve <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
-- [C + +/ WinRT Visual Studio Uzantısı (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio yüklü [Visual Studio Market](https://marketplace.visualstudio.com/).
+- [ C++WinRT Visual Studio Uzantısı (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio yüklü [Visual Studio Market](https://marketplace.visualstudio.com/).
 - HoloLens cihazla [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin. Bu makale gerekir HoloLens cihazla [Windows 10 Ekim 2018 güncelleştirmesi](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (RS5 olarak da bilinir). HoloLens üzerinde en son sürümüne güncelleştirmek için **ayarları** uygulama, Git **güncelleştirme ve güvenlik**, ardından **Güncelleştirmeleri denetle** düğmesi.
 - Uygulamanızı ayarlamalısınız **spatialPerception** AppX bildirimi özelliği.
 
@@ -58,6 +58,8 @@ Bulun `SpatialAnchorsAccountId` değiştirin ve alan `Set me` hesap tanımlayıc
 ## <a name="deploy-the-app-to-your-hololens"></a>HoloLens için uygulama dağıtma
 
 Değiştirme **çözüm yapılandırması** için **yayın**, değiştirme **çözüm platformu** için **x86**seçip **cihaz**  dağıtım hedef seçenekleri.
+
+HoloLens 2 kullanıyorsanız kullanın **ARM** olarak **çözüm platformu**, yerine **x86**.
 
 ![Visual Studio yapılandırması](./media/get-started-hololens/visual-studio-configuration.png)
 

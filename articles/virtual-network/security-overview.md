@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798698"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996790"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -32,11 +32,11 @@ Bir ağ güvenlik grubunda Azure abonelik [limitleri](../azure-subscription-serv
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Ad|Ağ güvenlik grubu içinde benzersiz bir ad.|
+|Name|Ağ güvenlik grubu içinde benzersiz bir ad.|
 |Öncelik | 100 ile 4096 arasında bir rakam. Kurallar öncelik sırasına göre işleme alınır ve düşük rakamlı kurallar daha yüksek önceliğe sahip olduğundan yüksek rakamlı kurallardan önce uygulanır. Trafik bir kuralla eşleştiğinde işlem durur. Bunun sonucunda yüksek önceliğe sahip olan kurallarla aynı özniteliklere sahip olan önceliği daha düşük olan (yüksek rakamlı) kurallar işleme alınmaz.|
 |Kaynak veya hedef| Herhangi bir IP adresi, sınıfsız etki alanları arası yönlendirme (CIDR) bloğu (10.0.0.0/24 gibi), [hizmet etiketi](#service-tags) veya [uygulama güvenlik grubu](#application-security-groups). Bir Azure kaynağı için adres belirtirken kaynağa atanmış olan özel IP adresini belirtmeniz gerekir. Ağ güvenlik grupları, Azure gelen trafik için genel IP adresini özel IP adresine çevirdikten sonra ve giden trafik için özel IP adresini genel IP adreslerine çevirmeden önce işleme alınır. Azure [IP adresleri](virtual-network-ip-addresses-overview-arm.md) hakkında daha fazla bilgi edinin. Aralık, hizmet etiketi veya uygulama güvenlik grubu belirterek daha az sayıda güvenlik kuralı oluşturabilirsiniz. Bir kuralda birden fazla IP adresi veya aralığı belirtme özelliği (birden fazla hizmet etiketi veya uygulama grubu belirtemezsiniz) [genişletilmiş güvenlik kuralı](#augmented-security-rules) olarak adlandırılır. Genişletilmiş güvenlik kuralları yalnızca Resource Manager dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında oluşturulabilir. Klasik dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında birden fazla IP adresi ve IP adresi aralığı belirtemezsiniz. [Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında daha fazla bilgi edinin.|
 |Protokol     | TCP, UDP veya (ancak bunlarla sınırlı değil) içeren herhangi, TCP, UDP ve ICMP. Tek başına ICMP'yi belirtemezsiniz. ICMP gerekiyorsa Tümü seçeneğini kullanın. |
-|Yön| Kuralın gelen veya giden trafiğe uygulanma seçeneği.|
+|Direction| Kuralın gelen veya giden trafiğe uygulanma seçeneği.|
 |Bağlantı noktası aralığı     |Tek bir bağlantı noktası veya aralık belirtebilirsiniz. Örneğin 80 veya 10000-10005 değerini kullanabilirsiniz. Aralık belirterek oluşturmanız gereken güvenlik kuralı sayısını azaltabilirsiniz. Genişletilmiş güvenlik kuralları yalnızca Resource Manager dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında oluşturulabilir. Klasik dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında aynı güvenlik kuralı içinde birden fazla bağlantı noktası ve bağlantı noktası aralığı belirtemezsiniz.   |
 |Eylem     | İzin ver veya reddet        |
 
@@ -57,7 +57,7 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
 
  Güvenlik kuralı tanımlarken aşağıdaki hizmet etiketlerinden faydalanabilirsiniz. Farklı [Azure dağıtım modellerindeki](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) etiket adları arasında küçük farklar vardır.
 
-* **VirtualNetwork** (Resource Manager) (**vırtual_network** Klasik için): Sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bu etiketi içeren bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağlara veya bağlı olan sanal ağı bir [sanal ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **VirtualNetwork** (Resource Manager) (**vırtual_network** Klasik için): Sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bu etiketi içeren bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağlara veya bağlı olan sanal ağı bir [sanal ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve adres önekleri kullanılan [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** Klasik için): Bu etiket Azure'nın altyapı yük dengeleyicisini belirtir. Bu etiket, Azure’ın sistem durumu araştırmalarının kaynağı olan [Ana bilgisayar sanal IP adresine](security-overview.md#azure-platform-considerations) (168.63.129.16) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 * **Internet** (Resource Manager) (**INTERNET** Klasik için): Bu etiket, sanal ağın dışında olan ve genel Internet ile ulaşılabilen IP adresi alanını belirtir. Adres aralığı [Azure'a ait genel IP adresi alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 * **AzureCloud** (yalnızca Resource Manager): Bu etiket, tüm dahil olmak üzere Azure için IP adresi alanını belirtir [veri merkezi genel IP adresleri](https://www.microsoft.com/download/details.aspx?id=41653). *AzureCloud* değerini belirtirseniz Azure genel IP adreslerine giden trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AzureCloud erişimine izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure AzureCloud hizmetine erişim izni vermek istiyorsanız *AzureCloud.EastUS* hizmet etiketini kullanabilirsiniz. 

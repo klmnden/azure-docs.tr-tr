@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551648"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011852"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
 Lsv2 serisi özellikleri yüksek aktarım hızı, düşük gecikme süresi, doğrudan yerel NVMe depolama üzerinde çalışan eşlenen [AMD EPYC &trade; 7551 İşlemci](https://www.amd.com/en/products/epyc-7000-series) 2.55 GHz ve en fazla bir boost 3.0 GHz, tüm bir çekirdek boost ile. Lsv2 serisi VM’ler, eş zamanlı bir çoklu iş parçacığı yapılandırmasında 8 ile 80 vCPU arasında değişen boyutlarda sunulur.  vCPU başına 8 GiB bellek ve 8 vCPU başına 1,92 TB NVMe SSD M.2 cihazı sunulurken, L80s v2 adlı en üst model 19,2 TB (10x1,92 TB) depolama içerir.
 
 > [!NOTE]
-> Lsv2 serisi VM'ler, kalıcı veri diskleri kullanmak yerine doğrudan sanal Makineye bağlı bir düğümde yerel diski kullanacak şekilde iyileştirilmiştir. Böylece büyük IOPS / aktarım hızı iş yükleriniz için. Lsv2 serisi kalıcı veri diskleri tarafından ulaşılabilir IOPS artırmak için yerel bir önbellek oluşturulmasını desteklemiyor. Yüksek aktarım hızı ve yerel disk IOPS değeri yapar Lsv2 serisi VM'ler, tek bir VM bir arıza olması durumunda kalıcılığı sağlamak için birden çok VM arasında veri çoğaltmak Apache Cassandra ve MongoDB gibi NoSQL depoları için idealdir.
+> Lsv2 serisi VM'ler, kalıcı veri diskleri kullanmak yerine doğrudan sanal Makineye bağlı bir düğümde yerel diski kullanacak şekilde iyileştirilmiştir. Böylece büyük IOPS / aktarım hızı iş yükleriniz için. Ls serisi ve Lsv2 kalıcı veri diskleri tarafından ulaşılabilir IOPS artırmak için yerel bir önbellek oluşturulmasını desteklemez.
+>
+> Yüksek aktarım hızı ve yerel disk IOPS sağlar Ls serisi VM'ler ve Lsv2 Apache Cassandra ve MongoDB gibi tek bir VM bir arıza olması durumunda kalıcılığı sağlamak için birden çok VM arasında veri çoğaltmak NoSQL depoları için idealdir.
+>
+> Daha fazla bilgi için bkz. [Lsv2 serisi sanal makineler üzerinde performansı en iyi duruma](../articles/virtual-machines/linux/storage-performance.md).  
+
 
 ## <a name="lsv2-series"></a>Lsv2 serisi
 

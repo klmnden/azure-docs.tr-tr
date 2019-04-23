@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659465"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005358"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Etkinleştirme ve Linux sanal makineleri bir laboratuar ortamında Azure Lab Services içinde için Uzak Masaüstü kullanma
 Bu makalede, aşağıdaki görevlerin nasıl yapılacağını gösterir:
@@ -35,6 +35,7 @@ Laboratuvar oluşturma sırasında Öğretmenler etkinleştirebilirsiniz **Uzak 
 > [!IMPORTANT] 
 > Etkinleştirme **Uzak Masaüstü Bağlantısı** yalnızca açılır **RDP** Linux makinelerinde bağlantı noktası. Bir öğretmen olarak, ilk kez SSH kullanarak Linux makinesine bağlanma ve daha sonra RDP kullanarak bir Linux makineye bağlanabilmesi RDP ve GUI paketlerini yükleyin. Ardından, **yayımlama** yansıma böylece Öğrenciler RDP Öğrenci Linux Vm'leri için. 
 
+## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 Şu anda Uzak Masaüstü Bağlantısı, aşağıdaki işletim sistemlerinde desteklenir:
 
 - openSUSE Leap 42.3

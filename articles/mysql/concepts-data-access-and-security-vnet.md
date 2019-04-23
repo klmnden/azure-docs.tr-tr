@@ -1,18 +1,18 @@
 ---
 title: MySQL sunucusu sanal ağ için Azure veritabanı hizmetleri uç noktası genel bakış | Microsoft Docs
 description: Sanal ağ hizmet uç noktaları için Azure veritabanınızı MySQL sunucusuna nasıl açıklar.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006609"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005874"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı için MySQL kullanır.
 

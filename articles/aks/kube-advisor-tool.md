@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: MT
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218652"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000139"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Kubernetes kümenizdeki en iyi uygulamaları denetleme
 
@@ -27,7 +27,7 @@ Kubernetes dağıtımlarınızı en iyi performans ve uygulamalarınız için da
 
 ## <a name="running-kube-advisor"></a>Çalışan kube-Danışman
 
-Aracı için yapılandırılmış bir kümede çalıştırmak için [rol tabanlı erişim denetimi (RBAC)](aad-integration.md), aşağıdaki komutları kullanarak. İlk komut, bir Kubernetes hizmeti hesabı oluşturur. İkinci komut, bu hizmet hesabı'nı kullanarak bir pod içinde Aracı'nı çalıştırır ve bu çıktıktan sonra pod silme işlemi için yapılandırır. 
+Aracı için yapılandırılmış bir kümede çalıştırmak için [rol tabanlı erişim denetimi (RBAC)](azure-ad-integration.md), aşağıdaki komutları kullanarak. İlk komut, bir Kubernetes hizmeti hesabı oluşturur. İkinci komut, bu hizmet hesabı'nı kullanarak bir pod içinde Aracı'nı çalıştırır ve bu çıktıktan sonra pod silme işlemi için yapılandırır. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

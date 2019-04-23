@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650130"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006021"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -302,7 +302,7 @@ Java ve Azure anahtar kasası uygulamak kolaylaştıran API'leri sırayla kullan
   Bu makalede, istemci tarafı şifreleme bir açıklama sunar ve şifreleme ve şifre çözme dört depolama hizmetlerinde kaynakları için depolama istemcisi kitaplığı kullanma örnekleri sağlar. Ayrıca, Azure Key Vault hakkında konuşuyor.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Diskleri, sanal makineler tarafından kullanılan şifreleme için Azure Disk Şifrelemesi'ni kullanma
-Azure Disk şifrelemesi yeni bir özelliktir. Bu özellik işletim sistemi diskleri ve veri diskleri bir Iaas sanal makine tarafından kullanılan şifrelemenizi sağlar. Windows için sürücüleri, endüstri standardı BitLocker şifreleme teknolojisi kullanılarak şifrelenir. Linux için DM-Crypt teknolojisini kullanarak diskleri şifrelenir. Bu, disk şifreleme anahtarlarını yönetmek ve denetlemek izin vermek için Azure anahtar kasası ile tümleştirilmiştir.
+Azure Disk şifrelemesi, işletim sistemi diskleri ve veri diskleri bir Iaas sanal makine tarafından kullanılan şifreleme sağlar. Windows için sürücüleri, endüstri standardı BitLocker şifreleme teknolojisi kullanılarak şifrelenir. Linux için DM-Crypt teknolojisini kullanarak diskleri şifrelenir. Bu, disk şifreleme anahtarlarını yönetmek ve denetlemek izin vermek için Azure anahtar kasası ile tümleştirilmiştir.
 
 Microsoft Azure'da etkinleştirildiğinde çözüm Iaas Vm'leri için aşağıdaki senaryoları destekler:
 

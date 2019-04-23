@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998473"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -92,20 +92,22 @@ Azure dosyaları iki performans katmanı sunar: standart ve premium.
 |Kuzey Avrupa  | Hayır |
 |Batı Avrupa   | Evet|
 |Güney Doğu Asya       | Evet|
+|Doğu Asya     | Hayır |
 |Japonya Doğu    | Hayır |
+|Japonya Batı    | Hayır |
 |Kore Orta | Hayır |
 |Avustralya Doğu| Hayır |
 
 ### <a name="provisioned-shares"></a>Sağlanan paylaşımlar
 
-Premium dosya paylaşımları (Önizleme), bir sabit GiB/IOPS/işleme oranını göre sağlanır. Bir IOPS ve Paylaşım başına maksimum sınırlara kadar 0,1 MiB/sn aktarım hızı, sağlanan her GiB için paylaşım verilir. Sağlama izin verilen en düşük, en düşük IOPS/aktarım hızı ile 100 GiB ' dir. Paylaşım boyutu her zaman ve azaltılmış dilediğiniz zaman artırılabilir ancak her 24 saatte bir kez son artış beri azaltılabilir.
+Premium dosya paylaşımları (Önizleme), bir sabit GiB/IOPS/işleme oranını göre sağlanır. Bir IOPS ve Paylaşım başına maksimum sınırlara kadar 0,1 MiB/sn aktarım hızı, sağlanan her GiB için paylaşım verilir. Sağlama izin verilen en düşük, en düşük IOPS/aktarım hızı ile 100 GiB ' dir.
 
 En iyi çaba ilkesine göre tüm paylaşımlar üç IOPS sağlanan depolama GiB başına en fazla 60 dakika veya daha uzun paylaşımın boyutuna bağlı olarak veri bloğu. Yeni paylaşımlar üzerinde sağlanan kapasitesine göre tam veri bloğu kredi ile başlayın.
 
-Tüm paylaşımlar, en az 100 IOPS ve hedef işleme 100 MiB/sn kadar veri bloğu. Paylaşımları 1 GiB artışlarla sağlanması gerekir. En küçük boyutu 100 GiB, bir sonraki boyuta 101 GIB ve böyle devam eder.
+Paylaşımları 1 GiB artışlarla sağlanması gerekir. En küçük boyutu 100 GiB, bir sonraki boyuta 101 GIB ve böyle devam eder.
 
 > [!TIP]
-> Temel IOPS = 100 + 1 * GiB sağlandı. (En fazla 100.000 IOPS kadar).
+> Temel IOPS = 1 * GiB sağlandı. (En fazla 100.000 IOPS kadar).
 >
 > Veri bloğu sınırı 3 = * temel IOPS. (En fazla 100.000 IOPS kadar).
 >
@@ -113,13 +115,13 @@ Tüm paylaşımlar, en az 100 IOPS ve hedef işleme 100 MiB/sn kadar veri bloğu
 >
 > Giriş oranı = 40 MiB/sn + 0.04 * GiB sağlandı
 
-Paylaşım boyutu her zaman ve azaltılmış dilediğiniz zaman artırılabilir ancak her 24 saatte bir kez son artış beri azaltılabilir. Boyutu değişiklikten sonra 24 saat içinde IOPS/işleme ölçek değişiklikler geçerli olacaktır.
+Paylaşım boyutu, herhangi bir zamanda artırılabilir ancak yalnızca son artış itibaren 24 saat sonra azaltılabilir. Boyutu artışı olmadan 24 saat boyunca bekledikten sonra tekrar artırmak kadar birçok kez paylaşım boyutu düşürebilir. Boyutu değişiklikten sonra birkaç dakika içinde IOPS/işleme ölçek değişiklikler geçerli olacaktır.
 
 Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı örnekler gösterilmektedir:
 
 (Belirtilen boyutlar tarafından bir * de sınırlı genel Önizleme)
 
-|Kapasite (GiB) | Temel IOPS | Veri bloğu sınırı | Egress (MiB/s) | Giriş (MiB/sn) |
+|Kapasite (GiB) | Temel IOPS | IOPS veri bloğu | Egress (MiB/s) | Giriş (MiB/sn) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | En fazla 300     | 66   | 44   |
 |500         | 500     | En fazla 1500   | 90   | 60   |
@@ -136,20 +138,20 @@ Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı ö
 
 Premium dosya paylaşımlarını bir faktör üç kadar kendi IOPS veri bloğu. Genişletme, otomatik olarak ve kredi sisteme göre çalışır. En iyi çaba ilkesine ve yığma sınırı üzerinde çalışır Patlaması garantisi değil, dosya paylaşımları veri bloğu *kadar* sınırı.
 
-Trafik, fileshares için temel IOPS altında olduğunda bir veri bloğu kovada KREDİLERİ toplar. Örneğin, 100 temel IOPS bir 100 GiB paylaşımı vardır. Paylaşım gerçek trafiği için belirli 1 saniyelik aralıklarla 40 IOPS olduysa, 60 kullanılmayan IOPS için bir veri bloğu demet alacak. İşlem ' % s'temeli IOPS aşılmasına KREDİLERİ ardından daha sonra kullanılacak.
+Dosya paylaşımınızın trafiği IOPS temel altında olduğunda bir veri bloğu kovada KREDİLERİ toplar. Örneğin, 100 temel IOPS bir 100 GiB paylaşımı vardır. Paylaşım gerçek trafiği için belirli 1 saniyelik aralıklarla 40 IOPS olduysa, 60 kullanılmayan IOPS için bir veri bloğu demet alacak. İşlem ' % s'temeli IOPS aşılmasına KREDİLERİ ardından daha sonra kullanılacak.
 
 > [!TIP]
-> Veri bloğu sınırı demet boyutunu Baseline_IOPS = * 2 * 3600.
+> Veri bloğu demet boyutunu Baseline_IOPS = * 2 * 3600.
 
-Bir Paylaşımı ' % s'temeli IOPS aşıyor ve veri bloğu kovada KREDİLERİ olan her veri bloğu. Paylaşımları paylaşımları 50 tiB daha küçük bir saat süreyle veri bloğu sınırı, yalnızca kalır ancak kalan KREDİLERİ sürece veri bloğu devam edebilirsiniz. Paylaşımları 50 TiB daha büyük, teknik olarak bu bir saatlik sınırın aşılmasına neden olabilir, Yukarı ancak, bu iki saate tahakkuk eden aşırı KREDİLERİ sayısına bağlıdır. Bir kredi temel IOPS dışına her GÇ kullanır ve tüm KREDİLERİ tüketilen sonra paylaşım IOPS taban çizgisine döndürür.
+Bir Paylaşımı ' % s'temeli IOPS aşıyor ve veri bloğu kovada KREDİLERİ olan her veri bloğu. Paylaşımları paylaşımları 50 TiB daha küçük bir saat süreyle veri bloğu sınırı, yalnızca kalır ancak kalan KREDİLERİ sürece veri bloğu devam edebilirsiniz. Paylaşımları 50 TiB daha büyük, teknik olarak bu bir saatlik sınırın aşılmasına neden olabilir, Yukarı ancak, bu iki saate tahakkuk eden aşırı KREDİLERİ sayısına bağlıdır. Bir kredi temel IOPS dışına her GÇ kullanır ve tüm KREDİLERİ tüketilen sonra paylaşım IOPS taban çizgisine döndürür.
 
 Paylaşım KREDİLERİ üç durumu vardır:
 
 - Dosya Paylaşımı ' % s'temeli IOPS sayısından az kullanılırken uygulanıyor.
 - Dosya Paylaşımı Patlaması zaman azalan.
-- Hiçbir KREDİLERİ veya bir temel sıfır olarak kalan IOPS kullanımda olması.
+- Hiçbir KREDİLERİ veya temel sabit kalan IOPS kullanımda olması.
 
-Yeni dosya paylaşımları başlangıcı tam krediler kendi veri bloğu demet sayısı ile.
+Yeni dosya paylaşımları başlangıcı tam krediler kendi veri bloğu demet sayısı ile. Paylaşım IOPS IOPS temel sunucu tarafından azaltıldığı 'un altına düşersek veri bloğu KREDİLERİ tahakkuk değil.
 
 ## <a name="file-share-redundancy"></a>Dosya Paylaşımı yedeklilik
 

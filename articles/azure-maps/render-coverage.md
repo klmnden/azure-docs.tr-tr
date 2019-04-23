@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370287"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996586"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure haritalar işleme kapsamı
 
@@ -169,7 +169,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Cocos (Keeling) Adaları   |   | Ø |
 | Kore Demokratik Halk Cumhuriyeti |   | Ø |
 | Dokdo ve Takeshima       |   | Ø |
-| Hong Kong                 | ✓ | ✓ |
+| Hong Kong Çin ÖİB             | ✓ | ✓ |
 | Hindistan                     | Ø | ✓ | 
 | Endonezya                 | ✓ | ✓ |
 | İran                      |   | Ø |
@@ -182,7 +182,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Kırgızistan                |   | Ø |
 | Laos Demokratik Halk Cumhuriyeti |   | Ø |
 | Lübnan                   | ✓ | ✓ |
-| Makao                     | ✓ | ✓ |
+| Makao ÖİB                 | ✓ | ✓ |
 | Malezya                  | ✓ | ✓ |
 | Maldivler                  |   | Ø |
 | Moğolistan                  |   | Ø |
@@ -276,7 +276,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Lihtenştayn             | ✓ | ✓ |
 | Litvanya                 | ✓ | ✓ |
 | Lüksemburg                | ✓ | ✓ |
-| Makedonya                 | ✓ | ✓ |
+| Kuzey Makedonya           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Monako                    | ✓ | ✓ |

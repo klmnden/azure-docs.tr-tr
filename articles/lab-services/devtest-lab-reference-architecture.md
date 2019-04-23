@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 61e76369a4d73bd171c9e5c2462b3f261681ba00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551390"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996620"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs - kuruluş için başvuru mimarisi
 Bu makalede, bir kuruluşta Azure DevTest Labs dayalı bir çözümü dağıtmak için bir başvuru mimarisi sağlar. Bu, sanal makinelerine uzaktan oturum açma Uzak Masaüstü Ağ geçidi, özel yapıtlar ve Laboratuvar içinde kullanılan diğer PaaS Hizmetleri için bir yapıt deposu bağlantısı Express Route üzerinden şirket içi bağlantıyı içerir.
@@ -37,7 +37,7 @@ Başvuru mimarisindeki temel öğeleri şunlardır:
     - Tüm ağ trafiğini bulut ortamı güvenlik/uyumluluk nedenleriyle bir şirket içi güvenlik duvarı üzerinden içine ve dışına zorlama
 - **Ağ güvenlik grupları**: Bulut ortamı (veya Bulut ortamında) trafiği kısıtlamak için yaygın bir yolu tabanlı kaynak ve hedef IP adresi olduğu kullanmak için bir [ağ güvenlik grubu](../virtual-network/security-overview.md). Örneğin, yalnızca Laboratuvar ağlara ve şirket ağından gelen ağ trafiğine izin verme.
 - **Uzak Masaüstü Ağ Geçidi**:  Kuruluşlar genellikle şirket güvenlik duvarında giden Uzak Masaüstü bağlantılarını engelleyin. DevTest Labs bulut tabanlı ortamında bağlantıyı etkinleştirmek için kullanma gibi birkaç seçenek vardır bir [Uzak Masaüstü Ağ Geçidi](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) (ağ geçidi yük dengeleyici için statik IP beyaz liste) veya [gelen tüm yönlendirme RDP trafiğine](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) Express Route/Site siteden siteye VPN bağlantısı üzerinden. Bir ortak kuruluş DevTest Labs'de bir dağıtımı planlarken noktadır.
-- **Azure ağ (sanal ağlar, alt ağlar)**:  [Azure ağı](../networking/networking-overview.md) başka bir anahtar öğesi genel DevTest Labs mimarisinde topolojidir. Bu kaynaklardan (veya değil), şirket içi erişim (veya etkinleştirmezsiniz) iletişim ve internet'e (veya etkinleştirmezsiniz) erişmek için labs sağlar. Müşteriler DevTest Labs kullanarak en yaygın yolu mimari diyagramını içeren (üzerinden bağlanan tüm labs [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) kullanarak bir [merkez-uç modeli](/architecture/reference-architectures/hybrid-networking/hub-spoke) Express Route/Site siteden siteye VPN bağlantısı için ağ altyapısını kurma konusunda herhangi bir kısıtlama yok doğrudan şirket içine), ancak DevTest Labs beri Azure ağ kullanır.
+- **Azure ağ (sanal ağlar, alt ağlar)**:  [Azure ağı](../networking/networking-overview.md) başka bir anahtar öğesi genel DevTest Labs mimarisinde topolojidir. Bu kaynaklardan (veya değil), şirket içi erişim (veya etkinleştirmezsiniz) iletişim ve internet'e (veya etkinleştirmezsiniz) erişmek için labs sağlar. Müşteriler DevTest Labs kullanarak en yaygın yolu mimari diyagramını içeren (üzerinden bağlanan tüm labs [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) kullanarak bir [merkez-uç modeli](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) Express Route/Site siteden siteye VPN bağlantısı için ağ altyapısını kurma konusunda herhangi bir kısıtlama yok doğrudan şirket içine), ancak DevTest Labs beri Azure ağ kullanır.
 - **DevTest Labs**:  DevTest Labs genel mimarisinin önemli bir parçasıdır. Hizmet hakkında bilgi edinmek için [DevTest Labs hakkında](devtest-lab-overview.md).
 - **Sanal makineler ve diğer kaynaklara (SaaS, PaaS ve Iaas)**:  DevTest Labs tarafından desteklenen anahtar iş yüklerinin girişlerden diğer Azure kaynakları birlikte sanal makineler.  DevTest Labs, kolay ve hızlı (sanal makineler ve diğer Azure kaynakları dahil), Azure kaynaklarına erişim vermek bir kuruluş için getirir.  Azure için erişim hakkında daha fazla bilgi [geliştiriciler](devtest-lab-developer-lab.md) ve [sınayıcılar](devtest-lab-test-env.md).
 

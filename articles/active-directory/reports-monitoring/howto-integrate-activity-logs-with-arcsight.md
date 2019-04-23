@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory günlükleri Azure İzleyicisi'ni (Önizleme) kullanarak ArcSight ile tümleştirme | Microsoft Docs
-description: Azure Active Directory günlükleri Azure İzleyicisi'ni (Önizleme) kullanarak ArcSight ile tümleştirmeyi öğrenin
+title: Azure Active Directory günlükleri Azure İzleyicisi'ni kullanarak ArcSight ile tümleştirme | Microsoft Docs
+description: Azure Active Directory günlükleri Azure İzleyicisi'ni kullanarak ArcSight ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438113"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996315"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak ArcSight ile Azure Active Directory günlükleri tümleştirme
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak ArcSight ile Azure Active Directory günlükleri tümleştirme
 
 [Micro odak ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) olan algılama ve yanıtlama için güvenlik tehditlerini platformda yardımcı olan bir güvenlik bilgileri ve Olay yönetimi (SIEM) çözümüdür. Azure AD için ArcSight Bağlayıcısı'nı kullanarak Azure İzleyicisi'ni kullanarak ArcSight için Azure Active Directory (Azure AD) günlükleri artık yönlendirebilirsiniz. Bu özellik, kiracınız için güvenliğin tehlikeye girmesi ArcSight kullanarak izlemenize olanak sağlar.  
 
@@ -59,4 +59,4 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure izleyici olay hub'ın ArcSight SmartConnector için Yapılandırma Kılavuzu](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Azure izleyici olay hub'ın ArcSight SmartConnector için Yapılandırma Kılavuzu](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

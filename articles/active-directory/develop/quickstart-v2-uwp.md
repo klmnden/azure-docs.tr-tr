@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526393"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997606"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Hızlı Başlangıç: Evrensel Windows Platformu (UWP) uygulamasından Microsoft Graph API'sini çağırma
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile kişisel, iş ve okul hesaplarıyla kullanıcıların oturumunu açmayı, erişim belirteci almayı ve Microsoft Graph API’sini çağırmayı gösteren bir kod örneği içerir.
+Bu hızlı başlangıçta nasıl bir evrensel Windows Platformu (UWP) uygulaması, kullanıcıların kişisel hesaplarıyla oturum açma veya iş ve Okul hesapları, bir erişim belirteci alma ve Microsoft Graph API'sini çağırmak gösteren kod örneği içerir.
 
 ![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
- - [Visual Studio 2017 projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
@@ -89,7 +89,7 @@ Bu hızlı başlangıç, bir Evrensel Windows Platformu (UWP) uygulaması ile ki
 > - `Enter_the_Application_Id_here` - Kaydettiğiniz uygulamanın Uygulama Kimliği değeridir.
 >
 > > [!TIP]
-> > Değerlerini bulmak için *uygulama kimliği*Git **genel bakış** sayfası
+> > Değerini bulmak için *uygulama kimliği*Git **genel bakış** portalı bölümünde
 
 #### <a name="step-4-run-your-application"></a>4. Adım: Uygulamanızı çalıştırma
 
@@ -119,7 +119,7 @@ Install-Package Microsoft.Identity.Client -IncludePrerelease
 using Microsoft.Identity.Client;
 ```
 
-Sonra şu kodu kullanarak MSAL'yi başlatın:
+Ardından, aşağıdaki kodu kullanarak MSAL başlatılır:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,11 +133,11 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Belirteç isteme
 
-MSAL, etkileşimli olarak belirteçlerini almak için kullanılan iki yöntem vardır: `AcquireTokenInteractive` ve `AcquireTokenSilent`.
+MSAL bir UWP uygulamasında belirteçlerini almak için iki yöntem vardır: `AcquireTokenInteractive` ve `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Etkileşimli olarak kullanıcı belirteci alma
 
-Bazı durumlarda, Microsoft kimlik platformu uç noktası aracılığıyla izin verin ya da ya da kendi kimlik bilgilerini doğrulamak için bir açılan pencere zorlayıcı kullanıcıların etkileşimde gerektirir. Bazı örnekler:
+Bazı durumlarda, kullanıcıların Microsoft kimlik platformu uç noktası aracılığıyla izin verin ya da ya da kendi kimlik bilgilerini doğrulamak için bir açılan pencere ile etkileşim kurmak için zorlama gerektirir. Bazı örnekler:
 
 - İlk kez kullanıcıların uygulamada oturum
 - Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
 
-Kullanıcının bir kaynağa her erişmesi gerektiğinde kimlik bilgilerini tekrar doğrulamak zorunda kalmasını istemezsiniz. Çoğu kez, belirteç alma ve yenileme işlemlerinin kullanıcı etkileşimi olmadan gerçekleşmesini istersiniz. Korunan kaynaklara erişmek üzere belirteç almak için, ilk `AcquireTokenAsync` yönteminden sonra `AcquireTokenSilent` yöntemini kullanabilirsiniz:
+Kullanım `AcquireTokenSilent` ilk korunan kaynaklara erişim belirteçleri elde etmek için yöntemi `AcquireTokenAsync` yöntemi. Bir kaynağa erişmek ihtiyaç duydukları her zaman kendi kimlik doğrulama isteyecek şekilde istemezsiniz. Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme çoğu zaman, istediğiniz
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

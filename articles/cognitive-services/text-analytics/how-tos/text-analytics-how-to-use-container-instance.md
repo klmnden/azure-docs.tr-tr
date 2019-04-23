@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526513"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006429"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Dil algılama için Azure Kubernetes hizmeti dağıtma
 
@@ -325,7 +325,7 @@ Bu bölümde kullanan **kubectl** CLI ile Azure Kubernetes hizmeti bahsedeceğiz
     |Satır 78<br> `image` Özelliği|Dil görüntüyü kapsayıcı kayıt defteriniz için görüntü konumu<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95<br> `name` Özelliği|Görüntüyü kapsayıcı kayıt defteri gizliliğini denir `<client-secret>` bir önceki bölümdeki.|
     |Satır 91<br> `apiKey` Özelliği|Metin analizi kaynak anahtarınız|
-    |Satır 92<br> `billing` Özelliği|Metin analizi kaynağınızın fatura uç noktası.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Satır 92<br> `billing` Özelliği|Metin analizi kaynağınızın fatura uç noktası.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Çünkü **apiKey** ve **uç nokta faturalama** ayarlanır Kubernetes düzenleme tanımının bir parçası, Web kapsayıcısı, isteğin bir parçası geçirileceğini ya da bunlar hakkında bilmeniz gerekmez. Web sitesi kapsayıcı orchestrator adıyla dil algılama kapsayıcıya başvuran `language`. 
 

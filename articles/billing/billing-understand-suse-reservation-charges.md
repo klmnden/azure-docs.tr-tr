@@ -1,7 +1,6 @@
 ---
-title: SUSE ayırma planı indirimi ve kullanımı - Azure'ı Anlama | Microsoft Docs
-description: SUSE-planı indirimleri SUSE yazılım sanal makinelerde nasıl uygulanır öğrenin.
-services: billing
+title: Yazılım planı indirim - Azure | Microsoft Docs
+description: Yazılım planı indirimleri sanal makinelerde yazılım nasıl uygulanır öğrenin.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917796"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002740"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>SUSE Linux Enterprise yazılım ayırma planı indirimi Azure için nasıl uygulanacağını anlama
+# <a name="azure-software-plan-discount"></a>Azure yazılım planı indirim
 
-SUSE Linux planı satın sonra İndirim dağıtılan SUSE sanal ayırma eşleşen makinelerine (VM'ler) otomatik olarak uygulanır. SUSE Linux planı, bir Azure sanal makinesinde SUSE yazılımı çalıştıran maliyetini kapsar.
+Azure yazılım planları SUSE ve RedHat, dağıtılan sanal makinelere uygulanmasını ayırmaları oluşturulabilir. Yazılım planı indirimi, eşleşen ayırma dağıtılan VM'ler yazılım kullanımını uygulanır.
 
-Doğru SUSE Linux planı satın almak için hangi SUSE Vm'leri, çalıştırma ve bu vm'lerdeki Vcpu sayısı anlamanız gerekir. Ne satın alma planı, kullanım CSV dosyasından belirlemenize yardımcı olması için aşağıdaki bölümleri kullanın.
+Bir VM'yi kapatın, indirim varsa otomatik olarak başka bir eşleşen VM'lere uygulanır. Yazılım planı yazılımı çalıştıran bir VM maliyetini kapsar. İşlem, depolama ve ağ gibi diğer ücretleri ayrı olarak ücretlendirilir.
 
-## <a name="discount-applies-to-different-vm-sizes"></a>İndirimi, farklı VM boyutları için geçerlidir.
+Doğru planı satın almak için VM kullanımının ve bu vm'lerdeki Vcpu sayısı anlamanız gerekir. Kullanım verilerinizi temel alan ne satın almayı planladığınız belirlemenize yardımcı olması için aşağıdaki bölümleri kullanın.
+
+## <a name="how-reservation-discount-is-applied"></a>Ayırma indirimi nasıl uygulanır
+
+Ayırma indirimi olan "*kullanın-BT-veya-kaybetmek-BT*". Her saat için eşleşen kaynak yoksa, bu nedenle, daha sonra ayırma miktarını bu saat için kaybedersiniz. Yerine getirilemiyor kullanılmayan ayrılmış saat iletin.
+
+Bir kaynak kapattığınızda, ayırma indirimini Belirtilen kapsam içinde başka bir eşleşen kaynak otomatik olarak uygular. Belirtilen kapsamda bulunan eşleşen kaynak yok sonra ayrılmış saatleri *kayıp*.
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Satın almadan önce RedHat VM kullanımını gözden geçirin.
+
+Ürün adı, kullanım verilerinizi nereden alacağınızı ve aynı türde ve boyutu ile RedHat plan satın alın.
+
+Örneğin, kullanımınızı ürün varsa **Red Hat Enterprise Linux - 1-4 vCPU VM lisans**, satın almalıdır **Red Hat Enterprise Linux** için **1-4 vCPU VM**.
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>Satın almadan önce SUSE VM kullanımını gözden geçirin.
+
+Ürün adı, kullanım verilerinizi nereden alacağınızı ve aynı türde ve boyutu ile SUSE plan satın alın.
+
+Örneğin, kullanımınız için ürün ise **SUSE Linux Enterprise Server öncelik - 2-4 vCPU VM desteği**, satın almalıyım **SUSE Linux Enterprise Server öncelik** için **2-4 vCPU**.
+
+![Satın almak için bir ürün seçme örneği](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>İndirimi, farklı VM boyutları SUSE planlar için geçerlidir.
 
 Ayrılmış VM örnekleri, SUSE planlama gibi satın alma işlemleri örneği boyutu esnekliği sunar. Başka bir deyişle, hatta farklı vCPU sayısı ile bir VM dağıtırken, indirim uygulanır. Yazılım planı içinde farklı VM boyutları indirimi geçerlidir.
 
@@ -39,8 +62,6 @@ Ayrılmış VM örnekleri, SUSE planlama gibi satın alma işlemleri örneği bo
 - veya bir VM ile 5 veya daha fazla Vcpu 0.77 veya hakkında %77.
 
 2.6 5 veya daha fazla Vcpu için oranıdır. Bu nedenle yaklaşık %77 yazılım maliyeti, yalnızca bir kısmı 5 veya daha fazla Vcpu ile bir VM ile SUSE için bir ayırma kapsar.
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>Satın almadan önce SUSE VM kullanımını anlama
 
 Aşağıdaki tablolarda her biri için yazılım planları için bir ayırma satın alabilir ve bunların ilişkili kullanım ölçümleri oranları gösterilmektedir.
 
@@ -122,6 +143,10 @@ Azure portal Market adları:
 |SLES 3-4 çekirdek Vcpu |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 + Vcpu |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
@@ -132,7 +157,3 @@ Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere 
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

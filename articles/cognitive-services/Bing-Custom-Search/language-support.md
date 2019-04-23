@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 942e61b0ee69402d516982c66a852d5e26304809
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859446"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006786"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing özel arama API'si için dil ve bölge desteği
 
@@ -42,7 +42,7 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Finlandiya|FI|
 |Fransa|GS|
 |Almanya|DE|
-|Hong Kong|HK|
+|Hong Kong Çin ÖİB|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
@@ -86,7 +86,7 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Finlandiya|Fince|FI-FI|
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
-|Hong Kong|Geleneksel Çince|zh-HK|
+|Hong Kong, SAR|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|

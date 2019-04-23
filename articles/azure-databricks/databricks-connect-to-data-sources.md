@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 8055b5d7e6c53abc385a99d9190a38603ebb968b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417455"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997943"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Azure Databricks'ten veri kaynaklarına bağlanın
 
@@ -31,7 +31,7 @@ Aşağıdaki liste, Azure Databricks ile kullanabileceğiniz bir Azure veri kayn
 - [Azure SQL veritabanı](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Bu bağlantı, JDBC ve paralellik okumalar JDBC arabirimi üzerinden denetleme kullanarak SQL veritabanlarına bağlanmak için veri çerçevesi API sağlar. Bu konu ile kısaltılmış Python Scala API'yi kullanarak ayrıntılı örnekler ve sonunda Spark SQL örnekleri sağlar.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)
+- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
     Bu bağlantı, Azure Active Directory Hizmet sorumlusu, Data Lake Store ile kimlik doğrulaması için kullanma hakkında örnekler sağlar. Ayrıca Azure Databricks'ten Data Lake Store verilere erişim hakkında yönergeler açıklanmaktadır.
 

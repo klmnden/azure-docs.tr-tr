@@ -11,17 +11,17 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783420"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003131"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Saydam veri şifrelemesi kullanarak kendi anahtarınızı Azure anahtar Kasası'ndaki bir yönetilen örneğinde yönetme
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Kendi anahtarınızı Azure anahtar kasasından (Önizleme) kullanarak yönetilen örneğe saydam veri şifrelemeyi yönetme
 
-Bu PowerShell Betiği örneği, Azure SQL yönetilen Azure Key vault'tan bir anahtar kullanarak örneği için kendi anahtarını Getir senaryosunda saydam veri şifrelemesi (TDE) yapılandırır. TDE Getir bilgisayarınızı kendi anahtarını (BYOK) destekli hakkında daha fazla bilgi için bkz: [TDE kendi anahtarını Getir için Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Bu PowerShell Betiği örneği, Azure SQL yönetilen Azure Key vault'tan bir anahtar kullanarak örneği için kendi anahtarını getir (Önizleme) senaryosunda saydam veri şifrelemesi (TDE) yapılandırır. TDE Getir bilgisayarınızı kendi anahtarını (BYOK) destekli hakkında daha fazla bilgi için bkz: [TDE kendi anahtarını Getir için Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

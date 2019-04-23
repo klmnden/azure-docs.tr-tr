@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889605"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006820"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Azure Data Lake depolama Gen2 büyük veri gereksinimleri için kullanma
 
@@ -118,7 +118,7 @@ Ayrıca ilişkisel veritabanlarından veri kaynağı. Bir süre, önemli öngör
 
 |Tool | Rehber |
 |---|--|
-|Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Azure Data Factory’de Kopyalama Etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Web sunucusu günlüğü verilerini (karşıya yükleme özel uygulamaları kullanarak)
 
@@ -128,7 +128,7 @@ Web sunucusu günlüğü verileri almak için kullanabileceğiniz araçlar liste
 
 |Tool | Rehber |
 |---|--|
-|Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Azure Data Factory’de Kopyalama Etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
 Web sunucusu günlüğü verilerini karşıya yükleme ve ayrıca başka türden veriler (örneğin, sosyal yaklaşımları veriler) yükleme, bu bileşenin bir parçası olarak karşıya yükleme, verileri içerecek şekilde esnekliği sunar çünkü kendi özel betikler/uygulamaları yazmak için iyi bir yaklaşım olacaktır. daha büyük, büyük veri uygulaması. Bazı durumlarda bu kod bir betik veya basit bir komut satırı yardımcı programını biçiminde. Diğer durumlarda, bir iş uygulaması veya çözüm, büyük veri işleme tümleştirmenize olanak kodu kullanılıyor olabilir.
 
@@ -142,7 +142,7 @@ HDInsight kümeleri ile ilişkili veri almak için kullanabileceğiniz araçlar 
 |---|--|
 |Apache DistCp | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy aracı | [AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
+|Azure Data Factory | [Azure Data Factory kullanarak verileri için veya Azure Data Lake depolama Gen2'ye kopyalayın](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Şirket içi veya Iaas Hadoop kümeleri depolanan veri
 
@@ -195,5 +195,5 @@ Data Lake depolama Gen2 ' verileri indirmek için kullanabileceğiniz araçlar l
 
 |Tool | Rehber |
 |---|--|
-|Azure Data Factory | [Azure veri fabrikasında kopyalama etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Azure Data Factory’de Kopyalama Etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCop | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

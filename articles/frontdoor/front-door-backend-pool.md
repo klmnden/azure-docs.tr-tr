@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000598"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure ön kapısı hizmetinde arka uçlar ve arka uç havuzları
 Bu makalede, Azure ön kapısı hizmet uygulaması dağıtımınızı eşlemek hakkında kavramlarını açıklar. Ayrıca, geçici uygulama arka uçları ön kapısı yapılandırmasında farklı koşullar da açıklanır.
@@ -26,7 +26,7 @@ Bir arka uç bir bölgede bir uygulamanın dağıtım örneği eşittir. Ön kap
 
 Konak adı veya istemci isteklerine hizmet verebilen uygulamanızın genel IP için ön kapı hizmet arka uçları bakın. Arka uçları, veritabanı katmanı, depolama katmanı ve benzeri yanıltıcı olmamalıdır. Arka uçları uygulama arka ucunuzu genel uç noktası olarak görüntülenmesi. Bir arka uç bir ön kapısı arka uç havuzuna eklediğinizde, ayrıca aşağıdakileri eklemeniz gerekir:
 
-- **Arka uç ana bilgisayar türü**. Eklemek istediğiniz kaynak türü. Ön kapısı hizmeti, app service, bulut hizmeti ya da depolama, otomatik bulma, uygulama arka uçları, destekler. Azure'da veya Azure dışı arka farklı bir kaynak istiyorsanız belirleyin **özel konak**.
+- **Arka uç ana bilgisayar türü**. Eklemek istediğiniz kaynak türü. Otomatik bulma, app service, bulut hizmeti ya da depolama, uygulama arka uçları ön kapısı hizmeti destekler. Azure'da veya Azure dışı arka farklı bir kaynak istiyorsanız belirleyin **özel konak**.
 
     >[!IMPORTANT]
     >Arka uca ön ortamlardan erişilemez durumdaysa yapılandırması sırasında API'leri doğrulamaz. Ön ucunuzu erişebildiğinden emin olun.
@@ -83,7 +83,7 @@ Yük Dengeleyici arka uç havuzu ayarlarını nasıl biz sistem durumu araştır
 
 - **Örnek boyutu**. Arka uç sistem durumu değerlendirme için göz önünde bulundurmanız gereken sistem durumu araştırmaları kaç örnekleri biz tanımlar.
 
-- **Başarılı örnek boyutu**. Daha önce belirtildiği gibi örnek boyutu arka uç sağlıklı çağırmanın başarılı örneklerin sayısını tanımlar. Örneğin, bir ön kapısı sistem durumu araştırma aralığı 30 saniyedir, örnek boyutu 5 saniyedir ve başarılı örnek boyutu 3 saniyedir varsayılır. Arka ucunuz için biz durumunu değerlendirme her zaman araştırmaları, 150 saniye (5 x 30) son beş samples umuyoruz. En az üç başarılı araştırmaları, arka uç sağlıklı olarak bildirmek için gereklidir.
+- **Başarılı örnek boyutu**. Daha önce belirtildiği gibi örnek boyutu arka uç sağlıklı çağırmanın başarılı örneklerin sayısını tanımlar. Örneğin, bir ön kapısı sistem durumu araştırma aralığı 30 saniyedir, örnek boyutu 5'tir ve başarılı örnek boyutu 3 varsayalım. Arka ucunuz için biz durumunu değerlendirme her zaman araştırmaları, 150 saniye (5 x 30) son beş samples umuyoruz. En az üç başarılı araştırmaları, arka uç sağlıklı olarak bildirmek için gereklidir.
 
 - **Gecikme süresi duyarlılık (ek gecikme)**. Arka uçları gecikme ölçüm Duyarlılık aralık içinde istek göndermek veya yakın arka uç isteği iletmek için ön kapı isteyip istemediğinizi tanımlar.
 

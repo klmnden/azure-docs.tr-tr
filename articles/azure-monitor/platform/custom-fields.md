@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789731"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002876"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de bir Log Analytics çalışma alanında özel alanlar oluşturma
 
@@ -81,7 +81,7 @@ Kullanarak yönetim grubunuzdaki tüm özel alanların listesini görüntüleyeb
 Özel bir alanı kaldırmak için iki yolu vardır.  İlk **Kaldır** yukarıda açıklandığı gibi tam bir listesi görüntülerken, her bir alan için seçeneği.  Diğer kayıt alıp alanın sol düğmesine yöntemidir.  Menü, özel bir alanı kaldırmak için bir seçenek içerir.
 
 ## <a name="sample-walkthrough"></a>Örnek kılavuz
-Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlar System oturum hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](data-sources-windows-events.md).
+Aşağıdaki bölümde, bir özel alan oluşturuluyor, tam bir örneği açıklanmaktadır.  Bu örnek bir hizmetin durumunu değiştirme belirten Windows olayları hizmeti adını ayıklar.  Bu Windows bilgisayarlarda sistem başlatma sırasında hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örneği takip etmek istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](data-sources-windows-events.md).
 
 Biz, hizmet denetimi yöneticisinden olay, hizmet başlatma veya durdurma gösteren olay Kimliğini 7036 sahip tüm olaylar döndürmek için aşağıdaki sorguyu girin.
 

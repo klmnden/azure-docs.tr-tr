@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69eb3789586233b824da1ef6a9c338b07281f324
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893087"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001397"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmet çağırmak için Python'ı kullanma 
 <a name="HOLTop"></a>
@@ -65,23 +65,22 @@ API'lerle ilgili teknik bilgiler için [API tanımları](//go.microsoft.com/fwli
     Ardından, bu satırı ekleyin ardından doğrulayın bölgede `text_analytics_base_url` Servis ayarladığınızda kullanılan karşılık gelir. Ücretsiz bir deneme sürümü anahtarı kullanıyorsanız, herhangi bir ayarı değiştirmek gerekmez.
     
     ```python
-    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
     ```
 
 <a name="Detect"></a>
 
 ## <a name="detect-languages"></a>Dilleri algılama
 
-Dil Algılama API'si, [Dili Algıla metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar. Dil Algılama API'sinin bölgenizdeki uç noktasına şu URL ile ulaşabilirsiniz:
+Dil Algılama API'si, [Dili Algıla metodunu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar. Dil Algılama API'sinin bölgenizdeki uç noktasına şu URL ile ulaşabilirsiniz:
 
 ```python
 language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-```url
-https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-```
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages
+
 
 API'ye gönderilen yük `documents` listesinden oluşur ve bu girişlerin her birinde de `id` ve `text` özniteliği bulunur. `text` özniteliği analiz edilecek metinleri depolar. 
 
@@ -137,7 +136,7 @@ Başarılı JSON yanıtı:
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Yaklaşım analizi API'sini kullanarak bir metin kayıt kümesi (Aralık arasındaki pozitif veya negatif) duyarlılığını algılar [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, biri İngilizce diğeri İspanyolca olan iki belge puanlar.
+Yaklaşım analizi API'sini kullanarak bir metin kayıt kümesi (Aralık arasındaki pozitif veya negatif) duyarlılığını algılar [yaklaşım yöntemi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, biri İngilizce diğeri İspanyolca olan iki belge puanlar.
 
 Yaklaşım analizi hizmetinin bölgenizdeki uç noktasına şu URL ile ulaşabilirsiniz:
 
@@ -145,7 +144,8 @@ Yaklaşım analizi hizmetinin bölgenizdeki uç noktasına şu URL ile ulaşabil
 sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment
 
 Dil algılama örneğinde olduğu gibi hizmet belge listesi içeren `documents` anahtarına sahip olan bir sözlükle sağlanır. Her belge, analiz edilecek `id` ve `text` ile metnin `language` öğesini içeren bir demettir. Bu alanı doldurmak için önceki bölümde bulunan dil algılama API'sini kullanabilirsiniz.
 
@@ -182,7 +182,7 @@ Bir belge için yaklaşım puanını 0.0 ile 1.0, daha pozitif yaklaşımı beli
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Kılavuzun bu bölümünde hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
+Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Kılavuzun bu bölümünde hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
 
 Anahtar ifade ayıklama hizmetinin uç noktasına şu URL ile ulaşabilirsiniz:
 
@@ -190,7 +190,8 @@ Anahtar ifade ayıklama hizmetinin uç noktasına şu URL ile ulaşabilirsiniz:
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases
 
 Belge koleksiyonu, yaklaşım analizi için kullanılanla aynıdır.
 
@@ -235,7 +236,7 @@ Başarılı JSON yanıtı:
 
 ## <a name="identify-entities"></a>Varlıkları tanımlama
 
-Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
+Varlıklar API'si, [Varlıklar metodunu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
 
 Varlık bağlama hizmetinin uç noktasına şu URL ile ulaşabilirsiniz:
 
@@ -244,14 +245,13 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities
 
 Belge koleksiyonu aşağıda verilmiştir:
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
-  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
+  {'id': '1', 'text': 'Microsoft is an It company.'}
 ]}
 ```
 Artık belgeleri Metin Analizi API'sine göndererek yanıt alabilirsiniz.
@@ -264,158 +264,47 @@ entities = response.json()
 
 Başarılı JSON yanıtı:
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 

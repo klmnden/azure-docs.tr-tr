@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006684"
 ---
 # <a name="network-monitoring-solutions"></a>Ağ izleme çözümleri 
 
@@ -86,7 +86,7 @@ Hizmet bağlantı izleme ile artık uygulamaları erişilebilirliğini test ve �
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hizmet uç noktaları izlemek için Ağ Performansı İzleyicisi'ni yapılandırma](https://aka.ms/applicationconnectivitymonitorguide)
+* [Hizmet uç noktaları izlemek için Ağ Performansı İzleyicisi'ni yapılandırma](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blog gönderisi](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Trafik Analizi

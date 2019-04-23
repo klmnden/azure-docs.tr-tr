@@ -3,16 +3,16 @@ title: Uyumsuzluk nedenlerini belirleme
 description: Uyumlu olmayan bir kaynak olduğunda, çok sayıda olası nedeni vardır. Uyumsuzluk neyin neden olduğunu bulmak öğrenin.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276108"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995022"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
@@ -124,6 +124,8 @@ Yeni bir parçası olarak **genel Önizleme**, son 14 gün, değişiklik geçmi�
    ![Değişiklik geçmişi sayfasındaki İlkesi değişiklik geçmişi görsel fark](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _Visual fark_ aides içinde bir kaynak değişikliklerini tanımlama. Algılanan değişiklikler kaynağın geçerli uyumluluk durumu için ilişkili değil.
+
+Değişiklik geçmişi verilerini sağlayan [Azure kaynak Graph](../../resource-graph/overview.md). Azure portalı bu bilgileri sorgulamak için bkz. [alma kaynak değişiklikleri](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610265"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006990"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive iş yükleri için HDInsight 4.0 geçirme
 
@@ -54,7 +54,31 @@ Hive iş yükünüz, ACID ve ACID olmayan tablolar bir karışımını içerebil
 alter table myacidtable compact 'major';
 ```
 
-Bu sıkıştırma, HDInsight 3.6 ve HDInsight 4.0 ACID tabloları ACID deltaları farklı anlamak için gereklidir. Sıkıştırma tablosu tutarlılık garantileri temiz bir maskeleme görüntüsü zorlar. Sıkıştırma tamamlandıktan sonra meta veri deposu ve tabloda geçiş için önceki adımlarda HDInsight 3.6 ACID tablo HDInsight 4. 0'kullanmak için yeterli olacaktır.
+Bu sıkıştırma, HDInsight 3.6 ve HDInsight 4.0 ACID tabloları ACID deltaları farklı anlamak için gereklidir. Sıkıştırma tutarlılık garantileri temiz bir maskeleme görüntüsü zorlar. Bölüm 4'ü [Hive geçiş belgeleri](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) toplu düzenleme HDInsight 3.6 ACID tabloları için kılavuz içerir.
+
+Meta veri deposu taşıma ve sıkıştırma adımları tamamladıktan sonra gerçek ambarı geçirebilirsiniz. HDInsight 4.0 ambar, Hive ambarı geçişi tamamladıktan sonra aşağıdaki özelliklere sahip:
+
+* HDInsight 3.6 dış tablolarda HDInsight 4.0 dış tablolar olacaktır
+* HDInsight 3.6 olmayan işlem yönetilen tablolarında HDInsight 4.0 dış tablolar olacaktır
+* HDInsight 3.6 işlem yönetilen tablolarında HDInsight 4.0 yönetilen tablolarında olacaktır
+
+Geçiş yürütmeden önce Ambarınızı özelliklerini ayarlamanız gerekebilir. Örneğin, bazı tablosu (örneğin, bir HDInsight 3.6 kümesi) bir üçüncü taraf tarafından erişilecek bekliyorsanız, geçiş tamamlandıktan sonra bu tabloya dış olarak olmalıdır. HDInsight 4. 0'da, tüm yönetilen tabloları işlem. Bu nedenle, yalnızca yönetilen HDInsight 4.0 tablolarında 4.0 HDInsight kümeleri tarafından erişilmelidir.
+
+Hive ambarı geçiş aracı, tablo özelliklerinizi doğru ayarladıktan sonra SSH Kabuğu'nu kullanarak küme baş düğümüne birini yürütün:
+
+1. SSH kullanarak, küme baş düğümüne bağlanın. Yönergeler için [SSH kullanarak HDInsight Bağlan](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Çalıştırarak Hive kullanıcı olarak oturum açma Kabuk açın `sudo su - hive`
+1. Hortonworks Data Platform yığın yürüterek sürümünü `ls /usr/hdp`. Bu, sonraki komutta kullanması gereken bir sürüm dizesi görüntülenir.
+1. Kabuktan aşağıdaki komutu yürütün. Değiştirin `${{STACK_VERSION}}` önceki adımdan gelen sürüm dizesi ile:
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+Geçiş Aracı tamamlandıktan sonra Hive Ambarınızı HDInsight 4.0 için hazır hale gelirsiniz. 
+
+> [!Important]
+> Diğer hizmetler veya uygulamalar, HDInsight 3.6 kümeleri gibi yönetilen HDInsight (dahil olmak üzere tabloları 3.6 geçirilmiş) 4.0 tablolarında erişilmemelidir.
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>HDInsight sürümleri arasında güvenli Hive
 
@@ -74,9 +98,9 @@ HDInsight 4. 0'da, HiveCLI Beeline ile değiştirilmiştir. HiveCLI Hiveserver 1
 
 HDInsight 3.6 Hive sunucusu ile etkileşim için GUI Ambari Hive görünümünü istemcisidir. 4.0 HDInsight Hive görünümü Hortonworks Data Analytics Studio (DAS) ile değiştirir. DAS HDInsight kümeleri kullanıma hazır sevk değil ve resmi olarak desteklenen bir paket değil. Ancak, DAS küme üzerinde aşağıdaki gibi yüklenebilir:
 
-1. İndirme [DAS paketini yükleme betiği](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) ve her iki küme baş düğümüne üzerinde çalıştırın. Betik eylemi bu betiği yürütün yok.
-2. İndirme [DAS hizmet yükleme betiği](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) ve bir betik eylemi çalıştırın. Seçin **baş düğümler** betik eylemi arabiriminden tercih ettiğiniz düğümü türü.
-3. Betik eylemi tamamlandıktan sonra Ambari ve select gidin **Data Analytics Studio** hizmetler listesinden. Tüm DAS Hizmetleri durduruldu. Sağ üst köşedeki seçin **eylemleri** ve **Başlat**. Artık, yürütme ve DAS sorgularla hatalarını ayıklayabilirsiniz.
+Kümenizde "Baş düğüm" ile betik eylemi yürütme için düğüm türü olarak başlatın. Aşağıdaki URI "Bash betiği URI'si" ile işaretlenmiş aşağıdaki metin kutusuna yapıştırın: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 Sorguları Görüntüleyicisi'nde çalıştırdıysanız sorguları görmüyorsanız, DAS yüklendikten sonra aşağıdaki adımları uygulayın:
 

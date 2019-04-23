@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bd945d49949afb679a376ce98b866fc5dee54ade
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699245"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005307"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 paylaşılan hizmetler şema örnek denetimi eşleme
 
@@ -71,7 +71,7 @@ Bu plan üç atar [Azure İlkesi](../../../policy/overview.md) çok faktörlü k
 
 ## <a name="a925-review-of-user-access-rights"></a>Kullanıcı erişim haklarını A.9.2.5 gözden geçirme
 
-Azure uygular [rol tabanlı erişim denetimi](../../../../role-based-access-control/overview.md) (RBAC) Azure'da kimlerin erişebileceğini kaynakları yönetmek için yardımcı olur. Azure portalını kullanarak, kimlerin erişebileceğini Azure kaynaklarını ve izinlerini gözden geçirebilirsiniz. Bu şema dört atar [Azure İlkesi](../../../policy/overview.md) tanımlarını gözden geçirme için amorti edilmiş ve yükseltilmiş izinleri olan dış hesapları dahil olmak üzere, öncelik verilmesi gerektiği hesapları denetleme.
+Azure uygular [rol tabanlı erişim denetimi](../../../../role-based-access-control/overview.md) Azure'da kimlerin erişebileceğini kaynakları yönetmenize yardımcı olmak için (RBAC). Azure portalını kullanarak, kimlerin erişebileceğini Azure kaynaklarını ve izinlerini gözden geçirebilirsiniz. Bu şema dört atar [Azure İlkesi](../../../policy/overview.md) tanımlarını gözden geçirme için amorti edilmiş ve yükseltilmiş izinleri olan dış hesapları dahil olmak üzere, öncelik verilmesi gerektiği hesapları denetleme.
 
 - [Önizleme]: Audit deprecated accounts on a subscription
 - [Önizleme]: Audit deprecated accounts with owner permissions on a subscription
@@ -80,7 +80,7 @@ Azure uygular [rol tabanlı erişim denetimi](../../../../role-based-access-cont
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 kaldırma veya erişim haklarını ayarlama
 
-Azure uygular [rol tabanlı erişim denetimi](../../../../role-based-access-control/overview.md) (RBAC) Azure'da kimlerin erişebileceğini kaynakları yönetmek için yardımcı olur. Kullanarak [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) ve RBAC, kullanıcı rolleri, kuruluş değişiklikleri yansıtacak şekilde güncelleştirebilirsiniz. Gerektiğinde, hesapları oturum açma engellendi (veya kaldırıldı) hangi Azure kaynakları için erişim haklarını hemen kaldırır. Bu şema iki atar [Azure İlkesi](../../../policy/overview.md) kaldırılmak üzere davranılacak amorti edilmiş hesabı denetlemek için tanımları.
+Azure uygular [rol tabanlı erişim denetimi](../../../../role-based-access-control/overview.md) Azure'da kimlerin erişebileceğini kaynakları yönetmenize yardımcı olmak için (RBAC). Kullanarak [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) ve RBAC, kullanıcı rolleri, kuruluş değişiklikleri yansıtacak şekilde güncelleştirebilirsiniz. Gerektiğinde, hesapları oturum açma engellendi (veya kaldırıldı) hangi Azure kaynakları için erişim haklarını hemen kaldırır. Bu şema iki atar [Azure İlkesi](../../../policy/overview.md) kaldırılmak üzere davranılacak amorti edilmiş hesabı denetlemek için tanımları.
 
 - [Önizleme]: Audit deprecated accounts on a subscription
 - [Önizleme]: Audit deprecated accounts with owner permissions on a subscription
@@ -155,7 +155,7 @@ Bu şema sistem olaylarını, Azure kaynaklarını denetim günlüğü ayarları
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 saati eşitleme
 
-Bu şema sistem olaylarını denetleme, günlük ayarlarını Azure kaynaklarında yedi Azure İlkesi tanımları atayarak oturum açtığınızdan emin olun yardımcı olur. Azure günlüklerini eşitlenmiş iç saat kaynakları genelinde olayların süresi bağıntılı bir kayıt oluşturmak için kullanır.
+Bu şema sistem olaylarını, Azure kaynaklarını denetim günlüğü ayarlarını yedi Azure ilke tanımları atayarak oturum açmış olmanıza yardımcı olur. Azure günlüklerini eşitlenmiş iç saat kaynakları genelinde olayların süresi bağıntılı bir kayıt oluşturmak için kullanır.
 
 - [Önizleme]: Denetim bağımlılık Aracısı dağıtımı - VM görüntüsü (OS) listeden kaldırıldı
 - [Önizleme]: Bağımlılık Aracısı VMSS - VM görüntüsü (OS) listelenmemiş dağıtımda denetleme

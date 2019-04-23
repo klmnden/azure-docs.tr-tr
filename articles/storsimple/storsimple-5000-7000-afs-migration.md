@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104582"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003099"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
 > [!IMPORTANT]
-> 31 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
+> 9 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
 
 Veri geçişi veri depolama tek bir konumdan diğerine taşınmasını işlemidir. Bu verilerin bir kuruluşun geçerli bir CİHAZDAN başka bir cihaz için tam kopyalayarak gerektirir — tercihen kesintiye veya etkin uygulamalar devre dışı bırakma olmadan — ve ardından yeni cihaz için tüm giriş/çıkış (g/ç) etkinlikleri yeniden yönlendirme. 
 

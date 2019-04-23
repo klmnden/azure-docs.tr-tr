@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648546"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010305"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Ayırma indirimi Azure Cosmos DB'ye nasıl uygulanacağını anlama
 
 Ayırma indirimi, öznitelikleri ve ayırma miktarı ile eşleşen Azure Cosmos DB kaynaklarını, otomatik olarak bir Azure Cosmos DB ayrılmış kapasite satın sonra uygulanır. Azure Cosmos DB kaynaklarını için sağlanan aktarım hızı bir ayırma kapsar. Yazılım, ağ, depolama kapsamıyordur veya kapsayıcı ücretleri önceden tanımlanmış.
+
+## <a name="how-reservation-discount-is-applied"></a>Ayırma indirimi nasıl uygulanır
+
+Ayırma indirimi olan "*kullanın-BT-veya-kaybetmek-BT*". Her saat için eşleşen kaynak yoksa, bu nedenle, daha sonra ayırma miktarını bu saat için kaybedersiniz. Yerine getirilemiyor kullanılmayan ayrılmış saat iletin.
+
+Bir kaynak kapattığınızda, ayırma indirimini Belirtilen kapsam içinde başka bir eşleşen kaynak otomatik olarak uygular. Belirtilen kapsamda bulunan eşleşen kaynak yok sonra ayrılmış saatleri *kayıp*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Azure Cosmos DB hesaplarına uygulanan ayırma indirimi
 
@@ -39,10 +45,10 @@ Ayırma indirimi, Azure Cosmos DB performans maliyetleri saat saatlik olarak uyg
 |Azure Cosmos DB - 100 RU/s/saat - KR Güney|    KR Güney     |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - AV Batı|    AV Batı     |      1   |
 |Azure Cosmos DB - 100 RU/s/saat - KR Orta|   KR Orta    |       1  |
-|Azure Cosmos DB - 100 RU/s/saat - UK Güney|   BK Güney      |     1    |
-|Azure Cosmos DB - 100 RU/s/saat - UK Batı|   BK Batı      |    1     |
-|Azure Cosmos DB - 100 RU/s/saat - UK Kuzey |   BK Kuzey    |     1    |
-|Azure Cosmos DB - 100 RU/s/saat - UK Güney 2|   BK Güney 2      |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Güney|   Birleşik Krallık Güney      |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Batı|   Birleşik Krallık Batı      |    1     |
+|Azure Cosmos DB - 100 RU/s/saat - UK Kuzey |   UK Kuzey    |     1    |
+|Azure Cosmos DB - 100 RU/s/saat - UK Güney 2|   UK Güney 2      |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Doğu 2|  ABD Doğu 2     |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Orta Kuzey|   ABD Orta Kuzey      |     1    |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Batı|   ABD Batı      |     1    |

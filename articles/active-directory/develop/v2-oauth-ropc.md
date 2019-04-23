@@ -1,5 +1,5 @@
 ---
-title: ROPC kullanarak kullanıcıların oturum açmak için Microsoft kimlik platformu kullan | Azure
+title: Kaynak sahibi parola kimlik bilgisi (ROPC) verme kullanarak kullanıcıların oturum açmak için Microsoft kimlik platformu kullan | Azure
 description: Kaynak sahibi parola kimlik bilgisi yetkisi kullanılarak destek tarayıcı olmayan kimlik doğrulaması akar.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004950"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft kimlik platformu ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
 
-Microsoft kimlik platformu destekleyen [kaynak sahibi parola kimlik bilgisi (ROPC) verme](https://tools.ietf.org/html/rfc6749#section-4.3), bir uygulama parolasını doğrudan işleyerek kullanıcının oturum açmasını sağlar. Yüksek derecede güven ve kullanıcı Etkilenme ROPC akışı gerektirir ve daha güvenli, diğer akışlar kullanıldığında geliştiriciler bu akışı yalnızca kullanmanız gerekir.
+Microsoft kimlik platformu destekleyen [kaynak sahibi parola kimlik bilgisi (ROPC) verme](https://tools.ietf.org/html/rfc6749#section-4.3), bir uygulama parolasını doğrudan işleyerek kullanıcının oturum açmasını sağlar. Yüksek derecede güven ve kullanıcı Etkilenme ROPC akışı gerektirir ve daha güvenli, diğer akışlar kullanıldığında bu akışı yalnızca kullanmanız gerekir.
 
 > [!IMPORTANT]
+>
 > * Microsoft kimlik platformu uç nokta ROPC değil kişisel hesaplar Azure AD kiracıları için yalnızca destekler. Yani bir kiracıya özgü uç nokta kullanmanız gerekir (`https://login.microsoftonline.com/{TenantId_or_Name}`) veya `organizations` uç noktası.
 > * Bir Azure AD kiracısına davet kişisel hesapları ROPC kullanamazsınız.
 > * Parolaları olmayan hesapları ROPC oturum açamaz. Bu senaryo için farklı bir akış uygulamanız için bunun yerine kullanmanızı öneririz.
@@ -38,7 +39,7 @@ Microsoft kimlik platformu destekleyen [kaynak sahibi parola kimlik bilgisi (ROP
 
 Aşağıdaki diyagramda ROPC akışı gösterilmektedir.
 
-![ROPC akışı](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC akışı](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Yetkilendirme isteği
 
@@ -65,15 +66,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gerekli | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
-| `grant_type` | Gerekli | Ayarlanmalıdır `password`. |
-| `username` | Gerekli | Kullanıcının e-posta adresi. |
-| `password` | Gerekli | Kullanıcının parolası. |
-| `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md), ya da uygulamanın gerektirdiği izinler. Bu kapsam için önceden bir yönetici veya etkileşimli bir iş akışında kullanıcı onaylı gerekir. |
+| `tenant` | Gereklidir | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
+| `grant_type` | Gereklidir | Ayarlanmalıdır `password`. |
+| `username` | Gereklidir | Kullanıcının e-posta adresi. |
+| `password` | Gereklidir | Kullanıcının parolası. |
+| `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md), ya da uygulamanın gerektirdiği izinler. Etkileşimli bir akışta, yönetici veya kullanıcı, bu kapsamlara önceden onaylamalıdır. |
 
 ### <a name="successful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını
 
-Aşağıda, başarılı bir token yanıt örneğini gösterilmiştir:
+Aşağıdaki örnek, başarılı bir belirteç yanıtı gösterir:
 
 ```json
 {
@@ -105,7 +106,7 @@ Kullanıcı doğru kullanıcı adı veya parola sağlanan dolmadığından veya 
 |------ | ----------- | -------------|
 | `invalid_grant` | Kimlik doğrulaması başarısız oldu | Kimlik bilgileri yanlış veya istemci istenen kapsam için izniniz yok. Kapsamlar verilirse, bu olmayan bir `consent_required` hata döndürülür. Bu meydana gelirse, istemci bir webview veya tarayıcı kullanarak etkileşimli bir istemi kullanıcı göndermesi gerekir. |
 | `invalid_request` | İsteği hatalı oluşturulmuş | Üzerinde izin verme türü desteklenmiyor `/common` veya `/consumers` kimlik doğrulaması bağlamı.  Bunun yerine `/organizations` kullanın. |
-| `invalid_client` | Uygulamanın düzgün ayarlanır | Bu durum oluşabilir `allowPublicClient` özelliği ayarlanmamış true olarak [uygulama bildirimini](reference-app-manifest.md). `allowPublicClient` ROPC verme bir yeniden yönlendirme URI'si olmadığı için özellik gerekiyor. Azure AD özelliği ayarlanmazsa uygulama genel istemci uygulamanız ya da gizli bir istemci uygulama olup olmadığını belirleyemiyor. Genel istemci uygulamaları için yalnızca ROPC desteklenip desteklenmediğini unutmayın. |
+| `invalid_client` | Uygulamanın düzgün ayarlanır | Bu durum oluşabilir `allowPublicClient` özelliği ayarlanmamış true olarak [uygulama bildirimini](reference-app-manifest.md). `allowPublicClient` ROPC verme bir yeniden yönlendirme URI'si olmadığı için özellik gerekiyor. Azure AD özelliği ayarlanmazsa uygulama genel istemci uygulamanız ya da gizli bir istemci uygulama olup olmadığını belirleyemiyor. ROPC yalnızca ortak istemci uygulamalar için desteklenir. |
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5aa6d848d4aab5e96f6018882874e508e2d9b3a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6945476811ac8e97576bc707e6bb9ad96af82c17
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685171"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Öğretici: Monday.com ile Azure Active Directory Tümleştirme
 
@@ -135,7 +135,7 @@ Azure AD çoklu oturum açma ile monday.com yapılandırmak için aşağıdaki a
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Ad | Kaynak özniteliği|
+    | Name | Kaynak özniteliği|
     | -------| ---------|
     | Email | User.Mail |
     | FirstName | User.givenName |
@@ -239,8 +239,8 @@ Erişim paneli monday.com kutucuğa tıkladığınızda, size otomatik olarak SS
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

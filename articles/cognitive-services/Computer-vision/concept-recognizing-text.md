@@ -1,5 +1,5 @@
 ---
-title: Yazdırılan, el yazısı metni - görüntü işleme tanıma
+title: Metin, görüntü işleme yazdırılan/resimlerdeki el yazısı tanıma
 titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'sini kullanarak görüntüleri metin yazdırılan ve el yazısı tanıma için ilgili kavramları.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588984"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998252"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
 
-Görüntü işleme, birkaç resimlerde görüntülenen yazdırılan veya el yazısı metinleri algılamanıza ve ayıklamanıza hizmetleri sağlar. Bu senaryolar notetaking, tıbbi kayıtları, güvenlik ve bankacılık gibi birçok yararlı olur. Aşağıdaki üç bölüm ayrıntısı üç farklı metin tanıma API'leri, her farklı kullanım örnekleri için İyileştirildi.
+Görüntü işleme, birkaç resimlerde görüntülenen yazdırılan veya el yazısı metinleri algılamanıza ve ayıklamanıza hizmetleri sağlar. Bu senaryolar not alma, tıbbi kayıtları, güvenlik ve bankacılık gibi birçok yararlı olur. Aşağıdaki üç bölüm ayrıntısı üç farklı metin tanıma API'leri, her farklı kullanım örnekleri için İyileştirildi.
 
 ## <a name="read-api"></a>Okuma API'si
 
@@ -45,13 +45,11 @@ Okuma API'si, aşağıdaki gereksinimleri karşılaması ve görüntüleri ile �
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (optik karakter tanıma) API'si
 
-Görüntü işleme'nın optik karakter tanıma (OCR) API'si için okuma API benzer, ancak zaman uyumlu olarak yürütülür ve büyük dosyalar için optimize edilmemiş. Daha fazla dil ile çalışır ancak bir önceki tanıma modeli kullanır.
-
-OCR, 25 dilleri destekler: Arapça, Çince, Geleneksel Çince, Basitleştirilmiş Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakya, İspanyolca, İsveççe ve Türkçe. OCR, otomatik olarak algılanan metnin dilini algılar.
+Görüntü işleme'nın optik karakter tanıma (OCR) API'si için okuma API benzer, ancak zaman uyumlu olarak yürütülür ve büyük dosyalar için optimize edilmemiş. Daha fazla dil ile çalışır ancak bir önceki tanıma modeli kullanır; bkz: [dil desteği](language-support.md#text-recognition) desteklenen dillerin tam bir listesi için.
 
 Gerekirse, OCR yatay görüntü eksen hakkında derece cinsinden döngüsel uzaklığı döndürerek tanınan metin döndürmesini düzeltir. OCR, ayrıca aşağıdaki çizimde görüldüğü gibi her bir sözcüğün çerçeve koordinatları sağlar.
 
-![Döndürülmüş görüntüyü gösteren diyagram ve okuma ve makaleyle metin](./Images/vision-overview-ocr.png)
+![Döndürülmüş bir görüntü ve metin okuma ve makaleyle](./Images/vision-overview-ocr.png)
 
 Bkz: [OCR başvuru belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) daha fazla bilgi için.
 

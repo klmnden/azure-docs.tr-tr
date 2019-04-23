@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 2eabe0c234df6165b78e2dc55dcdc73067aabaa6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273235"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009054"
 ---
 # <a name="marketplace-faqs"></a>Market hakkında SSS
 
@@ -488,7 +488,7 @@ Bağımlılıklar Azure Marketi teklifleri için otomatik olarak yönetilmez. Ku
 
 Azure Marketi, aşağıdaki ülkelerde bulunan Microsoft Azure müşterileri tarafından kullanılabilir:
 
-Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, Yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
+Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan , Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya Kuzey, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
 
 **Farklı ülkelerde satış etkinleştirmek için benim coğrafi kullanılabilirlik nasıl tanımlarım?**
 

@@ -15,27 +15,30 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096631"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007364"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
 [Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](https://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
 
-> [!NOTE]
->
-> Bu hızlı başlangıçtaki adımlar, Eclipse IDE kullanarak Uygulama Hizmetine nasıl Java web uygulaması yayımlanacağını göstermektedir; ancak IntelliJ IDEA Ultimate Edition veya Community Edition’ı da kullanabilirsiniz. Daha fazla bilgi için bkz. [IntelliJ kullanarak Azure için Merhaba Dünya web uygulaması oluşturma](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+> [!IMPORTANT]
+> Linux üzerinde Azure App Service ayrıca bir Java web uygulamalarını barındırmak için yerel olarak, yönetilen Tomcat, Java SE ve WildFly tekliflerini kullanarak Linux'ta seçenektir. Linux'ta App Service ile çalışmaya başlama ilgileniyorsanız bkz [hızlı başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma](containers/quickstart-java.md).
 
 Bu hızlı başlangıcı tamamladığınızda, uygulamanız bir web tarayıcısında görüntülendiğinde aşağıdaki çizime benzer:
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+>
+> Bu hızlı başlangıçtaki adımlar, Eclipse IDE kullanarak Uygulama Hizmetine nasıl Java web uygulaması yayımlanacağını göstermektedir; ancak IntelliJ IDEA Ultimate Edition veya Community Edition’ı da kullanabilirsiniz. Daha fazla bilgi için bkz. [IntelliJ kullanarak Azure için Merhaba Dünya web uygulaması oluşturma](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
+>
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -118,7 +121,7 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 * Web uygulamanız için benzersiz bir ad girin veya oluşturulan adı değiştirmeyin. Bu ad Azure genelinde benzersiz olmalıdır. Ad, web uygulamasının URL adresinin bir parçasıdır. Örneğin, web uygulamasının adı **MyJavaWebApp** ise URL şu şekildedir: *myjavawebapp.azurewebsites.net*.
 * Bu hızlı başlangıç için, varsayılan web kapsayıcısını değiştirmeyin.
-* Azure aboneliği seçin.
+* Bir Azure aboneliği seçin.
 * **App Service planı** sekmesinde:
 
   * **Yeni Oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
@@ -203,7 +206,7 @@ Soldaki menüden **Kaynak Grupları**'nı seçin.
 
 Kaynak grubunu seçin. Sayfada bu hızlı başlangıçta oluşturduğunuz kaynaklar gösterilir.
 
-![Kaynak grup](media/app-service-web-get-started-java/rg2.png)
+![Kaynak grubu](media/app-service-web-get-started-java/rg2.png)
 
 Web uygulamasını (önceki resimde **webapp-170602193915**) seçin.
 

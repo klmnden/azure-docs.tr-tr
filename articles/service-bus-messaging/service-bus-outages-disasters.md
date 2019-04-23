@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: ccf0ddfd42d6617634ce4a230ba88b76552afef3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692871"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003029"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintilerini ve olağanüstü durumları yönetme karşı uygulamalar insulating için en iyi yöntemler
 
@@ -36,7 +36,7 @@ Service Bus Premium ad alanı düzeyinde coğrafi olağanüstü durum kurtarma d
 Service Bus Premium SKU destekler [kullanılabilirlik](../availability-zones/az-overview.md), aynı Azure bölgesindeki hatadan yalıtılmış konumlardır sağlama.
 
 > [!NOTE]
-> Azure Service Bus Premium kullanılabilirlik desteği yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#regions-that-support-availability-zones) kullanılabilirlik nerede bulunduğunu.
+> Azure Service Bus Premium kullanılabilirlik desteği yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#services-support-by-region) kullanılabilirlik nerede bulunduğunu.
 
 Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Service Bus, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
 

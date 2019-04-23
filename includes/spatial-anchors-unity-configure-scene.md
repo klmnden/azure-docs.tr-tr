@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 4badd7b3ea308968e514a58463f08e58243a3387
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: e796e836a8250c665ac09b66b51ed32380e56723
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908527"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012140"
 ---
 Sonraki adım uygulamayı hesap tanımlayıcısı ve hesap anahtarını kullanacak şekilde yapılandırmaktır. Bir metin düzenleyiciye kopyaladığınız zaman [uzamsal bağlayıcılarını kaynağı ayarı](#create-a-spatial-anchors-resource).
 
-İçinde **hiyerarşi** bölmesinde **AzureSpatialAnchors** oyun nesne. Ardından **denetçisi** bölmesinde girin `Account Key` değeri olarak `Spatial Anchors Account Key` ve `Account ID` değeri olarak `Spatial Anchors Account Id`.
+İçinde **proje** bölmesinde gidin `Assets\AzureSpatialAnchorsPlugin\Examples\Resources`. `AzureSpatialAnchorsDemoConfig` öğesini seçin. Ardından **denetçisi** bölmesinde girin `Account Key` değeri olarak `Spatial Anchors Account Key` ve `Account ID` değeri olarak `Spatial Anchors Account Id`.

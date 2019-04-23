@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: MT
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811299"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995549"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemleri izleme
 
@@ -384,12 +384,13 @@ Bazı kuyruklar, bir istek ile birden çok iletiyi sıradan çıkarma. Bu tür i
 Her ileti kendi zaman uyumsuz denetim akışında işlenmelidir. Daha fazla bilgi için [izleme giden bağımlılıklar](#outgoing-dependencies-tracking) bölümü.
 
 ## <a name="long-running-background-tasks"></a>Uzun süre çalışan arka plan görevleri
+
 Bazı uygulamalar tarafından kullanıcı isteklerini kaynaklanabilir uzun süre çalışan işlemleri başlatın. İzleme/izleme açısından bakıldığında, istek veya bağımlılık İzleme'den farklı değildir: 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-Bu örnekte, `telemetryClient.StartOperation` oluşturur `RequestTelemetry` ve bağıntı bağlam doldurur. Sahip olduğunuz işlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlem varsayalım. Sürece `BackgroundTask` aynı zaman uyumsuz olarak başlatır denetim olarak gelen bir istek akışı, bu üst işlem ile ilişkilendirilir. `BackgroundTask` ve tüm iç içe geçmiş telemetri öğelerinin bile isteği sona erdikten sonra neden olan istek ile otomatik olarak ilişkilendirilir.
+Bu örnekte, `telemetryClient.StartOperation` oluşturur `DependencyTelemetry` ve bağıntı bağlam doldurur. Sahip olduğunuz işlemi zamanlanan gelen istekler tarafından oluşturulan bir üst işlem varsayalım. Sürece `BackgroundTask` aynı zaman uyumsuz olarak başlatır denetim olarak gelen bir istek akışı, bu üst işlem ile ilişkilendirilir. `BackgroundTask` ve tüm iç içe geçmiş telemetri öğelerinin bile isteği sona erdikten sonra neden olan istek ile otomatik olarak ilişkilendirilir.
 
-Görev, herhangi bir işlem yok arka plan iş parçacığından başladığında (`Activity`) ilişkili `BackgroundTask` herhangi bir üst sahip değil. Ancak, bu işlem iç içe geçmiş. Görev bildirilen tüm telemetri öğelerinin bağıntılı olan `RequestTelemetry` oluşturulan `BackgroundTask`.
+Görev, herhangi bir işlem yok arka plan iş parçacığından başladığında (`Activity`) ilişkili `BackgroundTask` herhangi bir üst sahip değil. Ancak, bu işlem iç içe geçmiş. Görev bildirilen tüm telemetri öğelerinin bağıntılı olan `DependencyTelemetry` oluşturulan `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>İzleme giden bağımlılıklar
 Kendi bağımlılık türü veya Application Insights tarafından desteklenmeyen bir işlem izleyebilirsiniz.

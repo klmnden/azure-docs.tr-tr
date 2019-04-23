@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812081"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150090"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -28,6 +28,9 @@ Bu öğreticide şunları öğrenirsiniz:
 > * TSI örnek uygulaması.
 > * TSI JavaScript istemci kitaplığı.
 > * TSI verilerini görselleştirmek için örnek uygulamanın kitaplığı nasıl kullandığı.
+
+> [!NOTE]
+> Time Series Insights örnek uygulama kaynak dosyaları bulunabilir, sağlanan [GitHub örnek deposundan](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
 ## <a name="video"></a>Video: 
 
@@ -57,7 +60,7 @@ Bu öğreticide, TSI JavaScript istemci kitaplığının kullanımı da dahil ol
 
 ### <a name="page-source-and-structure"></a>Sayfa kaynağı ve yapısı
 
-İlk olarak, tarayıcınızda işlenen sayfanın ardındaki HTML ve JavaScript kaynak kodunu görüntüleyelim. Öğelerin tümüne değinmeyeceğiz, ama önemli bölümleri öğrenebilir ve sayfanın nasıl çalıştığı hakkında fikir edinebilirsiniz:
+İlk olarak, şimdi görüntüleyin [HTML ve JavaScript kaynak kodu](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) tarayıcınızda işlenen sayfanın arkasına olmasıdır. Öğelerin tümüne değinmeyeceğiz, ama önemli bölümleri öğrenebilir ve sayfanın nasıl çalıştığı hakkında fikir edinebilirsiniz:
 
 1. Tarayıcınızda **Geliştirici Araçları**’nı açın. Geçerli sayfayı oluşturan HTML öğelerini inceleyin (HTML veya DOM ağacı olarak da bilinir).
 
@@ -109,7 +112,7 @@ Daha önce de belirtildiği gibi, bu örnek bir SPA’dır ve kullanıcı kimlik
 
 2. Daha sonra, uygulama Azure AD'den bir "erişim belirteci" ister. Erişim belirteci sınırlı bir izin kümesi ve belirli bir hizmet/API tanımlayıcısı https://api.timeseries.azure.com için verilir. Hizmet/API tanımlayıcısı aynı zamanda belirteç "hedef kitlesi" olarak bilinir. Belirteç izinleri, oturum açmış kullanıcı adına verilir. Hizmet/API için tanımlayıcı, uygulamanın Azure AD kaydında yer alan bir diğer özelliktir. ADAL erişim belirtecini uygulamaya döndürdükten sonra, bu TSI hizmet API'lerine erişim sırasında "taşıyıcı belirteç" olarak kullanılır.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>Denetim tanımlama
 
@@ -191,7 +194,7 @@ Uygulamada gösterilen bazı standart grafik denetimlerinin ardındaki koda ve d
 
 [Sayfa kaynağı ve yapısı bölümünün](#page-source-and-structure) 3. adımından anımsayacağınız gibi, grafik denetimleri sayfada satırlar halinde yerleştirilir ve her birinin açıklayıcı bir başlık satırı vardır. Bu örnekte, doldurulan üç grafik "Multiple Chart Types From the Same Data" başlığı `<div>` öğesi altında yer alır ve başlığın altındaki üç `<div>` öğesine bağlıdır:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 Aşağıdaki JavaScript kodu bölümünde, TSI toplama ifadelerini oluşturmak, bunları kullanarak TSI verilerini sorgulamak ve üç grafiği işlemek için daha önce belirtilen desen kullanılır. İlgili grafikleri oluşturmak için `tsiClient.ux` ad alanından kullanılan üç türe (`LineChart`, `BarChart` ve `PieChart`) dikkat edin. Ayrıca, grafiklerin üçünün de aynı toplama ifadesi verilerini (`transformedResult`) kullanabildiğine de dikkat edin:
 
@@ -283,9 +286,12 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * TSI JavaScript istemci kitaplığında API'leri kullanın.
 > * TSI verileriyle grafik denetimlerini oluşturmak ve doldurmak için JavaScript kullanın.
 
-Daha önce açıklandığı gibi, TSI Örnek uygulamasında tanıtım amaçlı bir veri kümesi kullanılır. Kendi TSI ortamınızı ve veri kümenizi nasıl oluşturabileceğiniz hakkında bilgi edinmek için, şu makaleye ilerleyin:
+Görüldüğü gibi TSI örnek uygulama bir tanıtım veri kümesi kullanır. Kendi TSI ortamınızı ve veri kümenizi nasıl oluşturabileceğiniz hakkında bilgi edinmek için, şu makaleye ilerleyin:
 
 > [!div class="nextstepaction"]
 > [Öğretici: Azure zaman serisi görüşleri ortamı oluşturma](tutorial-create-populate-tsi-environment.md)
 
+Veya TSI örnek uygulama kaynak dosyaları görüntüleyin:
 
+> [!div class="nextstepaction"]
+> [TSI örnek uygulama deposunu](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

@@ -10,14 +10,17 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087134"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004848"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
+
+> [!IMPORTANT]
+> Twitter uygulaması oluşturma aracılığıyla, artık [apps.twitter.com](https://apps.twitter.com/). Bu öğretici, yeni Twitter API'si içerecek şekilde güncelleştirilme sürecindedir bölümüdür.
 
 Bu öğreticide bir veri alımı sistemini Azure Databricks’e bağlayarak gerçek zamanlıya yakın şekilde verileri bir Apache Spark kümesinde akışa alacaksınız. Azure Event Hubs kullanarak veri alımı sistemi oluşturacak ve sonra gelen iletileri işlemek üzere Azure Databricks’e bağlayacaksınız. Bir veri akışına erişmek için, Twitter API’lerini kullanarak tweet’leri Event Hubs’a alacaksınız. Verileri Azure Databricks’e aldıktan sonra daha ayrıntılı analiz etmek için analiz işleri gerçekleştirebilirsiniz. 
 

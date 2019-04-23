@@ -1,22 +1,22 @@
 ---
 title: 'Örnek: Bir görüntü işleme uygulamada keşfedinC#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
+titleSuffix: Azure Cognitive Services
+description: Azure Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310958"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004032"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Örnek: Bir görüntü işleme uygulaması keşfedinC#
 
@@ -33,7 +33,7 @@ Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük r
 Örnek uygulamayı keşfetmeyi önce aşağıdaki önkoşulların karşılamanızın emin olun:
 
 * [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzerine sahip olmanız gerekir.
-* Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 
 ## <a name="get-the-sample-app"></a>Örnek uygulamayı alma
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118366"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007517"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Öğretici: Portalı kullanarak Azure yük Dengeleyicide bağlantı noktası iletme'yi yapılandırma
 
@@ -47,11 +47,11 @@ Bu öğreticideki tüm adımları için Azure portalında oturum açın [ https:
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
 2. İçinde **Temelleri** sekmesinde **yük dengeleyici Oluştur** sayfasında, girin veya aşağıdaki bilgileri seçin, geri kalan ayarlar için varsayılan değerleri kabul edin ve ardından **gözden geçir +Oluştur**:
 
-    | Ayar                 | Değer                                              |
+    | Ayar                 | Value                                              |
     | ---                     | ---                                                |
     | Abonelik               | Aboneliğinizi seçin.    |    
     | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
-    | Ad                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Bölge         | **Batı Avrupa**'yı seçin.                                        |
     | Type          | Seçin **genel**.                                        |
     | SKU           | Seçin **standart**.                          |
@@ -60,7 +60,7 @@ Bu öğreticideki tüm adımları için Azure portalında oturum açın [ https:
     |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
      
     >[!NOTE]
-     >Load Balancer'ınız ve tüm kaynaklar için kullanılabilirlik alanlarını destekleyen bir konumda oluşturduğunuzdan emin olun. Daha fazla bilgi için [kullanılabilirlik alanlarını destekleyen bölgeler](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+     >Load Balancer'ınız ve tüm kaynaklar için kullanılabilirlik alanlarını destekleyen bir konumda oluşturduğunuzdan emin olun. Daha fazla bilgi için [kullanılabilirlik alanlarını destekleyen bölgeler](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.  
   

@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887395"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997725"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Örnek: Metin analizi kullanarak anahtar ifadeleri ayıklama
 
-[Anahtar İfade Ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
+[Anahtar İfade Ayıklama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
 
 Bir belge koleksiyonundaki ana noktaları hızlı şekilde belirlemeniz gerekiyorsa bu özellik kullanışlıdır. Örneğin, "The food was delicious and there were wonderful staff" (Yemek lezizdi ve müthiş personel hizmeti vardı) giriş metni olduğunda hizmet, "food" (yemek) ve "wonderful staff" (müthiş personel) ana konuşma noktalarını döndürür.
 
@@ -71,16 +71,16 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar ifadeleri API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar ifadeleri API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 
-+ Anahtar ifade ayıklama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/keyPhrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Anahtar ifade ayıklama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/keyPhrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
 + İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın
 
 > [!Tip]
-> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) **API testi konsolu**’nu açın.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) **API testi konsolu**’nu açın.
 
 ## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
@@ -147,7 +147,7 @@ Belirtildiği gibi çözümleyici, gerekli olmayan sözcükleri bulup atar ve bi
 
 Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak anahtar ifade ayıklaması için kavramları ve iş akışını öğrendiniz. Özet:
 
-+ [Anahtar ifade ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), seçili dillerde kullanılabilir.
++ [Anahtar ifade ayıklama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6), seçili dillerde kullanılabilir.
 + İstek gövdesindeki JSON belgeleri bir kimlik, metin ve dil kodu içerir.
 + POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/keyphrases` uç noktasına yapılır.
 + Her belge kimliği için anahtar sözcüklerden ve ifadelerden oluşan yanıt çıktısı, Excel ve Power BI da dahil olmak üzere JSON kabul eden tüm uygulamalarda akışa alınabilir.
@@ -161,4 +161,4 @@ Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak anahtar ifad
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Metin Analizi API’si](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Metin Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)

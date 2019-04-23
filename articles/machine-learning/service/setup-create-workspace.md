@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547957"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007007"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Bir Azure Machine Learning hizmeti çalışma alanı oluşturma
 
@@ -27,7 +27,9 @@ Bu makalede, bu yöntemlerden birini kullanarak bir çalışma alanı oluşturma
 * Bir Azure Resource Manager şablonu
 * [Azure Machine Learning CLI](#cli)
 
-Burada içindeki adımları kullanarak oluşturduğunuz çalışma alanı, diğer öğreticileri ve nasıl yapılır makaleleri bir önkoşul olarak kullanılabilir. 
+Burada içindeki adımları kullanarak oluşturduğunuz çalışma alanı, diğer öğreticileri ve nasıl yapılır makaleleri bir önkoşul olarak kullanılabilir.
+
+Yerel Python ortamı otomatik machine learning'de kurmak için bir betik kullanmak istiyorsanız, bkz [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) yönergeler için.  
 
 Bir çalışma alanı oluşturduğunuzda aşağıdaki Azure kaynakları otomatik olarak (Bölgesel kullanılabilir iseler) eklendi:
  

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407649"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007976"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Bir etki alanındaki Azure ön kapı için coğrafi filtreleme nedir?
 
@@ -97,7 +97,7 @@ Ya da bir coğrafi filtreleme İlkesi, ön kapısı yapılandırabilirsiniz [Azu
 | GR | Yunanistan|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hong Kong|
+| HK | Hong Kong Çin ÖİB|
 | HN | Honduras|
 | HR | Hırvatistan|
 | HT | Haiti|
@@ -132,15 +132,15 @@ Ya da bir coğrafi filtreleme İlkesi, ön kapısı yapılandırabilirsiniz [Azu
 | LT | Litvanya|
 | LU | Lüksemburg|
 | LV | Letonya|
-| LY | Libya Arap Halk Cemahiriyesi|
+| LY | Libya |
 | MA | Fas|
 | MD | Moldova Cumhuriyeti|
 | MG | Madagaskar|
-| MK | Makedonya|
+| MK | Kuzey Makedonya|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Moğolistan|
-| MO | Makao|
+| MO | Makao ÖİB|
 | MQ | Martinik|
 | MR | Moritanya|
 | MT | Malta|

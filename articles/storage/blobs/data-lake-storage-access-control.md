@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802973"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001601"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -126,11 +126,11 @@ Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) ki
 
 ### <a name="the-owning-group"></a>Sahip olan grup
 
-POSIX ACL'lerinde her kullanıcı ile ilişkili bir *birincil grup*. Örneğin, "gamze" adlı kullanıcı "finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
+POSIX ACL'lerinde her kullanıcı ile ilişkili bir *birincil grup*. Örneğin, "Gamze adlı" kullanıcı "Finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Yeni dosya veya dizin sahip olan grup atama
 
-* **Case 1**: Kök dizin "/". Bu dizin, bir Data Lake depolama 2. nesil dosya sistemini oluşturduğunuzda oluşturulur. Bu durumda sahip olan Grup bitti dedik, dosya sistemi oluşturan kullanıcıya ayarlanır OAuth kullanarak. Paylaşılan anahtar, bir hesap SAS veya bir hizmet SAS'ı kullanarak dosya oluşturulduktan sonra sahibi ve sahip olan Grup ayarlanır **$superuser**.
+* **Case 1**: Kök dizin "/". Bu dizin, bir Data Lake depolama 2. nesil dosya sistemini oluşturduğunuzda oluşturulur. Bu durumda sahip olan Grup bitti dedik, dosya sistemi oluşturan kullanıcıya ayarlanır OAuth kullanarak. Paylaşılan anahtar, bir hesap SAS veya bir hizmet SAS'ı kullanarak dosya sistemine oluşturulduktan sonra sahibi ve sahip olan Grup ayarlanır **$superuser**.
 * **2. durum** (diğer her olay): Yeni bir öğe oluşturulduğunda sahip olan Grup üst dizininden kopyalanır.
 
 #### <a name="changing-the-owning-group"></a>Sahip olan Grup değiştirme

@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu'nda veri kaynaklarını belgeleme
 description: Nasıl yapılır makalesi Azure veri Kataloğu'nda veri varlıklarını belgeleme vurgulama.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406218"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005290"
 ---
 # <a name="document-data-sources"></a>Veri kaynaklarını belgelendirme
 ## <a name="introduction"></a>Giriş
@@ -39,9 +39,9 @@ Avantajı **Azure veri Kataloğu** belgeleri, veri Kataloğu, veri varlıkların
 
 Belge düzeyi, değeri veri varlık kapsayıcısı için bir kapsayıcı içindeki tablo şemasını ayrıntılı bir açıklaması ve özelliklerini açıklayan gelen değişebilir. Sağlanan belge düzeyi iş gereksinimlerinize göre dikkate alınmalıdır. Ancak genel olarak, işte birkaç Artıları ve eksileri veri varlıklarını belgeleme biri:
 
-* Bir kapsayıcı belge: tüm içerikleri tek bir yerde olduğu, ancak kullanıcıların konusunda bilinçli bir karar gerekli bilgileri eksik.
-* Tabloları belge: içeriği o nesneye özeldir, ancak birden fazla yerde belgeler için kullanıcılarınızın sahip.
-* Belge kapsayıcıların ve tabloların: en kapsamlı bir yaklaşım, ancak daha fazla bakım belgelerin yapabilecek.
+* Bir kapsayıcı belgeleyin: Tüm içeriği tek bir yerde olduğu, ancak kullanıcıların konusunda bilinçli bir karar gerekli bilgileri eksik.
+* Tabloları belgeleyin: İçeriği o nesneye özeldir, ancak birden fazla yerde belgeler için kullanıcılarınızın sahip.
+* Belge kapsayıcıları ve tabloları: En kapsamlı bir yaklaşım, ancak daha fazla bakım belgelerin yapabilecek.
 
 ## <a name="summary"></a>Özet
 Sahip olan veri kaynaklarını belgeleme **Azure veri Kataloğu** gerektiği kadar ayrıntılı bir anlatım hakkında veri varlıklarınızı oluşturabilirsiniz.  Bağlantıları kullanarak, varolan belgeleri ve veri varlıklarını bir araya getirir bir var olan içerik deposu içinde depolanan içerikleri bağlantı oluşturabilirsiniz. Kullanıcılarınıza uygun veri varlıklarını bulma sonra belgeleri eksiksiz bir kümesini sahip olabilir.

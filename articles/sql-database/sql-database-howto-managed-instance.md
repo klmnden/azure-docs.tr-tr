@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 93be58ac231ff2b88c6618c549c9d1975977b91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799159"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009387"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı'nda bir yönetilen örnek kullanma
 
@@ -36,7 +36,7 @@ Bu makalede çeşitli kılavuzları, betikler ve yönetmek ve yönetilen Örneğ
 - [Mevcut bir VNet ve alt ağ için bir yönetilen örnek yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) –, mevcut bir VNet ve alt ağ içinde yönetilen örnek dağıtmak için yapılandırmak istiyorsanız, denetleyen betiğin burada bulabilirsiniz [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements) ve olun, alt ağ gereksinimlerine göre yapılandırır.
 - [Özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md) – yönetilen örneğiniz db e-posta profilleri bağlı sunucu aracılığıyla özel etki alanları üzerindeki dış kaynaklara erişmek istiyorsanız, özel DNS yapılandırmanız gerekir.
 - [Eşitleme ağı yapılandırması](sql-database-managed-instance-sync-network-configuration.md) -Bu, olsa da gerçekleşebilir, [uygulamanızı bir Azure sanal ağı ile tümleşik](../app-service/web-sites-integrate-with-vnet.md), şunları yapabilirsiniz&#39;t bir yönetilen örnek bağlantı kurun. Ağ yapılandırması, hizmet planınız için bir şey deneyebilirsiniz yenilemektir.
-- [Yönetim uç noktası IP adresini bulmak](sql-database-managed-instance-find-management-endpoint-ip-address.md) – yönetilen örnek genel uç nokta yönetim-yalnızca amacıyla kullanır. Burada açıklanan betiğini kullanarak yönetim uç noktasının IP adresini belirleyebilirsiniz.
+- [Yönetim uç noktası IP adresini bulmak](sql-database-managed-instance-find-management-endpoint-ip-address.md) – yönetilen örnek genel uç nokta yönetim amacıyla kullanır. Burada açıklanan betiğini kullanarak yönetim uç noktasının IP adresini belirleyebilirsiniz.
 - [Yerleşik güvenlik duvarı koruması doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – yönetilen örneği, yalnızca gerekli bağlantı noktalarında trafiğe izin veren yerleşik güvenlik duvarı ile korunur. Denetleyin ve bu kılavuzda açıklanan betiğini kullanarak yerleşik bir güvenlik duvarı kurallarını doğrulayın.
 - [Uygulamaları bağlama](sql-database-managed-instance-connect-app.md) – yönetilen örnek, kendi özel Azure sanal ağ özel IP adresiyle yerleştirilir. Uygulamaları yönetilen Örneğinize bağlanmak için farklı yaklaşımlar hakkında bilgi edinin.
 

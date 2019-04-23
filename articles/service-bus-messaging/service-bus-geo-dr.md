@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009183"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-olağanüstü durum kurtarma
 
@@ -129,7 +129,7 @@ Bu sürümle birlikte göz önünde tutmak için aşağıdaki konuları göz ön
 Ayrıca, Service Bus Premium SKU destekler [kullanılabilirlik](../availability-zones/az-overview.md), sağlayan bir Azure bölgesi içinde hatadan yalıtılmış konumlardır.
 
 > [!NOTE]
-> Azure Service Bus Premium kullanılabilirlik desteği yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#regions-that-support-availability-zones) kullanılabilirlik nerede bulunduğunu.
+> Azure Service Bus Premium kullanılabilirlik desteği yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#services-support-by-region) kullanılabilirlik nerede bulunduğunu.
 
 Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Service Bus, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
 

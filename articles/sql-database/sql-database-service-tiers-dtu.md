@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 05164985c7851ed828e22f4eeafde64a1940ebc0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357605"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004015"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU tabanlı satın alma modeli olarak hizmet katmanları
 
@@ -72,7 +72,7 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 |||||
 
 > [!IMPORTANT]
-> 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 

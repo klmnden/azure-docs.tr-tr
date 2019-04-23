@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545408"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150022"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -130,14 +130,6 @@ Kullanıcı erişimi izinleri denetleme hakkında daha fazla bilgi için bkz: [t
 ### <a name="enable-network-watcher"></a>Ağ İzleyicisini etkinleştirme
 
 Trafiğini analiz etmek için var olan bir Ağ İzleyicisi olması gerekir veya [Ağ İzleyicisini etkinleştirme](network-watcher-create.md) için analiz etmek istediğiniz Nsg'ler sahip olduğunuz her bir bölgede trafiği. Trafik analizi, herhangi bir barındırılan Nsg'ler için etkinleştirilebilir [desteklenen bölgeler](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>Ağ kaynak Sağlayıcısı'nı yeniden kaydedin
-
-Trafik analizi kullanabilmeniz için ağ kaynak sağlayıcısı yeniden kaydetmeniz gerekir. Tıklayın **deneyin** Azure Cloud Shell'i açmak için aşağıdaki kodu kutusuna. Cloud Shell, Azure aboneliğinizin, içine otomatik olarak günlüğe kaydeder. Cloud Shell açıldıktan sonra ağ kaynağı sağlayıcı yeniden kaydetmek için aşağıdaki komutu girin:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Bir ağ güvenlik grubu seçin
 

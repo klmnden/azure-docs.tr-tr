@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798938"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996467"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Azure DevTest Labs sanal makineleri durdurmak ve başlatmak için komut satırı araçlarını kullanma
 Bu makalede başlatmak veya sanal makineler'de Azure DevTest labs'deki bir laboratuvara durdurmak için Azure PowerShell veya Azure CLI kullanma işlemini gösterir. Bu işlemleri otomatikleştirmek için PowerShell/CLI betiklerini oluşturabilirsiniz. 
@@ -34,7 +34,7 @@ Ancak, bazı senaryolarda, sanal makinelerin PowerShell/CLI betiklerin durdurmay
 - Bu bir CI/CD iş akışı içinde bir görev olarak akışın başından itibaren başlatmak, makineler oluşturdukça Vm'leri kullanın, makineleri veya altyapıyı test edin ve ardından işlemi tamamlandığında, sanal makineleri durdurmak için kullanın. Buna örnek olarak Azure DevTest Labs ile özel görüntü Fabrika olacaktır.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Aşağıdaki PowerShell betiğini bir laboratuvarda VM başlatır. [Çağırma AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) birincil odak noktası için bu betiği. **ResourceId** parametredir Laboratuvar içinde VM için tam kaynak kimliği. **Eylem** parametredir nerede **Başlat** veya **Durdur** seçenekleri, ihtiyacınız olan şey bağlı olarak ayarlanır.
+Aşağıdaki PowerShell betiğini bir laboratuvarda VM başlatır. [Çağırma AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) birincil odak noktası için bu betiği. **ResourceId** parametredir Laboratuvar içinde VM için tam kaynak kimliği. **Eylem** parametredir nerede **Başlat** veya **Durdur** seçenekleri, ihtiyacınız olan şey bağlı olarak ayarlanır.
 
 ```powershell
 # The id of the subscription

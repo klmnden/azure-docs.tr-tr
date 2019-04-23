@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496888"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995668"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -65,6 +65,9 @@ Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 * PowerShell cmdlet'i, CLI veya REST API sorgulayın.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure portalında etkinlik günlüğü sorgulama
+
+> [!NOTE] 
+> Etkinlik günlüğü günlükleri, arka uçtaki 90 gün boyunca saklar. Bu saklanması istiyorsanız, lütfen yapılandırma bir **günlük profilini** aşağıda açıklandığı gibi. 
 
 Azure portalının içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
 * **Etkinlik günlüğü** etkinlik günlüğü altında arayarak erişebileceğiniz **tüm hizmetleri** sol taraftaki gezinti bölmesinde.

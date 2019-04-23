@@ -1,18 +1,18 @@
 ---
 title: Oluşturma ve PostgreSQL sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kuralları için Azure veritabanı'nı yönetme
 description: Bu makalede, oluşturmak ve PostgreSQL sanal ağ hizmet uç noktaları ve Azure CLI komut satırını kullanarak kurallar için Azure veritabanı yönetmek açıklar.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 67ca81e385bbb7aaddddc6af9aa9bcbd45005e20
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416743"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008741"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Oluşturma ve Azure CLI kullanarak PostgreSQL sanal ağ hizmet uç noktaları için Azure veritabanı'nı yönetme
 Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları PostgreSQL için Azure veritabanı sunucunuza sanal ağ özel adres alanını genişletin. Uygun Azure komut satırı arabirimi (CLI) komutlarını kullanarak, oluşturabilir, güncelleştirme, silme, liste ve sanal ağ hizmet uç noktaları ve sunucunuzu yönetmek için kuralları göster. Sınırlamalar da dahil olmak üzere PostgreSQL sanal ağ hizmet uç noktaları için Azure veritabanı'nın genel bir bakış için bkz. [PostgreSQL sunucusu sanal ağ hizmet uç noktaları için Azure veritabanı](concepts-data-access-and-security-vnet.md). Sanal ağ hizmet uç noktaları, PostgreSQL için Azure veritabanı için desteklenen tüm bölgelerde kullanılabilir.

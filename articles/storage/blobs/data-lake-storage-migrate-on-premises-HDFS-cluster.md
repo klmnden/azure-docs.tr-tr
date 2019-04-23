@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518055"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998303"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure depolama için bir şirket içi HDFS Mağazası'ndan veri taşımak için Azure Data Box'ı kullanın
 
@@ -133,4 +133,4 @@ Bu komut hem verileri hem de meta verileri depolama hesabınızdan Data Lake dep
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Data Lake depolama Gen2 HDInsight kümeleri ile nasıl çalıştığını öğrenin. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Data Lake depolama Gen2 HDInsight kümeleri ile nasıl çalıştığını öğrenin. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

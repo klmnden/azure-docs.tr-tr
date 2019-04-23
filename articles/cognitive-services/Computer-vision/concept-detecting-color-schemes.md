@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313084"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998626"
 ---
 # <a name="detect-color-schemes-in-images"></a>Görüntüleri renk düzenleri algılayın
 
@@ -30,7 +30,7 @@ Görüntü işleme, ayrıca bir resmin siyah beyaz olmadığını gösteren bir 
 
 Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görüntü işleme tarafından döndürülen JSON yanıtı gösterir. Bu durumda, örnek görüntüde siyah beyaz bir resim değil ancak baskın ön plan ve arka plan rengini siyah olur ve baskın bir bütün olarak resmin siyah beyaz renklerdir.
 
-![Dış Mekanda Dağ](./Images/mountain_vista.png)
+![Bir kişinin siluet ile gün batımı en dış mekanda Sıradağlar](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görü
 
 Aşağıdaki tablo döndürülen ön plan, arka plan ve her bir örnek görüntü için görüntü renkleri gösterir.
 
-| Görüntü | Baskın renkler |
+| Image | Baskın renkler |
 |-------|-----------------|
 |![Yeşil bir arka plan beyaz çiçek](./Images/flower.png)| Ön plan: Siyah<br/>Arka planı: Beyaz<br/>Renkler: Siyah, beyaz-yeşil|
 ![İstasyonu çalışan bir eğitimi](./Images/train_station.png) | Ön plan: Siyah<br/>Arka planı: Siyah<br/>Renkler: Siyah |
@@ -63,7 +63,7 @@ Aşağıdaki tablo döndürülen ön plan, arka plan ve her bir örnek görünt�
 
  Aşağıdaki tabloda, her bir örnek görüntü için onaltılık bir HTML renk değeri olarak döndürülen Vurgu rengi gösterilmektedir.
 
-| Görüntü | Vurgu rengi |
+| Image | Vurgu rengi |
 |-------|--------------|
 |![Üzerinde bir Sıradağlar rock gün batımı duran bir kişi](./Images/mountain_vista.png) | #BB6D10 |
 |![Yeşil bir arka plan beyaz çiçek](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ Aşağıdaki tablo döndürülen ön plan, arka plan ve her bir örnek görünt�
 
 Aşağıdaki tablo, görüntü işleme'nın siyah beyaz değerlendirme örnek görüntüleri gösterir.
 
-| Görüntü | Siyah & Beyaz? |
+| Image | Siyah & Beyaz? |
 |-------|----------------|
 |![Siyah beyaz Manhattan stockholm'deki resmi](./Images/bw_buildings.png) | true |
 |![Mavi bir ev ve ön yard](./Images/house_yard.png) | false |

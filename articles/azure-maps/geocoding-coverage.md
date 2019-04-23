@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370321"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000938"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
@@ -106,14 +106,14 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Fransız Polinezyası                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Adası ve McDonald Adaları                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hong Kong Çin ÖİB                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Endonezya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hindistan                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japonya                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Güney Kore                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Makao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Makao ÖİB                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malezya                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mikronezya                                          |                 |                |              |      ✓     |          ✓         |
 | Moğolistan                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Lihtenştayn                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Litvanya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lüksemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Makedonya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Kuzey Makedonya                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monako                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

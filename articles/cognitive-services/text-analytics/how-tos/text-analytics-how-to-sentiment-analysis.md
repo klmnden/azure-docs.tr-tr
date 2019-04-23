@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011308"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin analiziyle duyguları algılamak nasıl
 
-[Yaklaşım Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9), metin girişini değerlendirir ve her belge için 0 (negatif) - 1 (pozitif) aralığında bir yaklaşım döndürür.
+[Yaklaşım Analizi API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9), metin girişini değerlendirir ve her belge için 0 (negatif) - 1 (pozitif) aralığında bir yaklaşım döndürür.
 
 Bu yetenek; sosyal medya, müşteri incelemeleri ve tartışma forumlarında pozitif ve negatif yaklaşımları algılamak için kullanışlıdır. İçerik sizin tarafınızdan sağlanır; modeller ve eğitim verileri hizmet tarafından sağlanır.
 
@@ -37,7 +37,7 @@ Metindeki belirli bir varlık için yaklaşımı ayıklamanın tersine yaklaşı
 
 Yaklaşım analizi, üzerinde çalışılacak küçük metin öbekleri sunduğunuzda daha yüksek kaliteli bir sonuç üretir. Bu, büyük metin öbekleri üzerinde daha iyi performans gösteren anahtar ifade ayıklamasının tersidir. Her iki işlemden de en iyi sonuçları elde etmek için girişleri uygun şekilde yeniden yapılandırın.
 
-JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
+JSON belgelerini şu biçimde olmalıdır: Metin, dil kimliği
 
 Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır ve en fazla 1.000 olabilir koleksiyon başına öğe sayısı (Kimlikler). Koleksiyon, istek gövdesinde gönderilir. Aşağıda, yaklaşım analizi için gönderebileceğiniz bir içerik örneği verilmiştir.
 
@@ -77,16 +77,16 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Yaklaşım analizi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Yaklaşım analizi API'si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Yaklaşım analizi, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/sentiment` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Yaklaşım analizi, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/sentiment` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
 + İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın.
 
 > [!Tip]
-> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) **API testi konsolu**’nu açın.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) **API testi konsolu**’nu açın.
 
 ## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
@@ -135,8 +135,8 @@ Aşağıdaki örnekte, bu makaledeki belge koleksiyonu için yanıt gösterilmek
 
 Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak yaklaşım analizi için kavramları ve iş akışını öğrendiniz. Özet:
 
-+ [Yaklaşım analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9), seçili diller için kullanılabilir.
-+ İstek gövdesindeki JSON belgeleri bir kimlik, metin ve dil kodu içerir.
++ [Yaklaşım analizi API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9), seçili diller için kullanılabilir.
++ İstek gövdesindeki JSON belgelerini bir kimliği, metin ve dil kodu içerir.
 + POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/sentiment` uç noktasına yapılır.
 + Her belge kimliği için bir yaklaşım puanından oluşan yanıt çıktısı, Excel ve Power BI da dahil olmak üzere JSON kabul eden tüm uygulamalarda akışa alınabilir.
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045603"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011275"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 
@@ -52,7 +52,7 @@ Azure Veri Gezgini, her biri kendi hedef senaryoları, avantajları ve dezavanta
 
 ### <a name="ingestion-using-integration-services"></a>Tümleştirme hizmetlerini kullanarak alımı
 
-* Bir tam olarak yönetilen bir veri tümleştirme hizmeti ve Azure Veri Gezgini'ni kullanarak verileri kopyalamak amacıyla Analiz iş yükleri için Azure Data Factory (ADF) [desteklenen veri depoları ve biçimler](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Daha fazla bilgi için [ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama](/azure/data-factory/connector-azure-data-explorer).
+* Bir tam olarak yönetilen bir veri tümleştirme hizmeti ve Azure Veri Gezgini'ni kullanarak verileri kopyalamak amacıyla Analiz iş yükleri için Azure Data Factory (ADF) [desteklenen veri depoları ve biçimler](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Daha fazla bilgi için [veri kopyalama Azure Data Factory tarafından Azure veri Gezgini'ne](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Programlı alma
 

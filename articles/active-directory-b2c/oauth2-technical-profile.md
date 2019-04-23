@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009846"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel İlkesi'nde bir OAuth2 teknik profili tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C, OAuth2 protokolünü kimlik sağlayıcısı için destek sağlar. Bu yetkilendirme ve temsilci seçilen kimlik doğrulaması için birincil protokolüdür. Daha fazla bilgi için [RFC 6749 OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). İle OAuth2 kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Facebook ve Live.com gibi veya Kurumsal kimlik ile bir OAuth2 devredebilir teknik profili temel.
+Azure Active Directory (Azure AD) B2C, OAuth2 protokolünü kimlik sağlayıcısı için destek sağlar. OAuth2 yetkilendirme ve temsilci seçilen kimlik doğrulaması için birincil protokolüdür. Daha fazla bilgi için [RFC 6749 OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). OAuth2 teknik profili ile Facebook gibi bir OAuth2 tabanlı kimlik sağlayıcısı ile ad'sini birleştirebilir. Bir kimlik sağlayıcısı ile Federasyon, kullanıcıların oturum sosyal var olan oturum veya Kurumsal kimlikleri sağlar.
 
 ## <a name="protocol"></a>Protokol
 
@@ -54,7 +54,7 @@ Aşağıdaki örnek, Facebook kimlik sağlayıcısı tarafından döndürülen t
 
 - **First_name** talep eşlendi **givenName** talep.
 - **Soyadı** talep eşlendi **Soyadı** talep.
-- **DisplayName** Adı Eşleme olmadan talep...
+- **DisplayName** adı eşleme talep.
 - **E-posta** Adı Eşleme olmadan talep.
 
 Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepleri döndürür: 
@@ -64,7 +64,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -90,7 +90,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 | ClaimsEndpointFormat | Hayır | Biçim sorgu dizesi parametresinin değeri. Örneğin, değer olarak ayarlayabilirsiniz `json` uç nokta bu LinkedIn talep `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | Hayır | Kimlik sağlayıcısının adı. |
 | response_mode | Hayır | Kimlik sağlayıcısı sonucu Azure AD B2C geri göndermek için kullandığı yöntem. Olası değerler: `query`, `form_post` (varsayılan) veya `fragment`. |
-| scope | Hayır | OAuth2 kimlik sağlayıcısı belirtimine göre tanımlanan erişim isteğinin kapsamı. Gibi `openid`, `profile`, ve `email`. |
+| scope | Hayır | OAuth2 kimlik sağlayıcısı belirtimine göre tanımlanan isteğinin kapsamı. Gibi `openid`, `profile`, ve `email`. |
 | HttpBinding | Hayır | Erişim belirteci ve taleplerin belirteci uç beklenen HTTP bağlama. Olası değerler: `GET` veya `POST`.  |
 | ResponseErrorCodeParamName | Hayır | HTTP 200 (Tamam) döndürülen hata iletisi içeren parametrenin adı. |
 | ExtraParamsInAccessTokenEndpointResponse | Hayır | Alınan yanıtta döndürülebilecek ek parametreleri içeren **AccessTokenEndpoint** bazı kimlik sağlayıcıları. Örneğin, gelen yanıt **AccessTokenEndpoint** gibi ek bir parametre içeren `openid`, zorunlu bir parametre access_token yanı sıra olduğu bir **ClaimsEndpoint** istek sorgu dize. Birden çok parametre adları kaçış verilecek ve virgülle ayrılmış ',' sınırlayıcısı. |
@@ -102,7 +102,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| client_secret | Evet | Kimlik sağlayıcısı uygulama istemci gizli bilgisi. Yalnızca şifreleme anahtarı gereklidir **response_types** meta veri kümesine `code`. Bu durumda, Azure AD B2C, bir erişim belirteci için yetki kodunu değiştirmek için başka bir çağrı yapar. Meta veriler ayarlanırsa `id_token` şifreleme anahtarını atlayabilirsiniz.  |  
+| client_secret | Evet | Kimlik sağlayıcısı uygulama istemci gizli bilgisi. Yalnızca şifreleme anahtarı gereklidir **response_types** meta veri kümesine `code`. Bu durumda, Azure AD B2C, bir erişim belirteci için yetki kodunu değiştirmek için başka bir çağrı yapar. Meta veriler ayarlanırsa `id_token`, şifreleme anahtarını atlayabilirsiniz. |  
 
 ## <a name="redirect-uri"></a>Yönlendirme URI'si
 

@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351380"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000666"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU kaynakları kullanan container Instances'ı dağıtma
 
 Azure Container Instances hakkında belirli bilgi işlem açısından yoğun iş yüklerini çalıştırmak için dağıtma, [kapsayıcı grupları](container-instances-container-groups.md) ile *GPU kaynakları*. Grubundaki kapsayıcı örnekleri, NVIDIA Tesla Gpu'lar bir veya daha fazla CUDA gibi kapsayıcı iş yükleri ve uygulamalar derin öğrenme erişebilirsiniz.
 
-Bu makalede gösterilen şekilde kullanarak bir kapsayıcı grubu dağıttığınızda GPU kaynaklar ekleyebilirsiniz bir [YAML dosyası](container-instances-multi-container-yaml.md) veya [Resource Manager şablonu](container-instances-multi-container-group.md).
+Bu makale kullanarak bir kapsayıcı grubu dağıttığınızda GPU kaynakları eklemek nasıl bir [YAML dosyası](container-instances-multi-container-yaml.md) veya [Resource Manager şablonu](container-instances-multi-container-group.md). Azure portalını kullanarak bir kapsayıcı örneği dağıttığınızda, GPU kaynakları da belirtebilirsiniz.
 
 > [!IMPORTANT]
 > Bu özellik şu anda önizlemededir ve bazı [sınırlamalar uygulanır](#preview-limitations). Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
@@ -61,7 +61,7 @@ CPU ve bellek kaynakları GPU kaynakları dağıtırken, yukarıdaki tabloda gö
 
 * **Fiyatlandırma** - GPU kaynaklar olmadan kapsayıcı grupları, Azure faturaları üzerinde kullanılan kaynaklar için benzer *süresi* GPU kaynaklarla bir kapsayıcı grubunun. Süre kapsayıcı grubunun kapsayıcınızın ilk kapsayıcınızın görüntüsünü çekmek için süreye göre hesaplanır. Kapsayıcı grubu dağıtma süresini içermez.
 
-  Fiyatlandırma, kapsayıcı gruplarının kapsayıcı grubu için GPU kaynakları yüksektir. Bkz: [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/container-instances/).
+  Bkz: [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA sürücüleri** - Container Instances GPU kaynaklarla NVIDIA CUDA sürücüleriyle önceden sağlanmış ve kapsayıcı görüntüleri kullanabilmeniz için kapsayıcı çalışma zamanı, geliştirilen için CUDA iş yükleri.
 

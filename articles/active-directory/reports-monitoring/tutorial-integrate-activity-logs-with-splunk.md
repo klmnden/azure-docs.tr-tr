@@ -1,6 +1,6 @@
 ---
-title: Stream Splunk Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri | Microsoft Docs
-description: Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri Splunk ile tümleştirmeyi öğrenin
+title: Stream Splunk Azure İzleyicisi'ni kullanarak Azure Active Directory günlükleri | Microsoft Docs
+description: Azure İzleyicisi'ni kullanarak Azure Active Directory günlükleri Splunk ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94039655a6cbe7878fa1f61ce759485392dc7e98
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438861"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999527"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak Splunk ile Azure AD günlükleri tümleştirme
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak Splunk ile Azure AD günlükleri tümleştirme
 
 Bu makalede, Azure İzleyicisi'ni kullanarak Azure Active Directory (Azure AD) günlükleri Splunk ile tümleştirmeyi öğrenin. Splunk ile olay hub'ı tümleştirdikten sonra ve bir Azure olay hub'ına ilk günlükleri yönlendirebilirsiniz.
 

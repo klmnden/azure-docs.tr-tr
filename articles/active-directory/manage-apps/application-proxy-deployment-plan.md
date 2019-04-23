@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000717"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Bir Azure AD uygulama ara sunucusu dağıtımını planlama
 
@@ -158,7 +158,7 @@ Aşağıdaki tasarım öğeleri pilot uygulamanızı bir üretim kiracıdaki do�
 3. Ardından uygulamanız için SSO'yu yöntemi ekleyin ve erişimi doğrulamak için tekrar test edin.
 4. Koşullu erişim ve MFA ilkelerini gerektiği gibi uygulanır. Test ve erişimi doğrulayabilirsiniz.
 
-**Sorun giderme araçları**: Sorunlarını giderirken, her zaman bağlayıcı konaktaki tarayıcısından yayımlanmış uygulamaya erişim doğrulayarak başlayın ve uygulamanın beklendiği gibi çalıştığını doğrulayın. Daha basit kolay bir şekilde kök nedeni belirlemek için Kurulum, bu nedenle göz önünde bulundurun gibi yalnızca tek bir bağlayıcıyı ve hiçbir SSO kullanarak en az bir yapılandırma ile ilgili sorunlar oluşturmaya çalışırken. Bazı durumlarda, hata ayıklama araçları Telerik'ın Fiddler gibi bir web uygulama proxy'si yoluyla erişilen erişim veya içerik sorunları vazgeçilmez kanıtlayabilirsiniz. Fiddler'ı izleme yardımcı olmak ve trafik iOS ve Android gibi mobil platformlar için hata ayıklama için proxy olarak da yapabilir ve neredeyse herhangi bir şey, yapılandırılabilir bir ara sunucu üzerinden yönlendirmek için. Bkz: [sorun giderme kılavuzu](/application-proxy-troubleshoot.md) daha fazla bilgi için.
+**Sorun giderme araçları**: Sorunlarını giderirken, her zaman bağlayıcı konaktaki tarayıcısından yayımlanmış uygulamaya erişim doğrulayarak başlayın ve uygulamanın beklendiği gibi çalıştığını doğrulayın. Daha basit kolay bir şekilde kök nedeni belirlemek için Kurulum, bu nedenle göz önünde bulundurun gibi yalnızca tek bir bağlayıcıyı ve hiçbir SSO kullanarak en az bir yapılandırma ile ilgili sorunlar oluşturmaya çalışırken. Bazı durumlarda, hata ayıklama araçları Telerik'ın Fiddler gibi bir web uygulama proxy'si yoluyla erişilen erişim veya içerik sorunları vazgeçilmez kanıtlayabilirsiniz. Fiddler'ı izleme yardımcı olmak ve trafik iOS ve Android gibi mobil platformlar için hata ayıklama için proxy olarak da yapabilir ve neredeyse herhangi bir şey, yapılandırılabilir bir ara sunucu üzerinden yönlendirmek için. Bkz: [sorun giderme kılavuzu](application-proxy-troubleshoot.md) daha fazla bilgi için.
 
 ## <a name="implement-your-solution"></a>Çözümünüzü uygulama
 

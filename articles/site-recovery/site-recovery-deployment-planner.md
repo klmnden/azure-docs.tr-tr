@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 55ccfd17a39a19bec01924e263d8f4892bd6101d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216756"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005698"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında vmware'den azure'a
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -66,7 +66,7 @@ Araç aşağıdaki bilgileri sağlar:
 | | **Vmware’den Azure’a** |**Hyper-V'den Azure'a**|**Azure'dan Azure'a**|**Hyper-V’den ikincil siteye**|**VMware’den ikincil siteye**
 --|--|--|--|--|--
 Desteklenen senaryolar |Evet|Evet|Hayır|Evet*|Hayır
-Desteklenen sürüm | vCenter 6.5, 6.0 veya 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Desteklenen sürüm | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
 Desteklenen yapılandırma|vCenter, ESXi| Hyper-V kümesi, Hyper-V konağı|NA|Hyper-V kümesi, Hyper-V konağı|NA|
 Çalışan Site Recovery Dağıtım Planlayıcısı örneği başına profili oluşturulabilecek sunucu sayısı |Tek (bir vCenter Server ve bir ESXi sunucusuna ait VM’lerin profili aynı anda oluşturulabilir)|Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA |Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA
 
@@ -117,7 +117,7 @@ Dağıtım Planlayıcısı’nın önceki sürümüne sahipseniz şunlardan biri
 
 
 ## <a name="version-history"></a>Sürüm geçmişi
-En son Site Recovery dağıtım planlayıcısı aracı sürümü 2.3 ' dir.
+En son Site Recovery dağıtım planlayıcısı aracı sürümü 2.4 ' dir.
 Her güncelleştirmede eklenen düzeltmeler için [Site Recovery Dağıtım Planlayıcısı sürüm geçmişi](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) sayfasına bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994938"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003709"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream analytics'te gerçek zamanlı Twitter yaklaşım analizi
+
+> [!IMPORTANT] 
+> Twitter uygulaması oluşturma aracılığıyla, artık [apps.twitter.com](https://apps.twitter.com/). Bu öğretici, yeni Twitter API'si içerecek şekilde güncelleştirilme sürecindedir bölümüdür.
 
 Azure Event Hubs'a giren gerçek zamanlı Twitter olayları taşıyarak sosyal medya analizi için bir yaklaşım analizi çözümü oluşturmayı öğrenin. Sonra veriler ve ya da analiz etmek için bir Azure Stream Analytics sorgu depolamak için sonuçları daha sonra yazma veya panoyu kullanan kullanabilirsiniz ve [Power BI](https://powerbi.com/) gerçek zamanlı bilgiler sağlamak için.
 
@@ -282,7 +285,7 @@ Aşağıdaki tabloda, akış verileri JSON parçası olan alanları listeler. So
 |Konu | Belirtilen anahtar sözcükle eşleşen konu|
 |Duygupuanı | Yaklaşım puanını Sentiment140 gelen|
 |Yazma | Tweet ile gönderilen bir Twitter tanıtıcısı|
-|Metin | Tweet tam gövdesi|
+|Text | Tweet tam gövdesi|
 
 
 ## <a name="create-an-output-sink"></a>Çıkış havuzu oluşturma

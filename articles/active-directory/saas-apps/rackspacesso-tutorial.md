@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682126"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Öğretici: Rackspace SSO ile Azure Active Directory Tümleştirme
 
@@ -72,7 +72,7 @@ Azure AD'de Rackspace SSO tümleştirmesini yapılandırmak için Rackspace SSO 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırmanız ve Rackspace SSO ile Azure AD çoklu oturum açmayı test adlı bir test kullanıcı tabanlı **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının Rackspace SSO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Çoklu oturum açma ile Rackspace kullanırken, Rackspace kullanıcılar Rackspace portalda oturum ilk kez otomatik olarak oluşturulur. 
 
 Yapılandırma ve Azure AD çoklu oturum açma Rackspace SSO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
@@ -80,8 +80,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Rackspace SSO ile test etmek içi
 2. **[Rackspace SSO çoklu oturum açmayı yapılandırma](#configure-rackspace-sso-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Rackspace SSO test kullanıcısı oluşturma](#create-rackspace-sso-test-user)**  - kullanıcı Azure AD gösterimini bağlı Rackspace SSO Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Öznitelik eşlemesi Rackspace Denetim Masası'nda ayarlama](#set-up-attribute-mapping-in-the-rackspace-control-panel)**  - Azure AD kullanıcılarını Rackspace rolleri atamak için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -121,21 +121,21 @@ Azure AD çoklu oturum açma Rackspace SSO ile yapılandırmak için aşağıdak
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-6. Üzerinde **Rackspace SSO'yu ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
-
-    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
-
-    a. Oturum Açma URL'si:
-
-    b. Azure AD Tanımlayıcısı
-
-    c. Oturum Kapatma URL'si
+Bu dosya, gerekli Kimlik Federasyonu yapılandırma ayarlarını doldurmak için Rackspace için yüklenir.
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Rackspace SSO çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Rackspace SSO** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Rackspace SSO destek ekibi ](https://support.rackspace.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Rackspace SSO** yan:
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+1. Belgelerine bakın [Denetim Masası'na bir kimlik sağlayıcısı ekleyin](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
+1. Bu adımları yol göstereceğiz:
+    1. Yeni bir kimlik sağlayıcısı oluşturma
+    1. Kullanıcıların oturum açarken şirketinizin tanımlamak için kullanacağı bir e-posta etki alanı belirtin.
+    1. Karşıya yükleme **Federasyon meta verileri XML** daha önce Azure Denetim Masası'ndan indirilen.
+
+Bu, Azure ve Rackspace bağlanmak için gereken temel SSO ayarları doğru şekilde yapılandıracaksınız.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -185,15 +185,58 @@ Bu bölümde, Rackspace SSO için erişim izni verdiğinizde, Azure çoklu oturu
 
 7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="create-rackspace-sso-test-user"></a>Rackspace SSO test kullanıcısı oluşturma
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Eşleme özniteliği Rackspace Denetim Masası'nda ayarlayın
 
-Bu bölümde, Rackspace SSO, Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Rackspace SSO Destek ekibine](https://support.rackspace.com/) Rackspace SSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Rackspace kullanan bir **özniteliği eşleme ilkesi** Rackspace rollerin ve grupların çoklu oturum açmayı kullanıcılara atamak için. **Özniteliği eşleme ilkesi** Azure AD SAML talep Rackspace gerektirir kullanıcı yapılandırma alanlarına çevirir. Daha fazla belge içinde Rackspace bulunabilir [öznitelik eşlemesi temelleri belgeleri](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Bazı önemli noktalar:
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+* Çeşitli izin düzeyleriyle Azure AD gruplarını kullanarak Rackspace erişimi atamak istiyorsanız, azure'da grupları talep etkinleştirmeniz gerekecek **Rackspace SSO** çoklu oturum açma ayarları. **Özniteliği eşleme ilkesi** istenen Rackspace rollerin ve grupların bu gruplara eşleştirmek için kullanılacak:
+
+    ![Grup ayarları talep](common/sso-groups-claim.png)
+
+* Varsayılan olarak, Azure AD grubunun adı yerine SAML talep UID Azure AD grupları gönderir. Ancak, şirket içi Active Directory'nizi Azure ad eşitleme, grupları gerçek adlarını gönderme seçeneği vardır:
+
+    ![Grup adı ayarları talep](common/sso-groups-claims-names.png)
+
+Aşağıdaki örnek **özniteliği eşleme ilkesi** gösterir:
+1. Rackspace kullanıcının adını ayarını `user.name` SAML talep. Herhangi bir talep kullanılabilir, ancak bu kullanıcının e-posta adresini içeren bir alana ayarlamak için yaygın olarak kullanılır.
+1. Rackspace rolleri ayarlama `admin` ve `billing:admin` grubu adı ya da Grup UID tarafından bir Azure AD grubu eşleşen tarafından bir kullanıcı. A *değiştirme* , `"{0}"` içinde `roles` alan kullanılır ve sonuçlarına göre değiştirilecek `remote` kural ifadeler.
+1. Kullanarak `"{D}"` *varsayılan değiştirme* SAML exchange standart ve iyi bilinen SAML Taleplerde arayarak ek SAML alanları almak Rackspace izin vermek için.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> YAML söz dizimi, ilke dosyasını düzenlerken doğrulayan bir metin düzenleyicisi kullandığınızdan emin olun.
+
+Rackspace bkz [öznitelik eşlemesi temelleri belgeleri](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) daha fazla örnek için.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Rackspace SSO kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Rackspace SSO için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+Ayrıca **doğrulama** düğmesine **Rackspace SSO** çoklu oturum açma ayarları:
+
+   ![SSO doğrula düğmesi](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

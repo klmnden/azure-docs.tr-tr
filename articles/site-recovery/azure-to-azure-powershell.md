@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 997b358a6daf2f5450c38fcbe484a584d06bf5c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d11ebad3eaa629a1b03d22c6548f3b7ad591cf5b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787127"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003824"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
@@ -44,7 +44,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 Başlamadan önce:
 - [Senaryo mimarisini ve bileşenlerini ](azure-to-azure-architecture.md) anladığınızdan emin olun.
 - Tüm bileşenler için [destek gereksinimlerini](azure-to-azure-support-matrix.md) gözden geçirin.
-- Azure PowerShell'in `Az` modülü. Yüklemek veya Azure PowerShell yükseltmek gerekirse bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/install-az-ps).
+- Azure PowerShell'in `Az` modülü. Yüklemek veya Azure PowerShell yükseltmek gerekirse bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/azure/install-az-ps).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure aboneliğiniz için oturum açın
 

@@ -1,7 +1,6 @@
 ---
 title: Azure SQL veritabanları için ayırmaları indirimi anlama | Microsoft Docs
 description: Ayırma indirimi çalışan Azure SQL veritabanlarını nasıl uygulanacağını öğrenin.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649450"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997436"
 ---
-# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Ayırma indirimi Azure SQL veritabanına nasıl uygulanacağını anlama
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Ayırma indirimi Azure SQL veritabanına nasıl uygulanır
 
 Ayırma indirimi, SQL veritabanları için öznitelikler ve ayırma miktarı ile eşleşen, otomatik olarak bir Azure SQL veritabanı'nın ayrılmış kapasite satın sonra uygulanır. Rezervasyon SQL veritabanınızın işlem maliyetlerini kapsar. Yazılım, depolama ve ağ için ücretlendirilirsiniz normal fiyatlar. SQL veritabanınız için lisanslama maliyetlerini karşılamak [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Ayrılmış sanal makine örnekleri için bkz. [anlamak Azure ayrılmış VM örnekleri indirim](billing-understand-vm-reservation-charges.md).
 
-## <a name="reservation-discount-applied-to-sql-databases"></a>SQL veritabanları için uygulanan ayırma indirimi
+## <a name="how-reservation-discount-is-applied"></a>Ayırma indirimi nasıl uygulanır
+
+Ayırma indirimi olan "*kullanın-BT-veya-kaybetmek-BT*". Her saat için eşleşen kaynak yoksa, bu nedenle, daha sonra ayırma miktarını bu saat için kaybedersiniz. Yerine getirilemiyor kullanılmayan ayrılmış saat iletin.
+
+Bir kaynak kapattığınızda, ayırma indirimini Belirtilen kapsam içinde başka bir eşleşen kaynak otomatik olarak uygular. Belirtilen kapsamda bulunan eşleşen kaynak yok sonra ayrılmış saatleri *kayıp*.
+
+## <a name="discount-applied-to-sql-databases"></a>SQL veritabanları için uygulanan indirimi
 
  SQL veritabanları saatlik olarak çalıştırmak için SQL veritabanı ayrılmış kapasite indirim uygulanır. Satın aldığınız ayırma çalışan SQL veritabanı tarafından yayılan işlem kullanımı eşleştirilir. Saatin tamamı boyunca çalışmayan SQL Veritabanları olursa rezervasyon, rezervasyon öznitelikleriyle eşleşen diğer SQL veritabanlarına otomatik olarak uygulanır. İndirim, SQL veritabanları için aynı anda çalışan uygulayabilirsiniz. SQL tam bir saat olarak çalışan ayırma öznitelikleri eşleşen veritabanları yoksa, ayırma indirimini bu saat için tüm avantajlarını elde etmezsiniz.
 
@@ -40,7 +45,11 @@ Bu örneklerin geri kalanında, satın aldığınız SQL veritabanı ayrılmış
 - Senaryo 3: Bir çalıştırma 16 çekirdek SQL veritabanı 13'te 1:30 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. Her ikisi de, ayırma indirimini tarafından ele alınmaktadır.
 - Senaryo 4: Bir çalıştırma 16 çekirdek SQL veritabanı 13'te 1:45 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. 15 dakikalık çakışma Kullandıkça Öde fiyatı Ücret ödersiniz. Ayırma indirimi işlem kullanımı saat geri kalanı için uygulanır.
 
-Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
+Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](billing-understand-reserved-instance-usage-ea.md).
+
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -52,8 +61,4 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
-- [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+- [CSP abonelikleri için ayırma kullanımını anlama](/partner-center/azure-reservations)

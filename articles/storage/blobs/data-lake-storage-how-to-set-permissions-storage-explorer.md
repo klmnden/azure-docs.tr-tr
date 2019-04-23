@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: f2569b29ab6124f1cfa22fa745d45082c213a6be
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546320"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003488"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama 2. nesil ile Azure Depolama Gezgini'ni kullanarak dosya ve dizin düzeyi izinleri ayarlayın
 
@@ -33,7 +33,7 @@ Bu makalede, Azure Depolama Gezgini'ni kullanarak öğreneceksiniz:
 
 ## <a name="managing-access"></a>Erişimi yönetme
 
-Dosya sistemi kökünde izinleri ayarlayabilirsiniz. Bunu yapmak için Azure depolama Gezgini'ne (ile bir bağlantı dizesi olarak) bunu haklarıyla bireysel hesabınızla oturum açmış olmanız gerekir. Dosya sistemi sağ tıklayıp **yönetme izinleri**, yedekleme yapmak **Manage Permission** iletişim kutusu.
+Dosya sisteminizi kökünde izinleri ayarlayabilirsiniz. Bunu yapmak için Azure depolama Gezgini'ne (ile bir bağlantı dizesi olarak) bunu haklarıyla bireysel hesabınızla oturum açmış olmanız gerekir. Dosya sisteminizi sağ tıklayıp **yönetme izinleri**, yedekleme yapmak **Manage Permission** iletişim kutusu.
 
 ![Microsoft Azure Depolama Gezgini - dizin erişimi yönetme](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Stream SumoLogic Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri | Microsoft Docs
-description: Azure Active Directory günlükleri Azure İzleyicisi'ni (Önizleme) kullanarak SumoLogic ile tümleştirmeyi öğrenin
+title: Stream SumoLogic Azure İzleyicisi'ni kullanarak Azure Active Directory günlükleri | Microsoft Docs
+description: Azure Active Directory günlükleri Azure İzleyicisi'ni kullanarak SumoLogic ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed1b96052117534f319bbf9570618e6481032f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437217"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008961"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak SumoLogic ile Azure Active Directory günlükleri tümleştirme
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak SumoLogic ile Azure Active Directory günlükleri tümleştirme
 
 Bu makalede, Azure Active Directory (Azure AD) günlüklerini Azure İzleyicisi'ni kullanarak SumoLogic ile tümleştirme öğrenin. Ardından olay hub'ı SumoLogic ile tümleştirin ve günlükleri Azure olay hub'ına ilk yönlendirebilirsiniz.
 

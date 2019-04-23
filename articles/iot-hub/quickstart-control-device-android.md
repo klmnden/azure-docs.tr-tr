@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006582"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149691"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Hızlı Başlangıç: Bir IOT hub'ına (Android) bağlı cihazı denetleme
 
@@ -125,15 +125,13 @@ Cihaz SDK'sı örnek uygulama, fiziksel bir Android cihazı veya Android öykün
    > * Eski Android Studio sürümünüz için Android Gradle eklentisi ve projede başvurulmuş Gradle sürümleridir. İzleyin [bu yönergeleri](https://developer.android.com/studio/releases/gradle-plugin) başvuru ve doğru sürümlerini eklentisi ve Gradle yüklemenizin yükleyin.
    > * Android SDK için lisans anlaşması imzalı değil. Derleme çıkışını Lisans Sözleşmesi'ni imzalamak ve SDK'yı indirmek için yönergeleri izleyin.
 
-
 4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Fiziksel bir Android cihazı veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Uygulama yüklendikten sonra tıklayın **Başlat** IOT Hub'ınıza telemetri göndermeye başlaması düğmesi:
 
-    ![Uygulama](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![İstemci cihaz android uygulamasının örnek ekran görüntüsü](media/quickstart-control-device-android/sample-screenshot.png)
 
 Bu uygulama bırakılması gereken çalışma zamanı sırasında telemetri aralığını güncelleştirmek için hizmet SDK'sı örneği çalıştırılırken phycial cihaz veya öykünücü üzerinde çalışıyor.
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Hub’ınızdan telemetri okuma
 
@@ -146,12 +144,12 @@ Bu bölümde, Azure Cloud Shell ile kullanacağınız [IOT uzantısı](https://d
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     Aşağıdaki ekran görüntüsünde, IOT hub'ı Android cihaz tarafından gönderilen telemetriyi aldığında olarak çıktı gösterir:
 
-      ![Azure CLI kullanarak cihaz iletilerini okuma](media/quickstart-send-telemetry-android/read-data.png)
+      ![Azure CLI kullanarak cihaz iletilerini okuma](media/quickstart-control-device-android/read-data.png)
 
 Varsayılan olarak telemetri uygulama telemetri Android cihazından 5 saniyede gönderiyor. Sonraki bölümde, bir doğrudan yöntem çağrısının Android IOT cihaz telemetrisi aralığını güncelleştirmek için kullanın.
-
 
 ## <a name="call-the-direct-method"></a>Doğrudan yöntem çağırma
 
@@ -180,7 +178,6 @@ Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cih
    > * Eski Android Studio sürümünüz için Android Gradle eklentisi ve projede başvurulmuş Gradle sürümleridir. İzleyin [bu yönergeleri](https://developer.android.com/studio/releases/gradle-plugin) başvuru ve doğru sürümlerini eklentisi ve Gradle yüklemenizin yükleyin.
    > * Android SDK için lisans anlaşması imzalı değil. Derleme çıkışını Lisans Sözleşmesi'ni imzalamak ve SDK'yı indirmek için yönergeleri izleyin.
 
-
 4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Ayrı bir fiziksel Android cihaz veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Uygulama yüklendikten sonra güncelleştirme **ayarlanan Mesajlaşma aralığı** değerini **1000** tıklatıp **Invoke**.
@@ -192,8 +189,6 @@ Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cih
 6. Uygulamayı yöntemi başarıyla yürütülüp olup olmadığını belirten bir bildirim alırsınız.
 
     ![Doğrudan yöntem onayı](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

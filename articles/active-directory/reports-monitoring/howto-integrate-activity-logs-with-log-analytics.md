@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici günlüklerine (Önizleme) Azure Active Directory günlükleri Stream | Microsoft Docs
-description: Azure Active Directory günlükleri, Azure İzleyici günlüklerine (Önizleme) ile tümleştirmeyi öğrenin
+title: Azure Active Directory günlükleri Azure İzleyici günlüklerine Stream | Microsoft Docs
+description: Azure Active Directory günlükleri, Azure İzleyici günlüklerine ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436278"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010944"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure İzleyici günlüklerine (Önizleme) ile Azure AD günlükleri tümleştirme
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure İzleyici günlüklerine ile Azure AD günlükleri tümleştirme
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Azure İzleyici günlüklerine sayesinde belirli olayları bulmak, eğilimleri ve çeşitli veri kaynakları arasında bağıntı gerçekleştirmek için veri. Azure ad ile tümleştirme, Azure İzleyici günlüklerine etkinlik günlükleri artık gibi görevleri gerçekleştirebilirsiniz:
 
@@ -37,8 +39,6 @@ Ignite oturumunda aşağıdaki video Azure AD'ye günlükler pratik kullanıcı 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 Bu makalede, Azure İzleyici ile Azure Active Directory (Azure AD) günlükleri tümleştirme öğrenin.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Desteklenen raporlar
 
@@ -60,7 +60,7 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 * Azure AD kiracısında *genel yönetici* veya *güvenlik yöneticisi* olan bir kullanıcı.
 * Azure aboneliğinizdeki bir Log Analytics çalışma. Bilgi edinmek için nasıl [Log Analytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine günlükleri gönderme
+## <a name="send-logs-to-azure-monitor"></a>Azure İzleyici günlükleri gönderme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
@@ -80,7 +80,7 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
 7. Yaklaşık 15 dakika sonra olayları Log Analytics çalışma alanınıza aktarılır doğrulayın.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure AD çözümleme Azure İzleyici günlükleri ile etkinlik günlükleri](howto-analyze-activity-logs-log-analytics.md)
 * [Yükleme ve Azure Active Directory için log analytics görünümleri kullanma](howto-install-use-log-analytics-views.md)

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227707"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003454"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks, sanal ağınızın (Önizleme) dağıtma
 
@@ -37,7 +37,7 @@ Azure portalında Azure Databricks çalışma alanı dağıtımı arabirimi otom
 
 Azure Databricks çalışma alanınıza dağıttığınız sanal ağı aşağıdaki gereksinimleri karşılaması gerekir:
 
-### <a name="location"></a>Konum
+### <a name="location"></a>Location
 
 Sanal ağ, Azure Databricks çalışma alanı ile aynı konumda bulunmalıdır.
 
@@ -121,7 +121,7 @@ Bu şablon aynı zamanda ağ güvenlik grupları şablonunu kullanmadan kullanı
 
 Kullanmıyorsanız, [Azure portalında](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) veya [Azure Resource Manager şablonları](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) , ağ güvenlik grupları oluşturmak için el ile aşağıdaki trafik beyaz liste, alt ağlarda gerekir.
 
-|Yön|Protokol|Kaynak|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|
+|Direction|Protokol|Kaynak|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|
 |---------|--------|------|-----------|-----------|----------------|
 |Gelen|\*|VirtualNetwork|\*|\*|\*|
 |Gelen|\*|Denetim düzlemi NAT IP|\*|\*|22|
@@ -188,7 +188,7 @@ Olası neden: Kapsayıcı barındırma örneği veya DBFS depolama hesabına kon
 
 ### <a name="notebook-command-errors"></a>Not defteri komut hataları
 
-**Komut askıda kalması**
+**Komut yanıt vermiyor**
 
 Olası neden: çalışan alt iletişimi engellenir. Gelen güvenlik kuralları gereksinimlerini sağlayarak düzeltin.
 

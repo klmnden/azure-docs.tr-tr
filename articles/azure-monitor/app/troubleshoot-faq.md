@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521831"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149297"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -134,7 +134,7 @@ Daha fazla bilgi edinin [ASP.NET](api-filtering-sampling.md) veya [Java](java-fi
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Şehir, ülke ve diğer coğrafi konum verilerini nasıl hesaplanır?
 
-IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Tarayıcı telemetrisi: Gönderenin IP adresi topluyoruz.
 * Sunucu telemetri: Application Insights modülü için istemci IP adresi toplar. Varsa toplanmaz `X-Forwarded-For` ayarlanır.

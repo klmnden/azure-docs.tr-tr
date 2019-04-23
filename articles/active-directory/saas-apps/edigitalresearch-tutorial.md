@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 133f42ebce1472c799bb1ade86e421665d7ba7a3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682901"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Öğretici: EDigitalResearch ile Azure Active Directory Tümleştirme
 
@@ -195,7 +195,7 @@ Erişim paneli eDigitalResearch kutucuğa tıkladığınızda, size otomatik ola
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

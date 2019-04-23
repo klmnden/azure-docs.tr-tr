@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497075"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006140"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi
 
@@ -97,7 +97,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları
 
-| Ad       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
+| Name       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 |mi_subnet   |Herhangi biri                         |Herhangi biri     |MI ALT AĞ        |MI ALT AĞ  |İzin Ver |
@@ -105,13 +105,13 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="mandatory-outbound-security-rules"></a>Zorunlu giden güvenlik kuralları
 
-| Ad       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
+| Name       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
 |------------|--------------|--------|-----------------|-----------|------|
 |yönetim  |80, 443, 12000|TCP     |MI ALT AĞ        |AzureCloud |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |MI ALT AĞ        |MI ALT AĞ  |İzin Ver |
 
 > [!IMPORTANT]
-> 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Yönetilen örnek aracılığıyla Azure kaynak dağıtımlar başarısız olur, giriş ve çıkış kuralları her bağlantı için ayrı ayrı yapılandırılıp yapılandırılmadığını Manager sağlama. Bu bağlantı noktalarını ayrı kurallarında kullanıyorsanız, dağıtım hata kodu ile başarısız olur `VnetSubnetConflictWithIntendedPolicy`
+> 9003, yalnızca bir gelen kuralı 9000, bağlantı noktaları olduğundan emin olmak için bağlantı noktası 80, 443, 12000 1438, 1440, 1452 ve bir giden kuralı. Yönetilen örnek aracılığıyla Azure kaynak gelen ve giden kurallar her bağlantı için ayrı ayrı yapılandırılıp yapılandırılmadığını dağıtımlar başarısız olur Manager sağlama. Bu bağlantı noktalarını ayrı kurallarında kullanıyorsanız, dağıtım hata kodu ile başarısız olur `VnetSubnetConflictWithIntendedPolicy`
 
 \* Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgi, alt ağ özelliklerini Azure portalında bulabilirsiniz.
 
@@ -122,7 +122,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
 
-|Ad|Adres ön eki|Sonraki atlama|
+|Name|Adres ön eki|Sonraki atlama|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI ALT AĞ|Sanal ağ|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

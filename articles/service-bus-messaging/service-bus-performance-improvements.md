@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501646"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996039"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma kullanarak performans geliştirme en iyi uygulamalar
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 Toplu işleme ileti Faturalanabilir işlemlerin sayısı etkilemez ve yalnızca hizmet veri yolu istemci protokolünü kullanarak için kullanılabilir [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kitaplığı. Toplu işleme HTTP protokolünü desteklemiyor.
+
+> [!NOTE]
+> BatchFlushInterval ayarı toplu işleme uygulama açısından bakıldığında örtük olmasını sağlar. yani uygulama SendAsync() yapar ve CompleteAsync() çağırır ve belirli toplu işlem çağrıları yapmaz.
+>
+> Açık istemci tarafı toplu işleme uygulanabilir yararlanarak yöntem çağrısı - aşağıdaki 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Burada iletilerin toplam boyutu fiyatlandırma katmanı tarafından desteklenen Maksimum boyuttan daha az olmalıdır.
 
 ## <a name="batching-store-access"></a>Depolama erişim toplu işleme
 

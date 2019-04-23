@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: 2d862d07a65c3fb28b49a82692ea575f787b9750
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508819"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008758"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -55,7 +55,7 @@ Bir talep sağlayıcı kümesini içeren [teknik profiller](technicalprofiles.md
 | DisplayName | 0:1 | Kullanıcılara gösterilen Talep sağlayıcı adını içeren bir dize. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Talep sağlayıcı tarafından desteklenen teknik profiller bir dizi |
 
-**ClaimsProvider** , teknik düzenler profilleri talep sağlayıcısını ilgilidir. Aşağıdaki örnek, Azure Active Directory teknik profilleri ile Azure Active Directory talep sağlayıcısı gösterir:
+**ClaimsProvider** teknik profillerinize talep sağlayıcısını nasıl ilişki kuracağını düzenler. Aşağıdaki örnek, Azure Active Directory teknik profilleri ile Azure Active Directory talep sağlayıcısı gösterir:
 
 ```XML
 <ClaimsProvider>

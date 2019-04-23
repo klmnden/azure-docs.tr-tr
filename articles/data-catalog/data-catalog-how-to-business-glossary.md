@@ -1,17 +1,17 @@
 ---
 title: Azure veri Kataloğu'nda iş sözlüğünü ayarlama
 description: Kayıtlı veri varlıklarını tanımlama ve etiket için ortak bir iş sözlüğü kullanmak için Azure veri Kataloğu'nda iş sözlüğünü vurgulama nasıl yapılır makalesi.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264225"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009727"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>İş sözlüğünü yönetilen etiketleme için ayarlama
 

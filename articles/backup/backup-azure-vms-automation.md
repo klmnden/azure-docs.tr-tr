@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629604"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149045"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
@@ -31,7 +31,6 @@ Bu makalede şunları öğreneceksiniz:
 - [Daha fazla bilgi edinin](backup-azure-recovery-services-vault-overview.md) kurtarma Hizmetleri kasası hakkında.
 - [Gözden geçirme](backup-architecture.md#architecture-direct-backup-of-azure-vms) mimari Azure VM yedeklemesi için [hakkında bilgi edinin](backup-azure-vms-introduction.md) yedekleme işlemi ve [gözden](backup-support-matrix-iaas.md) desteği, sınırlamalar ve önkoşullar.
 - Kurtarma Hizmetleri için PowerShell nesne hiyerarşisi gözden geçirin.
-
 
 ## <a name="recovery-services-object-hierarchy"></a>Kurtarma Hizmetleri nesne hiyerarşisi
 
@@ -54,7 +53,7 @@ Başlamak için:
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     Azure Backup, Azure Site Recovery ve kurtarma Hizmetleri kasası için cmdlet'leri ve diğer adları görüntülenir. Aşağıdaki görüntüde, görürsünüz, bir örnektir. Cmdlet öğelerinin tam listesi değil.
 
     ![Kurtarma Hizmetleri listesi](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -77,9 +76,11 @@ Başlamak için:
     ```
 
 6. Aşağıdaki komutları kullanarak sağlayıcılar başarıyla kayıtlı doğrulayabilirsiniz:
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet'ini yeniden.
 
 
@@ -241,9 +242,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Azure kamu Bulutu kullanıyorsanız ServicePrincipalName parametresi için değer ff281ffe-705c-4f53-9f37-a40e6f2c68f3 kullanın, [kümesi AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet'i.
 >
 
+## <a name="monitoring-a-backup-job"></a>Yedekleme işini izleme
+
+Azure portalını kullanarak olmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. Süren işin durumunu almak için kullanın [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, belirli bir kasa için yedekleme işlerinin alır ve bu Kasa Kasa bağlamını içinde belirtilir. Aşağıdaki örnek, bir dizi olarak bir Süren işin durumunu alır ve durum $joblist değişkeninde depolar.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+Çıktı aşağıdaki örneğe benzer:
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+Bu işlerin - gereksiz ek kodu olan - tamamlanması için yoklama yerine kullanmak [bekleme AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, işi tamamlar veya belirtilen zaman aşımı değerine ulaşılana kadar yürütmeyi duraklatır.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
+
 ### <a name="modify-a-protection-policy"></a>Bir koruma ilkesini değiştirme
 
 Koruma ilkesini değiştirmek için kullanın [kümesi AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) SchedulePolicy veya RetentionPolicy nesneleri değiştirmek için.
+
+#### <a name="modifying-scheduled-time"></a>Zamanlanan saati değiştiriliyor
+
+Bir koruma ilkesi oluşturduğunuzda, başlangıç zamanı varsayılan olarak atanır. Aşağıdaki örnekler, bir koruma İlkesi başlangıç zamanını değiştirmek nasıl gösterir.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### <a name="modifying-retention"></a>Bekletme değiştirme
 
 Aşağıdaki örnek, kurtarma noktası bekletme 365 gün olarak değiştirir.
 
@@ -267,14 +308,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 Varsayılan değer 2, değeri en az 1 ve en fazla 5 kullanıcı ayarlayabilirsiniz. Haftalık yedekleme ilkeleri için süresi 5 olarak ayarlanmıştır ve değiştirilemez.
 
-## <a name="trigger-a-backup"></a>Bir yedeklemeyi tetikleyin
+### <a name="trigger-a-backup"></a>Bir yedeklemeyi tetikleyin
 
-Kullanım [yedekleme AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) bir yedekleme işini tetiklemek için. İlk yedekleme ise, tam bir yedeklemedir. Sonraki yedeklemeler, artımlı bir kopya yararlanın. Kullandığınızdan emin olun **[kümesi AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** yedekleme işini tetiklemeden önce kasa bağlamını ayarlamak için. Aşağıdaki örnek, zaten kasa bağlamını ayarlamanız varsayar.
+Kullanım [yedekleme AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) bir yedekleme işini tetiklemek için. İlk yedekleme ise, tam bir yedeklemedir. Sonraki yedeklemeler, artımlı bir kopya yararlanın. Aşağıdaki örnek, bir VM 60 gün boyunca bekletilecek yedek alır.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 Çıktı aşağıdaki örneğe benzer:
@@ -290,28 +332,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## <a name="monitoring-a-backup-job"></a>Yedekleme işini izleme
+### <a name="change-policy-for-backup-items"></a>Yedekleme öğeleri ilkesini değiştirme
 
-Azure portalını kullanarak olmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. Süren işin durumunu almak için kullanın [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, belirli bir kasa için yedekleme işlerinin alır ve bu Kasa Kasa bağlamını içinde belirtilir. Aşağıdaki örnek, bir dizi olarak bir Süren işin durumunu alır ve durum $joblist değişkeninde depolar.
+Kullanıcı var olan bir ilkeyi değiştirmek veya yedekleme öğesi İlkesi İlke1 ' Policy2 için değiştirin. İlkeleri bir yedekleme öğesi için geçiş yapmak için yalnızca uygun ilke fetch öğeyi geri ve kullanabileceğiniz [etkinleştir AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) parametre olarak yedekleme öğesi ile komutu.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+Yapılandırma Yedekleme tamamlandığında ve aşağıdaki çıktıyı döndürür kadar komutu bekler.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-Çıktı aşağıdaki örneğe benzer:
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-Bu işlerin - gereksiz ek kodu olan - tamamlanması için yoklama yerine kullanmak [bekleme AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, işi tamamlar veya belirtilen zaman aşımı değerine ulaşılana kadar yürütmeyi duraklatır.
+### <a name="stop-protection"></a>Korumayı Durdur
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### <a name="retain-data"></a>Verileri tut
+
+Kullanıcı korumasını durdurmak isterse kullanabilecekleri [devre dışı bırak AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet'i. Bu zamanlanmış yedeklemeleri durdurur ancak kadar yukarı yedeklenen verileri artık sonsuza kadar korunur.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### <a name="delete-backup-data"></a>Yedekleme verilerini sil
+
+Yedekleme verileri kasaya tamamen kaldırmak için yalnızca Ekle '-RemoveRecoveryPoints bayrağı/anahtara ['koruma komutunu devre dışı bırak'](#retain-data).
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## <a name="restore-an-azure-vm"></a>Azure VM geri yükleme
 

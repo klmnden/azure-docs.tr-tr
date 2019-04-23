@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878205"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997453"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Hızlı Başlangıç: Görüntü işleme kullanarak resimlerdeki el yazısı metinleri ayıklamak C# SDK'sı
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, el yazısı veya yazdırılan metin için bilgisayar 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Bir görüntü işleme abonelik anahtarı. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 * [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 

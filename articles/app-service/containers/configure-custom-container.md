@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 7f850cdfe99fce81c9be045b4882dc42bf2aa5f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551105"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001890"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service için özel bir Linux kapsayıcısını yapılandırın
 
@@ -121,7 +121,9 @@ Kalıcı depolama etkinleştirmeniz `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ayarla
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-İçinde *docker-compose.yml* dosya, harita `volumes` seçeneğini `${WEBAPP_STORAGE_HOME}`. `WEBAPP_STORAGE_HOME`, App Service içinde bulunan ve uygulamanız için kalıcı depolamayla eşlenmiş olan bir ortam değişkenidir. Örneğin:
+İçinde *docker-compose.yml* dosya, harita `volumes` seçeneğini `${WEBAPP_STORAGE_HOME}`. 
+
+`WEBAPP_STORAGE_HOME`, App Service içinde bulunan ve uygulamanız için kalıcı depolamayla eşlenmiş olan bir ortam değişkenidir. Örneğin:
 
 ```yaml
 wordpress:
@@ -130,6 +132,19 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
+```
+
+### <a name="use-custom-storage-in-docker-compose"></a>Docker Compose özel depolama kullanma
+
+Azure depolama (Azure dosyaları veya Azure Blob) ile çok kapsayıcılı uygulamaları özel kimliğini kullanarak bağlanabilir. Özel kimlik adı görüntülemek için çalıştırın [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+
+İçinde *docker-compose.yml* dosya, harita `volumes` seçeneğini `custom-id`. Örneğin:
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Önizleme sınırlamaları

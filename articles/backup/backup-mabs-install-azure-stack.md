@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497936"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996518"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
 
@@ -61,7 +61,7 @@ Diğer sanal makinelerle paylaşılırsa, depolama alanı boyut ve IOPS sınırl
 Her Azure Stack sanal makine toplu olarak kullanıcı kullanılabilir geçici disk depolama alanı ile birlikte gelen `D:\`. Azure Yedekleme'nin ihtiyaç duyduğu yerel hazırlama alanı içinde bulunacak şekilde yapılandırılabilir `D:\`, ve önbellek konumu üzerinde yerleştirilebilir `C:\`. Bu şekilde, hiçbir depolama Azure Backup sunucusu sanal makinesine bağlı veri diskleri uzağa gerekmez gerekir.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Yerel diskte ve azure'da yedek verilerinin depolanması
-Azure Backup sunucusu yedekleme verileri, operasyonel kurtarma için sanal makineye bağlı Azure disklerine üzerine veri depolar. Azure Backup Sunucusu'na depolama diskleri ve depolama alanı sanal makineye bağlandıktan sonra sizin yerinize yönetir. Yedekleme verileri depolama alanından sayısına ve her birine bağlı disklerin boyutuna bağlıdır [Azure Stack sanal makine](../azure-stack/user/azure-stack-storage-overview.md). Her Azure Stack VM boyutu en fazla sanal makineye bağlı diskler vardır. Örneğin, dört diskleri A2 olur. A3 sekiz diskler ' dir. A4 16 disk var. Yeniden disk sayısı ve boyutu, toplam yedekleme depolama havuzunu belirler.
+Azure Backup sunucusu yedekleme verileri, operasyonel kurtarma için sanal makineye bağlı Azure disklerine üzerine veri depolar. Azure Backup Sunucusu'na depolama diskleri ve depolama alanı sanal makineye bağlandıktan sonra sizin yerinize yönetir. Yedekleme verileri depolama alanından sayısına ve her birine bağlı disklerin boyutuna bağlıdır [Azure Stack sanal makine](/azure-stack/user/azure-stack-storage-overview). Her Azure Stack VM boyutu en fazla sanal makineye bağlı diskler vardır. Örneğin, dört diskleri A2 olur. A3 sekiz diskler ' dir. A4 16 disk var. Yeniden disk sayısı ve boyutu, toplam yedekleme depolama havuzunu belirler.
 
 > [!IMPORTANT]
 > Yapmanız gerekenler **değil** beş günden fazla bir süre için Azure Backup sunucusu bağlı disklerde operasyonel Kurtarma (Yedekleme) verileri korur.
@@ -73,7 +73,7 @@ Azure'a yedekleme verilerini depolamak için oluşturabilir veya bir kurtarma Hi
  
 ### <a name="scaling-deployment"></a>Dağıtım ölçeklendirme
 Dağıtımınız ölçeklendirmek istiyorsanız, aşağıdaki seçenekleriniz:
-  - Ölçeği artırma - D serisi serisinden Azure Backup sunucusu sanal makinenin boyutunu artırın ve yerel depolama alanını artırmak [Azure Stack sanal makine yönergelerine göre](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Ölçeği artırma - D serisi serisinden Azure Backup sunucusu sanal makinenin boyutunu artırın ve yerel depolama alanını artırmak [Azure Stack sanal makine yönergelerine göre](/azure-stack/user/azure-stack-manage-vm-disks).
   - Veri boşaltma - eski verileri Azure'a göndermek ve Azure Backup Sunucusu'na bağlı depolama üzerinde yalnızca en yeni verileri korur.
   - -Daha fazla Azure Backup iş yüklerini korumak için sunucu eklemek ölçeği.
 

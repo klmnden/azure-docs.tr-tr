@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8181fc259ffbed11672fe64a8fc821e234183b72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856861"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002806"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing görsel arama API'sine dil ve bölge desteği
 
@@ -49,7 +49,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Finlandiya|FI|
 |Fransa|GS|
 |Almanya|DE|
-|Hong Kong|HK|
+|Hong Kong Çin ÖİB|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
@@ -93,7 +93,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Finlandiya|Fince|FI-FI|
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
-|Hong Kong|Geleneksel Çince|zh-HK|
+|Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571303"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002145"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -83,7 +83,7 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 | [Cihaz olayı Gönder](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Evet | Evet |
 | Modül olayı Gönder | Evet | Evet |
 | [Dosya karşıya yükleme durumu güncelleştirme](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Evet | Evet |
-| [Toplu cihaz işlemi](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Evet, IOT Edge özellikleri dışında | Evet | 
+| [Toplu cihaz işlemi](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Evet, IOT Edge özellikleri dışında | Evet | 
 | [Komut kuyruğu Temizle](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Evet |
 | [Cihaz ikizi Al](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Evet |
 | Modül ikizi Al |   | Evet |

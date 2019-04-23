@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896537"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010288"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Otomasyonu sertifika varlıkları
 
@@ -33,7 +33,7 @@ AzureRM için aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Ot
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Azure Automation'a yeni bir sertifika oluşturur.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Azure Otomasyonu sertifika kaldırır.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sertifikayı karşıya yükleme ve bir .pfx için parolayı ayarlama da dahil olmak üzere mevcut bir sertifikayı özelliklerini ayarlar.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
 
 ## <a name="activities"></a>Etkinlikler
 

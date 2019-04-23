@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283146"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Öğretici: RealtimeBoard ile Azure Active Directory Tümleştirme
 
@@ -131,7 +131,7 @@ Azure AD çoklu oturum açma ile RealtimeBoard yapılandırmak için aşağıdak
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>RealtimeBoard tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **RealtimeBoard** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [RealtimeBoard desteği Takım](). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **RealtimeBoard** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun URL'ler Azure portalından RealtimeBoard Destek ekibine. Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

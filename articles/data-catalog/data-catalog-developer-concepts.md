@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu Geliştirici kavramları
 description: Temel kavramlar olarak Kataloğu REST API aracılığıyla kullanıma sunulan Azure veri Kataloğu kavramsal model giriş.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bca006ab33379f52281f77fb5a04a24022bac373
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314562"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006701"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure veri Kataloğu Geliştirici kavramları
 Microsoft **Azure veri Kataloğu** kitle kaynak veri kaynağı meta verilerini ve veri kaynağı bulma için özellikler sağlayan bir tam olarak yönetilen bir bulut hizmetidir. Geliştiriciler, hizmet, REST API'leri aracılığıyla kullanabilir. Hizmette uygulanan kavramları anlamak, başarılı bir şekilde tümleştirmek geliştiricilere yönelik önemli **Azure veri Kataloğu**.
@@ -85,7 +85,7 @@ Bu özellikler, tüm kök varlık türleri ve tüm ek açıklama türleri için 
 
 <table>
 <tr><td><b>Özellik adı</b></td><td><b>Veri türü</b></td><td><b>Açıklamalar</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Boole</td><td>Öğenin veri (Sql Server veritabanı, Oracle Database gibi) bir kaynak sistemi türetilen veya bir kullanıcı tarafından yazılmış olup olmadığını gösterir.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boolean</td><td>Öğenin veri (Sql Server veritabanı, Oracle Database gibi) bir kaynak sistemi türetilen veya bir kullanıcı tarafından yazılmış olup olmadığını gösterir.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Ortak kök Özellikler
@@ -99,13 +99,13 @@ Bu özellikler, tüm singleton olmayan ek açıklama türleri için geçerlidir 
 
 <table>
 <tr><td><b>Özellik adı</b></td><td><b>Veri türü</b></td><td><b>Açıklamalar</b></td></tr>
-<tr><td>anahtar</td><td>String</td><td>Bir kullanıcı tarafından belirtilen ek açıklama geçerli koleksiyonunda benzersiz olarak tanımlayan anahtar. Anahtar uzunluğu 256 karakterden uzun olamaz.</td></tr>
+<tr><td>key</td><td>String</td><td>Bir kullanıcı tarafından belirtilen ek açıklama geçerli koleksiyonunda benzersiz olarak tanımlayan anahtar. Anahtar uzunluğu 256 karakterden uzun olamaz.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Kök varlık türleri
 Kök varlık türleri ve kataloğa kayıtlı veri varlıklarını çeşitli türlerini temsil eden bu türleridir. Her kök türü için varlık ve ek açıklamalar görünümde açıklayan bir görünüm yok. Görünüm adı, REST API kullanarak bir varlığı yayımlarken karşılık gelen {view_name} url kesimini kullanılmalıdır.
 
-<table><tr><td><b>Varlık türü (Görünüm adı)</b></td><td><b>Ek Özellikler</b></td><td><b>Veri türü</b></td><td><b>İzin verilen ek açıklamaları</b></td><td><b>Açıklamalar</b></td></tr><tr><td>Tablo ("Tablo")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Şema<p>ColumnDescription<p>ColumnTag<p> Uzman<p>Önizleme<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Belgeler<p></td><td>Tablo hiç tablo verisi temsil eder.  Örneğin: SQL tablo, SQL görünümü, Analysis Services tablolu tablosu, Analysis Services çok boyutlu boyut, Oracle tablo, vs.   </td></tr><tr><td>Ölçü birimi ("ölçüler")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler<p></td><td>Bu tür bir Analysis Services ölçüsü temsil eder.</td></tr><tr><td></td><td>ölçü</td><td>Sütun</td><td></td><td>Ölçü açıklayan meta verileri</td></tr><tr><td></td><td>isCalculated </td><td>Boole</td><td></td><td>Ölçüyü veya hesaplanan varsa belirtir.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Ölçü için fiziksel kapsayıcı</td></tr><td>KPI'yı ("KPI'lar")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Ölçü için fiziksel kapsayıcı</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Sayısal MDX ifadesi veya bir hesaplama KPI hedef değerini döndürür.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>KPI gerçek değerini döndüren bir MDX sayısal ifade.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Zaman içinde belirli bir noktada KPI durumunu temsil eden bir MDX ifadesi.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>KPI değeri zaman içinde değerlendirilen MDX ifadesi. Eğilim belirli iş bağlamında yararlıdır zamana bağlı ölçütü olabilir.</td>
+<table><tr><td><b>Varlık türü (Görünüm adı)</b></td><td><b>Ek Özellikler</b></td><td><b>Veri türü</b></td><td><b>İzin verilen ek açıklamaları</b></td><td><b>Açıklamalar</b></td></tr><tr><td>Tablo ("Tablo")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Şema<p>ColumnDescription<p>ColumnTag<p> Uzman<p>Önizleme<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Belgeler<p></td><td>Tablo hiç tablo verisi temsil eder.  Örneğin: SQL tablo, SQL görünümü, Analysis Services tablolu tablosu, Analysis Services çok boyutlu boyut, Oracle tablo, vs.   </td></tr><tr><td>Ölçü birimi ("ölçüler")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler<p></td><td>Bu tür bir Analysis Services ölçüsü temsil eder.</td></tr><tr><td></td><td>ölçü</td><td>Sütun</td><td></td><td>Ölçü açıklayan meta verileri</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Ölçüyü veya hesaplanan varsa belirtir.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Ölçü için fiziksel kapsayıcı</td></tr><td>KPI'yı ("KPI'lar")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Ölçü için fiziksel kapsayıcı</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Sayısal MDX ifadesi veya bir hesaplama KPI hedef değerini döndürür.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>KPI gerçek değerini döndüren bir MDX sayısal ifade.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Zaman içinde belirli bir noktada KPI durumunu temsil eden bir MDX ifadesi.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>KPI değeri zaman içinde değerlendirilen MDX ifadesi. Eğilim belirli iş bağlamında yararlıdır zamana bağlı ölçütü olabilir.</td>
 <tr><td>Rapor ("rapor")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler<p></td><td>Bu tür bir SQL Server Reporting Services rapor temsil eder. </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Kapsayıcı ("kapsayıcı")</td><td></td><td></td><td>Açıklama<p>FriendlyName<p>Etiket<p>Uzman<p>AccessInstruction<p>Belgeler<p></td><td>Bu tür bir SQL veritabanı, bir Azure BLOB kapsayıcısı veya bir Analysis Services modeli gibi diğer varlıklar bir kapsayıcıyı temsil eder.</td></tr></table>
 
 ### <a name="annotation-types"></a>Ek açıklama türleri
@@ -115,7 +115,7 @@ Ek açıklama türleri katalog içindeki diğer türlerine atanan meta veri tür
 <tr><td><b>Ek açıklama türü (iç içe Görünüm adı)</b></td><td><b>Ek Özellikler</b></td><td><b>Veri türü</b></td><td><b>Açıklamalar</b></td></tr>
 
 <tr><td>Açıklaması ("Açıklamalar")</td><td></td><td></td><td>Bu özellik, bir varlık için bir açıklama içerir. Sistemin her bir kullanıcı kendi açıklama ekleyebilirsiniz.  Yalnızca bu kullanıcının açıklama nesneyi düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri açıklama nesneyi silmek ancak düzenleme olmadan). Sistem, kullanıcıların açıklamaları ayrı ayrı tutar.  Bu nedenle her varlık (büyük olasılıkla bir veri kaynağından elde edilen bilgileri içeren ek olarak, varlık hakkında bilgilerini katkılarıyla her kullanıcı için bir tane) üzerinde açıklamaları dizisi yok.</td></tr>
-<tr><td></td><td>açıklama</td><td>string</td><td>Varlık kısa açıklaması (2-3 satır)</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Varlık kısa açıklaması (2-3 satır)</td></tr>
 
 <tr><td>Etiketi ("tags")</td><td></td><td></td><td>Bu özellik, bir varlık için bir etiket tanımlar. Her bir kullanıcı sistemin bir varlık için birden çok etiket ekleyebilirsiniz.  Etiket nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri etiket nesneyi silmek ancak düzenleme olmadan). Sistem, kullanıcıların etiket ayrı ayrı tutar.  Bu nedenle her varlık etiketi nesneleri dizisi yok.</td></tr>
 <tr><td></td><td>etiket</td><td>string</td><td>Varlığı açıklayan bir etiketi.</td></tr>
@@ -128,7 +128,7 @@ Ek açıklama türleri katalog içindeki diğer türlerine atanan meta veri tür
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Bu özellik, bir sütun için bir açıklama içerir.  Sistemin her kullanıcı birden çok sütun (en fazla sütun başına) için kendi açıklamalar ekleyebilirsiniz. ColumnDescription nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri ColumnDescription nesnesini silme ancak düzenleme olmadan). Sistem, bu kullanıcının sütun açıklamaları ayrı ayrı tutar.  Bu nedenle her varlık (büyük olasılıkla bir veri kaynağından elde edilen bilgileri içeren ek sütun hakkında bilgilerini katkılarıyla her bir kullanıcı için sütun başına bir adet) ColumnDescription nesneleri dizisi yok.  Eşitlenmemiş alabilmeniz ColumnDescription gevşek şemaya bağlı. Şemada artık bir sütun ColumnDescription açıklayabilir.  Bu açıklama ve şema eşitlenmiş şekilde tutmanızı sağlayacak kadar yazardır.  Veri kaynağı de sütun açıklaması bilgilere sahip ve bunlar Aracı çalıştırırken oluşturulacak ek ColumnDescription nesneler.</td></tr>
 <tr><td></td><td>ColumnName</td><td>String</td><td>Bu açıklama başvurduğu sütunun adı.</td></tr>
-<tr><td></td><td>açıklama</td><td>String</td><td>kısa bir açıklaması (2-3 satır) sütun.</td></tr>
+<tr><td></td><td>description</td><td>String</td><td>kısa bir açıklaması (2-3 satır) sütun.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Bu özellik, bir sütun için bir etiket içerir. Sistemin her bir kullanıcı belirtilen sütun için birden fazla etiket ekleyebilir ve birden çok sütun için etiketler ekleyebilirsiniz. ColumnTag nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz. (Yöneticiler ve varlık sahipleri ColumnTag nesnesini silme ancak düzenleme olmadan). Sistem, bu kullanıcıların sütun etiketleri ayrı ayrı tutar.  Bu nedenle her varlık üzerinde ColumnTag nesnelerinin bir dizisi yok.  Eşitlenmemiş alabilmeniz ColumnTag gevşek şemaya bağlı. Şemada artık bir sütun ColumnTag açıklayabilir.  Bu sütun etiketi ve şema eşitlenmiş şekilde tutmanızı sağlayacak kadar yazardır.</td></tr>
 <tr><td></td><td>ColumnName</td><td>String</td><td>Bu etiket başvurduğu sütunun adı.</td></tr>
@@ -189,7 +189,7 @@ Genel türleri özelliklerini türleri kullanılabilir, ancak öğeleri değildi
 <tr><td></td><td>type</td><td>string</td><td>sütun veya öznitelik veri türü. İzin verilen türler, varlık veri kaynak türü bağlıdır.  Yalnızca bir alt türleri desteklenir.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>Sütun veya özniteliği için izin verilen maksimum uzunluğu. Veri kaynağından türetilir. Yalnızca, bazı kaynak türleri için de geçerlidir.</td></tr>
 <tr><td></td><td>duyarlık</td><td>bayt</td><td>Duyarlık sütunu veya öznitelik. Veri kaynağından türetilir. Yalnızca, bazı kaynak türleri için de geçerlidir.</td></tr>
-<tr><td></td><td>IsNullable</td><td>Boole</td><td>Sütun null değeri olup olmamasına izin verilip verilmediğine. Veri kaynağından türetilir. Yalnızca, bazı kaynak türleri için de geçerlidir.</td></tr>
+<tr><td></td><td>IsNullable</td><td>Boolean</td><td>Sütun null değeri olup olmamasına izin verilip verilmediğine. Veri kaynağından türetilir. Yalnızca, bazı kaynak türleri için de geçerlidir.</td></tr>
 <tr><td></td><td>İfade</td><td>string</td><td>Değer hesaplanmış bir sütun ise bu alan değerini ifade ifadesi içerir. Veri kaynağından türetilir. Yalnızca, bazı kaynak türleri için de geçerlidir.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313235"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006038"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -142,7 +142,7 @@ Kuruluşunuz eski istemciler yoksa, kullanıcılarınızın uygulama parolaları
 > [!NOTE]
 > Office 2013 istemcilerindeki için modern kimlik doğrulaması
 >
-> Uygulama parolaları yalnızca modern kimlik doğrulamayı desteklemeyen uygulamalar için gereklidir. Office 2013 istemcilerindeki modern kimlik doğrulama protokolleri destekler, ancak yapılandırılması gerekir. Yeni Office istemcileri otomatik olarak, modern kimlik doğrulama protokolleri de destekler. Daha fazla bilgi için [Office 2013 modern kimlik doğrulaması genel Önizleme Duyurusu](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Uygulama parolaları yalnızca modern kimlik doğrulamayı desteklemeyen uygulamalar için gereklidir. Office 2013 istemcilerindeki modern kimlik doğrulama protokolleri destekler, ancak yapılandırılması gerekir. Artık modern kimlik doğrulaması Office 2013 için Mart 2015 veya üzeri güncelleştirme çalışan tüm müşteriler için kullanılabilir. Daha fazla bilgi için [Office 2013 modern kimlik doğrulaması genel önizlemesi Duyuruldu](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **S: Kullanıcılarım bazen kısa mesajı almadığınız ya da bunlar için iki yönlü kısa mesaj yanıtlama ancak doğrulama zaman aşımına varsayalım.**
 

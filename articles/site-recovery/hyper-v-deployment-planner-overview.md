@@ -2,17 +2,17 @@
 title: Azure Site Recovery dağıtım Planlayıcısı azure'a olağanüstü durum kurtarma Hyper-V sanal makineleri hakkında | Microsoft Docs
 description: Azure'a Azure Site Recovery dağıtım Planlayıcısı Hyper-V olağanüstü durum kurtarma hakkında bilgi edinin.
 author: mayurigupta13
-manager: garavd
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e40a6b69b1cc4785b3055eaa31905c9ee88170e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360289"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001516"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında azure'a Hyper-V olağanüstü durum kurtarma
 
@@ -73,7 +73,7 @@ Araç aşağıdaki bilgileri sağlar:
 | | **Vmware’den Azure’a** |**Hyper-V'den Azure'a**|**Azure'dan Azure'a**|**Hyper-V’den ikincil siteye**|**VMware’den ikincil siteye**
 --|--|--|--|--|--
 Desteklenen senaryolar |Evet|Evet|Hayır|Evet*|Hayır
-Desteklenen Sürüm | vCenter 6.5, 6.0 veya 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Desteklenen Sürüm | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
 Desteklenen yapılandırma|vCenter, ESXi| Hyper-V kümesi, Hyper-V konağı|NA|Hyper-V kümesi, Hyper-V konağı|NA|
 Çalışan Azure Site Recovery Dağıtım Planlayıcısı örneği başına profili oluşturulabilecek sunucu sayısı |Tek (bir vCenter Server ve bir ESXi sunucusuna ait VM’lerin profili aynı anda oluşturulabilir)|Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA |Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA
 
@@ -132,7 +132,7 @@ Dağıtım planlayıcısının önceki sürümüne sahipseniz şunlardan birini 
   >Her yeni dağıtım planlayıcısı, .zip dosyasının toplu bir güncelleştirmesidir. En yeni dosyaları önceki klasöre kopyalamanız gerekmez. Yeni bir klasör oluşturup kullanabilirsiniz.
 
 ## <a name="version-history"></a>Sürüm geçmişi
-En son Azure Site Recovery dağıtım planlayıcısı aracı sürümü 2.3 ' dir.
+En son Azure Site Recovery dağıtım planlayıcısı aracı sürümü 2.4 ' dir.
 Başvurmak [Azure Site Recovery dağıtım Planlayıcısı sürüm geçmişi](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) her güncelleştirmede eklenen düzeltmeler için sayfa.
 
 

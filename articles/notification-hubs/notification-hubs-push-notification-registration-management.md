@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799482"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149138"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -36,11 +36,11 @@ Bildirim hub'ı ile cihaz kaydı kullanılarak gerçekleştirilir bir **kayıt**
 Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısının Channelurı, cihaz belirtecini ve FCM kayıt kimliği olabilir. Etiketler, cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Azure Notification Hubs kayıt başına 60 etiket en fazla destekler.
+> Azure Notification Hubs, cihaz başına 60 etiketler en fazla destekler.
 
 ### <a name="installations"></a>Yüklemeleri
 
-Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı ilgili özellikler. Bunu, cihazları kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmez ([arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsanız, haritamın kullanmak anlamına gelir [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx) yüklemelerini desteklemek için bir yaklaşım. Arka uç hizmetini kullanıyorsanız, kullanılacak erişebileceğinizi [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı ilgili özellikler. Bunu, cihazları kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmez ([arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsanız, haritamın kullanmak anlamına gelir [Notification Hubs REST API'si](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) yüklemelerini desteklemek için bir yaklaşım. Arka uç hizmetini kullanıyorsanız, kullanılacak erişebileceğinizi [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
 
@@ -48,7 +48,7 @@ Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
 - Özel Etiket biçimi yükleme modelini destekler (`$InstallationId:{INSTALLATION_ID}`) söz konusu cihaz için doğrudan bildirim göndererek sağlar. Örneğin, bir yükleme kimliği, uygulamanın kodunu ayarlar `joe93developer` özel bu cihaz için bir geliştirici bu cihaz için bir bildirim gönderirken hedefleyebilirsiniz `$InstallationId:{joe93developer}` etiketi. Bu, ek bir kodlama yapmak zorunda kalmadan belirli bir cihazı hedeflemeniz sağlar.
 - Yüklemelerini kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. PATCH kullanılarak yöntemi ile kısmi güncelleştirme yüklemesinin istenen [JSON-Patch standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketleri güncelleştirmek istediğiniz durumlarda kullanışlıdır. Tüm kayıt çekin ve ardından önceki tüm etiketleri yeniden yeniden gerekmez.
 
-Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 ```json
 // Example installation format to show some supported properties

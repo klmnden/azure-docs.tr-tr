@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918646"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996365"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -113,7 +113,7 @@ CSV sonuçları görüntülemek için:
 ### <a name="system-requirements"></a>Sistem Gereksinimleri
 - Windows Server 2012 R2, Windows Server 2016 veya Windows Server 2019 çalıştıran bir sunucu:
 
-    | Sürüm | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
+    | Version | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
     | Windows Server 2016 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
@@ -242,7 +242,7 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Doğu Kanada | Quebec City |
 | Orta Hindistan | Pune |
 | Orta ABD | Iowa |
-| Doğu Asya | Hong Kong |
+| Doğu Asya | Hong Kong Çin ÖİB |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
 | Japonya Doğu | Tokyo, Saitama |

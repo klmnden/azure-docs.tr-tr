@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880802"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149606"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB tablo API'si ve Azure tablo depolama ile çalışmaya başlama
 
@@ -170,7 +170,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 Varlık eşleme C# özel bir sınıf kullanarak nesneleri türetilen [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Tabloya bir varlık eklemek için varlığınızın özelliklerini tanımlayan bir sınıf oluşturun.
 
-Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni klasör** olarak adlandırın **Model**. Adlı bir sınıf Model klasörü içinde eklemek **CustimerEntity.cs** ve aşağıdaki kodu ekleyin.
+Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni klasör** olarak adlandırın **Model**. Adlı bir sınıf Model klasörü içinde eklemek **CustomerEntity.cs** ve aşağıdaki kodu ekleyin.
 
 ```csharp
 namespace CosmosTableSamples.Model

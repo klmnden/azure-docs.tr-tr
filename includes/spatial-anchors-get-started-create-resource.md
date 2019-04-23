@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305108"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633047"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Uzamsal bağlayıcılarını kaynak oluştur
 
@@ -25,7 +25,7 @@ Seçin **uzamsal bağlayıcılarını**. İletişim kutusunda **Oluştur**.
 
 İçinde **uzamsal bağlayıcılarını hesabı** iletişim kutusunda:
 
-- Benzersiz kaynak adı girin.
+- Normal alfanümerik karakterleri kullanarak bir benzersiz kaynak adı girin.
 - Kaynak eklemek için kullanmak istediğiniz aboneliği seçin.
 - Bir kaynak grubu seçerek oluşturun **Yeni Oluştur**. Adlandırın **myResourceGroup** seçip **Tamam**.
       [!INCLUDE [resource group intro text](resource-group.md)]
@@ -34,7 +34,11 @@ Seçin **uzamsal bağlayıcılarını**. İletişim kutusunda **Oluştur**.
 
    ![Kaynak oluşturma](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-Kaynak oluşturulduktan sonra kaynak özelliklerini görüntüleyebilirsiniz. Kaynağın kopyalama **hesap kimliği** daha sonra gerekeceği için bir metin düzenleyicisine değeri.
+Kaynak oluşturulduktan sonra Azure portalı dağıtımınızı tamamlandığını gösterir. **Kaynağa git**'e tıklayın.
+
+![Dağıtım tamamlandı](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+
+Ardından, kaynak özelliklerini görüntüleyebilirsiniz. Kaynağın kopyalama **hesap kimliği** daha sonra gerekeceği için bir metin düzenleyicisine değeri.
 
    ![Kaynak özellikleri](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 

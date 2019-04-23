@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651552"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149323"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma ağı hakkında
 
@@ -48,7 +48,7 @@ Giden bağlantıyı denetlemek için bir URL tabanlı güvenlik duvarı proxy'si
 
 **URL** | **Ayrıntılar**  
 --- | ---
-*.blob.core.windows.net | Böylece veri kaynak bölgedeki önbellek depolama hesabına VM'den yazılabilir gereklidir. Önbellek depolama hesapları sanal makineleriniz için biliyorsanız gücüne özel depolama hesap URL'leri beyaz liste olabilir (örn: cache1.blob.core.windows.net ve cache2.blob.core.windows.net) yerine *. blob.core.windows.net
+*.blob.core.windows.net | Böylece veri kaynak bölgedeki önbellek depolama hesabına VM'den yazılabilir gereklidir. Önbellek depolama hesapları sanal makineleriniz için biliyorsanız, belirli bir depolama hesabı URL'leri beyaz liste olabilir (örn: cache1.blob.core.windows.net ve cache2.blob.core.windows.net) yerine *. blob.core.windows.net
 login.microsoftonline.com | Yetkilendirme ve kimlik doğrulaması için Site Recovery hizmet URL'leri için gereklidir.
 *.hypervrecoverymanager.windowsazure.com | Site Recovery hizmet iletişimi VM'den gerçekleştirilmesi gerekir. Güvenlik duvarı proxy IP'ler destekliyorsa, karşılık gelen 'Site Recovery IP' kullanabilirsiniz.
 *.servicebus.windows.net | Böylece Site Recovery izleme ve Tanılama verileri VM'den yazılabilir gereklidir. Güvenlik duvarı proxy IP'ler destekliyorsa, karşılık gelen 'Site Recovery izleme IP' kullanabilirsiniz.
@@ -72,37 +72,43 @@ Site Recovery IP adresi aralıklarını aşağıdaki gibidir:
    --- | --- | ---
    Doğu Asya | 52.175.17.132 | 13.94.47.61
    Güneydoğu Asya | 52.187.58.193 | 13.76.179.223
-   Merkez Hindistan | 52.172.187.37 | 104.211.98.185
+   Orta Hindistan | 52.172.187.37 | 104.211.98.185
    Güney Hindistan | 52.172.46.220 | 104.211.224.190
-   Kuzey Orta ABD | 23.96.195.247 | 168.62.249.226
+   Orta Kuzey ABD | 23.96.195.247 | 168.62.249.226
    Kuzey Avrupa | 40.69.212.238 | 52.169.18.8
    Batı Avrupa | 52.166.13.64 | 40.68.93.145
    Doğu ABD | 13.82.88.226 | 104.45.147.24
    Batı ABD | 40.83.179.48 | 104.40.26.199
-   Güney Orta ABD | 13.84.148.14 | 104.210.146.250
+   Orta Güney ABD | 13.84.148.14 | 104.210.146.250
    Orta ABD | 40.69.144.231 | 52.165.34.144
    Doğu ABD 2 | 52.184.158.163 | 40.79.44.59
-   Doğu Japonya | 52.185.150.140 | 138.91.1.105
-   Batı Japonya | 52.175.146.69 | 138.91.17.38
+   Japonya Doğu | 52.185.150.140 | 138.91.1.105
+   Japonya Batı | 52.175.146.69 | 138.91.17.38
    Güney Brezilya | 191.234.185.172 | 23.97.97.36
-   Doğu Avustralya | 104.210.113.114 | 191.239.64.144
-   Güney Doğu Avustralya | 13.70.159.158 | 191.239.160.45
-   Kanada Orta | 52.228.36.192 | 40.85.226.62
-   Kanada Doğu | 52.229.125.98 | 40.86.225.142
+   Avustralya Doğu | 104.210.113.114 | 191.239.64.144
+   Avustralya Güneydoğu | 13.70.159.158 | 191.239.160.45
+   Orta Kanada | 52.228.36.192 | 40.85.226.62
+   Doğu Kanada | 52.229.125.98 | 40.86.225.142
    Batı Orta ABD | 52.161.20.168 | 13.78.149.209
    Batı ABD 2 | 52.183.45.166 | 13.66.228.204
-   BK Batı | 51.141.3.203 | 51.141.14.113
-   BK Güney | 51.140.43.158 | 51.140.189.52
-   BK Güney 2 | 13.87.37.4| 13.87.34.139
-   BK Kuzey | 51.142.209.167 | 13.87.102.68
+   Birleşik Krallık Batı | 51.141.3.203 | 51.141.14.113
+   Birleşik Krallık Güney | 51.140.43.158 | 51.140.189.52
+   UK Güney 2 | 13.87.37.4| 13.87.34.139
+   UK Kuzey | 51.142.209.167 | 13.87.102.68
    Kore Orta | 52.231.28.253 | 52.231.32.85
-   Kore Güney | 52.231.298.185 | 52.231.200.144
+   Kore Güney | 52.231.198.185 | 52.231.200.144
    Fransa Orta | 52.143.138.106 | 52.143.136.55
    Fransa Güney | 52.136.139.227 |52.136.136.62
    Avustralya Orta| 20.36.34.70 | 20.36.46.142
    Avustralya Orta 2| 20.36.69.62 | 20.36.74.130
    Güney Afrika Batı | 102.133.72.51 | 102.133.26.128
    Güney Afrika Kuzey | 102.133.160.44 | 102.133.154.128
+   ABD Devleti Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   ABD Devleti Arizona | 52.244.205.45 | 52.244.48.85
+   ABD Devleti Texas | 52.238.119.218 | 52.238.116.60
+   US DoD Doğu | 52.181.164.103 | 52.181.162.129
+   US DoD Orta | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Örnek NSG yapılandırma
 
 Bu örnek, sanal Makineyi çoğaltmak için NSG kurallarını nasıl yapılandıracağınızı gösterir.

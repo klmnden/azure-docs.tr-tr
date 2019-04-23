@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d867a8befb9333ebf33b9ac7ba179e25f0b9f9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698580"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011362"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için PowerShell modülleri
 
@@ -50,20 +50,17 @@ PowerShell Klasik Az ya da AzureRM yanı sıra hem "Yeni" ve "Klasik" kaynak tü
 
 ## <a name="support-table"></a> PowerShell desteği tablo
 
- **Studio çalışma alanları** | **Az** |  **AzureRM** | **PowerShell klasik** |
-| --- | --- | --- | --- |
-| Çalışma alanları oluşturma/silme | [Resource Manager şablonları](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager şablonları](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
-| Çalışma alanı kullanıcıları yönetme |  |  | [AmlWorkspaceUsers ekleyin](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Taahhüt planları yönetme | [Yeni AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
-|||
-| **Web Hizmetleri** | **Az** | **AzureRM** | **PowerShell klasik** |
-| Web hizmetlerini yönetme | [Yeni AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> ("Yeni" web Hizmetleri) | New-AzureRmMlWebService <br> ("Yeni" web Hizmetleri) |[Yeni-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> ("Klasik" web Hizmetleri) |
-| Uç noktalar/anahtarları Yönet |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> ("Yeni" web Hizmetleri) | Get-AzureRmMlWebServiceKeys <br> ("Yeni" web Hizmetleri) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> ("Klasik" web Hizmetleri) |
-|||
-| **Kullanıcı varlıklar** | **Az** | **AzureRM** | **PowerShell klasik** |
-| Veri kümesi ve eğitilen modelleri Yönet |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
-| Denemeleri yönetme |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
-| Özel modüller yönetme |  |  | [Yeni AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
+| | **Az** |  **PowerShell klasik** |
+| --- | --- | --- |
+| Çalışma alanları oluşturma/silme | [Resource Manager şablonları](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Çalışma alanı taahhüt planları yönetme | [Yeni AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
+| Çalışma alanı kullanıcıları yönetme |  | [AmlWorkspaceUsers ekleyin](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| Web hizmetlerini yönetme | [Yeni AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("Yeni" web Hizmetleri)|| [Yeni-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("Klasik" web Hizmetleri) |
+| Web Hizmeti uç noktaları/anahtarları yönetme |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Kullanıcı veri kümesi ve eğitilen modelleri Yönet| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| Kullanıcı deneyimleri yönetme |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| Özel modüller yönetme | | [Yeni AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

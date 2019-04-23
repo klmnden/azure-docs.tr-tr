@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685960"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010899"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Tanılama ve Azure Cosmos DB tetikleyicisi Azure işlevleri'nde kullanırken sorunlarını giderme
 
@@ -31,7 +31,7 @@ Azure Cosmos DB tetikleyicisini ve bağlamalarını uzantı paketleri temel Azur
 
 Uzantı paketinin temel işlevselliğini bağlamaları ve Azure Cosmos DB tetikleyicisi için destek sağlamaktır. Ayrıca [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet-core.md), Azure Cosmos DB ile tetikleyicisini ve bağlamalarını kullanmadan program aracılığıyla etkileşim kurmak istiyorsanız yararlı olduğu.
 
-Varsa için istediğiniz Azure Cosmos DB SDK'sını kullanmak için başka bir NuGet paketi başvurusu projenize eklemeyin emin olun. Bunun yerine, **Azure işlevleri uzantı paketi çözmek SDK başvurusu izin**.
+Varsa Azure Cosmos DB SDK'sını kullanmak istediğiniz başka bir NuGet paketi başvurusu projenize eklemeyin emin olun. Bunun yerine, **Azure işlevleri uzantı paketi çözmek SDK başvurusu izin**.
 
 Ayrıca, kendi örneğini el ile oluşturuyorsanız [Azure Cosmos DB SDK istemcisi](./sql-api-sdk-dotnet-core.md), istemci yalnızca bir örneği olan desenini izlemelidir [bir Singleton deseni yaklaşımı kullanarak](../azure-functions/manage-connections.md#documentclient-code-example-c) . Bu işlem, işlemlerinizin içinde olası yuva sorunlarından kurtulursunuz.
 

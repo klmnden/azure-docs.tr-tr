@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c15cac7897e25018057aa47cc2043050ed0ae5b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: MT
+ms.openlocfilehash: cb5a08730b47cb5df3116aa4a54554ef0ee6f260
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413209"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149759"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Azure Resource Manager şablonları ve PowerShell kullanarak otomatik olarak laboratuvarı oluşturma veya değiştirme
 
@@ -28,7 +28,7 @@ DevTest Labs, birçok Azure Resource Manager şablonları ve hızlı bir şekild
 Bu makalede oluşturulması, değiştirilmesi ve laboratuvarlarınızı dağıtımını otomatik hale getirmek için bu şablonları ve betikler kullanarak işlemi boyunca size rehberlik sağlar. Bu makalede ayrıca, DevTest Labs'de bazı genel görevleri gerçekleştirmek için PowerShell kullanma hakkında daha fazla bilgi bulabileceğiniz açıklanır.
 
 ## <a name="step-1-gather-your-templates-and-scripts"></a>1. Adım: Şablonları ve betikler toplayın
-Önceden yapılan bulabilirsiniz [Azure Resource Manager şablonları](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) ve [PowerShell betikleri](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) ortak adresindeki [GitHub deposu](https://github.com/Azure/azure-devtestlab). Bunları olarak-olan veya gereksinimlerinize göre özelleştirin ve bunları kendi içinde depolamak [özel Git deposu](devtest-lab-add-artifact-repo.md).
+Önceden yapılan bulabilirsiniz [Azure Resource Manager şablonları](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) ve [PowerShell betikleri](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) ortak adresindeki [GitHub deposu](https://github.com/Azure/azure-devtestlab). Bunları olarak-olan veya gereksinimlerinize göre özelleştirin ve bunları kendi içinde depolamak [özel Git deposu](devtest-lab-add-artifact-repo.md).
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>2. Adım: Azure Resource Manager şablonunuzu değiştirme
 Bölümündeki adımları takip edebilirsiniz [ilk Azure Resource Manager şablonunuzu oluşturma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) hiçbir zaman önce bir şablon oluşturduysanız.

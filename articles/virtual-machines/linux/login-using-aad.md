@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848703"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148960"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -43,7 +43,7 @@ Linux sanal makineleri, azure'da oturum açmak için Azure AD kimlik doğrulamas
 
 Aşağıdaki Linux dağıtımı şu anda bu özellik Önizleme sırasında desteklenmektedir:
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -83,7 +83,7 @@ VM’yi ve destekleyici kaynakları oluşturmak birkaç dakika sürer.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD oturum açma VM uzantısı yükleme
 
-Bir Linux VM Azure AD kimlik bilgileriyle oturum açmak için VM uzantısını Azure Active Directory günlük yükleyin. VM, Azure sanal makinelerinde dağıtım sonrası yapılandırma ve otomasyon görevleri sunan küçük uygulamalar uzantılarıdır. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#az-vm-extension-set) yüklemek için *AADLoginForLinux* adlı VM uzantısı *myVM* içinde *myResourceGroup* kaynak Grup:
+Bir Linux VM Azure AD kimlik bilgileriyle oturum açmak için Azure Active Directory oturum açma VM uzantısı'nı yükleyin. VM, Azure sanal makinelerinde dağıtım sonrası yapılandırma ve otomasyon görevleri sunan küçük uygulamalar uzantılarıdır. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#az-vm-extension-set) yüklemek için *AADLoginForLinux* adlı VM uzantısı *myVM* içinde *myResourceGroup* kaynak Grup:
 
 ```azurecli-interactive
 az vm extension set \

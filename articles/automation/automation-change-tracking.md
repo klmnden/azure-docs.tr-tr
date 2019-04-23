@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443054"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008690"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
 Bu makalede değişiklik izleme çözümü ortamınızdaki değişikliklerini kolayca belirlemenize yardımcı olur. Çözüm, Windows ve Linux yazılım, Windows ve Linux dosyaları, Windows kayıt defteri anahtarlarını, Windows Hizmetleri ve Linux Daemon'ları için değişiklikleri izler. Yapılandırma değişikliklerini belirlemek işletimsel sorunları belirlemenize yardımcı olabilir.
 
 Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için bulutta Azure İzleyici'hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
+
+> [!NOTE]
+> Azure Otomasyonu değişiklik izleme, sanal makineler'de değişiklikleri izler. Azure Resource Manager özellik değişiklikleri izlemek için Azure Kaynak grafiğin bkz [değişiklik geçmişini](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
 
@@ -76,7 +79,7 @@ Linux Bilgisayarları'nda dosyaları izlemeyi yapılandırmak için aşağıdaki
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
 |Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: "/etc/*.conf"       |
@@ -99,7 +102,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
 |Yolu Gir     | Dosyayı denetlemek için kullanılacak yol (örneğin, "c:\temp\\\*.txt")<br>"%winDir%\System32\\\*.*" gibi ortam değişkenleri de kullanabilirsiniz       |
@@ -131,7 +134,7 @@ Windows bilgisayarlarda kayıt defteri anahtarı izlemeyi yapılandırmak için 
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenecek kayıt defteri anahtarı kolay adı.        |
 |Grup     | Kayıt defteri anahtarlarını mantıksal olarak gruplamak için bir grup adı.        |
 |Windows Kayıt Defteri Anahtarı   | Kayıt defteri anahtarı denetleneceği yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |

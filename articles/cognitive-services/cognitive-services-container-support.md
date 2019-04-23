@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681820"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005970"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -33,7 +33,7 @@ Aşağıdaki videoda, Bilişsel hizmetler kapsayıcı kullanmayı gösterir.
 
 - **Veriler üzerinde denetim**: Burada bu Bilişsel hizmetler, veri işlem seçme özgürlüğü sağlar. Bu, verileri buluta Gönder olamaz, ancak Bilişsel hizmetler teknoloji erişmesi gereken müşteriler için gereklidir. Tutarlılık, veri, yönetim, kimlik ve güvenlik arasında Karma ortamlarda – destekler.
 - **Model güncelleştirmelerini denetime**: Müşteriler, sürüm oluşturma ve kendi çözümlerinde dağıtılan modelleri güncelleştirme konusunda esneklik sağlar.
-- **Taşınabilir mimarisi**: Azure'da, şirket içi ve uç dağıtılabilir bir taşınabilir uygulama mimarisi oluşturulmasını sağlar. Kapsayıcıları doğrudan dağıtılabilir [Azure Kubernetes hizmeti](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), veya bir [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Yığın](../azure-stack/index.yml). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Taşınabilir mimarisi**: Azure'da, şirket içi ve uç dağıtılabilir bir taşınabilir uygulama mimarisi oluşturulmasını sağlar. Kapsayıcıları doğrudan dağıtılabilir [Azure Kubernetes hizmeti](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), veya bir [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Yığın](/azure-stack/operator). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Yüksek performans / düşük gecikme süresi**: Müşterilerin, yüksek aktarım hızı ve düşük gecikme süresi gereksinimlerine, uygulama mantığı ve verileri yakın fiziksel olarak çalıştırmak, Bilişsel hizmetler etkinleştirerek ölçeklendirme olanağı sağlar. Kapsayıcılar, saniye başına işlem (TPS) cap değil ve gerekli donanım kaynakları sağlarsanız, isteğe bağlı işlemek için yukarı ve dışarı ölçeklendirme yapılabilir. 
 
 

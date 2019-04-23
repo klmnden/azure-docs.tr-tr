@@ -11,17 +11,20 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 28bb6fbc3b6b9552850244d608e6587e8a9052de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891010"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006480"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir
 
 [Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) veritabanı şifreleme anahtarı (DEK) TDE koruyucusu olarak adlandırılan bir müşteri tarafından yönetilen asimetrik anahtarla şifrelemek için Azure Key Vault ile tümleştirme sağlar. Bu ayrıca genellikle için saydam veri şifrelemesi Getir bilgisayarınızı kendi anahtarını (BYOK olarak) destekleyecek şekilde adlandırılır.  BYOK senaryoda TDE koruyucusuna bir müşteriye ait içinde depolanır ve yönetilen [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure'un bulut tabanlı dış anahtar yönetimi sistemi. TDE koruyucusuna olabilir [oluşturulan](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) anahtar kasası tarafından veya [aktarılan](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) üzerinde bir şirket içi HSM CİHAZDAN anahtar kasası. Bir veritabanının önyükleme sayfası üzerinde depolanan TDE DEK şifrelenir ve tarafından Azure anahtar, hiçbir zaman ayrılmaz Kasası'nda depolanan olan TDE koruyucusuna şifresi çözülür.  SQL veritabanı DEK şifrelemek ve şifresini çözmek için müşteriye ait anahtar kasasındaki izinleri verilmiş olması gerekir. Mantıksal SQL sunucusu için anahtar kasası izinlerini iptal erişilemez bir veritabanı ve tüm veriler şifrelenir. Azure SQL veritabanı için TDE koruyucusu mantıksal SQL sunucusu düzeyinde ayarlanır ve bu sunucuyla ilişkili tüm veritabanları tarafından devralınır. İçin [Azure SQL yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)TDE koruyucusuna örnek düzeyinde ayarlanır ve tümü tarafından devralınır *şifrelenmiş* bu örneğindeki veritabanları. Terim *sunucu* hem sunucusu ve örneği bu belge boyunca farklı belirtilmedikçe ifade eder.
+
+> [!NOTE]
+> Saydam veri şifrelemesi ile Azure SQL veritabanı yönetilen örneği için Azure anahtar kasası tümleştirme (kendi anahtarını Getir) önizleme aşamasındadır.
 
 Azure Key Vault tümleştirmesi sayesinde TDE ile kullanıcılar anahtar devirlerini, anahtar kasası izinlerini, anahtar yedeklemelerini de dahil olmak üzere önemli yönetim görevlerinin denetlemek ve Azure anahtar kasası işlevini kullanarak tüm TDE koruyucusu üzerinde denetim/raporlamayı etkinleştirmek. Key Vault anahtar Merkezi Yönetimi sağlayan, sıkı bir şekilde izlenen donanım güvenlik modülleri (HSM'ler) yararlanır ve güvenlik ilkeleriyle uyumluluğunu karşılamanıza yardımcı olmak üzere anahtar yönetimi ve veri arasında görev ayrımı sağlar.  
 

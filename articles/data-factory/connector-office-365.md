@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: MT
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297498"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995821"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -27,7 +27,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de Office 365'ten veri kopy
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Şu an için tek bir kopyalama etkinliği içinde yalnızca yapabilecekleriniz **Office 365'ten veri kopyalama [Azure Blob Depolama](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), ve [Azure Data Lake depolama Gen2'ye () Önizleme)](connector-azure-data-lake-storage.md) JSON biçiminde** (setOfObjects yazın). Office 365 veri depolarının veya başka biçimlerde diğer türleri yüklemek istiyorsanız, daha fazla veri hiçbirine yüklemek için sonraki kopyalama etkinliği ile ilk kopyalama etkinliği zincirleyebilirsiniz [desteklenen ADF hedef depoları](copy-activity-overview.md#supported-data-stores-and-formats) (bakın" bir havuz olarak desteklenen"tablosundaki"desteklenen veri depoları ve biçimler").
+Şimdilik, tek bir kopyalama etkinliği içinde yalnızca yapabilecekleriniz **Office 365'ten veri kopyalama [Azure Blob Depolama](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), ve [Azure Data Lake depolama 2. nesil ](connector-azure-data-lake-storage.md) JSON biçiminde** (setOfObjects yazın). Office 365 veri depolarının veya başka biçimlerde diğer türleri yüklemek istiyorsanız, daha fazla veri hiçbirine yüklemek için sonraki kopyalama etkinliği ile ilk kopyalama etkinliği zincirleyebilirsiniz [desteklenen ADF hedef depoları](copy-activity-overview.md#supported-data-stores-and-formats) (bakın" bir havuz olarak desteklenen"tablosundaki"desteklenen veri depoları ve biçimler").
 
 >[!IMPORTANT]
 >- Veri fabrikasını ve havuz veri deposu içeren Azure aboneliğinin, Office 365 kiracısı olarak aynı Azure Active Directory (Azure AD) kiracısı altında olması gerekir.

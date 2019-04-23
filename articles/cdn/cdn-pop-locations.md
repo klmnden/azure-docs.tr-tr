@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 1370785f730fbbc9ceaea67e4f615de7d2041204
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990621"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007687"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN kapsamı Metro tarafından 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Bu makalede, Azure Content Delivery Network (CDN) ürünleri için bir bölgeye 
 | Afrika | Cape Town, Güney Afrika<br />Johannesburg, Güney Afrika | Johannesburg, Güney Afrika | Güney Afrika |
 | Orta Doğu | Dubai, Birleşik Arap Emirlikleri | Muscat, Umman<br />Fujirah, Birleşik Arap Emirlikleri | Katar<br />Birleşik Arap Emirlikleri |
 | Hindistan | Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan | Bangalore, Hindistan<br />Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan<br /> | Hindistan |
-| Asya | Hong Kong<br />Osaka, Japonya<br />Tokyo, Japonya<br />Kuala Lumpur, Malezya<br />Manila, Filipinler<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Taipei, Tayvan<br />Bangkok, Tayland | Hong Kong<br />Batam, Endonezya<br />Cakarta, Endonezya<br />Osaka, Japonya<br />Tokyo, Japonya<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Kaohsiung, Tayvan | Hong Kong<br />Endonezya<br />İsrail<br />Japonya<br />Makao<br />Malezya<br />Filipinler<br />Singapur<br />Güney Kore<br />Tayvan<br />Tayland<br />Türkiye<br />Vietnam |
+| Asya | Hong Kong Çin ÖİB<br />Osaka, Japonya<br />Tokyo, Japonya<br />Kuala Lumpur, Malezya<br />Manila, Filipinler<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Taipei, Tayvan<br />Bangkok, Tayland | Hong Kong Çin ÖİB<br />Batam, Endonezya<br />Cakarta, Endonezya<br />Osaka, Japonya<br />Tokyo, Japonya<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Kaohsiung, Tayvan | Hong Kong Çin ÖİB<br />Endonezya<br />İsrail<br />Japonya<br />Makao ÖİB<br />Malezya<br />Filipinler<br />Singapur<br />Güney Kore<br />Tayvan<br />Tayland<br />Türkiye<br />Vietnam |
 | Avustralya ve Yeni Zelanda | Brisbane, Avustralya<br />Melbourne, Avustralya<br />Perth, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Melbourne, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Avustralya<br />Yeni Zelanda |
 
 

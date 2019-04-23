@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5dad12596dde13cfa7e0c2031d58f605061b0e20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862803"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008119"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak bir LinkedIn hesabıyla oturum açma özelliğini ayarlama
 
@@ -94,7 +94,7 @@ Bir talep sağlayıcısı olarak ekleyerek bir LinkedIn hesabıyla tanımlayabil
             <Key Id="client_secret" StorageReferenceId="B2C_1A_LinkedInSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
@@ -192,13 +192,13 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak herhangi bir kaydolma veya 
 Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için bir LinkedIn hesabıyla iletişim kurmak için Azure AD B2C içindir.
 
 1. Bulma **OrchestrationStep** içeren `Order="2"` kullanıcı giden.
-2. Aşağıdaki **ClaimsExchange** öğe için aynı değeri kullanın sağlamaktan **kimliği** için kullanılan **TargetClaimsExchangeId**:
+2. Aşağıdaki **ClaimsExchange** öğesi için kullanılan kimliği için aynı değeri kullanın sağlamaktan **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
     
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `LinkedIn-OAUTH`.
+    Değerini güncelleştirin **TechnicalProfileReferenceId** daha önce oluşturduğunuz teknik profil kimliği. Örneğin, `LinkedIn-OAUTH`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -207,7 +207,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girin, örneğin *testapp1*.
@@ -252,13 +252,13 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak herhangi bir kaydolma veya 
 Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için bir LinkedIn hesabıyla iletişim kurmak için Azure AD B2C içindir.
 
 1. Bulma **OrchestrationStep** içeren `Order="2"` kullanıcı giden.
-2. Aşağıdaki **ClaimsExchange** öğe için aynı değeri kullanın sağlamaktan **kimliği** için kullanılan **TargetClaimsExchangeId**:
+2. Aşağıdaki **ClaimsExchange** öğesi için kullanılan kimliği için aynı değeri kullanın sağlamaktan **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
     
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `LinkedIn-OAUTH`.
+    Değerini güncelleştirin **TechnicalProfileReferenceId** daha önce oluşturduğunuz teknik profil kimliği. Örneğin, `LinkedIn-OAUTH`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -267,7 +267,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girin, örneğin *testapp1*.

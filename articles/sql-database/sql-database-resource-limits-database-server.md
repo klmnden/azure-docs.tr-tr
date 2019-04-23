@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093897"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998286"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -75,7 +75,7 @@ Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azal
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>İşlem günlüğü oranı idare 
-İşlem günlüğü oranı idare ekleme bir işlem toplu gibi iş yükleri için yüksek alma oranlarını sınırlamak için kullanılan Azure SQL veritabanında SELECT INTO ve dizin oluşturur ' dir. Bu limitler izlenir ve günlük kaydı oluşturma hızı için saniyeden düzeyinde zorunlu, kaç tane IOs bakılmaksızın sınırlama aktarım hızı, veri dosyalarını karşı verilebilir.  İşlem günlüğü nesil hızları şu anda doğrusal olarak donanım bağımlı olduğu bir noktaya kadar ölçeklendirme, en büyük günlük ile oranı ile satın alma modeli vcore değeri, 48 MB/sn olan izin. 
+İşlem günlüğü oranı idare ekleme bir işlem toplu gibi iş yükleri için yüksek alma oranlarını sınırlamak için kullanılan Azure SQL veritabanında SELECT INTO ve dizin oluşturur ' dir. Bu limitler izlenir ve günlük kaydı oluşturma hızı için saniyeden düzeyinde zorunlu, kaç tane IOs bakılmaksızın sınırlama aktarım hızı, veri dosyalarını karşı verilebilir.  İşlem günlüğü nesil hızları şu anda doğrusal olarak donanım bağımlı olduğu bir noktaya kadar ölçeklendirme, en büyük günlük ile oranı 96 MB/sn ile satın alma modeli vcore değeri olan izin. 
 
 > [!NOTE]
 > İşlem günlüğü dosyaları gerçek fiziksel IOs kapsamındadır veya sınırlı değildir. 
@@ -98,7 +98,7 @@ Aşağıdaki bekleme türleri günlük oran İdarecisi, trafik şekillendirme ya
 |||
 
 İstenen ölçeklenebilirlik hampering günlük oran sınırı ile karşılaşıldığında, aşağıdaki seçenekleri göz önünde bulundurun:
-- Maksimum 48 MB/sn günlük oran alabilmek için daha büyük bir katmana ölçeği artırabilirsiniz. 
+- Maksimum 96 MB/sn günlük oran alabilmek için daha büyük bir katmana ölçeği artırabilirsiniz. 
 - Geçici veri ise, yani bir ETL işlemi verileri hazırlama, (Bu en düşük düzeyde kaydedilir) tempdb yüklenebilir. 
 - Analitik senaryoları için bir kapsamdaki kümelenmiş columnstore tablosuna yükleyin. Bu, sıkıştırma nedeniyle gerekli günlük oran azaltır. Bu teknik, CPU kullanımı artırmak ve yalnızca kümelenmiş columnstore dizin yararlı veri kümeleri için geçerlidir. 
 

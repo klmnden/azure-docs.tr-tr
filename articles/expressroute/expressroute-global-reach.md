@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 17ae4b930d259dedd3e4e202fae69de32d9bf593
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: d2de98fe6cb0fffcc77bb851e3a853475d0f704c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819557"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998592"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute küresel erişim
 ExpressRoute, Microsoft Cloud, şirket içi ağlara bağlanmak için özel ve esnek bir yoludur. Özel veri Merkezinize veya şirket ağınızda Azure, Office 365 ve Dynamics 365 gibi pek çok Microsoft bulut hizmetlerine erişebilir. Örneğin, bir ExpressRoute bağlantı hattı Silikon ve ile ExpressRoute bağlantı hattına aynı şehirdeki başka bir şube ofisindeki, Londra, San Francisco bir şube ofisi olabilir. Her iki şube ofisleri, ABD Batı ve UK Güney Azure kaynaklarını yüksek hızlı bağlantıyı olabilir. Ancak, şube ofislerinde doğrudan birbirleri ile veri değişimi olamaz. Diğer bir deyişle, 10.0.1.0/24 10.0.3.0/24 ve 10.0.4.0/24, ancak 10.0.2.0/24 veriler gönderebilir.
@@ -35,7 +35,7 @@ ExpressRoute Global erişim şu anda aşağıdaki konumlarda desteklenir.
 * Avustralya
 * Kanada
 * Fransa
-* Hong Kong
+* Hong Kong Çin ÖİB
 * İrlanda
 * Japonya
 * Güney Kore

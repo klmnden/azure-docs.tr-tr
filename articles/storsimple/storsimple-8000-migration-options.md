@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608227"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007247"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -43,7 +43,7 @@ StorSimple 8000 serisi kullanarak verileri geçirme hakkında daha fazla bilgi i
 
 Bu yepyeni bir geçiş seçeneği, müşterilerin kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
 
-Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için Azure dosya eşitleme taşıma](https://aka.ms/StorSimpleMigrationAFS).
+Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için Azure dosya eşitleme taşıma](storsimple-5000-7000-afs-migration.md).
 
 ### <a name="third-party-options"></a>Üçüncü taraf seçenekleri
 

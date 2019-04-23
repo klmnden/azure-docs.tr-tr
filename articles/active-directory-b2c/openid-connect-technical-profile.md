@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916776"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001414"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Openıd Connect teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C için destek sağlar [Openıd Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) Protokolü kimlik sağlayıcısı. Openıd Connect 1.0, OAuth 2.0 üzerinde bir kimlik katmanı tanımlar ve teknoloji, modern kimlik doğrulama protokolleri temsil eder.  Bir Openıd Connect ile federasyona teknik profilini, Openıd Connect ile kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Azure AD gibi veya Kurumsal kimlikleri alan.
+Azure Active Directory (Azure AD) B2C için destek sağlar [Openıd Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) Protokolü kimlik sağlayıcısı. Openıd Connect 1.0, OAuth 2.0 üzerinde bir kimlik katmanı tanımlar ve teknoloji, modern kimlik doğrulama protokolleri temsil eder. Bir Openıd Connect teknik profili, Openıd Connect tabanlı kimlik sağlayıcısı, Azure AD gibi ad'sini birleştirebilir. Bir kimlik sağlayıcısı ile Federasyon, kullanıcıların oturum sosyal var olan oturum veya Kurumsal kimlikleri sağlar.
 
 ## <a name="protocol"></a>Protokol
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) B2C için destek sağlar [Openıd Connect](htt
 
 Aşağıdaki örnek, Microsoft Account kimlik sağlayıcısı tarafından döndürülen talepleri gösterir:
 
-- **Alt** eşleşen talep **socialIdpUserId** talep.
+- **Alt** eşleşen talep **issuerUserId** talep.
 - **Adı** eşleşen talep **displayName** talep.
 - **E-posta** Adı Eşleme olmadan.
 
@@ -65,7 +65,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
@@ -81,7 +81,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 | ProviderName | Hayır | Kimlik sağlayıcısının adı. |
 | response_types | Hayır | Openıd Connect Core 1.0 belirtimine göre yanıt türü. Olası değerler: `id_token`, `code`, veya `token`. |
 | response_mode | Hayır | Kimlik sağlayıcısı sonucu Azure AD B2C geri göndermek için kullandığı yöntem. Olası değerler: `query`, `form_post` (varsayılan) veya `fragment`. |
-| scope | Hayır | Openıd Connect Core 1.0 belirtimine göre tanımlanan erişim isteğinin kapsamı. Gibi `openid`, `profile`, ve `email`. |
+| scope | Hayır | Openıd Connect Core 1.0 belirtimine göre tanımlanan isteğinin kapsamı. Gibi `openid`, `profile`, ve `email`. |
 | HttpBinding | Hayır | Erişim belirteci ve taleplerin belirteci uç beklenen HTTP bağlama. Olası değerler: `GET` veya `POST`.  |
 | ValidTokenIssuerPrefixes | Hayır | Her Kiracı için Azure Active Directory gibi bir çok kiracılı kimlik sağlayıcısı kullanarak oturum açmak için kullanılan anahtar. |
 | UsePolicyInRedirectUri | Hayır | Yeniden yönlendirme URI'si oluştururken bir ilke kullanılıp kullanılmayacağını belirtir. Uygulamanız kimlik sağlayıcısı yapılandırdığınızda, yeniden yönlendirme URI'si belirtmeniz gerekir. Yeniden yönlendirme URI'si, Azure AD B2C'ye işaret `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com your-Kiracı-name.b2clogin.com ile değişebilir).  Belirtirseniz `false`, kullandığınız her ilke için bir yeniden yönlendirme URI'si eklemeniz gerekir. Örneğin: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |

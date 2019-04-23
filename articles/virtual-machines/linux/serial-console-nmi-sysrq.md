@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011358"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seri konsol SysRq ve NMI çağrıları için kullanın.
 
 ## <a name="system-request-sysrq"></a>Sistem istek (SysRq)
-Bir SysRq anahtarları, bir dizi önceden tanımlanmış bir eylemi tetikleyebilir Linux işlemi sistemi çekirdeğinin tarafından anlaşılan bir dizidir. Bu komutlar, genellikle sorun giderme sanal makine veya Kurtarma (örneğin, VM kilitleniyorsa) ile geleneksel yönetim gerçekleştirilemez olduğunda kullanılır. Seri konsol Azure'nın SysRq özelliğini kullanarak fiziksel klavyede girdiğiniz karakterleri ve SysRq anahtar tuşlarına basarak benzetimini yapacak.
+Bir SysRq anahtarları, bir dizi önceden tanımlanmış bir eylemi tetikleyebilir Linux işlemi sistemi çekirdeğinin tarafından anlaşılan bir dizidir. Bu komutlar, genellikle sorun giderme sanal makine veya Kurtarma (örneğin, sanal makine yanıt vermiyorsa,) ile geleneksel yönetim gerçekleştirilemez olduğunda kullanılır. Seri konsol Azure'nın SysRq özelliğini kullanarak fiziksel klavyede girdiğiniz karakterleri ve SysRq anahtar tuşlarına basarak benzetimini yapacak.
 
 SysRq sıralı teslim sonra Çekirdek yapılandırmasını sistemin nasıl yanıt vereceğini denetleyin. SysRq devre dışı bırakma ve etkinleştirme hakkında daha fazla bilgi için bkz: *SysRq yönetici kılavuzundaki* [metin](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -99,7 +99,7 @@ SysRq ve kilitlenme bilgi dökümü bir SysRq "Kilitlenme" komutunu aldığında
 - [Kilitlenme günlüklerini toplama](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Maskelenemez olmayan kesme (NMI) 
-Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.
+Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya yanıt vermeyen sistemleri gidermek için genellikle kullanın.
 
 Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanarak bir Azure sanal makine bir NMI göndermek için kullanılabilir. NMI teslim sonra sanal makine yapılandırması sistemin nasıl yanıt vereceğini denetleyin.  Linux işletim sistemleri için kilitlenme yapılandırılabilir ve bir bellek dökümü işletim sistemi oluşturma, bir NMI alır.
 

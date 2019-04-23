@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851170"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150175"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 
@@ -84,7 +84,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |FailedRequests|Başarısız ağ geçidi istekleri|Sayı|Toplam|Ağ geçidi istek sayısı|Konum, ana bilgisayar adı|
 |OtherRequests|Diğer ağ geçidi istekleri|Sayı|Toplam|Diğer ağ geçidi istekleri sayısı|Konum, ana bilgisayar adı|
 |Süre|Ağ geçidi isteklerinin toplam süre|Milisaniye|Ortalama|Toplam süre, ağ geçidi istekleri milisaniye|Konum, ana bilgisayar adı|
-|Kapasite|Kapasite|Yüzde|Ortalama|ApiManagement hizmeti için kullanım ölçümü|Konum|
+|Kapasite|Kapasite|Yüzde|Ortalama|ApiManagement hizmeti için kullanım ölçümü|Location|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -506,10 +506,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |JobEndedSuccess|Başarılı işler|Sayı|Toplam|Başarılı İşler sayısı.|Boyut yok|
 |JobEndedFailure|Başarısız olan işler|Sayı|Toplam|Başarısız işleri sayısı.|Boyut yok|
-|JobEndedCancelled|İptal edilen işler|Sayı|Toplam|İptal edilen işler sayısı.|Boyut yok|
+|JobEndedCanceled|İptal edilen işler|Sayı|Toplam|İptal edilen işler sayısı.|Boyut yok|
 |JobAUEndedSuccess|Başarılı AU saati|Saniye|Toplam|Toplam AU saati için başarılı işler.|Boyut yok|
 |JobAUEndedFailure|Başarısız AU saati|Saniye|Toplam|Toplam AU saati için başarısız olan işler.|Boyut yok|
-|JobAUEndedCancelled|İptal edilen AU saati|Saniye|Toplam|İptal edilen işler için toplam AU saati.|Boyut yok|
+|JobAUEndedCanceled|İptal edilen AU saati|Saniye|Toplam|İptal edilen işler için toplam AU saati.|Boyut yok|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |RunsCompleted|Tamamlanan Çalıştırmalar|Sayı|Toplam|Tamamlanan iş akışı çalıştırma sayısı.|Boyut yok|
 |RunsSucceeded|Başarılı Çalıştırmalar|Sayı|Toplam|Başarılı iş akışı çalıştırma sayısı.|Boyut yok|
 |RunsFailed|Başarısız Çalıştırmalar|Sayı|Toplam|Başarısız iş akışı çalıştırma sayısı.|Boyut yok|
-|RunsCancelled|İptal Edilen Çalıştırmalar|Sayı|Toplam|İptal edilen iş akışı çalıştırma sayısı.|Boyut yok|
+|RunsCanceled|İptal edilen çalıştırmalar|Sayı|Toplam|İş akışı iptal edilmiş çalıştırma sayısı.|Boyut yok|
 |RunLatency|Çalıştırma Gecikmesi|Saniye|Ortalama|Tamamlanan iş akışı çalıştırmalarının gecikme süresi.|Boyut yok|
 |RunSuccessLatency|Başarılı Çalıştırma Gecikmesi|Saniye|Ortalama|Başarılı iş akışı çalıştırmalarının gecikme süresi.|Boyut yok|
 |RunThrottledEvents|Çalıştırılması Kısıtlanan Olaylar|Sayı|Toplam|İş akışı eylemi veya tetikleyiciyle kısıtlanan olay sayısı.|Boyut yok|
@@ -1092,8 +1092,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |registration.get|Kayıt Okuma İşlemleri|Sayı|Toplam|Tüm başarılı kayıt sorgularının sayısı.|Boyut yok|
 |registration.Delete|Kayıt Silme İşlemleri|Sayı|Toplam|Tüm başarılı kayıt silme işlemlerinin sayısı.|Boyut yok|
 |gelen|Gelen İletiler|Sayı|Toplam|Başarılı olan tüm gönderme API'si çağrılarının sayısı. |Boyut yok|
-|incoming.Scheduled|Zamanlanan Anında İletme Bildirimleri Gönderildi|Sayı|Toplam|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Boyut yok|
-|incoming.Scheduled.Cancel|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Sayı|Toplam|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Boyut yok|
+|incoming.Scheduled|Zamanlanan Anında İletme Bildirimleri Gönderildi|Sayı|Toplam|Zamanlanan anında iletme bildirimleri iptal edildi|Boyut yok|
+|incoming.Scheduled.Cancel|Zamanlanan anında iletme bildirimleri iptal edildi|Sayı|Toplam|Zamanlanan anında iletme bildirimleri iptal edildi|Boyut yok|
 |scheduled.pending|Bekleyen Zamanlanmış Bildirimler|Sayı|Toplam|Bekleyen Zamanlanmış Bildirimler|Boyut yok|
 |installation.all|Yükleme Yönetimi İşlemleri|Sayı|Toplam|Yükleme Yönetimi İşlemleri|Boyut yok|
 |installation.get|Yükleme İşlemlerini Al|Sayı|Toplam|Yükleme İşlemlerini Al|Boyut yok|
@@ -1513,7 +1513,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Http5xx|Http Sunucu Hataları|Sayı|Toplam|Http Sunucu Hataları|Örnek|
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
-|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Toplam|İşlev Yürütme Birimleri|Örnek|
+|FunctionExecutionUnits|İşlev Yürütme Birimleri|MB / milisaniye|Toplam|[İşlev yürütme birimleri](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Örnek|
 |İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
 |PrivateBytes|Özel Baytlar|Bayt|Ortalama|Özel Baytlar|Örnek|
 |IoReadBytesPerSecond|GÇ Okunan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Okunan Bayt / Saniye|Örnek|

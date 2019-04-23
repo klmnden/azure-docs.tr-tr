@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906132"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998915"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -228,9 +228,9 @@ Dinleyicisi, ağ geçidi üzerinde başka bir dinleyici giden trafiği yönlendi
 ![Uygulama ağ geçidi bileşenleri iletişim kutusu](./media/configuration-overview/configure-redirection.png)
 
 HTTP-HTTPS yeniden yönlendirmesi hakkında daha fazla bilgi için bkz:
-- [Azure portalını kullanarak HTTP HTTP yeniden yönlendirme](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [PowerShell kullanarak HTTP HTTP yeniden yönlendirme](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Azure CLI'yı kullanarak, HTTP için HTTP yeniden yönlendirme](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Azure portalını kullanarak HTTP-HTTPS yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [PowerShell kullanarak, HTTP ve HTTPS yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [Azure CLI kullanarak HTTP-HTTPS yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### <a name="external-site"></a>Dış site
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862395"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010569"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Hızlı Başlangıç: IOT hub hizmetini etkinleştirme
 
@@ -45,7 +45,7 @@ Bu makalede, IOT Hub'ınızın IOT Önizleme hizmeti için Azure Güvenlik Merke
 IOT Hub'ınıza güvenliği etkinleştirmek için aşağıdakileri yapın: 
 
 1. Açık, **IOT hub'ı** Azure portalında. 
-2. Seçin ve açın **güvenlik** sol menüden. 
+2. Altında **güvenlik** menüsünde tıklatın **genel bakış**, ardından **başlangıç Önizleme**. 
 3. Seçin **etkinleştirme IOT güvenlik**. 
 4. Log Analytics çalışma alanı bilgilerinizi sağlayın. 
    - Depolama kullanmayı **ham olaylar** bırakarak tarafından depolama varsayılan bilgi türlerini yanı sıra **ham olay** geçiş **üzerinde**. 

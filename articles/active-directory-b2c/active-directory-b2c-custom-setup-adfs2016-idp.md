@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0462ae68194fa22d99339b2ef369e3bbe3deabb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077471"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000125"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -33,7 +33,7 @@ Bu makalede bir ADFS kullanıcı hesabı için oturum açma kullanarak etkinleş
 Azure AD B2C kiracınızda sertifikanızın depolanacağı gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
@@ -71,7 +71,7 @@ Bir talep sağlayıcısı olarak ekleyerek bir ADFS hesap tanımlayabilirsiniz *
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
@@ -128,13 +128,13 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak herhangi bir kaydolma veya 
 Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için bir ADFS hesabıyla iletişim kurmak için Azure AD B2C içindir.
 
 1. Bulma **OrchestrationStep** içeren `Order="2"` kullanıcı giden.
-2. Aşağıdaki **ClaimsExchange** öğe için aynı değeri kullanın sağlamaktan **kimliği** için kullanılan **TargetClaimsExchangeId**:
+2. Aşağıdaki **ClaimsExchange** öğesi için kullanılan kimliği için aynı değeri kullanın sağlamaktan **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
     
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `Contoso-SAML2`.
+    Değerini güncelleştirin **TechnicalProfileReferenceId** daha önce oluşturduğunuz teknik profil kimliği. Örneğin, `Contoso-SAML2`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -151,7 +151,7 @@ Aşağıdaki değerleri değiştirin:
 
 - **Kiracı Your** Kiracı adınızla tenant.onmicrosoft.com bilgisayarınızı gibi.
 - **ilke Your** ilke adınızla. Örneğin, B2C_1A_signup_signin_adfs.
-- **Teknik profil Your** SAML kimlik sağlayıcısı teknik profilinizin adı ile. Örneğin, Contoso SAML2.
+- **Teknik profil Your** , SAML kimlik sağlayıcısı teknik profili adı. Örneğin, Contoso SAML2.
  
 Bir tarayıcı açın ve URL'ye gidin. Doğru URL'yi yazın ve XML meta veri dosyası erişiminiz olduğundan emin olun. AD FS Yönetimi ek bileşenini kullanarak yeni bir bağlı olan taraf güveni eklemek ve ayarları el ile yapılandırmak için federasyon sunucusunda aşağıdaki yordamı gerçekleştirin. Üyelik **Yöneticiler** veya eşdeğer yerel bilgisayarda bu yordamı tamamlamak için gereken en düşük gereksinimdir.
 

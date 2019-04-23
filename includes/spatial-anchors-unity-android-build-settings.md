@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 33c932c36cd6de730d3768d596a214c442d74ae1
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58633028"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012139"
 ---
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
@@ -23,4 +23,4 @@ Kapat **Build Settings** penceresi.
 
 ### <a name="download-and-import-the-arcore-sdk-for-unity"></a>İndirme ve Unity için ARCore SDK içeri aktarma
 
-İndirme `unitypackage` dosya [ARCore SDK'sı için Unity 1.5 sürümleri](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Unity proje geri seçin **varlıklar** > **paketini içeri aktar** > **özel paket** seçip `unitypackage` dosyası daha önce indirilen. İçinde **Unity paketini içeri aktar** iletişim kutusu, seçin ve tüm dosyaların seçili emin olun **alma**.
+İndirme `unitypackage` dosya [Unity 1.7 için ARCore SDK sürümleri](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.7.0). Unity proje geri seçin **varlıklar** > **paketini içeri aktar** > **özel paket** seçip `unitypackage` dosyası daha önce indirilen. İçinde **Unity paketini içeri aktar** iletişim kutusu, seçin ve tüm dosyaların seçili emin olun **alma**.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081296"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149986"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](../../azure-monitor/platform/itsmc-overview.md).
@@ -103,7 +103,7 @@ Aşağıdaki gerekli ayrıntıları sağlayarak betiği çalıştırın:
 
 - Azure Abonelik Ayrıntıları
 - Kaynak grubu adı
-- Konum
+- Location
 - Service Manager sunucusu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
 - Web uygulamanız için site adı öneki
 - ServiceBus Namespace.
@@ -185,11 +185,12 @@ Aşağıdaki bölümler, azure'da ITSMC ServiceNow ürün bağlanma hakkında ay
 ### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki önkoşulların karşılandığından emin olun:
 - ITSMC yüklü. Daha fazla bilgi: [Ekleme BT Hizmet Yönetimi bağlayıcı çözümü](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Servicenow'ı desteklenen sürümler: Kingston, Cakarta, Istanbul, Helsinki, Cenevre.
+- Servicenow'ı desteklenen sürümler: Londra, Kingston, Cakarta, Istanbul, Helsinki, Cenevre.
 
 **ServiceNow yöneticileri kendi ServiceNow örneği aşağıdakileri yapması gerekir**:
 - İstemci Kimliğini ve istemci gizli anahtarı için ServiceNow ürün oluşturur. İstemci Kimliğini ve gizli anahtarı oluşturma hakkında daha fazla bilgi için aşağıdaki bilgileri gerektiği gibi bakın:
 
+    - [OAuth Londra için ayarlama](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Kingston için ayarlama](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Cakarta için OAuth ayarlama](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Istanbul için ayarlama](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

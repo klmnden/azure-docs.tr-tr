@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e52c14051d038ae36af9f31f1ab13da11d032a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699296"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000037"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -35,30 +35,11 @@ Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development 
 
 ## <a name="create-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu oluşturma
 
-1. Yeni uygulama yapılandırma deposu oluşturmak için oturum açın [Azure portalında](https://aka.ms/azconfig/portal). Sayfanın sol üst köşesinde bulunan seçin **+ kaynak Oluştur**. İçinde **markette Ara** kutusuna **uygulama yapılandırması** ve Enter tuşuna basın.
-
-    ![Uygulama yapılandırması için arama](./media/quickstarts/azure-app-configuration-new.png)
-
-2. Seçin **uygulama yapılandırması** seçin ve arama sonuçlarını **Oluştur**.
-
-3. Üzerinde **uygulama yapılandırması** > **Oluştur** sayfasında, aşağıdaki ayarları girin.
-
-    | Ayar | Önerilen değer | Açıklama |
-    |---|---|---|
-    | **Kaynak adı** | Genel olarak benzersiz bir ad | Uygulama yapılandırma deposu kaynağı için kullanılacak benzersiz kaynak adını girin. Ad 1 - 63 karakter arasında bir dize olmalı ve yalnızca rakam, harf ve `-` karakterini içermelidir. Adın başında veya sonunda `-` karakter ve ardışık `-` karakterler geçerli değildir.  |
-    | **Abonelik** | Aboneliğiniz | Uygulama yapılandırması test etmek için kullanmak istediğiniz Azure aboneliğini seçin. Hesabınızda yalnızca bir aboneliğiniz varsa, otomatik olarak seçilir ve **abonelik** açılan görüntülenmiyorsa. |
-    | **Kaynak grubu** | *AppConfigTestResources* | Uygulama yapılandırma deposu kaynağınız için bir kaynak grubu oluşturun veya seçin. Bu grup, kaynak grubunu silerek aynı anda silmek isteyebilirsiniz birden fazla kaynak düzenlemek için kullanışlıdır. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Konum** | *Orta ABD* | SignalR kaynağınızın barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için kaynak, uygulamanızın diğer bileşenlerle aynı bölgede oluşturun. |
-
-    ![Bir uygulama yapılandırma deposu oluşturma](./media/quickstarts/azure-app-configuration-create.png)
-
-4. **Oluştur**’u seçin. Dağıtımın tamamlanması birkaç dakika sürebilir.
-
-5. Dağıtım tamamlandıktan sonra seçin **ayarları** > **erişim anahtarlarını**. Bir ya da birincil salt okunur veya birincil salt okunur anahtar bağlantı dizesini not edin. Bu bağlantı dizesi daha sonra oluşturduğunuz uygulama yapılandırma deposu ile iletişim kurmak için uygulamanızı yapılandırmak için kullanırsınız.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
-    | Anahtar | Değer |
+    | Anahtar | Value |
     |---|---|
     | /application/config.message | Merhaba |
 
@@ -172,4 +153,4 @@ Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu 
 Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure kaynaklarını tümleştirme için yönetilen kimlik](./howto-integrate-azure-managed-service-identity.md)
+> [Yönetilen kimlik tümleştirme](./howto-integrate-azure-managed-service-identity.md)

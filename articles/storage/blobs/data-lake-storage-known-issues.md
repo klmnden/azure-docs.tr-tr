@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194717"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006871"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -47,13 +47,13 @@ Yönetilmeyen sanal makine (VM) diskleri devre dışı Blob Depolama API'leri ba
 
 BLOB Depolama API'leri ve Azure Data Lake Gen2 API'lerini birbirleri ile birlikte çalışabilir değil.
 
-BLOB API'leri duruma kadar araçları, uygulamaları, hizmetleri veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, ardından bir hiyerarşik ad alanı Blob Depolama hesabınızda etkinleştirme Azure Data Lake Gen2 API'leri ile birlikte çalışabilir. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
+BLOB API'leri duruma kadar araçları, uygulamaları, hizmetleri veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, ardından bir hiyerarşik ad alanı Blob Depolama hesabınızda etkinleştirme Azure Data Lake Gen2 API'leri ile birlikte çalışabilir. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak, dizin ve dosya sistemi erişim denetim listeleri gibi Data Lake depolama Gen2'ye özgü özelliklere erişim ardından gerekmediği anlamına gelir.
 
 ## <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 
 Azure Depolama Gezgini'ni kullanarak Data Lake depolama Gen2 hesapları yönetmek veya görüntülemek için en az olmalıdır sürüm `1.6.0` olarak kullanılabilir olan Aracı'nın bir [ücretsiz](https://azure.microsoft.com/features/storage-explorer/).
 
-Depolama Gezgini, Azure Portalı'na katıştırılmış sürümü şu anda mu Not görüntüleme veya etkin hiyerarşik ad alanı özelliği ile Data Lake depolama Gen2 hesapları yönetme desteği.
+Depolama Gezgini, Azure portalında katıştırılmış sürümü şu anda mu Not görüntüleme veya etkin hiyerarşik ad alanı özelliği ile Data Lake depolama Gen2 hesapları yönetme desteği.
 
 ## <a name="blob-viewing-tool"></a>BLOB görüntüleme aracı
 

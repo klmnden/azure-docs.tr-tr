@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç - Azure Depolama Gezgini kullanarak nesne depolamada blob oluşturma | Microsoft Docs
+title: "Hızlı Başlangıç: Nesne depolamada blob oluşturma için Azure Depolama Gezgini'ni kullanma"
 description: Bu hızlı başlangıçta, kapsayıcı ve blob oluşturmak için Azure Depolama Gezgini’ni nasıl kullanacağınızı öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobları görüntülemeyi öğreneceksiniz. Ayrıca bir blobun anlık görüntüsünü oluşturma, kapsayıcı erişim ilkelerini yönetme ve paylaşılan erişim imzası oluşturma hakkında bilgi edineceksiniz.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711200"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994478"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç - Azure Depolama Gezgini kullanarak nesne depolamada blob oluşturma | Microsoft Docs
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturma için Azure Depolama Gezgini'ni kullanma
 
 Bu hızlı başlangıçta, kapsayıcı ve blob oluşturmak için [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)’ni nasıl kullanacağınızı öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobları görüntülemeyi öğreneceksiniz. Ayrıca bir blobun anlık görüntüsünü oluşturma, kapsayıcı erişim ilkelerini yönetme ve paylaşılan erişim imzası oluşturma hakkında bilgi edineceksiniz.
 
@@ -39,7 +39,7 @@ Uygulamayı ilk kez başlattığınızda **Microsoft Azure Depolama Gezgini - Ba
 
 ![Microsoft Azure Depolama Gezgini - Bağlan penceresi](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi gösterilir. Bu görünümde tüm Azure depolama hesaplarınıza ek olarak [Azure Depolama Öykünücüsü](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hesapları veya [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ortamları üzerinden yapılandırılan yerel depolama alanlarını görebilirsiniz.
+Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi gösterilir. Bu görünümde tüm Azure depolama hesaplarınıza ek olarak [Azure Depolama Öykünücüsü](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hesapları veya [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ortamları üzerinden yapılandırılan yerel depolama alanlarını görebilirsiniz.
 
 ![Microsoft Azure Depolama Gezgini - Bağlan penceresi](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

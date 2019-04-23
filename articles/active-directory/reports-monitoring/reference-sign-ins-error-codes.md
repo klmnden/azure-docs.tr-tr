@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439405"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996178"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 
@@ -174,9 +174,11 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |81012|Bu bir hata durumu değil. Bu, Azure AD'de oturum açmaya çalışırken, kullanıcı, cihazda oturum açmış olan kullanıcıdan farklıdır gösterir. Bu kod, günlüklerde güvenle yok sayabilirsiniz.|
 |90010|İstek, çeşitli nedenlerle desteklenmiyor. Örneğin, istek (yalnızca POST yöntemini desteklenir) bir desteklenmeyen istek yöntemi kullanılarak yapılan veya istenen belirteç imzalama algoritması desteklenmiyor. Uygulama geliştiricisine başvurun.|
 |90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. |
+|90051| Geçersiz bir temsilci belirteci. Geçersiz Ulusal bulut kimliği ({Cloudıd}) belirtildi.|
 |90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|
 |90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.|
 |500133| Onaylama işlemi, geçerli zaman aralığı içinde değil. Kullanıcı onayı için kullanmadan önce erişim belirtecinin süresi dolmadı emin olun veya yeni bir belirteç isteyin.|
+|530021|Application onaylı koşullu erişim uygulama gereksinimlerini karşılamıyor.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

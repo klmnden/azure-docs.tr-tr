@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371936"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003511"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -70,7 +70,7 @@ Log Analytics aracısını istediğinizde kullanılmalıdır:
 * Azure Hizmetleri gibi [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/), hangi yerel olarak depolamak verilerini doğrudan Log Analytics'te.  
 
 ## <a name="dependency-agent"></a>Bağımlılık aracısı
-Bağımlılık Aracısı'nı, ilk olarak Microsoft'tan dışarıdan geliştirilmiştir hizmet eşlemesi çözümünün parçası olarak geliştirilmiştir. [Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../insights/vminsights-overview.md) gerektiren bir bağımlılık aracısını Windows ve Linux sanal makineleri ve ile tümleştirilir sanal üzerinde çalışan işlemler hakkında bulunan toplanan veriler Log Analytics aracısını makine ve işlem dış bağımlılıkları. Bu verileri bir Log Analytics çalışma alanında depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.
+Bağımlılık Aracısı'nı, başlangıçta Microsoft tarafından geliştirilmiş değil hizmet eşlemesi çözümünün parçası olarak geliştirilmiştir. [Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../insights/vminsights-overview.md) gerektiren bir bağımlılık aracısını Windows ve Linux sanal makineleri ve ile tümleştirilir sanal üzerinde çalışan işlemler hakkında bulunan veri toplamak için Log Analytics aracısını makine ve işlem dış bağımlılıkları. Bu verileri bir Log Analytics çalışma alanında depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.
 
 Sanal makinenizin izlemek üzere bu aracı bileşimi gerekebilir. Aracıları yan yana Azure uzantıları ancak yüklenebilir Linux'ta, Log Analytics aracısını *gerekir* yüklenmesi ilk; Aksi takdirde yükleme başarısız olur. 
 

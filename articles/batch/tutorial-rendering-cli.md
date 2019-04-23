@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149937"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Öğretici: Azure Batch ile bir Sahneyi işleme 
 
@@ -33,7 +33,7 @@ Bu öğreticide, ışın izleme işleyicisi [Arnold](https://www.autodesk.com/pr
 
 Batch’teki işleme uygulamalarını kullandığın kadar öde esasıyla kullanmak için bir kullandıkça öde aboneliğine veya diğer Azure satın alma seçeneğine ihtiyacınız vardır. **Para kredi sağlayan ücretsiz bir Azure teklifi kullanıyorsanız, kullandığın kadar öde lisansı desteklenmez.**
 
-Bu öğretici için örnek 3ds Max sahnesi, bir örnek Batch betiği ve JSON yapılandırma dosyalarıyla birlikte [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)'dadır. 3ds Max sahnesi, [Autodesk 3ds Max örnek dosyalarından](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) alınmıştır. (Autodesk 3ds Max örnek dosyaları, Creative Commons Attribution-NonCommercial-Share Alike lisansı kapsamında sağlanır. Telif Hakkı © Autodesk, Inc.)
+Bu öğretici için örnek 3ds Max sahnesi, bir örnek Batch betiği ve JSON yapılandırma dosyalarıyla birlikte [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)'dadır. 3ds Max sahnesi, [Autodesk 3ds Max örnek dosyalarından](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) alınmıştır. (Autodesk 3ds Max örnek dosyaları, Creative Commons Attribution-NonCommercial-Share Alike lisansı kapsamında sağlanır. Telif Hakkı © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489357"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011705"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Bing görsel arama API'sine arama sorguları gönderme
 
@@ -73,7 +73,7 @@ Görsel Arama uç noktası şudur: https:\/\/api.cognitive.microsoft.com/bing/v7
 
 Aşağıdakiler, isteğinizde belirtilmesi gereken sorgu parametreleridir. En azından, içermelidir `mkt` sorgu parametresi:
 
-| Ad | Değer | Type | Gerekli |
+| Name | Value | Type | Gereklidir |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Sonuçları nereden geldiğini gösteren iki karakterli ülke kodu.<br /><br /> Bu parametreyi ayarlarsanız, [Accept-Language](#acceptlanguage) üst bilgisini de belirtmelisiniz. Bing dil listesinde bulduğu ilk desteklenen dili kullanır ve dili sizin belirttiğiniz ülke koduyla birleştirerek sonuçları hangi pazardan döndüreceğini saptar. Dil listesi desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur. Öte yandan, sonuçlarda belirtilen pazar yerine toplu veya varsayılan bir pazarı da kullanılabilir.<br /><br /> Bu sorgu parametresini ve `Accept-Language` sorgu parametresini ancak birden çok dil belirttiyseniz kullanmalısınız; aksi takdirde `mkt` ve `setLang` sorgu parametrelerini kullanmanız gerekir.<br /><br /> Bu parametre ve [mkt](#mkt) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin. | String | Hayır       |
 | <a name="mkt" />mkt   | Sonuçların geldiği pazar. <br /><br /> **NOT:** Her zaman marketiyle ilgili biliniyorsa belirtmeniz gerekir. Pazarın belirtilmesi Bing’in isteği yönlendirmesine, uygun ve en iyi yanıtı döndürmesine yardımcı olur.<br /><br /> Bu parametre ve [cc](#cc) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin. | String | Evet      |
@@ -98,7 +98,7 @@ Aşağıdakiler, isteğinizde belirtilmesi gereken üst bilgilerdir. `Content-Ty
 | <a name="location" />X-Search-Location   | İsteğe bağlı istek üst bilgisi.<br /><br /> İstemcinin coğrafi konumunu açıklayan noktalı virgülle sınırlanmış anahtar/değer çifti listesi. Bing konum bilgisini kullanarak güvenli arama davranışını saptar ve ilgili yerel içeriği döndürür. Anahtar/değer çiftini \<anahtar\>:\<değer\> olarak belirtin. Aşağıda, kullanıcının konumunu belirtmek için kullandığınız anahtarlar gösterilir.<br /><br /><ul><li>lat&mdash;Gerekli. İstemcinin konumunun derece cinsinden enlemi. Enlem -90,0 değerinden büyük veya bu değere eşit ve +90,0 değerinden küçük veya bu değere eşit olmalıdır. Negatif değerler güney enlemlerini ve pozitif değerler de kuzey enlemlerini gösterir.<br /><br /></li><li>long&mdash;Gerekli. İstemcinin konumunun derece cinsinden boylamı. Boylam -180,0 değerinden büyük veya bu değere eşit ve +180,0 değerinden küçük veya bu değere eşit olmalıdır. Negatif değerler batı boylamlarını ve pozitif değerler de doğu boylamlarını gösterir.<br /><br /></li><li>re&mdash;Gerekli. Koordinatların yatay doğruluğunu belirten metre cinsinden yarıçap. Cihazın konum hizmeti tarafından döndürülen değeri geçirin. GPS/Wi-Fi için 22 m, hücre tower Üçlü 380 m ve 18, 000 m ters IP araması için normal değerler olabilir.<br /><br /></li><li>ts&mdash;İsteğe bağlı. İstemcinin ne zaman konumda olduğunu gösteren UTC UNIX zaman damgası. (UNIX zaman damgası 1 Ocak 1970'den başlayarak saniye sayısıdır.)<br /><br /></li><li>head&mdash;İsteğe bağlı. İstemcinin göreli seyahat yönü. Gerçek kuzeye göre saat yönünün tersine 0 ile 360 derece arasında bir seyahat yönü belirtin. Bu anahtarı ancak `sp` anahtarı sıfırdan farklı bir değer olduğunda belirtin.<br /><br /></li><li>sp&mdash;İsteğe bağlı. Saniyedeki metre cinsinden istemci cihazının seyahat ettiği yatay hız.<br /><br /></li><li>alt&mdash;İsteğe bağlı. İstemci cihazının metre cinsinden deniz seviyesinden yüksekliği.<br /><br /></li><li>are&mdash;İsteğe bağlı. Koordinatların dikey doğruluğunu belirten metre cinsinden yarıçap. Bu anahtarı ancak `alt` anahtarı belirttiğiniz durumda belirtin.<br /><br /></li></ul> **NOT:** Anahtarların birçok isteğe bağlı, ancak daha doğru konuma sonucu olan sağlayan daha fazla bilgi.<br /><br /> **NOT:** İsteğe bağlı olsa da, her zaman kullanıcının coğrafi konumu belirtmek için önerilir. İstemcinin IP adresi kullanıcının fiziksel konumunu doğru yansıtmıyorsa (örneğin istemci VPN kullanıyorsa), konumun belirtilmesi özellikle önemlidir. En iyi sonuçlar için bu başlığı içermelidir ve `X-MSEdge-ClientIP` üst bilgi, ancak en az bu başlığı içermelidir.       |
 
 > [!NOTE]
-> Unutmayın [Bing arama API'si kullanın ve gereksinimlerini görüntülemek](/../bing-web-search/use-display-requirements.md) bu üstbilgileri kullanımıyla ilgili dahil olmak üzere ilgili tüm yasalara uyumluluk gerektirir. Örneğin, Avrupa gibi bazı yasama bölgelerinde kullanıcı cihazlarına izleme cihazları takmadan önce kullanıcının iznini almak gerekir.
+> Unutmayın [Bing arama API'si kullanın ve gereksinimlerini görüntülemek](../../bing-web-search/use-display-requirements.md) bu üstbilgileri kullanımıyla ilgili dahil olmak üzere ilgili tüm yasalara uyumluluk gerektirir. Örneğin, Avrupa gibi bazı yasama bölgelerinde kullanıcı cihazlarına izleme cihazları takmadan önce kullanıcının iznini almak gerekir.
 
 <a name="content-form-types" />
 

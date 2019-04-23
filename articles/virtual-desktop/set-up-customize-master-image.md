@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698324"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999884"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Ana VHD görüntüsünü hazırlama ve özelleştirme
 
@@ -204,7 +204,7 @@ OneDrive makine başına modunda yüklemek nasıl aşağıda verilmiştir:
 5. OneDrive makine başına modunda yüklemek için şu komutu çalıştırın:
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Tüm kullanıcılar için oturum açma sırasında başlatmak için OneDrive'ı yapılandırmak için şu komutu çalıştırın:
@@ -313,7 +313,7 @@ Bu bölüm, uygulama ve işletim sistemi yapılandırması kapsar. Bu bölümdek
 Geri bildirim hub'ı koleksiyonu telemetri verilerinin için Windows 10 Enterprise çok oturumunda şu komutu çalıştırın:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

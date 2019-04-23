@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 75073058647f8e27a048e5ba0673a3d7e3f6a465
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311263"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008129"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10 için akış çevrimdışı PlayReady  
 
@@ -27,9 +27,12 @@ ms.locfileid: "58311263"
 > * [Sürüm 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Sürüm 2](offline-playready-streaming-windows-10.md)
 
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services, çevrimdışı yükleme/oynatma DRM koruması desteği. Bu makale Azure medya Hizmetleri için Windows 10/PlayReady istemcilerin çevrimdışı destek kapsar. İOS/FairPlay ve aşağıdaki makalelerde Android/Widevine cihazlar için çevrimdışı modu desteği hakkında okuyabilirsiniz:
 
-- [İOS için çevrimdışı FairPlay Streaming](media-services-protect-hls-with-offline-fairplay.md)
+- [iOS için Çevrimdışı FairPlay Akışı](media-services-protect-hls-with-offline-fairplay.md)
 - [Android için akış çevrimdışı Widevine](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Genel Bakış

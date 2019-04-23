@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861902"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000632"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -85,6 +85,11 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 4. **İş parçacıklarının/görevlerin sayısını artırın**
 
     Ağ üzerinden yapılan çağrıları Azure Cosmos DB için olduğundan, istemci uygulamanın istekleri arasında beklerken çok az süre geçirdiği böylece, isteklerin paralellik derecesini farklılık gerekebilir. Örneğin, kullanıyorsanız. NET [görev paralel Kitaplığı](https://msdn.microsoft.com//library/dd460717.aspx), 100'lük bloklar okuma veya yazma için Azure Cosmos DB görev sırasına göre oluşturun.
+
+5. **Hızlandırılmış ağ iletişimi etkinleştirin**
+
+   Gecikme süresi ve CPU değişimi azaltmak için istemci sanal makinelerin etkin ağ hızlandırılmış olmasını öneririz. Bkz: [hızlandırılmış ağ ile Windows sanal makine oluşturma](../virtual-network/create-vm-accelerated-networking-powershell.md) veya [hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma](../virtual-network/create-vm-accelerated-networking-cli.md) hızlandırılmış ağ iletişimi etkinleştirmek için makaleler.
+
 
 ## <a name="sdk-usage"></a>SDK kullanımı
 1. **En son SDK'sını yükleyin**

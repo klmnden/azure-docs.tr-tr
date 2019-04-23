@@ -1,64 +1,99 @@
 ---
 title: Azure Cosmos DB'yi dizine ekleme
 description: Azure Cosmos DB'de dizinleme nasıl çalıştığını anlayın.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265704"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996739"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>-Azure Cosmos DB'de dizinleme genel bakış
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB - genel bakış dizin oluşturma
 
-Azure Cosmos DB şemadan veritabanıdır ve şema ya da dizin yönetimiyle ilgilenmenize gerek kalmadan uygulamanızı üzerinde hızla yineleme olanak tanır. Varsayılan olarak, Azure Cosmos DB otomatik olarak tüm öğelerini kapsayıcınızda şema veya ikincil dizinler geliştiricilerden gerek kalmadan oluşturur.
+Azure Cosmos DB, şema veya dizin yönetimiyle ilgilenmenize gerek kalmadan uygulamanızı yineleme olanak tanıyan bir şemadan veritabanıdır. Varsayılan olarak, Azure Cosmos DB içindeki tüm öğeler için her bir özellik otomatik olarak dizinleyen, [kapsayıcı](databases-containers-items.md#azure-cosmos-containers) herhangi bir şema tanımlayın veya ikincil dizinler yapılandırmak zorunda kalmadan.
 
-## <a name="items-as-trees"></a>Öğeleri olarak ağaçları
+Bu makalenin amacı, Azure Cosmos DB verileri nasıl dizinler ve nasıl sorgu performansını artırmak için dizinleri kullandığı açıklayan sağlamaktır. Bu bölümde, nasıl özelleştirileceğini edinip gitmek için önerilen [dizinleme ilkeleri](index-policy.md).
 
-JSON belgeleri olarak bir kapsayıcı içindeki öğeleri yansıtma ve bunları ağaçları temsil eden, Azure Cosmos DB hem yapısını hem de örnek değerleri öğeler arasında birleştirme kavramını normalleştirir bir **yolu yapısı'dinamik olarak kodlanmış** . Bu gösteriminde bir ağaç düğümünü hem özellik adlarını ve değerlerini içeren bir JSON belgesinde her etiket haline gelir. Ağacın bırakır, gerçek değerleri içeren ve Ara düğümleri şema bilgileri içerir. Aşağıdaki görüntüde oluşturulan iki için ağaçları temsil eden bir Azure Cosmos kapsayıcısında öğe (1 ve 2):
+## <a name="from-items-to-trees"></a>Öğeleri ağaçları
 
-![Bir Azure Cosmos kapsayıcısında iki farklı öğe ağacı temsili](./media/index-overview/indexing-as-tree.png)
+Her zaman bir öğe bir kapsayıcıda depolanır, içeriği bir JSON belgesi olarak öngörülen sonra bir ağaç gösterimine dönüştürülecek. Ne bu öğesinin her bir özellik, bir düğüm bir ağaç olarak gösterilen anlamına gelir. Sahte kök düğümü, bir üst öğenin tüm birinci düzey özellikleri olarak oluşturulur. Yaprak düğümleri bir öğe tarafından gerçekleştirilen gerçek skaler değerler içerir.
 
-Sahte kök düğümü JSON belge etiketleri için karşılık gelen gerçek düğümlerine üst öğe olarak oluşturulur. İç içe veri yapılarını hiyerarşi ağacında sürücü. Ara (örneğin, 0, 1,...) sayısal değerlerle etiketli yapay düğümler numaralandırmaları temsil etmek için kullanılan ve dizi dizinleri.
+Örneğin, bu öğeyi göz önünde bulundurun:
 
-## <a name="index-paths"></a>Dizin yolları
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB, bir Azure Cosmos kapsayıcısındaki ağaçları olarak öğeleri JSON belgelerinin ve dizin olarak yansıtıyor. Ardından, ağaçtaki yolları için dizin ilkeleri ayarlayabilirsiniz. Dahil etmek veya yolları dizine elmadan hariç tutmak seçebilirsiniz. Geliştirilmiş yazma performansı sunar ve dizin depolaması burada ahead sorgu desenleri bilinen senaryoları için daha düşük olabilir. Daha fazla bilgi için bkz. [dizin yolları](index-paths.md).
+Aşağıdaki ağaç tarafından temsil:
 
-## <a name="indexing-under-the-hood"></a>Dizin oluşturma: Başlık altında
+![Ağaç olarak temsil edilen önceki öğeye](./media/index-overview/item-as-tree.png)
 
-Azure Cosmos veritabanı geçerli *otomatik dizin oluşturma* burada her bir ağaç yolu tarihine, belirli yollarını dışlanacak yapılandırmadığınız sürece, veri.
+Diziler ağacında nasıl kodlanmış unutmayın: dizi içinde giriş dizini ile etiketlenmiş bir ara düğümü bir dizideki her bir girdi alır (0, 1 vs.).
 
-Azure Cosmos veritabanı kullanan her bir öğenin bilgileri depolamak ve sorgulamak için verimli gösterimi kolaylaştırmak için dizin veri yapısı ters. Dizin ağacı ile bir kapsayıcı içindeki öğeleri temsil eden ağaçları birleşimiyle oluşturulan bir belgedir. Dizin ağacında, yeni öğeler eklendiğinde veya var olan öğeleri kapsayıcıda güncelleştirilir, zamanla artar. Yeni alanlar sunulan gibi ilişkisel veritabanı dizini oluşturma aksine Azure Cosmos DB, sıfırdan dizinlemeye yeniden başlamak değil. Yeni öğeler mevcut dizin yapısına eklenir. 
+## <a name="from-trees-to-property-paths"></a>Özellik yolları ağaçlarından
 
-Her düğümüdür adlı etiket ve konum değerleri içeren bir dizin girdisi dizin ağacı *terimi*ve adlı öğeleri kimliklerini *gönderilerinin*. Aktarımlar içine süslü ayraçlar (örneğin {1,2}) ters dizin şekilde gibi öğelere karşılık gelen *Document1* ve *Document2* belirli bir etiket değeri içeren. Hem şema etiketleri hem de örnek değerleri eşit değerlendirmesini olduğu ile ilgili önemli bir çıkarımında her şeyi büyük bir dizin içinde paketlenmiş ' dir. Bırakır hala bir örnek değer olmayan yinelenir, farklı şemasını etiketlerle öğeleri arasında farklı rolleri olabilir ancak değerin aynısıdır. Aşağıdaki görüntüde, ters iki farklı öğeler için dizin oluşturma gösterilmektedir:
+Neden Azure Cosmos DB ağaçlara öğeleri dönüştürür. Bunun nedeni, yollarına ağaçların içinde tarafından başvurulabilmesi özellikler sağlayan olmasıdır. Bir özelliği olan yolu almak için biz ağaç kök düğümü aracılığıyla bu özelliğe geçiş ve geçilen her düğümün etiketleri birleştir.
 
-![Başlık altında dizin, dizin ters](./media/index-overview/inverted-index.png)
+Yukarıda açıklanan örnek öğesinden her bir özellik için yollar şunlardır:
 
-> [!NOTE]
-> Ters dizini bir arama motoru bilgi alma etki alanında kullanılan dizin oluşturma yapıları benzer görünebilir. Bu yöntemde Azure Cosmos DB veritabanınıza şema yapısını bağımsız olarak herhangi bir öğe için aranacak sağlar.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-Normalleştirilmiş yol için dizin değeri, değerin türü bilgilerle birlikte tüm kökünden ileriye doğru yol kodlar. Dizin aralık, uzamsal, vb. gibi çeşitli türleri sağlamak için yolu ve değeri kodlanır. Değer kodlama, benzersiz bir değer veya bir dizi yol bileşimi sağlamak için tasarlanmıştır.
+Bir öğe yazıldığında, Azure Cosmos DB her özelliğin yolu ve karşılık gelen değeri etkili bir şekilde dizinler.
+
+## <a name="index-kinds"></a>Dizin türleri
+
+Azure Cosmos DB, şu anda iki tür dizinleri destekler:
+
+**Aralığı** dizin türü için kullanılır:
+
+- Eşitlik sorguları için: `SELECT * FROM container c WHERE c.property = 'value'`
+- Aralık sorguları: `SELECT * FROM container c WHERE c.property > 'value'` (çalışır `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` sorgular: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` sorgular: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Aralık dizinleri skaler değerler (dize veya sayı) kullanılabilir.
+
+**Uzamsal** dizin türü için kullanılır:
+
+- Jeo-uzamsal uzaklık sorgular: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- Jeo-uzamsal sorguları içinde: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Uzaysal dizinler kullanılabilir üzerinde düzgün biçimlendirilmiş [GeoJSON](geospatial.md) nesneleri. Noktaları, LineStrings ve çokgenler desteklenmemektedir.
 
 ## <a name="querying-with-indexes"></a>Dizinler ile sorgulama
 
-Ters dizini, hızlı sorgu koşulu karşılayan belgelerini tanımlamak için bir sorgu sağlar. Hem şema hem de yolları açısından aynı şekilde örnek değerleri kabul ederek, ters ayrıca bir ağaç dizinidir. Bu nedenle, dizin ve sonuçları için geçerli bir JSON belgesi sıralanabilir ve ağaç gösteriminde döndürülen gibi belgeleri olarak kendilerini döndürdü. Bu yöntem, ek sorgulamak için sonuçları recursing sağlar. Aşağıdaki görüntüde, dizin noktası sorguda bir örnek gösterilmektedir:  
+Verileri sıralarken ayıklanan yolları sorgu işlenirken dizinini aramak kolaylaştırır. Eşleşen tarafından `WHERE` dizinli yollarının listesini ile yan tümcesi bir sorgu mümkündür çok hızlı bir şekilde sorgu koşulu karşılayan öğeleri tanımlamak.
 
-![Noktası sorgusu örneği](./media/index-overview/index-point-query.png)
+Örneğin, şu sorguyu inceleyin: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. (Herhangi bir yerde "Fransa" kendi ülke sahip olduğu öğeler üzerinde filtreleme) sorgu koşulu aşağıdaki kırmızı renkte vurgulanmış yolu eşleşir:
 
-Bir aralık sorgusu için *GermanTax* olduğu bir [kullanıcı tanımlı işlev](stored-procedures-triggers-udfs.md#udfs) sorgu işleme bir parçası olarak yürütülen. Kullanıcı tanımlı işlevi sorguyu tümleştirilmiş zengin programlama mantığı sağlayan tüm kayıtlı, bir JavaScript işlevidir. Aşağıdaki görüntüde, dizin içinde bir aralığı sorgusu bir örnek gösterilmektedir:
+![Bir ağaç içindeki belirli bir yol ile eşleşen](./media/index-overview/matching-path.png)
 
-![Aralık sorgusu örneği](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> Bir `ORDER BY` yan tümcesi *her zaman* aralığı gereken dizin ve başvurduğu yolu bir sahip değilse başarısız olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki makaleler de dizin oluşturma hakkında daha fazla bilgi edinin:
 
 - [Dizin oluşturma ilkesi](index-policy.md)
-- [Dizin türleri](index-types.md)
-- [Dizin yolları](index-paths.md)
 - [Dizin oluşturma ilkesini yönetme](how-to-manage-indexing-policy.md)

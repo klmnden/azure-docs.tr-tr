@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085159"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007483"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
 
@@ -57,12 +57,12 @@ Ardından, zaman serisi görüşleri, Uzaktan izleme çözümünüze ek bir kayn
 
 1. Time Series Insights ortamınızı oluşturmak için aşağıdaki tablodaki değerleri kullanın:
 
-    | Ayar | Değer |
+    | Ayar | Value |
     | ------- | ----- |
     | Ortam adı | Aşağıdaki ekran adı kullanan **contorosrmtsi**. Bu adımı tamamladığınızda, kendi benzersiz bir ad seçin. |
     | Abonelik | Açılan listeden Azure aboneliğinizi seçin. |
     | Kaynak grubu | **Var olanı kullan**. Varolan Uzaktan izleme kaynak grubu adını seçin. |
-    | Konum | Kullanıyoruz **Doğu ABD**. Ortamınızı mümkünse Uzaktan izleme çözümünüzü aynı bölgede oluşturun. |
+    | Location | Kullanıyoruz **Doğu ABD**. Ortamınızı mümkünse Uzaktan izleme çözümünüzü aynı bölgede oluşturun. |
     | Sku |**S1** |
     | Kapasite | **1** |
 
@@ -86,7 +86,7 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
 
 1. IOT hub'ınıza yeni bir olay kaynağı yapılandırmak için aşağıdaki tablodaki değerleri kullanın:
 
-    | Ayar | Değer |
+    | Ayar | Value |
     | ------- | ----- |
     | Olay kaynağı adı | Aşağıdaki ekran adı kullanan **contosorm IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
     | Kaynak | **IoT Hub’ı** |
@@ -236,6 +236,9 @@ Ortamını yapılandırmak `basic` güncelleştirilmiş mikro hizmetlere yöneli
 1. Gidin **ASA Yöneticisi hizmeti** ve düzenleme docker compose dosyası ekleyerek `PCS_TELEMETRY_STORAGE_TYPE`.
 
 1. Docker kapsayıcıları kullanarak yeniden `sudo ./start.sh` VM'den.
+
+> [!NOTE]
+> Ortam değişkenlerini Yukarıdaki yapılandırma 1.0.2 önce Uzaktan izleme sürümleri için geçerlidir
 
 ### <a name="standard-deployments"></a>Standart dağıtım
 

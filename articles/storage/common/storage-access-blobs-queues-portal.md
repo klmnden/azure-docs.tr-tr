@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846376"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148943"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob veya sıra verilerinize erişmek için Azure portalını kullanma
 
@@ -41,13 +41,13 @@ Azure portalında blob veya kuyruğa veri erişmeyi denediğinde, portal ilk, sa
 Azure portalından Azure AD hesabınızla BLOB veya kuyruğa verilere erişmek için aşağıdaki deyimleri hem de sizin için doğru olması gerekir:
 
 - Azure Resource Manager size atandı [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rol, en azından, depolama hesabının düzeyine kapsamlı ya da daha yüksek. **Okuyucu** rolü en kısıtlı izinler verir, ancak depolama hesabı yönetim kaynaklarına erişim veren başka bir Azure Resource Manager rol de kullanılabilir.
-- Size veya bloblar veya kuyruk verilerine erişim sağlayan yerleşik veya özel bir rolü atandı.
+- Ya da blob veya kuyruğa verilere erişim sağlayan yerleşik veya özel bir rolü atandı.
 
 **Okuyucu** rol ataması veya başka bir Azure Resource Manager rol ataması gereklidir ve böylece kullanıcı görüntüleyebilir ve Azure portalında depolama hesabı yönetim kaynaklarına gidebilirsiniz. Blob veya kuyruğa verilerine erişim izni RBAC rollerini depolama hesabı yönetim kaynaklarına erişimi veremez. Portalı'nda BLOB veya kuyruğa verilerine erişmek için kullanıcının depolama hesabı kaynaklarına gitmek için izinleri olmalıdır. Bu gereksinim hakkında daha fazla bilgi için bkz. [portal erişimi için okuyucu rolü atamak](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 Blob veya sıra verilerinize erişimi destekleyen yerleşik roller şunlardır:
 
-- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Data Lake depolama Gen2 POSIX erişim denetimi (Önizleme).
+- [Depolama Blob verileri sahibi](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Data Lake depolama Gen2 için POSIX erişim denetimi için.
 - [Depolama Blob verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Blobları için okuma/yazma/silme izinleri.
 - [Depolama Blob verileri okuyucu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Bloblar için salt okunur izinler.
 - [Depolama kuyruk verileri katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Kuyruklar için okuma/yazma/silme izinleri.

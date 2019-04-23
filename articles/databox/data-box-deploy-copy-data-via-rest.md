@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527991"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995753"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Öğretici: Azure veri kutusu Blob Depolama REST API'leri aracılığıyla veri kopyalama  
 
@@ -39,9 +39,14 @@ Başlamadan önce aşağıdakilerden emin olun:
 5. [AzCopy 7.1.0 indirme](https://aka.ms/azcopyforazurestack20170417) ana bilgisayarınızda. Ana bilgisayarınızdan Azure veri kutusu Blob depolama alanına veri kopyalamak için AzCopy kullanacaksınız.
 
 
-## <a name="connect-to-data-box-blob-storage"></a>Veri kutusu Blob depolamaya bağlanma
+## <a name="connect-via-http-or-https"></a>HTTP veya https aracılığıyla bağlanma
 
-Veri kutusu Blob depolama alanına üzerinden bağlanabilir *http* veya *https*. Genel olarak, *https* veri kutusu Blob depolamaya bağlanmak için güvenli ve önerilen yoludur. *HTTP* ağlar üzerinden bağlanma güvenilen kullanılır. Veri kutusu Blob Depolama üzerine mi bağlandığınız bağlı olarak *http* veya *https*, adımlar farklı olabilir.
+Veri kutusu Blob depolama alanına üzerinden bağlanabilir *http* veya *https*.
+
+- *HTTPS* veri kutusu Blob depolamaya bağlanmak için güvenli ve önerilen yoludur.
+- *HTTP* ağlar üzerinden bağlanma güvenilen kullanılır.
+
+Üzerinde veri kutusu Blob depolamaya bağlanırken bağlanma adımları farklı *http* veya *https*,.
 
 ## <a name="connect-via-http"></a>HTTP üzerinden bağlanma
 
@@ -52,11 +57,11 @@ Veri kutusu Blob Depolama REST API'leri için bir bağlantı üzerinden *http* a
 
 Bu adımların her biri, aşağıdaki bölümlerde açıklanmıştır.
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Cihazın IP adresini ekleyin ve uzak ana bilgisayar için hizmet uç noktası blob
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Blob Hizmeti uç noktası ve cihaz IP adresi Ekle
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>İş ortağı yazılım yapılandırma ve bağlantısını doğrulama
+### <a name="configure-partner-software-and-verify-connection"></a>İş ortağı yazılım yapılandırma ve bağlantısını doğrulama
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ Bu adımların her biri, aşağıdaki bölümlerde açıklanmıştır.
 Bağlantı https üzerinden Azure Blob Depolama REST API'leri için aşağıdaki adımları gerektirir:
 
 - Azure Portalı'ndan sertifikayı indirin
-- Ana bilgisayar için uzaktan yönetimi için hazırlama
-- Cihaz IP ekleyin ve uzak ana bilgisayar için hizmet uç noktası blob
+- Uzak ana bilgisayarda veya istemci sertifikasını içeri aktarın
+- Cihaz IP ekleyin ve hizmet uç noktası istemci veya uzak bir ana bilgisayar için blob
 - Üçüncü taraf yazılım yapılandırma ve bağlantıyı doğrulama
 
 Bu adımların her biri, aşağıdaki bölümlerde açıklanmıştır.
@@ -83,20 +88,15 @@ Sertifika indirmek için Azure portalını kullanın.
 
     ![Azure portalında sertifikasını indirin](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>Konağın uzaktan yönetimi için hazırlama
+### <a name="import-certificate"></a>Sertifikayı içeri aktar 
 
-Kullanan bir uzak bağlantı için Windows istemci hazırlamak için aşağıdaki adımları izleyerek bir *https* oturumu:
+HTTPS üzerinden veri kutusu Blob depolama alanına erişim, cihaz için bir SSL sertifikası gerektirir. Bu sertifika bir istemci uygulama için kullanılabilir yapılır biçimi, uygulama başka bir uygulama ve işletim sistemleri ve dağıtımlar arasında değişir. Bazı uygulamalar diğer uygulamaları değil yaparken sistemin sertifika deposuna aktardıktan sonra sertifikayı erişebilir o mekanizmasını kullanın.
 
-- .Cer dosyasını, istemci veya uzak ana bilgisayarın kök deposuna aktarın.
-- Cihazın IP adresini ekleyin ve blob Hizmeti uç noktası için Windows istemci üzerindeki hosts dosyası.
+Bazı uygulamalar için belirli bilgiler, bu bölümde açıklanan. Diğer uygulamalar hakkında daha fazla bilgi için uygulama ve kullanılan işletim sistemi belgelerine bakın.
 
-Önceki yordamların her biri aşağıda açıklanmıştır.
+İçeri aktarmak için aşağıdaki adımları izleyin `.cer` dosyası bir Windows veya Linux istemcisi kök deposuna. Bir Windows sisteminde almak ve sisteminizde sertifikayı yüklemek için Windows PowerShell veya Windows Server kullanıcı Arabirimi kullanabilirsiniz.
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>Uzak ana bilgisayarda sertifikayı içe aktarın
-
-İçeri aktarma ve konak sisteminizde sertifikayı yüklemek için Windows PowerShell veya Windows Server UI'ı kullanabilirsiniz.
-
-**PowerShell’i kullanma**
+#### <a name="use-windows-powershell"></a>Windows PowerShell kullanma
 
 1. Bir Windows PowerShell oturumu yönetici olarak başlatın.
 2. Komut istemine şunları yazın:
@@ -105,9 +105,9 @@ Kullanan bir uzak bağlantı için Windows istemci hazırlamak için aşağıdak
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Windows sunucusu kullanıcı arabirimini kullanarak**
+#### <a name="use-windows-server-ui"></a>Windows sunucusu kullanıcı arabirimini kullanın
 
-1.  .Cer dosyasını sağ tıklayıp **yükleme sertifika**. Bu Sertifika Alma Sihirbazı'nı başlatır.
+1.  Sağ `.cer` seçin ve dosya **yükleme sertifika**. Bu eylem, Sertifika Alma Sihirbazı'nı başlatır.
 2.  İçin **Store konumu**seçin **yerel makine**ve ardından **sonraki**.
 
     ![PowerShell kullanarak sertifikayı içeri aktarma](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ Kullanan bir uzak bağlantı için Windows istemci hazırlamak için aşağıdak
 
     ![PowerShell kullanarak sertifikayı içeri aktarma](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Cihazın IP adresini ekleyin ve uzak ana bilgisayar için hizmet uç noktası blob
+#### <a name="use-a-linux-system"></a>Bir Linux sistem kullanın
 
-İzlenmesi gereken adımlar üzerinden bağlanırken kullandığınız için özdeş *http*.
+Yöntem bir sertifikayı içeri aktarmak için dağıtım göre değişir.
 
-### <a name="configure-partner-software-to-establish-connection"></a>İş ortağı yazılım bağlantı kurmak için yapılandırma
+Ubuntu ve Debian, gibi birçok `update-ca-certificates` komutu.  
 
-İzlenmesi gereken adımlar üzerinden bağlanırken kullandığınız için özdeş *http*. Tek fark, bırakmanız gerekir *http seçeneğini* seçeneği işaretli değil.
+- İçin Base64 kodlamalı sertifika dosyasını yeniden adlandırma bir `.crt` uzantısı ve içine kopyalayın `/usr/local/share/ca-certificates directory`.
+- Komutunu çalıştırın `update-ca-certificates`.
+
+RHEL, Fedora ve en son sürümlerini kullanan `update-ca-trust` komutu.
+
+- Sertifika dosyasına kopyalayın `/etc/pki/ca-trust/source/anchors` dizin.
+- `update-ca-trust` öğesini çalıştırın.
+
+Dağıtımınız için belirli Ayrıntılar için belgelere bakın.
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Blob Hizmeti uç noktası ve cihaz IP adresi Ekle 
+
+Aynı adımları [aygıt IP adresi ekleme ve hizmet uç noktası üzerinden bağlanırken blob *http*](#add-device-ip-address-and-blob-service-endpoint).
+
+### <a name="configure-partner-software-and-verify-connection"></a>İş ortağı yazılım yapılandırma ve bağlantısını doğrulama
+
+Adımlarını izleyin [üzerinden bağlanırken kullanılan iş ortağı yazılım yapılandırma *http*](#configure-partner-software-and-verify-connection). Tek fark, bırakmanız gerekir *http seçeneğini* seçeneği işaretli değil.
 
 ## <a name="copy-data-to-data-box"></a>Data Box'a veri kopyalama
 
@@ -199,7 +215,6 @@ Yalnızca hedefte bulunmayan çıkış kaynaklarını kopyalamak istiyorsanız, 
 #### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 Sonraki adım, cihazı göndermeye hazırlayın sağlamaktır.
 

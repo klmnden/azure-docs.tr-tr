@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 9cd9adfd9d882f3781f519846ce22767123da36c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652272"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999136"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web araması API'si için dil ve bölge desteği
 
@@ -30,7 +30,7 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Ülke/bölge|Kod|
 |-------|----|
 |Arjantin|AR|
-|Avustralya|Otomatik Olarak Güncelleştir|
+|Avustralya|AU|
 |Avusturya|AT|
 |Belçika|BE|
 |Brezilya|BR|
@@ -40,17 +40,17 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Finlandiya|FI|
 |Fransa|GS|
 |Almanya|DE|
-|Hong Kong|HK|
+|Hong Kong Çin ÖİB|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
 |Japonya|JP|
-|Kore|KR|
+|Güney Kore|KR|
 |Malezya|MY|
 |Meksika|MX|
 |Hollanda|NL|
 |Yeni Zelanda|NZ|
-|Norveç|HAYIR|
+|Norveç|NO|
 |Çin|CN|
 |Polonya|PL|
 |Portekiz|PT|
@@ -64,49 +64,49 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Tayvan|TW|
 |Türkiye|TR|
 |Birleşik Krallık|GB|
-|Birleşik Devletler|ABD|
+|Amerika Birleşik Devletleri|ABD|
 
 ## <a name="markets"></a>Pazarlar
 
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
-|Arjantin|İspanyolca|es-AR|
-|Avustralya|İngilizce|tr-AU|
-|Avusturya|Almanca|de-AT|
+|Arjantin|İspanyolca |es-AR|
+|Avustralya|Türkçe|tr-AU|
+|Avusturya|Almanca |de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
-|Belçika|Fransızca|FR-olabilir|
+|Belçika|Fransızca |FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
-|Kanada|İngilizce|CA tr|
-|Kanada|Fransızca|fr-CA|
-|Şili|İspanyolca|ES-CL|
+|Kanada|Türkçe|CA tr|
+|Kanada|Fransızca |fr-CA|
+|Şili|İspanyolca |ES-CL|
 |Danimarka|Danca|v-DK|
 |Finlandiya|Fince|FI-FI|
-|Fransa|Fransızca|fr-FR|
-|Almanya|Almanca|de-DE|
-|Hong Kong|Geleneksel Çince|zh-HK|
-|Hindistan|İngilizce|tr-giriş|
-|Endonezya|İngilizce|tr kimliği|
+|Fransa|Fransızca |fr-FR|
+|Almanya|Almanca |de-DE|
+|Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|
+|Hindistan|Türkçe|tr-giriş|
+|Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|
 |Japonya|Japonca|ja-JP|
-|Kore|Korece|ko-KR|
-|Malezya|İngilizce|MY tr|
-|Meksika|İspanyolca|es-MX|
+|Güney Kore|Korece|ko-KR|
+|Malezya|Türkçe|MY tr|
+|Meksika|İspanyolca |es-MX|
 |Hollanda|Felemenkçe|NL-NL|
-|Yeni Zelanda|İngilizce|tr NZ|
-|Norveç|Norveç dili|no-NO|
+|Yeni Zelanda|Türkçe|tr NZ|
+|Norveç|Norveççe|no-NO|
 |Çin|Çince|zh-CN|
 |Polonya|Lehçe|pl-PL|
 |Portekiz|Portekizce|pt-PT|
-|Filipinler|İngilizce|tr PH|
+|Filipinler|Türkçe|tr PH|
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
-|Güney Afrika|İngilizce|tr-ZA|
-|İspanya|İspanyolca|es-ES|
+|Güney Afrika|Türkçe|tr-ZA|
+|İspanya|İspanyolca |es-ES|
 |İsveç|İsveççe|sv-SE|
-|İsviçre|Fransızca|FR-CH|
-|İsviçre|Almanca|de-CH|
+|İsviçre|Fransızca |FR-CH|
+|İsviçre|Almanca |de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
-|Birleşik Krallık|İngilizce|en-GB|
-|Birleşik Devletler|İngilizce|en-US|
-|Birleşik Devletler|İspanyolca|ES-ABD|
+|Birleşik Krallık|Türkçe|en-GB|
+|Amerika Birleşik Devletleri|Türkçe|en-US|
+|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|

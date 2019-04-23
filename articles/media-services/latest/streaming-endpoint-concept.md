@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881027"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999459"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
@@ -52,7 +52,6 @@ Türler aşağıdaki tabloda açıklanmıştır:
 ---|---|---
 Ücretsiz ilk 15 gün| Evet |Hayır
 Aktarım hızı |Azure CDN olmadığında en fazla 600 MB/sn. CDN ile ölçeklendirilir.|Akış birimi (SU) başına 200 MB/sn. CDN ile ölçeklendirilir.
-SLA | 99.9|% 99,9 (SU başına 200 Mbps).
 CDN|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.
 Faturalama saatlere eşit olarak dağıtılır| Günlük|Günlük
 Dinamik şifreleme|Evet|Evet
@@ -86,7 +85,7 @@ Bu bölüm, akış uç noktasının özelliklerini bazıları hakkında ayrınt�
 
     Farklı Azure bölgelerine için doğrulama kaydında kullanılacak beklenen DNS bölgeleri şunlardır:
   
-  - Kuzey Amerika, Avrupa, Singapur, Hong Kong, Japonya:
+  - Kuzey Amerika, Avrupa, Singapur, Hong Kong ÖİB, Japonya:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

@@ -1,5 +1,5 @@
 ---
-title: Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
+title: Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 description: Bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak Azure Veri Gezgini gelen veya veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682500"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009370"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -219,4 +219,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Daha fazla bilgi edinin [veri kopyalama Azure Data Factory tarafından Azure veri Gezgini'ne](/azure/data-explorer/data-factory-load-data).

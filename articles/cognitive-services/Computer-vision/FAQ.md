@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351958"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004882"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Görüntü işleme API'si hakkında sık sorulan sorular
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351958"
 
 -----
 
-**Soru**: *Hangi dil ile görüntü işleme destekleniyor mu?*
-
-**Yanıt**: Desteklenen diller:
-
-| | | Desteklenen Diller | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danca (da DK)  | Felemenkçe (nl-NL)     | Türkçe           | Fince (fi-FI)            |Fransızca (fr-FR)
-| Almanca (de-DE)  | Yunanca (el-GR)     | Macarca (hu-HU) | İtalyanca (it-IT)            | Japonca (ja-JP)
-| Korece (ko-KR)  | Norveççe (nb-yok) | Lehçe (pl-PL)    | Portekizce (pt-BR) (pt-PT) | Rusça (ru-RU)
-| İspanyolca (es-ES)   | İsveç dili (sv-SV)     | Türkçe (tr-TR)   |                            |
-
------
-
 **Soru**: *Görüntü işleme, lisans kalıplarını okumak için kullanılabilir mi?*
 
 **Yanıt**: Görüntü işleme API'si OCR ile iyi metin algılama özelliği sunar, ancak lisans kalıplarını için şu anda getirilmemiştir. Sürekli OCR otomatik lisans blondan tanıma için özellik istekleri listemize ekledik ve hizmetlerimizi geliştirmek çalışıyoruz.
-
------
-
-**Soru**: *Hangi diller için el yazısı tanıma desteklenir?*
-
-**Yanıt**: Şu anda yalnızca İngilizce dili desteklenmektedir.
 
 -----
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59505584"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997317"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Adlandırılmış varlık tanıma metin analizi kullanma
 
-[Varlık tanıma API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) yapılandırılmamış metinleri alır ve her JSON belgesi için bağlantılarla birlikte disambiguated varlıkların listesini daha fazla bilgi için web üzerinde (Wikipedia ve Bing) döndürür. 
+[Adlandırılmış varlık tanıma API'si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) yapılandırılmamış metinleri alır ve her JSON belgesi için bağlantılarla birlikte disambiguated varlıkların listesini daha fazla bilgi için web üzerinde (Wikipedia ve Bing) döndürür. 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Varlık bağlama ve adlandırılmış varlık tanıma
 
@@ -28,12 +28,10 @@ Metin analizi `entities` hem adlandırılmış varlık tanıma (NER) ve varlık 
 ### <a name="entity-linking"></a>Varlık Bağlama
 Varlık bağlama metni (örneğin, "Mars" erişebilir veya Latin afetler, war olarak kullanılıp kullanılmadığını belirleme) bulunan bir varlığın kimliğini ayırt etmek üzere yeteneğidir. Bu işlem varlıkların bağlı - Wikipedia Bilgi Bankası'nda olarak kullanılan tanınan için temel bir bilgi gerektirir `entities` uç nokta metin analizi.
 
-Metin analizi, [sürüm 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), yalnızca varlık bağlama kullanılabilir.
-
 ### <a name="named-entity-recognition-ner"></a>Adlandırılmış varlık tanıma (NER)
 Adlandırılmış varlık tanıma (NER) metin farklı varlıklarda tanımlamak ve bunları önceden tanımlanmış sınıflara kategorilere ayırma olanağıdır. Varlıkları desteklenen sınıflarını aşağıda listelenmiştir.
 
-Metin analizi, [2.1 önizleme sürümüne](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), varlık bağlama ve adlandırılmış varlık tanıma (NER) kullanılabilir.
+Metin analizi, [sürüm 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), varlık bağlama ve adlandırılmış varlık tanıma (NER) kullanılabilir.
 
 ### <a name="language-support"></a>Dil desteği
 
@@ -44,7 +42,7 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 | Type  | SubType | Örnek |
 |:-----------   |:------------- |:---------|
 | Kişi        | YOK\*         | "Jeff", "Bill Gates'le"     |
-| Konum      | YOK\*         | "Redmond, Washington", "Paris"  |
+| Location      | YOK\*         | "Redmond, Washington", "Paris"  |
 | Kuruluş  | YOK\*         | "Microsoft"   |
 | Miktar      | Sayı        | "6", "altı"     | 
 | Miktar      | Yüzde    | "%50", "yüzde Elli"| 
@@ -71,7 +69,7 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 
 ## <a name="preparation"></a>Hazırlık
 
-JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
+JSON belgelerini şu biçimde olmalıdır: Metin, dil kimliği
 
 Şu anda desteklenen diller için bkz. [bu liste](../text-analytics-supported-languages.md).
 
@@ -94,16 +92,16 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Varlık bağlama API'si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Varlık ayıklama için HTTP uç noktası ayarlayın. `/entities` kaynağını içermelidir: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Varlık ayıklama için HTTP uç noktası ayarlayın. `/entities` kaynağını içermelidir: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
 + İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın
 
 > [!Tip]
-> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) **API testi konsolu**’nu açın.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) **API testi konsolu**’nu açın.
 
 ## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
@@ -280,18 +278,16 @@ Varlık bağlama için çıktının bir örneği sonraki gösterilmektedir:
 
 Bu makalede, kavramlar ve iş akışı Bilişsel hizmetler metin analizi kullanarak varlık bağlama öğrendiniz. Özet:
 
-+ [Varlıkları API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) seçili diller için kullanılabilir.
-+ İstek gövdesindeki JSON belgeleri bir kimlik, metin ve dil kodu içerir.
++ [Varlıkları API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) seçili diller için kullanılabilir.
++ İstek gövdesindeki JSON belgelerini bir kimliği, metin ve dil kodu içerir.
 + POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/entities` uç noktasına yapılır.
 + Bağlantılı varlık (güven puanları, kaydırmalar ve her web bağlantılarının kimliği belge dahil) içeren yanıt çıktı, herhangi bir uygulamada kullanılabilir
-
-## <a name="see-also"></a>Ayrıca bkz. 
-
- [Metin Analizine genel bakış](../overview.md)  
- [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)</br>
- [Metin Analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Metin Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Metin Analizi API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+* [Metin Analizine genel bakış](../overview.md)  
+* [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)</br>
+* [Metin Analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 

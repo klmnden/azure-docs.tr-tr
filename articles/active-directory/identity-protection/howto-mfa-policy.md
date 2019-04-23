@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698971"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008605"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Nasıl Yapılır: Çok faktörlü kimlik doğrulaması kayıt ilkesi yapılandırma
 
-Azure AD kimlik koruması üretimi multi factor authentication (MFA) kaydı MFA kayıt gerektiren bir ilkeniz yapılandırarak yönetmenize yardımcı olur. Bu makalede, hangi ilke ne amaçla kullanılacağını açıklanmaktadır. nasıl yapılandırılacağına ilişkin bir.
+Azure AD kimlik koruması üretimi multi factor authentication (MFA) kaydı MFA kayıt gerektiren bir ilkeniz yapılandırarak yönetmenize yardımcı olur. Bu makalede, hangi ilke ne amaçla kullanılacağını ve nasıl yapılandırılacağı açıklanmaktadır.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Çok faktörlü kimlik doğrulaması kayıt ilkesi nedir?
 

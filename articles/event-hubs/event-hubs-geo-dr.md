@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562217"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002706"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - coğrafi olağanüstü durum kurtarma 
 
@@ -107,7 +107,7 @@ Bu sürümle birlikte göz önünde tutmak için aşağıdaki konuları göz ön
 Event Hubs standart SKU'nun destekler [kullanılabilirlik](../availability-zones/az-overview.md), sağlayan bir Azure bölgesi içinde hatadan yalıtılmış konumlardır. 
 
 > [!NOTE]
-> Kullanılabilirlik alanları desteği için standart Azure Event Hubs yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#regions-that-support-availability-zones) kullanılabilirlik nerede bulunduğunu.
+> Kullanılabilirlik alanları desteği için standart Azure Event Hubs yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#services-support-by-region) kullanılabilirlik nerede bulunduğunu.
 
 Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Olay hub'ları, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
 

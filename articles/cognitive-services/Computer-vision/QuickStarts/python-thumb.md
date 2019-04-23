@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0f131c7363a608962910f2cf0e5794972bf6208
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.openlocfilehash: 9962874600e259a639c70b7b180e5fc2a940461f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648940"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999561"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Python ve REST API kullanarak küçük resim oluşturma
 
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 - Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma

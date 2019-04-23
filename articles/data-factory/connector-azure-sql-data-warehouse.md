@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681225"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009353"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ SQL veri ambarı'nda bir sonraki bölüm verimli bir şekilde yüklemek için Po
 
 Kullanarak [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) büyük miktarda veri, yüksek aktarım hızı ile Azure SQL Data Warehouse'a yüklemek için etkili bir yoludur. Yerine varsayılan BULKINSERT mekanizmasını PolyBase kullanarak büyük bir kazanç aktarım hızının görürsünüz. Bkz: [Performans başvurusu](copy-activity-performance.md#performance-reference) ayrıntılı bir karşılaştırması için. Kullanım örneği ile bir kılavuz için bkz. [1 TB'ı Azure SQL Data Warehouse'a veri yükleme](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* Kaynak verilerinizi Azure Blob Depolama veya Azure Data Lake Store ve biçimi ise kopyalama doğrudan PolyBase kullanarak Azure SQL veri ambarı PolyBase ile uyumludur. Ayrıntılar için bkz  **[kopyalama PolyBase kullanarak doğrudan](#direct-copy-by-using-polybase)**.
+* Veri kaynağınızı ise **Azure Blob, Azure Data Lake depolama Gen1 veya Azure Data Lake depolama Gen2**ve **biçimidir PolyBase uyumlu**, doğrudan Azure izin vermek için PolyBase çağırmak için kopyalama etkinliğini kullanabilirsiniz SQL veri ambarı, veri kaynağından çeker. Ayrıntılar için bkz  **[kopyalama PolyBase kullanarak doğrudan](#direct-copy-by-using-polybase)**.
 * Kaynak veri deposu ve biçim başlangıçta desteklenmez, PolyBase tarafından kullanın **[kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase)** bunun yerine özellik. Hazırlanmış kopya özelliğini de daha iyi aktarım hızı sağlar. Otomatik olarak verileri PolyBase ile uyumlu biçimine dönüştürür. Ve verileri Azure Blob Depolama alanında depolar. Ardından verileri SQL veri ambarı'na yükler.
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase kullanarak doğrudan Kopyala
 
-SQL veri ambarı PolyBase, Azure Blob ve Azure Data Lake Store doğrudan destekler. Bu hizmet sorumlusu kaynağı olarak kullanır ve belirli dosya biçimi gereksinimleri vardır. Veri kaynağınızı Bu bölümde açıklanan ölçütlere uyuyorsa, doğrudan kaynak veri deposundan Azure SQL veri ambarı'na kopyalamak için PolyBase kullanın. Aksi takdirde kullanın [kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase).
+SQL veri ambarı PolyBase, Azure Blob, Azure Data Lake depolama Gen1 ve Azure Data Lake depolama Gen2'ye doğrudan destekler. Veri kaynağınızı Bu bölümde açıklanan ölçütlere uyuyorsa, doğrudan kaynak veri deposundan Azure SQL veri ambarı'na kopyalamak için PolyBase kullanın. Aksi takdirde kullanın [kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Verileri verimli bir şekilde SQL veri ambarı'na Data Lake Store ' kopyalamak için daha fazla bilgi [Azure Data Factory sağlar, bu, hatta daha kolay ve verileri SQL veri ambarı ile Data Lake Store kullanırken açığa çıkarmak kullanışlı](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Verileri verimli bir şekilde SQL veri ambarı'na kopyalamak için daha fazla bilgi [Azure Data Factory sağlar, bu, hatta daha kolay ve verileri SQL veri ambarı ile Data Lake Store kullanırken açığa çıkarmak kullanışlı](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetler ve veri taşıma BULKINSERT mekanizması için otomatik olarak geri döner.
 
-1. **Kaynak bağlı hizmet** türü, Azure Blob Depolama (**AzureBLobStorage**/**AzureStorage**) ile **hesap anahtarı kimlik doğrulaması**  veya Azure Data Lake depolama Gen1 (**birlikte AzureDataLakeStore**) ile **hizmet sorumlusu kimlik doğrulaması**.
-2. **Girdi veri kümesi** türü **AzureBlob** veya **AzureDataLakeStoreFile**. Biçim türü altında `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
+1. **Kaynak bağlı hizmet** aşağıdaki türleri ve kimlik doğrulama yöntemleri ile:
 
-   1. `fileName` joker karakter filtresi içermiyor.
+    | Desteklenen kaynak veri deposu türü | Desteklenen kaynak kimlik doğrulaması türü |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | Hesap anahtarı kimlik doğrulaması |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Hizmet sorumlusu kimlik doğrulaması |
+    | [Azure Data Lake depolama 2. nesil](connector-azure-data-lake-storage.md) | Hesap anahtarı kimlik doğrulaması |
+
+2. **Kaynak veri kümesi biçimi** değil **ParquetFormat**, **OrcFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
+
+   1. `folderPath` ve `fileName` joker karakter filtresi içermiyor.
    2. `rowDelimiter` olmalıdır **\n**.
    3. `nullValue` ya da ayarlanmış **boş dize** ("") veya varsayılan olarak sola ve `treatEmptyAsNull` varsayılan sola veya ayarlamak true.
    4. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
@@ -423,7 +430,7 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
@@ -579,7 +582,7 @@ Veya Azure SQL veri ambarı veri kopyalayın, aşağıdaki eşlemeler Azure SQL 
 | money | Decimal |
 | nchar | String, Char[] |
 | ntext | String, Char[] |
-| Sayısal | Decimal |
+| Numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowVersion | Byte[] |
@@ -592,7 +595,7 @@ Veya Azure SQL veri ambarı veri kopyalayın, aşağıdaki eşlemeler Azure SQL 
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| varbinary | Byte[] |
+| Varbinary | Byte[] |
 | varchar | String, Char[] |
 | xml | Xml |
 

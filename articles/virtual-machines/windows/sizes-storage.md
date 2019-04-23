@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/15/2019
+ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: 517e3b7d6a0ad81e1afb6664a0b9b2f59a0479da
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: MT
+ms.openlocfilehash: 6bf073356137588075da3d9dcc220eee36ac59cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006681"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Depolama için iyileştirilmiş sanal makine boyutları
 
-
-
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
 ## <a name="other-sizes"></a>Diğer boyutları
+
 - [Genel amaçlı](sizes-general.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)
 - [Bellek için iyileştirilmiş](sizes-memory.md)
@@ -38,5 +36,7 @@ ms.locfileid: "54350379"
 - [Önceki nesil](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
+Bilgi edinmek için nasıl [Lsv2 serisi sanal makineler üzerinde performansı en iyi duruma](storage-performance.md).

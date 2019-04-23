@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2f134e0d655f07fbe9589c96b6ff07c7ee23c92
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1d60ecfff4e634d6a92eaf1022761c2f23167918
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698374"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Öğretici: Andromeda ile Azure Active Directory Tümleştirme
 
@@ -129,7 +129,7 @@ Azure AD çoklu oturum açma ile Andromeda yapılandırmak için aşağıdaki ad
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Ad | Kaynak özniteliği|
+    | Name | Kaynak özniteliği|
     | ------ | -----------|
     | rol        | Uygulama belirli bir rolü |
     | type        | Uygulama Türü |
@@ -268,8 +268,8 @@ Erişim paneli Andromeda kutucuğa tıkladığınızda, size otomatik olarak SSO
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

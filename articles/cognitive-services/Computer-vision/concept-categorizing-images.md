@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337148"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995583"
 ---
-# <a name="categorize-images"></a>Görüntüleri kategorilere ayırma
+# <a name="categorize-images-by-subject-matter"></a>Görüntüleri konuya göre kategorilere ayırın
 
 Etiketler ve bir açıklama ek olarak, görüntü işleme görüntüdeki algılanan sınıflandırma tabanlı kategorileri döndürür. Aksine, etiketler, kategoriler, üst/alt hereditary hiyerarşik olarak düzenlenir ve daha az (etiketler binlerce aksine, 86) vardır. Tüm kategori adları, İngilizce'dir. Kategori, tek başına ya da yeni etiketler modelin yanı sıra yapılabilir.
 
@@ -53,7 +53,7 @@ Görüntü işleme örnek görüntünün görsel özelliklerini halinde kategori
 
 Aşağıdaki tabloda tipik görüntü kümesi ve görüntü işleme tarafından döndürülen her görüntü için kategori gösterilmektedir.
 
-| Görüntü | Kategori |
+| Image | Category |
 |-------|----------|
 | ![Dört kişilik ailesi birlikte teşkil](./Images/family_photo.png) | people_group |
 | ![Çocukluğunuzda alanında oturan bir sevimli köpek](./Images/cute_dog.png) | animal_dog |

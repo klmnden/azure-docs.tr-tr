@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5647aa20f444d5efd36f03d813ee87ef199cc41
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621881"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994960"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android Unity uygulama oluşturma
 
@@ -39,7 +39,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
   - Windows üzerinde çalışır, ayrıca gerekir <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
   - Macos'ta çalıştırılıyorsa, Git HomeBrew yüklü alın. Tek satırlık bir Terminal içinde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Ardından çalıştırın `brew install git`.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">etkin Geliştirici</a> ve <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore özellikli</a> Android cihaz.
-- Uygulamanızın sürümünü kullanmalısınız **1.5** (ARCore 1.6 + desteği kullanıma sunulacaktır sonraki bir tarihte) Unity için ARCore SDK'sının.
+- Uygulamanızın sürümünü kullanmalısınız **1.7** Unity için ARCore SDK'sının.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

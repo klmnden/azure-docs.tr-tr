@@ -1,76 +1,109 @@
 ---
 title: Azure Cosmos DB dizinleme ilkeleri
-description: Azure Cosmos DB'de dizinleme nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin.
-author: rimman
+description: Yapılandırma ve varsayılan dizinleme ilkesinin için otomatik dizin oluşturma ve Azure Cosmos DB'de daha yüksek performans değiştirme hakkında bilgi edinin.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278573"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005103"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin İlkesi
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri
 
-Varsayılan dizinleme ilkesinin bir Azure Cosmos kapsayıcısı üzerinde aşağıdaki parametreleri yapılandırarak geçersiz kılabilirsiniz:
+Azure Cosmos DB'de her kapsayıcı, kapsayıcının öğelerini nasıl sıralanması gerektiğini belirleyen bir dizin oluşturma ilkesi vardır. Varsayılan dizinleme ilkesinin için yeni kapsayıcılar dizinleri her özelliği için herhangi bir dize veya sayı aralığı dizinleri zorlamayı her öğesi, oluşturulan ve herhangi bir GeoJSON nesne için uzamsal dizin noktası yazın. Bu, dizin oluşturma ve önceden dizin yönetimi hakkında düşünmek zorunda kalmadan yüksek sorgu performansı elde etmek sağlar.
 
-* **Dahil edilecek veya dizinden öğeleri ve yolları hariç**: Hariç tutma veya eklediğinizde veya bir kapsayıcı içindeki öğeleri değiştirin, dizinde belirli öğeler içerir. Ayrıca dahil edebilir veya kapsayıcıda dizine belirli yollar/özellikleri hariç. Yolları içerebilir joker karakter düzenleri, örneğin, *.
+Bazı durumlarda gereksinimlerinize daha iyi uyacak şekilde otomatik bu davranışı geçersiz kılmak isteyebilirsiniz. Bir kapsayıcının dizin oluşturma ilkesini ayarlayarak özelleştirebileceğiniz kendi *dizin oluşturma modu*ve dahil edilecek veya hariç *özellik yolları*.
 
-* **Dizin türleri yapılandırma**: Buna ek olarak dizinlenmiş yolları aralığı için dizinler, diğer türleri gibi ekleyebileceğiniz uzamsal.
+## <a name="indexing-mode"></a>Dizin oluşturma modu
 
-* **Dizin modu yapılandırma**: Bir kapsayıcı dizin oluşturma ilkesini kullanarak, farklı bir dizin oluşturma modu gibi yapılandırabileceğiniz *Consistent* veya *hiçbiri*.
+Azure Cosmos DB iki dizin oluşturma modunu destekler:
 
-## <a name="indexing-modes"></a>Dizin oluşturma modları
+- **Tutarlı**: Bir kapsayıcının dizin oluşturma ilkesi için Consistent ayarlarsanız, oluşturmak, güncelleştirmek veya öğeleri silme gibi dizin zaman uyumlu olarak güncelleştirilir. Bu tutarlılık okuma sorgularınızın anlamına gelir [hesabı için yapılandırılan tutarlılık](consistency-levels.md).
 
-Azure Cosmos DB, dizin oluşturma ilkesi aracılığıyla bir Azure Cosmos kapsayıcısı üzerinde yapılandırabileceğiniz iki dizin oluşturma modunu destekler:
+- **Hiçbiri**: Bir kapsayıcının dizin oluşturma ilkesini hiçbiri olarak ayarlandı, dizin oluşturma etkin, kapsayıcıdaki devre dışı bırakılır. Bir kapsayıcı olarak saf bir anahtar-değer deposu ikincil dizinleri gerek kalmadan kullanıldığında, bu yaygın olarak kullanılır. Toplu ekleme işlemlerinin hızlandırma da yardımcı olabilir.
 
-* **Tutarlı**: Bir Azure Cosmos kapsayıcının İlkesi ayarlanırsa *Consistent*, belirli bir kapsayıcı sorgulamaları noktası okuma için belirtmiş aynı tutarlılık düzeyi izleyin (örneğin, güçlü, bağımlı eskime, oturum veya son). 
+## <a name="including-and-excluding-property-paths"></a>Dahil etme ve dışlama özellik yolları
 
-  Dizinin öğeleri güncelleştirme zaman uyumlu olarak güncelleştirilir. Örneğin, INSERT, Değiştir, güncelleştirme ve silme işlemleri bir öğe üzerinde dizin güncelleştirme neden olur. Tutarlı dizin oluşturma, yazma üretimi etkilemeden tutarlı sorguları destekler. Dizine dahil "yolları" yazma üretimi azalma bağlıdır ve "tutarlılık düzeyi." Tutarlı bir dizin oluşturma modu dizin tüm güncelleştirmeleri ile güncel tutmak ve hemen sorgular sunmak için tasarlanmıştır.
+Özel bir dizin oluşturma ilkesini açıkça dahil veya dizine elmadan hariç özelliği yol belirtebilirsiniz. Dizine alınmış yollarının sayısını en iyi duruma, kapsayıcı tarafından kullanılan depolama miktarını azaltın ve yazma işlemlerinin gecikme süresini iyileştirip. Bu yolları aşağıdaki tanımlanan [dizinleme genel bakış bölümünde açıklanan yöntemi](index-overview.md#from-trees-to-property-paths) aşağıdaki eklemelerle:
 
-* **Hiçbiri**: None kendisiyle ilişkilendirilmiş hiçbir dizin dizin moduna sahip olan bir kapsayıcı. Bu, Azure Cosmos veritabanı, bir anahtar-değer depolama alanı olarak kullanılır ve yalnızca kimliği özelliği tarafından erişilen öğeleri yaygın olarak kullanılır.
+- skaler bir değer (dize veya sayı) giden yol şununla biter `/?`
+- bir diziden öğeleri açıklanmıştır birlikte aracılığıyla `/[]` gösterimi (yerine `/0`, `/1` vs.)
+- `/*` düğümü altındaki tüm öğeleri eşleştirmek için joker karakter kullanılabilir
 
-  > [!NOTE]
-  > Dizin oluşturma modu olarak yapılandırma bir *hiçbiri* mevcut tüm dizinleri bırakmayı yan etkisi vardır. Erişim desenleri ID gerektir ya da yalnızca kendi bağlantı varsa bu seçeneği kullanmanız gerekir.
+Aynı örneği yeniden alma:
 
-Sorgu tutarlılık düzeyleri benzer normal okuma işlemleri için korunur. Azure Cosmos veritabanı, sahip kapsayıcı sorgularsanız hata döndürür bir *hiçbiri* dizin oluşturma modu. Açık aracılığıyla taramaları olarak sorguları yürütebilir **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği .NET SDK kullanarak istek. ORDER BY şu anda desteklenmiyor ile gibi bazı sorgu özellikleri **EnableScanInQuery**, bunlar karşılık gelen bir dizin zorunlu kılabilir.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- `headquarters`'s `employees` yolu `/headquarters/employees/?`
+- `locations`' `country` yolu `/locations/[]/country/?`
+- yolu herhangi bir şey `headquarters` olduğu `/headquarters/*`
+
+Bir yol açıkça dizin oluşturma İlkesi'nde dahil edilirse, ayrıca hangi dizin türleri yol ve her dizin türü, bu dizin için geçerli veri türü için uygulanması tanımlamak vardır:
+
+| Dizin türü | İzin verilen hedef veri türleri |
+| --- | --- |
+| Aralık | Dize veya sayı |
+| Uzamsal | Point, LineString veya Çokgen |
+
+Örneğin, biz içerebilir `/headquarters/employees/?` yolu belirleyen bir `Range` dizin uygulanması bu yolda hem `String` ve `Number` değerleri.
+
+### <a name="includeexclude-strategy"></a>Stratejisi Ekle/Dışla
+
+Tüm dizin oluşturma ilkesini kök yolunu içermek zorundadır `/*` bir dahil veya hariç tutulan bir yolu olarak.
+
+- Seçmeli olarak sıralanması gerekmez yolları hariç tutmak için kök yolu içerir. Azure Cosmos DB proaktif olarak modelinize eklediğiniz herhangi bir yeni özelliği dizin sağlayan gibi önerilen yaklaşımdır.
+- Seçmeli olarak sıralanması gereken yolları dahil etmek için kök yolu hariç tutun.
+
+Bkz: [Bu bölümde](how-to-manage-indexing-policy.md#indexing-policy-examples) ilkesi örnekleri dizinini oluşturmak için.
 
 ## <a name="modifying-the-indexing-policy"></a>Dizin oluşturma ilkesini değiştirme
 
-Azure Cosmos DB'de dizin oluşturma ilkesini bir kapsayıcının herhangi bir zamanda güncelleştirebilirsiniz. Bir dizin oluşturma ilkesini bir Azure Cosmos kapsayıcısı üzerinde değişiklik dizini şeklinde bir değişiklik neden olabilir. Bu değişiklik, sıralanabilir yolları, kendi duyarlık ve dizin tutarlılık modelini etkiler. Dizin oluşturma ilkesi etkili bir şekilde bir değişiklik bir dönüşümünü eski dizinin yeni bir dizin gerektirir.
+Bir kapsayıcının dizin oluşturma ilkesini dilediğiniz zaman güncelleştirilebilir [Azure portalı veya desteklenen Sdk'lardan birini kullanarak](how-to-manage-indexing-policy.md). Eski dizinden bir dönüştürme (ek depolama alanı işlemi sırasında kullanılan şekilde) çevrimiçi ortamda ve yerinde gerçekleştirilen yeni bir dizin oluşturma ilkesini güncelleştirme tetikler. Eski ilkenin dizini yazma kullanılabilirliği veya kapsayıcıdaki sağlanmış olan aktarım hızı etkilemeden Yeni ilkeye verimli bir şekilde dönüştürülür. Dizin dönüştürme zaman uyumsuz bir işlemdir ve tamamlamak için gereken süreyi sağlanan aktarım hızı, öğe sayısı ve boyutuna bağlıdır. 
 
-### <a name="index-transformations"></a>Dizin dönüşümleri
+> [!NOTE]
+> Yeniden dizin oluşturma işlemi devam ederken sorgular eşleşen sonuçları döndürmeyebilir ve herhangi bir hata döndürüyor olmadan bunu yapar. Bu dizin dönüştürme tamamlanana kadar sorgu sonuçları tutarlı olmayabileceği anlamına gelir. Dizin dönüştürme ilerlemesini izlemek mümkündür [Sdk'lardan birini kullanarak](how-to-manage-indexing-policy.md).
 
-Tüm dizin dönüştürmeleri çevrimiçi gerçekleştirilir. Dizin eski ilkeyi öğeleri yazma kullanılabilirliği veya kapsayıcıdaki sağlanmış olan aktarım hızı etkilemeden yeni ilke verimli bir şekilde dönüştürülür. Tutarlılığını okuma ve yazma REST API, SDK'ları, veya kullanılarak gerçekleştirilen işlemleri saklı yordamları ve Tetikleyicileri dizin dönüştürme sırasında etkilenmez.
+Yeni dizin ilkenin modu için Consistent ayarlarsanız, dizin dönüştürme işlemi sürerken başka bir dizin oluşturma ilkesi değişikliğini uygulanabilir. Çalışan bir dizine dönüştürme dizinleme ilkesinin modu (Bu dizin hemen kaldıracağız) hiçbiri olarak ayarlayarak iptal edilebilir.
 
-Dizin oluşturma ilkesini değiştirme zaman uyumsuz bir işlemdir ve işlemi tamamlamak için geçen süre öğeleri, sağlanan aktarım hızı ve öğelerin boyutunu sayısına bağlıdır. Yeniden dizin oluşturma işlemi devam ederken değiştirilmekte olan dizin kullanmak için sorguları görülüyorsa sorgunuzu tüm eşleşen sonuçları döndürmeyebilir ve sorgular, herhangi bir hata/hata döndürmez. Yeniden dizin oluşturma işlemi devam ederken, sorguları bağımsız olarak dizin oluşturma modu yapılandırma son tutarlılık sağlar. Dizin sonra dönüştürme tamamlandıktan, tutarlı sonuçlar görmeye devam edecektir. Bu arabirimler gibi REST API, SDK'ları, veya saklı yordamları ve Tetikleyicileri tarafından verilen sorguları için geçerlidir. Dizin dönüştürme, zaman uyumsuz olarak belirli çoğaltmalar için kullanılabilir yedek kaynakları kullanarak çoğaltmalarındaki arka planda gerçekleştirilir.
+## <a name="indexing-policies-and-ttl"></a>Dizin oluşturma ilkeleri ve TTL
 
-Tüm dizin dönüştürmeleri yerinde yapılır. Azure Cosmos DB, dizin iki kopyasını tutmaz. Bu nedenle hiçbir ek disk alanı gerekli veya dizin dönüştürme gerçekleşirken, kapsayıcılarda kullanılan.
+[Özelliği için-yaşam süresi (TTL)](time-to-live.md) , açık kapsayıcı üzerindeki etkin olması için dizin oluşturmayı gerektirir. Bunun anlamı:
 
-Dizin oluşturma ilkesini değiştirdiğinizde değişiklikler yeni dizine eski dizinden taşımak için uygulanır ve dizin oluşturma modu yapılandırmalarında öncelikle temel alır. Dizin oluşturma modu yapılandırmaları, dahil edilen/Dışlanan yollar, dizin türü ve duyarlık gibi diğer özellikleri karşılaştırıldığında önemli bir rol oynar.
+- Dizin oluşturma modu None olarak ayarlandığı bir kapsayıcı TTL etkinleştirmek mümkün değildir,
+- TTL etkinleştirdiğiniz yok bir kapsayıcı için dizin oluşturma modu ayarlamak mümkün değildir.
 
-Eski ve yeni ilkeleri kullanım dizin **Consistent** dizin oluşturma, Azure Cosmos veritabanı bir çevrimiçi dizin dönüşümü gerçekleştirir. Dönüştürme işlemi devam ederken, tutarlı bir dizin oluşturma moduna sahip başka bir dizin oluşturma ilkesi değişikliği uygulanamıyor. Dizin, dizin oluşturma modu None taşıdığınızda, hemen bırakılır. Hiçbiri taşıma, devam eden dönüştürme iptal edin ve farklı bir dizin oluşturma ilkesi ile yeni başlangıç istediğinizde yararlıdır.
+Burada listelenecek hiçbir özellik yolu gerekiyor, ancak TTL gereklidir senaryoları için bir dizin oluşturma ilkesi ile kullanabilirsiniz:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Dizin oluşturma ilkesi - örnekler değiştirme
+- bir dizin oluşturma modu için Consistent, ve
+- dahil edilen yol, ve
+- `/*` yalnızca hariç tutulan yolu.
 
-Bir dizin oluşturma ilkesini güncelleştirmek istediğiniz zaman en yaygın kullanım örnekleri şunlardır:
+## <a name="obsolete-attributes"></a>Artık kullanılmayan öznitelikleri
 
-* Normal işlem sırasında tutarlı sonuçlar için ancak geri döner istiyorsanız **hiçbiri** dizin oluşturma modunda toplu veri alır.
+Dizin oluşturma ilkeleri ile çalışırken, artık kullanım dışıdır aşağıdaki öznitelikleri karşılaşabilirsiniz:
 
-* Geçerli Azure Cosmos kapsayıcılarınızı dizin oluşturma özellikleri kullanmaya başlamak istiyorsanız. Örneğin, Jeo-uzamsal sorgulama, uzamsal dizin türü veya ORDER BY gerektiren kullanma / dizesi aralık dizin türü gerektiren aralık sorguları dize.
-
-* El ile istediğiniz dizine ve bunları iş yüklerinize ayarlamak için zaman içinde değiştirmek için Özellikler'i seçin.
-
-* Sorgu performansını artırmak için veya tüketilen depolama alanı azaltmak için dizin oluşturma duyarlılık ayarlamak istiyorsanız.
+- `automatic` Bir Boole değeri bir dizin oluşturma ilkesini kökünde tanımlanır. Artık yok sayılır ve ayarlanabilir `true`, kullanmakta olduğunuz aracı gerektirdiğinde.
+- `precision` bir sayı içerdiği yolları için dizin düzeyinde tanımlanır. Artık yok sayılır ve ayarlanabilir `-1`, kullanmakta olduğunuz aracı gerektirdiğinde.
+- `hash` artık aralığı türü tarafından değiştirilen bir dizin türüdür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki makaleler de dizinleme hakkında daha fazla bilgi edinin:
 
-* [Dizin oluşturma genel bakış](index-overview.md)
-* [Dizin türleri](index-types.md)
-* [Dizin yolları](index-paths.md)
-* [Dizin oluşturma ilkesini yönetme](how-to-manage-indexing-policy.md)
+- [Dizin oluşturma genel bakış](index-overview.md)
+- [Dizin oluşturma ilkesini yönetme](how-to-manage-indexing-policy.md)

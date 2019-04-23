@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792226"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007891"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Şüpheli bir IOT cihaz araştırın
 
@@ -43,7 +43,7 @@ Varsayılan olarak, IOT için ASC Log Analytics çalışma alanınızda, güvenl
 Bulmak için veri depolama için Log Analytics çalışma alanınızda:
 
 1. IOT hub'ınızı açın. 
-1. Tıklayın **güvenlik**, ardından **ayarları**.
+1. Altında **güvenlik**, tıklayın **genel bakış**ve ardından **ayarları**.
 1. Log Analytics çalışma alanı yapılandırma ayrıntılarınızı değiştirin. 
 1. **Kaydet**’e tıklayın. 
 
@@ -94,7 +94,7 @@ Bu verileri bulmak için kullanın:
 
 ### <a name="open-ports"></a>Bağlantı noktalarını aç
 
-Hangi bağlantı noktalarını aygıtın şu anda kullanımda veya kullanılan çıkış bulmak için aşağıdaki kql sorguyu kullanın: 
+Hangi bağlantı noktalarını aygıtın şu anda kullanımda veya kullanılan out bulmak için aşağıdaki kql sorguyu kullanın: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Hangi bağlantı noktalarını aygıtın şu anda kullanımda veya kullanılan �
 
     Use the query results to discover:
   1. Cihaza hangi kullanıcıların oturum?
-  2. Oturum açmak için oturum açmış olan kullanıcıları gerekir?
+  2. İçinde oturum açmış kullanıcılar oturum açmak gerekiyor?
   3. Oturum açmış kullanıcıların, beklenen ya da beklenmeyen IP adreslerinden bağlanabilir?
   
 ### <a name="process-list"></a>İşlem listesi
 
-İşlem listesi aşağıdaki kql sorgu olarak beklenen kullanım olup olmadığını öğrenmek için: 
+İşlem listesinin beklendiği gibi olup olmadığını öğrenmek için aşağıdaki kql sorguyu kullanın: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Hangi bağlantı noktalarını aygıtın şu anda kullanımda veya kullanılan �
   3. Herhangi bir komut satırı yürütme doğru ve beklenen bağımsız değişken içeren?
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bir aygıt araştırma ve daha iyi anlamak riskleri kazandıktan sonra düşünmek isteyebilirsiniz [özel uyarılar yapılandırma](quickstart-create-custom-alerts.md) IOT çözüm güvenliğini artırmak için. Bir cihaz Aracısı zaten yoksa, göz önünde bulundurun [güvenlik aracısı dağıtma](how-to-deploy-agent.md) veya [var olan bir cihaz Aracısı yapılandırmasını değiştirme](how-to-agent-configuration.md) sonuçlarınızı geliştirmek için. 

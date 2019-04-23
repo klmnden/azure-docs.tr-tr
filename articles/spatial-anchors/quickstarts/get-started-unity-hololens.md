@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629474"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009251"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcıları kullanan HoloLens Unity uygulaması oluşturma
 
@@ -78,6 +78,8 @@ Dışarı aktarma tamamlandığında, dışarı aktarılan HoloLens proje içere
 Klasörde çift **HelloAR U3D.sln** projeyi Visual Studio'da açın.
 
 Değiştirme **çözüm yapılandırması** için **yayın**, değiştirme **çözüm platformu** için **x86**seçip **cihaz**  dağıtım hedef seçenekleri.
+
+HoloLens 2 kullanıyorsanız kullanın **ARM** olarak **çözüm platformu**, yerine **x86**.
 
    ![Visual Studio yapılandırması](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

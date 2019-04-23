@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527957"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006055"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -74,7 +74,8 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 
      ![VPN seçin][api-management-setup-vpn-select]
 
-5. Tıklayın **Kaydet** ekranın üstünde.
+5. Tıklayın **Kaydet** üst gezinti çubuğunda.
+6. Tıklayın **Uygula ağ yapılandırması** üst gezinti çubuğunda.
 
 > [!NOTE]
 > API Management örneğinin VIP adresi VNET etkin veya devre dışı her seferinde değişir.
@@ -108,7 +109,7 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
 
 <a name="required-ports"> </a> API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşağıdaki tabloda bağlantı noktaları kullanılır.
 
-| Kaynak / hedef bağlantı noktaları | Yön          | Aktarım Protokolü |   [Hizmet etiketleri](../virtual-network/security-overview.md#service-tags) <br> Kaynak / hedef   | Amaç (*)                                                 | Sanal ağ türü |
+| Kaynak / hedef bağlantı noktaları | Direction          | Aktarım Protokolü |   [Hizmet etiketleri](../virtual-network/security-overview.md#service-tags) <br> Kaynak / hedef   | Amaç (*)                                                 | Sanal ağ türü |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Gelen            | TCP                | INTERNET / VIRTUAL_NETWORK            | İstemci iletişimi için API Yönetimi                      | Dış             |
 | * / 3443                     | Gelen            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure portalı ve Powershell yönetim uç noktası         | Dış ve iç  |

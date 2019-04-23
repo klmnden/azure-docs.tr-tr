@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 68cf4561d24a84c5aacefbe5fbd11bcd7e0576aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878562"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995090"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Öğretici: MongoDB için Azure Cosmos DB API için MongoDB geçişi DMS kullanarak çevrimdışı
 MongoDB için API Azure Cosmos DB'nin MongoDB örneğini Bulut veya bir şirket içi veritabanlarının çevrimdışı (tek seferlik) geçiş gerçekleştirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz.
@@ -32,6 +32,7 @@ Bu öğreticide, Azure Cosmos DB API'si için bir Azure sanal Makinesi'nde Mongo
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
+- [Geçiş öncesi tamamlamak](../cosmos-db/mongodb-pre-migration.md) bölüm anahtarını ve dizin oluşturma ilkesini seçme aktarım hızı, tahmin etme gibi adımları.
 - [MongoDB hesabı için bir Azure Cosmos DB'nin API'si oluşturma](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak bir Azure sanal ağ (VNET) için Azure veritabanı geçiş hizmeti oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -175,6 +176,10 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 - Geçiş tamamlandıktan sonra tüm koleksiyonları başarıyla geçirildiğini doğrulamak için Azure Cosmos DB hesabınızı kontrol edebilirsiniz.
 
     ![Etkinlik durumunu tamamlandı](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+
+## <a name="post-migration-optimization"></a>Geçiş sonrası en iyi duruma getirme
+
+MongoDB için API Azure Cosmos DB'nin MongoDB veritabanına depolanan veriler geçiş yaptıktan sonra Azure Cosmos DB'ye bağlanmak ve verileri yönetin. Ayrıca, diğer geçiş sonrası gerçekleştirebilirsiniz iyileştirme adımları gibi - dizin oluşturma ilkesini en iyi duruma getirme, varsayılan tutarlılık düzeyini güncelleştirmek veya Azure Cosmos DB hesabınız için genel dağıtımı yapılandırma. Daha fazla ayrıntı için [geçiş sonrası en iyi duruma getirme](../cosmos-db/mongodb-post-migration.md) makalesi. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

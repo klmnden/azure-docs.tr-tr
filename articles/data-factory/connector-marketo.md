@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562088"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148841"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Marketo'dan veri kopyalama
 
@@ -33,7 +33,7 @@ Marketo'dan veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kayna
 Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 >[!NOTE]
->Bu Marketo bağlayıcı Marketo REST API temelinde oluşturulmuştur. Marketo olduğuna dikkat [eşzamanlı istek sınırı](http://developers.marketo.com/rest-api/) hizmet tarafındaki. Hataları belirten ulaşırsanız "REST API kullanma girişimi sırasında hata oluştu: En fazla oranı sınırı '100' ile '20' aşıldı saniye (606) "veya" REST API kullanma girişimi sırasında hata oluştu: Eş zamanlı erişim (615) ulaşıldı. '10' limit ", hizmete istek sayısını azaltmak için eşzamanlı kopyalama etkinlik çalıştırmalarını azaltmak için göz önünde bulundurun.
+>Bu Marketo bağlayıcı Marketo REST API temelinde oluşturulmuştur. Marketo olduğuna dikkat [eşzamanlı istek sınırı](https://developers.marketo.com/rest-api/) hizmet tarafındaki. Hataları belirten ulaşırsanız "REST API kullanma girişimi sırasında hata oluştu: En fazla oranı sınırı '100' ile '20' aşıldı saniye (606) "veya" REST API kullanma girişimi sırasında hata oluştu: Eş zamanlı erişim (615) ulaşıldı. '10' limit ", hizmete istek sayısını azaltmak için eşzamanlı kopyalama etkinlik çalıştırmalarını azaltmak için göz önünde bulundurun.
 
 ## <a name="getting-started"></a>Başlarken
 

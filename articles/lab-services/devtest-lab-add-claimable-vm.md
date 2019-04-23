@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081500"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150056"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest labs'deki talep edilebilir VM'ler oluşturma ve yönetme
 Benzer şekilde nasıl bir laboratuvara talep edilebilir VM ekleme, [standart VM ekleme](devtest-lab-add-vm.md) – bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formül](devtest-lab-manage-formulas.md) , veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğreticide, Azure portalını kullanarak bir talep edilebilir VM DevTest labs'deki bir laboratuvara ekleme adımları gösterilmektedir ve bir kullanıcı talebi ve VM etmesini takip işlemlerini gösterir.
@@ -29,27 +29,27 @@ Benzer şekilde nasıl bir laboratuvara talep edilebilir VM ekleme, [standart VM
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** içinde **DEVOPS** bölümü. Seçerseniz * (yıldız yanındaki) **DevTest Labs** içinde **DEVOPS** bölümü. Bu eylem ekler **DevTest Labs** sol gezinti menüsüne böylece sonraki kolayca erişebilir. Ardından, seçebileceğiniz **DevTest Labs** sol gezinti menüsünde.
 
     ![Tüm hizmetleri - DevTest Labs seçin](./media/devtest-lab-create-lab/all-services-select.png)
-1. VM'yi oluşturmak istediğiniz Laboratuvar labs listesinden seçin.  
-2. Laboratuvar'ın **genel bakış** sayfasında **+ Ekle**.  
+1. VM'yi oluşturmak istediğiniz Laboratuvar labs listesinden seçin.
+2. Laboratuvar'ın **genel bakış** sayfasında **+ Ekle**.
 
     ![VM düğmesi ekleme](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 1. Üzerinde **temel seçin** sayfasında, sanal makine için bir Market görüntüsü seçin.
-1. Üzerinde **temel ayarları** sekmesinde **sanal makine** sayfasında, aşağıdaki eylemleri gerçekleştirin: 
+1. Üzerinde **temel ayarları** sekmesinde **sanal makine** sayfasında, aşağıdaki eylemleri gerçekleştirin:
     1. İçinde VM için bir ad girin **sanal makine adı** metin kutusu. Metin kutusu sizin için otomatik olarak oluşturulan benzersiz bir ad ile önceden doldurulmuş olur. Ad içinde benzersiz bir 3 basamaklı sayı e-posta adresinizi kullanıcı adına karşılık gelir. Bu özellik, bir makine adı düşünün ve her bir makine oluşturma işleminde yazmak için zaman kazandırır. İstediğiniz tercih ettiğiniz bir ad ile otomatik olarak doldurulan bu alan geçersiz kılabilirsiniz. VM için otomatik olarak doldurulan adı geçersiz kılmak için bir ad girin. **sanal makine adı** metin kutusu.
     2. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verildi. **Kullanıcı adı** makine otomatik olarak oluşturulan benzersiz bir ad ile önceden doldurulmuş için. Adı, kullanıcı adı, e-posta adresinizi içinde karşılık gelir. Bu özellik, yeni bir makine her oluşturduğunuzda, kullanıcı adına karar size zaman kazandırır. Yeniden istediğiniz bu otomatik olarak doldurulan alan bir kullanıcı adı, tercih ettiğiniz ile geçersiz kılabilirsiniz. Kullanıcı adı için otomatik olarak doldurulan değeri geçersiz kılmak için bir değer girin. **kullanıcı adı** metin kutusu. Bu kullanıcıya verilir **yönetici** sanal makinede ayrıcalıkları.
-    3. Laboratuar ortamında ilk sanal makine oluşturuyorsanız, girin bir **parola** kullanıcı. Azure key vault'ta lab ile ilişkili varsayılan parola olarak bu parolayı seçilecek **varsayılan Parolayı Kaydet**. Varsayılan parola adlı anahtar Kasası'nda kaydedilir: **VmPassword**. Laboratuvarda, sonraki Vm'leri oluşturmaya çalıştığınızda **VmPassword** otomatik olarak seçilir **parola**. Geçersiz kılma değeri için temizleyin **kaydedilmiş bir gizli diziyi kullanın** onay kutusunu işaretleyin ve bir parola girin. 
+    3. Laboratuar ortamında ilk sanal makine oluşturuyorsanız, girin bir **parola** kullanıcı. Azure key vault'ta lab ile ilişkili varsayılan parola olarak bu parolayı seçilecek **varsayılan Parolayı Kaydet**. Varsayılan parola adlı anahtar Kasası'nda kaydedilir: **VmPassword**. Laboratuvarda, sonraki Vm'leri oluşturmaya çalıştığınızda **VmPassword** otomatik olarak seçilir **parola**. Geçersiz kılma değeri için temizleyin **kaydedilmiş bir gizli diziyi kullanın** onay kutusunu işaretleyin ve bir parola girin.
 
         Ayrıca gizli anahtar Kasası'nda ilk kaydedin ve laboratuar ortamında bir VM oluşturulurken kullanın. Daha fazla bilgi için [bir anahtar kasasındaki gizli dizileri Store](devtest-lab-store-secrets-in-key-vault.md). Anahtar Kasası'nda depolanan parola kullanmak için **kaydedilmiş bir gizli diziyi kullanın**ve, gizli dizisini (parola) karşılık gelen bir anahtar değeri belirtin.
     4. İçinde **daha fazla seçenek** bölümünden **değiştirme boyutu**. İşlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirtin önceden tanımlanmış öğelerden birini seçin.
     5. Seçin **ekleme veya kaldırma Yapıtları**. Seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın.
     **Not:** DevTest Labs kullanarak yeni veya yapıtları, yapılandırma başvurmak [var olan bir yapıyı bir VM'ye ekleme](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) bölümüne ve ardından tamamladığınızda buraya dönün.
 2. Geçiş **Gelişmiş ayarlar** üst kısmındaki sekme ve aşağıdaki eylemleri gerçekleştirin:
-    1. VM, sanal ağ seçin **değiştirme VNet**. 
-    2. Alt ağ seçin **değiştirmek alt**. 
-    3. Sanal makinenin IP adresi olup olmadığını belirtin **genel, özel veya paylaşılan**. 
-    4. Otomatik olarak VM'yi silmek için belirtin **sona erme tarihi ve saati**. 
-    5. VM bir laboratuvar kullanıcı tarafından talep edilebilir hale getirmek için seçin **Evet** için **bu makineyi talep edilebilir hale** seçeneği. 
-    6. Sayısını **VM örneklerini** Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek istediğiniz. 
+    1. VM, sanal ağ seçin **değiştirme VNet**.
+    2. Alt ağ seçin **değiştirmek alt**.
+    3. Sanal makinenin IP adresi olup olmadığını belirtin **genel, özel veya paylaşılan**.
+    4. Otomatik olarak VM'yi silmek için belirtin **sona erme tarihi ve saati**.
+    5. VM bir laboratuvar kullanıcı tarafından talep edilebilir hale getirmek için seçin **Evet** için **bu makineyi talep edilebilir hale** seçeneği.
+    6. Sayısını **VM örneklerini** Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek istediğiniz.
 3. Seçin **Oluştur** belirtilen VM'yi laboratuvara ekleme için.
 
    Laboratuvar sayfanın durumunu VM oluşturma - ilk olarak görüntüler **oluşturma**, ardından olarak **çalıştıran** VM başlatıldıktan sonra.
@@ -99,4 +99,4 @@ Bu, "veri diski aktarma olarak" adı verilir. Veri diski daha sonra yeni kullan�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Oluşturulduktan sonra seçerek VM'ye bağlanabilir **Connect** , yönetim bölmesinde.
-* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

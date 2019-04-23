@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351856"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001567"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Videoları gerçek zamanlı analiz etme
 
@@ -194,7 +194,7 @@ namespace VideoFrameConsoleApplication
 
 Çoğu modda, soldaki canlı video ile sağdaki görselleştirilmiş analiz arasında görünür bir gecikme olacaktır. Bu gecikme, API çağrısı yapmak için geçen süredir. Yüz algılama OpenCV, Bilişsel hizmetler için herhangi bir görüntü göndermeden önce kullanarak istemci bilgisayarda yerel olarak gerçekleştirir. "EmotionsWithClientFaceDetect" modunda bu özel durumdur. Bunu yaparak, algılanan yüzü hemen görselleştirebilir ve sonra API çağrısı döndürüldükten sonra duyguları güncelleştirebilirsiniz. Bu, istemcide bazı basit işlemlerin gerçekleştirildiği ve gerektiğinde daha gelişmiş analizle bunu genişletmek için Bilişsel Hizmetler API’sinin kullanılabildiği "hibrit" yaklaşım olasılığını göstermektedir.
 
-![Görüntülenen etiketlerle görüntüyü gösteren LiveCameraSample uygulamasının ekran görüntüsü](../../Video/Images/FramebyFrame.jpg)
+![Görüntülenen etiketlerle ekran görüntüsü, LiveCameraSample uygulama gösteren görüntü](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Kod temelinizle tümleştirme
 
@@ -216,7 +216,7 @@ VideoFrameAnalyzer görüntü, ses, video veya metin anlama özellikleri, Azure 
 
 ## <a name="summary"></a>Özet
 
-Bu kılavuzda, Yüz Tanıma, Görüntü İşleme ve Duygu Tanıma API’lerini kullanarak canlı video akışlarında nasıl gerçek zamanlıya yakın analiz çalıştıracağınızı ve başlamak için örnek kodumuzu nasıl kullanabileceğinizi öğrendiniz. [Microsoft Bilişsel Hizmetler kayıt sayfasında](https://azure.microsoft.com/try/cognitive-services/) ücretsiz API anahtarları ile uygulamanızı derlemeye başlayabilirsiniz. 
+Bu kılavuzda, Yüz Tanıma, Görüntü İşleme ve Duygu Tanıma API’lerini kullanarak canlı video akışlarında nasıl gerçek zamanlıya yakın analiz çalıştıracağınızı ve başlamak için örnek kodumuzu nasıl kullanabileceğinizi öğrendiniz. [Azure Bilişsel Hizmetler kayıt sayfasında](https://azure.microsoft.com/try/cognitive-services/) ücretsiz API anahtarları ile uygulamanızı derlemeye başlayabilirsiniz. 
 
 Lütfen geri bildirim ve öneri iletmekten çekinmeyin [GitHub deposu](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), ya da daha fazla geniş API görüş üzerinde bizim [UserVoice sitesinde](https://cognitive.uservoice.com/).
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361813"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002757"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -126,7 +126,7 @@ Yönetilen örnek dağıtım seçeneği, Azure Bulut ve SQL Server veritabanı a
 Yönetilen örnek, diğer kiracıların Azure bulutunda ek güvenlik yalıtımı sağlar. Güvenlik yalıtımı içerir:
 
 - [Yerel sanal ağ uygulaması](sql-database-managed-instance-connectivity-architecture.md) ve Azure Express Route veya VPN ağ geçidi kullanarak şirket içi ortamınıza bir bağlantı.
-- SQL uç noktası özel Azure ya da karma ağları güvenli bağlantı verme yalnızca özel bir IP adresi aracılığıyla kullanıma sunulur.
+- Varsayılan dağıtımında, özel Azure ya da karma ağları güvenli bağlantı verme yalnızca özel bir IP adresi üzerinden SQL uç noktasını kullanıma sunulur.
 - Tek kiracılı ayrılmış temel alınan altyapı (bilgi işlem, depolama).
 
 Aşağıdaki diyagramda, uygulamalarınız için çeşitli bağlantı seçenekleri özetlenmektedir:
@@ -226,7 +226,7 @@ Yönetilen örnek dağıtım seçeneği Sistem Yöneticisi, SQL veritabanı hizm
 
 Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmadığını belirlemek için kullanabilir ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
 
-|Özellik|Değer|Açıklama|
+|Özellik|Value|Açıklama|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|

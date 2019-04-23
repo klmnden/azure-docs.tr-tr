@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 16f684674e69113a869346d5de9ef1d50734f01b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271824"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009166"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -482,7 +482,7 @@ Aşağıdaki alanları denetim şemada değiştiriyorsunuz:
 
 |Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
 |----------|------------|----------|----------|
-|Kategori|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
+|Category|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
 |targetResources|İçerir **TargetResourceType** en üst düzeyde.|&nbsp;|<ul><li>İlke</li><li>Uygulama</li><li>Kullanıcı</li><li>Grup</li></ul>|
 |loggedByService|Denetim günlüğü oluşturulan hizmetin adını sağlar.|Null|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self servis parola sıfırlama</li></ul>|
 |Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarılı</li><li>Hata</li></ul>|
@@ -552,7 +552,7 @@ Rolleri ve izinleri hakkında daha fazla bilgi için bkz: [Azure Active Director
 **Hizmet kategorisi:** Cihaz Kaydı ve Yönetimi  
 **Ürün özelliği:** Cihaz Yaşam Döngüsü Yönetimi
 
-Biz, zamanla yenileyin ve gerekir, ortamınızda asılı geçici olarak eski cihazları zorunda kalmamak için Azure AD'de, kuruluşların cihazları devre dışı bırakma olduğunu unutmayın. Bu işlemde size yardımcı olacak artık Azure AD, cihaz yaşam döngüsünü yönetmenize yardımcı olacak cihazlarınızı yeni bir etkinlik damgasıyla güncelleştirir.
+Biz, zamanla yenileyin ve gerekir, ortamınızda eski cihazları önlemek için Azure AD'de, kuruluşların cihazları devre dışı bırakma olduğunu unutmayın. Bu işlemde size yardımcı olacak artık Azure AD, cihaz yaşam döngüsünü yönetmenize yardımcı olacak cihazlarınızı yeni bir etkinlik damgasıyla güncelleştirir.
 
 Alın ve bu zaman damgasından kullanma hakkında daha fazla bilgi için bkz. [nasıl yapılır: Azure AD'de eski cihazları yönetme](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 

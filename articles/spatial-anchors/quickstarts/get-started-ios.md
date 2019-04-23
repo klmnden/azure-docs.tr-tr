@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900633"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996654"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Hızlı Başlangıç: Azure uzamsal bağlantıları, Swift veya Objective-C ile bir iOS uygulaması oluşturma
 
@@ -88,15 +88,15 @@ Sonraki adım uygulamayı hesap tanımlayıcısı ve hesap anahtarını kullanac
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
-Açık `iOS/Swift/SampleSwift/ViewController.swift`.
+Açık `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Bulun `SpatialAnchorsAccountKey` değiştirin ve alan `Set me` ile hesap anahtarı.
+Bulun `spatialAnchorsAccountKey` değiştirin ve alan `Set me` ile hesap anahtarı.
 
-Bulun `SpatialAnchorsAccountId` değiştirin ve alan `Set me` hesap tanımlayıcı ile.
+Bulun `spatialAnchorsAccountId` değiştirin ve alan `Set me` hesap tanımlayıcı ile.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
-Açık `iOS/Objective-C/SampleObjC/ViewController.m`.
+Açık `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Bulun `SpatialAnchorsAccountKey` değiştirin ve alan `Set me` ile hesap anahtarı.
 

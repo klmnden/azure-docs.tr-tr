@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure depolama görüntüleri için meta verileri oluşturun'
+title: 'Öğretici: Azure görüntüleri için meta verileri oluşturun'
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, Azure görüntü işleme hizmeti görüntüleri için meta verileri oluşturmak için bir web uygulaması tümleştirin öğreneceksiniz.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448008"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006010"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Öğretici: Görüntü işleme, Azure Depolama'da görüntü meta verilerini oluşturmak için kullanın
 
@@ -52,11 +52,11 @@ Azure hesabınız için bir görüntü işleme kaynağı oluşturmanız gerekir;
 
 1. Kaynak grubunuz için menüsüne geri dönün ve yeni oluşturduğunuz görüntü işleme API'si aboneliğe tıklayın. URL'nin altına kopyalayın **uç nokta** için bir yere, kolayca birazdan alabileceğiniz. Ardından **erişim anahtarlarını gösterme**.
 
-    ![Erişim anahtarlarını görüntüleme](../Images/copy-vision-endpoint.png)
+    ![Azure portal sayfasındaki ana hatlarıyla belirtilen uç nokta URL'si ve erişim anahtarları bağlantı](../Images/copy-vision-endpoint.png)
 
 1. Sonraki penceresinde değerini kopyalayın **anahtar 1** panoya.
 
-    ![Erişim anahtarını kopyalama](../Images/copy-vision-key.png)
+    ![Anahtarları iletişim özetlenen Kopyala düğmesini ile yönetme](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Görüntü işleme kimlik bilgilerini ekleyin
 
@@ -136,7 +136,7 @@ Visual Studio ve ENTER tuşuna yaptığınız değişiklikleri kaydetmek **Ctrl 
 
 Tüm bağlı meta verileri görüntülemek için görüntüler için kullandığınız depolama kapsayıcısı görüntülemek için Azure Depolama Gezgini'ni kullanın. BLOB kapsayıcı seçip sağ **özellikleri**. İletişim kutusunda, anahtar-değer çiftlerinin listesini görürsünüz. Bilgisayar tarafından oluşturulan görüntü açıklaması "Başlık" öğesinde depolanır ve arama anahtar sözcükleri "Tag0 içinde" "Etiket1," depolanır ve benzeri. İşlemi tamamladığınızda, tıklayın **iptal** iletişim kutusunu kapatmak için.
 
-![Blob meta verileri](../Images/blob-metadata.png)
+![Listelenen meta veri etiketleri ile Görüntü Özellikleri iletişim kutusu penceresi](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

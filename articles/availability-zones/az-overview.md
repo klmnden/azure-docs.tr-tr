@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d6e53c055f3c15c585aeb806c0c243eabdc0f00d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268730"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000836"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -37,37 +37,34 @@ Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizi
  
 ![bir bölgede giderek alanlardan birini kavramsal görünümü](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen bölgeler
+## <a name="services-support-by-region"></a>Bölgeye göre Destek Hizmetleri
 
-- Orta ABD
-- Doğu ABD
-- Doğu ABD 2
-- Fransa Orta
-- Kuzey Avrupa
-- Güneydoğu Asya 
-- UK Güney&#42;
-- Batı Avrupa
-- Batı ABD 2
+Azure Hizmetleri ve kullanılabilirlik alanlarını destekleyen bölgeleri birleşimlerini şunlardır:
 
 
+|                                 |Kuzey ve Güney Amerika |              |           |           | Avrupa |              |          |              | Asya Pasifik |                 |
+|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
+|          |Orta ABD|Doğu ABD|Doğu ABD 2|Batı ABD 2|Fransa Orta|Kuzey Avrupa|Birleşik Krallık Güney|Batı Avrupa|Japonya Doğu|Güneydoğu Asya|
+| **İşlem**                         |            |              |           |           |                |              |          |             |            |                |
+| Linux Sanal Makineleri          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Windows Sanal Makineleri        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Sanal Makine Ölçek Kümeleri      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Depolama**   |            |              |           |           |                |              |          |             |            |                |
+| Yönetilen Diskler                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Bölgesel olarak yedekli depolama          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Ağ**                     |            |              |           |           |                |              |          |             |            |                |
+| Standart IP adresi        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Standart Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| VPN Gateway                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Uygulama ağ geçidi (Önizleme)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Veritabanları**                     |            |              |           |           |                |              |          |             |            |                |
+| SQL Veritabanı                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
+| **Analizler**                       |            |              |           |           |                |              |          |             |            |                |
+| Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Tümleştirme**                     |            |              |           |           |                |              |          |             |            |                |
+| Hizmet veri yolu (yalnızca Premium katman için) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
-## <a name="services-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen hizmetler
-Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
-
-- Linux Sanal Makineleri
-- Windows Sanal Makineleri
-- Sanal Makine Ölçek Kümeleri
-- Yönetilen Diskler
-- Standart Load Balancer&#42;
-- Standart genel IP adresi&#42;
-- Alanlar arası yedekli depolama
-
-- SQL Veritabanı
-- Event Hubs
-- Hizmet veri yolu (yalnızca Premium katman için)
-- VPN Gateway
-- ExpressRoute
-- Uygulama ağ geçidi (Önizleme)
 
 &#42;Birleşik Krallık Güney bölgesinde 25 Mart 2019'den önce oluşturulan kaynakları, bölgesel olarak yedekli olmasını yakında dönüştürülür. 25 Mart 2019'den sonra oluşturulan kaynakları hemen bölgesel olarak yedekli olacaktır.
 

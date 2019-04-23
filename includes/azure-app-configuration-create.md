@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227193"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012294"
 ---
 1. Yeni uygulama yapılandırma deposu oluşturmak için oturum açın [Azure portalında](https://aka.ms/azconfig/portal). Sayfanın sol üst köşesinde bulunan seçin **+ kaynak Oluştur**. İçinde **markette Ara** kutusuna **uygulama yapılandırması** ve Enter tuşuna basın.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227193"
 4. **Oluştur**’u seçin. Dağıtımın tamamlanması birkaç dakika sürebilir.
 
 5. Dağıtım tamamlandıktan sonra seçin **ayarları** > **erişim anahtarlarını**. Bir ya da birincil salt okunur veya birincil salt okunur anahtar bağlantı dizesini not edin. Bu bağlantı dizesi daha sonra oluşturduğunuz uygulama yapılandırma deposu ile iletişim kurmak için uygulamanızı yapılandırmak için kullanırsınız.
-
-6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
-
-    | Anahtar | Değer |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Beyaz |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Siyah |
-    | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
-
-    Bırakın **etiket** ve **içerik türü** şimdilik boş.

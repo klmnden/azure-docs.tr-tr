@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798955"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003692"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure İzleyici'deki günlükler
 
@@ -112,7 +112,7 @@ Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynak
 
 | Veriler | Açıklama |
 |:---|:---|
-| Kapsayıcılar için Azure İzleyici | Tarafından toplanan Envanter ve performans verileri [kapsayıcılar için Azure İzleyici](../insights/container-insights-overview.md). Bkz: [kapsayıcı veri toplama ayrıntıları](../insights/container-insights-analyze.md#container-data-collection-details) tabloların listesi. |
+| Kapsayıcılar için Azure İzleyici | Tarafından toplanan Envanter ve performans verileri [kapsayıcılar için Azure İzleyici](../insights/container-insights-overview.md). Bkz: [kapsayıcı veri toplama ayrıntıları](../insights/container-insights-log-search.md#container-records) tabloların listesi. |
 | VM'ler için Azure İzleyici | Tarafından toplanan Haritası ve performans verileri [VM'ler için Azure İzleyici](../insights/vminsights-overview.md). Bkz: [VM'ler için Azure İzleyici günlüklerinden sorgulama](../insights/vminsights-log-search.md) bu verilerin sorgulanması ilişkin ayrıntılar için. |
 
 ### <a name="custom"></a>Özel 

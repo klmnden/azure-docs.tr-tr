@@ -1,21 +1,21 @@
 ---
 title: "Hızlı Başlangıç: Python SDK'sı"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, ortak görevler için Python SDK'sını kullanmayı öğrenin.
+description: Bu hızlı başlangıçta, ortak görevler için Python SDK'sını kullanın, gibi resmi çözümleme, Al açıklaması, metin tanıma ve küçük resim oluşturma hakkında bilgi edinin.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617980"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999323"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 

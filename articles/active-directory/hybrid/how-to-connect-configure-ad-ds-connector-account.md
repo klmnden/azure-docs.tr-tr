@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000875"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007568"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -69,13 +69,19 @@ Get-Command -Module AdSyncConfig
 
 Her cmdlet, AD DS bağlayıcı hesabı ve bir AdminSDHolder anahtarı girmek için aynı parametrelere sahip. AD DS bağlayıcı hesabınızın belirtmek için hesap adı ve etki alanı veya hesap sağlayabilir ayırt edici ad (DN),
 
-Örneğin: 
+Örneğin:
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-veya; 
+veya;
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+Değiştirdiğinizden emin olun `<ADAccountName>`, `<ADDomainName>` ve `<ADAccountDN>` ortamınız için uygun değerleri.
 
 AdminSDHolder kapsayıcı izinlerini değiştirmek istemediğiniz durumlarda anahtarını kullanın `-SkipAdminSdHolders`. 
 
@@ -130,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Bu cmdlet şu izinler ayarlanır: 
  
 
-|Type |Ad |Access |Şunun İçin Geçerli| 
+|Type |Name |Access |Şunun İçin Geçerli| 
 |-----|-----|-----|-----|
 |İzin Ver |AD DS bağlayıcı hesabı |Tüm özellikleri oku |Alt cihaz nesneleri| 
 |İzin Ver |AD DS bağlayıcı hesabı|Tüm özellikleri oku |Alt InetOrgPerson nesnelerine| 
@@ -156,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver|AD DS bağlayıcı hesabı|Okuma/yazma özelliği|Alt kullanıcı nesneleri|
 
@@ -176,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Dizin Değişikliklerini Çoğaltma |Yalnızca bu nesne (etki alanı kökü)| 
 |İzin Ver |AD DS bağlayıcı hesabı |Dizini çoğaltmak yapılan tüm değişiklikler |Yalnızca bu nesne (etki alanı kökü)| 
@@ -196,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Parola Sıfırlama |Alt kullanıcı nesneleri| 
 |İzin Ver |AD DS bağlayıcı hesabı |Özellik lockoutTime yazma |Alt kullanıcı nesneleri| 
@@ -216,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Genel okuma/yazma |Nesne türü grubunu ve alt nesnelerinin tüm öznitelikleri| 
 |İzin Ver |AD DS bağlayıcı hesabı |Alt nesne oluşturma/silme |Nesne türü grubunu ve alt nesnelerinin tüm öznitelikleri| 
@@ -239,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Bu cmdlet şu izinler ayarlanır:  
  
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Okuma/yazma tüm özellikleri |Alt kullanıcı nesneleri| 
 |İzin Ver |AD DS bağlayıcı hesabı |Okuma/yazma tüm özellikleri |Alt InetOrgPerson nesnelerine| 
@@ -261,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Tüm özellikleri oku |Alt PublicFolder nesneler| 
 
@@ -286,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Bu cmdlet şu izinler ayarlanır: 
 
-|Type |Ad |Access |Şunun İçin Geçerli|
+|Type |Name |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
 |İzin Ver |SİSTEM |Tam Denetim |Bu nesne 
 |İzin Ver |Kuruluş Yöneticileri |Tam Denetim |Bu nesne 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402448"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004236"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv erişim katmanları
 
@@ -100,7 +100,7 @@ Aynı hesapta üç erişim katmanları tüm bloblar bulunabilir. Açıkça atana
 
 ### <a name="blob-lifecycle-management"></a>BLOB yaşam döngüsü yönetimi
 
-BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz zengin, kural tabanlı bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](storage-lifecycle-management-concepts.md) daha fazla bilgi için.  
+BLOB Depolama yaşam döngüsü yönetimi, verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz zengin, kural tabanlı bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](storage-lifecycle-management-concepts.md) daha fazla bilgi için.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob düzeyinde katman ayarlama faturalandırması
 

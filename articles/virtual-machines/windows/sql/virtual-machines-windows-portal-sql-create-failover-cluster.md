@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486327"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011376"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -29,7 +29,7 @@ Bu makalede Resource Manager modeli Azure sanal makinelerinde bir SQL Server Yü
 
 Aşağıdaki diyagramda, Azure sanal makinelerinde tam çözümünü gösterilmektedir:
 
-![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
+![Kullanılabilirlik Grubu](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
 Yukarıdaki diyagramda gösterilmektedir:
 
@@ -399,7 +399,7 @@ Yük Dengeleyici oluşturmak için:
 
    - **Ad**: Durum araştırması için bir ad.
    - **Protokol**: TCP.
-   - **Bağlantı noktası**: Kullanılabilir bir TCP bağlantı noktasına ayarlayın. Bu bağlantı noktası, bir açık güvenlik duvarı bağlantı noktası gerektirir. Kullanım [aynı bağlantı noktasını](#ports) durum yoklaması için güvenlik duvarında ayarlayın.
+   - **Bağlantı noktası**: Sistem durumu araştırması için güvenlik duvarını oluşturduğunuz bağlantı noktasına ayarlayın [bu adımı](#ports). Bu makalede, örnek TCP bağlantı noktasını kullanır. `59999`.
    - **Aralığı**: 5 saniye.
    - **Sağlıksız durum eşiği**: 2 art arda hatalar.
 
@@ -421,7 +421,7 @@ Yük Dengeleyici oluşturmak için:
    - **Durum araştırması**: Daha önce yapılandırılmış durum araştırması kullanabilirsiniz.
    - **Oturum kalıcılığı**: Yok.
    - **Boşta kalma zaman aşımı (dakika)**: 4.
-   - **Kayan IP (doğrudan sunucu dönüşü)**: Etkin
+   - **Kayan IP (doğrudan sunucu dönüşü)**: Enabled
 
 1. **Tamam** düğmesine tıklayın.
 

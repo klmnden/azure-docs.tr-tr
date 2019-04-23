@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456015"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995685"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma
 
-Azure Data Lake depolama Gen2'ye [hiyerarşik bir Namespace hizmetinin desteklediği](data-lake-storage-introduction.md) yerel dizin tabanlı sağlayan dosya sistemi Hadoop dağıtılmış dosya sistemi (HDFS) ile çalışacak şekilde tasarlanmış. HDFS'den Data Lake Storage Gen2 verilerine erişim [ABFS sürücüsü](data-lake-storage-abfs-driver.md) aracılığıyla sağlanabilir.
+Azure Data Lake depolama Gen2 [bir hiyerarşik ad alanı destekler](data-lake-storage-introduction.md) yerel dizin tabanlı sağlayan dosya sistemi Hadoop dağıtılmış dosya sistemi (HDFS) ile çalışacak şekilde tasarlanmış. HDFS'den Data Lake Storage Gen2 verilerine erişim [ABFS sürücüsü](data-lake-storage-abfs-driver.md) aracılığıyla sağlanabilir.
 
 Bu hızlı başlangıçta [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak hesap oluşturma adımları gösterilmektedir.
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 |-----------|--------------|
 |Portal     | None         |
 |PowerShell | Bu hızlı başlangıç PowerShell modülü Az.Storage sürümünü gerektirir **0,7** veya üzeri. Geçerli sürümünüzü bulmak için çalıştırın `Get-Module -ListAvailable Az.Storage` komutu. Bu komutu çalıştırdıktan sonra sonuç görünüyorsa ya da dışında bir sürüm varsa **0,7** görünür sonra powershell Modülü'ı yükseltmeniz gerekir. Bkz: [, powershell modülü yükseltme](#upgrade-your-powershell-module) başlığına.
-|CLI        | İki yöntemden biriyle Azure'da oturum açarak Azure CLI komutlarını çalıştırabilirsiniz: <ul><li>CLI komutlarını Azure portalında Azure Cloud Shell içinden çalıştırabilirsiniz </li><li>CLI yükleyip CLI komutlarını yerel olarak çalıştırabilirsiniz</li></ul>|
+|CLI        | Azure'da oturum açın ve Azure CLI komutları iki yoldan biriyle çalıştırın: <ul><li>CLI komutlarını Azure portalında Azure Cloud Shell içinden çalıştırabilirsiniz </li><li>CLI yükleyip CLI komutlarını yerel olarak çalıştırabilirsiniz</li></ul>|
 
 Komut satırında çalışırken Azure Cloud Shell'i çalıştırabilir veya CLI'yı yerel ortama yükleyebilirsiniz.
 
@@ -63,7 +63,7 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Azure portalı kullanarak bir hesap oluşturma
 
-[Azure Portal](https://portal.azure.com)’da oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -128,7 +128,7 @@ Az.Storage modülünü yükleme
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
+### <a name="sign-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
 Kullanım `Login-AzAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
 
@@ -176,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Azure CLI'yı kullanarak hesap oluşturma
 
-Azure Cloud Shell'i başlatmak için oturum [Azure portalında](https://portal.azure.com).
+Azure Cloud Shell'i başlatmak için oturum açın [Azure portalında](https://portal.azure.com).
 
-CLI yerel yüklemesinde açmak oturum açma komutunu çalıştırın:
+İçin CLI yerel yüklemesinde oturum açmak oturum açma komutunu çalıştırın:
 
 ```cli
 az login

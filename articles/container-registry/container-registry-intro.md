@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ce870bfb8d29f7a808962e4d273388ab31186f10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270532"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997419"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
@@ -48,7 +48,7 @@ Azure, Azure komut satırı arabirimi, Azure portal ve API desteği, Azure kapsa
   * `myregistry.azurecr.io/warrantydept/dotnet-build`, garanti departmanı genelinde paylaşılan .NET uygulamaları oluşturmak için kullanılan bir görüntüyü temsil eder
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web`, garanti departmanına ait olan müşteri gönderileri uygulamasında gruplandırılan bir web görüntüsünü temsil eder
 
-* **Görüntü** -bir depoda depolanan görüntülerin her uyumlu Docker kapsayıcısının salt okunur anlık görüntüsüdür. Azure kapsayıcısı kayıt defterleri hem Windows hem de Linux görüntüleri içerebilir. Tüm kapsayıcı dağıtımlarınız için görüntü adlarını siz denetlersiniz. Bir depoya görüntü itmek ya da bir depodan görüntü çekmek için standart [Docker komutlarını](https://docs.docker.com/engine/reference/commandline/) kullanın. Kapsayıcı görüntülerinin yanı sıra, Azure Container Registry depolar [ilgili içerik biçimlerini](container-registry-image-formats.md) gibi [Helm grafikleri](container-registry-helm-repos.md)Kubernetes uygulamaları dağıtmak için kullanılır.
+* **Görüntü** -bir depoda depolanan görüntülerin her uyumlu Docker kapsayıcısının salt okunur anlık görüntüsüdür. Azure kapsayıcısı kayıt defterleri hem Windows hem de Linux görüntüleri içerebilir. Tüm kapsayıcı dağıtımlarınız için görüntü adlarını siz denetlersiniz. Bir depoya görüntü itmek ya da bir depodan görüntü çekmek için standart [Docker komutlarını](https://docs.docker.com/engine/reference/commandline/) kullanın. Docker kapsayıcı görüntüleri ek olarak, Azure Container Registry depolar [ilgili içerik biçimlerini](container-registry-image-formats.md) gibi [Helm grafikleri](container-registry-helm-repos.md) ve yerleşik görüntüleri [açık kapsayıcı girişim (OCI) görüntüsü Biçim belirtimi](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
 * **Kapsayıcı** - Kapsayıcı, bir yazılım uygulamasını ve uygulamanın bağımlılıklarını kod, çalışma zamanı, sistem araçları ve kitaplıkları içeren eksiksiz bir dosya sistemi şeklinde sarmalanmış bir halde tanımlar. Docker kapsayıcılarını bir kapsayıcı kayıt defterinden çektiğiniz Windows veya Linux görüntülerine bağlı olarak çalıştırın. Tek bir makinede çalışan kapsayıcılar işletim sistemi çekirdeğini paylaşır. Docker kapsayıcıları tüm büyük Linux dağıtımlarına, macOS ve Windows'a tümüyle taşınabilir.
 

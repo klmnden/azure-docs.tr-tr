@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64f78b04d433c81302499addf15c3d19621bbf9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788352"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995736"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Öğretici: Azure uzamsal bağlayıcılarını kullanarak yeni bir Android uygulaması oluşturmak için adım adım yönergeler
 
@@ -57,12 +57,12 @@ Değiştirme `app\manifests\AndroidManifest.xml` kök içine aşağıdaki girdil
 </application>
 ```
 
-Değiştirme `Gradle Scripts\build.gradle (Module: app)` şu girdiyi eklenecek. Bu kodu uygulamanıza ARCore sürüm 1.5 hedefleyen sağlayacaktır (ARCore 1.6 + Azure uzamsal bağlayıcılarını üzerinde yakında kullanıma sunulacak desteği). Bu değişiklikten sonra bir bildirim Gradle eşitleme isteyen alabilirsiniz: tıklayın **Şimdi Eşitle**.
+Değiştirme `Gradle Scripts\build.gradle (Module: app)` şu girdiyi eklenecek. Bu kod, uygulama hedefleri ARCore sürüm 1.7 sağlayacaktır. Bu değişiklikten sonra bir bildirim Gradle eşitleme isteyen alabilirsiniz: tıklayın **Şimdi Eşitle**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.7.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_ </a> OpenGL öğrenmek zorunda kalmadan, genişletilmiş gerçeklik uygulamalarında gerçekçi 3B Sahne işleme sürecini kolaylaştırır.
 
-Değiştirme `Gradle Scripts\build.gradle (Module: app)` aşağıdaki girişler dahil etmek için. Bu kod Java 8, dil yapıları kullanmak için uygulamanızı sağlayacak olan `Sceneform` gerektirir. Kullanarak uygulamanızın hedeflediği sağlayacak `Sceneform` sürüm 1.5, bu yana uygulamanızı kullanarak ARCore sürümüyle eşleşmesi. Bu değişiklikten sonra bir bildirim Gradle eşitleme isteyen alabilirsiniz: tıklayın **Şimdi Eşitle**.
+Değiştirme `Gradle Scripts\build.gradle (Module: app)` aşağıdaki girişler dahil etmek için. Bu kod Java 8, dil yapıları kullanmak için uygulamanızı sağlayacak olan `Sceneform` gerektirir. Kullanarak uygulamanızın hedeflediği sağlayacak `Sceneform` sürüm 1.7, bu yana uygulamanızı kullanarak ARCore sürümüyle eşleşmesi. Bu değişiklikten sonra bir bildirim Gradle eşitleme isteyen alabilirsiniz: tıklayın **Şimdi Eşitle**.
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
     ...
 }
 ```

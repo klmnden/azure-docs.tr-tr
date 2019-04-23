@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188110"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000853"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks kümeleri için bölgesel bir olağanüstü durum kurtarma
 
@@ -247,7 +247,7 @@ Kendi bölgesel bir olağanüstü durum kurtarma topolojisi oluşturmak için bu
 
 8. **Azure blob depolama ve Azure Data Lake Store takar geçirme**
 
-   Tüm el ile yeniden bağlamak [Azure Blob Depolama](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) ve [Azure Data Lake Store (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) bağlama noktalarını not defteri tabanlı bir çözüm kullanarak. Depolama kaynaklarını birincil çalışma alanında bağlanmış ve bu ikincil çalışma alanında yinelenmesi gerekir. Hiçbir dış API başlatmalar için yoktur.
+   Tüm el ile yeniden bağlamak [Azure Blob Depolama](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) ve [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) bağlama noktalarını not defteri tabanlı bir çözüm kullanarak. Depolama kaynaklarını birincil çalışma alanında bağlanmış ve bu ikincil çalışma alanında yinelenmesi gerekir. Hiçbir dış API başlatmalar için yoktur.
 
 9. **Küme init betikleri geçirme**
 

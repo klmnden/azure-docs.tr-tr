@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099993"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996142"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ Aşağıdaki tabloda özetlenmiştir ağ ve şirket içinde barındırılan tüm
 
 | Kaynak      | Hedef                              | Ağ yapılandırması                    | Tümleştirme çalışma zamanı kurulumu                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Şirket içi | Sanal makineler ve sanal ağlara dağıtılan bulut Hizmetleri | IPSec VPN (noktadan siteye veya siteden siteye) | Şirket içinde barındırılan tümleştirme çalışma zamanı olabilir ya da şirket içi yüklü veya bir sanal ağdaki bir Azure sanal makinesinde. |
-| Şirket içi | Sanal makineler ve sanal ağlara dağıtılan bulut Hizmetleri | ExpressRoute (özel eşdüzey hizmet sağlama)           | Şirket içinde barındırılan tümleştirme çalışma zamanı olabilir ya da şirket içi yüklü veya bir sanal ağdaki bir Azure sanal makinesinde. |
-| Şirket içi | Genel bir uç nokta içeren azure tabanlı Hizmetleri | ExpressRoute (ortak eşleme)            | Şirket içinde barındırılan tümleştirme çalışma zamanı, şirket yüklü olması gerekir. |
+| Şirket içi | Sanal makineler ve sanal ağlara dağıtılan bulut Hizmetleri | IPSec VPN (noktadan siteye veya siteden siteye) | Sanal ağdaki bir Azure sanal makinesinde, şirket içinde barındırılan tümleştirme çalışma zamanının yüklenmesi gerekir.  |
+| Şirket içi | Sanal makineler ve sanal ağlara dağıtılan bulut Hizmetleri | ExpressRoute (özel eşdüzey hizmet sağlama)           | Sanal ağdaki bir Azure sanal makinesinde, şirket içinde barındırılan tümleştirme çalışma zamanının yüklenmesi gerekir.  |
+| Şirket içi | Genel bir uç nokta içeren azure tabanlı Hizmetleri | ExpressRoute (Microsoft eşdüzey hizmet sağlama)            | Şirket içinde barındırılan tümleştirme çalışma zamanının yüklü şirket içi olabilir veya bir Azure sanal makinesinde. |
 
 Aşağıdaki resimlerde ExpressRoute ve (Azure sanal ağı ile) IPSec VPN kullanarak şirket içi veritabanı ve Azure hizmetleri arasında veri taşıma için şirket içinde barındırılan tümleştirme çalışma zamanı kullanımını gösterir:
 
@@ -174,7 +174,7 @@ Aşağıdaki tabloda, Windows Güvenlik Duvarı gelen bağlantı noktası gereks
 
 | Gelen bağlantı noktaları | Açıklama                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | PowerShell şifreleme cmdlet tarafından açıklandığı gibi gerekli [Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele](encrypt-credentials-self-hosted-integration-runtime.md)ve güvenli bir şekilde şirket içi veri depoları için kimlik bilgilerini ayarlamak için kimlik bilgileri Yöneticisi uygulaması Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde. |
+| 8060 (TCP)    | PowerShell şifreleme cmdlet tarafından açıklandığı gibi gerekli [Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele](encrypt-credentials-self-hosted-integration-runtime.md)ve güvenli bir şekilde şirket içi veri depoları için kimlik bilgilerini ayarlamak için kimlik bilgileri Yöneticisi uygulaması Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde. |
 
 ![Ağ geçidi bağlantı noktası gereksinimleri](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Bu, beyaz liste IP adresi şirket içinde barındırılan tümleştirme çalış
 
 **Şirket içinde barındırılan tümleştirme çalışma zamanı, farklı veri fabrikaları arasında paylaşılabilir?**
 
-Bu özellik henüz desteklemiyoruz. Etkin olarak üzerinde çalışıyoruz.
+Evet. Diğer ayrıntıları [burada](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/) bulabilirsiniz.
 
 **Çalışmak şirket içinde barındırılan tümleştirme çalışma zamanı için bağlantı noktası gereksinimleri nelerdir?**
 

@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu geliştirici örnekleri
 description: Bu makalede, veri Kataloğu REST API'si için kullanılabilir geliştirici örnekleri genel bir bakış sağlar.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404334"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009642"
 ---
 # <a name="data-catalog-developer-samples"></a>Veri Kataloğu geliştirici örnekleri
 Veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Veri Kataloğu REST API'sini kaydetmeyi, aramayı ve veri varlıklarını program aracılığıyla arama için veri Kataloğu kaynaklarına programlı erişim sağlayan bir REST tabanlı bir API'dir.

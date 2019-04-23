@@ -1,7 +1,6 @@
 ---
 title: Otomasyon Azure ayırma için API'leri | Microsoft Docs
 description: Program aracılığıyla ayırma bilgilerini almak için kullanabileceğiniz Azure API'ler hakkında bilgi.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880241"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008228"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Otomasyon Azure ayırma için API'leri
 
@@ -55,7 +54,7 @@ Kuruluşunuzun ayırmaları altında kullanılan olduğunu fark ederseniz:
 
 - Kuruluşunuz tarafından oluşturulan sanal makineler üzerinde ayırma VM boyutu eşleştiğinden emin olun.
 - Örnek boyutu esneklik olduğundan emin olun. Daha fazla bilgi için [Yönet ayırmaları - değişiklik iyileştirmek için ayrılmış VM örnekleri ayarlama](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Rezervasyon daha geniş kapsamda geçerli olacak şekilde paylaşılan için kapsamı değiştirin. Daha fazla bilgi için [ayırmalarını yönetme - bir rezervasyon için kapsam değiştirme](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Rezervasyon daha geniş kapsamda geçerli olacak şekilde paylaşılan için kapsamı değiştirin. Daha fazla bilgi için [ayırmalarını yönetme - bir rezervasyon için kapsam değiştirme](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Kullanılmamış miktar exchange. Daha fazla bilgi için [ayırmaları - iptalleri ve değişimleri yönetme](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Ayırmalar için erişim verin
@@ -68,7 +67,7 @@ Bir kullanıcının kullanarak erişimi olan tüm ayırmaları'nın listesini al
 
 ## <a name="split-or-merge-reservation"></a>Bölme ve birleştirme ayırma
 
-Birden fazla kaynak örneği içindeki bir ayırma satın sonra bu ayırma örneklerinden farklı aboneliklere atamak isteyebilirsiniz. Ayırma kapsamı, aynı fatura bağlam içinde tüm abonelikleri için geçerli olacak şekilde değiştirebilirsiniz. Ancak, maliyet Yönetimi'ni veya ödemeyle amacıyla, kapsamı "tek bir abonelik" olarak tutun ve ayırma örnekleri için belirli bir aboneliğe atamak isteyebilirsiniz. 
+Birden fazla kaynak örneği içindeki bir ayırma satın sonra bu ayırma örneklerinden farklı aboneliklere atamak isteyebilirsiniz. Ayırma kapsamı, aynı fatura bağlam içinde tüm abonelikleri için geçerli olacak şekilde değiştirebilirsiniz. Ancak, maliyet Yönetimi'ni veya ödemeyle amacıyla, kapsamı "tek bir abonelik" olarak tutun ve ayırma örnekleri için belirli bir aboneliğe atamak isteyebilirsiniz.
 
 Rezervasyon bölmek için API'yi kullanın. [ayırma - bölünmüş](/rest/api/reserved-vm-instances/reservation/split). Ayrıca, PowerShell kullanarak bir ayırma bölebilirsiniz. Daha fazla bilgi için [ayırmaları - bölünmüş ayırma iki ayırmalar halinde yönetme](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Bir ayırma iki ayırma birleştirmek için API'yi kullanın. [ayırma - birleş
 
 ## <a name="change-scope-for-a-reservation"></a>Rezervasyon için kapsam Değiştir
 
-Ayırma kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamında olabilir. Tek bir abonelik için kapsamı ayarlarsanız, seçili Abonelikteki kaynaklar çalışan ayırma eşleştirilir. Paylaşılan kapsam ayarlarsanız, Azure faturalandırma bağlam içinde tüm abonelikleri çalışan kaynaklar ayırmaya eşleşir. Fatura bağlamı, rezervasyon satın almak için kullanılan abonelik üzerinde bağlıdır. Daha fazla bilgi için [ayırmalarını yönetme - Kapsamı Değiştir](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+Ayırma kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamında olabilir. Tek bir abonelik için kapsamı ayarlarsanız, seçili Abonelikteki kaynaklar çalışan ayırma eşleştirilir. Paylaşılan kapsam ayarlarsanız, Azure faturalandırma bağlam içinde tüm abonelikleri çalışan kaynaklar ayırmaya eşleşir. Fatura bağlamı, rezervasyon satın almak için kullanılan abonelik üzerinde bağlıdır. Daha fazla bilgi için [ayırmalarını yönetme - Kapsamı Değiştir](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Kapsam programlı olarak değiştirmek için API'yi kullanın. [ayırma - güncelleştirme](/rest/api/reserved-vm-instances/reservation/update).
 

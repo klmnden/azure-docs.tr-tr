@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791550"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998660"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici'de performans sorunları için uyarılar ayarlama
 Kapsayıcılar için Azure İzleyici, Azure Container Instances veya yönetilen için barındırılan Kubernetes kümeleri için Azure Kubernetes Service'teki (AKS) dağıtılan kapsayıcı iş yüklerinin performansını izler.
@@ -285,5 +285,5 @@ Daha önce sağlanan günlük arama kurallarını kullanarak günlük uyarısı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Görünüm [sorgu örnekleri oturum](container-insights-analyze.md#search-logs-to-analyze-data) önceden tanımlanmış sorgular ve değerlendirme veya uyarı diğer senaryolar için özelleştirmek için örnekler hakkında bilgi edinmek için.
-* Azure İzleyici ve diğer yönleri AKS kümenizi izleme hakkında daha fazla bilgi için bkz: [görünümü Azure Kubernetes hizmeti sistem durumu](container-insights-analyze.md).
+- Görünüm [sorgu örnekleri oturum](container-insights-log-search.md#search-logs-to-analyze-data) önceden tanımlanmış sorgular ve değerlendirme veya uyarı, görselleştirme veya kümelerinizi çözümleme için özelleştirmek için örnekler görmek için.
+- Azure İzleyici ve diğer yönleri AKS kümenizi izleme hakkında daha fazla bilgi için bkz: [görünümü Azure Kubernetes hizmeti sistem durumu](container-insights-analyze.md).

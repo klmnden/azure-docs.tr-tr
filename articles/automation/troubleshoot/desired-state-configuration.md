@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699090"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002587"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) sorunlarını giderme
 
@@ -41,6 +41,31 @@ Bu hatanın çözülmesi için planlanan geçici bir sorundur.
 * Yapılandırmayı silmek için "Remove-AzAutomationDscConfiguration" Az cmdlet'ini kullanın.
 * Bu cmdlet belgeleri henüz güncelleştirilemedi.  O zamana kadar AzureRM modülünü belgelerine bakın.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Senaryo: DSC aracı kayıt olamadı
+
+#### <a name="issue"></a>Sorun
+
+Çalıştırmayı denerken `Set-DscLocalConfigurationManager` veya başka bir DSC cmdlet'i hata alırsınız:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata, normalde bir güvenlik duvarı, Ara sunucu veya diğer ağ hataları arkasında olan makine kaynaklanır.
+
+#### <a name="resolution"></a>Çözüm
+
+Makinenizi Azure Automation DSC için doğru Uç noktalara erişimi olduğunu doğrulayın ve yeniden deneyin. Bağlantı noktaları ve gerekli adresleri listesi için bkz. [ağ planlama](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Senaryo: Bir "Bulunamadı" hatası ile başarısız durumundaki düğümüdür
 

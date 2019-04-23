@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59619208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005375"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Azure Data Factory kopyalama verileri Azure Veri Gezgini
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Azure Veri Gezgini, Azure Data Factory kullanarak veri kopyalama 
 
 Azure Veri Gezgini, büyük hacimli uygulamaları, Web siteleri ve IOT cihazları gibi birçok farklı kaynaktan akış verileri üzerinde gerçek zamanlı analiz için hızlı, tam olarak yönetilen bir veri analiz hizmetidir. Yinelemeli olarak verileri araştırmak ve düzenleri ve anormallikleri ürünlerini geliştirmek için müşteri deneyimlerini geliştirmek için tanımlamak cihazları izlemek ve işlemleri artırın. Yeni soruları keşfedin ve dakikalar içinde yanıt alın. Azure Data Factory, tam olarak yönetilen bulut tabanlı veri tümleştirme hizmetidir. Hizmet, mevcut sisteminizden Azure Veri Gezgini veritabanınızı verilerle doldurmak ve zamandan tasarruf için kullanabileceğiniz analiz çözümlerinizi oluştururken.
 
@@ -32,7 +32,7 @@ Bu makalede Data Factory-veri kopyalama aracını verileri Amazon S3'ten Azure v
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 * [Bir Azure Veri Gezgini küme ve veritabanı](create-cluster-database-portal.md)
-* Amazon S3.
+* Veri kaynağı.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -147,10 +147,6 @@ Azure Veri Gezgini yeni bağlı hizmet, aşağıda belirtilen verileri Azure Ver
 
     ![Hedef veri deposuna ADX](media/data-factory-load-data/destination-data-store.png)
 
-1. İçinde **çıktı dosyasını veya klasörünü seçin**, çıkış klasörünün adını girin, ayarları belirlemek ve seçin **sonraki**.
-
-    ![Çıkış klasörü belirtin](media/data-factory-load-data/specify-path.png)
-
 1. İçinde **Tablo eşleme**, hedef tablo adını ayarlayın ve seçin **sonraki**.
 
     ![Hedef veri kümesi Tablo eşleme](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure Veri Gezgini yeni bağlı hizmet, aşağıda belirtilen verileri Azure Ver
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bağlı hizmetler, veri kümeleri ve işlem hatlarında düzenleme hakkında daha fazla bilgi [Data Factory kullanıcı Arabirimi](/azure/data-factory/quickstart-create-data-factory-portal)
+* Hakkında bilgi edinin [Azure Veri Gezgini bağlayıcı](/azure/data-factory/connector-azure-data-explorer) Azure Data factory'de.
+
+* Bağlı hizmetler, veri kümeleri ve işlem hatlarında düzenleme hakkında daha fazla bilgi [Data Factory kullanıcı arabirimini](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Hakkında bilgi edinin [Azure Veri Gezgini sorguları](/azure/data-explorer/web-query-data) veri sorgulamak için.

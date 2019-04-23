@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f2f70f16d27e8244e0fa3a259e963100f78aef55
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 6f1301a26c7f880802ec873506060df6b423f54f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154437"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009159"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Oturum açma bir Twitter hesabıyla Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama
 
@@ -46,7 +46,7 @@ Bir Azure AD B2C kimlik sağlayıcısı olarak twitter'ı kullanmak için bir Tw
 Azure AD B2C kiracınıza daha önce kaydettiğiniz gizli anahtarı depolamak gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
@@ -87,7 +87,7 @@ Bir talep sağlayıcısı olarak Twitter hesabıyla ekleyerek tanımlayabilirsin
             <Key Id="client_secret" StorageReferenceId="B2C_1A_TwitterSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -142,13 +142,13 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak herhangi bir kaydolma veya 
 Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için bir Twitter hesabıyla iletişim kurmak için Azure AD B2C içindir.
 
 1. Bulma **OrchestrationStep** içeren `Order="2"` kullanıcı giden.
-2. Aşağıdaki **ClaimsExchange** öğe için aynı değeri kullanın sağlamaktan **kimliği** için kullanılan **TargetClaimsExchangeId**:
+2. Aşağıdaki **ClaimsExchange** öğesi için kullanılan kimliği için aynı değeri kullanın sağlamaktan **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
     
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `Twitter-OAUTH1`.
+    Değerini güncelleştirin **TechnicalProfileReferenceId** daha önce oluşturduğunuz teknik profil kimliği. Örneğin, `Twitter-OAUTH1`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -157,7 +157,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girin, örneğin *testapp1*.

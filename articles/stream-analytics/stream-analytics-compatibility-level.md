@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: b5c833798f8533e7c6fbe3595a726ac6ce56e2d2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682823"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998269"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
 
@@ -75,7 +75,7 @@ Daha fazla bilgi için [Azure Stream Analytics – Bulut ve IOT Edge Jeo-uzamsal
 
 **Önceki düzeyleri:** Upsert davranış olduğu *eklemek veya birleştirme*.
 
-**1.2 düzeyi:** CosmosDB çıkışı yerel toplu API tümleştirmesiyle, aktarım hızını en üst düzeye çıkarır ve istekleri azaltma verimli bir biçimde gerçekleştirir.
+**1.2 düzeyi:** CosmosDB çıkışı yerel toplu API tümleştirmesiyle, aktarım hızını en üst düzeye çıkarır ve istekleri azaltma verimli bir biçimde gerçekleştirir. Daha fazla bilgi için [sayfasında Azure Cosmos DB için Azure Stream Analytics çıkış](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
 Upsert davranıştır *Ekle veya Değiştir*.
 

@@ -1,21 +1,21 @@
 ---
 title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için node.js kullanma"
 titleSuffix: Azure Cognitive Services
-description: Azure Microsoft Bilişsel Hizmetler'deki Metin Analizi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
+description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226938"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007447"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için node.js kullanma  
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ Ayrıca kayıt sırasında oluşturulan [uç nokta ve erişim anahtarı](../How-
 
 ## <a name="detect-language"></a>Dili algılama
 
-Dil Algılama API'si, [Dili Algıla metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar.
+Dil Algılama API'si, [Dili Algıla metodunu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar.
 
 1. En sevdiğiniz IDE veya bir klasöre masaüstünüzde yeni bir Node.JS projesi oluşturun.
 2. Aşağıda verilen yeni bir kod ekleme `.js` dosya.
@@ -63,7 +63,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/languages';
+let path = '/text/analytics/v2.1/languages';
 
 let response_handler = function (response) {
     let body = '';
@@ -156,7 +156,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Yaklaşım analizi, müşterilerin markanız veya konunun pozitif veya negatif yaklaşım hakkında ipuçları için ham metni çözümleyerek düşündüklerini bulmak için kullanılabilir. Aşağıdaki örnek puanları iki belge, bir İngilizce ve İspanyolca başka sağlar.
+Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Yaklaşım analizi, müşterilerin markanız veya konunun pozitif veya negatif yaklaşım hakkında ipuçları için ham metni çözümleyerek düşündüklerini bulmak için kullanılabilir. Aşağıdaki örnek puanları iki belge, bir İngilizce ve İspanyolca başka sağlar.
 
 1. En sevdiğiniz IDE veya bir klasöre masaüstünüzde yeni bir Node.JS projesi oluşturun.
 2. Aşağıda verilen yeni bir kod ekleme `.js` dosya.
@@ -185,7 +185,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/sentiment';
+let path = '/text/analytics/v2.1/sentiment';
 
 let response_handler = function (response) {
     let body = '';
@@ -252,7 +252,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Anahtar ifade ayıklama, bir belge ya da metin ana noktaları hızlıca belirlemek için kullanılır. Aşağıdaki örnekte hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
+Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Anahtar ifade ayıklama, bir belge ya da metin ana noktaları hızlıca belirlemek için kullanılır. Aşağıdaki örnekte hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
 
 1. En sevdiğiniz IDE veya bir klasöre masaüstünüzde yeni bir Node.JS projesi oluşturun.
 2. Aşağıda verilen yeni bir kod ekleme `.js` dosya.
@@ -281,7 +281,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/keyPhrases';
+let path = '/text/analytics/v2.1/keyPhrases';
 
 let response_handler = function (response) {
     let body = '';
@@ -368,7 +368,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="identify-linked-entities"></a>Bağlantılı varlıkları tanımlama
 
-Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. [Varlıkları](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) metinden "ABD" gibi sözcükleri ayıklama sonra bu sözcükler türü ve/veya Wikipedia bağlantısını verin. "ABD" için türdür `location`Wikipedia bağlantısını bilgileriyse `https://en.wikipedia.org/wiki/United_States`.  Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
+Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. [Varlıkları](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) metinden "ABD" gibi sözcükleri ayıklama sonra bu sözcükler türü ve/veya Wikipedia bağlantısını verin. "ABD" için türdür `location`Wikipedia bağlantısını bilgileriyse `https://en.wikipedia.org/wiki/United_States`.  Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
 
 1. En sevdiğiniz IDE veya bir klasöre masaüstünüzde yeni bir Node.JS projesi oluşturun.
 2. Aşağıda verilen yeni bir kod ekleme `.js` dosya.
@@ -397,7 +397,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.1-preview/entities';
+let path = '/text/analytics/v2.1/entities';
 
 let response_handler = function (response) {
     let body = '';
@@ -432,8 +432,7 @@ let get_entities = function (documents) {
 }
 
 let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.' },
-    { 'id': '2', 'language': 'en', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' }
+    { 'id': '1', 'language': 'en', 'text': 'Microsoft is an It company.' }
 ]};
 
 get_entities (documents);
@@ -444,158 +443,47 @@ get_entities (documents);
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 

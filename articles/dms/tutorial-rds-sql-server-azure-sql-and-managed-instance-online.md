@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Bir Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği SQL Server RDS çevrimiçi geçişi gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın | Microsoft Docs'
-description: Bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği için Azure veritabanı geçiş hizmeti kullanarak gerçekleştirmek öğrenin.
+title: 'Öğretici: Çevrimiçi bir RDS SQL Server için Azure SQL veritabanı veya Azure SQL veritabanı yönetilen örneğine geçişi için Azure veritabanı geçiş hizmeti kullanın. | Microsoft Docs'
+description: Azure SQL veritabanı yönetilen örneği Azure veritabanı geçiş hizmetini kullanarak veya bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı'na gerçekleştirmeyi öğrenin.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886412"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998983"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak
 RDS SQL Server örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/) veya [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) en düşük kapalı kalma süresi. Bu öğreticide, geçiş **Adventureworks2012** geri yüklenen veritabanı bir RDS SQL Server örneği SQL Server 2012'in (veya üzeri) Azure SQL veritabanı veya Azure SQL veritabanı için Azure veritabanı geçişi kullanarak yönetilen örnek Hizmeti.
@@ -187,7 +187,14 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
  
 3. +**Yeni Geçiş Projesi**'ni seçin.
 4. Üzerinde **yeni geçiş projesi** projesi için bir ad belirtin, ekran **kaynak sunucu türü** metin kutusunda **SQL Server için AWS RDS**,  **Hedef sunucu türü** metin kutusunda **Azure SQL veritabanı**.
+
+    > [!NOTE]
+    > Hedef sunucu türü için **Azure SQL veritabanı** hem Azure SQL veritabanı tek veritabanı ve de Azure SQL veritabanı için farklı geçiş için yönetilen örneği.
+
 5. İçinde **etkinlik türünü seçin** bölümünden **çevrimiçi veri geçişi**.
+
+    > [!IMPORTANT]
+    > Seçtiğinizden emin olun **çevrimiçi veri geçişi**; çevrimdışı geçişler, bu senaryo için desteklenmez.
 
     ![Veritabanı Geçiş Hizmeti Projesi Oluşturma](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 

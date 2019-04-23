@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886800"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002281"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Örnek: Metin analizi diliyle tespit etme
 
-[Dil Algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7), metin girişini değerlendirir ve her bir belge için analizin gücünü belirten bir puan ile dil tanımlayıcılarını döndürür. Metin Analizi 120’ye kadar dili tanır.
+[Dil Algılama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7), metin girişini değerlendirir ve her bir belge için analizin gücünü belirten bir puan ile dil tanımlayıcılarını döndürür. Metin Analizi 120’ye kadar dili tanır.
 
 Bu özellik, dilin bilinmediği rastgele metni toplayan içerik depoları için kullanışlıdır. Giriş belgesinde hangi dilin kullanıldığını belirlemek için bu analizin sonuçlarını ayrıştırabilirsiniz. Yanıt ayrıca modelin güvenilirliğini yansıtan bir puan da (0 ile 1 arasında bir değer) döndürür.
 
@@ -27,7 +27,7 @@ Bu özellik, dilin bilinmediği rastgele metni toplayan içerik depoları için 
 
 ## <a name="preparation"></a>Hazırlık
 
-JSON belgeleri kimlik, metin biçiminde olmalıdır.
+JSON belgelerini şu biçimde olmalıdır: Kimlik, metin
 
 Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır ve en fazla 1.000 olabilir koleksiyon başına öğe sayısı (Kimlikler). Koleksiyon, istek gövdesinde gönderilir. Aşağıda, dil algılama için gönderebileceğiniz bir içerik örneği verilmiştir.
 
@@ -62,16 +62,16 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Dil algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Dil algılama API'si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Dil algılama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/languages` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Dil algılama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/languages` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
 + İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın
 
 > [!Tip]
-> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) **API testi konsolu**’nu açın.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) **API testi konsolu**’nu açın.
 
 ## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
@@ -206,8 +206,8 @@ Sonuçta elde edilen çıktı, daha zayıf bir güvenilirlik düzeyini belirten 
 
 Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak dil algılama için kavramları ve iş akışını öğrendiniz. Aşağıda, önceden açıklanmış ve gösterilmiş olan ana noktaların hızlı bir anımsatıcısı yer almaktadır:
 
-+ [Dil algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 120 dilde mevcuttur.
-+ İstek gövdesindeki JSON belgeleri bir kimlik ve metin içerir.
++ [Dil algılama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) 120 dilde mevcuttur.
++ İstek gövdesindeki JSON belgelerini bir kimliği ve metin ekleyin.
 + POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/languages` uç noktasına yapılır.
 + Her belge kimliği için dil tanımlayıcılarından oluşan yanıt çıktısı, Excel ve Power BI da dahil olmak üzere JSON kabul eden tüm uygulamalarda akışa alınabilir.
 

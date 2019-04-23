@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833440"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999476"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure'dan şirket içine yeniden çalışma ilgili sorunları giderme
 
@@ -56,7 +56,7 @@ Bu sorunu çözmek için:
 
 Bu sorunu çözmek için:
 
-İşlem sunucusu ile iletişim kurarak çoğaltma sunucusu şirket içi yapılandırma ve can ile Mobility hizmetini kaydeder başlatılması devredilen VM yeniden korumak için Azure VM çalıştırılması gerekir. Makine üzerinde yanlış bir ağ veya çalışıyor (durum veya kapatma aşağı askıda değilse) ise, yeniden korumaya başlamak için sanal makine üzerindeki Mobility hizmetinin yapılandırma sunucusuna erişemiyor.
+İşlem sunucusu ile iletişim kurarak çoğaltma sunucusu şirket içi yapılandırma ve can ile Mobility hizmetini kaydeder başlatılması devredilen VM yeniden korumak için Azure VM çalıştırılması gerekir. Makineyi hatalı bir ağdaysa veya (yanıt vermiyor veya kapatma) çalışmadığından, yeniden korumaya başlamak için sanal makine üzerindeki Mobility hizmetinin yapılandırma sunucusuna erişemiyor.
 
 * Tekrar şirket içine iletişim başlatılabilmesi VM'yi yeniden başlatın.
 * Azure sanal makine başlatıldıktan sonra yeniden koruma işi yeniden başlatın.

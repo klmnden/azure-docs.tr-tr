@@ -1,24 +1,23 @@
 ---
 title: Azure ayırmalarını yönetme | Microsoft Docs
 description: Abonelik kapsamını değiştirmek ve erişimi yönetmek için Azure ayırmaları nasıl öğrenin.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904450"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994972"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -29,7 +28,19 @@ Azure ayrılmış sanal makine örnekleri satın aldıysanız, ayırma için İy
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Rezervasyon için kapsam değiştirme
+## <a name="reservation-order-and-reservation"></a>Rezervasyon siparişi ve ayırma
+
+Bir rezervasyon satın alma işlemi yaptığınızda, iki nesne oluşturulur: **Rezervasyon siparişi** ve **ayırma**.
+
+Satın alım zamanında rezervasyon siparişi altındaki bir ayırma vardır. Bölünmüş, birleştirme, kısmi para iadesi veya exchange gibi eylemleri altında yeni ayırmaları oluşturma **rezervasyon siparişi**.
+
+Rezervasyon siparişi görüntülemek için Git **ayırmaları** > Rezervasyon seçin ve ardından **rezervasyon sipariş kimliği**.
+
+![Rezervasyon sipariş ayrıntılarını gösteren rezervasyon sipariş kimliği örneği ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Ayırma, rezervasyon siparişini izinleri devralır.
+
+## <a name="change-the-reservation-scope"></a>Ayırma Kapsamı Değiştir
 
  Ayırma indirimi, sanal makineler, SQL veritabanları, Azure Cosmos DB veya rezervasyonunuzun eşleşen ve ayırma kapsamı içinde çalıştırılan diğer kaynaklar için geçerlidir. Fatura bağlamı, rezervasyon satın almak için kullanılan abonelik üzerinde bağlıdır.
 
@@ -47,9 +58,12 @@ Kapsam yalnızca MS-AZR-0003P veya MS-AZR-0023P kodlu Kullandıkça Öde teklifi
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Rezervasyonu yönetebilecek kullanıcıları ekleme veya değiştirme
 
-Rezervasyona ait rollere kullanıcı ekleyerek bir rezervasyonun yönetimi için temsilciler belirleyebilirsiniz. Varsayılan olarak rezervasyonu satın alan kişi ve hesap yöneticisi, rezervasyonda Sahip rolüne atanır.
+Ayırma yönetim rolleri rezervasyon siparişi veya ayırma kişiler ekleyerek devredebilirsiniz. Varsayılan olarak, rezervasyon siparişi ve Hesap Yöneticisi yerleştirir kişi rezervasyon siparişi ve ayırma sahip rolüne sahiptir.
 
-Erişim ayırmaları bağımsız olarak ayırma indirimi alma aboneliklerden yönetebilirsiniz. Birisi bir ayırma yönetme izni verdiğinizde, bunları aboneliğinizi yönetmek için hakları verin değil. Ve birisi ayırma'nın kapsamı içinde bir aboneliği yönetme izni verirseniz, bunları ayırma yönetme hakkı vermez.
+Rezervasyon siparişleri ve ayırmaları bağımsız olarak ayırma indirimi alma aboneliklerinden gelen erişimi yönetebilir. Birisi bir rezervasyon siparişi veya ayırma yönetme izni verdiğinizde, bunları aboneliği yönetme izni vermek değil. Birisi bir abonelikte bir ayırma'nın kapsamı yönetme izni verirseniz, benzer şekilde, bu bunları rezervasyon siparişi veya ayırma yönetme hakkı verin değil.
+
+Bir exchange ya da para iadesinin gerçekleştirmek için kullanıcı rezervasyon siparişi erişimi olmalıdır. Birisi izin verirken, rezervasyon siparişi ayırma izinler en iyisidir.
+
 
 Erişim yönetimi için bir ayırma temsilci atamak için:
 

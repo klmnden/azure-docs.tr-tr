@@ -1,6 +1,6 @@
 ---
-title: Web kancaları/Logic Apps/Azure işlevleri için genel uyarı şema tanımları
-description: Web kancaları/Logic Apps/Azure işlevleri için genel uyarı şema tanımlarının anlama
+title: Web kancaları/Logic Apps/Azure işlevleri/Automation runbook'ları için ortak uyarı şema tanımları
+description: Ortak uyarı şema tanımları için Web kancaları/Logic Apps/Azure işlevleri/Automation runbook'ları anlama
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010405"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149419"
 ---
 # <a name="common-alert-schema-definitions"></a>Ortak uyarı şeması tanımları
 
-Bu makalede [ortak uyarı şema tanımları](https://aka.ms/commonAlertSchemaDocs) Web kancaları/Logic Apps/Azure işlevleri için. 
+Bu makalede [ortak uyarı şema tanımları](https://aka.ms/commonAlertSchemaDocs) Web kancaları/Logic Apps/Azure işlevleri/Automation runbook'ları için. 
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -88,7 +88,7 @@ Herhangi bir uyarı örneği açıklar **etkilenen kaynak** ve **uyarının nede
 | originAlertId | Uyarı örneği olarak, oluşturma izleme hizmeti tarafından oluşturulan kimliği. |
 | firedDateTime | Uyarı örneği UTC zaman harekete geçirildi, tarih saat |
 | resolvedDateTime | Uyarı örneği için izleme koşulu 'Çözümlenmiş' UTC ayarlandığında, tarih saat. Şu anda yalnızca ölçüm uyarıları için geçerlidir.|
-| açıklama | Uyarı kuralda tanımlanan açıklaması |
+| description | Uyarı kuralda tanımlanan açıklaması |
 |essentialsVersion| Temel Parçalar bölümünde ilişkin sürüm numarasıdır.|
 |alertContextVersion | AlertContext bölümü için sürüm numarası |
 

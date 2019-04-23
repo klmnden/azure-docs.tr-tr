@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528195"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007466"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri çıktığı kümedeki tüm varlıklarda sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıkları siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -29,7 +29,7 @@ Azure Service Fabric bileşenleri çıktığı kümedeki tüm varlıklarda siste
 > 
 > 
 
-Sistem durumu raporlarını, küme ve uygulama işlevselliğini ve bayrağı sorunları görünürlük sağlar. Uygulamalar ve hizmetler için sistem durumu raporlarını varlıkları uygulanır ve Service Fabric açısından doğru davrandığını doğrulayın. Raporları, tüm sistem durumu hizmetinin iş mantığını veya askıdaki işlemleri algılamak izleme sağlaması gerekmez. Hizmetleri kendi mantığını özgü bilgileri sistem durumu verileri zenginleştirebilirsiniz.
+Sistem durumu raporlarını, küme ve uygulama işlevselliğini ve bayrağı sorunları görünürlük sağlar. Uygulamalar ve hizmetler için sistem durumu raporlarını varlıkları uygulanır ve Service Fabric açısından doğru davrandığını doğrulayın. Raporları, tüm sistem durumu hizmetinin iş mantığını veya yanıt vermeyen işlemlerin algılama izleme sağlaması gerekmez. Hizmetleri kendi mantığını özgü bilgileri sistem durumu verileri zenginleştirebilirsiniz.
 
 > [!NOTE]
 > Kullanıcı watchdogs tarafından gönderilen durum raporları görünür yalnızca *sonra* sistem bileşenleri bir varlık oluşturun. Bir varlık silindiğinde, sistem durumu deposu onunla ilişkili tüm sistem durumu raporları otomatik olarak siler. Bir varlığın yeni bir örneği oluşturulduğunda, aynı durum geçerlidir. Yeni bir durum bilgisi olan kalıcı hizmet çoğaltma örneği oluşturulduğunda bir örnektir. Eski örneğiyle ilişkili tüm raporlar silinir ve Mağaza'dan temizlenir.

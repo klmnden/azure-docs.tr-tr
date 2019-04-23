@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554199"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012510"
 ---
 #### <a name="process-automation"></a>Süreç otomasyonu
 
@@ -22,6 +22,7 @@ ms.locfileid: "57554199"
 | Azure Otomasyonu hesabını (nonscheduled işler) her 30 saniyede gönderilen yeni iş sayısı üst sınırını |100 |Bu sınıra ulaşıldığında, bir iş oluşturmak için sonraki istekler başarısız. İstemci bir hata yanıtı alır.|
 | En fazla eş zamanlı çalışan işleri, Otomasyon hesabı (nonscheduled işler) her zaman aynı örneği sayısı |200 |Bu sınıra ulaşıldığında, bir iş oluşturmak için sonraki istekler başarısız. İstemci bir hata yanıtı alır.|
 | En fazla depolama boyutunu çalışırken 30 günlük dönem için iş meta verileri | 10 GB (yaklaşık 4 milyon işler)|Bu sınıra ulaşıldığında, bir iş oluşturmak için sonraki istekler başarısız. |
+| En fazla iş akışı sınırı|1MB|Tek bir akışın 1 MB'den büyük olamaz.|
 | Otomasyon hesabı başına her 30 saniyede aktarılan modülleri sayısı |5 ||
 | Bir modülün en büyük boyutu |100 MB ||
 | İş çalıştırma zamanı, ücretsiz katmanı |Takvim ayı başına abonelik başına 500 dakika ||

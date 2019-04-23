@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 163edd544a2d93e380b8906df3e0055711321c95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 09736396342505c8ec44cc83bf66f7c0ef893f80
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918867"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000301"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Java'da Azure uzamsal bağlayıcılarını kullanarak nasıl oluşturulup bulun tutturur
 
@@ -39,7 +39,7 @@ Bu kılavuzu tamamlamak için sahip olduğunuzdan emin olun:
 - Okumak [Azure uzamsal yer işaretleri genel bakış](../overview.md).
 - Biri tamamlandı [5 dakikalık hızlı Başlangıçlar](../index.yml).
 - Java hakkında temel bilgilere.
-- Hakkında temel bilgilere <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
+- Hakkında temel bilgilere <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

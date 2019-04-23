@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755915"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999833"
 ---
-# <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
+# <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 genel bakış
 
 Azure Media Services, yayın kalitesinde video akışı elde etmenizi, erişilebilirlik ve dağıtımı iyileştirmenizi, içerikleri analiz etmenizi ve daha fazlasını yapmanızı sağlayan çözümler derlemenize olanak tanıyan bulut tabanlı bir platformdur. İster uygulama geliştiricisi, çağrı merkezi, devlet dairesi, isterse bir eğlence şirketi olun, Media Services günümüzün en popüler mobil cihazlarında ve tarayıcılarında büyük kitlelere olağanüstü kalitede medya deneyimi sunan uygulamalar oluşturmanıza yardımcı olur. 
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
 ## <a name="what-can-i-do-with-media-services"></a>Media Services ile ne yapabilirim?
 
@@ -46,7 +46,7 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim? 
 
-Kodlama ve içerik paketi, talep üzerine video akışı, Canlı yayın gerçekleştirme, Media Services v3 ile videolarınızı analiz öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
+Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
 Geliştirmeye başlamadan önce gözden [temel kavramlar](concepts-overview.md)<br/>
 
@@ -74,11 +74,15 @@ Makaleler, bir görevin nasıl tamamlanacağını gösteren kod örnekleri içer
 
 * [Bir hesap oluşturma - CLI](create-account-cli-how-to.md)
 * [API'lere erişim - CLI](access-api-cli-how-to.md)
-* [SDK'ları ile geliştirmeye başlayın](developers-guide.md)
+* [SDK'larla geliştirmeye başlama](developers-guide.md)
 * [HTTPS ile giriş - iş olarak .NET kodlama](job-input-from-http-how-to.md)  
 * [Olay İzleme - Portal](monitor-events-portal-how-to.md)
 * [Birden çok DRM ile - .NET dinamik olarak şifreleyin](protect-with-drm.md) 
 * [-CLI gibi özel bir dönüşüm ile kodlama](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

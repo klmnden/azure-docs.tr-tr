@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879701"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007636"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -82,8 +82,6 @@ El ile yük devretme seçeneğini her zaman olup birincil bölgenin kesinti veya
 > - Üretim ortamlarınızı kullanılmakta olan IOT hub'larında test tatbikatları gerçekleştirilmemelidir.
 >
 > - El ile yük devretme mekanizması olarak kalıcı olarak hub'ınıza eşleştirilmiş Azure coğrafi bölgeler arasında geçirmek için kullanılmamalıdır. Bunun yapılması, eski birincil bölgeye bağlantılı cihazlar hub'ın karşı gerçekleştirilen işlemleri için daha yüksek bir gecikme süresiyle neden olur.
->
-> - El ile yük devretme, şu anda Önizleme aşamasındadır ve aşağıdaki Azure bölgelerinde kullanılabilir değil. Doğu ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Brezilya Güney, Orta Güney ABD.
 
 ### <a name="failback"></a>Yeniden çalışma
 

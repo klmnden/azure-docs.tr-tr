@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: d71e08a548809ef0de47c4a865af531732a88a4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 33deea0805ffa89bcc6a64f34a97a4e080690da9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697286"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008826"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Framework uygulaması ile Azure uygulama yapılandırması
 
@@ -36,6 +36,14 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
 ## <a name="create-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu oluşturma
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+
+    | Anahtar | Value |
+    |---|---|
+    | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
+
+    Bırakın **etiket** ve **içerik türü** şimdilik boş.
 
 ## <a name="create-a-net-console-app"></a>Bir .NET konsol uygulaması oluşturma
 
@@ -106,4 +114,4 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
 Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir .NET Framework konsol uygulaması kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure kaynaklarını tümleştirme için yönetilen kimlik](./howto-integrate-azure-managed-service-identity.md)
+> [Yönetilen kimlik tümleştirme](./howto-integrate-azure-managed-service-identity.md)

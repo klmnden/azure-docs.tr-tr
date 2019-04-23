@@ -8,18 +8,17 @@ services: site-recovery
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 4f13c1beb23687b46074671fe01a0f42b26c8c03
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 399dcd744819cf4cb5d9f5f9636967c34e186a0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312929"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004610"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için yapılandırma sunucusu gereksinimleri
 
 Kullanırken bir şirket içi yapılandırma sunucusunu dağıtma [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için.
 
-- Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Veri çoğaltma işlemlerini yönetir.
 - Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Veri çoğaltma işlemlerini yönetir.
 - [Daha fazla bilgi edinin](vmware-azure-architecture.md) yapılandırma sunucusu bileşenleri ve süreçleri hakkında.
 

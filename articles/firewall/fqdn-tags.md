@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 897ea3856516b5429ffb770164f863d71e7ae0dd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419019"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149776"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN etiketleri genel bakış
 
@@ -26,17 +26,20 @@ Kendi FQDN etiket oluşturamaz veya FQDN'ler bir etikete dahil olan belirtebilir
 
 Aşağıdaki tabloda kullanabileceğiniz geçerli FQDN etiket gösterilmektedir. Microsoft bu etiketleri korur ve düzenli aralıklarla eklenecek ek etiketler bekleyebilirsiniz.
 
+## <a name="current-fqdn-tags"></a>Geçerli bir FQDN etiketler
+
 |FQDN etiketi  |Açıklama  |
 |---------|---------|
 |Windows Update     |Bölümünde anlatıldığı gibi Microsoft Update giden erişime izin vermek [yazılım güncelleştirmeleri için güvenlik duvarı yapılandırma](https://technet.microsoft.com/library/bb693717.aspx).|
 |Windows Tanılama Özellikleri|Tüm giden erişime izin vermek [Windows Tanılama uç noktaları](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Etkin Koruma Hizmeti (MAPS)|Giden erişime izin ver [HARİTALAR](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service ortamı (ASE)|ASE platform trafiği giden erişim sağlar. Bu etiket, müşteriye özgü depolama ve SQL uç noktaları ASE tarafından oluşturulan ele alınmamıştır. Bunlar üzerinden etkinleştirilmelidir [hizmet uç noktaları](../virtual-network/tutorial-restrict-network-access-to-resources.md) veya el ile eklenmiş.<br><br>Azure güvenlik duvarı ASE ile tümleştirme hakkında daha fazla bilgi için bkz. [App Service ortamı kilitleme](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Azure Backup hizmetlerine giden erişim sağlar.
+|Azure Backup|Azure Backup hizmetlerine giden erişim sağlar.|
+|Azure HDInsight<br>(Önizleme)|HDInsight platform trafiği için giden erişim sağlar. Bu etiket, HDInsight müşteriye özgü depolama veya SQL trafiği ele alınmamıştır. Bunlar üzerinden etkinleştirilip [hizmet uç noktaları](../virtual-network/tutorial-restrict-network-access-to-resources.md) veya el ile eklenmiş.|
 
 > [!NOTE]
 > FQDN etiketi, bir uygulama kuralı seçerken, protokol: bağlantı noktası alanına ayarlanmalıdır **https**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir Azure güvenlik duvarı dağıtma konusunda bilgi edinmek için [öğretici: Azure Azure portalını kullanarak güvenlik duvarı yapılandırma ve dağıtma](tutorial-firewall-deploy-portal.md).
+Bir Azure güvenlik duvarı dağıtma konusunda bilgi edinmek için [Öğreticisi: Dağıtma ve Azure Azure portalını kullanarak güvenlik duvarı yapılandırma](tutorial-firewall-deploy-portal.md).

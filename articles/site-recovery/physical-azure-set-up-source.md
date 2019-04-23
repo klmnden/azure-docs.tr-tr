@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899018"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149028"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama
 
@@ -50,7 +50,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
    ![Kaynağı ayarlama](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. İçinde **Sunucusu Ekle** dikey penceresinde bu maddeyi **yapılandırma sunucusu** görünür **sunucu türü**.
 4. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-5. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+5. Kasa kayıt anahtarını indirin. Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/physical-azure-set-up-source/set-source2.png)
 6. Yapılandırma sunucusu olarak kullandığınız makinede çalıştırma **Azure Site Recovery birleşik Kurulumu** yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu yüklemek için.
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 > Yapılandırma sunucusu, bir komut satırı yüklenebilir. [Daha fazla bilgi edinin](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
-## <a name="common-issues"></a>Sık karşılaşılan sorunlar
+## <a name="common-issues"></a>Genel sorunlar
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 

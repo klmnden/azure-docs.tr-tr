@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630782"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006803"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
 
@@ -107,7 +107,7 @@ Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (
  
 AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
  
-| ResourceProvider | Kategori | A | B | C | D | E | C | G | H | I |
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
 | Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |
@@ -124,7 +124,7 @@ Azure Data Factory, çok ayrıntılı günlükleri, birtakım nedeniyle bu sın�
 - *Herhangi bir etkinlik, işlem hattındaki karşı tanımlanan kullanıcı parametreleri*: etkinliklere karşı her benzersiz olarak adlandırılmış kullanıcı parametresi için oluşturulan yeni bir sütun olur. 
 - *Etkinlik giriş ve çıkışları*: Bu etkinliğin etkinlik değişir ve ayrıntılı doğasını nedeniyle, büyük bir miktarını oluşturur. 
  
-Olarak daha geniş geçici çözüm teklifleri ile aşağıdaki, bu günlükler, çalışma alanlarında toplanmakta olan diğer günlük türlerini etkileyen olasılığını en aza indirmek için kendi çalışma alanına ADF günlükleri yalıtmak için önerilir. Mid-Nisan 2019 tarafından Azure Data Factory için kullanılabilir günlükleri seçkin isteriz.
+Olarak daha geniş geçici çözüm teklifleri ile aşağıdaki, bu günlükler, çalışma alanlarında toplanmakta olan diğer günlük türlerini etkileyen olasılığını en aza indirmek için kendi çalışma alanına ADF günlükleri yalıtmak için önerilir. Günlükler Azure Data Factory için kullanılabilir olan en kısa sürede seçkin isteriz.
  
 #### <a name="workarounds"></a>Geçici Çözümler
 500-sütun sınırını tanımlandı kadar kısa vadede, ayrıntılı veri türleri limitini aştıktan olasılığını azaltmak için ayrı çalışma alanları halinde ayırmak önerilir.

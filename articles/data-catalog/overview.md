@@ -1,17 +1,17 @@
 ---
 title: Azure veri Kataloğu'na giriş
 description: Bu makalede, Microsoft Azure Veri Kataloğu özelliklerinin ve giderdiği sorunların yanı sıra bu hizmete genel bir bakış sunulmaktadır. Veri Kataloğu, herhangi bir kullanıcının veri kaynaklarına kaydolmasına; bunları bulmasına, anlamasına ve tüketmesine imkan sağlar.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: cd20fc6ae71a0dd96a0006de8c81050bb0646905
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 87c86ddeaa24693d393d250e1dc699b9a15ea84b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59287437"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010169"
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure Veri Kataloğu nedir?
 

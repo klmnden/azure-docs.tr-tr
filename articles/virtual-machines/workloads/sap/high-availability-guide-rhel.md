@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652510"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003420"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure sanal makineler Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -74,6 +74,7 @@ Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme
   * [Yüksek kullanılabilirlik eklenti Yönetim](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Yüksek kullanılabilirlik eklenti başvurusu](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [ASCS/Ağıranlar RHEL 7.5 tek başına kaynaklar ile SAP Netweaver için yapılandırma](https://access.redhat.com/articles/3569681)
+  * [2 (ENSA2) tek başına kuyruğa sunucuyla SLES RHEL üzerinde Pacemaker ASCS/Ağıranlar SAP S/4hana'yı yapılandırma ](https://access.redhat.com/articles/3974941)
 * Azure özel RHEL belgeleri:
   * [RHEL yüksek kullanılabilirlik kümelerini - Microsoft Azure sanal makineleri küme üyeleri olarak ilkeleri desteği](https://access.redhat.com/articles/3131341)
   * [Yükleme ve Microsoft Azure'da Red Hat Enterprise Linux 7.4 (ve üzeri) yüksek kullanılabilirlik kümesi yapılandırma](https://access.redhat.com/articles/3252491)
@@ -480,6 +481,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 1. **[1]**  SAP küme kaynaklarını oluşturma
 
+  Sıraya alma 1 sunucusu mimarisi (ENSA1) kullanıyorsanız, kaynakları gibi tanımlayın:
+
    <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
@@ -495,12 +498,36 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
-   
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
    </code></pre>
+
+   Kuyruğa sunucu çoğaltma, SAP KB 7.52 itibarıyla dahil olmak üzere 2 için sunulan destek SAP. Sıraya alma sunucu 2 ABAP Platform 1809 ile başlayarak, varsayılan olarak yüklenir. SAP bkz Not [2630416](https://launchpad.support.sap.com/#/notes/2630416) kuyruğa sunucu 2 desteği.
+   Sıraya alma 2 sunucu mimarisi kullanıyorsanız ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), kaynak-Aracısı-sap-4.1.1-12.el7.x86_64 ya da daha yeni kaynak aracısını yükleyin ve kaynakları aşağıdaki gibi tanımlayın:
+
+<pre><code>sudo pcs property set maintenance-mode=true
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
+    InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    --group g-<b>NW1</b>_ASCS
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    --group g-<b>NW1</b>_AERS
+      
+   sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
+   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   
+   sudo pcs node unstandby <b>nw1-cl-0</b>
+   sudo pcs property set maintenance-mode=false
+   </code></pre>
+
+   Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş'lu sap notuna bakın [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 

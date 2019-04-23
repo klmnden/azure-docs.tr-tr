@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fc6657af66adffbf4c702f50a7934efc56fb7acf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309397"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998337"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak küçük resim oluşturma veC#
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, bir akıllı kırpılmış küçük resim için bilgi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Bir görüntü işleme abonelik anahtarı. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 * [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 

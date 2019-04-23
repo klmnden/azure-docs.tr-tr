@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566546"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118929"
 ---
 ## <a name="benefits-of-managed-disks"></a>Yönetilen disklerin avantajlarından
 
@@ -61,7 +61,7 @@ Bu diski 2.048 GiB kapasiteye sahiptir.
 
 ### <a name="temporary-disk"></a>Geçici disk
 
-Her VM için yönetilen disk değil geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) olay veya ne zaman, [bir VM'yi yeniden dağıtma](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Başarılı standart yeniden başlatma VM'nin sırasında geçici sürücüdeki verilerin açık kalır.
+Her VM için yönetilen disk değil geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) olay veya ne zaman, [bir VM'yi yeniden dağıtma](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Azure Linux vm'lerinde geçici disk /dev/sdb varsayılan olarak ve Windows Vm'lerinde geçici disk E: varsayılan olarak. Başarılı standart yeniden başlatma VM'nin sırasında geçici diskteki veriler korunur.
 
 ## <a name="managed-disk-snapshots"></a>Yönetilen disk anlık görüntüleri
 

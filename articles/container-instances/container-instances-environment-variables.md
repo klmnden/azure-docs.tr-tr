@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606897"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994784"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Container Instances ortam değişkenlerini ayarlama
 
@@ -143,14 +143,11 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Azure portal örneği
 
-Azure portalında bir kapsayıcı başlatma, ortam değişkenlerini ayarlamak için bunları belirtin **yapılandırma** sayfasında kapsayıcısı oluşturduğunuzda.
+Azure portalında bir kapsayıcı başlatma, ortam değişkenlerini ayarlamak için bunları belirtin **Gelişmiş** sayfasında kapsayıcısı oluşturduğunuzda.
 
-Portal ile dağıttığınızda, üç değişkenler şu anda sınırlı ve şu biçimde girmeniz gerekir: `"variableName":"value"`
-
-Bir örnek için başlangıç [Acı wordcount] [ aci-wordcount] ile kapsayıcı *NumWords* ve *MinLength* değişkenleri.
-
-1. İçinde **yapılandırma**ayarlayın **yeniden ilke** için *başarısız*
-2. Girin `"NumWords":"5"` birinci değişken için olan seçin **Evet** altında **ek ortam değişkenlerini ekleyin**girin `"MinLength":"8"` ikinci değişken için. Seçin **Tamam** doğrulayın ve ardından kapsayıcıya dağıtın.
+1. Üzerinde **Gelişmiş** sayfasında **yeniden ilke** için *başarısız*
+2. Altında **ortam değişkenlerini**, girin `NumWords` değeriyle `5` birinci değişken için girin `MinLength` değeriyle `8` ikinci değişken için. 
+1. Seçin **gözden geçir + Oluştur** doğrulayın ve ardından kapsayıcıya dağıtın.
 
 ![Ortam değişkeni etkinleştir düğme ve metin kutularını gösteren portal sayfası][portal-env-vars-01]
 

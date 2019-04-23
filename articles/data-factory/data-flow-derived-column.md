@@ -1,20 +1,19 @@
 ---
-title: Azure veri fabrikası veri akışı türetilmiş sütun dönüştürme
-description: Azure veri fabrikası veri akışı türetilmiş sütun dönüştürme
+title: Azure veri fabrikası veri akışı eşleme türetilmiş sütun dönüştürme
+description: Azure veri fabrikası eşleme veri akışı türetilmiş sütun dönüştürme ile uygun ölçekte verileri dönüştürme hakkında
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 1335b86431bcf345f452ead0c95926d295ae185f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728769"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999495"
 ---
-# <a name="azure-data-factory-data-flow-derived-column-transformation"></a>Azure veri fabrikası veri akışı türetilmiş sütun dönüştürme
+# <a name="mapping-data-flow-derived-column-transformation"></a>Veri akışı eşleme türetilmiş sütun dönüştürme
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -27,3 +26,13 @@ Tek bir sütunu türetilmiş dönüşümünde birden çok türetilmiş sütun ey
 Sütun alanındaki türetilmiş yeni bir değer ile üzerine yazmak için mevcut bir sütun seçin veya "Oluşturma yeni yeni türetilmiş değerine sahip yeni bir sütun oluşturmak için sütun"'a tıklayın.
 
 İfade işlevleri kullanarak türetilmiş sütunlar ifadesi burada oluşturabileceğinizi ifade oluşturucu ifade metin kutusu açılır.
+
+## <a name="column-patterns"></a>Sütun desenleri
+
+Kaynaklarınızı değişkeninden, sütun adları varsa, türetilmiş sütun içinde dönüşümler oluşturmak sütunları adlı kullanmak yerine sütun desenleri kullanarak isteyebilir. Bkz: [şema değişikliklerini](concepts-data-flow-schema-drift.md) makale daha fazla ayrıntı için.
+
+![sütun düzeni](media/data-flow/columnpattern.png "sütun desenleri")
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Daha fazla bilgi edinin [Data Factory ifade dili dönüşümlere](http://aka.ms/dataflowexpressions) ve [ifade oluşturucusu](concepts-data-flow-expression-builder.md)

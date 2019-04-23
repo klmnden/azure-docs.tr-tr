@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680715"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008707"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Salesforce veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Ayrıc
 - Salesforce geliştirici, Professional, Enterprise veya sınırsız sürümleri.
 - Gelen ve Salesforce üretim, korumalı ve özel etki alanı veri kopyalama.
 
-Salesforce Bağlayıcısı ile Salesforce REST API temelinde oluşturulmuştur [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) veri kopyalama ve [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) için veri kopyalayın.
+Salesforce Bağlayıcısı ile Salesforce REST/toplu API temelinde oluşturulmuştur [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) veri kopyalama ve [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) için veri kopyalayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -235,7 +235,7 @@ Salesforce veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlay�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **SalesforceSink**. | Evet |
-| WriteBehavior | İşlem için yazma davranışı.<br/>İzin verilen değerler **Ekle** ve **Upsert**. | Hayır (varsayılan değer ekleme) |
+| writeBehavior | İşlem için yazma davranışı.<br/>İzin verilen değerler **Ekle** ve **Upsert**. | Hayır (varsayılan değer ekleme) |
 | externalIdFieldName | Upsert işlem Dış kimlik alanının adı. Belirtilen alan, Salesforce nesne "Dış kimlik alanı" tanımlanmalıdır. İlgili girdi verileri NULL değerlere sahip olamaz. | "Upsert" için Evet |
 | writeBatchSize | Salesforce'a her toplu işlemde yazılan veriler satır sayısı. | Hayır (varsayılan değer 5000) |
 | ignoreNullValues | Giriş verilerinden NULL değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: Verileri hedef nesneyi bir upsert veya güncelleştirme işlemi yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: Bir upsert veya güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
@@ -316,7 +316,7 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 | Salesforce veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | Otomatik numarası |String |
-| Onay kutusu |Boole |
+| Onay kutusu |Boolean |
 | Para birimi |Decimal |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
@@ -328,7 +328,7 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 | Yüzde |Decimal |
 | Telefon |String |
 | Seçim listesi |String |
-| Metin |String |
+| Text |String |
 | Metin alanı |String |
 | Metin alanı (uzun) |String |
 | Metin alanı (zengin) |String |

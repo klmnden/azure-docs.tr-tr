@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915791"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010067"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>OAuth1 teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolünü](https://tools.ietf.org/html/rfc5849) kimlik sağlayıcısı. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. OAuth1 ile teknik profil ile bir OAuth1 ad'sini birleştirebilir, kimlik sağlayıcısı, sosyal var olan oturum izin vererek, Twitter gibi veya Kurumsal kimlikleri temel.
+Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolünü](https://tools.ietf.org/html/rfc5849) kimlik sağlayıcısı. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. OAuth1 teknik profili ile Twitter gibi bir OAuth1 tabanlı kimlik sağlayıcısı ile ad'sini birleştirebilir. Kimlik sağlayıcısı ile Federasyon, kullanıcıların oturum sosyal var olan oturum veya Kurumsal kimlikleri sağlar.
 
 ## <a name="protocol"></a>Protokol
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolü
 
 Aşağıdaki örnek, Twitter kimlik sağlayıcısı tarafından döndürülen talepleri gösterir:
 
-- **USER_ID** eşleşen talep **socialIdpUserId** talep.
+- **USER_ID** eşleşen talep **issuerUserId** talep.
 - **Screen_name** eşleşen talep **displayName** talep.
 - **E-posta** Adı Eşleme olmadan talep.
 
@@ -57,7 +57,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 
 ## <a name="redirect-uri"></a>Yönlendirme URI'si
 
-Kimlik sağlayıcınızın yeniden yönlendirme URL'sini yapılandırırken girin `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Değiştirdiğinizden emin olun **Kiracı** Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) ile ve **Policyıd** ilkenizin (örneğin, b2c_1a_policy) tanımlayıcısına sahip. Yeniden yönlendirme URI'si, tüm küçük harflerle olması gerekiyor. Kimlik sağlayıcısı oturum açma kullanan tüm ilkeleri için bir yeniden yönlendirme URL eklemeniz gerekir. 
+Kimlik sağlayıcınızın yeniden yönlendirme URL'sini yapılandırırken girin `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Değiştirdiğinizden emin olun **Kiracı** Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) ile ve **Policyıd** ilkenizin (örneğin, b2c_1a_policy) tanımlayıcısına sahip. Yeniden yönlendirme URI'si, tüm küçük harflerle olması gerekiyor. Kimlik sağlayıcısı oturum açma kullanan tüm ilkeleri için bir yönlendirme URL'si ekleyin. 
 
 Kullanıyorsanız **b2clogin.com** etki alanı yerine **login.microsoftonline.com** b2clogin.com login.microsoftonline.com yerine kullandığınızdan emin olun.
 

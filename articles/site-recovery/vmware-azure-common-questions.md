@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360520"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004780"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -111,7 +111,7 @@ PowerShell veya REST API (sürümü 2018-01-10 ya da 2016-08-10) kullanarak bir 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Yönetilen disk türü, makine korunduktan sonra değiştirebilir miyim?
 
-Evet, kolayca kullanabilirsiniz [yönetilen disk türünü değiştirme](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Yönetilen disk türü olabilir, ancak değişiklikten sonra testi, yük devretme veya yük devretme gerekiyorsa oluşturulacak yeni kurtarma noktaları için bekleyin.
+Evet, kolayca kullanabilirsiniz [yönetilen disk türünü değiştirme](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Türü değiştirmeden önce yönetilen Disk kaynağı Azure portalında giderek disk için SAS URL'sini iptal emin olun. Genel Bakış dikey penceresinden bir sürekli dışarı aktarma iptal edin. Disk türü, SAS URL'sini iptal sonra birkaç dakika içinde değiştirin. Ancak, yönetilen disk türünü değiştirirseniz, yeni kurtarma noktaları, Azure Site Recovery tarafından oluşturulacak bekleyin. Yeni kurtarma noktaları, herhangi bir yük devretme testi veya ileriye dönük bir yük devretme için kullanın.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Yönetilmeyen diskler için yönetilen diskleri çoğaltmadan geçiş yapabilir miyim?
 

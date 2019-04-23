@@ -2,23 +2,23 @@
 title: Azure Veri Kataloğu genel senaryoları
 description: Yaygın Azure veri kataloğu için senaryo kayıt ve yüksek değerli veri kaynağı bulma gibi Self Servis iş zekası etkinleştirme ve mevcut veri kaynakları ve işlemleri hakkında bilgi alın yakalama, genel bakış.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405038"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010815"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure Veri Kataloğu genel senaryoları
 Bu makalede Azure veri Kataloğu kuruluşunuz var olan veri kaynaklarından daha fazla değer elde burada yardımcı olabilecek yaygın senaryolar sunulmakta.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Senaryo 1: Kayıt Merkezi veri kaynakları
+## <a name="scenario-1-registration-of-central-data-sources"></a>Senaryo 1: Merkezi bir veri kaynağı kaydı
 Kuruluşlar genellikle birçok yüksek değerli veri kaynağına sahiptir. Bu veri kaynakları, iş kolu satır, çevrimiçi işlem (gerçekleştirme OLTP) sistemleri, veri ambarları ve iş zekası/analiz veritabanlarını işleme içerir. Sistemleri ve bunlar arasındaki çakışma sayısı, genellikle iş gereksinimleriniz ve örneğin, birleşmeler ve satın almalar, iş geliştikçe zamanla artar.
 
 Kuruluş üyelerinin bu veri kaynaklarının içinde verileri bulmak nereden başlayacağınızı bilemiyor zor olabilir. Aşağıdaki gibi sorulara tüm çok ortaktır:

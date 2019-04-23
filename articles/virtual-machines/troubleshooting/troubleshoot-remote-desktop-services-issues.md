@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650764"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000547"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure sanal makinesine Uzak Masaüstü Hizmetleri başlatma değil
 
@@ -41,10 +41,10 @@ Bir VM'ye bağlanmaya çalıştığınızda, aşağıdaki senaryolarda karşıla
     **Kaynak**:        Hizmet Denetimi Yöneticisi </br>
     **Tarih**:          16/12/2017 11:19:36: 00</br>
     **Olay Kimliği**:      7022</br>
-    **Görev kategorisi**: Hiçbiri</br>
+    **Görev kategorisi**: None</br>
     **Düzey**:         Hata</br>
     **Anahtar sözcükler**:      Klasik</br>
-    **Kullanıcı**:          YOK</br>
+    **Kullanıcı**:          Yok</br>
     **Bilgisayar**: vm.contoso.com</br>
     **Açıklama**: Uzak Masaüstü Hizmetleri hizmeti başlatılırken askıya alındı. 
 
@@ -57,7 +57,7 @@ Bir VM'ye bağlanmaya çalıştığınızda, aşağıdaki senaryolarda karşıla
 Uzak Masaüstü Hizmetleri sanal makinede çalışmadığından bu sorun oluşur. Nedeni aşağıdaki senaryolara bağlı olabilir: 
 
 - TermService'nin kümesine **devre dışı bırakılmış**. 
-- TermService'nin kilitlenme veya askıda. 
+- TermService'nin kilitlenme veya yanıt vermiyor. 
 - TermService hatalı bir yapılandırma için başlangıç nedeniyle değil.
 
 ## <a name="solution"></a>Çözüm

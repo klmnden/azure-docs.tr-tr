@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225102"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002689"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -99,7 +99,7 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 2. Sol bölmede, artık için açtığınız tüm Azure hesaplarınıza görüntüler. Başka bir hesaba bağlanmak için **Hesap Ekle**
 
-3. Ulusal bulut ya da bir Azure Stack oturum açmak istiyorsanız, tıklayarak **Azure ortamı** kullanmak istediğiniz hangi Azure bulut seçmek için açılır. Ortamınızı seçtikten sonra tıklayın **oturum açın...**  düğmesi. Azure Stack için imzalama olup [Depolama Gezgini'ni Azure Stack aboneliğine bağlanma](azure-stack/user/azure-stack-storage-connect-se.md) daha fazla bilgi için.
+3. Ulusal bulut ya da bir Azure Stack oturum açmak istiyorsanız, tıklayarak **Azure ortamı** kullanmak istediğiniz hangi Azure bulut seçmek için açılır. Ortamınızı seçtikten sonra tıklayın **oturum açın...**  düğmesi. Azure Stack için imzalama olup [Depolama Gezgini'ni Azure Stack aboneliğine bağlanma](/azure-stack/user/azure-stack-storage-connect-se) daha fazla bilgi için.
 
     ![Seçeneğinde oturum][2]
 

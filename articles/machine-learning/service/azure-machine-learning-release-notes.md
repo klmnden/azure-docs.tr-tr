@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579164"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149574"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -23,12 +23,39 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning veri hazırlama SDK v1.1.2
+
+Not: Veri hazırlığı Python SDK'sını yükleme artık `numpy` ve `pandas` paketleri. Bkz: [yükleme yönergeleri güncelleştirildi](https://aka.ms/aml-data-prep-installation).
+
++ **Yeni Özellikler**
+  + Pivot dönüştürme artık kullanabilirsiniz.
+    + Nasıl yapılır kılavuzunda: [Pivot not defteri](https://aka.ms/aml-data-prep-pivot-nb)
+  + Yerel işlevlerde artık normal ifadeler kullanabilirsiniz.
+    + Örnekler:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + Artık `to_upper`  ve `to_lower`  ifade dilindeki işlevleri.
+  + Artık, bir veri profilinde her bir sütunun benzersiz değerlerin sayısını da görebilirsiniz.
+  + Bazı yaygın olarak kullanılan okuyucu adımları için şimdi de geçirebilirsiniz `infer_column_types` bağımsız değişken. Bu ayarlanırsa `True`, veri hazırlığı, algılamak ve sütun türleri otomatik olarak dönüştürmek deneyecek.
+    + `inference_arguments` artık kullanılmıyor.
+  + Artık çağırabilirsiniz `Dataflow.shape`.
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + `keep_columns` artık ek isteğe bağlı bağımsız değişken kabul eden `validate_column_exists`, varsa denetler sonucunu `keep_columns` hiçbir sütun içerir.
+  + (Bu bir dosyadan okunan) okuyucu adımların tümünü artık ek isteğe bağlı bağımsız değişken kabul `verify_exists`.
+  + Pandas dataframe okunuyor ve veri profilleri alma performansı İyileştirildi.
+  + Başarısız olan tek bir dizin bir tek bir veri akışı adımından dilimleme olduğu bir hata düzeltildi.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure Portal
++ **Yeni Özellikler**
   + Şimdi, var olan bir uzak işlem kümesi üzerinde varolan bir komut dosyasını yeniden gönderebilirsiniz. 
   + Artık yeni parametrelerle yayımlanan bir işlem hattı işlem hatları sekmesinde çalıştırabilirsiniz. 
   + Çalıştırma ayrıntılarını yeni bir anlık görüntü dosyası Görüntüleyici şimdi destekler. Belirli bir çalıştırma gönderildiğinde bir anlık görüntü dizininin görüntüleyebilirsiniz. Not Defteri çalıştırma başlatmak için gönderildi de indirebilirsiniz.
+   + Şimdi, Azure Portalı'ndan üst çalıştırmaları iptal edebilirsiniz.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

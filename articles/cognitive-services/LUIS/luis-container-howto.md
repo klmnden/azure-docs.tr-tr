@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 54a51c567e8dd655ee3a575d1d4887ec6e094e40
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684065"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000275"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -32,11 +32,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 LUIS kapsayıcıyı çalıştırmak için aşağıdakilere sahip olmanız gerekir: 
 
-|Gerekli|Amaç|
+|Gereklidir|Amaç|
 |--|--|
 |Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
-|Azure `Cognitive Services` kaynak ve LUIS [paket uygulama](/luis-how-to-start-new-app.md#export-app-for-containers) dosyası |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>* A _Bilişsel Hizmetler_ anahtar Azure kaynak ve ilişkili faturalama, fatura uç noktası URI'si. Her iki değer kaynağın genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir. Eklemenize gerek `luis/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme. <br>* Kapsayıcı ile ilişkili uygulama kimliğini bağlı bir giriş olarak paketlenmiş bir eğitilen veya yayımlanan uygulama LUIS portalı ya da yazma API'leri paket dosyası elde edebilirsiniz. LUIS paketlenmiş uygulamadan alıyorsanız [yazma API'leri](#authoring-apis-for-package-file), ayrıca gerekir, _yazma anahtar_.<br><br>Bu gereksinimler, aşağıdaki değişkenleri komut satırı bağımsız değişkenleri geçirmek için kullanılır:<br><br>**{AUTHORING_KEY}** : Bu anahtar, paketlenmiş uygulamayı bulutta LUIS hizmetten alma ve sorgu günlüklerini buluta geri yüklemek için kullanılır. Biçim `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Bu kimlik, uygulamayı seçmek için kullanılır. Biçim `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Bu anahtar kapsayıcısı başlatmak için kullanılır. Uç nokta, iki yerde bulabilirsiniz. Azure portalında ilk olan _Bilişsel Hizmetler_ kaynağın anahtarları listesi. Uç nokta da anahtarları ve uç nokta LUIS Portalı'nda ayarları sayfası. Başlangıç anahtarı kullanmayın.<br><br>**{BILLING_ENDPOINT}** : Bir örnek verilmiştir: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>[Anahtarını ve uç noktası anahtarı yazma](luis-boundaries.md#key-limits) farklı amaçları olan. Bunları birbirinin yerine kullanmayın. |
+|Azure `Cognitive Services` kaynak ve LUIS [paket uygulama](luis-how-to-start-new-app.md#export-app-for-containers) dosyası |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>* A _Bilişsel Hizmetler_ anahtar Azure kaynak ve ilişkili faturalama, fatura uç noktası URI'si. Her iki değer kaynağın genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir. Eklemenize gerek `luis/v2.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme. <br>* Kapsayıcı ile ilişkili uygulama kimliğini bağlı bir giriş olarak paketlenmiş bir eğitilen veya yayımlanan uygulama LUIS portalı ya da yazma API'leri paket dosyası elde edebilirsiniz. LUIS paketlenmiş uygulamadan alıyorsanız [yazma API'leri](#authoring-apis-for-package-file), ayrıca gerekir, _yazma anahtar_.<br><br>Bu gereksinimler, aşağıdaki değişkenleri komut satırı bağımsız değişkenleri geçirmek için kullanılır:<br><br>**{AUTHORING_KEY}** : Bu anahtar, paketlenmiş uygulamayı bulutta LUIS hizmetten alma ve sorgu günlüklerini buluta geri yüklemek için kullanılır. Biçim `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Bu kimlik, uygulamayı seçmek için kullanılır. Biçim `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Bu anahtar kapsayıcısı başlatmak için kullanılır. Uç nokta, iki yerde bulabilirsiniz. Azure portalında ilk olan _Bilişsel Hizmetler_ kaynağın anahtarları listesi. Uç nokta da anahtarları ve uç nokta LUIS Portalı'nda ayarları sayfası. Başlangıç anahtarı kullanmayın.<br><br>**{BILLING_ENDPOINT}** : Bir örnek verilmiştir: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>[Anahtarını ve uç noktası anahtarı yazma](luis-boundaries.md#key-limits) farklı amaçları olan. Bunları birbirinin yerine kullanmayın. |
 
 ### <a name="authoring-apis-for-package-file"></a>Paket dosyası için API geliştirme
 
@@ -84,7 +84,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 ![Language Understanding (LUIS) kapsayıcı kullanma işlemini](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Paketi dışarı aktar](#export-packaged-app-from-luis) LUIS portalını veya API'lerini LUIS kapsayıcısından için.
-1. Paket dosyası gerekli Taşı **giriş** dizininde [ana bilgisayar](#the-host-computer). Yeniden adlandırmayın, alter veya LUIS paket dosyası açılamadı.
+1. Paket dosyası gerekli Taşı **giriş** dizininde [ana bilgisayar](#the-host-computer). Yeniden adlandırmayın, alter, üzerine veya LUIS paket dosyası açılamadı.
 1. [Kapsayıcıyı çalıştırmak](##run-the-container-with-docker-run), gerekli olan _giriş bağlama_ ve faturalama ayarları. Daha fazla [örnekler](luis-container-configuration.md#example-docker-run-commands) , `docker run` komutu kullanılabilir. 
 1. [Kapsayıcının tahmini uç nokta sorgulama](#query-the-containers-prediction-endpoint). 
 1. Kapsayıcıyla işiniz bittiğinde [uç nokta günlükleri içeri aktarma](#import-the-endpoint-logs-for-active-learning) çıktısı LUIS Portalı'nda bağlama ve [Durdur](#stop-the-container) kapsayıcı.
@@ -113,7 +113,7 @@ Giriş bağlama directory içerebilir **üretim**, **hazırlama**, ve **Trained*
 |Üretim|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
-> Yeniden adlandırmayın, alter veya LUIS paket dosyaları açılamadı.
+> Yeniden adlandırmayın, alter, üzerine veya LUIS paket dosyaları açılamadı.
 
 ### <a name="packaging-prerequisites"></a>Paketleme önkoşulları
 
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Yayımlanan LUIS uygulaması uygulama kimliği. |
 |{APPLICATION_ENVIRONMENT} | Yayımlanan LUIS uygulaması ortam. Aşağıdaki değerlerden birini kullanın:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Eğitilen LUIS uygulamasının uygulama kimliği. |
 |{APPLICATION_VERSION} | Eğitilen LUIS uygulamasının uygulama sürümü. |
@@ -218,7 +218,7 @@ Başarılı olursa, yanıt bir LUIS paket dosyasıdır. Kapsayıcının giriş b
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) kapsayıcıyı çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır. Başlangıç anahtarı kullanmayın. |
 |{BILLING_ENDPOINT} | Azure portal üzerinde fatura uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası. Eklemenize gerek `luis/v2.0` aşağıdaki örnekte gösterildiği gibi uç nokta URI'si yönlendirme: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -273,9 +273,9 @@ Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülü
 |--|--|--|
 |`q`|string|Kullanıcının utterance.|
 |`timezoneOffset`|number|TimezoneOffset sağlar [saat dilimini değiştirme](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) önceden oluşturulmuş varlık datetimeV2 tarafından kullanılır.|
-|`verbose`|boole|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
-|`staging`|boole|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |
-|`log`|boole|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md). Varsayılan değer True'dur.|
+|`verbose`|boolean|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
+|`staging`|boolean|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |
+|`log`|boolean|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md). Varsayılan değer True'dur.|
 
 ### <a name="query-published-app"></a>Sorgu yayımlanan uygulama
 

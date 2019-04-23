@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5a985e43c097dbea2861a5eb9fa10c526cbf089a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697877"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995944"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
@@ -38,6 +38,17 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 ## <a name="create-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu oluşturma
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+
+    | Anahtar | Value |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | Beyaz |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Siyah |
+    | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
+
+    Bırakın **etiket** ve **içerik türü** şimdilik boş.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 
@@ -191,4 +202,4 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve ASP.NET Core web uygulaması ile birlikte kullanılan [uygulama yapılandırma sağlayıcısı](https://go.microsoft.com/fwlink/?linkid=2074664). Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure kaynaklarını tümleştirme için yönetilen kimlik](./howto-integrate-azure-managed-service-identity.md)
+> [Yönetilen kimlik tümleştirme](./howto-integrate-azure-managed-service-identity.md)

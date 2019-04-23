@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992367"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996382"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows için sanal makine seri Konsolu
 
@@ -123,7 +123,7 @@ Windows önyükleme yükleyicisi istemleri seri konsolunda görüntülenecek etk
     ![PowerShell örneği açın](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Seri konsol NMI çağrıları için kullanın.
-Maskelenemez olmayan bir kesinti (NMI) bir sanal makinede yazılım yoksay olmaz bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır. Hata ayıklama veya sorun giderme için bir mekanizma sistemleri askıda gibi Bugün, programcılar ve sistem yöneticileri genellikle NMI kullanın.
+Maskelenemez olmayan bir kesinti (NMI) bir sanal makinede yazılım yoksay olmaz bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır. Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya yanıt vermeyen sistemleri gidermek için genellikle kullanın.
 
 Seri konsol, komut çubuğunda klavye simgesini kullanarak bir Azure sanal makinesi için bir NMI göndermek için kullanılabilir. NMI aldıktan sonra sanal makine yapılandırması sistemin nasıl yanıt vereceğini denetler. Windows için kilitlenme yapılandırılabilir ve bir bellek dökümü dosyasına bir NMI alırken oluşturun.
 

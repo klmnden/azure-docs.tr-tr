@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006352"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996756"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure veri kutusu Edge sistem gereksinimleri
 
@@ -58,7 +58,7 @@ Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulutuna bir
 
 Azure IOT Edge çalışma zamanı barındırma sunucuları için bağlantı noktası yapılandırması için aşağıdaki tabloyu kullanın:
 
-| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Rehber |
+| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gereklidir | Rehber |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Çıkış       | WAN        | Evet      | IOT Edge sağlama için giden açın. Bu yapılandırma, el ile komut dosyaları veya Azure IOT cihaz sağlama hizmeti (DPS) kullanılırken gereklidir.|
 
@@ -82,7 +82,7 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 | URL deseni                      | Bileşen veya işlevi                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |
 | https://\*.azurecr.io                     | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) | 
 | https://\*.azure devices.net              | IOT hub'ı erişim (gerekli)                             | 
 
@@ -94,7 +94,7 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 | URL deseni                      | Bileşen veya işlevi                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft kapsayıcı kayıt defteri (gerekli)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft kapsayıcı kayıt defteri (gerekli)               |
 | https://\*.azure devices.us              | IOT hub'ı erişim (gerekli)           |
 | https://\*.azurecr.us                    | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) | 
 

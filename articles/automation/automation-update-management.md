@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679083"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149708"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -208,7 +208,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ## <a name="install-updates"></a>Güncelleştirmeleri yükle
 
-Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Bir güncelleştirme dağıtımı oluşturmak için Otomasyon hesabı yazma erişiminiz olması gerekir ve yazma erişimi tüm Azure VM'ler dağıtıma yöneliktir. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
+Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Bir güncelleştirme dağıtımı oluşturmak için yazma erişimi Otomasyon hesabı ve Azure dağıtımda hedeflenen makineler yazma erişimi olmalıdır. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
 
 Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [dinamik gruplar](#using-dynamic-groups), bu grupları, dağıtım sırasında çözümlenir ve Azure sanal makinelerini veya Azure dışı VM'ler için kayıtlı bir aramayı bir sorgu tarafından tanımlanan.
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Windows üzerinde üçüncü taraf düzeltme ekleri
 
-WSUS güncelleştirme yönetimi kullanır veya Windows sistemlerini Windows güncelleştirmesi düzeltme eki desteklenmiyor. Gibi araçları [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) WSUS özel güncelleştirmeleri yayımlamanıza olanak sağlar. Bu senaryo, WSUS, üçüncü taraf yazılım güncelleştirme deposu olarak kullanma düzeltme eki makinelere güncelleştirme yönetimi sağlar. Updates Publisher yapılandırma konusunda bilgi için bkz: [yükleme Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Güncelleştirme yönetimi, desteklenen Windows sistemleri düzeltme eki uygulama yerel olarak yapılandırılan güncelleştirme deposunu kullanır. WSUS ya da Windows Update budur. Gibi araçları [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) WSUS özel güncelleştirmeleri yayımlamanıza olanak sağlar. Bu senaryo, üçüncü taraf yazılım güncelleştirme deposu olarak kullanan System Center Configuration Manager düzeltme eki makinelere güncelleştirme yönetimi sağlar. Updates Publisher yapılandırma konusunda bilgi için bkz: [yükleme Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Ağ planlama
 

@@ -1,61 +1,284 @@
 ---
-title: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
-description: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
-author: markjbrown
+title: Azure Cosmos DB'de dizinleme ilkeleri yönetme
+description: Azure Cosmos DB'de dizinleme ilkeleri yönetmeyi öğrenin
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
-ms.author: mjbrown
-ms.openlocfilehash: c27cee4842c0e65e1737f100a215cff82a0fd439
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.author: thweiss
+ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033103"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005597"
 ---
-# <a name="manage-indexing-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme yönetme
+# <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri yönetme
 
-Azure Cosmos DB içinde bir kapsayıcı veya tüm öğeleri otomatik olarak dizinini isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, bir Azure Cosmos kapsayıcısındaki tüm öğeleri otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı kapatabilirsiniz. Aracılığıyla dizin oluşturma devre dışı bırakıldığında öğelerine erişilebilir kendi kendine bağlantılar veya belge kimliği gibi öğesi Kimliğini kullanarak sorgular. Açıkça geçirerek dizini kullanmadan sonuçlar verecek isteyebilir **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği kullanarak istek. NET SDK.
+Azure Cosmos DB'de aşağıdaki veriler dizinlendikten [dizinleme ilkeleri](index-policy.md) her kapsayıcı için tanımlanır. Varsayılan dizinleme ilkesinin yeni oluşturulan kapsayıcılar için aralığı için herhangi bir dize veya sayı ve uzamsal dizinleri herhangi bir GeoJSON nesne türü noktası zorlar. Bu ilkeyi geçersiz kılınabilir:
 
-Otomatik kapalı dizin oluşturma ile belirli öğeleri dizine seçmeli olarak yine de ekleyebilirsiniz. Buna karşılık, açık otomatik dizin oluşturma bırakın ve belirli öğelerini hariç tutmak seçime bağlı olarak seçin. Açık/kapalı yapılandırmaları dizin yararlı Sorgulanacak gereken öğeler bir alt kümesi olduğunda.  
+- Azure portalından
+- Azure CLI kullanma
+- Sdk'lardan birini kullanarak
 
-Aktarım hızı ve istek birimlerinin orantılı tarafından dizin oluşturma ilkesini dahil kümesinde belirtilen dizine gereken değer sayısını yazın. Sorgu desenleri daha iyi bir anlayışa sahip, açıkça yazma aktarım hızını iyileştirmek için yollar ekleme/çıkarma kümesini seçebilirsiniz.
+Bir [dizin oluşturma ilkesi güncelleştirme](index-policy.md#modifying-the-indexing-policy) bir dizin dönüşümü tetikler. Bu dönüşüm ilerlemesini de Sdk'lardan izlenebilir.
 
-## <a name="manage-indexing-using-azure-portal"></a>Azure portalını kullanarak dizin yönetme
+## <a name="use-the-azure-portal"></a>Azure portalı kullanma
+
+Azure Cosmos kapsayıcıları, dizin oluşturma ilkesini Azure portalında doğrudan düzenlemenize olanak sağlayan bir JSON belgesi olarak depolar.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-2. Yeni bir Azure Cosmos hesabı oluşturun veya mevcut bir hesabı seçin.
+1. Yeni bir Azure Cosmos hesabı oluşturun veya mevcut bir hesabı seçin.
 
-3. Açık **Veri Gezgini** bölmesi.
+1. Açık **Veri Gezgini** bölmesi ve üzerinde çalışmak istediğiniz kapsayıcıyı seçin.
 
-4. Var olan bir kapsayıcı seçin, genişletin ve aşağıdaki değerleri değiştirin:
+1. Tıklayarak **ölçek ve ayarlar**.
 
-   * Açık **ölçek ve ayarlar** penceresi.
-   * Değişiklik **indexingMode** gelen *tutarlı* için *hiçbiri* ya da belirli yollar dizin gelen içerme/dışlama.
-   * Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+1. Dizin oluşturma ilkesi JSON belgesini değiştirme (örnekler [aşağıda](#indexing-policy-examples))
 
-   ![Azure portalını kullanarak dizin yönetme](./media/how-to-manage-indexing/how-to-manage-indexing-portal.png)
+1. Tıklayın **Kaydet** işiniz bittiğinde.
 
-## <a name="manage-indexing-using-azure-sdks"></a>Azure SDK'larını kullanarak dizin yönetme
+![Azure portalını kullanarak dizin yönetme](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
-### <a id="dotnet"></a>.NET SDK
+## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 
-Aşağıdaki örneği kullanarak bir öğeyi açıkça içerecek şekilde gösterilmektedir [SQL API .NET SDK'sı](sql-api-sdk-dotnet.md) ve [RequestOptions.IndexingDirective](/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective) özelliği.
+[Az cosmosdb koleksiyonu güncelleştirme](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) komutu Azure clı'dan bir kapsayıcının dizin oluşturma ilkesi JSON tanımı değiştirmenizi sağlar:
+
+```azurecli-interactive
+az cosmosdb collection update \
+    --resource-group-name $resourceGroupName \
+    --name $accountName \
+    --db-name $databaseName \
+    --collection-name $containerName \
+    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
+```
+
+## <a name="use-the-net-sdk-v2"></a>.NET SDK'sı V2 kullanın
+
+`DocumentCollection` Nesnesinden [.NET SDK'sı v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (bkz [Bu hızlı başlangıçta](create-sql-api-dotnet.md) kullanımı ile ilgili) sunan bir `IndexingPolicy` değiştirmenize olanak sağlayan bir özellik `IndexingMode` eklemek veya kaldırmak `IncludedPaths` ve `ExcludedPaths`.
 
 ```csharp
-// To override the default behavior to exclude (or include) a document in indexing,
-// use the RequestOptions.IndexingDirective property.
-client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),
-    new { id = "myDocumentId", isRegistered = true },
-    new RequestOptions { IndexingDirective = IndexingDirective.Include });
+// retrieve the container's details
+ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
+// set the indexing mode to Consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
+// update the container with our changes
+await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
+
+Geçişi dizin dönüştürme ilerleme durumunu izlemek için bir `RequestOptions` ayarlar nesnesi `PopulateQuotaInfo` özelliğini `true`.
+
+```csharp
+// retrieve the container's details
+ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-java-sdk"></a>Java kullanma SDK'sı
+
+`DocumentCollection` Nesnesinden [Java SDK'sı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (bkz [Bu hızlı başlangıçta](create-sql-api-java.md) kullanımı ile ilgili) sunan `getIndexingPolicy()` ve `setIndexingPolicy()` yöntemleri. `IndexingPolicy` Dizin oluşturma modunu değiştirme ve ekleme sağlar, işleme nesne veya kaldırma dahil ve yolları hariç.
+
+```java
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
+containerResponse.subscribe(result -> {
+    DocumentCollection container = result.getResource();
+    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+    // set the indexing mode to Consistent
+    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+    ExcludedPath excludedPath = new ExcludedPath();
+    excludedPath.setPath("/*");
+    // add an excluded path
+    excludedPaths.add(excludedPath);
+    indexingPolicy.setExcludedPaths(excludedPaths);
+    // update the container with our changes
+    client.replaceCollection(container, null);
+});
+```
+
+Bir kapsayıcı dizini dönüştürme ilerleme durumunu izlemek için başarılı bir `RequestOptions` doldurulması için kota bilgisi istekleri nesnesi daha sonra değerini almak `x-ms-documentdb-collection-index-transformation-progress` yanıt üst bilgisi.
+
+```java
+// set the RequestOptions object
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPopulateQuotaInfo(true);
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), requestOptions);
+containerResponse.subscribe(result -> {
+    // retrieve the index transformation progress from the response headers
+    String indexTransformationProgress = result.getResponseHeaders().get("x-ms-documentdb-collection-index-transformation-progress");
+});
+```
+
+## <a name="use-the-nodejs-sdk"></a>Node.js SDK'sını kullanma
+
+`ContainerDefinition` Alanından arabirim [Node.js SDK'sı](https://www.npmjs.com/package/@azure/cosmos) (bkz [Bu hızlı başlangıçta](create-sql-api-nodejs.md) kullanımı ile ilgili) sunan bir `indexingPolicy` değiştirmenize olanak sağlayan özellik `indexingMode` eklemek veya kaldırmak `includedPaths` ve `excludedPaths`.
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read();
+// set the indexing mode to Consistent
+containerResponse.body.indexingPolicy.indexingMode = "consistent";
+// add an excluded path
+containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/employees/?' });
+// update the container with our changes
+const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
+```
+
+Bir kapsayıcı dizini dönüştürme ilerleme durumunu izlemek için başarılı bir `RequestOptions` ayarlar nesnesi `populateQuotaInfo` özelliğini `true`, değerinden daha sonra almak `x-ms-documentdb-collection-index-transformation-progress` yanıt üst bilgisi.
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read({
+    populateQuotaInfo: true
+});
+// retrieve the index transformation progress from the response headers
+const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
+```
+
+## <a name="use-the-python-sdk"></a>Python SDK'sını kullanma
+
+Kullanırken [Python SDK'sı](https://pypi.org/project/azure-cosmos/) (bkz [Bu hızlı başlangıçta](create-sql-api-python.md) kullanımı ile ilgili), kapsayıcı yapılandırması bir sözlük olarak yönetilir. Bu sözlükten dizin oluşturma ilkesini ve tüm öznitelikleri erişmek mümkündür.
+
+```python
+containerPath = 'dbs/database/colls/collection'
+# retrieve the container's details
+container = client.ReadContainer(containerPath)
+# set the indexing mode to Consistent
+container['indexingPolicy']['indexingMode'] = 'consistent'
+# add an excluded path
+container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+# update the container with our changes
+response = client.ReplaceContainer(containerPath, container)
+```
+
+## <a name="indexing-policy-examples"></a>Dizin oluşturma ilkesi örnekleri
+
+Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçiminde gösterilen bazı örnekleri aşağıda verilmiştir. Aynı parametrelere, Azure CLI veya herhangi bir SDK ayarlanabilir.
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Seçime bağlı olarak bazı özellik yolları hariç tutmak için ilke çevirme
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    },
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Bazı özellik yolları seçerek eklenecek kabul etme İlkesi
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+
+Not: Genel olarak kullanılması önerilir bir **çevirme** dizin oluşturma ilkesi, Azure Cosmos DB proaktif bir şekilde izin vermek için dizin modelinize eklediğiniz herhangi bir yeni özelliği.
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Belirli özellik yolda yalnızca bir uzamsal dizin kullanma
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/geojson/property/?",
+                "indexes": [
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": []
+    }
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Tüm özellik yolları hariç, ancak dizin oluşturma etkin tutma
+
+Bu ilke durumlarda kullanılabilir olduğu [özelliği için-yaşam süresi (TTL)](time-to-live.md) etkin, ancak hiçbir ikincil (saf bir anahtar-değer deposu olarak Azure Cosmos DB kullanmak üzere) dizin gereklidir.
+
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+
+### <a name="no-indexing"></a>Dizin oluşturma
+
+    {
+        "indexingPolicy": "none"
+    }
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki makaleler de dizinleme hakkında daha fazla bilgi edinin:
 
-* [Dizin oluşturma genel bakış](index-overview.md)
-* [Dizin oluşturma ilkesi](index-policy.md)
-* [Dizin türleri](index-types.md)
-* [Dizin yolları](index-paths.md)
+- [Dizin oluşturma genel bakış](index-overview.md)
+- [Dizin oluşturma ilkesi](index-policy.md)

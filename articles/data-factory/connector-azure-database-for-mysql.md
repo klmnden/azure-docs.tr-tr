@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 99a29536ccf9d4ad87bcd0aa29659306c3553972
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119403"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997640"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL için Azure veritabanı'ndan veri kopyalama
 
@@ -42,12 +42,12 @@ Aşağıdaki özellikler için Azure veritabanı, MySQL bağlı hizmeti için de
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureMySql** | Evet |
-| bağlantı dizesi | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar kasası ve çekme koyabilirsiniz `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
+| connectionString | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar kasası ve çekme koyabilirsiniz `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 Bir bağlantı dizesi olan `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
 
-| Özellik | Açıklama | Seçenekler | Gerekli |
+| Özellik | Açıklama | Seçenekler | Gereklidir |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Bu seçenek sürücü SSL şifreleme ve doğrulama Mysql'e bağlanırken kullanıp kullanmayacağını belirtir. Örneğin `SSLMode=<0/1/2/3/4>`| Devre dışı (0) / tercih edilen (1) **(varsayılan)** / gerekli (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Hayır |
 | useSystemTrustStore | Bu seçenek, bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Örneğin `UseSystemTrustStore=<0/1>;`| (1) etkin / devre dışı (0) **(varsayılan)** | Hayır |
@@ -143,6 +143,7 @@ MySQL için Azure veritabanı'ndan veri kopyalamak için kopyalama etkinliği i�
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AzureMySqlSource** | Evet |
 | sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| queryCommandTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına uğradı. Varsayılan değer 120 dakika (02: 00:00) | Hayır |
 
 **Örnek:**
 

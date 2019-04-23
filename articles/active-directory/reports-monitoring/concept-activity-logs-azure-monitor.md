@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici'deki Azure Active Directory etkinlik günlükleri (önizleme) | Microsoft Docs
-description: Azure İzleyici (Önizleme) giriş Azure Active Directory etkinlik günlükleri
+title: Azure Active Directory etkinlik günlükleri Azure İzleyici | Microsoft Docs
+description: Azure İzleyici'de giriş Azure Active Directory etkinlik günlükleri
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436311"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011410"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure İzleyici'deki Azure AD etkinlik günlükleri (önizleme)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure İzleyici'de Azure AD etkinlik günlükleri
 
-Azure Active Directory (Azure AD) etkinlik günlükleri, uzun vadeli bekletme ve veri öngörüleri için birkaç uç artık yönlendirebilirsiniz. Azure İzleyici günlüklerine Azure AD genel önizlemesiyle sağlar:
+Azure Active Directory (Azure AD) etkinlik günlükleri, uzun vadeli bekletme ve veri öngörüleri için birkaç uç yönlendirebilirsiniz. Bu özellik sağlar:
 
 * Arşiv Azure AD etkinlik günlüklerini verileri uzun süre korumak için Azure depolama hesabınız için.
 * Azure olay hub'ına Splunk ve QRadar gibi popüler güvenlik bilgileri ve Olay yönetimi (SIEM) araçlarını kullanarak analiz için Stream Azure AD etkinlik günlükleri.

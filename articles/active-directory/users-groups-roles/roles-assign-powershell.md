@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d982ea49bdc24ccd9894c98435f1e3012d9dd156
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581060"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000904"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>PowerShell kullanarak Azure Active Directory'de yönetici rolleri atama
 
-Azure PowerShell kullanarak kullanıcı hesaplarına Rolleri Ata nasıl otomatik hale getirebilirsiniz. Bu makalede [Azure Active Directory PowerShell sürüm 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) modülü.
+Azure PowerShell kullanarak kullanıcı hesaplarına Rolleri Ata nasıl otomatik hale getirebilirsiniz. Bu makalede [Azure Active Directory PowerShell sürüm 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) modülü.
 
 ## <a name="prepare-powershell"></a>PowerShell hazırlama
 
