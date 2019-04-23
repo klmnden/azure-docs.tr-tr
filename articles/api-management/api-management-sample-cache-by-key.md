@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793552"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799193"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management'te özel önbelleğe alma
 Azure API Management hizmeti için yerleşik desteği vardır [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) kaynak URL anahtar olarak kullanma. Anahtarı kullanarak istek üst bilgileri tarafından değiştirilebilir `vary-by` özellikleri. Tüm HTTP yanıtlarını (diğer adıyla gösterimleri) önbelleğe alma işlemi için yararlıdır, ancak bazen yalnızca önbelleğe gösterimi bir kısmını yararlı olur. Yeni [önbellek arama değeri](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) ve [önbellek deposu değeri](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) ilkeleri ilke tanımları içindeki verileri rastgele parçalarını depolanıp olanağı sağlar. Bu özellik ayrıca değeri daha önce sunulan ekler [gönderme isteği](/azure/api-management/api-management-advanced-policies#SendRequest) ilke çünkü artık dış hizmetlerden yanıtları önbelleğe alabilir.

@@ -1,251 +1,244 @@
-items:
 - name: Translator Metin Çevirisi Belgeleri
   href: index.yml
 - name: Translator Metin Çevirisi API’si
   items:
-  - name: Genel Bakış
-    items:
-    - name: Translator Metin Çevirisi API’si nedir?
-      href: translator-info-overview.md
-  - name: Hızlı Başlangıçlar
-    items:
-    - name: Metin çevirme
+    - name: Genel Bakış
       items:
-      - name: C#, REST
-        href: quickstart-csharp-translate.md
-      - name: Go, REST
-        href: quickstart-go-translate.md
-      - name: Java, REST
-        href: quickstart-java-translate.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-translate.md
-      - name: PHP, REST
-        href: quickstart-php-translate.md
-      - name: Python, REST
-        href: quickstart-python-translate.md
-      - name: Ruby, REST
-        href: quickstart-ruby-translate.md
-    - name: Metni başka dildi yazma
+        - name: Translator Metin Çevirisi API’si nedir?
+          href: translator-info-overview.md
+    - name: Hızlı Başlangıçlar
       items:
-      - name: C#, REST
-        href: quickstart-csharp-transliterate.md
-      - name: Go, REST
-        href: quickstart-go-transliterate.md
-      - name: Java, REST
-        href: quickstart-java-transliterate.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-transliterate.md
-      - name: PHP, REST
-        href: quickstart-php-transliterate.md
-      - name: Python, REST
-        href: quickstart-python-transliterate.md
-      - name: Ruby, REST
-        href: quickstart-ruby-transliterate.md
-    - name: Dili tanımlama
+        - name: Metin çevirme
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-translate.md
+            - name: 'Go, REST'
+              href: quickstart-go-translate.md
+            - name: 'Java, REST'
+              href: quickstart-java-translate.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-translate.md
+            - name: 'PHP, REST'
+              href: quickstart-php-translate.md
+            - name: 'Python, REST'
+              href: quickstart-python-translate.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-translate.md
+        - name: Metni başka dildi yazma
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-transliterate.md
+            - name: 'Go, REST'
+              href: quickstart-go-transliterate.md
+            - name: 'Java, REST'
+              href: quickstart-java-transliterate.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-transliterate.md
+            - name: 'PHP, REST'
+              href: quickstart-php-transliterate.md
+            - name: 'Python, REST'
+              href: quickstart-python-transliterate.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-transliterate.md
+        - name: Dili tanımlama
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-detect.md
+            - name: 'Go, REST'
+              href: quickstart-go-detect.md
+            - name: 'Java, REST'
+              href: quickstart-java-detect.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-detect.md
+            - name: 'PHP, REST'
+              href: quickstart-php-detect.md
+            - name: 'Python, REST'
+              href: quickstart-python-detect.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-detect.md
+        - name: Sözcük çevirileri arama
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-dictionary.md
+            - name: 'Go, REST'
+              href: quickstart-go-dictionary.md
+            - name: 'Java, REST'
+              href: quickstart-java-dictionary.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-dictionary.md
+            - name: 'PHP, REST'
+              href: quickstart-php-dictionary.md
+            - name: 'Python, REST'
+              href: quickstart-python-dictionary.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-dictionary.md
+        - name: Desteklenen dilleri alma
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-languages.md
+            - name: 'Go, REST'
+              href: quickstart-go-languages.md
+            - name: 'Java, REST'
+              href: quickstart-java-languages.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-languages.md
+            - name: 'PHP, REST'
+              href: quickstart-php-languages.md
+            - name: 'Python, REST'
+              href: quickstart-python-languages.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-languages.md
+        - name: Tümce uzunluğu belirleme
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-sentences.md
+            - name: 'Go, REST'
+              href: quickstart-go-sentences.md
+            - name: 'Java, REST'
+              href: quickstart-java-sentences.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-sentences.md
+            - name: 'PHP, REST'
+              href: quickstart-php-sentences.md
+            - name: 'Python, REST'
+              href: quickstart-python-sentences.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-sentences.md
+    - name: Öğreticiler
       items:
-      - name: C#, REST
-        href: quickstart-csharp-detect.md
-      - name: Go, REST
-        href: quickstart-go-detect.md
-      - name: Java, REST
-        href: quickstart-java-detect.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-detect.md
-      - name: PHP, REST
-        href: quickstart-php-detect.md
-      - name: Python, REST
-        href: quickstart-python-detect.md
-      - name: Ruby, REST
-        href: quickstart-ruby-detect.md
-    - name: Sözcük çevirileri arama
+        - name: Translator Metin Çevirisi için WPF uygulaması oluşturma
+          href: tutorial-wpf-translation-csharp.md
+        - name: Flask çeviri uygulaması oluşturma
+          href: tutorial-build-flask-app-translation-synthesis.md
+    - name: Kavramlar
       items:
-      - name: C#, REST
-        href: quickstart-csharp-dictionary.md
-      - name: Go, REST
-        href: quickstart-go-dictionary.md
-      - name: Java, REST
-        href: quickstart-java-dictionary.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-dictionary.md
-      - name: PHP, REST
-        href: quickstart-php-dictionary.md
-      - name: Python, REST
-        href: quickstart-python-dictionary.md
-      - name: Ruby, REST
-        href: quickstart-ruby-dictionary.md
-    - name: Desteklenen dilleri alma
+        - name: Metin çevirisini özelleştirme ve iyileştirme
+          href: customization.md
+        - name: API karakterleri nasıl sayar?
+          href: character-counts.md
+    - name: Nasıl yapılır kılavuzları
       items:
-      - name: C#, REST
-        href: quickstart-csharp-languages.md
-      - name: Go, REST
-        href: quickstart-go-languages.md
-      - name: Java, REST
-        href: quickstart-java-languages.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-languages.md
-      - name: PHP, REST
-        href: quickstart-php-languages.md
-      - name: Python, REST
-        href: quickstart-python-languages.md
-      - name: Ruby, REST
-        href: quickstart-ruby-languages.md
-    - name: Tümce uzunluğu belirleme
+        - name: Translator Metin Çevirisi API’sine kaydolma
+          href: translator-text-how-to-signup.md
+        - name: V3 Metin API’sine geçiş
+          href: migrate-to-v3.md
+        - name: Küfür filtresi ekleme
+          href: profanity-filtering.md
+        - name: Sözcük hizalama bilgilerini alma
+          href: word-alignment.md
+        - name: İçeriğin çevirisini engelleme
+          href: prevent-translation.md
+        - name: Dinamik sözlük özelliğini kullanma
+          href: dynamic-dictionary.md
+        - name: Güvenlik duvarı arkasında çeviri yapma
+          href: firewalls.md
+    - name: Başvuru
       items:
-      - name: C#, REST
-        href: quickstart-csharp-sentences.md
-      - name: Go, REST
-        href: quickstart-go-sentences.md
-      - name: Java, REST
-        href: quickstart-java-sentences.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-sentences.md
-      - name: PHP, REST
-        href: quickstart-php-sentences.md
-      - name: Python, REST
-        href: quickstart-python-sentences.md
-      - name: Ruby, REST
-        href: quickstart-ruby-sentences.md
-  - name: Öğreticiler
-    items:
-    - name: Translator Metin Çevirisi için WPF uygulaması oluşturma
-      href: tutorial-wpf-translation-csharp.md
-    - name: Flask çeviri uygulaması oluşturma
-      href: tutorial-build-flask-app-translation-synthesis.md
-  - name: Kavramlar
-    items:
-    - name: Metin çevirisini özelleştirme ve iyileştirme
-      href: customization.md
-    - name: API karakterleri nasıl sayar?
-      href: character-counts.md
-  - name: Nasıl yapılır kılavuzları
-    items:
-    - name: Translator Metin Çevirisi API’sine kaydolma
-      href: translator-text-how-to-signup.md
-    - name: V3 Metin API’sine geçiş
-      href: migrate-to-v3.md
-    - name: Küfür filtresi ekleme
-      href: profanity-filtering.md
-    - name: Sözcük hizalama bilgilerini alma
-      href: word-alignment.md
-    - name: İçeriğin çevirisini engelleme
-      href: prevent-translation.md
-    - name: Dinamik sözlük özelliğini kullanma
-      href: dynamic-dictionary.md
-    - name: Güvenlik duvarı arkasında çeviri yapma
-      href: firewalls.md
-  - name: Başvuru
-    items:
-    - name: v3 Translator Metin Çevirisi API’si başvurusu
-      href: reference/v3-0-reference.md
+        - name: v3 Translator Metin Çevirisi API’si başvurusu
+          href: reference/v3-0-reference.md
+          items:
+            - name: Diller
+              href: reference/v3-0-languages.md
+            - name: Çevirme
+              href: reference/v3-0-translate.md
+            - name: Karakter Dönüştürme
+              href: reference/v3-0-transliterate.md
+            - name: Algılama
+              href: reference/v3-0-detect.md
+            - name: BreakSentence
+              href: reference/v3-0-break-sentence.md
+            - name: Sözlük Arama
+              href: reference/v3-0-dictionary-lookup.md
+            - name: Sözlük Örnekleri
+              href: reference/v3-0-dictionary-examples.md
+        - name: v2 Translator Metin Çevirisi API’si başvurusu (Kullanım dışı)
+          href: reference/v2-0-reference.md
+          items:
+            - name: Metin dönüştürme
+              href: transform-text.md
+            - name: Collaborative Translation Framework (CTF) raporlamasını kullanma
+              href: ctf-reporting.md
+            - name: En iyi N çeviriyi döndürme
+              href: return-n-best-translations.md
+    - name: Kaynaklar
       items:
-      - name: Diller
-        href: reference/v3-0-languages.md
-      - name: Çevirme
-        href: reference/v3-0-translate.md
-      - name: Karakter Dönüştürme
-        href: reference/v3-0-transliterate.md
-      - name: Algılama
-        href: reference/v3-0-detect.md
-      - name: BreakSentence
-        href: reference/v3-0-break-sentence.md
-      - name: Sözlük Arama
-        href: reference/v3-0-dictionary-lookup.md
-      - name: Sözlük Örnekleri
-        href: reference/v3-0-dictionary-examples.md
-    - name: v2 Translator Metin Çevirisi API’si başvurusu (Kullanım dışı)
-      href: reference/v2-0-reference.md
-      items:
-      - name: Metin dönüştürme
-        href: transform-text.md
-      - name: Collaborative Translation Framework (CTF) raporlamasını kullanma
-        href: ctf-reporting.md
-      - name: En iyi N çeviriyi döndürme
-        href: return-n-best-translations.md
-  - name: Kaynaklar
-    items:
-    - name: GitHub’daki kod örnekleri
-      href: https://aka.ms/TranslatorGitHub
-    - name: SSS
-      href: https://www.microsoft.com/translator/faq.aspx
-    - name: Bilgi Bankası
-      href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
-    - name: Dil ve bölge desteği
-      href: language-support.md
-    - name: Fiyatlandırma
-      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Bölgesel kullanılabilirlik
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: İstek sınırları
-      href: request-limits.md
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: UserVoice
-      href: https://cognitive.uservoice.com/forums/558796-translator
+        - name: GitHub’daki kod örnekleri
+          href: 'https://aka.ms/TranslatorGitHub'
+        - name: SSS
+          href: 'https://www.microsoft.com/translator/faq.aspx'
+        - name: Bilgi Bankası
+          href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+        - name: Dil ve bölge desteği
+          href: language-support.md
+        - name: Fiyatlandırma
+          href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Bölgesel kullanılabilirlik
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: İstek sınırları
+          href: request-limits.md
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+        - name: UserVoice
+          href: 'https://cognitive.uservoice.com/forums/558796-translator'
 - name: Özel Çevirmen
   items:
-  - name: Genel Bakış
-    items:
-    - name: Özel Çevirmen nedir?
-      href: custom-translator/overview.md
-  - name: Hızlı Başlangıçlar
-    items:
-    - name: Özel model derleme
-      href: custom-translator/quickstart-build-deploy-custom-model.md
-  - name: Kavramlar
-    items:
-    - name: Çalışma alanları ve projeler
-      href: custom-translator/workspace-and-project.md
-    - name: Paralel belgeler
-      href: custom-translator/what-are-parallel-documents.md
-    - name: Sözlük
-      href: custom-translator/what-is-dictionary.md
-    - name: Belge biçimleri
-      href: custom-translator/document-formats-naming-convention.md
-    - name: Tümce hizalama
-      href: custom-translator/sentence-alignment.md
-    - name: Veri filtreleme
-      href: custom-translator/data-filtering.md
-    - name: Eğitim ve model
-      href: custom-translator/training-and-model.md
-    - name: BLEU Puanı
-      href: custom-translator/what-is-bleu-score.md
-  - name: Nasıl yapılır kılavuzları
-    items:
-    - name: Proje oluşturma
-      href: custom-translator/how-to-create-project.md
-    - name: Projeleri yönetme
-      href: custom-translator/how-to-search-edit-delete-projects.md
-    - name: Bir belgeyi karşıya yükleme
-      href: custom-translator/how-to-upload-document.md
-    - name: Belge ayrıntılarını görüntüleme
-      href: custom-translator/how-to-view-document-details.md
-    - name: Modeli eğitme
-      href: custom-translator/how-to-train-model.md
-    - name: Model ayrıntılarını görüntüleme
-      href: custom-translator/how-to-view-model-details.md
-    - name: Sistem test sonuçlarını görüntüleme
-      href: custom-translator/how-to-view-system-test-results.md
-    - name: Ayarları yönetme
-      href: custom-translator/how-to-manage-settings.md
-    - name: Merkezden geçiş
-      href: custom-translator/how-to-migrate.md
-  - name: Kaynaklar
-    items:
-    - name: Dil Desteği
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
-    - name: Sözlük
-      href: custom-translator/glossary.md
-    - name: SSS
-      href: custom-translator/faq.md
-    - name: Fiyatlandırma
-      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: UserVoice
-      href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: 319b40bc97a9cadfdffa8891e01d5f22bf872755
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006309"
+    - name: Genel Bakış
+      items:
+        - name: Özel Çevirmen nedir?
+          href: custom-translator/overview.md
+    - name: Hızlı Başlangıçlar
+      items:
+        - name: Özel model derleme
+          href: custom-translator/quickstart-build-deploy-custom-model.md
+    - name: Kavramlar
+      items:
+        - name: Çalışma alanları ve projeler
+          href: custom-translator/workspace-and-project.md
+        - name: Paralel belgeler
+          href: custom-translator/what-are-parallel-documents.md
+        - name: Sözlük
+          href: custom-translator/what-is-dictionary.md
+        - name: Belge biçimleri
+          href: custom-translator/document-formats-naming-convention.md
+        - name: Tümce hizalama
+          href: custom-translator/sentence-alignment.md
+        - name: Veri filtreleme
+          href: custom-translator/data-filtering.md
+        - name: Eğitim ve model
+          href: custom-translator/training-and-model.md
+        - name: BLEU Puanı
+          href: custom-translator/what-is-bleu-score.md
+    - name: Nasıl yapılır kılavuzları
+      items:
+        - name: Proje oluşturma
+          href: custom-translator/how-to-create-project.md
+        - name: Projeleri yönetme
+          href: custom-translator/how-to-search-edit-delete-projects.md
+        - name: Bir belgeyi karşıya yükleme
+          href: custom-translator/how-to-upload-document.md
+        - name: Belge ayrıntılarını görüntüleme
+          href: custom-translator/how-to-view-document-details.md
+        - name: Modeli eğitme
+          href: custom-translator/how-to-train-model.md
+        - name: Model ayrıntılarını görüntüleme
+          href: custom-translator/how-to-view-model-details.md
+        - name: Sistem test sonuçlarını görüntüleme
+          href: custom-translator/how-to-view-system-test-results.md
+        - name: Ayarları yönetme
+          href: custom-translator/how-to-manage-settings.md
+        - name: Merkezden geçiş
+          href: custom-translator/how-to-migrate.md
+    - name: Kaynaklar
+      items:
+        - name: Dil Desteği
+          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+        - name: Sözlük
+          href: custom-translator/glossary.md
+        - name: SSS
+          href: custom-translator/faq.md
+        - name: Fiyatlandırma
+          href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+        - name: UserVoice
+          href: 'https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide'

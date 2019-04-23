@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
 ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044836"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798222"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Bir Service Fabric küme birincil düğüm türü ölçeklendirin
 Bu makalede, bir Service Fabric küme birincil düğüm türü, sanal makine kaynakları artırarak ölçeklendirme açıklar. Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Sanal makine ölçek kümeleri dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullandığınız bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir. Service Fabric kümesi oluşturduktan sonra bir küme düğümü türü dikey olarak ölçeklendirebilirsiniz (düğümlerin kaynakları değişikliği) veya Vm'lere düğüm türündeki işletim sistemini yükseltin.  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.

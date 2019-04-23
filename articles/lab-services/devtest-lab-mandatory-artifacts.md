@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905809"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795415"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de laboratuvarınız için zorunlu yapıtları belirtin
 Laboratuvar sahibi olarak, laboratuvar'da oluşturulan her makineye uygulanan zorunlu yapıtları belirtebilirsiniz. Her makine şirket ağınıza bağlanması laboratuvarınızda istediğiniz senaryoyu düşünün. Bu durumda, her bir laboratuvar kullanıcı, kendi makine şirket etki alanına bağlı olduğundan emin olmak için sanal makine oluşturma sırasında bir etki alanı birleşim yapıya eklemeniz gerekir. Diğer bir deyişle, Laboratuvar kullanıcıları aslında bunlar, makinede zorunlu yapıları uygulamak unutmanız durumunda bir makine yeniden oluşturmanız gerekir. Laboratuvar sahibi olarak, etki alanı birleşim yapıya laboratuvarınızda zorunlu bir yapıt yapın. Bu adımı her makine şirket ağına ve zaman ve çaba Laboratuvar kullanıcılarınız için kaydetme bağlı olduğundan emin olur.
