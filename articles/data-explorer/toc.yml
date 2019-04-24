@@ -1,149 +1,142 @@
-items:
 - name: Azure Veri Gezgini Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Veri Gezgini nedir?
-    href: data-explorer-overview.md
+    - name: Veri Gezgini nedir?
+      href: data-explorer-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Küme ve veritabanı oluşturma
-    items:
-    - name: Azure portal
-      href: create-cluster-database-portal.md
-    - name: Azure CLI
-      href: create-cluster-database-cli.md
-    - name: PowerShell
-      href: create-cluster-database-powershell.md
-    - name: C#
-      href: create-cluster-database-csharp.md
-    - name: Python
-      href: create-cluster-database-python.md
-  - name: Veriyi çekme
-    items:
-    - name: Veri akışı - Olay hub'ı
-      href: ingest-data-event-hub.md
-    - name: Veri akışı - Event Grid
-      href: ingest-data-event-grid.md
-    - name: Veri akışı - Kafka
-      href: ingest-data-kafka.md
-    - name: Veri işlem grubu oluşturma - Python
-      href: python-ingest-data.md
-    - name: Verilerin işlem grubunu oluşturma - Node SDK
-      href: node-ingest-data.md
-    - name: Veri işlem grubu oluşturma - .NET Standard SDK
-      href: net-standard-ingest-data.md
-    - name: Veri işlem grubu oluşturma - Logstash
-      href: ingest-data-logstash.md
-  - name: Verileri sorgulama
-    items:
-    - name: Web kullanıcı arabirimi
-      href: web-query-data.md
-    - name: Python
-      href: python-query-data.md
-  - name: Verileri görselleştirme
-    items:
-    - name: Power BI - bağlayıcı
-      href: power-bi-connector.md
-    - name: Power BI - içeri aktarılan sorgu
-      href: power-bi-imported-query.md
-    - name: Power BI - SQL sorgusu
-      href: power-bi-sql-query.md
   expanded: true
+  items:
+    - name: Küme ve veritabanı oluşturma
+      items:
+        - name: Azure portal
+          href: create-cluster-database-portal.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Veriyi çekme
+      items:
+        - name: Veri akışı - Olay hub'ı
+          href: ingest-data-event-hub.md
+        - name: Veri akışı - Event Grid
+          href: ingest-data-event-grid.md
+        - name: Veri akışı - Kafka
+          href: ingest-data-kafka.md
+        - name: Veri işlem grubu oluşturma - Python
+          href: python-ingest-data.md
+        - name: Verilerin işlem grubunu oluşturma - Node SDK
+          href: node-ingest-data.md
+        - name: Veri işlem grubu oluşturma - .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Veri işlem grubu oluşturma - Logstash
+          href: ingest-data-logstash.md
+    - name: Verileri sorgulama
+      items:
+        - name: Web kullanıcı arabirimi
+          href: web-query-data.md
+        - name: Python
+          href: python-query-data.md
+    - name: Verileri görselleştirme
+      items:
+        - name: Power BI - bağlayıcı
+          href: power-bi-connector.md
+        - name: Power BI - içeri aktarılan sorgu
+          href: power-bi-imported-query.md
+        - name: Power BI - SQL sorgusu
+          href: power-bi-sql-query.md
 - name: Öğreticiler
   items:
-  - name: Kod kullanmadan verileri alma
-    href: ingest-data-no-code.md
-  - name: Power BI’da verileri görselleştirme
-    href: visualize-power-bi.md
+    - name: Kod kullanmadan verileri alma
+      href: ingest-data-no-code.md
+    - name: Power BI’da verileri görselleştirme
+      href: visualize-power-bi.md
 - name: Kavramlar
   items:
-  - name: Veri almaya genel bakış
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
-  - name: Zaman serisi analizi
-    href: time-series-analysis.md
+    - name: Veri almaya genel bakış
+      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+      href: ingest-data-overview.md
+    - name: Zaman serisi analizi
+      href: time-series-analysis.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Başlarken
-    items:
-    - name: Sorgu yazma
-      href: write-queries.md
-    - name: Örnek verileri ekleme
-      href: ingest-sample-data.md
-  - name: Yönetme
-    items:
-    - name: Veritabanı izinlerini yönetme
-      href: manage-database-permissions.md
-    - name: Küme durumunu denetleme
-      href: check-cluster-health.md
-    - name: Küme ölçeği genişlemesini yönetme
-      href: manage-cluster-scale-out.md
-    - name: Küme ölçeği artmasını yönetme
-      href: manage-cluster-scale-up.md
-    - name: Verileri silme
-      href: delete-data.md
-    - name: Yinelenen verilerle ilgilenme
-      href: dealing-with-duplicates.md
-  - name: İzleme
-    items:
-    - name: Kümelerin sistem durumunu izlemek için ölçümleri kullanma
-      href: using-metrics.md
-  - name: Diğer araçlarla çalışma
-    items:
-    - name: Python kullanarak Databricks'ten bağlanma
-      href: connect-from-databricks.md
-    - name: Jupyter Notebook ve Kqlmagic’te verileri analiz etme
-      href: kqlmagic.md
-    - name: Azure Data Factory’de verileri kopyalama
-      href: data-factory-load-data.md
-    - name: Grafana’da verileri görselleştirme
-      href: grafana.md
-    - name: ODBC ile bağlanma
-      href: connect-odbc.md
-  - name: Sorun giderme
-    items:
-    - name: Küme oluşturma
-      href: troubleshoot-create-cluster.md
-    - name: Kümeye bağlanma
-      href: troubleshoot-connect-cluster.md
-    - name: Veritabanları ve tablolarla çalışma
-      href: troubleshoot-database-table.md
+    - name: Başlarken
+      items:
+        - name: Sorgu yazma
+          href: write-queries.md
+        - name: Örnek verileri ekleme
+          href: ingest-sample-data.md
+    - name: Yönetme
+      items:
+        - name: Veritabanı izinlerini yönetme
+          href: manage-database-permissions.md
+        - name: Küme durumunu denetleme
+          href: check-cluster-health.md
+        - name: Küme ölçeği genişlemesini yönetme
+          href: manage-cluster-scale-out.md
+        - name: Küme ölçeği artmasını yönetme
+          href: manage-cluster-scale-up.md
+        - name: Verileri silme
+          href: delete-data.md
+        - name: Yinelenen verilerle ilgilenme
+          href: dealing-with-duplicates.md
+    - name: İzleme
+      items:
+        - name: Kümelerin sistem durumunu izlemek için ölçümleri kullanma
+          href: using-metrics.md
+    - name: Diğer araçlarla çalışma
+      items:
+        - name: Python kullanarak Databricks'ten bağlanma
+          href: connect-from-databricks.md
+        - name: Jupyter Notebook ve Kqlmagic’te verileri analiz etme
+          href: kqlmagic.md
+        - name: Azure Data Factory kullanarak veri kopyalama
+          href: data-factory-load-data.md
+        - name: Grafana’da verileri görselleştirme
+          href: grafana.md
+        - name: ODBC ile bağlanma
+          href: connect-odbc.md
+    - name: Sorun giderme
+      items:
+        - name: Küme oluşturma
+          href: troubleshoot-create-cluster.md
+        - name: Kümeye bağlanma
+          href: troubleshoot-connect-cluster.md
+        - name: Veritabanları ve tablolarla çalışma
+          href: troubleshoot-database-table.md
 - name: Başvuru
   items:
-  - name: Sorgu dili
-    href: /azure/kusto/query/
-  - name: Yönetim komutları
-    href: /azure/kusto/management/
-  - name: API'ler
-    href: /azure/kusto/api/
-  - name: Araçlar
-    href: /azure/kusto/tools/
-  - name: Kavramlar
-    href: /azure/kusto/concepts/
+    - name: Sorgu dili
+      href: /azure/kusto/query/
+    - name: Yönetim komutları
+      href: /azure/kusto/management/
+    - name: API'ler
+      href: /azure/kusto/api/
+    - name: Araçlar
+      href: /azure/kusto/tools/
+    - name: Kavramlar
+      href: /azure/kusto/concepts/
 - name: Kaynaklar
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
-  - name: Forumlar
-    items:
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
-    - name: Microsoft Teknoloji Topluluğu
-      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
-    - name: MSDN forumu
-      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
-  - name: Ürün geri bildirimi
-    href: https://aka.ms/adefeedback
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Maliyet Tahmin Aracı
-    href: https://aka.ms/adecostestimator
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: c582b82f4b4caf0ee3bb007934cc4d50163fe139
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616824"
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/azure-data-explorer/'
+    - name: Forumlar
+      items:
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
+        - name: Microsoft Teknoloji Topluluğu
+          href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
+        - name: MSDN forumu
+          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
+    - name: Ürün geri bildirimi
+      href: 'https://aka.ms/adefeedback'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+    - name: Maliyet Tahmin Aracı
+      href: 'https://aka.ms/adecostestimator'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=data-explorer'

@@ -17,6 +17,8 @@
   items:
     - name: Docker kapsayıcısında çalışan SQL Server’ı sorgulama
       href: vnet-injection-sql-server.md
+    - name: Cosmos DB hizmet uç noktasını kullanma
+      href: service-endpoint-cosmosdb.md
     - name: ETL işlemleri gerçekleştirme
       href: databricks-extract-load-sql-data-warehouse.md
     - name: Event Hubs kullanarak veri akışı sağlama

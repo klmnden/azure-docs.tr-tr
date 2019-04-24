@@ -108,8 +108,6 @@
         - name: AKS kümesini silme
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Azure AD etkin AKS
-          href: aad-integration.md
         - name: Sanal düğümler oluşturma (önizleme)
           items:
             - name: Azure CLI
@@ -172,8 +170,18 @@
           href: control-kubeconfig-access.md
         - name: Ağ ilkeleri ile pod trafiğinin güvenliğini sağlama (önizleme)
           href: use-network-policies.md
+        - name: Pod güvenlik ilkelerini kullanma (önizleme)
+          href: use-pod-security-policies.md
         - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
           href: update-credentials.md
+        - name: Azure Active Directory tümleştirmesini etkinleştirme
+          items:
+            - name: Azure CLI kullanma
+              href: azure-ad-integration-cli.md
+            - name: Azure portalı kullanma
+              href: azure-ad-integration.md
+        - name: Azure AD tümleştirmesiyle Kubernetes RBAC kullanma
+          href: azure-ad-rbac.md
         - name: ACR ile kimlik doğrulama
           href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true

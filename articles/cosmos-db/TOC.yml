@@ -138,15 +138,11 @@
         - name: Dizinleme
           items:
             - name: Genel Bakış
+              displayName: 'range, spatial'
               href: index-overview.md
-            - name: Dizin ilkesi
+            - name: Dizinleme ilkeleri
               displayName: 'consistent, none'
               href: index-policy.md
-            - name: Dizin türleri
-              displayName: 'hash, range, spatial'
-              href: index-types.md
-            - name: Dizin yolları
-              href: index-paths.md
         - name: Akışı değiştirme
           items:
             - name: Genel Bakış
@@ -165,6 +161,17 @@
           href: unique-keys.md
         - name: İşlemler ve iyimser eşzamanlılık denetimi
           href: database-transactions-optimistic-concurrency.md
+    - name: Akışı değiştirme
+      items:
+        - name: Genel Bakış
+          href: change-feed.md
+        - name: Değişiklik akışını okuma
+          href: read-change-feed.md
+        - name: Değişiklik akışı işlemcisi
+          href: change-feed-processor.md
+        - name: Azure İşlevleri'ni tetikleme
+          displayName: change feed
+          href: change-feed-functions.md
     - name: Sunucu tarafı programlama
       items:
         - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
@@ -216,7 +223,61 @@
 - name: 'Cassandra, MongoDB ve diğer API''ler'
   expanded: true
   items:
-    - name: MongoDB için Azure Cosmos DB API'si
+    - name: Cassandra API’si
+      items:
+        - name: Giriş
+          href: cassandra-introduction.md
+        - name: Kablo protokolü desteği
+          href: cassandra-support.md
+        - name: Hızlı Başlangıçlar
+          items:
+            - name: .NET
+              href: create-cassandra-dotnet.md
+            - name: Java
+              href: create-cassandra-java.md
+            - name: Node.js
+              href: create-cassandra-nodejs.md
+            - name: Python
+              href: create-cassandra-python.md
+        - name: Öğreticiler
+          items:
+            - name: 1 - Verileri oluşturma ve yönetme
+              href: create-cassandra-api-account-java.md
+            - name: 2 - Verileri yükleme
+              href: cassandra-api-load-data.md
+            - name: 3 - Verileri sorgulama
+              href: cassandra-api-query-data.md
+            - name: 4 - Verileri geçirme
+              displayName: import
+              href: cassandra-import-data.md
+        - name: Nasıl yapılır kılavuzları
+          items:
+            - name: Mağaza ve Spring Verilerini yönetme
+              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+              maintainContext: true
+            - name: Cassandra ve Spark
+              items:
+                - name: Giriş
+                  href: cassandra-spark-generic.md
+                - name: Databricks kullanarak bağlanma
+                  href: cassandra-spark-databricks.md
+                - name: HDInsight kullanarak bağlanma
+                  href: cassandra-spark-hdinsight.md
+                - name: Anahtar alanı ve tablo oluşturma
+                  href: cassandra-spark-ddl-ops.md
+                - name: Veri ekleme
+                  href: cassandra-spark-create-ops.md
+                - name: Verileri okuma
+                  href: cassandra-spark-read-ops.md
+                - name: Verileri upsert etme
+                  href: cassandra-spark-upsert-ops.md
+                - name: Verileri silme
+                  href: cassandra-spark-delete-ops.md
+                - name: Toplama işlemleri
+                  href: cassandra-spark-aggregation-ops.md
+                - name: Tablo verilerini kopyalama
+                  href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB API’si
       items:
         - name: Giriş
           href: mongodb-introduction.md
@@ -260,13 +321,18 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - Verileri geçirme
               displayName: import
-              href: 'https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json'
+              href: /azure/dms/tutorial-mongodb-cosmos-db
+              maintainContext: true
             - name: 3 - Verileri sorgulama
               href: tutorial-query-mongodb.md
             - name: 4 - Verileri global olarak dağıtma
               href: tutorial-global-distribution-mongodb.md
         - name: Nasıl yapılır kılavuzları
           items:
+            - name: Geçiş öncesine yönelik kılavuz
+              href: mongodb-pre-migration.md
+            - name: Geçiş sonrasına yönelik kılavuz
+              href: mongodb-post-migration.md
             - name: Bağlantı dizesini alma
               href: connect-mongodb-account.md
             - name: Studio 3T kullanarak bağlanma
@@ -324,60 +390,6 @@
             - name: Mağaza ve Spring Verilerini yönetme
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
-    - name: Cassandra API’si
-      items:
-        - name: Giriş
-          href: cassandra-introduction.md
-        - name: Kablo protokolü desteği
-          href: cassandra-support.md
-        - name: Hızlı Başlangıçlar
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: Java
-              href: create-cassandra-java.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-        - name: Öğreticiler
-          items:
-            - name: 1 - Verileri oluşturma ve yönetme
-              href: create-cassandra-api-account-java.md
-            - name: 2 - Verileri yükleme
-              href: cassandra-api-load-data.md
-            - name: 3 - Verileri sorgulama
-              href: cassandra-api-query-data.md
-            - name: 4 - Verileri geçirme
-              displayName: import
-              href: cassandra-import-data.md
-        - name: Nasıl yapılır kılavuzları
-          items:
-            - name: Mağaza ve Spring Verilerini yönetme
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
-            - name: Cassandra ve Spark
-              items:
-                - name: Giriş
-                  href: cassandra-spark-generic.md
-                - name: Databricks kullanarak bağlanma
-                  href: cassandra-spark-databricks.md
-                - name: HDInsight kullanarak bağlanma
-                  href: cassandra-spark-hdinsight.md
-                - name: Anahtar alanı ve tablo oluşturma
-                  href: cassandra-spark-ddl-ops.md
-                - name: Veri ekleme
-                  href: cassandra-spark-create-ops.md
-                - name: Verileri okuma
-                  href: cassandra-spark-read-ops.md
-                - name: Verileri upsert etme
-                  href: cassandra-spark-upsert-ops.md
-                - name: Verileri silme
-                  href: cassandra-spark-delete-ops.md
-                - name: Toplama işlemleri
-                  href: cassandra-spark-aggregation-ops.md
-                - name: Tablo verilerini kopyalama
-                  href: cassandra-spark-table-copy-ops.md
     - name: Tablo API’si
       items:
         - name: Giriş
@@ -420,7 +432,8 @@
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
-              href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+              maintainContext: true
         - name: Nasıl yapılır kılavuzları
           items:
             - name: Tablo API’si ile uygulama oluşturma
@@ -483,10 +496,8 @@
           href: storage-explorer.md
         - name: Azure Cosmos gezginini kullanarak verilerle çalışma
           href: data-explorer.md
-        - name: Dizinleme
-          items:
-            - name: Dizinlemeyi yönetme
-              href: how-to-manage-indexing-policy.md
+        - name: Dizinleme ilkelerini yönetme
+          href: how-to-manage-indexing-policy.md
     - name: Değişiklik Akışı
       items:
         - name: Birden Fazla Azure Cosmos DB Tetikleyicisi
@@ -526,7 +537,8 @@
         - name: Tanılama günlüğüne kaydetme
           href: logging.md
         - name: Logic Apps ile uygulama günlüğü kaydı
-          href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
+          maintainContext: true
     - name: İzleme
       items:
         - name: Ölçümler ile izleme
@@ -578,17 +590,21 @@
         - name: Azure App Service
           href: create-website.md
         - name: Azure Search dizinleyicisi
-          href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/search/search-howto-index-cosmosdb
+          maintainContext: true
         - name: Azure İşlevleri
           items:
             - name: Sunucusuz bilgi işlem
               href: serverless-computing-database.md
             - name: Azure İşlev bağlamaları
-              href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+              href: /azure/azure-functions/functions-bindings-cosmosdb
+              maintainContext: true
         - name: Azure Data Factory
-          href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          href: /azure/data-factory/connector-azure-cosmos-db
+          maintainContext: true
         - name: Azure Stream Analytics
-          href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
+          maintainContext: true
         - name: Logic Apps ve Service bus
           href: change-feed-hl7-fhir-logic-apps.md
         - name: Azure Event Hubs ve Azure Depolama
@@ -601,7 +617,8 @@
         - name: Azure Databricks (Spark bağlayıcısı)
           href: spark-connector.md
         - name: Spark ve Kafka
-          href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
         - name: ODBC sürücüsü
           href: odbc-driver.md
     - name: Toplu yürütücü kitaplığı

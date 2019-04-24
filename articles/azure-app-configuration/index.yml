@@ -15,11 +15,20 @@ metadata:
   ms.author: yegu
 abstract:
   description: 'Azure Uygulama Yapılandırması, geliştiricilerin uygulama yapılandırmalarını basit ve güvenli bir biçimde merkezileştirmesine yardımcı olan, yönetilen bir hizmettir.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250
+    title: 'Kullanmaya başlama (14:41)'
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    width: 250
 sections:
   - title: 5 Dakikalık hızlı başlangıçlar
     items:
       - type: paragraph
-        text: 'Azure Uygulama Yapılandırmasını kullanarak ilk web uygulamanızı geliştirmeyi öğrenin:'
+        text: 'Azure Uygulama Yapılandırmasını kullanarak ilk uygulamanızı geliştirmeyi öğrenin:'
       - type: list
         style: icon48
         items:

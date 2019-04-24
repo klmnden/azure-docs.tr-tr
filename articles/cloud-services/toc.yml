@@ -1,206 +1,201 @@
-items:
 - name: Cloud Services Belgeleri
   href: index.md
 - name: Genel Bakış
   items:
-  - name: Cloud Services nedir?
-    href: cloud-services-choose-me.md
-  - name: Bulut hizmeti yapılandırma dosyaları ve paketleme
-    href: cloud-services-model-and-package.md
+    - name: Cloud Services nedir?
+      href: cloud-services-choose-me.md
+    - name: Bulut hizmeti yapılandırma dosyaları ve paketleme
+      href: cloud-services-model-and-package.md
 - name: Başlarken
   items:
-  - name: Örnek .NET Bulut Hizmeti
-    href: cloud-services-dotnet-get-started.md
-  - name: Visual Studio için Python Örnek Bulut Hizmeti
-    href: cloud-services-python-ptvs.md
+    - name: Örnek .NET Bulut Hizmeti
+      href: cloud-services-dotnet-get-started.md
+    - name: Visual Studio için Python Örnek Bulut Hizmeti
+      href: cloud-services-python-ptvs.md
 - name: Nasıl yapılır
   items:
-  - name: Planlama
-    items:
-    - name: Sanal makine boyutları
-      href: cloud-services-sizes-specs.md
-    - name: Güncelleştirmeler
-      href: cloud-services-update-azure-service.md
-  - name: Geliştirme
-    items:
-    - name: PHP web ve çalışan rolleri oluşturma
-      href: ../cloud-services-php-create-web-role.md
-    - name: Node.js uygulaması derleme ve dağıtma
-      href: cloud-services-nodejs-develop-deploy-app.md
-    - name: Express kullanarak bir Node.js web uygulaması derleme
-      href: cloud-services-nodejs-develop-deploy-express-app.md
-    - name: Depolama ve Visual Studio
+    - name: Planlama
       items:
-      - name: Blob depolama ve bağlı hizmetler
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
-      - name: Kuyruk depolama ve bağlı hizmetler
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
-      - name: Tablo depolama ve bağlı hizmetler
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
-    - name: Bir rol için trafik kuralları yapılandırma
-      href: cloud-services-enable-communication-role-instances.md
-    - name: Bulut Hizmeti yaşam döngüsü olaylarını işleme
-      href: cloud-services-role-lifecycle-dotnet.md
-    - name: Socket.io (Node.js)
-      href: cloud-services-nodejs-chat-app-socketio.md
-    - name: Twilio kullanarak telefon görüşmesi yapma (.NET)
-      href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
-    - name: Başlangıç görevlerini yapılandırma
+        - name: Sanal makine boyutları
+          href: cloud-services-sizes-specs.md
+        - name: Güncelleştirmeler
+          href: cloud-services-update-azure-service.md
+    - name: Geliştirme
       items:
-      - name: Başlangıç görevleri oluşturma
-        href: cloud-services-startup-tasks.md
-      - name: Genel başlangıç görevleri
-        href: cloud-services-startup-tasks-common.md
-      - name: Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme
-        href: cloud-services-dotnet-install-dotnet.md
-    - name: Uzak Masaüstü’nü Yapılandırma
+        - name: PHP web ve çalışan rolleri oluşturma
+          href: ../cloud-services-php-create-web-role.md
+        - name: Node.js uygulaması derleme ve dağıtma
+          href: cloud-services-nodejs-develop-deploy-app.md
+        - name: Express kullanarak bir Node.js web uygulaması derleme
+          href: cloud-services-nodejs-develop-deploy-express-app.md
+        - name: Depolama ve Visual Studio
+          items:
+            - name: Blob depolama ve bağlı hizmetler
+              href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
+            - name: Kuyruk depolama ve bağlı hizmetler
+              href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
+            - name: Tablo depolama ve bağlı hizmetler
+              href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
+        - name: Bir rol için trafik kuralları yapılandırma
+          href: cloud-services-enable-communication-role-instances.md
+        - name: Bulut Hizmeti yaşam döngüsü olaylarını işleme
+          href: cloud-services-role-lifecycle-dotnet.md
+        - name: Socket.io (Node.js)
+          href: cloud-services-nodejs-chat-app-socketio.md
+        - name: Twilio kullanarak telefon görüşmesi yapma (.NET)
+          href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+        - name: Başlangıç görevlerini yapılandırma
+          items:
+            - name: Başlangıç görevleri oluşturma
+              href: cloud-services-startup-tasks.md
+            - name: Genel başlangıç görevleri
+              href: cloud-services-startup-tasks-common.md
+            - name: Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme
+              href: cloud-services-dotnet-install-dotnet.md
+        - name: Uzak Masaüstü’nü Yapılandırma
+          items:
+            - name: Portal
+              href: cloud-services-role-enable-remote-desktop-new-portal.md
+            - name: PowerShell
+              href: cloud-services-role-enable-remote-desktop-powershell.md
+            - name: Visual Studio
+              href: cloud-services-role-enable-remote-desktop-visual-studio.md
+    - name: Dağıtma
       items:
-      - name: Portal
-        href: cloud-services-role-enable-remote-desktop-new-portal.md
-      - name: PowerShell
-        href: cloud-services-role-enable-remote-desktop-powershell.md
-      - name: Visual Studio
-        href: cloud-services-role-enable-remote-desktop-visual-studio.md
-  - name: Dağıtma
-    items:
-    - name: Portalda bulut hizmeti oluşturma ve dağıtma
-      href: cloud-services-how-to-create-deploy-portal.md
-    - name: PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma
-      href: cloud-services-powershell-create-cloud-container.md
-    - name: Özel bir etki alanı adı yapılandırma
-      href: cloud-services-custom-domain-name-portal.md
-    - name: Özel bir Etki Alanı Denetleyicisi’ne bağlanma
-      href: cloud-services-connect-to-custom-domain.md
-  - name: Hizmeti yönetme
-    items:
-    - name: Genel yönetim görevleri
-      href: cloud-services-how-to-manage-portal.md
-    - name: Bulut Hizmetini Yapılandırma
-      href: cloud-services-how-to-configure-portal.md
-    - name: Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme
-      href: automation-manage-cloud-services.md
-    - name: Otomatik ölçeklendirmeyi yapılandırma
-      href: cloud-services-how-to-scale-portal.md
-    - name: Python ile Azure Kaynaklarını yönetme
-      href: cloud-services-python-how-to-use-service-management.md
-    - name: Kurgusal yürütmeyi azaltma
-      href: mitigate-se.md
-    - name: Konuk işletim sistemi yamaları
-      href: cloud-services-guestos-msrc-releases.md
-    - name: Konuk işletim sistemini kullanımdan kaldırma
+        - name: Portalda bulut hizmeti oluşturma ve dağıtma
+          href: cloud-services-how-to-create-deploy-portal.md
+        - name: PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma
+          href: cloud-services-powershell-create-cloud-container.md
+        - name: Özel bir etki alanı adı yapılandırma
+          href: cloud-services-custom-domain-name-portal.md
+        - name: Özel bir Etki Alanı Denetleyicisi’ne bağlanma
+          href: cloud-services-connect-to-custom-domain.md
+    - name: Hizmeti yönetme
       items:
-      - name: Kullanımdan kaldırma ilkesi
-        href: cloud-services-guestos-retirement-policy.md
-      - name: Aile 1 kullanımdan kaldırma bildirimi
-        href: cloud-services-guestos-family1-retirement.md
-    - name: Konuk işletim sistemi sürüm haberleri
-      href: cloud-services-guestos-update-matrix.md
-    - name: Cloud Services Rolü yapılandırması XPath hızlı başvuru sayfası
-      href: cloud-services-role-config-xpath.md
-  - name: Sertifikaları yönetme
-    items:
-    - name: Cloud Services ve yönetim sertifikaları
-      href: cloud-services-certs-create.md
-    - name: SSL yapılandırma
-      href: cloud-services-configure-ssl-certificate-portal.md
-  - name: İzleme
-    items:
-    - name: Bulut hizmetini izleme
-      href: cloud-services-how-to-monitor.md
-    - name: Performans sayaçlarını kullanma
-      href: diagnostics-performance-counters.md
-    - name: Performansı test etme
-      href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/toc.json
+        - name: Genel yönetim görevleri
+          href: cloud-services-how-to-manage-portal.md
+        - name: Bulut Hizmetini Yapılandırma
+          href: cloud-services-how-to-configure-portal.md
+        - name: Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme
+          href: automation-manage-cloud-services.md
+        - name: Otomatik ölçeklendirmeyi yapılandırma
+          href: cloud-services-how-to-scale-portal.md
+        - name: Python ile Azure Kaynaklarını yönetme
+          href: cloud-services-python-how-to-use-service-management.md
+        - name: Kurgusal yürütmeyi azaltma
+          href: mitigate-se.md
+        - name: Konuk işletim sistemi yamaları
+          href: cloud-services-guestos-msrc-releases.md
+        - name: Konuk işletim sistemini kullanımdan kaldırma
+          items:
+            - name: Kullanımdan kaldırma ilkesi
+              href: cloud-services-guestos-retirement-policy.md
+            - name: Aile 1 kullanımdan kaldırma bildirimi
+              href: cloud-services-guestos-family1-retirement.md
+        - name: Konuk işletim sistemi sürüm haberleri
+          href: cloud-services-guestos-update-matrix.md
+        - name: Cloud Services Rolü yapılandırması XPath hızlı başvuru sayfası
+          href: cloud-services-role-config-xpath.md
+    - name: Sertifikaları yönetme
       items:
-      - name: Visual Studio Profil Oluşturma Testi
-        href: cloud-services-performance-testing-visual-studio-profiler.md
-    - name: Tanılamayı etkinleştirme
+        - name: Cloud Services ve yönetim sertifikaları
+          href: cloud-services-certs-create.md
+        - name: SSL yapılandırma
+          href: cloud-services-configure-ssl-certificate-portal.md
+    - name: İzleme
       items:
-      - name: Azure PowerShell
-        href: cloud-services-diagnostics-powershell.md
-      - name: .NET
-        href: cloud-services-dotnet-diagnostics.md
-      - name: Visual Studio
-        href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
-    - name: Azure Depolama’daki tanılama verilerini depolama ve görüntüleme
-      href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json
-    - name: Tanılama ile Bulut Hizmetini İzleme
-      href: cloud-services-dotnet-diagnostics-trace-flow.md
-  - name: Sorun giderme
-    items:
-    - name: Hata ayıklama
+        - name: Bulut hizmetini izleme
+          href: cloud-services-how-to-monitor.md
+        - name: Performans sayaçlarını kullanma
+          href: diagnostics-performance-counters.md
+        - name: Performansı test etme
+          href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/toc.json
+          items:
+            - name: Visual Studio Profil Oluşturma Testi
+              href: cloud-services-performance-testing-visual-studio-profiler.md
+        - name: Tanılamayı etkinleştirme
+          items:
+            - name: Azure PowerShell
+              href: cloud-services-diagnostics-powershell.md
+            - name: .NET
+              href: cloud-services-dotnet-diagnostics.md
+            - name: Visual Studio
+              href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+        - name: Azure Depolama’daki tanılama verilerini depolama ve görüntüleme
+          href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json
+        - name: Tanılama ile Bulut Hizmetini İzleme
+          href: cloud-services-dotnet-diagnostics-trace-flow.md
+    - name: Sorun giderme
       items:
-      - name: Bulut Hizmeti için seçenekler
-        href: /visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview?toc=/azure/cloud-services/toc.json
-      - name: Yerel Bulut Hizmetinde Visual Studio ile
-        href: /visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines?toc=/azure/cloud-services/toc.json
-      - name: Yayımlanmış bir Bulut Hizmetinde Visual Studio ile
-        href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
-    - name: Bulut Hizmeti ayırma hatası
-      href: cloud-services-allocation-failures.md
-    - name: Bulut Hizmeti rollerinin geri dönüşüme uğramasının genel nedenleri
-      href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
-    - name: Varsayılan TEMP klasörünün boyutu, rol için yeterli büyüklükte değil
-      href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
-    - name: Genel dağıtım sorunları
-      href: cloud-services-troubleshoot-deployment-problems.md
-    - name: Rol başlatılamadı
-      href: cloud-services-troubleshoot-roles-that-fail-start.md
-    - name: Kurtarma kılavuzu
-      href: cloud-services-disaster-recovery-guidance.md
-    - name: Cloud Services SSS
-      items:
-      - name: Uygulama ve hizmet kullanılabilirliği hakkında SSS
-        href: cloud-services-application-and-service-availability-faq.md
-      - name: Yapılandırma ve yönetim hakkında SSS
-        href: cloud-services-configuration-and-management-faq.md
-      - name: Bağlantı ve ağ hakkında SSS
-        href: cloud-services-connectivity-and-networking-faq.md
-      - name: Dağıtım hakkında SSS
-        href: cloud-services-deployment-faq.md
+        - name: Hata ayıklama
+          items:
+            - name: Bulut Hizmeti için seçenekler
+              href: /visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview?toc=/azure/cloud-services/toc.json
+            - name: Yerel Bulut Hizmetinde Visual Studio ile
+              href: /visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines?toc=/azure/cloud-services/toc.json
+            - name: Yayımlanmış bir Bulut Hizmetinde Visual Studio ile
+              href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
+        - name: Bulut Hizmeti ayırma hatası
+          href: cloud-services-allocation-failures.md
+        - name: Bulut Hizmeti rollerinin geri dönüşüme uğramasının genel nedenleri
+          href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: 'Varsayılan TEMP klasörünün boyutu, rol için yeterli büyüklükte değil'
+          href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
+        - name: Genel dağıtım sorunları
+          href: cloud-services-troubleshoot-deployment-problems.md
+        - name: Rol başlatılamadı
+          href: cloud-services-troubleshoot-roles-that-fail-start.md
+        - name: Kurtarma kılavuzu
+          href: cloud-services-disaster-recovery-guidance.md
+        - name: Klasik VM mimarisinin iş akışı
+          href: cloud-services-workflow-process.md
+        - name: Cloud Services SSS
+          items:
+            - name: Uygulama ve hizmet kullanılabilirliği hakkında SSS
+              href: cloud-services-application-and-service-availability-faq.md
+            - name: Yapılandırma ve yönetim hakkında SSS
+              href: cloud-services-configuration-and-management-faq.md
+            - name: Bağlantı ve ağ hakkında SSS
+              href: cloud-services-connectivity-and-networking-faq.md
+            - name: Dağıtım hakkında SSS
+              href: cloud-services-deployment-faq.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=cloud-services
-  - name: .csdef XML Şeması
-    href: schema-csdef-file.md
-    items:
-    - name: LoadBalancerProbe Şeması
-      href: schema-csdef-loadbalancerprobe.md
-    - name: WebRole Şeması
-      href: schema-csdef-webrole.md
-    - name: WorkerRole Şeması
-      href: schema-csdef-workerrole.md
-    - name: NetworkTrafficRules Şeması
-      href: schema-csdef-networktrafficrules.md
-  - name: .cscfg XML Şeması
-    href: schema-cscfg-file.md
-    items:
-    - name: Rol Şeması
-      href: schema-cscfg-role.md
-    - name: NetworkConfiguration Şeması
-      href: schema-cscfg-networkconfiguration.md
-  - name: REST
-    href: /rest/api/compute/cloudservices/
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
+    - name: .csdef XML Şeması
+      href: schema-csdef-file.md
+      items:
+        - name: LoadBalancerProbe Şeması
+          href: schema-csdef-loadbalancerprobe.md
+        - name: WebRole Şeması
+          href: schema-csdef-webrole.md
+        - name: WorkerRole Şeması
+          href: schema-csdef-workerrole.md
+        - name: NetworkTrafficRules Şeması
+          href: schema-csdef-networktrafficrules.md
+    - name: .cscfg XML Şeması
+      href: schema-cscfg-file.md
+      items:
+        - name: Rol Şeması
+          href: schema-cscfg-role.md
+        - name: NetworkConfiguration Şeması
+          href: schema-cscfg-networkconfiguration.md
+    - name: REST
+      href: /rest/api/compute/cloudservices/
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Öğrenme yolu
-    href: https://azure.microsoft.com/documentation/learning-paths/cloud-services/
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cloud-services/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
-ms.openlocfilehash: 426de5d59de97e949996a1484d44276f8cf6e9aa
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390524"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'

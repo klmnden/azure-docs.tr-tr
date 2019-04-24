@@ -1,349 +1,344 @@
-items:
 - name: Hibrit kimlik belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Hibrit kimlik nedir?
-    href: whatis-hybrid-identity.md
-    maintainContext: true
+    - name: Hibrit kimlik nedir?
+      href: whatis-hybrid-identity.md
+      maintainContext: true
 - name: Öğreticiler
-  items:
-  - name: PHS ile tek bir AD ormanı ortamını buluta tümleştirme
-    href: tutorial-password-hash-sync.md
-  - name: PTA ile tek bir AD ormanı ortamını buluta tümleştirme
-    href: tutorial-passthrough-authentication.md
-  - name: Tek bir AD ormanı ortamını bulutta federasyona ekleme
-    href: tutorial-federation.md
-  - name: Azure AD Connect'te AD FS için yedek olarak PHS ayarlama
-    href: tutorial-phs-backup.md
   expanded: true
+  items:
+    - name: PHS ile tek bir AD ormanı ortamını buluta tümleştirme
+      href: tutorial-password-hash-sync.md
+    - name: PTA ile tek bir AD ormanı ortamını buluta tümleştirme
+      href: tutorial-passthrough-authentication.md
+    - name: Tek bir AD ormanı ortamını bulutta federasyona ekleme
+      href: tutorial-federation.md
+    - name: Azure AD Connect'te AD FS için yedek olarak PHS ayarlama
+      href: tutorial-phs-backup.md
 - name: Kavramlar
   items:
-  - name: Azure AD Connect ve Connect Health
-    items:
-    - name: Azure AD Connect ve Connect Health nedir?
-      href: whatis-azure-ad-connect.md
-    - name: Doğru kimlik doğrulamasını seçme
-      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
-    - name: Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
-      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
-  - name: Parola karması eşitleme
-    items:
-    - name: Parola karması eşitleme nedir?
-      href: whatis-phs.md
-    - name: Parola karması eşitleme nasıl çalışır?
-      href: how-to-connect-password-hash-synchronization.md
-  - name: Doğrudan kimlik doğrulama
-    items:
-    - name: Geçişli kimlik doğrulaması nedir?
-      href: how-to-connect-pta.md
-    - name: Geçişli kimlik doğrulaması nasıl çalışır?
-      href: how-to-connect-pta-how-it-works.md
-    - name: Geçişli kimlik doğrulamasında geçerli sınırlamalar
-      href: how-to-connect-pta-current-limitations.md
-    - name: Geçişli kimlik doğrulaması güvenliğine derinlemesine bakış
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Geçişli kimlik doğrulaması ve kullanıcı gizliliği
-      href: how-to-connect-pta-user-privacy.md
-  - name: Federasyon
-    items:
-    - name: Federasyon nedir?
-      href: whatis-fed.md
-    - name: Federasyon nasıl çalışır?
-      href: how-to-connect-fed-whatis.md
-    - name: Azure AD federasyonu uyumluluk listesi
-      href: how-to-connect-fed-compatibility.md
-  - name: Çoklu oturum açma
-    items:
-    - name: Çoklu Oturum Açma nedir?
-      href: how-to-connect-sso.md
-    - name: Çoklu Oturum Açma nasıl çalışır?
-      href: how-to-connect-sso-how-it-works.md
-    - name: Çoklu Oturum Açma ve kullanıcı gizliliği
-      href: how-to-connect-sso-user-privacy.md
-  - name: Azure AD Connect Sync
-    items:
-    - name: Azure AD Connect Sync nedir?
-      href: how-to-connect-sync-whatis.md
-    - name: Azure AD Connect Eşitleme özellikleri
-      href: how-to-connect-syncservice-features.md
-    - name: Azure AD Connect Eşitleme hizmeti yöneticisi nedir?
-      href: how-to-connect-sync-service-manager-ui.md
-    - name: Azure AD Connect Eşitleme teknik kavramları
-      href: how-to-connect-sync-technical-concepts.md
-    - name: Azure AD Connect Eşitleme mimarisini anlama
-      href: concept-azure-ad-connect-sync-architecture.md
-    - name: Bildirim Temelli Sağlamayı Anlama
-      href: concept-azure-ad-connect-sync-declarative-provisioning.md
-    - name: Bildirim Temelli Sağlama İfadelerini Anlama
-      href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-    - name: Varsayılan yapılandırmayı anlama
-      href: concept-azure-ad-connect-sync-default-configuration.md
-    - name: Kullanıcıları ve kişileri anlama
-      href: concept-azure-ad-connect-sync-user-and-contacts.md
-    - name: Gölge öznitelikleri anlama
-      href: how-to-connect-syncservice-shadow-attributes.md
+    - name: Azure AD Connect ve Connect Health
+      items:
+        - name: Azure AD Connect ve Connect Health nedir?
+          href: whatis-azure-ad-connect.md
+        - name: Doğru kimlik doğrulamasını seçme
+          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+        - name: Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
+          href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    - name: Parola karması eşitleme
+      items:
+        - name: Parola karması eşitleme nedir?
+          href: whatis-phs.md
+        - name: Parola karması eşitleme nasıl çalışır?
+          href: how-to-connect-password-hash-synchronization.md
+    - name: Doğrudan kimlik doğrulama
+      items:
+        - name: Geçişli kimlik doğrulaması nedir?
+          href: how-to-connect-pta.md
+        - name: Geçişli kimlik doğrulaması nasıl çalışır?
+          href: how-to-connect-pta-how-it-works.md
+        - name: Geçişli kimlik doğrulamasında geçerli sınırlamalar
+          href: how-to-connect-pta-current-limitations.md
+        - name: Geçişli kimlik doğrulaması güvenliğine derinlemesine bakış
+          href: how-to-connect-pta-security-deep-dive.md
+        - name: Geçişli kimlik doğrulaması ve kullanıcı gizliliği
+          href: how-to-connect-pta-user-privacy.md
+    - name: Federasyon
+      items:
+        - name: Federasyon nedir?
+          href: whatis-fed.md
+        - name: Federasyon nasıl çalışır?
+          href: how-to-connect-fed-whatis.md
+        - name: Azure AD federasyonu uyumluluk listesi
+          href: how-to-connect-fed-compatibility.md
+    - name: Çoklu oturum açma
+      items:
+        - name: Çoklu Oturum Açma nedir?
+          href: how-to-connect-sso.md
+        - name: Çoklu Oturum Açma nasıl çalışır?
+          href: how-to-connect-sso-how-it-works.md
+        - name: Çoklu Oturum Açma ve kullanıcı gizliliği
+          href: how-to-connect-sso-user-privacy.md
+    - name: Azure AD Connect Sync
+      items:
+        - name: Azure AD Connect Sync nedir?
+          href: how-to-connect-sync-whatis.md
+        - name: Azure AD Connect Eşitleme özellikleri
+          href: how-to-connect-syncservice-features.md
+        - name: Azure AD Connect Eşitleme hizmeti yöneticisi nedir?
+          href: how-to-connect-sync-service-manager-ui.md
+        - name: Azure AD Connect Eşitleme teknik kavramları
+          href: how-to-connect-sync-technical-concepts.md
+        - name: Azure AD Connect Eşitleme mimarisini anlama
+          href: concept-azure-ad-connect-sync-architecture.md
+        - name: Bildirim Temelli Sağlamayı Anlama
+          href: concept-azure-ad-connect-sync-declarative-provisioning.md
+        - name: Bildirim Temelli Sağlama İfadelerini Anlama
+          href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+        - name: Varsayılan yapılandırmayı anlama
+          href: concept-azure-ad-connect-sync-default-configuration.md
+        - name: Kullanıcıları ve kişileri anlama
+          href: concept-azure-ad-connect-sync-user-and-contacts.md
+        - name: Gölge öznitelikleri anlama
+          href: how-to-connect-syncservice-shadow-attributes.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Yükleme ve yükseltme
-    items:
-    - name: Yükleme Yol Haritası
-      href: how-to-connect-install-roadmap.md
-    - name: Yükleme Önkoşulları
-      href: how-to-connect-install-prerequisites.md
-    - name: Yükleme türünü seçme
-      href: how-to-connect-install-select-installation.md
-    - name: Azure AD Connect’i Hızlı ayarlar ile yükleme (Parola Karması Eşitleme)
-      href: how-to-connect-install-express.md
-    - name: Azure AD Connect Federasyon’u veya diğer Özel ayarları yükleme
-      href: how-to-connect-install-custom.md
-    - name: Azure AD Connect’i Geçişli Kimlik Doğrulaması (PTA) ile yükleme
-      href: how-to-connect-pta-quick-start.md
-    - name: Azure AD Connect Health’i yükleme
-      href: how-to-connect-health-agent-install.md
-    - name: Otomatik yükseltme
-      href: how-to-connect-install-automatic-upgrade.md
-    - name: Yükleme sihirbazını ikinci kez çalıştırma
-      href: how-to-connect-installation-wizard.md
-    - name: Azure AD Connect’in yeni bir sürümüne yükseltme
-      href: how-to-upgrade-previous-version.md
-    - name: DirSync veya Azure AD Eşitleme’den yükseltme
-      href: how-to-dirsync-upgrade-get-started.md
-    - name: Mevcut bir AD Eşitleme veritabanını kullanarak yükleme
-      href: how-to-connect-install-existing-database.md
-    - name: SQL yönetici temsilcisi izinlerini kullanarak yükleme
-      href: how-to-connect-install-sql-delegation.md
-    - name: PTA için önizleme aracılarını yükseltme
-      href: how-to-connect-pta-upgrade-preview-authentication-agents.md
-    - name: Azure AD Connect veritabanını SQL Express’ten SQL Server’a taşıma
-      href: how-to-connect-install-move-db.md
-    - name: Azure AD zaten olduğunda
-      href: how-to-connect-install-existing-tenant.md
-    - name: Yükleme sonrası görevler
-      href: how-to-connect-post-installation.md
-  - name: Planlama ve tasarım
-    items:
-    - name: Tasarım kavramları
-      href: plan-connect-design-concepts.md
-    - name: Azure AD Connect için topolojiler
-      href: plan-connect-topologies.md
-    - name: Azure AD Connect performansını etkileyen faktörler
-      href: plan-connect-performance-factors.md
-    - name: Kullanıcılar nasıl oturum açar?
-      href: plan-connect-user-signin.md
-    - name: Azure AD UserPrincipalName popülasyonu
-      href: plan-connect-userprincipalname.md
-    - name: Örneklerle ilgili özel konular
-      href: reference-connect-instances.md
-    - name: Geçiş
+    - name: Yükleme ve yükseltme
       items:
-      - name: Federasyondan PHS’ye geçirme
-        href: plan-migrate-adfs-password-hash-sync.md
-      - name: Federasyondan PTA’ya geçirme
-        href: plan-migrate-adfs-pass-through-authentication.md
-    - name: Hibrit Kimlik Tasarım Kılavuzu
+        - name: Yükleme Yol Haritası
+          href: how-to-connect-install-roadmap.md
+        - name: Yükleme Önkoşulları
+          href: how-to-connect-install-prerequisites.md
+        - name: Yükleme türünü seçme
+          href: how-to-connect-install-select-installation.md
+        - name: Azure AD Connect’i Hızlı ayarlar ile yükleme (Parola Karması Eşitleme)
+          href: how-to-connect-install-express.md
+        - name: Azure AD Connect Federasyon’u veya diğer Özel ayarları yükleme
+          href: how-to-connect-install-custom.md
+        - name: Azure AD Connect’i Geçişli Kimlik Doğrulaması (PTA) ile yükleme
+          href: how-to-connect-pta-quick-start.md
+        - name: Azure AD Connect Health’i yükleme
+          href: how-to-connect-health-agent-install.md
+        - name: Otomatik yükseltme
+          href: how-to-connect-install-automatic-upgrade.md
+        - name: Yükleme sihirbazını ikinci kez çalıştırma
+          href: how-to-connect-installation-wizard.md
+        - name: Azure AD Connect’in yeni bir sürümüne yükseltme
+          href: how-to-upgrade-previous-version.md
+        - name: DirSync veya Azure AD Eşitleme’den yükseltme
+          href: how-to-dirsync-upgrade-get-started.md
+        - name: Mevcut bir AD Eşitleme veritabanını kullanarak yükleme
+          href: how-to-connect-install-existing-database.md
+        - name: SQL yönetici temsilcisi izinlerini kullanarak yükleme
+          href: how-to-connect-install-sql-delegation.md
+        - name: PTA için önizleme aracılarını yükseltme
+          href: how-to-connect-pta-upgrade-preview-authentication-agents.md
+        - name: Azure AD Connect veritabanını SQL Express’ten SQL Server’a taşıma
+          href: how-to-connect-install-move-db.md
+        - name: Azure AD zaten olduğunda
+          href: how-to-connect-install-existing-tenant.md
+        - name: Yükleme sonrası görevler
+          href: how-to-connect-post-installation.md
+    - name: Planlama ve tasarım
       items:
-      - name: Hibrit Kimlik Tasarım Kılavuzuna Genel Bakış
-        href: plan-hybrid-identity-design-considerations-overview.md
-      - name: Kimlik gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-business-needs.md
-      - name: Eşitleme gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
-      - name: Çok faktörlü kimlik doğrulama gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
-      - name: Yaşam döngüsü benimseme stratejisini belirleme
-        href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
-      - name: Veri koruma stratejisi tanımlama
-        href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
-      - name: Veri koruma gereksinimlerini planlama
-        href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
-      - name: İçerik yönetimi gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
-      - name: Erişim denetimi gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
-      - name: Olay yanıtı gereksinimlerini belirleme
-        href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
-      - name: Hibrit kimlik yaşam döngüsünü planlama
-        href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
-      - name: Benimseme stratejisi tanımlama
-        href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
-      - name: Hibrit kimlik tasarım kılavuzu - Sonraki Adımlar
-        href: plan-hybrid-identity-design-considerations-nextsteps.md
-      - name: Hibrit kimlik araçlarının karşılaştırılması
-        href: plan-hybrid-identity-design-considerations-tools-comparison.md
-  - name: Azure AD Connect'i yönetme
-    items:
-    - name: Cihaz geri yazmayı etkinleştirme
-      href: how-to-connect-device-writeback.md
-    - name: Cihaz seçenekleri
-      href: how-to-connect-device-options.md
-    - name: Azure AD Connect’teki ek özellikler
-      href: how-to-connect-preview.md
-    - name: Yanlışlıkla silmeleri engelleme
-      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
-    - name: AD geri dönüşüm kutusunu etkinleştirme
-      href: how-to-connect-sync-recycle-bin.md
-    - name: AD DS Bağlayıcı hesabını yapılandırma
-      href: how-to-connect-configure-ad-ds-connector-account.md
-    - name: Azure AD Eşitleme hizmeti hesabı parolasını değiştirme
-      href: how-to-connect-sync-change-serviceacct-pass.md
-    - name: Azure AD Bağlayıcısı hesabını değiştirme
-      href: how-to-connect-azureadaccount.md
-    - name: AD DS Bağlayıcı hesabının parolasını değiştirme
-      href: how-to-connect-sync-change-addsacct-pass.md
-  - name: Geçişli kimlik doğrulamasını yönetme
-    items:
-    - name: Geçişli kimlik doğrulamasını kullanmaya başlama
-      href: how-to-connect-pta-quick-start.md
-    - name: Geçişli kimlik doğrulaması hakkında SSS
-      href: how-to-connect-pta-faq.md
-  - name: Federasyon Hizmetlerini Yönetme
-    items:
-    - name: Azure AD Connect’yi federasyon ile yönetme
-      href: how-to-connect-fed-management.md
-    - name: Federasyon için çoklu etki alanı desteği
-      href: how-to-connect-install-multiple-domains.md
-    - name: Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
-      href: how-to-connect-fed-single-adfs-multitenant-federation.md
-    - name: O365 ve Azure AD için federasyon sertifikalarını yenileme
-      href: how-to-connect-fed-o365-certs.md
-    - name: AD FS için SSL sertifikasını güncelleştirme
-      href: how-to-connect-fed-ssl-update.md
-    - name: Azure AD ile AD FS güvenini yönetme
-      href: how-to-connect-azure-ad-trust.md
-    - name: Uygulamalar için grup taleplerini yapılandırma
-      href: how-to-connect-fed-group-claims.md
-    - name: O365 RP karma algoritmasını değiştirme
-      href: how-to-connect-fed-sha256-guidance.md
-    - name: Idp’niz olarak SAML 2.0 sunucusu kullanma
-      href: how-to-connect-fed-saml-idp.md
-    - name: Hibrit Azure AD’ye katılmada yapılandırma sonrası görevler
-      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Çoklu oturum açmayı yönetme
-    items:
-    - name: Çoklu Oturum Açma’yı kullanmaya başlama
-      href: how-to-connect-sso-quick-start.md
-    - name: Çoklu Oturum Açma hakkında SSS
-      href: how-to-connect-sso-faq.md
-  - name: Azure AD Connect Health'i yönetme
-    items:
-    - name: Azure AD Connect Health İşlemleri
-      href: how-to-connect-health-operations.md
-    - name: Azure AD Connect Health’i AD FS ile kullanma
-      href: how-to-connect-health-adfs.md
-    - name: AD FS ile Azure AD Connect Health için riskli IP raporları
-      href: how-to-connect-health-adfs-risky-ip.md
-    - name: Azure AD Connect Health’i eşitleme için kullanma
-      href: how-to-connect-health-sync.md
-    - name: Azure AD Connect Health’i AD DS ile Kullanma
-      href: how-to-connect-health-adds.md
-    - name: Güncel olmayan sistem durumu hizmeti verileri
-      href: how-to-connect-health-data-freshness.md
-    - name: Yinelenen öznitelik eşitleme hatalarını tanılama
-      href: how-to-connect-health-diagnose-sync-errors.md
-    - name: Azure AD Connect Health uyarı kataloğu
-      href: how-to-connect-health-alert-catalog.md
-  - name: Azure AD Connect Sync'i yönetme
-    items:
-    - name: Hazırlama sunucusu ve olağanüstü durum kurtarma
-      href: how-to-connect-sync-staging-server.md
-    - name: Varsayılan yapılandırmanın değiştirilmesine ilişkin en iyi yöntemler
-      href: how-to-connect-sync-best-practices-changing-default-configuration.md
-    - name: Varsayılan yapılandırmayı değiştirme
-      href: how-to-connect-sync-change-the-configuration.md
-    - name: Değiştirilen varsayılan kuralları düzeltme
-      href: how-to-connect-fix-default-rules.md
-    - name: Dizin genişletmelerini yapılandırma
-      href: how-to-connect-sync-feature-directory-extensions.md
-    - name: Tercih edilen veri konumunu yapılandırma
-      href: how-to-connect-sync-feature-preferreddatalocation.md
-    - name: Filtrelemeyi yapılandırma
-      href: how-to-connect-sync-configure-filtering.md
-    - name: Zamanlayıcıyı yönetme
-      href: how-to-connect-sync-feature-scheduler.md
-    - name: Eşitleme kuralını oluşturma ve özelleştirme
-      href: how-to-connect-create-custom-sync-rule.md
-    - name: Azure AD Connect Eşitleme hizmeti yöneticisi
+        - name: Tasarım kavramları
+          href: plan-connect-design-concepts.md
+        - name: Azure AD Connect için topolojiler
+          href: plan-connect-topologies.md
+        - name: Azure AD Connect performansını etkileyen faktörler
+          href: plan-connect-performance-factors.md
+        - name: Kullanıcılar nasıl oturum açar?
+          href: plan-connect-user-signin.md
+        - name: Azure AD UserPrincipalName popülasyonu
+          href: plan-connect-userprincipalname.md
+        - name: Örneklerle ilgili özel konular
+          href: reference-connect-instances.md
+        - name: Geçiş
+          items:
+            - name: Federasyondan PHS’ye geçirme
+              href: plan-migrate-adfs-password-hash-sync.md
+            - name: Federasyondan PTA’ya geçirme
+              href: plan-migrate-adfs-pass-through-authentication.md
+        - name: Hibrit Kimlik Tasarım Kılavuzu
+          items:
+            - name: Hibrit Kimlik Tasarım Kılavuzuna Genel Bakış
+              href: plan-hybrid-identity-design-considerations-overview.md
+            - name: Kimlik gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-business-needs.md
+            - name: Eşitleme gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+            - name: Çok faktörlü kimlik doğrulama gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+            - name: Yaşam döngüsü benimseme stratejisini belirleme
+              href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+            - name: Veri koruma stratejisi tanımlama
+              href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
+            - name: Veri koruma gereksinimlerini planlama
+              href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+            - name: İçerik yönetimi gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+            - name: Erişim denetimi gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+            - name: Olay yanıtı gereksinimlerini belirleme
+              href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
+            - name: Hibrit kimlik yaşam döngüsünü planlama
+              href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+            - name: Benimseme stratejisi tanımlama
+              href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+            - name: Hibrit kimlik tasarım kılavuzu - Sonraki Adımlar
+              href: plan-hybrid-identity-design-considerations-nextsteps.md
+            - name: Hibrit kimlik araçlarının karşılaştırılması
+              href: plan-hybrid-identity-design-considerations-tools-comparison.md
+    - name: Azure AD Connect'i yönetme
       items:
-      - name: Hizmet yöneticisi işlemler sekmesini yönetme
-        href: how-to-connect-sync-service-manager-ui-operations.md
-      - name: Hizmet yöneticisi ile bağlayıcıları kullanma
-        href: how-to-connect-sync-service-manager-ui-connectors.md
-      - name: Meta Veri Deposu Tasarımcısı
-        href: how-to-connect-sync-service-manager-ui-mvdesigner.md
-      - name: Meta veri deposu arama
-        href: how-to-connect-sync-service-manager-ui-mvsearch.md
-  - name: Sorun giderme
-    items:
-    - name: Azure AD Connect Yönetim Aracısı nedir?
-      href: whatis-aadc-admin-agent.md
-    - name: ADConnectivityTools PowerShell modülü nedir?
-      href: how-to-connect-adconnectivitytools.md
-    - name: Bağlantı
-      href: tshoot-connect-connectivity.md
-    - name: Eşitleme sırasında karşılaşılan hatalar
-      href: tshoot-connect-sync-errors.md
-    - name: Nesne eşitlenmemiş
-      href: tshoot-connect-object-not-syncing.md
-    - name: Sorun giderme görevini kullanarak nesne eşitleme
-      href: tshoot-connect-objectsync.md
-    - name: Parola karması eşitleme
-      href: tshoot-connect-password-hash-synchronization.md
-    - name: Doğrudan kimlik doğrulama
-      href: tshoot-connect-pass-through-authentication.md
-    - name: Çoklu oturum açma
-      href: tshoot-connect-sso.md
-    - name: userCertificate’ın neden olduğu LargeObject hatası
-      href: tshoot-connect-largeobjecterror-usercertificate.md
-    - name: LocalDB 10 GB sınırından kurtarma
-      href: tshoot-connect-recover-from-localdb-10gb-limit.md
-    - name: SQL bağlantısı
-      href: tshoot-connect-tshoot-sql-connectivity.md
-    - name: Öznitelik eşitlemesi
-      href: tshoot-connect-attribute-not-syncing.md
-    - name: Yükleme sorunları
-      href: tshoot-connect-install-issues.md
+        - name: Cihaz geri yazmayı etkinleştirme
+          href: how-to-connect-device-writeback.md
+        - name: Cihaz seçenekleri
+          href: how-to-connect-device-options.md
+        - name: Azure AD Connect’teki ek özellikler
+          href: how-to-connect-preview.md
+        - name: Yanlışlıkla silmeleri engelleme
+          href: how-to-connect-sync-feature-prevent-accidental-deletes.md
+        - name: AD geri dönüşüm kutusunu etkinleştirme
+          href: how-to-connect-sync-recycle-bin.md
+        - name: AD DS Bağlayıcı hesabını yapılandırma
+          href: how-to-connect-configure-ad-ds-connector-account.md
+        - name: Azure AD Eşitleme hizmeti hesabı parolasını değiştirme
+          href: how-to-connect-sync-change-serviceacct-pass.md
+        - name: Azure AD Bağlayıcısı hesabını değiştirme
+          href: how-to-connect-azureadaccount.md
+        - name: AD DS Bağlayıcı hesabının parolasını değiştirme
+          href: how-to-connect-sync-change-addsacct-pass.md
+    - name: Geçişli kimlik doğrulamasını yönetme
+      items:
+        - name: Geçişli kimlik doğrulamasını kullanmaya başlama
+          href: how-to-connect-pta-quick-start.md
+        - name: Geçişli kimlik doğrulaması hakkında SSS
+          href: how-to-connect-pta-faq.md
+    - name: Federasyon Hizmetlerini Yönetme
+      items:
+        - name: Azure AD Connect’yi federasyon ile yönetme
+          href: how-to-connect-fed-management.md
+        - name: Federasyon için çoklu etki alanı desteği
+          href: how-to-connect-install-multiple-domains.md
+        - name: Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
+          href: how-to-connect-fed-single-adfs-multitenant-federation.md
+        - name: O365 ve Azure AD için federasyon sertifikalarını yenileme
+          href: how-to-connect-fed-o365-certs.md
+        - name: AD FS için SSL sertifikasını güncelleştirme
+          href: how-to-connect-fed-ssl-update.md
+        - name: Azure AD ile AD FS güvenini yönetme
+          href: how-to-connect-azure-ad-trust.md
+        - name: Uygulamalar için grup taleplerini yapılandırma
+          href: how-to-connect-fed-group-claims.md
+        - name: O365 RP karma algoritmasını değiştirme
+          href: how-to-connect-fed-sha256-guidance.md
+        - name: Idp’niz olarak SAML 2.0 sunucusu kullanma
+          href: how-to-connect-fed-saml-idp.md
+        - name: Hibrit Azure AD’ye katılmada yapılandırma sonrası görevler
+          href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Çoklu oturum açmayı yönetme
+      items:
+        - name: Çoklu Oturum Açma’yı kullanmaya başlama
+          href: how-to-connect-sso-quick-start.md
+        - name: Çoklu Oturum Açma hakkında SSS
+          href: how-to-connect-sso-faq.md
+    - name: Azure AD Connect Health'i yönetme
+      items:
+        - name: Azure AD Connect Health İşlemleri
+          href: how-to-connect-health-operations.md
+        - name: Azure AD Connect Health’i AD FS ile kullanma
+          href: how-to-connect-health-adfs.md
+        - name: AD FS ile Azure AD Connect Health için riskli IP raporları
+          href: how-to-connect-health-adfs-risky-ip.md
+        - name: Azure AD Connect Health’i eşitleme için kullanma
+          href: how-to-connect-health-sync.md
+        - name: Azure AD Connect Health’i AD DS ile Kullanma
+          href: how-to-connect-health-adds.md
+        - name: Güncel olmayan sistem durumu hizmeti verileri
+          href: how-to-connect-health-data-freshness.md
+        - name: Yinelenen öznitelik eşitleme hatalarını tanılama
+          href: how-to-connect-health-diagnose-sync-errors.md
+        - name: Azure AD Connect Health uyarı kataloğu
+          href: how-to-connect-health-alert-catalog.md
+    - name: Azure AD Connect Sync'i yönetme
+      items:
+        - name: Hazırlama sunucusu ve olağanüstü durum kurtarma
+          href: how-to-connect-sync-staging-server.md
+        - name: Varsayılan yapılandırmanın değiştirilmesine ilişkin en iyi yöntemler
+          href: how-to-connect-sync-best-practices-changing-default-configuration.md
+        - name: Varsayılan yapılandırmayı değiştirme
+          href: how-to-connect-sync-change-the-configuration.md
+        - name: Değiştirilen varsayılan kuralları düzeltme
+          href: how-to-connect-fix-default-rules.md
+        - name: Dizin genişletmelerini yapılandırma
+          href: how-to-connect-sync-feature-directory-extensions.md
+        - name: Tercih edilen veri konumunu yapılandırma
+          href: how-to-connect-sync-feature-preferreddatalocation.md
+        - name: Filtrelemeyi yapılandırma
+          href: how-to-connect-sync-configure-filtering.md
+        - name: Zamanlayıcıyı yönetme
+          href: how-to-connect-sync-feature-scheduler.md
+        - name: Eşitleme kuralını oluşturma ve özelleştirme
+          href: how-to-connect-create-custom-sync-rule.md
+        - name: Azure AD Connect Eşitleme hizmeti yöneticisi
+          items:
+            - name: Hizmet yöneticisi işlemler sekmesini yönetme
+              href: how-to-connect-sync-service-manager-ui-operations.md
+            - name: Hizmet yöneticisi ile bağlayıcıları kullanma
+              href: how-to-connect-sync-service-manager-ui-connectors.md
+            - name: Meta Veri Deposu Tasarımcısı
+              href: how-to-connect-sync-service-manager-ui-mvdesigner.md
+            - name: Meta veri deposu arama
+              href: how-to-connect-sync-service-manager-ui-mvsearch.md
+    - name: Sorun giderme
+      items:
+        - name: Azure AD Connect Yönetim Aracısı nedir?
+          href: whatis-aadc-admin-agent.md
+        - name: ADConnectivityTools PowerShell modülü nedir?
+          href: how-to-connect-adconnectivitytools.md
+        - name: Bağlantı
+          href: tshoot-connect-connectivity.md
+        - name: Eşitleme sırasında karşılaşılan hatalar
+          href: tshoot-connect-sync-errors.md
+        - name: Nesne eşitlenmemiş
+          href: tshoot-connect-object-not-syncing.md
+        - name: Yükleme sırasında kaynak yer işareti
+          href: tshoot-connect-source-anchor.md
+        - name: Sorun giderme görevini kullanarak nesne eşitleme
+          href: tshoot-connect-objectsync.md
+        - name: Parola karması eşitleme
+          href: tshoot-connect-password-hash-synchronization.md
+        - name: Doğrudan kimlik doğrulama
+          href: tshoot-connect-pass-through-authentication.md
+        - name: Çoklu oturum açma
+          href: tshoot-connect-sso.md
+        - name: userCertificate’ın neden olduğu LargeObject hatası
+          href: tshoot-connect-largeobjecterror-usercertificate.md
+        - name: LocalDB 10 GB sınırından kurtarma
+          href: tshoot-connect-recover-from-localdb-10gb-limit.md
+        - name: SQL bağlantısı
+          href: tshoot-connect-tshoot-sql-connectivity.md
+        - name: Öznitelik eşitlemesi
+          href: tshoot-connect-attribute-not-syncing.md
+        - name: Yükleme sorunları
+          href: tshoot-connect-install-issues.md
 - name: Başvuru
   items:
-  - name: Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller
-    href: reference-connect-ports.md
-  - name: Azure AD Connect sürüm geçmişi
-    href: reference-connect-version-history.md
-  - name: Azure AD Connect Health sürüm geçmişi
-    href: reference-connect-health-version-history.md
-  - name: Bağlayıcı sürüm geçmişi
-    href: reference-connect-sync-connector-version-history.md
-  - name: Hesaplar ve izinler
-    href: reference-connect-accounts-permissions.md
-  - name: Azure AD Connect ile ilgili SSS
-    href: reference-connect-faq.md
-  - name: Azure AD Connect Health ile ilgili SSS
-    href: reference-connect-health-faq.md
-  - name: Azure AD Connect kullanıcı gizliliği
-    href: reference-connect-user-privacy.md
-  - name: Azure AD Connect Health kullanıcı gizliliği
-    href: reference-connect-health-user-privacy.md
-  - name: Almanya’da Azure AD Connect
-    href: reference-connect-germany.md
-  - name: DirSync’i Kullanımdan Kaldırma
-    href: reference-connect-dirsync-deprecated.md
-  - name: Eşitlenen öznitelikler
-    href: reference-connect-sync-attributes-synchronized.md
-  - name: İşlevler Başvurusu
-    href: reference-connect-sync-functions-reference.md
-  - name: Azure AD federasyonu uyumluluk listesi
-    href: how-to-connect-fed-compatibility.md
-  - name: TLS 1.2 zorlaması
-    href: reference-connect-tls-enforcement.md
-  - name: ADSyncConfig Başvurusu
-    href: reference-connect-adsyncconfig.md
-  - name: ADSyncTools Başvurusu
-    href: reference-connect-adsynctools.md
-  - name: ADConnectivityTools Başvurusu
-    href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: aac9615fde8547493851ba513156ec860c51c13c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498290"
+    - name: Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller
+      href: reference-connect-ports.md
+    - name: Azure AD Connect sürüm geçmişi
+      href: reference-connect-version-history.md
+    - name: Azure AD Connect Health sürüm geçmişi
+      href: reference-connect-health-version-history.md
+    - name: Bağlayıcı sürüm geçmişi
+      href: reference-connect-sync-connector-version-history.md
+    - name: Hesaplar ve izinler
+      href: reference-connect-accounts-permissions.md
+    - name: Azure AD Connect ile ilgili SSS
+      href: reference-connect-faq.md
+    - name: Azure AD Connect Health ile ilgili SSS
+      href: reference-connect-health-faq.md
+    - name: Azure AD Connect kullanıcı gizliliği
+      href: reference-connect-user-privacy.md
+    - name: Azure AD Connect Health kullanıcı gizliliği
+      href: reference-connect-health-user-privacy.md
+    - name: Almanya’da Azure AD Connect
+      href: reference-connect-germany.md
+    - name: DirSync’i Kullanımdan Kaldırma
+      href: reference-connect-dirsync-deprecated.md
+    - name: Eşitlenen öznitelikler
+      href: reference-connect-sync-attributes-synchronized.md
+    - name: İşlevler Başvurusu
+      href: reference-connect-sync-functions-reference.md
+    - name: Azure AD federasyonu uyumluluk listesi
+      href: how-to-connect-fed-compatibility.md
+    - name: TLS 1.2 zorlaması
+      href: reference-connect-tls-enforcement.md
+    - name: ADSyncConfig Başvurusu
+      href: reference-connect-adsyncconfig.md
+    - name: ADSyncTools Başvurusu
+      href: reference-connect-adsynctools.md
+    - name: ADConnectivityTools Başvurusu
+      href: reference-connect-adconnectivitytools.md

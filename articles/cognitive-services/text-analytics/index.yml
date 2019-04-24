@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77c69ea24adeef7960b1f16670a2e34ffaf5aca7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728276"
 documentType: LandingData
 title: Metin Analizi API’si Belgeleri
 metadata:
-  title: Metin Analizi API’si Belgeleri - Öğreticiler, API Başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs
-  description: Metin üzerinde gelişmiş doğal dil işleme gerçekleştirmek için Metin Analizi API’sini kullanmayı öğrenin. Öğreticiler, Metin Analizi hizmetini yararlı hale getirebilecek kodları nasıl yazacağınızı gösterir.
+  title: 'Metin Analizi API’si Belgeleri - Öğreticiler, API Başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs'
+  description: 'Metin Analizi API’si ham metin üzerinde gelişmiş doğal dil işleme sağlayan bulut tabanlı bir hizmettir ve dört ana işlev içerir: Yaklaşım analizi, anahtar ifade ayıklama, karakter kodu tanıma ve dil algılama.'
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,76 +16,76 @@ metadata:
   ms.date: 09/24/2018
   ms.author: nitinme
 abstract:
-  description: 'Metin Analizi API’si ham metin üzerinde gelişmiş doğal dil işleme sağlayan bulut tabanlı bir hizmettir ve üç ana işlev içerir: Yaklaşım analizi, anahtar ifade ayıklama ve dil algılama. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle içeriği farklı şekillerde analiz etmeyi öğrenin.'
+  description: 'Metin Analizi API’si ham metin üzerinde gelişmiş doğal dil işleme sağlayan bulut tabanlı bir hizmettir ve dört ana işlev içerir: Yaklaşım analizi, anahtar ifade ayıklama, karakter kodu tanıma ve dil algılama. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle içeriği farklı şekillerde analiz etmeyi öğrenin.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/text-analytics/overview
+            html: <p>Metin Analizi API'si hakkında bilgi edinin.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Metin Analizi nedir?
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+            html: <p>Metin Analizi API'sine kaydolmayı öğrenin.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Metin Analizi API'sine kaydolun
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+            html: <p>Metin Analizi API'si erişim anahtarlarını ve uç noktalarını almayı öğrenin.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: Metin Analizi API'si anahtarlarına erişin
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: /azure/cognitive-services/text-analytics/overview
-      html: <p>Metin Analizi API'si hakkında bilgi edinin.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Metin Analizi nedir?
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-      html: <p>Metin Analizi API'sine kaydolmayı öğrenin.</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Metin Analizi API'sine kaydolun
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-      html: <p>Metin Analizi API'si erişim anahtarlarını ve uç noktalarını almayı öğrenin.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Metin Analizi API'si anahtarlarına erişin
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Dil algılama, duygu analizi ve anahtar ifade ayıklama işlemleriyle Metin Analizi API’sini kullanmaya başlayın:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Dil algılama, duygu analizi, anahtar ifade ayıklama ve varlık tanıma işlemleriyle Metin Analizi API’sini kullanmaya başlayın:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            href: quickstarts/csharp
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            href: quickstarts/java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: quickstarts/nodejs
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: quickstarts/python
+          - image:
+              src: media/index/logo_go.svg
+            text: Başlayın
+            href: quickstarts/go
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image:
-        src: media/index/logo_go.svg
-      text: Başlayın
-      href: quickstarts/go
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Metin Analizi API’si kullanarak uygulama geliştirmeyi öğrenin:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Metin Analizi API’si kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Power BI ile Metin Analizi</a>
+          - html: '<a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">PowerApps’te Metin Analizi</a>'
+  - title: Başvuru
     items:
-    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Power BI ile Metin Analizi</a>
-    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">PowerApps’te Metin Analizi</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API Başvurusu</a></p>
-    - title: SDK’lar
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7">API Başvurusu</a></p>'
+          - title: SDK’lar
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

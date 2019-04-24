@@ -1,221 +1,210 @@
-items:
 - name: Azure Machine Learning Hizmeti Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Azure Machine Learning hizmeti nedir?
-    displayName: AML services overview
-    href: overview-what-is-azure-ml.md
-  - name: Workbench’e ne oldu?
-    displayName: desktop ui Workbench upgrade update transfer
-    href: overview-what-happened-to-workbench.md
   expanded: true
+  items:
+    - name: Azure Machine Learning hizmeti nedir?
+      displayName: AML services overview
+      href: overview-what-is-azure-ml.md
+    - name: Workbench’e ne oldu?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md
 - name: Kurulum
   items:
-  - name: Çalışma alanı oluşturma
-    displayName: install sdk workspace
-    href: setup-create-workspace.md
+    - name: Çalışma alanı oluşturma
+      displayName: install sdk workspace
+      href: setup-create-workspace.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Bulut not defteri ile deneme yapma
-    displayName: workspace
-    href: quickstart-run-cloud-notebook.md
-  - name: Yerel not defteri ile deneme yapma
-    displayName: workspace, install, sdk
-    href: quickstart-run-local-notebook.md
+    - name: Bulut not defteri ile deneme yapma
+      displayName: workspace
+      href: quickstart-run-cloud-notebook.md
+    - name: Yerel not defteri ile deneme yapma
+      displayName: 'workspace, install, sdk'
+      href: quickstart-run-local-notebook.md
 - name: Öğreticiler
   items:
-  - name: Görüntü sınıflandırması (MNIST verileri)
-    items:
-    - name: 1. Modeli eğitme
-      displayName: build modeling
-      href: tutorial-train-models-with-aml.md
-    - name: 2. Model dağıtma
-      href: tutorial-deploy-models-with-aml.md
-  - name: Regresyon (NYC Taxi verileri)
-    items:
-    - name: 1. Verileri modelleme için hazırlama
-      displayName: data prep
-      href: tutorial-data-prep.md
-    - name: 2. ML modelini otomatik olarak eğitme
-      displayName: automl, automated, auto ml,
-      href: tutorial-auto-train-models.md
+    - name: Görüntü sınıflandırması (MNIST verileri)
+      items:
+        - name: 1. Modeli eğitme
+          displayName: build modeling
+          href: tutorial-train-models-with-aml.md
+        - name: 2. Model dağıtma
+          href: tutorial-deploy-models-with-aml.md
+    - name: Regresyon (NYC Taxi verileri)
+      items:
+        - name: 1. Verileri modelleme için hazırlama
+          displayName: data prep
+          href: tutorial-data-prep.md
+        - name: 2. ML modelini otomatik olarak eğitme
+          displayName: 'automl, automated, auto ml,'
+          href: tutorial-auto-train-models.md
 - name: Örnekler
-  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
+  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples-notebooks.md
 - name: Kavramlar
   items:
-  - name: Bu hizmet nasıl çalışır?
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
-  - name: Otomatik makine öğrenimi
-    displayName: automl, auto ml
-    href: concept-automated-ml.md
-  - name: Model yönetimi
-    displayName: deploy, deployment
-    href: concept-model-management-and-deployment.md
-  - name: Model yorumlanabilirliği
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
-  - name: FPGA’lar ile hızlandırma
-    href: concept-accelerate-with-fpgas.md
-  - name: Makine öğrenmesi işlem hatları
-    href: concept-ml-pipelines.md
-  - name: Güvenlik
-    items:
-    - name: Kurumsal güvenliğe genel bakış
-      displayName: authorization authentication encryption
-      href: concept-enterprise-security.md
-    - name: Kullanıcıları ve rolleri yönetme
-      href: how-to-assign-roles.md
-    - name: Sanal ağları kullanma
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: SSL ile web hizmetlerinin güvenliğini sağlama
-      href: how-to-secure-web-service.md
+    - name: Bu hizmet nasıl çalışır?
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
+    - name: Otomatik makine öğrenimi
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: Model yönetimi
+      displayName: 'deploy, deployment'
+      href: concept-model-management-and-deployment.md
+    - name: Model yorumlanabilirliği
+      displayName: explainability
+      href: machine-learning-interpretability-explainability.md
+    - name: FPGA’lar ile hızlandırma
+      href: concept-accelerate-with-fpgas.md
+    - name: Makine öğrenmesi işlem hatları
+      href: concept-ml-pipelines.md
+    - name: Güvenlik
+      items:
+        - name: Kurumsal güvenliğe genel bakış
+          displayName: authorization authentication encryption
+          href: concept-enterprise-security.md
+        - name: Kullanıcıları ve rolleri yönetme
+          href: how-to-assign-roles.md
+        - name: Sanal ağları kullanma
+          displayName: vnet
+          href: how-to-enable-virtual-network.md
+        - name: SSL ile web hizmetlerinin güvenliğini sağlama
+          href: how-to-secure-web-service.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Çalışma alanlarını yönetme
-    items:
-    - name: Çalışma alanları için portalı kullanma
-      href: how-to-manage-workspace.md
-    - name: Resource Manager şablonu kullanma
-      href: how-to-create-workspace-template.md
-  - name: Geliştirme ortamı ayarlama 
-    items:
-    - name: Geliştirme ortamlarını yapılandırma
-      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-      href: how-to-configure-environment.md
-    - name: Visual Studio Code uzantısı
-      displayName: Visual Studio Code, VSCode, tools, ai, vs
+    - name: Çalışma alanlarını yönetme
       items:
-      - name: başlarken
-        href: how-to-vscode-tools.md
-      - name: Eğitme ve dağıtma
-        href: how-to-vscode-train-deploy.md
-  - name: Verilerle çalışma
-    displayName: data prep, ETL, ELT, data preparation
-    items:
-    - name: Verileri keşfetme ve hazırlama
-      displayName: data prep, ETL, ELT, data preparation
+        - name: Çalışma alanları için portalı kullanma
+          href: how-to-manage-workspace.md
+        - name: Resource Manager şablonu kullanma
+          href: how-to-create-workspace-template.md
+    - name: "Geliştirme ortamı ayarlama\_"
       items:
-      - name: Veri yükleme
-        href: how-to-load-data.md
-      - name: Verileri dönüştürme
-        href: how-to-transform-data.md
-      - name: Veri yazma
-        href: how-to-write-data.md
-  - name: Veri deposuna veri alma
-    displayName: blob get fileshare access storage
-    href: how-to-access-data.md
-  - name: Modelleri eğitme
-    items:
-    - name: Eğitim ortamlarını ayarlama
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-      href: how-to-set-up-training-targets.md
-    - name: Eğitimde tahmin araçları oluşturma
-      href: how-to-train-ml-models.md
-    - name: PyTorch'u kullanma
-      href: how-to-train-pytorch.md
-    - name: TensorFlow ve Keras’ı kullanma
-      href: how-to-train-tensorflow.md
-    - name: Hiperparametreleri ayarlama
-      displayName: parameter
-      href: how-to-tune-hyperparameters.md
-  - name: Denemeleri çalıştırma ve izleme
-    items:
-    - name: Çalıştırmaları başlatma, izleme ve iptal etme
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Eğitim çalıştırmaları için günlük ölçümleri
-      href: how-to-track-experiments.md
-  - name: Makine öğrenimini otomatikleştirme
-    displayName: automl, auto ml
-    items:
-    - name: Otomatik ML kullanma (Python)
-      displayName: SDK automl
-      href: how-to-configure-auto-train.md
-    - name: Uzak işlem hedeflerini kullanma
-      displayName: automl automated auto ml
-      href: how-to-auto-train-remote.md
-    - name: Tahmin modellerini otomatik olarak eğitme
-      displayName: time series
-      href: how-to-auto-train-forecast.md
-  - name: ONNX modelleri
-    href: how-to-build-deploy-onnx.md
-  - name: Modelleri dağıtma
-    items:
-    - name: Dağıtım nereye ve nasıl yapılır?
-      displayName: publish azure kubernetes azure container instances
-      href: how-to-deploy-and-where.md
-    - name: FPGA'lar
-      href: how-to-deploy-fpga-web-service.md
-    - name: Sorun giderme
-      href: how-to-troubleshoot-deployment.md
-  - name: Web hizmetlerini kullanma
-    items:
-    - name: Gerçek zamanlı kullanma
-      displayName: create client consume request response synchronous
-      href: how-to-consume-web-service.md
-    - name: Toplu tahminleri çalıştırma
-      displayName: score scoring asynchronous consume pipeline
-      href: how-to-run-batch-predictions.md
-  - name: Web hizmetlerini izleme
-    items:
-    - name: Model verilerini toplama ve değerlendirme
-      displayName: track production
-      href: how-to-enable-data-collection.md
-    - name: Application Insights ile izleme
-      href: how-to-enable-app-insights.md
-  - name: İlk işlem hattınızı oluşturma
-    href: how-to-create-your-first-pipeline.md
-  - name: Günlü kaydını etkinleştir
-    displayName: logging
-    href: how-to-enable-logging.md
-  - name: Kaynak kotalarını yönetme
-    displayName: limits
-    href: how-to-manage-quotas.md
-  - name: Machine Learning CLI’yı kullanma
-    displayName: cli extension command line command-line az ci/cd automate automated
-    href: reference-azure-machine-learning-cli.md
-  - name: Verileri dışarı aktarma ve silme
-    displayName: GDPR
-    href: how-to-export-delete-data.md
+        - name: Geliştirme ortamlarını yapılandırma
+          displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
+          href: how-to-configure-environment.md
+        - name: Visual Studio Code uzantısını kullanma
+          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
+          href: how-to-vscode-tools.md
+    - name: Verilerle çalışma
+      displayName: 'data prep, ETL, ELT, data preparation'
+      items:
+        - name: Verileri keşfetme ve hazırlama
+          displayName: 'data prep, ETL, ELT, data preparation'
+          items:
+            - name: Veri yükleme
+              href: how-to-load-data.md
+            - name: Verileri dönüştürme
+              href: how-to-transform-data.md
+            - name: Veri yazma
+              href: how-to-write-data.md
+    - name: Veri deposuna veri alma
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
+    - name: Modelleri eğitme
+      items:
+        - name: Eğitim ortamlarını ayarlama
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
+        - name: Eğitimde tahmin araçları oluşturma
+          href: how-to-train-ml-models.md
+        - name: PyTorch'u kullanma
+          href: how-to-train-pytorch.md
+        - name: TensorFlow ve Keras’ı kullanma
+          href: how-to-train-tensorflow.md
+        - name: Hiperparametreleri ayarlama
+          displayName: parameter
+          href: how-to-tune-hyperparameters.md
+    - name: Denemeleri çalıştırma ve izleme
+      items:
+        - name: 'Çalıştırmaları başlatma, izleme ve iptal etme'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: Eğitim çalıştırmaları için günlük ölçümleri
+          href: how-to-track-experiments.md
+    - name: Makine öğrenimini otomatikleştirme
+      displayName: 'automl, auto ml'
+      items:
+        - name: Otomatik ML kullanma (Python)
+          displayName: SDK automl
+          href: how-to-configure-auto-train.md
+        - name: Uzak işlem hedeflerini kullanma
+          displayName: automl automated auto ml
+          href: how-to-auto-train-remote.md
+        - name: Tahmin modellerini otomatik olarak eğitme
+          displayName: time series
+          href: how-to-auto-train-forecast.md
+    - name: ONNX modelleri
+      href: how-to-build-deploy-onnx.md
+    - name: Modelleri dağıtma
+      items:
+        - name: Dağıtım nereye ve nasıl yapılır?
+          displayName: publish azure kubernetes azure container instances
+          href: how-to-deploy-and-where.md
+        - name: FPGA'lar
+          href: how-to-deploy-fpga-web-service.md
+        - name: Sorun giderme
+          href: how-to-troubleshoot-deployment.md
+    - name: Web hizmetlerini kullanma
+      items:
+        - name: Gerçek zamanlı kullanma
+          displayName: create client consume request response synchronous
+          href: how-to-consume-web-service.md
+        - name: Toplu tahminleri çalıştırma
+          displayName: score scoring asynchronous consume pipeline
+          href: how-to-run-batch-predictions.md
+    - name: Web hizmetlerini izleme
+      items:
+        - name: Model verilerini toplama ve değerlendirme
+          displayName: track production
+          href: how-to-enable-data-collection.md
+        - name: Application Insights ile izleme
+          href: how-to-enable-app-insights.md
+    - name: İlk işlem hattınızı oluşturma
+      href: how-to-create-your-first-pipeline.md
+    - name: Günlü kaydını etkinleştir
+      displayName: logging
+      href: how-to-enable-logging.md
+    - name: Kaynak kotalarını yönetme
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Machine Learning CLI’yı kullanma
+      displayName: cli extension command line command-line az ci/cd automate automated
+      href: reference-azure-machine-learning-cli.md
+    - name: Verileri dışarı aktarma ve silme
+      displayName: GDPR
+      href: how-to-export-delete-data.md
 - name: Başvuru
   items:
-  - name: Machine learning SDK
-    displayName: api core package python
-    href: https://aka.ms/aml-sdk
-  - name: Veri hazırlığı SDK’sı
-    displayName: api preparation package python
-    href: https://aka.ms/data-prep-sdk
-  - name: İzleme SDK’sı
-    displayName: api package python monitor
-    href: https://aka.ms/aml-monitoring-sdk
+    - name: Machine learning SDK
+      displayName: api core package python
+      href: 'https://aka.ms/aml-sdk'
+    - name: Veri hazırlığı SDK’sı
+      displayName: api preparation package python
+      href: 'https://aka.ms/data-prep-sdk'
+    - name: İzleme SDK’sı
+      displayName: api package python monitor
+      href: 'https://aka.ms/aml-monitoring-sdk'
 - name: Kaynaklar
   items:
-  - name: Sürüm notları
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Bilinen sorunlar
-    displayName: bugs errors troubleshoot
-    href: resource-known-issues.md
-  - name: Kullanıcı forumu
-    href: https://aka.ms/aml-forum-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: ML ürünlerimizi karşılaştırın
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-    maintainContext: true
-ms.openlocfilehash: 647c949a8f999a34963ddfa49f1df8a1606a1295
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521776"
+    - name: Sürüm notları
+      displayName: what's new issues bugs
+      href: azure-machine-learning-release-notes.md
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Bilinen sorunlar
+      displayName: bugs errors troubleshoot
+      href: resource-known-issues.md
+    - name: Kullanıcı forumu
+      href: 'https://aka.ms/aml-forum-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: ML ürünlerimizi karşılaştırın
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+      maintainContext: true

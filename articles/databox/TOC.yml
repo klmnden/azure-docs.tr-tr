@@ -1,130 +1,127 @@
-items:
 - name: Azure Data Box Belgeleri - Çevrimdışı Aktarım
   href: /azure/databox
   items:
-  - name: Data Box
-    items:
-    - name: Genel Bakış
+    - name: Data Box
       items:
-      - name: Data Box nedir?
-        href: data-box-overview.md
-    - name: Hızlı Başlangıçlar
+        - name: Genel Bakış
+          items:
+            - name: Data Box nedir?
+              href: data-box-overview.md
+        - name: Hızlı Başlangıçlar
+          expanded: true
+          items:
+            - name: Ayarlama - Azure portalı
+              href: data-box-quickstart-portal.md
+        - name: Öğreticiler
+          items:
+            - name: 1 - Sipariş
+              href: data-box-deploy-ordered.md
+            - name: 2 - Ayarlama
+              href: data-box-deploy-set-up.md
+            - name: 3 - Bağlanma ve kopyalama
+              items:
+                - name: SMB aracılığıyla
+                  href: data-box-deploy-copy-data.md
+                - name: NFS aracılığıyla
+                  href: data-box-deploy-copy-data-via-nfs.md
+                - name: REST aracılığıyla
+                  href: data-box-deploy-copy-data-via-rest.md
+                - name: Veri kopyalama hizmeti aracılığıyla
+                  href: data-box-deploy-copy-data-via-copy-service.md
+                - name: Yönetilen disklere
+                  href: data-box-deploy-copy-data-from-vhds.md
+            - name: '4 - İade etme, karşıya yükleme, doğrulama'
+              href: data-box-deploy-picked-up.md
+        - name: Kavramlar
+          items:
+            - name: Güvenlik yönergelerini okuyun
+              href: data-box-safety.md
+            - name: Gereksinimleri inceleme
+              items:
+                - name: Data Box için
+                  href: data-box-system-requirements.md
+                - name: Data Box Blob depolama için
+                  href: data-box-system-requirements-rest.md
+            - name: Sınırları anlama
+              href: data-box-limits.md
+            - name: Güvenliği gözden geçirme
+              href: data-box-security.md
+            - name: SSS
+              href: data-box-faq.md
+        - name: Nasıl yapılır
+          items:
+            - name: Azure portalı aracılığıyla yönetme
+              href: data-box-portal-admin.md
+            - name: Yerel web arabirimi aracılığıyla yönetme
+              href: data-box-local-web-ui-admin.md
+            - name: Verileri blob katmanına taşıma
+              href: data-box-how-to-set-data-tier.md
+            - name: Cihazın kablolarını bağlama
+              href: data-box-cable-options.md
+            - name: Destek birimine başvurma
+              href: data-box-disk-contact-microsoft-support.md
+            - name: Geçiş
+              items:
+                - name: SharePoint Online’a
+                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                - name: Azure Dosya Eşitleme’ye
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: HDFS Mağazası’ndan
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+            - name: Sorun giderme
+              items:
+                - name: Data Box Blob depolama sorunları
+                  href: data-box-troubleshoot-rest.md
+    - name: Data Box Disk
       items:
-      - name: Ayarlama - Azure portalı
-        href: data-box-quickstart-portal.md
-      expanded: true
-    - name: Öğreticiler
+        - name: Genel Bakış
+          items:
+            - name: Data Box Disk nedir?
+              href: data-box-disk-overview.md
+        - name: Hızlı Başlangıçlar
+          expanded: true
+          items:
+            - name: Ayarlama - Azure portalı
+              href: data-box-disk-quickstart-portal.md
+        - name: Öğreticiler
+          items:
+            - name: 1 - Sipariş
+              href: data-box-disk-deploy-ordered.md
+            - name: 2 - Ayarlama
+              href: data-box-disk-deploy-set-up.md
+            - name: 3 - Kopyalama ve doğrulama
+              href: data-box-disk-deploy-copy-data.md
+            - name: '4 - İade etme, karşıya yükleme, doğrulama'
+              href: data-box-disk-deploy-picked-up.md
+        - name: Kavramlar
+          items:
+            - name: Gereksinimleri inceleme
+              href: data-box-disk-system-requirements.md
+            - name: Sınırları anlama
+              href: data-box-disk-limits.md
+            - name: Güvenliği gözden geçirme
+              href: data-box-disk-security.md
+            - name: SSS
+              href: data-box-disk-faq.md
+        - name: Nasıl yapılır
+          items:
+            - name: Azure portalı aracılığıyla yönetme
+              href: data-box-portal-ui-admin.md
+            - name: Disk sorunlarını giderme
+              href: data-box-disk-troubleshoot.md
+            - name: Destek birimine başvurma
+              href: data-box-disk-contact-microsoft-support.md
+    - name: Data Box Heavy
       items:
-      - name: 1 - Sipariş
-        href: data-box-deploy-ordered.md
-      - name: 2 - Ayarlama
-        href: data-box-deploy-set-up.md
-      - name: 3 - Bağlanma ve kopyalama
-        items:
-        - name: SMB aracılığıyla
-          href: data-box-deploy-copy-data.md
-        - name: NFS aracılığıyla
-          href: data-box-deploy-copy-data-via-nfs.md
-        - name: REST aracılığıyla
-          href: data-box-deploy-copy-data-via-rest.md
-        - name: Veri kopyalama hizmeti aracılığıyla
-          href: data-box-deploy-copy-data-via-copy-service.md
-        - name: Yönetilen disklere
-          href: data-box-deploy-copy-data-from-vhds.md
-      - name: 4 - İade etme, karşıya yükleme, doğrulama
-        href: data-box-deploy-picked-up.md
-    - name: Kavramlar
+        - name: Genel Bakış
+          items:
+            - name: Data Box Heavy nedir?
+              href: data-box-heavy-overview.md
+    - name: Kaynaklar
       items:
-      - name: Güvenlik yönergelerini okuyun
-        href: data-box-safety.md
-      - name: Gereksinimleri inceleme
-        items:
-        - name: Data Box için
-          href: data-box-system-requirements.md
-        - name: Data Box Blob depolama için
-          href: data-box-system-requirements-rest.md
-      - name: Sınırları anlama
-        href: data-box-limits.md
-      - name: Güvenliği gözden geçirme
-        href: data-box-security.md
-      - name: SSS
-        href: data-box-faq.md
-    - name: Nasıl yapılır
-      items:
-      - name: Azure portalı aracılığıyla yönetme
-        href: data-box-portal-admin.md
-      - name: Yerel web arabirimi aracılığıyla yönetme
-        href: data-box-local-web-ui-admin.md
-      - name: Verileri blob katmanına taşıma
-        href: data-box-how-to-set-data-tier.md
-      - name: Cihazın kablolarını bağlama
-        href: data-box-cable-options.md
-      - name: Destek birimine başvurma
-        href: data-box-disk-contact-microsoft-support.md
-      - name: Geçiş
-        items:
-        - name: SharePoint Online’a
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
-        - name: Azure Dosya Eşitleme’ye
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-        - name: HDFS Mağazası’ndan
-          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-  - name: Data Box Disk
-    items:
-    - name: Genel Bakış
-      items:
-      - name: Data Box Disk nedir?
-        href: data-box-disk-overview.md
-    - name: Hızlı Başlangıçlar
-      items:
-      - name: Ayarlama - Azure portalı
-        href: data-box-disk-quickstart-portal.md
-      expanded: true
-    - name: Öğreticiler
-      items:
-      - name: 1 - Sipariş
-        href: data-box-disk-deploy-ordered.md
-      - name: 2 - Ayarlama
-        href: data-box-disk-deploy-set-up.md
-      - name: 3 - Kopyalama ve doğrulama
-        href: data-box-disk-deploy-copy-data.md
-      - name: 4 - İade etme, karşıya yükleme, doğrulama
-        href: data-box-disk-deploy-picked-up.md
-    - name: Kavramlar
-      items:
-      - name: Gereksinimleri inceleme
-        href: data-box-disk-system-requirements.md
-      - name: Sınırları anlama
-        href: data-box-disk-limits.md
-      - name: Güvenliği gözden geçirme
-        href: data-box-disk-security.md
-      - name: SSS
-        href: data-box-disk-faq.md
-    - name: Nasıl yapılır
-      items:
-      - name: Azure portalı aracılığıyla yönetme
-        href: data-box-portal-ui-admin.md
-      - name: Disk sorunlarını giderme
-        href: data-box-disk-troubleshoot.md
-      - name: Destek birimine başvurma
-        href: data-box-disk-contact-microsoft-support.md
-  - name: Data Box Heavy
-    items:
-    - name: Genel Bakış
-      items:
-      - name: Data Box Heavy nedir?
-        href: data-box-heavy-overview.md
-  - name: Kaynaklar
-    items:
-    - name: Data Box ürünü
-      href: https://azure.microsoft.com/services/storage/databox/data/
-    - name: Data Box fiyatlandırması
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Data Box Disk fiyatlandırması
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 159fbf5782e51cc316e2b7f4474a5ddc94cf8a59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794015"
+        - name: Data Box ürünü
+          href: 'https://azure.microsoft.com/services/storage/databox/data/'
+        - name: Data Box fiyatlandırması
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+        - name: Data Box Disk fiyatlandırması
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'

@@ -1,246 +1,243 @@
-items:
 - name: Application Gateway Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Uygulama ağ geçitleri hakkında
-    href: overview.md
-  - name: Yenilikler
-    href: whats-new.md
+    - name: Uygulama ağ geçitleri hakkında
+      href: overview.md
+    - name: Yenilikler
+      href: whats-new.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Uygulama Ağ Geçidi Oluşturma - Portal
-    href: quick-create-portal.md
-  - name: Uygulama Ağ Geçidi Oluşturma - PowerShell
-    href: quick-create-powershell.md
-  - name: Uygulama Ağ Geçidi Oluşturma - Azure CLI
-    href: quick-create-cli.md
   expanded: true
+  items:
+    - name: Uygulama Ağ Geçidi Oluşturma - Portal
+      href: quick-create-portal.md
+    - name: Uygulama Ağ Geçidi Oluşturma - PowerShell
+      href: quick-create-powershell.md
+    - name: Uygulama Ağ Geçidi Oluşturma - Azure CLI
+      href: quick-create-cli.md
 - name: Öğreticiler
   items:
-  - name: Web uygulaması güvenlik duvarını etkinleştirme
-    href: application-gateway-web-application-firewall-portal.md
-  - name: SSL ile güvenli
-    href: create-ssl-portal.md
-  - name: Birden çok site barındırma
-    href: create-multiple-sites-portal.md
-  - name: URL’ye göre yönlendirme
-    href: create-url-route-portal.md
-  - name: Web trafiğini yeniden yönlendirme
-    href: tutorial-url-redirect-cli.md
-  - name: Otomatik ölçeklendirme ve bölgesel olarak yedeklilik
-    href: tutorial-autoscale-ps.md
+    - name: Web uygulaması güvenlik duvarını etkinleştirme
+      href: application-gateway-web-application-firewall-portal.md
+    - name: SSL ile güvenli
+      href: create-ssl-portal.md
+    - name: Birden çok site barındırma
+      href: create-multiple-sites-portal.md
+    - name: URL’ye göre yönlendirme
+      href: create-url-route-portal.md
+    - name: Web trafiğini yeniden yönlendirme
+      href: tutorial-url-redirect-cli.md
+    - name: Otomatik ölçeklendirme ve bölgesel olarak yedeklilik
+      href: tutorial-autoscale-ps.md
 - name: Örnekler
   items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Kavramlar
   items:
-  - name: Temel Bilgiler
-    items:
-    - name: Application Gateway’in işleyişi
-      href: how-application-gateway-works.md
-    - name: Application Gateway bileşenleri
-      href: application-gateway-components.md
-    - name: Yapılandırmaya genel bakış
-      href: configuration-overview.md
-  - name: Yönlendirme
-    items:
-    - name: Birden çok site barındırma
-      href: multiple-site-overview.md
-    - name: URL yönlendirme
-      href: url-route-overview.md
+    - name: Temel Bilgiler
+      items:
+        - name: Application Gateway’in işleyişi
+          href: how-application-gateway-works.md
+        - name: Application Gateway bileşenleri
+          href: application-gateway-components.md
+        - name: Yapılandırmaya genel bakış
+          href: configuration-overview.md
     - name: Yönlendirme
-      href: redirect-overview.md
-    - name: HTTP üst bilgilerini yeniden üretme
-      href: rewrite-http-headers.md
-    - name: Özel hata sayfaları
-      href: custom-error.md
-  - name: SSL
-    items:
-    - name: SSL sonlandırması ve uçtan uca SSL
-      href: ssl-overview.md
-    - name: SSL ilkesine genel bakış
-      href: application-gateway-ssl-policy-overview.md
-  - name: WAF
-    items:
-    - name: Web uygulaması güvenlik duvarı
-      href: waf-overview.md
-    - name: WAF yapılandırması
-      href: application-gateway-waf-configuration.md
-  - name: Sistem durumunu izleme
-    items:
-    - name: Durum yoklaması
-      href: application-gateway-probe-overview.md
-    - name: Tanılama
-      href: application-gateway-diagnostics.md
-  - name: Otomatik ölçeklendirme ve bölgesel olarak yedeklilik
-    href: application-gateway-autoscaling-zone-redundant.md
-  - name: App service web uygulaması ve birden çok kiracı desteği
-    href: application-gateway-web-app-overview.md
-  - name: WebSocket desteği
-    href: application-gateway-websocket.md
-  - name: SSS
-    href: application-gateway-faq.md
+      items:
+        - name: Birden çok site barındırma
+          href: multiple-site-overview.md
+        - name: URL yönlendirme
+          href: url-route-overview.md
+        - name: Yönlendirme
+          href: redirect-overview.md
+        - name: HTTP üst bilgilerini yeniden üretme
+          href: rewrite-http-headers.md
+        - name: Özel hata sayfaları
+          href: custom-error.md
+    - name: SSL
+      items:
+        - name: SSL sonlandırması ve uçtan uca SSL
+          href: ssl-overview.md
+        - name: SSL ilkesine genel bakış
+          href: application-gateway-ssl-policy-overview.md
+        - name: Key Vault kullanma
+          href: key-vault-certs.md
+    - name: WAF
+      items:
+        - name: Web uygulaması güvenlik duvarı
+          href: waf-overview.md
+        - name: WAF yapılandırması
+          href: application-gateway-waf-configuration.md
+    - name: Sistem durumunu izleme
+      items:
+        - name: Durum yoklaması
+          href: application-gateway-probe-overview.md
+        - name: Tanılama
+          href: application-gateway-diagnostics.md
+    - name: Otomatik ölçeklendirme ve bölgesel olarak yedeklilik
+      href: application-gateway-autoscaling-zone-redundant.md
+    - name: App service web uygulaması ve birden çok kiracı desteği
+      href: application-gateway-web-app-overview.md
+    - name: WebSocket desteği
+      href: application-gateway-websocket.md
+    - name: SSS
+      href: application-gateway-faq.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Tek bir site barındırma
-    items:
-    - name: Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-manage-web-traffic-cli.md
-    - name: Şablon
-      href: create-vmss-template.md
-  - name: İç yük dengeleyicisi yapılandırma
-    items:
-    - name: Azure portal
-      href: configure-application-gateway-with-private-frontend-ip.md
-    - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
-  - name: SSL yapılandırma
-    items:
-    - name: SSL sonlandırma
+    - name: Tek bir site barındırma
       items:
-      - name: SSL sonlandırma - PowerShell
-        href: tutorial-ssl-powershell.md
-      - name: SSL sonlandırma - Azure CLI
-        href: tutorial-ssl-cli.md
-    - name: Uçtan uca SSL
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
+        - name: Azure CLI
+          href: tutorial-manage-web-traffic-cli.md
+        - name: Şablon
+          href: create-vmss-template.md
+    - name: İç yük dengeleyicisi yapılandırma
       items:
-      - name: Uçtan uca SSL - Portal
-        href: end-to-end-ssl-portal.md
-      - name: Uçtan uca SSL - PowerShell
-        href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Sertifikaları yönetme
+        - name: Azure portal
+          href: configure-application-gateway-with-private-frontend-ip.md
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: SSL yapılandırma
       items:
-      - name: Güvenilenler listesine ekleme arka ucu için sertifikalar oluşturma
-        href: certificates-for-backend-authentication.md
-      - name: Sertifikaları yenileme
-        href: renew-certificates.md
-    - name: SSL ilkesi
+        - name: SSL sonlandırma
+          items:
+            - name: SSL sonlandırma - PowerShell
+              href: tutorial-ssl-powershell.md
+            - name: SSL sonlandırma - Azure CLI
+              href: tutorial-ssl-cli.md
+            - name: Key Vault Yapılandırma - PowerShell
+              href: configure-keyvault-ps.md
+        - name: Uçtan uca SSL
+          items:
+            - name: Uçtan uca SSL - Portal
+              href: end-to-end-ssl-portal.md
+            - name: Uçtan uca SSL - PowerShell
+              href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Sertifikaları yönetme
+          items:
+            - name: Güvenilenler listesine ekleme arka ucu için sertifikalar oluşturma
+              href: certificates-for-backend-authentication.md
+            - name: Sertifikaları yenileme
+              href: renew-certificates.md
+        - name: SSL ilkesi
+          items:
+            - name: SSL ilkesi yapılandırma
+              href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Web Uygulaması Güvenlik Duvarı’nı Yapılandırma
       items:
-      - name: SSL ilkesi yapılandırma
-        href: application-gateway-configure-ssl-policy-powershell.md
-  - name: Web Uygulaması Güvenlik Duvarı’nı Yapılandırma
-    items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md
-  - name: WAF kural kümelerini yapılandırma
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
-  - name: URL’ye göre yönlendirme
-    items:
-    - name: Azure PowerShell
-      href: tutorial-url-route-powershell.md
-    - name: Azure CLI
-      href: tutorial-url-route-cli.md
-  - name: Birden çok site barındırma
-    items:
-    - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: Azure CLI
-      href: tutorial-multiple-sites-cli.md
-  - name: Trafiği yeniden yönlendirme
-    items:
-    - name: Dış trafik
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
+        - name: Azure CLI
+          href: tutorial-restrict-web-traffic-cli.md
+    - name: WAF kural kümelerini yapılandırma
       items:
-      - name: Azure PowerShell
-        href: redirect-external-site-powershell.md
-      - name: Azure CLI
-        href: redirect-external-site-cli.md
-    - name: HTTP’den HTTPS’ye
+        - name: Azure portal
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
+    - name: URL’ye göre yönlendirme
       items:
-      - name: Azure portal
-        href: redirect-http-to-https-portal.md
-      - name: Azure PowerShell
-        href: redirect-http-to-https-powershell.md
-      - name: Azure CLI
-        href: redirect-http-to-https-cli.md
-    - name: İç trafiği yeniden yönlendirme
+        - name: Azure PowerShell
+          href: tutorial-url-route-powershell.md
+        - name: Azure CLI
+          href: tutorial-url-route-cli.md
+    - name: Birden çok site barındırma
       items:
-      - name: Azure PowerShell
-        href: redirect-internal-site-powershell.md
-      - name: Azure CLI
-        href: redirect-internal-site-cli.md
-    - name: Azure PowerShell kullanarak web trafiğini yeniden yönlendirme
-      href: tutorial-url-redirect-powershell.md
-  - name: HTTP üst bilgilerini yeniden üretme
-    items:
-    - name: Azure portal
-      href: rewrite-http-headers-portal.md
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-  - name: App service web uygulamasını ve birden çok kiracı hizmetini yapılandırma
-    items:
-    - name: Portal
-      href: configure-web-app-portal.md
-    - name: Azure PowerShell
-      href: create-web-app.md
-  - name: Özel yoklamaları yapılandırma
-    items:
-    - name: Portal
-      href: application-gateway-create-probe-portal.md
-    - name: Klasik PowerShell
-      href: application-gateway-create-probe-classic-ps.md
-    - name: Resource Manager PowerShell
-      href: application-gateway-create-probe-ps.md
-  - name: Sorun giderme
-    items:
-    - name: App Service Ortamı ile ILB
-      href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: App Service URL’sine yeniden yönlendirme
-      href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: Oturum benzeşimi sorunları
-      href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: Ağ Geçidi (502) hataları
-      href: application-gateway-troubleshooting-502.md
+        - name: Azure PowerShell
+          href: tutorial-multiple-sites-powershell.md
+        - name: Azure CLI
+          href: tutorial-multiple-sites-cli.md
+    - name: Trafiği yeniden yönlendirme
+      items:
+        - name: Dış trafik
+          items:
+            - name: Azure PowerShell
+              href: redirect-external-site-powershell.md
+            - name: Azure CLI
+              href: redirect-external-site-cli.md
+        - name: HTTP’den HTTPS’ye
+          items:
+            - name: Azure portal
+              href: redirect-http-to-https-portal.md
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Azure CLI
+              href: redirect-http-to-https-cli.md
+        - name: İç trafiği yeniden yönlendirme
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Azure CLI
+              href: redirect-internal-site-cli.md
+        - name: Azure PowerShell kullanarak web trafiğini yeniden yönlendirme
+          href: tutorial-url-redirect-powershell.md
+    - name: HTTP üst bilgilerini yeniden üretme
+      items:
+        - name: Azure portal
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+    - name: App service web uygulamasını ve birden çok kiracı hizmetini yapılandırma
+      items:
+        - name: Portal
+          href: configure-web-app-portal.md
+        - name: Azure PowerShell
+          href: create-web-app.md
+    - name: Özel yoklamaları yapılandırma
+      items:
+        - name: Portal
+          href: application-gateway-create-probe-portal.md
+        - name: Klasik PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Sorun giderme
+      items:
+        - name: App Service Ortamı ile ILB
+          href: create-gateway-internal-load-balancer-app-service-environment.md
+        - name: App Service URL’sine yeniden yönlendirme
+          href: troubleshoot-app-service-redirection-app-service-url.md
+        - name: Oturum benzeşimi sorunları
+          href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
+        - name: Ağ Geçidi (502) hataları
+          href: application-gateway-troubleshooting-502.md
 - name: Başvuru
   items:
-  - name: CRS kuralları
-    href: application-gateway-crs-rulegroups-rules.md
-  - name: Azure CLI
-    href: /cli/azure/network/application-gateway
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: .NET
-    href: /dotnet/api
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/applicationgateway
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    - name: CRS kuralları
+      href: application-gateway-crs-rulegroups-rules.md
+    - name: Azure CLI
+      href: /cli/azure/network/application-gateway
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/applicationgateway
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
 - name: Kaynaklar
   items:
-  - name: Yazar şablonları
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Topluluk şablonları
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547389"
+    - name: Yazar şablonları
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Topluluk şablonları
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-application-gateway'

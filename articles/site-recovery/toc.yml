@@ -29,6 +29,8 @@
           href: azure-to-azure-tutorial-migrate.md
         - name: Azure VM'lerini Kullanılabilirlik Alanlarına taşıma
           href: move-Azure-VMs-AVset-Azone.md
+        - name: Azure VM’lerini Kamu ve Genel bölgeler arasında taşıma
+          href: region-move-cross-geos.md
     - name: Azure'a VMware VM olağanüstü durum kurtarma
       items:
         - name: Azure’u hazırlama
@@ -175,6 +177,10 @@
               href: azure-to-azure-autoupdate.md
             - name: Azure Site Recovery’deki güncelleştirmeler
               href: service-updates-how-to.md
+            - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
+              href: site-recovery-manage-registration-and-protection.md
+            - name: Bir kasayı silme
+              href: delete-vault.md
     - name: VMware'den Azure'a olağanüstü durum kurtarma
       items:
         - name: Ağı ayarlama
