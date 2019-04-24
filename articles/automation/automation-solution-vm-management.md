@@ -248,8 +248,8 @@ Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş g
 
 |Özellik | Açıklama|
 |----------|----------|
-|Çağıran |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-|Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır.|
+|Caller |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+|Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır.|
 |CorrelationId | Runbook işinin bağıntı kimliği olan GUID.|
 |JobId | Runbook işinin kimliği olan GUID.|
 |operationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır.|
@@ -263,14 +263,14 @@ Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş g
 |SourceSystem | Gönderilen verilere ilişkin kaynak sistemi belirtir. Otomasyon için değer, OpsManager olacaktır|
 |StreamType | Olay türünü belirtir. Olası değerler şunlardır:<br>- Ayrıntılı<br>- Çıktı<br>- Hata<br>- Uyarı|
 |SubscriptionId | İşin abonelik kimliğini belirtir.
-|Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
+|Time | Runbook işinin yürütüldüğü tarih ve saat.|
 
 ### <a name="job-streams"></a>İş akışları
 
 |Özellik | Açıklama|
 |----------|----------|
-|Çağıran |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-|Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır.|
+|Caller |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+|Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır.|
 |JobId | Runbook işinin kimliği olan GUID.|
 |operationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır.|
 |ResourceGroup | Runbook işine ait kaynak grubunun adını belirtir.|
@@ -282,7 +282,7 @@ Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş g
 |RunbookName | Runbook’un adı.|
 |SourceSystem | Gönderilen verilere ilişkin kaynak sistemi belirtir. Otomasyon için değer OpsManager olacaktır.|
 |StreamType | İş akışı türü. Olası değerler şunlardır:<br>-İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı|
-|Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
+|Time | Runbook işinin yürütüldüğü tarih ve saat.|
 
 Kategori kayıtlarını döndüren bir günlük araması yaptığınızda **JobLogs** veya **JobStreams**, seçebileceğiniz **JobLogs** veya **JobStreams**görünümü arama tarafından döndürülen güncelleştirmeleri özetleyen bir kutucuk kümesi görüntüler.
 
