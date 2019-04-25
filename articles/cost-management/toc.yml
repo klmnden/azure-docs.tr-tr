@@ -1,125 +1,118 @@
-items:
 - name: Azure Maliyet Yönetimi Belgeleri
   href: index.yml
   items:
-  - name: Genel Bakış
-    items:
-    - name: Maliyet Yönetimi nedir?
-      href: overview-cost-mgt.md
-  - name: Hızlı Başlangıçlar
-    items:
-    - name: Maliyet analizini başlatın
-      href: quick-acm-cost-analysis.md
-    expanded: true
-  - name: Öğreticiler
-    items:
-    - name: 1 - Bütçe oluşturma ve yönetme
-      href: tutorial-acm-create-budgets.md
-    - name: 2 - Verileri dışarı aktarma
-      href: tutorial-export-acm-data.md
-    - name: 3 - Önerilere göre hareket etme
-      href: tutorial-acm-opt-recommendations.md
-  - name: Kavramlar
-    items:
-    - name: Azure Maliyet Yönetimi en iyi yöntemleri
-      href: cost-mgt-best-practices.md
-    - name: Maliyet Yönetimi verilerini anlama
-      href: understand-cost-mgt-data.md
-    - name: Kapsamları anlama ve bunlarla çalışma
-      href: understand-work-scopes.md
-    - name: EA'dan MCA API'lerine geçiş
-      href: migrate-cost-management-api.md
-  - name: Nasıl yapılır kılavuzları
-    items:
-    - name: Verilere erişim atama
-      href: assign-access-acm-data.md
-    - name: Maliyet uyarılarını kullanma
-      href: cost-mgt-alerts-monitor-usage-spending.md
-  - name: Başvuru
-    items:
-    - name: Azure Maliyet Yönetimi REST API
-      href: https://docs.microsoft.com/rest/api/cost-management
-    - name: Azure Tüketim REST API’si
-      href: https://docs.microsoft.com/rest/api/consumption
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.consumption/budgets
-  - name: Kaynaklar
-    items:
-    - name: Microsoft Learn ile becerilerinizi geliştirin
-      href: /learn/browse/?products=azure-cost-management
-    - name: Maliyet Yönetimi geri bildirim forumu
-      href: https://feedback.azure.com/forums/906772-cost-management
-    - name: Azure Yol Haritası
-      href: https://azure.microsoft.com/roadmap/
-    - name: Fiyatlandırma
-      href: https://azure.microsoft.com/pricing/details/cost-management
-    - name: Bölgesel Kullanılabilirlik
-      href: https://azure.microsoft.com/regions/services/
-  - name: Cloudyn
-    items:
     - name: Genel Bakış
       items:
-      - name: Cloudyn nedir?
-        href: overview.md
+        - name: Maliyet Yönetimi nedir?
+          href: overview-cost-mgt.md
     - name: Hızlı Başlangıçlar
+      expanded: true
       items:
-      - name: Maliyet verilerini görüntüleme
-        href: quick-register-azure-sub.md
-      - name: Maliyet verilerini görüntüleme - EA
-        href: quick-register-ea.md
-      - name: Maliyet verilerini görüntüleme - CSP
-        href: quick-register-csp.md
+        - name: Maliyet analizini başlatın
+          href: quick-acm-cost-analysis.md
     - name: Öğreticiler
       items:
-      - name: 1 - Kullanımı ve maliyetleri gözden geçirme
-        href: tutorial-review-usage.md
-      - name: 2 - Harcamaları tahmin etme
-        href: tutorial-forecast-spending.md
-      - name: 3 - Maliyetleri yönetme
-        href: tutorial-manage-costs.md
-      - name: 4 - Ayrılmış örnekleri en iyi duruma getirme
-        href: tutorial-optimize-reserved-instances.md
-      - name: 5 - Verilere erişimi denetleme
-        href: tutorial-user-access.md
+        - name: 1 - Bütçe oluşturma ve yönetme
+          href: tutorial-acm-create-budgets.md
+        - name: 2 - Verileri dışarı aktarma
+          href: tutorial-export-acm-data.md
+        - name: 3 - Önerilere göre hareket etme
+          href: tutorial-acm-opt-recommendations.md
     - name: Kavramlar
       items:
-      - name: Maliyet raporlarını anlama
-        href: understanding-cost-reports.md
+        - name: Azure Maliyet Yönetimi en iyi yöntemleri
+          href: cost-mgt-best-practices.md
+        - name: Maliyet Yönetimi verilerini anlama
+          href: understand-cost-mgt-data.md
+        - name: Kapsamları anlama ve bunlarla çalışma
+          href: understand-work-scopes.md
+        - name: EA'dan MCA API'lerine geçiş
+          href: migrate-cost-management-api.md
     - name: Nasıl yapılır kılavuzları
       items:
-      - name: Azure aboneliklerini ve hesaplarını etkinleştirme
-        href: activate-subs-accounts.md
-      - name: VM'ler için genişletilmiş ölçümler ekleme
-        href: azure-vm-extended-metrics.md
-      - name: Google hesabı bağlama
-        href: connect-google-account.md
-      - name: AWS hesabı bağlama
-        href: connect-aws-account.md
-      - name: Depolama hesaplarını yapılandırma
-        href: storage-accounts.md
-      - name: Cloudyn raporlarını kullanma
-        href: use-reports.md
-      - name: Panoları kullanma
-        href: dashboards.md
-      - name: Bütçeleri yönetme
-        href: manage-budgets.md
+        - name: Verilere erişim atama
+          href: assign-access-acm-data.md
+        - name: Maliyet uyarılarını kullanma
+          href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Başvuru
+      items:
+        - name: Azure Maliyet Yönetimi REST API
+          href: 'https://docs.microsoft.com/rest/api/cost-management'
+        - name: Azure Tüketim REST API’si
+          href: 'https://docs.microsoft.com/rest/api/consumption'
+        - name: Resource Manager şablonu
+          href: /azure/templates/microsoft.consumption/budgets
     - name: Kaynaklar
       items:
-      - name: Cloudyn videoları
-        href: ref-videos.md
-      - name: Azure Yol Haritası
-        href: https://azure.microsoft.com/roadmap/
-      - name: Cloudyn Fiyatlandırması
-        href: https://azure.microsoft.com/pricing/details/cost-management
-      - name: Cloudyn İçin Bölgesel Kullanılabilirlik
-        href: https://azure.microsoft.com/regions/services/
-      - name: Cloudyn Hakkında SSS
-        href: cost-mgt-faq.md
-      - name: Cloudyn destek ekibiyle iletişime geçin
-        href: support-request-cost-management.md
-ms.openlocfilehash: b9e987d0f839b3ea0c13b15cdb27e8cb9de5b5dc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312521"
+        - name: Microsoft Learn ile becerilerinizi geliştirin
+          href: /learn/browse/?products=azure-cost-management
+        - name: Maliyet Yönetimi geri bildirim forumu
+          href: 'https://feedback.azure.com/forums/906772-cost-management'
+        - name: Azure Yol Haritası
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Fiyatlandırma
+          href: 'https://azure.microsoft.com/pricing/details/cost-management'
+        - name: Bölgesel Kullanılabilirlik
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: Cloudyn
+      items:
+        - name: Genel Bakış
+          items:
+            - name: Cloudyn nedir?
+              href: overview.md
+        - name: Hızlı Başlangıçlar
+          items:
+            - name: Maliyet verilerini görüntüleme
+              href: quick-register-azure-sub.md
+            - name: Maliyet verilerini görüntüleme - EA
+              href: quick-register-ea.md
+            - name: Maliyet verilerini görüntüleme - CSP
+              href: quick-register-csp.md
+        - name: Öğreticiler
+          items:
+            - name: 1 - Kullanımı ve maliyetleri gözden geçirme
+              href: tutorial-review-usage.md
+            - name: 2 - Harcamaları tahmin etme
+              href: tutorial-forecast-spending.md
+            - name: 3 - Maliyetleri yönetme
+              href: tutorial-manage-costs.md
+            - name: 4 - Ayrılmış örnekleri en iyi duruma getirme
+              href: tutorial-optimize-reserved-instances.md
+            - name: 5 - Verilere erişimi denetleme
+              href: tutorial-user-access.md
+        - name: Kavramlar
+          items:
+            - name: Maliyet raporlarını anlama
+              href: understanding-cost-reports.md
+        - name: Nasıl yapılır kılavuzları
+          items:
+            - name: Azure aboneliklerini ve hesaplarını etkinleştirme
+              href: activate-subs-accounts.md
+            - name: VM'ler için genişletilmiş ölçümler ekleme
+              href: azure-vm-extended-metrics.md
+            - name: Google hesabı bağlama
+              href: connect-google-account.md
+            - name: AWS hesabı bağlama
+              href: connect-aws-account.md
+            - name: Depolama hesaplarını yapılandırma
+              href: storage-accounts.md
+            - name: Cloudyn raporlarını kullanma
+              href: use-reports.md
+            - name: Panoları kullanma
+              href: dashboards.md
+            - name: Bütçeleri yönetme
+              href: manage-budgets.md
+        - name: Kaynaklar
+          items:
+            - name: Cloudyn videoları
+              href: ref-videos.md
+            - name: Azure Yol Haritası
+              href: 'https://azure.microsoft.com/roadmap/'
+            - name: Cloudyn Fiyatlandırması
+              href: 'https://azure.microsoft.com/pricing/details/cost-management'
+            - name: Cloudyn İçin Bölgesel Kullanılabilirlik
+              href: 'https://azure.microsoft.com/regions/services/'
+            - name: Cloudyn Hakkında SSS
+              href: cost-mgt-faq.md
+            - name: Cloudyn destek ekibiyle iletişime geçin
+              href: support-request-cost-management.md

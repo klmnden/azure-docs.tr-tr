@@ -1,91 +1,84 @@
-items:
 - name: Veri Kataloğu Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Veri Kataloğu nedir?
-    href: overview.md
+    - name: Veri Kataloğu nedir?
+      href: overview.md
 - name: Hızlı Başlangıç
   items:
-  - name: Azure Veri Kataloğu oluşturma
-    href: data-catalog-get-started.md
+    - name: Azure Veri Kataloğu oluşturma
+      href: data-catalog-get-started.md
 - name: Öğreticiler
   items:
-  - name: Veri varlıklarını kaydetme
-    href: register-data-assets-tutorial.md
+    - name: Veri varlıklarını kaydetme
+      href: register-data-assets-tutorial.md
 - name: Kavramlar
   items:
-  - name: Genel senaryolar
-    href: data-catalog-common-scenarios.md
-  - name: Desteklenen veri kaynakları
-    href: data-catalog-dsr.md
-  - name: Azure Veri Kataloğu'nu benimseme
-    href: data-catalog-adopting-data-catalog.md
-  - name: Ön koşullar
-    href: data-catalog-prerequisites.md
-  - name: SSS
-    href: data-catalog-frequently-asked-questions.md
+    - name: Genel senaryolar
+      href: data-catalog-common-scenarios.md
+    - name: Desteklenen veri kaynakları
+      href: data-catalog-dsr.md
+    - name: Azure Veri Kataloğu'nu benimseme
+      href: data-catalog-adopting-data-catalog.md
+    - name: Ön koşullar
+      href: data-catalog-prerequisites.md
+    - name: SSS
+      href: data-catalog-frequently-asked-questions.md
 - name: Nasıl yapılır
   items:
-  - name: Veri kaynaklarını kaydetme
-    href: data-catalog-how-to-register.md
-  - name: Veri kaynaklarını keşfedin
-    href: data-catalog-how-to-discover.md
-  - name: Veri kaynaklarına açıklama ekleme
-    href: data-catalog-how-to-annotate.md
-  - name: Veri kaynaklarını belgelendirme
-    href: data-catalog-how-to-documentation.md
-  - name: Veri kaynaklarına bağlanma
-    href: data-catalog-how-to-connect.md
-  - name: Büyük veri kaynaklarıyla çalışma
-    href: data-catalog-how-to-big-data.md
-  - name: Veri profili veri kaynakları
-    href: data-catalog-how-to-data-profile.md
-  - name: Veri varlıklarını yönetme
-    href: data-catalog-how-to-manage.md
-  - name: Aramaları kaydetme ve veri varlıklarını sabitleme
-    href: data-catalog-how-to-save-pin.md
-  - name: İş sözlüğünü ayarlama
-    href: data-catalog-how-to-business-glossary.md
-  - name: Veri kataloğuna güvenli erişim
-    href: data-catalog-how-to-secure-catalog.md
-  - name: İlgili veri varlıklarını görüntüleme
-    href: data-catalog-how-to-view-related-data-assets.md
-  - name: Sorun giderme
-    href: troubleshoot-policy-configuration.md
+    - name: Veri kaynaklarını kaydetme
+      href: data-catalog-how-to-register.md
+    - name: Veri kaynaklarını keşfedin
+      href: data-catalog-how-to-discover.md
+    - name: Veri kaynaklarına açıklama ekleme
+      href: data-catalog-how-to-annotate.md
+    - name: Veri kaynaklarını belgelendirme
+      href: data-catalog-how-to-documentation.md
+    - name: Veri kaynaklarına bağlanma
+      href: data-catalog-how-to-connect.md
+    - name: Büyük veri kaynaklarıyla çalışma
+      href: data-catalog-how-to-big-data.md
+    - name: Veri profili veri kaynakları
+      href: data-catalog-how-to-data-profile.md
+    - name: Veri varlıklarını yönetme
+      href: data-catalog-how-to-manage.md
+    - name: Aramaları kaydetme ve veri varlıklarını sabitleme
+      href: data-catalog-how-to-save-pin.md
+    - name: İş sözlüğünü ayarlama
+      href: data-catalog-how-to-business-glossary.md
+    - name: Veri kataloğuna güvenli erişim
+      href: data-catalog-how-to-secure-catalog.md
+    - name: İlgili veri varlıklarını görüntüleme
+      href: data-catalog-how-to-view-related-data-assets.md
+    - name: Sorun giderme
+      href: troubleshoot-policy-configuration.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
-  - name: REST
-    href: /rest/api/datacatalog/
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.datacatalog/catalogs
-  - name: Arama söz dizimi başvurusu
-    href: /rest/api/datacatalog/data-catalog-search-syntax-reference
-  - name: Geliştirici kavramları
-    href: data-catalog-developer-concepts.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
+    - name: REST
+      href: /rest/api/datacatalog/
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.datacatalog/catalogs
+    - name: Arama söz dizimi başvurusu
+      href: /rest/api/datacatalog/data-catalog-search-syntax-reference
+    - name: Geliştirici kavramları
+      href: data-catalog-developer-concepts.md
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Azure Veri Kataloğu için klavye kısayolları
-    href: data-catalog-keyboard-shortcuts.md
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/data-catalog/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=data-catalog
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-data-catalog
-  - name: Terminoloji
-    href: data-catalog-terminology.md
-ms.openlocfilehash: 0ef4cb62b8991db67df52fded512c1881050eac3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793938"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure Veri Kataloğu için klavye kısayolları
+      href: data-catalog-keyboard-shortcuts.md
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=data-catalog'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-catalog'
+    - name: Terminoloji
+      href: data-catalog-terminology.md

@@ -1,127 +1,120 @@
-items:
 - name: Azure Digital Twins
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Digital Twins Hakkında
-    href: about-digital-twins.md
+    - name: Azure Digital Twins Hakkında
+      href: about-digital-twins.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Uygun odaları bulma
-    href: quickstart-view-occupancy-dotnet.md
+    - name: Uygun odaları bulma
+      href: quickstart-view-occupancy-dotnet.md
 - name: Öğreticiler
   items:
-  - name: Digital Twins ile bir binayı izleme
-    items:
-    - name: Dağıtma ve yapılandırma
-      href: tutorial-facilities-setup.md
-    - name: Koşulları sağlama ve izleme
-      href: tutorial-facilities-udf.md
-    - name: Logic Apps ile bildirme
-      href: tutorial-facilities-events.md
-    - name: TSI ile olayları görselleştirme
-      href: tutorial-facilities-analyze.md
+    - name: Digital Twins ile bir binayı izleme
+      items:
+        - name: Dağıtma ve yapılandırma
+          href: tutorial-facilities-setup.md
+        - name: Koşulları sağlama ve izleme
+          href: tutorial-facilities-udf.md
+        - name: Logic Apps ile bildirme
+          href: tutorial-facilities-events.md
+        - name: TSI ile olayları görselleştirme
+          href: tutorial-facilities-analyze.md
 - name: Kavramlar
   items:
-  - name: Digital Twins nesne modeli ve uzamsal zeka grafı
-    href: concepts-objectmodel-spatialgraph.md
-  - name: Cihaz bağlantısı ve telemetri sorunları
-    href: concepts-device-ingress.md
-  - name: Veri işleme ve kullanıcı tanımlı işlevleri
-    href: concepts-user-defined-functions.md
-  - name: Yönlendirme olayları ve iletileri
-    href: concepts-events-routing.md
-  - name: Genel önizleme hizmet sınırları
-    href: concepts-service-limits.md
-  - name: Güvenlik
-    items:
-    - name: En iyi güvenlik uygulamaları
-      href: security-best-practices.md
-    - name: Rol tabanlı erişim denetimi
-      href: security-role-based-access-control.md
-    - name: Rol atamalarını oluşturma ve yönetme
-      href: security-create-manage-role-assignments.md
-    - name: Yönetim API’lerinde kimlik doğrulama
-      href: security-authenticating-apis.md
+    - name: Digital Twins nesne modeli ve uzamsal zeka grafı
+      href: concepts-objectmodel-spatialgraph.md
+    - name: Cihaz bağlantısı ve telemetri sorunları
+      href: concepts-device-ingress.md
+    - name: Veri işleme ve kullanıcı tanımlı işlevleri
+      href: concepts-user-defined-functions.md
+    - name: Yönlendirme olayları ve iletileri
+      href: concepts-events-routing.md
+    - name: Genel önizleme hizmet sınırları
+      href: concepts-service-limits.md
+    - name: Güvenlik
+      items:
+        - name: En iyi güvenlik uygulamaları
+          href: security-best-practices.md
+        - name: Rol tabanlı erişim denetimi
+          href: security-role-based-access-control.md
+        - name: Rol atamalarını oluşturma ve yönetme
+          href: security-create-manage-role-assignments.md
+        - name: Yönetim API’lerinde kimlik doğrulama
+          href: security-authenticating-apis.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Çok müşterili uygulamalara olanak sağlama
-    href: how-to-multitenant-applications.md
-  - name: Kullanıcı tanımlı işlevler oluşturma
-    href: how-to-user-defined-functions.md
-  - name: Uç noktalar aracılığıyla olayları ve iletileri yönlendirme
-    href: how-to-egress-endpoints.md
-  - name: Nesnelere blob ekleme
-    href: how-to-add-blobs.md
-  - name: Digital Twins Swagger’ı kullanma
-    href: how-to-use-swagger.md
-  - name: Kullanıcı tanımlı işlevlerde hata ayıklama
-    href: how-to-diagnose-user-defined-functions.md
-  - name: İzlemeyi yapılandırma
-    href: how-to-configure-monitoring.md
-  - name: Digital Twins API’lerini sorgulama
-    items:
-    - name: Postman’i ayarlama
-      href: how-to-configure-postman.md
-    - name: Digital Twins API’lerini kullanma
-      href: how-to-navigate-apis.md
-    - name: Sık sorulan soru yapıları
-      href: how-to-query-common-apis.md
+    - name: Çok müşterili uygulamalara olanak sağlama
+      href: how-to-multitenant-applications.md
+    - name: Kullanıcı tanımlı işlevler oluşturma
+      href: how-to-user-defined-functions.md
+    - name: Uç noktalar aracılığıyla olayları ve iletileri yönlendirme
+      href: how-to-egress-endpoints.md
+    - name: Nesnelere blob ekleme
+      href: how-to-add-blobs.md
+    - name: Digital Twins Swagger’ı kullanma
+      href: how-to-use-swagger.md
+    - name: Kullanıcı tanımlı işlevlerde hata ayıklama
+      href: how-to-diagnose-user-defined-functions.md
+    - name: İzlemeyi yapılandırma
+      href: how-to-configure-monitoring.md
+    - name: Digital Twins API’lerini sorgulama
+      items:
+        - name: Postman’i ayarlama
+          href: how-to-configure-postman.md
+        - name: Digital Twins API’lerini kullanma
+          href: how-to-navigate-apis.md
+        - name: Sık sorulan soru yapıları
+          href: how-to-query-common-apis.md
 - name: Başvuru
   items:
-  - name: Kullanıcı tanımlı işlevler istemci kitaplığı
-    href: reference-user-defined-functions-client-library.md
+    - name: Kullanıcı tanımlı işlevler istemci kitaplığı
+      href: reference-user-defined-functions-client-library.md
 - name: İlgili
   items:
-  - name: Çözümler
-    items:
-    - name: IoT çözüm hızlandırıcıları
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform Hizmetleri
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Cihazı Sağlama Hizmeti
-      href: /azure/iot-dps
-    - name: IoT Hizmet SDK’ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Haritalar
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Cihaz SDK'ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Çözümler
+      items:
+        - name: IoT çözüm hızlandırıcıları
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platform Hizmetleri
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Cihazı Sağlama Hizmeti
+          href: /azure/iot-dps
+        - name: IoT Hizmet SDK’ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Haritalar
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Cihaz SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Kaynaklar
   items:
-  - name: C# (.NET) için Azure Digital Twins örnekleri
-    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
-  - name: Azure Digital Twins REST API
-    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/digital-twins/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure Digital Twins Graf Görüntüleyicisi
-    href: https://github.com/Azure/azure-digital-twins-graph-viewer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
-  - name: Müşteri hikayeleri
-    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
-  - name: Azure IoT Geliştirici Merkezi
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure yol haritası
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Videolar
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 0a76dbffc41106af5df540d29c1d7171f1506202
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664871"
+    - name: 'C# (.NET) için Azure Digital Twins örnekleri'
+      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+    - name: Azure Digital Twins REST API
+      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Azure Digital Twins Graf Görüntüleyicisi
+      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+    - name: Müşteri hikayeleri
+      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Videolar
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'

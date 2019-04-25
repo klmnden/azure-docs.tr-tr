@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993342"
 documentType: LandingData
 title: Azure Sentinel Önizleme Belgeleri
 metadata:
-  title: Azure Sentinel Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs
+  title: 'Azure Sentinel Önizleme Belgeleri - Öğreticiler, Hızlı Başlangıçlar | Microsoft Docs'
   meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
   services: sentinel
   author: cmcclister
@@ -20,49 +14,49 @@ metadata:
   ms.date: 02/28/19
   ms.author: cmcclister
 abstract:
-  description: Azure Sentinel Önizleme, tüm işletmenize bulut ölçeğinde akıllı güvenlik analizi olanakları sunan, bulutta yerel bir SIEM çözümüdür. Bulutta sınırsız hız ve ölçeklendirme olanağı elde ederek önemli işlerinize odaklanın. Buluttaki ve şirket içindeki tüm varlıklarınızdan, Office 365’ten, Azure kaynaklarından ve diğer bulutlardan kolayca veri toplayın. Microsoft’un güvenlik analizi uzmanlarının hazırladığı yerleşik makine öğrenmesi özellikleriyle tehditleri etkili bir biçimde algılayın. Yerleşik düzenleme ve otomasyon playbook’larını kullanarak tehdit yanıtlarını otomatikleştirin.
+  description: 'Azure Sentinel Önizleme, tüm işletmenize bulut ölçeğinde akıllı güvenlik analizi olanakları sunan, bulutta yerel bir SIEM çözümüdür. Bulutta sınırsız hız ve ölçeklendirme olanağı elde ederek önemli işlerinize odaklanın. Buluttaki ve şirket içindeki tüm varlıklarınızdan, Office 365’ten, Azure kaynaklarından ve diğer bulutlardan kolayca veri toplayın. Microsoft’un güvenlik analizi uzmanlarının hazırladığı yerleşik makine öğrenmesi özellikleriyle tehditleri etkili bir biçimde algılayın. Yerleşik düzenleme ve otomasyon playbook’larını kullanarak tehdit yanıtlarını otomatikleştirin.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Verilerinizi Azure Sentinel’a eklemeyi, verilerinize ve olası tehditlere yönelik görünürlük elde etmeyi öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: Azure Sentinel’a ekleme
-      href: /azure/sentinel/quickstart-onboard
-    - image:
-        src: media/index/get-started.svg
-      text: Azure Sentinel’ı kullanmaya başlama
-      href: /azure/sentinel/quickstart-get-visibility
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Güvenlik ilkelerini tanımlamayı, kötü amaçlı etkinliklere karşı kaynaklarınızı korumayı ve güvenlik uyarıları ile olaylara yanıt vermeyi öğrenin.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Verilerinizi Azure Sentinel’a eklemeyi, verilerinize ve olası tehditlere yönelik görünürlük elde etmeyi öğrenin.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: Azure Sentinel’a ekleme
+            href: /azure/sentinel/quickstart-onboard
+          - image:
+              src: media/index/get-started.svg
+            text: Azure Sentinel’ı kullanmaya başlama
+            href: /azure/sentinel/quickstart-get-visibility
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/sentinel/tutorial-detect-threats">Azure Sentinel ile tehdit algılama</a>
-    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Otomatik tehdit yanıtları ayarlama</a>
-- title: Microsoft Learn ile becerilerinizi geliştirin
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Güvenlik ilkelerini tanımlamayı, kötü amaçlı etkinliklere karşı kaynaklarınızı korumayı ve güvenlik uyarıları ile olaylara yanıt vermeyi öğrenin.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/sentinel/tutorial-detect-threats">Azure Sentinel ile tehdit algılama</a>
+          - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Otomatik tehdit yanıtları ayarlama</a>
+  - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
-    - title: Azure'da güvenliğe giriş
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Daha fazla etkileşimli öğrenme içeriği...</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure'da güvenliğe giriş
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Daha fazla etkileşimli öğrenme içeriği...</a>
+  - title: Başvuru
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Hizmet güncelleştirmeleri</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=sentinel">Hizmet güncelleştirmeleri</a>'

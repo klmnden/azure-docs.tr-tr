@@ -1,40 +1,33 @@
-items:
 - name: Docker Belgeleri
   href: index.md
 - name: Hızlı Başlangıç
-  items:
-  - name: Docker Market şablonu
-    href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS
   expanded: true
+  items:
+    - name: Docker Market şablonu
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
 - name: Öğreticiler
   items:
-  - name: Docker ve PostgreSQL ile Python Web Uygulaması
-    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-  - name: Docker Swarm ve Azure DevOps ile CI/CD
-    href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
-  - name: Docker, Jenkins ve Linux ile CI/CD
-    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+    - name: Docker ve PostgreSQL ile Python Web Uygulaması
+      href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+    - name: Docker Swarm ve Azure DevOps ile CI/CD
+      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+    - name: 'Docker, Jenkins ve Linux ile CI/CD'
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Docker VM uzantısı
-    href: /azure/virtual-machines/linux/dockerextension
-  - name: Docker Makinesi
-    href: /azure/virtual-machines/linux/docker-machine
-  - name: Docker kapsayıcı kayıt defteri
-    href: /azure/container-registry/container-registry-get-started-portal
+    - name: Docker VM uzantısı
+      href: /azure/virtual-machines/linux/dockerextension
+    - name: Docker Makinesi
+      href: /azure/virtual-machines/linux/docker-machine
+    - name: Docker kapsayıcı kayıt defteri
+      href: /azure/container-registry/container-registry-get-started-portal
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Docker Azure sürücüsü
-    href: https://docs.docker.com/machine/drivers/azure/
-  - name: Docker Azure Sitesi
-    href: https://www.docker.com/docker-azure
-  - name: Docker Sitesi
-    href: https://docker.com
-ms.openlocfilehash: 79a7bf072be65038000cbcbc17983b4d3b80684f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433778"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Docker Azure sürücüsü
+      href: 'https://docs.docker.com/machine/drivers/azure/'
+    - name: Docker Azure Sitesi
+      href: 'https://www.docker.com/docker-azure'
+    - name: Docker Sitesi
+      href: 'https://docker.com'

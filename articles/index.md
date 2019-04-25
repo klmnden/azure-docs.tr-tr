@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b9234814404194364f775add87f865170747220a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471425"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -2421,7 +2421,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Büyük veri analizi iş yükleri için çok büyük ölçekte depo</p>
+                                                    <p>Büyük veri analizi iş yükleri için hiper ölçekli depo</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3605,7 +3605,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Büyük veri analizi iş yükleri için çok büyük ölçekte depo</p>
+                                                    <p>Büyük veri analizi iş yükleri için hiper ölçekli depo</p>
                                                 </div>
                                             </div>
                                         </div>

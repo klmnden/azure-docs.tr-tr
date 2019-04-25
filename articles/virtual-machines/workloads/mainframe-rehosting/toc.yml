@@ -1,55 +1,48 @@
-items:
 - name: Ana bilgisayar yeniden barındırma
   items:
-  - name: Genel Bakış
-    items:
-    - name: başlarken
-      href: overview.md
-    - name: İş yükleri
-      href: partner-workloads.md
-  - name: Kavramlar
-    items:
-    - name: İşlem
-      href: concepts/mainframe-compute-azure.md
-    - name: Depolama
-      href: concepts/mainframe-storage-azure.md
-  - name: Micro Focus
-    items:
-    - name: başlarken
-      href: microfocus/get-started.md
-    - name: Enterprise Server’ı yükleme
-      href: microfocus/set-up-micro-focus-azure.md
-    - name: CICS BankDemo’yu çalıştırma
-      href: microfocus/demo.md
-    - name: Kapsayıcılarda Enterprise Server
-      href: microfocus/run-enterprise-server-container.md
-  - name: TmaxSoft OpenFrame
-    items:
-    - name: başlarken
-      href: tmaxsoft/get-started.md
-    - name: OpenFrame’i yükleme
-      href: tmaxsoft/install-openframe-azure.md
-  - name: IBM
-    items:
-    - name: başlarken
-      href: ibm/get-started.md
-    - name: IBM zD&T yükleme
-      href: ibm/install-ibm-z-environment.md
-    - name: zD&T üzerinde ADCD ayarlama
-      href: ibm/demo.md
-    - name: IBM DB2 pureScale
-      href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-    - name: IBM Db2 pureScale dağıtma
-      href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-  - name: Kaynaklar
-    items:
-    - name: Teknik incelemeler
-      href: mainframe-white-papers.md
-    - name: Azure yol haritası
-      href: https://azure.microsoft.com/updates/
-ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788862"
+    - name: Genel Bakış
+      items:
+        - name: başlarken
+          href: overview.md
+        - name: İş yükleri
+          href: partner-workloads.md
+    - name: Kavramlar
+      items:
+        - name: İşlem
+          href: concepts/mainframe-compute-azure.md
+        - name: Depolama
+          href: concepts/mainframe-storage-azure.md
+    - name: Micro Focus
+      items:
+        - name: başlarken
+          href: microfocus/get-started.md
+        - name: Enterprise Server’ı yükleme
+          href: microfocus/set-up-micro-focus-azure.md
+        - name: CICS BankDemo’yu çalıştırma
+          href: microfocus/demo.md
+        - name: Kapsayıcılarda Enterprise Server
+          href: microfocus/run-enterprise-server-container.md
+    - name: TmaxSoft OpenFrame
+      items:
+        - name: başlarken
+          href: tmaxsoft/get-started.md
+        - name: OpenFrame’i yükleme
+          href: tmaxsoft/install-openframe-azure.md
+    - name: IBM
+      items:
+        - name: başlarken
+          href: ibm/get-started.md
+        - name: IBM zD&T yükleme
+          href: ibm/install-ibm-z-environment.md
+        - name: zD&T üzerinde ADCD ayarlama
+          href: ibm/demo.md
+        - name: IBM DB2 pureScale
+          href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+        - name: IBM Db2 pureScale dağıtma
+          href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: Kaynaklar
+      items:
+        - name: Teknik incelemeler
+          href: mainframe-white-papers.md
+        - name: Azure yol haritası
+          href: 'https://azure.microsoft.com/updates/'

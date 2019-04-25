@@ -1,108 +1,101 @@
-items:
 - name: Service Fabric Mesh Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Service Fabric Mesh hakkında
-    href: service-fabric-mesh-overview.md
   expanded: true
+  items:
+    - name: Service Fabric Mesh hakkında
+      href: service-fabric-mesh-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Merhaba Dünya dağıtımı
-    href: service-fabric-mesh-quickstart-deploy-container.md
-  - name: Visual Studio ile bir web uygulaması oluşturma
-    href: service-fabric-mesh-quickstart-dotnet-core.md
+    - name: Merhaba Dünya dağıtımı
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Visual Studio ile bir web uygulaması oluşturma
+      href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Öğreticiler
   items:
-  - name: Visual Studio ile Mesh uygulaması derleme ve dağıtma
-    items:
-    - name: 1- Mesh uygulaması oluşturma
-      href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2- Mesh uygulamasında hata ayıklama
-      href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-    - name: 3- Mesh uygulamasını dağıtma
-      href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
-    - name: 4- Mesh uygulamasını yükseltme
-      href: service-fabric-mesh-tutorial-upgrade.md
-    - name: 5- Mesh kaynaklarını temizleme
-      href: service-fabric-mesh-tutorial-cleanup-resources.md
-  - name: Şablon kullanarak bir Service Fabric Mesh uygulaması dağıtma, ölçeklendirme ve yükseltme
-    items:
-    - name: 1- Service Fabric Mesh uygulaması dağıtma
-      href: service-fabric-mesh-tutorial-template-deploy-app.md
-    - name: 2- Uygulamadaki hizmetleri ölçeklendirme
-      href: service-fabric-mesh-tutorial-template-scale-services.md
-    - name: 3- Uygulamayı yükseltme
-      href: service-fabric-mesh-tutorial-template-upgrade-app.md
-    - name: 4- Uygulamayı kaldırma
-      href: service-fabric-mesh-tutorial-template-remove-app.md
+    - name: Visual Studio ile Mesh uygulaması derleme ve dağıtma
+      items:
+        - name: 1- Mesh uygulaması oluşturma
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2- Mesh uygulamasında hata ayıklama
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3- Mesh uygulamasını dağıtma
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+        - name: 4- Mesh uygulamasını yükseltme
+          href: service-fabric-mesh-tutorial-upgrade.md
+        - name: 5- Mesh kaynaklarını temizleme
+          href: service-fabric-mesh-tutorial-cleanup-resources.md
+    - name: 'Şablon kullanarak bir Service Fabric Mesh uygulaması dağıtma, ölçeklendirme ve yükseltme'
+      items:
+        - name: 1- Service Fabric Mesh uygulaması dağıtma
+          href: service-fabric-mesh-tutorial-template-deploy-app.md
+        - name: 2- Uygulamadaki hizmetleri ölçeklendirme
+          href: service-fabric-mesh-tutorial-template-scale-services.md
+        - name: 3- Uygulamayı yükseltme
+          href: service-fabric-mesh-tutorial-template-upgrade-app.md
+        - name: 4- Uygulamayı kaldırma
+          href: service-fabric-mesh-tutorial-template-remove-app.md
 - name: Kavramlar
   items:
-  - name: Terminoloji
-    href: service-fabric-mesh-terminology.md
-  - name: Service Fabric kaynakları
-    href: service-fabric-mesh-service-fabric-resources.md
-  - name: Ağlar ve ağ geçitleri
-    href: service-fabric-mesh-networks-and-gateways.md
-  - name: Hizmet ölçeklenebilirliği
-    href: service-fabric-mesh-scalability.md
-  - name: İzleme ve tanılama
-    href: service-fabric-mesh-monitoring-diagnostics.md
-  - name: Depolama durumu
-    href: service-fabric-mesh-storing-state.md
-  - name: Gizli Diziler
-    href: service-fabric-mesh-secrets-overview.md
+    - name: Terminoloji
+      href: service-fabric-mesh-terminology.md
+    - name: Service Fabric kaynakları
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: Ağlar ve ağ geçitleri
+      href: service-fabric-mesh-networks-and-gateways.md
+    - name: Hizmet ölçeklenebilirliği
+      href: service-fabric-mesh-scalability.md
+    - name: İzleme ve tanılama
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Depolama durumu
+      href: service-fabric-mesh-storing-state.md
+    - name: Gizli Diziler
+      href: service-fabric-mesh-secrets-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Geliştirme ortamınızı kurma
-    href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
-  - name: Service Fabric Mesh CLI’yi ayarlama
-    href: service-fabric-mesh-howto-setup-cli.md
-  - name: Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
-    href: service-fabric-mesh-howto-containerize-vs.md
-  - name: Visual Studio performansını iyileştirme
-    href: service-fabric-mesh-howto-optimize-vs.md
-  - name: Ağ Geçidi kaynaklarını yapılandırma
-    href: service-fabric-mesh-howto-configure-gateways.md
-  - name: Hizmetleri otomatik ölçeklendirme
-    href: service-fabric-mesh-howto-auto-scale-services.md
-  - name: Azure Dosyaları birimi ile durum bilgisi depolama
-    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
-  - name: Service Fabric Güvenilir Disk birimi ile durum bilgisi depolama
-    href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
-  - name: Gizli dizileri yönetme
-    href: service-fabric-mesh-howto-manage-secrets.md
-  - name: Örnekleri bulma
-    href: service-fabric-mesh-howto-find-samples.md
+    - name: Geliştirme ortamınızı kurma
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Service Fabric Mesh CLI’yi ayarlama
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
+      href: service-fabric-mesh-howto-containerize-vs.md
+    - name: Visual Studio performansını iyileştirme
+      href: service-fabric-mesh-howto-optimize-vs.md
+    - name: Ağ Geçidi kaynaklarını yapılandırma
+      href: service-fabric-mesh-howto-configure-gateways.md
+    - name: Hizmetleri otomatik ölçeklendirme
+      href: service-fabric-mesh-howto-auto-scale-services.md
+    - name: Azure Dosyaları birimi ile durum bilgisi depolama
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Service Fabric Güvenilir Disk birimi ile durum bilgisi depolama
+      href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
+    - name: Gizli dizileri yönetme
+      href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Örnekleri bulma
+      href: service-fabric-mesh-howto-find-samples.md
 - name: Başvuru
   items:
-  - name: Service Fabric Mesh Kaynak Sağlayıcısı REST API’leri
-    href: /rest/api/servicefabric/sfmeshrp-index
-  - name: Service Fabric İstemcisi Kaynak REST API’leri
-    href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
-  - name: Service Fabric Maven CLI Başvurusu
-    href: service-fabric-mesh-reference-maven.md
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.servicefabricmesh/allversions
+    - name: Service Fabric Mesh Kaynak Sağlayıcısı REST API’leri
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Service Fabric İstemcisi Kaynak REST API’leri
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+    - name: Service Fabric Maven CLI Başvurusu
+      href: service-fabric-mesh-reference-maven.md
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Kaynaklar
   items:
-  - name: Sık sorulan sorular
-    href: service-fabric-mesh-faq.md
-  - name: Örnek uygulamalar
-    href: https://github.com/Azure-Samples/service-fabric-mesh
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=service-fabric-mesh
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: dc098445928ca07eb29260c650321e17f00c7dfe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353983"
+    - name: Sık sorulan sorular
+      href: service-fabric-mesh-faq.md
+    - name: Örnek uygulamalar
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'

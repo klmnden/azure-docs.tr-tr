@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/04/2019
 ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59786043"
@@ -25,7 +25,7 @@ Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik
 
 - Genel amaçlı/standart 
 - Kritik iş/Premium
-- Hiper ölçeklendirme
+- Hiper Ölçek
 
 Azure SQL veritabanı'nda hiper ölçekli hizmet katmanı sanal çekirdek tabanlı satın alma modeli en yeni hizmet katmanında ' dir. Bu hizmet katmanında yüksek düzeyde ölçeklenebilir depolama ve Azure mimarisini depolama ve önemli ölçüde kullanılabilir sınırları aşan bir Azure SQL veritabanı için genel amaçlı ve iş için bilgi işlem kaynaklarını yararlanır işlem performans katmanı olan Kritik hizmet katmanları.
 

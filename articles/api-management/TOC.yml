@@ -1,250 +1,245 @@
-items:
 - name: Azure API Management Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: API Management hakkında
-    href: api-management-key-concepts.md
-  - name: API Management özelliklerinin kullanılabilirliği
-    href: api-management-features.md
+    - name: API Management hakkında
+      href: api-management-key-concepts.md
+    - name: API Management özelliklerinin kullanılabilirliği
+      href: api-management-features.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Örnek oluşturma - Portal
-    href: get-started-create-service-instance.md
-  - name: Örnek oluşturma - PowerShell
-    href: powershell-create-service-instance.md
   expanded: true
+  items:
+    - name: Örnek oluşturma - Portal
+      href: get-started-create-service-instance.md
+    - name: Örnek oluşturma - PowerShell
+      href: powershell-create-service-instance.md
 - name: Öğreticiler
   items:
-  - name: 1 - İlk API'nizi içeri aktarma
-    href: import-and-publish.md
-  - name: 2 - Ürün oluşturma ve yayımlama
-    href: api-management-howto-add-products.md
-  - name: 3 - Sahte API yanıtları
-    href: mock-api-responses.md
-  - name: 4 - API’nizi koruma
-    href: transform-api.md
-  - name: 5 - Yayımlanan API’leri izleme
-    href: api-management-howto-use-azure-monitor.md
-  - name: 6 - API’lerinizde hata ayıklama
-    href: api-management-howto-api-inspector.md
-  - name: 7 - Düzeltme ekleme
-    href: api-management-get-started-revise-api.md
-  - name: 8 - Birden fazla sürüm ekleme
-    href: api-management-get-started-publish-versions.md
-  - name: 9 - Geliştirici portalını özelleştirme
-    href: api-management-customize-styles.md
+    - name: 1 - İlk API'nizi içeri aktarma
+      href: import-and-publish.md
+    - name: 2 - Ürün oluşturma ve yayımlama
+      href: api-management-howto-add-products.md
+    - name: 3 - Sahte API yanıtları
+      href: mock-api-responses.md
+    - name: 4 - API’nizi koruma
+      href: transform-api.md
+    - name: 5 - Yayımlanan API’leri izleme
+      href: api-management-howto-use-azure-monitor.md
+    - name: 6 - API’lerinizde hata ayıklama
+      href: api-management-howto-api-inspector.md
+    - name: 7 - Düzeltme ekleme
+      href: api-management-get-started-revise-api.md
+    - name: 8 - Birden fazla sürüm ekleme
+      href: api-management-get-started-publish-versions.md
+    - name: 9 - Geliştirici portalını özelleştirme
+      href: api-management-customize-styles.md
 - name: Örnekler
   items:
-  - name: İlkeler
-    href: policy-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+    - name: İlkeler
+      href: policy-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Kavramlar
   items:
-  - name: Terminoloji
-    href: api-management-terminology.md
-  - name: İlkeler
-    items:
-    - name: Genel Bakış
-      href: api-management-howto-policies.md
-    - name: İlke başvuru dizini
-      href: api-management-policies.md
-  - name: Abonelikler
-    href: api-management-subscriptions.md
-  - name: Otomasyonu kullanarak yönetme
-    href: automation-manage-api-management.md
-  - name: Hata işleme
-    href: api-management-error-handling-policies.md
-  - name: API içeri aktarma kısıtlamaları
-    href: api-management-api-import-restrictions.md
+    - name: Terminoloji
+      href: api-management-terminology.md
+    - name: İlkeler
+      items:
+        - name: Genel Bakış
+          href: api-management-howto-policies.md
+        - name: İlke başvuru dizini
+          href: api-management-policies.md
+    - name: Abonelikler
+      href: api-management-subscriptions.md
+    - name: Otomasyonu kullanarak yönetme
+      href: automation-manage-api-management.md
+    - name: Hata işleme
+      href: api-management-error-handling-policies.md
+    - name: API içeri aktarma kısıtlamaları
+      href: api-management-api-import-restrictions.md
+    - name: Azure ortak güvenlik öznitelikleri
+      href: api-management-security-attributes.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: API’leri tanımlama
-    items:
-    - name: El ile API ekleme
-      href: add-api-manually.md
-    - name: OpenAPI Belirtimini içeri aktarma
-      href: import-api-from-oas.md
-    - name: SOAP API’sini içeri aktarma
-      href: import-soap-api.md
-    - name: SOAP API'sini içeri aktarma ve REST’e dönüştürme
-      href: restify-soap-api.md
-    - name: API Uygulamasını içeri aktarma
-      href: import-api-app-as-api.md
-    - name: İşlev Uygulamasını içeri aktarma
-      href: import-function-app-as-api.md
-    - name: Mantıksal Uygulamayı içeri aktarma
-      href: import-logic-app-as-api.md
-    - name: Service Fabric uygulamasını içeri aktarma
-      href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-    - name: API’yi düzenleme
-      href: edit-api.md
-  - name: Sağlama ve ölçeklendirme
-    items:
-    - name: Kapasite ölçümü
-      href: api-management-capacity.md
-    - name: Yükseltme ve ölçeklendirme
-      href: upgrade-and-scale.md
-    - name: Otomatik ölçeklendirmeyi yapılandırma
-      href: api-management-howto-autoscale.md
-    - name: Özel etki alanı yapılandırma
-      href: configure-custom-domain.md
-  - name: Önbellek
-    items:
-    - name: Performansı iyileştirmek için önbelleğe alma özelliği ekleme
-      href: api-management-howto-cache.md
-    - name: Dış önbellek kullanma
-      href: api-management-howto-cache-external.md
-  - name: API'lerinizin güvenliğini sağlama
-    items:
-    - name: Abonelikler oluşturma
-      href: api-management-howto-create-subscriptions.md
-    - name: İstemci sertifikası kimlik doğrulaması kullanarak API’leri güvenli hale getirme
-      href: api-management-howto-mutual-certificates-for-clients.md
-  - name: Arka uç güvenliğini sağlama
-    items:
-    - name: Azure AD ile API’nizi koruma
-      href: api-management-howto-protect-backend-with-aad.md
-    - name: Sanal ağa bağlanma
-      href: api-management-using-with-vnet.md
-    - name: İç sanal ağa bağlanma
-      href: api-management-using-with-internal-vnet.md
-    - name: Application Gateway’i bir iç sanal ağ ile tümleştirme
-      href: api-management-howto-integrate-internal-vnet-appgateway.md
-    - name: Karşılıklı Sertifika kimlik doğrulaması
-      href: api-management-howto-mutual-certificates.md
-    - name: CA sertifikalarını yönetme
-      href: api-management-howto-ca-certificates.md
-    - name: Protokolleri ve şifrelemeleri yönetme
-      href: api-management-howto-manage-protocols-ciphers.md
-  - name: Geliştirici deneyimini özelleştirme
-    items:
-    - name: Sayfa içeriği ve düzenini değiştirme
-      href: api-management-modify-content-layout.md
-    - name: Şablonları kullanarak sistem sayfalarını özelleştirme
-      href: api-management-developer-portal-templates.md
-    - name: Azure AD ile kimlik doğrulaması
-      href: api-management-howto-aad.md
-    - name: Azure AD B2C ile kimlik doğrulaması
-      href: api-management-howto-aad-b2c.md
-    - name: Temsilcili kimlik doğrulama
-      href: api-management-howto-setup-delegation.md
-    - name: E-posta bildirimleri ve şablonlar
-      href: api-management-howto-configure-notifications.md
-    - name: Konsolda OAuth desteğini etkinleştirme
-      href: api-management-howto-oauth2.md
-  - name: İlkeleri tanımlama
-    items:
-    - name: İlkeleri ayarlama veya düzenleme
-      href: set-edit-policies.md
-    - name: İlke ifadeleri
-      href: api-management-policy-expressions.md
-    - name: Özel önbelleğe alma
-      href: api-management-sample-cache-by-key.md
-    - name: Gelişmiş izleme
-      href: api-management-log-to-eventhub-sample.md
-    - name: Gelişmiş istek azaltma
-      href: api-management-sample-flexible-throttling.md
-    - name: Dış hizmetler kullanma
-      href: api-management-sample-send-request.md
-    - name: Özellikleri kullanarak sırları yönetme
-      href: api-management-howto-properties.md
-    - name: Erişimi kısıtlama ilkeleri
-      href: api-management-access-restriction-policies.md
-    - name: Gelişmiş ilkeler
-      href: api-management-advanced-policies.md
-    - name: Kimlik doğrulama ilkeleri
-      href: api-management-authentication-policies.md
-    - name: Önbelleğe alma ilkeleri
-      href: api-management-caching-policies.md
-    - name: Etki alanları arası ilkeler
-      href: api-management-cross-domain-policies.md
-    - name: Dönüştürme ilkeleri
-      href: api-management-transformation-policies.md
-  - name: Şablon başvurusu
-    items:
-    - name: Şablonlar
-      href: api-management-developer-portal-templates-reference.md
-    - name: API'ler
-      href: api-management-api-templates.md
-    - name: Ürünler
-      href: api-management-product-templates.md
-    - name: Uygulamalar
-      href: api-management-application-templates.md
-    - name: Sorunlar
-      href: api-management-issue-templates.md
-    - name: Kullanıcı profili
-      href: api-management-user-profile-templates.md
-    - name: Sayfalar
-      href: api-management-page-templates.md
-    - name: Şablon kaynakları
-      href: api-management-template-resources.md
-  - name: Veri modeli başvurusu
-    href: api-management-template-data-model-reference.md
-  - name: Sayfa denetimleri
-    href: api-management-page-controls.md
-  - name: Üretimi yönetin
-    items:
-    - name: Grupları yönetme
-      href: api-management-howto-create-groups.md
-    - name: Birden çok Azure bölgesine dağıtma
-      href: api-management-howto-deploy-multi-region.md
-    - name: Olayları Azure Event Hubs’a kaydetme
-      href: api-management-howto-log-event-hubs.md
-    - name: Azure Application Insights ile istekleri günlüğe kaydetme
-      href: api-management-howto-app-insights.md
-    - name: Yedekleme/geri yükleme kullanarak DR'yi ayarlama
-      href: api-management-howto-disaster-recovery-backup-restore.md
-    - name: Kullanıcı hesaplarını yönetme
-      href: api-management-howto-create-or-invite-developers.md
-    - name: Git kullanarak yapılandırma
-      href: api-management-configuration-repository-git.md
-    - name: Rol tabanlı erişim denetimi kullanma
-      href: api-management-role-based-access-control.md
-    - name: Azure kaynakları için yönetilen kimlikleri kullanma
-      href: api-management-howto-use-managed-service-identity.md
-    - name: Service Fabric ile tümleştirme
+    - name: API’leri tanımlama
       items:
-      - name: Genel Bakış
-        href: ../service-fabric/service-fabric-api-management-overview.md
-      - name: Öğretici
-        href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+        - name: El ile API ekleme
+          href: add-api-manually.md
+        - name: OpenAPI Belirtimini içeri aktarma
+          href: import-api-from-oas.md
+        - name: SOAP API’sini içeri aktarma
+          href: import-soap-api.md
+        - name: SOAP API'sini içeri aktarma ve REST’e dönüştürme
+          href: restify-soap-api.md
+        - name: API Uygulamasını içeri aktarma
+          href: import-api-app-as-api.md
+        - name: İşlev Uygulamasını içeri aktarma
+          href: import-function-app-as-api.md
+        - name: Mantıksal Uygulamayı içeri aktarma
+          href: import-logic-app-as-api.md
+        - name: Service Fabric uygulamasını içeri aktarma
+          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+        - name: API’yi düzenleme
+          href: edit-api.md
+    - name: Sağlama ve ölçeklendirme
+      items:
+        - name: Kapasite ölçümü
+          href: api-management-capacity.md
+        - name: Yükseltme ve ölçeklendirme
+          href: upgrade-and-scale.md
+        - name: Otomatik ölçeklendirmeyi yapılandırma
+          href: api-management-howto-autoscale.md
+        - name: Özel etki alanı yapılandırma
+          href: configure-custom-domain.md
+    - name: Önbellek
+      items:
+        - name: Performansı iyileştirmek için önbelleğe alma özelliği ekleme
+          href: api-management-howto-cache.md
+        - name: Dış önbellek kullanma
+          href: api-management-howto-cache-external.md
+    - name: API'lerinizin güvenliğini sağlama
+      items:
+        - name: Abonelikler oluşturma
+          href: api-management-howto-create-subscriptions.md
+        - name: İstemci sertifikası kimlik doğrulaması kullanarak API’leri güvenli hale getirme
+          href: api-management-howto-mutual-certificates-for-clients.md
+    - name: Arka uç güvenliğini sağlama
+      items:
+        - name: Azure AD ile API’nizi koruma
+          href: api-management-howto-protect-backend-with-aad.md
+        - name: Sanal ağa bağlanma
+          href: api-management-using-with-vnet.md
+        - name: İç sanal ağa bağlanma
+          href: api-management-using-with-internal-vnet.md
+        - name: Application Gateway’i bir iç sanal ağ ile tümleştirme
+          href: api-management-howto-integrate-internal-vnet-appgateway.md
+        - name: Karşılıklı Sertifika kimlik doğrulaması
+          href: api-management-howto-mutual-certificates.md
+        - name: CA sertifikalarını yönetme
+          href: api-management-howto-ca-certificates.md
+        - name: Protokolleri ve şifrelemeleri yönetme
+          href: api-management-howto-manage-protocols-ciphers.md
+    - name: Geliştirici deneyimini özelleştirme
+      items:
+        - name: Sayfa içeriği ve düzenini değiştirme
+          href: api-management-modify-content-layout.md
+        - name: Şablonları kullanarak sistem sayfalarını özelleştirme
+          href: api-management-developer-portal-templates.md
+        - name: Azure AD ile kimlik doğrulaması
+          href: api-management-howto-aad.md
+        - name: Azure AD B2C ile kimlik doğrulaması
+          href: api-management-howto-aad-b2c.md
+        - name: Temsilcili kimlik doğrulama
+          href: api-management-howto-setup-delegation.md
+        - name: E-posta bildirimleri ve şablonlar
+          href: api-management-howto-configure-notifications.md
+        - name: Konsolda OAuth desteğini etkinleştirme
+          href: api-management-howto-oauth2.md
+    - name: İlkeleri tanımlama
+      items:
+        - name: İlkeleri ayarlama veya düzenleme
+          href: set-edit-policies.md
+        - name: İlke ifadeleri
+          href: api-management-policy-expressions.md
+        - name: Özel önbelleğe alma
+          href: api-management-sample-cache-by-key.md
+        - name: Gelişmiş izleme
+          href: api-management-log-to-eventhub-sample.md
+        - name: Gelişmiş istek azaltma
+          href: api-management-sample-flexible-throttling.md
+        - name: Dış hizmetler kullanma
+          href: api-management-sample-send-request.md
+        - name: Özellikleri kullanarak sırları yönetme
+          href: api-management-howto-properties.md
+        - name: Erişimi kısıtlama ilkeleri
+          href: api-management-access-restriction-policies.md
+        - name: Gelişmiş ilkeler
+          href: api-management-advanced-policies.md
+        - name: Kimlik doğrulama ilkeleri
+          href: api-management-authentication-policies.md
+        - name: Önbelleğe alma ilkeleri
+          href: api-management-caching-policies.md
+        - name: Etki alanları arası ilkeler
+          href: api-management-cross-domain-policies.md
+        - name: Dönüştürme ilkeleri
+          href: api-management-transformation-policies.md
+    - name: Şablon başvurusu
+      items:
+        - name: Şablonlar
+          href: api-management-developer-portal-templates-reference.md
+        - name: API'ler
+          href: api-management-api-templates.md
+        - name: Ürünler
+          href: api-management-product-templates.md
+        - name: Uygulamalar
+          href: api-management-application-templates.md
+        - name: Sorunlar
+          href: api-management-issue-templates.md
+        - name: Kullanıcı profili
+          href: api-management-user-profile-templates.md
+        - name: Sayfalar
+          href: api-management-page-templates.md
+        - name: Şablon kaynakları
+          href: api-management-template-resources.md
+    - name: Veri modeli başvurusu
+      href: api-management-template-data-model-reference.md
+    - name: Sayfa denetimleri
+      href: api-management-page-controls.md
+    - name: Üretimi yönetin
+      items:
+        - name: Grupları yönetme
+          href: api-management-howto-create-groups.md
+        - name: Birden çok Azure bölgesine dağıtma
+          href: api-management-howto-deploy-multi-region.md
+        - name: Olayları Azure Event Hubs’a kaydetme
+          href: api-management-howto-log-event-hubs.md
+        - name: Azure Application Insights ile istekleri günlüğe kaydetme
+          href: api-management-howto-app-insights.md
+        - name: Yedekleme/geri yükleme kullanarak DR'yi ayarlama
+          href: api-management-howto-disaster-recovery-backup-restore.md
+        - name: Kullanıcı hesaplarını yönetme
+          href: api-management-howto-create-or-invite-developers.md
+        - name: Git kullanarak yapılandırma
+          href: api-management-configuration-repository-git.md
+        - name: Rol tabanlı erişim denetimi kullanma
+          href: api-management-role-based-access-control.md
+        - name: Azure kaynakları için yönetilen kimlikleri kullanma
+          href: api-management-howto-use-managed-service-identity.md
+        - name: Service Fabric ile tümleştirme
+          items:
+            - name: Genel Bakış
+              href: ../service-fabric/service-fabric-api-management-overview.md
+            - name: Öğretici
+              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Başvuru
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: REST
-    href: /rest/api/apimanagement/
-  - name: REST (özgün)
-    href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.apimanagement/allversions
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: REST
+      href: /rest/api/apimanagement/
+    - name: REST (özgün)
+      href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.apimanagement/allversions
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: api-management-faq.md
-  - name: Fiyatlandırma
-    href: https://aka.ms/apimpricing
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Yol Haritası
-    href: https://aka.ms/apimroadmap
-  - name: Özellik istekleri
-    href: https://aka.ms/apimwish
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-api-management
-  - name: API tasarım kılavuzu
-    href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
-  - name: API uygulama kılavuzu
-    href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-ms.openlocfilehash: 637671ae4e85a7f3ed4f71af5caf580660c2b6ce
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260222"
+    - name: SSS
+      href: api-management-faq.md
+    - name: Fiyatlandırma
+      href: 'https://aka.ms/apimpricing'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Yol Haritası
+      href: 'https://aka.ms/apimroadmap'
+    - name: Özellik istekleri
+      href: 'https://aka.ms/apimwish'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: API tasarım kılavuzu
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: API uygulama kılavuzu
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'

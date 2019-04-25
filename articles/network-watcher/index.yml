@@ -6,14 +6,14 @@ metadata:
   title: 'Ağ İzleyicisi Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   meta.description: 'Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.'
   services: network-watcher
-  author: jdial
-  manager: jeconnoc
+  author: KumudD
+  manager: twolley
   ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/24/2018
-  ms.author: jdial
+  ms.author: kumud
 abstract:
   description: 'Azure Ağ İzleyicisi''ni kullanmayı öğrenin. Hızlı başlangıçlar, öğreticiler ve diğer kaynaklarda paket yakalama ve NSG akış günlükleri gibi araçları kullanarak trafik filtreleme ve yönlendirmeyle ilgili sorunları tanılamanın yanı sıra bağlantıları izlemek amacıyla Azure Sanal Ağınıza ilişkin nasıl içgörüler edinebileceğiniz gösterilir.'
 sections:

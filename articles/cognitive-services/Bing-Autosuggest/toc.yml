@@ -1,84 +1,77 @@
-items:
 - name: Bing Otomatik Öneri Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Otomatik Öneri nedir?
-    href: get-suggested-search-terms.md
-  - name: Bing Arama API'lerini karşılaştırma
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: Bing Otomatik Öneri nedir?
+      href: get-suggested-search-terms.md
+    - name: Bing Arama API'lerini karşılaştırma
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: REST API Hızlı Başlangıçları
-  items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
   expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması
-    href: tutorials/autosuggest.md
+    - name: Tek sayfalı web uygulaması
+      href: tutorials/autosuggest.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: v5’ten v7’ye yükseltme
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Kavramlar
   items:
-  - name: Sorgu terimi önerme
-    href: concepts/get-suggestions.md
-  - name: İstek gönderme
-    href: concepts/sending-requests.md
+    - name: Sorgu terimi önerme
+      href: concepts/get-suggestions.md
+    - name: İstek gönderme
+      href: concepts/sending-requests.md
 - name: Başvuru
   items:
-  - name: Bing Otomatik Öneri API’si v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
-  - name: Bing Otomatik Öneri API’si v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-  - name: Kullanım ve görüntüleme gereksinimleri
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Otomatik Öneri API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Otomatik Öneri API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Kaynaklar
   items:
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+autosuggest
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API anahtarını alma
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
-  - name: Deneyin!
-    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Dil ve bölge desteği
-    href: language-support.md
-  - name: Bing Otomatik Öneri API’si analizleri
-    href: bing-autosuggest-stats.md
-ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011543"
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: Deneyin!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Dil ve bölge desteği
+      href: language-support.md
+    - name: Bing Otomatik Öneri API’si analizleri
+      href: bing-autosuggest-stats.md

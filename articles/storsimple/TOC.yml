@@ -1,434 +1,427 @@
-items:
 - name: StorSimple Belgeleri
   href: index.md
 - name: StorSimple Sanal Dizisi
   items:
-  - name: Genel Bakış
-    items:
-    - name: Çözüm nedir?
-      href: storsimple-ova-overview.md
-  - name: başlarken
-    items:
-    - name: Planlama
+    - name: Genel Bakış
       items:
-      - name: Gereksinimleri inceleme
-        href: storsimple-ova-system-requirements.md
-      - name: Sınırları anlama
-        href: storsimple-ova-limits.md
-      - name: En iyi uygulamaları inceleme
-        href: storsimple-ova-best-practices.md
-    - name: Dağıtma
+        - name: Çözüm nedir?
+          href: storsimple-ova-overview.md
+    - name: başlarken
       items:
-      - name: Dağıtmaya hazırlanma
-        href: storsimple-virtual-array-deploy1-portal-prep.md
-        items:
-        - name: StorSimple Yöneticisi hizmetini dağıtma
-          href: storsimple-virtual-array-manage-service.md
-        - name: Yeni kimlik doğrulaması
-          href: storsimple-virtual-array-aad-registration-key.md
-      - name: Hyper-V’de sağlama
-        href: storsimple-virtual-array-deploy2-provision-hyperv.md
-      - name: VMware’de sağlama
-        href: storsimple-virtual-array-deploy2-provision-vmware.md
-      - name: Dosya sunucusu olarak ayarlama
-        href: storsimple-virtual-array-deploy3-fs-setup.md
-      - name: iSCSI sunucusu olarak ayarlama
-        href: storsimple-virtual-array-deploy3-iscsi-setup.md
-  - name: Nasıl yapılır
-    items:
-    - name: Azure portalı aracılığıyla yönetme
-      href: storsimple-virtual-array-manager-service-administration.md
+        - name: Planlama
+          items:
+            - name: Gereksinimleri inceleme
+              href: storsimple-ova-system-requirements.md
+            - name: Sınırları anlama
+              href: storsimple-ova-limits.md
+            - name: En iyi uygulamaları inceleme
+              href: storsimple-ova-best-practices.md
+        - name: Dağıtma
+          items:
+            - name: Dağıtmaya hazırlanma
+              href: storsimple-virtual-array-deploy1-portal-prep.md
+              items:
+                - name: StorSimple Yöneticisi hizmetini dağıtma
+                  href: storsimple-virtual-array-manage-service.md
+                - name: Yeni kimlik doğrulaması
+                  href: storsimple-virtual-array-aad-registration-key.md
+            - name: Hyper-V’de sağlama
+              href: storsimple-virtual-array-deploy2-provision-hyperv.md
+            - name: VMware’de sağlama
+              href: storsimple-virtual-array-deploy2-provision-vmware.md
+            - name: Dosya sunucusu olarak ayarlama
+              href: storsimple-virtual-array-deploy3-fs-setup.md
+            - name: iSCSI sunucusu olarak ayarlama
+              href: storsimple-virtual-array-deploy3-iscsi-setup.md
+    - name: Nasıl yapılır
       items:
-      - name: En son güncelleştirmeyi yükleme
-        href: storsimple-virtual-array-install-update-11.md
-        items:
-        - name: Güncelleştirme 1'i yükleme
-          href: storsimple-virtual-array-install-update-1.md
-        - name: Güncelleştirme 0.6'yı yükleme
-          href: storsimple-virtual-array-install-update-06.md
+        - name: Azure portalı aracılığıyla yönetme
+          href: storsimple-virtual-array-manager-service-administration.md
+          items:
+            - name: En son güncelleştirmeyi yükleme
+              href: storsimple-virtual-array-install-update-11.md
+              items:
+                - name: Güncelleştirme 1'i yükleme
+                  href: storsimple-virtual-array-install-update-1.md
+                - name: Güncelleştirme 0.6'yı yükleme
+                  href: storsimple-virtual-array-install-update-06.md
+                - name: Arşiv
+                  items:
+                    - name: Güncelleştirme 0.5’i yükleme
+                      href: storsimple-virtual-array-install-update-05.md
+                    - name: Güncelleştirme 0.4’ü yükleme
+                      href: storsimple-virtual-array-install-update-04.md
+                    - name: Güncelleştirme 0.3’ü yükleme
+                      href: storsimple-virtual-array-install-update.md
+            - name: Yedek oluşturma ve yedekleri yönetme
+              href: storsimple-virtual-array-backup.md
+            - name: Yedeklerden kopyalama
+              href: storsimple-virtual-array-clone.md
+            - name: Yük Devretme ve DR
+              href: storsimple-virtual-array-failover-dr.md
+            - name: Devre dışı bırakma ve silme
+              href: storsimple-virtual-array-deactivate-and-delete-device.md
+            - name: Paylaşımları yönetme
+              href: storsimple-virtual-array-manage-shares.md
+            - name: Birimleri yönetme
+              href: storsimple-virtual-array-manage-volumes.md
+            - name: Hizmet özetini görüntüleme
+              href: storsimple-virtual-array-service-summary.md
+            - name: Cihaz özetini görüntüleme
+              href: storsimple-virtual-array-device-summary.md
+            - name: Depolama hesaplarını yönetme
+              href: storsimple-virtual-array-manage-storage-accounts.md
+            - name: ACR’leri yönetme
+              href: storsimple-virtual-array-manage-acrs.md
+            - name: İşleri yönetme
+              href: storsimple-virtual-array-manage-jobs.md
+            - name: Cihaz parolasını değiştirme
+              href: storsimple-virtual-array-change-device-admin-password.md
+            - name: Uyarıları kullanarak izleme
+              href: storsimple-virtual-array-manage-alerts.md
+            - name: Tanılama ve sorun giderme
+              href: storsimple-virtual-array-diagnose-problems.md
+            - name: Günlük Desteği isteği
+              href: storsimple-virtual-array-log-support-ticket.md
+        - name: Yerel web arabirimi aracılığıyla yapılandırma
+          href: storsimple-ova-web-ui-admin.md
+    - name: Sürüm notları
+      items:
+        - name: Güncelleştirme 1.1 - geçerli
+          href: storsimple-virtual-array-update-11-release-notes.md
+        - name: Güncelleştirme 1
+          href: storsimple-virtual-array-update-1-release-notes.md
+        - name: Güncelleştirme 0.6
+          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Arşiv
           items:
-          - name: Güncelleştirme 0.5’i yükleme
-            href: storsimple-virtual-array-install-update-05.md
-          - name: Güncelleştirme 0.4’ü yükleme
-            href: storsimple-virtual-array-install-update-04.md
-          - name: Güncelleştirme 0.3’ü yükleme
-            href: storsimple-virtual-array-install-update.md
-      - name: Yedek oluşturma ve yedekleri yönetme
-        href: storsimple-virtual-array-backup.md
-      - name: Yedeklerden kopyalama
-        href: storsimple-virtual-array-clone.md
-      - name: Yük Devretme ve DR
-        href: storsimple-virtual-array-failover-dr.md
-      - name: Devre dışı bırakma ve silme
-        href: storsimple-virtual-array-deactivate-and-delete-device.md
-      - name: Paylaşımları yönetme
-        href: storsimple-virtual-array-manage-shares.md
-      - name: Birimleri yönetme
-        href: storsimple-virtual-array-manage-volumes.md
-      - name: Hizmet özetini görüntüleme
-        href: storsimple-virtual-array-service-summary.md
-      - name: Cihaz özetini görüntüleme
-        href: storsimple-virtual-array-device-summary.md
-      - name: Depolama hesaplarını yönetme
-        href: storsimple-virtual-array-manage-storage-accounts.md
-      - name: ACR’leri yönetme
-        href: storsimple-virtual-array-manage-acrs.md
-      - name: İşleri yönetme
-        href: storsimple-virtual-array-manage-jobs.md
-      - name: Cihaz parolasını değiştirme
-        href: storsimple-virtual-array-change-device-admin-password.md
-      - name: Uyarıları kullanarak izleme
-        href: storsimple-virtual-array-manage-alerts.md
-      - name: Tanılama ve sorun giderme
-        href: storsimple-virtual-array-diagnose-problems.md
-      - name: Günlük Desteği isteği
-        href: storsimple-virtual-array-log-support-ticket.md
-    - name: Yerel web arabirimi aracılığıyla yapılandırma
-      href: storsimple-ova-web-ui-admin.md
-  - name: Sürüm notları
-    items:
-    - name: Güncelleştirme 1.1 - geçerli
-      href: storsimple-virtual-array-update-11-release-notes.md
-    - name: Güncelleştirme 1
-      href: storsimple-virtual-array-update-1-release-notes.md
-    - name: Güncelleştirme 0.6
-      href: storsimple-virtual-array-update-06-release-notes.md
-    - name: Arşiv
-      items:
-      - name: Güncelleştirme 0.5
-        href: storsimple-virtual-array-update-05-release-notes.md
-      - name: Güncelleştirme 0.4
-        href: storsimple-virtual-array-update-04-release-notes.md
-      - name: Güncelleştirme 0.3
-        href: storsimple-ova-update-03-release-notes.md
-      - name: Güncelleştirme 0.2 ve 0.1
-        href: storsimple-ova-update-01-release-notes.md
+            - name: Güncelleştirme 0.5
+              href: storsimple-virtual-array-update-05-release-notes.md
+            - name: Güncelleştirme 0.4
+              href: storsimple-virtual-array-update-04-release-notes.md
+            - name: Güncelleştirme 0.3
+              href: storsimple-ova-update-03-release-notes.md
+            - name: Güncelleştirme 0.2 ve 0.1
+              href: storsimple-ova-update-01-release-notes.md
 - name: StorSimple 8000 Serisi (Azure portalı)
   items:
-  - name: Genel Bakış
-    items:
-    - name: Çözüm nedir?
-      href: storsimple-overview.md
-    - name: Veri aktarımı seçeneklerini karşılaştırma
-      href: storsimple-8000-choose-storage-solution.md
-    - name: StorSimple öğrenme haritası
-      href: https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/
-    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
-      href: storsimple-8000-security.md
-    - name: Bölge kullanılabilirliği
-      href: storsimple-regions.md
-  - name: başlarken
-    items:
-    - name: Planlama
+    - name: Genel Bakış
       items:
-      - name: Gereksinimleri inceleme
-        href: storsimple-8000-system-requirements.md
-      - name: Teknik özellikleri inceleme
-        href: storsimple-8000-technical-specifications-and-compliance.md
-      - name: Sınırları anlama
-        href: storsimple-8000-limits.md
-      - name: En iyi uygulamalar
-        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
-    - name: Yükleme
+        - name: Çözüm nedir?
+          href: storsimple-overview.md
+        - name: Veri aktarımı seçeneklerini karşılaştırma
+          href: storsimple-8000-choose-storage-solution.md
+        - name: StorSimple öğrenme haritası
+          href: 'https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/'
+        - name: Güvenlikle ilgili dikkat edilmesi gerekenler
+          href: storsimple-8000-security.md
+        - name: Bölge kullanılabilirliği
+          href: storsimple-regions.md
+    - name: başlarken
       items:
-      - name: Güvenliği inceleme
-        href: storsimple-8000-safety.md
-      - name: 8100 için açma, raflama ve kablolama
-        href: storsimple-8100-hardware-installation.md
-      - name: 8600 için açma, raflama ve kablolama
-        href: storsimple-8600-hardware-installation.md
-      - name: 10 GbE ağ arabirimleri için desteklenen donanımlar
-        href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
-    - name: Dağıtma
-      items:
-      - name: StorSimple Device Manager hizmeti
-        href: storsimple-8000-manage-service.md
-      - name: Hizmet için yeni kimlik doğrulaması
-        href: storsimple-8000-aad-registration-key.md
-      - name: Azure’da fiziksel cihaz
-        href: storsimple-8000-deployment-walkthrough-u2.md
-      - name: Kamu Portalı'nda fiziksel cihaz
-        href: storsimple-8000-deployment-walkthrough-gov-u2.md
-      - name: Azure’da bulut gereci
-        href: storsimple-8000-cloud-appliance-u2.md
-      - name: StorSimple Snapshot Manager
-        href: storsimple-snapshot-manager-deployment.md
-      - name: SharePoint için StorSimple Bağdaştırıcısı
-        href: storsimple-adapter-for-sharepoint.md
-  - name: Nasıl yapılır
-    items:
-    - name: Yönetme
-      items:
-      - name: StorSimple Yöneticisi hizmetini kullanma
-        href: storsimple-8000-manager-service-administration.md
-        items:
-        - name: Bir yedeklemeden geri yükleme
-          href: storsimple-8000-restore-from-backup-set-u2.md
-        - name: Bir birimi kopyalama
-          href: storsimple-8000-clone-volume-u2.md
-        - name: Cihazınıza uzaktan bağlanma
-          href: storsimple-8000-remote-connect.md
-        - name: Cihazınızı devre dışı bırakma ve silme
-          href: storsimple-8000-deactivate-and-delete-device.md
-        - name: Cihazınızda yük devretme gerçekleştirme
-          href: storsimple-8000-device-failover-disaster-recovery.md
+        - name: Planlama
           items:
-          - name: Fiziksel cihaza yük devretme
-            href: storsimple-8000-device-failover-physical-device.md
-          - name: Bulut gerecine yük devretme
-            href: storsimple-8000-device-failover-cloud-appliance.md
-          - name: Aynı cihaza yük devretme
-            href: storsimple-8000-device-failover-same-device.md
-        - name: Yedekleme kataloğunu yönetme
-          href: storsimple-8000-manage-backup-catalog.md
-        - name: Yedekleme ilkelerini yönetme
-          href: storsimple-8000-manage-backup-policies-u2.md
-        - name: Depolama hesaplarını yönetme
-          href: storsimple-8000-manage-storage-accounts.md
-        - name: Birim kapsayıcıları yönetme
-          href: storsimple-8000-manage-volume-containers.md
-        - name: Birimleri yönetme - geçerli
-          href: storsimple-8000-manage-volumes-u2.md
+            - name: Gereksinimleri inceleme
+              href: storsimple-8000-system-requirements.md
+            - name: Teknik özellikleri inceleme
+              href: storsimple-8000-technical-specifications-and-compliance.md
+            - name: Sınırları anlama
+              href: storsimple-8000-limits.md
+            - name: En iyi uygulamalar
+              href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
+        - name: Yükleme
           items:
-          - name: 'SSS: Yerel olarak sabitlenmiş birimler'
-            href: storsimple-8000-local-volume-faq.md
-        - name: Rol Tabanlı Erişim Denetimi
-          href: storsimple-8000-role-based-access-control.md
-        - name: ACR’leri yönetme
-          href: storsimple-8000-manage-acrs.md
-        - name: Bant genişliği şablonlarını yönetme
-          href: storsimple-8000-manage-bandwidth-templates.md
-        - name: İşleri görüntüleme ve yönetme
-          href: storsimple-8000-manage-jobs-u2.md
-        - name: Cihaz modunu değiştirme
-          href: storsimple-8000-device-modes.md
-        - name: Cihaz parolasını değiştirme
-          href: storsimple-8000-change-passwords.md
-        - name: Cihaz yapılandırmasını değiştirme
-          href: storsimple-8000-modify-device-config.md
-        - name: Açma ve kapatma
-          href: storsimple-turn-device-on-or-off.md
-        - name: Windows Server ana bilgisayarında MPIO yapılandırma
-          href: storsimple-8000-configure-mpio-windows-server.md
-        - name: Linux ana bilgisayarında MPIO yapılandırma
-          href: storsimple-configure-mpio-on-linux.md
-        - name: CHAP yapılandırma
-          href: storsimple-8000-configure-chap.md
-      - name: StorSimple için Windows PowerShell'i kullanma
-        href: storsimple-8000-windows-powershell-administration.md
-        items:
-        - name: Cihaz denetleyicisini yönetme
-          href: storsimple-8000-manage-device-controller.md
-        - name: Web proxy yapılandırma
-          href: storsimple-8000-configure-web-proxy.md
-        - name: DATA 0 ayarlarını değiştirme
-          href: storsimple-8000-modify-data-0.md
-      - name: StorSimple Snapshot Manager’ı kullanma
-        href: storsimple-snapshot-manager-admin.md
-        items:
-        - name: StorSimple Snapshot Manager nedir?
-          href: storsimple-what-is-snapshot-manager.md
-        - name: StorSimple Snapshot Manager arabirimi hakkında
-          href: storsimple-use-snapshot-manager.md
-        - name: StorSimple Snapshot Manager aracılığıyla cihazları yönetme
-          href: storsimple-snapshot-manager-manage-devices.md
-        - name: StorSimple Snapshot Manager aracılığıyla yedekleme ilkelerini yönetme
-          href: storsimple-snapshot-manager-manage-backup-policies.md
-        - name: StorSimple Snapshot Manager aracılığıyla birim gruplarını yönetme
-          href: storsimple-snapshot-manager-manage-volume-groups.md
-        - name: StorSimple Snapshot Manager aracılığıyla yedekleme kataloğunu yönetme
-          href: storsimple-snapshot-manager-manage-backup-catalog.md
-        - name: StorSimple Snapshot Manager aracılığıyla yedekleme işlerini yönetme
-          href: storsimple-snapshot-manager-manage-backup-jobs.md
-        - name: StorSimple Snapshot Manager aracılığıyla birimleri yönetme
-          href: storsimple-snapshot-manager-manage-volumes.md
-        - name: StorSimple Snapshot Manager’da MMC eylemlerini yönetme
-          href: storsimple-snapshot-manager-mmc-menu.md
-    - name: Otomatikleştirme
+            - name: Güvenliği inceleme
+              href: storsimple-8000-safety.md
+            - name: '8100 için açma, raflama ve kablolama'
+              href: storsimple-8100-hardware-installation.md
+            - name: '8600 için açma, raflama ve kablolama'
+              href: storsimple-8600-hardware-installation.md
+            - name: 10 GbE ağ arabirimleri için desteklenen donanımlar
+              href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
+        - name: Dağıtma
+          items:
+            - name: StorSimple Device Manager hizmeti
+              href: storsimple-8000-manage-service.md
+            - name: Hizmet için yeni kimlik doğrulaması
+              href: storsimple-8000-aad-registration-key.md
+            - name: Azure’da fiziksel cihaz
+              href: storsimple-8000-deployment-walkthrough-u2.md
+            - name: Kamu Portalı'nda fiziksel cihaz
+              href: storsimple-8000-deployment-walkthrough-gov-u2.md
+            - name: Azure’da bulut gereci
+              href: storsimple-8000-cloud-appliance-u2.md
+            - name: StorSimple Snapshot Manager
+              href: storsimple-snapshot-manager-deployment.md
+            - name: SharePoint için StorSimple Bağdaştırıcısı
+              href: storsimple-adapter-for-sharepoint.md
+    - name: Nasıl yapılır
       items:
-      - name: Azure PowerShell örnek betiklerini kullanma
-        href: storsimple-8000-automation-azurerm-scripts.md
-      - name: Azure Otomasyonu runbook’larını kullanma
-        href: storsimple-8000-automation-azurerm-runbook.md
-    - name: Çözüm oluşturma
+        - name: Yönetme
+          items:
+            - name: StorSimple Yöneticisi hizmetini kullanma
+              href: storsimple-8000-manager-service-administration.md
+              items:
+                - name: Bir yedeklemeden geri yükleme
+                  href: storsimple-8000-restore-from-backup-set-u2.md
+                - name: Bir birimi kopyalama
+                  href: storsimple-8000-clone-volume-u2.md
+                - name: Cihazınıza uzaktan bağlanma
+                  href: storsimple-8000-remote-connect.md
+                - name: Cihazınızı devre dışı bırakma ve silme
+                  href: storsimple-8000-deactivate-and-delete-device.md
+                - name: Cihazınızda yük devretme gerçekleştirme
+                  href: storsimple-8000-device-failover-disaster-recovery.md
+                  items:
+                    - name: Fiziksel cihaza yük devretme
+                      href: storsimple-8000-device-failover-physical-device.md
+                    - name: Bulut gerecine yük devretme
+                      href: storsimple-8000-device-failover-cloud-appliance.md
+                    - name: Aynı cihaza yük devretme
+                      href: storsimple-8000-device-failover-same-device.md
+                - name: Yedekleme kataloğunu yönetme
+                  href: storsimple-8000-manage-backup-catalog.md
+                - name: Yedekleme ilkelerini yönetme
+                  href: storsimple-8000-manage-backup-policies-u2.md
+                - name: Depolama hesaplarını yönetme
+                  href: storsimple-8000-manage-storage-accounts.md
+                - name: Birim kapsayıcıları yönetme
+                  href: storsimple-8000-manage-volume-containers.md
+                - name: Birimleri yönetme - geçerli
+                  href: storsimple-8000-manage-volumes-u2.md
+                  items:
+                    - name: 'SSS: Yerel olarak sabitlenmiş birimler'
+                      href: storsimple-8000-local-volume-faq.md
+                - name: Rol Tabanlı Erişim Denetimi
+                  href: storsimple-8000-role-based-access-control.md
+                - name: ACR’leri yönetme
+                  href: storsimple-8000-manage-acrs.md
+                - name: Bant genişliği şablonlarını yönetme
+                  href: storsimple-8000-manage-bandwidth-templates.md
+                - name: İşleri görüntüleme ve yönetme
+                  href: storsimple-8000-manage-jobs-u2.md
+                - name: Cihaz modunu değiştirme
+                  href: storsimple-8000-device-modes.md
+                - name: Cihaz parolasını değiştirme
+                  href: storsimple-8000-change-passwords.md
+                - name: Cihaz yapılandırmasını değiştirme
+                  href: storsimple-8000-modify-device-config.md
+                - name: Açma ve kapatma
+                  href: storsimple-turn-device-on-or-off.md
+                - name: Windows Server ana bilgisayarında MPIO yapılandırma
+                  href: storsimple-8000-configure-mpio-windows-server.md
+                - name: Linux ana bilgisayarında MPIO yapılandırma
+                  href: storsimple-configure-mpio-on-linux.md
+                - name: CHAP yapılandırma
+                  href: storsimple-8000-configure-chap.md
+            - name: StorSimple için Windows PowerShell'i kullanma
+              href: storsimple-8000-windows-powershell-administration.md
+              items:
+                - name: Cihaz denetleyicisini yönetme
+                  href: storsimple-8000-manage-device-controller.md
+                - name: Web proxy yapılandırma
+                  href: storsimple-8000-configure-web-proxy.md
+                - name: DATA 0 ayarlarını değiştirme
+                  href: storsimple-8000-modify-data-0.md
+            - name: StorSimple Snapshot Manager’ı kullanma
+              href: storsimple-snapshot-manager-admin.md
+              items:
+                - name: StorSimple Snapshot Manager nedir?
+                  href: storsimple-what-is-snapshot-manager.md
+                - name: StorSimple Snapshot Manager arabirimi hakkında
+                  href: storsimple-use-snapshot-manager.md
+                - name: StorSimple Snapshot Manager aracılığıyla cihazları yönetme
+                  href: storsimple-snapshot-manager-manage-devices.md
+                - name: StorSimple Snapshot Manager aracılığıyla yedekleme ilkelerini yönetme
+                  href: storsimple-snapshot-manager-manage-backup-policies.md
+                - name: StorSimple Snapshot Manager aracılığıyla birim gruplarını yönetme
+                  href: storsimple-snapshot-manager-manage-volume-groups.md
+                - name: StorSimple Snapshot Manager aracılığıyla yedekleme kataloğunu yönetme
+                  href: storsimple-snapshot-manager-manage-backup-catalog.md
+                - name: StorSimple Snapshot Manager aracılığıyla yedekleme işlerini yönetme
+                  href: storsimple-snapshot-manager-manage-backup-jobs.md
+                - name: StorSimple Snapshot Manager aracılığıyla birimleri yönetme
+                  href: storsimple-snapshot-manager-manage-volumes.md
+                - name: StorSimple Snapshot Manager’da MMC eylemlerini yönetme
+                  href: storsimple-snapshot-manager-mmc-menu.md
+        - name: Otomatikleştirme
+          items:
+            - name: Azure PowerShell örnek betiklerini kullanma
+              href: storsimple-8000-automation-azurerm-scripts.md
+            - name: Azure Otomasyonu runbook’larını kullanma
+              href: storsimple-8000-automation-azurerm-runbook.md
+        - name: Çözüm oluşturma
+          items:
+            - name: Veeam ile StorSimple
+              href: storsimple-configure-backup-target-veeam.md
+            - name: Veritas Backup Exec ile StorSimple
+              href: storsimple-configure-backup-target-using-backup-exec.md
+            - name: Veritas NetBackup ile StorSimple
+              href: storsimple-configure-backuptarget-netbackup.md
+            - name: Dosya Sunucusu DR’sini Azure’a otomatikleştirme
+              href: storsimple-disaster-recovery-using-azure-site-recovery.md
+            - name: Express Route ile StorSimple
+              href: 'https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content'
+            - name: VMware ile StorSimple
+              href: 'https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463'
+            - name: Hyper-V ile StorSimple
+              href: 'https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6'
+            - name: Dağıtılmış küresel ad alanı
+              href: 'https://www.microsoft.com/download/details.aspx?id=45507'
+        - name: İzleme
+          items:
+            - name: Hizmet özetini kullanma
+              href: storsimple-8000-service-dashboard.md
+            - name: Cihaz özetini kullanma
+              href: storsimple-8000-device-dashboard.md
+            - name: İzleme grafiklerini kullanma
+              href: storsimple-8000-monitor-device.md
+            - name: Hizmet uyarılarını kullanma
+              href: storsimple-8000-manage-alerts.md
+            - name: Donanım durumunu kullanma
+              href: storsimple-8000-monitor-hardware-status.md
+            - name: İzleme LED'lerini kullanma
+              href: storsimple-monitoring-indicators.md
+        - name: Sorun giderme
+          items:
+            - name: Dağıtım sorunları
+              href: storsimple-8000-troubleshoot-deployment.md
+            - name: Tanılama aracını kullanma
+              href: storsimple-8000-diagnostics.md
+            - name: İşletim sorunları
+              href: storsimple-troubleshoot-operational-device.md
+            - name: Donanım değişimi
+              href: storsimple-8000-hardware-component-replacement.md
+              items:
+                - name: Cihaz denetleyicisini değiştirme
+                  href: storsimple-8000-controller-replacement.md
+                - name: EBOD denetleyicisini değiştirme
+                  href: storsimple-8000-ebod-controller-replacement.md
+                - name: PCM’yi değiştirme
+                  href: storsimple-8000-power-cooling-module-replacement.md
+                - name: Disk sürücüsünü değiştirme
+                  href: storsimple-8000-disk-drive-replacement.md
+                - name: Yedek pili değiştirme
+                  href: storsimple-8000-battery-replacement.md
+                - name: Kasayı değiştirme
+                  href: storsimple-8000-chassis-replacement.md
+            - name: Destek birimine başvurma
+              href: storsimple-8000-contact-microsoft-support.md
+              items:
+                - name: Destek paketi oluşturma
+                  href: storsimple-8000-create-manage-support-package.md
+        - name: Geçiş
+          items:
+            - name: Abonelik ve depolama hesapları
+              href: storsimple-8000-migrate-classic-azure-portal.md
+            - name: 5000/7000 serisi cihazlardan
+              href: storsimple-8000-migration-options.md
+              items:
+                - name: StorSimple 8000 serisi cihazlara
+                  href: storsimple-8000-migrate-from-5000-7000.md
+                - name: Azure Dosya Eşitleme’ye
+                  href: storsimple-5000-7000-afs-migration.md
+            - name: Diğer depolama cihazlarından
+              href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
+        - name: Güncelleştirme
+          items:
+            - name: Güncelleştirme 5'i yükleme - geçerli
+              href: storsimple-8000-install-update-5.md
+            - name: Güncelleştirme 4'ü yükleme
+              href: storsimple-8000-install-update-4.md
+    - name: Sürüm notları
       items:
-      - name: Veeam ile StorSimple
-        href: storsimple-configure-backup-target-veeam.md
-      - name: Veritas Backup Exec ile StorSimple
-        href: storsimple-configure-backup-target-using-backup-exec.md
-      - name: Veritas NetBackup ile StorSimple
-        href: storsimple-configure-backuptarget-netbackup.md
-      - name: Dosya Sunucusu DR’sini Azure’a otomatikleştirme
-        href: storsimple-disaster-recovery-using-azure-site-recovery.md
-      - name: Express Route ile StorSimple
-        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
-      - name: VMware ile StorSimple
-        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
-      - name: Hyper-V ile StorSimple
-        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
-      - name: Dağıtılmış küresel ad alanı
-        href: https://www.microsoft.com/download/details.aspx?id=45507
-    - name: İzleme
+        - name: Güncelleştirme 5 - geçerli
+          href: storsimple-update5-release-notes.md
+        - name: Güncelleştirme 4
+          href: storsimple-update4-release-notes.md
+        - name: Arşiv
+          items:
+            - name: Güncelleştirme 3
+              href: storsimple-update3-release-notes.md
+            - name: Güncelleştirme 2.2
+              href: storsimple-update21-release-notes.md
+            - name: Güncelleştirme 2
+              href: storsimple-update2-release-notes.md
+            - name: Güncelleştirme 1
+              href: storsimple-update1-release-notes.md
+            - name: Güncelleştirme 0.3
+              href: storsimple-february-2015-release-notes.md
+            - name: Güncelleştirme 0.2
+              href: storsimple-january-2015-release-notes.md
+            - name: Güncelleştirme 0.1
+              href: storsimple-october-2014-release-notes.md
+            - name: Sürüm - GA
+              href: storsimple-july-2014-release-notes.md
+    - name: Başvuru
       items:
-      - name: Hizmet özetini kullanma
-        href: storsimple-8000-service-dashboard.md
-      - name: Cihaz özetini kullanma
-        href: storsimple-8000-device-dashboard.md
-      - name: İzleme grafiklerini kullanma
-        href: storsimple-8000-monitor-device.md
-      - name: Hizmet uyarılarını kullanma
-        href: storsimple-8000-manage-alerts.md
-      - name: Donanım durumunu kullanma
-        href: storsimple-8000-monitor-hardware-status.md
-      - name: İzleme LED'lerini kullanma
-        href: storsimple-monitoring-indicators.md
-    - name: Sorun giderme
-      items:
-      - name: Dağıtım sorunları
-        href: storsimple-8000-troubleshoot-deployment.md
-      - name: Tanılama aracını kullanma
-        href: storsimple-8000-diagnostics.md
-      - name: İşletim sorunları
-        href: storsimple-troubleshoot-operational-device.md
-      - name: Donanım değişimi
-        href: storsimple-8000-hardware-component-replacement.md
-        items:
-        - name: Cihaz denetleyicisini değiştirme
-          href: storsimple-8000-controller-replacement.md
-        - name: EBOD denetleyicisini değiştirme
-          href: storsimple-8000-ebod-controller-replacement.md
-        - name: PCM’yi değiştirme
-          href: storsimple-8000-power-cooling-module-replacement.md
-        - name: Disk sürücüsünü değiştirme
-          href: storsimple-8000-disk-drive-replacement.md
-        - name: Yedek pili değiştirme
-          href: storsimple-8000-battery-replacement.md
-        - name: Kasayı değiştirme
-          href: storsimple-8000-chassis-replacement.md
-      - name: Destek birimine başvurma
-        href: storsimple-8000-contact-microsoft-support.md
-        items:
-        - name: Destek paketi oluşturma
-          href: storsimple-8000-create-manage-support-package.md
-    - name: Geçiş
-      items:
-      - name: Abonelik ve depolama hesapları
-        href: storsimple-8000-migrate-classic-azure-portal.md
-      - name: 5000/7000 serisi cihazlardan
-        href: storsimple-8000-migration-options.md
-        items:
-        - name: StorSimple 8000 serisi cihazlara
-          href: storsimple-8000-migrate-from-5000-7000.md
-        - name: Azure Dosya Eşitleme’ye
-          href: storsimple-5000-7000-afs-migration.md
-      - name: Diğer depolama cihazlarından
-        href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
-    - name: Güncelleştirme
-      items:
-      - name: Güncelleştirme 5'i yükleme - geçerli
-        href: storsimple-8000-install-update-5.md
-      - name: Güncelleştirme 4'ü yükleme
-        href: storsimple-8000-install-update-4.md
-  - name: Sürüm notları
-    items:
-    - name: Güncelleştirme 5 - geçerli
-      href: storsimple-update5-release-notes.md
-    - name: Güncelleştirme 4
-      href: storsimple-update4-release-notes.md
-    - name: Arşiv
-      items:
-      - name: Güncelleştirme 3
-        href: storsimple-update3-release-notes.md
-      - name: Güncelleştirme 2.2
-        href: storsimple-update21-release-notes.md
-      - name: Güncelleştirme 2
-        href: storsimple-update2-release-notes.md
-      - name: Güncelleştirme 1
-        href: storsimple-update1-release-notes.md
-      - name: Güncelleştirme 0.3
-        href: storsimple-february-2015-release-notes.md
-      - name: Güncelleştirme 0.2
-        href: storsimple-january-2015-release-notes.md
-      - name: Güncelleştirme 0.1
-        href: storsimple-october-2014-release-notes.md
-      - name: Sürüm - GA
-        href: storsimple-july-2014-release-notes.md
-  - name: Başvuru
-    items:
-    - name: REST API
-      href: https://docs.microsoft.com/rest/api/storsimple
-    - name: StorSimple cmdlet’leri için Windows PowerShell
-      href: https://technet.microsoft.com/library/dn688168.aspx
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.storsimple/allversions
+        - name: REST API
+          href: 'https://docs.microsoft.com/rest/api/storsimple'
+        - name: StorSimple cmdlet’leri için Windows PowerShell
+          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+        - name: Resource Manager şablonu
+          href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
   items:
-  - name: Genel Bakış
-    items:
-    - name: Çözüm nedir?
-      href: storsimple-data-manager-overview.md
-  - name: başlarken
-    items:
-    - name: StorSimple Veri Yöneticisi’ni kullanma
-      href: storsimple-data-manager-ui.md
-  - name: Nasıl yapılır
-    items:
-    - name: İşleri başlatmak için .NET’i kullanma
-      href: storsimple-data-manager-dotnet-jobs.md
-    - name: İşleri başlatmak için Otomasyon’u kullanma
-      href: storsimple-data-manager-job-using-automation.md
-    - name: Varsayılan blob yolunu değiştirme
-      href: storsimple-data-manager-change-default-blob-path.md
+    - name: Genel Bakış
+      items:
+        - name: Çözüm nedir?
+          href: storsimple-data-manager-overview.md
+    - name: başlarken
+      items:
+        - name: StorSimple Veri Yöneticisi’ni kullanma
+          href: storsimple-data-manager-ui.md
+    - name: Nasıl yapılır
+      items:
+        - name: İşleri başlatmak için .NET’i kullanma
+          href: storsimple-data-manager-dotnet-jobs.md
+        - name: İşleri başlatmak için Otomasyon’u kullanma
+          href: storsimple-data-manager-job-using-automation.md
+        - name: Varsayılan blob yolunu değiştirme
+          href: storsimple-data-manager-change-default-blob-path.md
 - name: İş ortakları için StorSimple
   items:
-  - name: Genel Bakış
-    items:
-    - name: Çözüm nedir?
-      href: storsimple-partner-csp-overview.md
-  - name: başlarken
-    items:
-    - name: CSP için sanal dizin dağıtma
-      href: storsimple-partner-csp-deploy.md
-  - name: Sürüm notları
-    items:
-    - name: StorSimple sürüm notları
-      href: https://aka.ms/storsimple-virtual-array-latest-relnote
-    - name: CSP sürüm notları
-      href: https://partner.microsoft.com/Support/whats-new
-    - name: 'CSP için StorSimple: SSS'
-      href: storsimple-partner-csp-faq.md
+    - name: Genel Bakış
+      items:
+        - name: Çözüm nedir?
+          href: storsimple-partner-csp-overview.md
+    - name: başlarken
+      items:
+        - name: CSP için sanal dizin dağıtma
+          href: storsimple-partner-csp-deploy.md
+    - name: Sürüm notları
+      items:
+        - name: StorSimple sürüm notları
+          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+        - name: CSP sürüm notları
+          href: 'https://partner.microsoft.com/Support/whats-new'
+        - name: 'CSP için StorSimple: SSS'
+          href: storsimple-partner-csp-faq.md
 - name: İlgili
   items:
-  - name: StorSimple 5000-7000 Series
-    href: http://onlinehelp.storsimple.com
+    - name: StorSimple 5000-7000 Series
+      href: 'http://onlinehelp.storsimple.com'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pazarlama blogu
-    href: http://blogs.technet.com/b/cis/
-  - name: Pazarlama
-    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
-  - name: StorSimple Desteği seçenekleri
-    href: storsimple-8000-support-options.md
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/storsimple/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=storsimple
-  - name: Destek blogu
-    href: https://blogs.msdn.com/b/storsimple/
-  - name: Üçüncü taraf bildirimleri
-    href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storsimple
-ms.openlocfilehash: 6879dd240dc070483a7d97536a5fa365108af5f1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341144"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Pazarlama blogu
+      href: 'http://blogs.technet.com/b/cis/'
+    - name: Pazarlama
+      href: 'https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx'
+    - name: StorSimple Desteği seçenekleri
+      href: storsimple-8000-support-options.md
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/storsimple/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=storsimple'
+    - name: Destek blogu
+      href: 'https://blogs.msdn.com/b/storsimple/'
+    - name: Üçüncü taraf bildirimleri
+      href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storsimple'

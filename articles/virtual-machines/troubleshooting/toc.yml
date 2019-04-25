@@ -1,110 +1,109 @@
-items:
 - name: Azure VM’lerinde Sorun Giderme
   href: index.md
 - name: Ayırma hataları
   items:
-  - name: Ayırma hataları
-    href: allocation-failure.md
-  - name: Klasik dağıtımlarıyla ilgili ayırma hataları
-    href: allocation-failure-classic.md
+    - name: Ayırma hataları
+      href: allocation-failure.md
+    - name: Klasik dağıtımlarıyla ilgili ayırma hataları
+      href: allocation-failure-classic.md
 - name: RDP
   href: rdp.md
   items:
-  - name: RDP’yi sıfırlama
-    href: reset-rdp.md
-  - name: RDP sorunlarını giderme
-    href: troubleshoot-rdp-connection.md
-  - name: RDP sorunlarını gidermeyle ilgili ayrıntılar
-    href: detailed-troubleshoot-rdp.md
-  - name: DHCP’nin devre dışı bırakılması kaynaklı RDP hatasına yönelik sorun giderme
-    href: troubleshoot-rdp-dhcp-disabled.md
-  - name: NSG ayarından kaynaklanan RDP hatasına yönelik sorun giderme
-    href: troubleshoot-rdp-nsg-problem.md
-  - name: Belirli hatalarda sorun giderme
-    href: troubleshoot-specific-rdp-errors.md
-  - name: Lisans sunucusu yok hatalarında sorun giderme
-    href: troubleshoot-rdp-no-license-server.md
-  - name: Uzak masaüstü hizmetleri ile ilgili sorunları giderme
-    href: troubleshoot-remote-desktop-services-issues.md
-  - name: İç hata sorununu giderme
-    href: Troubleshoot-rdp-internal-error.md
-  - name: Sık sık bağlantı kesilmesi sorununu giderme
-    href: troubleshoot-rdp-intermittent-connectivity.md
-  - name: Genel hata sorununu giderme
-    href: troubleshoot-rdp-general-error.md
-  - name: Kimlik doğrulama sorunlarını giderme
-    href: troubleshoot-authentication-error-rdp-vm.md
-  - name: Azure VM RDP bağlantı sorunlarını olay kimliğine göre giderme
-    href: event-id-troubleshoot-vm-rdp-connecton.md
-  - name: Sanal makinede statik IP kaynaklı RDP hatasına yönelik sorun giderme
-    href: troubleshoot-rdp-static-ip.md
-  - name: Sanal makinede NIC’nin devre dışı bırakılması kaynaklı RDP hatasına yönelik sorun giderme
-    href: troubleshoot-rdp-nic-disabled.md
-  - name: Güvenli Mod’dan kaynaklanan RDP hatalarına yönelik sorun giderme
-    href: troubleshoot-rdp-safe-mode.md
-  - name: Azure VM'de konuk işletim sistemi Güvenlik Duvarını devre dışı bırakma
-    href: disable-guest-os-firewall-windows.md
-  - name: Konuk işletim sisteminde güvenlik duvarı kuralını etkinleştirme veya devre dışı bırakma
-    href: enable-disable-firewall-rule-guest-os.md
-  - name: Konuk işletim sistemi güvenlik duvarı gelen trafiği engelliyor
-    href: guest-os-firewall-blocking-inbound-traffic.md
-  - name: Konuk işletim sistemi güvenlik duvarı yanlış yapılandırılmış
-    href: guest-os-firewall-misconfigured.md
-  - name: netvsc.sys dosyasından kaynaklanan RDP hatalarına yönelik sorun giderme
-    href: troubleshoot-rdp-driver-netvsc.md
+    - name: RDP’yi sıfırlama
+      href: reset-rdp.md
+    - name: RDP sorunlarını giderme
+      href: troubleshoot-rdp-connection.md
+    - name: RDP sorunlarını gidermeyle ilgili ayrıntılar
+      href: detailed-troubleshoot-rdp.md
+    - name: DHCP’nin devre dışı bırakılması kaynaklı RDP hatasına yönelik sorun giderme
+      href: troubleshoot-rdp-dhcp-disabled.md
+    - name: NSG ayarından kaynaklanan RDP hatasına yönelik sorun giderme
+      href: troubleshoot-rdp-nsg-problem.md
+    - name: Belirli hatalarda sorun giderme
+      href: troubleshoot-specific-rdp-errors.md
+    - name: Lisans sunucusu yok hatalarında sorun giderme
+      href: troubleshoot-rdp-no-license-server.md
+    - name: Uzak masaüstü hizmetleri ile ilgili sorunları giderme
+      href: troubleshoot-remote-desktop-services-issues.md
+    - name: İç hata sorununu giderme
+      href: Troubleshoot-rdp-internal-error.md
+    - name: Sık sık bağlantı kesilmesi sorununu giderme
+      href: troubleshoot-rdp-intermittent-connectivity.md
+    - name: Genel hata sorununu giderme
+      href: troubleshoot-rdp-general-error.md
+    - name: Kimlik doğrulama sorunlarını giderme
+      href: troubleshoot-authentication-error-rdp-vm.md
+    - name: Azure VM RDP bağlantı sorunlarını olay kimliğine göre giderme
+      href: event-id-troubleshoot-vm-rdp-connecton.md
+    - name: Sanal makinede statik IP kaynaklı RDP hatasına yönelik sorun giderme
+      href: troubleshoot-rdp-static-ip.md
+    - name: Sanal makinede NIC’nin devre dışı bırakılması kaynaklı RDP hatasına yönelik sorun giderme
+      href: troubleshoot-rdp-nic-disabled.md
+    - name: Güvenli Mod’dan kaynaklanan RDP hatalarına yönelik sorun giderme
+      href: troubleshoot-rdp-safe-mode.md
+    - name: Azure VM'de konuk işletim sistemi Güvenlik Duvarını devre dışı bırakma
+      href: disable-guest-os-firewall-windows.md
+    - name: Konuk işletim sisteminde güvenlik duvarı kuralını etkinleştirme veya devre dışı bırakma
+      href: enable-disable-firewall-rule-guest-os.md
+    - name: Konuk işletim sistemi güvenlik duvarı gelen trafiği engelliyor
+      href: guest-os-firewall-blocking-inbound-traffic.md
+    - name: Konuk işletim sistemi güvenlik duvarı yanlış yapılandırılmış
+      href: guest-os-firewall-misconfigured.md
+    - name: netvsc.sys dosyasından kaynaklanan RDP hatalarına yönelik sorun giderme
+      href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
-  - name: SSH hakkındaki sorunları giderme
-    href: troubleshoot-ssh-connection.md
-  - name: Dosya sistemi hatalarını giderme
-    href: https://support.microsoft.com/help/3213321
-  - name: Çekirdekle ilgili önyükleme sorunları giderme
-    href: https://support.microsoft.com/help/4091524
-  - name: Fstab hatalarını giderme
-    href: https://support.microsoft.com/help/3206699
-  - name: SSH hakkındaki sorunları gidermeyle ilgili ayrıntılar
-    href: detailed-troubleshoot-ssh-connection.md
+    - name: SSH hakkındaki sorunları giderme
+      href: troubleshoot-ssh-connection.md
+    - name: Dosya sistemi hatalarını giderme
+      href: 'https://support.microsoft.com/help/3213321'
+    - name: Çekirdekle ilgili önyükleme sorunları giderme
+      href: 'https://support.microsoft.com/help/4091524'
+    - name: Fstab hatalarını giderme
+      href: 'https://support.microsoft.com/help/3206699'
+    - name: SSH hakkındaki sorunları gidermeyle ilgili ayrıntılar
+      href: detailed-troubleshoot-ssh-connection.md
 - name: Genel hata iletileri
   href: error-messages.md
 - name: Windows VM’leriyle ilgili performans sorunları
   href: performance-diagnostics.md
   items:
-  - name: PerfInsights’ı kullanma
-    href: how-to-use-perfInsights.md
-  - name: Performans tanılama uzantısı
-    href: performance-diagnostics-vm-extension.md
+    - name: PerfInsights’ı kullanma
+      href: how-to-use-perfInsights.md
+    - name: Performans tanılama uzantısı
+      href: performance-diagnostics-vm-extension.md
 - name: Windows VM aracısını çevrimdışı olarak yükleme
   href: install-vm-agent-offline.md
 - name: Bir VM’yi yeniden dağıtma
   items:
-  - name: Linux
-    href: redeploy-to-new-node-linux.md
-  - name: Windows
-    href: redeploy-to-new-node-windows.md
+    - name: Linux
+      href: redeploy-to-new-node-linux.md
+    - name: Windows
+      href: redeploy-to-new-node-windows.md
 - name: VM parolasını sıfırlama
   items:
-  - name: Windows
-    href: reset-local-password-without-agent.md
-  - name: Linux
-    href: reset-password.md
+    - name: Windows
+      href: reset-local-password-without-agent.md
+    - name: Linux
+      href: reset-password.md
 - name: NIC’yi sıfırlama
   href: reset-network-interface.md
 - name: VM’yi yeniden başlatma veya yeniden boyutlandırma
   href: restart-resize-error-troubleshooting.md
 - name: Seri konsolu kullanma
   items:
-  - name: Linux VM
-    href: serial-console-linux.md
-    items:
-    - name: Seri Konsol GRUB/Tek kullanıcı modu
-      href: serial-console-grub-single-user-mode.md
-    - name: Seri Konsol NMI/SysRq
-      href: serial-console-nmi-sysrq.md
-  - name: Windows VM
-    href: serial-console-windows.md
-    items:
-    - name: CMD ve PowerShell komutları
-      href: serial-console-cmd-ps-commands.md
+    - name: Linux VM
+      href: serial-console-linux.md
+      items:
+        - name: Seri Konsol GRUB/Tek kullanıcı modu
+          href: serial-console-grub-single-user-mode.md
+        - name: Seri Konsol NMI/SysRq
+          href: serial-console-nmi-sysrq.md
+    - name: Windows VM
+      href: serial-console-windows.md
+      items:
+        - name: CMD ve PowerShell komutları
+          href: serial-console-cmd-ps-commands.md
 - name: Depolama alanı kaynaklarını silerken karşılaşılan hatalar
   href: storage-resource-deletion-errors.md
 - name: Klasik depolama alanı kaynaklarını silerken karşılaşılan hatalar
@@ -119,51 +118,51 @@ items:
   href: troubleshoot-app-connection.md
 - name: Yeni VM dağıtımları
   items:
-  - name: Linux
-    href: troubleshoot-deployment-new-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deployment-new-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
 - name: Dağıtımlarla ilgili sorunları giderme
   items:
-  - name: Linux
-    href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deploy-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deploy-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deploy-vm-windows.md
 - name: Cihaz adları değiştirildi
   href: troubleshoot-device-names-problems.md
 - name: VM kurtarma erişimi
   items:
-  - name: Windows
-    items:
-    - name: PowerShell
-      href: troubleshoot-recovery-disks-windows.md
-    - name: Azure portal
-      href: troubleshoot-recovery-disks-portal-windows.md
-  - name: Linux
-    items:
-    - name: CLI
-      href: troubleshoot-recovery-disks-linux.md
-    - name: Azure portal
-      href: troubleshoot-recovery-disks-portal-linux.md
+    - name: Windows
+      items:
+        - name: PowerShell
+          href: troubleshoot-recovery-disks-windows.md
+        - name: Azure portal
+          href: troubleshoot-recovery-disks-portal-windows.md
+    - name: Linux
+      items:
+        - name: CLI
+          href: troubleshoot-recovery-disks-linux.md
+        - name: Azure portal
+          href: troubleshoot-recovery-disks-portal-linux.md
 - name: Önyükleme hataları
   href: boot-error-troubleshoot.md
   items:
-  - name: Önyükleme tanılamaları
-    href: boot-diagnostics.md
-  - name: BitLocker hataları
-    href: troubleshoot-bitlocker-boot-error.md
-  - name: Dosya sistemi hatalarını denetleme
-    href: troubleshoot-check-disk-boot-error.md
-  - name: Mavi ekran hataları
-    href: troubleshoot-common-blue-screen-error.md
-  - name: VM başlatma takıldı
-    href: troubleshoot-vm-boot-configure-update.md
-  - name: Kritik hizmet başarısız oldu
-    href: troubleshoot-critical-service-failed-boot-error.md
-  - name: Yeniden başlatma döngüsü
-    href: troubleshoot-reboot-loop.md
-  - name: Windows güncelleştirmede takılı kalma
-    href: troubleshoot-stuck-updating-boot-error.md
+    - name: Önyükleme tanılamaları
+      href: boot-diagnostics.md
+    - name: BitLocker hataları
+      href: troubleshoot-bitlocker-boot-error.md
+    - name: Dosya sistemi hatalarını denetleme
+      href: troubleshoot-check-disk-boot-error.md
+    - name: Mavi ekran hataları
+      href: troubleshoot-common-blue-screen-error.md
+    - name: VM başlatma takıldı
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: Kritik hizmet başarısız oldu
+      href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Yeniden başlatma döngüsü
+      href: troubleshoot-reboot-loop.md
+    - name: Windows güncelleştirmede takılı kalma
+      href: troubleshoot-stuck-updating-boot-error.md
 - name: Azaltma hataları
   href: troubleshooting-throttling-errors.md
 - name: İç içe geçmiş sanallaştırma kullanımı
@@ -172,9 +171,3 @@ items:
   href: understand-vm-reboot.md
 - name: Uzaktan sorun giderme araçları
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 7ba013c372eefcbf83bb141ba44fcea9b68064de
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382961"

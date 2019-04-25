@@ -1,120 +1,113 @@
-items:
 - name: Azure Data Box Belgeleri - Çevrimiçi Aktarım
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
   items:
-  - name: Genel Bakış
-    items:
-    - name: Data Box Gateway nedir?
-      href: data-box-gateway-overview.md
-  - name: Öğreticiler
-    items:
-    - name: 1 - Hazırlanma
-      href: data-box-gateway-deploy-prep.md
-    - name: 2A - Hyper-V’de sağlama
-      href: data-box-gateway-deploy-provision-hyperv.md
-    - name: 2B - VMware’de sağlama
-      href: data-box-gateway-deploy-provision-vmware.md
-    - name: 3 - Bağlanma, kurma, etkinleştirme
-      href: data-box-gateway-deploy-connect-setup-activate.md
-    - name: 4 - Paylaşıma ekleme, bağlanma
-      href: data-box-gateway-deploy-add-shares.md
-  - name: Kavramlar
-    items:
-    - name: Gereksinimleri inceleme
-      href: data-box-gateway-system-requirements.md
-    - name: Sınırları anlama
-      href: data-box-gateway-limits.md
-    - name: Güvenliğe genel bakış
-      href: data-box-gateway-security.md
-    - name: Kullanım örneklerini görüntüleme
-      href: data-box-gateway-use-cases.md
-  - name: Nasıl yapılır
-    items:
-    - name: Yönetme
+    - name: Genel Bakış
       items:
-      - name: Paylaşımlar
-        href: data-box-gateway-manage-shares.md
-      - name: Kullanıcılar
-        href: data-box-gateway-manage-users.md
-      - name: Bant genişliği zamanlamaları
-        href: data-box-gateway-manage-bandwidth-schedules.md
-      - name: Erişim, güç, bağlantı
-        href: data-box-gateway-manage-access-power-connectivity-mode.md
-      - name: PowerShell aracılığıyla
-        href: data-box-gateway-connect-powershell-interface.md
-    - name: İzleme
-      href: data-box-gateway-monitor.md
-    - name: Sorun giderme
-      href: data-box-gateway-troubleshoot.md
-  - name: Sürüm notları
-    items:
-    - name: Genel kullanılabilirlik
-      href: data-box-gateway-release-notes.md
+        - name: Data Box Gateway nedir?
+          href: data-box-gateway-overview.md
+    - name: Öğreticiler
+      items:
+        - name: 1 - Hazırlanma
+          href: data-box-gateway-deploy-prep.md
+        - name: 2A - Hyper-V’de sağlama
+          href: data-box-gateway-deploy-provision-hyperv.md
+        - name: 2B - VMware’de sağlama
+          href: data-box-gateway-deploy-provision-vmware.md
+        - name: '3 - Bağlanma, kurma, etkinleştirme'
+          href: data-box-gateway-deploy-connect-setup-activate.md
+        - name: '4 - Paylaşıma ekleme, bağlanma'
+          href: data-box-gateway-deploy-add-shares.md
+    - name: Kavramlar
+      items:
+        - name: Gereksinimleri inceleme
+          href: data-box-gateway-system-requirements.md
+        - name: Sınırları anlama
+          href: data-box-gateway-limits.md
+        - name: Güvenliğe genel bakış
+          href: data-box-gateway-security.md
+        - name: Kullanım örneklerini görüntüleme
+          href: data-box-gateway-use-cases.md
+    - name: Nasıl yapılır
+      items:
+        - name: Yönetme
+          items:
+            - name: Paylaşımlar
+              href: data-box-gateway-manage-shares.md
+            - name: Kullanıcılar
+              href: data-box-gateway-manage-users.md
+            - name: Bant genişliği zamanlamaları
+              href: data-box-gateway-manage-bandwidth-schedules.md
+            - name: 'Erişim, güç, bağlantı'
+              href: data-box-gateway-manage-access-power-connectivity-mode.md
+            - name: PowerShell aracılığıyla
+              href: data-box-gateway-connect-powershell-interface.md
+        - name: İzleme
+          href: data-box-gateway-monitor.md
+        - name: Sorun giderme
+          href: data-box-gateway-troubleshoot.md
+    - name: Sürüm notları
+      items:
+        - name: Genel kullanılabilirlik
+          href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
-  - name: Genel Bakış
-    items:
-    - name: Azure Data Box Edge nedir?
-      href: data-box-edge-overview.md
-  - name: Öğreticiler
-    items:
-    - name: 1 - Hazırlanma
-      href: data-box-edge-deploy-prep.md
-    - name: 2 - Yükleme
-      href: data-box-edge-deploy-install.md
-    - name: 3 - Bağlanma, kurma, etkinleştirme
-      href: data-box-edge-deploy-connect-setup-activate.md
-    - name: 4 - Paylaşıma ekleme, bağlanma
-      href: data-box-edge-deploy-add-shares.md
-    - name: 5 - İşlemi yapılandırma
-      href: data-box-edge-deploy-configure-compute.md
-  - name: Kavramlar
-    items:
-    - name: Gereksinimleri inceleme
-      href: data-box-edge-system-requirements.md
-    - name: Sınırları anlama
-      href: data-box-edge-limits.md
-    - name: Güvenliğe genel bakış
-      href: data-box-edge-security.md
-    - name: Belirtimleri gözden geçirme
-      href: data-box-edge-technical-specifications-compliance.md
-  - name: Nasıl yapılır
-    items:
-    - name: İşlemi yönetme
-      href: data-box-edge-manage-compute.md
-    - name: C# modülü geliştirme
-      href: data-box-edge-create-iot-edge-module.md
-    - name: Paylaşımları yönetme
-      href: data-box-edge-manage-shares.md
-    - name: Kullanıcıları yönetme
-      href: data-box-edge-manage-users.md
-    - name: Bant genişliği zamanlamalarını yönetme
-      href: data-box-edge-manage-bandwidth-schedules.md
-    - name: Gücü, erişimi ve bağlantıyı yönetme
-      href: data-box-edge-manage-access-power-connectivity-mode.md
-    - name: PowerShell aracılığıyla yönetme
-      href: data-box-edge-connect-powershell-interface.md
-    - name: Sorun giderme
-      href: data-box-edge-troubleshoot.md
-    - name: İzleme
-      href: data-box-edge-monitor.md
-  - name: Sürüm notları
-    items:
-    - name: Genel kullanılabilirlik
-      href: data-box-gateway-release-notes.md
+    - name: Genel Bakış
+      items:
+        - name: Azure Data Box Edge nedir?
+          href: data-box-edge-overview.md
+    - name: Öğreticiler
+      items:
+        - name: 1 - Hazırlanma
+          href: data-box-edge-deploy-prep.md
+        - name: 2 - Yükleme
+          href: data-box-edge-deploy-install.md
+        - name: '3 - Bağlanma, kurma, etkinleştirme'
+          href: data-box-edge-deploy-connect-setup-activate.md
+        - name: '4 - Paylaşıma ekleme, bağlanma'
+          href: data-box-edge-deploy-add-shares.md
+        - name: 5 - İşlemi yapılandırma
+          href: data-box-edge-deploy-configure-compute.md
+    - name: Kavramlar
+      items:
+        - name: Gereksinimleri inceleme
+          href: data-box-edge-system-requirements.md
+        - name: Sınırları anlama
+          href: data-box-edge-limits.md
+        - name: Güvenliğe genel bakış
+          href: data-box-edge-security.md
+        - name: Belirtimleri gözden geçirme
+          href: data-box-edge-technical-specifications-compliance.md
+    - name: Nasıl yapılır
+      items:
+        - name: İşlemi yönetme
+          href: data-box-edge-manage-compute.md
+        - name: 'C# modülü geliştirme'
+          href: data-box-edge-create-iot-edge-module.md
+        - name: Paylaşımları yönetme
+          href: data-box-edge-manage-shares.md
+        - name: Kullanıcıları yönetme
+          href: data-box-edge-manage-users.md
+        - name: Bant genişliği zamanlamalarını yönetme
+          href: data-box-edge-manage-bandwidth-schedules.md
+        - name: 'Gücü, erişimi ve bağlantıyı yönetme'
+          href: data-box-edge-manage-access-power-connectivity-mode.md
+        - name: PowerShell aracılığıyla yönetme
+          href: data-box-edge-connect-powershell-interface.md
+        - name: Sorun giderme
+          href: data-box-edge-troubleshoot.md
+        - name: İzleme
+          href: data-box-edge-monitor.md
+    - name: Sürüm notları
+      items:
+        - name: Genel kullanılabilirlik
+          href: data-box-gateway-release-notes.md
 - name: Kaynaklar
   items:
-  - name: Data Box Edge C# modülü örnekleri (.NET)
-    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
-  - name: Data Box Edge/Gateway ürünü
-    href: https://azure.microsoft.com/services/storage/databox/edge/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: f601de8c731354c6d01cfdc6de60115904a37d07
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679630"
+    - name: 'Data Box Edge C# modülü örnekleri (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
+    - name: Data Box Edge/Gateway ürünü
+      href: 'https://azure.microsoft.com/services/storage/databox/edge/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

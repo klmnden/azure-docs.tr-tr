@@ -1,52 +1,45 @@
-items:
 - name: Özel Karar Alma Hizmeti Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Özel Karar Alma Hizmeti nedir?
-    href: custom-decision-service-overview.md
-  - name: Özel Karar Alma Hizmeti iş akışı
-    href: custom-decision-service-workflow.md
+    - name: Özel Karar Alma Hizmeti nedir?
+      href: custom-decision-service-overview.md
+    - name: Özel Karar Alma Hizmeti iş akışı
+      href: custom-decision-service-workflow.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Uygulamanızı kaydetme
-    href: custom-decision-service-get-started-register.md
-  - name: Tarayıcıdan API çağrısı yapma
-    href: custom-decision-service-get-started-browser.md
-  - name: Uygulamadan API çağrısı yapma
-    href: custom-decision-service-get-started-app.md
   expanded: true
+  items:
+    - name: Uygulamanızı kaydetme
+      href: custom-decision-service-get-started-register.md
+    - name: Tarayıcıdan API çağrısı yapma
+      href: custom-decision-service-get-started-browser.md
+    - name: Uygulamadan API çağrısı yapma
+      href: custom-decision-service-get-started-app.md
 - name: Öğreticiler
   items:
-  - name: Makale kişiselleştirme
-    href: custom-decision-service-tutorial-news.md
-  - name: Makine öğrenimi
-    href: custom-decision-service-tutorial-ml.md
+    - name: Makale kişiselleştirme
+      href: custom-decision-service-tutorial-news.md
+    - name: Makine öğrenimi
+      href: custom-decision-service-tutorial-ml.md
 - name: Başvuru
   items:
-  - name: API
-    href: custom-decision-service-api-reference.md
-  - name: Deneme
-    href: custom-decision-service-experimentation-reference.md
-  - name: LogDownloader
-    href: custom-decision-service-log-downloader-reference.md
+    - name: API
+      href: custom-decision-service-api-reference.md
+    - name: Deneme
+      href: custom-decision-service-experimentation-reference.md
+    - name: LogDownloader
+      href: custom-decision-service-log-downloader-reference.md
 - name: Kaynaklar
   items:
-  - name: Bölgesel Kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Fiyatlandırma (ücretsiz)
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-decision-service/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598138-custom-decision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 7ab7a5126602d2efb3c568cd547900e527740587
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363541"
+    - name: Bölgesel Kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Fiyatlandırma (ücretsiz)
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-decision-service/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598138-custom-decision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

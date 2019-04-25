@@ -1,102 +1,95 @@
-items:
 - name: Bing Varlık Arama Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Varlık Arama nedir?
-    href: overview.md
-  - name: Bing Arama API'lerini karşılaştırma
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: Bing Varlık Arama nedir?
+      href: overview.md
+    - name: Bing Arama API'lerini karşılaştırma
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: REST API Hızlı Başlangıçları
-  items:
-  - name: REST API
-    items:
-    - name: C# kullanma
-      href: quickstarts/csharp.md
-    - name: Java'yı kullanma
-      href: quickstarts/java.md
-    - name: Node.js'yi kullanma
-      href: quickstarts/nodejs.md
-    - name: PHP'yi kullanma
-      href: quickstarts/php.md
-    - name: Python’u kullanma
-      href: quickstarts/python.md
-    - name: Ruby'yi kullanma
-      href: quickstarts/ruby.md
-  - name: SDK
-    items:
-    - name: C# kullanma
-      href: quickstarts/entity-sdk-csharp-quickstart.md
-    - name: Node.js'yi kullanma
-      href: quickstarts/entity-sdk-node-quickstart.md
-    - name: Python’u kullanma
-      href: quickstarts/entity-sdk-python-quickstart.md
-    - name: Java'yı kullanma
-      href: quickstarts/entity-sdk-java-quickstart.md
   expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: 'C# kullanma'
+          href: quickstarts/csharp.md
+        - name: Java'yı kullanma
+          href: quickstarts/java.md
+        - name: Node.js'yi kullanma
+          href: quickstarts/nodejs.md
+        - name: PHP'yi kullanma
+          href: quickstarts/php.md
+        - name: Python’u kullanma
+          href: quickstarts/python.md
+        - name: Ruby'yi kullanma
+          href: quickstarts/ruby.md
+    - name: SDK
+      items:
+        - name: 'C# kullanma'
+          href: quickstarts/entity-sdk-csharp-quickstart.md
+        - name: Node.js'yi kullanma
+          href: quickstarts/entity-sdk-node-quickstart.md
+        - name: Python’u kullanma
+          href: quickstarts/entity-sdk-python-quickstart.md
+        - name: Java'yı kullanma
+          href: quickstarts/entity-sdk-java-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması oluşturma
-    href: tutorial-bing-entities-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması oluşturma
+      href: tutorial-bing-entities-search-single-page-app.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-    href: resize-and-crop-thumbnails.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
 - name: Kavramlar
   items:
-  - name: Varlıkları arama
-    href: concepts/search-for-entities.md
-  - name: Arama isteği gönderme
-    href: concepts/sending-requests.md
+    - name: Varlıkları arama
+      href: concepts/search-for-entities.md
+    - name: Arama isteği gönderme
+      href: concepts/sending-requests.md
 - name: Başvuru
   items:
-  - name: Bing Arama API’si kullanım ve görüntüleme gereksinimleri
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: Bing Varlık Arama API’si v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch
+    - name: Bing Arama API’si kullanım ve görüntüleme gereksinimleri
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: Bing Varlık Arama API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch'
 - name: Kaynaklar
   items:
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/601036-bing-entity-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+entity+search
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API anahtarını alma
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
-  - name: Deneyin!
-    href: https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/
-  - name: Bing Varlık Arama uç noktası
-    href: entity-search-endpoint.md
-  - name: Bing Varlık Arama API'si Analizleri
-    href: bing-entity-stats.md
-ms.openlocfilehash: 6574b06a9aced43f381bcb106e0b6426bd6f4fd7
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755807"
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+entity+search'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api'
+    - name: Deneyin!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/'
+    - name: Bing Varlık Arama uç noktası
+      href: entity-search-endpoint.md
+    - name: Bing Varlık Arama API'si Analizleri
+      href: bing-entity-stats.md

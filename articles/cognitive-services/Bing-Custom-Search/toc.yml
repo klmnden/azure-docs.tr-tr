@@ -1,119 +1,112 @@
-items:
 - name: Bing Özel Arama Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Bing Özel Arama API'si nedir?
-    href: overview.md
-  - name: Bing Arama API'lerini karşılaştırma
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: Bing Özel Arama API'si nedir?
+      href: overview.md
+    - name: Bing Arama API'lerini karşılaştırma
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Özel arama örneği oluşturma
-    href: quick-start.md
-  - name: Örneğinizden arama sonuçlarını alma
-    items:
-    - name: REST API
-      items:
-      - name: C# kullanma
-        href: call-endpoint-csharp.md
-      - name: Java'yı kullanma
-        href: call-endpoint-java.md
-      - name: Node.js'yi kullanma
-        href: call-endpoint-nodejs.md
-      - name: Python’u kullanma
-        href: call-endpoint-python.md
-    - name: SDK
-      items:
-      - name: C# kullanma
-        href: sdk-csharp-quick-start.md
-      - name: Python’u kullanma
-        href: sdk-python-quickstart.md
   expanded: true
+  items:
+    - name: Özel arama örneği oluşturma
+      href: quick-start.md
+    - name: Örneğinizden arama sonuçlarını alma
+      items:
+        - name: REST API
+          items:
+            - name: 'C# kullanma'
+              href: call-endpoint-csharp.md
+            - name: Java'yı kullanma
+              href: call-endpoint-java.md
+            - name: Node.js'yi kullanma
+              href: call-endpoint-nodejs.md
+            - name: Python’u kullanma
+              href: call-endpoint-python.md
+        - name: SDK
+          items:
+            - name: 'C# kullanma'
+              href: sdk-csharp-quick-start.md
+            - name: Python’u kullanma
+              href: sdk-python-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Özel Arama web sayfası derleme
-    href: ./tutorials/custom-search-web-page.md
+    - name: Özel Arama web sayfası derleme
+      href: ./tutorials/custom-search-web-page.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Özel arama deneyiminizi yapılandırma
-    href: define-your-custom-view.md
-  - name: Özel arama örneğinizi çağırma
-    href: search-your-custom-view.md
-  - name: Barındırılan kullanıcı arabirimini yapılandırma ve tümleştirme
-    href: hosted-ui.md
-  - name: Özel arama örneğinizi paylaşma
-    href: share-your-custom-search.md
-  - name: Arama örneğinizden görüntü alma
-    href: get-images-from-instance.md
-  - name: Arama örneğinizden video alma
-    href: get-videos-from-instance.md
-  - name: Özel otomatik öneri deneyimini yapılandırma
-    href: define-custom-suggestions.md
-  - name: İsabet vurgulamayı gerçekleştirme
-    href: hit-highlighting.md
-  - name: Web sayfalarında ilerleme
-    href: page-webpages.md
+    - name: Özel arama deneyiminizi yapılandırma
+      href: define-your-custom-view.md
+    - name: Özel arama örneğinizi çağırma
+      href: search-your-custom-view.md
+    - name: Barındırılan kullanıcı arabirimini yapılandırma ve tümleştirme
+      href: hosted-ui.md
+    - name: Özel arama örneğinizi paylaşma
+      href: share-your-custom-search.md
+    - name: Arama örneğinizden görüntü alma
+      href: get-images-from-instance.md
+    - name: Arama örneğinizden video alma
+      href: get-videos-from-instance.md
+    - name: Özel otomatik öneri deneyimini yapılandırma
+      href: define-custom-suggestions.md
+    - name: İsabet vurgulamayı gerçekleştirme
+      href: hit-highlighting.md
+    - name: Web sayfalarında ilerleme
+      href: page-webpages.md
 - name: Başvuru
   items:
-  - name: Bing Özel Otomatik Öneri API Başvurusu
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
-  - name: Bing Özel Resim Arama API Başvurusu
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
-  - name: Bing Özel Arama API Başvurusu
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
-  - name: Bing Özel Video Arama API Başvurusu
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
-  - name: Bing Arama API’si kullanım ve görüntüleme gereksinimleri
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
-    - name: Java - Özel Arama
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable
-    - name: Java - Özel Görüntü Arama
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest
-    - name: Go - Özel Arama
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
-    - name: Go - Özel Görüntü Arama
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
+    - name: Bing Özel Otomatik Öneri API Başvurusu
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+    - name: Bing Özel Resim Arama API Başvurusu
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+    - name: Bing Özel Arama API Başvurusu
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+    - name: Bing Özel Video Arama API Başvurusu
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference'
+    - name: Bing Arama API’si kullanım ve görüntüleme gereksinimleri
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet'
+        - name: Java - Özel Arama
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable'
+        - name: Java - Özel Görüntü Arama
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest'
+        - name: Go - Özel Arama
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch'
+        - name: Go - Özel Görüntü Arama
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch'
 - name: Kaynaklar
   items:
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+custom+search
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API anahtarını alma
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
-  - name: Deneyin!
-    href: https://aka.ms/bingcustomsearchtryit
-  - name: Bing Özel Arama uç noktası
-    href: endpoint-custom.md
-  - name: Dil ve bölge desteği
-    href: language-support.md
-ms.openlocfilehash: eee327b77fa3c0d46d47bb3ac6644fb175249618
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568913"
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+custom+search'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api'
+    - name: Deneyin!
+      href: 'https://aka.ms/bingcustomsearchtryit'
+    - name: Bing Özel Arama uç noktası
+      href: endpoint-custom.md
+    - name: Dil ve bölge desteği
+      href: language-support.md

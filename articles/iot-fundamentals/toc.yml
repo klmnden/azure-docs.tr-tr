@@ -1,25 +1,18 @@
-items:
 - name: Azure Nesnelerin İnterneti
   href: index.md
 - name: Genel Bakış
   items:
-  - name: Giriş
-    href: iot-introduction.md
-  - name: Azure IoT hizmetleri ve teknolojileri
-    href: iot-services-and-technologies.md
+    - name: Giriş
+      href: iot-introduction.md
+    - name: Azure IoT hizmetleri ve teknolojileri
+      href: iot-services-and-technologies.md
 - name: Güvenlik
   items:
-  - name: Güvenlik mimarisi
-    href: iot-security-architecture.md
-  - name: En iyi güvenlik uygulamaları
-    href: iot-security-best-practices.md
-  - name: Güvenli dağıtım
-    href: iot-security-deployment.md
-  - name: Baştan sona güvenlik
-    href: iot-security-ground-up.md
-ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336725"
+    - name: Güvenlik mimarisi
+      href: iot-security-architecture.md
+    - name: En iyi güvenlik uygulamaları
+      href: iot-security-best-practices.md
+    - name: Güvenli dağıtım
+      href: iot-security-deployment.md
+    - name: Baştan sona güvenlik
+      href: iot-security-ground-up.md

@@ -1,468 +1,461 @@
-items:
 - name: IoT Hub Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure IoT Hub nedir?
-    href: about-iot-hub.md
+    - name: Azure IoT Hub nedir?
+      href: about-iot-hub.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Telemetri gönderme
-    items:
-    - name: C
-      href: quickstart-send-telemetry-c.md
-    - name: Node.js
-      href: quickstart-send-telemetry-node.md
-    - name: .NET
-      href: quickstart-send-telemetry-dotnet.md
-    - name: Java
-      href: quickstart-send-telemetry-java.md
-    - name: Python
-      href: quickstart-send-telemetry-python.md
-    - name: Android
-      href: quickstart-send-telemetry-android.md
-    - name: iOS
-      href: quickstart-send-telemetry-ios.md
-  - name: Cihazı denetleme
-    items:
-    - name: Node.js
-      href: quickstart-control-device-node.md
-    - name: .NET
-      href: quickstart-control-device-dotnet.md
-    - name: Java
-      href: quickstart-control-device-java.md
-    - name: Python
-      href: quickstart-control-device-python.md
-    - name: Android
-      href: quickstart-control-device-android.md
-  - name: Cihaz akışlarını kullanarak iletişim kurma (önizleme)
-    items:
-    - name: C#
-      href: quickstart-device-streams-echo-csharp.md
-    - name: Node.js
-      href: quickstart-device-streams-echo-nodejs.md
-    - name: C
-      href: quickstart-device-streams-echo-c.md
-  - name: Cihaz akışlarını kullanarak SSH/RDP (önizleme)
-    items:
-    - name: C#
-      href: quickstart-device-streams-proxy-csharp.md
-    - name: Node.js
-      href: quickstart-device-streams-proxy-nodejs.md
-    - name: C
-      href: quickstart-device-streams-proxy-c.md
+    - name: Telemetri gönderme
+      items:
+        - name: C
+          href: quickstart-send-telemetry-c.md
+        - name: Node.js
+          href: quickstart-send-telemetry-node.md
+        - name: .NET
+          href: quickstart-send-telemetry-dotnet.md
+        - name: Java
+          href: quickstart-send-telemetry-java.md
+        - name: Python
+          href: quickstart-send-telemetry-python.md
+        - name: Android
+          href: quickstart-send-telemetry-android.md
+        - name: iOS
+          href: quickstart-send-telemetry-ios.md
+    - name: Cihazı denetleme
+      items:
+        - name: Node.js
+          href: quickstart-control-device-node.md
+        - name: .NET
+          href: quickstart-control-device-dotnet.md
+        - name: Java
+          href: quickstart-control-device-java.md
+        - name: Python
+          href: quickstart-control-device-python.md
+        - name: Android
+          href: quickstart-control-device-android.md
+    - name: Cihaz akışlarını kullanarak iletişim kurma (önizleme)
+      items:
+        - name: 'C#'
+          href: quickstart-device-streams-echo-csharp.md
+        - name: Node.js
+          href: quickstart-device-streams-echo-nodejs.md
+        - name: C
+          href: quickstart-device-streams-echo-c.md
+    - name: Cihaz akışlarını kullanarak SSH/RDP (önizleme)
+      items:
+        - name: 'C#'
+          href: quickstart-device-streams-proxy-csharp.md
+        - name: Node.js
+          href: quickstart-device-streams-proxy-nodejs.md
+        - name: C
+          href: quickstart-device-streams-proxy-c.md
 - name: Öğreticiler
   items:
-  - name: Yönlendirme iletileri
-    items:
-    - name: 1. Bölüm - İleti yönlendirmeyi yapılandırma
+    - name: Yönlendirme iletileri
       items:
-      - name: Portal
-        href: tutorial-routing.md
-      - name: Azure RM şablonu
-        href: tutorial-routing-config-message-routing-RM-template.md
-      - name: Azure CLI
-        href: tutorial-routing-config-message-routing-CLI.md
-      - name: PowerShell
-        href: tutorial-routing-config-message-routing-PowerShell.md
-    - name: 2. Bölüm - İleti yönlendirme sonuçlarını görüntüleme
-      href: tutorial-routing-view-message-routing-results.md
-  - name: Ölçümleri ve tanılama günlüklerini kullanma
-    href: tutorial-use-metrics-and-diags.md
-  - name: El ile yük devretme işlemi gerçekleştirme
-    href: tutorial-manual-failover.md
-  - name: Cihazlarınızı yapılandırma
-    href: tutorial-device-twins.md
-  - name: Üretici yazılımı güncelleştirmelerini yönetme
-    href: tutorial-firmware-update.md
-  - name: Cihaz bağlantısını test etme
-    href: tutorial-connectivity.md
+        - name: 1. Bölüm - İleti yönlendirmeyi yapılandırma
+          items:
+            - name: Portal
+              href: tutorial-routing.md
+            - name: Azure RM şablonu
+              href: tutorial-routing-config-message-routing-RM-template.md
+            - name: Azure CLI
+              href: tutorial-routing-config-message-routing-CLI.md
+            - name: PowerShell
+              href: tutorial-routing-config-message-routing-PowerShell.md
+        - name: 2. Bölüm - İleti yönlendirme sonuçlarını görüntüleme
+          href: tutorial-routing-view-message-routing-results.md
+    - name: Ölçümleri ve tanılama günlüklerini kullanma
+      href: tutorial-use-metrics-and-diags.md
+    - name: El ile yük devretme işlemi gerçekleştirme
+      href: tutorial-manual-failover.md
+    - name: Cihazlarınızı yapılandırma
+      href: tutorial-device-twins.md
+    - name: Üretici yazılımı güncelleştirmelerini yönetme
+      href: tutorial-firmware-update.md
+    - name: Cihaz bağlantısını test etme
+      href: tutorial-connectivity.md
 - name: Kavramlar
   items:
-  - name: Cihaz yönetimine genel bakış
-    href: iot-hub-device-management-overview.md
-  - name: IoT Hub ile Event Hubs’ı karşılaştırma
-    href: iot-hub-compare-event-hubs.md
-  - name: Doğru katmanı seçme
-    href: iot-hub-scaling.md
-  - name: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
-    href: iot-hub-ha-dr.md
-  - name: Ek protokollerin desteklenmesi
-    href: iot-hub-protocol-gateway.md
-  - name: İleti ve olay yönlendirmeyi karşılaştırma
-    href: iot-hub-event-grid-routing-comparison.md
-  - name: Cihaz yapılandırması için en iyi yöntemler
-    href: iot-hub-configuration-best-practices.md
-  - name: Azure IoT SDK'ları platform desteği
-    href: iot-hub-device-sdk-platform-support.md
-  - name: IoT Hub cihaz akışlarına genel bakış (önizleme)
-    href: iot-hub-device-streams-overview.md
-  - name: Geliştirici kılavuzu
-    href: iot-hub-devguide.md
-    items:
-    - name: Cihazdan buluta özellik kılavuzu
-      href: iot-hub-devguide-d2c-guidance.md
-    - name: Buluttan cihaza özellik kılavuzu
-      href: iot-hub-devguide-c2d-guidance.md
-    - name: İleti alma ve gönderme
-      href: iot-hub-devguide-messaging.md
+    - name: Cihaz yönetimine genel bakış
+      href: iot-hub-device-management-overview.md
+    - name: IoT Hub ile Event Hubs’ı karşılaştırma
+      href: iot-hub-compare-event-hubs.md
+    - name: Doğru katmanı seçme
+      href: iot-hub-scaling.md
+    - name: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
+      href: iot-hub-ha-dr.md
+    - name: Ek protokollerin desteklenmesi
+      href: iot-hub-protocol-gateway.md
+    - name: İleti ve olay yönlendirmeyi karşılaştırma
+      href: iot-hub-event-grid-routing-comparison.md
+    - name: Cihaz yapılandırması için en iyi yöntemler
+      href: iot-hub-configuration-best-practices.md
+    - name: Azure IoT SDK'ları platform desteği
+      href: iot-hub-device-sdk-platform-support.md
+    - name: IoT Hub cihaz akışlarına genel bakış (önizleme)
+      href: iot-hub-device-streams-overview.md
+    - name: Geliştirici kılavuzu
+      href: iot-hub-devguide.md
       items:
-      - name: Cihazdan buluta ileti göndermek için ileti yönlendirmeyi kullanma
-        href: iot-hub-devguide-messages-d2c.md
-        items:
-        - name: IoT Hub iletilerini oluşturma ve okuma
-          href: iot-hub-devguide-messages-construct.md
-        - name: Cihazdan buluta iletilerini yerleşik uç noktadan okuma
-          href: iot-hub-devguide-messages-read-builtin.md
-        - name: Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma
-          href: iot-hub-devguide-messages-read-custom.md
-        - name: İleti yoluna sorgu ekleme
-          href: iot-hub-devguide-routing-query-syntax.md
-      - name: IoT Hub olaylarına tepki verme
-        href: iot-hub-event-grid.md
-      - name: IoT Hub’dan buluttan cihaza iletileri gönderme
-        href: iot-hub-devguide-messages-c2d.md
-      - name: İletişim protokolü seçme
-        href: iot-hub-devguide-protocols.md
-    - name: Bir cihazdan karşıya dosya yükleme
-      href: iot-hub-devguide-file-upload.md
-    - name: Cihaz kimliklerini yönetme
-      href: iot-hub-devguide-identity-registry.md
-    - name: IoT Hub’a erişimi denetleme
-      href: iot-hub-devguide-security.md
-    - name: Cihaz ikizlerini anlama
-      href: iot-hub-devguide-device-twins.md
-    - name: Modül ikizlerini anlama
-      href: iot-hub-devguide-module-twins.md
-    - name: Bir cihazda doğrudan yöntemleri çağırma
-      href: iot-hub-devguide-direct-methods.md
-    - name: Birden fazla cihazda işleri zamanlama
-      href: iot-hub-devguide-jobs.md
-    - name: IoT Hub uç noktaları
-      href: iot-hub-devguide-endpoints.md
-    - name: Sorgu dili
-      href: iot-hub-devguide-query-language.md
-    - name: Kotalar ve azaltma
-      href: iot-hub-devguide-quotas-throttling.md
-    - name: Fiyatlandırma örnekleri
-      href: iot-hub-devguide-pricing.md
-    - name: Cihaz ve hizmet SDK’ları
-      href: iot-hub-devguide-sdks.md
-    - name: MQTT desteği
-      href: iot-hub-mqtt-support.md
-    - name: Sözlük
-      href: iot-hub-devguide-glossary.md
-  - name: Güvenlik
-    items:
-    - name: Baştan sona güvenlik
-      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
-    - name: En iyi güvenlik uygulamaları
-      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
-    - name: Güvenlik mimarisi
-      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
-    - name: IoT dağıtımınızın güvenliğini sağlama
-      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
-  - name: X.509 CA sertifikalarını kullanarak koruma
-    items:
-    - name: X.509 CA sertifika güvenliğine genel bakış
-      href: iot-hub-x509ca-overview.md
-    - name: X.509 CA sertifika güvenliği kavramları
-      href: iot-hub-x509ca-concept.md
+        - name: Cihazdan buluta özellik kılavuzu
+          href: iot-hub-devguide-d2c-guidance.md
+        - name: Buluttan cihaza özellik kılavuzu
+          href: iot-hub-devguide-c2d-guidance.md
+        - name: İleti alma ve gönderme
+          href: iot-hub-devguide-messaging.md
+          items:
+            - name: Cihazdan buluta ileti göndermek için ileti yönlendirmeyi kullanma
+              href: iot-hub-devguide-messages-d2c.md
+              items:
+                - name: IoT Hub iletilerini oluşturma ve okuma
+                  href: iot-hub-devguide-messages-construct.md
+                - name: Cihazdan buluta iletilerini yerleşik uç noktadan okuma
+                  href: iot-hub-devguide-messages-read-builtin.md
+                - name: Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma
+                  href: iot-hub-devguide-messages-read-custom.md
+                - name: İleti yoluna sorgu ekleme
+                  href: iot-hub-devguide-routing-query-syntax.md
+            - name: IoT Hub olaylarına tepki verme
+              href: iot-hub-event-grid.md
+            - name: IoT Hub’dan buluttan cihaza iletileri gönderme
+              href: iot-hub-devguide-messages-c2d.md
+            - name: İletişim protokolü seçme
+              href: iot-hub-devguide-protocols.md
+        - name: Bir cihazdan karşıya dosya yükleme
+          href: iot-hub-devguide-file-upload.md
+        - name: Cihaz kimliklerini yönetme
+          href: iot-hub-devguide-identity-registry.md
+        - name: IoT Hub’a erişimi denetleme
+          href: iot-hub-devguide-security.md
+        - name: Cihaz ikizlerini anlama
+          href: iot-hub-devguide-device-twins.md
+        - name: Modül ikizlerini anlama
+          href: iot-hub-devguide-module-twins.md
+        - name: Bir cihazda doğrudan yöntemleri çağırma
+          href: iot-hub-devguide-direct-methods.md
+        - name: Birden fazla cihazda işleri zamanlama
+          href: iot-hub-devguide-jobs.md
+        - name: IoT Hub uç noktaları
+          href: iot-hub-devguide-endpoints.md
+        - name: Sorgu dili
+          href: iot-hub-devguide-query-language.md
+        - name: Kotalar ve azaltma
+          href: iot-hub-devguide-quotas-throttling.md
+        - name: Fiyatlandırma örnekleri
+          href: iot-hub-devguide-pricing.md
+        - name: Cihaz ve hizmet SDK’ları
+          href: iot-hub-devguide-sdks.md
+        - name: MQTT desteği
+          href: iot-hub-mqtt-support.md
+        - name: Sözlük
+          href: iot-hub-devguide-glossary.md
+    - name: Güvenlik
+      items:
+        - name: Baştan sona güvenlik
+          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
+        - name: En iyi güvenlik uygulamaları
+          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
+        - name: Güvenlik mimarisi
+          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
+        - name: IoT dağıtımınızın güvenliğini sağlama
+          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+    - name: X.509 CA sertifikalarını kullanarak koruma
+      items:
+        - name: X.509 CA sertifika güvenliğine genel bakış
+          href: iot-hub-x509ca-overview.md
+        - name: X.509 CA sertifika güvenliği kavramları
+          href: iot-hub-x509ca-concept.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Geliştirme
-    items:
-    - name: Cihaz ve hizmet SDK’ları kullanma
-      href: iot-hub-devguide-sdks.md
+    - name: Geliştirme
       items:
-      - name: Azure IoT SDK'ları platform desteği
-        href: iot-hub-device-sdk-platform-support.md
-      - name: C için IoT cihaz SDK'sını kullanma
-        href: iot-hub-device-sdk-c-intro.md
-        items:
-        - name: IoTHubClient kullanma
-          href: iot-hub-device-sdk-c-iothubclient.md
-        - name: Seri hale getirici kullanma
-          href: iot-hub-device-sdk-c-serializer.md
-      - name: Azure IoT C SDK kaynak bilgisi
-        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-      - name: Kısıtlanmış cihazlar için geliştirme
-        href: iot-hub-devguide-develop-for-constrained-devices.md
-      - name: Mobil cihazlar için geliştirme
-        href: iot-hub-how-to-develop-for-mobile-devices.md
-      - name: Bağlantıyı yönetme ve güvenilir mesajlaşma
-        href: iot-hub-reliability-features-in-sdks.md
-      - name: Android Things platformu için geliştirme
-        href: iot-hub-how-to-android-things.md
-    - name: Hub yolundan Avro verilerini sorgulama
-      href: iot-hub-query-avro-data.md
-    - name: Event Grid’den cihaz bağlantı durumu olaylarını isteme
-      href: iot-hub-how-to-order-connection-state-events.md
-    - name: Buluttan cihaza iletileri gönderme
+        - name: Cihaz ve hizmet SDK’ları kullanma
+          href: iot-hub-devguide-sdks.md
+          items:
+            - name: Azure IoT SDK'ları platform desteği
+              href: iot-hub-device-sdk-platform-support.md
+            - name: C için IoT cihaz SDK'sını kullanma
+              href: iot-hub-device-sdk-c-intro.md
+              items:
+                - name: IoTHubClient kullanma
+                  href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Seri hale getirici kullanma
+                  href: iot-hub-device-sdk-c-serializer.md
+            - name: Azure IoT C SDK kaynak bilgisi
+              href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
+            - name: Kısıtlanmış cihazlar için geliştirme
+              href: iot-hub-devguide-develop-for-constrained-devices.md
+            - name: Mobil cihazlar için geliştirme
+              href: iot-hub-how-to-develop-for-mobile-devices.md
+            - name: Bağlantıyı yönetme ve güvenilir mesajlaşma
+              href: iot-hub-reliability-features-in-sdks.md
+            - name: Android Things platformu için geliştirme
+              href: iot-hub-how-to-android-things.md
+        - name: Hub yolundan Avro verilerini sorgulama
+          href: iot-hub-query-avro-data.md
+        - name: Event Grid’den cihaz bağlantı durumu olaylarını isteme
+          href: iot-hub-how-to-order-connection-state-events.md
+        - name: Buluttan cihaza iletileri gönderme
+          items:
+            - name: .NET
+              href: iot-hub-csharp-csharp-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Python
+              href: iot-hub-python-python-c2d.md
+            - name: iOS
+              href: iot-hub-ios-swift-c2d.md
+        - name: Cihazlardan karşıya dosya yükleme
+          items:
+            - name: .NET
+              href: iot-hub-csharp-csharp-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Python
+              href: iot-hub-python-python-file-upload.md
+        - name: Cihaz ikizlerini kullanmaya başlama
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
+            - name: Python
+              href: iot-hub-python-twin-getstarted.md
+        - name: Modül ikizlerini kullanmaya başlama
+          items:
+            - name: Portal
+              href: iot-hub-portal-csharp-module-twin-getstarted.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-module-twin-getstarted.md
+            - name: Python
+              href: iot-hub-python-python-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
+            - name: Node
+              href: iot-hub-node-node-module-twin-getstarted.md
+        - name: Cihaz yönetimini kullanmaya başlama
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-device-management-get-started.md
+            - name: Java
+              href: iot-hub-java-java-device-management-getstarted.md
+            - name: Python
+              href: iot-hub-python-python-device-management-get-started.md
+        - name: İşleri zamanlama ve yayınlama
+          items:
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: .NET
+              href: iot-hub-csharp-csharp-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
+            - name: Python
+              href: iot-hub-python-python-schedule-jobs.md
+    - name: Yönetme
       items:
-      - name: .NET
-        href: iot-hub-csharp-csharp-c2d.md
-      - name: Java
-        href: iot-hub-java-java-c2d.md
-      - name: Node.js
-        href: iot-hub-node-node-c2d.md
-      - name: Python
-        href: iot-hub-python-python-c2d.md
-      - name: iOS
-        href: iot-hub-ios-swift-c2d.md
-    - name: Cihazlardan karşıya dosya yükleme
+        - name: IoT hub oluşturma
+          items:
+            - name: Azure portalı kullanma
+              href: iot-hub-create-through-portal.md
+            - name: VS Code için Azure IoT Araçlarını kullanma
+              href: iot-hub-create-use-iot-toolkit.md
+            - name: Azure PowerShell kullanma
+              href: iot-hub-create-using-powershell.md
+            - name: Azure CLI kullanma
+              href: iot-hub-create-using-cli.md
+            - name: REST API kullanma
+              href: iot-hub-rm-rest.md
+            - name: Azure PowerShell’den şablon kullanma
+              displayName: 'Azure Resource Manager, ARM'
+              href: iot-hub-rm-template-powershell.md
+            - name: .NET’ten şablon kullanma
+              href: iot-hub-rm-template.md
+        - name: Karşıya dosya yüklemeyi yapılandırma
+          items:
+            - name: Azure portalı kullanma
+              href: iot-hub-configure-file-upload.md
+            - name: Azure PowerShell kullanma
+              href: iot-hub-configure-file-upload-powershell.md
+            - name: Azure CLI kullanma
+              href: iot-hub-configure-file-upload-cli.md
+        - name: Azure İzleyicisi'nde ölçümler
+          href: iot-hub-metrics.md
+        - name: Tanılama günlükleri ayarlama
+          href: iot-hub-monitor-resource-health.md
+        - name: X.509 sertifikası ile merkezinizi güvenli hale getirme
+          href: iot-hub-security-x509-get-started.md
+        - name: IoT hub’ı yükseltme
+          href: iot-hub-upgrade.md
+        - name: İleti izlemeyi etkinleştirme
+          href: iot-hub-distributed-tracing.md
+        - name: IP filtrelemeyi yapılandırma
+          href: iot-hub-ip-filtering.md
+        - name: Uygun ölçekte otomatik cihaz yönetimi
+          items:
+            - name: Azure portalı kullanma
+              href: iot-hub-automatic-device-management.md
+            - name: Azure CLI kullanma
+              href: iot-hub-automatic-device-management-cli.md
+        - name: IoT cihazlarını toplu içeri ve dışarı aktarma
+          href: iot-hub-bulk-identity-mgmt.md
+    - name: Gerçek cihaz kullanma
       items:
-      - name: .NET
-        href: iot-hub-csharp-csharp-file-upload.md
-      - name: Java
-        href: iot-hub-java-java-file-upload.md
-      - name: Node.js
-        href: iot-hub-node-node-file-upload.md
-      - name: Python
-        href: iot-hub-python-python-file-upload.md
-    - name: Cihaz ikizlerini kullanmaya başlama
+        - name: Çevrimiçi simülatör kullanma
+          href: iot-hub-raspberry-pi-web-simulator-get-started.md
+        - name: Fiziksel cihaz kullanma
+          href: iot-hub-get-started-physical.md
+          items:
+            - name: Node.js ile Raspberry Pi
+              href: iot-hub-raspberry-pi-kit-node-get-started.md
+            - name: C ile Raspberry Pi
+              href: iot-hub-raspberry-pi-kit-c-get-started.md
+            - name: Arduino ile MXChip IoT DevKit
+              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
+            - name: Arduino ile Adafruit Feather HUZZAH ESP8266
+              href: iot-hub-arduino-huzzah-esp8266-get-started.md
+        - name: MXChip IoT DevKit kullanma
+          items:
+            - name: Azure Bilişsel Hizmetler ile sesli mesajı çevirme
+              href: iot-hub-arduino-iot-devkit-az3166-translator.md
+            - name: Azure İşlevleri içeren bir Twitter iletisini alma
+              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
+            - name: Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme
+              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
+            - name: Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme
+              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
+        - name: Genişletilmiş IoT senaryoları
+          items:
+            - name: VS Code için Azure IoT Araçları ile bulut cihazı mesajlaşmasını yönetme
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+            - name: Visual Studio için Cloud Explorer ile bulut cihazı mesajlaşmasını yönetme
+              href: iot-hub-visual-studio-cloud-device-messaging.md
+            - name: Power BI’da Veri Görselleştirme
+              href: iot-hub-live-data-visualization-in-power-bi.md
+            - name: Web Apps ile Veri Görselleştirme
+              href: iot-hub-live-data-visualization-in-web-apps.md
+            - name: Azure Machine Learning kullanarak hava durumu tahmini
+              href: iot-hub-weather-forecast-machine-learning.md
+            - name: VS Code için Azure IoT Araçları ile cihaz yönetimi
+              href: iot-hub-device-management-iot-toolkit.md
+            - name: Visual Studio için Cloud Explorer ile cihaz yönetimi
+              href: iot-hub-device-management-visual-studio.md
+            - name: Azure CLI için IoT uzantısıyla cihaz yönetimi
+              href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+            - name: Logic Apps ile uzaktan izleme ve bildirimler
+              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+    - name: Sorun giderme
       items:
-      - name: Node.js
-        href: iot-hub-node-node-twin-getstarted.md
-      - name: .NET
-        href: iot-hub-csharp-csharp-twin-getstarted.md
-      - name: Java
-        href: iot-hub-java-java-twin-getstarted.md
-      - name: Python
-        href: iot-hub-python-twin-getstarted.md
-    - name: Modül ikizlerini kullanmaya başlama
-      items:
-      - name: Portal
-        href: iot-hub-portal-csharp-module-twin-getstarted.md
-      - name: .NET
-        href: iot-hub-csharp-csharp-module-twin-getstarted.md
-      - name: Python
-        href: iot-hub-python-python-module-twin-getstarted.md
-      - name: C
-        href: iot-hub-c-c-module-twin-getstarted.md
-      - name: Node
-        href: iot-hub-node-node-module-twin-getstarted.md
-    - name: Cihaz yönetimini kullanmaya başlama
-      items:
-      - name: Node.js
-        href: iot-hub-node-node-device-management-get-started.md
-      - name: .NET
-        href: iot-hub-csharp-csharp-device-management-get-started.md
-      - name: Java
-        href: iot-hub-java-java-device-management-getstarted.md
-      - name: Python
-        href: iot-hub-python-python-device-management-get-started.md
-    - name: İşleri zamanlama ve yayınlama
-      items:
-      - name: Node.js
-        href: iot-hub-node-node-schedule-jobs.md
-      - name: .NET
-        href: iot-hub-csharp-csharp-schedule-jobs.md
-      - name: Java
-        href: iot-hub-java-java-schedule-jobs.md
-      - name: Python
-        href: iot-hub-python-python-schedule-jobs.md
-  - name: Yönetme
-    items:
-    - name: IoT hub oluşturma
-      items:
-      - name: Azure portalı kullanma
-        href: iot-hub-create-through-portal.md
-      - name: VS Code için Azure IoT Araçlarını kullanma
-        href: iot-hub-create-use-iot-toolkit.md
-      - name: Azure PowerShell kullanma
-        href: iot-hub-create-using-powershell.md
-      - name: Azure CLI kullanma
-        href: iot-hub-create-using-cli.md
-      - name: REST API kullanma
-        href: iot-hub-rm-rest.md
-      - name: Azure PowerShell’den şablon kullanma
-        displayName: Azure Resource Manager, ARM
-        href: iot-hub-rm-template-powershell.md
-      - name: .NET’ten şablon kullanma
-        href: iot-hub-rm-template.md
-    - name: Karşıya dosya yüklemeyi yapılandırma
-      items:
-      - name: Azure portalı kullanma
-        href: iot-hub-configure-file-upload.md
-      - name: Azure PowerShell kullanma
-        href: iot-hub-configure-file-upload-powershell.md
-      - name: Azure CLI kullanma
-        href: iot-hub-configure-file-upload-cli.md
-    - name: Azure İzleyicisi'nde ölçümler
-      href: iot-hub-metrics.md
-    - name: Tanılama günlükleri ayarlama
-      href: iot-hub-monitor-resource-health.md
-    - name: X.509 sertifikası ile merkezinizi güvenli hale getirme
-      href: iot-hub-security-x509-get-started.md
-    - name: IoT hub’ı yükseltme
-      href: iot-hub-upgrade.md
-    - name: İleti izlemeyi etkinleştirme
-      href: iot-hub-distributed-tracing.md
-    - name: IP filtrelemeyi yapılandırma
-      href: iot-hub-ip-filtering.md
-    - name: Uygun ölçekte otomatik cihaz yönetimi
-      items:
-      - name: Azure portalı kullanma
-        href: iot-hub-automatic-device-management.md
-      - name: Azure CLI kullanma
-        href: iot-hub-automatic-device-management-cli.md
-    - name: IoT cihazlarını toplu içeri ve dışarı aktarma
-      href: iot-hub-bulk-identity-mgmt.md
-  - name: Gerçek cihaz kullanma
-    items:
-    - name: Çevrimiçi simülatör kullanma
-      href: iot-hub-raspberry-pi-web-simulator-get-started.md
-    - name: Fiziksel cihaz kullanma
-      href: iot-hub-get-started-physical.md
-      items:
-      - name: Node.js ile Raspberry Pi
-        href: iot-hub-raspberry-pi-kit-node-get-started.md
-      - name: C ile Raspberry Pi
-        href: iot-hub-raspberry-pi-kit-c-get-started.md
-      - name: Arduino ile MXChip IoT DevKit
-        href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Arduino ile Adafruit Feather HUZZAH ESP8266
-        href: iot-hub-arduino-huzzah-esp8266-get-started.md
-    - name: MXChip IoT DevKit kullanma
-      items:
-      - name: Azure Bilişsel Hizmetler ile sesli mesajı çevirme
-        href: iot-hub-arduino-iot-devkit-az3166-translator.md
-      - name: Azure İşlevleri içeren bir Twitter iletisini alma
-        href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-      - name: Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme
-        href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-      - name: Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme
-        href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
-    - name: Genişletilmiş IoT senaryoları
-      items:
-      - name: VS Code için Azure IoT Araçları ile bulut cihazı mesajlaşmasını yönetme
-        href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: Visual Studio için Cloud Explorer ile bulut cihazı mesajlaşmasını yönetme
-        href: iot-hub-visual-studio-cloud-device-messaging.md
-      - name: Power BI’da Veri Görselleştirme
-        href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Web Apps ile Veri Görselleştirme
-        href: iot-hub-live-data-visualization-in-web-apps.md
-      - name: Azure Machine Learning kullanarak hava durumu tahmini
-        href: iot-hub-weather-forecast-machine-learning.md
-      - name: VS Code için Azure IoT Araçları ile cihaz yönetimi
-        href: iot-hub-device-management-iot-toolkit.md
-      - name: Visual Studio için Cloud Explorer ile cihaz yönetimi
-        href: iot-hub-device-management-visual-studio.md
-      - name: Azure CLI için IoT uzantısıyla cihaz yönetimi
-        href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-      - name: Logic Apps ile uzaktan izleme ve bildirimler
-        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-  - name: Sorun giderme
-    items:
-    - name: Cihaz bağlantı kesilmeleri
-      href: iot-hub-troubleshoot-connectivity.md
+        - name: Cihaz bağlantı kesilmeleri
+          href: iot-hub-troubleshoot-connectivity.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: /cli/azure/iot
-  - name: .NET (Hizmet)
-    href: /dotnet/api/microsoft.azure.devices
-  - name: .NET (Cihazlar)
-    href: /dotnet/api/microsoft.azure.devices.client
-  - name: Java (Hizmet)
-    href: /java/api/com.microsoft.azure.sdk.iot.service
-  - name: Java (Cihazlar)
-    href: /java/api/com.microsoft.azure.sdk.iot.device
-  - name: Node.js (Cihazlar)
-    href: https://docs.microsoft.com/javascript/api/azure-iot-device/
-  - name: Node.js (Hizmet)
-    href: https://docs.microsoft.com/javascript/api/azure-iothub/
-  - name: C cihaz SDK’sı
-    href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
-  - name: Azure IoT Edge
-    href: http://azure.github.io/iot-edge/
-  - name: REST (Cihaz)
-    href: https://docs.microsoft.com/rest/api/iothub/device
-  - name: REST (Hizmet)
-    href: https://docs.microsoft.com/rest/api/iothub/service
-  - name: REST (IoT Hub Kaynağı)
-    href: https://docs.microsoft.com/rest/api/iothub/iothubresource
-  - name: REST (Sertifikalar)
-    href: https://docs.microsoft.com/rest/api/iothub/certificates
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.devices/iothub-allversions
-  - name: Özellik ve API’yi kullanımdan kaldırma
-    items:
-    - name: İşlemleri izleme
-      href: iot-hub-operations-monitoring.md
-    - name: Tanılama ayarlarına geçirme
-      href: iot-hub-migrate-to-diagnostics-settings.md
+    - name: Azure CLI
+      href: /cli/azure/iot
+    - name: .NET (Hizmet)
+      href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (Cihazlar)
+      href: /dotnet/api/microsoft.azure.devices.client
+    - name: Java (Hizmet)
+      href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Java (Cihazlar)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
+    - name: Node.js (Cihazlar)
+      href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
+    - name: Node.js (Hizmet)
+      href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
+    - name: C cihaz SDK’sı
+      href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
+    - name: Azure IoT Edge
+      href: 'http://azure.github.io/iot-edge/'
+    - name: REST (Cihaz)
+      href: 'https://docs.microsoft.com/rest/api/iothub/device'
+    - name: REST (Hizmet)
+      href: 'https://docs.microsoft.com/rest/api/iothub/service'
+    - name: REST (IoT Hub Kaynağı)
+      href: 'https://docs.microsoft.com/rest/api/iothub/iothubresource'
+    - name: REST (Sertifikalar)
+      href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Özellik ve API’yi kullanımdan kaldırma
+      items:
+        - name: İşlemleri izleme
+          href: iot-hub-operations-monitoring.md
+        - name: Tanılama ayarlarına geçirme
+          href: iot-hub-migrate-to-diagnostics-settings.md
 - name: İlgili
   items:
-  - name: Çözümler
-    items:
-    - name: IoT çözüm hızlandırıcıları
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform Hizmetleri
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Cihazı Sağlama Hizmeti
-      href: /azure/iot-dps
-    - name: IoT Hizmet SDK’ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Haritalar
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Cihaz SDK'ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Çözümler
+      items:
+        - name: IoT çözüm hızlandırıcıları
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platform Hizmetleri
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Cihazı Sağlama Hizmeti
+          href: /azure/iot-dps
+        - name: IoT Hizmet SDK’ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Haritalar
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Cihaz SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Kaynaklar
   items:
-  - name: C# için Azure IoT Örnekleri (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Node.js için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Java için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Python için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: iOS Platformu için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: IoT için Azure Sertifikalı cihaz kataloğu
-    href: https://catalog.azurazureiotsolutionseiotsuite.com/
-  - name: Azure IoT Geliştirici Merkezi
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Müşteri verisi istekleri
-    href: iot-hub-customer-data-requests.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Araçları
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-  - name: DeviceExplorer aracı
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: iothub-diagnostics tool
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Teknik örnek olay incelemeleri
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: a649c65286557c58d02aa5ba3425f3e49e79392a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606965"
+    - name: 'C# için Azure IoT Örnekleri (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Node.js için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Java için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Python için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: iOS Platformu için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: IoT için Azure Sertifikalı cihaz kataloğu
+      href: 'https://catalog.azurazureiotsolutionseiotsuite.com/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Müşteri verisi istekleri
+      href: iot-hub-customer-data-requests.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Azure IoT Araçları
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
+    - name: DeviceExplorer aracı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Teknik örnek olay incelemeleri
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

@@ -85,13 +85,13 @@
           href: sql-database-design-first-database-csharp.md
     - name: SQL Veritabanına geçiş
       items:
-        - name: DMS kullanarak tek/havuza alınmış veritabanına geçiş
+        - name: DMS kullanarak tek/havuza alınan veritabanına geçiş
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
         - name: DMS kullanarak yönetilen örneğe geçiş
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
     - name: SQL Veritabanı’nda güvenlik
       items:
-        - name: Tekli ve havuz veritabanı güvenliği
+        - name: Tekli ve havuza alınan veritabanı güvenliği
           href: sql-database-security-tutorial.md
         - name: Yönetilen örnek güvenliği
           href: sql-database-managed-instance-aad-security-tutorial.md
@@ -128,13 +128,14 @@
       items:
         - name: Genel Bakış
           href: sql-database-service-tiers-general-purpose-business-critical.md
+          displayName: provisioned compute tier
         - name: Genel amaçlı / Standart hizmet katmanları
           href: sql-database-service-tier-general-purpose.md
         - name: İş açısından kritik / Premium hizmet katmanları
           href: sql-database-service-tier-business-critical.md
         - name: Hiper ölçekli hizmet katmanı
           href: sql-database-service-tier-hyperscale.md
-        - name: Hiper ölçeklendirme hakkında SSS
+        - name: Hiper Ölçek hakkında SSS
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Tek veritabanları
       items:
@@ -369,7 +370,7 @@
       items:
         - name: Genel Bakış
           href: sql-database-howto-single-database.md
-        - name: Tekli/havuz veritabanına geçiş
+        - name: Tekli/havuza alınan veritabanına geçiş
           href: sql-database-single-database-migrate.md
         - name: Geçişten sonra SQL veritabanını yönetme
           href: sql-database-manage-after-migration.md
