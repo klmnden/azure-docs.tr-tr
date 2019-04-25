@@ -229,7 +229,7 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |referenceCode|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
-|hata kodu|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
+|errorCode|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
 |emailBody|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse oluşturulan gövdesi e-posta.|  
 |requestedUrl|dize|Sayfa bulunamadı, istenen URL.|  
 |referrerUrl|dize|İstenen URL başvuran URL'si.|  
