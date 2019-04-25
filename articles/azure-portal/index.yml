@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619229"
 documentType: LandingData
 title: Azure portal belgeleri
 metadata:
@@ -23,29 +17,29 @@ metadata:
   ms.date: 10/08/2018
   ms.author: kfollis
 abstract:
-  description: Azure portal basit web uygulamalarından karmaşık bulut uygulamalarına kadar her şeyi oluşturmanızı, yönetmenizi ve izlemenizi sağlayan web tabanlı, birleştirilmiş bir konsoldur. Özelleştirilebilir bir pano ve erişilebilirlik seçeneklerine sahiptir.
+  description: 'Azure portal basit web uygulamalarından karmaşık bulut uygulamalarına kadar her şeyi oluşturmanızı, yönetmenizi ve izlemenizi sağlayan web tabanlı, birleştirilmiş bir konsoldur. Özelleştirilebilir bir pano ve erişilebilirlik seçeneklerine sahiptir.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>Tüm modern masaüstü ve tablet cihazlar ile tarayıcılarda Azure portalı çalıştırabilirsiniz.</p>
-      title: Desteklenen tarayıcılar ve cihazlar
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>Azure portalda karşıtlığı veya renk düzenini değiştirin.</p>
-      title: Yüksek karşıtlığı açma
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Azure portalda çalışan klavye kısayolları hakkında bilgi edinin.</p>
-      title: Klavye kısayolları
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>Birden çok pano oluşturun ve bunları Azure aboneliğinize erişimi olan kişilerle paylaşın.</p>
-      title: Azure panoları oluşturma ve paylaşma
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>Pano yayımlayın ve kuruluşunuzdaki diğer kullanıcılarla paylaşın.</p>
-      title: RBAC kullanarak panoları paylaşma
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Kuruluşunuz için program aracılığıyla panolar oluşturun ve yayımlayın</p>
-      title: Program aracılığıyla Azure panoları oluşturma
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: <p>Tüm modern masaüstü ve tablet cihazlar ile tarayıcılarda Azure portalı çalıştırabilirsiniz.</p>
+            title: Desteklenen tarayıcılar ve cihazlar
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>Azure portalda karşıtlığı veya renk düzenini değiştirin.</p>
+            title: Yüksek karşıtlığı açma
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Azure portalda çalışan klavye kısayolları hakkında bilgi edinin.</p>
+            title: Klavye kısayolları
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>Birden çok pano oluşturun ve bunları Azure aboneliğinize erişimi olan kişilerle paylaşın.</p>
+            title: Azure panoları oluşturma ve paylaşma
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>Pano yayımlayın ve kuruluşunuzdaki diğer kullanıcılarla paylaşın.</p>
+            title: RBAC kullanarak panoları paylaşma
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Kuruluşunuz için program aracılığıyla panolar oluşturun ve yayımlayın</p>
+            title: Program aracılığıyla Azure panoları oluşturma

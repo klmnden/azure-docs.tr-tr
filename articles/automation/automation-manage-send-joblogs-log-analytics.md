@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496599"
@@ -96,10 +96,10 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
-| Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
+| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
+| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
-| Resource | Otomasyon hesabının adı |
+| Kaynak | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook iş sonucu durumunu açıklar. Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
@@ -119,10 +119,10 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | StreamType_s |İş akışı türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
-| Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
+| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
+| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
-| Resource | Otomasyon hesabının adı |
+| Kaynak | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook’un çıktı akışını içerir. |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
