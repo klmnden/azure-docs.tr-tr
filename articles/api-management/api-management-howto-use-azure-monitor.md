@@ -213,7 +213,7 @@ API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde t
 | userId | string | Geçerli istek için kullanıcı varlığı tanımlayıcısı | 
 | apimSubscriptionId | string | Geçerli istek için abonelik varlığı tanımlayıcısı | 
 | backendId | string | Geçerli istek için arka uç varlığı tanımlayıcısı | 
-| LastError | object | Son istek işleme hatası | 
+| lastError | object | Son istek işleme hatası | 
 | elapsed | integer | Ağ Geçidinin isteği aldığı andan, hatanın oluştuğu ana kadar geçen milisaniye cinsinden süre | 
 | source | string | İlke veya işleme iç işleyicisinin adı hataya neden oldu | 
 | scope | string | Hataya neden olan ilkeyi içeren ilke belgesinin kapsamı | 
