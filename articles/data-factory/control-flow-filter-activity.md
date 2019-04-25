@@ -39,10 +39,10 @@ Bir filtre ifadesi bir giriş dizisine uygulamak için bir işlem hattındaki bi
 
 Özellik | Açıklama | İzin verilen değerler | Gereklidir
 -------- | ----------- | -------------- | --------
-ad | Adını `Filter` etkinlik. | Dize | Evet
+name | Adını `Filter` etkinlik. | Dize | Evet
 type | Ayarlanmalıdır **filtre**. | Dize | Evet
-koşul | Giriş filtreleme için kullanılacak koşul. | İfade | Evet
-öğeler | Filtre uygulanması gereken giriş dizisi. | İfade | Evet
+condition | Giriş filtreleme için kullanılacak koşul. | İfade | Evet
+items | Filtre uygulanması gereken giriş dizisi. | İfade | Evet
 
 ## <a name="example"></a>Örnek
 
