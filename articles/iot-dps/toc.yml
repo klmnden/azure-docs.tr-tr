@@ -1,232 +1,225 @@
-items:
 - name: Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: IoT Cihaz Sağlama Hizmeti Hakkında
-    href: about-iot-dps.md
+    - name: IoT Cihaz Sağlama Hizmeti Hakkında
+      href: about-iot-dps.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Otomatik sağlamayı ayarlama - Azure CLI
-    href: quick-setup-auto-provision-cli.md
-  - name: Otomatik sağlamayı ayarlama - Portal
-    href: quick-setup-auto-provision.md
-  - name: Otomatik sağlamayı ayarlama - Şablon
-    href: quick-setup-auto-provision-rm.md
-  - name: Otomatik olarak bir simülasyon cihazı sağlama
-    items:
-    - name: TPM kanıtlama
-      items:
-      - name: C
-        href: quick-create-simulated-device.md
-      - name: Java
-        href: quick-create-simulated-device-tpm-java.md
-      - name: C#
-        href: quick-create-simulated-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-tpm-node.md
-      - name: Python
-        href: quick-create-simulated-device-tpm-python.md
-    - name: X.509 kanıtlama
-      items:
-      - name: C
-        href: quick-create-simulated-device-x509.md
-      - name: Java
-        href: quick-create-simulated-device-x509-java.md
-      - name: C#
-        href: quick-create-simulated-device-x509-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-x509-node.md
-      - name: Python
-        href: quick-create-simulated-device-x509-python.md
-    - name: Simetrik Anahtar kanıtlama
-      items:
-      - name: C
-        href: quick-create-simulated-device-symm-key.md
-  - name: Hizmet API’lerini sağlama özelliğini kullanarak cihaz kaydetme
-    items:
-    - name: TPM kanıtlama
-      items:
-      - name: Java
-        href: quick-enroll-device-tpm-java.md
-      - name: C#
-        href: quick-enroll-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-tpm-node.md
-      - name: Python
-        href: quick-enroll-device-tpm-python.md
-    - name: X.509 kanıtlama
-      items:
-      - name: Java
-        href: quick-enroll-device-x509-java.md
-      - name: C#
-        href: quick-enroll-device-x509-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-x509-node.md
-      - name: Python
-        href: quick-enroll-device-x509-python.md
   expanded: true
+  items:
+    - name: Otomatik sağlamayı ayarlama - Azure CLI
+      href: quick-setup-auto-provision-cli.md
+    - name: Otomatik sağlamayı ayarlama - Portal
+      href: quick-setup-auto-provision.md
+    - name: Otomatik sağlamayı ayarlama - Şablon
+      href: quick-setup-auto-provision-rm.md
+    - name: Otomatik olarak bir simülasyon cihazı sağlama
+      items:
+        - name: TPM kanıtlama
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-tpm-node.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
+        - name: X.509 kanıtlama
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-x509-node.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+        - name: Simetrik Anahtar kanıtlama
+          items:
+            - name: C
+              href: quick-create-simulated-device-symm-key.md
+    - name: Hizmet API’lerini sağlama özelliğini kullanarak cihaz kaydetme
+      items:
+        - name: TPM kanıtlama
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
+        - name: X.509 kanıtlama
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
+            - name: 'C#'
+              href: quick-enroll-device-x509-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
+            - name: Python
+              href: quick-enroll-device-x509-python.md
 - name: Öğreticiler
   items:
-  - name: 1 - Bulut kaynaklarını ayarlama
-    href: tutorial-set-up-cloud.md
-  - name: 2 - Cihaz ayarlama
-    href: tutorial-set-up-device.md
-  - name: 3 - Bir IoT hub’ına cihaz sağlama
-    items:
-    - name: C
-      href: tutorial-provision-device-to-hub.md
-    - name: C#
-      href: tutorial-net-provision-device-to-hub.md
-  - name: 4 - Birden çok hub’a cihaz sağlama
-    href: tutorial-provision-multiple-hubs.md
-  - name: 5 - Grup kayıtları sağlama
-    href: tutorial-group-enrollments.md
+    - name: 1 - Bulut kaynaklarını ayarlama
+      href: tutorial-set-up-cloud.md
+    - name: 2 - Cihaz ayarlama
+      href: tutorial-set-up-device.md
+    - name: 3 - Bir IoT hub’ına cihaz sağlama
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
+    - name: 4 - Birden çok hub’a cihaz sağlama
+      href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Grup kayıtları sağlama
+      href: tutorial-group-enrollments.md
 - name: Kavramlar
   items:
-  - name: Otomatik sağlama
-    href: concepts-auto-provisioning.md
-  - name: Yeniden sağlama
-    href: concepts-device-reprovision.md
-  - name: Cihazlar
-    href: concepts-device.md
-  - name: Güvenlik
-    href: concepts-security.md
-  - name: Hizmet
-    href: concepts-service.md
-  - name: TPM kanıtlama
-    href: concepts-tpm-attestation.md
-  - name: Simetrik anahtar kanıtlama
-    href: concepts-symmetric-key-attestation.md
+    - name: Otomatik sağlama
+      href: concepts-auto-provisioning.md
+    - name: Yeniden sağlama
+      href: concepts-device-reprovision.md
+    - name: Cihazlar
+      href: concepts-device.md
+    - name: Güvenlik
+      href: concepts-security.md
+    - name: Hizmet
+      href: concepts-service.md
+    - name: TPM kanıtlama
+      href: concepts-tpm-attestation.md
+    - name: Simetrik anahtar kanıtlama
+      href: concepts-symmetric-key-attestation.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: MXChip IoT DevKit’i IoT Hub’a bağlama
-    href: how-to-connect-mxchip-iot-devkit.md
-  - name: Cihaz Sağlama Hizmeti yapılandırmasını yönetme
-    items:
-    - name: Kayıtları yönetme - Portal
-      href: how-to-manage-enrollments.md
-    - name: Kayıtları yönetme - Hizmet SDK’ları
-      href: how-to-manage-enrollments-sdks.md
-    - name: Doğrulanmış CA sertifikalarını yapılandırma
-      href: how-to-verify-certificates.md
-    - name: Cihaz sertifikalarını kullanıma sunma
-      href: how-to-roll-certificates.md
-    - name: Cihazları yeniden hazırlama
-      href: how-to-reprovision.md
-    - name: Kayıt silmeyi yönetme
-      href: how-to-revoke-device-access-portal.md
-    - name: Sağlamayı yönetme
-      href: how-to-unprovision-devices.md
-  - name: Cihaz Sağlama Hizmetini yönetme
-    items:
-    - name: Azure CLI’sini kullanarak Cihaz Sağlama Hizmetini yapılandırma
-      href: how-to-manage-dps-with-cli.md
-    - name: Sağlama Hizmeti API’lerine erişimi denetleme
-      href: how-to-control-access.md
-  - name: IoT Edge cihazları hazırlama
-    items:
-    - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
-      maintainContext: true
-    - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
-  - name: Kanıtlama mekanizmasını SDK ile kullanma
-    href: use-hsm-with-sdk.md
-  - name: Çoklu kiracı için sağlama
-    href: how-to-provision-multitenant.md
-  - name: Özel ayırma ilkeleri kullanma
-    href: how-to-use-custom-allocation-policies.md
-  - name: Simetrik anahtarları eski cihazlarla kullanma
-    href: how-to-legacy-device-symm-key.md
-  - name: Geliştirme için SDK araçlarını kullanma
-    href: how-to-use-sdk-tools.md
+    - name: MXChip IoT DevKit’i IoT Hub’a bağlama
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: Cihaz Sağlama Hizmeti yapılandırmasını yönetme
+      items:
+        - name: Kayıtları yönetme - Portal
+          href: how-to-manage-enrollments.md
+        - name: Kayıtları yönetme - Hizmet SDK’ları
+          href: how-to-manage-enrollments-sdks.md
+        - name: Doğrulanmış CA sertifikalarını yapılandırma
+          href: how-to-verify-certificates.md
+        - name: Cihaz sertifikalarını kullanıma sunma
+          href: how-to-roll-certificates.md
+        - name: Cihazları yeniden hazırlama
+          href: how-to-reprovision.md
+        - name: Kayıt silmeyi yönetme
+          href: how-to-revoke-device-access-portal.md
+        - name: Sağlamayı yönetme
+          href: how-to-unprovision-devices.md
+    - name: Cihaz Sağlama Hizmetini yönetme
+      items:
+        - name: Azure CLI’sini kullanarak Cihaz Sağlama Hizmetini yapılandırma
+          href: how-to-manage-dps-with-cli.md
+        - name: Sağlama Hizmeti API’lerine erişimi denetleme
+          href: how-to-control-access.md
+    - name: IoT Edge cihazları hazırlama
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
+    - name: Kanıtlama mekanizmasını SDK ile kullanma
+      href: use-hsm-with-sdk.md
+    - name: Çoklu kiracı için sağlama
+      href: how-to-provision-multitenant.md
+    - name: Özel ayırma ilkeleri kullanma
+      href: how-to-use-custom-allocation-policies.md
+    - name: Simetrik anahtarları eski cihazlarla kullanma
+      href: how-to-legacy-device-symm-key.md
+    - name: Geliştirme için SDK araçlarını kullanma
+      href: how-to-use-sdk-tools.md
 - name: Başvuru
   items:
-  - name: REST API
-    href: /rest/api/iot-dps
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
-  - name: C için Azure IoT SDK'sı
-    href: https://github.com/Azure/azure-iot-sdk-c
-  - name: Python için Azure IoT SDK'sı
-    href: https://github.com/Azure/azure-iot-sdk-python
-  - name: Node.js için Azure IoT SDK'sı
-    href: https://github.com/Azure/azure-iot-sdk-node
-  - name: Java için Azure IoT SDK'sı
-    href: https://github.com/Azure/azure-iot-sdk-java
-  - name: .NET için Azure IoT SDK'sı
-    href: https://github.com/Azure/azure-iot-sdk-csharp
+    - name: REST API
+      href: /rest/api/iot-dps
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
+    - name: C için Azure IoT SDK'sı
+      href: 'https://github.com/Azure/azure-iot-sdk-c'
+    - name: Python için Azure IoT SDK'sı
+      href: 'https://github.com/Azure/azure-iot-sdk-python'
+    - name: Node.js için Azure IoT SDK'sı
+      href: 'https://github.com/Azure/azure-iot-sdk-node'
+    - name: Java için Azure IoT SDK'sı
+      href: 'https://github.com/Azure/azure-iot-sdk-java'
+    - name: .NET için Azure IoT SDK'sı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp'
 - name: İlgili
   items:
-  - name: Çözümler
-    items:
-    - name: IoT çözüm hızlandırıcıları
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform hizmetleri
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Cihazı Sağlama Hizmeti
-      href: /azure/iot-dps
-    - name: Haritalar
-      href: /azure/azure-maps
-    - name: Hizmet SDK'ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Cihaz SDK'ları
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Çözümler
+      items:
+        - name: IoT çözüm hızlandırıcıları
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platform hizmetleri
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Cihazı Sağlama Hizmeti
+          href: /azure/iot-dps
+        - name: Haritalar
+          href: /azure/azure-maps
+        - name: Hizmet SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Cihaz SDK'ları
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Kaynaklar
   items:
-  - name: C# için Azure IoT Örnekleri (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Node.js için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Java için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Python için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: iOS Platformu için Azure IoT Örnekleri
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Azure IoT Hub
-    href: https://azure.microsoft.com/services/iot-hub/
-  - name: IoT için Azure Sertifikalı cihaz kataloğu
-    href: https://catalog.azureiotsolutions.com/
-  - name: Azure IoT Geliştirici Merkezi
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Müşteri verisi istekleri
-    href: iot-dps-customer-data-requests.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Device Explorer aracı
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: iothub-diagnostics tool
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Teknik örnek olay incelemeleri
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 8b48f3ffa0f647faeb4284ea636b572a2a404e95
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533128"
+    - name: 'C# için Azure IoT Örnekleri (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Node.js için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Java için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Python için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: iOS Platformu için Azure IoT Örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Azure IoT Hub
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: IoT için Azure Sertifikalı cihaz kataloğu
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Müşteri verisi istekleri
+      href: iot-dps-customer-data-requests.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Device Explorer aracı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Teknik örnek olay incelemeleri
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107353"
 documentType: LandingData
 title: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler
 metadata:
-  title: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler - Öğreticiler, API Başvurusu
-  description: Azure Tarafından Yönetilen Uygulamaları kullanarak, tüketicilerin daha kolay şekilde çalıştırabileceği bulut çözümleri yayımlayın.
+  title: 'Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler - Öğreticiler, API Başvurusu'
+  description: 'Azure Tarafından Yönetilen Uygulamaları kullanarak, tüketicilerin daha kolay şekilde çalıştırabileceği bulut çözümleri yayımlayın.'
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -20,37 +14,37 @@ metadata:
   ms.date: 10/25/2017
   ms.author: tomfitz
 abstract:
-  description: Azure Tarafından Yönetilen Uygulamalar, bulut çözümlerinizi iç ve dış müşterilere sunmanıza olanak tanır. Çözümün altyapısını ve sürekli yönetimine ilişkin koşulları siz tanımlarsınız. Çözümünüzün faturalandırma işlemi, Azure faturalandırması aracılığıyla gerçekleştirilir.
+  description: 'Azure Tarafından Yönetilen Uygulamalar, bulut çözümlerinizi iç ve dış müşterilere sunmanıza olanak tanır. Çözümün altyapısını ve sürekli yönetimine ilişkin koşulları siz tanımlarsınız. Çözümünüzün faturalandırma işlemi, Azure faturalandırması aracılığıyla gerçekleştirilir.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Yönetilen uygulama yayımlamayı ve dağıtmayı öğrenin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Yönetilen uygulamalar geliştirmeyi ve bunları Azure Market aracılığıyla sunmayı öğrenin.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Yönetilen uygulama yayımlamayı ve dağıtmayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">İç kullanıcılar için yönetilen uygulama yayımlama</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Dış kullanıcılar için yönetilen uygulama yayımlama</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Yönetilen uygulamalar geliştirmeyi ve bunları Azure Market aracılığıyla sunmayı öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">İç kullanıcılar için yönetilen uygulama yayımlama</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Dış kullanıcılar için yönetilen uygulama yayımlama</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: REST API'leri
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: Kullanıcı arabirimi
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Kullanıcı arabirimi öğeleri</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Kullanıcı arabirimi işlevleri</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: REST API'leri
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Kullanıcı arabirimi
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Kullanıcı arabirimi öğeleri</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Kullanıcı arabirimi işlevleri</a></p>

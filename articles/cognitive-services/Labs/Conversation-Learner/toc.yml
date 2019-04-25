@@ -1,77 +1,70 @@
-items:
 - name: Konuşma Öğrenici Belgeleri
 - name: Genel Bakış
-  items:
-  - name: Konuşma Öğrenici nedir?
-    href: overview.md
-  - name: Desteklenen diller
-    href: languages-supported.md
   expanded: true
+  items:
+    - name: Konuşma Öğrenici nedir?
+      href: overview.md
+    - name: Desteklenen diller
+      href: languages-supported.md
 - name: Kavramlar
   items:
-  - name: Denetim akışı
-    href: control-flow.md
-  - name: Varsayılan değerler ve sınırlar
-    href: cl-values-and-boundaries.md
+    - name: Denetim akışı
+      href: control-flow.md
+    - name: Varsayılan değerler ve sınırlar
+      href: cl-values-and-boundaries.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Konuşma Öğrenici ile çalışmaya başlama
-    href: quickstart.md
-  - name: Merhaba dünya
-    href: tutorials/01-hello-world.md
-  - name: Eğitime giriş
-    href: tutorials/02-intro-to-training.md
-  - name: Beklemeli ve beklemeli olmayan eylemler
-    href: tutorials/03-wait-vs-nonwait-actions.md
-  - name: Varlıklara giriş
-    href: tutorials/04-introduction-to-entities.md
-  - name: Beklenen varlık
-    href: tutorials/05-expected-entity.md
-  - name: Tersi alınamaz varlıklar
-    href: tutorials/06-negatable-entities.md
-  - name: Çok değerli varlıklar
-    href: tutorials/07-multi-value-entities.md
-  - name: Önceden Eğitilmiş varlıklar
-    href: tutorials/08-pre-trained-entities.md
-  - name: Varlık çözümleyiciler
-    href: tutorials/09-entity-resolvers.md
-  - name: Alternatif girdiler
-    href: tutorials/10-alternative-inputs.md
-  - name: Günlük iletişim kutuları
-    href: tutorials/11-log-dialogs.md
-  - name: Varlık algılama geri arama
-    href: tutorials/12-entity-detection-callback.md
-  - name: Oturum geri arama
-    href: tutorials/13-session-callbacks.md
-  - name: API çağrıları
-    href: tutorials/14-api-calls.md
-  - name: Kartlar
-    href: tutorials/15-cards.md
-  - name: Karma Botlar
-    href: tutorials/16-hybrid-bots.md
-  - name: Dallandırma ve geri alma
-    href: tutorials/17-branch-undo.md
-  - name: Sürüm oluşturma ve etiketleme
-    href: tutorials/18-version-tag.md
-  - name: Tanıtım - parola sıfırlama
-    href: tutorials/demo-password-reset.md
-  - name: Tanıtım - pizza siparişi
-    href: tutorials/demo-pizza-order.md
-  - name: Konuşma Öğrenici botunu dağıtma
-    href: deploy-to-bf.md
-  - name: Konuşma Öğrenici ile öğretme
-    href: how-to-teach-cl.md
-  - name: Kullanıcı verilerini yönetme
-    href: managing-data.md
+    - name: Konuşma Öğrenici ile çalışmaya başlama
+      href: quickstart.md
+    - name: Merhaba dünya
+      href: tutorials/01-hello-world.md
+    - name: Eğitime giriş
+      href: tutorials/02-intro-to-training.md
+    - name: Beklemeli ve beklemeli olmayan eylemler
+      href: tutorials/03-wait-vs-nonwait-actions.md
+    - name: Varlıklara giriş
+      href: tutorials/04-introduction-to-entities.md
+    - name: Beklenen varlık
+      href: tutorials/05-expected-entity.md
+    - name: Tersi alınamaz varlıklar
+      href: tutorials/06-negatable-entities.md
+    - name: Çok değerli varlıklar
+      href: tutorials/07-multi-value-entities.md
+    - name: Önceden Eğitilmiş varlıklar
+      href: tutorials/08-pre-trained-entities.md
+    - name: Varlık çözümleyiciler
+      href: tutorials/09-entity-resolvers.md
+    - name: Alternatif girdiler
+      href: tutorials/10-alternative-inputs.md
+    - name: Günlük iletişim kutuları
+      href: tutorials/11-log-dialogs.md
+    - name: Varlık algılama geri arama
+      href: tutorials/12-entity-detection-callback.md
+    - name: Oturum geri arama
+      href: tutorials/13-session-callbacks.md
+    - name: API çağrıları
+      href: tutorials/14-api-calls.md
+    - name: Kartlar
+      href: tutorials/15-cards.md
+    - name: Karma Botlar
+      href: tutorials/16-hybrid-bots.md
+    - name: Dallandırma ve geri alma
+      href: tutorials/17-branch-undo.md
+    - name: Sürüm oluşturma ve etiketleme
+      href: tutorials/18-version-tag.md
+    - name: Tanıtım - parola sıfırlama
+      href: tutorials/demo-password-reset.md
+    - name: Tanıtım - pizza siparişi
+      href: tutorials/demo-pizza-order.md
+    - name: Konuşma Öğrenici botunu dağıtma
+      href: deploy-to-bf.md
+    - name: Konuşma Öğrenici ile öğretme
+      href: how-to-teach-cl.md
+    - name: Kullanıcı verilerini yönetme
+      href: managing-data.md
 - name: Kaynaklar
   items:
-  - name: Konuşma Öğrenici örnek botu
-    href: https://github.com/Microsoft/ConversationLearner-Samples
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: ac1c54259fd7660bc0ebf51fc44936577f5dab61
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792094"
+    - name: Konuşma Öğrenici örnek botu
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

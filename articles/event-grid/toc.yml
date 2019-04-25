@@ -1,193 +1,186 @@
-items:
 - name: Event Grid Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Event Grid nedir?
-    href: overview.md
-  - name: Mesajlaşma hizmetlerini karşılaştırma
-    href: compare-messaging-services.md
+    - name: Event Grid nedir?
+      href: overview.md
+    - name: Mesajlaşma hizmetlerini karşılaştırma
+      href: compare-messaging-services.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Depolama olayları
-    items:
-    - name: Azure CLI
-      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: PowerShell
-      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Portal
-      href: blob-event-quickstart-portal.md
-  - name: Özel olaylar
-    items:
-    - name: Azure CLI
-      href: custom-event-quickstart.md
-    - name: PowerShell
-      href: custom-event-quickstart-powershell.md
-    - name: Portal
-      href: custom-event-quickstart-portal.md
-  - name: Olay işleyicisi olarak kuyruk depolama
-    href: custom-event-to-queue-storage.md
-  - name: Olay işleyicisi olarak Event Hubs
-    href: custom-event-to-eventhub.md
-  - name: Container Registry olayları
-    href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
   expanded: true
+  items:
+    - name: Depolama olayları
+      items:
+        - name: Azure CLI
+          href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: PowerShell
+          href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: Portal
+          href: blob-event-quickstart-portal.md
+    - name: Özel olaylar
+      items:
+        - name: Azure CLI
+          href: custom-event-quickstart.md
+        - name: PowerShell
+          href: custom-event-quickstart-powershell.md
+        - name: Portal
+          href: custom-event-quickstart-portal.md
+    - name: Olay işleyicisi olarak kuyruk depolama
+      href: custom-event-to-queue-storage.md
+    - name: Olay işleyicisi olarak Event Hubs
+      href: custom-event-to-eventhub.md
+    - name: Container Registry olayları
+      href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Öğreticiler
   items:
-  - name: VM değiştiğinde e-posta gönderme
-    href: monitor-virtual-machine-changes-event-grid-logic-app.md
-  - name: Karşıya yüklenen görüntüleri yeniden boyutlandırma
-    href: resize-images-on-storage-blob-upload-event.md
-  - name: Otomasyon runbook tetikleme
-    href: ensure-tags-exists-on-new-virtual-machines.md
-  - name: IoT Hub cihazı eklendiğinde e-posta gönderme
-    href: publish-iot-hub-events-to-logic-apps.md
-  - name: Service Bus olaylarını yanıtlama
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Event Hubs’dan veri akışı sağlama
-    href: event-grid-event-hubs-integration.md
-  - name: Media Services olaylarını yönlendirme
-    href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Karma Bağlantıya yönlendirme
-    href: custom-event-to-hybrid-connection.md
+    - name: VM değiştiğinde e-posta gönderme
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Karşıya yüklenen görüntüleri yeniden boyutlandırma
+      href: resize-images-on-storage-blob-upload-event.md
+    - name: Otomasyon runbook tetikleme
+      href: ensure-tags-exists-on-new-virtual-machines.md
+    - name: IoT Hub cihazı eklendiğinde e-posta gönderme
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Service Bus olaylarını yanıtlama
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Event Hubs’dan veri akışı sağlama
+      href: event-grid-event-hubs-integration.md
+    - name: Media Services olaylarını yönlendirme
+      href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Karma Bağlantıya yönlendirme
+      href: custom-event-to-hybrid-connection.md
 - name: Örnekler
   items:
-  - name: Azure CLI
-    href: cli-samples.md
-    items:
-    - name: Özel konu oluşturma
-      href: scripts/event-grid-cli-create-custom-topic.md
-    - name: Azure’a aboneliğine abone olma
-      href: scripts/event-grid-cli-azure-subscription.md
-    - name: Blob depolamaya abone olma
-      href: scripts/event-grid-cli-blob.md
-    - name: Özel konuya abone olma
-      href: scripts/event-grid-cli-subscribe-custom-topic.md
-    - name: Kaynak grubuna abone olma
-      href: scripts/event-grid-cli-resource-group.md
-    - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
-      href: scripts/event-grid-cli-resource-group-filter.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-    items:
-    - name: Özel konu oluşturma
-      href: scripts/event-grid-powershell-create-custom-topic.md
-    - name: Azure’a aboneliğine abone olma
-      href: scripts/event-grid-powershell-azure-subscription.md
-    - name: Blob depolamaya abone olma
-      href: scripts/event-grid-powershell-blob.md
-    - name: Özel konuya abone olma
-      href: scripts/event-grid-powershell-subscribe-custom-topic.md
-    - name: Kaynak grubuna abone olma
-      href: scripts/event-grid-powershell-resource-group.md
-    - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
-      href: scripts/event-grid-powershell-resource-group-filter.md
-  - name: Resource Manager şablonları
-    href: template-samples.md
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid
+    - name: Azure CLI
+      href: cli-samples.md
+      items:
+        - name: Özel konu oluşturma
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Azure’a aboneliğine abone olma
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Blob depolamaya abone olma
+          href: scripts/event-grid-cli-blob.md
+        - name: Özel konuya abone olma
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Kaynak grubuna abone olma
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
+          href: scripts/event-grid-cli-resource-group-filter.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+      items:
+        - name: Özel konu oluşturma
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Azure’a aboneliğine abone olma
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Blob depolamaya abone olma
+          href: scripts/event-grid-powershell-blob.md
+        - name: Özel konuya abone olma
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Kaynak grubuna abone olma
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
+          href: scripts/event-grid-powershell-resource-group-filter.md
+    - name: Resource Manager şablonları
+      href: template-samples.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: Kavramlar
   items:
-  - name: Event Grid kavramları
-    href: concepts.md
-  - name: Güvenlik ve kimlik doğrulaması
-    href: security-authentication.md
-  - name: Teslim ve yeniden deneme
-    href: delivery-and-retry.md
-  - name: Olay filtreleme
-    href: event-filtering.md
-  - name: Olay Etki Alanları
-    href: event-domains.md
-  - name: Olay kaynakları
-    href: event-sources.md
-  - name: Olay işleyicileri
-    href: event-handlers.md
+    - name: Event Grid kavramları
+      href: concepts.md
+    - name: Güvenlik ve kimlik doğrulaması
+      href: security-authentication.md
+    - name: Teslim ve yeniden deneme
+      href: delivery-and-retry.md
+    - name: Olay filtreleme
+      href: event-filtering.md
+    - name: Olay Etki Alanları
+      href: event-domains.md
+    - name: Olay kaynakları
+      href: event-sources.md
+    - name: Olay işleyicileri
+      href: event-handlers.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Özel konuya gönderme
-    href: post-to-custom-topic.md
-  - name: HTTP uç noktasında olayları alma
-    href: receive-events.md
-  - name: Teslim edilemeyen ileti ve yeniden deneme
-    href: manage-event-delivery.md
-  - name: Olayları filtreleme
-    href: how-to-filter-events.md
-  - name: Olay teslimi izleme
-    href: monitor-event-delivery.md
-  - name: Olay aboneliklerini sorgulama
-    href: query-event-subscriptions.md
-  - name: Portal aracılığıyla abone olma
-    href: subscribe-through-portal.md
-  - name: Özel alanları şemaya eşleme
-    href: input-mappings.md
-  - name: CloudEvents şeması kullanma
-    href: cloudevents-schema.md
-  - name: Olay Etki Alanları ile konuları yönetme
-    href: how-to-event-domains.md
-  - name: İstemci tarafı yük devretmeyi uygulama
-    href: custom-disaster-recovery.md
+    - name: Özel konuya gönderme
+      href: post-to-custom-topic.md
+    - name: HTTP uç noktasında olayları alma
+      href: receive-events.md
+    - name: Teslim edilemeyen ileti ve yeniden deneme
+      href: manage-event-delivery.md
+    - name: Olayları filtreleme
+      href: how-to-filter-events.md
+    - name: Olay teslimi izleme
+      href: monitor-event-delivery.md
+    - name: Olay aboneliklerini sorgulama
+      href: query-event-subscriptions.md
+    - name: Portal aracılığıyla abone olma
+      href: subscribe-through-portal.md
+    - name: Özel alanları şemaya eşleme
+      href: input-mappings.md
+    - name: CloudEvents şeması kullanma
+      href: cloudevents-schema.md
+    - name: Olay Etki Alanları ile konuları yönetme
+      href: how-to-event-domains.md
+    - name: İstemci tarafı yük devretmeyi uygulama
+      href: custom-disaster-recovery.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: /cli/azure/eventgrid
-  - name: PowerShell
-    href: /powershell/module/az.eventgrid
-  - name: REST
-    href: /rest/api/eventgrid
-  - name: .NET
-    href: /dotnet/api/overview/azure/eventgrid
-  - name: Java
-    href: /java/api/overview/azure/eventgrid
-  - name: Python
-    href: /python/api/overview/azure/event-grid
-  - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid
-  - name: Abonelik şeması
-    href: subscription-creation-schema.md
-  - name: Olay şeması
-    href: event-schema.md
-    items:
-    - name: Azure abonelikleri
-      href: event-schema-subscriptions.md
-    - name: Blob depolama
-      href: event-schema-blob-storage.md
-    - name: Container Kayıt Defteri
-      href: event-schema-container-registry.md
-    - name: Event Hubs
-      href: event-schema-event-hubs.md
-    - name: IoT Hub
-      href: event-schema-iot-hub.md
-    - name: Media Services
-      href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Kaynak grupları
-      href: event-schema-resource-groups.md
-    - name: Service Bus
-      href: event-schema-service-bus.md
-    - name: Azure Haritalar
-      href: event-schema-azure-maps.md
-  - name: Şablon kaynakları
-    items:
-    - name: Olay abonelikleri
-      href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-    - name: Konu başlıkları
-      href: /azure/templates/microsoft.eventgrid/topics
-  - name: SDK’lar
-    href: sdk-overview.md
+    - name: Azure CLI
+      href: /cli/azure/eventgrid
+    - name: PowerShell
+      href: /powershell/module/az.eventgrid
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: .NET
+      href: /dotnet/api/overview/azure/eventgrid
+    - name: Java
+      href: /java/api/overview/azure/eventgrid
+    - name: Python
+      href: /python/api/overview/azure/event-grid
+    - name: Node.js
+      href: /javascript/api/overview/azure/eventgrid
+    - name: Abonelik şeması
+      href: subscription-creation-schema.md
+    - name: Olay şeması
+      href: event-schema.md
+      items:
+        - name: Azure abonelikleri
+          href: event-schema-subscriptions.md
+        - name: Blob depolama
+          href: event-schema-blob-storage.md
+        - name: Container Kayıt Defteri
+          href: event-schema-container-registry.md
+        - name: Event Hubs
+          href: event-schema-event-hubs.md
+        - name: IoT Hub
+          href: event-schema-iot-hub.md
+        - name: Media Services
+          href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: Kaynak grupları
+          href: event-schema-resource-groups.md
+        - name: Service Bus
+          href: event-schema-service-bus.md
+        - name: Azure Haritalar
+          href: event-schema-azure-maps.md
+    - name: Şablon kaynakları
+      items:
+        - name: Olay abonelikleri
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Konu başlıkları
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: SDK’lar
+      href: sdk-overview.md
 - name: Kaynaklar
   items:
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?products=azure-event-grid
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/event-grid/
-  - name: Fiyatlandırma Hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-eventgrid
-ms.openlocfilehash: 5bbf0a559ead7823c4224ce0c610054d23bcf458
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528025"
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?products=azure-event-grid
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Fiyatlandırma Hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-eventgrid'

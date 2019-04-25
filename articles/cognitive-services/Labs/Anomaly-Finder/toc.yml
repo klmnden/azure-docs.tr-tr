@@ -1,55 +1,48 @@
-items:
 - name: Anomali Bulma Belgeleri
 - name: Genel Bakış
-  items:
-  - name: Anomali Bulma nedir?
-    href: overview.md
   expanded: true
+  items:
+    - name: Anomali Bulma nedir?
+      href: overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Anomali Bulma API’sini kullanma
-    items:
-    - name: cURL
-      href: quickstarts/curl.md
-    - name: C#
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-    - name: Javascript
-      href: quickstarts/javascript.md
+    - name: Anomali Bulma API’sini kullanma
+      items:
+        - name: cURL
+          href: quickstarts/curl.md
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+        - name: Javascript
+          href: quickstarts/javascript.md
 - name: Örnekler
   items:
-  - name: C# uygulaması
-    href: tutorials/csharp-tutorial.md
-  - name: Java uygulaması
-    href: tutorials/java-tutorial.md
-  - name: Python uygulaması
-    href: tutorials/python-tutorial.md
-  - name: Javascript Web uygulaması
-    href: tutorials/javascript-tutorial.md
+    - name: 'C# uygulaması'
+      href: tutorials/csharp-tutorial.md
+    - name: Java uygulaması
+      href: tutorials/java-tutorial.md
+    - name: Python uygulaması
+      href: tutorials/python-tutorial.md
+    - name: Javascript Web uygulaması
+      href: tutorials/javascript-tutorial.md
 - name: Başvuru
   items:
-  - name: Anomali Bulma API Başvurusu
-    href: apiref.md
-  - name: REST v1
-    href: https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection
+    - name: Anomali Bulma API Başvurusu
+      href: apiref.md
+    - name: REST v1
+      href: 'https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection'
 - name: Kaynaklar
   items:
-  - name: Abonelik anahtarı
-    href: https://labs.cognitive.microsoft.com/en-us/subscriptions?productId=/products/AnomalyDetection.Preview&source=labs
-  - name: Deneyin!
-    href: https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=anomaly+finder
-ms.openlocfilehash: 12c8f87ab3498ca2cf3829a8355db91f61816e83
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416175"
+    - name: Abonelik anahtarı
+      href: 'https://labs.cognitive.microsoft.com/en-us/subscriptions?productId=/products/AnomalyDetection.Preview&source=labs'
+    - name: Deneyin!
+      href: 'https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=anomaly+finder'

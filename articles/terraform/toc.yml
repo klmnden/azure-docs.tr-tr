@@ -1,96 +1,89 @@
-items:
 - name: Azure üzerinde Terraform belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure üzerinde Terraform hakkında
-    href: terraform-overview.md
+    - name: Azure üzerinde Terraform hakkında
+      href: terraform-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Çok hizmetli bir uygulama oluşturma
-    href: terrafom-quickstart.md
-  - name: Terraform’u yükleme ve yapılandırma
-    href: /azure/virtual-machines/linux/terraform-install-configure
-    maintainContext: true
-  - name: Linux VM oluşturma
-    href: /azure/virtual-machines/linux/terraform-create-complete-vm
-    maintainContext: true
   expanded: true
+  items:
+    - name: Çok hizmetli bir uygulama oluşturma
+      href: terrafom-quickstart.md
+    - name: Terraform’u yükleme ve yapılandırma
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Linux VM oluşturma
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
 - name: Öğreticiler
   items:
-  - name: App Service
-    items:
-    - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
-      href: terraform-slot-walkthru.md
-  - name: Kapsayıcılar
-    items:
-    - name: AKS ile bir Kubernetes kümesi oluşturma
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: AKS ile giriş denetleyicisi olarak Application Gateway kullanıp Kubernetes kümesi oluşturma
-      href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-  - name: Altyapı
-    items:
-    - name: MSI etkin bir Terraform VM’si oluşturma
-      href: terraform-vm-msi.md
-    - name: Terraform modülleri ile VM kümesi oluşturma
-      href: terraform-create-vm-cluster-module.md
-    - name: Terraform ve HCL ile VM kümesi oluşturma
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Altyapı ile VM ölçek kümesini sağlama
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Packer özel görüntüsünden sanal makine ölçek kümesi sağlama
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-  - name: Ağlar
-    items:
-    - name: Hub ve bağlı bileşen topolojisi
+    - name: App Service
       items:
-      - name: 1. Hub ve bağlı bileşen topolojisi oluşturma
-        href: terraform-hub-spoke-introduction.md
-      - name: 2. Şirket içi sanal ağ oluşturma
-        href: terraform-hub-spoke-on-prem.md
-      - name: 3. Hub sanal ağı oluşturma
-        href: terraform-hub-spoke-hub-network.md
-      - name: 4. Hub sanal ağ gereci oluşturma
-        href: terraform-hub-spoke-hub-nva.md
-      - name: 5. Bağlı bileşen ağı oluşturma
-        href: terraform-hub-spoke-spoke-network.md
-      - name: 6. Ağ topolojisi bağlantısını doğrulama
-        href: terraform-hub-spoke-validation.md
-  - name: Araçlar
-    items:
-    - name: Terraform Visual Studio Code uzantısını yükleme
-      href: terraform-vscode-extension.md
-    - name: Yeoman kullanarak Terraform temelli şablon oluşturma
-      href: terraform-vscode-module-generator.md
-    - name: Terratest kullanarak Terraform modüllerini test etme
-      href: terratest-in-terraform-modules.md
+        - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
+          href: terraform-slot-walkthru.md
+    - name: Kapsayıcılar
+      items:
+        - name: AKS ile bir Kubernetes kümesi oluşturma
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: AKS ile giriş denetleyicisi olarak Application Gateway kullanıp Kubernetes kümesi oluşturma
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Altyapı
+      items:
+        - name: MSI etkin bir Terraform VM’si oluşturma
+          href: terraform-vm-msi.md
+        - name: Terraform modülleri ile VM kümesi oluşturma
+          href: terraform-create-vm-cluster-module.md
+        - name: Terraform ve HCL ile VM kümesi oluşturma
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: Altyapı ile VM ölçek kümesini sağlama
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Packer özel görüntüsünden sanal makine ölçek kümesi sağlama
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Ağlar
+      items:
+        - name: Hub ve bağlı bileşen topolojisi
+          items:
+            - name: 1. Hub ve bağlı bileşen topolojisi oluşturma
+              href: terraform-hub-spoke-introduction.md
+            - name: 2. Şirket içi sanal ağ oluşturma
+              href: terraform-hub-spoke-on-prem.md
+            - name: 3. Hub sanal ağı oluşturma
+              href: terraform-hub-spoke-hub-network.md
+            - name: 4. Hub sanal ağ gereci oluşturma
+              href: terraform-hub-spoke-hub-nva.md
+            - name: 5. Bağlı bileşen ağı oluşturma
+              href: terraform-hub-spoke-spoke-network.md
+            - name: 6. Ağ topolojisi bağlantısını doğrulama
+              href: terraform-hub-spoke-validation.md
+    - name: Araçlar
+      items:
+        - name: Terraform Visual Studio Code uzantısını yükleme
+          href: terraform-vscode-extension.md
+        - name: Yeoman kullanarak Terraform temelli şablon oluşturma
+          href: terraform-vscode-module-generator.md
+        - name: Terratest kullanarak Terraform modüllerini test etme
+          href: terratest-in-terraform-modules.md
 - name: Örnekler
   items:
-  - name: Yapılandırma şablonları
-    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+    - name: Yapılandırma şablonları
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
 - name: Kavramlar
   items:
-  - name: Azure Cloud Shell tümleştirmesi
-    href: terraform-cloud-shell.md
+    - name: Azure Cloud Shell tümleştirmesi
+      href: terraform-cloud-shell.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure Depolama’da depolama durumu
-    href: terraform-backend.md
+    - name: Azure Depolama’da depolama durumu
+      href: terraform-backend.md
 - name: Başvuru
   items:
-  - name: Azure modülü kayıt defteri
-    href: https://registry.terraform.io/modules/Azure
-  - name: Terraform başvurusu
-    href: https://aka.ms/terraform
+    - name: Azure modülü kayıt defteri
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Terraform başvurusu
+      href: 'https://aka.ms/terraform'
 - name: Kaynaklar
   items:
-  - name: Azure ve Terraform
-    href: https://azure.microsoft.com/solutions/devops/terraform/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999433"
+    - name: Azure ve Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

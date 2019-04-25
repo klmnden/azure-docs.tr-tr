@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9b3a65446a6f55101e93fdee4c437cde7408b7ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973086"
 documentType: LandingData
 title: Application Gateway Belgeleri
 metadata:
-  title: Azure Application Gateway Belgeleri - Öğreticiler, API Başvurusu
-  meta.description: Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: 'Azure Application Gateway Belgeleri - Öğreticiler, API Başvurusu'
+  meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: application-gateway
   author: davidmu1
   manager: jeconnocfte
@@ -18,59 +12,59 @@ metadata:
   ms.date: 02/01/2018
   ms.author: davidmu
 abstract:
-  description: Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway’i nasıl dağıtabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, kullanılabilirlik düzeyi yüksek ve ölçeklenebilir web ön ucu oluşturmanızı sağlayan uygulama düzeyinde yönlendirme ve yük dengeleme hizmetlerini nasıl ayarlayacağınız açıklanmıştır.
+  description: 'Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway’i nasıl dağıtabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, kullanılabilirlik düzeyi yüksek ve ölçeklenebilir web ön ucu oluşturmanızı sağlayan uygulama düzeyinde yönlendirme ve yük dengeleme hizmetlerini nasıl ayarlayacağınız açıklanmıştır.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Application Gateway’i kullanarak kaynaklarınıza yönelik web trafiğini yönetmeyi öğrenin:'
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-powershell
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-cli
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure'da uygulama ağ geçitleri dağıtmayı, yönetmeyi ve izlemeyi öğrenin
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Application Gateway’i kullanarak kaynaklarınıza yönelik web trafiğini yönetmeyi öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-portal'
+          - image:
+              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-powershell'
+          - image:
+              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg'
+            text: Azure CLI
+            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-cli'
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Bir uygulama ağ geçidi ile web trafiğini yönetin.</a>
-    - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Bir uygulama ağ geçidinde web uygulaması güvenlik duvarı ile web trafiğini kısıtlayın.</a>
-    - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Bir uygulama ağ geçidinde SSL sonlandırmayı etkinleştirin.</a>
-    - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Uygulama ağ geçidi kullanarak birden çok web sitesi barındırın.</a>
-    - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Bir uygulama ağ geçidinde trafiği URL'ye göre yönlendirin.</a>
-    - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Bir uygulama ağ geçidi havuzunda trafiği belirli sunuculara yönlendirin.</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Bir uygulama ağ geçidi ile web trafiğini yönetin.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Azure''da uygulama ağ geçitleri dağıtmayı, yönetmeyi ve izlemeyi öğrenin'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Bir uygulama ağ geçidi ile web trafiğini yönetin.</a>
+          - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Bir uygulama ağ geçidinde web uygulaması güvenlik duvarı ile web trafiğini kısıtlayın.</a>
+          - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Bir uygulama ağ geçidinde SSL sonlandırmayı etkinleştirin.</a>
+          - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Uygulama ağ geçidi kullanarak birden çok web sitesi barındırın.</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Bir uygulama ağ geçidinde trafiği URL'ye göre yönlendirin.</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Bir uygulama ağ geçidi havuzunda trafiği belirli sunuculara yönlendirin.</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Bir uygulama ağ geçidi ile web trafiğini yönetin.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
+          - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
+  - title: Başvuru
     items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Eksiksiz REST API Başvurusu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
+          - title: Diller
+            html: '<p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>'
+          - title: REST
+            html: '<p><a href="https://msdn.microsoft.com/library/mt684941">Eksiksiz REST API Başvurusu</a></p>'

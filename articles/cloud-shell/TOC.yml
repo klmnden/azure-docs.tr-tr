@@ -1,59 +1,52 @@
-items:
 - name: Genel Bakış
   href: overview.md
 - name: Hızlı Başlangıç
   items:
-  - name: Bash - Hızlı Başlangıç
-    href: quickstart.md
-  - name: PowerShell - Hızlı Başlangıç
-    href: quickstart-powershell.md
+    - name: Bash - Hızlı Başlangıç
+      href: quickstart.md
+    - name: PowerShell - Hızlı Başlangıç
+      href: quickstart-powershell.md
 - name: Özellikler ve araçlar
   items:
-  - name: Özellikler ve araçlar
-    href: features.md
+    - name: Özellikler ve araçlar
+      href: features.md
 - name: Öğreticiler
   items:
-  - name: Ansible
-    items:
-    - name: Ansible playbook’u çalıştırma
-      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-    - name: Azure dinamik envanterlerinizi yönetme
-      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-  - name: Terraform
-    items:
-    - name: Yürütme planı oluşturma
-      href: example-terraform-bash.md
+    - name: Ansible
+      items:
+        - name: Ansible playbook’u çalıştırma
+          href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+        - name: Azure dinamik envanterlerinizi yönetme
+          href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Terraform
+      items:
+        - name: Yürütme planı oluşturma
+          href: example-terraform-bash.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Windows kullanıcıları için PowerShell Cloud Shell
-    href: cloud-shell-windows-users.md
-  - name: Dosyaları depolama alanında kalıcı olarak tutma
-    href: persisting-shell-storage.md
-  - name: Pencereyi kullanma
-    href: using-the-shell-window.md
-  - name: Cloud Shell’de MSI kullanma
-    href: msi-authorization.md
-  - name: Cloud Shell’i ekleme
-    href: embed-cloud-shell.md
+    - name: Windows kullanıcıları için PowerShell Cloud Shell
+      href: cloud-shell-windows-users.md
+    - name: Dosyaları depolama alanında kalıcı olarak tutma
+      href: persisting-shell-storage.md
+    - name: Pencereyi kullanma
+      href: using-the-shell-window.md
+    - name: Cloud Shell’de MSI kullanma
+      href: msi-authorization.md
+    - name: Cloud Shell’i ekleme
+      href: embed-cloud-shell.md
 - name: Cloud Shell düzenleyicisini kullanma
   href: using-cloud-shell-editor.md
 - name: Sorun giderme ve sınırlamalar
   href: troubleshooting.md
 - name: Başvuru
   items:
-  - name: Azure CLI
-    href: /cli/azure
-  - name: Azure PowerShell
-    href: /powershell/azure
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341314"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'

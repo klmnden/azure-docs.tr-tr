@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371165"
 documentType: LandingData
 title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
-  title: Azure Machine Learning Service Belgeleri – Öğreticiler, API başvurusu | Microsoft Docs
-  description: Azure Machine Learning hizmeti, hızla veri hazırlamanız ve makine öğrenmesi modellerini eğitip dağıtmanız için SDK’lar ve hizmetler sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği artırıp maliyetleri düşürün. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. Hızlı başlangıçlar ve öğreticilerimizle kullanmaya başlayın.
+  title: 'Azure Machine Learning Service Belgeleri – Öğreticiler, API başvurusu | Microsoft Docs'
+  description: 'Azure Machine Learning hizmeti, hızla veri hazırlamanız ve makine öğrenmesi modellerini eğitip dağıtmanız için SDK’lar ve hizmetler sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği artırıp maliyetleri düşürün. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. Hızlı başlangıçlar ve öğreticilerimizle kullanmaya başlayın.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -22,60 +16,60 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning hizmeti, hızla veri hazırlamanız ve makine öğrenmesi modellerini eğitip dağıtmanız için SDK’lar ve hizmetler sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği ve maliyetleri geliştirin. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. Hızlı başlangıçlar ve öğreticilerimizle kullanmaya başlayın.
+  description: 'Azure Machine Learning hizmeti, hızla veri hazırlamanız ve makine öğrenmesi modellerini eğitip dağıtmanız için SDK’lar ve hizmetler sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği ve maliyetleri geliştirin. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. Hızlı başlangıçlar ve öğreticilerimizle kullanmaya başlayın.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 130
       src: media/index/video.png
       width: 250
-    title: Videoyu izleyin (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    title: 'Videoyu izleyin (9:58)'
+    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Azure Machine Learning hizmeti için bir   <a href="setup-create-workspace">çalışma alanı oluşturduktan</a> sonra bu hızlı başlangıçları kullanarak çalışmaya başlayabilirsiniz:'
-  - type: list
-    style: unordered
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - html: <a href="quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez).
-    - html: <a href="quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir).
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Veri hazırlamayı, deneyleri ayarlamayı ve makine öğrenmesi modellerinizi eğitip kullanıma hazır hale getirmeyi öğrenin:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: "Azure Machine Learning hizmeti için bir \_ <a href=\"setup-create-workspace\">çalışma alanı oluşturduktan</a> sonra bu hızlı başlangıçları kullanarak çalışmaya başlayabilirsiniz:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez).
+          - html: <a href="quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir).
+  - title: Adım Adım Öğreticiler
     items:
-    - html: Görüntü sınıflandırma modellerini <a href="tutorial-train-models-with-aml">eğitme</a> ve <a href="tutorial-deploy-models-with-aml">dağıtma</a> (<b>iki parçalı seri</b>).
-    - html: Regresyon modellerini eğitmek ve ayarlamak için <a href="tutorial-data-prep">veri hazırlama</a> ve <a href="tutorial-auto-train-models">otomatik makine öğrenmesini kullanma</a> (<b>iki parçalı seri</b>).
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Github'da hizmeti keşfetmenize yardımcı olması için <a href="samples-notebooks">Jupyter not defterlerini</a> bulun.
-- title: Başvuru
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Veri hazırlamayı, deneyleri ayarlamayı ve makine öğrenmesi modellerinizi eğitip kullanıma hazır hale getirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: Görüntü sınıflandırma modellerini <a href="tutorial-train-models-with-aml">eğitme</a> ve <a href="tutorial-deploy-models-with-aml">dağıtma</a> (<b>iki parçalı seri</b>).
+          - html: Regresyon modellerini eğitmek ve ayarlamak için <a href="tutorial-data-prep">veri hazırlama</a> ve <a href="tutorial-auto-train-models">otomatik makine öğrenmesini kullanma</a> (<b>iki parçalı seri</b>).
+  - title: Örnekler
     items:
-    - html: '<a href="https://aka.ms/aml-sdk">Ana Python SDK’sı</a>: Temel işlevsellik, otomatik makine öğrenmesi, işlem hatları ve daha fazlası'
-    - html: '<a href="https://aka.ms/data-prep-sdk">Veri Hazırlama</a> Python SDK’sı: Verilerinizi hazırlama ve dönüştürme'
-    - html: '<a href="https://aka.ms/aml-monitoring-sdk">İzleme</a> Python SDK’sı: Dağıtılmış web hizmetlerinden veri toplama'
-- title: Diğer Azure Machine Learning teknolojileri
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Github'da hizmeti keşfetmenize yardımcı olması için <a href="samples-notebooks">Jupyter not defterlerini</a> bulun.
+  - title: Başvuru
     items:
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-    - title: Veri Bilimi Sanal Makinesi
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/aml-sdk">Ana Python SDK’sı</a>: Temel işlevsellik, otomatik makine öğrenmesi, işlem hatları ve daha fazlası'
+          - html: '<a href="https://aka.ms/data-prep-sdk">Veri Hazırlama</a> Python SDK’sı: Verilerinizi hazırlama ve dönüştürme'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">İzleme</a> Python SDK’sı: Dağıtılmış web hizmetlerinden veri toplama'
+  - title: Diğer Azure Machine Learning teknolojileri
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/
+          - title: Veri Bilimi Sanal Makinesi
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

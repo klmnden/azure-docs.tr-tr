@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0a1c495362ef38723c61eace25ebb13ec9ed3a6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883653"
 documentType: LandingData
 title: Azure Databricks Belgeleri
 metadata:
   title: Azure Databricks Belgeleri
-  description: Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur.
+  description: 'Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur.'
   services: azure-databricks
   author: mamccrea
   ms.service: azure-databricks
@@ -17,48 +11,48 @@ metadata:
   ms.date: 03/19/2018
   ms.author: mamccrea
 abstract:
-  description: Tek tıklamayla kurulum olanağı ve sorunsuz iş akışları getiren, ayrıca veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliğine yönelik etkileşimli bir çalışma alanı sağlayan Apache Spark tabanlı analiz platformu Azure Databricks'i kullanmayı öğrenin. Hızlı başlangıçlar ve öğreticiler Azure Databricks'le çalışmaya nasıl başlayacağınızı ve diğer Azure hizmetleriyle nasıl tümleştireceğinizi gösterir.
+  description: 'Tek tıklamayla kurulum olanağı ve sorunsuz iş akışları getiren, ayrıca veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliğine yönelik etkileşimli bir çalışma alanı sağlayan Apache Spark tabanlı analiz platformu Azure Databricks''i kullanmayı öğrenin. Hızlı başlangıçlar ve öğreticiler Azure Databricks''le çalışmaya nasıl başlayacağınızı ve diğer Azure hizmetleriyle nasıl tümleştireceğinizi gösterir.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Azure Databricks’e Giriş (3:38)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    title: 'Azure Databricks’e Giriş (3:38)'
+    href: 'https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Azure Databricks çalışma alanı ve Spark kümesi oluşturmayı, ardından aşağıdakileri kullanarak işleri çalıştırmayı öğrenin:'
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: /azure/azure-databricks/media/index/portal.svg
-      text: Azure portal
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-    - image:
-        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
-      text: Resource Manager şablonu
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Azure Databricks ile çalışma hakkında bilgi edinin:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Azure Databricks çalışma alanı ve Spark kümesi oluşturmayı, ardından aşağıdakileri kullanarak işleri çalıştırmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Azure portal
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+          - image:
+              src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+            text: Resource Manager şablonu
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Veri ayıklama, dönüştürme ve yükleme</a>
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Event Hubs’dan veri akışı sağlama</a>
-    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Bilişsel Hizmetler kullanarak yaklaşım analizi</a>
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">HDInsight Kafka’dan veri akışı sağlama</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Azure Databricks ile çalışma hakkında bilgi edinin:'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Veri ayıklama, dönüştürme ve yükleme</a>'
+          - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Event Hubs’dan veri akışı sağlama</a>
+          - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Bilişsel Hizmetler kullanarak yaklaşım analizi</a>
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">HDInsight Kafka’dan veri akışı sağlama</a>'
+  - title: Başvuru
     items:
-    - title: REST
-      html: <p><a href="/rest/api/databricks">REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/databricks">REST API</a></p>

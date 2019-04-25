@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 67299955e00f2bb5fb409420dd951357f89e1996
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384931"
 documentType: LandingData
 title: Azure IoT Central Belgeleri
 metadata:
-  title: Azure IoT Central Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  description: Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.
+  title: 'Azure IoT Central Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.'
   author: dominicbetts
   ms.topic: landing-page
   ms.date: 11/08/2017
@@ -18,25 +12,25 @@ metadata:
   services: iot-central
   manager: timlt
 abstract:
-  description: Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.
+  description: 'Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.'
 sections:
-- title: Özellik Uyarısı
-  items:
-  - type: paragraph
-    text: Azure IoT Central tüm cihaz bağlantıları için Azure IoT Hub Cihazı Sağlama Hizmeti’ni (DPS) kullanmak üzere geçiş yaptı. Cihazları Azure IoT Central uygulamanıza kaydetmek ve bağlamak için DPS SDK'sını kullanmanız gerekecek. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Azure IoT Central'da Cihaz bağlantısı hakkında daha fazla bilgi edinin.</a> Sürekli veri aktarma özelliğini kullanan tüm uygulamaların ve/veya Power BI çözüm şablonunun hedef depolama kapsayıcısını değiştirmesi ve yeni bir çözüm şablonu oluşturması gerekecek.
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: <a href="quick-deploy-iot-central">Yeni bir Azure IoT Central uygulaması oluşturmayı</a> öğrenin.
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure IoT Central uygulamanızı özelleştirmeyi ve kullanmayı öğrenin.
-  - type: list
-    style: ordered
+  - title: Özellik Uyarısı
     items:
-    - html: <a href="tutorial-define-device-type">Yeni bir cihaz türü belirleme</a>
-    - html: <a href="tutorial-configure-rules">Kuralları yapılandırma</a>
-    - html: <a href="tutorial-customize-operator">İşlecin görünümünü özelleştirme</a>
-    - html: <a href="tutorial-monitor-devices">Cihazlarınızı izleme</a>
-    - html: <a href="tutorial-add-device">Gerçek cihaz ekleme</a>
+      - type: paragraph
+        text: 'Azure IoT Central tüm cihaz bağlantıları için Azure IoT Hub Cihazı Sağlama Hizmeti’ni (DPS) kullanmak üzere geçiş yaptı. Cihazları Azure IoT Central uygulamanıza kaydetmek ve bağlamak için DPS SDK''sını kullanmanız gerekecek. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Azure IoT Central''da Cihaz bağlantısı hakkında daha fazla bilgi edinin.</a> Sürekli veri aktarma özelliğini kullanan tüm uygulamaların ve/veya Power BI çözüm şablonunun hedef depolama kapsayıcısını değiştirmesi ve yeni bir çözüm şablonu oluşturması gerekecek.'
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: <a href="quick-deploy-iot-central">Yeni bir Azure IoT Central uygulaması oluşturmayı</a> öğrenin.
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Azure IoT Central uygulamanızı özelleştirmeyi ve kullanmayı öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-define-device-type">Yeni bir cihaz türü belirleme</a>
+          - html: <a href="tutorial-configure-rules">Kuralları yapılandırma</a>
+          - html: <a href="tutorial-customize-operator">İşlecin görünümünü özelleştirme</a>
+          - html: <a href="tutorial-monitor-devices">Cihazlarınızı izleme</a>
+          - html: <a href="tutorial-add-device">Gerçek cihaz ekleme</a>

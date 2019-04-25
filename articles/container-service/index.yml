@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 64d2ad6990b41c7c9ff28a667b4fd51729877670
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986940"
 documentType: LandingData
 title: Kapsayıcı Hizmeti Belgeleri
 metadata:
-  document_id: 
-  title: Azure Container Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  document_id: null
+  title: 'Azure Container Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
   author: czeumault
   manager: carolz
@@ -21,44 +15,44 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: Azure Container Service, üretime hazır Kubernetes, DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin.
+  description: 'Azure Container Service, üretime hazır Kubernetes, DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin.'
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+  - title: null
     items:
-    - title: Kubernetes kümelerini kullanmaya başlama
-      href: /azure/container-service/kubernetes
-      image:
-        src: media/index/get-started.svg
-        href: /azure/container-service/kubernetes
-    - title: DC/OS ve Docker Swarm kümelerini kullanmaya başlama
-      href: /azure/container-service/dcos-swarm
-      image:
-        src: media/index/get-started.svg
-        href: /azure/container-service/dcos-swarm
-- title: Microsoft Learn ile becerilerinizi geliştirin
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Kubernetes kümelerini kullanmaya başlama
+            href: /azure/container-service/kubernetes
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/kubernetes
+          - title: DC/OS ve Docker Swarm kümelerini kullanmaya başlama
+            href: /azure/container-service/dcos-swarm
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/dcos-swarm
+  - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
-    - title: Azure'daki kapsayıcılara giriş
-      href: /learn/modules/intro-to-containers/
-      image:
-        src: /learn/achievements/intro-to-containers.svg
-        href: /learn/modules/intro-to-containers/
-    - title: Azure Container Instances ile Docker kapsayıcılarını çalıştırma
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-        href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Azure Container Registry ile kapsayıcı görüntüsü oluşturma ve depolama
-      href: /learn/modules/build-and-store-container-images/
-      image:
-        src: /learn/achievements/build-and-store-container-images.svg
-        href: /learn/modules/build-and-store-container-images/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Daha fazla etkileşimli öğrenme içeriği...</a>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure'daki kapsayıcılara giriş
+            href: /learn/modules/intro-to-containers/
+            image:
+              src: /learn/achievements/intro-to-containers.svg
+              href: /learn/modules/intro-to-containers/
+          - title: Azure Container Instances ile Docker kapsayıcılarını çalıştırma
+            href: /learn/modules/run-docker-with-azure-container-instances/
+            image:
+              src: /learn/achievements/run-docker-with-azure-container-instances.svg
+              href: /learn/modules/run-docker-with-azure-container-instances/
+          - title: Azure Container Registry ile kapsayıcı görüntüsü oluşturma ve depolama
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Daha fazla etkileşimli öğrenme içeriği...</a>

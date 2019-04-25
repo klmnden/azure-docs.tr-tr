@@ -1,148 +1,141 @@
-items:
 - name: Traffic Manager Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Traffic Manager nedir?
-    href: traffic-manager-overview.md
+    - name: Traffic Manager nedir?
+      href: traffic-manager-overview.md
 - name: Hızlı Başlangıç
   items:
-  - name: Traffic Manager profili oluşturma - portal
-    href: quickstart-create-traffic-manager-profile.md
-  - name: Traffic Manager profili oluşturma - PowerShell
-    href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: Traffic Manager profili oluşturma - portal
+      href: quickstart-create-traffic-manager-profile.md
+    - name: Traffic Manager profili oluşturma - PowerShell
+      href: quickstart-create-traffic-manager-profile-powershell.md
 - name: Öğreticiler
   items:
-  - name: Düşük gecikme süresi için trafiği yönlendirme
-    href: tutorial-traffic-manager-improve-website-response.md
-  - name: Uç noktanın coğrafi konumunu temel alarak trafiği yönlendirme
-    href: traffic-manager-configure-geographic-routing-method.md
-  - name: Trafiği bir uç nokta kümesine dağıtma
-    href: traffic-manager-configure-weighted-routing-method.md
-  - name: Trafiği bir öncelik uç noktasına yönlendirme
-    href: traffic-manager-configure-priority-routing-method.md
-  - name: Ağırlıklı uç noktalarla trafiği yönetme
-    href: tutorial-traffic-manager-weighted-endpoint-routing.md
-  - name: Kullanıcının alt ağına göre trafik yönlendirme
-    href: tutorial-traffic-manager-subnet-routing.md
-  - name: Traffic Manager için diğer ad kayıtları
-    href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
+    - name: Düşük gecikme süresi için trafiği yönlendirme
+      href: tutorial-traffic-manager-improve-website-response.md
+    - name: Uç noktanın coğrafi konumunu temel alarak trafiği yönlendirme
+      href: traffic-manager-configure-geographic-routing-method.md
+    - name: Trafiği bir uç nokta kümesine dağıtma
+      href: traffic-manager-configure-weighted-routing-method.md
+    - name: Trafiği bir öncelik uç noktasına yönlendirme
+      href: traffic-manager-configure-priority-routing-method.md
+    - name: Ağırlıklı uç noktalarla trafiği yönetme
+      href: tutorial-traffic-manager-weighted-endpoint-routing.md
+    - name: Kullanıcının alt ağına göre trafik yönlendirme
+      href: tutorial-traffic-manager-subnet-routing.md
+    - name: Traffic Manager için diğer ad kayıtları
+      href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
 - name: Örnekler
   items:
-  - name: Azure CLl
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+    - name: Azure CLl
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Kavramlar
   items:
-  - name: Yönlendirme yöntemleri
-    href: traffic-manager-routing-methods.md
-    items:
-    - name: Traffic Manager tarafından kullanılan Ülke/Bölge hiyerarşisi
-      href: traffic-manager-geographic-regions.md
-  - name: İç İçe Traffic Manager profilleri
-    href: traffic-manager-nested-profiles.md
-  - name: Uç nokta türleri
-    href: traffic-manager-endpoint-types.md
-  - name: Uç nokta izleme
-    href: traffic-manager-monitoring.md
-  - name: Gerçek Kullanıcı Ölçümleri
-    href: traffic-manager-rum-overview.md
-  - name: Trafik Görünümü
-    href: traffic-manager-traffic-view-overview.md
-  - name: Ölçümler ve uyarılar
-    href: traffic-manager-metrics-alerts.md
-  - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
-    href: ../networking/disaster-recovery-dns-traffic-manager.md
-  - name: Traffic Manager nasıl çalışır?
-    href: traffic-manager-how-it-works.md
-  - name: SSS
-    href: traffic-manager-FAQs.md
+    - name: Yönlendirme yöntemleri
+      href: traffic-manager-routing-methods.md
+      items:
+        - name: Traffic Manager tarafından kullanılan Ülke/Bölge hiyerarşisi
+          href: traffic-manager-geographic-regions.md
+    - name: İç İçe Traffic Manager profilleri
+      href: traffic-manager-nested-profiles.md
+    - name: Uç nokta türleri
+      href: traffic-manager-endpoint-types.md
+    - name: Uç nokta izleme
+      href: traffic-manager-monitoring.md
+    - name: Gerçek Kullanıcı Ölçümleri
+      href: traffic-manager-rum-overview.md
+    - name: Trafik Görünümü
+      href: traffic-manager-traffic-view-overview.md
+    - name: Ölçümler ve uyarılar
+      href: traffic-manager-metrics-alerts.md
+    - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Traffic Manager nasıl çalışır?
+      href: traffic-manager-how-it-works.md
+    - name: SSS
+      href: traffic-manager-FAQs.md
 - name: Nasıl yapılır
   items:
-  - name: Traffic Manager'da performans yönlendirmeyi yapılandırma
-    href: traffic-manager-configure-performance-routing-method.md
-  - name: Traffic Manager’da çoklu değer yönlendirmesini yapılandırma
-    href: traffic-manager-configure-multivalue-routing-method.md
-  - name: Traffic Manager’da alt ağ yönlendirmesini yapılandırma
-    href: traffic-manager-configure-subnet-routing-method.md
-  - name: Gerçek Kullanıcı Ölçümlerini Traffic Manager’a Gönderme
-    items:
-    - name: Visual Studio SDK’sını kullanma
-      href: traffic-manager-create-rum-visual-studio.md
-    - name: Web sayfalarını kullanma
-      href: traffic-manager-create-rum-web-pages.md
-  - name: Uç noktaları yönetme
-    href: traffic-manager-manage-endpoints.md
-  - name: Profilleri yönetme
-    href: traffic-manager-manage-profiles.md
-  - name: Traffic Manager ayarlarını doğrulama
-    href: traffic-manager-testing-settings.md
-  - name: Yük dengeleme hizmetlerini birleştirme
-    href: traffic-manager-load-balancing-azure.md
-  - name: Traffic Manager performansını ölçme
-    href: traffic-manager-performance-considerations.md
-  - name: Tanılama günlüklerini etkinleştirme
-    href: traffic-manager-diagnostic-logs.md
-  - name: Traffic Manager’ı yönetmek için Azure PowerShell’i kullanma
-    href: traffic-manager-powershell-arm.md
-  - name: İnternet etki alanınızı Traffic Manager’a yönlendirme
-    href: traffic-manager-point-internet-domain.md
-  - name: Sorun giderme
-    items:
-    - name: Azure Traffic Manager’da düşürülmüş durum için sorun giderme
-      href: traffic-manager-troubleshooting-degraded.md
+    - name: Traffic Manager'da performans yönlendirmeyi yapılandırma
+      href: traffic-manager-configure-performance-routing-method.md
+    - name: Traffic Manager’da çoklu değer yönlendirmesini yapılandırma
+      href: traffic-manager-configure-multivalue-routing-method.md
+    - name: Traffic Manager’da alt ağ yönlendirmesini yapılandırma
+      href: traffic-manager-configure-subnet-routing-method.md
+    - name: Gerçek Kullanıcı Ölçümlerini Traffic Manager’a Gönderme
+      items:
+        - name: Visual Studio SDK’sını kullanma
+          href: traffic-manager-create-rum-visual-studio.md
+        - name: Web sayfalarını kullanma
+          href: traffic-manager-create-rum-web-pages.md
+    - name: Uç noktaları yönetme
+      href: traffic-manager-manage-endpoints.md
+    - name: Profilleri yönetme
+      href: traffic-manager-manage-profiles.md
+    - name: Traffic Manager ayarlarını doğrulama
+      href: traffic-manager-testing-settings.md
+    - name: Yük dengeleme hizmetlerini birleştirme
+      href: traffic-manager-load-balancing-azure.md
+    - name: Traffic Manager performansını ölçme
+      href: traffic-manager-performance-considerations.md
+    - name: Tanılama günlüklerini etkinleştirme
+      href: traffic-manager-diagnostic-logs.md
+    - name: Traffic Manager’ı yönetmek için Azure PowerShell’i kullanma
+      href: traffic-manager-powershell-arm.md
+    - name: İnternet etki alanınızı Traffic Manager’a yönlendirme
+      href: traffic-manager-point-internet-domain.md
+    - name: Sorun giderme
+      items:
+        - name: Azure Traffic Manager’da düşürülmüş durum için sorun giderme
+          href: traffic-manager-troubleshooting-degraded.md
 - name: Başvuru
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=traffic-manager
-  - name: Azure PowerShell
-    href: /powershell/module/az.trafficmanager
-  - name: Azure CLI
-    href: /cli/azure/network/traffic-manager
-  - name: Java
-    href: /java/api/com.microsoft.azure.management.trafficmanager
-  - name: Node.js
-    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
-  - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
-  - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
-  - name: REST
-    href: https://msdn.microsoft.com/library/mt163667.aspx
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.network/trafficmanagerprofiles
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
+    - name: Azure PowerShell
+      href: /powershell/module/az.trafficmanager
+    - name: Azure CLI
+      href: /cli/azure/network/traffic-manager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.trafficmanager
+    - name: Node.js
+      href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_traffic_manager'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt163667.aspx'
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: İlgili
   items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Load Balancer
-    href: /azure/load-balancer/
-  - name: Azure DNS
-    href: /azure/dns/
+    - name: Application Gateway
+      href: /azure/application-gateway/
+    - name: Load Balancer
+      href: /azure/load-balancer/
+    - name: Azure DNS
+      href: /azure/dns/
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking/
-  - name: MSDN Forumu
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/traffic-manager/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet Sınırlamaları
-    href: ../azure-subscription-service-limits.md#traffic-manager-limits
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=traffic-manager
-  - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
-  - name: Videolar
-    href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: cca0930c6314f15dfd33a32bd6f5cb5ad6da0134
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785717"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: MSDN Forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet Sınırlamaları
+      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/traffic-manager/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=traffic-manager'

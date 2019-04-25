@@ -1,103 +1,96 @@
-items:
 - name: Azure Geçişi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Geçişi Hakkında
-    href: migrate-overview.md
+    - name: Azure Geçişi Hakkında
+      href: migrate-overview.md
 - name: Öğreticiler
   items:
-  - name: VMware VM’lerini keşfedin ve değerlendirin
-    href: tutorial-assessment-vmware.md
+    - name: VMware VM’lerini keşfedin ve değerlendirin
+      href: tutorial-assessment-vmware.md
 - name: Kavramlar
   items:
-  - name: Toplayıcı hakkında
-    href: concepts-collector.md
-  - name: Toplayıcı sürüm yükseltmeleri
-    href: concepts-collector-upgrade.md
-  - name: Değerlendirme hesaplamaları
-    href: concepts-assessment-calculation.md
-  - name: Bağımlılık görselleştirme hakkında
-    href: concepts-dependency-visualization.md
+    - name: Toplayıcı hakkında
+      href: concepts-collector.md
+    - name: Toplayıcı sürüm yükseltmeleri
+      href: concepts-collector-upgrade.md
+    - name: Değerlendirme hesaplamaları
+      href: concepts-assessment-calculation.md
+    - name: Bağımlılık görselleştirme hakkında
+      href: concepts-dependency-visualization.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: En iyi geçiş yöntemleri
-    items:
-    - name: Geçiş sonrasında güvenlik ve yönetim için en iyi yöntemler
-      href: migrate-best-practices-security-management.md
-    - name: Geçiş sonrasında ağ için en iyi yöntemler
-      href: migrate-best-practices-networking.md
-    - name: Geçiş sonrasında maliyetlendirme ve boyutlandırma için en iyi yöntemler
-      href: migrate-best-practices-costs.md
-  - name: Contoso geçiş serisi
-    items:
-    - name: 1. Contoso-Geçişe genel bakış
-      href: contoso-migration-overview.md
-    - name: 2. Contoso-Azure altyapısını dağıtma
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso-Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso-Azure VM'lerde ve Azure SQL Veritabanı Yönetilen Örneğinde bir uygulamayı yeniden barındırma
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso-Bir uygulamayı Azure VM’lerde yeniden barındırma
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso-Azure VM’lerde ve Azure SQL Server AlwaysOn Kullanılabilirlik Grupları’nda bir uygulamayı yeniden barındırma
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso-Bir Linux uygulamasını Azure VM’lerde yeniden barındırma
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso-Bir Linux uygulamasını Azure VM’lerde ve Azure MySQL’de yeniden barındırma
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso-Azure Web Apps ve Azure SQL Veritabanı üzerinde bir uygulamayı yeniden düzenleyin
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso-Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulamasını yeniden düzenleyin
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso-TFS'yi Azure DevOps Services'e geçirme
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso-Bir uygulamayı Azure Kapsayıcıları ve Azure SQL Veritabanı üzerinde yeniden tasarlama
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso-Bir uygulamayı Azure’da yeniden derleme
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso - Geçişi ölçeklendirme
-      href: contoso-migration-scale.md
-  - name: Büyük bir ortamı keşfetme ve değerlendirme
-    href: how-to-scale-assessment.md
-  - name: Grup makineleri
-    href: how-to-create-a-group.md
-  - name: Makine bağımlılıkları kullanan grup makineleri
-    href: how-to-create-group-machine-dependencies.md
-  - name: Grup bağımlılıklarını kullanarak bir grubu daraltma
-    href: how-to-create-group-dependencies.md
-  - name: Bir değerlendirmeyi özelleştirme
-    href: how-to-modify-assessment.md
-  - name: Değerlendirmenin ardından makineleri geçirme
-    href: how-to-get-migration-tool.md
-  - name: Çok büyük sayıda VM'nin geçişini otomatikleştirme
-    href: how-to-migrate-at-scale.md
-  - name: Azure Geçişi sorunlarını giderme
-    href: troubleshooting-general.md
+    - name: En iyi geçiş yöntemleri
+      items:
+        - name: Geçiş sonrasında güvenlik ve yönetim için en iyi yöntemler
+          href: migrate-best-practices-security-management.md
+        - name: Geçiş sonrasında ağ için en iyi yöntemler
+          href: migrate-best-practices-networking.md
+        - name: Geçiş sonrasında maliyetlendirme ve boyutlandırma için en iyi yöntemler
+          href: migrate-best-practices-costs.md
+    - name: Contoso geçiş serisi
+      items:
+        - name: 1. Contoso-Geçişe genel bakış
+          href: contoso-migration-overview.md
+        - name: 2. Contoso-Azure altyapısını dağıtma
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso-Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso-Azure VM'lerde ve Azure SQL Veritabanı Yönetilen Örneğinde bir uygulamayı yeniden barındırma
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso-Bir uygulamayı Azure VM’lerde yeniden barındırma
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso-Azure VM’lerde ve Azure SQL Server AlwaysOn Kullanılabilirlik Grupları’nda bir uygulamayı yeniden barındırma
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso-Bir Linux uygulamasını Azure VM’lerde yeniden barındırma
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso-Bir Linux uygulamasını Azure VM’lerde ve Azure MySQL’de yeniden barındırma
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso-Azure Web Apps ve Azure SQL Veritabanı üzerinde bir uygulamayı yeniden düzenleyin
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso-Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulamasını yeniden düzenleyin
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso-TFS'yi Azure DevOps Services'e geçirme
+          href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso-Bir uygulamayı Azure Kapsayıcıları ve Azure SQL Veritabanı üzerinde yeniden tasarlama
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso-Bir uygulamayı Azure’da yeniden derleme
+          href: contoso-migration-rebuild.md
+        - name: 14. Contoso - Geçişi ölçeklendirme
+          href: contoso-migration-scale.md
+    - name: Büyük bir ortamı keşfetme ve değerlendirme
+      href: how-to-scale-assessment.md
+    - name: Grup makineleri
+      href: how-to-create-a-group.md
+    - name: Makine bağımlılıkları kullanan grup makineleri
+      href: how-to-create-group-machine-dependencies.md
+    - name: Grup bağımlılıklarını kullanarak bir grubu daraltma
+      href: how-to-create-group-dependencies.md
+    - name: Bir değerlendirmeyi özelleştirme
+      href: how-to-modify-assessment.md
+    - name: Değerlendirmenin ardından makineleri geçirme
+      href: how-to-get-migration-tool.md
+    - name: Çok büyük sayıda VM'nin geçişini otomatikleştirme
+      href: how-to-migrate-at-scale.md
+    - name: Azure Geçişi sorunlarını giderme
+      href: troubleshooting-general.md
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: resources-faq.md
-  - name: REST API
-    href: https://docs.microsoft.com/rest/api/migrate/
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.migrate/allversions
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/azure-migrate/
-  - name: UserVoice
-    href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
-  - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-migrate/
-  - name: Azure Geçişi
-    href: https://azure.microsoft.com/migrate
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d07d8e94f15dc6ba549d96c5950931963e5bbfc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837679"
+    - name: SSS
+      href: resources-faq.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/migrate/'
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
+    - name: UserVoice
+      href: 'https://aka.ms/AzureMigrateUservoice'
+    - name: Forum
+      href: 'https://aka.ms/AzureMigrateForum'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
+    - name: Azure Geçişi
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

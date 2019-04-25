@@ -1,195 +1,188 @@
-items:
 - name: Event Hubs Belgeleri
   href: ./index.yml
 - name: Genel Bakış
   items:
-  - name: Event Hubs nedir?
-    href: event-hubs-about.md
-  - name: Apache Kafka için Event Hubs
-    href: event-hubs-for-kafka-ecosystem-overview.md
-  - name: Event Hubs Capture
-    href: event-hubs-capture-overview.md
-  - name: Event Hubs Ayrılmış
-    href: event-hubs-dedicated-overview.md
+    - name: Event Hubs nedir?
+      href: event-hubs-about.md
+    - name: Apache Kafka için Event Hubs
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
+    - name: Event Hubs Ayrılmış
+      href: event-hubs-dedicated-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Olay hub’ı oluşturma
-    items:
-    - name: Azure portal
-      href: event-hubs-create.md
-    - name: Azure CLI
-      href: event-hubs-quickstart-cli.md
-    - name: Azure PowerShell
-      href: event-hubs-quickstart-powershell.md
-    - name: Azure Resource Manager şablonu
-      href: event-hubs-resource-manager-namespace-event-hub.md
-  - name: Olay gönderme ve alma
-    items:
-    - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: Python
-      href: event-hubs-python-get-started-send.md
-    - name: Node.js
-      href: event-hubs-node-get-started-send.md
-    - name: Başlayın
-      href: event-hubs-go-get-started-send.md
-    - name: C (yalnızca gönderme)
-      href: event-hubs-c-getstarted-send.md
-    - name: Apache Storm (yalnızca alma)
-      href: event-hubs-storm-getstarted-receive.md
-  - name: Olayları yakalama
-    items:
-    - name: Event Hubs Capture için Azure portalı kullanma
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Python kullanarak Event Hubs verilerini yakalama
-      href: event-hubs-capture-python.md
-  - name: Apache Kafka için Event Hubs’da akış yapma
-    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
   expanded: true
+  items:
+    - name: Olay hub’ı oluşturma
+      items:
+        - name: Azure portal
+          href: event-hubs-create.md
+        - name: Azure CLI
+          href: event-hubs-quickstart-cli.md
+        - name: Azure PowerShell
+          href: event-hubs-quickstart-powershell.md
+        - name: Azure Resource Manager şablonu
+          href: event-hubs-resource-manager-namespace-event-hub.md
+    - name: Olay gönderme ve alma
+      items:
+        - name: .NET Core
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: .NET Framework
+          href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Java
+          href: event-hubs-java-get-started-send.md
+        - name: Python
+          href: event-hubs-python-get-started-send.md
+        - name: Node.js
+          href: event-hubs-node-get-started-send.md
+        - name: Başlayın
+          href: event-hubs-go-get-started-send.md
+        - name: C (yalnızca gönderme)
+          href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm (yalnızca alma)
+          href: event-hubs-storm-getstarted-receive.md
+    - name: Olayları yakalama
+      items:
+        - name: Event Hubs Capture için Azure portalı kullanma
+          href: event-hubs-capture-enable-through-portal.md
+        - name: Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma
+          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+        - name: Python kullanarak Event Hubs verilerini yakalama
+          href: event-hubs-capture-python.md
+    - name: Apache Kafka için Event Hubs’da akış yapma
+      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Öğreticiler
   items:
-  - name: Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme
-    href: event-hubs-tutorial-visualize-anomalies.md
-  - name: Yakalanan verileri bir SQL Veri Ambarı’nda depolama
-    href: store-captured-data-data-warehouse.md
-  - name: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
-    href: ../azure-databricks/databricks-stream-from-eventhubs.md
-    maintainContext: true
-  - name: Event Hubs Ad Alanında Sanal Ağ Tümleştirmesi ve Güvenlik Duvarları
-    href: event-hubs-tutorial-virtual-networks-firewalls.md
-  - name: Apache Kafka için Event Hubs
-    items:
-    - name: Apache Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma
-      href: event-hubs-kafka-mirror-maker-tutorial.md
-    - name: Apache Spark'ı Apache Kafka özellikli bir olay hub'ına bağlama
-      href: event-hubs-kafka-spark-tutorial.md
-    - name: Apache Flink’i Apache Kafka özellikli bir olay hub'ına bağlama
-      href: event-hubs-kafka-flink-tutorial.md
-    - name: Apache Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme (Önizleme)
-      href: event-hubs-kafka-connect-tutorial.md
-    - name: Akka Streams’i Apache Kafka özellikli bir olay hub'ına bağlama
-      href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme
+      href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Yakalanan verileri bir SQL Veri Ambarı’nda depolama
+      href: store-captured-data-data-warehouse.md
+    - name: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
+      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      maintainContext: true
+    - name: Event Hubs Ad Alanında Sanal Ağ Tümleştirmesi ve Güvenlik Duvarları
+      href: event-hubs-tutorial-virtual-networks-firewalls.md
+    - name: Apache Kafka için Event Hubs
+      items:
+        - name: Apache Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Spark'ı Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-spark-tutorial.md
+        - name: Apache Flink’i Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Apache Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme (Önizleme)
+          href: event-hubs-kafka-connect-tutorial.md
+        - name: Akka Streams’i Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Örnekler
   href: event-hubs-samples.md
 - name: Kavramlar
   items:
-  - name: Event Hubs özellikleri
-    href: event-hubs-features.md
-  - name: Olay İşlemcisi Konağına genel bakış
-    href: event-hubs-event-processor-host.md
-  - name: Programlama kılavuzu
-    href: event-hubs-programming-guide.md
-  - name: Azure kaynakları için yönetilen kimlik
-    href: event-hubs-managed-service-identity.md
-  - name: Rol Tabanlı Erişim Denetimi (önizleme)
-    href: event-hubs-role-based-access-control.md
-  - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
-    href: event-hubs-geo-dr.md
-  - name: Kimlik doğrulama ve güvenlik modeline genel bakış
-    href: event-hubs-authentication-and-security-model-overview.md
-  - name: Kullanılabilirlik ve tutarlılık
-    href: event-hubs-availability-and-consistency.md
-  - name: AMQP 1.0 protokol kılavuzu
-    href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-    maintainContext: true
+    - name: Event Hubs özellikleri
+      href: event-hubs-features.md
+    - name: Olay İşlemcisi Konağına genel bakış
+      href: event-hubs-event-processor-host.md
+    - name: Programlama kılavuzu
+      href: event-hubs-programming-guide.md
+    - name: Azure kaynakları için yönetilen kimlik
+      href: event-hubs-managed-service-identity.md
+    - name: Rol Tabanlı Erişim Denetimi (önizleme)
+      href: event-hubs-role-based-access-control.md
+    - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
+      href: event-hubs-geo-dr.md
+    - name: Kimlik doğrulama ve güvenlik modeline genel bakış
+      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Kullanılabilirlik ve tutarlılık
+      href: event-hubs-availability-and-consistency.md
+    - name: AMQP 1.0 protokol kılavuzu
+      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+      maintainContext: true
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Python kullanarak olayları gönderme, alma ve yakalama
-    href: event-hubs-python.md
-  - name: Tanılama günlükleri ayarlama
-    href: event-hubs-diagnostic-logs.md
-  - name: Apache Kafka için Event Hubs
-    items:
-    - name: Apache Kafka özellikli Event Hubs oluşturma
-      href: event-hubs-create-kafka-enabled.md
-    - name: Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme
-      href: event-hubs-kafka-stream-analytics.md
-  - name: Yönetme
-    items:
-    - name: Azure İzleme ile Event Hubs’ı izleme
-      href: event-hubs-metrics-azure-monitor.md
-    - name: Event Hubs yönetim kitaplıkları
-      href: event-hubs-management-libraries.md
-  - name: Event Hubs bağlantı dizesini alma
-    href: event-hubs-get-connection-string.md
-  - name: Java geliştirme
-    items:
+    - name: 'Python kullanarak olayları gönderme, alma ve yakalama'
+      href: event-hubs-python.md
+    - name: Tanılama günlükleri ayarlama
+      href: event-hubs-diagnostic-logs.md
+    - name: Apache Kafka için Event Hubs
+      items:
+        - name: Apache Kafka özellikli Event Hubs oluşturma
+          href: event-hubs-create-kafka-enabled.md
+        - name: Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme
+          href: event-hubs-kafka-stream-analytics.md
+    - name: Yönetme
+      items:
+        - name: Azure İzleme ile Event Hubs’ı izleme
+          href: event-hubs-metrics-azure-monitor.md
+        - name: Event Hubs yönetim kitaplıkları
+          href: event-hubs-management-libraries.md
+    - name: Event Hubs bağlantı dizesini alma
+      href: event-hubs-get-connection-string.md
+    - name: Java geliştirme
+      items:
+        - name: Spring Cloud Stream Binder uygulaması oluşturma
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+        - name: Apache Kafka için Spring Önyükleme Başlatıcıyı kullanma
+          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+    - name: Sorun giderme
+      items:
+        - name: Özel durumlar
+          href: event-hubs-messaging-exceptions.md
+    - name: Güvenlik duvarlarını kullanma
+      href: event-hubs-ip-filtering.md
+    - name: Sanal ağ hizmeti uç noktalarını kullanma
+      href: event-hubs-service-endpoints.md
+    - name: İşleme birimlerini otomatik ölçeklendirme
+      href: event-hubs-auto-inflate.md
+    - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
+      href: event-hubs-streaming-azure-diags-data.md
+    - name: Farklı protokoller kullanan uygulamalar arasında olay alışverişi yapma
+      href: event-hubs-exchange-events-different-protocols.md
     - name: Spring Cloud Stream Binder uygulaması oluşturma
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-    - name: Apache Kafka için Spring Önyükleme Başlatıcıyı kullanma
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-  - name: Sorun giderme
-    items:
-    - name: Özel durumlar
-      href: event-hubs-messaging-exceptions.md
-  - name: Güvenlik duvarlarını kullanma
-    href: event-hubs-ip-filtering.md
-  - name: Sanal ağ hizmeti uç noktalarını kullanma
-    href: event-hubs-service-endpoints.md
-  - name: İşleme birimlerini otomatik ölçeklendirme
-    href: event-hubs-auto-inflate.md
-  - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
-    href: event-hubs-streaming-azure-diags-data.md
-  - name: Farklı protokoller kullanan uygulamalar arasında olay alışverişi yapma
-    href: event-hubs-exchange-events-different-protocols.md
-  - name: Spring Cloud Stream Binder uygulaması oluşturma
-    href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-    maintainContext: true
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
+      maintainContext: true
 - name: Başvuru
   items:
-  - name: Java
-    items:
-    - name: com.microsoft.azure.eventhubs
-      href: /java/api/com.microsoft.azure.eventhubs
-    - name: com.microsoft.azure.eventprocessorhost
-      href: /java/api/com.microsoft.azure.eventprocessorhost
-  - name: .NET
-    items:
-    - name: Microsoft.Azure.EventHubs
-      href: /dotnet/api/microsoft.azure.eventhubs
-    - name: Microsoft.Azure.EventHubs.Processor
-      href: /dotnet/api/microsoft.azure.eventhubs.processor
-    - name: Microsoft.ServiceBus.Messaging
-      href: /dotnet/api/microsoft.servicebus.messaging
-    - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-      href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-    - name: Microsoft.Azure.Management.EventHub
-      href: /dotnet/api/microsoft.azure.management.eventhub
-  - name: Node.js
-    href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
-  - name: REST
-    href: /rest/api/eventhub
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.eventhub/allversions
-  - name: Kotalar
-    href: event-hubs-quotas.md
+    - name: Java
+      items:
+        - name: com.microsoft.azure.eventhubs
+          href: /java/api/com.microsoft.azure.eventhubs
+        - name: com.microsoft.azure.eventprocessorhost
+          href: /java/api/com.microsoft.azure.eventprocessorhost
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.EventHubs
+          href: /dotnet/api/microsoft.azure.eventhubs
+        - name: Microsoft.Azure.EventHubs.Processor
+          href: /dotnet/api/microsoft.azure.eventhubs.processor
+        - name: Microsoft.ServiceBus.Messaging
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
+          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+        - name: Microsoft.Azure.Management.EventHub
+          href: /dotnet/api/microsoft.azure.management.eventhub
+    - name: Node.js
+      href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+    - name: REST
+      href: /rest/api/eventhub
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.eventhub/allversions
+    - name: Kotalar
+      href: event-hubs-quotas.md
 - name: Kaynaklar
   items:
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?products=azure-event-hubs
-  - name: SSS
-    href: event-hubs-faq.md
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/event-hubs/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=event-hubs
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-eventhub
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 76b72dfcd7db1e27be5a94af35da1e83f104e75e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681004"
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?products=azure-event-hubs
+    - name: SSS
+      href: event-hubs-faq.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=event-hubs'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-eventhub'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=event-hubs'

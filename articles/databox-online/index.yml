@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439133"
 documentType: LandingData
 title: Azure Data Box Belgeleri - Çevrimiçi Aktarım
 metadata:
   title: Azure Data Box Belgeleri - Çevrimiçi Aktarım
-  description: Azure’a hızlı, ucuz ve güvenilir bir şekilde ağ üzerinden yüksek performanslı veri aktarımı gerçekleştirmek için Data Box cihazlarını kullanın.
+  description: 'Azure’a hızlı, ucuz ve güvenilir bir şekilde ağ üzerinden yüksek performanslı veri aktarımı gerçekleştirmek için Data Box cihazlarını kullanın.'
   services: databox
   author: alkohli
   manager: twooley
@@ -19,27 +13,27 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway hizmetini seçin.  Azure’a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>
+  description: 'Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure''a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway hizmetini seçin.  Azure’a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>'
 sections:
-- title: Öğreticiler
-  items:
-  - type: paragraph
-    text: <b>Data Box Gateway için</b>
-  - type: list
-    style: ordered
+  - title: Öğreticiler
     items:
-    - html: <a href="data-box-gateway-deploy-prep">Azure Data Box Gateway'i dağıtmaya hazırlanma</a>
-    - html: <a href="data-box-gateway-deploy-provision-hyperv">Azure Data Box Gateway'i Hyper-V'de sağlama</a>
-    - html: <a href="data-box-gateway-deploy-provision-vmware">Azure Data Box Gateway'i VMware'de sağlama</a>
-    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Azure Data Box Gateway'i bağlama, kurma ve etkinleştirme</a>
-    - html: <a href="data-box-gateway-deploy-add-shares">Azure Data Box Gateway ile veri aktarma</a>
-  - type: paragraph
-    text: <b>Data Box Edge için</b>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="data-box-edge-deploy-prep">Azure Data Box Edge’i dağıtmaya hazırlanma</a>
-    - html: <a href="data-box-edge-deploy-install">Azure Data Box Edge’i yükleme</a>
-    - html: <a href="data-box-edge-deploy-connect-setup-activate">Azure Data Box Edge’i bağlama, kurma ve etkinleştirme</a>
-    - html: <a href="data-box-edge-deploy-add-shares">Azure Data Box Edge ile veri aktarma</a>
-    - html: <a href="data-box-edge-deploy-configure-compute">Azure Data Box Edge ile veri dönüştürme</a>
+      - type: paragraph
+        text: <b>Data Box Gateway için</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-gateway-deploy-prep">Azure Data Box Gateway'i dağıtmaya hazırlanma</a>
+          - html: <a href="data-box-gateway-deploy-provision-hyperv">Azure Data Box Gateway'i Hyper-V'de sağlama</a>
+          - html: <a href="data-box-gateway-deploy-provision-vmware">Azure Data Box Gateway'i VMware'de sağlama</a>
+          - html: '<a href="data-box-gateway-deploy-connect-setup-activate">Azure Data Box Gateway''i bağlama, kurma ve etkinleştirme</a>'
+          - html: <a href="data-box-gateway-deploy-add-shares">Azure Data Box Gateway ile veri aktarma</a>
+      - type: paragraph
+        text: <b>Data Box Edge için</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-edge-deploy-prep">Azure Data Box Edge’i dağıtmaya hazırlanma</a>
+          - html: <a href="data-box-edge-deploy-install">Azure Data Box Edge’i yükleme</a>
+          - html: '<a href="data-box-edge-deploy-connect-setup-activate">Azure Data Box Edge’i bağlama, kurma ve etkinleştirme</a>'
+          - html: <a href="data-box-edge-deploy-add-shares">Azure Data Box Edge ile veri aktarma</a>
+          - html: <a href="data-box-edge-deploy-configure-compute">Azure Data Box Edge ile veri dönüştürme</a>

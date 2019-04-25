@@ -1,111 +1,104 @@
-items:
 - name: Bing Video Arama API'si Belgeleri
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Bing Video Arama API'si nedir?
-    href: overview.md
-  - name: Bing Arama API'lerini karşılaştırma
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: Bing Video Arama API'si nedir?
+      href: overview.md
+    - name: Bing Arama API'lerini karşılaştırma
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: REST API Hızlı Başlangıçları
-  items:
-  - name: REST API
-    items:
-    - name: C# kullanma
-      href: quickstarts/csharp.md
-    - name: Java'yı kullanma
-      href: quickstarts/java.md
-    - name: Node.js'yi kullanma
-      href: quickstarts/nodejs.md
-    - name: PHP'yi kullanma
-      href: quickstarts/php.md
-    - name: Python’u kullanma
-      href: quickstarts/python.md
-    - name: Ruby'yi kullanma
-      href: quickstarts/ruby.md
-  - name: SDK
-    items:
-    - name: C# kullanma
-      href: quickstarts/sdk-csharp-quickstart.md
-    - name: Node.js'yi kullanma
-      href: quickstarts/sdk-node-quickstart.md
-    - name: Python’u kullanma
-      href: quickstarts/sdk-python-quickstart.md
-    - name: Java'yı kullanma
-      href: quickstarts/sdk-java-quickstart.md
   expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: 'C# kullanma'
+          href: quickstarts/csharp.md
+        - name: Java'yı kullanma
+          href: quickstarts/java.md
+        - name: Node.js'yi kullanma
+          href: quickstarts/nodejs.md
+        - name: PHP'yi kullanma
+          href: quickstarts/php.md
+        - name: Python’u kullanma
+          href: quickstarts/python.md
+        - name: Ruby'yi kullanma
+          href: quickstarts/ruby.md
+    - name: SDK
+      items:
+        - name: 'C# kullanma'
+          href: quickstarts/sdk-csharp-quickstart.md
+        - name: Node.js'yi kullanma
+          href: quickstarts/sdk-node-quickstart.md
+        - name: Python’u kullanma
+          href: quickstarts/sdk-python-quickstart.md
+        - name: Java'yı kullanma
+          href: quickstarts/sdk-java-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması oluşturma
-    href: tutorial-bing-video-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması oluşturma
+      href: tutorial-bing-video-search-single-page-app.md
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search'
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Video içgörüleri edinme
-    href: video-insights.md
-  - name: Popüler videoları alma
-    href: trending-videos.md
-  - name: Sayfa videoları
-    href: paging-videos.md
-  - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-    href: resize-and-crop-thumbnails.md
-  - name: v5’ten v7’ye yükseltme
-    href: bing-video-upgrade-guide-v5-to-v7.md
+    - name: Video içgörüleri edinme
+      href: video-insights.md
+    - name: Popüler videoları alma
+      href: trending-videos.md
+    - name: Sayfa videoları
+      href: paging-videos.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Kavramlar
   items:
-  - name: Web'den video alma
-    href: concepts/get-videos.md
-  - name: Arama isteği gönderme
-    href: concepts/sending-requests.md
+    - name: Web'den video alma
+      href: concepts/get-videos.md
+    - name: Arama isteği gönderme
+      href: concepts/sending-requests.md
 - name: Başvuru
   items:
-  - name: Bing Video Arama API’si v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
-  - name: Bing Video Arama API’si v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
-  - name: SDK’lar
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest
-    - name: Başlayın
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
-  - name: Kullanım ve görüntüleme gereksinimleri
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Video Arama API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+    - name: Bing Video Arama API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+    - name: SDK’lar
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest'
+        - name: Başlayın
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch'
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Kaynaklar
   items:
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911452-bing-video-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+video+search
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/
-  - name: Bilgi Bankası
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: API anahtarını alma
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
-  - name: Deneyin!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Bing Video Arama API'si Analizleri
-    href: bing-video-stats.md
-ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568044"
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911452-bing-video-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+video+search'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api'
+    - name: Deneyin!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
+    - name: Bing Video Arama API'si Analizleri
+      href: bing-video-stats.md

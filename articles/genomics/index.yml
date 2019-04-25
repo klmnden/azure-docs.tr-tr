@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3fa75710adacf71214c977465bcd696500c55e32
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733455"
 documentType: LandingData
 title: Microsoft Genomiks Belgeleri
 metadata:
@@ -20,14 +14,14 @@ metadata:
 abstract:
   description: Microsoft Genomiks’in Burrows-Wheeler Aligner (BWA) bulut uygulaması ve ikinci analiz için Genome Analysis Toolkit (GATK) kullanarak genom sıralamasını nasıl desteklediğini öğrenin.
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Microsoft Genomiks hizmeti üzerinden iş akışı gönderin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: media/index/helix-blue-orange.svg
-      text: İş akışı gönderme
-      href: quickstart-run-genomics-workflow-portal
+      - type: paragraph
+        text: Microsoft Genomiks hizmeti üzerinden iş akışı gönderin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/helix-blue-orange.svg
+            text: İş akışı gönderme
+            href: quickstart-run-genomics-workflow-portal

@@ -1,80 +1,73 @@
-items:
 - name: Azure Blockchain Workbench (genel önizleme)
   href: index.yml
 - name: Genel Bakış
-  items:
-  - name: Azure Blockchain Workbench Hakkında
-    href: overview.md
   expanded: true
+  items:
+    - name: Azure Blockchain Workbench Hakkında
+      href: overview.md
 - name: Öğreticiler
-  items:
-  - name: Blok zinciri uygulaması oluşturma
-    href: create-app.md
-  - name: Blok zinciri uygulamasını kullanma
-    href: use.md
   expanded: true
+  items:
+    - name: Blok zinciri uygulaması oluşturma
+      href: create-app.md
+    - name: Blok zinciri uygulamasını kullanma
+      href: use.md
 - name: Kavramlar
   items:
-  - name: Mimari
-    href: architecture.md
-  - name: Tümleştirme desenleri
-    href: integration-patterns.md
+    - name: Mimari
+      href: architecture.md
+    - name: Tümleştirme desenleri
+      href: integration-patterns.md
 - name: Nasıl yapılır kılavuzları
-  items:
-  - name: Workbench’i dağıtma
-    href: deploy.md
-  - name: Workbench kullanıcılarını yönetme
-    href: manage-users.md
-  - name: Sürüm oluşturma uygulamaları
-    href: version-app.md
-  - name: Workbench API’sini kullanma
-    href: use-api.md
-  - name: Sorun giderme uygulamaları
-    href: troubleshooting.md
-  - name: Workbench verilerini kullanma
-    items:
-    - name: Veritabanı güvenlik duvarını yapılandırma
-      href: database-firewall.md
-    - name: Veritabanı ayrıntılarını edinme
-      href: getdb-details.md
-    - name: Excel’de veri kullanma
-      href: data-excel.md
-    - name: Power BI’da veri kullanma
-      href: data-powerbi.md
-    - name: SQL Management Studio'da veri kullanma
-      href: data-sql-management-studio.md
   expanded: true
+  items:
+    - name: Workbench’i dağıtma
+      href: deploy.md
+    - name: Workbench kullanıcılarını yönetme
+      href: manage-users.md
+    - name: Sürüm oluşturma uygulamaları
+      href: version-app.md
+    - name: Workbench API’sini kullanma
+      href: use-api.md
+    - name: Sorun giderme uygulamaları
+      href: troubleshooting.md
+    - name: Workbench verilerini kullanma
+      items:
+        - name: Veritabanı güvenlik duvarını yapılandırma
+          href: database-firewall.md
+        - name: Veritabanı ayrıntılarını edinme
+          href: getdb-details.md
+        - name: Excel’de veri kullanma
+          href: data-excel.md
+        - name: Power BI’da veri kullanma
+          href: data-powerbi.md
+        - name: SQL Management Studio'da veri kullanma
+          href: data-sql-management-studio.md
 - name: Başvuru
   items:
-  - name: Yapılandırma
-    href: configuration.md
-  - name: Veritabanı görünümleri
-    href: database-views.md
-  - name: Mesajlaşma API’si
-    href: messages-overview.md
-  - name: REST API
-    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+    - name: Yapılandırma
+      href: configuration.md
+    - name: Veritabanı görünümleri
+      href: database-views.md
+    - name: Mesajlaşma API’si
+      href: messages-overview.md
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Kaynaklar
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/blockchain/
-  - name: Kod örnekleri
-    href: https://github.com/Azure-Samples/blockchain
-  - name: Topluluk
-    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Forum
-    href: https://aka.ms/workbenchforum
-  - name: Ürün geri bildirimi
-    href: https://aka.ms/blockchainuservoice
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Kod örnekleri
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Topluluk
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Forum
+      href: 'https://aka.ms/workbenchforum'
+    - name: Ürün geri bildirimi
+      href: 'https://aka.ms/blockchainuservoice'
 - name: Çözüm şablonları
   items:
-  - name: Ethereum Yetki Kanıtı konsorsiyumu
-    href: ../templates/ethereum-poa-deployment.md
-  - name: Hyperledger Fabric konsorsiyumu
-    href: ../templates/hyperledger-fabric-consortium-blockchain.md
-ms.openlocfilehash: b0426cc5dfbac62657ad172f5fa73586e6214601
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001931"
+    - name: Ethereum Yetki Kanıtı konsorsiyumu
+      href: ../templates/ethereum-poa-deployment.md
+    - name: Hyperledger Fabric konsorsiyumu
+      href: ../templates/hyperledger-fabric-consortium-blockchain.md

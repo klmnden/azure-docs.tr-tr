@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89376bf654a23b37e004a1b9b00e32a0c2ac3e2a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495081"
 documentType: LandingData
 title: Kapsayıcılar için Azure
 metadata:
-  document_id: 
-  title: Kapsayıcılar için Azure - Hızlı Başlangıçlar, Öğreticiler, API Başvurusu
-  description: Kapsayıcılar için hızlı başlangıçları, öğreticileri ve araçları kullanarak Azure ile kapsayıcı uygulamalarını yönetmeye ve dağıtmaya başlayın.
-  keywords: Azure, Kapsayıcılar, Docker, API, Kubernetes
+  document_id: null
+  title: 'Kapsayıcılar için Azure - Hızlı Başlangıçlar, Öğreticiler, API Başvurusu'
+  description: 'Kapsayıcılar için hızlı başlangıçları, öğreticileri ve araçları kullanarak Azure ile kapsayıcı uygulamalarını yönetmeye ve dağıtmaya başlayın.'
+  keywords: 'Azure, Kapsayıcılar, Docker, API, Kubernetes'
   author: dlepow
   ms.author: danlep
   manager: jeconnoc
@@ -19,68 +13,69 @@ metadata:
   ms.topic: article
   ms.prod: azure
   featureFlags:
-  - clicktale
+    - clicktale
   ms.technology: azure
   ms.devlang: multiple
   ms.service: multiple
 sections:
-- items:
-  - type: markdown
-    text: "Azure'ın kapsayıcılara yönelik araçları ve hizmetleriyle kapsayıcı uygulamalarını dağıtmaya ve yönetmeye başlayın. \n"
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Azure hizmetleriyle kapsayıcıları kullanmayı öğrenin.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: markdown
+        text: |
+          Azure'ın kapsayıcılara yönelik araçları ve hizmetleriyle kapsayıcı uygulamalarını dağıtmaya ve yönetmeye başlayın. 
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - href: ../aks/kubernetes-walkthrough.md
-      title: Azure Kubernetes Hizmeti (AKS) ile bir Kubernetes kümesi oluşturma
-      image:
-        src: /azure/media/index/ContainerService.svg
-    - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
-      title: Service Fabric ile Windows kapsayıcı uygulaması dağıtma
-      image:
-        src: /azure/media/index/Fabric.svg
-    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
-      title: Kapsayıcılar için Azure Web App ile kapsayıcılı uygulama oluşturma
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-    - href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-      title: Azure Container Registry’de özel bir Docker kayıt defteri oluşturma
-      image:
-        src: /azure/media/index/container-registry.svg
-    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      title: Azure Container Instances’ta isteğe bağlı kapsayıcı uygulaması çalıştırma
-      image:
-        src: /azure/media/index/containerinstances.svg
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Azure hizmetlerini kullanarak kapsayıcı uygulamalarını dağıtmayı, yönetmeyi ve güncelleştirmeyi öğrenin
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure hizmetleriyle kapsayıcıları kullanmayı öğrenin.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: ../aks/kubernetes-walkthrough.md
+            title: Azure Kubernetes Hizmeti (AKS) ile bir Kubernetes kümesi oluşturma
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Service Fabric ile Windows kapsayıcı uygulaması dağıtma
+            image:
+              src: /azure/media/index/Fabric.svg
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
+            title: Kapsayıcılar için Azure Web App ile kapsayıcılı uygulama oluşturma
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Azure Container Registry’de özel bir Docker kayıt defteri oluşturma
+            image:
+              src: /azure/media/index/container-registry.svg
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            title: Azure Container Instances’ta isteğe bağlı kapsayıcı uygulaması çalıştırma
+            image:
+              src: /azure/media/index/containerinstances.svg
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Kapsayıcı oluşturma ve Azure Kubernetes Service'e dağıtma</a>
-    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">.NET kapsayıcı uygulaması oluşturma ve Azure Service Fabric'e dağıtma</a>
-    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Kapsayıcılar için Web App uygulamasında çok kapsayıcılı uygulama oluşturma</a>
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Azure Container Registry Görevleri ile kapsayıcı görüntüsü oluşturma ve dağıtma</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Kapsayıcı oluşturma ve Azure Container Instances’a dağıtma</a>
-- title: Microsoft Learn ile becerilerinizi geliştirin
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Azure hizmetlerini kullanarak kapsayıcı uygulamalarını dağıtmayı, yönetmeyi ve güncelleştirmeyi öğrenin'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Kapsayıcı oluşturma ve Azure Kubernetes Service'e dağıtma</a>
+          - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">.NET kapsayıcı uygulaması oluşturma ve Azure Service Fabric'e dağıtma</a>
+          - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Kapsayıcılar için Web App uygulamasında çok kapsayıcılı uygulama oluşturma</a>
+          - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Azure Container Registry Görevleri ile kapsayıcı görüntüsü oluşturma ve dağıtma</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Kapsayıcı oluşturma ve Azure Container Instances’a dağıtma</a>
+  - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
-    - title: Azure Container Instances ile Docker kapsayıcılarını çalıştırma
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-        href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Azure Container Registry ile kapsayıcı görüntüsü oluşturma ve depolama
-      href: /learn/modules/build-and-store-container-images/
-      image:
-        src: /learn/achievements/build-and-store-container-images.svg
-        href: /learn/modules/build-and-store-container-images/
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Container Instances ile Docker kapsayıcılarını çalıştırma
+            href: /learn/modules/run-docker-with-azure-container-instances/
+            image:
+              src: /learn/achievements/run-docker-with-azure-container-instances.svg
+              href: /learn/modules/run-docker-with-azure-container-instances/
+          - title: Azure Container Registry ile kapsayıcı görüntüsü oluşturma ve depolama
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/

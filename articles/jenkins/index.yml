@@ -1,69 +1,63 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e94a667cb67e4812984d4a338e763ebeaa1d3205
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073229"
 documentType: LandingData
 title: Azure üzerinde Jenkins
 metadata:
-  title: Azure üzerinde Jenkins belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar
+  title: 'Azure üzerinde Jenkins belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar'
   description: Azure ile Jenkins dağıtma ve tümleştirme
   ms.service: jenkins
-  keywords: jenkins, azure, devops, öğreticiler, örnekler, başvuru
+  keywords: 'jenkins, azure, devops, öğreticiler, örnekler, başvuru'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/27/2018
 abstract:
-  description: Bulutta uygulama oluşturarak Azure’a dağıtmak için açık kaynak Jenkins sunucusunu kullanın. Hızlı başlangıçlar, öğreticiler ve örnek işlem hatları ile Azure üzerinde Jenkins’i yükleme, yapılandırma ve ölçeklendirme ile uygulamalarınız için sürekli tümleştirme (CI) ayarlamayı öğrenin.
+  description: 'Bulutta uygulama oluşturarak Azure’a dağıtmak için açık kaynak Jenkins sunucusunu kullanın. Hızlı başlangıçlar, öğreticiler ve örnek işlem hatları ile Azure üzerinde Jenkins’i yükleme, yapılandırma ve ölçeklendirme ile uygulamalarınız için sürekli tümleştirme (CI) ayarlamayı öğrenin.'
   aside:
     image:
       alt: Jenkins logosu
       height: 133
       width: 110
       src: media/Jenkins.png
-    title: 
+    title: null
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure’da bir Jenkins sistemi oluşturun ve bir uygulama oluşturun.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template'
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Uygulamalarınız için sürekli tümleştirme ayarlayın, bulutta aracıları çalıştırın ve işlerinizde Azure hizmetlerini kullanın.'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/jenkins/java-deploy-webapp-tutorial">Azure App Service</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> veya bir <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Linux VM</a> için CI ayarlayın.'
+          - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Bir işlem hattı işinde kaynakları sağlayın</a>.
+          - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Azure VM aracılarıyla ölçeklendirin</a>.
+  - title: Örnekler
+    items:
+      - type: paragraph
+        text: İşlem hatlarınız için örnek betik ve aşamalar.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile aşamaları ve kod parçacıkları</a>'
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Eklentiler
+            html: '<p><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Aracıları</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Depolama</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Kapsayıcı Aracıları</a><p><a href="https://plugins.jenkins.io/azure-function">Azure İşlev eklentisi</a><p><a href="https://plugins.jenkins.io/azure-acs">Azure Container Service eklentisi</a>'
   - type: paragraph
-    text: Azure’da bir Jenkins sistemi oluşturun ve bir uygulama oluşturun.
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Uygulamalarınız için sürekli tümleştirme ayarlayın, bulutta aracıları çalıştırın ve işlerinizde Azure hizmetlerini kullanın.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/jenkins/java-deploy-webapp-tutorial">Azure App Service</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> veya bir <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Linux VM</a> için CI ayarlayın.
-    - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Bir işlem hattı işinde kaynakları sağlayın</a>.
-    - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Azure VM aracılarıyla ölçeklendirin</a>.
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: İşlem hatlarınız için örnek betik ve aşamalar.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile aşamaları ve kod parçacıkları</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Eklentiler
-      html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Aracıları</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Depolama</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Kapsayıcı Aracıları</a><p><a href="https://plugins.jenkins.io/azure-function">Azure İşlev eklentisi</a><p><a href="https://plugins.jenkins.io/azure-acs">Azure Container Service eklentisi</a>
-- type: paragraph
-  text: <h4>Jenkins® Software in the Public Interest, Inc. şirketinin kayıtlı ticari markasıdır. [Jenkins® logosu](https://wiki.jenkins.io/display/JENKINS/Logo) [Jenkins projesinden](https://jenkins.io) [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) kapsamında lisanslanmıştır.</h4>
+    text: '<h4>Jenkins® Software in the Public Interest, Inc. şirketinin kayıtlı ticari markasıdır. [Jenkins® logosu](https://wiki.jenkins.io/display/JENKINS/Logo) [Jenkins projesinden](https://jenkins.io) [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) kapsamında lisanslanmıştır.</h4>'

@@ -1,288 +1,281 @@
-items:
 - name: Sanal Makine Ölçek Kümeleri Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Sanal makine ölçek kümeleri nedir?
-    href: overview.md
+    - name: Sanal makine ölçek kümeleri nedir?
+      href: overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Azure portalda oluşturma
-    href: quick-create-portal.md
-  - name: Azure CLI ile oluşturma
-    href: quick-create-cli.md
-  - name: Azure PowerShell ile oluşturma
-    href: quick-create-powershell.md
-  - name: Şablon ile oluşturma
-    items:
-    - name: Linux ölçek kümesi
-      href: quick-create-template-linux.md
-    - name: Windows ölçek kümesi
-      href: quick-create-template-windows.md
   expanded: true
+  items:
+    - name: Azure portalda oluşturma
+      href: quick-create-portal.md
+    - name: Azure CLI ile oluşturma
+      href: quick-create-cli.md
+    - name: Azure PowerShell ile oluşturma
+      href: quick-create-powershell.md
+    - name: Şablon ile oluşturma
+      items:
+        - name: Linux ölçek kümesi
+          href: quick-create-template-linux.md
+        - name: Windows ölçek kümesi
+          href: quick-create-template-windows.md
 - name: Öğreticiler
   items:
-  - name: 1 - Ölçek kümesi oluşturup yönetme
-    items:
-    - name: Azure CLI
-      href: tutorial-create-and-manage-cli.md
-    - name: Azure PowerShell
-      href: tutorial-create-and-manage-powershell.md
-  - name: 2 - Veri disklerini kullanma
-    items:
-    - name: Azure CLI
-      href: tutorial-use-disks-cli.md
-    - name: Azure PowerShell
-      href: tutorial-use-disks-powershell.md
-  - name: 3 - Özel VM görüntüsü kullanma
-    items:
-    - name: Azure CLI
-      href: tutorial-use-custom-image-cli.md
-    - name: Azure PowerShell
-      href: tutorial-use-custom-image-powershell.md
-  - name: 4 - Uygulamaları ölçek kümesine dağıtma
-    items:
-    - name: Azure CLI
-      href: tutorial-install-apps-cli.md
-    - name: Azure PowerShell
-      href: tutorial-install-apps-powershell.md
-    - name: Şablon
-      href: tutorial-install-apps-template.md
-  - name: 5 - Ölçek kümesini otomatik olarak ölçeklendirme
-    items:
-    - name: Azure CLI
-      href: tutorial-autoscale-cli.md
-    - name: Azure PowerShell
-      href: tutorial-autoscale-powershell.md
-    - name: Şablon
-      href: tutorial-autoscale-template.md
+    - name: 1 - Ölçek kümesi oluşturup yönetme
+      items:
+        - name: Azure CLI
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 - Veri disklerini kullanma
+      items:
+        - name: Azure CLI
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 - Özel VM görüntüsü kullanma
+      items:
+        - name: Azure CLI
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 - Uygulamaları ölçek kümesine dağıtma
+      items:
+        - name: Azure CLI
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Şablon
+          href: tutorial-install-apps-template.md
+    - name: 5 - Ölçek kümesini otomatik olarak ölçeklendirme
+      items:
+        - name: Azure CLI
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Şablon
+          href: tutorial-autoscale-template.md
 - name: Örnekler
   items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: PowerShell
-    href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
 - name: Kavramlar
   items:
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
-    maintainContext: true
-  - name: Bölgeler ve kullanılabilirlik
-    href: ../virtual-machines/windows/regions-and-availability.md
-    items:
-    - name: Ölçek kümelerinde hata etki alanlarını yönetme
-      href: virtual-machine-scale-sets-manage-fault-domains.md
-    maintainContext: true
-  - name: VM türleri ve boyutları
-    href: ../virtual-machines/windows/sizes.md
-    items:
-    - name: Genel amaçlı
-      href: ../virtual-machines/windows/sizes-general.md
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Bölgeler ve kullanılabilirlik
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
       items:
-      - name: B-series burstable
-        href: ../virtual-machines/windows/b-series-burstable.md
-        maintainContext: true
+        - name: Ölçek kümelerinde hata etki alanlarını yönetme
+          href: virtual-machine-scale-sets-manage-fault-domains.md
+    - name: VM türleri ve boyutları
+      href: ../virtual-machines/windows/sizes.md
       maintainContext: true
-    - name: İşlem için iyileştirilmiş
-      href: ../virtual-machines/windows/sizes-compute.md
-      maintainContext: true
-    - name: Bellek için iyileştirilmiş
-      href: ../virtual-machines/windows/sizes-memory.md
       items:
-      - name: Kısıtlanmış vCPU'lar
-        href: ../virtual-machines/windows/constrained-vcpu.md
-        maintainContext: true
+        - name: Genel amaçlı
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: B-series burstable
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: İşlem için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Bellek için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: Kısıtlanmış vCPU'lar
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Depolama için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: GPU için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: GPU sürücülerini kurma
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Yüksek performanslı işlem
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure işlem birimleri (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Kıyaslama puanları
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Doğrulanan Linux distro’ları
+      href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
-    - name: Depolama için iyileştirilmiş
-      href: ../virtual-machines/windows/sizes-storage.md
+    - name: Bakım ve güncelleştirmeler
+      href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
-    - name: GPU için iyileştirilmiş
-      href: ../virtual-machines/windows/sizes-gpu.md
+    - name: Disk depolama
       items:
-      - name: GPU sürücülerini kurma
-        href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true
+        - name: Yönetilen Diskler
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Disk türü seçme
+          href: ../virtual-machines/windows/disks-types.md
+          maintainContext: true
+        - name: Premium depolama performansı
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Diskler için ölçeklenebilirlik hedefleri
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Ağ
+      href: ../virtual-machines/windows/network-overview.md
       maintainContext: true
-    - name: Yüksek performanslı işlem
-      href: ../virtual-machines/windows/sizes-hpc.md
+    - name: Altyapı otomasyonu
+      href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Azure işlem birimleri (ACU)
-      href: ../virtual-machines/windows/acu.md
+    - name: Güvenlik ve ilke
+      href: ../virtual-machines/windows/security-policy.md
       maintainContext: true
-    - name: Kıyaslama puanları
-      href: ../virtual-machines/windows/compute-benchmark-scores.md
+    - name: İzleme
+      href: ../virtual-machines/windows/monitor.md
       maintainContext: true
-    maintainContext: true
-  - name: Doğrulanan Linux distro’ları
-    href: ../virtual-machines/linux/endorsed-distros.md
-    maintainContext: true
-  - name: Bakım ve güncelleştirmeler
-    href: ../virtual-machines/windows/maintenance-and-updates.md
-    maintainContext: true
-  - name: Disk depolama
-    items:
-    - name: Yönetilen Diskler
-      href: ../virtual-machines/windows/managed-disks-overview.md
-      maintainContext: true
-    - name: Disk türü seçme
-      href: ../virtual-machines/windows/disks-types.md
-      maintainContext: true
-    - name: Premium depolama performansı
-      href: ../virtual-machines/windows/premium-storage-performance.md
-      maintainContext: true
-    - name: Diskler için ölçeklenebilirlik hedefleri
-      href: ../virtual-machines/windows/disk-scalability-targets.md
-      maintainContext: true
-    - name: Diskler için yedekleme ve olağanüstü durum kurtarma
-      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
-      maintainContext: true
-  - name: Ağ
-    href: ../virtual-machines/windows/network-overview.md
-    maintainContext: true
-  - name: Altyapı otomasyonu
-    href: ../virtual-machines/windows/infrastructure-automation.md
-    maintainContext: true
-  - name: Güvenlik ve ilke
-    href: ../virtual-machines/windows/security-policy.md
-    maintainContext: true
-  - name: İzleme
-    href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: Dağıtma konuları
-    items:
-    - name: vCPU kotaları
-      href: ../virtual-machines/windows/quotas.md
-      maintainContext: true
+    - name: Dağıtma konuları
+      items:
+        - name: vCPU kotaları
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Nasıl yapılır
   items:
-  - name: Planlama ve tasarım
-    items:
-    - name: Tasarım konusunda dikkat edilmesi gerekenler
-      href: virtual-machine-scale-sets-design-overview.md
-    - name: Örnek kimlikleri anlama
-      href: virtual-machine-scale-sets-instance-ids.md
-  - name: Şablon oluşturma
-    items:
-    - name: Ölçek kümesi şablonları hakkında bilgi edinme
-      href: virtual-machine-scale-sets-mvss-start.md
-    - name: Mevcut bir sanal ağı kullanma
-      href: virtual-machine-scale-sets-mvss-existing-vnet.md
-    - name: Özel görüntü kullanma
-      href: virtual-machine-scale-sets-mvss-custom-image.md
-    - name: Bir Linux ölçek kümesi şablonuyla konuk tabanlı otomatik ölçeklendirme kullanma
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-  - name: Dağıtma
-    items:
-    - name: Visual Studio ile oluşturma
-      href: virtual-machine-scale-sets-vs-create.md
-    - name: Kullanılabilirlik Alanlarını kullanma
-      href: virtual-machine-scale-sets-use-availability-zones.md
-    - name: Ölçek kümesini otomatik olarak ölçeklendirme
-      href: virtual-machine-scale-sets-autoscale-overview.md
+    - name: Planlama ve tasarım
       items:
-      - name: Azure portalı kullanma
-        href: virtual-machine-scale-sets-autoscale-portal.md
-      - name: Gelişmiş otomatik ölçeklendirme
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
-    - name: Ölçek kümelerindeki uygulamalar
-      href: virtual-machine-scale-sets-deploy-app.md
-    - name: Ölçek kümelerindeki uzantılar
+        - name: Tasarım konusunda dikkat edilmesi gerekenler
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: Örnek kimlikleri anlama
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Şablon oluşturma
       items:
-      - name: Ölçek kümelerinde uzantı sıralama
-        href: virtual-machine-scale-sets-extension-sequencing.md
-      - name: Uygulama Durumu uzantısı
-        href: virtual-machine-scale-sets-health-extension.md
-    - name: Ölçek kümeleri ile veri diskleri kullanma
-      href: virtual-machine-scale-sets-attached-disks.md
-    - name: Ölçek kümelerinde diskleri şifreleme
+        - name: Ölçek kümesi şablonları hakkında bilgi edinme
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Mevcut bir sanal ağı kullanma
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Özel görüntü kullanma
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Bir Linux ölçek kümesi şablonuyla konuk tabanlı otomatik ölçeklendirme kullanma
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Dağıtma
       items:
-      - name: PowerShell kullanma
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
-      - name: Azure CLI kullanma
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
-    - name: Büyük ölçek kümeleriyle çalışma
-      href: virtual-machine-scale-sets-placement-groups.md
-    - name: Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Düşük önceliği kullanma
-      href: virtual-machine-scale-sets-use-low-priority.md
-  - name: Yönetme
-    items:
-    - name: Genel yönetim görevleri
+        - name: Visual Studio ile oluşturma
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Kullanılabilirlik Alanlarını kullanma
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Ölçek kümesini otomatik olarak ölçeklendirme
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Azure portalı kullanma
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Gelişmiş otomatik ölçeklendirme
+              href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        - name: Ölçek kümelerindeki uygulamalar
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Ölçek kümelerindeki uzantılar
+          items:
+            - name: Ölçek kümelerinde uzantı sıralama
+              href: virtual-machine-scale-sets-extension-sequencing.md
+            - name: Uygulama Durumu uzantısı
+              href: virtual-machine-scale-sets-health-extension.md
+        - name: Ölçek kümeleri ile veri diskleri kullanma
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Ölçek kümelerinde diskleri şifreleme
+          items:
+            - name: PowerShell kullanma
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Azure CLI kullanma
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Büyük ölçek kümeleriyle çalışma
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Düşük önceliği kullanma
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Yönetme
       items:
-      - name: Azure CLI kullanma
-        href: virtual-machine-scale-sets-manage-cli.md
-      - name: Azure PowerShell kullanma
-        href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Paylaşılan resim galerileri (önizleme)
-      href: shared-image-galleries.md
+        - name: Genel yönetim görevleri
+          items:
+            - name: Azure CLI kullanma
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Azure PowerShell kullanma
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Paylaşılan resim galerileri (önizleme)
+          href: shared-image-galleries.md
+          items:
+            - name: CLI
+              href: shared-images-cli.md
+            - name: PowerShell
+              href: shared-images-powershell.md
+            - name: Paylaşılan görüntü sorunlarını giderme
+              href: troubleshooting-shared-images.md
+        - name: Ölçek kümesinde dikey ölçeklendirme
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Otomatik işletim sistemi yükseltmeleri
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Ölçek kümesini değiştirme
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: DSC ve ölçek kümelerini kullanma
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Ölçek kümeleri için ağ oluşturma
+          href: virtual-machine-scale-sets-networking.md
+        - name: Bir şablonu yönetilen disklere dönüştürme
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Planlı bakım
+          href: virtual-machine-scale-sets-maintenance-notifications.md
+    - name: Ansible kullanma
       items:
-      - name: CLI
-        href: shared-images-cli.md
-      - name: PowerShell
-        href: shared-images-powershell.md
-      - name: Paylaşılan görüntü sorunlarını giderme
-        href: troubleshooting-shared-images.md
-    - name: Ölçek kümesinde dikey ölçeklendirme
-      href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-    - name: Otomatik işletim sistemi yükseltmeleri
-      href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Ölçek kümesini değiştirme
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
-    - name: DSC ve ölçek kümelerini kullanma
-      href: virtual-machine-scale-sets-dsc.md
-    - name: Ölçek kümeleri için ağ oluşturma
-      href: virtual-machine-scale-sets-networking.md
-    - name: Bir şablonu yönetilen disklere dönüştürme
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Planlı bakım
-      href: virtual-machine-scale-sets-maintenance-notifications.md
-  - name: Ansible kullanma
-    items:
-    - name: Ölçek kümelerini oluşturma ve yönetme
-      href: /azure/ansible/ansible-create-configure-vmss
-      maintainContext: true
-    - name: Uygulamaları ölçek kümelerine dağıtma
-      href: /azure/ansible/ansible-deploy-app-vmss
-      maintainContext: true
-    - name: Ölçek kümesini otomatik olarak ölçeklendirme
-      href: /azure/ansible/ansible-auto-scale-vmss
-      maintainContext: true
-  - name: Sorun giderme
-    items:
-    - name: Otomatik Ölçeklendirme
-      href: virtual-machine-scale-sets-troubleshoot.md
-  - name: SSS
-    items:
-    - name: Ölçek Kümesi hakkında SSS
-      href: virtual-machine-scale-sets-faq.md
+        - name: Ölçek kümelerini oluşturma ve yönetme
+          href: /azure/ansible/ansible-create-configure-vmss
+          maintainContext: true
+        - name: Uygulamaları ölçek kümelerine dağıtma
+          href: /azure/ansible/ansible-deploy-app-vmss
+          maintainContext: true
+        - name: Ölçek kümesini otomatik olarak ölçeklendirme
+          href: /azure/ansible/ansible-auto-scale-vmss
+          maintainContext: true
+    - name: Sorun giderme
+      items:
+        - name: Otomatik Ölçeklendirme
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: SSS
+      items:
+        - name: Ölçek Kümesi hakkında SSS
+          href: virtual-machine-scale-sets-faq.md
 - name: Başvuru
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: Azure CLI
-    href: ../virtual-machines/azure-cli-arm-commands.md
-  - name: REST
-    href: /rest/api/virtualmachinescalesets/
-  - name: Azure şablonları
-    href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Azure CLI
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+    - name: Azure şablonları
+      href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Fiyatlandırma
-    items:
-    - name: Linux
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: Windows
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 98945ec03fafe5789f580ba70d4b0ae922ad8c65
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666639"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Fiyatlandırma
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-vm-scale-set'

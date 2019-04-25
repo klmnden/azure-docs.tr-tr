@@ -1,309 +1,302 @@
-items:
 - name: İşlevler Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure İşlevleri hakkında
-    href: functions-overview.md
-  - name: Dayanıklı İşlevler
-    href: durable/durable-functions-overview.md
-  - name: Sunucusuz karşılaştırma
-    href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Azure İşlevleri hakkında
+      href: functions-overview.md
+    - name: Dayanıklı İşlevler
+      href: durable/durable-functions-overview.md
+    - name: Sunucusuz karşılaştırma
+      href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: İşlev oluşturma - Visual Studio
-    href: functions-create-your-first-function-visual-studio.md
-  - name: İşlev oluşturma - Visual Studio Code
-    href: functions-create-first-function-vs-code.md
-  - name: İşlev oluşturma - Java/Maven
-    href: functions-create-first-java-maven.md
-  - name: İşlev oluşturma - Python
-    href: functions-create-first-function-python.md
-  - name: İşlev oluşturma - Azure CLI
-    href: functions-create-first-azure-function-azure-cli.md
-  - name: İşlev oluşturma - Portal
-    href: functions-create-first-azure-function.md
-  - name: İşlev oluşturma - Linux
-    href: functions-create-first-azure-function-azure-cli-linux.md
-  - name: Tetikleyiciler
-    items:
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
-    - name: Blob depolama
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Kuyruk depolama
-      href: functions-create-storage-queue-triggered-function.md
-    - name: Zamanlayıcı
-      href: functions-create-scheduled-function.md
-  - name: Tümleştirme
-    items:
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
-    - name: Depolama
-      href: functions-integrate-storage-queue-output-binding.md
   expanded: true
+  items:
+    - name: İşlev oluşturma - Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: İşlev oluşturma - Visual Studio Code
+      href: functions-create-first-function-vs-code.md
+    - name: İşlev oluşturma - Java/Maven
+      href: functions-create-first-java-maven.md
+    - name: İşlev oluşturma - Python
+      href: functions-create-first-function-python.md
+    - name: İşlev oluşturma - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: İşlev oluşturma - Portal
+      href: functions-create-first-azure-function.md
+    - name: İşlev oluşturma - Linux
+      href: functions-create-first-azure-function-azure-cli-linux.md
+    - name: Tetikleyiciler
+      items:
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
+        - name: Blob depolama
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Kuyruk depolama
+          href: functions-create-storage-queue-triggered-function.md
+        - name: Zamanlayıcı
+          href: functions-create-scheduled-function.md
+    - name: Tümleştirme
+      items:
+        - name: Azure Cosmos DB
+          href: functions-integrate-store-unstructured-data-cosmosdb.md
+        - name: Depolama
+          href: functions-integrate-storage-queue-output-binding.md
 - name: Öğreticiler
   items:
-  - name: Logic Apps ile İşlevler
-    href: functions-twitter-email.md
-  - name: Sunucusuz API oluşturma
-    href: functions-create-serverless-api.md
-  - name: OpenAPI tanımı oluşturma
-    href: functions-openapi-definition.md
-  - name: Event Grid ile görüntüyü yeniden boyutlandırma
-    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Sunucusuz web uygulaması oluşturma
-    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
-  - name: Özel Linux görüntüsü oluşturma
-    href: functions-create-function-linux-custom-image.md
-  - name: IoT Edge cihazında işlevler
-    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Logic Apps ile İşlevler
+      href: functions-twitter-email.md
+    - name: Sunucusuz API oluşturma
+      href: functions-create-serverless-api.md
+    - name: OpenAPI tanımı oluşturma
+      href: functions-openapi-definition.md
+    - name: Event Grid ile görüntüyü yeniden boyutlandırma
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Sunucusuz web uygulaması oluşturma
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+    - name: Özel Linux görüntüsü oluşturma
+      href: functions-create-function-linux-custom-image.md
+    - name: IoT Edge cihazında işlevler
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Örnekler
   items:
-  - name: Kod örnekleri
-    href: https://azure.microsoft.com/resources/samples/?service=functions
-  - name: Azure CLI
-    href: functions-cli-samples.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=functions'
+    - name: Azure CLI
+      href: functions-cli-samples.md
 - name: Kavramlar
   items:
-  - name: 1.x ve 2.x sürümlerini karşılaştırma
-    displayName: migrate, migration
-    href: functions-versions.md
-  - name: Premium planı
-    href: functions-premium-plan.md
-  - name: Ölçeklendirme ve barındırma
-    href: functions-scale.md
-  - name: Tetikleyiciler ve bağlamalar
-    items:
-    - name: Tetikleyiciler ve bağlamalar hakkında
-      href: functions-triggers-bindings.md
-    - name: Bağlama örneği
-      href: functions-bindings-example.md
-    - name: Bağlama uzantılarını kaydetme
-      href: functions-bindings-register.md
-    - name: Bağlama ifadesi desenleri
-      href: functions-bindings-expressions-patterns.md
-    - name: Bağlama dönüş değerlerini kullanma
-      href: functions-bindings-return-value.md
-    - name: Bağlama hatalarını işleme
-      href: functions-bindings-errors.md
-  - name: Diller
-    items:
-    - name: Desteklenen diller
-      href: supported-languages.md
-    - name: C# (sınıf kitaplığı)
-      href: functions-dotnet-class-library.md
-    - name: C# betiği (.csx)
-      href: functions-reference-csharp.md
-    - name: F#
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
-    - name: Java
-      href: functions-reference-java.md
-    - name: Python
-      href: functions-reference-python.md
-  - name: Tanılama
-    href: ../app-service/overview-diagnostics.md
-  - name: Performansla ilgili önemli noktalar
-    href: functions-best-practices.md
-  - name: İşlevler Proxy’leri
-    href: functions-proxies.md
-  - name: Ağ seçenekleri
-    href: functions-networking-options.md
-  - name: IP adresleri
-    href: ip-addresses.md
-  - name: Şirket içi işlevler
-    href: functions-runtime-overview.md
+    - name: 1.x ve 2.x sürümlerini karşılaştırma
+      href: functions-versions.md
+      displayName: 'migrate, migration'
+    - name: Premium planı
+      href: functions-premium-plan.md
+    - name: Ölçeklendirme ve barındırma
+      href: functions-scale.md
+    - name: Tetikleyiciler ve bağlamalar
+      items:
+        - name: Tetikleyiciler ve bağlamalar hakkında
+          href: functions-triggers-bindings.md
+        - name: Bağlama örneği
+          href: functions-bindings-example.md
+        - name: Bağlama uzantılarını kaydetme
+          href: functions-bindings-register.md
+        - name: Bağlama ifadesi desenleri
+          href: functions-bindings-expressions-patterns.md
+        - name: Bağlama dönüş değerlerini kullanma
+          href: functions-bindings-return-value.md
+        - name: Bağlama hatalarını işleme
+          href: functions-bindings-errors.md
+    - name: Diller
+      items:
+        - name: Desteklenen diller
+          href: supported-languages.md
+        - name: 'C# (sınıf kitaplığı)'
+          href: functions-dotnet-class-library.md
+        - name: 'C# betiği (.csx)'
+          href: functions-reference-csharp.md
+        - name: 'F#'
+          href: functions-reference-fsharp.md
+        - name: JavaScript
+          href: functions-reference-node.md
+        - name: Java
+          href: functions-reference-java.md
+        - name: Python
+          href: functions-reference-python.md
+    - name: Tanılama
+      href: ../app-service/overview-diagnostics.md
+    - name: Performansla ilgili önemli noktalar
+      href: functions-best-practices.md
+    - name: İşlevler Proxy’leri
+      href: functions-proxies.md
+    - name: Ağ seçenekleri
+      href: functions-networking-options.md
+    - name: IP adresleri
+      href: ip-addresses.md
+    - name: Şirket içi işlevler
+      href: functions-runtime-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Geliştirme
-    items:
-    - name: Geliştirici kılavuzu
-      href: functions-reference.md
-    - name: İşlevleri test etme
-      href: functions-test-a-function.md
-    - name: Yerel olarak geliştirme ve hata ayıklama
-      href: functions-develop-local.md
-    - name: Visual Studio geliştirme
-      href: functions-develop-vs.md
-    - name: Çekirdek Araçlar geliştirme
-      href: functions-run-local.md
-    - name: IntelliJ IDEA geliştirme
-      href: functions-create-maven-intellij.md
-    - name: Eclipse geliştirme
-      href: functions-create-maven-eclipse.md
-    - name: Linux işlev uygulaması oluşturma
-      href: create-function-app-linux-app-service-plan.md
-    - name: Bağlantıları yönetme
-      href: manage-connections.md
-    - name: Hata işleme
-      href: functions-bindings-error-pages.md
-    - name: HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma
-      href: functions-manually-run-non-http.md
-    - name: Event Grid tetikleyicisinde yerel olarak hata ayıklama
-      href: functions-debug-event-grid-trigger-local.md
-    - name: Öğrenciler için Azure Başlangıç
-      href: functions-create-student-starter.md
-  - name: Dağıtma
-    items:
-    - name: Sürekli dağıtım
-      href: functions-continuous-deployment.md
-    - name: Zip dağıtma
-      href: deployment-zip-push.md
-    - name: Paketten çalıştırma
-      href: run-functions-from-deployment-package.md
-    - name: Kaynak dağıtımını otomatikleştirme
-      href: functions-infrastructure-as-code.md
-    - name: Şirket içi işlevler
-      href: functions-runtime-install.md
-    - name: Jenkins eklentisini kullanarak dağıtma
-      href: /azure/jenkins/jenkins-azure-functions-deploy
-      maintainContext: true
-  - name: Yapılandırma
-    items:
-    - name: İşlev uygulaması yönetme
-      href: functions-how-to-use-azure-function-app-settings.md
-    - name: Çalıştırma sürümünü ayarlama
-      href: set-runtime-version.md
-    - name: Uzantıyı el ile kaydetme
-      href: install-update-binding-extensions-manual.md
-    - name: İşlevi devre dışı bırakma
-      href: disable-function.md
-  - name: İzleme
-    href: functions-monitoring.md
-  - name: Güvenlik
-    items:
-    - name: SSL sertifikası satın alma
-      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Kullanıcıların kimliklerini doğrulama
+    - name: Geliştirme
       items:
-      - name: Azure AD ile kimlik doğrulaması
-        href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Facebook ile kimlik doğrulaması
-        href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Google ile kimlik doğrulaması
-        href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Microsoft hesabıyla kimlik doğrulaması
-        href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Twitter ile kimlik doğrulaması
-        href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Gelişmiş kimlik doğrulaması
-      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: IP kısıtlama
-      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Yönetilen kimlik kullanma
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Key Vault'tan gizli dizilere başvurma
-      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Tümleştirme
-    items:
-    - name: SQL Veritabanı’na bağlanma
-      href: functions-scenario-database-table-cleanup.md
-    - name: Sanal Ağa bağlanma
-      href: functions-create-vnet.md
-    - name: Open API 2.0 tanımı oluşturma
-      href: functions-api-definition-getting-started.md
-    - name: PowerApps ve Microsoft Flow’a dışarı aktarma
-      href: app-service-export-api-to-powerapps-and-flow.md
-    - name: PowerApps’ten bir işlev çağırma
-      href: functions-powerapps-scenario.md
-    - name: Microsoft Flow’dan işlev çağırma
-      href: functions-flow-scenario.md
-    - name: Yönetilen kimlik kullanma
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Sorun giderme
-    items:
-    - name: Depolama sorunlarını giderme
-      href: functions-recover-storage-account.md
+        - name: Geliştirici kılavuzu
+          href: functions-reference.md
+        - name: İşlevleri test etme
+          href: functions-test-a-function.md
+        - name: Yerel olarak geliştirme ve hata ayıklama
+          href: functions-develop-local.md
+        - name: Visual Studio geliştirme
+          href: functions-develop-vs.md
+        - name: Çekirdek Araçlar geliştirme
+          href: functions-run-local.md
+        - name: IntelliJ IDEA geliştirme
+          href: functions-create-maven-intellij.md
+        - name: Eclipse geliştirme
+          href: functions-create-maven-eclipse.md
+        - name: Linux işlev uygulaması oluşturma
+          href: create-function-app-linux-app-service-plan.md
+        - name: Bağlantıları yönetme
+          href: manage-connections.md
+        - name: Hata işleme
+          href: functions-bindings-error-pages.md
+        - name: HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma
+          href: functions-manually-run-non-http.md
+        - name: Event Grid tetikleyicisinde yerel olarak hata ayıklama
+          href: functions-debug-event-grid-trigger-local.md
+        - name: Öğrenciler için Azure Başlangıç
+          href: functions-create-student-starter.md
+    - name: Dağıtma
+      items:
+        - name: Sürekli dağıtım
+          href: functions-continuous-deployment.md
+        - name: Zip dağıtma
+          href: deployment-zip-push.md
+        - name: Paketten çalıştırma
+          href: run-functions-from-deployment-package.md
+        - name: Kaynak dağıtımını otomatikleştirme
+          href: functions-infrastructure-as-code.md
+        - name: Şirket içi işlevler
+          href: functions-runtime-install.md
+        - name: Jenkins eklentisini kullanarak dağıtma
+          href: /azure/jenkins/jenkins-azure-functions-deploy
+          maintainContext: true
+    - name: Yapılandırma
+      items:
+        - name: İşlev uygulaması yönetme
+          href: functions-how-to-use-azure-function-app-settings.md
+        - name: Çalıştırma sürümünü ayarlama
+          href: set-runtime-version.md
+        - name: Uzantıyı el ile kaydetme
+          href: install-update-binding-extensions-manual.md
+        - name: İşlevi devre dışı bırakma
+          href: disable-function.md
+    - name: İzleme
+      href: functions-monitoring.md
+    - name: Güvenlik
+      items:
+        - name: SSL sertifikası satın alma
+          href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Kullanıcıların kimliklerini doğrulama
+          items:
+            - name: Azure AD ile kimlik doğrulaması
+              href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Facebook ile kimlik doğrulaması
+              href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Google ile kimlik doğrulaması
+              href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Microsoft hesabıyla kimlik doğrulaması
+              href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Twitter ile kimlik doğrulaması
+              href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Gelişmiş kimlik doğrulaması
+          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: IP kısıtlama
+          href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Yönetilen kimlik kullanma
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Key Vault'tan gizli dizilere başvurma
+          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Tümleştirme
+      items:
+        - name: SQL Veritabanı’na bağlanma
+          href: functions-scenario-database-table-cleanup.md
+        - name: Sanal Ağa bağlanma
+          href: functions-create-vnet.md
+        - name: Open API 2.0 tanımı oluşturma
+          href: functions-api-definition-getting-started.md
+        - name: PowerApps ve Microsoft Flow’a dışarı aktarma
+          href: app-service-export-api-to-powerapps-and-flow.md
+        - name: PowerApps’ten bir işlev çağırma
+          href: functions-powerapps-scenario.md
+        - name: Microsoft Flow’dan işlev çağırma
+          href: functions-flow-scenario.md
+        - name: Yönetilen kimlik kullanma
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Sorun giderme
+      items:
+        - name: Depolama sorunlarını giderme
+          href: functions-recover-storage-account.md
 - name: Başvuru
   items:
-  - name: API başvuruları
-    items:
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
-  - name: Uygulama ayarları başvurusu
-    href: functions-app-settings.md
-  - name: Bağlamalar
-    items:
-    - name: Blob depolama
-      href: functions-bindings-storage-blob.md
-    - name: Azure Cosmos DB
+    - name: API başvuruları
       items:
-      - name: İşlevler 1.x
-        href: functions-bindings-cosmosdb.md
-      - name: İşlevler 2.x
-        href: functions-bindings-cosmosdb-v2.md
-    - name: Event Grid
-      href: functions-bindings-event-grid.md
-    - name: Event Hubs
-      href: functions-bindings-event-hubs.md
-    - name: IoT Hub
-      href: functions-bindings-event-iot.md
-    - name: HTTP ve web kancaları
-      href: functions-bindings-http-webhook.md
-    - name: Microsoft Graph
-      href: functions-bindings-microsoft-graph.md
-    - name: Mobile Apps
-      href: functions-bindings-mobile-apps.md
-    - name: Notification Hubs
-      href: functions-bindings-notification-hubs.md
-    - name: Kuyruk depolama
-      href: functions-bindings-storage-queue.md
-    - name: SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Service Bus
-      href: functions-bindings-service-bus.md
-    - name: SignalR Service
-      href: functions-bindings-signalr-service.md
-    - name: Table Storage
-      href: functions-bindings-storage-table.md
-    - name: Zamanlayıcı
-      href: functions-bindings-timer.md
-    - name: Twilio
-      href: functions-bindings-twilio.md
-  - name: host.json başvurusu
-    href: functions-host-json.md
-    items:
-    - name: İşlevler 2.x
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
+    - name: Uygulama ayarları başvurusu
+      href: functions-app-settings.md
+    - name: Bağlamalar
+      items:
+        - name: Blob depolama
+          href: functions-bindings-storage-blob.md
+        - name: Azure Cosmos DB
+          items:
+            - name: İşlevler 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: İşlevler 2.x
+              href: functions-bindings-cosmosdb-v2.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
+        - name: Event Hubs
+          href: functions-bindings-event-hubs.md
+        - name: IoT Hub
+          href: functions-bindings-event-iot.md
+        - name: HTTP ve web kancaları
+          href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
+        - name: Mobile Apps
+          href: functions-bindings-mobile-apps.md
+        - name: Notification Hubs
+          href: functions-bindings-notification-hubs.md
+        - name: Kuyruk depolama
+          href: functions-bindings-storage-queue.md
+        - name: SendGrid
+          href: functions-bindings-sendgrid.md
+        - name: Service Bus
+          href: functions-bindings-service-bus.md
+        - name: SignalR Service
+          href: functions-bindings-signalr-service.md
+        - name: Table Storage
+          href: functions-bindings-storage-table.md
+        - name: Zamanlayıcı
+          href: functions-bindings-timer.md
+        - name: Twilio
+          href: functions-bindings-twilio.md
+    - name: host.json başvurusu
       href: functions-host-json.md
-    - name: İşlevler 1.x
-      href: functions-host-json-v1.md
-  - name: Ağ iletişimi hakkında SSS
-    href: functions-networking-faq.md
-  - name: OpenAPI başvurusu
-    href: functions-api-definition.md
+      items:
+        - name: İşlevler 2.x
+          href: functions-host-json.md
+        - name: İşlevler 1.x
+          href: functions-host-json-v1.md
+    - name: Ağ iletişimi hakkında SSS
+      href: functions-networking-faq.md
+    - name: OpenAPI başvurusu
+      href: functions-api-definition.md
 - name: Kaynaklar
   items:
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?products=azure-functions
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/functions/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Videolar
-    href: https://www.youtube.com/c/AzureFunctions
-  - name: MSDN forumu
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/azurefunctions
-  - name: Ürün geri bildirimi sağlama
-    href: https://feedback.azure.com/forums/355860-azure-functions
-  - name: Azure İşlevleri GitHub deposu
-    href: https://github.com/Azure/Azure-Functions/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: b8f86a7da1e083e222c20c49af4f66add8790cda
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564951"
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?products=azure-functions
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videolar
+      href: 'https://www.youtube.com/c/AzureFunctions'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-functions'
+    - name: Twitter
+      href: 'https://twitter.com/azurefunctions'
+    - name: Ürün geri bildirimi sağlama
+      href: 'https://feedback.azure.com/forums/355860-azure-functions'
+    - name: Azure İşlevleri GitHub deposu
+      href: 'https://github.com/Azure/Azure-Functions/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=functions&updatetype=&platform='

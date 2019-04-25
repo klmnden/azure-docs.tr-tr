@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199878"
 documentType: LandingData
 title: Azure Search Belgeleri
 metadata:
-  document_id: 
-  title: Azure Search Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları
-  description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir.
+  document_id: null
+  title: 'Azure Search Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları'
+  description: 'Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir.'
   services: search
   author: HeidiSteen
   manager: cgronlun
@@ -20,55 +14,55 @@ metadata:
   ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Yeni bilişsel arama önizlemesi.</b></a> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynakları ve örnek verileri</a> kullanarak bilişsel aramayı keşfedin veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
+  description: 'Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Yeni bilişsel arama önizlemesi.</b></a> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynakları ve örnek verileri</a> kullanarak bilişsel aramayı keşfedin veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: Azure Search nedir? (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: 'Azure Search nedir? (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Portalda bir Arama hizmetiyle başlayın, ardından C# veya REST’te sorgu dizinlerini tanımlayıp yükleyin.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Azure portal
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: .NET veya REST’te kod yazın veya hızlı kavram testi için portalı deneyin.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Portalda bir Arama hizmetiyle başlayın, ardından C# veya REST’te sorgu dizinlerini tanımlayıp yükleyin.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Azure portal
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI (Bilişsel Hizmetler) ile dizin</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET ile Azure Search kullanma</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
-    - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>
-    - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: .NET veya REST’te kod yazın veya hızlı kavram testi için portalı deneyin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI (Bilişsel Hizmetler) ile dizin</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET ile Azure Search kullanma</a>
+          - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
+          - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>
+          - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
+  - title: Başvuru
     items:
-    - title: Diller
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Yönetim)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Yönetim)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">Hizmet API Başvurusu</a></p><p><a href="/rest/api/searchmanagement">API Başvurusunu Yönetme</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Diller
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Yönetim)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Yönetim)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">Hizmet API Başvurusu</a></p><p><a href="/rest/api/searchmanagement">API Başvurusunu Yönetme</a></p>

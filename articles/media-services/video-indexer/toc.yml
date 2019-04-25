@@ -1,97 +1,90 @@
-items:
 - name: Video Indexer Belgeleri
   href: ./index.yml
 - name: Genel Bakış
   items:
-  - name: Video Indexer nedir?
-    href: video-indexer-overview.md
+    - name: Video Indexer nedir?
+      href: video-indexer-overview.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: başlarken
-    href: video-indexer-get-started.md
   expanded: true
+  items:
+    - name: başlarken
+      href: video-indexer-get-started.md
 - name: Öğreticiler
   items:
-  - name: Video Indexer API'sini kullanma
-    href: video-indexer-use-apis.md
+    - name: Video Indexer API'sini kullanma
+      href: video-indexer-use-apis.md
 - name: Kavramlar
   href: video-indexer-concepts.md
   items:
-  - name: Video Indexer ile Media Services ön ayarlarını karşılaştırma
-    href: compare-video-indexer-with-media-services-presets.md
-  - name: Birden çok kiracıyı yönetme
-    href: manage-multiple-tenants.md
-  - name: İçerik modellerini özelleştirme
-    items:
-    - name: Markalar
-      href: customize-brands-model-overview.md
-    - name: Dil
-      href: customize-language-model-overview.md
-    - name: Kişi
-      href: customize-person-model-overview.md
+    - name: Video Indexer ile Media Services ön ayarlarını karşılaştırma
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: Birden çok kiracıyı yönetme
+      href: manage-multiple-tenants.md
+    - name: İçerik modellerini özelleştirme
+      items:
+        - name: Markalar
+          href: customize-brands-model-overview.md
+        - name: Dil
+          href: customize-language-model-overview.md
+        - name: Kişi
+          href: customize-person-model-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure'a Bağlanma
-    href: connect-to-azure.md
-  - name: Azure’a bağlı hesabı yönetme
-    href: manage-account-connected-to-azure.md
-  - name: Videoları karşıya yüklemek ve dizine almak için API kullanma
-    href: upload-index-videos.md
-  - name: Video Indexer çıkışını inceleme
-    href: video-indexer-output-json-v2.md
-  - name: Videoların içinde belirli anları bulma
-    href: video-indexer-search.md
-  - name: Sahneler, çekimler, ana kareler
-    href: scenes-shots-keyframes.md
-  - name: Video Indexer içgörülerini görüntüleme ve düzenleme
-    href: video-indexer-view-edit.md
-  - name: Proje oluşturmak için düzenleyici kullanma
-    href: use-editor-create-project.md
-  - name: Mevcut videolardan video içgörüleri oluşturma
-    href: video-indexer-create-new.md
-  - name: Uygulamanıza pencere öğeleri ekleme
-    href: video-indexer-embed-widgets.md
-  - name: İçerik modellerini özelleştirme
-    items:
-    - name: Kişi
+    - name: Azure'a Bağlanma
+      href: connect-to-azure.md
+    - name: Azure’a bağlı hesabı yönetme
+      href: manage-account-connected-to-azure.md
+    - name: Videoları karşıya yüklemek ve dizine almak için API kullanma
+      href: upload-index-videos.md
+    - name: Video Indexer çıkışını inceleme
+      href: video-indexer-output-json-v2.md
+    - name: Videoların içinde belirli anları bulma
+      href: video-indexer-search.md
+    - name: 'Sahneler, çekimler, ana kareler'
+      href: scenes-shots-keyframes.md
+    - name: Video Indexer içgörülerini görüntüleme ve düzenleme
+      href: video-indexer-view-edit.md
+    - name: Proje oluşturmak için düzenleyici kullanma
+      href: use-editor-create-project.md
+    - name: Mevcut videolardan video içgörüleri oluşturma
+      href: video-indexer-create-new.md
+    - name: Uygulamanıza pencere öğeleri ekleme
+      href: video-indexer-embed-widgets.md
+    - name: İçerik modellerini özelleştirme
       items:
-      - name: Video Indexer web sitesini kullanma
-        href: customize-person-model-with-website.md
-      - name: Video Indexer API'sini kullanma
-        href: customize-person-model-with-api.md
-    - name: Markalar
-      items:
-      - name: Video Indexer web sitesini kullanma
-        href: customize-brands-model-with-website.md
-      - name: Video Indexer API'sini kullanma
-        href: customize-brands-model-with-api.md
-    - name: Dil
-      items:
-      - name: Video Indexer web sitesini kullanma
-        href: customize-language-model-with-website.md
-      - name: Video Indexer API'sini kullanma
-        href: customize-language-model-with-api.md
+        - name: Kişi
+          items:
+            - name: Video Indexer web sitesini kullanma
+              href: customize-person-model-with-website.md
+            - name: Video Indexer API'sini kullanma
+              href: customize-person-model-with-api.md
+        - name: Markalar
+          items:
+            - name: Video Indexer web sitesini kullanma
+              href: customize-brands-model-with-website.md
+            - name: Video Indexer API'sini kullanma
+              href: customize-brands-model-with-api.md
+        - name: Dil
+          items:
+            - name: Video Indexer web sitesini kullanma
+              href: customize-language-model-with-website.md
+            - name: Video Indexer API'sini kullanma
+              href: customize-language-model-with-api.md
 - name: Başvuru
   items:
-  - name: Video Indexer API'si
-    href: https://api-portal.videoindexer.ai/
+    - name: Video Indexer API'si
+      href: 'https://api-portal.videoindexer.ai/'
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
-  - name: Bölgeler
-    href: regions.md
-  - name: SSS
-    href: faq.md
-  - name: Uyumluluk
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793345"
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Bölgeler
+      href: regions.md
+    - name: SSS
+      href: faq.md
+    - name: Uyumluluk
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'

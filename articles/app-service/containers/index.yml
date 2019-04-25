@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8b10892a087572f2e66a73539827601410e9aca2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155057"
 documentType: LandingData
 title: Linux’ta App Service Hakkında Belgeler
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: Kapsayıcılar için Azure Web Apps Belgeleri - Öğreticiler, API Başvurusu
+  title: 'Kapsayıcılar için Azure Web Apps Belgeleri - Öğreticiler, API Başvurusu'
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -21,106 +15,106 @@ metadata:
   ms.date: 09/05/2017
   ms.author: cfowler
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
-      text: .NET Core
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
-      text: Node.js
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
-      text: PHP
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-php
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
-      text: Java
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java
-    - image:
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
-      text: Python
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_ruby.svg
-      text: Ruby
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: Docker
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
-  - type: paragraph
-    text: 'Sürekli dağıtım yapmayı öğrenin:'
-  - type: list
-    style: icon48
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
+            text: .NET Core
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg'
+            text: Node.js
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg'
+            text: PHP
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-php'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
+            text: Java
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-java'
+          - image:
+              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg'
+            text: Python
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-python'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_ruby.svg'
+            text: Ruby
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Docker
+            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
+      - type: paragraph
+        text: 'Sürekli dağıtım yapmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/zip.svg
+            text: ZIP/WAR
+            href: ../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: ../media/index/ftp.svg
+            text: FTP
+            href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: ../media/index/git-icon.svg
+            text: Yerel Git
+            href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg'
+            text: Azure DevOps
+            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
+          - image:
+              src: ../media/index/github-octicons.svg
+            text: GitHub
+            href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: ../media/index/bitbucket.svg
+            text: Bitbucket
+            href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: ../media/index/dropbox.svg
+            text: DropBox eşitleme
+            href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+          - image:
+              src: ../media/index/onedrive.svg
+            text: OneDrive eşitleme
+            href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - title: Adım Adım Öğreticiler
     items:
-    - image:
-        src: ../media/index/zip.svg
-      text: ZIP/WAR
-      href: ../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: ../media/index/ftp.svg
-      text: FTP
-      href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: ../media/index/git-icon.svg
-      text: Yerel Git
-      href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: Azure DevOps
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-    - image:
-        src: ../media/index/github-octicons.svg
-      text: GitHub
-      href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: ../media/index/bitbucket.svg
-      text: Bitbucket
-      href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: ../media/index/dropbox.svg
-      text: DropBox eşitleme
-      href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - image:
-        src: ../media/index/onedrive.svg
-      text: OneDrive eşitleme
-      href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Linux’ta App Service’te güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Linux’ta App Service’te güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB ile .NET Core</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">PostgreSQL ile Java Enterprise</a> veya <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma'
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme</a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
+          - html: <a href="/azure/cdn/cdn-add-to-web-app">Uygulamanıza CDN ekleme</a>
+  - title: Örnekler
     items:
-    - html: <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB ile .NET Core</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">PostgreSQL ile Java Enterprise</a> veya <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
-    - html: <a href="/azure/cdn/cdn-add-to-web-app">Uygulamanıza CDN ekleme</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Genel görevleri yönetmeye yönelik betikleri bulun.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Genel görevleri yönetmeye yönelik betikleri bulun.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+          - html: <a href="/cli/azure/appservice">Azure CLI</a>
+  - title: Başvuru
     items:
-    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Komut Satırı
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
-    - title: Diller
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/appservice">REST API başvurusu</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+          - title: Diller
+            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/appservice">REST API başvurusu</a></p>

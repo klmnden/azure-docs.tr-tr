@@ -1,87 +1,80 @@
-items:
 - name: Kapsayıcılar için Azure
   href: index.yml
   items:
-  - name: Kubernetes Hizmeti (AKS)
-    href: https://docs.microsoft.com/azure/aks/
-    items:
-    - name: AKS’ye giriş
-      href: ../aks/intro-kubernetes.md
-    - name: Hızlı Başlangıç - AKS kümesi dağıtma
-      href: ../aks/kubernetes-walkthrough.md
-    expanded: true
-  - name: Kapsayıcı Örnekleri (ACI)
-    href: https://docs.microsoft.com/azure/container-instances/
-    items:
-    - name: Hızlı Başlangıç - Kapsayıcı örneği oluşturma
-      href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-    - name: Öğretici - Kapsayıcı oluşturma ve dağıtma
+    - name: Kubernetes Hizmeti (AKS)
+      href: 'https://docs.microsoft.com/azure/aks/'
+      expanded: true
       items:
-      - name: 1 - Kapsayıcı görüntüsü oluşturma
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app
-      - name: 2 - Kapsayıcı kayıt defteri oluşturma
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr
-      - name: 3 - Uygulama dağıtma
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app
-  - name: Container Registry (ACR)
-    href: https://docs.microsoft.com/azure/container-registry/
-    items:
-    - name: Hızlı Başlangıç - Kayıt defteri oluşturma
-      href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-    - name: Öğretici - Kapsayıcı görüntüleri oluşturma
+        - name: AKS’ye giriş
+          href: ../aks/intro-kubernetes.md
+        - name: Hızlı Başlangıç - AKS kümesi dağıtma
+          href: ../aks/kubernetes-walkthrough.md
+    - name: Kapsayıcı Örnekleri (ACI)
+      href: 'https://docs.microsoft.com/azure/container-instances/'
       items:
-      - name: 1 - Azure’da görüntü oluşturma
-        href: ../container-registry/container-registry-tutorial-quick-task.md
-      - name: 2 - Görüntü oluşturmayı otomatikleştirme
-        href: ../container-registry/container-registry-tutorial-build-task.md
-      - name: 3 - Temel görüntü güncelleştirme derlemeleri
-        href: ../container-registry/container-registry-tutorial-base-image-update.md
-  - name: Kapsayıcılar için Web App
-    href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
-    items:
-    - name: Kapsayıcılar için Azure Web App’e yönelik özel Docker görüntüsü kullanma
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
-    - name: Öğretici - Çok kapsayıcılı uygulama
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
-  - name: Service Fabric
-    href: https://docs.microsoft.com/azure/service-fabric/
-    items:
-    - name: Genel Bakış - Service Fabric ve kapsayıcılar
-      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview
-    - name: Nasıl yapılır
+        - name: Hızlı Başlangıç - Kapsayıcı örneği oluşturma
+          href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+        - name: Öğretici - Kapsayıcı oluşturma ve dağıtma
+          items:
+            - name: 1 - Kapsayıcı görüntüsü oluşturma
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app'
+            - name: 2 - Kapsayıcı kayıt defteri oluşturma
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr'
+            - name: 3 - Uygulama dağıtma
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app'
+    - name: Container Registry (ACR)
+      href: 'https://docs.microsoft.com/azure/container-registry/'
       items:
-      - name: Windows’da kapsayıcı uygulaması oluşturma
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers
-      - name: Linux’ta kapsayıcı uygulaması oluşturma
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux
-      - name: Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container
-  - name: Windows Kapsayıcıları
-    href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
-    items:
-    - name: Hızlı Başlangıç - Windows Server’da Windows Kapsayıcıları
-      href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
-    - name: Windows Kapsayıcıları hakkında
-      href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
-  - name: Başvuru
-    items:
-    - name: Azure Container Instances (az container)
-      href: https://docs.microsoft.com/cli/azure/container
-    - name: Azure Container Service (az acs)
-      href: https://docs.microsoft.com/cli/azure/acs
-    - name: Azure Container Registry (az acr)
-      href: https://docs.microsoft.com/cli/azure/acr
-    - name: Kapsayıcılar için Web App (az appservice)
-      href: https://docs.microsoft.com/cli/azure/appservice
-    - name: Azure App Service Web Apps (az webapp)
-      href: https://docs.microsoft.com/cli/azure/webapp
-    - name: Azure Service Fabric (az sf)
-      href: https://docs.microsoft.com/cli/azure/sf
-    - name: Azure Sanal Makineler (az vm)
-      href: https://docs.microsoft.com/cli/azure/vm
-ms.openlocfilehash: 9ee48a00784c0ca9fa00507e2956e34e7e6792d5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486240"
+        - name: Hızlı Başlangıç - Kayıt defteri oluşturma
+          href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+        - name: Öğretici - Kapsayıcı görüntüleri oluşturma
+          items:
+            - name: 1 - Azure’da görüntü oluşturma
+              href: ../container-registry/container-registry-tutorial-quick-task.md
+            - name: 2 - Görüntü oluşturmayı otomatikleştirme
+              href: ../container-registry/container-registry-tutorial-build-task.md
+            - name: 3 - Temel görüntü güncelleştirme derlemeleri
+              href: ../container-registry/container-registry-tutorial-base-image-update.md
+    - name: Kapsayıcılar için Web App
+      href: 'https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro'
+      items:
+        - name: Kapsayıcılar için Azure Web App’e yönelik özel Docker görüntüsü kullanma
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image'
+        - name: Öğretici - Çok kapsayıcılı uygulama
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app'
+    - name: Service Fabric
+      href: 'https://docs.microsoft.com/azure/service-fabric/'
+      items:
+        - name: Genel Bakış - Service Fabric ve kapsayıcılar
+          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
+        - name: Nasıl yapılır
+          items:
+            - name: Windows’da kapsayıcı uygulaması oluşturma
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Linux’ta kapsayıcı uygulaması oluşturma
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
+    - name: Windows Kapsayıcıları
+      href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
+      items:
+        - name: Hızlı Başlangıç - Windows Server’da Windows Kapsayıcıları
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
+        - name: Windows Kapsayıcıları hakkında
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
+    - name: Başvuru
+      items:
+        - name: Azure Container Instances (az container)
+          href: 'https://docs.microsoft.com/cli/azure/container'
+        - name: Azure Container Service (az acs)
+          href: 'https://docs.microsoft.com/cli/azure/acs'
+        - name: Azure Container Registry (az acr)
+          href: 'https://docs.microsoft.com/cli/azure/acr'
+        - name: Kapsayıcılar için Web App (az appservice)
+          href: 'https://docs.microsoft.com/cli/azure/appservice'
+        - name: Azure App Service Web Apps (az webapp)
+          href: 'https://docs.microsoft.com/cli/azure/webapp'
+        - name: Azure Service Fabric (az sf)
+          href: 'https://docs.microsoft.com/cli/azure/sf'
+        - name: Azure Sanal Makineler (az vm)
+          href: 'https://docs.microsoft.com/cli/azure/vm'
