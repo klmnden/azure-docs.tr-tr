@@ -82,7 +82,7 @@ Bekleyen verilerin şifrelenmesi destek bazı veriler depolanır. Bu veri depola
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 Azure SQL veri ambarı'nda saydam veri şifrelemesi (TDE), kötü amaçlı etkinlik tehditlerine karşı gerçek zamanlı şifreleme ve şifre çözme, bekleyen veri gerçekleştirerek koruma yardımcı olur. Bu davranış, istemci için saydamdır. Daha fazla bilgi için [güvenli bir veritabanında SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 Azure SQL veritabanı saydam veri şifrelemesi (TDE) yardımcı olan kötü amaçlı etkinlik tehditlerine karşı gerçek zamanlı şifreleme ve şifre çözme verileri uygulamada değişiklik gerektirmeden gerçekleştirerek koruma da destekler. Bu davranış, istemci için saydamdır. Daha fazla bilgi için [SQL veritabanı ve veri ambarı için saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store

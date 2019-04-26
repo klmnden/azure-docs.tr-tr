@@ -1,6 +1,6 @@
 ---
-title: İstenen durum yapılandırması ile sanal makine ölçekleme kümeleri kullanarak | Microsoft Docs
-description: Sanal makine ölçek kullanarak Azure DSC uzantısı ile ayarlar
+title: Desired State Configuration sanal makine ölçek kümeleri ile kullanma | Microsoft Docs
+description: Sanal makine ölçek kümeleri ile Azure DSC uzantısı
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zjalexander
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: a68a5f31952d636c054b66dc0bb6ec0579cd7192
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 24a37d352413ff9ac55ce8e189691988383950f3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204001"
 ---
-# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Sanal makine ölçek kullanarak Azure DSC uzantısı ile ayarlar
-[Sanal makine ölçek kümeleri](virtual-machine-scale-sets-overview.md) ile kullanılan [Azure istenen durum yapılandırması (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısı işleyici. Sanal makine ölçek kümeleri dağıtmak ve çok sayıda sanal makineleri yönetmek için bir yol sağlayın ve Özellikler esnek yük yanıtta ölçeğini. DSC Vm'leri üretim yazılımı çalıştıran şekilde çevrimiçine bunlar yapılandırmak için kullanılır.
+# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Sanal makine ölçek kümeleri ile Azure DSC uzantısı
+[Sanal makine ölçek kümeleri](virtual-machine-scale-sets-overview.md) kullanılabilir [Azure Desired State Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısı işleyicisi. Sanal makine ölçek kümeleri dağıtmak ve çok sayıda sanal makineleri yönetmek için bir yol sağlar ve giriş ve çıkış yanıt olarak yüklenecek şekilde ölçeklendirebilir. DSC Vm'leri için üretim yazılımı çalıştıran çevrimiçine bunlar yapılandırmak için kullanılır.
 
 ## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Sanal makineler ve sanal makine ölçek kümeleri dağıtma arasındaki farklar
-Şablon yapılarını bir sanal makine ölçek kümesi için tek bir VM'den biraz farklıdır. Özellikle, tek bir VM uzantıları "virtualMachines" düğümünde dağıtır. DSC şablona burada eklenir "uzantılarla" türünde bir giriş olduğundan
+Şablon temelindeki bir sanal makine ölçek kümesi için tek bir VM'den biraz farklıdır. Özellikle, tek bir VM uzantılarını "virtualMachines" düğümünün altında dağıtır. DSC şablona nereden eklenir "uzantıları" türünde bir giriş olan
 
 ```
 "resources": [
@@ -66,7 +66,7 @@ ms.locfileid: "30909012"
       ]
 ```
 
-Bir sanal makine ölçek kümesi düğümü "VirtualMachineProfile", "extensionProfile" özniteliği "Özellikler" bölümle sahiptir. DSC "Uzantılar altında" eklenir
+Bir "Özellikler" bölümüne "VirtualMachineProfile", "extensionProfile" özniteliği ile bir sanal makine ölçek kümesi düğümü vardır. DSC "uzantıları" altında eklenir
 
 ```
 "extensionProfile": {
@@ -97,15 +97,15 @@ Bir sanal makine ölçek kümesi düğümü "VirtualMachineProfile", "extensionP
             ]
 ```
 
-## <a name="behavior-for-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi için davranış
-Bir sanal makine ölçek kümesi için davranış davranışı, tek bir VM için aynıdır. Yeni VM oluşturulduğunda, DSC uzantısı ile otomatik olarak sağlanır. WMF daha yeni bir sürümü uzantısı tarafından gerekirse, VM çevrimiçine girmeden önce yeniden başlatır. Çevrimiçi olduktan sonra DSC yapılandırma .zip indirir ve VM sağlayın. Daha fazla ayrıntı bulunabilir [Azure DSC uzantısı genel bakış](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="behavior-for-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi için davranışı
+Bir sanal makine ölçek kümesi için davranışı davranış tek bir VM için aynıdır. Yeni bir VM oluşturulduğunda DSC uzantısı ile otomatik olarak sağlanır. WMF daha yeni bir sürümü uzantısı tarafından gerekiyorsa çevrimiçine önce VM'yi yeniden başlatır. Çevrimiçi olduktan sonra DSC yapılandırması .zip indirir ve VM sağlama. Daha fazla ayrıntı bulunabilir [Azure DSC uzantısına genel bakış](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İncelemek [DSC uzantısı için Azure Resource Manager şablonu](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+İnceleme [DSC uzantısı için Azure Resource Manager şablonu](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Bilgi nasıl [DSC uzantısı kimlik bilgileri güvenli bir şekilde işler](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Bilgi nasıl [DSC uzantısı kimlik bilgilerini güvenli bir şekilde işler](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Azure DSC uzantısı işleyici hakkında daha fazla bilgi için bkz: [Azure istenen durum yapılandırması uzantısı işleyici giriş](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Azure DSC uzantısı işleyicisine hakkında daha fazla bilgi için bkz. [Azure Desired State Configuration uzantısı işleyicisi giriş](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-PowerShell DSC hakkında daha fazla bilgi için [PowerShell Belge Merkezi ziyaret](https://msdn.microsoft.com/powershell/dsc/overview). 
+PowerShell DSC hakkında daha fazla bilgi için [PowerShell belge merkezini ziyaret edin](https://msdn.microsoft.com/powershell/dsc/overview). 
 

@@ -1,254 +1,247 @@
-items:
 - name: Service Bus Mesajlaşma Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Service Bus Mesajlaşması nedir?
-    href: service-bus-messaging-overview.md
-  - name: Mesajlaşma hizmetlerini karşılaştırma
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
+    - name: Service Bus Mesajlaşması nedir?
+      href: service-bus-messaging-overview.md
+    - name: Mesajlaşma hizmetlerini karşılaştırma
+      href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: Service Bus kuyrukları
-    items:
-    - name: Service Bus kuyruğu oluşturma
+    - name: Service Bus kuyrukları
       items:
-      - name: Azure portal
-        href: service-bus-quickstart-portal.md
-      - name: Azure PowerShell
-        href: service-bus-quickstart-powershell.md
-      - name: Azure CLI
-        href: service-bus-quickstart-cli.md
-    - name: İleti alma ve gönderme
+        - name: Service Bus kuyruğu oluşturma
+          items:
+            - name: Azure portal
+              href: service-bus-quickstart-portal.md
+            - name: Azure PowerShell
+              href: service-bus-quickstart-powershell.md
+            - name: Azure CLI
+              href: service-bus-quickstart-cli.md
+        - name: İleti alma ve gönderme
+          items:
+            - name: .NET
+              href: service-bus-dotnet-get-started-with-queues.md
+            - name: Java
+              href: service-bus-java-how-to-use-queues.md
+            - name: Node.js
+              href: service-bus-nodejs-how-to-use-queues.md
+            - name: PHP
+              href: service-bus-php-how-to-use-queues.md
+            - name: Python
+              href: service-bus-python-how-to-use-queues.md
+            - name: Ruby
+              href: service-bus-ruby-how-to-use-queues.md
+    - name: Services Bus konu başlıkları ve abonelikler
       items:
-      - name: .NET
-        href: service-bus-dotnet-get-started-with-queues.md
-      - name: Java
-        href: service-bus-java-how-to-use-queues.md
-      - name: Node.js
-        href: service-bus-nodejs-how-to-use-queues.md
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
-      - name: Python
-        href: service-bus-python-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
-  - name: Services Bus konu başlıkları ve abonelikler
-    items:
-    - name: Konu başlıklarını ve abonelikleri oluşturma
-      href: service-bus-quickstart-topics-subscriptions-portal.md
-    - name: İleti yayımlama ve iletilere abone olma
-      items:
-      - name: .NET
-        href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-      - name: Java
-        href: service-bus-java-how-to-use-topics-subscriptions.md
-      - name: Node.js
-        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Python
-        href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
+        - name: Konu başlıklarını ve abonelikleri oluşturma
+          href: service-bus-quickstart-topics-subscriptions-portal.md
+        - name: İleti yayımlama ve iletilere abone olma
+          items:
+            - name: .NET
+              href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+            - name: Java
+              href: service-bus-java-how-to-use-topics-subscriptions.md
+            - name: Node.js
+              href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+            - name: PHP
+              href: service-bus-php-how-to-use-topics-subscriptions.md
+            - name: Python
+              href: service-bus-python-how-to-use-topics-subscriptions.md
+            - name: Ruby
+              href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Öğreticiler
   items:
-  - name: Envanteri güncelleştirme - PowerShell
-    href: service-bus-tutorial-topics-subscriptions-powershell.md
-  - name: Envanteri güncelleştirme - Portal
-    href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: Envanteri güncelleştirme - CLI
-    href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Envanteri güncelleştirme - PowerShell
+      href: service-bus-tutorial-topics-subscriptions-powershell.md
+    - name: Envanteri güncelleştirme - Portal
+      href: service-bus-tutorial-topics-subscriptions-portal.md
+    - name: Envanteri güncelleştirme - CLI
+      href: service-bus-tutorial-topics-subscriptions-cli.md
 - name: Örnekler
   items:
-  - name: Service Bus örnekleri
-    href: service-bus-samples.md
+    - name: Service Bus örnekleri
+      href: service-bus-samples.md
 - name: Kavramlar
   items:
-  - name: Azure kaynakları için yönetilen kimlikler
-    href: service-bus-managed-service-identity.md
-  - name: Rol Tabanlı Erişim Denetimi (önizleme)
-    href: service-bus-role-based-access-control.md
-  - name: Premium mesajlaşma
-    href: service-bus-premium-messaging.md
-  - name: Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırın
-    href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-  - name: Performansı iyileştirme
-    href: service-bus-performance-improvements.md
-  - name: Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma
-    href: service-bus-geo-dr.md
-  - name: Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik
-    href: service-bus-async-messaging.md
-  - name: Kesintileri ve olağanüstü durumları yönetme
-    href: service-bus-outages-disasters.md
+    - name: Azure kaynakları için yönetilen kimlikler
+      href: service-bus-managed-service-identity.md
+    - name: Rol Tabanlı Erişim Denetimi (önizleme)
+      href: service-bus-role-based-access-control.md
+    - name: Premium mesajlaşma
+      href: service-bus-premium-messaging.md
+    - name: Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırın
+      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: Performansı iyileştirme
+      href: service-bus-performance-improvements.md
+    - name: Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma
+      href: service-bus-geo-dr.md
+    - name: Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik
+      href: service-bus-async-messaging.md
+    - name: Kesintileri ve olağanüstü durumları yönetme
+      href: service-bus-outages-disasters.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Ad alanı oluşturma
-    href: service-bus-create-namespace-portal.md
-  - name: Geliştirme
-    items:
-    - name: İleti işleme
+    - name: Ad alanı oluşturma
+      href: service-bus-create-namespace-portal.md
+    - name: Geliştirme
       items:
-      - name: Kuyruklar, konu başlıkları ve abonelikler
-        href: service-bus-queues-topics-subscriptions.md
-      - name: İletiler, yükler ve serileştirme
-        href: service-bus-messages-payloads.md
-      - name: İleti aktarımları, kilitler ve kapatma
-        href: message-transfers-locks-settlement.md
-      - name: İleti sıralama ve zaman damgaları
-        href: message-sequencing.md
-      - name: İleti süre sonu (Yaşam Süresi)
-        href: message-expiration.md
-      - name: Azure Event Grid kullanarak ileti işleme
-        href: service-bus-to-event-grid-integration-concept.md
-      - name: Azure Event Grid örnekleri
-        href: service-bus-to-event-grid-integration-example.md
-    - name: Kimlik doğrulama ve yetkilendirme
-      href: service-bus-authentication-and-authorization.md
+        - name: İleti işleme
+          items:
+            - name: 'Kuyruklar, konu başlıkları ve abonelikler'
+              href: service-bus-queues-topics-subscriptions.md
+            - name: 'İletiler, yükler ve serileştirme'
+              href: service-bus-messages-payloads.md
+            - name: 'İleti aktarımları, kilitler ve kapatma'
+              href: message-transfers-locks-settlement.md
+            - name: İleti sıralama ve zaman damgaları
+              href: message-sequencing.md
+            - name: İleti süre sonu (Yaşam Süresi)
+              href: message-expiration.md
+            - name: Azure Event Grid kullanarak ileti işleme
+              href: service-bus-to-event-grid-integration-concept.md
+            - name: Azure Event Grid örnekleri
+              href: service-bus-to-event-grid-integration-example.md
+        - name: Kimlik doğrulama ve yetkilendirme
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: ACS’den SAS’ye geçiş
+              href: service-bus-migrate-acs-sas.md
+            - name: Paylaşılan Erişim İmzaları ile kimlik doğrulaması
+              href: service-bus-sas.md
+        - name: Konu başlığı filtreleri ve eylemleri
+          href: topic-filters.md
+        - name: Standart’tan Premium ad alanlarına geçirme
+          href: service-bus-migrate-standard-premium.md
+        - name: Bölümlenmiş kuyruklar ve konular
+          href: service-bus-partitioning.md
+        - name: İleti oturumları
+          href: message-sessions.md
+        - name: AMQP
+          items:
+            - name: AMQP’ye genel bakış
+              href: service-bus-amqp-overview.md
+            - name: .NET
+              href: service-bus-amqp-dotnet.md
+            - name: Java İleti Hizmeti ve AMQP
+              href: service-bus-java-how-to-use-jms-api-amqp.md
+            - name: AMQP protokol kılavuzu
+              href: service-bus-amqp-protocol-guide.md
+            - name: AMQP istek-yanıt tabanlı işlemler
+              href: service-bus-amqp-request-response.md
+            - name: AMQP hataları
+              href: service-bus-amqp-troubleshoot.md
+        - name: Gelişmiş özellikler
+          items:
+            - name: Güvenlik duvarlarını kullanma
+              href: service-bus-ip-filtering.md
+            - name: Sanal Ağ hizmet uç noktaları
+              href: service-bus-service-endpoints.md
+            - name: Teslim edilemeyen iletiler sırası
+              href: service-bus-dead-letter-queues.md
+            - name: İletileri önceden getirme
+              href: service-bus-prefetch.md
+            - name: Yinelenen iletileri algılama
+              href: duplicate-detection.md
+            - name: İleti sayaçları
+              href: message-counters.md
+            - name: İleti erteleme
+              href: message-deferral.md
+            - name: İletilere göz atma
+              href: message-browsing.md
+            - name: Otomatik yönlendirme ile varlıklar arasında zincir oluşturma
+              href: service-bus-auto-forwarding.md
+            - name: İşlem gerçekleştirme
+              href: service-bus-transactions.md
+        - name: Uçtan uca izleme ve tanılama
+          href: service-bus-end-to-end-tracing.md
+        - name: Çok katmanlı Service Bus uygulaması derleme
+          href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Yönetme
       items:
-      - name: ACS’den SAS’ye geçiş
-        href: service-bus-migrate-acs-sas.md
-      - name: Paylaşılan Erişim İmzaları ile kimlik doğrulaması
-        href: service-bus-sas.md
-    - name: Konu başlığı filtreleri ve eylemleri
-      href: topic-filters.md
-    - name: Standart’tan Premium ad alanlarına geçirme
-      href: service-bus-migrate-standard-premium.md
-    - name: Bölümlenmiş kuyruklar ve konular
-      href: service-bus-partitioning.md
-    - name: İleti oturumları
-      href: message-sessions.md
-    - name: AMQP
+        - name: Varlıkları sağlamak için Azure PowerShell kullanma
+          href: service-bus-manage-with-ps.md
+        - name: Azure İzleyici ile Service Bus’ı izleme
+          href: service-bus-metrics-azure-monitor.md
+        - name: Service Bus yönetim kitaplıkları
+          href: service-bus-management-libraries.md
+        - name: Tanılama günlükleri
+          href: service-bus-diagnostic-logs.md
+        - name: Mesajlaşma varlıklarını askıya alma ve yeniden etkinleştirme
+          href: entity-suspend.md
+        - name: Azure Resource Manager şablonlarını kullanma
+          href: service-bus-resource-manager-overview.md
+          items:
+            - name: Ad alanı oluşturma
+              href: service-bus-resource-manager-namespace.md
+            - name: Ad alanı ve kuyruk oluşturma
+              href: service-bus-resource-manager-namespace-queue.md
+            - name: Konusu ve aboneliği olan bir ad alanı oluşturma
+              href: service-bus-resource-manager-namespace-topic.md
+            - name: Ad alanı ve kuyruğa yönelik bir yetkilendirme kuralı oluşturma
+              href: service-bus-resource-manager-namespace-auth-rule.md
+            - name: 'Konusu, aboneliği ve kuralı olan bir ad alanı oluşturma'
+              href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Sorun giderme
       items:
-      - name: AMQP’ye genel bakış
-        href: service-bus-amqp-overview.md
-      - name: .NET
-        href: service-bus-amqp-dotnet.md
-      - name: Java İleti Hizmeti ve AMQP
-        href: service-bus-java-how-to-use-jms-api-amqp.md
-      - name: AMQP protokol kılavuzu
-        href: service-bus-amqp-protocol-guide.md
-      - name: AMQP istek-yanıt tabanlı işlemler
-        href: service-bus-amqp-request-response.md
-      - name: AMQP hataları
-        href: service-bus-amqp-troubleshoot.md
-    - name: Gelişmiş özellikler
-      items:
-      - name: Güvenlik duvarlarını kullanma
-        href: service-bus-ip-filtering.md
-      - name: Sanal Ağ hizmeti uç noktaları
-        href: service-bus-service-endpoints.md
-      - name: Teslim edilemeyen iletiler sırası
-        href: service-bus-dead-letter-queues.md
-      - name: İletileri önceden getirme
-        href: service-bus-prefetch.md
-      - name: Yinelenen iletileri algılama
-        href: duplicate-detection.md
-      - name: İleti sayaçları
-        href: message-counters.md
-      - name: İleti erteleme
-        href: message-deferral.md
-      - name: İletilere göz atma
-        href: message-browsing.md
-      - name: Otomatik yönlendirme ile varlıklar arasında zincir oluşturma
-        href: service-bus-auto-forwarding.md
-      - name: İşlem gerçekleştirme
-        href: service-bus-transactions.md
-    - name: Uçtan uca izleme ve tanılama
-      href: service-bus-end-to-end-tracing.md
-    - name: Çok katmanlı Service Bus uygulaması derleme
-      href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-  - name: Yönetme
-    items:
-    - name: Varlıkları sağlamak için Azure PowerShell kullanma
-      href: service-bus-manage-with-ps.md
-    - name: Azure İzleyici ile Service Bus’ı izleme
-      href: service-bus-metrics-azure-monitor.md
-    - name: Service Bus yönetim kitaplıkları
-      href: service-bus-management-libraries.md
-    - name: Tanılama günlükleri
-      href: service-bus-diagnostic-logs.md
-    - name: Mesajlaşma varlıklarını askıya alma ve yeniden etkinleştirme
-      href: entity-suspend.md
-    - name: Azure Resource Manager şablonlarını kullanma
-      href: service-bus-resource-manager-overview.md
-      items:
-      - name: Ad alanı oluşturma
-        href: service-bus-resource-manager-namespace.md
-      - name: Ad alanı ve kuyruk oluşturma
-        href: service-bus-resource-manager-namespace-queue.md
-      - name: Konusu ve aboneliği olan bir ad alanı oluşturma
-        href: service-bus-resource-manager-namespace-topic.md
-      - name: Ad alanı ve kuyruğa yönelik bir yetkilendirme kuralı oluşturma
-        href: service-bus-resource-manager-namespace-auth-rule.md
-      - name: Konusu, aboneliği ve kuralı olan bir ad alanı oluşturma
-        href: service-bus-resource-manager-namespace-topic-with-rule.md
-  - name: Sorun giderme
-    items:
-    - name: Özel durumlar
-      href: service-bus-messaging-exceptions.md
+        - name: Özel durumlar
+          href: service-bus-messaging-exceptions.md
 - name: Başvuru
   items:
-  - name: .NET
-    items:
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-      href: /dotnet/api/microsoft.servicebus.messaging
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
-      href: /dotnet/api/microsoft.azure.servicebus
-  - name: Java
-    href: /java/api/overview/azure/servicebus
-  - name: Python
-    href: /python/api/overview/azure/servicebus?view=azure-python
-  - name: Node.js
-    href: /javascript/api/overview/azure/service-bus
-  - name: PHP
-    href: https://github.com/Azure/azure-sdk-for-php
-  - name: Ruby
-    href: https://github.com/Azure/azure-sdk-for-ruby
-  - name: Başlayın
-    href: https://github.com/Azure/azure-service-bus-go
-  - name: Azure PowerShell
-    href: /powershell/module/az.servicebus
-  - name: REST
-    href: /rest/api/servicebus
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.servicebus/allversions
-  - name: Kotalar
-    href: service-bus-quotas.md
-  - name: SQLFilter söz dizimi
-    href: service-bus-messaging-sql-filter.md
-  - name: SQLRuleAction söz dizimi
-    href: service-bus-messaging-sql-rule-action.md
+    - name: .NET
+      items:
+        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.Azure.ServiceBus (.NET Standard)
+          href: /dotnet/api/microsoft.azure.servicebus
+    - name: Java
+      href: /java/api/overview/azure/servicebus
+    - name: Python
+      href: /python/api/overview/azure/servicebus?view=azure-python
+    - name: Node.js
+      href: /javascript/api/overview/azure/service-bus
+    - name: PHP
+      href: 'https://github.com/Azure/azure-sdk-for-php'
+    - name: Ruby
+      href: 'https://github.com/Azure/azure-sdk-for-ruby'
+    - name: Başlayın
+      href: 'https://github.com/Azure/azure-service-bus-go'
+    - name: Azure PowerShell
+      href: /powershell/module/az.servicebus
+    - name: REST
+      href: /rest/api/servicebus
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.servicebus/allversions
+    - name: Kotalar
+      href: service-bus-quotas.md
+    - name: SQLFilter söz dizimi
+      href: service-bus-messaging-sql-filter.md
+    - name: SQLRuleAction söz dizimi
+      href: service-bus-messaging-sql-rule-action.md
 - name: Kaynaklar
   items:
-  - name: SSS
-    href: service-bus-faq.md
-  - name: Microsoft Learn ile becerilerinizi geliştirin
-    href: /learn/browse/?products=azure-service-bus
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
-  - name: Blog
-    href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: MSDN forumları
-    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
-  - name: Fiyatlandırma
-    href: https://azure.microsoft.com/pricing/details/service-bus/
-  - name: Fiyatlandırma hesaplayıcı
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Serverless360
-    href: https://www.serverless360.com/
-  - name: Service Bus Explorer
-    href: https://github.com/paolosalvatori/ServiceBusExplorer
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=service-bus
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azureservicebus
-  - name: Videolar
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 51bda2ae37de4cf9865549501b30518fa98c20d6
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609305"
+    - name: SSS
+      href: service-bus-faq.md
+    - name: Microsoft Learn ile becerilerinizi geliştirin
+      href: /learn/browse/?products=azure-service-bus
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: Blog
+      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+    - name: MSDN forumları
+      href: 'https://social.msdn.microsoft.com/forums/home?forum=servbus'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Serverless360
+      href: 'https://www.serverless360.com/'
+    - name: Service Bus Explorer
+      href: 'https://github.com/paolosalvatori/ServiceBusExplorer'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=service-bus'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azureservicebus'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-bus'

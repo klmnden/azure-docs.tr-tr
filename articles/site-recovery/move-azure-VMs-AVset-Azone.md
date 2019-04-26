@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196205"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Kullanılabilirlik alanına Azure sanal makineleri taşıma
 Azure kullanılabilirlik alanları, uygulamalarınız ve verileriniz, veri merkezi arızasına karşı korumak yardımcı olur. Her Kullanılabilirlik Alanı, bağımsız güç, soğutma ve ağ bağlantısı ile donatılmış bir veya daha fazla veri merkezinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri, veri merkezi arızasına karşı korumak yardımcı olur. Kullanılabilirlik alanları ile Azure, bir hizmet düzeyi sözleşmesi (SLA), % 99,99 oranında çalışma süresi sanal makinelerin (VM'ler) sunar. Kullanılabilirlik alanları, seçilmiş bölgelerde desteklenir, belirtildiği gibi [Azure kullanılabilirlik alanları nedir?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).

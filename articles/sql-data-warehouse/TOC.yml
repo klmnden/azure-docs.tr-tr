@@ -76,7 +76,7 @@
           href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Güvenlik duvarı kuralları
           href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Sanal ağ hizmeti uç noktaları
+        - name: Sanal ağ hizmet uç noktaları
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Kimlik Doğrulaması
           href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json

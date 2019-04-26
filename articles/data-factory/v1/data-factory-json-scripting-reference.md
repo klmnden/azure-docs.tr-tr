@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59528416"
@@ -339,7 +339,7 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 | İlke Adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Doğrulama verilerde bir **Azure blob** (megabayt cinsinden) en küçük boyut gereksinimlerini karşılıyor. |Azure Blob |Hayır |NA |
-| minimumRows |Doğrulama verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az sayıda satır içerir. |<ul><li>Azure SQL Database</li><li>Azure Tablosu</li></ul> |Hayır |NA |
+| minimumRows |Doğrulama verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az sayıda satır içerir. |<ul><li>Azure SQL Veritabanı</li><li>Azure Tablosu</li></ul> |Hayır |NA |
 
 **Örnek:**
 
@@ -931,7 +931,7 @@ Azure Cosmos DB'ye veri kopyalıyorsanız ayarlamak **Havuz türü** , kopyalama
 
 Daha fazla bilgi için [Azure Cosmos DB Bağlayıcısı](data-factory-azure-documentdb-connector.md#copy-activity-properties) makalesi.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Veritabanı
 
 ### <a name="linked-service"></a>Bağlı hizmet
 Bağlı hizmeti Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureSqlDatabase**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:
@@ -4998,7 +4998,7 @@ Aşağıdaki örnek, bir Azure Data Lake Analytics bağlı hizmeti için JSON ta
 }
 ```
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Veritabanı
 Bir Azure SQL bağlı hizmeti oluşturma ve kullanılmakta olan [saklı yordam etkinliğine](#stored-procedure-activity) Data Factory işlem hattı bir saklı yordam çağırmak için.
 
 ### <a name="linked-service"></a>Bağlı hizmet
@@ -5593,7 +5593,7 @@ Daha fazla bilgi için [Data Lake Analytics U-SQL etkinliği](data-factory-usql-
 Bir saklı yordam etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **SqlServerStoredProcedure**. Aşağıdaki bağlı hizmetler, bir tane oluşturun ve bağlı hizmet adı için bir değer olarak belirtmeniz gerekir **linkedServiceName** özelliği:
 
 - SQL Server
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure SQL Veri Ambarı
 
 Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için SqlServerStoredProcedure ayarladığınızda:

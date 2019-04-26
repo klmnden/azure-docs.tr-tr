@@ -164,7 +164,7 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
 ## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti bir alt ağa ilk dağıtımı başarısız olduğunda, aynı alt ağa bir sanal makine dağıtmanız önerilir. Sanal makineye sonraki Uzak Masaüstü ve azure aboneliğinizde her bir kaynaktan bir bağlantı olduğunu doğrulayın
     * Azure depolama blobu
-    * Azure SQL Database
+    * Azure SQL Veritabanı
     * Azure depolama tablosu
 
   > [!IMPORTANT]

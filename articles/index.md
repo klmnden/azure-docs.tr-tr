@@ -442,7 +442,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Azure SQL Database</p>
+                                                <p>Azure SQL Veritabanı</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3048,7 +3048,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure SQL Database</h3>
+                                                    <h3>Azure SQL Veritabanı</h3>
                                                     <p>Yönetilen, hizmet olarak ilişkisel SQL Veritabanı</p>
                                                 </div>
                                             </div>

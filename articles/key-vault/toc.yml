@@ -74,7 +74,7 @@
       href: key-vault-ovw-soft-delete.md
     - name: Azaltma
       href: key-vault-ovw-throttling.md
-    - name: Sanal Ağ Hizmeti Uç Noktaları
+    - name: Sanal Ağ Hizmet Uç Noktaları
       href: key-vault-overview-vnet-service-endpoints.md
     - name: 'Kimlik doğrulaması, istekler ve yanıtlar'
       href: authentication-requests-and-responses.md
