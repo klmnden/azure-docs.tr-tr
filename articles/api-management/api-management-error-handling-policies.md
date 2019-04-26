@@ -79,13 +79,13 @@ Bir isteğin işlenmesi sırasında istek için kapsamı bulunan tüm ilkeleri i
   
 | Ad     | Tür   | Açıklama                                                                                               | Gerekli |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Kaynak   | dize | Hatanın oluştuğu öğe adları. İlke veya yerleşik ardışık düzen adım adı olabilir.     | Evet      |
-| Neden   | dize | Hata işleme kullanılabilir makine kolay hata kodu.                                       | Hayır       |
-| İleti  | dize | Okunabilir hata açıklaması.                                                                         | Evet      |
-| Kapsam    | dize | Burada hata oluştu ve "Genel", "Ürün", "API" veya "işlem" biri olabilir kapsam adı | Hayır       |
-| Section  | dize | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "giden" veya "hata".       | Hayır       |
-| Yol     | dize | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / ne zaman [2]".                                                        | Hayır       |
-| Policyıd | dize | Değeri `id` hatanın oluştuğu ilkedeki müşteri tarafından belirtilmişse özniteliği             | Hayır       |
+| `Source`   | dize | Hatanın oluştuğu öğe adları. İlke veya yerleşik ardışık düzen adım adı olabilir.     | Evet      |
+| `Reason`   | dize | Hata işleme kullanılabilir makine kolay hata kodu.                                       | Hayır       |
+| `Message`  | dize | Okunabilir hata açıklaması.                                                                         | Evet      |
+| `Scope`    | dize | Burada hata oluştu ve "Genel", "Ürün", "API" veya "işlem" biri olabilir kapsam adı | Hayır       |
+| `Section`  | dize | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "giden" veya "hata".       | Hayır       |
+| `Path`     | dize | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / ne zaman [2]".                                                        | Hayır       |
+| `PolicyId` | dize | Değeri `id` hatanın oluştuğu ilkedeki müşteri tarafından belirtilmişse özniteliği             | Hayır       |
 
 > [!TIP]
 > Durum kodu bağlamı erişebilirsiniz. Response.StatusCode.  
