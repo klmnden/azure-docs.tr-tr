@@ -14,7 +14,7 @@ ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
 ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449168"
@@ -34,7 +34,7 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 > * Artımlı kopyalama işlem hattını oluşturma, çalıştırma ve izleme
 
 ## <a name="overview"></a>Genel Bakış
-İlk veriler yüklendikten sonra verileri artımlı olarak yükleme senaryosu, veri tümleştirme çözümlerinde sıkça kullanılır. Bazı durumlarda, kaynak veri deponuzda belirli bir süre içinde değiştirilen veriler (örneğin, LastModifyTime, CreationTime) kolayca dilimlenebilir. Bazı durumlarda değişiklik verilerini, verileri en son işlediğiniz zamandan açıkça ayırt etmenin bir yolu yoktur. Azure SQL Database ve SQL Server gibi veri depoları tarafından desteklenen Değişiklik İzleme teknolojisi, değişiklik verilerini belirlemek için kullanılabilir.  Bu öğreticide, Azure SQL Veritabanındaki değişiklik verilerini Azure Blob Depolama’ya artımlı olarak yüklemek amacıyla SQL Değişiklik İzleme teknolojisiyle Azure Data Factory’nin nasıl kullanılacağı açıklanır.  SQL Değişiklik İzleme teknolojisi hakkında daha kesin bilgiler için bkz. [SQL Server’da Değişiklik İzleme](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+İlk veriler yüklendikten sonra verileri artımlı olarak yükleme senaryosu, veri tümleştirme çözümlerinde sıkça kullanılır. Bazı durumlarda, kaynak veri deponuzda belirli bir süre içinde değiştirilen veriler (örneğin, LastModifyTime, CreationTime) kolayca dilimlenebilir. Bazı durumlarda değişiklik verilerini, verileri en son işlediğiniz zamandan açıkça ayırt etmenin bir yolu yoktur. Azure SQL Veritabanı ve SQL Server gibi veri depoları tarafından desteklenen Değişiklik İzleme teknolojisi, değişiklik verilerini belirlemek için kullanılabilir.  Bu öğreticide, Azure SQL Veritabanındaki değişiklik verilerini Azure Blob Depolama’ya artımlı olarak yüklemek amacıyla SQL Değişiklik İzleme teknolojisiyle Azure Data Factory’nin nasıl kullanılacağı açıklanır.  SQL Değişiklik İzleme teknolojisi hakkında daha kesin bilgiler için bkz. [SQL Server’da Değişiklik İzleme](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Uçtan uca iş akışı
 Değişiklik İzleme teknolojisini kullanarak verileri artımlı olarak yüklemek için sık kullanılan uçtan uca iş akışı adımları burada verilmiştir.

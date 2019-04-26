@@ -13,11 +13,11 @@ ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249881"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
 Azure Active Directory (Azure AD) gruplarına ait ve Grup sahipleri tarafından yönetilir. Grup sahipleri bir grup ve üyelerini yönetmek için bir kaynak sahibi (Yönetici) atanır. Grup sahipleri güvenlik grubunun üyesi olması gerekmez. Bir grup sahibi atandıktan sonra yalnızca bir kaynak sahibi ekleyebilir veya sahipleri kaldırabilirsiniz.
