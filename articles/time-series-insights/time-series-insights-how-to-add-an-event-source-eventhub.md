@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197858"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir event hub olay kaynağı ekleme
 
@@ -108,5 +108,7 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Veri erişim ilkelerini tanımlama](time-series-insights-data-access.md) verilerin güvenliğini sağlamak için.
+
 * [Olayları gönderme](time-series-insights-send-events.md) olay kaynağına.
+
 * Ortamınızda erişim [Time Series Insights gezgininin](https://insights.timeseries.azure.com).

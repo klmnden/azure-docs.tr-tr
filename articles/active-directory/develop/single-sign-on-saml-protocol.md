@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250530"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | Kimlik | Gerekli | Azure AD doldurmak için bu özniteliği kullanan `InResponseTo` döndürülen yanıtın özniteliği. Bir GUID dize gösterimi için "id" gibi bir dize önüne eklediğinizden ortak bir strateji, bu nedenle kimliği bir sayı ile başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
-| Sürüm | Gerekli | Bu parametre ayarlanmalıdır **2.0**. |
+| Version | Gerekli | Bu parametre ayarlanmalıdır **2.0**. |
 | IssueInstant | Gerekli | DateTime UTC değeri dize budur ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir DateTime değeri Bekliyor ancak değil değerlendirmek veya değeri kullanın. |
 | AssertionConsumerServiceUrl | İsteğe bağlı | Bu parametre belirtilmezse, eşleşmelidir `RedirectUri` Azure ad bulut hizmeti. |
 | ForceAuthn | İsteğe bağlı | Bir boolean değer budur. TRUE ise, Azure AD ile geçerli bir oturum olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
@@ -100,7 +100,7 @@ Sağlanırsa, içermez `ProxyCount` özniteliği `IDPListOption` veya `Requester
 ### <a name="signature"></a>İmza
 İçermeyen bir `Signature` öğesinde `AuthnRequest` öğeleri, Azure AD desteklemediğinden kimlik doğrulama isteklerini imzalanmış.
 
-### <a name="subject"></a>Özne
+### <a name="subject"></a>Subject
 Azure AD yoksayar `Subject` öğesinin `AuthnRequest` öğeleri.
 
 ## <a name="response"></a>Yanıt
@@ -211,7 +211,7 @@ Bu dijital imzayı üretmek için Azure AD imzalama anahtarı kullanan `IDPSSODe
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Özne
+#### <a name="subject"></a>Subject
 
 Bu, sahibi olan onaylama deyimlerinde sorumlu belirtir. İçerdiği bir `NameID` öğesi, kimliği doğrulanmış bir kullanıcıyı temsil eder. `NameID` Belirteç hedef kitlesi hizmet sağlayıcısı yönlendirildiği bir hedeflenen tanımlayıcı bir değerdir. Kalıcı - iptal edilebilir, ancak hiçbir zaman atanır. Kullanıcı ile ilgili herhangi bir şey açığa çıkarmadığınızdan ve öznitelik sorgular için bir tanımlayıcı olarak kullanılamaz, ayrıca, donuktur.
 

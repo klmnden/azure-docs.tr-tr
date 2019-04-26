@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234853"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
@@ -281,11 +281,11 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
        
        !["Ölçüm uyarı yükü koşul"](media/action-groups-logic-app/metric-alert-payload-condition.png "ölçüm uyarı yükü koşulu")
 
-  1. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
+  2. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
 
       !["Ölçüm uyarı koşulun sonrası eylemi"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
 
-  1. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
+  3. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
 
       !["Ölçüm uyarı false koşulu sonrası eylemi"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
 
@@ -298,4 +298,3 @@ Logic Apps tetikleyici eylemlere uygulamaları ve veritabanlarının geniş bir 
 * Alma bir [Azure etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md) ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [bir Azure hizmet durumu bildirimi gönderildiğinde uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md).
-

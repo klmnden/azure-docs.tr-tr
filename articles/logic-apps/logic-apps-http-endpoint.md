@@ -17,11 +17,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304272"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki
 
@@ -277,7 +277,7 @@ Yanıt şu özelliklere sahiptir:
 
 #### <a name="q-what-about-url-security"></a>S: URL güvenlik hakkında neler diyeceksiniz?
 
-C: Azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri çağırma URL'leri güvenli bir şekilde oluşturur. Bu imza aracılığıyla bir sorgu parametresi olarak geçirir ve mantıksal uygulamanızı tetikleyebilir önce doğrulanması gerekir. Azure eşsiz bir bileşimiyle mantıksal uygulama, tetikleyici adını ve gerçekleştirilen işlem başına gizli bir anahtar kullanarak imzayı oluşturur. Bu nedenle birisi gizli mantıksal uygulama anahtarına erişime sahip olmadığı sürece, geçerli bir imzaya oluşturulamıyor.
+Y: Azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri çağırma URL'leri güvenli bir şekilde oluşturur. Bu imza aracılığıyla bir sorgu parametresi olarak geçirir ve mantıksal uygulamanızı tetikleyebilir önce doğrulanması gerekir. Azure eşsiz bir bileşimiyle mantıksal uygulama, tetikleyici adını ve gerçekleştirilen işlem başına gizli bir anahtar kullanarak imzayı oluşturur. Bu nedenle birisi gizli mantıksal uygulama anahtarına erişime sahip olmadığı sürece, geçerli bir imzaya oluşturulamıyor.
 
    > [!IMPORTANT]
    > Üretim ve güvenlik sistemleri için mantıksal uygulamanızı doğrudan tarayıcıdan çünkü çağırma karşı öneririz:
@@ -287,7 +287,7 @@ C: Azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri 
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>S: Daha fazla HTTP uç noktalarını yapılandırabilirim?
 
-C: Evet, HTTP uç noktaları aracılığıyla daha gelişmiş yapılandırma desteği [ **API Management**](../api-management/api-management-key-concepts.md). Bu hizmet, tutarlı bir şekilde mantıksal uygulamalar da dahil olmak üzere tüm API'leri, yönetme, özel etki alanı adlarını ayarlama, daha fazla kimlik doğrulama yöntemleri ve diğer örneğin kullanmak özelliği de sunar:
+Y: Evet, HTTP uç noktaları aracılığıyla daha gelişmiş yapılandırma desteği [ **API Management**](../api-management/api-management-key-concepts.md). Bu hizmet, tutarlı bir şekilde mantıksal uygulamalar da dahil olmak üzere tüm API'leri, yönetme, özel etki alanı adlarını ayarlama, daha fazla kimlik doğrulama yöntemleri ve diğer örneğin kullanmak özelliği de sunar:
 
 * [Değişiklik isteği yöntemi](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [İsteğin URL kesimleri değiştirme](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
@@ -296,7 +296,7 @@ C: Evet, HTTP uç noktaları aracılığıyla daha gelişmiş yapılandırma des
 
 #### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>S: 1 Aralık 2014'ten Önizleme şema geçişi olduğunda ne değişti?
 
-C: Bu değişiklikler ile ilgili bir özeti aşağıda verilmiştir:
+Y: Bu değişiklikler ile ilgili bir özeti aşağıda verilmiştir:
 
 | 1 Aralık 2014'ten preview | 1 Haziran 2016 |
 | --- | --- |

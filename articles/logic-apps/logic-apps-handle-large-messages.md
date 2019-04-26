@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303800"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps'te Öbekleme ile büyük iletileri işleme
 
@@ -119,7 +119,7 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
    | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-aktarım modu** | öbekli | Dize | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
+   | **x-ms-aktarım modu** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
    | **x-ms-content-length** | <*içerik uzunluğu*> | Tamsayı | Bayt Öbekleme önce tüm içerik boyutu |
    ||||
 
@@ -128,7 +128,7 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
    | Uç nokta yanıt üstbilgi alanı | Tür | Gerekli | Açıklama |
    |--------------------------------|------|----------|-------------|
    | **x-ms-öbek boyutu** | Tamsayı | Hayır | Bayt cinsinden önerilen öbek boyutu |
-   | **Konum** | Dize | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
+   | **Konum** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
    ||||
 
 3. Mantıksal uygulamanızı oluşturur ve bu bilgileri her izleme iletileri - HTTP PATCH gönderir:
@@ -139,9 +139,9 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
      | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
      |---------------------------------|-------|------|-------------|
-     | **İçerik-aralık** | <*Aralığı*> | Dize | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
-     | **İçerik türü** | <*içerik türü*> | Dize | Öbekli içerik türü |
-     | **İçerik uzunluğu** | <*içerik uzunluğu*> | Dize | Bayt cinsinden geçerli öbek boyutu uzunluğu |
+     | **İçerik-aralık** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
+     | **İçerik türü** | <*içerik türü*> | String | Öbekli içerik türü |
+     | **İçerik uzunluğu** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
      |||||
 
 4. Her bir PATCH isteği sonra "200" durum kodu ile yanıt vererek, her öbek için giriş uç noktası onaylar.
