@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506748"
 ---
 # <a name="working-with-reliable-collections"></a>Güvenilir Koleksiyonlar ile çalışma
 Service Fabric, güvenilir koleksiyonlar aracılığıyla .NET geliştiricileri için kullanılabilen bir durum bilgisi olan programlama modeli sunar. Özellikle, Service Fabric, güvenilir bir sözlük ve güvenilir bir kuyruk sınıfları sağlar. Bu sınıfların kullandığınızda, durumunuzu (ölçeklenebilirlik) bölümlenmiş çoğaltılan (kullanılabilirlik için) ve bir bölüm (için ACID semantiği) içinde hareket gerçekleşti. Şimdi bir güvenilir bir sözlük nesnesi tipik bir kullanım sırasında bakın ve hangi gerçekten başardığını görün.

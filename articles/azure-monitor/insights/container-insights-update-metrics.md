@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494848"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Azure İzleyici kapsayıcılar için ölçümleri etkinleştirmek üzere güncelleştirme
 Kapsayıcılar için Azure İzleyici, Azure Kubernetes Hizmetleri (AKS) küme düğümleri ve pod'ların ölçümleri toplamaya ve bunları Azure İzleyici ölçümleri deposuna yazma desteği kullanıma sunulmuştur. Bu değişiklik, toplama hesaplamalarda (ortalama, sayısı, Max, Min, toplam) performans grafiklerini, Azure portal panolarda performans grafiklerini sabitleme desteği sunarken Gelişmiş dakikliğini sunun ve ölçüm uyarıları desteklemek için tasarlanmıştır.
