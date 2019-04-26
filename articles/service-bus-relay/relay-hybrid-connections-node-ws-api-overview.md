@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421616"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Geçiş karma bağlantıları düğümünü API'sine genel bakış
 
@@ -135,7 +135,7 @@ Oluşturucu bağımsız değişkenleri:
 
 `RelayedServer` örnekleri, gelen istekleri işleyen, bağlantı ve hata koşulları algılamak sağlayan üç olayları Yayımla. Abone olmalısınız `connect` olay iletileri işlemek için. 
 
-##### <a name="headers"></a>headers
+##### <a name="headers"></a>Üst bilgileri
 
 ```JavaScript 
 function(headers)

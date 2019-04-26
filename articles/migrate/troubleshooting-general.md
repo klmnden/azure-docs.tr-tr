@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533227"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -21,13 +21,13 @@ ms.locfileid: "58652646"
 
 ### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Sürekli olarak şirket içi ortamımın bulur OVA kullanıyorum, ancak şirket içi ortamımın silinir Vm'leri hala portalında gösterilir.
 
-Sürekli bulma Gereci yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+Sürekli bulma gerecinin performans verilerini yalnızca sürekli olarak topladığını unutmayın, şirket içi ortamdaki (ör. VM eklemesi, silmesi, disk eklemesi vb.) hiçbir yapılandırma değişikliğini algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
-- Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde gereç keşiften durdurun ve yeniden başlatın. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+- Öğelerin eklenmesi (VM, disk, çekirdek vb.): Bu değişiklikleri Azure portalına yansıtmak için bulma işlemini gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
    ![Keşfi durdur](./media/troubleshooting-general/stop-discovery.png)
 
-- VM silme: Bulma durdurup bile gereç tasarlandığı şekilde nedeniyle, VM'ler silinmesini yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+- VM silme: Gerecin tasarlanma şekli nedeniyle bulma işlemini durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Azure geçişi projeleri ve ilişkili Log Analytics çalışma alanını silme
 
@@ -82,7 +82,7 @@ Portaldan değerlendirme raporunu dışarı bulamıyorsanız, kullanmayı deneyi
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>CPU, bellek ve disk için performans verilerini sıfır olarak gösteriyor
 
-Azure geçişi, şirket içi VM'lerin performans verilerini toplamak için şirket içi ortamı sürekli olarak profiller. Ortamınızın bulma yeni başlattıysanız, performans verileri toplama yapılacak en az bir gün beklemeniz gerekir. Değerlendirme, bir gün için beklemenize gerek kalmadan oluşturulursa performans ölçümleri sıfır olarak gösterilir. Bir gün bekledikten sonra yeni değerlendirme oluşturun veya değerlendirme raporu 'Yeniden Hesapla' seçeneğini kullanarak mevcut değerlendirme güncelleştirin.
+Azure Geçişi, şirket içi ortamını sürekli izleyerek şirket içi VM'lerle ilgili performans verilerini toplar. Ortamınızla ilgili bulma işlemlerini yeni başlattıysanız performans verilerini toplama işleminin tamamlanması için en az bir gün beklemeniz gerekir. Bir gün beklemeden değerlendirme oluşturmanız halinde performans ölçümleri sıfır olarak gösterilir. Bir gün bekledikten sonra yeni bir değerlendirme oluşturabilir veya değerlendirme raporundaki "Yeniden hesapla" seçeneğini kullanarak var olan değerlendirmeyi güncelleştirebilirsiniz.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ben Azure coğrafyası, bir geçiş projesi olduğunu nasıl bulabilirim burada bulunan meta verileri depolanan tam Azure bölgesinde oluşturulurken belirtilen?
 
@@ -332,5 +332,5 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 | 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse kendiniz yükleyin ve işlemi yeniden deneyin.                                                   |
 | 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |
 | 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
-| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek olanağına başvurun.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek olanağına başvurun.                                                                     |
+| 703       | OMSHttpRequestException        | İstek gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |

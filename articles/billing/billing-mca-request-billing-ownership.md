@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371958"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Faturalandırma sahipliğini diğer kullanıcıların Azure aboneliği edinin
 
@@ -35,7 +35,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Maliyet Yönetimi + faturalandırma için Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -44,7 +44,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 4. Seçin **aktarım istekleri** sol alt taraftaki.
 
-5. Sayfanın üst kısmından seçin **Ekle**.
+5. Sayfanın üst kısmında **Ekle**'yi seçin.
 
 6. Faturalandırma sahipliğini gelen istediği kullanıcının e-posta adresi girin. Kullanıcı hesabı yönetici bir Microsoft çevrimiçi hizmet programı Faturalama hesabı veya Kurumsal Anlaşma bir hesap sahibi olması gerekir. Daha fazla bilgi için [fatura hesaplarınızı Azure portalında görüntüleme](billing-view-all-accounts.md).
 
@@ -64,7 +64,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Maliyet Yönetimi + faturalandırma için Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 

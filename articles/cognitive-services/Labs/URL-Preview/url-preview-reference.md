@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462597"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -73,7 +73,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 ## <a name="query-parameters"></a>Sorgu parametreleri
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın. Sorgu, bir http veya https şemasına sahip bir mutlak URL olmalıdır; Göreli URL'ler veya ftp gibi diğer düzenleri desteklemiyoruz: / /
 
-|Ad|Değer|Type|Gerekli|
+|Ad|Değer|Tür|Gerekli|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|String|Evet|
 |<a name="query" />q|Önizleme URL'si|String|Evet|
@@ -83,14 +83,14 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
 ## <a name="response-objects"></a>Yanıt nesneleri
 Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması API'si olduğu gibi. İstek başarısız olursa, en üst düzey nesnedir [ErrorResponse](#errorresponse) nesne.
 
-|Nesne|Açıklama|
+|Object|Açıklama|
 |------------|-----------------|
 |[Web sayfası](#webpage)|Önizleme özniteliklerini içeren üst düzey JSON nesnesi.|
 
 ### <a name="error"></a>Hata
 Gerçekleşen hata tanımlar.
 
-|Öğe|Açıklama|Type|
+|Öğe|Açıklama|Tür|
 |-------------|-----------------|----------|
 |<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|String|
 |<a name="error-message" />İleti|Hatanın açıklaması.|String|
@@ -102,7 +102,7 @@ Gerçekleşen hata tanımlar.
 ### <a name="errorresponse"></a>ErrorResponse
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 
-|Ad|Değer|Type|
+|Ad|Değer|Tür|
 |----------|-----------|----------|
 |_type|Tür ipucu.|String|
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|
@@ -110,7 +110,7 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 ### <a name="webpage"></a>Web sayfası
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 
-|Ad|Değer|Type|
+|Ad|Değer|Tür|
 |----------|-----------|----------|
 |ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|
@@ -119,7 +119,7 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 |primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String|
 
 ### <a name="identifiable"></a>Tanımlama
-|Ad|Değer|Type|
+|Ad|Değer|Tür|
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|String|
 

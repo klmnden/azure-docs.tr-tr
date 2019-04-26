@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60495290"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Öğretici: Serbest biçimli Pattern.any varlık verileriyle ayıklayın
 

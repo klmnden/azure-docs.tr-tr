@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456048"
 ---
 Uygulamanızda profili düzenlemeyi etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** kullanıcı akışı. Bu kullanıcı akışını müşteriler profil düzenleme ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklanmaktadır.
 
@@ -17,7 +18,7 @@ Uygulamanızda profili düzenlemeyi etkinleştirmek istiyorsanız, kullandığı
 
 Altında **Yönet**seçin **kullanıcı akışları** tıklatıp +**yeni kullanıcı akışı**.
 
-![Yeni kullanıcı akışı seçin](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
+![Yeni kullanıcı akışı seçin](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
 Üzerinde **önerilen** sekmesinde **profil düzenleme**.
 
@@ -25,7 +26,7 @@ Kullanıcı akışı girin **adı** uygulamanızın başvuru. Örneğin, `SiPe` 
 
 Altında **kimlik sağlayıcıları**, kontrol **yerel hesapla oturum aç**. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz.
 
-![Kimlik sağlayıcısı olarak Yerel Hesapla Oturum Aç’ı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
+![Kimlik sağlayıcısı olarak Yerel Hesapla Oturum Aç’ı seçin ve Tamam düğmesine tıklayın](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
 Altında **kullanıcı öznitelikleri**, tıklayın **daha fazla Göster**. İçinde **toplama özniteliği** sütun profilinde tüketici görüntüleyebilir ve düzenleyebilirsiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin.
 
@@ -33,13 +34,13 @@ Altında **kullanıcı öznitelikleri**, tıklayın **daha fazla Göster**. İç
 
 **Tamam** düğmesine tıklayın.
 
-![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
+![Bazı uygulama taleplerini seçin ve Tamam düğmesine tıklayın.](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
 Tıklayın **Oluştur** kullanıcı akışı eklemek için. Kullanıcı akışı olarak listelenip listelenmediğini **B2C_1_SiPe**. Ada **B2C_1_** öneki eklenir.
 
 Seçin **kullanıcı akışı çalıştırma**. Tabloda belirtilen ayarlarını doğrulayın, ardından tıklayın **kullanıcı akışı çalıştırma**.
 
-![Kullanıcı akışı seçin ve çalıştırın](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
+![Kullanıcı akışı seçin ve çalıştırın](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Ayar      | Değer  |
 | ------------ | ------ |
@@ -51,3 +52,4 @@ Yeni bir tarayıcı sekmesi açılır. Buradan, profil düzenleme için yapılan
 > [!NOTE]
 > Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >
+

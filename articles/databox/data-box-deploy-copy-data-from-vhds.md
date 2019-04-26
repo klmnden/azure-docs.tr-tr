@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60463255"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Öğretici: Yönetilen diskler azure'da kullanım Data Box'ı olarak verileri içeri aktarmak için
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387285"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -72,7 +72,7 @@ Aracı trafiğini isteklerini yeniden yönlendirmek için Linux Aracısı, proxy
 
 ## <a name="discover-vm-extensions"></a>VM uzantıları bulma
 
-Birçok farklı sanal makine uzantıları, Azure sanal makineleri ile kullanmak için kullanılabilir. Tam listesini görmek için [az vm uzantısı görüntü listesi](/cli/azure/vm/extension/image#az-vm-extension-image-list). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *westus* konumu:
+Azure VM'leri ile kullanabileceğiniz birçok farklı VM uzantısı vardır. Tam listesini görmek için [az vm uzantısı görüntü listesi](/cli/azure/vm/extension/image#az-vm-extension-image-list). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *westus* konumu:
 
 ```azurecli
 az vm extension image list --location westus --output table

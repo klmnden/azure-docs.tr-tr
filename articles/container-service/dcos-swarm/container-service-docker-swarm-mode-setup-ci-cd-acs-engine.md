@@ -10,11 +10,11 @@ ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
 ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430668"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(KULLANIM DIŞI) ACS altyapısı ve Azure DevOps kullanarak Docker Swarm modu ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
 
@@ -60,7 +60,7 @@ Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlamanız gerekir:
 > Azure Container Service’teki Docker Swarm düzenleyicisi eski tek başına Swarm’u kullanır. Şu anda, tümleşik [Swarm modu](https://docs.docker.com/engine/swarm/) (Docker 1.12 ve daha sonraki sürümleri) Azure Container Service'te desteklenen bir düzenleyici değildir. Bu nedenle, kullanıyoruz [ACS altyapısı](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), topluluk katkısıyla [Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), ya da Docker çözümde [Azure Marketi](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-azure-devops-organization"></a>1. adım: Azure DevOps kuruluşunuz yapılandırın 
+## <a name="step-1-configure-your-azure-devops-organization"></a>1. Adım: Azure DevOps kuruluşunuz yapılandırın 
 
 Bu bölümde, Azure DevOps kuruluşunuz yapılandırın. Azure DevOps Hizmetleri uç noktaları, Azure DevOps projenizi yapılandırmak için tıklayın **ayarları** simgesini seçin ve araç **Hizmetleri**.
 
@@ -94,7 +94,7 @@ Azure'da Docker Swarm kümenizi dış bağlantıları yapılandırmak için CI/C
 
 Tüm yapılandırma artık gerçekleştirilir. Sonraki adımlarda derler ve uygulamayı Docker Swarm kümesi dağıtır CI/CD işlem hattı oluşturun. 
 
-## <a name="step-2-create-the-build-pipeline"></a>2. adım: Derleme işlem hattı oluşturma
+## <a name="step-2-create-the-build-pipeline"></a>2. Adım: Derleme işlem hattı oluşturma
 
 Bu adımda, Azure DevOps projesi için bir derleme işlem hattı ayarlayın ve yapı iş akışı için kapsayıcı görüntülerinizi tanımlayın
 
@@ -129,7 +129,7 @@ Sonraki adımlar, yapı iş akışı tanımlayın. İlk olarak, kaynak kodun yap
 Oluşturmak için beş kapsayıcı görüntülerini vardır *MyShop* uygulama. Her bir görüntü kullanarak proje klasörleri'nde bulunan Dockerfile oluşturulmuştur:
 
 * ProductsApi
-* Ara Sunucu
+* Ara sunucu
 * RatingsApi
 * RecommendationsApi
 * ShopFront
@@ -189,7 +189,7 @@ Docker aşamanın her görüntü, bir görüntü oluşturun ve bir Azure kapsay�
 
    ![Azure DevOps - derleme başarılı oldu](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>3. adım: Yayın işlem hattı oluşturma
+## <a name="step-3-create-the-release-pipeline"></a>3. Adım: Yayın işlem hattı oluşturma
 
 Azure DevOps sayesinde [ortamlar genelinde sürümleri yönetmek](https://www.visualstudio.com/team-services/release-management/). Uygulamanızın düzgün bir şekilde (örneğin, geliştirme, test, üretim öncesi ve üretim gibi) farklı ortamlarınızda şekilde dağıtıldığından emin olmak sürekli dağıtımı etkinleştirebilirsiniz. Azure Container Service Docker Swarm modu kümesi temsil eden bir ortam oluşturabilirsiniz.
 

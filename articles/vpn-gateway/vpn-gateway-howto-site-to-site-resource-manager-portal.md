@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407749"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure portalında Siteden Siteye bağlantı oluşturma
 
@@ -52,7 +52,7 @@ Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kul
 * **Ağ geçidi alt ağ adres aralığı:** 10.1.255.0/27
 * **DNS sunucusu:** 8.8.8.8 - isteğe bağlı. DNS sunucunuzun IP adresidir.
 * **Sanal ağ geçidi adı:** VNet1GW
-* **Genel IP:** Vnet1gwıp
+* **Genel IP:** VNet1GWIP
 * **VPN türü:** Rota tabanlı
 * **Bağlantı türü:** Siteden siteye (IPSec)
 * **Ağ geçidi türü:** VPN

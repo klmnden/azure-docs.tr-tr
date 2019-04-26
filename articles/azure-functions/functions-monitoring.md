@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406850"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -148,7 +148,7 @@ traces
 
 Application Insights herhangi özel bir yapılandırma kullanabilirsiniz. Varsayılan yapılandırma, yüksek hacimli verileri neden olabilir. Visual Studio Azure aboneliği kullanıyorsanız, Application Insights için veri sınırınıza neden olabilir. Bu makalenin sonraki bölümlerinde yapılandırma ve özelleştirme işlevlerinizi Application Insights'a gönderme veri öğrenin. Bir işlev uygulaması için günlük yapılandırılan [host.json] dosya.
 
-### <a name="categories"></a>Kategoriler
+### <a name="categories"></a>Categories
 
 Azure işlevleri Günlükçü içeren bir *kategori* her günlük için. Kategori günlük çalışma zamanı kodu veya işlev kodunuzu hangi kısmını yazdı gösterir. 
 

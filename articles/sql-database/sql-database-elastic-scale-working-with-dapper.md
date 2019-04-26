@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335304"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper ile esnek veritabanı istemci kitaplığı kullanma
 Bu belge uygulamalar üzerinde Dapper kullanır ancak ayrıca Kucak isteyen geliştiricilere yöneliktir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamalar oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, elastik veritabanı araçları ile tümleştirme gereken değişiklikler gösterilmektedir. Elastik veritabanı parça yönetimi ve Dapper ile verilere bağımlı yönlendirme buradaki kazanmasının olur. 

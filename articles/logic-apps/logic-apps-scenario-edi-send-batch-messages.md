@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428041"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Azure Logic Apps ile ortaklar için EDI iletilerini toplu olarak gönder
 
@@ -59,7 +59,7 @@ Bu batch alıcı için belirttiğiniz toplu iş modu, ad yayın ölçütü X12 s
 
 2. [Mantıksal uygulamanızı tümleştirme hesabınıza bağlayın](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **toplu iletiler**
+3. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **Toplu işlem iletileri**
 
    ![Toplu tetikleyici ekleme](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
@@ -84,7 +84,7 @@ Bu batch alıcı için belirttiğiniz toplu iş modu, ad yayın ölçütü X12 s
 
    1. Toplu tetikleyici altında seçin **yeni adım**.
 
-   2. Arama kutusuna "X 12 batch" filtreniz olarak ve (tüm sürümler) şu eylemi seçin: **toplu kodlama <*sürüm*>-X12** 
+   2. Arama kutusuna "X 12 batch" filtreniz olarak ve (tüm sürümler) şu eylemi seçin: **Toplu kodlama <*sürüm*>-X12** 
 
       ![X12 seçin eylem toplu kodlama](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -126,7 +126,7 @@ Beklendiği gibi batch alıcı works emin olmak için test amacıyla bir HTTP ey
 
    | Özellik | Açıklama | 
    |----------|-------------|
-   | **Yöntemi** | Bu listeden **POST**. | 
+   | **Yöntem** | Bu listeden **POST**. | 
    | **URI** | Bir URI, istek depo oluşturun ve ardından bu URI, bu kutuya girin. | 
    | **Gövde** | Bu kutusunun içine tıklayın ve dinamik içerik listesinden açıldıktan sonra seçin **gövdesi** bölümünde görünen belirteci **sözleşme adına göre toplu kodlama**. <p>Görmüyorsanız **gövdesi** yanındaki simge **sözleşme adına göre toplu kodlama**seçin **daha fazla bilgi bkz**. | 
    ||| 
@@ -151,7 +151,7 @@ Artık ileti göndermek için batch alıcı mantıksal uygulama bir veya daha fa
 
 1. Bu ada sahip başka bir mantıksal uygulama oluşturun: "SendX12MessagesToBatch" 
 
-2. Arama kutusuna filtreniz olarak "http isteği," girin. Şu tetikleyiciyi seçin: **olduğunda bir HTTP isteği alındığında** 
+2. Arama kutusuna filtreniz olarak "http isteği," girin. Şu tetikleyiciyi seçin: **Bir HTTP isteği alındığında** 
    
    ![İstek tetikleyicisi Ekle](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Artık ileti göndermek için batch alıcı mantıksal uygulama bir veya daha fa
    1. HTTP isteği eylem altında seçin **yeni adım**.
 
    2. Arama kutusuna filtreniz olarak "toplu" girin. 
-   Seçin **eylemleri** listeleyin ve ardından şu eylemi seçin: **toplu işlem tetikleyicisi - toplu iletileri gönderme içeren bir Logic Apps iş akışı seçin**
+   Seçin **eylemleri** listeleyin ve ardından şu eylemi seçin: **Toplu işlem tetikleyicisi - toplu iletileri gönderme içeren bir Logic Apps iş akışı seçin**
 
       !["Toplu işlem tetikleyicisi içeren bir Logic Apps iş akışı seçin" seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -176,7 +176,7 @@ Artık ileti göndermek için batch alıcı mantıksal uygulama bir veya daha fa
 
    | Özellik | Açıklama | 
    |----------|-------------| 
-   | **Toplu işlem adı** | Bu örnekte "TestBatch" olduğundan alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı <p>**Önemli**: toplu işlem adı, çalışma zamanında doğrulanacağı ve alıcı mantıksal uygulama tarafından belirtilen adla eşleşmelidir. Batch adının değiştirilmesi, batch gönderici başarısız olmasına neden olur. | 
+   | **Toplu işlem adı** | Bu örnekte "TestBatch" olduğundan alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı <p>**Önemli**: Toplu işlem adı, çalışma zamanında doğrulanacağı ve alıcı mantıksal uygulama tarafından belirtilen adla eşleşmelidir. Batch adının değiştirilmesi, batch gönderici başarısız olmasına neden olur. | 
    | **İleti içeriği** | İçeriği olan göndermek istediğiniz iletinin **gövdesi** Bu örnekte belirteci | 
    ||| 
    

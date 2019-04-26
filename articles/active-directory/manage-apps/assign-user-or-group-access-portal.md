@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4daab0255e739e011dca3ae0a016e3a15c7213b0
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440339"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama
 Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olması gerekir.

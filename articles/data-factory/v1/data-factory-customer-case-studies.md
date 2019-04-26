@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486983"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - müşteri örnek olay incelemeleri
 Veri Fabrikası taşımayı ve dönüştürmeyi otomatikleştiren bulut tabanlı bilgi yönetimi hizmetidir. Birçok sektörle müşteriler, kendi analiz işlem hatları oluşturun ve iş sorunlarını çözmek için veri fabrikası ve diğer Azure Hizmetleri kullanın.  Neden ve nasıl Data Factory kullanıyorsanız doğrudan müşterilerimizden öğrenin.
@@ -38,7 +38,7 @@ Veri Fabrikası taşımayı ve dönüştürmeyi otomatikleştiren bulut tabanlı
 ## <a name="tacoma-public-schools"></a>Ankara genel okullar
 [Bulut analizini Mezuniyet tariflerde artırma Öğrenci çıkarma riskleri tahmin etme](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-## <a name="real-madrid-fc"></a>Real Madrid'in FC
+## <a name="real-madrid-fc"></a>Real Madrid FC
 [Real Madrid stadyumu 450 milyon Microsoft Cloud ile ayağına getiriyor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports

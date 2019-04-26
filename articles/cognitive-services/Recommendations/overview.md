@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
 ms.openlocfilehash: e04cc127e08ee219fbd82470a87a79fce657231c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387001"
 ---
 # <a name="recommendations-api-discontinued"></a>Öneriler API'si (kullanımdan kaldırıldı)
 

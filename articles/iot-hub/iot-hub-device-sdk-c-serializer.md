@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399270"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IOT cihaz SDK'sını C için– seri hale getirici hakkında daha fazla bilgi
 
@@ -75,10 +75,10 @@ Aşağıdaki veri türleri ile oluşturulan modeller desteklenir **seri hale get
 | Int32\_t |32 bit tamsayı |
 | Int64\_t |64 bit tamsayı |
 | bool |boole |
-| ASCII\_char\_ptr |ASCII dizesi |
+| ascii\_char\_ptr |ASCII dizesi |
 | EDM\_TARİH\_ZAMAN\_UZAKLIĞI |Tarih Saat farkı |
 | EDM\_GUID |GUID |
-| EDM\_İKİLİ |İkili |
+| EDM\_BINARY |binary |
 | BİLDİRME\_YAPISI |Karmaşık veri türü |
 
 Son veri türüyle başlayalım. **DECLARE\_yapı** gruplandırmaları olan diğer temel eleman türleri ve karmaşık veri türlerini tanımlamanızı sağlar. Bu gruplandırmalar bize şuna benzer bir modeli tanımlamak izin ver:
@@ -194,7 +194,7 @@ Bu kodu çalıştırırsanız, IOT Hub'ına aşağıdaki ileti gönderilir:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Seri hale getirme biçimi JSON'da olduğuna dikkat edin tarafından oluşturulan **seri hale getirici** kitaplığı. Ayrıca her üyenin seri hale getirilmiş JSON nesnesinin üyelerinin eşleştiğini unutmayın **TestType** biz bizim modelde tanımlı. Değerler de tam olarak kod içinde kullanılan eşleşir. Ancak, ikili verileri base64 kodlu olduğunu unutmayın: "AQID" olan base64 kodlaması {0x01, 0x02, 0x03}.
+Seri hale getirme biçimi JSON'da olduğuna dikkat edin tarafından oluşturulan **seri hale getirici** kitaplığı. Ayrıca her üyenin seri hale getirilmiş JSON nesnesinin üyelerinin eşleştiğini unutmayın **TestType** biz bizim modelde tanımlı. Değerler de tam olarak kod içinde kullanılan eşleşir. Ancak, base64 ile kodlanmış ikili veri olduğuna dikkat edin: "AQID" olan base64 kodlaması {0x01, 0x02, 0x03}.
 
 Bu örnek kullanmanın avantajı gösterir **seri hale getirici** kitaplığı--bağlayabileceğinizi JSON ile seri hale getirme uygulamamızdaki açıkça uğraşmak zorunda kalmadan buluta göndermemizi. Tüm yükleme konusunda endişelenmenize gerek sahibiz ayarı veri olaylarını değerlerini modelimizi ve ardından buluta bu olayları göndermek için basit API'ler çağırma.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Model iki veri olaylarını içerdiğini unutmayın: **sıcaklık** ve **nem**. Önceki örneklerde farklı olarak, her olay kullanılarak tanımlanmış bir yapı türüdür **DECLARE\_yapı**. **TemperatureEvent** sıcaklık ölçüm ve; zaman damgası içerir **HumidityEvent** nem ölçüm ve bir zaman damgası içerir. Bu model için yukarıdaki senaryoyu verilerinizi modellemek için doğal bir yol sağlıyor. Bir olay buluta gönderdiğinizde ya da bir sıcaklık/zaman damgası veya nem/zaman damgası çifti göndereceğiz.
+Model iki veri olaylarını içerdiğine dikkat edin: **Sıcaklık** ve **nem**. Önceki örneklerde farklı olarak, her olay kullanılarak tanımlanmış bir yapı türüdür **DECLARE\_yapı**. **TemperatureEvent** sıcaklık ölçüm ve; zaman damgası içerir **HumidityEvent** nem ölçüm ve bir zaman damgası içerir. Bu model için yukarıdaki senaryoyu verilerinizi modellemek için doğal bir yol sağlıyor. Bir olay buluta gönderdiğinizde ya da bir sıcaklık/zaman damgası veya nem/zaman damgası çifti göndereceğiz.
 
 Biz aşağıdaki gibi bir kod kullanarak bulutta sıcaklık olay gönderebilirsiniz:
 
@@ -514,7 +514,7 @@ Bir cihaza ileti gönderme, Azure IOT hizmeti SDK'sı aracılığıyla Bunu yapm
 {"Name" : "", "Parameters" : "" }
 ```
 
-İki özelliğe sahip serileştirilmiş bir JSON nesnesi gönderiyorsanız: **adı** (mesaj) eylem adı ve **parametreleri** Bu eylem parametrelerini içerir.
+İki özelliğe sahip serileştirilmiş bir JSON nesnesi gönderiyor olun: **Adı** (mesaj) eylem adı ve **parametreleri** Bu eylem parametrelerini içerir.
 
 Örneğin, çağrılacak **SetAirResistance** bu iletiyi bir cihaza gönderebilirsiniz:
 

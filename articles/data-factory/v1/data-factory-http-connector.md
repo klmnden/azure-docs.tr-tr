@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318487"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP kaynaktan veri taşıma
 
@@ -66,7 +66,7 @@ Bir şirket içi HTTP Bağlayıcısı veri kaynağı için kimlik bilgilerini ay
 
 Ayarlama **authenticationType** için **temel**, **Özet**, veya **Windows**. Önceki bölümde açıklanan genel HTTP Bağlayıcısı özelliklerine ek olarak, aşağıdaki özellikleri ayarlayın:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | kullanıcı adı | HTTP uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını (**kullanıcıadı**). | Evet |
@@ -94,7 +94,7 @@ Ayarlama **authenticationType** için **temel**, **Özet**, veya **Windows**. Ö
 
 Temel kimlik doğrulaması kullanmak için ayarlanmış **authenticationType** için **ClientCertificate**. Önceki bölümde açıklanan genel HTTP Bağlayıcısı özelliklerine ek olarak, aşağıdaki özellikleri ayarlayın:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | embeddedCertData | PFX dosyasının ikili verileri Base64 ile kodlanmış içeriği. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt** |
 | Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Bir şirket içi HTTP kaynaktan veri kopyalarken uygulayın. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt** |
@@ -221,9 +221,9 @@ Kullanılabilir özellikler **typeProperties** etkinlik bölümünü her etkinli
 
 Şu anda, kopyalama etkinliği kaynak olduğunda **HttpSource** türü, aşağıdaki özellikler desteklenir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olan. | Hayır<br />(varsayılan değer: **00: 01:40**) |
+| httpRequestTimeout | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olan. | Hayır<br />(varsayılan değer: **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Desteklenen dosya ve sıkıştırma biçimleri
 

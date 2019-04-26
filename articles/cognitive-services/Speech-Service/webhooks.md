@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515386"
 ---
 # <a name="webhooks-for-speech-services"></a>Konuşma Hizmetleri için Web kancaları
 
@@ -38,6 +38,8 @@ Ardından, bir Web kancası oluşturalım.
 ## <a name="create-a-webhook"></a>Bir Web kancası oluştur
 
 Çevrimdışı bir döküm için bir Web kancası oluşturalım. Senaryo: bir kullanıcının zaman uyumsuz olarak Batch tanıma API'SİYLE konuşmaların istediğiniz bir uzun süre çalışan ses dosyası. 
+
+Bir web kancası POST https:// oluşturmak için<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 İstek için yapılandırma parametreleri JSON olarak sağlanır:
 
@@ -133,6 +135,50 @@ Abone olunan olay türü (döküm) için bir varlık sistemde mevcut olduğundan
 ### <a name="run-a-test"></a>Test çalıştırma
 
 Hızlı bir testi yapılabilir Web sitesini kullanarak https://bin.webhookrelay.com. Burada, çağrı edinebilirsiniz belgenin önceki bölümlerinde açıklanan bir Web kancası oluşturmak için HTTP POST için parametre olarak geçirmek için URL'leri yedekleyin.
+
+'Oluşturma demetinde' tıklayın ve izleyin ekrandaki bir kanca almak için yönergeler. Ardından kanca konuşma hizmeti sayesinde kaydetmek için bu sayfada sağlanan bilgileri kullanın. Geçiş yükü message - transkripsiyon görünüyor tamamlanması için yanıt şu şekilde:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+Kayıt URL'si ve modelleri kaydetme özelliği kullanılan ileti içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,7 +3,7 @@ title: Öğretici - yerel istemci uygulaması kimlik doğrulaması etkinleştirm
 description: .NET Masaüstü uygulama için kullanıcının oturum açmasını sağlamak için Azure Active Directory B2C kullanma Öğreticisi.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: a1842859723173412df2053a242ebe9ca4cf7f32
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386962"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir yerel istemci uygulaması ile kimlik doğrulamasını etkinleştirin
 

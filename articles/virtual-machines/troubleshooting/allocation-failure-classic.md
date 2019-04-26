@@ -13,19 +13,19 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505563"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde ayırma hatası senaryoları belirli sorun giderme adımları
 
 Sabitlenmelidir ayırma isteği neden ayırma yaygın senaryolar aşağıda verilmiştir. Bu makalenin devamındaki her bir senaryo olarak ele alacağız.
 
 - VM'yi yeniden boyutlandırma veya var olan bir bulut hizmetine Vm'lerinizdeki veya rol örneklerinizdeki Ekle
-- Kısmen durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
-- Tam olarak durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
+- Kısmen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
+- Tamamen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
 - Hazırlama ve üretim dağıtımları (yalnızca bir hizmet olarak platform)
 - Benzeşim grubu (VM veya hizmet yakınlık)
 - Sanal ağ benzeşim – grup tabanlı
@@ -40,7 +40,7 @@ Aşağıdaki diyagramda, sınıflandırma (sabitlenmiş) ayırma senaryolar suna
 ![Sabitlenmiş ayırma sınıflandırma](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 ## <a name="resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>VM'yi yeniden boyutlandırma veya var olan bir bulut hizmetine Vm'lerinizdeki veya rol örneklerinizdeki Ekle
-**Hata**
+**Hata:**
 
 Upgrade_VMSizeNotSupported veya GeneralError
 
@@ -54,8 +54,8 @@ Hata Upgrade_VMSizeNotSupported * ise başka bir VM boyutu deneyin. Başka bir V
 
 Hata GeneralError * ise (örneğin, belirli bir VM boyutu) kaynak türü, küme tarafından desteklenir, ancak küme, şu anda ücretsiz kaynak yok olasıdır. Yukarıdaki senaryoya benzer yeni bir bulut hizmeti (farklı bir VIP kullanmak yeni bir bulut hizmeti olduğunu unutmayın) oluşturma aracılığıyla istenen işlem kaynağı ekleyin ve, bulut hizmetlerini bağlamak üzere bölgesel sanal ağ'ı kullanın.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
-**Hata**
+## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
+**Hata:**
 
 GeneralError *
 
@@ -70,8 +70,8 @@ Farklı bir VIP kullanır, durduruldu (serbest bırakıldı) sanal makinelerini 
 * Mevcut bulut hizmetiniz bir bölgesel sanal ağ kullanıyorsa, yeni bir bulut hizmeti aynı sanal ağa eklemeniz yeterlidir.
 * Mevcut bulut hizmetiniz bir bölgesel sanal ağı kullanmıyorsa, yeni bir bulut hizmeti için yeni bir sanal ağ oluşturun ve ardından [var olan sanal ağınızda yeni sanal ağına bağlama](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Hakkında daha fazla bilgi [bölgesel sanal ağlara](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Tam olarak durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
-**Hata**
+## <a name="restart-fully-stopped-deallocated-vms"></a>Tamamen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
+**Hata:**
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineler bir bu
 Farklı bir VIP kullanır, özgün durduruldu (serbest bırakıldı) sanal makinelerini silmek (ancak ilişkili diskler tutmak için) kabul edilebilir ve karşılık gelen bulut hizmetini silme (ilişkili işlem kaynakları, durduruldu (serbest bırakıldı) olduğunda zaten yayımlanmış olan Vm'leri). Vm'leri yeniden eklemek için yeni bir bulut hizmeti oluşturun.
 
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Hazırlama veya üretim dağıtımları (yalnızca bir hizmet olarak platform)
-**Hata**
+**Hata:**
 
 New_General * veya New_VMSizeNotSupported *
 
@@ -97,7 +97,7 @@ Hazırlama dağıtımı ve bir bulut hizmeti üretim dağıtımını aynı küme
 İlk dağıtım ve özgün bulut hizmetini silin ve bulut hizmeti yeniden dağıtın. Bu eylem, her iki dağıtımın uyacak şekilde ücretsiz yeterli kaynaklara sahip olan bir kümede mi istediğiniz VM boyutlarını destekler, bir kümedeki ilk dağıtımda kavuşmak.
 
 ## <a name="affinity-group-vmservice-proximity"></a>Benzeşim grubu (VM/hizmet yakınlık)
-**Hata**
+**Hata:**
 
 New_General * veya New_VMSizeNotSupported *
 
@@ -110,13 +110,13 @@ Herhangi bir benzeşim grubuna atanan kaynak bir kümeye bağlı işlem. Benzeş
 Bir benzeşim grubu gerekli değilse değil bir benzeşim grubu kullanın veya işlem kaynaklarınızı birden çok benzeşim grupları gruplandırabilirsiniz.
 
 ## <a name="affinity-group-based-virtual-network"></a>Grup tabanlı benzeşim sanal ağ
-**Hata**
+**Hata:**
 
 New_General * veya New_VMSizeNotSupported *
 
 **Küme sabitleme nedeni**
 
-Bölgesel sanal ağlara sunulmadan önce bir sanal ağ benzeşim grubu ile ilişkilendirilecek gerekirdi. Sonuç olarak açıklandığı bir benzeşim grubuna yerleştirilen kaynaklar ile aynı kısıtlamalara bağlı işlem "ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)" Yukarıdaki bölümde. İşlem kaynakları için bir küme bağlıdır.
+Bölgesel sanal ağlara sunulmadan önce bir sanal ağ benzeşim grubu ile ilişkilendirilecek gerekirdi. Sonuç olarak açıklandığı bir benzeşim grubuna yerleştirilen kaynaklar ile aynı kısıtlamalara bağlı işlem "ayırma senaryosu: Benzeşim grubu (VM/hizmet yakınlık) "Yukarıdaki bölümde. İşlem kaynakları için bir küme bağlıdır.
 
 **Geçici çözüm**
 

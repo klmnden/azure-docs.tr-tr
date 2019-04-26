@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417053"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 
@@ -28,7 +28,7 @@ ms.locfileid: "55203394"
 Tam [görev 4 - yönetilen etki alanı internet'ten erişmek için DNS'yi yapılandırma](active-directory-ds-ldaps-configure-dns.md).
 
 
-## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Görev 5: Yönetilen etki bağlama üzerinden LDAP Ldp.exe'yi kullanma
+## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>5. Görev: Yönetilen etki bağlama üzerinden LDAP Ldp.exe'yi kullanma
 Bağlama ve üzerinden LDAP arama yapmak için Uzak Sunucu Yönetim Araçları Paketi dahil edilen LDP.exe aracını kullanabilirsiniz.
 
 İlk olarak, LDP'yi açmak ve yönetilen etki alanına bağlanın. Tıklayın **bağlantı** tıklatıp **Bağlan...**  menüsünde. Yönetilen etki alanı DNS etki alanı adını belirtin. Bağlantılar için kullanılacak bağlantı noktasını belirtin. LDAP bağlantıları için bağlantı noktası 389 kullanın. LDAPS bağlantıları için bağlantı noktası 636'ı kullanın. Tıklayın **Tamam** yönetilen etki bağlama düğmesi.

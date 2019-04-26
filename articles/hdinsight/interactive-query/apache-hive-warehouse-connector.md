@@ -1,7 +1,6 @@
 ---
 title: Hive ambarı Bağlayıcısı ile Apache Hive ve Apache Spark'ı tümleştirme
 description: Apache Spark ve Apache Hive, Azure HDInsight Hive ambarı bağlayıcı ile tümleştirmeyi öğrenin.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: f5c4b07326bfd469720ab07b522aefb9ed074cbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484862"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive ambarı Bağlayıcısı ile Apache Hive ve Apache Spark'ı tümleştirme
 

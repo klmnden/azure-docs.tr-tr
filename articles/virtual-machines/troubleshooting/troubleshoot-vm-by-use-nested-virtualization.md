@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444366"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure'da iç içe sanallaştırma kullanarak Azure VM ilgili bir sorun giderme
 
@@ -35,13 +35,13 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 -   Kurtarma VM, sorunlu VM aynı türde (standart veya Premium) depolama hesabı kullanmanız gerekir.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1. adım: Kurtarma VM oluşturma ve Hyper-V rolünü yükleme
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1. Adım: Kurtarma sanal makine oluşturma ve Hyper-V rolünü yükleme
 
 1.  Yeni bir kurtarma sanal makine oluşturun:
 
-    -  İşletim sistemi: Windows Server 2016 Datacenter
+    -  İşletim Sistemi: Windows Server 2016 Datacenter
 
-    -  Boyut: Bu destek iç içe sanallaştırma V3 serisiyle en az iki çekirdek. Daha fazla bilgi için [yeni Dv3 ve Ev3 VM boyutları ile tanışın](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Boyut: Herhangi bir V3 seri iç içe sanallaştırmayı destekleyen en az iki çekirdek. Daha fazla bilgi için [yeni Dv3 ve Ev3 VM boyutları ile tanışın](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Aynı konum, depolama hesabı ve kaynak grubunda VM sorun.
 
@@ -71,7 +71,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 13. Hyper-V rolünü yüklemek için sunucu izin verin. Bu işlem birkaç dakika sürer ve sunucu otomatik olarak yeniden başlatılır.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2. adım: Kurtarma sanal makinenin Hyper-V sunucusunda sorunu VM oluşturma
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2. Adım: Kurtarma sanal makinenin Hyper-V sunucusunda sorunu VM oluşturma
 
 1.  Sorunu VM disk adını kaydetmek ve VM sorun silin. Tüm bağlı diskleri tutmak olduğundan emin olun. 
 
@@ -122,7 +122,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 19. Artık şirket içi VM olarak VM üzerinde çalışabilirsiniz. Gereksinim duyduğunuz herhangi bir sorun giderme adımları izleyebilirsiniz.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3. adım: Azure VM azure'da yeniden oluşturma
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3. Adım: Azure'da Azure VM yeniden oluşturma
 
 1.  VM çevrimiçine aldıktan sonra sanal Makineye Hyper-V Yöneticisi'ni kapatın.
 

@@ -3,18 +3,19 @@ title: Azure Cosmos DB için Azure PowerShell Betiği-Get hesabı anahtarları
 description: Azure PowerShell betik örneği - Azure Cosmos DB için hesap anahtarları alma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-author: SnehaGunda
-ms.author: sngun
+author: rockboyfor
+ms.author: v-yeche
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/10/2017
+origin.date: 05/10/2017
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 088b09e6d97bcf0dc62a96754d2acd0e611865c8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446168"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB için hesap anahtarları alma
 
@@ -26,7 +27,49 @@ Bu örnek, her türden Azure Cosmos DB hesabı için hesap anahtarı alır.
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]
+```powershell
+# Set the Azure resource group name and location
+$resourceGroupName = "myResourceGroup"
+$resourceGroupLocation = "chinanorth"
+
+# Create the resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+
+# Database name
+$DBName = "testdb"
+
+# Write and read locations and priorities for the database
+$locations = @(@{"locationName"="chinanorth"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="chinaeast"; 
+                  "failoverPriority"=1})
+
+# Consistency policy
+$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; 
+                       "maxIntervalInSeconds"="10"; 
+                       "maxStalenessPrefix"="200"}
+
+# DB properties
+$DBProperties = @{"databaseAccountOfferType"="Standard"; 
+                          "locations"=$locations; 
+                          "consistencyPolicy"=$consistencyPolicy;}
+
+# Create the database
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+                    -ApiVersion "2015-04-08" `
+                    -ResourceGroupName $resourceGroupName `
+                    -Location $resourceGroupLocation `
+                    -Name $DBName `
+                    -PropertyObject $DBProperties
+
+# Retrieve the primary and secondary account keys
+Invoke-AzResourceAction -Action listKeys `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName `
+    -Name $DBName
+
+```
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
@@ -53,3 +96,5 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/).
 
 Ek Azure Cosmos DB PowerShell betiği örnekleri, [Azure Cosmos DB PowerShell betiklerinde](../powershell-samples.md) bulunabilir.
+
+<!-- Update_Description: update meta properties -->

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487813"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -192,7 +192,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 
    f. Seçin **C:\\ADF** için **konumu**. Klasör Oluştur **ADF** yoksa.
 
-   g. Seçin **Tamam** projeyi oluşturmak için.
+   g. Projeyi oluşturmak için **Tamam**'ı seçin.
 
 1. Seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
@@ -525,7 +525,7 @@ Her etkinlik için bir görev oluşturulur. Bu örnekte, işlem hattında yalnı
 
 Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
-#### <a name="step-1-create-the-data-factory"></a>1. adım: Veri Fabrikası oluşturma
+#### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
 1. İçin oturum açtıktan sonra [Azure portalında](https://portal.azure.com/), aşağıdaki adımları uygulayın:
 
    a. Seçin **yeni** sol menüsünde.
@@ -548,7 +548,7 @@ Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
    ![Veri Fabrikası sayfası](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>2. adım: Bağlı hizmetler oluşturma
+#### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu adımda, depolama hesabınızın ve Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma
@@ -562,7 +562,7 @@ Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu a
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-   ![Dağıt](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Dağıtma](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Bir Azure Batch bağlı hizmeti oluşturma
 Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batch hesabınız için bağlı hizmet oluşturun.
@@ -597,7 +597,7 @@ Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batc
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-#### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
+#### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma
@@ -849,7 +849,7 @@ Bu adımda, işlem hattının giriş klasörler halinde dosyaları bırakarak s�
 
 1. Üzerinde **OutputDataset** dikey penceresinde dilimle sağ **DİLİM başlangıç saati** kümesine **16/11/2015 01:00:00 AM'den**. Seçin **çalıştırma** dilimi yeniden çalıştırma/yeniden işleme için. Dilim beş dosya yerine bir dosya artık sahiptir.
 
-    ![Çalıştır](./media/data-factory-data-processing-using-batch/image17.png)
+    ![Çalıştırın](./media/data-factory-data-processing-using-batch/image17.png)
 
 1. Dilim çalıştırır ve durumunun sonra **hazır**, bu dilim için çıkış dosyasının içeriğini doğrulayın (**2015-11-16-01.txt**). Çıkış dosyası altında görünür `mycontainer` içinde `outputfolder` blob depolama alanınızda. Dilimin her dosya için bir satır olması gerekir.
 

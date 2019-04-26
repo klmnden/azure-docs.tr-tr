@@ -1,6 +1,6 @@
 ---
-title: Azure portalında Azure kapsayıcı kayıt defteri depoları
-description: Azure portalında Azure kapsayıcı kayıt defteri depoları görüntülemek nasıl.
+title: Azure portalında Azure Container Registry depoları
+description: Azure portalında Azure Container Registry depoları görüntülemek nasıl.
 services: container-registry
 author: cristy
 manager: jeconnoc
@@ -8,49 +8,49 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427115"
 ---
-# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Kapsayıcı kayıt defteri depoları Azure portalında görüntüleyin
+# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure portalındaki kapsayıcı kayıt defteri depoları görüntüleme
 
-Azure kapsayıcı kayıt defteri, Docker depolamak için depoları kapsayıcı görüntüleri sağlar. Depoları görüntüleri depolayarak Yalıtılmış ortamlarda grupları görüntüler (veya görüntülerinin sürümlerini) depolayabilirsiniz. Görüntüleri için kayıt anında ve Azure portalında içeriklerini görüntülediğiniz zaman bu depoları belirtebilirsiniz.
+Azure Container Registry, Docker depolamak için kapsayıcı görüntülerini depolardaki sağlar. Görüntüleri depolarında depolayarak, yalıtılmış ortamlarında grupları resimlerinin (ya da görüntülerini sürümleri) depolayabilirsiniz. Görüntüleri kayıt defterinize gönderin ve Azure portalında içeriklerini görüntülemek, bu depoları belirtebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Kapsayıcı kayıt defteri**: Azure aboneliğinizde bir kapsayıcı kayıt oluşturun. Örneğin, [Azure portal](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI**: yükleme [Docker] [ docker-install] yerel makinenizde sağlayan, Docker komut satırı arabirimi.
-* **Kapsayıcı görüntü**: bir görüntü kapsayıcısı kaydınız anında. Anında iletme ve çekme görüntülerine konusunda yönergeler için bkz [itme ve görüntünün çekme](container-registry-get-started-docker-cli.md).
+* **Kapsayıcı kayıt defteri**: Azure aboneliğinizde bir kapsayıcı kayıt defteri oluşturun. Örneğin, [Azure portalında](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI**: Yükleme [Docker] [ docker-install] yerel makinenizde sağlayan, Docker komut satırı arabirimi.
+* **Kapsayıcı görüntüsü**: Görüntüyü kapsayıcı kayıt defterinize gönderin. Gönderme ve çekme görüntülerine konusunda yönergeler için bkz [görüntü çekme ve itme](container-registry-get-started-docker-cli.md).
 
-## <a name="view-repositories-in-azure-portal"></a>Azure portalında görünüm depoları
+## <a name="view-repositories-in-azure-portal"></a>Azure portalında depoları görüntüleme
 
-Azure portalında görüntü etiketleri yanı sıra görüntülerinizi barındırma depoları listesini görebilirsiniz.
+Azure portalında görüntüsü etiketlerini yanı sıra, görüntülerinizi barındırma depoları listesini görebilirsiniz.
 
-' Ndaki adımları izlediyseniz [itme ve görüntünün çekme](container-registry-get-started-docker-cli.md) (ve daha sonra görüntüyü silmek olmadı), kapsayıcı kayıt defterinizde Nginx görüntüsü olması. Bu makaledeki yönergeleri belirtilen içinde bir ad alanı, "örneklerini" görüntüsüyle etiketi `/samples/nginx`. Yenileyici, olarak [docker itme] [ docker-push] makalesinde belirtilen komut:
+Adımları izlediyseniz [görüntü çekme ve itme](container-registry-get-started-docker-cli.md) (ve daha sonra görüntüyü silmek olmadı), kapsayıcı kayıt defterinizde bir Nginx görüntüsü olması gerekir. Bu makaledeki yönergeleri belirtilen içinde bir ad alanı, "örnekler" görüntüyü etiketlemek `/samples/nginx`. Bilgilerinizi tazelemeniz olarak [docker itme] [ docker-push] makalesinde belirtilen komutu:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Azure kapsayıcı kayıt defteri böyle çok düzeyli deposu ad alanları desteklediğinden, belirli bir uygulamayı veya uygulamaları, farklı geliştirme veya işletimsel takımlar koleksiyonu ilgili görüntüleri koleksiyonları kapsamını belirleyebilirsiniz. Daha fazla bilgi için kapsayıcı kayıt defterleri depoları hakkında bkz [özel Docker kapsayıcısı kayıt defterleri azure'da](container-registry-intro.md).
+ Azure Container Registry gibi çok düzeyli depo ad alanlarından desteklediğinden, belirli bir uygulama ya da farklı geliştirme veya işlem ekipleri için bir uygulama koleksiyonuyla ilişkili görüntü koleksiyonlarını kapsamını belirleyebilirsiniz. Daha fazla bilgi için kapsayıcı kayıt defterleri depolarda hakkında bkz: [azure'da özel Docker kapsayıcısı kayıt defterleri](container-registry-intro.md).
 
 Bir depo görüntülemek için:
 
 1. Oturum [Azure portalı][portal]
-1. Seçin **Azure kapsayıcı kayıt defteri** olduğu, gönderilen Nginx görüntüsü
-1. Seçin **depoları** kayıt defterinde görüntüleri içeren depoları listesini görmek için
-1. Bu havuz içindeki görüntü etiketleri görmek için bir depo seçin
+1. Seçin **Azure Container Registry** olduğu Nginx görüntüsü gönderdiğiniz
+1. Seçin **depoları** , kayıt defterindeki görüntüleri içeren depoların listesini görmek için
+1. Bu depo içinde görüntüsü etiketlerini görmek için bir depo seçin
 
-Nginx resim olarak gönderilir, örneğin, belirtildiği [itme ve görüntünün çekme](container-registry-get-started-docker-cli.md), benzer bir şey görmeniz gerekir:
+Nginx görüntüsü olarak gönderildi, örneğin, belirtildiği [görüntü çekme ve itme](container-registry-get-started-docker-cli.md), benzer bir şey görmeniz gerekir:
 
 ![Portalda depoları](./media/container-registry-repositories/container-registry-repositories.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntüleme ve Portalı'nda depoları ile çalışma temellerini bildiğinize göre Azure kapsayıcı kayıt defteri ile kullanmayı deneyin bir [Azure Kubernetes hizmet (AKS)](../aks/tutorial-kubernetes-prepare-app.md) küme.
+Azure Container Registry ile kullanarak, görüntüleme ve Portalı'nda depoları ile çalışma hakkındaki temel bilgileri öğrendiğinize göre deneyin bir [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) kümesi.
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455648"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Karma kimlik yaşam döngüsü planlaması
 Kimlik, Kurumsal mobilite ve uygulama erişim stratejinizin girişiminin temellerinden biridir. Mobil cihaz veya SaaS uygulaması için imzalama olsun, kimlik bilgilerinizi her şeyi erişmesini önemlidir. En yüksek düzeyde otomatik hale getirme ve kaynaklar sağlama işleminin merkezileştirerek içeren birleştirme ve kimlik depolarınızı arasında eşitleme bir kimlik yönetimi çözümü kapsar. Kimlik çözümü, şirket içi ve bulut arasında bir merkezi kimlik olabilir ve Kimlik Federasyonu çeşit merkezi kimlik doğrulamaya korumak ve güvenli bir şekilde paylaşın ve dış kullanıcıların ve işletmelerin işbirliği yapmak için de gerekir. İşletim sistemlerini ve uygulamaları kişilere arasında veya bir kuruluşla ilişkili kaynaklar. Kuruluş yapısı sağlama ilkelerini ve yordamlarını uyum sağlayacak şekilde değiştirilebilir.

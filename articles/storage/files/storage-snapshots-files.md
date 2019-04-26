@@ -2,18 +2,18 @@
 title: Azure dosyaları için paylaşım anlık görüntülerine genel bakış | Microsoft Docs
 description: Paylaşım anlık görüntüsü, bir noktada paylaşımı için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444104"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure dosyaları için paylaşım anlık görüntülerine genel bakış 
 Azure dosyaları, dosya paylaşımları paylaşım anlık görüntüsünü olanağı sağlar. Anlık görüntüleri yakalama paylaşım durumu zamandaki o noktada paylaşın. Bu makalede, hangi özelliklerin paylaşım anlık görüntüleri sağlar ve bunları kendi özel kullanım örneğindeki özelliklerinden nasıl gerçekleştirebileceğiniz açıklanmaktadır.
@@ -58,7 +58,7 @@ Paylaşım anlık görüntüleri artımlı olarak kaydedilmiş olsa bile, payla�
 
 Anlık görüntüler, 5 TB paylaşımı sınırında sayılmaz. Ne kadar toplam alanı paylaşım anlık görüntüleri kaplaması için sınır yoktur. Depolama hesabı sınırları hala geçerlidir.
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 Azure dosyaları'nı bugün sağlayan bir paylaşım anlık görüntüleri sayısı 200'dür. 200 paylaşım anlık görüntüleri sonra yenilerini oluşturmak için önceki paylaşım anlık görüntüleri silmeniz gerekir. 
 
 Paylaşım anlık görüntüleri oluşturmak için eş zamanlı çağrı için sınır yoktur. Belirli bir dosya paylaşımı anlık görüntülerini kullanabilir paylaşan boşluk miktarının sınırı yoktur. 

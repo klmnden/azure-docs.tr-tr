@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381488"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Karma Kimlik Tasarımı ile İlgili Dikkat Edilmesi Gerekenler
 Tüketici tabanlı cihazların Kurumsal dünyasında proliferating ve bulut tabanlı hizmet olarak yazılım (SaaS) uygulamaları benimsemek kolaydır. Sonuç olarak, kullanıcıların uygulama erişimi denetimini iç veri merkezlerinden ve bulut platformları arasında koruma zorludur.  

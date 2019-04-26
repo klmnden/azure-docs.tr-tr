@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387834"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ Spark işlerinde Pig/Hive işlerini daha fazla genişletilebilir. Spark işleri 
 
 HDInsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama alanında aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt klasörleri tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, python dosyaları pyFiles alt ve jar dosyaları kök klasörün jar dosyaları dışındaki alt klasörüne yükleyin. Çalışma zamanında Data Factory hizmetinin Azure Blob Depolama alanında aşağıdaki klasör yapısına bekliyor:     
 
-| Yol                  | Açıklama                              | Gerekli | Type   |
+| Yol                  | Açıklama                              | Gerekli | Tür   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (kök)            | Spark işi depolama bağlı hizmeti kök yolu | Evet      | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yolu | Evet      | Dosya   |

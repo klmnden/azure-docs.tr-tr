@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight üzerinde Grafana kullanma
 description: Azure HDInsight, Grafana erişmeyi öğrenin.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: 495c617f97b2a7f39182b7684c2c0e183c2002b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484044"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 

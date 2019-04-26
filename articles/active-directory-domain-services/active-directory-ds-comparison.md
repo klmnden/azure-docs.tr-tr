@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417291"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım örneği için doğru
 Azure AD Domain Services ile kimlik altyapısını azure'da koruma hakkında endişelenmenize gerek kalmadan Azure altyapı hizmetleri iş yüklerinizi dağıtabilirsiniz. Yönetilen bu hizmet, dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmet kolayca dağıtılır ve otomatik sistem durumu izleme ve düzeltme sağlar. Biz, dağıtım senaryoları için destek eklemek için hizmet sürekli geliştirilmektedir.

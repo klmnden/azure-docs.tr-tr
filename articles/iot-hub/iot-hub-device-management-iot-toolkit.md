@@ -5,14 +5,16 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: junhan
+ms.tgt_pltfrm: arduino
+origin.date: 01/04/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401179"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IOT araçları Visual Studio Code için Azure IOT Hub cihaz yönetimi için kullanın.
 
@@ -22,8 +24,8 @@ ms.locfileid: "58445272"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Yönetim seçeneği          | Görev                    |
-|----------------------------|--------------------------------|
+| Yönetim seçeneği          | Görev                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Doğrudan yöntemler             | Başlatma veya ileti göndermek ya da cihazın yeniden başlatılması durdurma gibi davranacak bir cihaz olun.                                        |
 | Cihaz ikizi okuma           | Bir cihaz bildirilen durumunu alın. Örneğin, cihaz LED artık yanıp sönen bildirir.                                    |
 | Cihaz ikizi güncelleştir         | Bir cihaz için yeşil bir LED ayarlama veya telemetri gönderme aralığı 30 dakika gibi bazı durumların yerleştirin.         |
@@ -53,14 +55,10 @@ Azure IOT araçları, Visual Studio Code için çeşitli yönetim seçenekler il
 ## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınıza erişmek için oturum açın
 
 1. İçinde **Gezgini** görüntülemek VS Code, genişletme **Azure IOT Hub cihazları** sol alt köşedeki bölümünde.
-
-2. Tıklayın **IOT Hub'ı seçin** bağlam menüsünde.
-
-3. Bir açılır pencere, Azure'da ilk kez oturum açarken izin vermek için sağ alt köşedeki gösterilir.
-
-4. Oturum açtıktan sonra Azure abonelik listesi gösterilir ve ardından Azure aboneliği ve IOT hub'ı seçin.
-
-5. Cihaz listesinde gösterilecek **Azure IOT Hub cihazları** birkaç saniye içinde sekmesi.
+1. Tıklayın **IOT Hub'ı seçin** bağlam menüsünde.
+1. Bir açılır pencere, Azure'da ilk kez oturum açarken izin vermek için sağ alt köşedeki gösterilir.
+1. Oturum açtıktan sonra Azure abonelik listesi gösterilir ve ardından Azure aboneliği ve IOT hub'ı seçin.
+1. Cihaz listesinde gösterilecek **Azure IOT Hub cihazları** birkaç saniye içinde sekmesi.
 
    > [!Note]
    > Ayrıca, ayarlamayı tamamlamak için **IoT Hub Bağlantı Dizesini Ayarla**'yı seçebilirsiniz. Açılır pencerede bağlanır IOT Cihazınızı IOT hub'ının bağlantı dizesini girin.
@@ -68,33 +66,26 @@ Azure IOT araçları, Visual Studio Code için çeşitli yönetim seçenekler il
 ## <a name="direct-methods"></a>Doğrudan yöntemler
 
 1. Cihazınızı sağ tıklayıp **doğrudan yöntem çağırma**. 
-
-2. Yük ve yöntem adı giriş kutusuna girin.
-
+1. Yük ve yöntem adı giriş kutusuna girin.
 3. Sonuçları gösterilecek **çıkış** > **Azure IOT hub'ı Araç Seti** görünümü.
 
 ## <a name="read-device-twin"></a>Cihaz ikizi okuma
 
 1. Cihazınızı sağ tıklayıp **cihaz ikizini Düzenle**. 
-
-2. Bir **azure-IOT-cihaz-twin.json** dosya cihaz ikizi içeriğini açılacak.
+1. Bir **azure-IOT-cihaz-twin.json** dosya cihaz ikizi içeriğini açılacak.
 
 ## <a name="update-device-twin"></a>Cihaz ikizi güncelleştir
 
 1. Bazı düzenlemeler, **etiketleri** veya **properties.desired** alan.
-
-2. Sağ **azure-IOT-cihaz-twin.json** dosya.
-
-3. Seçin **güncelleştirme cihaz İkizi** cihaz ikizi güncelleştirilemedi.
+1. Sağ **azure-IOT-cihaz-twin.json** dosya.
+1. Seçin **güncelleştirme cihaz İkizi** cihaz ikizi güncelleştirilemedi.
 
 ## <a name="send-cloud-to-device-messages"></a>Buluttan cihaza iletileri gönderme
 
 Cihazınız için IOT hub'ınızdan ileti göndermek için bu adımları izleyin:
  
 1. Cihazınızı sağ tıklayıp **cihaza C2D iletisi gönder**. 
-
-2. İleti giriş kutusuna girin.
-
+1. İleti giriş kutusuna girin.
 3. Sonuçları gösterilecek **çıkış** > **Azure IOT hub'ı Araç Seti** görünümü.
 
 ## <a name="next-steps"></a>Sonraki adımlar

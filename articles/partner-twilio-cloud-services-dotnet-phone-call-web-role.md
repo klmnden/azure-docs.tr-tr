@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422823"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure'da bir web rolünde Twilio kullanarak telefon görüşmesi yapma
 Bu kılavuz, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio kullanma gösterilmektedir. Aşağıdaki ekran görüntüsünde gösterildiği gibi sonuç uygulamayı verilen sayının ve ileti ile arama yapmak için kullanıcıya sorar.

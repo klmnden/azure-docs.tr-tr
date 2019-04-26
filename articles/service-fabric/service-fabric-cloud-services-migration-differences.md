@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387647"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Geçiş yapmadan önce Cloud Services ve Service Fabric arasındaki farklar hakkında bilgi edinin uygulamalar.
 Microsoft Azure Service Fabric, yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için tasarlanan yeni nesil bulut uygulama platformudur. Bu, paketleme, dağıtma, yükseltme ve dağıtılan bulut uygulamaları yönetmek için birçok yeni özellik sunar. 
@@ -80,7 +80,7 @@ Service Fabric adlandırma uç nokta adresleri Hizmetleri çözümlemek için ku
 
 ![Service Fabric doğrudan iletişim][6]
 
-### <a name="queues"></a>Sıralar
+### <a name="queues"></a>Kuyruklar
 Bulut Hizmetleri gibi durum bilgisi olmayan ortamlarda katmanlar arasında ortak bir iletişim mekanizması, iş görevleri bir katmandan diğerine arızaya depolamak için bir dış depolama kuyruğu kullanmaktır. İşleri bir Azure kuyruğu veya Service burada çalışan rolü örnekleri sıradan çıkarma ve işleri işlemek Bus'a gönderir bir web katmanı buna yaygın bir senaryodur.
 
 ![Bulut Hizmetleri kuyruk iletişimi][7]

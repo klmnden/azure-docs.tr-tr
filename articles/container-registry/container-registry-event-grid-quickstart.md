@@ -9,11 +9,11 @@ ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
 ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427700"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Hızlı Başlangıç: Event Grid için özel kapsayıcı kayıt defterinden olayları gönderme
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-account]
 
 Bu makalede Azure CLI komutları için biçimlendirilmiş **Bash** Kabuğu. PowerShell veya komut istemi gibi farklı bir kabuk kullanıyorsanız, satır devamlılığı karakteri veya değişken ataması satırları uygun şekilde ayarlamanız gerekebilir. Bu makalede, gerekli komut düzenleme miktarını en aza indirmek için değişkenleri kullanır.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Bir Azure kaynak grubu, dağıtma ve Azure kaynaklarınızı yönetmek mantıksal bir kapsayıcıdır. Aşağıdaki [az grubu oluşturma] [ az-group-create] komut adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* bölge. Kaynak grubunuz için farklı bir ad kullanmak istiyorsanız, `RESOURCE_GROUP_NAME` için farklı bir değer.
 

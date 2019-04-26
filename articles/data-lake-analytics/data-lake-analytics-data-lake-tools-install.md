@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408160"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları’nı yükleme.
 
@@ -33,9 +33,9 @@ Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-
 
 Visual Studio için Azure Data Lake Araçları, Visual Studio 2017 15.3 veya üzeri sürümlerde desteklenir. Araç, Visual Studio Yükleyicisi’ndeki **Veri depolama ve işleme** ve **Azure Geliştirme** iş yüklerinin parçasıdır. Visual Studio yüklemenizin parçası olarak bu iki iş yükünden birini etkinleştirin.  
 
-![Veri depolama ve işleme iş yükünü etkinleştirme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png) bölümünde gösterildiği gibi **Veri depolama ve işleme** iş yükünü etkinleştirin
+Etkinleştirme **veri depolama ve işleme** gösterildiği gibi iş yükü: ![Veri depolama ve işleme iş yükünü etkinleştirin](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
 
-![Azure geliştirme iş yükünü etkinleştirme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png) bölümünde gösterildiği gibi **Azure geliştirme** iş yükünü etkinleştirin
+Etkinleştirme **Azure geliştirme** gösterildiği gibi iş yükü: ![Azure geliştirme iş yükünü etkinleştirin](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Visual Studio 2013 ve 2015 için Azure Data Lake Araçları’nı yükleme
 

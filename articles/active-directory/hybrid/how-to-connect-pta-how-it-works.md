@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347791"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması: Ayrıntılı Teknik İnceleme
 Bu makalede nasıl bir genel bakıştır Azure Active directory (Azure AD) geçişli kimlik doğrulaması çalışır. Derin teknik ve güvenlik bilgileri için bkz: [güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md) makalesi.

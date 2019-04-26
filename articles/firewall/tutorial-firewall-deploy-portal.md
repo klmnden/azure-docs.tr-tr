@@ -9,11 +9,11 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194225"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -143,7 +143,7 @@ Güvenlik duvarını sanal ağa dağıtın.
    |Abonelik     |\<aboneliğiniz\>|
    |Kaynak grubu     |**Test FW RG** |
    |Ad     |**Test-FW01**|
-   |Konum     |Önceden kullandığınız konumu seçin|
+   |Location     |Önceden kullandığınız konumu seçin|
    |Bir sanal ağ seçin     |**Var olanı kullan**: **Test FW VN**|
    |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
 

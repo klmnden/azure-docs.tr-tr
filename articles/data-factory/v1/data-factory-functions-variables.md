@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486524"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - işlevler ve sistem değişkenleri
 > [!NOTE]
@@ -82,7 +82,7 @@ Aşağıdaki tablolarda Azure Data Factory içindeki tüm işlevlere listeleyin:
 | --- | --- | --- | --- |
 | Zaman |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Verilen süre X Y saat ekler. <br/><br/>Örnek: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Zaman |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Y dakika X ekler.<br/><br/>Örnek: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Zaman |StartOfHour(X) |X: Tarih saat |X saat bileşeni tarafından temsil edilen saat için başlangıç saatini alır. <br/><br/>Örnek: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Zaman |StartOfHour(X) |X: DateTime |X saat bileşeni tarafından temsil edilen saat için başlangıç saatini alır. <br/><br/>Örnek: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Tarih |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |X-Y gün ekler. <br/><br/>Örnek: 15/9/2013 12:00:00 PM'den + 2 gün = 9/17/2013 12:00:00 PM.<br/><br/>Y negatif bir sayı olarak belirterek gün çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Tarih |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X-Y ay ekler.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Y negatif bir sayı olarak belirterek ay çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Tarih |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Ekler Y * x 3 ay.<br/><br/>Örnek: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -97,7 +97,7 @@ Aşağıdaki tablolarda Azure Data Factory içindeki tüm işlevlere listeleyin:
 | Tarih |StartOfDay(X) |X: DateTime |Parametre X gün bileşenini tarafından temsil edilen günün başlangıcını alır.<br/><br/>Örnek: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |FROM(X) |X: String |Bir tarih saat dizesi X ayrıştırılamıyor. |
 | DateTime |Ticks(X) |X: DateTime |İşaretleri X parametresinin özelliğini alır. Bir değer çizgisi 100 nanosaniyelik eşittir. Bu özelliğin değeri, 12:00:00 gece yarısından itibaren 1 Ocak 0001 geçen tıklarının sayısını temsil eder. |
-| Metin |Format(X) |X: String değişkeni |Metin biçimleri (kullanın `\\'` kaçış birleşimi `'` karakter).|
+| Text |Format(X) |X: String değişkeni |Metin biçimleri (kullanın `\\'` kaçış birleşimi `'` karakter).|
 
 > [!IMPORTANT]
 > Başka bir işlev içinde bir işlevi kullanılırken kullanın gerekmez **$$** iç işlev için önek. Örneğin: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' ve RowKey ge \\' {0: yyyy-aa-gg SS}\\'', Time.AddHours (SliceStart, -6)). Bu örnekte, dikkat **$$** ön eki için kullanılmaz **Time.AddHours** işlevi. 

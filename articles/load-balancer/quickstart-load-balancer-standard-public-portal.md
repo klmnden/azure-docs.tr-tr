@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405537"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak sanal makinelerde yük dengelemesi için Standart Yük Dengeleyici oluşturma
 
@@ -28,7 +28,7 @@ Yük dengeleme, gelen istekleri birden fazla sanal makineye yayarak daha yüksek
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
@@ -42,14 +42,14 @@ Bu bölümde, standart yük yardımcı olan sanal makinelerin yük dengelemesini
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Abonelik               | Aboneliğinizi seçin.    |    
-    | Kaynak grup         | Seçin **Yeni Oluştur** ve türü *myResourceGroupSLB* metin kutusuna.|
+    | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *myResourceGroupSLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
     | Bölge         | **Batı Avrupa**'yı seçin.                                        |
-    | Type          | Seçin **genel**.                                        |
+    | Tür          | Seçin **genel**.                                        |
     | SKU           | Seçin **standart**.                          |
     | Genel IP adresi | **Yeni oluştur**’u seçin. |
     | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
-    |Kullanılabilirlik alanı| Seçin **bölgesel olarak yedekli**.    |
+    |Kullanılabilirlik bölgesi| Seçin **bölgesel olarak yedekli**.    |
 3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.   
 
     ![Standart Yük Dengeleyici oluşturma](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -77,10 +77,10 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
     | ------- | ----- |
     | Ad | Girin *myHealthProbe*. |
     | Protokol | Seçin **HTTP**. |
-    | Bağlantı Noktası | Girin *80*.|
-    | Aralık | Girin *15* sayısı için **aralığı** araştırma denemeleri arasındaki saniye. |
+    | Bağlantı noktası | Girin *80*.|
+    | Interval | Girin *15* sayısı için **aralığı** araştırma denemeleri arasındaki saniye. |
     | İyi durumda olmayan eşik | Seçin *2* sayısı için **sağlıksız durum eşiği** veya VM sistem durumu kötü olarak kabul edilmeden önce gerçekleşmesi gereken ardışık araştırma hatası.|
-    | Durum araştırması | Seçin *myHealthProbe*. |
+    | Durum yoklaması | Seçin *myHealthProbe*. |
 4. **Tamam**’ı seçin.
 
 ### <a name="create-a-load-balancer-rule"></a>Yük Dengeleyici kuralı oluşturma
@@ -94,10 +94,10 @@ Trafiğin sanal makinelere dağıtımını tanımlamak için bir Yük Dengeleyic
     | ------- | ----- |
     | Ad | Girin *myHTTPRule*. |
     | Protokol | Seçin **TCP**. |
-    | Bağlantı Noktası | Girin *80*.|
+    | Bağlantı noktası | Girin *80*.|
     | Arka uç bağlantı noktası | Girin *80*. |
     | Arka uç havuzu | Seçin *myBackendPool*.|
-    | Durum araştırması | Seçin *myHealthProbe*. |
+    | Durum yoklaması | Seçin *myHealthProbe*. |
 4. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
 4. **Tamam**’ı seçin.
 
@@ -105,7 +105,7 @@ Trafiğin sanal makinelere dağıtımını tanımlamak için bir Yük Dengeleyic
 
 Bu bölümde, bir sanal ağ oluşturma, yük dengeleyicinin arka uç havuzu için iki sanal makine oluşturun ve sonra Yük dengeleyicinin test edilmesi için sanal makinelere IIS yüklersiniz.
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 1. Ekranın sol üst tarafında seçin **kaynak Oluştur** > **ağ** > **sanal ağ**.
 
 1. İçinde **sanal ağ oluştur**bu bilgileri seçin veya girin:
@@ -115,8 +115,8 @@ Bu bölümde, bir sanal ağ oluşturma, yük dengeleyicinin arka uç havuzu içi
     | Ad | *myVNet* yazın. |
     | Adres alanı | Girin *10.1.0.0/16*. |
     | Abonelik | Aboneliğinizi seçin.|
-    | Kaynak grup | Mevcut kaynağı - seçin *myResourceGroupSLB*. |
-    | Konum | **Batı Avrupa**'yı seçin.|
+    | Kaynak grubu | Mevcut kaynağı - seçin *myResourceGroupSLB*. |
+    | Location | **Batı Avrupa**'yı seçin.|
     | Alt ağ - adı | *myBackendSubnet* yazın. |
     | Alt Ağ - Adres aralığı | Girin *10.1.0.0/24*. |
 1. Geri kalan seçin ve varsayılan değerleri bırakın **Oluştur**.

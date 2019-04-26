@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324271"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kural altyapısı özellikleri
 Bu makalede Azure Content Delivery Network (CDN) için ayrıntılı açıklamaları ve kullanılabilir özellikleri listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -185,7 +185,7 @@ Ad | Amaç
 
 Değer|Sonuç
 --|--
-Etkin | Age yanıtı üstbilgisi istek sahibine gönderilen yanıt dahil edilir.
+Enabled | Age yanıtı üstbilgisi istek sahibine gönderilen yanıt dahil edilir.
 Devre dışı | Age yanıtı üstbilgisi istek sahibine gönderilen yanıtından çıkarılır.
 
 **Varsayılan davranış**: Devre dışı.
@@ -202,7 +202,7 @@ Bant genişliği azaltma parametreleri istemci isteği için veri aktarım hız�
 
 Değer|Sonuç
 --|--
-Etkin|Bant genişliği azaltma isteği kabul etmenin Pop'lere sağlar.
+Enabled|Bant genişliği azaltma isteği kabul etmenin Pop'lere sağlar.
 Devre dışı|Bant genişliği azaltma parametreler yok sayılacak Pop'lere neden olur. Talep edilen içeriği normalde hizmet (diğer bir deyişle, bant genişliği azaltma olmadan).
 
 **Varsayılan davranışı:** etkin.
@@ -234,7 +234,7 @@ Prebuf saniye|Bu seçenek POP'ları bant genişliği daraltma kadar beklenecek s
 
 Değer|Sonuç
 --|--
-Etkin|İçerik POP'ları üzerinde önceden önbelleğe alınmış olsa bile kaynak sunucuya geçiş tüm istekleri neden olur.
+Enabled|İçerik POP'ları üzerinde önceden önbelleğe alınmış olsa bile kaynak sunucuya geçiş tüm istekleri neden olur.
 Devre dışı|POP önbellek varlıklara göre kendi yanıt üst bilgilerinde tanımlanmış önbellek İlkesi neden olur.
 
 **Varsayılan davranışı:**
@@ -316,7 +316,7 @@ Anahtar bilgileri:
 - Bir veya daha fazla sorgu dizesi parametresi adları belirtin ve parametre adları tek bir boşluk ile ayırın.
 - Bu özellik, sorgu dizesi parametreleri dahil veya önbellek anahtarından dışlanan olup olmadığını belirler. Aşağıdaki tabloda her seçeneğe ilişkin ek bilgiler sağlanmaktadır.
 
-Type|Açıklama
+Tür|Açıklama
 --|--
  Dahil Et|  Belirtilen her parametre önbellek anahtarını dahil olduğunu gösterir. Bu özellik içinde tanımlanan bir sorgu dizesi parametresi için benzersiz bir değer içeren her istek için benzersiz bir önbellek anahtarı oluşturulur. 
  Tüm ekleme  |Benzersiz sorgu dizesi içeren bir varlık için her istek için benzersiz bir önbellek anahtarı oluşturulduğunu gösterir. Küçük bir önbellek isabet yüzdesi neden olabileceği için bu yapılandırma türü genellikle önerilmez. Daha fazla isteklere hizmet gerekir çünkü düşük bir önbellek isabet sayısı, kaynak sunucu üzerindeki yükü artırır. Bu yapılandırma, "benzersiz-cache" sorgu dizesi önbelleğe alma sayfasında olarak bilinen bir önbelleğe alma davranışı çoğaltır. 
@@ -433,7 +433,7 @@ HTTP büyük bir platform için varsayılan yapılandırma, müşteri kaynak sun
 
 Değer|Sonuç
 --|--
-Etkin|Varsayılan davranışını geri yükler. Varlık kaynak sunucusundan bir arka planda getirme başlatmak için POP zorlamak için varsayılan davranıştır. Sonra varlık POP'ın yerel önbellek üzerinde olacaktır.
+Enabled|Varsayılan davranışını geri yükler. Varlık kaynak sunucusundan bir arka planda getirme başlatmak için POP zorlamak için varsayılan davranıştır. Sonra varlık POP'ın yerel önbellek üzerinde olacaktır.
 Devre dışı|POP, varlık için bir arka planda getirme gerçekleştirmesini engeller. Bir sonraki istek için o varlığı o bölgenin müşteri kaynak sunucudan istemek POP neden sonucudur.
 
 **Varsayılan davranışı:** etkin.
@@ -536,7 +536,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Değer|Sonuç
 -|-
-Etkin|Hata ayıklama önbellek yanıt üstbilgileri için istekleri X-EC-Debug üst bilgi içeren bir yanıt döndürür.
+Enabled|Hata ayıklama önbellek yanıt üstbilgileri için istekleri X-EC-Debug üst bilgi içeren bir yanıt döndürür.
 Devre dışı|X-EC-Debug yanıt üst bilgisi yanıttan edilmeyecek.
 
 **Varsayılan davranışı:** devre dışı.
@@ -593,7 +593,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 
 Değer | Sonuç
 ------|-------
-Etkin| Bir 403 Yasak yanıtı ile reddedilir eşleştirme ölçütü karşılayan tüm isteklerin neden olur.
+Enabled| Bir 403 Yasak yanıtı ile reddedilir eşleştirme ölçütü karşılayan tüm isteklerin neden olur.
 Devre dışı| Varsayılan davranışını geri yükler. Döndürülecek yanıt türünü belirlemek kaynak sunucuya izin vermek için varsayılan davranıştır.
 
 **Varsayılan davranış**: Devre dışı
@@ -653,7 +653,7 @@ Anahtar bilgileri:
 
 Değer|Sonuç
 -|-
-Etkin|İstekleri yeniden yönlendirilebilir.
+Enabled|İstekleri yeniden yönlendirilebilir.
 Devre dışı|İstekleri yeniden yönlendirilmeyecek.
 
 **Varsayılan davranışı:** devre dışı.
@@ -726,7 +726,7 @@ Bir no-cache isteği HTTP istemcisi gönderdiğinde oluşur bir `Cache-Control:
 
 Değer|Sonuç
 --|--
-Etkin|Bir HTTP istemci no-cache istekleri kaynak sunucuya iletilmesi için ve kaynak sunucu HTTP istemcisine geri yanıt üst bilgileri ve gövdesini POP aracılığıyla döndüreceği sağlar.
+Enabled|Bir HTTP istemci no-cache istekleri kaynak sunucuya iletilmesi için ve kaynak sunucu HTTP istemcisine geri yanıt üst bilgileri ve gövdesini POP aracılığıyla döndüreceği sağlar.
 Devre dışı|Varsayılan davranışını geri yükler. No-cache istekleri kaynak sunucuya iletilmesini önlemek için varsayılan davranıştır.
 
 Tüm üretim trafiği için bu özellik, varsayılan devre dışı durumda bırakılmasını önemle tavsiye edilir. Aksi takdirde, kaynak sunucu son kullanıcılar, birçok no-cache istekleri web sayfaları yenileme esnasında oluşacak yanlışlıkla tetikleyebilir veya bir no-cache üstbilgisi video her istekle göndermesini kodlanmış birçok popüler medya oynatıcıları korunmasına değil. Bununla birlikte, bu özellik belirli dizinleri, isteğe bağlı kaynak sunucudan çekilmesi yeni içerik izin vermek üzere test veya hazırlama üretim dışı uygulamak yararlı olabilir.
@@ -788,7 +788,7 @@ Varsayılan olarak, belirtilen bayt aralığı istek POP tarafından karşılana
 
 Değer|Sonuç
 -|-
-Etkin|POP 416 İstenen aralık yeterli değil bir durum koduna sahip bir geçersiz bayt aralığı isteğine yanıt vermesini engeller. Bunun yerine sunucu istenen varlık teslim ve 200 Tamam istemciye döndürür.
+Enabled|POP 416 İstenen aralık yeterli değil bir durum koduna sahip bir geçersiz bayt aralığı isteğine yanıt vermesini engeller. Bunun yerine sunucu istenen varlık teslim ve 200 Tamam istemciye döndürür.
 Devre dışı|Varsayılan davranışını geri yükler. İstenen aralık yeterli değil 416 durum kodunu uymanız varsayılan davranışıdır.
 
 **Varsayılan davranışı:** devre dışı.
@@ -849,7 +849,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 
 Değer|Sonuç
 -|-
-Etkin|Sorgu dizeleri depolama URL'leri bir erişim günlüğe kaydederken sağlar. Bir URL bir sorgu dizesi içermiyorsa, ardından bu seçeneği bir etkisi yoktur.
+Enabled|Sorgu dizeleri depolama URL'leri bir erişim günlüğe kaydederken sağlar. Bir URL bir sorgu dizesi içermiyorsa, ardından bu seçeneği bir etkisi yoktur.
 Devre dışı|Varsayılan davranışını geri yükler. URL'leri bir erişim günlüğe kaydederken sorgu dizelerini yoksay için varsayılan davranıştır.
 
 **Varsayılan davranışı:** devre dışı.
@@ -967,7 +967,7 @@ Kısmi Bu önbellek, ardından istenen içeriğin tam olarak önbelleğe kadar b
 
 Değer|Sonuç
 -|-
-Etkin|İstekleri kısmen önbelleğe alınmış içeriği oluşturabilirsiniz.
+Enabled|İstekleri kısmen önbelleğe alınmış içeriği oluşturabilirsiniz.
 Devre dışı|İstekleri yalnızca istenen içeriğin tam olarak önbelleğe alınmış bir sürümü oluşturabilirsiniz.
 
 **Varsayılan davranışı:** devre dışı.
@@ -1025,7 +1025,7 @@ Geçerli değerler şunlardır:
 
 Değer|Sonuç
 --|--
-Etkin|Varlık kaynak sunucudan öğeleri tekrar Al POP'a neden olur.
+Enabled|Varlık kaynak sunucudan öğeleri tekrar Al POP'a neden olur.
 Devre dışı|Varsayılan davranışını geri yükler. İstek üzerine geçerli önbellek kıymetler hizmet için varsayılan davranıştır.
 
 Bu özellik, doğru önbelleğe alma ve içerik teslimi için gerekli değildir, ancak geçici bir çözüm olarak yararlı olabilir. Örneğin, kaynak sunucularda dinamik içerik oluşturucuları yanlışlıkla Pop'lere gönderilen bayt 0 yanıtları neden olabilir. Bu tür yanıtların POP'ları genellikle önbelleğe alınır. 0 bayt yanıt hiçbir zaman geçerli bir yanıt olduğunu biliyorsanız 
@@ -1088,7 +1088,7 @@ Belirtilen üst bilgi adı aşağıdaki adları hiçbirini eşleşmediğini emin
 
 Değer|Sonuç
 -|-
-Etkin|Bir kaynak sunucuya bağlanma sırasında bir hata oluştuğunda eski içeriği istemciye hizmet verir.
+Enabled|Bir kaynak sunucuya bağlanma sırasında bir hata oluştuğunda eski içeriği istemciye hizmet verir.
 Devre dışı|Kaynak sunucunun hata olarak iletilir.
 
 **Varsayılan davranışı:** devre dışı
@@ -1128,7 +1128,7 @@ Bu özellik URL yeniden yazma özelliği hariç olmak üzere çoğu özelliği d
 
 Değer | Sonuç
 ------|---------
-Etkin | Belirteç tabanlı kimlik doğrulaması ile istenen içeriği korunur. Yalnızca geçerli bir belirteç sağlayın ve kendi gereksinimlerini istemcilerden gelen istekleri kabul edilir. FTP işlemleri, belirteç tabanlı kimlik doğrulamasını bırakılır.
+Enabled | Belirteç tabanlı kimlik doğrulaması ile istenen içeriği korunur. Yalnızca geçerli bir belirteç sağlayın ve kendi gereksinimlerini istemcilerden gelen istekleri kabul edilir. FTP işlemleri, belirteç tabanlı kimlik doğrulamasını bırakılır.
 Devre dışı| Varsayılan davranışını geri yükler. Bir isteğin güvenli olup olmadığını belirlemek belirteç tabanlı kimlik doğrulaması yapılandırmanızı izin vermek için varsayılan davranıştır.
 
 #### <a name="compatibility"></a>Uyumluluk
@@ -1170,7 +1170,7 @@ URL yeniden yönlendirmesi, yalnızca 3xx yanıt kodları için geçerlidir.
 
 İsteğe bağlı üst bilgi değeri seçenek alfasayısal karakterler, tırnak işareti ve boşluk destekler.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Kimlik Doğrulaması
 
 Bu özellik, WWW-Authenticate üstbilgisi için belirteç tabanlı kimlik doğrulaması tarafından korunan içeriği yetkisiz bir isteğe yanıt verirken ekleyin yeteneğini destekler. WWW-Authenticate üstbilgisi yapılandırmanızda "temel" olarak ayarlanmışsa, yetkisiz bir kullanıcı hesabı kimlik bilgileri istenir.
 
@@ -1200,7 +1200,7 @@ Geçerli değerler şunlardır:
 
 Değer|Sonuç
 ---|----
-Etkin|URL'ler için belirteç tabanlı kimlik doğrulama parametreleri karşılaştırılırken durumu yok saymak POP neden olur.
+Enabled|URL'ler için belirteç tabanlı kimlik doğrulama parametreleri karşılaştırılırken durumu yok saymak POP neden olur.
 Devre dışı|Varsayılan davranışını geri yükler. URL karşılaştırmalar büyük küçük harfe duyarlı olması belirteci kimlik doğrulaması için varsayılan davranıştır.
 
 **Varsayılan davranışı:** devre dışı.
@@ -1221,7 +1221,7 @@ Anahtar bilgileri:
 
 Değer|Sonuç
 ----|----
-Etkin|Değer seçeneği belirteçleri tanımlanmalıdır sorgu dizesi parametresinin adını tanımlar.
+Enabled|Değer seçeneği belirteçleri tanımlanmalıdır sorgu dizesi parametresinin adını tanımlar.
 Devre dışı|İstek URL'si içinde tanımlanmamış bir sorgu dizesi parametresi olarak bir belirteç belirtilebilir.
 
 **Varsayılan davranışı:** devre dışı. İstek URL'si içinde tanımlanmamış bir sorgu dizesi parametresi olarak bir belirteç belirtilebilir.

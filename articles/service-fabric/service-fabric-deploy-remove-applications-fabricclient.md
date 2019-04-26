@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: 408ef5abeed238a2bf4437bea0b77b6768961f53
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393296"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Dağıtma ve FabricClient kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ Bir uygulama örneği artık gerekli olmadığında, kalıcı olarak adını kul
 ## <a name="unregister-an-application-type"></a>Bir uygulama türünün kaydını silmek
 Belirli bir uygulama türü sürümü artık gerekli değilse, uygulama türünü kullanarak bu belirli sürümü kaydını kaldırmanız gerekir [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Kullanılmayan uygulama türü sürümleri kaydı, görüntü deposu tarafından kullanılan depolama alanı serbest bırakır. Uygulama türü sürümünü uygulama bu uygulama türü sürümünü karşı örneği oluşturulur ve bu uygulama türü sürümünü hiçbir bekleyen uygulama yükseltmeleri başvuruyor sürece kaydı olabilir.
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>İçin bir Imagestoreconnectionstring kopyalama ServiceFabricApplicationPackage sorar
 Service Fabric SDK'sı ortamı zaten ayarlanmış doğru varsayılan değerleri olmalıdır. Ancak, gerekirse Imagestoreconnectionstring tüm komutlar için Service Fabric kümesi kullanan değer ile eşleşmelidir. Küme bildiriminde Imagestoreconnectionstring bulabilirsiniz kullanarak [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutları:
 

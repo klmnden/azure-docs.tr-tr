@@ -4,20 +4,22 @@ description: Azure bulut hizmeti uygulamanızı Uzak Masaüstü bağlantıların
 services: cloud-services
 author: ghogen
 manager: douge
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 03/06/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406455"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio kullanarak Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme
 
@@ -46,6 +48,8 @@ Visual Studio 2017 sürüm 15.4 ve önceki kullanırken kullanabileceğiniz **t�
 
    > [!Note]
    > Uzak Masaüstü bağlantısı için gereken sertifikaları, Azure diğer işlemleri için kullandığınız sertifikaların farklıdır. Uzaktan erişim sertifikasının özel anahtarı olmalıdır.
+   >
+   >
 
 5. Listeden bir sertifika seçin ya da seçin  **&lt;oluştur... &gt;**. Yeni bir sertifika oluşturuyorsanız, istendiğinde Yeni sertifika için bir kolay ad girin ve seçin **Tamam**. Yeni sertifika aşağı açılan liste kutusunda görüntülenir.
 
@@ -95,7 +99,7 @@ Azure DevOps Services'dan RDP uzantısının kullanılması için derleme işlem
 
 1. Derleme adımlarınızı sonra Ekle **Azure bulut hizmeti dağıtımı** adım ve özelliklerini ayarlayın.
 
-1. Dağıtım adımından sonra ekleyin bir **Azure Powershell** adım olarak ayarlayın, **görünen ad** özelliği "Azure dağıtım: etkinleştirme RDP uzantısı" (veya başka bir uygun ad) ve uygun Azure'ı seçin Abonelik.
+1. Dağıtım adımından sonra ekleyin bir **Azure Powershell** adım olarak ayarlayın, **görünen ad** özelliğini "Azure dağıtım: RDP uzantısı etkinleştir"(veya başka bir uygun ad) ve uygun Azure aboneliğinizi seçin.
 
 1. Ayarlama **betik türü** "İçi" ve içine aşağıdaki kodu yapıştırın **satır içi betik** alan. (De oluşturabilirsiniz bir `.ps1` dosya projenizde bu betik, ayarlama **betik türü** "Betik dosyası yolu" ve küme **betik yolu** dosyasına işaret edecek şekilde.)
 

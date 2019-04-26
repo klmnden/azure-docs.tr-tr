@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392572"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
 Bir kapsayıcı ve bloblarını Azure Blob Depolama alanında anonim, genel okuma erişimi etkinleştirebilirsiniz. Bunu yaptığınızda, hesap anahtarınız paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan bu kaynaklara salt okunur erişim verebilirsiniz.
@@ -24,9 +24,9 @@ Varsayılan olarak, bir kapsayıcı ve içerdiği tüm blobları yalnızca depol
 
 Şu izinlere sahip bir kapsayıcı yapılandırabilirsiniz:
 
-* **Hiçbir genel okuma erişimi:** kapsayıcıya ve bloblarına yalnızca depolama hesabı sahibi tarafından erişilebilir. Bu, tüm yeni kapsayıcılar için varsayılandır.
-* **Genel okuma erişimi yalnızca BLOB'lar için:** kapsayıcı içindeki Blobları anonim istek tarafından okunabilir ancak kapsayıcı verileri kullanılamıyor. Kapsayıcı içindeki blobları anonim istemciler listelenemiyor.
-* **Tam genel okuma erişimini:** tüm kapsayıcı ve blob verilerini anonim istek tarafından okunabilir. İstemcileri, kapsayıcı içindeki blobları anonim istek göre sıralayabilirsiniz, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.
+* **Genel okuma erişimi yok:** Kapsayıcı ve bloblarını yalnızca depolama hesabı sahibi tarafından erişilebilir. Bu, tüm yeni kapsayıcılar için varsayılandır.
+* **Yalnızca BLOB'lar için genel okuma erişimi:** Kapsayıcı içindeki blobları anonim istek tarafından okunabilir ancak kapsayıcı verileri mevcut değil. Kapsayıcı içindeki blobları anonim istemciler listelenemiyor.
+* **Tam genel okuma erişimi:** Tüm kapsayıcı ve blob verilerini anonim istek tarafından okunabilir. İstemcileri, kapsayıcı içindeki blobları anonim istek göre sıralayabilirsiniz, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.
 
 Kapsayıcı izinlerini ayarlamak için şunları kullanabilirsiniz:
 
@@ -124,8 +124,8 @@ Aşağıdaki tabloda gösterilen bir kapsayıcının ACL erişimine izin verecek
 | Kapsayıcı ACL ayarlayın |Yalnızca sahibi |Yalnızca sahibi |
 | Kapsayıcıyı Sil |Yalnızca sahibi |Yalnızca sahibi |
 | Blobları Listele |Tümü |Yalnızca sahibi |
-| İkili büyük nesne koyma |Yalnızca sahibi |Yalnızca sahibi |
-| BLOB alma |Tümü |Tümü |
+| Put Blob |Yalnızca sahibi |Yalnızca sahibi |
+| Get Blob |Tümü |Tümü |
 | BLOB özelliklerini alma |Tümü |Tümü |
 | Blob özelliklerini ayarlama |Yalnızca sahibi |Yalnızca sahibi |
 | Blob Meta Verilerini al |Tümü |Tümü |

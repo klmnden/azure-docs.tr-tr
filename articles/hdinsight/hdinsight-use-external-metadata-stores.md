@@ -2,19 +2,27 @@
 title: Dış meta veri depolarını - Azure HDInsight kullanma
 description: Dış meta depolar, HDInsight kümeleriyle kullanın.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
-ms.author: hrasheed
+documentationcenter: ''
+author: jasonwhowell
+manager: cgronlun
+tags: azure-portal
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 09/14/2018
+ms.author: v-yiso
+ms.date: 04/01/2019
 ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486451"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight, harici meta veri depolarını kullanma
 

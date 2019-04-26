@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487077"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -64,7 +64,7 @@ Bekleyen verilerin şifrelenmesi destek bazı veriler depolanır. Bu veri depola
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 Azure SQL veri ambarı'nda saydam veri şifrelemesi (TDE), gerçek zamanlı şifreleme ve şifre çözme, bekleyen veri gerçekleştirerek, kötü amaçlı etkinlik tehdide karşı koruma ile yardımcı olur. Bu davranış, istemci için saydamdır. Daha fazla bilgi için [güvenli bir veritabanında SQL veri ambarı](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 Azure SQL veritabanı ayrıca kesilmeyen kötü amaçlı etkinliklere karşı gerçek zamanlı şifreleme ve şifre çözme verileri uygulamada değişiklik gerektirmeden gerçekleştirerek ile korumaya yardımcı olan, saydam veri şifrelemesi (TDE) destekler. Bu davranış, istemci için saydamdır. Daha fazla bilgi için [Azure SQL veritabanı ile saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store

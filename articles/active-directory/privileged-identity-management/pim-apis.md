@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e54ec4049b2b0cd67c148d881a64a40efff438a2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440475"
 ---
 # <a name="microsoft-graph-apis-for-pim-preview"></a>Microsoft Graph API'leri için PIM (Önizleme)
 
@@ -37,7 +37,7 @@ PIM için Microsoft Graph API'leri çağırmak için olmalıdır **bir veya daha
 - `Directory.ReadWrite.All`
 - `PrivilegedAccess.ReadWrite.AzureAD`
 
-### <a name="set-permissions"></a>İzinleri ayarlama
+### <a name="set-permissions"></a>İzin ayarla
 
 PIM için Microsoft Graph API'leri çağırmak uygulamalar için gerekli izinlere sahip olmalıdır. Gerekli izinleri belirlemek için en kolay yolu kullanmaktır [Azure AD'ye onay çerçevesine](../develop/consent-framework.md).
 

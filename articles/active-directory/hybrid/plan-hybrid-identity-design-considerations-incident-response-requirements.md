@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455814"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için olay yanıtlama gereksinimlerini belirleme
 Büyük ve orta ölçekli kuruluşlar büyük olasılıkla olacaktır bir [güvenlik olayı yanıt](https://technet.microsoft.com/library/cc700825.aspx) yardımcı olmak için BT uygun şekilde eylemleri için olay düzeyi. Kimlik yönetimi sistemi olay yanıt işlemi önemli bir bileşenidir çünkü hedefe karşı belirli bir eylemi gerçekleştiren tanımlamaya yardımcı olmak için kullanılabilir. Karma kimlik çözümü tarafından yararlanılabilir izleme ve raporlama özellikleri sağlayabilir olası tehdidi azaltmak üzere eylemleri mümkün KILAR. Tipik bir olay yanıtlama planında planının bir parçası aşağıdaki aşamaları olacaktır:

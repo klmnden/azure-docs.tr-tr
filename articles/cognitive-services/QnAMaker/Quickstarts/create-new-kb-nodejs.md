@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
 ms.openlocfilehash: 2d199960b18bcab5179b7b433586492487eedc58
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309326"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak soru-cevap Oluşturucu Bilgi Bankası oluşturma
 

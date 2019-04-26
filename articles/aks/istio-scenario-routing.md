@@ -2,17 +2,18 @@
 title: Akıllı Yönlendirme ve Istio Azure Kubernetes Service (AKS) ile kanarya sürümleri
 description: Akıllı yönlendirme sağlamak ve kanarya sürümlerde Azure Kubernetes Service (AKS) kümesini dağıtma Istio kullanmayı öğrenin
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465941"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Istio Azure Kubernetes Service (AKS) ile akıllı Yönlendirme ve kanarya sürümleri kullanın
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Biz artık yalnızca sürüm yönlendirildiğinden daha kolay görselleştirebil
 
 Artık yalnızca sürüm yönlendirildiğinden görselleştirebilirsiniz *1.1* , *oylama analytics* aşağıdaki gibi bileşeni. Kendi Istio giriş ağ geçidinin IP adresi kullanmayı unutmayın:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Sürüme kadar bekleyin *2.0* pod'ların çalışıyor. Kullanım [kubectl pod'ları alma] [ kubectl-get] tüm pod'ların görüntülemek için komut *oylama* ad alanı:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

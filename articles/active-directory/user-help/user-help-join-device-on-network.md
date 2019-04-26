@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474536"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>İş cihazınızın, kuruluşunuzun ağa katılmasını sağlayın.
 Potansiyel olarak kısıtlanmış kaynaklara erişebilmesi için iş ait Windows 10 Cihazınızı kuruluşunuzun ağa katılmasını sağlayın.

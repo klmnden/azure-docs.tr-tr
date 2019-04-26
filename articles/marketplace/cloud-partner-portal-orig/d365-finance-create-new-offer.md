@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: bc6ca73d7cfbef73350d24be60c078994ea761c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397881"
 ---
 <a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>Yeni Microsoft Dynamics 365 Business Central teklifinizi oluşturma
 ====================================================================
@@ -30,7 +30,7 @@ Microsoft oturum öznitelikleri tanımlamak için [bulut iş ortağı portalı](
 
 1. Bulut iş ortağı portalında sol gezinti çubuğundan tıklayın **+ yeni teklif** seçip **Dynamics 365 Business Central** uygulamalar listesinden.
 
-   ![Yeni Teklif oluştur](./media/d365-financials/image003.png)
+   ![Yeni teklif oluşturma](./media/d365-financials/image003.png)
 
 2. Yeni bir teklif "Düzenleyicisi" görünümü artık açılır ve yazma başlamaya hazır olursunuz.
 

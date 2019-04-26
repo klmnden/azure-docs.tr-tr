@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440841"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Sanal makineyi durdurmak nasıl yönetilen kimlikleri uzantısı ve Azure örnek meta veri hizmeti kullanmaya başlayın
 
@@ -95,7 +95,7 @@ Sanal makine ölçek sağlamak üzere Azure Resource Manager dağıtım şablonu
 
 Sanal makine uzantısı sağlanıyor DNS arama hataları nedeniyle başarısız olabilir. Bu durumda, sanal makineyi yeniden başlatın ve yeniden deneyin. 
 
-### <a name="remove-the-extension"></a>Uzantıyı kaldırın 
+### <a name="remove-the-extension"></a>Uzantıyı kaldırma 
 Uzantıyı kaldırmak için `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/), veya [az vmss uzantısı silme](https://docs.microsoft.com/cli/azure/vmss) için sanal makine ölçek Azure CLI kullanarak ayarlar veya `Remove-AzVMExtension` Powershell için:
 
 ```azurecli-interactive

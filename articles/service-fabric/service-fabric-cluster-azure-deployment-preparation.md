@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo
 ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387868"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planlama ve bir küme dağıtımı için hazırlama
 
@@ -64,7 +64,7 @@ Birçok hizmet, bu yana özellikle kapsayıcı Hizmetleri, var olan bir URL adı
 
 Ters proxy (HTTPS dahil) bir HTTP uç noktalarını kullanıma Hizmetleri kümedeki ele alır. Ters proxy, belirli bir URI biçimi sağlayarak diğer hizmetleri çağırma büyük ölçüde kolaylaştırır.  Ters proxy ayrıca çözümleme işleme, bağlama ve birbiriyle iletişim kurmak için bir hizmet için gerekli adımları yeniden deneyin.
 
-## <a name="prepare-for-disaster-recovery"></a>Olağanüstü Durum Kurtarmaya Hazırlanma
+## <a name="prepare-for-disaster-recovery"></a>Olağanüstü durum kurtarmaya hazırlanma
 Yüksek kullanılabilirlik sunmak için kritik bir parçası Hizmetleri tüm farklı türde hataları hayatta kalamaz sağlamaktır. Bu planlanmamış hataları için özellikle önemlidir ve denetiminiz dışında. [Olağanüstü durum kurtarmasına hazırlanma](service-fabric-disaster-recovery.md) felaketler modellenir ve doğru bir şekilde yönetilen olabilir bazı yaygın hata modları açıklanmaktadır. Ayrıca, risk azaltma işlemleri ve yine de olağanüstü bir durum oluştuysa gerçekleştirilecek eylemler anlatılmaktadır.
 
 ## <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi

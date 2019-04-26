@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60496875"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Application Insights içinde bir Bot ile LUIS sonuçları ekleyinC#
 

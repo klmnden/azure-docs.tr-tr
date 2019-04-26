@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406437"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET’te Web veya Çalışan rolünün yaşam döngüsünü özelleştirme
 Bir çalışan rolü oluşturduğunuzda, genişletilen [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) , geçersiz kılmak olanak tanıyan yöntemler sağlar sınıfını yaşam döngüsü olaylarını yanıtlama. Web rolleri için bu sınıf, isteğe bağlı yaşam döngüsü olaylarını yanıtlamak için kullanmalısınız.

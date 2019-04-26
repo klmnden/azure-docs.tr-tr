@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506424"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure'da Windows VM'ler Uzak Masaüstü Bağlantısı sorunlarında ayrıntılı sorun giderme adımları
 Bu makalede, Windows tabanlı Azure sanal makineleri için karmaşık Uzak Masaüstü hataları tanılayıp ayrıntılı sorun giderme adımları sağlar.
@@ -99,23 +99,23 @@ Klasik dağıtım modeli kullanılarak oluşturulan VM'ler için başka bir Azur
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Resource Manager'da oluşturulan sanal makineler için atlamak [kaynak 4: ağ güvenlik grupları](#source-4-network-security-groups).
+> Resource Manager'da oluşturulan sanal makineler için atlamak [kaynak 4: Ağ güvenlik grupları](#source-4-network-security-groups).
 
 Aynı bulut hizmetinde veya sanal ağ başka bir sanal makine yoksa bir tane oluşturun. Bağlantısındaki [Windows Azure'da çalışan bir sanal makine oluşturma](../virtual-machines-windows-hero-tutorial.md). Test tamamlandıktan sonra test sanal makinesini silin.
 
 Aynı bulut hizmetinde veya sanal ağ içindeki bir sanal makineye Uzak Masaüstü aracılığıyla bağlantı, bu ayarlar için denetleyin:
 
-* Uzak Masaüstü trafik hedef VM için uç nokta yapılandırması: TCP bağlantı noktası sanal makinenin Uzak Masaüstü hizmetini dinlediği uç noktasının özel TCP bağlantı noktası eşleşmesi gerekir (varsayılan olarak 3389).
-* Hedef VM'de Uzak Masaüstü trafiği uç noktası için ACL: ACL'leri belirtmenize olanak tanır, kaynak IP adresine göre Internet'ten gelen trafiğe izin verileceğini veya. Yanlış ACL'ler uç noktaya gelen Uzak Masaüstü trafiğine engel olabilir. Bu genel IP adreslerinizi Ara sunucunuzun'ten gelen trafiği emin olmak için ACL'ler denetleyin veya başka bir uç sunucusu izin verilir. Daha fazla bilgi için [bir ağ erişim denetimi listesi (ACL) nedir?](../../virtual-network/virtual-networks-acl.md)
+* Uzak Masaüstü trafik hedef VM için uç nokta yapılandırması: Uç noktasının özel TCP bağlantı noktası sanal makinenin Uzak Masaüstü hizmetini dinlediği TCP bağlantı noktası eşleşmesi gerekir (varsayılan olarak 3389).
+* Hedef VM'de Uzak Masaüstü trafiği uç noktası için ACL: ACL, kaynak IP adresine göre Internet'ten gelen trafiğe izin verileceğini veya belirtmenize olanak sağlar. Yanlış ACL'ler uç noktaya gelen Uzak Masaüstü trafiğine engel olabilir. Bu genel IP adreslerinizi Ara sunucunuzun'ten gelen trafiği emin olmak için ACL'ler denetleyin veya başka bir uç sunucusu izin verilir. Daha fazla bilgi için [bir ağ erişim denetimi listesi (ACL) nedir?](../../virtual-network/virtual-networks-acl.md)
 
 Uç nokta sorunun kaynağı olup olmadığını denetlemek için geçerli uç noktasını kaldırın ve dış bağlantı noktası numarası 49152-65535 aralığında rastgele bir bağlantı noktası seçerek yeni bir tane oluşturun. Daha fazla bilgi için [bir sanal makineye uç noktaları ayarlama işlemini](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="source-4-network-security-groups"></a>4. kaynak: Ağ güvenlik grupları
+## <a name="source-4-network-security-groups"></a>4. kaynak: Ağ Güvenlik Grupları
 Ağ güvenlik grupları, izin verilen gelen ve giden trafik daha ayrıntılı denetim sağlar. Alt ağlar kapsayan kurallar oluşturabilir ve bulut Hizmetleri, bir Azure sanal ağında.
 
 [IP akışı doğrulamayı](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) kullanarak Ağ Güvenlik Grubu’ndaki bir kuralın bir sanal makineye giden veya gelen trafiği engelleyip engellemediğini doğrulayın. Ayrıca, gelen "izin ver" NSG emin olmak için etkin güvenlik grubu kurallarını gözden geçirebilirsiniz kuralının mevcut olduğundan ve RDP bağlantı noktası (varsayılan olarak 3389) için önceliklendirildiğinden. Daha fazla bilgi için [kullanılarak geçerli güvenlik VM sorunlarını gidermek için kuralları trafik akışı](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="source-5-windows-based-azure-vm"></a>Kaynak 5: Windows tabanlı Azure VM
+## <a name="source-5-windows-based-azure-vm"></a>5. kaynak: Windows tabanlı Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Bölümündeki yönergeleri [bu makalede](../windows/reset-rdp.md). Bu makalede, sanal makinede Uzak Masaüstü hizmetini sıfırlar:

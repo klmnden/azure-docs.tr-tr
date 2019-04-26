@@ -11,11 +11,11 @@ ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407176"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Azure CLI kullanarak web uygulaması Güvenlik Duvarı'nı etkinleştir
 

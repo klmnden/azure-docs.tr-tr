@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393048"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayları listesi 
 
@@ -42,11 +42,11 @@ Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fab
 
 | EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Yükselt | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
-| 29628 | ClusterUpgradeCompleted | Yükselt | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
-| 29629 | ClusterUpgradeRollbackStarted | Yükselt | Bir küme yükseltmesi için geri alma başlatıldı  | CM | Uyarı | 
-| 29630 | ClusterUpgradeRollbackCompleted | Yükselt | Bir küme yükseltmesi geri alma tamamlandı | CM | Uyarı | 
-| 29631 | ClusterUpgradeDomainCompleted | Yükselt | Bir yükseltme etki alanını bir küme yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
+| 29627 | ClusterUpgradeStarted | Yükseltme | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
+| 29628 | ClusterUpgradeCompleted | Yükseltme | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
+| 29629 | ClusterUpgradeRollbackStarted | Yükseltme | Bir küme yükseltmesi için geri alma başlatıldı  | CM | Uyarı | 
+| 29630 | ClusterUpgradeRollbackCompleted | Yükseltme | Bir küme yükseltmesi geri alma tamamlandı | CM | Uyarı | 
+| 29631 | ClusterUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir küme yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="node-events"></a>Düğüm olayları
 
@@ -81,11 +81,11 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 | EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Yükselt | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
-| 29622 | ApplicationUpgradeCompleted | Yükselt | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
-| 29623 | ApplicationUpgradeRollbackStarted | Yükselt | Uygulama yükseltmesi için geri alma başlatıldı |CM | Uyarı | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Yükselt | Uygulama yükseltmeyi geri alma tamamlandı | CM | Uyarı | 
-| 29626 | ApplicationUpgradeDomainCompleted | Yükselt | Bir yükseltme etki alanını bir uygulama yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
+| 29621 | ApplicationUpgradeStarted | Yükseltme | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
+| 29622 | ApplicationUpgradeCompleted | Yükseltme | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
+| 29623 | ApplicationUpgradeRollbackStarted | Yükseltme | Uygulama yükseltmesi için geri alma başlatıldı |CM | Uyarı | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Yükseltme | Uygulama yükseltmeyi geri alma tamamlandı | CM | Uyarı | 
+| 29626 | ApplicationUpgradeDomainCompleted | Yükseltme | Bir yükseltme etki alanını bir uygulama yükseltmesi sırasında yükseltmeyi tamamladı. | CM | Bilgilendirici | 
 
 ## <a name="service-events"></a>Hizmet olayları
 
@@ -108,7 +108,7 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Kapsayıcı yaşam döngüsü olayları** 
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | Bir kapsayıcı başlatıldı | Barındırma | Bilgilendirici | 1 |
 | 23075 | ContainerDeactivated | Bir kapsayıcı durduruldu | Barındırma | Bilgilendirici | 1 |
@@ -124,21 +124,21 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Küme sistem durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Yeni bir küme sistem durumu raporu kullanılabilir | HM | Bilgilendirici | 1 |
 | 54437 | ClusterHealthReportExpired | Var olan bir küme sistem durumu raporu süresi doldu | HM | Bilgilendirici | 1 |
 
 **Düğüm durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Yeni bir düğüm durumu raporu kullanılabilir | HM | Bilgilendirici | 1 |
 | 54432 | NodeHealthReportExpired | Var olan bir düğüm durumu raporu süresi doldu | HM | Bilgilendirici | 1 |
 
 **Uygulama sistem durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Yeni bir uygulama sistem durumu raporu oluşturuldu. Dağıtılmamış uygulamalar için budur. | HM | Bilgilendirici | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Yeni bir dağıtılmış uygulama sistem durumu raporu oluşturuldu | HM | Bilgilendirici | 1 |
@@ -149,21 +149,21 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Hizmet durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Yeni bir hizmet sistem durumu raporu oluşturuldu | HM | Bilgilendirici | 1 |
 | 54433 | ServiceHealthReportExpired | Mevcut bir hizmet sistem durumu raporu süresi doldu | HM | Bilgilendirici | 1 |
 
 **Bölüm sistem durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Yeni bir bölüm sistem durumu raporu oluşturuldu | HM | Bilgilendirici | 1 |
 | 54431 | PartitionHealthReportExpired | Var olan bir bölüm sistem durumu raporu süresi doldu | HM | Bilgilendirici | 1 |
 
 **Çoğaltma sistem durumu raporu olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Bir durum bilgisi olan çoğaltma sistem durumu raporu oluşturuldu | HM | Bilgilendirici | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Yeni bir durum bilgisi olmayan örnek sistem durumu raporu oluşturuldu | HM | Bilgilendirici | 1 |
@@ -174,28 +174,28 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Kaos oturum olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Test oturumu bir Chaos başlatıldı | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50023 | ChaosStopped | Test oturumu bir Chaos durduruldu | Test Edilebilirlik | Bilgilendirici | 1 |
 
 **Kaos düğüm olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Test oturumu bir Chaos bir parçası olarak yeniden başlatmak için zamanlanmış bir düğüm | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50087 | ChaosNodeRestartCompleted | Bir düğüm testi oturumunun bir Chaos bir parçası olarak yeniden başlatmayı tamamladı | Test Edilebilirlik | Bilgilendirici | 1 |
 
 **Kaos uygulama olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Bir Chaos testi oturumu sırasında bir kod paketi yeniden zamanlandı | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Bir Chaos testi oturumu sırasında bir kod paketi yeniden başlatma tamamlandı | Test Edilebilirlik | Bilgilendirici | 1 |
 
 **Kaos bölüm olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Testi oturumunun bir Chaos bir parçası olarak taşımak için zamanlanmış bir birincil bölüm | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | İkincil bir bölüm testi oturumunun bir Chaos bir parçası olarak taşımak için zamanlanmış | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -203,7 +203,7 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Kaos çoğaltma olayları**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Test oturumu bir Chaos bir parçası olarak bir çoğaltma yeniden zamanlandı | Test Edilebilirlik | Bilgilendirici | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | Test oturumu bir Chaos bir parçası olarak bir yineleme kaldırma işlemi zamanlandı | Test Edilebilirlik | Bilgilendirici | 1 |
@@ -213,7 +213,7 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Bağıntı olaylarını**
 
-| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Sürüm |
+| EventID | Ad | Açıklama |Kaynak (görev) | Düzey | Version |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | Bir ilişki algılandı | Test Edilebilirlik | Bilgilendirici | 1 |
 

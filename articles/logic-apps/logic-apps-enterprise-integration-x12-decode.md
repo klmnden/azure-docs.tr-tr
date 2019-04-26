@@ -4,18 +4,18 @@ description: EDI doğrulamak ve bildirimleri X12 ile oluşturma, Azure Logic App
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427553"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Kod çözme X12 Azure Logic Apps Enterprise Integration Pack ile iletileri
 
@@ -89,13 +89,13 @@ X12 kod çözme bağlayıcı, bu görevleri gerçekleştirir:
   * Grup denetim numarası diğer Grup denetim numaraları Değişimdeki karşı denetler.
   * Bu gruptaki diğer işlem kümesi denetim numaraları karşı işlem kümesi denetim numarası denetler.
 * Değişimi işlem kümeleri halinde ayırır veya tüm değişim korur:
-  * Bölünmüş değişimi işlem kümeleri - olarak hata durumunda işlem kümelerini Askıya Al: bölmelerini değişim hareket halinde her işlem kümesi ayrıştırır ve ayarlar. 
+  * Bölünmüş değişimi işlem kümeleri - olarak işlem kümelerini Askıya Al hatası: Hareket halinde bölmelerini değişim ayarlar ve her işlem kümesi ayrıştırır. 
   Kod çözme eylemi, bu işlem yalnızca ayarlar çıkarır X12 için doğrulama başarısız `badMessages`, kalan işlemler ayarlar çıkış `goodMessages`.
-  * Bölünmüş değişimi işlem kümeleri - olarak hata durumunda değişimi Askıya Al: bölmelerini değişim hareket halinde her işlem kümesi ayrıştırır ve ayarlar. 
+  * Bölünmüş değişimi işlem kümeleri - olarak hata durumunda değişimi askıya: Hareket halinde bölmelerini değişim ayarlar ve her işlem kümesi ayrıştırır. 
   Bir veya daha fazla işlem içinde değişim ayarlar doğrulama, kod çözme eylemi çıkarır, değişim için tüm işlem ayarlar X12 başarısız `badMessages`.
-  * Değişimi Koru - hata durumunda işlem kümelerini askıya: değişimi Koru ve tüm toplu değişim işlemi. 
+  * Değişimi Koru - hata durumunda işlem kümelerini askıya: Değişimi Koru ve tüm toplu değişim işleyebilirsiniz. 
   Kod çözme eylemi, bu işlem yalnızca ayarlar çıkarır X12 için doğrulama başarısız `badMessages`, kalan işlemler ayarlar çıkış `goodMessages`.
-  * Değişimi Koru - hata oluştuğunda değişimi Askıya Al: değişimi Koru ve tüm toplu değişim işlemi. 
+  * Değişimi Koru - hata oluştuğunda değişimi Askıya Al: Değişimi Koru ve tüm toplu değişim işleyebilirsiniz. 
   Bir veya daha fazla işlem içinde değişim ayarlar doğrulama, kod çözme eylemi çıkarır, değişim için tüm işlem ayarlar X12 başarısız `badMessages`. 
 * Teknik ve/veya işlev bildirimi (yapılandırılmışsa) oluşturur.
   * Teknik bir bildirim başlığı doğrulama sonucu olarak oluşturur. Teknik Bildirim, bir değişim üstbilgi ve tanıtım adresi alıcı tarafından işlenmesini durumunu raporlar.

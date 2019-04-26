@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392900"
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
 
 Kümenizi ve bunun yanı sıra içinde çalışan uygulamaların performansının anlaşılması toplanan ölçümler. Service Fabric kümeleri için aşağıdaki performans sayaçlarını toplamayı öneririz.
 
-## <a name="nodes"></a>Düğüm
+## <a name="nodes"></a>Düğümler
 
 Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme kararları ölçeklendirme yapmak için aşağıdaki performans sayaçlarını toplamayı göz önünde bulundurun.
 

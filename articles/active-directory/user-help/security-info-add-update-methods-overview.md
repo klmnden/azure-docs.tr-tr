@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 115354985284b090fef890068ade6ddaf5867f04
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474119"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Güvenlik bilgileri (Önizleme) yöntemleri ve bilgileri değiştirme hakkında genel bakış
 Ekleme, düzenleme, silme ve varsayılan güvenlik bilgisi yönteminizi içinden değiştirmek **güvenlik bilgisi** sayfaları. Her yöntem ve bilgilerinizi değiştirme hakkında daha fazla bilgi için ilişkili, yöntem tabanlı makalesine bakın.
@@ -25,7 +25,7 @@ Ekleme, düzenleme, silme ve varsayılan güvenlik bilgisi yönteminizi içinden
 ## <a name="two-factor-verification-versus-password-reset-authentication"></a>Kimlik doğrulaması iki Faktörlü doğrulama ve parola sıfırlama
 Güvenlik bilgisi yöntemleri, parola sıfırlama ve her iki iki adımlı doğrulama için kullanılır. Ancak, tüm yöntemleri için her ikisi de kullanılabilir.
 
-|Yöntem|İçin kullanılan|
+|Yöntem|Kullanıldığı yerler|
 |------|--------|
 |Authenticator uygulaması|İki aşamalı doğrulama ve parola kimlik doğrulaması sıfırlayın.|
 |Kısa mesaj|İki aşamalı doğrulama ve parola kimlik doğrulaması sıfırlayın.|

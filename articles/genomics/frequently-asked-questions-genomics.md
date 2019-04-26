@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445558"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomiks: Sık sorulan sorular
 
@@ -73,6 +73,7 @@ Depolama hesabı anahtarınızı, Microsoft Genomics hizmeti Çıkış dosyalar�
 ## <a name="what-genome-references-can-i-use"></a>Hangi genom başvuran kullanabilir miyim?
 
 Bu başvurular desteklenir:
+
  |Başvuru              | Değeri `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,15 +85,15 @@ Bu başvurular desteklenir:
 
 yapılandırma dosyaları şu biçimde msgen'i anlar:
 * Tüm seçenekleri anahtarlarından virgül ile ayrılmış değerleri olan anahtar-değer çiftleri olarak sağlanır.
-Boşluk yoksayılır.
+  Boşluk yoksayılır.
 * İle başlayan satırlar `#` göz ardı edilir.
 * Uzun biçimde herhangi bir komut satırı bağımsız değişkeni için bir anahtar şeridi oluşturma önde gelen, kısa çizgi ve alt çizgi ile kelimeler arasındaki çizgi değiştirerek dönüştürülebilir. Dönüştürme bazı örnekler şunlardır:
 
- |komut satırı bağımsız değişkeni            | Yapılandırma dosyası satırı |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:Key*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |komut satırı bağımsız değişkeni            | Yapılandırma dosyası satırı |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:Key*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

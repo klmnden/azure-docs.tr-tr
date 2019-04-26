@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452968"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory kimlik koruması - güvenliğine genel bakış
 
@@ -69,7 +69,7 @@ Bu grafik seçilen süre boyunca algılanan riskli oturum açma sayısını gös
 'Eski kimlik doğrulaması' kutucuk, kuruluşunuzda eski kimlik doğrulamaları Geçen haftaki sayısını gösterir. Eski bir kimlik doğrulama protokolleri, bir MFA gibi modern güvenlik yöntemleri desteklemez. Eski bir kimlik doğrulama engellemek için koşullu erişim ilkesi uygulayabilirsiniz. 'Eski kimlik doğrulaması' kutucuğa tıklayarak 'kimlik güvenli puanına' yönlendirir.
 
 
-### <a name="identity-secure-score"></a>Güvenli kimlik puanı
+### <a name="identity-secure-score"></a>Kimlik Güvenliği Puanı
 
 Güvenli kimlik puanı ölçer ve güvenlik duruşunuzu sektör desenleri karşılaştırır. 'Kimlik güvenli puanı (Önizleme)' kutucuğuna tıklarsanız, burada daha fazla güvenlik duruşunuzu iyileştirme hakkında bilgi edinebilirsiniz 'Kimlik güvenli puanı (Önizleme)' dikey penceresine yönlendirir.
 

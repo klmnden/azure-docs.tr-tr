@@ -2,24 +2,25 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455663"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Altında **Yönet**seçin **kullanıcı akışları** tıklatıp +**yeni kullanıcı akışı**.
 
-![Yeni kullanıcı akışı seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
+![Yeni kullanıcı akışı seçin](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
 Üzerinde **önerilen** sekmesinde **oturum yukarı ve oturum açma**.
 
-![Oturum seçin ve kullanıcı flow'da oturum açın](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
+![Oturum seçin ve kullanıcı flow'da oturum açın](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
 Kullanıcı akışı girin **adı** uygulamanızın başvuru. Örneğin, `SiUpIn` girin.
 
@@ -27,7 +28,7 @@ Altında **kimlik sağlayıcıları** ve **e-posta kaydolma**. İsteğe bağlı 
 
 Altında **çok faktörlü kimlik doğrulaması**, seçin ya da **etkin** veya **devre dışı bırakılmış**.
 
-![Bir ad girin ve kimlik sağlayıcısı olarak e-posta kaydolma seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
+![Bir ad girin ve kimlik sağlayıcısı olarak e-posta kaydolma seçin](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
 Altında **kullanıcı öznitelikleri ve talepler**seçin **daha fazla Göster** öznitelikleri ve talepler seçim yapabileceğiniz tam listesini görmek için.
 
@@ -37,13 +38,13 @@ Altında **kullanıcı öznitelikleri ve talepler**seçin **daha fazla Göster**
 
 **Tamam** düğmesine tıklayın.
 
-![Bazı kullanıcı öznitelikleri ve talepler seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+![Bazı kullanıcı öznitelikleri ve talepler seçin ve Tamam düğmesine tıklayın.](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
 
 Tıklayın **Oluştur** kullanıcı akışı eklemek için. Kullanıcı akışı olarak listelenip listelenmediğini **b2c_1_siupın**. Ada **B2C_1_** öneki eklenir.
 
 Seçin **kullanıcı akışı çalıştırma**. Tabloda belirtilen ayarlarını doğrulayın, ardından tıklayın **kullanıcı akışı çalıştırma**.
 
-![Kullanıcı akışı Çalıştır'ı seçin](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
+![Kullanıcı akışı Çalıştır'ı seçin](./media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Ayar      | Değer  |
 | ------------ | ------ |
@@ -55,3 +56,4 @@ Yeni bir tarayıcı sekmesi açılır. Buradan, oturum açma veya kaydolma için
 > [!NOTE]
 > Bu bir dakika kullanıcı akışı oluşturma ve güncelleştirmelerinin etkili olması için kapladığı.
 >
+

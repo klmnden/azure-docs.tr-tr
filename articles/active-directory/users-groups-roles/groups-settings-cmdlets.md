@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5773924e98b7ea13c180979dba1325eb8919ff3a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469904"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale, grupları oluşturmak için Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanmaya yönelik yönergeler içerir. Bu içerik yalnızca (birleştirilmiş grupları denir) Office 365 grupları için geçerlidir. 
@@ -95,18 +95,18 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 
 | **Ayar** | **Açıklama** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Şunu yazın: Boole<li>Varsayılan: True |Office 365 grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmeyeceğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
+|  <ul><li>EnableGroupCreation<li>Şunu yazın: Boolean<li>Varsayılan: True |Office 365 grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmeyeceğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Şunu yazın: String<li>Varsayılan: "" |Kendisi için üyeleri Office 365 grupları oluşturmasına izin güvenlik grubunun GUID bile EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Şunu yazın: String<li>Varsayılan: "" |Grup kullanım kılavuzları bağlantısı. |
 |  <ul><li>ClassificationDescriptions<li>Şunu yazın: String<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. ClassificationDescriptions yalnızca şu biçimde geçerli değeri:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>Burada sınıflandırma ClassificationList dizelerde eşleşir.|
 |  <ul><li>DefaultClassification<li>Şunu yazın: String<li>Varsayılan: "" | Hiçbiri belirtilmemişse varsayılan sınıflandırma bir grup için kullanılacak olan sınıflandırması.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Şunu yazın: String<li>Varsayılan: "" | Office 365 grupları için yapılandırılmış adlandırma kuralı tanımlayan bir en fazla 64 karakter uzunluğunda dize. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Şunu yazın: String<li>Varsayılan: "" | Kullanıcı grubu adı veya diğer adı kullanmak için izin verilmez tümcecikleri virgülle ayrılmış dizesi. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Şunu yazın: Boole<li>Varsayılan: "False" | Kullanmayın
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Şunu yazın: Boole<li>Varsayılan: False | Konuk kullanıcı Grup sahibi olabilir olup olmadığını belirten bir Boole değeri. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Şunu yazın: Boole<li>Varsayılan: True | Konuk kullanıcı erişim için Office 365 grupları içeriğe sahip olup olmadığını belirten bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
+| <ul><li>EnableMSStandardBlockedWords<li>Şunu yazın: Boolean<li>Varsayılan: "False" | Kullanmayın
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Şunu yazın: Boolean<li>Varsayılan: False | Konuk kullanıcı Grup sahibi olabilir olup olmadığını belirten bir Boole değeri. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Şunu yazın: Boolean<li>Varsayılan: True | Konuk kullanıcı erişim için Office 365 grupları içeriğe sahip olup olmadığını belirten bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Şunu yazın: String<li>Varsayılan: "" | Konuk kullanım yönergeleri için bir bağlantı URL'si. |
-|  <ul><li>AllowToAddGuests<li>Şunu yazın: Boole<li>Varsayılan: True | Boole Konukları bu dizine eklemek için kullanılabilir olup olmadığını belirten bir.|
+|  <ul><li>AllowToAddGuests<li>Şunu yazın: Boolean<li>Varsayılan: True | Boole Konukları bu dizine eklemek için kullanılabilir olup olmadığını belirten bir.|
 |  <ul><li>ClassificationList<li>Şunu yazın: String<li>Varsayılan: "" |Office 365 grupları için uygulanabilir geçerli sınıflandırma değerleri virgülle ayrılmış listesi. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını okuma

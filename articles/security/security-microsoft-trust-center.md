@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445694"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft Güven Merkezi
 Azure.com Azure güvenlik bilgileri sitesinde, planlama, tasarım, dağıtma, yapılandırma ve bulut çözümlerinizi güvenli bir şekilde yönetmek bilgileri verir. Microsoft Trust center ile hizmetlerinizi çalıştırmak Azure platformu güvenli olduğundan emin olmanız gereken bilgileri de vardır.

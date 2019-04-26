@@ -2,17 +2,18 @@
 title: İşleç en iyi uygulamalar - Azure Kubernetes Hizmetleri (AKS) kümesini ayırma
 description: Azure Kubernetes Service (AKS) yalıtım küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
+origin.date: 11/26/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465315"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) kümesi yalıtımı için en iyi uygulamalar
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483417"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Uygulamalarım portalında grupları bilgilerinizi güncelleştirin
 Web tabanlı iş veya Okul hesabınızı kullanabilirsiniz **uygulamalarım** görüntülemek ve bazı görmek için profili ve hesabı bilgilerinizi güncelleştirmek için kuruluşunuzun bulut tabanlı uygulamalar, birçoğu başlatmak için portal, **grupları** bilgi edinmek ve gerçekleştirmek için **erişim gözden geçirmeleriyle** grupları ve uygulamaları için. Erişiminiz yoksa, **uygulamalarım** portal, Yardım masanız için izni başvurmanız gerekir.
@@ -58,6 +58,8 @@ Yöneticiniz, görüntülemesine izin vermişse **grupları** kutucuk, şunları
     - **Varolan bir grubu düzenleyin.** Kendi gruplarınızı hiçbiri için ayrıntıları düzenleyin. Belirli adımlar için bkz: [varolan bir grubu düzenleme](#edit-an-existing-group) bu makalenin.
 
     - **Üye ekleme veya kaldırma.** Ekleyin veya sahip olduğunuz gruplar için üyeleri kaldırın. Belirli adımlar için bkz: [ekleme veya kaldırma üyesi](#add-or-remove-a-member) bu makalenin.
+
+    - **Bir Office 365 grubu yenileyin.** Kuruluşunuz izin veriyorsa, Office 365 grupları yenileyebilirsiniz. Belirli adımlar için bkz: [bir Office 365 grubu yenileme](#renew-an-office-365-group) bu makalenin. 
 
     - **Bir grubu siler.** Sahip olduğunuz tüm grupları kaldırın. Belirli adımlar için bkz: [grup silme](#delete-a-group) bu makalenin.
 
@@ -117,6 +119,18 @@ Ekleme veya üyeleri kendi gruplarınızı birini kaldırın.
 3. Yanlışlıkla bir üye eklendiğinde ya da üye kuruluşunuz ayrıldıysa seçerek üye kaldırabilirsiniz **üye kaldırma** üzerinde üyenin adının yanındaki *&lt;grup_adı&gt;* sayfası.
 
     ![Temizleme bağlantısının vurgulandığı, üye kaldırma](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Bir Office 365 grubu yenileme
+Kuruluşunuz izin veriyorsa, sona erme tarihi genişletme bir Office 365 grubu yenileyebilirsiniz.
+
+### <a name="to-renew-a-group"></a>Bir grubu yenilemek için
+1. Yenileyin ve ardından istediğiniz Office 365 grubunu seçin **yenileme grubu**.
+
+    ![Sona erme tarihini genişletme bir Office 365 grubu yenileme](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Tıklayın **Tamam** onay iletisi kapatın.
+
+    Sayfayı yeniledikten sonra güncelleştirilmiş görürsünüz **son yenilenmiş** ve **Grup süre sonu** tarihler.
 
 ## <a name="delete-a-group"></a>Grup silme
 Kendi gruplarınızı istediğiniz zaman silebilirsiniz. Ancak bir grup yanlışlıkla silerseniz oluşturun ve üyeleri yeniden eklemeniz gerekecektir.

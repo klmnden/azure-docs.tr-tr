@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412827"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e-- Azure Active Directory öğeleri
 
@@ -28,7 +28,7 @@ Davet e-postalarına, iş ortakları karttaki B2B işbirliği kullanıcıları A
 ## <a name="explaining-the-email"></a>E-posta açıklayan
 En iyi şekilde nasıl yeteneklerini kullanılacak bilmesi e-postanın bazı öğeler bakalım.
 
-### <a name="subject"></a>Özne
+### <a name="subject"></a>Subject
 E-postanın şu deseni izler: Davet ettiğiniz &lt;kiracıadı&gt; kuruluş
 
 ### <a name="from-address"></a>Gönderici adresi

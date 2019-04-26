@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393104"
 ---
-# <a name="application-logging"></a>Uygulama günlüğü
+# <a name="application-logging"></a>Uygulama günlüğüne kaydetme
 
 Kodunuzu düzenleme yalnızca kullanıcılarınızla ilgili Öngörüler elde etmek için bir yol, ancak aynı zamanda bir şey yanlış uygulamanızda ve düzeltilmesi için gerekenler tanılamak için olup olmadığını bilmek tek yolu değildir. Teknik olarak, bir hata ayıklayıcı bir üretim hizmetine bağlanmak mümkün olsa da, ortak bir uygulama değildir. Bu nedenle, ölçümlü izleme verilerini ayrıntılı önemlidir.
 

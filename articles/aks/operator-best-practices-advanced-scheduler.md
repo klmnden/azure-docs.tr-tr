@@ -2,17 +2,18 @@
 title: İşleç en iyi uygulamalar - Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Hizmetleri (AKS)
 description: İçin Gelişmiş Zamanlayıcı taints ve tolerations, düğüm seçicileri ve benzeşim veya arası pod benzeşimi ve benzeşim karşıtlığı Azure Kubernetes Service (AKS) kullanarak küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
+origin.date: 11/26/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464977"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -52,7 +53,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -95,7 +96,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -125,7 +126,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

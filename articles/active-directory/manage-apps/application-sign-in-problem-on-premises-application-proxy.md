@@ -16,17 +16,17 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440424"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD uygulama proxy'sini kullanarak şirket içi uygulamaya oturum açmada sorun
 
 Şirket içi uygulamada oturum sorun yaşıyorsanız, sorunu çözmek için aşağıdaki adımları izleyerek deneyebilirsiniz.
 
-## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Ben uygulamamı yükleyebiliyorum ama sayfadaki bir şey bozuk görünüyor
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Uygulamamı yükleyebiliyorum ama sayfadaki bir şey bozuk görünüyor
 
 Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
 
@@ -39,7 +39,7 @@ Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmen
   * [Uygulamam için hangi bağlantı noktalarını açacağımı bilmiyorum](application-proxy-connectivity-ports-how-to.md)
   * [Uygulamam için bağlayıcı grubunda çalışan bağlayıcı olmadığından sorunla karşılaştım](application-proxy-connectivity-no-working-connector.md)
 
-## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Yönetim Portalı'nda Azure AD uygulama proxy'sini yapılandırırken sorun yaşıyorum
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Yönetici portalında Azure AD Uygulama Ara Sunucusu'nu yapılandırırken sorun yaşıyorum
   Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
   * [Uygulama Proxy’si uygulamasını yapılandırırken zorluk sorun yaşıyorum](application-proxy-config-how-to.md)
   * [Uygulama Proxy’si uygulamamda çoklu oturum açmayı yapılandırmayı bilmiyorum](application-proxy-config-sso-how-to.md)
@@ -50,11 +50,11 @@ Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmen
   * [Kerberos Sınırlı Temsilini yapılandırmayı bilmiyorum](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
   * [Uygulamamı PingAccess’le nasıl yapılandıracağımı bilmiyorum](application-proxy-back-end-ping-access-how-to.md)
 
-## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Uygulamam için oturum açarken sorun yaşıyorum
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Uygulamamda oturum açarken sorun yaşıyorum
   Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
   * ["Bu Şirket Uygulamasına Erişilemiyor" hatası alıyorum](application-proxy-sign-in-bad-gateway-timeout-error.md)
 
-## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Uygulama proxy'si aracı Bağlayıcısı ile ilgili bir sorun yaşıyorum
+## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Uygulama Ara Sunucusu Aracı Bağlayıcısı’nda sorun yaşıyorum
   Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
   * [Uygulama proxy'si aracı Bağlayıcısı'nı yükleme sorunları yaşıyorum](application-proxy-connector-installation-problem.md)
 

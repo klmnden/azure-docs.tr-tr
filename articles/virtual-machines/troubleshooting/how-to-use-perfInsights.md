@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318413"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights’ı kullanma
 
@@ -132,15 +132,15 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 
 Kural tabanlı bir altyapı, veri toplamak ve sürekli performans sorunlarını tanılamak için arka planda çalışır. Aşağıdaki kurallar geçerli desteklenir:
 
-- HighCpuUsage kuralı: yüksek CPU kullanım dönemlerini algılar ve en çok CPU kullanımı tüketicileri bu dönemlerde gösterir.
-- HighDiskUsage kuralı: disk yüksek kullanım dönemleri fiziksel disklerde algılar ve üst disk kullanımı tüketicileri bu dönemlerde gösterir.
-- HighResolutionDiskMetric kuralı: gösterir 50 milisaniye her fiziksel disk başına IOPS, aktarım hızı ve g/ç gecikme süresi ölçülerini. Nokta azaltma disk hızlıca tanımlamanıza yardımcı olur.
-- HighMemoryUsage kuralı: yüksek bellek kullanım dönemlerini algılar ve en çok bellek kullanım tüketicileri bu dönemlerde gösterir.
+- HighCpuUsage kuralı: Yüksek CPU kullanım dönemlerini algılar ve en çok CPU kullanımı tüketicileri bu dönemlerde gösterir.
+- HighDiskUsage kuralı: Yüksek disk kullanım dönemleri fiziksel disklerde algılar ve üst disk kullanımı tüketicileri bu dönemlerde gösterir.
+- HighResolutionDiskMetric kuralı: 50 milisaniye her fiziksel disk başına IOPS, aktarım hızı ve g/ç gecikme süresi ölçümlerini gösterir. Nokta azaltma disk hızlıca tanımlamanıza yardımcı olur.
+- HighMemoryUsage kuralı: Yüksek bellek kullanım dönemlerini algılar ve en çok bellek kullanım tüketicileri bu dönemlerde gösterir.
 
 > [!NOTE] 
 > Şu anda, .NET Framework 4.5 içeren Windows sürümlerini veya sonraki sürümler desteklenir.
 
-### <a name="performance-counter-trace-"></a>Performans sayacı izleme (\*\*)
+### <a name="performance-counter-trace-"></a>Performans sayacı izleme (*)
 
 Aşağıdaki performans sayaçlarını toplar:
 
@@ -156,7 +156,7 @@ Aşağıdaki performans sayaçlarını toplar:
 #### <a name="for-azure-files"></a>Azure dosyaları için
 \SMB istemci paylaşımları
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd Kıyaslama izleme (\*\*\*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd Kıyaslama izleme (*)
 Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve havuzu sürücüleri okuma/yazma)
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Sanal makinenizde Perfınsights aracı çalıştırın
@@ -167,7 +167,7 @@ Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve havuzu sür�
 
 -  Bu araç, performans sorunu olan VM üzerinde çalıştırmanız gerekir. 
 
--  Aşağıdaki işletim sistemleri desteklenir: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016; Windows 8.1 ve Windows 10.
+-  Aşağıdaki işletim sistemleri desteklenmektedir: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016; Windows 8.1 ve Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Üretim Vm'lerinde aracı çalıştırdığınızda olası sorunlar
 
@@ -300,7 +300,7 @@ SQL Server'ın belirli örnekler için sekmeler, seçilen örnek hakkındaki tem
 
 Diskspd bir depolama yük oluşturucu ve performans testi Microsoft gelen aracıdır. Daha fazla bilgi için [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf, Windows Performans Araç Seti izlemelerinden yakalamak için bir komut satırı aracıdır. Daha fazla bilgi için [Windows Performans Araç Seti – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349581"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracınız varsa
 Azure AD Connect kullanmayla ilgili konular çoğunu varsayar başlattığınız ile yeni bir Azure AD kiracısı ve kullanıcı yok veya diğer nesneleri yok. Ancak bir Azure AD kiracınız ile başlamış olması durumunda kullanıcıların ve diğer nesnelerle doldurulur ve artık bağlan, kullanmak istediğiniz sonra bu konuda size göre.

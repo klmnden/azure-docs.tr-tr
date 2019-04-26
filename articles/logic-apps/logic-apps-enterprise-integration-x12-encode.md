@@ -4,18 +4,18 @@ description: EDI doğrulamak ve XML ile kodlanmış dönüştürme ileti Kodlay�
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
 ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427550"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>X12 kodlama Azure Logic Apps Enterprise Integration Pack ile iletileri
 
