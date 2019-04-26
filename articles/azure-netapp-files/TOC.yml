@@ -1,60 +1,55 @@
-items:
 - name: Azure NetApp Files Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure NetApp Files'a giriş
-    href: azure-netapp-files-introduction.md
-  - name: Depolama hiyerarşisini anlama
-    href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: Azure NetApp Files'a giriş
+      href: azure-netapp-files-introduction.md
+    - name: Depolama hiyerarşisini anlama
+      href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Hızlı Başlangıçlar
-  items:
-  - name: Azure NetApp Files’ı ayarlama ve birim oluşturma
-    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
   expanded: true
+  items:
+    - name: Azure NetApp Files’ı ayarlama ve birim oluşturma
+      href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Kavramlar
   items:
-  - name: Azure NetApp Files için hizmet düzeyleri
-    href: azure-netapp-files-service-levels.md
-  - name: Azure NetApp Files için kaynak sınırları
-    href: azure-netapp-files-resource-limits.md
-  - name: Azure NetApp Files için ölçümler
-    href: azure-netapp-files-metrics.md
+    - name: Azure NetApp Files için hizmet düzeyleri
+      href: azure-netapp-files-service-levels.md
+    - name: Azure NetApp Files için kaynak sınırları
+      href: azure-netapp-files-resource-limits.md
+    - name: Azure NetApp Files için ölçümler
+      href: azure-netapp-files-metrics.md
+    - name: Azure NetApp Files Kaynak Sağlayıcısı hatalarını giderme
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Azure NetApp Files için kaydolma
-    href: azure-netapp-files-register.md
-  - name: NetApp hesabı oluşturma
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Kapasite havuzunu ayarlama
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Azure NetApp Files için bir alt ağı temsilci olarak belirleme
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Azure NetApp Files için birim oluşturma
-    href: azure-netapp-files-create-volumes.md
-  - name: NFS birimine yönelik dışarı aktarma ilkesini yapılandırma
-    href: azure-netapp-files-configure-export-policy.md
-  - name: Birimleri yönetme
-    href: azure-netapp-files-manage-volumes.md
-  - name: Windows veya Linux sanal makineleri için birimi bağlama veya ayırma
-    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-  - name: Anlık görüntüleri yönetme
-    href: azure-netapp-files-manage-snapshots.md
-  - name: Kapasitesi havuzunu veya birimi yeniden boyutlandırma
-    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-  - name: Geliştirme
-    items:
-    - name: REST
-      href: azure-netapp-files-develop-with-rest-api.md
+    - name: Azure NetApp Files için kaydolma
+      href: azure-netapp-files-register.md
+    - name: NetApp hesabı oluşturma
+      href: azure-netapp-files-create-netapp-account.md
+    - name: Kapasite havuzunu ayarlama
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Azure NetApp Files için bir alt ağı temsilci olarak belirleme
+      href: azure-netapp-files-delegate-subnet.md
+    - name: Azure NetApp Files için birim oluşturma
+      href: azure-netapp-files-create-volumes.md
+    - name: NFS birimine yönelik dışarı aktarma ilkesini yapılandırma
+      href: azure-netapp-files-configure-export-policy.md
+    - name: Birimleri yönetme
+      href: azure-netapp-files-manage-volumes.md
+    - name: Windows veya Linux sanal makineleri için birimi bağlama veya ayırma
+      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Anlık görüntüleri yönetme
+      href: azure-netapp-files-manage-snapshots.md
+    - name: Kapasitesi havuzunu veya birimi yeniden boyutlandırma
+      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Geliştirme
+      items:
+        - name: REST
+          href: azure-netapp-files-develop-with-rest-api.md
 - name: Başvuru
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 1380aa56161e7c1f0f3d72aae36c834a087e1040
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545936"
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/netapp/'
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.netapp/allversions
