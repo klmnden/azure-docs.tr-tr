@@ -49,7 +49,7 @@ Hesap anahtarı kullanarak bir Azure depolama bağlı hizmeti oluşturabilirsini
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **AzureTableStorage**. |Evet |
-| bağlantı dizesi | ConnectionString özelliği için depolama alanına bağlanmak için gereken bilgileri belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Hesap anahtarı Azure Key Vault ve çekme koyabilirsiniz `accountKey` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. |Evet |
+| connectionString | ConnectionString özelliği için depolama alanına bağlanmak için gereken bilgileri belirtin. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Hesap anahtarı Azure Key Vault ve çekme koyabilirsiniz `accountKey` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. |Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!NOTE]
