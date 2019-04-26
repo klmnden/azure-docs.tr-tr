@@ -3,7 +3,7 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Kimlik deneyimi çerçevesi şema, Azure Active Directory B2C ClaimsTransformations öğe tanımı.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313826"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 

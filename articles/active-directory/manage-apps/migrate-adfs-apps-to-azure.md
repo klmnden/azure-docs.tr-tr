@@ -14,11 +14,11 @@ ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291882"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
@@ -213,11 +213,11 @@ Erişimi doğrulamak için, kullanıcıların oturum açtıklarında [erişim pa
 
    **S: Bir uygulama birden çok Idp'yi desteklemesi ne anlama geliyor?**
     
-   C: Birden çok Idp'yi destekleyen SaaS uygulamaları oturum açma deneyimindeki tüm işlemeden önce yeni IDP (bizim durumumuzda Azure AD içinde) hakkında bilgileri girmenize olanak tanır. Yapılandırma bittikten sonra, Azure AD'ye işaret etmek için uygulamanın kimlik doğrulama yapılandırmasına geçebilirsiniz.
+   Y: Birden çok Idp'yi destekleyen SaaS uygulamaları oturum açma deneyimindeki tüm işlemeden önce yeni IDP (bizim durumumuzda Azure AD içinde) hakkında bilgileri girmenize olanak tanır. Yapılandırma bittikten sonra, Azure AD'ye işaret etmek için uygulamanın kimlik doğrulama yapılandırmasına geçebilirsiniz.
 
    **S: SaaS uygulamasının birden çok Idp'yi desteklemesi neden önemlidir?**
 
-   C: Birden çok IDP desteklenmiyorsa, yöneticinin bu sırada Azure AD'yi uygulamanın yeni Idp'si yapılandırması bir hizmet veya bakım kesintisi olarak kısa bir zaman penceresi kenara ayırmanız gerekir. Bu kesinti sırasında, kullanıcılara hesaplarında oturum açamayacakları bildirilmelidir.
+   Y: Birden çok IDP desteklenmiyorsa, yöneticinin bu sırada Azure AD'yi uygulamanın yeni Idp'si yapılandırması bir hizmet veya bakım kesintisi olarak kısa bir zaman penceresi kenara ayırmanız gerekir. Bu kesinti sırasında, kullanıcılara hesaplarında oturum açamayacakları bildirilmelidir.
 
    Uygulama birden çok IdP'yi destekliyorsa, ek IdP önceden yapılandırılabilir. Bundan sonra yönetici Azure tam geçişi sırasında IdP'yi değiştirebilir.
 

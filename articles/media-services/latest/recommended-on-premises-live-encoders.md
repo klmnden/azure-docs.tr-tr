@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405367"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Önerilen canlı akış kodlayıcılar
 
@@ -31,19 +31,19 @@ Media Services ile gerçek zamanlı kodlama hakkında ayrıntılı bilgi için b
 
 ## <a name="live-encoders-that-output-rtmp"></a>Gerçek zamanlı kodlayıcılar RTMP çıktısı
 
-Media Services RTMP çıktısı olarak sahip şu gerçek zamanlı kodlayıcılar kullanarak önerir. Desteklenen URL düzenler `rtmp://` veya `rtmps://`.
+Media Services, aşağıdaki RTMP çıkışı sağlayan gerçek zamanlı kodlayıcılardan birinin kullanılmasını önerir. Desteklenen URL düzenler `rtmp://` veya `rtmps://`.
 
 > [!NOTE]
-> RTMP akış, 1935 ve 1936 giden TCP bağlantı noktalarının açık olduğunu doğrulamak için güvenlik duvarı ve/veya proxy ayarlarını kontrol edin.
+> RTMP üzerinden akış yaparken güvenlik duvarı ve/veya ara sunucu ayarlarını kontrol ederek 1935 ve 1936 numaralı giden TCP bağlantı noktalarının açık olduğundan emin olun.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
-- Değiştirici Studio (iOS)
-- Telestream Wirecast 8.1 +
+- Switcher Studio (iOS)
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
-- Teradek dilim 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - VMIX
@@ -53,12 +53,12 @@ Media Services RTMP çıktısı olarak sahip şu gerçek zamanlı kodlayıcılar
 
 Media Services, Çoklu bit hızlı kesintisiz akış (parçalanmış MP4) çıktı olarak sahip şu gerçek zamanlı kodlayıcılar kullanarak önerir. Desteklenen URL düzenler `http://` veya `https://`.
 
-- Ateme TITAN Canlı
-- Cisco dijital medya Kodlayıcısı 2200
+- Ateme TITAN Live
+- Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
-- Medya Excel Hero canlı ve Hero 4 K (UHD/HEVC)
+- Media Excel Hero Live ve Hero 4K (UHD/HEVC)
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Yapılandırma gerçek zamanlı Kodlayıcı ayarları şirket
 

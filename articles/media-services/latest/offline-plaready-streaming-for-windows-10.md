@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
 ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326431"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10 için akış çevrimdışı PlayReady
 
 Azure Media Services, çevrimdışı yükleme/oynatma DRM koruması desteği. Bu makale Azure medya Hizmetleri için Windows 10/PlayReady istemcilerin çevrimdışı destek kapsar. İOS/FairPlay ve aşağıdaki makalelerde Android/Widevine cihazlar için çevrimdışı modu desteği hakkında okuyabilirsiniz:
 
-- [İOS için çevrimdışı FairPlay Streaming](offline-fairplay-for-ios.md)
+- [iOS için Çevrimdışı FairPlay Akışı](offline-fairplay-for-ios.md)
 - [Android için akış çevrimdışı Widevine](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Genel Bakış
@@ -122,4 +122,4 @@ Ekran görüntüsü, videonun altında PlayReady korumalı olduğundan, videoyu 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı](design-multi-drm-system-with-access-control.md)
+[Erişim denetimi ile çoklu DRM'ye sahip içerik koruma sistemi tasarlama](design-multi-drm-system-with-access-control.md)

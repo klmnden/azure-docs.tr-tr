@@ -11,11 +11,11 @@ ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321851"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search'te yaygın dizin oluşturucu sorunları giderme
 
@@ -27,7 +27,7 @@ Dizin oluşturucular bir dizi soruna Azure Search'e veri dizin oluşturulurken �
 
 ## <a name="data-source-connection-errors"></a>Veri kaynağı bağlantı hataları
 
-### <a name="blob-storage"></a>Blob Depolama Alanı
+### <a name="blob-storage"></a>Blob Depolama
 
 #### <a name="storage-account-firewall"></a>Depolama hesabı güvenlik duvarı
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286869"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -52,7 +52,7 @@ Ayrıca, kullanabileceğiniz [kimlik koruması risk olayları API](https://devel
 Algılanan risk olayı için alma öngörü için Azure AD aboneliğiniz bağlıdır. 
 
 * İle **Azure AD Premium P2 sürümünü**, temel alınan tüm algılamalar hakkında en ayrıntılı bilgileri alın. 
-* İle **Azure AD Premium P1 edition**, lisansınızı tarafından kapsanmaz algılamalar risk olayı görünür **ek risk algılandı ile oturum açma**.
+* İle **Azure AD Premium P1 edition**, Gelişmiş algılamalar (örneğin, alışılmadık oturum açma özellikleri) lisansınızı tarafından kapsanmaz ve adın altında görünür **ek risk algılandı ile oturum açma** . Ayrıca, risk düzeyi ve risk ayrıntı alanlarını gizlenir.
 
 Risk olayları zaten algılanması kimliklerinizi korumanın önemli bir yönüdür temsil ederken, ayrıca el ile bunları adres veya koşullu erişim ilkelerini yapılandırarak otomatik yanıtlar uygulamak seçeneğiniz vardır. Daha fazla bilgi için [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md).
 

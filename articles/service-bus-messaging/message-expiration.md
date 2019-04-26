@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402777"
 ---
 # <a name="message-expiration-time-to-live"></a>İleti süre sonu (Yaşam Süresi)
 
@@ -69,7 +69,7 @@ Bu özellik kullanılarak etkinleştirilir [autoDeleteOnIdle](/azure/templates/m
     - Hiçbir gönderir  
     - Konuya güncelleştirme yok  
     - Zamanlanmış ileti yok 
-- Abonelikler
+- Subscriptions
     - Hayır alır  
     - Abonelik için güncelleştirme yok  
     - Abonelik için eklenen yeni kural  

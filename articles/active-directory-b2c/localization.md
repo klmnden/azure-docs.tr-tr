@@ -3,7 +3,7 @@ title: Yerelleştirme - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de, özel bir ilke Localization öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401757"
 ---
 # <a name="localization"></a>Yerelleştirme
 
@@ -41,7 +41,7 @@ ms.locfileid: "55187564"
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Etkin | Hayır | Olası değerler: `true` veya `false`. |
+| Enabled | Hayır | Olası değerler: `true` veya `false`. |
 
 **Yerelleştirme** ögesinin XML öğeleri
 
@@ -110,7 +110,7 @@ ms.locfileid: "55187564"
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Metin | Evet | Bu seçenek için kullanıcı arabirimi kullanıcılara gösterilecek kolay görünen dize. |
+| Text | Evet | Bu seçenek için kullanıcı arabirimi kullanıcılara gösterilecek kolay görünen dize. |
 | Değer | Evet | Dize değeri bu seçeneğin belirlenmesi ile ilişkili talep. |
 
 Aşağıdaki örnek kullanımını gösterir **LocalizedCollections** öğesi. İki tane **LocalizedCollection** öğeleri, İngilizce ve İspanyolca için başka bir. Hem **kısıtlama** talep koleksiyonunu `Gender` ile İngilizce ve İspanyolca için öğeleri listesi.

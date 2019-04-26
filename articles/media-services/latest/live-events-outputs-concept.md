@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
 ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325842"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -34,7 +34,7 @@ A [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) iki türde
 
 ### <a name="pass-through"></a>Geçiş
 
-![geçiş](./media/live-streaming/pass-through.svg)
+![doğrudan geçiş](./media/live-streaming/pass-through.svg)
 
 Geçişli **Canlı Etkinlik** seçeneğini kullandığınızda şirket içi gerçek zamanlı kodlayıcı ile çoklu bit hızına sahip video akışı oluşturup katılım akışı olarak Canlı Etkinliğe (RTMP veya bölünmüş MP4 protokolünü kullanarak) gönderirsiniz. Daha sonra Canlı Etkinlik, gelen video akışlarını üzerinde herhangi bir işlem yapmadan iletir. Bu geçişli Canlı Etkinlik, uzun süren canlı etkinlikler veya 24x365 doğrusal canlı akış için iyileştirilmiştir. Bu türde bir Canlı Etkinlik oluştururken None (LiveEventEncodingType.None) seçeneğini kullanın.
 
@@ -48,7 +48,7 @@ Bir .NET kod örneğinde bkz [MediaV3LiveApp](https://github.com/Azure-Samples/m
 
 ### <a name="live-encoding"></a>Live encoding  
 
-![live Encoding](./media/live-streaming/live-encoding.svg)
+![gerçek zamanlı kodlama](./media/live-streaming/live-encoding.svg)
 
 Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şirket içi gerçek zamanlı kodlayıcınızı Canlı Etkinliğe katılım akışı olarak tek bit hızına sahip video gönderecek şekilde (RTMP veya Bölünmüş Mp4 protokolünü kullanarak) yapılandırmanız gerekir. Canlı Etkinlik, gelen tek bit hızına sahip video akışını [birden çok bit hızına sahip video akışı](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) olarak kodlayarak MPEG-DASH, HLS ve Kesintisiz Akış gibi protokoller aracılığıyla cihazlarda kayıttan yürütmek üzere hazır hale getirir. Bu türde Canlı Etkinlik oluştururken kodlama türünü **Standart** (LiveEventEncodingType.Standard) olarak belirtmeniz gerekir.
 

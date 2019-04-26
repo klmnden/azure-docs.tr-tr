@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307936"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
@@ -109,7 +109,7 @@ Windows sanal makinelerinde uzantıyı yüklemek için aşağıdaki yönergeleri
     > [!NOTE]
     > Uzantı sağlama başarılı olduğunda çalışır. İki dakika sürdüğünü veya tamamlamak için temel senaryo için daha az. Diğer senaryolar için yükleme sırasında belirtilen süresi çalıştırır.
 
-## <a name="remove-the-extension"></a>Uzantıyı kaldırın
+## <a name="remove-the-extension"></a>Uzantıyı kaldırma
 Uzantıyı sanal makineden kaldırmak için bu adımları izleyin:
 
 1. Oturum [Azure portalında](https://portal.azure.com), bu uzantıyı kaldırın ve ardından istediğiniz sanal makineyi seçin **uzantıları** dikey penceresi. 

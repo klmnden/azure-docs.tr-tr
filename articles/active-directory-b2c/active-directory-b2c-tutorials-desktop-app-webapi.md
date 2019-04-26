@@ -3,7 +3,7 @@ title: Öğretici - erişim izni verme Node.js web API'si bir masaüstü uygulam
 description: Bir Node.js web API’sini korumak ve bir .NET masaüstü uygulamasından çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 90a6a88ff0dc5aab1163e471b24cd1d00e548a1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315941"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir masaüstü uygulamasından Node.js web API'si için verme erişim
 
@@ -24,7 +24,7 @@ Bu öğreticide bir Windows Presentation Foundation (WPF) masaüstü uygulaması
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı güncelleştirme
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Önkoşullar ve adımlar tamamlamak [Öğreticisi: Azure Active Directory B2C'yi kullanan hesaplarla Masaüstü uygulama kimlik doğrulamasını etkinleştirme](active-directory-b2c-tutorials-desktop-app.md).
 
-## <a name="add-a-web-api-application"></a>Bir web API uygulaması ekleme
+## <a name="add-a-web-api-application"></a>Web API'si uygulaması ekleme
 
 Web API'si kaynaklarına kabul edebilir ve korunan kaynak isteklerini yanıtlamak önce kiracınızda bir erişim belirteci mevcut istemci uygulamalar tarafından kayıtlı olması gerekir. 
 
@@ -120,7 +120,7 @@ Masaüstü uygulaması için web API'sine bir istek gönderir ve oturum açmış
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı güncelleştirme

@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306988"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Başlatma veya yeniden boyutlandırmayla azure'da var olan bir Windows sanal makinesi dağıtım sorunlarını giderme
 Durdurulmuş bir Azure sanal makine (VM) Başlat veya mevcut bir Azure VM'yi yeniden boyutlandırma çalıştığınızda, karşılaştığınız ortak bir ayırma hatası hatadır. Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu desteklemez, bu hata oluşur.
@@ -32,7 +32,7 @@ Sorun gidermeye başlamak için sorunla ilişkili hatanın tanımlamak için etk
 
 [Azure kaynaklarını yönetmek için etkinlik günlüklerini görüntüleme](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Sorun: bir VM'yi durdurduğunuzda başlatılırken hata
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Sorun: Durdurulmuş bir sanal makine başlatma hatası
 Bir VM'yi durdurduğunuzda, ancak bir ayırma hatası alma deneyin.
 
 ### <a name="cause"></a>Nedeni
@@ -45,7 +45,7 @@ VM'yi durdurduğunuzda isteğine bulut hizmetini barındıran konumundaki özgü
   2. Tüm sanal makineleri durdurduktan sonra her biri durdurulmuş sanal makineler seçin ve Başlat'a tıklayın.
 * Yeniden başlatma isteği daha sonra yeniden deneyin.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Sorun: varolan bir VM'yi yeniden boyutlandırma sırasında hata oluştu
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Sorun: Varolan bir VM'yi yeniden boyutlandırma hatası
 Varolan bir VM'yi yeniden boyutlandırma, ancak bir ayırma hatası alma deneyin.
 
 ### <a name="cause"></a>Nedeni

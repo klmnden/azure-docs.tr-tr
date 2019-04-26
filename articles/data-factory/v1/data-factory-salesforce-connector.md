@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309207"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -287,7 +287,7 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Salesforce türü | . AĞ tabanlı türü |
 | --- | --- |
 | Otomatik numarası |String |
-| Onay kutusu |Boole |
+| Onay kutusu |Boolean |
 | Para birimi |Decimal |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
@@ -299,7 +299,7 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Yüzde |Decimal |
 | Telefon |String |
 | Seçim listesi |String |
-| Metin |String |
+| Text |String |
 | Metin alanı |String |
 | Metin alanı (uzun) |String |
 | Metin alanı (zengin) |String |

@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330355"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 
@@ -82,7 +82,7 @@ Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi du
 Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm isteklere hizmet tarafından reddedilir.
 <br/>
 
-| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
+| Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |22 Ocak 2019|--- |
 | [2.0.0](#2.0.0) |26 Eylül 2018'den|--- |

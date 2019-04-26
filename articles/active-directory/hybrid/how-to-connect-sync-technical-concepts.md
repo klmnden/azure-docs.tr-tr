@@ -4,24 +4,24 @@ description: Azure AD Connect eşitleme teknik kavramlarını açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/15/2018
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 01/15/2018
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347587"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect eşitleme: Teknik Kavramlar
 Bu makalede konunun bir özetidir [anlama mimarisi](how-to-connect-sync-technical-concepts.md).
@@ -34,11 +34,11 @@ MIIS, ILM ve FIM temel oluşturma, Azure Active Directory Sync Hizmetleri veri k
 
 Aşağıdaki bölümler, FIM eşitleme hizmeti şu yönlerini hakkında daha fazla ayrıntı sağlar:
 
-* Bağlayıcı
-* Öznitelik akışı
-* Bağlayıcı alanı
-* Meta veri deposu
-* Sağlama
+- Bağlayıcı
+- Öznitelik akışı
+- Bağlayıcı alanı
+- Meta veri deposu
+- Sağlama
 
 ## <a name="connector"></a>Bağlayıcı
 Bağlı bir dizin ile iletişim kurmak için kullanılan kod modülleri bağlayıcılar (eski adıyla yönetim aracıları (MAs) da bilinir) olarak adlandırılır.
@@ -87,8 +87,9 @@ Bu doğal olarak bir bağlantı kurar ve öznitelik akışı ıcmp'ye geçebilir
 Bir kural, yeni bir bağlayıcı alanı nesne oluşturulması gerektiğini belirler. her sağlama çağrılır. Bu işlem daha yalnızca bağlayıcı alanı içinde yer aldığından verme gerçekleştirilene kadar ancak bu bağlı veri kaynağına taşımaz.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
-* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
+- [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
+

@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392475"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -116,7 +116,7 @@ Her bir kural ilke içinde çeşitli parametrelere sahiptir:
 | Parametre adı | Parametre türü | Notlar | Gerekli |
 |----------------|----------------|-------|----------|
 | ad           | String |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | True |
-| enabled | Boole | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
+| enabled | Boolean | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
 | type           | Bir sabit listesi değeri | Geçerli geçerli tür `Lifecycle`. | True |
 | tanım     | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. | True |
 

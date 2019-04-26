@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359356"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı bir Azure multi-Factor Authentication'ı planlama
 
@@ -304,7 +304,7 @@ Azure mfa raporları
 
 Azure multi-Factor Authentication, Azure portalı üzerinden raporları sağlar:
 
-| Rapor | Konum | Açıklama |
+| Rapor | Location | Açıklama |
 | --- | --- | --- |
 | Kullanım ve dolandırıcılık uyarıları | Azure AD > oturum açma işlemleri | Bilgi genel kullanımı, kullanıcı özeti ve kullanıcı ayrıntıları sağlar. yanı sıra belirtilen tarih aralığı içinde gönderilen sahtekarlık uyarısı geçmişini. |
 

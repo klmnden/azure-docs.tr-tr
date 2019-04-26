@@ -1,5 +1,5 @@
 ---
-title: 'Bir Azure VPN ağ geçidinde BGP yapılandırma: Resource Manager ve CLI | Microsoft Docs'
+title: 'Bir Azure VPN ağ geçidinde BGP yapılandırın: Resource Manager ve CLI | Microsoft Docs'
 description: Bu makalede Azure Resource Manager ve CLI kullanarak bir Azure VPN ağ geçidi ile BGP yapılandıracağınız açıklanmaktadır.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390685"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI kullanarak bir Azure VPN ağ geçidinde BGP yapılandırma
 
@@ -50,7 +50,7 @@ Bu bölümde, diğer iki yapılandırma bölümlerinde adımları gerçekleştir
 
 (2.0 veya üzeri) CLI komutlarının en son sürümünü yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI’yi yükleme](/cli/azure/install-azure-cli) ve [Azure CLI’yi Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli).
 
-### <a name="step-1-create-and-configure-testvnet1"></a>1. adım: Oluşturma ve TestVNet1 yapılandırma
+### <a name="step-1-create-and-configure-testvnet1"></a>1. Adım: TestVNet1’i oluşturma ve yapılandırma
 
 #### <a name="Login"></a>1. Aboneliğinize bağlanma
 
@@ -71,23 +71,23 @@ Aşağıdaki örnekte TestVNet1 ve üç alt adlı bir sanal ağ oluşturur: Gate
 İlk komut, ön uç adres alanı ve ön uç alt ağı oluşturur. İkinci komut, arka uç alt ağı için ek adres alanı oluşturur. Üçüncü ve dördüncü komutlar GatewaySubnet ve arka uç alt ağı oluşturur.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
- 
-az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
+az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
+ 
+az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
-### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. adım: TestVNet1 için VPN ağ geçidi, BGP parametrelerle oluşturun.
+### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. Adım: BGP parametrelerle TestVNet1 için VPN ağ geçidi oluşturun
 
 #### <a name="1-create-the-public-ip-address"></a>1. Genel IP adresi oluşturma
 
 Genel bir IP adresi isteyin. Sanal ağınız için oluşturduğunuz VPN ağ geçidi genel IP adresi ayrılır.
 
 ```azurecli
-az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
+az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. VPN ağ geçidi AS numarası ile oluşturma
@@ -107,14 +107,14 @@ Ağ geçidi oluşturulduktan sonra Azure VPN ağ geçidi IP adresi BGP eşinin e
 Aşağıdaki komutu çalıştırın ve kontrol `bgpSettings` çıkış üst kısmına:
 
 ```azurecli
-az network vnet-gateway list -g TestBGPRG1 
- 
-  
-"bgpSettings": { 
-      "asn": 65010, 
-      "bgpPeeringAddress": "10.12.255.30", 
-      "peerWeight": 0 
-    }
+az network vnet-gateway list -g TestBGPRG1 
+ 
+  
+"bgpSettings": { 
+      "asn": 65010, 
+      "bgpPeeringAddress": "10.12.255.30", 
+      "peerWeight": 0 
+    }
 ```
 
 Ağ geçidi oluşturulduktan sonra içi ve dışı karışık bağlantı veya BGP ile VNet-VNet bağlantısı kurmak için bu ağ geçidi'ni kullanabilirsiniz.
@@ -126,7 +126,7 @@ Ağ geçidi oluşturulduktan sonra içi ve dışı karışık bağlantı veya BG
 ![BGP'yi şirketler için](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
 
-### <a name="step-1-create-and-configure-the-local-network-gateway"></a>1. adım: Oluşturma ve yerel ağ geçidi yapılandırma
+### <a name="step-1-create-and-configure-the-local-network-gateway"></a>1. Adım: Oluşturma ve yerel ağ geçidi yapılandırma
 
 Bu alıştırmada, derleme yapılandırması Aşağıdaki diyagramda gösterilen devam eder. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun. Yerel ağ geçitleri ile çalışırken şunları göz önünde bulundurun:
 
@@ -137,12 +137,12 @@ Bu alıştırmada, derleme yapılandırması Aşağıdaki diyagramda gösterilen
 Devam etmeden önce tamamladığınızdan emin olun [VPN ağ geçidi için BGP etkinleştir](#enablebgp) bölümü Bu alıştırmada, ve 1. Abonelik'e hala bağlı olduğunuz. Bu örnekte dikkat edin, yeni bir kaynak grubu oluşturun. Ayrıca, yerel ağ geçidi için iki ek parametreler dikkat edin: `Asn` ve `BgpPeerAddress`.
 
 ```azurecli
-az group create -n TestBGPRG5 -l eastus2 
- 
+az group create -n TestBGPRG5 -l eastus2 
+ 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
-### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>2. adım: sanal ağ geçidi ve yerel ağ geçidi bağlanma
+### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>2. Adım: VNet ağ geçidi ve yerel ağ geçidine bağlanma
 
 Bu adımda, bağlantı için Site5 testvnet1-oluşturursunuz. Belirtmelisiniz `--enable-bgp` Bu bağlantı için BGP'yi etkinleştirmek için parametre. 
 
@@ -161,18 +161,18 @@ az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 Örnek çıktı:
 
 ```
-{ 
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65010, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-  }, 
-  "enableBgp": true, 
-  "etag": "W/\"<your etag number>\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+{ 
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65010, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+  }, 
+  "enableBgp": true, 
+  "etag": "W/\"<your etag number>\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
 Sonra değerleri kopyalayın `"id":` Not Defteri gibi bir metin düzenleyicisi ve böylece, kolayca bunları bağlantınızı oluştururken yapıştırabilirsiniz. 
@@ -219,7 +219,7 @@ Bu bölümde, aşağıdaki diyagramda gösterildiği gibi bir VNet-VNet bağlant
 
 Aşağıdaki yönergeler, önceki bölümlerde yer alan adımların devam edin. Oluşturma ve TestVNet1 ve VPN ağ geçidi ile BGP yapılandırma için tamamlamanız gereken [VPN ağ geçidi için BGP etkinleştir](#enablebgp) bölümü.
 
-### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>1. adım: TestVNet2 ve VPN ağ geçidi oluşturma
+### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>1. Adım: TestVNet2 ve VPN ağ geçidi oluşturma
 
 IP adres alanı yeni sanal ağ TestVNet2, tüm sanal ağ Aralıklarınızın çakışmadığını emin olmak önemlidir.
 
@@ -236,12 +236,12 @@ az group create -n TestBGPRG2 -l westus
 İlk komut, ön uç adres alanı ve ön uç alt ağı oluşturur. İkinci komut, arka uç alt ağı için ek adres alanı oluşturur. Üçüncü ve dördüncü komutlar GatewaySubnet ve arka uç alt ağı oluşturur.
 
 ```azurecli
-az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
- 
-az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
- 
-az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
- 
+az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
+ 
+az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
+ 
+az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
+ 
 az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPRG2 --address-prefix 10.22.255.0/27
 ```
 
@@ -256,16 +256,16 @@ az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynami
 #### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. VPN ağ geçidi AS numarası ile oluşturma
 
 Sanal ağ geçidi için TestVNet2 oluşturun. ASN varsayılan Azure VPN ağ geçitlerinizi üzerinde geçersiz kılmanız gerekir. Bağlı sanal ağlar için Asn'ler BGP ve geçiş yönlendirmesi'ni etkinleştirmek için farklı olmalıdır.
- 
+ 
 ```azurecli
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
-### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>2. adım: TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
+### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>2. Adım: TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
 
 Bu adımda, bağlantı için Site5 testvnet1-oluşturursunuz. Bu bağlantı için BGP'yi etkinleştirmek için belirtmelisiniz `--enable-bgp` parametresi.
 
-Aşağıdaki örnekte, sanal ağ geçidi ve yerel ağ geçidi farklı kaynak gruplarındadır. Ağ geçitleri farklı kaynak gruplarında olduğunda, sanal ağlar arasında bir bağlantı ayarlamak için iki ağ geçidi tüm kaynak Kimliğini belirtmeniz gerekir. 
+Aşağıdaki örnekte, sanal ağ geçidi ve yerel ağ geçidi farklı kaynak gruplarındadır. Ağ geçitleri farklı kaynak gruplarında olduğunda, sanal ağlar arasında bir bağlantı ayarlamak için iki ağ geçidi tüm kaynak Kimliğini belirtmeniz gerekir. 
 
 #### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. Kimliği VNet1GW öğesinin kaynak alma 
 

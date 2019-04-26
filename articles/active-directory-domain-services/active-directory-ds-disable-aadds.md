@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
 ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359509"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak hizmetleri devre dışı bırak
 Bu makalede Azure AD dizininiz için Azure Active Directory (AD) etki alanı hizmetleri devre dışı bırakmak için Azure portalını kullanmayı gösterir.

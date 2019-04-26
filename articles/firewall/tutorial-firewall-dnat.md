@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60192944"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Azure Güvenlik Duvarı DNAT ile gelen trafiği filtreleme
 
@@ -153,7 +153,7 @@ Dağıtım bittikten sonra sanal makineyle ilişkili özel IP adresini not alın
    |Ad     |FW-DNAT-test|
    |Abonelik     |\<aboneliğiniz\>|
    |Kaynak grubu     |**Var olanı kullan**: RG dnat'ı Test |
-   |Konum     |Önceden kullandığınız konumu seçin|
+   |Location     |Önceden kullandığınız konumu seçin|
    |Bir sanal ağ seçin     |**Var olanı kullan**: VN-Hub|
    |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
 

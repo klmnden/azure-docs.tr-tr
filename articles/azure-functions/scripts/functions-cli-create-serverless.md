@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a41f6582879387352a65978049261a3f3ce55b47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 265c4fa3c28783f0d9e5d789348c3cd2e249eb29
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325730"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Sunucusuz kod yürütme için bir işlev uygulaması oluşturma
 

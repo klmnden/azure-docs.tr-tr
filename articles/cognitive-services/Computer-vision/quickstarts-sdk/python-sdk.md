@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336822"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
@@ -90,7 +90,7 @@ Python için Azure Bilişsel hizmetler bilgisayar işleme SDK yükleme [paket] [
 pip install azure-cognitiveservices-vision-computervision
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **uç nokta**, diğeri kendi **hesap anahtarları** istemci nesnesi örneklemek için.
 

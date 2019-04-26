@@ -3,18 +3,18 @@ title: Azure hizmetlerini ve uygulamalarını Grafana kullanarak izleyin
 description: Grafana içinde görüntülemek için rota Azure İzleyici ve Application Insights verileri.
 services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
+author: lingliw
+ms.author: v-lingwu
+ms.date: 04/12/19
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
 ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396096"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -168,4 +168,3 @@ Kurulum Grafana ortamı Azure'da belirttiyseniz, VM'ler, bunları veya kullanıp
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure İzleyici ölçümlerine genel bakış](data-platform.md)
-

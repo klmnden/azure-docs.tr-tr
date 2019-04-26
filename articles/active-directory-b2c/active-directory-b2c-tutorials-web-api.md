@@ -3,7 +3,7 @@ title: Öğretici - ASP.NET web API'si için erişim verme - Azure Active Direct
 description: Bir ASP.NET web API'sini korumak ve bir ASP.NET web uygulamasından çağırmak için Active Directory B2C kullanma Öğreticisi.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315595"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Öğretici: Bir ASP.NET web Azure Active Directory B2C kullanarak API erişim izni verme
 
@@ -24,7 +24,7 @@ Bu öğreticide, bir korumalı web API'si kaynağına Azure Active Directory (Az
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı yapılandırma
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Önkoşullar ve adımlar tamamlamak [Öğreticisi: Etkinleştirme kimlik doğrulaması, Azure Active Directory B2C kullanarak bir web uygulamasında](active-directory-b2c-tutorials-web-app.md).
 
-## <a name="add-a-web-api-application"></a>Bir web API uygulaması ekleme
+## <a name="add-a-web-api-application"></a>Web API'si uygulaması ekleme
 
 Web API'si kaynaklarına kabul edebilir ve korunan kaynak isteklerini yanıtlamak önce kiracınızda bir erişim belirteci mevcut istemci uygulamalar tarafından kayıtlı olması gerekir.
 
@@ -152,7 +152,7 @@ Bir Yapılacaklar listesi öğesi oluşturduğunuzda, web uygulaması, web API's
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı yapılandırma

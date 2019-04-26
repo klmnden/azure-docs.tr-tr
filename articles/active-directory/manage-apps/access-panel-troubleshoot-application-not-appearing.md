@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294030"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Atanan uygulamanın erişim panelinde görünmüyor
 
@@ -509,7 +509,7 @@ Bir kullanıcının lisans atanmış denetlemek için aşağıdaki adımları iz
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -529,7 +529,7 @@ Bir kullanıcıya bir lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -567,7 +567,7 @@ Bir grubun üyeliğini denetlemek için aşağıdaki adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -625,7 +625,7 @@ Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygula
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -649,7 +649,7 @@ Bir gruba lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 

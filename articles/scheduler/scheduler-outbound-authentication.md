@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344357"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Zamanlayıcı giden bağlantı kimlik doğrulaması
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Azure zamanlayıcı işleri, diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli bir özel Web siteleri gibi kimlik doğrulaması gerektiren hizmetleri çağıran gerekebilir. Çağrılan hizmet Scheduler işi istenen kaynaklara erişebileceğini belirleyebilirsiniz. 
 
@@ -288,7 +288,7 @@ Kimlik doğrulaması kullanarak eklerken `ActiveDirectoryOAuth` model, bu ek ö�
 | **type** | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. |
 | **Kiracı** | Evet | Azure AD kiracısı için Kiracı tanımlayıcısı. Azure AD kiracınız için Kiracı tanımlayıcısı için çalıştırın `Get-AzureAccount` Azure PowerShell'de. |
 | **Hedef kitle** | Evet | Bu değeri şuna ayarlı `https://management.core.windows.net/`. | 
-| **ClientID** | Evet | Azure AD uygulamasının istemci tanımlayıcısı | 
+| **clientId** | Evet | Azure AD uygulamasının istemci tanımlayıcısı | 
 | **Gizli anahtarı** | Evet | Belirteç istediği istemci gizli anahtarı | 
 |||| 
 
@@ -302,7 +302,7 @@ Yanıt, kimlik doğrulama bilgilerini bir istek gönderildiğinde, bu kimlik do�
 | **type** | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
 | **Kiracı** | Azure AD kiracısı için Kiracı tanımlayıcısı |
 | **Hedef kitle** | Bu değeri şuna ayarlı `https://management.core.windows.net/`. |
-| **ClientID** | Azure AD uygulamasının istemci tanımlayıcısı |
+| **clientId** | Azure AD uygulamasının istemci tanımlayıcısı |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Örnek REST isteği - Active Directory OAuth

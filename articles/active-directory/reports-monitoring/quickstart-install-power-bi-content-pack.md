@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69a69732d8cb42c248fa954ef9047e5876f40837
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285913"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Hızlı Başlangıç: Azure Active Directory Power BI içerik paketi yükleyin
 

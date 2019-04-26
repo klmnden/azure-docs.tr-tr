@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 09736396342505c8ec44cc83bf66f7c0ef893f80
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333637"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Java'da Azure uzamsal bağlayıcılarını kullanarak nasıl oluşturulup bulun tutturur
 

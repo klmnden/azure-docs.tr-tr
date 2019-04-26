@@ -1,6 +1,6 @@
 ---
-title: Azure CDN kaynakları sağlığını izlemek | Microsoft Docs
-description: Azure kaynak durumu kullanarak Azure CDN kaynaklarınızı sağlığını izlemek öğrenin.
+title: Azure CDN kaynakları durumunu izleyin | Microsoft Docs
+description: Azure CDN kaynaklarınızı Azure kaynak durumu kullanarak durumunu izlemeyi öğrenin.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324713"
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN kaynakların durumunu izleme
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN kaynakları durumunu izleyin
   
-Azure CDN kaynak durumu olan bir alt kümesini [Azure kaynak durumu](../resource-health/resource-health-overview.md).  Azure kaynak durumu CDN kaynakları sağlığını izlemek ve sorunlarını gidermek için işlem yapılabilir yönergeleri almak için kullanabilirsiniz.
+Azure CDN kaynak durumu, bir alt kümesidir [Azure kaynak durumu](../resource-health/resource-health-overview.md).  Azure kaynak durumu, CDN kaynaklarını durumunu izlemek ve sorunlarını gidermeye yönelik uygulanabilir rehberlik almak için kullanabilirsiniz.
 
 >[!IMPORTANT] 
->Azure CDN kaynak durumu şu anda yalnızca sistem durumunu genel CDN teslimi ve API özellikleri için hesapları.  Azure CDN kaynak durumu tek tek CDN uç noktası doğrulamaz.
+>Azure CDN kaynak durumu şu anda yalnızca sistem durumunu küresel CDN teslim ve API özellikleri için hesaplar.  Azure CDN kaynak durumu, bireysel CDN uç noktası doğrulamaz.
 >
->Azure CDN kaynak durumu akışı sinyalleri Gecikmeli en fazla 15 dakika olabilir.
+>Azure CDN kaynak durumu akış sinyaller Gecikmeli tamamlanması 15 dakika olabilir.
 
 ## <a name="how-to-find-azure-cdn-resource-health"></a>Azure CDN kaynak sistem durumu bulma
 
-1. İçinde [Azure portal](https://portal.azure.com), CDN profilinize gidin.
+1. İçinde [Azure portalında](https://portal.azure.com), CDN profilinize gidin.
 
-2. Tıklatın **ayarları** düğmesi.
+2. Tıklayın **ayarları** düğmesi.
 
     ![Ayarlar düğmesi](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Altında *destek + sorun giderme*, tıklatın **kaynak durumu**.
+3. Altında *destek + sorun giderme*, tıklayın **kaynak durumu**.
 
     ![CDN kaynak durumu](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Listelenen CDN kaynakları bulabileceğiniz *kaynak durumu* parçasında *Yardım + Destek* dikey.  Hızlı bir şekilde elde edebilirsiniz *Yardım + Destek* daire içinde tıklayarak **?** Portalın sağ üst köşesinde.
+>Listelenen CDN kaynakları da bulabilirsiniz *kaynak durumu* kutucuğu *Yardım + Destek* dikey penceresi.  Hızlı bir şekilde elde edebilirsiniz *Yardım + Destek* daire içinde tıklayarak **?** Portalın sağ alt köşesinde.
 >
 > ![Yardım + destek](./media/cdn-resource-health/cdn-help-support.png)
 
-## <a name="azure-cdn-specific-messages"></a>Azure CDN özgü iletileri
+## <a name="azure-cdn-specific-messages"></a>Azure CDN özel iletileri
 
-Azure CDN kaynak sağlığı ile ilgili durumlar altında bulunabilir.
+Azure CDN kaynak sağlığı ile ilgili durumları aşağıda bulabilirsiniz.
 
-|İleti | Önerilen eylem |
+|İleti | Önerilen Eylem |
 |---|---|
-|Durdurulmuş, kaldırıldı veya bir veya daha fazla CDN uç noktalarınızı yanlış | Durduruldu, kaldırıldı veya bir veya daha fazla CDN uç noktalarınızı yanlış.|
-|Özür dileriz, CDN yönetim hizmeti şu anda kullanılamıyor | Geri durum güncelleştirmeleri için burayı tıklatın; Beklenen çözümleme süresi sonra sorununuz devam ederse desteğe başvurun.|
-|CDN uç noktalarınızı bazı bizim CDN sağlayıcıları ile devam eden sorunları tarafından etkilenebilir ne yazık ki | Geri durum güncelleştirmeleri için burayı tıklatın; Kaynak ve CDN uç noktası test etmek öğrenmek için sorun giderme aracını kullanın; Beklenen çözümleme süresi sonra sorununuz devam ederse desteğe başvurun. |
-|CDN uç noktası yapılandırma değişikliklerini yayma gecikmeleri yaşıyor ne yazık ki | Geri durum güncelleştirmeleri için burayı tıklatın; Yapılandırma değişiklikleri beklenen süre içinde tam olarak yayılmaz ederse Destek'e başvurun.|
-|Şu ek portal yükleme sorunlar yaşıyoruz ne yazık ki | Geri durum güncelleştirmeleri için burayı tıklatın; Beklenen çözümleme süresi sonra sorununuz devam ederse desteğe başvurun.|
-Üzgünüz, şu bizim CDN sağlayıcıları bazı sorunlar yaşıyoruz | Geri durum güncelleştirmeleri için burayı tıklatın; Beklenen çözümleme süresi sonra sorununuz devam ederse desteğe başvurun. |
+|Bir veya daha çok CDN uç noktanızı durdurmuş, kaldırmış veya yanlış yapılandırmış olabilirsiniz | Bir veya daha çok CDN uç noktanızı durdurmuş, kaldırmış veya yanlış yapılandırmış olabilirsiniz.|
+|Üzgünüz, CDN yönetim hizmeti şu anda kullanılamıyor | Durum güncelleştirmeleri için buraya tekrar denetleyin; Beklenen çözüm süresinden sonra sorun devam ederse desteğe başvurun.|
+|CDN uç noktalarınız bazı CDN sağlayıcılarımızla ilgili devam eden sorunlardan etkileniyor olabilir | Durum güncelleştirmeleri için buraya tekrar denetleyin; Kaynağınızı ve CDN uç test etme konusunda bilgi almak için sorun giderme aracını kullanın. Beklenen çözüm süresinden sonra sorun devam ederse desteğe başvurun. |
+|Üzgünüz, CDN uç noktası yapılandırma değişikliklerinde yayma gecikmeleri yaşanıyor | Durum güncelleştirmeleri için buraya tekrar denetleyin; Yapılandırma değişiklikleriniz beklenen sürede tamamen yayılmazsa, desteğe başvurun.|
+|Üzgünüz, ek portalı yüklerken sorun yaşıyoruz | Durum güncelleştirmeleri için buraya tekrar denetleyin; Beklenen çözüm süresinden sonra sorun devam ederse desteğe başvurun.|
+Üzgünüz, bazı CDN sağlayıcılarımızla ilgili sorun yaşıyoruz | Durum güncelleştirmeleri için buraya tekrar denetleyin; Beklenen çözüm süresinden sonra sorun devam ederse desteğe başvurun. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure kaynak durumu genel bir bakış okuma](../resource-health/resource-health-overview.md)
-- [CDN sıkıştırma ile ilgili sorunları giderme](./cdn-troubleshoot-compression.md)
+- [Azure kaynak durumu hakkında genel bakış okuyun](../resource-health/resource-health-overview.md)
+- [CDN sıkıştırma sorunlarını giderme](./cdn-troubleshoot-compression.md)
 - [404 hataları ile ilgili sorunları giderme](./cdn-troubleshoot-endpoint.md)

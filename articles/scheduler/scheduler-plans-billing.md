@@ -9,23 +9,23 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344317"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planlar ve faturalandırma için Azure Zamanlayıcı
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="job-collection-plans"></a>İş koleksiyonu planları
 
 Azure Scheduler'da işleri belirli bir dizi iş koleksiyonu içerir. İş koleksiyonu, Faturalanabilir bir varlıktır ve burada açıklanan standart, Premium P10 ve P20 Premium planlarını içinde sunulur: 
 
-| İş koleksiyonu planı | Koleksiyon başına en fazla iş | En fazla yinelenme | Abonelik başına en fazla iş koleksiyonu | Sınırlar | 
+| İş koleksiyonu planı | Koleksiyon başına en fazla iş | En fazla yinelenme | Abonelik başına en fazla iş koleksiyonu | Limits | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standart** | Koleksiyon başına 50 iş | Bir dakika başına. İşleri dakikada birden daha sık çalıştırılamaz. | Her Azure aboneliği, en fazla 100 standart iş koleksiyonu olabilir. | Zamanlayıcı tam özellik kümesi erişimi | 
 | **P10 Premium** | Koleksiyon başına 50 iş | Bir dakika başına. İşleri dakikada birden daha sık çalıştırılamaz. | Her Azure aboneliği, en fazla 10.000 P10 Premium iş koleksiyonu olabilir. Daha fazla koleksiyon <a href="mailto:wapteams@microsoft.com">bizimle</a>. | Zamanlayıcı tam özellik kümesi erişimi |

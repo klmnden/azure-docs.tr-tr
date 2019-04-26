@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahill
 ms.openlocfilehash: e9df2f9cf7a8ecabdce9b5bc877fdc82fd61d1f5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401400"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Bing Video arama API'si arama istekleri gönderen
 

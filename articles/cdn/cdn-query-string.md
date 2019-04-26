@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324781"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - standart katman
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Azure Content Delivery Network (CDN ile), bir web isteği için bir sorgu dizesi
 
 Üç sorgu dizesi modu kullanılabilir:
 
-- **Sorgu dizelerini Yoksay**: varsayılan modu. Bu modda, CDN bulunma noktası (POP) düğüm sorgu dizelerini istek sahibine kaynak sunucuya ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar bulunma noktası ' sunulan tüm sonraki istekleri varlık için sorgu dizelerini yoksay.
+- **Sorgu dizelerini Yoksay**: Varsayılan modu. Bu modda, CDN bulunma noktası (POP) düğüm sorgu dizelerini istek sahibine kaynak sunucuya ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar bulunma noktası ' sunulan tüm sonraki istekleri varlık için sorgu dizelerini yoksay.
 
 - **Sorgu dizeleri için önbelleğe almayı atlama**: Bu modda, CDN POP düğümde sorgu dizeleriyle istekleri önbelleğe alınmaz. POP düğüm doğrudan kaynak sunucudan varlığı alır ve her istek ile istek sahibine göre geçirir.
 

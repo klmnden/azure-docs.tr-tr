@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329465"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Diskler oluşturma ve sanal makine ölçek kümesi Azure CLI ile kullanma
 Sanal makine ölçek kümeleri, sanal makine örneğinin işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. Bir ölçek kümesi oluştururken ve yönetirken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğretici, sanal makine disklerinin oluşturulmasını ve yönetilmesini kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -48,7 +48,7 @@ Bir ölçek kümesi oluşturulduğunda veya ölçeklendirildiğinde, her bir san
 **Geçici disk** - Geçici diskler, sanal makine örneğiyle aynı Azure ana bilgisayarında bulunan bir katı hal sürücüsü kullanır. Bunlar yüksek performansa sahiptir ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak sanal makine örneği yeni bir ana bilgisayara taşınırsa, geçici diskte depolanan tüm veriler kaldırılır. Geçici diskin boyutu, sanal makine örneği tarafından belirlenir. Geçici diskler */dev/sdb* etiketine ve */mnt* bağlama noktasına sahiptir.
 
 ### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
-| Type | Ortak boyutlar | En yüksek geçici disk boyutu (GiB) |
+| Tür | Ortak boyutlar | En yüksek geçici disk boyutu (GiB) |
 |----|----|----|
 | [Genel amaçlı](../virtual-machines/linux/sizes-general.md) | A, B ve D serisi | 1600 |
 | [İşlem için iyileştirilmiş](../virtual-machines/linux/sizes-compute.md) | F serisi | 576 |
@@ -62,7 +62,7 @@ Bir ölçek kümesi oluşturulduğunda veya ölçeklendirildiğinde, her bir san
 Uygulamalar yüklemeniz ve veri depolamanız gerekirse ek veri diskleri eklenebilir. Dayanıklı ve duyarlı veri depolama gerektiren her koşulda veri diskleri kullanılmalıdır. Her veri diski maksimum 4 TB kapasiteye sahiptir. Sanal makine örneğinin boyutu, kaç veri diskinin eklenebileceğini belirler. Her VM vCPU için iki veri diski eklenebilir.
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
-| Type | Ortak boyutlar | VM başına en fazla veri diski |
+| Tür | Ortak boyutlar | VM başına en fazla veri diski |
 |----|----|----|
 | [Genel amaçlı](../virtual-machines/linux/sizes-general.md) | A, B ve D serisi | 64 |
 | [İşlem için iyileştirilmiş](../virtual-machines/linux/sizes-compute.md) | F serisi | 64 |

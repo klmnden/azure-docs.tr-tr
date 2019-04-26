@@ -9,11 +9,11 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320576"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
 
@@ -23,7 +23,7 @@ Bu makalede, tüm sürücüleri için içeri aktarma işine hazırlama işlemini
 
 Bu örnek olarak aşağıdaki verileri, adlı bir Azure depolama hesabına içeri aktarır `mystorageaccount`:
 
-|Konum|Açıklama|Veri boyutu|
+|Location|Açıklama|Veri boyutu|
 |--------------|-----------------|-----|
 |H:\Video\ |Videoları koleksiyonu|12 TB|
 |H:\Photo\ |Fotoğraf koleksiyonu|30 GB|

@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 04/08/2019
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296835"
 ---
 # <a name="web-apps"></a>Web uygulamaları
 
@@ -58,3 +59,5 @@ Azure AD tarafından verilen belirtecin süresi dolduğunda, kullanıcının otu
 
 * Diğer hakkında daha fazla bilgi [uygulama türleri ve senaryolar](app-types.md)
 * Azure AD hakkında bilgi edinin [kimlik doğrulaması temelleri](authentication-scenarios.md)
+
+<!-- Update_Description: wording update -->

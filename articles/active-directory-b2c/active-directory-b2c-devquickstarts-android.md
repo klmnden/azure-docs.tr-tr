@@ -3,7 +3,7 @@ title: Bir Android uygulaması Azure Active Directory B2C kullanarak bir belirte
 description: Bu makale, kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için Azure Active Directory B2C ile AppAuth kullanan bir Android uygulaması oluşturma işlemini gösterir.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 3aa2969f8373ae935b0905160f7ad1b57ce17f01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317947"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Bir Android uygulaması Azure Active Directory B2C kullanarak oturum açın
 

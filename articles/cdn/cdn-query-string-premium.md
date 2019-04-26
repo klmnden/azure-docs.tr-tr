@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324836"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - premium katmanı
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Azure Content Delivery Network (CDN ile), bir web isteği için bir sorgu dizesi
 
 Üç sorgu dizesi modu kullanılabilir:
 
-- **Standart-cache**: varsayılan modu. Bu modda, CDN bulunma noktası (POP) düğüm sorgu dizelerini istek sahibine kaynak sunucuya ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar bulunma noktası sunucudan sunulan tüm sonraki istekleri için varlık sorgu dizelerini yoksay.
+- **Standart-cache**: Varsayılan modu. Bu modda, CDN bulunma noktası (POP) düğüm sorgu dizelerini istek sahibine kaynak sunucuya ilk istek üzerine geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar bulunma noktası sunucudan sunulan tüm sonraki istekleri için varlık sorgu dizelerini yoksay.
 
     >[!IMPORTANT] 
     > Bu hesapta herhangi bir yol için yetkilendirme belirteci etkinleştirilirse, standart Önbellek modu kullanılabilecek tek moddur. 

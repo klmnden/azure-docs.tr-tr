@@ -15,11 +15,11 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334497"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>İki adımlı doğrulama ayarlarınızı yönetme
 Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulaması ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunları yaşıyorsanız başvurmak [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.

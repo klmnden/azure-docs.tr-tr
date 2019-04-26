@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325987"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Farklı bölgelerdeki Azure sanal makinelerinde Always On kullanılabilirlik grubu yapılandırma
 
@@ -31,7 +31,7 @@ Bu makale, Azure sanal makinelerini Resource Manager modunda geçerlidir.
 
 Aşağıdaki resimde, Azure sanal makinelerinde bir kullanılabilirlik grubunda ortak bir dağıtım gösterilmektedir:
 
-   ![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
+   ![Kullanılabilirlik Grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
 Bu Dağıtımdaki tüm sanal makineler bir Azure bölgesinde olur. SQL-1 ve 2 SQL otomatik yük devretme ile zaman uyumlu yürütme kullanılabilirlik grubu çoğaltmalarının olabilir. Bu mimari oluşturmak için bkz: [kullanılabilirlik grubu şablonu veya öğretici](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
@@ -53,7 +53,7 @@ Kullanılabilirlik grubu çoğaltmalarının farklı Azure bölgelerindeki Azure
 
 Aşağıdaki diyagramda, ağları veri merkezleri arasında iletişim kurma biçimini gösterir.
 
-   ![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
+   ![Kullanılabilirlik Grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Bu mimari, Azure bölgeleri arasında çoğaltılan veriler için giden veri ücreti alınmaz. Bkz: [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -119,7 +119,7 @@ Bir uzak veri merkezinde bir çoğaltma oluşturmak için aşağıdaki adımlar�
 
    Aşağıdaki ekran görüntüsünde, düzgün bir şekilde yapılandırılmış bir IP adresi küme kaynağı gösterir:
 
-   ![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+   ![Kullanılabilirlik Grubu](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
    >Küme kaynak grubunu, her iki IP adreslerini içerir. Bağımlılıklar dinleyicisi istemci erişim noktası için her iki IP adresleridir. Kullanım **veya** küme bağımlılık yapılandırmasında işleci.
@@ -165,7 +165,7 @@ Uzak bir bölgeye dinleyici bağlantısını test etmek için uzak bir bölgeye 
 
 Bağlantı test ediliyor sonra birincil çoğaltmayı birincil veri merkeziniz dönün ve kullanılabilirlik modu geri normal çalışma ayarlarına ayarlayın. Aşağıdaki tabloda bu belgede açıklanan ve mimarinin normal çalıştırma ayarlarını gösterilmektedir:
 
-| Konum | Sunucu örneği | Rol | Kullanılabilirlik modu | Yük devretme modu
+| Location | Sunucu örneği | Rol | Kullanılabilirlik modu | Yük devretme modu
 | ----- | ----- | ----- | ----- | -----
 | Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Automatic
 | Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Automatic

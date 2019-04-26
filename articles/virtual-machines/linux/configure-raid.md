@@ -17,11 +17,11 @@ ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328808"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux’ta Yazılım RAID yapılandırma
 Birden fazla bağlı veri diskleri tek bir RAID cihaz sunmak için Azure'da Linux sanal makinelerinde RAID yazılım kullanmak yaygın bir senaryodur. Genellikle bu performansı artırmak ve yalnızca tek bir diske kullanmaya kıyasla iyi aktarım hızı için izin vermek için kullanılabilir.

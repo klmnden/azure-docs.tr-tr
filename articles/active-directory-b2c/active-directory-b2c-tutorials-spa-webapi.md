@@ -3,7 +3,7 @@ title: Öğretici - erişim izni verme bir ASP.NET Core web API'si tek sayfalı 
 description: Bir .NET Core web API’sini korumak ve tek sayfalı bir uygulamadan çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 13cbf1e81e0d203c181efb0881ec2a437cbaef24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315669"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir tek sayfa uygulamasında erişime bir ASP.NET Core Web API'si
 
@@ -24,7 +24,7 @@ Bu öğretici için Azure Active Directory (Azure AD) B2C korumalı ASP.NET Core
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı yapılandırma
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Önkoşullar ve adımlar tamamlamak [Öğreticisi: Azure Active Directory B2C kullanarak hesaplarla tek sayfalı uygulama kimlik doğrulamasını etkinleştirme](active-directory-b2c-tutorials-spa.md).
 
-## <a name="add-a-web-api-application"></a>Bir web API uygulaması ekleme
+## <a name="add-a-web-api-application"></a>Web API'si uygulaması ekleme
 
 Web API'si kaynaklarına kabul edebilir ve korunan kaynak isteklerini yanıtlamak önce kiracınızda bir erişim belirteci mevcut istemci uygulamalar tarafından kayıtlı olması gerekir.
 
@@ -174,7 +174,7 @@ Kaydolduktan veya bir kullanıcı hesabıyla oturum açtıktan sonra örnek, kor
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir web API uygulaması ekleme
+> * Web API'si uygulaması ekleme
 > * Web API'si için Kapsamları yapılandırma
 > * Web API'sine izinler verin
 > * Örnek uygulamayı yapılandırma

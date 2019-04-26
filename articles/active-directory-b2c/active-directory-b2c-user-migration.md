@@ -3,7 +3,7 @@ title: Azure Active Directory B2C'de kullanıcı geçişini yaklaşıyor | Micro
 description: Graph API'sini kullanarak ve isteğe bağlı olarak Azure AD B2C özel ilkeleri kullanarak kullanıcı geçişi, temel ve Gelişmiş kavramlar açıklanmaktadır.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316292"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C kimlik sağlayıcınız geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi bir kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makalede aşağıdakilerin olması değildir ancak bunun yerine, bunu birkaç senaryolar açıklanmaktadır. Geliştirici, her bir yaklaşıma uygunluğu sorumludur.
@@ -31,7 +31,7 @@ Azure AD B2C ile kullanıcılar ile geçirebileceğiniz [Azure AD Graph API'si][
 
 Her iki akış, ilk geçiş öncesi işlemleri çalıştırmak, kullanıcılar eski kimliği sağlayıcınızdan okuyun ve yeni hesaplar Azure AD B2C dizini oluşturun. Parola yoksa rastgele oluşturulmuş bir parola kullanarak hesabı oluşturun. Ardından kullanıcının parolasını değiştirmesini isteyin veya kullanıcı ilk kez oturum açtığında, Azure AD B2C sıfırlamak için kullanıcıya sorar.
 
-## <a name="password-policy"></a>Parola İlkesi
+## <a name="password-policy"></a>Parola ilkesi
 Azure AD B2C parola ilkesini (yerel hesaplar için) Azure AD ilkesine bağlıdır. Azure AD B2C kaydolma veya oturum açma ve parola Sıfırla "güçlü" parola gücünü ilkeleri kullanın ve parolaları sona ermez. Daha fazla bilgi için [Azure AD parola ilkesi][AD-PasswordPolicies].
 
 Geçirmek istediğiniz hesapları daha zayıf bir parola gücünü kullanıyorsanız [Azure AD B2C tarafından zorlanan güçlü parola gücü][AD-PasswordPolicies], güçlü bir parola gereksinimini devre dışı bırakabilirsiniz. Varsayılan Parola ilkesini değiştirmek için Ayarla `passwordPolicies` özelliğini `DisableStrongPassword`. Örneğin, kullanıcı isteği oluştur şu şekilde değiştirebilirsiniz:

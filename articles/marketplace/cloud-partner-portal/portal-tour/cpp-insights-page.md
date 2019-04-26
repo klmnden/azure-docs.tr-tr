@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 93cc8e84f13988357a363a70c44a479bed8f462c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318243"
 ---
-# <a name="insights-page"></a>Insights sayfası
+# <a name="insights-page"></a>İçgörüler sayfası
 
 [ **Insights** ](https://cloudpartner.azure.com/#insights) sayfası aşağıdaki ayarlar, anlama ve satış Market tekliflerinize en üst düzeye yardımcı olmak için Pano sağlar.  Her bir pano, sayfanın üstünde aynı ada sahip bir sekme aracılığıyla erişilir.
 

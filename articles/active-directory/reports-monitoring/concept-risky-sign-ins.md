@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287532"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -44,7 +44,7 @@ Riskli oturum açma işlemleri raporları, kullanıcıların aşağıdaki roller
 
 - Güvenlik Yöneticisi
 - Genel Yönetici
-- Güvenlik Okuyucu
+- Güvenlik Okuyucusu
 
 Azure Active Directory'de bir kullanıcıya yönetici rollerini atama hakkında bilgi edinmek için [Azure Active Directory'de yönetici rolleri görüntüleyin ve Ata](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 

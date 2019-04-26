@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392407"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Özellikler ile meta verileri ayarlama ve alma
 
@@ -27,7 +27,7 @@ Depolama kaynak için özellik ve meta verileri değerlerini alma iki adımlı b
 > [!IMPORTANT]
 > Özellik veya meta veri değerlerini depolama kaynağı değil doldurulduğunu fark ederseniz, sonra kodunuzun çağrı yaptığını denetleyin **FetchAttributes** veya **FetchAttributesAsync** yöntemi.
 >
-> Meta veri adı/değer çiftleri geçerli bir HTTP üst bilgileri ve bu nedenle tüm kısıtlamaları HTTP üst bilgilerini yöneten uymanız gerekir. Meta veri adlarının geçerli bir HTTP üst bilgi adları olmalıdır, yalnızca ASCII karakterler içerebilir ve olarak büyük küçük harf duyarsız olarak değerlendirilmelidir. ASCII olmayan karakterler içeren bir meta veri değer Base64 kodlamalı veya URL olarak kodlanmış olması gerekir.
+> Meta veri adı/değer çiftleri geçerli bir HTTP üst bilgileri ve bu nedenle tüm kısıtlamaları HTTP üst bilgilerini yöneten uymanız gerekir. Meta veri adları, geçerli HTTP üst bilgi adları olmalıdır ve geçerli C# tanımlayıcıları, yalnızca ASCII karakterler içerebilir ve olarak büyük küçük harf duyarsız olarak değerlendirilmelidir. ASCII olmayan karakterler içeren bir meta veri değer Base64 kodlamalı veya URL olarak kodlanmış olması gerekir.
 
 ## <a name="setting-and-retrieving-properties"></a>Ayar ve özellikleri alınıyor
 Özellik değerlerini almak için arama **FetchAttributesAsync** yöntemi blob veya kapsayıcı özelliklerini doldurmak için değerleri sonra okuyun.

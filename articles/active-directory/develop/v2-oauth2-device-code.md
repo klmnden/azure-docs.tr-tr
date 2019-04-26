@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299416"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 cihaz kod akışı
 
@@ -65,8 +65,8 @@ scope=user.read%20openid%20profile
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
-| `client_id` | Gereklidir | **Uygulama (istemci) kimliği** , [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan deneyimi. |
+| `tenant` | Gerekli |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
+| `client_id` | Gerekli | **Uygulama (istemci) kimliği** , [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) uygulamanıza atanan deneyimi. |
 | `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md) onay kullanıcıya istiyor.  |
 
 ### <a name="device-authorization-response"></a>Cihaz kimlik doğrulama yanıtı
@@ -98,11 +98,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parametre | Gereklidir | Açıklama|
+| Parametre | Gerekli | Açıklama|
 | -------- | -------- | ---------- |
-| `grant_type` | Gereklidir | olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Gereklidir | Eşleşmelidir `client_id` ilk istekte kullanılan. |
-| `device_code`| Gereklidir | `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
+| `grant_type` | Gerekli | olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Gerekli | Eşleşmelidir `client_id` ilk istekte kullanılan. |
+| `device_code`| Gerekli | `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
 
 ### <a name="expected-errors"></a>Beklenen hataları
 

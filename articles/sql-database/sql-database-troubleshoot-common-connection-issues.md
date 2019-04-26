@@ -1,5 +1,5 @@
 ---
-title: Yaygın olarak karşılaşılan Azure SQL Database bağlantı sorunlarını giderme
+title: Yaygın olarak karşılaşılan Azure SQL Veritabanı bağlantı sorunlarını giderme
 description: Belirlemek ve Azure SQL veritabanı için ortak bağlantı hataları çözmek için adımlar.
 services: sql-database
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331443"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL veritabanı bağlantı sorunlarını giderme
 

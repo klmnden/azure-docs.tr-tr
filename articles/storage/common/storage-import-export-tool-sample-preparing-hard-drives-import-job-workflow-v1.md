@@ -9,18 +9,18 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320593"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
 Bu konuda, sürücüleri için içeri aktarma işine hazırlama tam işleminde size yol gösterir.  
   
 Bu örnek olarak aşağıdaki verileri, adlı bir Windows Azure depolama hesabına içeri aktarır `mystorageaccount`:  
   
-|Konum|Açıklama|  
+|Location|Açıklama|  
 |--------------|-----------------|  
 |H:\Video|Koleksiyonu videosu, 5 TB toplam.|  
 |H:\Photo|Bir koleksiyonu fotoğrafları, toplamda 30 GB.|  
@@ -44,7 +44,7 @@ Ardından, kaç sabit sürücüler gerektiğini belirlemek için veri boyutu iş
   
 Bu örnekte, iki 3 TB sabit sürücü yeterli olur. Ancak, kaynak dizin beri `H:\Video` 5 TB'lık veriniz varsa ve, tek sabit diskin kapasitesi yalnızca 3 TB ise kırmanız gereklidir `H:\Video` iki küçük dizini içine: `H:\Video1` ve `H:\Video2`, Microsoft Azure çalıştırmadan önce İçeri/dışarı aktarma aracı. Bu adım, aşağıdaki kaynak dizinleri verir:  
   
-|Konum|Boyut|Hedef sanal dizin veya blob|  
+|Location|Boyut|Hedef sanal dizin veya blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

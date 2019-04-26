@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Öğretici: Coupa ile Azure Active Directory Tümleştirme
 
@@ -112,18 +112,18 @@ Azure AD çoklu oturum açma ile Coupa yapılandırmak için aşağıdaki adıml
 
     b. İçinde **tanımlayıcı** kutusuna bir URL yazın:
 
-    | Ortam  | URL |
+    | Ortam  | URL'si |
     |:-------------|----|
-    | Korumalı Alan | `devsso35.coupahost.com`|
-    | Üretim | `prdsso40.coupahost.com`|
+    | Korumalı Alan | `sso-stg1.coupahost.com`|
+    | Üretim | `sso-prd1.coupahost.com`|
     | | |
 
     c. İçinde **yanıt URL'si** metin kutusuna bir URL yazın:
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     |------------- |----|
-    | Korumalı Alan | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Üretim | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Korumalı Alan | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Üretim | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.

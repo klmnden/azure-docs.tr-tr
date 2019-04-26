@@ -17,11 +17,11 @@ ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b05c91138f3140abe6a08964fa06caef988e5f49
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60276734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Öğretici: GreenOrbit ile Azure Active Directory Tümleştirme
 

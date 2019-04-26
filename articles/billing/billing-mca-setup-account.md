@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371827"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınızı ayarlama
 
@@ -205,11 +205,11 @@ Kurulumu tamamlamak için yeni bir faturalama hesabı ve Kurumsal Anlaşma kayd�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
+3. Faturalandırma profili seçin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
 
 4. Seçin **Azure abonelikleri** solundan.
 
@@ -221,11 +221,11 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza geçişi yapılır azure 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Fatura bölümü seçin. Erişiminizi bağlı olarak, bir faturalama hesabı ya da fatura profili seçmeniz gerekebilir.  Fatura hesabı ya da fatura profili seçin **fatura bölümleri** ve ardından bir fatura bölümü.
+3. Fatura bölümü seçin. Erişiminize bağlı olarak, bir ödeme hesabı veya faturalama profili seçmeniz gerekebilir.  Fatura hesabı ya da fatura profili seçin **fatura bölümleri** ve ardından bir fatura bölümü.
 
     ![Fatura bölüm post geçiş listesini gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -241,11 +241,11 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza taşınır azure ayırmal
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Kaydınız için oluşturulan faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.  Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
+3. Kaydınız için oluşturulan faturalandırma profili seçin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir.  Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
 
 4. Seçin **erişim denetimi (IAM)** solundan.
 
@@ -257,7 +257,7 @@ Kurumsal Yöneticiler, profil okuyucular Fatura olarak profili sahipleri salt ok
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

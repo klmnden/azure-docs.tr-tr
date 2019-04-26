@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381375"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için kimlik gereksinimleri belirleme
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik sağlayarak destekler) destekleyen bir rol olarak başlar ve kullanıcılar için yeni iş yüklerini kilidini yeni ve ilginç özellikler sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemek için istediğiniz hizmetleri karma kimlik tasarımı gereksinimlerini gösterecektir.  Bu hizmetlerin ve iş yüklerini karma kimlik hem şirket içi gerekir ve bulut.  

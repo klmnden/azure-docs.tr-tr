@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303372"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure uzamsal bağlayıcılarını destek seçenekleri
 
@@ -32,7 +32,7 @@ Azure uzamsal bağlayıcıları için Azure Portal'ın teknik destek bileti açm
 1. Destek bileti alanları tamamlarken: 
 
 - Sorun türü: Teknik
-- Hizmet: Uzamsal yer işaretleri
+- Hizmet: Spatial Anchors
 
 ![Azure portalı desteği bileti alanları](./media/spatial-anchor-support3.png)
 

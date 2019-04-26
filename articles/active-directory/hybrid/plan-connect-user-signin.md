@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296451"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Connect, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara aynı parolayı kullanarak oturum açmasını sağlar. Bu makalede, Azure AD'de oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -60,7 +60,7 @@ Ayrıca, etkinleştirebilirsiniz [sorunsuz çoklu oturum açma](how-to-connect-s
 
 Daha fazla bilgi için [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) makalesi.
 
-### <a name="pass-through-authentication"></a>Geçişli kimlik doğrulama
+### <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama
 Geçişli kimlik doğrulaması ile şirket içi Active Directory denetleyicisine karşı kullanıcının parolasını doğrulanır. Parola, herhangi bir biçimde Azure AD'de mevcut olması gerekmez. Bu şirket içi ilkeleri, saat, oturum açma kısıtlamaları gibi bulut kimlik doğrulaması sırasında değerlendirilecek hizmetleri sağlar.
 
 Geçişli kimlik doğrulaması, şirket içi ortamındaki etki alanı ile birleşik Windows Server 2012 R2 makinesine basit bir aracı kullanır. Bu aracı, parola doğrulama isteklerini dinler. Bu, Internet'e açık olmasını gelen bağlantı noktalarının gerektirmez.

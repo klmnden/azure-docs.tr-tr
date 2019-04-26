@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292138"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Uygulamalar listemde beklenmedik bir uygulama
 
@@ -118,7 +118,7 @@ Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama ko
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  Tıklayın **kullanıcı ayarları**.
 

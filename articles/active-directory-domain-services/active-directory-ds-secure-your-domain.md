@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Domain Services yönetilen etki alanınıza güvenli | Microsoft Docs
-description: Yönetilen etki alanınıza güvenli
+description: Yönetilen etki alanınızın güvenliğini sağlama
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
 ms.openlocfilehash: 3797c76f1537f86357f7ca68ffed4758eb1bdc9a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416509"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanınıza güvenli
 Bu makale, yönetilen etki alanınıza güvenli hale getirmenize yardımcı olur. Zayıf şifre paketleri kullanımını devre dışı'ı açın ve NTLM kimlik bilgisi karması eşitleme devre dışı bırakın.

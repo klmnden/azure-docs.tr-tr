@@ -3,17 +3,17 @@ title: Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
 description: Power BI çalışma alanı koleksiyonları'nda yenilikler hakkında en son bilgileri edinin
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341990"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
 

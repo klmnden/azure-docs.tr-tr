@@ -18,11 +18,11 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296053"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
 
@@ -56,7 +56,7 @@ Riskli kullanıcılar raporu aşağıdakileri gösteren bir varsayılan görün�
 
 - Riskin son güncelleştirilmesi
 
-- Type
+- Tür
 
 - Durum
  
@@ -113,7 +113,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 
 - Risk düzeyi
 
-- Type
+- Tür
 
 - Durum
 

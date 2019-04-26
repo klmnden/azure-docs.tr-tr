@@ -1,19 +1,19 @@
 ---
 title: Gelişmiş özelliklerini Azure ölçüm Gezgini
 description: Azure İzleyici ölçüm Gezgini'ni gelişmiş özellikler hakkında bilgi edinin
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256913"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Gelişmiş özelliklerini Azure ölçüm Gezgini
 
@@ -149,4 +149,3 @@ Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında
 ## <a name="next-steps"></a>Sonraki adımlar
 
   Okuma [özel KPI panoları oluşturma](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) Ölçümleriyle eyleme dönüştürülebilir panolar oluşturmak için en iyi uygulamalar hakkında bilgi edinmek için.
-

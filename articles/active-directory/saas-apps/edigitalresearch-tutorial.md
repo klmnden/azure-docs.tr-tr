@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Öğretici: EDigitalResearch ile Azure Active Directory Tümleştirme
 

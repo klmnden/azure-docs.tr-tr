@@ -1,6 +1,6 @@
 ---
 title: StorSimple Snapshot Manager yedekleme işleri | Microsoft Docs
-description: StorSimple Snapshot Manager MMC ek bileşenini görüntülemek ve zamanlanmış, çalışmakta ve tamamlanan yedekleme işlerini yönetmek için nasıl kullanılacağını açıklar.
+description: StorSimple Snapshot Manager MMC ek bileşeninde zamanlanmış, şu anda çalışan ve tamamlanmış yedekleme işleri görüntüleme ve yönetme için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 03e306b62250f2bb033cc14e856a59760b5406c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303494"
 ---
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple Snapshot Manager görüntülemek ve yedekleme işlerini yönetmek için kullanın
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Yedekleme İşleri görüntüleme ve yönetme için StorSimple Snapshot Manager'ı kullanın
 
 ## <a name="overview"></a>Genel Bakış
-**İşleri** düğümünde **kapsam** bölmesi gösterir **zamanlanmış**, **son 24 saat**, ve **çalıştıran** yedekleme etkileşimli olarak veya yapılandırılmış bir ilke tarafından başlatılan görev. 
+**İşleri** düğümünde **kapsam** bölmesinde gösterildiği **zamanlanmış**, **son 24 saat**, ve **çalıştıran** etkileşimli olarak veya yapılandırılmış bir ilke tarafından başlatılan yedekleme görevleri. 
 
-Bu öğretici nasıl kullanabileceğinizi açıklar **işleri** zamanlanmış, son ve şu anda çalışan yedekleme işleri hakkındaki bilgileri görüntülemek için düğümü. (İşler ve ilgili bilgi listesi içinde görünür **sonuçları** bölmesinde.) Ayrıca, listelenen işini sağ tıklatın ve kullanılabilir eylemler listeleyen bir bağlam menüsü bakın.
+Bu öğreticide nasıl kullanabileceğinizi açıklar **işleri** zamanlanmış, yeni ve şu anda çalışan yedekleme işleri hakkında bilgi görüntülemek için. (İşler ve ilgili bilgileri listesi görünür **sonuçları** bölmesinde.) Ayrıca, listelenen iş sağ tıklayın ve kullanılabilir eylemler listeleyen bir bağlam menüsü bakın.
 
-## <a name="view-scheduled-jobs"></a>Zamanlanan işleri görüntüleyin
-Zamanlanmış yedekleme işleri görüntülemek için aşağıdaki yordamı kullanın.
+## <a name="view-scheduled-jobs"></a>Zamanlanan işleri görüntüle
+Zamanlanan yedekleme işlerinin görüntülemek için aşağıdaki yordamı kullanın.
 
 #### <a name="to-view-scheduled-jobs"></a>Zamanlanan işleri görüntülemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın. 
-2. İçinde **kapsam** bölmesinde genişletin **işleri** düğümü ve tıklatın **zamanlanmış**. Aşağıdaki bilgiler görüntülenir **sonuçları** bölmesi:
+1. StorSimple Snapshot Manager'ı başlatmak için Masaüstü simgesine tıklayın. 
+2. İçinde **kapsam** bölmesini genişletin **işleri** düğüm seçeneğine tıklayıp **zamanlanmış**. Aşağıdaki bilgiler görüntülenir **sonuçları** bölmesi:
    
-   * **Ad** – zamanlanmış anlık görüntü adı
-   * **Sonraki çalıştırma** – tarih ve saat, bir sonraki zamanlanmış anlık görüntüsü
-   * **Son çalıştırma** – tarih ve saat, en son zamanlanmış anlık görüntüsü
+   * **Adı** – zamanlanmış anlık görüntü adı
+   * **Sonraki çalıştırma** – gelecek planlı anlık saati ve tarihi
+   * **Son çalıştırma** – en son zamanlanmış anlık görüntünün saat ve tarihi
      
      > [!NOTE]
-     > Tek seferlik yalnızca anlık görüntüleri için **sonraki çalıştırmaya** ve **son çalıştırma** aynı olacaktır.
+     > Tek seferlik yalnızca anlık görüntüler için **sonraki çalıştırma** ve **son çalıştırma** aynı olacaktır.
      
-     ![Zamanlanmış yedekleme işleri](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
-3. Belirli bir iş üzerinde ek eylemleri gerçekleştirmek için içindeki iş adına sağ tıklayın **sonuçları** bölmesinde ve menü seçeneklerini seçin.
+     ![Zamanlanan yedekleme işlerinin](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
+3. Belirli bir işin üzerinde ek eylemler gerçekleştirmek için proje adına sağ tıklayın **sonuçları** bölmesi ve menü seçenekleri seçin.
 
 ## <a name="view-recent-jobs"></a>Son işleri görüntüle
-Yedekleme görüntülemek ve son 24 saat içindeki tamamlandığını işleri geri yüklemek için aşağıdaki yordamı kullanın.
+Yedekleme görüntülemek ve son 24 saat içinde tamamlanmış işlerin geri yüklemek için aşağıdaki yordamı kullanın.
 
-#### <a name="to-view-recent-jobs"></a>Yeni işleri görüntülemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde genişletin **işleri** düğümü ve tıklatın **son 24 saat**. **Sonuçları** bölmesi son 24 saat (en fazla 64 işleri) için yedekleme işleri gösterir. Aşağıdaki bilgiler görüntülenir **sonuçları** bölmesinde bağlı olarak, **Görünüm** belirlediğiniz seçenekleri:
+#### <a name="to-view-recent-jobs"></a>En son işlerin görüntülemek için
+1. StorSimple Snapshot Manager'ı başlatmak için Masaüstü simgesine tıklayın.
+2. İçinde **kapsam** bölmesini genişletin **işleri** düğüm seçeneğine tıklayıp **son 24 saat**. **Sonuçları** bölmesi, son 24 saat (en fazla 64 işlerinin için) yedekleme işleri gösterir. Aşağıdaki bilgiler görüntülenir **sonuçları** bağlı bölmesinde **görünümü** belirttiğiniz seçenekleri:
    
-   * **Ad** – zamanlanmış anlık görüntü adı.
-   * **Başlatılan** – tarih ve saat zaman anlık görüntü başladı.
-   * **Durdurulmuş** – ne zaman anlık görüntüsü tamamlandı veya sonlandırıldı saat ve tarihi.
-   * **Geçen** – arasındaki süre miktarı **başlatıldı** ve **durduruldu** kez.
-   * **Durum** – son tamamlanan iş durumu. **Başarı** Yedekleme başarıyla oluşturulduğunu gösterir. **Başarısız** işi başarıyla çalışmadı gösterir.
+   * **Adı** – zamanlanmış anlık görüntünün adı.
+   * **Başlatılan** – anlık görüntü başladığında saat ve tarihi.
+   * **Durduruldu** – tarihi ve saati ne zaman anlık görüntüsü tamamlandı veya sonlandırıldı.
+   * **Geçen** – süreyi **başlatıldı** ve **durduruldu** kez.
+   * **Durum** – son tamamlanan iş durumu. **Başarı** Yedekleme başarıyla oluşturulduğunu belirtir. **Başarısız** işi başarıyla çalışmadı gösterir.
    * **Bilgi** – başarısızlık nedeni.
    * **Bayt (MB) işlenen** – (MB) işlenmiş birim grubundan veri miktarı. 
      
      ![Son 24 saat içinde çalışan işler](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
-3. Belirli bir iş üzerinde ek eylemleri gerçekleştirmek için içindeki iş adına sağ tıklayın **sonuçları** bölmesinde ve menü seçeneklerini seçin.
+3. Belirli bir işin üzerinde ek eylemler gerçekleştirmek için proje adına sağ tıklayın **sonuçları** bölmesi ve menü seçenekleri seçin.
    
-    ![Bir işi Sil](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
+    ![İş sil](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Şu anda çalışan işleri görüntüleyin
-Şu anda çalışan işleri görüntüle için aşağıdaki yordamı kullanın.
+Çalışmakta olan işleri görüntüle için aşağıdaki yordamı kullanın.
 
 #### <a name="to-view-currently-running-jobs"></a>Şu anda çalışan işleri görüntülemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde genişletin **işleri** düğümü ve tıklatın **çalıştıran**. Bağlı olarak **Görünüm** belirttiğiniz, aşağıdaki bilgileri görünür seçenekleri **sonuçları** bölmesi:
+1. StorSimple Snapshot Manager'ı başlatmak için Masaüstü simgesine tıklayın.
+2. İçinde **kapsam** bölmesini genişletin **işleri** düğüm seçeneğine tıklayıp **çalıştıran**. Yapılandırmanıza bağlı olarak **görünümü** seçeneklerini belirlerseniz, aşağıdaki bilgileri görünür **sonuçları** bölmesi:
    
-   * **Ad** – zamanlanmış anlık görüntü adı.
-   * **Başlatılan** – tarih ve saat zaman anlık görüntü başladı.
-   * **Denetim noktası** – yedeğinin geçerli eylem.
+   * **Adı** – zamanlanmış anlık görüntünün adı.
+   * **Başlatılan** – anlık görüntü başladığında saat ve tarihi.
+   * **Denetim noktası** – yedekleme geçerli eylem.
    * **Durum** – tamamlanma yüzdesi.
    * **Geçen** – yedekleme başlamasından bu yana geçen süre miktarı. 
-   * **Ortalama verimi (MB)** – toplam bayt sayısı, (MB) işlenmesi için geçen toplam süre için işlenen veri oranı.
-   * **Bayt (MB) işlenen** – toplam bayt (MB) işlenen veri.
-   * **(MB) yazılan bayt** – toplam bayt (MB) yazılan veri. Veri ve bunun yanı sıra meta verileri içerir ve bu nedenle işlenen bayt genellikle daha büyük.
+   * **Ortalama aktarım hızı (MB)** – oranı, (MB) işlenmesi için geçen toplam süre, işlenen verilerin toplam bayt sayısı.
+   * **Bayt (MB) işlenen** – toplam bayt veri (MB) işlenir.
+   * **(MB) yazılan bayt** – toplam bayt veri yazılır (MB). Bu verilerin yanı sıra meta verileri içerir ve bu nedenle genellikle işlenen bayt büyük.
      
      ![Şu anda çalışan işler](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
-3. Belirli bir iş üzerinde ek eylemleri gerçekleştirmek için içindeki iş adına sağ tıklayın **sonuçları** bölmesinde ve menü seçeneklerini seçin.
+3. Belirli bir işin üzerinde ek eylemler gerçekleştirmek için proje adına sağ tıklayın **sonuçları** bölmesi ve menü seçenekleri seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [StorSimple çözümünüzün yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-admin.md).
-* Bilgi edinmek için nasıl [yedekleme kataloğu yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-manage-backup-catalog.md).
+* Bilgi edinmek için nasıl [StorSimple çözümünüzü yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-admin.md).
+* Bilgi edinmek için nasıl [yedekleme kataloğunu yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-manage-backup-catalog.md).
 

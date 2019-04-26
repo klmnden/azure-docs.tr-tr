@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298266"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML belirteç başvurusu
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) güvenlik belirteçleri her kimlik doğrulama 
 > |Ad | `unique_name` |Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. Bu değer, bir kiracıda benzersiz olması garanti edilmez ve yalnızca görüntüleme amaçları için kullanılmak üzere tasarlanmıştır. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Nesne Kimliği | `oid` |Azure AD'de bir nesnenin benzersiz bir tanımlayıcı içerir. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Azure AD'ye sorgulardaki bir nesne tanımlamak için nesne Kimliğini kullanın. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Roller | `roles` |Konu grubu üyeliği üzerinden doğrudan ve dolaylı olarak verilmiş ve rol tabanlı erişim denetimi uygulamak için kullanılabilir tüm uygulama rolleri temsil eder. Uygulama rolleri aracılığıyla uygulama başına temelinde, tanımlanan `appRoles` uygulama bildiriminin özelliğidir. `value` Rol talebi görüntülenen değeri her uygulama rolü özelliğidir. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Özne | `sub` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar tanımlar. Bu değer sabittir ve sonraki atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunlarını belirteçlerinde bulunduğundan, bu değer bir genel amaçlı yetkilendirme sistemde kullanılması önerilir. <br> `SubjectConfirmation` bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer` Konu belirtecin kendi mülkü tarafından doğrulandığını gösterir. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Subject | `sub` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar tanımlar. Bu değer sabittir ve sonraki atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunlarını belirteçlerinde bulunduğundan, bu değer bir genel amaçlı yetkilendirme sistemde kullanılması önerilir. <br> `SubjectConfirmation` bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer` Konu belirtecin kendi mülkü tarafından doğrulandığını gösterir. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |Kiracı Kimliği | `tid` |Belirteci veren dizin Kiracı tanımlayan bir sabit, yeniden kullanılabilir olmayan tanımlayıcısı. Bu değer, çok kiracılı bir uygulamadaki kiracıya özgü directory kaynaklarına erişmek için kullanabilirsiniz. Örneğin, bu değer, Graph API'sine çağrıda kiracıda tanımlamak için kullanabilirsiniz. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Belirteç Ömrü | `nbf`, `exp` |Belirtecin geçerli olduğu zaman aralığını tanımlar. Belirteci doğrular hizmet geçerli bir tarih belirteci reddetme belirteç ömrü içinde başka olduğunu doğrulamanız gerekir. Hizmet belirteci ömrü aralığı dışındaki beş dakikaya kadar herhangi bir farklılığın saatindeki ("saat eğriltme") hesabı için Azure AD arasında sağlayabilir ve hizmeti. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

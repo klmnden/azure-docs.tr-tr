@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332661"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
 Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarda Canlı üzerinde akış](media-services-live-streaming-with-onprem-encoders.md).
@@ -23,20 +23,20 @@ Azure Media Services, gerçek zamanlı kodlayıcılar RTMP çıktısı olarak ol
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1 +
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
-- Teradek dilim 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - OBS Studio
 - VMIX
 - xStream
-- Değiştirici Studio (iOS)
+- Switcher Studio (iOS)
 
 Azure Media Services, Çoklu bit hızlı parçalanmış-MP4 (kesintisiz akış) çıktı olarak sahip şu gerçek zamanlı kodlayıcılar kullanarak önerir:
-- Medya Excel Hero canlı ve Hero 4 K (UHD/HEVC)
-- Ateme TITAN Canlı
-- Cisco dijital medya Kodlayıcısı 2200
+- Media Excel Hero Live ve Hero 4K (UHD/HEVC)
+- Ateme TITAN Live
+- Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3

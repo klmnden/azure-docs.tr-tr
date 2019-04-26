@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359067"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi hakkında sık sorulan sorular
 
@@ -46,7 +46,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S:  Kullanıcılarım adına parola sıfırlama verileri tanımlamak?**
 
-  > **C:** Evet, PowerShell, Azure AD Connect ile bunu yapabilirsiniz [Azure portalında](https://portal.azure.com), veya Office 365 Yönetim Merkezi. Daha fazla bilgi için [veri kullanılan Azure AD Self Servis parola sıfırlama](howto-sspr-authenticationdata.md).
+  > **C:** Evet, PowerShell, Azure AD Connect ile bunu yapabilirsiniz [Azure portalında](https://portal.azure.com), veya [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com). Daha fazla bilgi için [veri kullanılan Azure AD Self Servis parola sıfırlama](howto-sspr-authenticationdata.md).
   >
   >
 * **S:  Verileri şirket içi güvenlik sorusunun eşitleyebilirim?**

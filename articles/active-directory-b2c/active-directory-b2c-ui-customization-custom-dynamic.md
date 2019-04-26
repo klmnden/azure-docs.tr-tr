@@ -3,7 +3,7 @@ title: Özel ilkeleri kullanarak Azure Active Directory B2C'yi kullanıcı arabi
 description: Çalışma zamanında dinamik olarak değiştirir, HTML5/CSS içeriğiyle birden çok marka deneyimleri destekler.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316802"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak dinamik içerik ile kullanıcı arabirimini yapılandırma
 

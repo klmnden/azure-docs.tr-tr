@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368088"
 ---
 # <a name="detect-domain-specific-content"></a>Etki alanına özgü içerikleri algılama
 
@@ -100,7 +100,7 @@ Etki alanına özgü analiz aşağıdaki JSON yanıtı gösterilir olarak dahil 
 
 Görüntü işleme şu anda aşağıdaki alana özgü modeller destekler:
 
-| Name | Açıklama |
+| Ad | Açıklama |
 |------|-------------|
 | ünlüleri | Ünlü tanıma, sınıflandırılan görüntüleri için desteklenen `people_` kategorisi |
 | Yer işareti | Önemli yer tanıma, sınıflandırılan görüntüleri için desteklenen `outdoor_` veya `building_` kategorileri |

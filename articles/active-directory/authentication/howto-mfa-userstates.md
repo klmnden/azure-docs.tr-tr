@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359016"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
 
@@ -44,7 +44,7 @@ Azure multi-Factor Authentication kullanıcı hesapları şu üç ayrı duruma s
 | Durum | Açıklama | Etkilenen tarayıcı olmayan uygulamalar | Etkilenen tarayıcı uygulamaları | Etkilenen Modern kimlik doğrulaması |
 |:---:|:---:|:---:|:--:|:--:|
 | Devre dışı |Azure MFA kayıtlı olmayan yeni bir kullanıcı için varsayılan durumu. |Hayır |Hayır |Hayır |
-| Etkin |Kullanıcı Azure MFA kaydedilmiş, ancak kayıtlı değil. Bunlar, bir sonraki oturum açışlarında kaydetme istemi alır. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumun süresi dolduktan sonra Azure MFA kaydı gereklidir.| Evet. Erişim belirtecinin süresi dolduktan sonra Azure MFA kaydı gereklidir. |
+| Enabled |Kullanıcı Azure MFA kaydedilmiş, ancak kayıtlı değil. Bunlar, bir sonraki oturum açışlarında kaydetme istemi alır. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumun süresi dolduktan sonra Azure MFA kaydı gereklidir.| Evet. Erişim belirtecinin süresi dolduktan sonra Azure MFA kaydı gereklidir. |
 | Uygulandı |Kullanıcı kaydedildikten ve Azure MFA için kayıt işlemi tamamlandı. |Evet. Uygulamalar, uygulama parolaları istiyorlarsa. |Evet. Azure MFA, oturum açma işleminde gereklidir. | Evet. Azure MFA, oturum açma işleminde gereklidir. |
 
 Bir kullanıcının durumunu mi Yönetici bunları Azure MFA kaydetmiştir ve kayıt işlemi tamamlanmadan yansıtır.
@@ -82,7 +82,7 @@ Kullanıcılar etkinleştirdikten sonra e-posta aracılığıyla yollayın. Söy
 
 Kullanarak kullanıcı durumunu değiştirmek için [Azure AD PowerShell](/powershell/azure/overview), değiştirme `$st.State`. Üç olası durum vardır:
 
-* Etkin
+* Enabled
 * Uygulandı
 * Devre dışı  
 

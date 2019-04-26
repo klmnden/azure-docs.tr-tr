@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 2cd3fdc9387952277c25fa07c62a0faae2993089
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 16822a4928f0a68146bdb55f5bab4dd99df6236b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329556"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager'ı kullanarak trafiği kullanıcı alt ağına göre belirli uç noktalara yönlendirme
 
@@ -67,8 +67,9 @@ Bu bölümde **Doğu ABD** ve **Batı Avrupa** Azure bölgelerinde *InternalWebs
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Yeni**'yi seçin ve *myResourceGroupTM1* yazın.|
-    |Konum| **Doğu ABD**’yi seçin.|
+    |Location| **Doğu ABD**’yi seçin.|
     |||
+
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
     
@@ -78,6 +79,7 @@ Bu bölümde **Doğu ABD** ve **Batı Avrupa** Azure bölgelerinde *InternalWebs
     |Ağ Güvenliği Grubu|**Temel**'i seçin ve **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
     |Önyükleme tanılamaları|**Devre dışı** girişini seçin.|
     |||
+
 6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
 7. Aşağıdaki değişikliklerle birlikte 1.-6. adımları tekrar tamamlayın:
@@ -85,10 +87,11 @@ Bu bölümde **Doğu ABD** ve **Batı Avrupa** Azure bölgelerinde *InternalWebs
     |Ayar|Değer|
     |---|---|
     |Kaynak grubu | **Yeni**'yi seçin ve *myResourceGroupTM2* yazın.|
-    |Konum|Batı Avrupa|
+    |Location|Batı Avrupa|
     |VM Adı | ProdWebsite|
     |Sanal ağ | **Sanal ağ**'ı seçin ve **Sanal ağ oluştur** bölümündeki **Ad** alanına *myVNet2*, alt ağ alanına da *mySubnet* yazın.|
     |||
+
 8. Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki sanal makine de oluşturulmadan kalan adımlara devam etmeyin.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>IIS yükleme ve varsayılan web sayfasını özelleştirme
@@ -152,6 +155,7 @@ Bu bölümde her Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**) bir VM (*
 
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
+
     |Ayar|Değer|
     |---|---|
     |Sanal ağ| **Sanal ağ**'ı seçin ve **Sanal ağ oluştur** bölümündeki **Ad** alanına *myVNet3*, alt ağ alanına da *mySubnet3* yazın.|
@@ -177,6 +181,7 @@ Bu bölümde her Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**) bir VM (*
 
 1. Ekranın sol üst tarafından **Kaynak oluştur** > **Ağ** > **Traffic Manager profili** > **Oluştur**'u seçin.
 2. **Traffic Manager profili oluştur** ekranında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**'u seçin:
+
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Ad                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |

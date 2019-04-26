@@ -17,11 +17,11 @@ ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370619"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure faturalandırmanızı dış hizmet ücretlerini anlama
 Dış hizmetler, Azure Market'teki üçüncü taraf yazılım satıcıları tarafından yayımlanır. Örneğin, SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan bir dış hizmetler olur.
@@ -76,7 +76,7 @@ EA müşterileri, dış hizmet harcama bakın ve EA portal raporların indirin. 
     ![Yönetmek istediğiniz dış hizmeti seçin](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
 3. Tıklayın **ödeme yöntemini değiştirme** sayfanın sağ tarafındaki. Bu bağlantı, ödeme yöntemini yönetmek için farklı bir portal sunar.
    
-    ![Sipariş Özeti](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
+    ![Sipariş özeti](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 4. Tıklayın **bilgileri Düzenle** ve Ödeme bilgilerinizi güncelleştirmek için yönergeleri izleyin.
    
     ![Bilgileri Düzenle](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
@@ -84,7 +84,7 @@ EA müşterileri, dış hizmet harcama bakın ve EA portal raporların indirin. 
 ## <a name="cancel-an-external-service-order"></a>Bir dış hizmet siparişi iptal etme
 Dış hizmet siparişinizi iptal etmek istiyorsanız, kaynak silme [Azure portalında](https://portal.azure.com).
 
-![Kaynak silinemedi](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+![Kaynağı Sil](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 

@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325876"
 ---
 # <a name="design-for-querying"></a>Sorgulama için tasarım
 Tablo hizmeti çözümleri, yoğun, yazma yoğun veya ikisinin bir karışımı okunabilir. Bu makalede, okuma işlemleri verimli bir şekilde destekleyin, tablo hizmeti tasarlarken göz önünde ayı gerekenler odaklanır. Genellikle, desteklediği işlemleri verimli bir şekilde okuyun bir tasarım de yazma işlemleri için verimli olur. Ancak, destekleyecek şekilde tasarlama yazdığınızda makalesinde açıklanan işlem, göz önünde işlenmesi için ek hususlar vardır [veri değişikliği için tasarım](table-storage-design-for-modification.md).

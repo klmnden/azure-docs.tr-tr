@@ -3,7 +3,7 @@ title: ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak bir SAML ki
 description: AD FS 2016'yı Azure Active Directory B2C'de SAML protokolü ve özel ilkeler kullanarak ayarlama
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387115"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 

@@ -13,11 +13,11 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331698"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek veritabanları ile çalışmaya başlama
 

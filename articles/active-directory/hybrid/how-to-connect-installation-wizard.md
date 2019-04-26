@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348459"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect eşitleme: Yükleme sihirbazını ikinci kez çalıştırma
 Azure AD Connect Yükleme Sihirbazı ilk çalıştırıldığında bu, yüklemenizi yapılandırmak hakkında bilgi vermektedir. Yükleme Sihirbazı'nı yeniden çalıştırırsanız, bakım için seçenekler sunar.

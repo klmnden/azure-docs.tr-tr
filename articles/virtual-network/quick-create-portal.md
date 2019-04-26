@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Bu hızlı başlangıçta, Azure portalını kullanarak sanal ağ oluşturmayı öğreneceksiniz. Bir sanal ağ, sanal makineler gibi Azure kaynaklarının sağlar, birbiriyle ve internet ile özel olarak iletişim.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391416"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir sanal ağ oluşturma
 
@@ -43,7 +43,7 @@ Azure aboneliğiniz yoksa şimdi [ücretsiz bir hesap](https://azure.microsoft.c
     | Adres alanı | Girin *10.1.0.0/16*. |
     | Abonelik | Aboneliğinizi seçin.|
     | Kaynak grubu | Seçin **Yeni Oluştur**, girin *myResourceGroup*, ardından **Tamam**. |
-    | Konum | **Doğu ABD**’yi seçin.|
+    | Location | **Doğu ABD**’yi seçin.|
     | Alt ağ - adı | Girin *myVirtualSubnet*. |
     | Alt Ağ - Adres aralığı | Girin *10.1.0.0/24*. |
 
@@ -68,7 +68,7 @@ Sanal ağ üzerinde iki sanal makine oluşturun:
     | Sanal makine adı | Girin *myVm1*. |
     | Bölge | **Doğu ABD**’yi seçin. |
     | Kullanılabilirlik seçenekleri | Varsayılan değeri bırakın **gerekli altyapı artıklık**. |
-    | Görüntü | Varsayılan değeri bırakın **Windows Server 2016 Datacenter**. |
+    | Image | Varsayılan değeri bırakın **Windows Server 2016 Datacenter**. |
     | Boyut | Varsayılan değeri bırakın **standart DS1 v2**. |
     | **YÖNETİCİ HESABI** |  |
     | Kullanıcı adı | Seçtiğiniz bir kullanıcı adını girin. |

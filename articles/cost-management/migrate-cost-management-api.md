@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311950"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Kurumsal Sözleşme, Microsoft Müşteri sözleşmesi API'lerine geçiş
 
@@ -126,7 +126,7 @@ Kullanım ayrıntılarını API'si ile kullanım ayrıntılarını almak için:
 
 Kullanım ayrıntılarını API'si tüm maliyet Yönetimi API'leri ile gibi birden çok kapsamların kullanılabilir. Geleneksel olarak, bir kayıt düzeyinde alacaksınız Faturalanan maliyetleri için faturalandırma profili kapsamı kullanın.  Maliyet Yönetimi kapsamları hakkında daha fazla bilgi için bkz. [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
-| Type | Kimliği biçimi |
+| Tür | Kimliği biçimi |
 | --- | --- |
 | Fatura hesabı | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Faturalama profili | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
@@ -187,7 +187,7 @@ Veri kullanım kayıtlarından oluşan bir diziyi içeren özellik adı değişt
 | ExtendedCost ve maliyet | costInBillingCurrency | &nbsp;  |
 | Örnek kimliği | resourceId | &nbsp;  |
 | Yinelenen Ücretlendirme | None | &nbsp;  |
-| Konum | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | Ölçüm kategorisi | meterCategory | Tam dize değerlerini gösterebilir. |
 | Ölçüm kimliği | meterId | Tam dize değerleri farklı. |
 | Ölçüm adı | meterName | Tam dize değerlerini gösterebilir. |
@@ -199,7 +199,7 @@ Veri kullanım kayıtlarından oluşan bir diziyi içeren özellik adı değişt
 | Sipariş numarası | None | &nbsp;  |
 | PartNumber | None | Fiyatlar benzersiz olarak tanımlanabilmesi için meterId ve productOrderName kullanın. |
 | Plan Adı | productOrderName | &nbsp;  |
-| Ürün | Ürün |   |
+| Product | Product |   |
 | Ürün kimliği | productId | Tam dize değerleri farklı. |
 | Yayımcı Adı | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |

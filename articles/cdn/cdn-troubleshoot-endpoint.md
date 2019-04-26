@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323706"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Bir 404 durum kodu döndüren bir Azure CDN uç noktası sorunlarını giderme
 Bu makalede, 404 HTTP yanıtı durum kodları iade Azure Content Delivery Network (CDN) uç noktaları ile ilgili sorunları giderme sağlar.

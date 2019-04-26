@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323833"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -306,7 +306,7 @@ Anahtar bilgileri:
 #### <a name="string-type"></a>Dize türü
 WURFL yeteneği, sayı, harf ve semboller herhangi bir birleşimini genellikle kabul eder. Bu özellik esnek yapısı nedeniyle, bu eşleşme koşulu ile ilişkili değer nasıl yorumlanacağını seçmeniz gerekir. Aşağıdaki tabloda kullanılabilir seçenekleri açıklar:
 
-Type     | Açıklama
+Tür     | Açıklama
 ---------|------------
 değişmez değer  | Çoğu karakter kullanarak özel bir anlamı fotoğrafını çekmenizi engellemek için bu seçeneği, [değişmez değer](cdn-rules-engine-reference.md#literal-values).
 Joker karakter | [Joker karakterler] tüm avantajlarından yararlanmak için bu seçeneği belirleyin ([değerleri joker](cdn-rules-engine-reference.md#wildcard-values).

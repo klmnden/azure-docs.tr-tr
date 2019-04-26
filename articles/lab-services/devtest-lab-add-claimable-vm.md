@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311829"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest labs'deki talep edilebilir VM'ler oluşturma ve yönetme
 Benzer şekilde nasıl bir laboratuvara talep edilebilir VM ekleme, [standart VM ekleme](devtest-lab-add-vm.md) – bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formül](devtest-lab-manage-formulas.md) , veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğreticide, Azure portalını kullanarak bir talep edilebilir VM DevTest labs'deki bir laboratuvara ekleme adımları gösterilmektedir ve bir kullanıcı talebi ve VM etmesini takip işlemlerini gösterir.

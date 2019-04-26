@@ -1,6 +1,6 @@
 ---
 title: Verizon özel raporları | Microsoft Docs
-description: "Aşağıdaki Raporlar'ı kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: bant genişliğini, aktarılan veriler, isabet sayısı, önbellek durumları, önbellek isabet oranını, IPv4/IPv6 aktarılan veriler."
+description: 'Aşağıdaki raporlar kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: Bant genişliğini, aktarılan veriler, isabetleri, önbellek durumları, isabetli önbellek okuması oranı, IPv4/IPv6 veri aktarılır.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323611"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon özel raporları
 
@@ -45,17 +45,17 @@ Bir edge CNAME'ın özel raporlama özelliği etkinleştirdikten sonra bir saat 
 
 Özel bir rapor, aşağıdaki rapor seçeneklerini tanımlayarak oluştur:
 
-- Ölçüm: Aşağıdaki seçeneklerden desteklenir:
+- Ölçümleri: Aşağıdaki seçenekler desteklenir:
 
-   - İsabet sayısı: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen isteklerin toplam sayısını gösterir. Bu ölçüm, istemciye döndürülen durum kodu içermez.
+   - İsabet sayısı: Özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen isteklerin toplam sayısını gösterir. Bu ölçüm, istemciye döndürülen durum kodu içermez.
 
-   - Veri transfer: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen istekler için toplam HTTP istemciler (örneğin, web tarayıcıları) için edge sunuculardan aktarılan veri miktarını gösterir. Yanıt gövdesi için HTTP yanıt üst bilgilerini ekleyerek, aktarılan veri miktarı hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarı, gerçek dosya boyutundan büyük.
+   - Aktarılan veriler: Özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen istekler için toplam HTTP istemciler (örneğin, web tarayıcıları) için edge sunuculardan aktarılan veri miktarını gösterir. Yanıt gövdesi için HTTP yanıt üst bilgilerini ekleyerek, aktarılan veri miktarı hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarı, gerçek dosya boyutundan büyük.
 
-- Gruplandırmaları: çubuk grafik gösterilen istatistikleri türünü belirler. Aşağıdaki seçenekler desteklenir:
+- Gruplandırmaları: Çubuk grafik gösterilen istatistikleri türünü belirler. Aşağıdaki seçenekler desteklenir:
 
-   - HTTP yanıt kodları: istatistikleri HTTP yanıt koduna göre düzenler (örneğin, 200, 403, istemciye döndürülen vb.). 
+   - HTTP yanıt kodları: İstatistikleri HTTP yanıt koduna göre düzenler (örneğin, 200, 403, istemciye döndürülen vb.). 
 
-   - Önbellek durumu: istatistikleri önbellek durumuna göre düzenler.
+   - Önbellek durumu: İstatistikleri önbellek durumuna göre düzenler.
 
 
 Rapor için tarih aralığını ayarlamak için ya da bir önceden tanımlanmış tarih aralığı gibi seçebileceğiniz **Bugün** veya **bu hafta**, aşağı açılan listesinden veya, seçebilirsiniz **özel** ve el ile Takvim simgelere tıklayarak bir tarih aralığı girin. 

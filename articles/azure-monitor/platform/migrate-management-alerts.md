@@ -1,19 +1,19 @@
 ---
 title: Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 description: 1 Ekim yönetim olayları ile ilgili uyarılar kaldırılacak. Geçirme mevcut uyarıları göre hazırlayın.
-author: johnkemnetz
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/14/2017
-ms.author: johnkem
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: alerts
 ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255921"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 
@@ -32,7 +32,7 @@ Azure İzleyici (eski adıyla Azure öngörüleri) yönetimi olaylarını dış�
 Aşağıdaki PowerShell betiğini tüm uyarıların bir listesi, aboneliğinizin yanı sıra her bir uyarı koşullara sahip yönetim olayları döndürür.
 
 ```powershell
-Connect-AzAccount
+Connect-AzAccount -Environment AzureChinaCloud
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,4 +115,3 @@ Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik g�
 * Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Daha fazla bilgi edinin [hizmet bildirimleri](../../azure-monitor/platform/service-notifications.md)
 * Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md)
-

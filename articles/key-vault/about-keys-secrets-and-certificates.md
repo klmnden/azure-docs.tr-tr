@@ -2,23 +2,19 @@
 title: Azure Key Vault anahtarlara, parolalara ve sertifikalara - Azure Key Vault hakkında
 description: Azure anahtar kasası REST arabirimi ve geliştirici ayrıntılarını anahtarlara, parolalara ve sertifikalara genel bakış.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306124"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -142,7 +138,7 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 
 Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
 
--   **oluşturma**: Anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
+-   **Oluşturma**: Anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
 -   **İçeri aktarma**: Mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. 
 -   **Güncelleştirme**: Key Vault içinde daha önce depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
 -   **Silme**: Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  

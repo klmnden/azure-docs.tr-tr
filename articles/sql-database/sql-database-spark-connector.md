@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331523"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL veritabanı ve SQL Server için Spark Bağlayıcısı ile gerçek zamanlı büyük veri analizi hızlandırın
 
@@ -34,7 +34,7 @@ Kullanmaya başlamak için bir bağlayıcı SQL DB için Spark indirin [azure sq
 | Scala                                |2.10 veya üzeri            |
 | SQL Server için Microsoft JDBC Sürücüsü |6.2 veya üstü             |
 | Microsoft SQL Server                 |SQL Server 2008 veya üstü |
-| Azure SQL Database                   |Desteklenen                |
+| Azure SQL Veritabanı                   |Desteklenen                |
 
 Azure SQL veritabanı ve SQL Server için Spark Bağlayıcısı, Spark çalışan düğümlerine ve SQL veritabanları arasında veri taşımak SQL Server için Microsoft JDBC sürücüsü kullanır:
  

@@ -1,17 +1,19 @@
 ---
 title: BİLDİRİM tablo depolama stratejisi kullanarak PostgreSQL için Azure veritabanı üzerinde sorgu süresini en iyi duruma getirme
 description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde bildirim tablo depolama stratejisi ile sorgu süresini iyileştirmek açıklar.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421065"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>BİLDİRİM tablo depolama stratejisi ile sorgu süresini iyileştirme 
 Bu makalede, büyük boyutlu özniteliği depolama teknik (bildirim) tablo depolama stratejisi ile sorgu süreleri en iyi duruma getirme açıklanır.

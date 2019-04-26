@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302509"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple sanal dizisi için işleri görüntülemek için StorSimple cihaz Yöneticisi hizmetini kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -59,7 +59,7 @@ Herhangi bir işin ayrıntılarını görüntülemek için aşağıdaki adımlar
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Sanal makine hiper yönetici içine duraklatıldığında iş hataları
 Bir işi olduğunda StorSimple Virtual Array'iniz ve cihaza (sanal makine hiper yöneticide sağlanır) ilerleme 15 dakikadan daha duraklatılır, işi başarısız oluyor. Bu StorSimple Virtual Array sürenizi nedeniyle Microsoft Azure saati ile eşitlenmemiş yapılıyor. 
 
-Aşağıdaki hatayı görürsünüz: "cihaz saatiniz tarafından 15 dakikadan daha fazla Microsoft Azure saati ile eşitlenmemiş. Hiper Yönetici ve süreleri bir NTP sunucusuyla eşitlenmiş ve cihaz emin olun. Hiçbir bağlantı sorunu olmadığını doğrulayın. Bağlantı sorunlarını gidermek için tanılama testleri yerel web kullanıcı arabiriminden sanal cihazınızın çalıştırın."
+Aşağıdaki hatayı görürsünüz: "Cihaz saatiniz tarafından 15 dakikadan daha fazla Microsoft Azure saati ile eşitlenmemiş. Hiper Yönetici ve süreleri bir NTP sunucusuyla eşitlenmiş ve cihaz emin olun. Hiçbir bağlantı sorunu olmadığını doğrulayın. Bağlantı sorunlarını gidermek için tanılama testleri yerel web kullanıcı arabiriminden sanal cihazınızın çalıştırın."
 
 Bu hatalar, yedekleme, geri yükleme, güncelleştirme ve yük devretme işleri için geçerli. Sanal makinenizi Hyper-V sağladıysanız, makine zaman sonunda, hiper yönetici ile eşitler. Bu durumda, iş yeniden başlatabilirsiniz.
 

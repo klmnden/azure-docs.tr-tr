@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303302"
 ---
-# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure uzamsal yer işaretleri hakkında sık sorulan sorular
+# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors hakkında sık sorulan sorular
 
 HoloLens, iOS ve Android cihazlarda, birden çok kullanıcı, mekan kullanan karma gerçeklik sağlayan geliştirici platformu deneyimleri ve Azure uzamsal bağlayıcılarını yönetilen bir bulut hizmetidir.
 
@@ -25,29 +25,29 @@ Daha fazla bilgi için [Azure uzamsal yer işaretleri genel bakış](overview.md
 
 **S: Hangi cihazların Azure uzamsal bağlayıcılarını destekliyor mu?**
 
-**Y:** ARKit desteğiyle iOS cihazlarında HoloLens uygulamaları oluşturmak üzere geliştiricilere Azure uzamsal bağlayıcıları etkinleştirir ve Android'de ARCore cihazlarla destekler; iOS ve Android için hem telefon ve tabletlerden içerir.
+**C:** ARKit desteğiyle iOS cihazlarında HoloLens uygulamaları oluşturmak üzere geliştiricilere Azure uzamsal bağlayıcıları etkinleştirir ve Android'de ARCore cihazlarla destekler; iOS ve Android için hem telefon ve tabletlerden içerir.
 
 **S: Azure uzamsal bağlayıcılarını kullanmak için buluta bağlı olması gerekiyor mu?**
 
-**Y:** Azure uzamsal yer işaretleri şu anda İnternet'e bir ağ bağlantısı gerektirir. Üzerinde yorumlarınız bizim sunduğumuz [geri bildirim sitesinde](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+**C:** Azure uzamsal yer işaretleri şu anda İnternet'e bir ağ bağlantısı gerektirir. Üzerinde yorumlarınız bizim sunduğumuz [geri bildirim sitesinde](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
 **S: Uzamsal Azure bağlantıları için bağlantı gereksinimleri nelerdir?**
 
-**Y:** Azure uzamsal yer işaretleri, Wi-Fi ve mobil geniş bant bağlantı ile çalışır.
+**C:** Azure uzamsal yer işaretleri, Wi-Fi ve mobil geniş bant bağlantı ile çalışır.
 
 **S: Nasıl doğru bir şekilde Azure uzamsal yer işaretleri, yer işaretleri bulabilirsiniz?**
 
-**Y:** Pek çok etken bağlayıcılarını--Aydınlatmanın, ortamda ve hatta bağlantı yerleştirildiği surface nesneleri bulma doğruluğunu etkiler. Doğruluk gereksinimlerinizi karşılayıp karşılamadığını belirlemek için burada bunları kullanmayı planlıyorsanız, ortamları temsilcisi tutturucular deneyin. Ortamlar nerede doğruluk olmadığından toplantı gereksinimlerinizi karşılaşırsanız bkz [günlüğe kaydetme ve Tanılama'da Azure uzamsal bağlayıcılarını](./concepts/logging-diagnostics.md).
+**C:** Pek çok etken bağlayıcılarını--Aydınlatmanın, ortamda ve hatta bağlantı yerleştirildiği surface nesneleri bulma doğruluğunu etkiler. Doğruluk gereksinimlerinizi karşılayıp karşılamadığını belirlemek için burada bunları kullanmayı planlıyorsanız, ortamları temsilcisi tutturucular deneyin. Ortamlar nerede doğruluk olmadığından toplantı gereksinimlerinizi karşılaşırsanız bkz [günlüğe kaydetme ve Tanılama'da Azure uzamsal bağlayıcılarını](./concepts/logging-diagnostics.md).
 
 **S: Ne oluşturmak ve bağlantıları bulmak için sürer?**
 
-**Y:** Oluşturma ve bağlantıları bulmak için gereken süreyi birçok faktöre--ağ bağlantısı, cihazın işleme ve yük ve ortamınıza bağlıdır. Birçok sektörlerdeki üretim, perakende ve hizmetin kendi senaryoları için harika bir deneyim sağlayan oyun belirten gibi uygulamalar oluşturan müşteriler sahibiz.
+**C:** Oluşturma ve bağlantıları bulmak için gereken süreyi birçok faktöre--ağ bağlantısı, cihazın işleme ve yük ve ortamınıza bağlıdır. Birçok sektörlerdeki üretim, perakende ve hizmetin kendi senaryoları için harika bir deneyim sağlayan oyun belirten gibi uygulamalar oluşturan müşteriler sahibiz.
 
 ## <a name="privacy-faq"></a>Gizlilik hakkında SSS
 
 **S: Uygulamamı bir yerde bir uzamsal tutturucusu yerleştirir, tüm uygulamalar ona erişim izniniz?**
 
-**Y:** Yer işaretleri, Azure hesabına göre yalıtılır. Hesabınıza erişim izni için yalnızca uygulama bağlayıcılarını hesabındaki erişmek mümkün olacaktır.
+**C:** Yer işaretleri, Azure hesabına göre yalıtılır. Hesabınıza erişim izni için yalnızca uygulama bağlayıcılarını hesabındaki erişmek mümkün olacaktır.
 
 **S: Bir ortam hakkında bilgiler aktarılan ve Azure uzamsal Çıpalarını kullandığına hizmette depolanan? Ortamın resimleri aktarılan ve depolanan?**
 
@@ -69,11 +69,11 @@ Azure uzamsal bağlayıcılarını aynılarını için [Azure hizmet sözleşmes
 
 **S: SLA sağlıyor mu?**
 
-**Y:** Azure Hizmetleri için standart olduğundan, % 99,9'den büyük bir kullanılabilirlik hedef. Azure uzamsal yer işaretleri şu anda Önizleme aşamasındadır ve bu nedenle olduğuna dikkat edin [Önizleme ek koşullarında](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) uygulayın.
+**C:** Azure Hizmetleri için standart olduğundan, % 99,9'den büyük bir kullanılabilirlik hedef. Azure uzamsal yer işaretleri şu anda Önizleme aşamasındadır ve bu nedenle olduğuna dikkat edin [Önizleme ek koşullarında](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) uygulayın.
 
 **S: Uygulama mağazalarının Azure uzamsal bağlayıcılarını kullanarak uygulamalarım yayımlayabilirim? Görev açısından kritik üretim senaryoları için Azure uzamsal bağlayıcılarını kullanabilir miyim?**
 
-**Y:** Azure uzamsal yer işaretleri şu anda Önizleme aşamasındadır ve bu süre boyunca uygulamaları geliştirmek için davet ediyoruz [görüş](https://feedback.azure.com/forums/919252-azure-spatial-anchors) ürün ve planı, üretim dağıtımları için hakkında.
+**C:** Azure uzamsal yer işaretleri şu anda Önizleme aşamasındadır ve bu süre boyunca uygulamaları geliştirmek için davet ediyoruz [görüş](https://feedback.azure.com/forums/919252-azure-spatial-anchors) ürün ve planı, üretim dağıtımları için hakkında.
 
 Genel kullanılabilirlik (GA) tarihleri yakında duyurulacaktır.
 
@@ -83,17 +83,17 @@ Genel kullanılabilirlik (GA) tarihleri yakında duyurulacaktır.
 
 **S: Azure uzamsal bağlayıcılarını hangi bölgelerde kullanılabilir?**
 
-**Y:** Bugün Azure uzamsal bağlayıcılarını hesap Azure Doğu ABD 2 bölgesinde oluşturabilirsiniz. Ne bu hem de işlem ve bu hizmeti destekleyen depolama bu bölgede olduğu anlamına gelir. İstemcilerinize bulunduğu yere hiçbir kısıtlama yoktur söylenir. Gelecekte, biz birincil tüm Azure bölgelerine bölgesel hizmet kullanılabilirliğini genişletilir.
+**C:** Bugün Azure uzamsal bağlayıcılarını hesap Azure Doğu ABD 2 bölgesinde oluşturabilirsiniz. Ne bu hem de işlem ve bu hizmeti destekleyen depolama bu bölgede olduğu anlamına gelir. İstemcilerinize bulunduğu yere hiçbir kısıtlama yoktur söylenir. Gelecekte, biz birincil tüm Azure bölgelerine bölgesel hizmet kullanılabilirliğini genişletilir.
 
-**S: Azure için uzamsal yer işaretleri için ücretlendirme yapılır? Şimdiye kadar ücretlendirilecektir?**
+**S: Azure Spatial Anchors için ücret alıyor musunuz? Şimdiye kadar ücretlendirilecektir?**
 
-**Y:** Önizleme sırasında fiyatlandırması hakkında ayrıntılı bilgi bulabilirsiniz bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+**C:** Önizleme sırasında fiyatlandırması hakkında ayrıntılı bilgi bulabilirsiniz bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
 ## <a name="technical-faqs"></a>Teknik SSS
 
 **S: Azure uzamsal bağlayıcıları nasıl çalışır?**
 
-**Y:** Azure uzamsal bağlayıcılarını üzerinde karma gerçeklik bağlıdır / genişletilmiş gerçeklik izleyiciler. Bu izleyicileri kameralar ortamıyla algılar ve alanı arasında hareket ettikçe 6--ın-serbestlik (6DoF) aygıtı takip edebilirsiniz.
+**C:** Azure uzamsal bağlayıcılarını üzerinde karma gerçeklik bağlıdır / genişletilmiş gerçeklik izleyiciler. Bu izleyicileri kameralar ortamıyla algılar ve alanı arasında hareket ettikçe 6--ın-serbestlik (6DoF) aygıtı takip edebilirsiniz.
 
 Bir 6DoF İzleyicisi bir yapı taşı olarak göz önünde bulundurulduğunda, Azure uzamsal yer işaretleri, gerçek ortamınızda ilgilendiğiniz belirli noktaları "bağlantı" noktalarını belirlemek sağlar. Örneğin, gerçek hayatta kullanılan belirli bir yerde içeriğini işlemek için bir bağlantı kullanabilirsiniz.
 
@@ -101,15 +101,15 @@ Bir yer işareti oluşturduğunuzda, istemci SDK'sı bu nokta etrafında ortam b
 
 **S: Nasıl Azure uzamsal bağlayıcılarını ARKit ve ARCore ile iOS ve Android üzerinde tümleşik çalışıyor mu?**
 
-**Y:** Azure uzamsal yer işaretleri, ARKit ve ARCore yerel izleme özelliklerinden yararlanır. Ayrıca, Larımız iOS ve Android hizmete bağlayarak bu bağlantıları yeniden bulmak için bir yönetilen bir bulut hizmetinde yer işaretleri kalıcı yapma ve uygulamalarınızı izin verme gibi özellikler sunar.
+**C:** Azure uzamsal yer işaretleri, ARKit ve ARCore yerel izleme özelliklerinden yararlanır. Ayrıca, Larımız iOS ve Android hizmete bağlayarak bu bağlantıları yeniden bulmak için bir yönetilen bir bulut hizmetinde yer işaretleri kalıcı yapma ve uygulamalarınızı izin verme gibi özellikler sunar.
 
 **S: Azure uzamsal yer işaretleri ile HoloLens nasıl tümleştirilir?**
 
-**Y:** Azure uzamsal yer işaretleri, HoloLens, yerel izleme özelliklerinden yararlanır. HoloLens üzerinde uygulama oluşturmaya yönelik bir Azure uzamsal bağlayıcılarını SDK sunuyoruz. SDK, yerel HoloLens özellikleriyle tümleşir ve ek özellikler sağlar. Bu özellikler, yönetilen bir bulut hizmetinde yer işaretleri kalıcı hale getirmek uygulama geliştiricilerin ve hizmete bağlayarak bu bağlantıları yeniden bulmak uygulamalarınızı vererek içerir.
+**C:** Azure uzamsal yer işaretleri, HoloLens, yerel izleme özelliklerinden yararlanır. HoloLens üzerinde uygulama oluşturmaya yönelik bir Azure uzamsal bağlayıcılarını SDK sunuyoruz. SDK, yerel HoloLens özellikleriyle tümleşir ve ek özellikler sağlar. Bu özellikler, yönetilen bir bulut hizmetinde yer işaretleri kalıcı hale getirmek uygulama geliştiricilerin ve hizmete bağlayarak bu bağlantıları yeniden bulmak uygulamalarınızı vererek içerir.
 
 **S: Hangi platformlar ve diller Azure uzamsal bağlayıcılarını destekliyor mu?**
 
-**Y:** Geliştiriciler, Azure uzamsal Çıpasıyla cihazlarındaki alışık olduğunuz araçları ve çerçeveleri kullanarak uygulamalar oluşturabilirsiniz:
+**C:** Geliştiriciler, Azure uzamsal Çıpasıyla cihazlarındaki alışık olduğunuz araçları ve çerçeveleri kullanarak uygulamalar oluşturabilirsiniz:
 
 - Unity HoloLens, iOS ve Android
 - Swift veya iOS üzerinde Objective-C
@@ -120,8 +120,8 @@ Kullanmaya başlama [geliştirme burada](index.yml).
 
 **S: Unreal ile işe yarar?**
 
-**Y:** Unreal desteği yakında olmasını bekliyoruz.
+**C:** Unreal desteği yakında olmasını bekliyoruz.
 
 **S: Xamarin ile çalışır?**
 
-**Y:** Evet. Bir Xamarin SDK'sı de verilmese, geliştiricilerin Azure uzamsal bağlayıcılarını Xamarin uygulamalarında Azure uzamsal bağlayıcılarını API ile tümleştirerek kullanabileceği bekliyoruz.
+**C:** Evet. Bir Xamarin SDK'sı de verilmese, geliştiricilerin Azure uzamsal bağlayıcılarını Xamarin uygulamalarında Azure uzamsal bağlayıcılarını API ile tümleştirerek kullanabileceği bekliyoruz.

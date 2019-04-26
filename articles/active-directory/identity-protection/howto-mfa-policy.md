@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294906"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Nasıl Yapılır: Çok faktörlü kimlik doğrulaması kayıt ilkesi yapılandırma
 

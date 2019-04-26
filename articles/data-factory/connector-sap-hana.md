@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343775"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP HANA'dan veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-sap-hana-connector.md)
 > * [Geçerli sürüm](connector-sap-hana.md)
 
@@ -162,23 +162,23 @@ SAP HANA'dan veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP HANA
 
 | SAP HANA veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| ALPHANUM | Dize |
+| ALPHANUM | String |
 | BIGINT | Int64 |
-| BLOB | Bayt] |
-| BOOLE DEĞERİ | Bayt |
-| CLOB | Bayt] |
+| BLOB | Byte[] |
+| BOOLE DEĞERİ | Byte |
+| CLOB | Byte[] |
 | DATE | DateTime |
-| ONDALIK | Onluk |
-| ÇİFT | Tek |
+| DECIMAL | Decimal |
+| ÇİFT | Single |
 | INT | Int32 |
-| NVARCHAR | Dize |
-| GERÇEK | Tek |
+| NVARCHAR | String |
+| GERÇEK | Single |
 | SECONDDATE | DateTime |
 | TAMSAYI | Int16 |
-| TIME | Zaman aralığı |
+| TIME | TimeSpan |
 | ZAMAN DAMGASI | DateTime |
-| MİNİ TAMSAYI | Bayt |
-| VARCHAR | Dize |
+| MİNİ TAMSAYI | Byte |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
 

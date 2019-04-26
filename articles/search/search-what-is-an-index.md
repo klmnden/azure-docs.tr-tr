@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308254"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -137,7 +137,7 @@ Schematically, Azure Search dizini aşağıdaki öğelerden oluşur.
 Şemanızı tanımlarken, dizininizdeki her bir alan için ad, tür ve öznitelikler belirtmeniz gerekir. Alan türü, bu alanda depolanan verileri sınıflandırır. Öznitelikler, alanın nasıl kullanıldığını belirtmek için tek tek alanlarda ayarlanır. Aşağıdaki tablolar belirtebileceğiniz türleri ve öznitelikleri numaralandırır.
 
 ### <a name="data-types"></a>Veri türleri
-| Type | Açıklama |
+| Tür | Açıklama |
 | --- | --- |
 | *Edm.String* |(Sözcük bölünmesi, dallanma ve diğerleri) tam metin araması için isteğe bağlı olarak getirilebilen metin. |
 | *Collection(Edm.String)* |Tam metin araması için isteğe bağlı olarak belirteç haline getirilebilen dize listesi. Bir koleksiyondaki öğelerin sayısında teorik bir üst sınır yoktur ancak yük boyutundaki 16 MB'lık üst sınır, koleksiyonlar için geçerlidir. |
