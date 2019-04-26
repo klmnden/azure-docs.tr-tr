@@ -198,7 +198,7 @@
           href: connector-azure-file-storage.md
         - name: Azure Search
           href: connector-azure-search.md
-        - name: Azure SQL Database
+        - name: Azure SQL Veritabanı
           href: connector-azure-sql-database.md
         - name: Azure SQL Veritabanı Yönetilen Örneği
           href: connector-azure-sql-database-managed-insance.md

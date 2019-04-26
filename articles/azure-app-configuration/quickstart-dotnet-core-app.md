@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b8937b22054e55c8bfe7bc4c7726dc5bae5de6d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203778"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
-    | Anahtar | Value |
+    | Anahtar | Değer |
     |---|---|
     | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
 
@@ -67,7 +67,7 @@ Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
         dotnet restore
 
-3. Açık *Program.cs*, bir uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
+3. Açık *Program.cs*, .NET Core uygulaması yapılandırma sağlayıcısı bir başvuru ekleyin.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

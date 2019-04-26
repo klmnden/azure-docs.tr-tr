@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203354"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Görüntüleri konuya göre kategorilere ayırın
 
@@ -53,7 +53,7 @@ Görüntü işleme örnek görüntünün görsel özelliklerini halinde kategori
 
 Aşağıdaki tabloda tipik görüntü kümesi ve görüntü işleme tarafından döndürülen her görüntü için kategori gösterilmektedir.
 
-| Image | Category |
+| Image | Kategori |
 |-------|----------|
 | ![Dört kişilik ailesi birlikte teşkil](./Images/family_photo.png) | people_group |
 | ![Çocukluğunuzda alanında oturan bir sevimli köpek](./Images/cute_dog.png) | animal_dog |

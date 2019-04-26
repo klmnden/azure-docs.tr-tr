@@ -14,11 +14,11 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249806"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>MVC projeme ne oldu (Visual Studio Azure Active Directory bağlı hizmet)?
 
@@ -34,7 +34,7 @@ Bağlı hizmet ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken]
 
 Proje dosyası *.NET başvuruları etkiler) ve `packages.config` (NuGet başvurularını).
 
-| Type | Başvuru |
+| Tür | Başvuru |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +49,7 @@ Proje dosyası *.NET başvuruları etkiler) ve `packages.config` (NuGet başvuru
 
 Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
 
-| Type | Başvuru |
+| Tür | Başvuru |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 yalnızca) |
@@ -63,7 +63,7 @@ Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
 
 Aşağıdaki başvurular kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studio 2015 olduğu gibi):
 
-| Type | Başvuru |
+| Tür | Başvuru |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

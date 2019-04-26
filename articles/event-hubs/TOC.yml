@@ -129,7 +129,7 @@
           href: event-hubs-messaging-exceptions.md
     - name: Güvenlik duvarlarını kullanma
       href: event-hubs-ip-filtering.md
-    - name: Sanal ağ hizmeti uç noktalarını kullanma
+    - name: Sanal ağ hizmet uç noktalarını kullanma
       href: event-hubs-service-endpoints.md
     - name: İşleme birimlerini otomatik ölçeklendirme
       href: event-hubs-auto-inflate.md

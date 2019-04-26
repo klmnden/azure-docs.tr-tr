@@ -80,7 +80,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: Azure Search
               href: data-factory-azure-search-connector.md
-            - name: Azure SQL Database
+            - name: Azure SQL Veritabanı
               href: data-factory-azure-sql-connector.md
             - name: Azure SQL Veri Ambarı
               href: data-factory-azure-sql-data-warehouse-connector.md

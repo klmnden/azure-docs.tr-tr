@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 0d79e53f731c20777ffa2fb57b3b8149fe4e60ab
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239954"
 ---
 # <a name="configure-android-device-messaging-adm-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure portalında bir bildirim hub'ı Android Device Messaging'i (ADM) ayarlarını yapılandırın
 Bu makalede Azure portalını kullanarak bir Azure bildirim hub'ı Android Device Messaging'i (ADM) ayarlarını yapılandırmak nasıl gösterir. 
@@ -23,7 +23,7 @@ Bu makalede Azure portalını kullanarak bir Azure bildirim hub'ı Android Devic
 ## <a name="prerequisites"></a>Önkoşullar
 Bildirim hub'ı henüz oluşturmadıysanız, şimdi oluşturun. Daha fazla bilgi için [Azure portalında bir Azure bildirim hub'ı oluşturma](create-notification-hub-portal.md). 
 
-## <a name="configure-android-device-messaging"></a>Android cihaz mesajlaşmayı yapılandırın
+## <a name="configure-android-device-messaging"></a>Android Device Messaging'i yapılandırma
 
 Aşağıdaki yordam, bildirim hub'ında Amazon Device Messaging'i (ADM) ayarlarını yapılandırmak için adımları sunar: 
 

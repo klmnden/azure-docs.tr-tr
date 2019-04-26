@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240219"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -213,7 +213,7 @@ Linux'ta, korunan sanal makinenin dosya sistemi dosyaları geri yüklemek için 
 
 Betiği yürütün ve güvenli bir şekilde kurtarma noktasına bağlanmak için Python ve bash bileşenleri de gerektirir.
 
-|Bileşen | Sürüm  |
+|Bileşen | Version  |
 | --------------- | ---- |
 | Bash | 4 ve üzeri |
 | python | 2.6.6 ve üzeri  |
