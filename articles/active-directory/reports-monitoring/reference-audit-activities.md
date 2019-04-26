@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285480"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
 
@@ -135,11 +135,11 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Uygulama Yönetimi|AdminPolicyDatas-SetResources|
 |Uygulama Yönetimi|AdminUserJourneys-GetResources|
 |Uygulama Yönetimi|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|IdentityProvider oluşturma|
-|Authentication|V1 uygulaması oluşturma|
-|Authentication|V2 uygulaması oluşturma|
-|Authentication|Kiracıda özel etki alanları oluşturma|
+|Kimlik Doğrulaması|AdminUserJourneys-SetResources|
+|Kimlik Doğrulaması|IdentityProvider oluşturma|
+|Kimlik Doğrulaması|V1 uygulaması oluşturma|
+|Kimlik Doğrulaması|V2 uygulaması oluşturma|
+|Kimlik Doğrulaması|Kiracıda özel etki alanları oluşturma|
 |Yetkilendirme|Yeni bir AdminUserJourney oluşturma|
 |Yetkilendirme|Yerelleştirilmiş kaynak json oluşturma|
 |Yetkilendirme|Yeni Özel IDP oluşturma|

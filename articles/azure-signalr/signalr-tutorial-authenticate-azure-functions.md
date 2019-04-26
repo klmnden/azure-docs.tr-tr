@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253969"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması ile Azure işlevleri
 
@@ -57,7 +57,7 @@ Azure İşlevleri uygulamasını yerel ortamda derleyecek ve test edeceksiniz. U
     |---|---|
     | Kaynak adı | SignalR Hizmeti örneği için benzersiz bir ad |
     | Kaynak grubu | Benzersiz bir adla yeni bir kaynak grubu oluşturun |
-    | Konum | Size yakın bir konum seçin |
+    | Location | Size yakın bir konum seçin |
     | Fiyatlandırma Katmanı | Ücretsiz |
 
 1. **Oluştur**’a tıklayın.
@@ -320,7 +320,7 @@ Bir Azure depolama hesabı, Azure'da çalışan bir işlev uygulaması gereklidi
     | Abonelik | SignalR hizmet örneğini içeren aboneliği seçin |
     | Kaynak grubu | Aynı kaynak grubunu seçin |
     | Kaynak adı | Depolama hesabı için benzersiz bir ad |
-    | Konum | Diğer kaynaklar olarak aynı konumu seçin |
+    | Location | Diğer kaynaklar olarak aynı konumu seçin |
     | Performans | Standart |
     | Hesap türü | StorageV2 (genel amaçlı V2) |
     | Çoğaltma | Yerel olarak yedekli depolama (LRS) |

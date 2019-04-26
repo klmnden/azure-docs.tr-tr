@@ -19,11 +19,11 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245694"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD ile Azure AD Connect kullanarak AD FS güvenini yönetme
 
@@ -48,7 +48,7 @@ Azure AD Connect yönetir **yalnızca** Azure AD güveni ile ilişkili ayarlar. 
 | Verme dönüştürme kuralları | Sayılar, Azure AD'de Federasyon ayarı özelliklerinden en iyi performans için gerekli bir talep kuralları vardır. Azure AD Connect, Azure AD güveni her zaman doğru ortaklık önerilen talep kuralları kümesi ile yapılandırılmış emin olur. |
 | Alternatif kimlik | Azure AD Connect, eşitleme, alternatif kimlik kullanmak için yapılandırılmışsa, alternatif kimliği kullanarak kimlik doğrulaması gerçekleştirmek için AD FS yapılandırır. |
 | Otomatik meta veri güncelleştirme | Azure AD ile güveni otomatik meta veri güncelleştirme için yapılandırılmış. AD FS, düzenli aralıklarla Azure AD güvenini meta verilerini denetler ve Azure AD tarafında değişir durumda güncel tutar. |
-| Tümleşik Windows kimlik doğrulaması (IWA) | Hibrit Azure AD'ye katılma işlemi sırasında IWA alt düzey cihazları için hibrit Azure AD'ye katılma kolaylaştırmak cihaz kaydı için etkinleştirilir. |
+| Tümleşik Windows Kimlik Doğrulaması (IWA) | Hibrit Azure AD'ye katılma işlemi sırasında IWA alt düzey cihazları için hibrit Azure AD'ye katılma kolaylaştırmak cihaz kaydı için etkinleştirilir. |
 
 ## <a name="execution-flows-and-federation-settings-configured-by-azure-ad-connect"></a>Yürütme akışları ve Azure AD Connect tarafından yapılandırılan Federasyon ayarları
 

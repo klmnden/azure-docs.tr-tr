@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237611"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 
@@ -22,13 +22,13 @@ Bu makalede, çeşitli sunucular ve Azure Backup sunucusu ile Koruyabileceğiniz
 
 ## <a name="protection-support-matrix"></a>Koruma destek matrisi
 
-|İş Yükü|Sürüm|Azure Backup Sunucusu</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Koruma ve kurtarma|
+|İş yükü|Version|Azure Backup Sunucusu</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Koruma ve kurtarma|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 10|Fiziksel sunucu<br /><br />Hyper-V sanal makine<br /><br />VMware sanal makinesi|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
 |İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8.1|Fiziksel sunucu<br /><br />Hyper-V sanal makine|E|E|Dosyalar<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
 |İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8.1|Windows sanal makinesi (vmware'deki Windows sanal makinesinde çalışan iş yüklerini korur) olarak|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
-|İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
-|İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8|Windows sanal makinesi (vmware'deki Windows sanal makinesinde çalışan iş yüklerini korur) olarak|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
+|İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
+|İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 8|Windows sanal makinesi (vmware'deki Windows sanal makinesinde çalışan iş yüklerini korur) olarak|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
 |İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 7|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
 |İstemci bilgisayarlar (64-bit ve 32-bit)|Windows 7|Windows sanal makinesi (vmware'deki Windows sanal makinesinde çalışan iş yüklerini korur) olarak|E|E|Birim, paylaşım, klasör, dosya, yinelenenleri kaldırılmış birimler<br /><br />Korumalı birimler NTFS olmalıdır. FAT ve FAT32 desteklenmez.<br /><br />Birimler en az 1 GB olmalıdır. DPM, veri anlık görüntüsünü almak için Birim Gölge Kopyası Hizmeti (VSS) kullanır ve anlık görüntü yalnızca birim en az 1 GB ise çalışır.|
 |Sunucular (32-bit ve 64-bit)|Windows Server 2016|(İş yükü Azure sanal makinesi olarak çalışırken) Azure sanal makinesi<br /><br />Windows sanal makinesi (vmware'deki Windows sanal makinesinde çalışan iş yüklerini korur) olarak<br /><br />Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi<br /> <br /> Azure Stack|E<br /><br />Nano sunucu|E<br /><br />Nano sunucu|Birim, paylaşım, klasör, dosya, sistem durumu/tam kurtarma), yinelenenlerin kaldırıldığı birimler|

@@ -10,15 +10,16 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/08/2018
-ms.author: cshoe
+origin.date: 09/08/2018
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.custom: ''
 ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310052"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -197,7 +198,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Ayar karşı öneririz **runOnStartup** için `true` üretimde. Bu ayar kullanılarak yüksek oranda beklenmeyen zamanlarda execute kodunu sağlar. Bu ek yürütmeleri belirli üretim ayarlarında tüketim planlarında barındırılan uygulamalar için önemli ölçüde daha yüksek maliyetleri neden olabilir. Örneğin, **runOnStartup** işlev uygulamanızı ölçeklendirilir çağrılır tetikleyici etkin. Tam olarak anlamanız işlevlerinizi üretim davranışını etkinleştirmeden önce emin **runOnStartup** üretimde.   
+> Ayar karşı öneririz **runOnStartup** için `true` üretimde. Bu ayar kullanılarak yüksek oranda beklenmeyen zamanlarda execute kodunu sağlar. Bu ek yürütmeleri belirli üretim ayarlarında tüketim planlarında barındırılan uygulamalar için önemli ölçüde daha yüksek maliyetleri neden olabilir. Örneğin, **runOnStartup** işlev uygulamanızı ölçeklendirilir çağrılır tetikleyici etkin. Tam olarak anlamanız işlevlerinizi üretim davranışını etkinleştirmeden önce emin **runOnStartup** üretimde.
 
 ## <a name="usage"></a>Kullanım
 
@@ -226,7 +227,7 @@ Azure işlevleri kullanan [NCronTab](https://github.com/atifaziz/NCrontab) sıra
 
 Her bir alan, şu tür değerlerden biri olabilir:
 
-|Type  |Örnek  |Tetiklendiğinde  |
+|Tür  |Örnek  |Tetiklendiğinde  |
 |---------|---------|---------|
 |Belirli bir değer |<nobr>"0 5 * * * *"</nobr>|hh:05:00 hh olduğu her saat (saatte bir)|
 |Tüm değerleri (`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm adresindeki: her gün 00 mm (60 günde kez) saat, dakika başı olduğu|
@@ -314,3 +315,5 @@ Zamanlayıcı tetikleyicisi beklendiği gibi çalışmıyor ne yapılacağını 
 
 > [!div class="nextstepaction"]
 > [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
+
+<!-- Update_Description: wording update -->

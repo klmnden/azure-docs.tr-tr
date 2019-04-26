@@ -2,23 +2,19 @@
 title: Azure Otomasyonu - Azure Key Vault kullanarak Azure Key Vault yönetme | Microsoft Docs
 description: Nasıl Azure Otomasyonu Azure anahtar Kasası'nı yönetmek için kullanılabilir hakkında bilgi edinin.
 services: Key-Vault, automation
-documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: ''
-ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
 ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306079"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure anahtar Kasası'nın Azure Otomasyonu ile yönetme
 

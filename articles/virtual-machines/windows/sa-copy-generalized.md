@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252412"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Bir Azure VM'den yönetilmeyen bir VM görüntüsü oluşturma
 
@@ -29,7 +29,7 @@ Bu makalede, depolama hesaplarını kullanarak kapsar. Yönetilen diskler ve yö
 
 Bu makalede bir depolama hesabı kullanarak genelleştirilmiş Azure VM'yi bir görüntüsünü oluşturmak için Azure PowerShell kullanmayı gösterir. Ardından, başka bir VM oluşturmak için görüntüyü kullanabilirsiniz. Görüntü, işletim sistemi diski ve sanal makineye bağlı veri diskleri içerir. Yeni bir VM oluşturduğunuzda, bu kaynakları ayarlamanız gerekir, böylece görüntü sanal ağ kaynakları dahil değildir. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>VM'yi Genelleştirme 
 Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. VM'yi Genelleştirme, tüm kişisel hesap bilgilerinizi, başka şeylerin yanında kaldırır ve makine bir görüntü olarak kullanılacak hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [Sysprep işlemini kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
@@ -116,7 +116,7 @@ JSON dosyası şablonu, görüntünün URL'sini alabilirsiniz. Git **kaynakları
    
 URI Portalı'nda da doğrulayabilirsiniz. Adlı bir kapsayıcı görüntüsü kopyalanır **sistem** depolama hesabınızda. 
 
-## <a name="create-a-vm-from-the-image"></a>Görüntüden VM oluşturma
+## <a name="create-a-vm-from-the-image"></a>Görüntüden bir VM oluşturun
 
 Şimdi, yönetilmeyen görüntüden bir veya daha fazla sanal makine oluşturabilirsiniz.
 

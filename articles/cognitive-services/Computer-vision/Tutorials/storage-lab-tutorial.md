@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202096"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Öğretici: Görüntü işleme, Azure Depolama'da görüntü meta verilerini oluşturmak için kullanın
 

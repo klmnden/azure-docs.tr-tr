@@ -3,7 +3,7 @@ title: Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini �
 description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317352"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 

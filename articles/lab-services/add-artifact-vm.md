@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304287"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Bir VM'ye bir yapıt ekleme
 Bir VM oluştururken, mevcut yapıtı için ekleyebilirsiniz. Bu yapılar herhangi birinden olabilir [genel DevTest Labs Git deposu](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya kendi Git deposundan. Bu makalede Azure portalı ve Azure PowerShell kullanarak yapıt Ekle gösterilmektedir. 

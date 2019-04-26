@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Sanal ağ hizmet uç noktaları Azure Key Vault - Azure Key Vault için | Microsoft Docs
 description: Sanal ağ hizmet uç noktaları için Key Vault genel bakış
 services: key-vault
@@ -8,14 +7,13 @@ ms.author: ambapat
 manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201270"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları Azure Key Vault için
 
@@ -71,7 +69,7 @@ Daha fazla bilgi için [Azure anahtar Kasası'nı yapılandırma güvenlik duvar
 |Exchange Online ve SharePoint Online|Müşteri anahtarı için Azure depolama hizmeti şifrelemesi ile erişmesine [müşteri anahtarı](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Kiracı anahtarı için erişim izni [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Key Vault üzerinden Azure Web App sertifikası dağıtma](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
-|Azure SQL Database|[Azure SQL veritabanı ve veri ambarı için kendi anahtarını Getir destekli saydam veri şifrelemesi](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Veritabanı|[Azure SQL veritabanı ve veri ambarı için kendi anahtarını Getir destekli saydam veri şifrelemesi](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Azure Data Lake Store içinde verilerin şifrelenmesi](../data-lake-store/data-lake-store-encryption.md) müşteri tarafından yönetilen bir anahtara sahip.|
 |Azure databricks|[Hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmeti](../azure-databricks/what-is-azure-databricks.md)|

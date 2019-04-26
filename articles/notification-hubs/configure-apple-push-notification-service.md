@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237822"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure portalında bir bildirim hub'ı için Apple anında iletilen bildirim servisi (APNS) ayarlarını yapılandırın
 Bu makalede Azure portalını kullanarak bir Azure bildirim hub'ı Apple anında iletilen bildirim servisi (APNS) ayarlarını yapılandırmak nasıl gösterir. 

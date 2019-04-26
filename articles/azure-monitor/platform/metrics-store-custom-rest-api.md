@@ -1,19 +1,19 @@
 ---
 title: REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
 description: REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253856"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -39,7 +39,7 @@ Adım 1, izleme, ölçüm yayımcı izinleri karşı ölçümleri yayma istediğ
 Bir komut istemi açın ve aşağıdaki komutu çalıştırın:
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Erişim belirteci yanıttan kaydedin.
 
@@ -77,7 +77,7 @@ Erişim belirteci yanıttan kaydedin.
     } 
     ``` 
 
-1. Komut İstemi penceresinde, ölçüm verilerini gönder: 
+2. Komut İstemi penceresinde, ölçüm verilerini gönder: 
    - **azureRegion**. Kaynak ölçümleri için yayma Dağıtım bölgesi eşleşmesi gerekir. 
    - **ResourceId**.  Kaynak ölçümüne karşı takip ettiğiniz bir Azure kaynak kimliği.  
    - **AccessToken**. Önceden edindiğiniz belirteci yapıştırın.
@@ -85,8 +85,8 @@ Erişim belirteci yanıttan kaydedin.
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-1. Zaman damgası ve JSON dosyasında değerlerini değiştirin. 
-1. Birkaç dakika verileriniz için önceki iki adımı birkaç kez yineleyin.
+3. Zaman damgası ve JSON dosyasında değerlerini değiştirin. 
+4. Birkaç dakika verileriniz için önceki iki adımı birkaç kez yineleyin.
 
 ## <a name="troubleshooting"></a>Sorun giderme 
 İşleminin bir parçası olan bir hata iletisi alırsanız, aşağıdaki sorun giderme bilgileri göz önünde bulundurun:
@@ -119,4 +119,3 @@ Erişim belirteci yanıttan kaydedin.
  
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md).
-

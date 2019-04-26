@@ -4,24 +4,24 @@ description: Bu konuda, Azure AD Connect eşitleme mimarisini açıklar ve kulla
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245912"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: Mimariyi anlama
 Bu konu temel mimarisini Azure AD Connect eşitlemesi ele alınmaktadır. Birçok yönden öncelleri MIIS 2003 ILM 2007 ve FIM 2010 için benzerlik gösterir. Azure AD Connect eşitleme, çünkü bu teknolojiler olur. Tüm önceki teknolojiler hakkında bilginiz varsa, bu konunun içeriği de size tanıdık gelecektir. Eşitleme için yeni başladıysanız, bu konu, hakkındadır. Ancak böyle değildir (Bu konudaki eşitleme altyapısı olarak bilinir) Azure AD Connect eşitlemesini özelleştirme yaparken başarılı olması için bu konunun ayrıntılarını öğrenmek için bir gereksinim.
@@ -49,8 +49,8 @@ Bağlı veri kaynağı bölümler veya kapsayıcılar nesneleri, düzenlemek iç
 ### <a name="internal-structure-of-the-sync-engine-namespace"></a>Eşitleme altyapısı ad alanı iç yapısı
 Kimlik bilgilerini saklamak iki ad alanı tüm eşitleme altyapısı ad alanı oluşur. İki ad alanları şunlardır:
 
-* Bağlayıcı alanı (CS)
-* Meta veri deposu (MV)
+- Bağlayıcı alanı (CS)
+- Meta veri deposu (MV)
 
 **Bağlayıcı alanına** belirlenmiş nesneleri temsillerini bağlı bir veri kaynağı ve öznitelik ekleme listesinde belirtilen öznitelikleri içeren bir hazırlama alanı. Eşitleme altyapısı, bağlı veri kaynağında nelerin değiştiğini belirlemek ve gelen değişiklikler aşama için bağlayıcı alanında kullanır. Eşitleme altyapısı bağlayıcı alanında dışarı aktarma bağlı veri kaynağına giden değişiklikleri hazırlamak için de kullanır. Eşitleme altyapısı, her bağlayıcı için bir hazırlama alanı olarak ayrı bağlayıcı alanına tutar.
 
@@ -72,8 +72,8 @@ Eşitleme altyapısı bağlı veri kaynağı ile iletişim kurduğunda, bağlı 
 
 Tüm nesneleri bağlayıcı alanında iki özniteliklere sahiptir:
 
-* Bir genel benzersiz tanıtıcısı (GUID)
-* Bir ayırt edici ad (DN olarak da bilinir)
+- Bir genel benzersiz tanıtıcısı (GUID)
+- Bir ayırt edici ad (DN olarak da bilinir)
 
 Bağlı veri kaynağı benzersiz bir öznitelik nesnesine atarsa, nesneleri bağlayıcı alanında da bir bağlantı özniteliği olabilir. Bağlantı özniteliği, bağlı veri kaynağı bir nesneyi benzersiz olarak tanımlar. Eşitleme altyapısı, bağlı veri kaynağına karşılık gelen bu nesnenin gösterimini bulmak için yer işareti kullanır. Eşitleme altyapısı, bir nesnenin bağlantı nesne yaşam süresi boyunca hiçbir zaman değişiklik varsayar.
 
@@ -83,8 +83,8 @@ Durumda, bir bağlantı oluşturulmuştur veya ne hangi değişikliklerin ve ben
 
 Bağlayıcı alanı nesne aşağıdakilerden biri olabilir:
 
-* Bir hazırlama nesnesi
-* Bir yer tutucu
+- Bir hazırlama nesnesi
+- Bir yer tutucu
 
 ### <a name="staging-objects"></a>Hazırlama nesneleri
 Bir hazırlama nesnesi, bağlı veri kaynağından bir örneğini belirtilen nesne türlerini temsil eder. GUID ve ayırt edici adı ek olarak, bir hazırlama nesnesi, nesne türünü gösteren bir değer her zaman vardır.
@@ -145,9 +145,9 @@ Ayrılmış nesneleri kullanarak, eşitleme altyapısında kimlik bilgilerini de
 ## <a name="sync-engine-identity-management-process"></a>Eşitleme altyapısı Kimlik Yönetimi işlemi
 Kimlik Yönetimi işlemi, kimlik bilgilerini farklı bağlı veri kaynakları arasında nasıl güncelleştirileceğini denetler. Kimlik Yönetimi, üç işlemde oluşur:
 
-* İçeri Aktarma
-* Eşitleme
-* Dışarı Aktarma
+- İçeri Aktarma
+- Eşitleme
+- Dışarı Aktarma
 
 İçeri aktarma işlemi sırasında bağlı veri kaynağından gelen kimlik bilgilerini eşitleme altyapısı değerlendirir. Değişiklik algılandığında, hazırlama yeni nesneler oluşturur veya eşitleme için bağlayıcı alanında mevcut hazırlama nesneleri güncelleştirir.
 
@@ -164,34 +164,34 @@ Her işlem kimlik bilgileri akışı bağlı veri kaynağından diğerine oluşt
 
 Eşitleme altyapısının eşitleme önce bağlayıcı alanında nesneleri tarafından hazırlama, değişen kimlik bilgileri işleyebilir. Bu işlem, aşağıdaki avantajları sunar:
 
-* **Verimli eşitleme**. Eşitleme sırasında işlenen veri miktarı en aza indirilir.
-* **Verimli yeniden eşitleme**. Eşitleme altyapısının eşitleme altyapısı veri kaynağına yeniden bağlanmayı olmadan kimlik bilgileri nasıl işlediğini değiştirebilirsiniz.
-* **Eşitleme önizlemek için bir fırsat**. Eşitleme, Kimlik Yönetimi işlemi ile ilgili varsayım doğru olduğunu doğrulamak için önizleyebilirsiniz.
+- **Verimli eşitleme**. Eşitleme sırasında işlenen veri miktarı en aza indirilir.
+- **Verimli yeniden eşitleme**. Eşitleme altyapısının eşitleme altyapısı veri kaynağına yeniden bağlanmayı olmadan kimlik bilgileri nasıl işlediğini değiştirebilirsiniz.
+- **Eşitleme önizlemek için bir fırsat**. Eşitleme, Kimlik Yönetimi işlemi ile ilgili varsayım doğru olduğunu doğrulamak için önizleyebilirsiniz.
 
 Bağlayıcısında belirtilen her bir nesne için eşitleme altyapısı ilk nesnenin gösterimini Bağlayıcısı'nın bağlayıcı alanında dener. Eşitleme altyapısı, bağlayıcı alanında tüm hazırlama nesneleri inceler ve eşleşen bir bağlantı özniteliği olan bir karşılık gelen hazırlama nesnesi bulmaya çalışır. Mevcut bir hazırlama nesnesi yok eşleşen bir bağlantı özniteliği varsa, eşitleme altyapısı, aynı ayırt edici adını karşılık gelen hazırlama nesne bulmayı dener.
 
 Eşitleme altyapısı tarafından ayırt edici adı ancak bağlantı eşleşen bir hazırlama nesnesi bulduğunda, aşağıdaki özel durum oluşur:
 
-* Bağlayıcı alanında bulunan hiçbir bağlantı nenesindeki sonra eşitleme altyapısı bağlayıcı alanının bu nesneyi kaldırır ve bağlı olduğu için olarak meta veri deposu nesne işaretler **sağlama çalıştırmak, sonraki eşitlemede yeniden**. Ardından yeni içeri aktarma nesnesi oluşturur.
-* Nesnesi bağlayıcı alanında bulunan bir bağlantı varsa, eşitleme altyapısı bu nesne ya da yeniden adlandırılmış veya bağlantılı dizinde silinmiş olduğunu varsayar. Gelen nesne hazırlayabilirsiniz, böylece geçici, yeni bir ayırt edici ad için bağlayıcı alanı nesnesi atar. Ardından eski nesne haline gelir **geçici**, bekleyen yeniden adlandırma veya silme sorunu çözmek için içeri aktarmak bağlayıcı.
+- Bağlayıcı alanında bulunan hiçbir bağlantı nenesindeki sonra eşitleme altyapısı bağlayıcı alanının bu nesneyi kaldırır ve bağlı olduğu için olarak meta veri deposu nesne işaretler **sağlama çalıştırmak, sonraki eşitlemede yeniden**. Ardından yeni içeri aktarma nesnesi oluşturur.
+- Nesnesi bağlayıcı alanında bulunan bir bağlantı varsa, eşitleme altyapısı bu nesne ya da yeniden adlandırılmış veya bağlantılı dizinde silinmiş olduğunu varsayar. Gelen nesne hazırlayabilirsiniz, böylece geçici, yeni bir ayırt edici ad için bağlayıcı alanı nesnesi atar. Ardından eski nesne haline gelir **geçici**, bekleyen yeniden adlandırma veya silme sorunu çözmek için içeri aktarmak bağlayıcı.
 
 Eşitleme altyapısı bağlayıcısında belirtilen nesneye karşılık gelen bir hazırlama nesnesi bulur, değişiklikleri uygulamak için ne tür belirler. Örneğin, eşitleme altyapısı yeniden adlandırmak veya bağlantılı veri kaynağındaki nesnesini silme veya nesnenin öznitelik değerleri yalnızca güncelleştirebilir.
 
 Güncelleştirilen verilerle hazırlama nesneleri içeri aktarma gibi bekleyen işaretlenir. İçeri aktarmalar bekleyen farklı türlerde kullanılabilir. İçeri aktarma işleminin sonucunu bağlı olarak, bir hazırlama nesnesi bağlayıcı alanında aşağıdakilerden birini içeri aktarma türü bekleyen sahiptir:
 
-* **None**. Herhangi bir hazırlama nesnesi özniteliklerini değişiklik yapmadan kullanılabilir. Eşitleme altyapısı, bu tür olarak içeri aktarma bekleyen işaretlemez.
-* **Ekleme**. Hazırlama nesnesi, bağlayıcı alanında yeni bir içeri aktarma nesnesidir. Eşitleme altyapısı, bu tür alma gibi ek meta veri işleme için bekleyen işaretler.
-* **Güncelleştirme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur ve böylece güncelleştirmeleri öznitelikleri için meta veri deposunda işlenebilir bu türü olarak içeri aktarma bekleyen işaretler. Nesneyi yeniden adlandırma güncelleştirmeleri içerir.
-* **Silme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur ve böylece birleştirilmiş nesnesi silinebilir, bu türü olarak içeri aktarma bekleyen işaretler.
-* **Silme ve ekleme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur, ancak nesne türleri eşleşmiyor. Bu durumda, bir değişiklik aşamalı silme ekleme. Bir silme-ekleme değiştirme, nesne türünü değiştiğinde farklı kural kümesi bu nesne için geçerli olduğundan, bu nesnenin tam bir eşitleme gerçekleşmelidir eşitleme altyapısında gösterir.
+- **None**. Herhangi bir hazırlama nesnesi özniteliklerini değişiklik yapmadan kullanılabilir. Eşitleme altyapısı, bu tür olarak içeri aktarma bekleyen işaretlemez.
+- **Ekleme**. Hazırlama nesnesi, bağlayıcı alanında yeni bir içeri aktarma nesnesidir. Eşitleme altyapısı, bu tür alma gibi ek meta veri işleme için bekleyen işaretler.
+- **Güncelleştirme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur ve böylece güncelleştirmeleri öznitelikleri için meta veri deposunda işlenebilir bu türü olarak içeri aktarma bekleyen işaretler. Nesneyi yeniden adlandırma güncelleştirmeleri içerir.
+- **Silme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur ve böylece birleştirilmiş nesnesi silinebilir, bu türü olarak içeri aktarma bekleyen işaretler.
+- **Silme ve ekleme**. Eşitleme altyapısı ve bağlayıcı alanında buna karşılık gelen bir hazırlama nesnesi bulur, ancak nesne türleri eşleşmiyor. Bu durumda, bir değişiklik aşamalı silme ekleme. Bir silme-ekleme değiştirme, nesne türünü değiştiğinde farklı kural kümesi bu nesne için geçerli olduğundan, bu nesnenin tam bir eşitleme gerçekleşmelidir eşitleme altyapısında gösterir.
 
 Bir hazırlama nesnesi bekleyen içeri aktarma durumu ayarlayarak, eşitleme sırasında bunu yapmanız bu nedenle, güncelleştirilmiş verileri nesneleri işlemek sistem izin verdiğinden işlenen veri miktarı ciddi ölçüde düşürün mümkündür.
 
 ### <a name="synchronization-process"></a>Eşitleme işlemi
 Eşitleme iki ilgili işlemden oluşur:
 
-* Meta veri içeriğini ve bağlayıcı alanında buna verileri kullanarak güncelleştirildiğinde eşitleme, gelen.
-* Meta veri deposunda verileri kullanarak bağlayıcı alanında içeriği güncelleştirildiğinde giden eşitleme.
+- Meta veri içeriğini ve bağlayıcı alanında buna verileri kullanarak güncelleştirildiğinde eşitleme, gelen.
+- Meta veri deposunda verileri kullanarak bağlayıcı alanında içeriği güncelleştirildiğinde giden eşitleme.
 
 Gelen eşitleme işlemi bağlayıcı alanında hazırlanır bilgileri kullanarak, meta veri deposunda bağlı veri kaynakları, depolanan verilerin tümleşik görünümünü oluşturur. Kuralların nasıl yapılandırıldığına bağlı olarak tüm hazırlama nesneleri veya yalnızca bir bekleyen alma bilgileri toplanır.
 
@@ -203,9 +203,9 @@ Gelen eşitleme meta veri olan bağlı veri kaynaklarından alınan kimlik bilgi
 
 Gelen eşitleme, aşağıdaki işlemler bulunur:
 
-* **Sağlama** (olarak da adlandırılan **projeksiyon** bu işlem, giden eşitleme sağlamasından ayırt etmek önemli olup olmadığını). Eşitleme altyapısı, bir hazırlama nesnesini temel alan yeni bir meta veri deposu nesnesi oluşturur ve bunları bağlar. Sağlama nesne düzeyinde bir işlemdir.
-* **Birleştirme**. Eşitleme altyapısı, bir hazırlama nesnesi mevcut bir meta veri deposu nesnesine bağlar. Bir birleştirme nesne düzeyinde bir işlemdir.
-* **İçeri aktarma öznitelik akışı**. Eşitleme altyapısı öznitelik akışı, meta veri deposu nesnesinin adlı öznitelik değerlerini güncelleştirir. İçeri aktarma öznitelik akışı bir hazırlama nesnesi ve bir meta veri deposu nesnesi arasında bir bağlantı gerektiren bir öznitelik düzeyi işlemdir.
+- **Sağlama** (olarak da adlandırılan **projeksiyon** bu işlem, giden eşitleme sağlamasından ayırt etmek önemli olup olmadığını). Eşitleme altyapısı, bir hazırlama nesnesini temel alan yeni bir meta veri deposu nesnesi oluşturur ve bunları bağlar. Sağlama nesne düzeyinde bir işlemdir.
+- **Birleştirme**. Eşitleme altyapısı, bir hazırlama nesnesi mevcut bir meta veri deposu nesnesine bağlar. Bir birleştirme nesne düzeyinde bir işlemdir.
+- **İçeri aktarma öznitelik akışı**. Eşitleme altyapısı öznitelik akışı, meta veri deposu nesnesinin adlı öznitelik değerlerini güncelleştirir. İçeri aktarma öznitelik akışı bir hazırlama nesnesi ve bir meta veri deposu nesnesi arasında bir bağlantı gerektiren bir öznitelik düzeyi işlemdir.
 
 Sağlama meta veri deposunda nesneleri oluşturan yalnızca işlemidir. Sağlama, bağlantısı kesilmiş bir nesne olan nesneleri içeri aktar etkiler. Sağlama sırasında eşitleme altyapısı, her iki nesneleri, bu nedenle birleştirilmiş bir nesne oluşturma arasında bir bağlantı kurar ve içeri aktarma nesnesi nesne türüne karşılık gelen bir meta veri deposu nesnesi oluşturur.
 
@@ -223,17 +223,17 @@ Giden eşitleme güncelleştirmeleri bir meta veri deposu nesnesi değiştirebil
 
 Giden eşitleme üç işlem sahiptir:
 
-* **Sağlama**
-* **Sağlamayı kaldırma**
-* **Dışarı aktarma öznitelik akışı**
+- **Sağlama**
+- **Sağlamayı kaldırma**
+- **Dışarı aktarma öznitelik akışı**
 
 Sağlama ve sağlamayı kaldırma her iki nesne düzeyinde işlemlerdir. Sağlama kaldırmayı yalnızca sağlamayı başlatamadık çünkü sağlama üzerinde bağlıdır. Meta veri deposu nesnesi ve bir verme nesnesi arasındaki bağlantı sağlama kaldırdığında, sağlamayı kaldırma tetiklenir.
 
 Sağlama, her zaman değişiklikleri meta veri nesnelere uygulandığında tetiklenir. Meta veri deposu nesneleri için değişiklik yapıldığında, eşitleme altyapısı hazırlama işleminin bir parçası olarak aşağıdaki görevlerden herhangi birini gerçekleştirebilirsiniz:
 
-* Burada bir meta veri deposu nesnesi bir yeni oluşturulan dışa aktarma nesnesiyle bağlantılı birleştirilmiş nesneleri oluşturma.
-* Birleştirilmiş bir nesneyi yeniden adlandırma.
-* Bir meta veri deposu nesnesi ve nesneleri, bağlantısı kesilmiş bir nesne oluşturma hazırlama arasındaki bağlantıları çıkma.
+- Burada bir meta veri deposu nesnesi bir yeni oluşturulan dışa aktarma nesnesiyle bağlantılı birleştirilmiş nesneleri oluşturma.
+- Birleştirilmiş bir nesneyi yeniden adlandırma.
+- Bir meta veri deposu nesnesi ve nesneleri, bağlantısı kesilmiş bir nesne oluşturma hazırlama arasındaki bağlantıları çıkma.
 
 Yeni bir bağlayıcı nesnesi oluşturmak için eşitleme altyapısı sağlama gerektiriyorsa, nesne bağlı veri kaynağında henüz var olmadığından meta veri deposu nesne bağlandığı hazırlama her zaman bir dışarı aktarma nesnesini nesnedir.
 
@@ -260,4 +260,5 @@ Eşitleme altyapısı depoları, dışarı aktarma ve hazırlama her nesne hakk�
 Daha fazla bilgi edinin [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.
+
 

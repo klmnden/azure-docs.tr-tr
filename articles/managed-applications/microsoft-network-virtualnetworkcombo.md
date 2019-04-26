@@ -1,6 +1,6 @@
 ---
 title: Azure VirtualNetworkCombo UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Network.VirtualNetworkCombo kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Network.VirtualNetworkCombo UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252486"
 ---
-# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI öğesi
-Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur.
+# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo kullanıcı Arabirimi öğesi
+Yeni veya mevcut bir sanal ağ seçme denetimlerini grubudur.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
-Kullanıcı yeni bir sanal ağ seçer, kullanıcının her alt ağın adı ve adres ön eki özelleştirebilirsiniz. Alt yapılandırma isteğe bağlıdır.
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
+Kullanıcı yeni bir sanal ağ seçer, kullanıcının her alt ağın adı ve adres ön eki özelleştirebilirsiniz. Alt ağları yapılandırmak isteğe bağlıdır.
 
 ![Yeni Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
 
-Kullanıcı kullanıcı mevcut bir sanal ağı seçer, dağıtım şablonu gerektiren her alt ağ için mevcut bir alt eşlemeniz gerekir. Alt yapılandırma bu durumda gereklidir.
+Kullanıcı bir sanal ağınız seçer, kullanıcı var olan bir alt ağ için dağıtım şablonu gerektiren her alt ağ eşlemeniz gerekir. Alt yapılandırma bu durumda gereklidir.
 
 ![Microsoft.Network.VirtualNetworkCombo var](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
@@ -86,14 +86,14 @@ Kullanıcı kullanıcı mevcut bir sanal ağı seçer, dağıtım şablonu gerek
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Belirtilmişse, ilk çakışmayan adres öneki boyutunun `defaultValue.addressPrefixSize` kullanıcının abonelik varolan sanal ağlarda temel alınarak otomatik olarak belirlenir.
-- İçin varsayılan değer `defaultValue.name` ve `defaultValue.addressPrefixSize` olan **null**.
+- Bu seçenek belirtilmişse, ilk çakışmayan adres ön eki boyutu `defaultValue.addressPrefixSize` kullanıcının aboneliği var olan sanal ağları göre otomatik olarak belirlenir.
+- İçin varsayılan değer `defaultValue.name` ve `defaultValue.addressPrefixSize` olduğu **null**.
 - `constraints.minAddressPrefixSize` belirtilmelidir. Belirtilen değerden daha küçük bir adres alanı ile var olan tüm sanal ağları seçilemez.
-- `subnets` belirtilmesi gerekir ve `constraints.minAddressPrefixSize` her alt ağ için belirtilmelidir.
-- Yeni bir sanal ağ oluştururken, her alt ağın adres öneki göre otomatik olarak sanal ağın adres öneki ve ilgili hesaplanır `addressPrefixSize`.
-- Sanal varolan kullanırken, ağ, hiçbir alt ağ ilgili küçük `constraints.minAddressPrefixSize` seçim için kullanılamaz. Ayrıca, belirtilirse, en az olmayan alt ağlar `minAddressCount` kullanılabilir adresler seçilemez. Varsayılan değer **0**. Kullanılabilir adresler bitişik olduğundan emin olmak için belirtmek **true** için `requireContiguousAddresses`. Varsayılan değer **doğru**.
-- Varolan bir sanal ağ alt ağları oluşturma desteklenmiyor.
-- Varsa `options.hideExisting` olan **doğru**, kullanıcı varolan bir sanal ağı seçemezsiniz. Varsayılan değer **false**.
+- `subnets` belirtilmelidir ve `constraints.minAddressPrefixSize` her alt ağ için belirtilmelidir.
+- Yeni bir sanal ağ oluştururken, her alt ağın adres ön eki göre otomatik olarak sanal ağın adres ön eki ilgili hesaplanır `addressPrefixSize`.
+- Sanal varolan kullanırken, ağ, hiçbir alt ağ ilgili daha küçük `constraints.minAddressPrefixSize` seçimi için kullanılamaz. Ayrıca, belirtilmişse, en az olmayan alt ağlar `minAddressCount` kullanılabilir adresleri olan seçilemez. Varsayılan değer **0**. Kullanılabilir adresler bitişik olmasını sağlamak için belirtin **true** için `requireContiguousAddresses`. Varsayılan değer **true**.
+- Mevcut bir sanal ağda alt ağlar oluşturma desteklenmiyor.
+- Varsa `options.hideExisting` olduğu **true**, kullanıcının mevcut bir sanal ağı seçemezsiniz. Varsayılan değer **false**.
 
 ## <a name="sample-output"></a>Örnek çıktı
 
@@ -119,5 +119,5 @@ Kullanıcı kullanıcı mevcut bir sanal ağı seçer, dağıtım şablonu gerek
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

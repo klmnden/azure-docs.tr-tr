@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285193"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure İzleyici Azure AD oturum açma günlükleri şemada yorumlama
 
@@ -149,7 +149,7 @@ Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) oturum açma g
 | ResourceId | Bu değer eşlenmemiş ve bu alan güvenle yok sayabilirsiniz.  |
 | OperationName | Oturum açma işlemleri için bu değer her zaman, *oturum açma etkinliği*. |
 | operationVersion | İstemci tarafından istenen REST API sürümü. |
-| Category | Oturum açma işlemleri için bu değer her zaman, *Signın*. | 
+| Kategori | Oturum açma işlemleri için bu değer her zaman, *Signın*. | 
 | TenantId | Kiracı günlükleri ile ilişkili olan GUID. |
 | resulttype'ı | Oturum açma işleminin sonucu olabilir *başarı* veya *hatası*. | 
 | resultSignature | Hata kodu, oturum açma işlemi içerir. |

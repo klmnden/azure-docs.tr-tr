@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.author: davidmu
+origin.date: 10/09/2018
+ms.date: 04/01/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317182"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>SSO ve Azure Active Directory B2C'de özel ilkeleri kullanarak belirteci özelleştirme yönetme
 
@@ -100,3 +101,4 @@ Aşağıdaki değerler, önceki örnekte yapılandırılır:
 - **Çoklu oturum açma (SSO)** -çoklu oturum açma ile yapılandırılmış **SingleSignOn**. Geçerli değerler `Tenant`, `Application`, `Policy`, ve `Suppressed`. 
 - **Web uygulaması oturumunun ömrü (dakika)** - web uygulaması oturumunun ömrü ile ayarlanır **SessionExpiryInSeconds** öğesi. Varsayılan değer 86400 (1440 dakika) saniyedir.
 - **Web uygulaması oturumu zaman aşımı** - web uygulaması oturumu zaman aşımı ile ayarlanır **Ssosession** öğesi. Geçerli değerler `Absolute` ve `Rolling`.
+

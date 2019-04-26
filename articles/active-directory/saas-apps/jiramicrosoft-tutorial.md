@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60268872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Öğretici: Microsoft tarafından JIRA SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="description"></a>Açıklama
 
-Microsoft Azure Active Directory hesabınız Atlassian JIRA sunucusu ile çoklu oturum açmayı etkinleştirmek için kullanın. Bu şekilde tüm kuruluş kullanıcıları JIRA uygulamasına oturum açma için Azure AD kimlik bilgilerini kullanabilirsiniz. Bu eklenti, Federasyon için SAML 2.0 kullanır.
+Microsoft Azure Active Directory hesabınız Atlassian JIRA sunucusu ile çoklu oturum açmayı etkinleştirmek için kullanın. Bu şekilde tüm kuruluş kullanıcıları Azure AD kimlik JIRA uygulamasına oturum açmak için kullanabilirsiniz. Bu eklenti, Federasyon için SAML 2.0 kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -67,7 +67,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 * JIRA 5.2 da destekler. Daha fazla bilgi için tıklayın [Microsoft Azure Active Directory çoklu oturum açma için JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
-> Lütfen JIRA Linux Ubuntu 16.04 sürümünü desteklediğini unutmayın.
+> Lütfen bizim JIRA eklentisi Ubuntu sürümü 16.04 üzerinde çalıştığını unutmayın.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 

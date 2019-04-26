@@ -1,6 +1,6 @@
 ---
 title: Azure MultiStorageAccountCombo UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Storage.MultiStorageAccountCombo kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Storage.MultiStorageAccountCombo UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252448"
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI öğesi
-Ortak bir önek ile başlayan adlarla birkaç depolama hesapları oluşturmak için denetimleri grubudur.
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo kullanıcı Arabirimi öğesi
+Ortak bir önek ile başlayan adları ile birkaç depolama hesabı oluşturmak için denetimleri grubudur.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
 ## <a name="schema"></a>Şema
@@ -53,11 +53,11 @@ Ortak bir önek ile başlayan adlarla birkaç depolama hesapları oluşturmak i�
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Değeri `defaultValue.prefix` depolama hesabı adları dizisini oluşturmak için bir veya daha fazla tamsayılar ile birleştirilir. Örneğin, varsa `defaultValue.prefix` olan **sa** ve `count` olan **2**, ardından depolama hesabı adları **sa1** ve **sa2** oluşturulur. Oluşturulan depolama hesabı adları için benzersizlik otomatik olarak doğrulanır.
-- Depolama hesabı adları lexicographically temel alınarak oluşturulan `count`. Örneğin, varsa `count` 10'dur ve sonra depolama hesabı adları iki basamaklı tamsayılar (01, 02, 03) ile bitmelidir.
-- İçin varsayılan değer `defaultValue.prefix` olan **null**ve `defaultValue.type` olan **Premium_LRS**.
-- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
-- Depolama hesabı adları oluşturuluyor yanı sıra `count` öğesi için uygun çarpanı ayarlamak için kullanılır. Statik bir değer gibi destekleyen **2**, veya gibi başka bir öğeden dinamik bir değer `[steps('step1').storageAccountCount]`. Varsayılan değer **1**.
+- Değeri `defaultValue.prefix` depolama hesabı adları dizisi oluşturmak için bir veya daha fazla tamsayı ile birleştirilir. Örneğin, varsa `defaultValue.prefix` olduğu **sa** ve `count` olduğu **2**, ardından depolama hesabı adları **sa1** ve **sa2** oluşturulur. Oluşturulan depolama hesabı adları için benzersizlik otomatik olarak doğrulanır.
+- Depolama hesabı adları lexicographically temel alınarak oluşturulan `count`. Örneğin, varsa `count` 10'dur ve depolama hesabı adları iki basamaklı tamsayılar (01, 02, 03) ile bitmelidir.
+- İçin varsayılan değer `defaultValue.prefix` olduğu **null**ve `defaultValue.type` olduğu **Premium_LRS**.
+- Belirtilen değil herhangi bir türü `constraints.allowedTypes` gizli ve belirtilen değil herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem de isteğe bağlıdır, ancak aynı anda kullanılamaz.
+- Depolama hesabı adları oluşturma yanı sıra `count` öğesi için uygun çarpan ayarlamak için kullanılır. Statik bir değer gibi destekler **2**, veya dinamik bir değerin başka bir öğeden `[steps('step1').storageAccountCount]`. Varsayılan değer **1**.
 
 ## <a name="sample-output"></a>Örnek çıktı
 
@@ -71,5 +71,5 @@ Ortak bir önek ile başlayan adlarla birkaç depolama hesapları oluşturmak i�
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
