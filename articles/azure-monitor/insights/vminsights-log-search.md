@@ -52,13 +52,13 @@ Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlant
 
 | Özellik | Açıklama |
 |:--|:--|
-|Yön |Yön bağlantının değerdir *gelen* veya *giden* |
-|Makine |FQDN bilgisayar |
-|İşlem |İşlem ya da işlemleri, bağlantıyı başlatan/kabul grupları kimliği |
-|Sourceıp |Kaynak IP adresi |
+|Direction |Yön bağlantının değerdir *gelen* veya *giden* |
+|Machine |FQDN bilgisayar |
+|Process |İşlem ya da işlemleri, bağlantıyı başlatan/kabul grupları kimliği |
+|SourceIp |Kaynak IP adresi |
 |DestinationIp |Hedef IP adresi |
-|Trafficdirection |Hedef bağlantı noktası numarası |
-|Protokol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
+|DestinationPort |Hedef bağlantı noktası numarası |
+|Protocol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
 
 Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış bir fiziksel bağlantı sayısı hakkında bilgi sağlanır:
 
@@ -77,7 +77,7 @@ Bağlantı sayısı ölçümü yanı sıra alınıp verilen bir mantıksal bağl
 |:--|:--|
 |BytesSent |Raporlama zaman penceresi boyunca gönderilen bayt sayısı |
 |BytesReceived |Raporlama zaman penceresi boyunca alınan bayt sayısı |
-|Yanıtlar |Raporlama zaman penceresi boyunca gözlemlenen yanıtlarının sayısı. 
+|Responses |Raporlama zaman penceresi boyunca gözlemlenen yanıtlarının sayısı. 
 |ResponseTimeMax |Raporlama zaman penceresi boyunca gözlemlenen en büyük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
 |ResponseTimeMin |Raporlama zaman penceresi boyunca gözlemlenen en küçük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
 |ResponseTimeSum |Tüm yanıt süreleri toplamı gözlemlenen Raporlama zaman penceresi boyunca (milisaniye). Değer, boş bir özelliktir.|
@@ -112,9 +112,9 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 |:--|:--|
 |MaliciousIp |Uzak IP adresi |
 |IndicatorThreadType |Algılanan tehdit göstergesidir şu değerlerden birini *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *kötü amaçlı yazılım*, *kimlik avı*, *Proxy*, *PUA*, *İzleme*.   |
-|Açıklama |Gözlemlenen tehdit açıklaması. |
+|Description |Gözlemlenen tehdit açıklaması. |
 |TLPLevel |Trafik ışığı Protokolü (TLP) düzeyi tanımlanmış değerlerden biridir *beyaz*, *yeşil*, *Amber*, *kırmızı*. |
-|Güven |Değerler *0-100*. |
+|Confidence |Değerler *0-100*. |
 |Severity |Değerler *0 – 5*burada *5* en ciddi ve *0* hiç önemli değil. Varsayılan değer *3*.  |
 |FirstReportedDateTime |İlk kez sağlayıcısı göstergesi bildirdi. |
 |LastReportedDateTime |Son zaman göstergesi tarafından Interflow görüldü. |
@@ -136,10 +136,10 @@ Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır:
 
 | Özellik | Açıklama |
 |:--|:--|
-|İşlem | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
-|IP | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
-|Bağlantı noktası |Bağlantı noktası numarası |
-|Protokol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
+|Process | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
+|Ip | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
+|Port |Bağlantı noktası numarası |
+|Protocol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
  
 Kimlik bir bağlantı noktası yukarıdaki beş alanları türetilir ve Portıd özelliğinde depolanıyor. Bu özellik, kayıtları için belirli bir bağlantı noktası zaman hızlı bir şekilde bulmak için kullanılabilir. 
 
@@ -202,10 +202,10 @@ Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı iş
 | ProductVersion_s | Ürün sürümü |
 | FileVersion_s | Dosya sürümü |
 | CommandLine_s | Komut satırı |
-| ExecutablePath _Yanları | Yürütülebilir dosya yolu |
+| ExecutablePath _s | Yürütülebilir dosya yolu |
 | WorkingDirectory_s | Çalışma dizini |
 | UserName | Hesabın altında işlemi yürütülüyor |
-| USERDOMAIN | Etki alanı altında işlemi yürütülüyor |
+| UserDomain | Etki alanı altında işlemi yürütülüyor |
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
