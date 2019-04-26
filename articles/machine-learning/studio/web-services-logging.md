@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345660"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme
 Bu belge, bilgi Machine Learning Studio web hizmetleri üzerinde günlüğe kaydetme olanağı sağlar. Günlük, yalnızca bir hata numarası ve Machine Learning Studio API'leri aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  

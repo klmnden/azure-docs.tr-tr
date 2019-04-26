@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326155"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure'da bir Always On kullanılabilirlik grubu için bir yük dengeleyici yapılandırma
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makineler'de SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. Azure sanal makinelerinde SQL Server örnekleri olan bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici IP adresi için kullanılabilirlik grubu dinleyicisi depolar. Bir kullanılabilirlik grubu birden çok bölgede kapsıyorsa, her bölge bir yük dengeleyicinin gerekir.
@@ -246,7 +246,7 @@ Azure portalı ile bir yük dengeleyici için bir IP adresi eklemek için aşağ
     |**Durum araştırması** |Oluşturduğunuz araştırmayı seçin.
     |**Oturum kalıcılığı** |None
     |**Boşta kalma zaman aşımı (dakika)** |Varsayılan (4)
-    |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
+    |**Kayan IP (doğrudan sunucu dönüşü)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Yeni IP adresini kullanmak için kullanılabilirlik grubu yapılandırma
 
@@ -295,7 +295,7 @@ Bir kullanılabilirlik grubuna dağıtılmış kullanılabilirlik grubunda yer a
    |**Durum araştırması** |Oluşturduğunuz araştırmayı seçin.
    |**Oturum kalıcılığı** |None
    |**Boşta kalma zaman aşımı (dakika)** |Varsayılan (4)
-   |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
+   |**Kayan IP (doğrudan sunucu dönüşü)** | Enabled
 
 Load balancer'dağıtılmış kullanılabilirlik grubunda yer alan diğer kullanılabilirlik grupları için bu adımları yineleyin.
 

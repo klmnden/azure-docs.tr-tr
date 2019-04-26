@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343226"
 ---
 # <a name="virtual-machine-support-tab"></a>Sanal makine Destek sekmesi
 
-**Destek** sekmesinde **yeni teklif** sayfası, teknik ve kullanıcı kaynaklarını teklifiniz için desteği olanak tanır.  Üç alana ayrılır: **mühendislik**, **müşteri desteği**, ve **destek URL'lerini**.
+**Destek** sekmesinde **yeni teklif** sayfası, teknik ve kullanıcı kaynaklarını teklifiniz için desteği olanak tanır.  Bu üç alana ayrılır: **Mühendislik**, **müşteri desteği**, ve **destek URL'lerini**.
 
 ![Sanal makineler için yeni teklifi formdaki Destek sekmesi](./media/publishvm_012.png)
 

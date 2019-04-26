@@ -16,13 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65d4c477d0e3aa9d5feea53e3e667ece651c83f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351077"
 ---
-# <a name="how-to-customize-a-synchronization-rule"></a>Eşitleme kuralı özelleştirme
+# <a name="how-to-customize-a-synchronization-rule"></a>Eşitleme kuralını özelleştirme
 
 ## <a name="recommended-steps"></a>**Önerilen Adımlar**
 

@@ -14,11 +14,11 @@ ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
 ms.openlocfilehash: 0befc5e00cf31960a0ecda3f739e65477c740edd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374151"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Geliştirici Analizi Araçları Sürüm Notları
 
@@ -248,7 +248,7 @@ Kullanıcı, olay ayrıntıları için sekmesinde yanındaki görüntüleyen ön
 ### <a name="forward-and-back-history-in-search"></a>İleri ve geri arama geçmişinde
 Artık arama sonuçları arasında ileri ve geri gidebilirsiniz.
 
-![Geri git](./media/release-notes-vsix/GoBAck.png)
+![Geri dön](./media/release-notes-vsix/GoBAck.png)
 
 ## <a name="version-41"></a>Sürüm 4.1
 Bu sürümdeki birkaç yeni özellikler ve Güncelleştirmeler ile birlikte gelir. Güncelleştirme 1'in bu sürümü yüklemek için yüklü olması gerekir.

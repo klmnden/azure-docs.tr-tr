@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351597"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
 
@@ -36,7 +36,7 @@ BT yöneticisi, kullanabileceğinize [Azure AD koşullu erişim](../conditional-
 
 Başka bir örnek olarak, kullanabileceğinize [adlandırılmış Konumlar](../conditional-access/location-condition.md) ülkeler ve bölgeler yoksa istediğiniz kullanıcıların, kiracılarının erişmesine izin vermek bir dizi yapılandırmak için koşullu erişim.
 
-![Adlandırılan yerler](./media/conditional-access-exclusion/named-locations.png)
+![Adlandırılmış konumlar](./media/conditional-access-exclusion/named-locations.png)
 
 Ancak, bazı durumlarda, kullanıcılar engellenen bu ülkelerden oturum açmak için meşru bir neden olabilir. Örneğin, kullanıcıların iş veya kişisel nedenlerle seyahat. Bu örnekte, bu ülkelerde engellemek için koşullu erişim ilkesi ilkesinden dışlanır kullanıcılar için bir özel bulut güvenlik grubu olabilir. Seyahat ederken erişmesi gereken kullanıcılar kendilerine grubunu kullanarak konusunda ekleyebilirsiniz [Azure AD Self Servis Grup Yönetimi](../users-groups-roles/groups-self-service-management.md).
 

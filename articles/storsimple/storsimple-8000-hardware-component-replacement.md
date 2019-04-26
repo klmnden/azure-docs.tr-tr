@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321826"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızda bir donanım bileşenini değiştirme
 
@@ -34,7 +34,7 @@ Donanım bileşeni değiştirme öğreticileri, Microsoft Azure StorSimple 8000 
 ### <a name="safety-icon-conventions"></a>Güvenlik simgesi kuralları
 Aşağıdaki tabloda bu öğreticilerde kullanılan güvenlik simgeler açıklanmaktadır. Kaldırın ve cihaz bileşenleri değiştirin adımlarını kullandıkça Kapat bu güvenlik simgeler dikkat edin.
 
-| Simge | Metin | Ek bilgiler |
+| Simge | Text | Ek bilgiler |
 |:--- |:--- |:--- |
 | ![uyarı simgesi](./media/storsimple-hardware-component-replacement/Warning.png) |**TEHLİKE!** |Önlenmiş değil, ayrıca ölüm ya da ciddi neden olur, zararlı bir durumu gösterir. Bu sinyal Word'ün en aşırı durumlarla sınırlıdır. |
 | ![uyarı simgesi](./media/storsimple-hardware-component-replacement/Warning.png) |**UYARI!** |Önlenmiş değil, ayrıca ölüm ya da ciddi neden olabilir, zararlı bir durumu gösterir. |

@@ -1,6 +1,6 @@
 ---
 title: Azure PasswordBox UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Common.PasswordBox kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Common.PasswordBox UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: adaece4a450f758c22ffecb356826962806d9d9b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060112"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251982"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI öğesi
-Bir parolayı onaylayın ve sağlamak için kullanılan bir denetimi.
+# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox kullanıcı Arabirimi öğesi
+Bir parola sağlamak için kullanılan bir denetimdir.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## <a name="schema"></a>Şema
@@ -51,7 +51,7 @@ Bir parolayı onaylayın ve sağlamak için kullanılan bir denetimi.
 ## <a name="remarks"></a>Açıklamalar
 - Bu öğe desteklemiyor `defaultValue` özelliği.
 - Uygulama ayrıntıları için `constraints`, bkz: [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Varsa `options.hideConfirmation` ayarlanır **doğru**, kullanıcının parolasını onayladığınız için ikinci metin kutusu gizlenir. Varsayılan değer **false**.
+- Varsa `options.hideConfirmation` ayarlanır **true**, kullanıcı parolası onaylama için ikinci metin kutusunda gizlenir. Varsayılan değer **false**.
 
 ## <a name="sample-output"></a>Örnek çıktı
 ```json
@@ -59,5 +59,5 @@ Bir parolayı onaylayın ve sağlamak için kullanılan bir denetimi.
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

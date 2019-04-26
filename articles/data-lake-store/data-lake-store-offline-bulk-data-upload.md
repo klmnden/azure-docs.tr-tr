@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4a8126d658f227d9eed372cd51cf06f8f12c99f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194986"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri çevrimdışı kopyalama için Azure içeri/dışarı aktarma hizmetini kullanma
 Bu makalede, büyük veri kümelerini kopyalama hakkında bilgi edineceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak Azure Data Lake depolama Gen1 içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt veya yaklaşık 319 GB disk üzerinde dosyasıdır. Bu dosya 319GB.tsv adlandıralım.

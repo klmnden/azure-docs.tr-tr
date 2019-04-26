@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372031"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için ek bir Azure aboneliği oluşturun
 
@@ -59,7 +59,7 @@ Kullanıcıları, bunları Azure abonelikleri oluşturabilmesi için izin vermek
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Abonelik Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
@@ -67,7 +67,7 @@ Kullanıcıları, bunları Azure abonelikleri oluşturabilmesi için izin vermek
 
 4. Seçin **erişim yönetimi (IAM)** sol üst taraftaki.
 
-5. Sayfanın üst kısmından seçin **Ekle**.
+5. Sayfanın üst kısmında **Ekle**'yi seçin.
 
 6. Seçin **Azure aboneliği Oluşturucusu** rolü için.
 

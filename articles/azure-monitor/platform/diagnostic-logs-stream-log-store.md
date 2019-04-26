@@ -9,11 +9,11 @@ ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237991"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
 
@@ -107,7 +107,7 @@ Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (
  
 AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
  
-| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
 | Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 914fe30e0b474f5d2c3ca14be6a6eb2e13cfdbf8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202813"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
 
 6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
-    | Anahtar | Value |
+    | Anahtar | Değer |
     |---|---|
     | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
 
@@ -59,7 +59,7 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visua
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. Açık *Function1.cs*, bir uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
+2. Açık *Function1.cs*, .NET Core uygulaması yapılandırma sağlayıcısı bir başvuru ekleyin.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

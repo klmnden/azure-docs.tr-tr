@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318706"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure'da Windows VM için belirli RDP hata iletileri sorunları giderme
 Azure'da Windows sanal makinesi (VM) için Uzak Masaüstü Bağlantısı kullanılırken, belirli bir hata iletisi alabilirsiniz. Bu makalede karşılaştı, sorun giderme yanı sıra bunları gidermek için adımları daha genel hata iletileri bazıları ayrıntılı olarak açıklanmaktadır. Sanal makinenizde bağlanma sorunu yaşıyorsanız RDP kullanmayan belirli hata iletisiyle karşılaştığınız bkz [Uzak Masaüstü için sorun giderme kılavuzu](troubleshoot-rdp-connection.md).
@@ -31,13 +31,13 @@ Belirli hata iletileri hakkında daha fazla bilgi için aşağıdakilere bakın:
 * [Lisans sağlanabilecek Uzak Masaüstü lisans sunucusu olmadığından uzak oturumun bağlantısı kesildi](#rdplicense).
 * [Uzak Masaüstü bilgisayar "name" bulamıyor](#rdpname).
 * [Bir kimlik doğrulama hatası oluştu. Yerel Güvenlik Yetkilisi temas kurulamıyor](#rdpauth).
-* [Windows güvenlik hatası: kimlik bilgilerinizi çalışmama](#wincred).
+* [Windows güvenlik hatası: Kimlik bilgilerinizi çalışmama](#wincred).
 * [Bu bilgisayar, uzak bilgisayara bağlanamıyor](#rdpconnect).
 
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>Lisans sağlanabilecek Uzak Masaüstü lisans sunucusu olmadığından uzak oturumun bağlantısı kesildi.
-Neden: Uzak Masaüstü Sunucusu rolü için 120 günlük lisansının yetkisiz kullanım süresi doldu ve lisansı yüklemeniz gerekir.
+Neden: Uzak Masaüstü Sunucusu rolü için 120 günlük lisansının yetkisiz kullanım süresi doldu ve lisansları yüklemeniz gerekir.
 
 Geçici bir çözüm olarak portaldan RDP dosyasının yerel bir kopyasını kaydedin ve bağlanmak için PowerShell komut isteminde şu komutu çalıştırın. Bu adım yalnızca bu bağlantı için lisanslama devre dışı bırakır:
 
@@ -68,9 +68,9 @@ Bu RDP dosyası adresi bölümü vardır:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Bir kimlik doğrulama hatası oluştu. Yerel Güvenlik Yetkilisi iletişim kurulamıyor.
-Neden: ' % s'hedef sanal makine, kimlik bilgilerinizi kullanıcı adı kısmı güvenlik yetkilisi bulamıyor.
+Neden: ' % S'hedef sanal makine güvenlik yetkilisi kimlik bilgilerinizi kullanıcı adı kısmı bulunamıyor.
 
-Kullanıcı adınızı biçimde olduğunda *SecurityAuthority*\\*kullanıcıadı* (örnek: CORP\User1), *SecurityAuthority* bölümüdür VM'nin bilgisayar adı (yerel güvenlik yetkilisi) veya bir Active Directory etki alanı adı.
+Kullanıcı adınızı biçimde olduğunda *SecurityAuthority*\\*kullanıcıadı* (örnek: CORP\User1) *SecurityAuthority* bölümüdür (için yerel güvenlik yetkilisi) sanal makinenin bilgisayar adı ya da bir Active Directory etki alanı adı.
 
 Olası çözümler:
 
@@ -80,8 +80,8 @@ Olası çözümler:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows güvenlik hatası: kimlik bilgilerinizi çalışmaz.
-Neden: ' % s'hedef sanal makine hesap adını ve parolasını doğrulayamıyor.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows güvenlik hatası: Kimlik bilgilerinizi çalışmadı.
+Neden: ' % S'hedef sanal makine hesap adını ve parolasını doğrulayamıyor.
 
 Windows tabanlı bir bilgisayarda yerel bir hesap veya bir etki alanı hesabının kimlik bilgilerini doğrulayabilirsiniz.
 
@@ -99,7 +99,7 @@ Yerel yönetici hesabının parolasını değiştirmeniz gerekiyorsa, bkz. [bir 
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Bu bilgisayar, uzak bilgisayara bağlanamıyor.
-Neden: bağlanmak için kullanılan hesap, Uzak Masaüstü Oturum açma hakları yok.
+Neden: Bağlanmak için kullanılan hesap, Uzak Masaüstü Oturum açma hakları yok.
 
 İçine uzaktan oturum grupları ve hesapları içeren bir Uzak Masaüstü users yerel grubu, her Windows bilgisayarı vardır. Bu hesaplar Uzak Masaüstü Kullanıcıları yerel Grup listelenmeyen olsa bile yerel Yöneticiler grubunun üyesi erişimi de. Yerel Yöneticiler grubunun, etki alanına katılan makineler için etki alanı için etki alanı yöneticileri de içerir.
 

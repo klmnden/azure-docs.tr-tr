@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services etkiler kesintisi hizmet durumunda Azure yapmanız gerekenler | Microsoft Docs
-description: Azure Cloud Services etkiler bir Azure hizmet kesintisi durumunda yapmanız gerekenler hakkında bilgi edinin.
+title: Azure Cloud Services'ı etkileyen kesinti olması durumunda bir Azure yapmanız gerekenler servis | Microsoft Docs
+description: Azure Cloud Services'ı etkileyen bir Azure hizmet kesintisi olması durumunda yapmanız gerekenler öğrenin.
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4b355a779a2e9f78f4cbf8ed5425200ce1df2f1d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337276"
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services etkiler kesintisi olması durumunda bir Azure hizmet gerekenler
-Microsoft, biz sabit gereksinim duyduğunuzda hizmetlerimizle her zaman için kullanılabilir olduğundan emin olmak için çalışır. Bizim denetim ötesinde zorlar bazen bize planlanmamış hizmet kesintilerine neden şekillerde etkiler.
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services'ı etkileyen kesinti olması durumunda bir Azure hizmet gerekenler
+Microsoft'ta, sabit ihtiyaç duyduğunuzda hizmetlerimizin her zaman sizin için kullanılabilir olduğundan emin olmak için çalışıyoruz. Bize zorlar denetimimiz dışında bazen plansız bir hizmet kesintilerine neden şekillerde etkiler.
 
-Microsoft açık kalma süresi ve bağlantı için taahhüdü olarak hizmetlerinin için bir hizmet düzeyi sözleşmesi (SLA) sağlar. SLA tek tek Azure Hizmetleri için şu adreste bulunabilir: [Azure hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
+Microsoft olarak çalışma süresi ve bağlantı için bir taahhüt hizmetlerinin için bir hizmet düzeyi sözleşmesi (SLA) sağlar. Tek tek Azure hizmetlerinin SLA'sı şu yolda bulunabilir: [Azure hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
 
-Azure, yüksek oranda kullanılabilir uygulamaları destekleyen birçok yerleşik platform özellikleri zaten var. Bu hizmetler hakkında daha fazla bilgi için okuma [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Azure, yüksek kullanılabilirliğe sahip uygulamalar destekleyen birçok yerleşik platform özellikleri zaten var. Bu hizmetler hakkında daha fazla bilgi için okuma [olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Tüm bölge kesinti ana doğal afet ya da yaygın bir hizmet kesintisi nedeniyle yaşadığında bu makalede bir true olağanüstü durum kurtarma senaryosunda kapsar. Nadir oluşum bunlar, ancak tüm bölgesinin bir kesinti olma olasılığını için hazırlamanız gerekir. Tüm bir bölgeyi hizmet kesintisi yaşarsa, verilerinizin yerel olarak yedekli kopyasını geçici olarak kullanılamaz durumda olurdu. Coğrafi çoğaltma etkinleştirildiğinde, tabloları ve Azure Storage bloblarında üç ek kopyalarını farklı bir bölgede depolanır. Azure tam bölgesel bir kesintinin ya da bir olağanüstü durumda birincil bölge kurtarılabilir değil, tüm coğrafi olarak çoğaltılmış bölge için DNS girdilerini remaps.
+Bu makale, bir tam bölge ana doğal afet veya yaygın hizmet kesintisi nedeniyle kesinti yaşandığında gerçek bir olağanüstü durum kurtarma senaryosuna kapsar. Nadir oluşum bunlar, ancak tüm bir bölgenin kesinti olma olasılığını için hazırlamanız gerekir. Bir bölge tamamen bir hizmet kesintisi oluşursa, yerel olarak yedekli kopyalar, verilerinizin geçici olarak kullanılamaz. Coğrafi çoğaltma etkinleştirildiğinde, Azure depolama BLOB'ları ve tabloları üç ek kopya farklı bir bölgede depolanır. Tam bölgesel bir kesinti veya birincil bölgenin kurtarılabilir değil bir olağanüstü durum olması durumunda, Azure DNS girdilerini coğrafi olarak çoğaltılmış bölgeye yeniden eşlemesi.
 
 > [!NOTE]
-> Bu işlemi üzerinde hiçbir denetimi yoktur ve yalnızca veri merkezi çapında hizmet kesilmelerini meydana gelir unutmayın. Bu nedenle, aynı zamanda yüksek düzeyde kullanılabilirlik elde etmek için diğer uygulamaya özgü yedek bir stratejileri kullanmanız gerekir. Daha fazla bilgi için bkz: [Microsoft Azure üzerinde oluşturulan uygulamalar için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Kendi yük devretme etkileyen yapabilmek istiyorsanız kullanımını düşünmek isteyebilirsiniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), başka bir bölgede verilerinizin salt okunur bir kopyasını oluşturur.
+> Bu işlem üzerinde herhangi bir denetim yok ve yalnızca veri merkezi genelinde hizmet kesintileri için meydana gelir unutmayın. Bu nedenle, aynı zamanda yüksek düzeyde kullanılabilirlik elde etmek için diğer uygulamaya özgü yedekleme stratejiler hakkında durumda. Daha fazla bilgi için [Microsoft Azure üzerinde derlenen uygulamalar için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Kendi yük devretme etkileyen yapmak istiyorsanız, kullanımını düşünmek isteyebilirsiniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), başka bir bölgede verilerinizin salt okunur bir kopyasını oluşturur.
 >
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Seçenek 1: yedekleme dağıtım aracılığıyla Azure trafik Yöneticisi'ni kullanın
-En güçlü olağanüstü durum kurtarma çözümü farklı bölgelerde, uygulamanızın birden çok dağıtım koruyarak ve ardından kullanarak içerir [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) aralarındaki trafik yönlendirmek için. Azure Traffic Manager sağlayan birden çok [yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md), böylece birincil/yedekleme modelini kullanarak, dağıtımları yönetmek mi, yoksa aralarındaki trafik bölmek için seçebilirsiniz.
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>1. seçenek: Azure Traffic Manager aracılığıyla yedekleme dağıtımı kullanın
+Uygulamanızın farklı bölgelerdeki birden fazla dağıtım bakımını yapma ve ardından kullanarak en güçlü olağanüstü durum kurtarma çözümü gerektirir [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) arasındaki trafiği yönlendirmek için. Azure Traffic Manager, birden çok sağlar [yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md), böylece bir birincil/yedekleme modeli kullanarak dağıtımlarınızı yönetmek mi, yoksa aralarındaki trafik bölme seçebilirsiniz.
 
-![Bölgelere Azure Traffic Manager ile Azure Cloud Services Dengeleme](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+![Azure Cloud Services, Azure Traffic Manager ile bölgeye Dengeleme](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-Bir bölge kaybı için en hızlı yanıt için trafik Yöneticisi'nin yapılandırma önemli [uç nokta izleme](../traffic-manager/traffic-manager-monitoring.md).
+Bir bölge kaybı için en hızlı yanıt için Traffic Manager'ın yapılandırdığınız önemli [uç nokta izleme](../traffic-manager/traffic-manager-monitoring.md).
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>Seçenek 2: yeni bir bölge uygulamanızı dağıtmak
-Önceki seçenek açıklandığı gibi birden fazla etkin dağıtımlarını sürdürme ek devam eden maliyetler doğurur. Kurtarma süresi hedefi (RTO) yeterince esnektir ve özgün kod veya derlenmiş bulut Hizmetleri paket varsa, başka bir bölgede, uygulamanızın yeni bir örneğini oluşturun ve yeni dağıtım noktası için DNS kayıtlarını güncelleştirin.
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>2. seçenek: Uygulamanızı yeni bir bölgeye dağıtın
+Önceki seçeneği açıklandığı gibi birden çok etkin dağıtımlara koruma ek devam eden maliyetler doğurur. Kurtarma süresi hedefini (RTO) esnektir ve özgün koda veya derlenmiş bulut Hizmetleri paketi varsa, başka bir bölgede uygulamanızın yeni bir örneğini oluşturun ve DNS kayıtlarınızı yeni dağıtımına işaret edecek şekilde güncelleştirin.
 
-Oluşturma ve bir bulut hizmeti uygulaması dağıtma hakkında daha fazla ayrıntı için [nasıl oluşturulacağı ve bir bulut hizmetinin dağıtılacağı](cloud-services-how-to-create-deploy-portal.md).
+Bir bulut hizmeti uygulaması oluşturma ve dağıtma konusunda daha fazla ayrıntı için [bir bulut hizmeti oluşturma ve dağıtma konusunda](cloud-services-how-to-create-deploy-portal.md).
 
-Uygulama veri kaynaklarınıza bağlı olarak, uygulama veri kaynağı için kurtarma yordamları denetlemeniz gerekebilir.
+Uygulama veri kaynaklarınıza bağlı olarak, uygulama veri kaynağı için kurtarma prosedürleri denetlemeniz gerekebilir.
 
-* Azure Storage veri kaynakları için bkz: [Azure Storage çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) denetlemek için uygulamanız için seçtiğiniz çoğaltma modeli kullanılabilir olan seçenekler bağlı.
-* SQL veritabanı kaynakları için okuma [genel bakış: Bulut iş devamlılığı ve veritabanı olağanüstü durum kurtarma SQL Database](../sql-database/sql-database-business-continuity.md) denetlemek için seçili çoğaltma modeli uygulamanız için kullanılabilir olan seçenekler bağlı.
+* Azure depolama veri kaynakları için bkz: [Azure depolama çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) denetlemek için kullanılabilen seçenekler uygulamanız için seçtiğiniz çoğaltma modeli temel.
+* SQL veritabanı kaynakları için okuma [genel bakış: SQL veritabanı ile iş sürekliliği ve veritabanı olağanüstü durum kurtarma bulut](../sql-database/sql-database-business-continuity.md) denetlemek için kullanılabilen seçenekler uygulamanız için seçilen çoğaltma modeli temel.
 
 
-## <a name="option-3-wait-for-recovery"></a>Seçenek 3: Kurtarma için bekleyin
-Bu durumda, herhangi bir eyleminiz gereklidir, ancak bölge geri yüklenene kadar hizmet kullanılamaz. Geçerli Hizmet durumu görebilirsiniz [Azure hizmet sağlığı panosunu](https://azure.microsoft.com/status/).
+## <a name="option-3-wait-for-recovery"></a>Seçenek 3: Kurtarma işleminin tamamlanmasını bekleyip
+Bu durumda, sizin herhangi bir eylemi gerekli değildir, ancak hizmetinizi bölge geri yüklenene kadar kullanılamaz. Geçerli hizmet durumunu görebilirsiniz [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir olağanüstü durum kurtarma ve yüksek kullanılabilirlik stratejisini uygulama hakkında daha fazla bilgi için bkz: [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Bir olağanüstü durum kurtarma ve yüksek kullanılabilirlik stratejisinin gerçekleştirme hakkında daha fazla bilgi için bkz: [olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Bir bulut platformun özellikleri ayrıntılı teknik bir anlayış geliştirmek için bkz: [Azure dayanıklılık teknik kılavuz](../resiliency/resiliency-technical-guidance.md).
+Bir bulut platformunun özelliklerinden ayrıntılı teknik bir anlayış geliştirmek için bkz: [Azure dayanıklılık teknik Kılavuzu](../resiliency/resiliency-technical-guidance.md).

@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204443"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio'dan Azure VM için bir ASP.NET Web uygulaması yayımlama
 
@@ -68,7 +68,7 @@ Aşağıdaki bölümde, Azure sanal makinesi için mevcut bir ASP.NET web uygula
 
 10. Yayımlama işleminin ilerleme durumunu denetlemek için çıkış penceresine bakın.
 
-    ![Çıkış penceresi]
+    ![Çıktı Penceresi]
 
 11. Yayımlama başarılı olursa, yeni yayımlanmış sitenin URL'sini açmak için bir tarayıcı başlatır.
 
@@ -125,7 +125,7 @@ Azure işlem hatları ile sürekli teslim işlem hattı ayarlamak için bkz: [da
 [Azure VM Seçici]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [WebDeploy oturum açma]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Sertifika hatası]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Çıkış penceresi]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Çıktı Penceresi]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Yayımlama Sayfası - Yayımla düğmesi]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Yayımlama Sayfası - Ayarlar düğmesi]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Yayımlama ayarları - bağlantı sayfası]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

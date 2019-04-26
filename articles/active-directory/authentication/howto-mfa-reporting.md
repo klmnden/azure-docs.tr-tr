@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358812"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 
 Azure multi-Factor Authentication, Azure portalı üzerinden erişilebilir, kuruluşunuz tarafından kullanılan çeşitli raporlar sağlar. Aşağıdaki tablo, kullanılabilen raporları listeler:
 
-| Rapor | Konum | Açıklama |
+| Rapor | Location | Açıklama |
 |:--- |:--- |:--- |
 | Engellenen Kullanıcı Geçmişi | Azure AD > MFA sunucusu > kullanıcıları engelle/engelini kaldır | Engelleme veya kullanıcıların engelini kaldırma isteklerinin geçmişini gösterir. |
 | Kullanım ve dolandırıcılık uyarıları | Azure AD > oturum açma işlemleri | Bilgi genel kullanımı, kullanıcı özeti ve kullanıcı ayrıntıları sağlar. yanı sıra belirtilen tarih aralığı içinde gönderilen sahtekarlık uyarısı geçmişini. |

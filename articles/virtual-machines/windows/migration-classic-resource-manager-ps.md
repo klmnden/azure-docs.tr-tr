@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 02b3f4b0db46d05751569d465abf09310be91e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7cc8970e739d2e762fb08e563ef0498948ac8251
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443815"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Azure PowerShell'i kullanarak Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçiş
 Bu adımlar altyapı olarak hizmet (Iaas) kaynaklarını Klasik dağıtım modelinden Azure Resource Manager dağıtım modeline geçirmek için Azure PowerShell komutlarını kullanmayı gösterir.
@@ -36,7 +36,7 @@ Dilerseniz de kaynakları kullanarak geçirebileceğiniz [Azure komut satırı a
 
 ![Geçiş adımlarını gösteren ekran görüntüsü](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-plan-for-migration"></a>1. Adım: Geçiş planlaması
 Resource Manager'a geçirme Iaas kaynaklarını Klasik portaldan değerlendirirken öneririz birkaç en iyi uygulamalar şunlardır:

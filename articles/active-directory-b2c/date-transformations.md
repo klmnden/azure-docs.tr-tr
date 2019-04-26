@@ -3,7 +3,7 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için tarih 
 description: Tarih dönüştürme örnekler kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384247"
 ---
 # <a name="date-claims-transformations"></a>Tarih dönüştürmeleri talep
 
@@ -29,8 +29,8 @@ Bir tarih ve saat (dize veri türü) ikinci tarihinden sonra ve saat (dize veri 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | leftOperand | dize | İlk talebin türü, ikinci talep daha sonra olmalıdır. |
-| Inputclaim | Right | dize | İlk talep önce olmalıdır talebin türü, ikinci. |
+| Inputclaim | leftOperand | string | İlk talebin türü, ikinci talep daha sonra olmalıdır. |
+| Inputclaim | Right | string | İlk talep önce olmalıdır talebin türü, ikinci. |
 | InputParameter | AssertIfEqualTo | boole | Sol işlenen, sağ işlenenin eşitse, bu onay geçmelidir olup olmadığını belirtir. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boole | Sağ işlenen eksik olması durumunda, bu onay geçmelidir olup olmadığını belirtir. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | İki tür arasında izin vermek için milisaniye sayısını belirtir zamanları dikkate alınması gereken tarih saatleri eşit (örneğin, hesabı saat eğriltme için). |
@@ -143,7 +143,7 @@ Bir dateTime daha sonra önceki ya da diğerine eşit olup olmadığını belirl
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | firstDateTime | Tarih/saat | Önceki veya daha sonraki bir ikinci tarih ve saat olup Karşılaştırılacak ilk tarih ve saat. Null değeri, bir özel durum oluşturur. |
 | Inputclaim | secondDateTime | Tarih/saat | Önceki veya daha sonraki bir tarih ve saat ilk olup olmadığını Karşılaştırılacak ikinci tarih ve saat. Null değeri, geçerli datetTime kabul edilir. |
-| InputParameter | İşleci | dize | Aşağıdaki değerlerden biri: aynı, daha sonraki bir veya daha eski. |
+| InputParameter | İşleci | string | Aşağıdaki değerlerden biri: aynı, daha sonraki bir veya daha eski. |
 | InputParameter | timeSpanInSeconds | int | İlk tarih ve saat için zaman aralığını ekleyin. |
 | outputClaim | Sonuç | boole | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 

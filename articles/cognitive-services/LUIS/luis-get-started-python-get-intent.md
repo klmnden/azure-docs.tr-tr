@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 043b31aaaad30e9f2663b0a53273874e8c84ff6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194604"
 ---
 # <a name="quickstart-get-intent-using-python"></a>Hızlı Başlangıç: Python kullanarak get hedefi
 Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç noktasına konuşma iletin.

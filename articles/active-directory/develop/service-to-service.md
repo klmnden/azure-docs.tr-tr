@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251989"
 ---
 # <a name="service-to-service-apps"></a>Hizmet uygulamalar
 
@@ -63,8 +63,8 @@ Daemon veya Web API senaryoları için sunucu uygulaması için kod örneklere b
 
 ## <a name="app-registration"></a>Uygulama kaydı
 
-* Tek Kiracı - uygulama kimliği ve yetkilendirilmiş kullanıcının için kimliğinin servis talepleri, daemon veya Azure AD'de sunucu uygulaması aynı dizinde kaydedilmesi gerekir. Web API'si, bir arka plan programı veya sunucunun kaynaklarına erişimi sınırlamak için kullanılan bir izin kümesi kullanıma sunmak için yapılandırılabilir. Yetkilendirilmiş kullanıcının kimlik türü kullanılıyorsa, Azure portalında "İzinleri için diğer uygulamaları" aşağı açılan menüden istediğiniz izinleri seçin sunucu uygulaması gerekir. Uygulama kimlik türü kullanılıyorsa bu adım gerekli değildir.
-* Çok kiracılı-First, arka plan programı veya sunucu uygulaması, işlev olmasını gerektiren izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde kuruluşları için kullanılabilir hale getirir uygulamaya izin verilirse bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar, yalnızca kuruluşunuzdaki herhangi bir kullanıcı onay verebildiği kullanıcı düzeyi izinleri gerektirir. Diğer uygulamalar, kuruluşunuzdaki bir kullanıcı onay veremez yönetici düzeyi izinlerini gerektirir. Dizin Yöneticisi yalnızca bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici onay verdiğinde, her iki web API'leri, dizinde kayıtlı.
+- Tek Kiracı - uygulama kimliği ve yetkilendirilmiş kullanıcının için kimliğinin servis talepleri, daemon veya Azure AD'de sunucu uygulaması aynı dizinde kaydedilmesi gerekir. Web API'si, bir arka plan programı veya sunucunun kaynaklarına erişimi sınırlamak için kullanılan bir izin kümesi kullanıma sunmak için yapılandırılabilir. Yetkilendirilmiş kullanıcının kimlik türü kullanılıyorsa, Azure portalında "İzinleri için diğer uygulamaları" aşağı açılan menüden istediğiniz izinleri seçin sunucu uygulaması gerekir. Uygulama kimlik türü kullanılıyorsa bu adım gerekli değildir.
+- Çok kiracılı-First, arka plan programı veya sunucu uygulaması, işlev olmasını gerektiren izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde kuruluşları için kullanılabilir hale getirir uygulamaya izin verilirse bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar, yalnızca kuruluşunuzdaki herhangi bir kullanıcı onay verebildiği kullanıcı düzeyi izinleri gerektirir. Diğer uygulamalar, kuruluşunuzdaki bir kullanıcı onay veremez yönetici düzeyi izinlerini gerektirir. Dizin Yöneticisi yalnızca bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici onay verdiğinde, her iki web API'leri, dizinde kayıtlı.
 
 ## <a name="token-expiration"></a>Belirteç süre sonu
 
@@ -74,3 +74,4 @@ Daemon veya Web API senaryoları için sunucu uygulaması için kod örneklere b
 
 - Diğer hakkında daha fazla bilgi [uygulama türleri ve senaryolar](app-types.md)
 - Azure AD hakkında bilgi edinin [kimlik doğrulaması temelleri](authentication-scenarios.md)
+

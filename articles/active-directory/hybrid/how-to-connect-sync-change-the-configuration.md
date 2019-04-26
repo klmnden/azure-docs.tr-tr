@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244011"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: Bir varsayılan yapılandırmaya bir değişiklik yapın
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme Varsayılan yapılandırmada değişiklik yapmak nasıl rehberlik etmektir. Bu, bazı yaygın senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırmasına basit değişiklikler yapabilir olmalıdır.

@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9bcb465f76e09675333e6e608249cba11f722e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60274481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Öğretici: İLMS ile Azure Active Directory Tümleştirme
 

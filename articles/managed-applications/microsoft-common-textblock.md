@@ -1,6 +1,6 @@
 ---
 title: Azure TextBlock UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Common.TextBlock kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Common.TextBlock UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: cd4d1aed666b2c64ade700a768df0525029b392c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0dcd8ba1b1bacd990c91ce90ef0013caac446cdc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251588"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI öğesi
-Metin portal arabirimi eklemek için kullanılan bir denetimi.
+# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock kullanıcı Arabirimi öğesi
+Portal arabirimi metin eklemek için kullanılan bir denetimdir.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
 ## <a name="schema"></a>Şema
@@ -49,5 +49,5 @@ Metin portal arabirimi eklemek için kullanılan bir denetimi.
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

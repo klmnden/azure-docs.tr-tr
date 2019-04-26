@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346890"
 ---
 # <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>Mantıksal uygulamalarınızı hazırlamak ve klasik uyarı kuralları geçiş için books çalıştırın
 
@@ -29,7 +29,7 @@ Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabiri
 |         |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI'si     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
 | Azure Resource Manager şablonu | [Klasik uyarılar için](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Yeni ölçüm uyarıları](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -54,13 +54,13 @@ Aşağıdaki tabloda, klasik bir uyarı kuralı Web kancası yükü ve yeni öl�
 | (Nasıl toplanan bir ölçüm değeri eşik karşı karşılaştırılır) işleci | Context.Condition.operator | Data.Context.Condition.operator|
 | Eşik | Context.Condition.Threshold| data.context.condition.allOf[0].threshold|
 | Ölçüm değeri | context.condition.metricValue | data.context.condition.allOf[0].metricValue|
-| Abonelik kimliği | context.subscriptionId | data.context.subscriptionId|
+| Abonelik Kimliği | context.subscriptionId | data.context.subscriptionId|
 | Etkilenen kaynak kaynak grubu | context.resourceGroup | data.context.resourceGroup|
 | Etkilenen kaynak adı | context.resourceName | data.context.resourceName |
 | Etkilenen kaynak türü | context.resourceType | data.context.resourceType |
 |  Etkilenen kaynak kaynak kimliği | context.resourceId | data.context.resourceId |
 | Portal kaynak Özet sayfasında doğrudan bağlantı | context.portalLink | data.context.portalLink|
-| Web kancası veya mantıksal uygulama için geçirilecek özel yük alanları | özellikler |Data.Properties |
+| Web kancası veya mantıksal uygulama için geçirilecek özel yük alanları | properties |Data.Properties |
 
 Gördüğünüz gibi her iki yüklerini benzerdir. Aşağıdaki bölümde, örnek logic apps hakkında ayrıntılı bilgi ve yeni uyarılar için bildirim yükü ayrıştırmak için örnek bir runbook sahiptir.
 

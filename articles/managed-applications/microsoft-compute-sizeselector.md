@@ -1,6 +1,6 @@
 ---
 title: Azure SizeSelector UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Compute.SizeSelector kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Compute.SizeSelector UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9009d29e281ace179ad1dd2021c7cf35e3dc611a
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251280"
 ---
-# <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI öğesi
+# <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector kullanıcı Arabirimi öğesi
 Bir veya daha fazla sanal makine örnekleri için bir boyut seçmek için bir denetim.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 
 Kullanıcı Seçici öğe tanımında varsayılan değerlerle görür.
 
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
 
-Denetim seçtikten sonra kullanıcı kullanılabilir boyutlara genişletilmiş görünümünü görür.
+Kullanıcı denetimi seçtikten sonra Genişletilmiş görünümde kullanılabilir boyutlar görür.
 
 ![Genişletilmiş Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
@@ -66,14 +66,14 @@ Denetim seçtikten sonra kullanıcı kullanılabilir boyutlara genişletilmiş g
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `recommendedSizes` en az bir boyut olması gerekir. İlk önerilen boyut, varsayılan olarak kullanılır. Kullanılabilir boyutların listesi önerilen durumuna göre sıralı değil. Kullanıcı önerilen durumuna göre sıralamak için bu sütun seçebilirsiniz.
-- Önerilen boyut Seçilen konumda kullanılabilir değilse, boyutu otomatik olarak atlandı. Bunun yerine, önerilen bir sonraki boyuta kullanılır.
-- `constraints.allowedSizes` ve `constraints.excludedSizes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz. Kullanılabilir boyutların listesi çağırarak belirlenebilir [listesinden bir abonelik için kullanılabilir sanal makine boyutlarını](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Belirtilen olmayan herhangi bir boyutta `constraints.allowedSizes` gizlenir ve belirtilen olmayan herhangi bir boyutta `constraints.excludedSizes` gösterilir.
-- `osPlatform` belirtilmeli ve birini kullanabilir **Windows** veya **Linux**. Sanal makinelerin donanım maliyetlerini belirlemek için kullanılır.
-- `imageReference` üçüncü taraf görüntüleri için sağlanan ancak birinci taraf görüntüleri için atlandı. Sanal makinelerin yazılım maliyetleri belirlemek için kullanılır.
-- `count` öğesi için uygun çarpanı ayarlamak için kullanılır. Statik bir değer gibi destekleyen **2**, veya gibi başka bir öğeden dinamik bir değer `[steps('step1').vmCount]`. Varsayılan değer **1**.
+- `recommendedSizes` en az bir boyuta sahip olmalıdır. İlk önerilen boyut, varsayılan olarak kullanılır. Kullanılabilir boyutların listesi önerilen durumuna göre sıralanmamış. Önerilen durumuna göre sıralamak için bu sütun kullanıcı seçebilirsiniz.
+- Önerilen boyut Seçilen konumda kullanılabilir değilse, boyutu otomatik olarak atlanır. Bunun yerine, bir sonraki önerilen boyuta kullanılır.
+- `constraints.allowedSizes` ve `constraints.excludedSizes` hem de isteğe bağlıdır, ancak aynı anda kullanılamaz. Kullanılabilir boyutların listesi çağırarak belirlenebilir [listesinden bir abonelik için kullanılabilir sanal makine boyutlarını](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Belirtilen değil herhangi bir boyutta `constraints.allowedSizes` gizlidir, belirtilen değil tüm boyutlardaki `constraints.excludedSizes` gösterilir.
+- `osPlatform` belirtilmiş olmalı ve aşağıdakilerden biri olması **Windows** veya **Linux**. Sanal makinelerin donanım maliyetlerini belirlemek için kullanılır.
+- `imageReference` ancak üçüncü taraf görüntüleri için sağlanan birinci taraf görüntülerini atlanır. Sanal makinelerin yazılım maliyetleri belirlemek için kullanılır.
+- `count` öğesi için uygun çarpan ayarlamak için kullanılır. Statik bir değer gibi destekler **2**, veya dinamik bir değerin başka bir öğeden `[steps('step1').vmCount]`. Varsayılan değer **1**.
 - `numAvailabilityZonesRequired` 1, 2 veya 3 olabilir.
-- Varsayılan olarak, `hideDiskTypeFilter` olan **false**. Disk türü filtresi tüm disk türlerini ya da yalnızca SSD görmek kullanıcının sağlar.
+- Varsayılan olarak, `hideDiskTypeFilter` olduğu **false**. Disk türü filtresi tüm disk türleri veya yalnızca SSD görmesine olanak sağlar.
 
 ## <a name="sample-output"></a>Örnek çıktı
 ```json
@@ -81,5 +81,5 @@ Denetim seçtikten sonra kullanıcı kullanılabilir boyutlara genişletilmiş g
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

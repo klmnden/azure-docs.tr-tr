@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232754"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -259,7 +259,7 @@ Premium depolama alanında Linux Vm'lerinizi ayarlamanıza yardımcı olması i�
 
 Aşağıdaki Linux dağıtımları için Azure Premium depolama doğrulandı. Daha iyi performans ve kararlılık Premium depolama ile sanal makineleriniz için en azından bu sürümlerinden birini (veya sonraki bir sürümü) yükseltmenizi öneririz. Bazı sürümleri, Azure için en son Linux Integration Services (LIS), v4.0, gerektirir. İndirmek ve bir dağıtım yüklemek için aşağıdaki tabloda listelenen bağlantı izleyin. Biz doğrulama tamamlandı olarak listeye görüntüleri ekleriz. Performans için her görüntü değişir bizim doğrulamaları Göster unutmayın. Performans, iş yükü özelliklerine ve görüntü ayarlarınızı bağlıdır. Farklı görüntüleri farklı türde iş yükleri için ayarlanmıştır.
 
-| Dağıtım | Sürüm | Desteklenen bir çekirdek | Ayrıntılar |
+| Dağıtım | Version | Desteklenen bir çekirdek | Ayrıntılar |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

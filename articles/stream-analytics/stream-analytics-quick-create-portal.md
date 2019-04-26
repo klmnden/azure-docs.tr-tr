@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398301"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
 Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başlanacağı gösterilmektedir. Bu hızlı başlangıçta, gerçek zamanlı akış verileri ve bir sıcaklık 27 ' büyük olan filtreleri iletileri okuyan bir Stream Analytics işi tanımlayın. Stream Analytics işinizin bir IOT Hub CİHAZDAN veri okuma, verileri dönüştürme ve verileri blob depolamadaki bir kapsayıcıda geri yazma. Bu hızlı başlangıçta kullanılan giriş veri Raspberry Pi çevrimiçi simülatör tarafından oluşturulur. 
 
@@ -44,7 +44,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
    ![IoT Hub'ı oluşturma](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Seçin **sonraki: boyut ve ölçek kümesi**.
+4. Seçin **sonraki: Boyut ve ölçek kümesi**.
 
 5. **Fiyatlandırma ve ölçek katmanınızı** seçin. Bu hızlı başlangıçta seçin **F1 - ücretsiz** aboneliğinizde hala kullanılabilir durumdaysa katmanı. Daha fazla bilgi için [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -91,7 +91,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
    |İş adı   |  MyASAJob   |   Stream Analytics işinizi tanımlamak için bir ad girin. Stream Analytics işinin adı yalnızca alfasayısal karakter, kısa çizgi ve alt çizgi içerebilir ve 3 ila 63 karakter uzunluğunda olmalıdır. |
    |Abonelik  | \<Aboneliğiniz\> |  Bu iş için kullanmak istediğiniz Azure aboneliğini seçin. |
    |Kaynak grubu   |   asaquickstart-resourcegroup  |   Aynı kaynak grubu IOT Hub'ınızı seçin. |
-   |Konum  |  \<Kullanıcılarınıza en yakın bölgeyi seçin\> | Stream Analytics işinizi barındırabileceğiniz coğrafi konumu seçin. Daha iyi performans elde etmek ve veri aktarımı maliyetini azaltmak için kullanıcılarınıza en yakın konumu seçin. |
+   |Location  |  \<Kullanıcılarınıza en yakın bölgeyi seçin\> | Stream Analytics işinizi barındırabileceğiniz coğrafi konumu seçin. Daha iyi performans elde etmek ve veri aktarımı maliyetini azaltmak için kullanıcılarınıza en yakın konumu seçin. |
    |Akış birimleri  | 1  |   Akış birimleri, bir işin yürütülmesi için gereken bilgi işlem kaynaklarını temsil eder. Varsayılan olarak, bu değer 1 olarak ayarlanır. Akış birimlerini ölçeklendirme hakkında bilgi edinmek için [akış birimlerini anlama ve ayarlama](stream-analytics-streaming-unit-consumption.md) başlıklı makaleye bakın.   |
    |Barındırma ortamı  |  Bulut  |   Stream Analytics işleri buluta veya uca dağıtılabilir. Bulut, Azure Cloud’a dağıtım yapmanıza Edge ise IoT Edge cihazına dağıtım yapmanıza olanak tanır. |
 

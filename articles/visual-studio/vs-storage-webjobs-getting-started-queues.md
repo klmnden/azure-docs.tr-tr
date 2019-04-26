@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391232"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -96,7 +96,7 @@ Kullanabileceğiniz **QueueTrigger** şu türden:
 ## <a name="polling-algorithm"></a>Yoklama algoritması
 SDK'sı boş kuyruk üzerinde depolama işlem maliyetleri yoklama etkisini azaltmak için bir rastgele üstel geri alma algoritması uygular.  Bir ileti bulunduğunda, SDK'sı iki saniye bekler ve ardından başka bir ileti için denetler; ileti bulunduğu zaman yeniden denemeden önce yaklaşık dört saniye bekler. Bir kuyruk iletisi almak için sonraki başarısız girişimden sonra bekleme süresini bir dakika için varsayılan olarak en fazla bekleme zamanı ulaşıncaya kadar artmaya devam eder. [En fazla bekleme zamanı yapılandırılabilirdir](#how-to-set-configuration-options).
 
-## <a name="multiple-instances"></a>Birden çok örneği
+## <a name="multiple-instances"></a>Birden çok örnek
 Web uygulamanız birden çok örnek üzerinde çalışıyorsa, sürekli WebJobs her makinede çalışır ve her makine için Tetikleyiciler bekleyin ve işlevleri çalıştırmayı deneyin. Bazı senaryolarda bu bazı işlevler aynı verileri iki kez işlemesine yol açabilir, bu nedenle işlevleri (böylece yinelenen sonuçlar bunları tekrar tekrar aynı girdi verileriyle çağırma üretemez yazılmış) bir kez etkili olmalıdır.  
 
 ## <a name="parallel-execution"></a>Paralel yürütme

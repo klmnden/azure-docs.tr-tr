@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381156"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler Başvurusu
 Azure AD Connect, işlevleri, bir öznitelik değeri, eşitleme sırasında işlemek için kullanılır.  
@@ -363,7 +363,7 @@ CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
 * Bu düzende biçimlendirilmiş bir dize: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx veya {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>İçerir
+### <a name="contains"></a>Contains
 **Açıklama:**  
 Contains işlevi, birden çok değerli bir özniteliği içindeki bir dizeyle bulur.
 
@@ -810,7 +810,7 @@ Bu işlev tersini IsNullOrEmpty olarak adlandırılır.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 - - -
-### <a name="item"></a>Nesne
+### <a name="item"></a>Öğe
 **Açıklama:**  
 Item işlevi, birden çok değerli bir dizeyi/özniteliği bir öğeyi döndürür.
 
@@ -1166,7 +1166,7 @@ RTrim işlevi bir dizedeki sondaki boşlukları kaldırır.
 "Test" döndürür.
 
 - - -
-### <a name="select"></a>Seçin
+### <a name="select"></a>Şunu seçin:
 **Açıklama:**  
 Belirtilen işlev üzerinde birden çok değerli bir öznitelik (veya bir ifadenin çıkış) tüm değerler temel işlemi.
 
@@ -1217,7 +1217,7 @@ Bir güvenlik tanımlayıcısı için bir dize içeren bir bayt dizisi StringFro
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Anahtar
 **Açıklama:**  
 Anahtar işlev, değerlendirilen koşullara göre tek bir değer döndürmek için kullanılır.
 
@@ -1291,7 +1291,7 @@ Belirli bir koşula dayalı birden çok değerli öznitelik (veya bir ifadenin �
 Sertifika değerleri, süresi dolmuş olmayan birden çok değerli öznitelik userCertificate döndürür.
 
 - - -
-### <a name="with"></a>Şununla birlikte:
+### <a name="with"></a>Avantaj ile
 **Açıklama:**  
 WITH işlevi karmaşık ifadeyi temsil eden bir görünen bir alt ifade bir değişken kullanarak veya birden fazla kez karmaşık ifadenin basitleştirmesini sağlar.
 

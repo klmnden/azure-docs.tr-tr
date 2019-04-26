@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372269"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure kredisi bakiyesi izlemek için Microsoft Müşteri Sözleşmesi
 
@@ -33,11 +33,11 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal]( https://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Maliyet Yönetimi + faturalandırma Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Fatura profiline gidin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından bir faturalandırma profili.
+3. Faturalama profiline gidin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından bir faturalandırma profili.
 
 4. Seçin **Azure KREDİLERİ**.
 

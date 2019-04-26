@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381595"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Hazırlama sunucusu ve olağanüstü durum kurtarma
 Hazırlama modunda bir sunucuyla yapılandırmada değişiklik yapmak ve sunucunun etkin hale getirmeden önce değişiklikleri Önizleme. Ayrıca tam içeri aktarma ve üretim ortamınıza bu değişiklikleri yapmadan önce tüm değişiklikleri beklendiğini doğrulamak için tam eşitleme çalıştırmanızı sağlar.

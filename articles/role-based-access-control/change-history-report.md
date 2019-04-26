@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308914"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>RBAC değişiklikler Azure kaynakları için etkinlik günlüklerini görüntüleme
 
@@ -43,7 +43,7 @@ Başlamanın en kolay yolu, Azure portalı ile etkinlik günlükleri görüntül
 
 Portalda etkinlik günlüğü birkaç filtreleri sahiptir. RBAC ile ilgili filtreleri şunlardır:
 
-|Filtre  |Value  |
+|Filtre  |Değer  |
 |---------|---------|
 |Olay kategorisi     | <ul><li>Yönetim</li></ul>         |
 |İşlem     | <ul><li>Rol ataması oluştur</li> <li>Rol atamasını sil</li> <li>Özel rol tanımı oluştur veya güncelleştir</li> <li>Özel rol tanımını sil</li></ul>      |

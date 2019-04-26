@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337349"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 İlk sanal ağ (VNet) Azure'da ayarlayacağız. Ardından bir Active Directory etki alanı (bir Azure sanal makinesinde barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rolleri önceden oluşturulmuş bir sanal ağa ekleyin, sonra bunları etki alanı denetleyicisine bağlanma.

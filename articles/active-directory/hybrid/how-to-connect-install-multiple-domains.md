@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245116"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD ile Federasyon için Çoklu Etki Alanı Desteği
 Aşağıdaki belgeler, Office 365 veya Azure AD etki alanları ile Federasyon olduğunda birden çok en üst düzey etki alanları ve alt etki alanlarını kullanma hakkında yönergeler sağlar.

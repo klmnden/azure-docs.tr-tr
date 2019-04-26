@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: diberry
 ms.openlocfilehash: 38a95593d01fdac091504a6decf30b3dd55f9327
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194659"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak get hedefi
 

@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371861"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Kullanıcı davranış analizi araçları Application ınsights sorunlarını giderme
 Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](usage-overview.md): [Kullanıcılar, oturumlar, etkinlikler](usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](usage-flows.md), [bekletme](usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.

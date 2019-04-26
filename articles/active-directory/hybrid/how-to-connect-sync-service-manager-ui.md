@@ -4,25 +4,25 @@ description: İçin Azure AD Connect Eşitleme Hizmeti Yöneticisi anlayın.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 01/03/2019
+ms.component: hybrid
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381544"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Giriş Azure AD Connect Eşitleme Hizmeti Yöneticisi kullanıcı Arabirimi
 
@@ -40,3 +40,5 @@ Eşitleme Hizmeti Yöneticisi dahil olmak üzere kullanıcı Arabirimi hakkında
 Daha fazla bilgi edinin [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.
+
+<!-- Update_Description: wording update -->

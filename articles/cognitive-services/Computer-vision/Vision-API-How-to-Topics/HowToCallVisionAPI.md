@@ -12,11 +12,11 @@ ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202879"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Örnek: Görüntü işleme API'sini çağırma
 
@@ -164,12 +164,12 @@ Bir örneği aşağıda verilmiştir:
 }
 ```
 
-Alan | Type | İçerik
+Alan | Tür | İçerik
 ------|------|------|
 Etiketler  | `object` | Etiket dizisi için üst düzey nesnedir
 tags[].Name | `string`  | Etiketler sınıflandırıcısındaki anahtar sözcüktür
 tags[].Score    | `number`  | 0 ile 1 arasında güven puanıdır
-description  | `object` | Açıklama için üst düzey nesnedir.
+açıklama  | `object` | Açıklama için üst düzey nesnedir.
 description.tags[] |    `string`    | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
 description.captions[].text | `string`  | Görüntüyü açıklayan bir ifadedir.
 description.captions[].confidence   | `number`  | İfade için güven düzeyidir.
@@ -226,7 +226,7 @@ description.captions[].confidence   | `number`  | İfade için güven düzeyidir
 
 Kategoriler alanı, özgün taksonomideki [86 kategorisinden](../Category-Taxonomy.md) birinin veya daha fazlasının listesidir. Alt çizgiyle biten kategorilerin, bu kategori ve alt öğeleri ile eşleşeceğini de unutmayın (örneğin, ünlüler modeli için people_ ve people_group).
 
-Alan   | Type  | İçerik
+Alan   | Tür  | İçerik
 ------|------|------|
 kategoriler | `object`   | Üst düzey nesne
 categories[].name    | `string` | 86 kategorisi sınıflandırmasındaki ad

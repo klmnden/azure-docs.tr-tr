@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193926"
 ---
 # <a name="application-layer-security-with-front-door"></a>Uygulama Katmanı Güvenliği ile ön kapısı
 Azure ön kapısı hizmeti, ağ saldırılarına ve SQL ekleme veya çoklu Site komut dizisi (XSS) gibi yaygın web güvenlik açıklarına web uygulamalarınızı korumak için web uygulaması koruma özelliği sağlar. Http (s) için ön uç etkin, ön kapısı'nın uygulama katman güvenlik dünya çapında dağıtılır ve her zaman açık, Azure'nın Network durdurma kötü amaçlı saldırıları, uzakta uçlarınıza kenar. Ekstra güvenlik ve performans iyileştirme sayesinde ön kapısı hızlı sunar ve son kullanıcılarınızın güvenli web deneyimleri.

@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: e72e6d969649de09389ee38b94e874fad98ee08f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409218"
 ---
-# <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Sahipleri olmayan Avere vFXT dağıtmak için yetkilendirme
+# <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Sahip olmayanları Avere vFXT dağıtımı yapmak için yetkilendirme
 
 Bu yönergeler, Azure sistem için bir Avere vFXT oluşturmak için sahip ayrıcalıkları aboneliği olmayan bir kullanıcı izin veren bir geçici çözüm içindir.
 

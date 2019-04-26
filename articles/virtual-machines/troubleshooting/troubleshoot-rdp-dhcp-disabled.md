@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362297"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP İstemci hizmetini devre dışı olduğundan, Azure sanal makinelerinde RDP olamaz
 
@@ -33,10 +33,10 @@ VM'yi DHCP İstemci hizmetini devre dışı olduğundan, Azure'da bir VM ile RDP
 **Kaynak**: Hizmet Denetimi Yöneticisi </br>
 **Tarih**: 16/12/2015 11:19:36: 00 </br>
 **Olay Kimliği**: 7022 </br>
-**Görev kategorisi**: Hiçbiri </br>
+**Görev kategorisi**: None </br>
 **Düzey**: Hata </br>
 **Anahtar sözcükler**: Klasik</br>
-**Kullanıcı**: YOK </br>
+**Kullanıcı**: Yok </br>
 **Bilgisayar**: myvm.cosotos.com</br>
 **Açıklama**: DHCP istemci hizmeti başlatılırken askıya alındı.</br>
 

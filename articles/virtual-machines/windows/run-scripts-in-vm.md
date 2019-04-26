@@ -9,11 +9,11 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: ec34ff874eae9bbdd53470f135bcf0c182d5daed
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251054"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Windows VM'nizi betikleri çalıştırma
 
@@ -29,7 +29,7 @@ Görevleri otomatikleştirmenize ve sorunlarını gidermek için VM ile komutlar
 * Windows makinelerinde PowerShell betiğini çalıştırın ve Bash betiği Linux makinelerinde.
 * Dağıtım sonrası yapılandırma, yazılım yükleme ve diğer yapılandırma veya yönetim görevleri için kullanışlıdır.
 
-## <a name="run-command"></a>Komut çalıştır
+## <a name="run-command"></a>Komut çalıştırma
 
 [Komutu Çalıştır](run-command.md) özellik sanal makine ve uygulama yönetimi ve betikleri kullanarak sorun giderme sağlar ve hatta makine Konuk güvenlik duvarı RDP veya SSH bağlantı noktası yoksa, örneğin ulaşılabilir olmadığında kullanılabilir açın.
 

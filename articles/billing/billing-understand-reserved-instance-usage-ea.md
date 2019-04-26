@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370705"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
@@ -61,7 +61,7 @@ Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Do
 |---| --- |
 |Reservationıd |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Miktar |2|
-|Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
+|Product| SQL veritabanı 4. nesil (2 Çekirdek)|
 |Bölge | eastus |
 
 ### <a name="usage-in-csv-file"></a>CSV dosyası kullanımı

@@ -16,25 +16,25 @@ ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323882"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Öğretici: Depolama bloblarına HTTPS üzerinden Azure CDN özel etki alanı kullanarak erişme
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Öğretici: HTTPS üzerinden bir Azure CDN özel etki alanını kullanarak depolama blob'lara erişim
 
 Azure depolama hesabınızı Azure Content Delivery Network (CDN) ile tümleştirdikten sonra, özel bir etki alanı ekleyebilir ve özel blob depolama uç noktanız için bu etki alanında HTTPS’yi etkinleştirebilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticideki adımları tamamlamadan önce, ilk olarak Azure depolama hesabınızı Azure CDN ile tümleştirmeniz gerekir. Daha fazla bilgi için bkz. [Hızlı başlangıç: Azure CDN ile bir Azure depolama hesabını tümleştirme](cdn-create-a-storage-account-with-cdn.md).
+Bu öğreticideki adımları tamamlamadan önce, ilk olarak Azure depolama hesabınızı Azure CDN ile tümleştirmeniz gerekir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure depolama hesabını Azure CDN ile tümleştirme](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Özel etki alanı ekleme
-Profilinizde bir CDN uç noktası oluşturduğunuzda, varsayılan olarak CDN içeriği sunmak için URL’nize azureedge.net adresinin alt etki alanı olan uç nokta adı eklenir. Bir CDN uç noktası ile özel etki alanını ilişkilendirme seçeneğiniz de vardır. Bu seçeneği kullanarak URL’nizde bir uç nokta adı yerine özel etki alanı ile içerik sunabilirsiniz. Uç noktanıza özel bir etki alanı eklemek için, şu öğreticideki yönergeleri izleyin: [Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md).
+Profilinizde bir CDN uç noktası oluşturduğunuzda, varsayılan olarak CDN içeriği sunmak için URL’nize azureedge.net adresinin alt etki alanı olan uç nokta adı eklenir. Bir CDN uç noktası ile özel etki alanını ilişkilendirme seçeneğiniz de vardır. Bu seçeneği kullanarak URL’nizde bir uç nokta adı yerine özel etki alanı ile içerik sunabilirsiniz. Uç noktanıza özel etki alanı eklemek için bu öğreticideki yönergeleri izleyin: [Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>HTTPS’yi yapılandırma
-Özel etki alanınızda HTTPS protokolünü kullanarak, verilerinizin TLS/SSL şifrelemesi aracılığıyla güvenli bir şekilde teslim edilmesini sağlarsınız. Web tarayıcınız HTTPS üzerinden bir web sitesine bağlanırken, web sitesinin güvenlik sertifikasını doğrular ve bu sertifikanın yasal bir sertifika yetkilisi tarafından verildiğini doğrular. Özel etki alanınızda HTTPS yapılandırmak için, şu öğreticideki yönergeleri izleyin: [Azure CDN özel etki alanında HTTPS yapılandırma](cdn-custom-ssl.md).
+Özel etki alanınızda HTTPS protokolünü kullanarak, verilerinizin TLS/SSL şifrelemesi aracılığıyla güvenli bir şekilde teslim edilmesini sağlarsınız. Web tarayıcınız HTTPS üzerinden bir web sitesine bağlanırken, web sitesinin güvenlik sertifikasını doğrular ve bu sertifikanın yasal bir sertifika yetkilisi tarafından verildiğini doğrular. Özel etki alanınızda HTTPS yapılandırmak için bu öğreticideki yönergeleri izleyin: [Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Paylaşılan Erişim İmzaları
 Blob depolama uç noktanız anonim okuma erişimini engellemek için yapılandırılmışsa, özel etki alanınıza yaptığınız her istekte bir [Paylaşılan Erişim İmzası (SAS)](cdn-sas-storage-support.md) belirteci sağlamanız gerekir. Varsayılan olarak, blob depolama uç noktaları anonim okuma erişimini engeller. SAS hakkında daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../storage/blobs/storage-manage-access-to-resources.md).
@@ -56,7 +56,7 @@ Azure CDN üzerinden bloblara eriştiğinizde, POP sunucuları ve kaynak (Blob d
 Örneğin, ABD’de Azure CDN kullanılarak erişilen bir depolama hesabınız varsa ve Avrupa’da bulunan biri Azure CDN üzerinden bu depolama hesabına erişmeye çalışırsa, Azure CDN önce bu blob için Avrupa’ya en yakın POP sunucusunu denetler. Bulunursa, Azure CDN blobun bu kopyasına erişir ve Azure CDN üzerinden erişildiği için CDN fiyatlandırmasını kullanır. Bulunamazsa, Azure CDN blobu POP sunucusuna kopyalar (bu işlem Blob depolama fiyatlandırmasında belirtilen çıkış ve işlem ücretlerine tabidir) ve ardından POP sunucusu üzerinde dosyaya erişir (bu işlem Azure CDN faturalandırmasıyla sonuçlanır).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Öğretici: Azure CDN önbelleğe alma kurallarını ayarlama](cdn-caching-rules-tutorial.md)
+[Öğretici: Azure CDN önbelleğe alma kuralları ayarlayın](cdn-caching-rules-tutorial.md)
 
 
 

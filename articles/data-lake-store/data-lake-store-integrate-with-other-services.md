@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197094"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake depolama Gen1 diğer Azure hizmetleriyle tümleştirme
 Azure Data Lake depolama Gen1 diğer Azure Hizmetleri ile birlikte geniş bir senaryoları etkinleştirmek için kullanılabilir. Aşağıdaki makalede Data Lake depolama Gen1 ile tümleşik hizmetler listelenir.

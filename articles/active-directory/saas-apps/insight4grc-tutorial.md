@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 1ad101d209415acdceb0091dba5fbedeb8b0aa4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60271856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Öğretici: Insight4GRC ile Azure Active Directory Tümleştirme
 

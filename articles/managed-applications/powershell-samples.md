@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell örnekleri - Azure yönetilen uygulamalarda | Microsoft Docs
+title: Azure PowerShell örnekleri - Azure yönetilen uygulamalar | Microsoft Docs
 description: Azure PowerShell örnekleri - Azure yönetilen uygulamalar
 services: managed-applications
 documentationcenter: na
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 54663282f0a7c9491c0f6501af74eca1a907c44a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: c1a960077ed96bb395ade9a09f47b035e6ff4318
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23940952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252143"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
 
-Aşağıdaki tabloda Azure yönetilen Azure PowerShell kullanan uygulamalar için komut dosyaları bağlantılarını içerir.
+Aşağıdaki tabloda, Azure yönetilen Azure PowerShell kullanan uygulamalar için betiklerinin bağlantılarını içerir.
 
 | | |
 |-|-|
 |**Yönetilen uygulama oluşturma**||
-| [Yönetilen uygulama tanımı oluşturun](scripts/managed-application-powershell-sample-create-definition.md) | Hizmet Kataloğu'nda bir yönetilen uygulama tanımı oluşturur.  |
-| [Yönetilen uygulama dağıtma](scripts/managed-application-poweshell-sample-create-application.md) | Hizmet Kataloğu'ndan yönetilen uygulamayı dağıtır.  |
+| [Yönetilen uygulama tanımı oluşturma](scripts/managed-application-powershell-sample-create-definition.md) | Hizmet kataloğunda bir yönetilen uygulama tanımı oluşturur.  |
+| [Yönetilen uygulamayı dağıtma](scripts/managed-application-poweshell-sample-create-application.md) | Hizmet kataloğundan yönetilen bir uygulama dağıtır.  |
 | | |
 |**Yönetilen kaynak grubunu güncelleştir**||
-| [Yönetilen kaynak grubunda kaynaklar alın ve sanal makineleri yeniden boyutlandırma](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Yönetilen kaynak grubundan kaynakları alır ve sanal makineleri yeniden boyutlandırır. |
+| [Yönetilen kaynak grubundaki kaynakları alma ve Vm'leri yeniden boyutlandırma](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Yönetilen kaynak grubundan kaynakları alır ve Vm'leri yeniden boyutlandırır. |

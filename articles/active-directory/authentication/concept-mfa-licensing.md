@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415693"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 
@@ -30,7 +30,7 @@ ms.locfileid: "58310009"
 
 Aşağıdaki tabloda, çok faktörlü kimlik doğrulaması için üç sürümü arasındaki farklar açıklanmaktadır:
 
-| Sürüm | Açıklama |
+| Version | Açıklama |
 | --- | --- |
 | Office 365 için Multi-Factor Authentication <br> Microsoft 365 İş |Bu sürümü, özel olarak Office 365 uygulamalarıyla çalışır ve Office 365 veya Microsoft 365 portalından yönetilir. Yöneticiler, [Office 365 kaynakları iki aşamalı doğrulama ile güvenli hale getirme](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Bu sürüm, Office 365 veya Microsoft 365 iş aboneliğinin bir parçasıdır. |
 | Azure AD yöneticileri için multi-Factor Authentication | Azure AD kiracıları, Azure AD genel Yönetici rolüne atanan kullanıcılar hiçbir ek ücret ödemeden iki aşamalı doğrulamayı etkinleştirebilirsiniz.|

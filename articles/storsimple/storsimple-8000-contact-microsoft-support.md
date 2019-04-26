@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362630"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft Destek'e Başvur
 
@@ -31,7 +31,7 @@ StorSimple cihaz Yöneticisi yeteneği sağlar **yeni bir destek isteği gönder
 
 Gözden geçirme [StorSimple 8000 serisi destek SLA'ları ve bilgi](https://msdn.microsoft.com/library/mt433077.aspx) önce bir destek isteği oluşturun.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturun
+## <a name="create-a-support-request"></a>Destek isteği oluşturma
 
 Bağlı olarak, [destek planı](https://azure.microsoft.com/support/plans/), StorSimple Cihazınızda StorSimple cihaz Yöneticisi hizmeti Özet dikey penceresinden doğrudan bir sorun için destek bileti oluşturabilirsiniz. Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 

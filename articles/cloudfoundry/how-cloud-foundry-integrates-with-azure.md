@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198974"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry ile Azure’ı tümleştirme
 
@@ -48,7 +48,7 @@ Varsayılan olarak, Azure temel yük dengeleyici için Gorouters iletmeden gelen
 ### <a name="azure-standard-load-balancer-"></a>Azure standart Load Balancer *
 Azure Load Balancer bir katman 4 yük dengeleyicidir. Yük dengeli bir kümedeki hizmetlerin örnekleri arasında trafiği dağıtmak için kullanılır. Standart sürüm sağlar [Gelişmiş Özellikler](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) üzerinde temel sürüm. Örneğin, 1. Arka uç havuzu maksimum sınırı 100'den 1000 VM oluşturulur.  2. Uç noktaları yerine tek bir kullanılabilirlik kümesinde birden çok kullanılabilirlik kümeleri artık desteklenmektedir.  3. HA bağlantı noktaları, daha zengin bir izleme verilerini ve benzeri gibi ek özellikler. Standart load balancer için Azure kullanılabilirlik alanı taşıyorsanız gereklidir. Yeni bir dağıtım için Azure Standard Load Balancer ile başlatmak için önerilir. 
 
-## <a name="3-authentication"></a>3. Authentication 
+## <a name="3-authentication"></a>3. Kimlik Doğrulaması 
 [Cloud Foundry kullanıcı hesabı ve kimlik doğrulaması](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) CF ve çeşitli bileşenleri için merkezi kimlik yönetimi hizmetidir. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) Microsoft'un çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Varsayılan olarak, UAA Cloud Foundry kimlik doğrulaması için kullanılır. UAA, Gelişmiş bir seçenek olarak, bir dış kullanıcı deposu olarak Azure AD'ye de destekler. Azure AD kullanıcıları, Cloud Foundry Cloud Foundry hesabı olmadan LDAP kimliklerini kullanarak erişebilirsiniz. Bu adımları [PCF UAA için Azure AD yapılandırma](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Cloud Foundry çalışma zamanı sistemi için veri depolama

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396606"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Bağlayıcısı ile Azure İzleyici günlük işlemlerini otomatikleştirmek için Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) çeşitli hizmetler için Eylemler yüzlerce kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını, başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure Log Analytics bağlayıcısını Microsoft Flow için Azure İzleyici'de bir Log Analytics çalışma alanından günlük sorguları tarafından alınan verileri içeren iş akışları oluşturmanıza olanak tanır.
@@ -28,18 +28,18 @@ ms.locfileid: "58123156"
 Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Bağlayıcısı'nı Microsoft Flow nasıl kullanabileceğinize bir örnek bir Azure İzleyici günlük sorgusu sonuçlarını gönderen bir akış oluşturma işlemini gösterir. 
 
 
-## <a name="step-1-create-a-flow"></a>1. adım: Akış oluşturun
+## <a name="step-1-create-a-flow"></a>1. Adım: Akış oluşturun
 1. Oturum [Microsoft Flow](https://flow.microsoft.com)seçip **Akışlarım**.
 2. Tıklayın **+ boş akış Oluştur**.
 
-## <a name="step-2-create-a-trigger-for-your-flow"></a>2. adım: Akışınız için bir Tetikleyici oluşturma
+## <a name="step-2-create-a-trigger-for-your-flow"></a>2. Adım: Akışınız için bir Tetikleyici oluşturma
 1. Tıklayın **yüzlerce bağlayıcı ve tetikleyicide arama**.
 2. Tür **zamanlama** arama kutusuna.
 3. Seçin **zamanlama**ve ardından **zamanlama - yinelenme**.
 4. İçinde **sıklığı** seçim kutusunu **gün** ve **aralığı** kutusuna **1**.<br><br>![Microsoft Flow tetikleyici iletişim kutusu](media/flow-tutorial/flow01.png)
 
 
-## <a name="step-3-add-a-log-analytics-action"></a>3. adım: Log Analytics eylemi ekleme
+## <a name="step-3-add-a-log-analytics-action"></a>3. Adım: Log Analytics eylemi ekleme
 1. Tıklayın **+ yeni adım**ve ardından **Eylem Ekle**.
 2. Arama **Log Analytics**.
 3. Tıklayın **Azure Log Analytics – sorgu çalıştırmak ve sonuçlarını görselleştirme**.<br><br>![Log Analytics sorgu penceresinde çalıştırma](media/flow-tutorial/flow02.png)

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437700"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI içerik Paketi'ni kullanma
 
@@ -59,7 +59,7 @@ Ayrıca, belirli bir tarih veya konumu seçerek sonuçlarını filtreleyebilirsi
 
 - User Name
 - IP Adresi
-- Konum 
+- Location 
 - Oturum açma durumu 
 
 **SSPR huni**: Bu rapor SSPR aracının kuruluşunuzda nasıl kullanıldığını anlamanıza yardımcı olur. Kaç parola sıfırlama, SSPR aracıyla bulunulması görebilir ve kaç tanesinin başarılı. Ayrıca, parola sıfırlama hatalarının inin ve hunisini neden anlama. 

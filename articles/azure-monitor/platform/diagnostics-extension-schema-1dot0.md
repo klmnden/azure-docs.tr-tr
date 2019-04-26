@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237850"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure tanılama 1.0 yapılandırma şeması
 > [!NOTE]
@@ -101,7 +101,7 @@ En üst düzey öğesi tanılama yapılandırma dosyası.
 
 Öznitelikler:
 
-|Öznitelik  |Type   |Gerekli| Varsayılan | Açıklama|  
+|Öznitelik  |Tür   |Gerekli| Varsayılan | Açıklama|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|süre|İsteğe bağlı | PT1M| Tanı İzleyicisi yoklama aralığını tanılama yapılandırma değişikliklerini belirtir.|  
 |**overallQuotaInMB**|unsignedInt|İsteğe bağlı| 4000 MB. Bir değer belirtirseniz, bu miktar aşmamalıdır |Tüm günlük arabellekleri için ayrılan dosya sistemi depolama miktarı.|  
@@ -113,7 +113,7 @@ Temel alınan Tanılama Altyapısı tarafından oluşturulan günlükler için a
 
 Öznitelikler:
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
@@ -126,7 +126,7 @@ Temel alınan Tanılama Altyapısı tarafından oluşturulan günlükler için a
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
@@ -140,7 +140,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
@@ -152,7 +152,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
@@ -164,7 +164,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
@@ -176,7 +176,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
@@ -193,7 +193,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Kapsayıcı**|string|Dizinin içeriklerini olduğu aktarılacak kapsayıcısının adı.|  
 |**directoryQuotaInMB**|unsignedInt|İsteğe bağlı. Dizinin en büyük boyutunu megabayt cinsinden belirtir.<br /><br /> Varsayılan değer 0'dır.|  
@@ -205,7 +205,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Yolu**|string|Gereklidir. İzlemek için dizinin mutlak yolu.|  
 |**expandEnvironment**|boole|Gereklidir. Varsa kümesine **true**, ortam değişkenleri yolun genişletilmiş.|  
@@ -217,7 +217,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
 Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Adı**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
 |**RelativePath**|string|Gereklidir. İzlemek için yerel kaynak göreli yol.|  
@@ -230,7 +230,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
@@ -242,7 +242,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Öznitelikler:  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Gereklidir. Toplanacak performans sayacı yolu.|  
 |**sampleRate**|süre|Gereklidir. Performans sayacının toplanacağını oranı.|  
@@ -254,7 +254,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
   Öznitelikler:
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
@@ -267,7 +267,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Öznitelikler:
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Adı**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
 

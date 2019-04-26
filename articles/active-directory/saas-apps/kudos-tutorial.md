@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5b1fa6284979a8c0bd0698f85b119117dd27a05
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Öğretici: Azure Active Directory Tümleştirmesi ile beğenme
 

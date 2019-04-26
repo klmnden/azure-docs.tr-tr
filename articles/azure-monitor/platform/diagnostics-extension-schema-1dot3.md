@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238065"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Temel Azure günlükleri arabellek yapılandırmasını tanımlar.  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|**dize**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
@@ -642,11 +642,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Tanılama verileri göndermesini konumlarını tanımlar. Örneğin, Application Insights hizmeti.  
 
-|Öznitelik|Type|Açıklama|  
+|Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**Adı**|string|Sinkname tanımlayan bir dize.|  
 
-|Öğe|Type|Açıklama|  
+|Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Yalnızca veri Application Insights'a gönderirken kullanılan. Erişiminiz olan etkin bir Application Insights hesabı için izleme anahtarı bulunur.|  
 |**Kanallar**|string|Her ek, akış filtrelemesi için|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Bir havuz arasında geçen günlük veri akışları için filtreleri tanımlar.  
 
-|Öğe|Type|Açıklama|  
+|Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
 |**Kanal**|string|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Tanılama verileri göndermesini konumlarını tanımlar. Örneğin, Application Insights hizmeti.  
 
-|Öznitelikler|Type|Açıklama|  
+|Öznitelikler|Tür|Açıklama|  
 |----------------|----------|-----------------|  
 |**logLevel**|**dize**|Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
 |**Adı**|**dize**|Kanalın başvurmak için benzersiz bir ad|  

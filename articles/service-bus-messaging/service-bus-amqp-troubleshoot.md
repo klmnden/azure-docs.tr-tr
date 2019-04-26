@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58910053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402794"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Azure hizmet veri yolu AMQP hataları
 Bu makale Azure Service Bus ile AMQP kullanırken aldığınız hataları bazılarını sağlar. Tüm standart davranışlarını hizmet değildirler. Bağlantı/bağlantı/otomatik olarak yeniden oluşturur, bağlantıyı, gönderme ve alma çağrıları yaparak bunları önleyebilirsiniz.

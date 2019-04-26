@@ -3,21 +3,22 @@ title: Azure Data Factory kullanarak verileri artımlı olarak kopyalama | Micro
 description: Bu öğreticiler verilerin, kaynak veri deposundan hedef veri deposuna nasıl artımlı olarak kopyalanacağını gösterir. İlki bir tablodan veri kopyalar.
 services: data-factory
 documentationcenter: ''
-author: dearandyxu
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: yexu
+origin.date: 01/22/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335989"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Bir kaynak veri deposundan hedef veri deposuna artımlı olarak veri yükleme
 

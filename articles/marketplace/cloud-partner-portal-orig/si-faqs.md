@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362382"
 ---
 <a name="seller-insights-faq"></a>Satıcı Insights SSS
 ===================
@@ -36,7 +36,7 @@ Bu makalede, yaygın kullanıcı yordamlar ve satıcı Insights hakkında sorula
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>İşlem için ödeme yapmıştım Müşteri ayrıntıları bakın
 -------------------------------------------------------------
 
-Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **ödeme durumu**ve yalnızca "Ücretli aşımı" değeri görüntülemek için filtre uygulayın Müşteri ayrıntıları içeren aşağıdaki sütunlar görüntülenir: **şirket adı**, **müşteri e-posta**, **Müşteri Ülke**, **Müşteridurumu**, ve **müşterinin posta kodunu**.
+Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **ödeme durumu**ve yalnızca "Ücretli aşımı" değeri görüntülemek için filtre uygulayın Müşteri ayrıntıları içeren aşağıdaki sütunlar görüntülenir: **Şirket adı**, **müşteri e-posta**, **Müşteri Ülke**, **Müşteri durumu**, ve **müşterinin posta kodunu**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>My Aç hesapları Hesapla
@@ -48,7 +48,7 @@ Bu makalede, yaygın kullanıcı yordamlar ve satıcı Insights hakkında sorula
 <a name="calculate-revenue-by-customer-usage-period"></a>Müşteri kullanım döneme göre gelir hesaplayın
 ------------------------------------------
 
-Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **işlem durumu**ve filtre "Ücretli" değeri.   Listelenen her işlem için etiketli sütun **ödeme tutarı (PC)** ödediğiniz tutar temsil eder.  Sütun işlemle ilişkili kullanım dönemi tahmin etmek için kullanmak **ödeme tarihi**, kullanım işlem geçerli olduğu dönemin son günü Kapat bir yaklaşığını olduğu.
+Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **işlem durumu**ve filtre "Ücretli" değeri.   Listelenen her işlem için etiketli sütun **ödeme tutarı (PC)** ödediğiniz tutar temsil eder.  Sütun işlemle ilişkili kullanım dönemi tahmin etmek için kullanmak **ödeme tarihi**, kullanım işlem geçerli olduğu dönemin son günü Kapat bir yaklaşığını olduğu.
 
 
 <a name="calculate-your-bad-debt"></a>Hatalı borç hesaplayın

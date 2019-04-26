@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
 ms.openlocfilehash: 2e580a94e568f201587c06efa827006386cd6bd9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327689"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Oluşturma ve Azure'a OpenBSD disk görüntü yükleme
 Bu makalede oluşturma ve sanal sabit OpenBSD işletim sistemi içeren bir disk (VHD) yükleme gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure CLI ile azure'daki bir sanal makine (VM) oluşturmak için kullanabilirsiniz.

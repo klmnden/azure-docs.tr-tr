@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367991"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
 Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır ve tahmini performans SKU ve ağ geçidi türleri, SKU'ları hakkında bilgiler içerir.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388684"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
@@ -35,7 +35,7 @@ Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Linux N seris
 
 Bu uzantı şu OSs destekler:
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 |---|---|
 | Windows 10 (en fazla sürüm 1803)| Çekirdek |
 | Windows Server 2016 | Çekirdek |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370381"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
 
@@ -72,7 +72,7 @@ Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Do
 |---| --- |
 |Reservationıd |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Miktar |2|
-|Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
+|Product| SQL veritabanı 4. nesil (2 Çekirdek)|
 |Bölge | eastus |
 
 ### <a name="statement-section-of-csv-file"></a>CSV dosyasının deyimi bölümü

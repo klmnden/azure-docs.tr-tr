@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359237"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -207,7 +207,7 @@ MFA NPS uzantısı kullanarak bir RADIUS istemcisi için etkinleştirdikten sonr
 
 MFA için kayıtlı olmayan kullanıcılar varsa, kimlik doğrulaması çalıştıklarında ne belirleyebilirsiniz. Kayıt defteri ayarını kullanın *REQUIRE_USER_MATCH* kayıt defteri yolunda *HKLM\Software\Microsoft\AzureMFA* özellik davranışını denetlemek için. Bu ayar bir yapılandırma seçeneği vardır:
 
-| Anahtar | Value | Varsayılan |
+| Anahtar | Değer | Varsayılan |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | (TRUE eşdeğer) ayarlanmadı |
 

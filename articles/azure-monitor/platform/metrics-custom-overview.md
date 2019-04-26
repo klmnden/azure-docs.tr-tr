@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254072"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure İzleyici'de özel ölçümler
 
@@ -29,7 +29,7 @@ Bunlar **özel** ölçümleri uygulama telemetrinizi, Azure kaynaklarınızı ve
 
 Azure İzleyici, her veri noktasının veya değeri bildirilen özel ölçümler gönderdiğinizde, aşağıdaki bilgileri içermelidir.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 Azure İzleyici için özel ölçümleri göndermek için geçerli bir Azure Active Directory (Azure AD) belirtecinde ölçüm gönderen varlık gerekiyor **taşıyıcı** isteği üstbilgisi. Geçerli bir taşıyıcı belirteç almak için desteklenen birkaç yolu vardır:
 1. [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Bir Azure kaynağının, bir VM gibi bir kimlik sağlar. Yönetilen hizmet kimliği (MSI), kaynakları belirli işlemleri gerçekleştirmek için izin vermek için tasarlanmıştır. Örneği, kendisi hakkında ölçümler yaymak bir kaynak izin verir. Bir kaynak veya kendi MSI verilebilir **izleme ölçümleri yayımcı** izinlerini başka bir kaynak. Bu izne sahip ölçümleri de diğer kaynaklar için MSI gönderebilir.
 2. [Azure AD hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Bu senaryo, bir Azure AD uygulaması veya hizmeti, bir Azure kaynağı ile ilgili ölçümleri yaymak için izinler atanabilir.
@@ -38,7 +38,7 @@ Azure İzleyici için özel ölçümleri göndermek için geçerli bir Azure Act
 > [!NOTE]  
 > Özel ölçümler yaymak için bir Azure AD belirteç isterken kitle veya kaynak için istenen belirteç olmasına https://monitoring.azure.com/. Sondaki eklediğinizden emin olun '/'.
 
-### <a name="subject"></a>Özne
+### <a name="subject"></a>Subject
 Bu özellik, özel bir ölçü için bildirilen hangi Azure kaynak Kimliğini yakalar. Bu bilgiler yapılan API çağrısı URL'de kodlamalı. Her API, yalnızca tek bir Azure kaynak için ölçüm değerleri gönderebilirsiniz.
 
 > [!NOTE]  

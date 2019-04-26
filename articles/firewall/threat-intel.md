@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194062"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure güvenlik duvarı tehdit zekası tabanlı filtreleme - genel Önizleme
 
-Tehdit zekası tabanlı filtreleme, uyarı ve kötü amaçlı IP adresleri ve etki alanları / bilinen trafiği reddetmek için güvenlik duvarını için etkinleştirilebilir. Akış Microsoft tehdit Zekasından etki alanları ve IP adreslerini elde edilir. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft tehdit bilgileri güçlendirir ve Azure Güvenlik Merkezi de dahil olmak üzere birden çok hizmet tarafından kullanılır.
+Güvenlik duvarınız için tehdit bilgileri tabanlı filtrelemeyi etkinleştirerek, kötü amaçlı olduğu bilinen IP adresleri ve etki alanları ile trafik yaşanması durumunda uyarı alabilir ve trafiği reddedebilirsiniz. IP adresleri ve etki alanları, Microsoft Tehdit Bilgileri akışından alınır. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft tehdit bilgileri güçlendirir ve Azure Güvenlik Merkezi de dahil olmak üzere birden çok hizmet tarafından kullanılır.
 
 ![Güvenlik Duvarı tehdit bilgileri](media/threat-intel/firewall-threat.png)
 

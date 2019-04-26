@@ -1,6 +1,6 @@
 ---
-title: Azure bölüm UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Common.Section kullanıcı Arabirimi öğesi açıklar.
+title: Azure bölümde kullanıcı Arabirimi öğesi | Microsoft Docs
+description: Azure portalına yönelik Microsoft.Common.Section UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90ffae3dd8b05041c34d766e464eb68f793f6066
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251904"
 ---
-# <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI öğesi
-Bir veya daha fazla öğe bir başlık altında grupları denetim.
+# <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section kullanıcı Arabirimi öğesi
+Başlık altında bir veya daha fazla öğe gruplandırır bir denetimdir.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
 ## <a name="schema"></a>Şema
@@ -49,18 +49,18 @@ Bir veya daha fazla öğe bir başlık altında grupları denetim.
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `elements` en az bir öğe olmalı ve dışında tüm öğesi türlerine sahip `Microsoft.Common.Section`.
+- `elements` en az bir elemana sahip olmalı ve hariç tüm öğe türleri olabilir `Microsoft.Common.Section`.
 - Bu öğe desteklemiyor `toolTip` özelliği.
 
 ## <a name="sample-output"></a>Örnek çıktı
-' Ndaki öğelerin çıkış değerlerine erişmek için `elements`, kullanın [basics()](create-uidefinition-functions.md#basics) veya [steps()](create-uidefinition-functions.md#steps) işlevler ve noktalı gösterim:
+İçindeki öğe çıkış değerlere erişmek için `elements`, kullanın [basics()](create-uidefinition-functions.md#basics) veya [steps()](create-uidefinition-functions.md#steps) işlevleri ve nokta gösterimi:
 
 ```json
 steps('configuration').section1.text1
 ```
 
-Türündeki öğeler `Microsoft.Common.Section` hiçbir çıktı değerlere sahip.
+Türünde öğeler `Microsoft.Common.Section` hiçbir çıktı değerlere sahip.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

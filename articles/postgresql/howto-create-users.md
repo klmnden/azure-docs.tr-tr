@@ -1,17 +1,19 @@
 ---
 title: Kullanıcılar, PostgreSQL sunucusu için Azure veritabanı'nda oluşturma
 description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı ile etkileşim kurmak için yeni kullanıcı hesaplarını nasıl oluşturacağınızı açıklar.
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/16/2018
+origin.date: 10/16/2018
+ms.date: 12/03/2018
 ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422279"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Kullanıcılar, PostgreSQL sunucusu için Azure veritabanı'nda oluşturma 
 Bu makalede, PostgreSQL sunucusu için Azure veritabanı kullanıcıları nasıl oluşturabileceğiniz açıklanır.
@@ -72,7 +74,7 @@ Sunucu Yöneticisi kullanıcı hesabı, ek kullanıcılar oluşturma ve bu kulla
 5. Yeni kullanıcı adı ve parola kullanarak belirli bir veritabanı belirtme sunucunuz için oturum açın. Bu örnek psql komut satırını gösterir. Bu komutla birlikte, kullanıcı adı için parola istenir. Kendi sunucu adı, veritabanı adı ve kullanıcı adını değiştirin.
 
    ```azurecli-interactive
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

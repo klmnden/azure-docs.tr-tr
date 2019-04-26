@@ -16,11 +16,11 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Öğretici: Kronos ile Azure Active Directory Tümleştirme
 
@@ -113,15 +113,15 @@ Azure AD çoklu oturum açma ile Kronos yapılandırmak için aşağıdaki adım
 
 5. Kronos uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     a. Tıklayın **düzenleme simgesi** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![görüntü](./media/kronos-tutorial/tutorial_usermail.png)
+    ![image](./media/kronos-tutorial/tutorial_usermail.png)
 
-    ![görüntü](./media/kronos-tutorial/tutorial_usermailedit.png)
+    ![image](./media/kronos-tutorial/tutorial_usermailedit.png)
 
     b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()**.
 

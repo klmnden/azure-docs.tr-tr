@@ -12,11 +12,11 @@ ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ba6c0c8627ce1e46f36f7a85a9e92d85236b7ee6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408963"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Hızlı Başlangıç: Görüntü işleme REST API'si ve Java kullanarak uzak bir resmi çözümleme
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359033"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -39,7 +39,7 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız içindeki kullanıcı
   * Exchange yöneticisi
   * Skype Kurumsal yöneticisi
   * Kullanıcı yöneticisi
-  * Dizin yazıcılar
+  * Dizin yazıcıları
   * Genel yönetici veya şirket Yöneticisi
   * SharePoint yöneticisi
   * Uyumluluk yöneticisi
@@ -50,7 +50,7 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız içindeki kullanıcı
   * Uygulama Ara sunucusu Hizmet Yöneticisi
   * Dynamics 365 yöneticisi
   * Power BI Hizmet Yöneticisi
-  * Kimlik doğrulama Yöneticisi
+  * Kimlik doğrulaması yöneticisi
   * Ayrıcalıklı kimlik yöneticisi
 
 * 30 günlük bir deneme aboneliği geçtiyse; veya
