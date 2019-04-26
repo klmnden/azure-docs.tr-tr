@@ -27,10 +27,10 @@ Her API Management hizmet örneği adlı hizmet örneği için genel kabul edile
 
 | Öznitelik | Type | Açıklama |
 | --- | --- | --- |
-| Görünen ad |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
-| Değer |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
-|Gizli dizi|boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
-| Etiketler |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
+| `Display name` |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
+| `Value` |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
+| `Secret` |boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
+| `Tags` |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
 
 ![Adlandırılmış değerler](./media/api-management-howto-properties/named-values.png)
 
