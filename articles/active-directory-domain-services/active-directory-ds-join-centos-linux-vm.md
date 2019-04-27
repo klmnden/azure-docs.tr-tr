@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 6d78e310ffd5b473c3d7e44b4edbf9caaff7655f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417376"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux sanal makinesi için yönetilen etki alanına Katıl
 Bu makalede Azure'da CentOS Linux sanal makinesi için bir Azure AD Domain Services yönetilen etki alanı nasıl gösterir.
