@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787504"
 ---
 # <a name="understand-autoscale-settings"></a>Otomatik Ölçeklendirme ayarlarını anlama
 Otomatik ölçeklendirme ayarları, uygulamanızın dalgalı yükü işlemek için çalışan kaynakları doğru miktarda sahip olduğunuzdan emin olun yardımcı olur. Yük veya performans ölçümleri temelinde veya Tetiklenmiş bir zamanlanan tarih ve saatte tetiklenmesi için otomatik ölçeklendirme ayarlarını yapılandırabilirsiniz. Bu makalede, bir otomatik ölçeklendirme ayarı anatomisi ayrıntılı bilgi alır. Makale bir ayarın özelliklerini ve şema ile başlar ve yapılandırılabilir farklı profil türleri aracılığıyla size yol gösterir. Son olarak, bu makalede, azure'da otomatik ölçeklendirme özelliği belirli bir zamanda yürütmek için hangi profilin nasıl değerlendirir ele alınmaktadır.
@@ -110,7 +110,7 @@ Otomatik ölçeklendirme ayarı şema göstermek için aşağıdaki otomatik öl
 | metricTrigger | timeAggregation | Örneklenen ölçümleri toplamak için kullanılan toplama yöntemidir. Örneğin, **TimeAggregation = "Ortalama"** örneklenen ölçümlerin ortalamasını alarak toplamak. Önceki örnekte, on 1 dakikalık örnekleri almak ve bunları ortalama. |
 | kural | scaleAction | Kuralın metricTrigger tetiklendiğinde gerçekleştirilecek eylem. |
 | scaleAction | yön | "Ölçeği ya da"Azaltmak"için ölçek artırma".|
-| scaleAction | değer | Artırmak veya kaynak kapasitesinin azaltmak için ne kadar. |
+| scaleAction | value | Artırmak veya kaynak kapasitesinin azaltmak için ne kadar. |
 | scaleAction | dakikaysa | Sonra bir ölçeklendirme işlemi yeniden ölçeklendirmeden önce beklenecek süre miktarı. Örneğin, varsa **dakikaysa "PT10M" =**, başka bir 10 dakika için yeniden ölçeklendirmek otomatik ölçeklendirme denemez. Dakikaysa eklenmesi veya kaldırılmasını örnekleri sonra ölçümlerin sağlamaktır. |
 
 ## <a name="autoscale-profiles"></a>Otomatik ölçeklendirme profilleri
@@ -217,7 +217,7 @@ Otomatik ölçeklendirme profilleri üç tür vardır:
 
     Örneğin, önceki ayarında, 12: 00'da Pazartesi günü başlatmak için "weekdayProfile" ayarlanır. Bu profil, Pazartesi günü 12: 00'da çalışan başlar anlamına gelir. 12:00 "weekendProfile" çalıştırmaya başlamak için ne zaman zamanlanmış'da, Cumartesi kadar devam eder.
 
-    **Örnek 2: İş saatleri**
+    **Örnek 2: iş saatleri**
     
     Bir ölçüm eşiği çalışma saatleri (09:00:00 ila 5:00) ve diğer tüm saatler için farklı bir sahip olmasını istediğiniz varsayalım. Ayarı şöyle görünür:
     
@@ -310,4 +310,3 @@ Aşağıdaki başvurarak otomatik ölçeklendirme hakkında daha fazla bilgi edi
 * [Azure İzleyici otomatik ölçeklendirme için en iyi yöntemler](../../azure-monitor/platform/autoscale-best-practices.md)
 * [E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Otomatik ölçeklendirme REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-

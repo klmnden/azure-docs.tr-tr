@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777823"
 ---
 # <a name="alerts-on-activity-log"></a>Etkinlik günlüğü uyarıları 
 
@@ -65,5 +65,4 @@ Eylem grupları hakkında daha fazla bilgi için bkz: [oluştur ve Eylem gruplar
 - Hakkında bilgi edinin [etkinlik günlüğü uyarıları oluşturup](../../azure-monitor/platform/alerts-activity-log.md).
 - Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](activity-log-alerts-webhook.md).
 - Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../azure-monitor/platform/service-notifications.md).
-
 

@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780906"
 ---
 # <a name="what-is-microsoft-genomics"></a>Microsoft Genomiks nedir?
 Microsoft Genomics Genom analizi araç setini (GATK) ikinci analiz için Burrows-Wheeler Aligner (BWA) ve bulut uygulaması sunar. Hizmet, ISO sertifikalı ve HIPAA düzenlemeleriyle uyumlu ve fiyat öngörülebilirliği genom sıralamasını gereksinimlerinize sunar. Microsoft Genomics hizmeti kullanmak ve müşterilerimize hızlı başlangıçlar, öğreticiler ve belgeler okuyarak API'mizi ile tümleştirme hakkında bilgi edinin.

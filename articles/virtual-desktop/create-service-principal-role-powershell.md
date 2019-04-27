@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870481"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamalarını oluşturma
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
 
 Hizmet sorumluları belirli bir amaç için rolleri ve izinleri atamak için Azure Active Directory oluşturabileceğiniz Kimlikleridir. Windows sanal masaüstü Önizleme'de, bir hizmet sorumlusunu oluşturabilirsiniz:
 

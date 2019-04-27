@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812787"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Öncesinde veya sırasında tahmin utterance verileri değiştirme
 LUIS, öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. Bunlar, yazım ve saat dilimi prebuild datetimeV2 sorumlarını çözme içerir. 

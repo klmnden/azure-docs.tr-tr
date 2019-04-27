@@ -8,11 +8,11 @@ ms.author: viviali
 ms.date: 02/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60886817"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI panosunda, Azure IOT Central verilerini Görselleştirme ve çözümleme
 
@@ -63,7 +63,7 @@ Azure işlev uygulaması, her seferinde yeni bir dosya, BLOB depolamaya yazılı
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory, bağlı hizmet olarak SQL veritabanına bağlanır. Bu verileri işlemek ve analiz tablolarda depolama saklı yordam etkinlikleri çalıştırır.
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 Bu tablolar varsayılan raporları doldurmak için otomatik olarak oluşturulur. Power bı'da bu şemaları keşfedin ve bu verileri kendi Görselleştirmelerini de oluşturabilirler.
 
 | Tablo adı |

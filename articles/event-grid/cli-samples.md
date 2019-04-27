@@ -11,11 +11,11 @@ ms.tgt_pltfrm: na
 ms.date: 08/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 253086cd655bba87b015fbe41282f6610ace4518
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826229"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Event Grid için Azure CLI örnekleri
 

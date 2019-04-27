@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
-ms.author: victorh
+origin.date: 02/14/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832054"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway özel hata sayfaları oluşturma
 
@@ -34,7 +35,6 @@ Daha sonra bir hata arka uç sunuculardan kaynaklanıyorsa, çağırana değişt
 - **Her ikisi de** -dinleyici düzeyinde tanımlanan özel hata sayfası ayarlanan genel düzeyde geçersiz kılar.
 
 Özel hata sayfası oluşturmak için şunlara sahip olmalısınız:
-
 - HTTP yanıtı durum kodu.
 - hata sayfası için karşılık gelen konum. 
 - Genel olarak erişilebilen Azure depolama blobu konumu için.
@@ -48,10 +48,10 @@ Bir hata sayfası belirttikten sonra uygulama ağ geçidi depolama blob konumdan
 
 1. Portalda uygulama ağ geçidine gidin ve bir uygulama ağ geçidi seçin.
 
-    ![AG genel bakış](media/custom-error/ag-overview.png)
+    ![AG genel bakış](./media/custom-error/ag-overview.png)
 2. Tıklayın **dinleyicileri** ve bir hata sayfası belirtmek istediğiniz belirli bir dinleyici gidin.
 
-    ![Uygulama ağ geçidi dinleyicileri](media/custom-error/ag-listener.png)
+    ![Uygulama ağ geçidi dinleyicileri](./media/custom-error/ag-listener.png)
 3. Bir 403 WAF hatası için bir özel hata sayfası veya 502 Bakım Sayfası dinleyici düzeyinde yapılandırın.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Bir hata sayfası belirttikten sonra uygulama ağ geçidi depolama blob konumdan
 
 4. Belirtilen hata durum kodu Genel olarak erişilebilir blob URL'sini belirtin ve tıklayın **Kaydet**. Application Gateway, özel hata sayfası ile yapılandırılmıştır.
 
-   ![Uygulama ağ geçidi hata kodları](media/custom-error/ag-error-codes.png)
+   ![Uygulama ağ geçidi hata kodları](./media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell yapılandırması
 
@@ -76,3 +76,5 @@ Daha fazla bilgi için [Ekle AzApplicationGatewayCustomError](https://docs.micro
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Application Gateway Tanılama hakkında daha fazla bilgi için bkz. [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md).
+
+<!-- Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744557"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Azure tabanlı sanal makinenize bağlanın
 
@@ -29,7 +29,7 @@ Bu makalede, bağlanma ve Azure üzerinde oluşturulan sanal makinelerin (VM'ler
 
 Azure üzerinde barındırılan Windows tabanlı sanal makineye bağlanmak için Uzak Masaüstü İstemcisi kullanır.  Çoğu Windows sürümleri, yerel olarak Uzak Masaüstü Protokolü (RDP) için destek içerir.  Diğer makineler için istemcileri hakkında daha fazla bilgi bulabilirsiniz [Uzak Masaüstü istemcilerini](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-VM'nize bağlanmak için yerleşik Windows RDP desteği kullanmayı makalesinin ayrıntıları: [bağlanma ve bir Azure Windows çalıştıran sanal makine için oturum açma nasıl](../../../virtual-machines/windows/connect-logon.md).  
+Aşağıdaki makalede VM'nize bağlanmak için yerleşik Windows RDP desteği kullanmayı ayrıntıları: [Bağlanma ve bir Azure Windows çalıştıran sanal makine için oturum açma nasıl](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Güvenlik Uyarıları işlemi sırasında örneğin .rdp dosyasının bilinmeyen bir yayımcıdan olduğunu veya kullanıcı kimlik bilgilerinizi doğrulanamıyor karşılaşabilirsiniz.  Bu uyarıların yoksayılabilir.

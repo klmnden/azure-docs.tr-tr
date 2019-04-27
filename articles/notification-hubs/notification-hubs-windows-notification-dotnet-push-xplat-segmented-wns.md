@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
 ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60872411"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Öğretici: Evrensel Windows platformu uygulamaları çalıştıran belirli Windows cihazlara anında iletme bildirimleri gönderme
 

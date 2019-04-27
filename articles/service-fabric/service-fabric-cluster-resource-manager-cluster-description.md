@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7cd4a54a62d7304587c55338f088c504e40a74af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744337"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında küme kaynak yöneticisi, kümede çalışan hizmetler yüksek kullanılabilirliğini sağlamak için bu bilgileri kullanır. Önemli kurallar zorlarken, ayrıca küme içindeki kaynak tüketimini iyileştirmek çalışır.
@@ -229,7 +229,7 @@ Geri dördüncü düzenini ve beş TargetReplicaSetSize aranıyor. N1 kümeden k
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |YOK |YOK |YOK |YOK |YOK |YOK |
+| **UD0** |Yok |Yok |Yok |Yok |Yok |Yok |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -365,7 +365,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 1) belirli ifadeler oluşturmak için koşullu denetimler
 
-| Deyim | Sözdizimi |
+| Bildirim | Sözdizimi |
 | --- |:---:|
 | "equal" | "==" |
 | "eşit değildir" | "!=" |
@@ -376,7 +376,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 2) gruplandırma ve mantıksal işlemler için Boolean ifadeleri
 
-| Deyim | Sözdizimi |
+| Bildirim | Sözdizimi |
 | --- |:---:|
 | "ve" | "&&" |
 | "veya" | "&#124;&#124;" |

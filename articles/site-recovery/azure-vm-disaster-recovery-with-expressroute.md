@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772424"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -106,10 +106,10 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 
 **Yön** | **Ayar** | **State**
 --- | --- | ---
-Uçtan merkeze | Sanal ağ adresi izin ver | Etkin
-Uçtan merkeze | Yönlendirilen trafiğe izin ver | Etkin
+Uçtan merkeze | Sanal ağ adresi izin ver | Enabled
+Uçtan merkeze | Yönlendirilen trafiğe izin ver | Enabled
 Uçtan merkeze | Ağ geçidi aktarımına izin ver | Devre dışı
-Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
+Uçtan merkeze | Remove-ağ geçitlerini kullan | Enabled
 
  ![Hub için eşleme yapılandırma uç](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
 
 **Yön** | **Ayar** | **State**
 --- | --- | ---
-Merkezden uca | Sanal ağ adresi izin ver | Etkin
-Merkezden uca | Yönlendirilen trafiğe izin ver | Etkin
-Merkezden uca | Ağ geçidi aktarımına izin ver | Etkin
+Merkezden uca | Sanal ağ adresi izin ver | Enabled
+Merkezden uca | Yönlendirilen trafiğe izin ver | Enabled
+Merkezden uca | Ağ geçidi aktarımına izin ver | Enabled
 Merkezden uca | Remove-ağ geçitlerini kullan | Devre dışı
 
  ![Hub'ı uç eşleme yapılandırması](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60836918"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Alın ve birim kaynakları silin.
@@ -28,8 +28,8 @@ Alın ve birim kaynakları silin.
 
 |Komut|Açıklama|
 | --- | --- |
-| sil | Birim kaynağına siler. |
-| liste | Tüm birim kaynakları listeler. |
+| delete | Birim kaynağına siler. |
+| list | Tüm birim kaynakları listeler. |
 | göster | Belirtilen ada sahip birim kaynağı alır. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl kafes toplu silme

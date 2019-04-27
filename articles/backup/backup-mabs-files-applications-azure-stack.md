@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
 ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848805"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack'te dosyaları yedekleme
 Azure Backup, korumak (veya yedeklemek için) kullanabilirsiniz dosyaları ve Azure Stack'te uygulamaları. Dosya ve uygulamaları yedeklemek için Azure Stack üzerinde çalışan bir sanal makine olarak Microsoft Azure Backup sunucusu yükleyin. Aynı sanal ağdaki herhangi bir Azure Stack sunucuda dosyaları koruyabilirsiniz. Azure Backup sunucusu yükledikten sonra kısa vadeli yedekleme verileri için kullanılabilir yerel depolama alanını artırmak için Azure disk ekleyin. Azure Backup sunucusu, uzun süreli saklama için Azure depolama kullanır.

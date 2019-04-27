@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 8eab941f9589e84d7193cc32f91d080d7cda7c08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803296"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Bing varlık arama API'sine arama istekleri gönderme
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60881495"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Bir Service Fabric kapsayıcı hizmeti için günlükleri görüntüleyin
 Azure Service Fabric kapsayıcı Düzenleyicisi ve her ikisi de destekler [Linux ve Windows kapsayıcıları](service-fabric-containers-overview.md).  Bu makalede, böylece tanılayın ve sorunlarını giderme ölü kapsayıcı ya da çalışan bir kapsayıcı hizmeti kapsayıcı günlüklerini görüntülemeyi açıklar.

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 51bec37f6b052d51d6cc8f5a8667789bec9e6881
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235974"
 documentType: LandingData
 title: 'Azure SQL Veritabanı: İzleme ve ayarlama'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: İzleme ve ayarlama, azure SQL veritabanı-
+  title: 'İzleme ve ayarlama, azure SQL veritabanı-'
   meta.description: Learn how to monitor and tune your Azure SQL database.
   services: sql-database
   ms.subservice: performance
@@ -17,47 +11,47 @@ metadata:
   manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/08/2019
   ms.author: jovanpop
 sections:
-- items:
-  - type: paragraph
-    text: Azure SQL veritabanı kolayca izleyin ve veritabanı yükünüzü ayarlama işlemleri sağlar.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: 'Azure SQL Veritabanı, veritabanı iş yükünüzü kolayca izlemenize ve ayarlamanıza olanak tanır.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Sorgu performansı öngörüleri
+            href: /azure/sql-database/sql-database-query-performance
+            html: <p>Azure portalında yerleşik izleme işlevlerini kullanarak kolayca (tek veya havuza veritabanı) Azure SQL veritabanı kaynak kullanımı izleyin.</p>
+          - title: Azure SQL Analytics
+            href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
+            html: '<p>Azure SQL Analytics izleme büyük veritabanları, elastik havuzlar ve tek bir bölme durumlarda cam filosundan kolayca izlemenize olanak sağlar.</p>'
+          - title: Otomatik ayarlama
+            href: /azure/sql-database/sql-database-automatic-tuning
+            html: <p>Otomatik ayarlama otomatik olarak önerir ve sorgu planı sorunları giderir ve oluşturur ve performansı artırmak için dizinler bırakır.</p>
+          - title: Akıllı performansı İçgörüleri
+            href: /azure/sql-database/sql-database-intelligent-insights
+            html: '<p>Azure SQL veritabanı''nın yerleşik zekası, veritabanlarınızda kötü performansa neden aksatıcı olayları algılar ve mümkün olduğunda Azaltıcı öneriler sağlar.</p>'
+          - title: Performans önerileri
+            href: /azure/sql-database/sql-database-advisor
+            html: '<p>Azure SQL veritabanı, Azure portalında veritabanınızı yardımcı olabilecek öneriler en iyi duruma getirme sağlar.</p>'
+          - title: Ölçümler ve günlüğe kaydetme
+            href: /azure/sql-database/sql-database-metrics-diag-logging
+            html: '<p>Azure SQL Analytics, Azure Event Hubs veya Azure Blob Depolama için özel tümleştirmeler veritabanı tanılama telemetrinizi Stream.</p>'
+  - title: Diğer kaynaklar
     items:
-    - title: Sorgu performansı öngörüleri
-      href: /azure/sql-database/sql-database-query-performance
-      html: <p>Azure portalında yerleşik izleme işlevlerini kullanarak kolayca (tek veya havuza veritabanı) Azure SQL veritabanı kaynak kullanımı izleyin.</p>
-    - title: Azure SQL Analytics
-      href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
-      html: <p>Azure SQL Analytics izleme büyük veritabanları, elastik havuzlar ve tek bir bölme durumlarda cam filosundan kolayca izlemenize olanak sağlar.</p>
-    - title: Otomatik ayarlama
-      href: /azure/sql-database/sql-database-automatic-tuning
-      html: <p>Otomatik ayarlama otomatik olarak önerir ve sorgu planı sorunları giderir ve oluşturur ve performansı artırmak için dizinler bırakır.</p>
-    - title: Akıllı performansı İçgörüleri
-      href: /azure/sql-database/sql-database-intelligent-insights
-      html: <p>Azure SQL veritabanı'nın yerleşik zekası, veritabanlarınızda kötü performansa neden aksatıcı olayları algılar ve mümkün olduğunda Azaltıcı öneriler sağlar.</p>
-    - title: Performans önerileri
-      href: /azure/sql-database/sql-database-advisor
-      html: <p>Azure SQL veritabanı, Azure portalında veritabanınızı yardımcı olabilecek öneriler en iyi duruma getirme sağlar.</p>
-    - title: Ölçümler ve günlüğe kaydetme
-      href: /azure/sql-database/sql-database-metrics-diag-logging
-      html: <p>Azure SQL Analytics, Azure Event Hubs veya Azure Blob Depolama için özel tümleştirmeler veritabanı tanılama telemetrinizi Stream.</p>
-- title: Diğer kaynaklar
-  items:
-  - type: paragraph
-    text: Veritabanınızın performansını en iyi duruma yardımcı olabilecek ek özelliklerini öğrenin.
-  - type: list
-    style: unordered
-    items:
-    - html: Daha fazla bilgi edinin <a href="sql-database-monitor-tune-overview.md">izleme ve ayarlama</a> Azure SQL veritabanı'nda.
-    - html: Bilgi nasıl <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">akıllı sorgu işleme</a> veritabanınızın performansını iyileştirebilir.
-    - html: Ayarlama ve çalıştırma <a href="sql-database-operate-query-store.md">Query Store</a>, sorgu performansı gerçek zamanlı Öngörüler edinin olanak tanıyan SQL Server teknolojisini temel.
-    - html: Nasıl kullanacağınızı öğrenin <a href="sql-database-operate-query-store.md">dinamik yönetim görünümlerini</a> İş yükünüzün performansını analiz etmek için.
-    - html: Veritabanı etkinlikleri ile izleme hakkında bilgi edinin <a href="sql-database-xevent-db-diff-from-svr.md">Xevent'ler</a>.
-    - html: Bilgi edinmek için nasıl <a href="sql-database-performance-guidance.md">el ile veritabanınızı ayarlayın</a>.
+      - type: paragraph
+        text: Veritabanınızın performansını en iyi duruma yardımcı olabilecek ek özelliklerini öğrenin.
+      - type: list
+        style: unordered
+        items:
+          - html: Daha fazla bilgi edinin <a href="sql-database-monitor-tune-overview.md">izleme ve ayarlama</a> Azure SQL veritabanı'nda.
+          - html: 'Bilgi nasıl <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">akıllı sorgu işleme</a> veritabanınızın performansını iyileştirebilir.'
+          - html: 'Ayarlama ve çalıştırma <a href="sql-database-operate-query-store.md">Query Store</a>, sorgu performansı gerçek zamanlı Öngörüler edinin olanak tanıyan SQL Server teknolojisini temel.'
+          - html: Nasıl kullanacağınızı öğrenin <a href="sql-database-operate-query-store.md">dinamik yönetim görünümlerini</a> İş yükünüzün performansını analiz etmek için.
+          - html: Veritabanı etkinlikleri ile izleme hakkında bilgi edinin <a href="sql-database-xevent-db-diff-from-svr.md">Xevent'ler</a>.
+          - html: Bilgi edinmek için nasıl <a href="sql-database-performance-guidance.md">el ile veritabanınızı ayarlayın</a>.

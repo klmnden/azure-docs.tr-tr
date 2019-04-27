@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827910"
 ---
 # <a name="translator-speech-api-languages"></a>Translator konuşma tanıma API'si: Languages
 
@@ -132,13 +132,13 @@ Langagues {konuşma (object, isteğe bağlı), metin (object, isteğe bağlı), 
 
 ### <a name="headers"></a>Üst bilgiler
 
-|Üst bilgi|Açıklama|Type|
+|Üst bilgi|Açıklama|Tür|
 :--|:--|:--|
 X-RequestId|Değer, istek tanımlamak için sunucu tarafından oluşturulan ve sorun giderme amacıyla kullanılır.|string|
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Açıklama|Parametre Türü|Veri Türü|
 |:--|:--|:--|:--|
 |API sürümü    |İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|sorgu|string|
 |scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Metni konuşmaya dönüştürme için desteklenen kişilerden daha fazlasını sunmaktadır.</li><li>`text`: Metin çevirme için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|sorgu|string|

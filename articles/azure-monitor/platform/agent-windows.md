@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777376"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
@@ -182,7 +182,7 @@ Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlana
 
 Aracı yüklemesi tamamlandıktan sonra bu doğrulama başarıyla bağlandı ve raporlama iki şekilde gerçekleştirilebilir.  
 
-Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft Monitoring Agent**.  Seçin ve **Azure Log Analytics** sekmesine Aracısı belirten bir ileti görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+Bilgisayarın **Denetim Masası** sayfasında **Microsoft Monitoring Agent**'ı bulun.  Bu girişi seçtiğinizde **Azure Log Analytics** sekmesinde aracının şu iletiyi görüntülemesi gerekir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Ayrıca, Azure portalında basit günlük sorgusu gerçekleştirebilirsiniz.  
 

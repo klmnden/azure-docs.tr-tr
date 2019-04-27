@@ -16,11 +16,11 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832508"
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
 Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](manage-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:

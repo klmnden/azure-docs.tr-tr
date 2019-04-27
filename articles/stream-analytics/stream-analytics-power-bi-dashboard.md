@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60818018"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Öğretici: Stream Analytics ve Power BI: Veri akışı için gerçek zamanlı analiz Panosu
 Azure Stream Analytics lider iş zekası araçları birini avantajlarından yararlanmanıza olanak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, şunların nasıl iş zekası araçları, Azure Stream Analytics işleri için çıkış olarak Power BI kullanarak oluşturun. Ayrıca nasıl gerçek zamanlı bir Pano oluşturup kullanacağınızı öğrenin.

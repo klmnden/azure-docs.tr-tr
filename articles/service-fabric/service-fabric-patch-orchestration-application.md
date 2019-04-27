@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773375"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -162,12 +162,12 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | string<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
 | WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
 | WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32.<br>Alanın değerlerini izin gg (gün) olan numaraları arasındaki aralığı 1-28 "son". <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
-| AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
 
 > [!TIP]
 > Windows Update, hemen gerçekleşmeye istiyorsanız ayarlayın `WUFrequency` göre uygulama dağıtım süresi. Örneğin, beş düğümlü test kümesi vardır ve uygulaması yaklaşık 5: 00'da dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım sırasında en fazla 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00" ayarlayın.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 90c4db4ac481f3853ca4e8256ce8fdb4c4ae9bd4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6766dc2b4d99d51e2832a054969697e4e330dd86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60785168"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Öğretici: Bir sanal makine ölçek kümesi oluşturma ve Azure PowerShell ile Windows üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
 Bir sanal makine ölçek kümesi, bir grup özdeş, otomatik ölçeklendirme sanal makinelerin dağıtmanıza ve yönetmenize olanak tanır. Ölçek el ile kümesindeki VM sayısını ölçeklendirebilirsiniz. Ayrıca, CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu öğreticide, azure'da bir sanal makine ölçek kümesini dağıtmak ve bilgi edinmek için nasıl:

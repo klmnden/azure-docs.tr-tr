@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870902"
 ---
 # <a name="service-state"></a>Hizmet durumu
 **Hizmet durumu** belleğe veya işlevi için bir hizmet gerektiren disk verileri ifade eder. Bu, örneğin, hizmet okur ve yazar çalışmak üye değişkenleri ve veri yapıları içerir. Hizmet nasıl geliştirilmiştir bağlı olarak dosyalara veya diske depolanmış diğer kaynaklara de içerebilir. Örneğin, dosyalar, bir veritabanı veri ve işlem günlüklerini depolamak için kullanırsınız.

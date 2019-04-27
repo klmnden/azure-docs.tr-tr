@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 01/12/2019
 ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824813"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 

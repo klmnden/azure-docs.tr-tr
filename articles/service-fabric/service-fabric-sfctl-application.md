@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837496"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
@@ -28,15 +28,15 @@ Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
 
 |Komut|Açıklama|
 | --- | --- |
-| oluştur | Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur. |
-| sil | Var olan bir Service Fabric uygulaması siler. |
+| oluşturmaya | Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur. |
+| delete | Var olan bir Service Fabric uygulaması siler. |
 | dağıtılan | Bir Service Fabric düğüm üzerinde dağıtılan bir uygulama hakkındaki bilgileri alır. |
 | dağıtılan-health | Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu hakkında bilgileri alır. |
 | dağıtılan listesi | Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. |
-| sistem durumu | Service fabric uygulaması durumunu alır. |
+| sağlık | Service fabric uygulaması durumunu alır. |
 | bilgi | Service Fabric uygulaması hakkındaki bilgileri alır. |
-| liste | Belirtilen filtrelerle eşleşen ve Service Fabric kümesinde oluşturulan uygulamaların listesini alır. |
-| yük | Service Fabric uygulaması hakkında bilgi alır yükleyin. |
+| list | Belirtilen filtrelerle eşleşen ve Service Fabric kümesinde oluşturulan uygulamaların listesini alır. |
+| yükleme | Service Fabric uygulaması hakkında bilgi alır yükleyin. |
 | Bildirimi | Bir uygulama türünü tanımlayan bir bildirim alır. |
 | sağlama | Hükümler veya kayıtları .sfpkg paket dış depoda veya görüntü deposundaki uygulama paketi kullanarak küme Service Fabric uygulaması yazın. |
 | durumu- | Service Fabric uygulama üzerinde bir sistem durumu raporu gönderir. |

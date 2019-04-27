@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736981"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için X-EC-Debug HTTP üstbilgileri
 Hata ayıklama önbellek istek üstbilgisi `X-EC-Debug`, istenen varlığa uygulanır önbellek İlkesi hakkında ek bilgi sağlar. Bu üst özgü **verizon'dan Azure CDN Premium** ürünleri.
@@ -68,11 +68,11 @@ X-EC-Debug üst bilgi önbelleği durum kodu bilgilerini aşağıdaki biçimde r
 - `X-EC-Debug: x-ec-cache-remote: <StatusCode from Platform (POP/ID)>`
 
 Yukarıdaki yanıt üst bilgisi sözdiziminde kullanılan terimler şu şekilde tanımlanır:
-- StatusCode: önbellek durum kodu ile temsil edilen CDN tarafından talep edilen içeriği nasıl işlendiğini gösterir.
+- StatusCode: İstenen içerik önbelleği durum kodu ile temsil edilen CDN tarafından nasıl işlendiğini gösterir.
     
     Belirteç tabanlı kimlik doğrulama nedeniyle yetkisiz bir istek reddedildiğinde TCP_DENIED durum kodu hiçbiri yerine bildirilebilir. Ancak, NONE durum kodu, önbellek durumu raporları ya da günlük ham verileri görüntülerken kullanılacak devam eder.
 
-- Platform: içeriği istendi platform gösterir. Aşağıdaki kodu, bu alan için geçerlidir:
+- Platform: İçerik istendi platform gösterir. Aşağıdaki kodu, bu alan için geçerlidir:
 
     Kod  | Platform
     ------| --------
@@ -106,7 +106,7 @@ Yukarıdaki yanıt üst bilgisi sözdiziminde kullanılacak terimi şu şekilde 
 Değer  | Açıklama
 -------| --------
 EVET    | Talep edilen içeriği önbelleğe almak için uygun olduğunu gösterir.
-HAYIR     | Talep edilen içeriği önbelleğe almak için uygun olduğunu gösterir. Bu durum aşağıdaki nedenlerden biri nedeniyle olabilir: <br /> -Müşteriye özgü yapılandırma: hesabınıza belirli bir yapılandırma için bir varlık olarak önbelleğe alınan pop sunucuları engelleyebilirsiniz. Örneğin, kural altyapısı, istekleri uygun için önbellek atlama özelliği etkinleştirerek önbelleğe alınmasını bir varlık engelleyebilirsiniz.<br /> -Cache yanıt üstbilgileri: Önbelleğe alınan POP sunucuları istenen varlığın Cache-Control veya Expires başlıklarına engelleyebilirsiniz.
+NO     | Talep edilen içeriği önbelleğe almak için uygun olduğunu gösterir. Bu durum aşağıdaki nedenlerden biri nedeniyle olabilir: <br /> -Müşteriye özgü yapılandırma: Hesabınıza belirli bir yapılandırma, bir varlık olarak önbelleğe alınan pop sunucuları engelleyebilirsiniz. Örneğin, kural altyapısı, istekleri uygun için önbellek atlama özelliği etkinleştirerek önbelleğe alınmasını bir varlık engelleyebilirsiniz.<br /> -Yanıt üst bilgilerini önbelleğe alır: İstenen varlığın Cache-Control veya Expires başlıklarına POP sunucuları, önbelleğe alınan engelleyebilirsiniz.
 BİLİNMİYOR | Sunucuları istenen varlık önbelleğe gerektirmediğine açamıyoruz gösterir. Bu durum, genellikle isteği nedeniyle belirteç tabanlı kimlik doğrulaması reddedildi oluşur.
 
 ### <a name="sample-response-header"></a>Örnek yanıt üst bilgisi
@@ -149,19 +149,19 @@ Yukarıdaki yanıt üst bilgisi sözdiziminde kullanılan terimler şu şekilde 
 
 - MASeconds: İstenen içeriğin Cache-Control üst bilgileri tarafından tanımlandığı şekilde, max-age (saniye cinsinden) belirtir.
 
-- MATimePeriod:, max-age değeri (diğer bir deyişle, MASeconds) daha büyük bir birimin yaklaşık denk dönüştürür (örneğin, gün cinsinden). 
+- MATimePeriod: Max-age değeri (diğer bir deyişle, MASeconds) daha büyük bir birim yaklaşık eşdeğerdir (örneğin, gün) dönüştürür. 
 
-- UnixTime: (diğer adıyla) UNIX sürede istenen içerik önbelleği zaman damgasını gösterir POSIX zaman ya da UNIX dönem). Bir varlığın TTL hesaplanır başlangıç tarih/saat önbellek zaman damgasını gösterir. 
+- UnixTime: İstenen içerik önbelleği zaman damgası (diğer adıyla) Unix saati gösterir POSIX zaman ya da UNIX dönem). Bir varlığın TTL hesaplanır başlangıç tarih/saat önbellek zaman damgasını gösterir. 
 
-    Kaynak sunucu, sunucu veya sunucu Age yanıtı üstbilgisi döndürmezse, önbelleğe alma bir üçüncü taraf HTTP kullanmaz, önbellek zaman damgası her zaman zaman varlık alınan yeniden doğrulanır veya tarih/saat olacaktır. Aksi takdirde, POP sunucuları yaş alanı varlığın TTL şu şekilde hesaplamak için kullanır: alma/RevalidateDateTime - yaş.
+    Kaynak sunucu, sunucu veya sunucu Age yanıtı üstbilgisi döndürmezse, önbelleğe alma bir üçüncü taraf HTTP kullanmaz, önbellek zaman damgası her zaman zaman varlık alınan yeniden doğrulanır veya tarih/saat olacaktır. Aksi takdirde, POP sunucuları varlığın TTL şu şekilde hesaplamak için yaş alanı'nı kullanır: Alma/RevalidateDateTime - yaş.
 
 - ddd, dd MMM yyyy ss: dd: GMT: İstenen içerik önbelleği zaman damgasını gösterir. Daha fazla bilgi için lütfen yukarıdaki UnixTime terimi bakın.
 
-- CASeconds: önbellek zaman damgası beri geçen saniye sayısını belirtir.
+- CASeconds: Önbellek zaman damgası beri geçen saniye sayısını belirtir.
 
-- RTSeconds: kendisi için önbelleğe alınmış içeriği yeni olarak kabul edilecek kalan saniye sayısını belirtir. Bu değer şu şekilde hesaplanır: RTSeconds max-age - = önbelleğe yaş.
+- RTSeconds: Kendisi için önbelleğe alınmış içeriği yeni olarak kabul edilecek kalan saniye sayısını belirtir. Bu değer şu şekilde hesaplanır: RTSeconds max-age - = önbelleğe yaş.
 
-- RTTimePeriod: kalan TTL değeri (diğer bir deyişle, RTSeconds) daha büyük bir birimin yaklaşık denk dönüştürür (örneğin, gün cinsinden).
+- RTTimePeriod: Kalan TTL değeri (diğer bir deyişle, RTSeconds) daha büyük bir birim yaklaşık eşdeğerdir (örneğin, gün) dönüştürür.
 
 - ExpiresSeconds: Belirtilen tarih/saat önce kalan saniye sayısını gösteren `Expires` yanıtı üstbilgisi. Varsa `Expires` yanıt üst bilgisi yanıta dahil ve bu terim değeri *hiçbiri*.
 

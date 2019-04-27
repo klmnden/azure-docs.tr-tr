@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
 ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771184"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).

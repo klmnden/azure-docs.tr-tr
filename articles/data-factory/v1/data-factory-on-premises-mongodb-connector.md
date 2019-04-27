@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824193"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB gelen veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +82,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölümü için veri kümesi türü **MongoDbCollection** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | collectionName |MongoDB veritabanındaki koleksiyonun adı. |Evet |
 
@@ -93,7 +93,7 @@ Bulunan özelliklerin **typeProperties** etkinlik bölümünü diğer yandan her
 
 Kaynak türü olduğunda **MongoDbSource** typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL 92 sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **collectionName** , **veri kümesi** belirtilir) |
 
@@ -295,16 +295,16 @@ Verileri, Mongodb'ye taşırken şu eşlemeler MongoDB türlerinden .NET türler
 
 | MongoDB türü | .NET framework türü |
 | --- | --- |
-| İkili |Bayt] |
-| Boole |Boole |
+| binary |Byte[] |
+| Boolean |Boolean |
 | Tarih |DateTime |
-| NumberDouble |çift |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Dize |
-| Dize |Dize |
+| ObjectID |String |
+| Dize |String |
 | UUID |Guid |
-| Nesne |Renormalized içine sütunları içeren iç içe geçmiş ayırıcı olarak "_" düzleştirme |
+| Object |Renormalized içine sütunları içeren iç içe geçmiş ayırıcı olarak "_" düzleştirme |
 
 > [!NOTE]
 > Sanal tablolar kullanarak dizileri için destek hakkında bilgi edinmek için başvurmak [sanal tabloları kullanarak karmaşık türler için destek](#support-for-complex-types-using-virtual-tables) bölümüne bakın.
@@ -324,14 +324,14 @@ Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activi
 ### <a name="example"></a>Örnek
 Örneğin, aşağıdaki "ExampleTable" nesneleri içeren bir dizi içeren bir sütun her hücre – faturaları ve skaler türler – derecelendirmeleri bir dizi içeren bir sütun içeren bir MongoDB tablodur.
 
-| _id | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
+| _id | Müşteri Adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", price: "456" indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", price: indirim "1235": "0.2"}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", price: "12543" indirim: "0.0"}] |Altın |[1,2] |
 
 Sürücü bu tek tabloda temsil etmek için birden çok sanal tablolar oluşturur. İlk sanal "aşağıda gösterilen ExampleTable" adlı temel tablo tablosudur. Temel tablo özgün tablonun tüm verileri içerir, ancak dizileri verilerden çıkarıldı ve sanal tablolarında genişletilir.
 
-| _id | Müşteri adı | Hizmet Düzeyi |
+| _id | Müşteri Adı | Hizmet Düzeyi |
 | --- | --- | --- |
 | 1111 |ABC |Gümüş |
 | 2222 |XYZ |Altın |

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885355"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Azure Data Lake Azure CLI kullanarak Store ile çalışmaya başlama
 
@@ -40,7 +40,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 
 * **Azure CLI** -bkz [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) yönergeler için.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Bu makalede, Data Lake depolama son kullanıcı olarak oturum burada Gen1 ile basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake depolama hesabı ve dosya sistemi sonra oturum açmış olan kullanıcının erişim düzeyi tarafından yönetilir Gen1 için erişim düzeyi. Ancak, diğer yaklaşımlar da Data Lake depolama Gen1 ile kimlik doğrulaması için olan vardır **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulaması**. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 

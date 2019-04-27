@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824023"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği'ni kullanarak DB2 verileri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -311,21 +311,21 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| real |Single |
 | Double |Double |
-| Kayan |Double |
+| Float |Double |
 | Ondalık |Decimal |
 | DecimalFloat |Decimal |
-| Sayısal |Decimal |
+| Numeric |Decimal |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
 | Zaman damgası |DateTime |
 | Xml |Byte[] |
-| Char |String |
+| char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
-| İkili |Byte[] |
+| binary |Byte[] |
 | VarBinary |Byte[] |
 | LONGVARBINARY |Byte[] |
 | Grafiği |String |
@@ -337,17 +337,17 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| real |Single |
 | Double |Double |
-| Kayan |Double |
+| Float |Double |
 | Ondalık |Decimal |
 | DecimalFloat |Decimal |
-| Sayısal |Decimal |
+| Numeric |Decimal |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
 | Zaman damgası |DateTime |
 | Xml |Byte[] |
-| Char |String |
+| char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemeyle ilgili bilgi edinmek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

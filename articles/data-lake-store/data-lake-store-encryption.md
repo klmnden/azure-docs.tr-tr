@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878451"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri şifreleme
 
@@ -74,7 +74,7 @@ Ana şifreleme anahtarları için modu seçtiğinizde aşağıdakileri unutmaman
 
 Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdaki tabloda bir özet verilmektedir:
 
-| Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Type       | Notlar                                                                                                   |
+| Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Tür       | Notlar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Ana Şifreleme Anahtarı | MEK          | Bir Data Lake depolama Gen1 hesabı | Key Vault                              | Asimetrik | Data Lake depolama Gen1 veya sizin tarafınızdan yönetilebilir.                                                              |
 | Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake depolama Gen1 hesabı | Data Lake depolama Gen1 hizmet tarafından yönetilen kalıcı depolama | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |

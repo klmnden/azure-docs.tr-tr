@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870885"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
-Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.
+Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilen bir Service Fabric uygulaması olarak paketlenir. Amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için Azure Dosyalar tabanlı birimler sağlamaktır.
 
 > [!NOTE]
 > Azure dosyaları toplu eklentisi 6.4.571.9590 sürümünü bu belgeyle kullanılabilir olan bir önizleme sürümüdür. Bir önizleme sürümü olduğu **değil** üretim ortamında kullanım için desteklenir.

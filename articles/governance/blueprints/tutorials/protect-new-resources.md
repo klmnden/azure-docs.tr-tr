@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874538"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Yeni kaynaklar Azure Blueprint kaynak kilitleri ile koruma
 
@@ -152,7 +152,7 @@ Bir kez **yayımlama başarılı tanımı blueprint** portal bildirimi görünü
      |Yapıt adı|Yapıt türü|Parametre adı|Değer|Açıklama|
      |-|-|-|-|-|
      |RGtoLock kaynak grubu|Kaynak grubu|Ad|TestingBPLocks|Blueprint kilitleri uygulamak için yeni kaynak grubunun adını tanımlar.|
-     |RGtoLock kaynak grubu|Kaynak grubu|Konum|Batı ABD 2|Blueprint kilitleri uygulamak için yeni kaynak grubunun konumunu tanımlar.|
+     |RGtoLock kaynak grubu|Kaynak grubu|Location|Batı ABD 2|Blueprint kilitleri uygulamak için yeni kaynak grubunun konumunu tanımlar.|
      |StorageAccount|Resource Manager şablonu|storageAccountType (depolama hesabı)|Standard_GRS|Depolama SKU'SU'ı seçin. Varsayılan değer _Standard_LRS_.|
 
 1. Tüm parametreler girildikten sonra seçin **atama** sayfanın alt kısmındaki.

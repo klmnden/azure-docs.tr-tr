@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829727"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Adlandırılmış varlık tanıma metin analizi kullanma
 
@@ -39,7 +39,7 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Adlandırılmış varlık tanıma için desteklenen türler:
 
-| Type  | SubType | Örnek |
+| Tür  | SubType | Örnek |
 |:-----------   |:------------- |:---------|
 | Kişi        | YOK\*         | "Jeff", "Bill Gates'le"     |
 | Location      | YOK\*         | "Redmond, Washington", "Paris"  |

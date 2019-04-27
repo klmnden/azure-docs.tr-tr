@@ -3,19 +3,20 @@ title: Küfür filtresini - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Translator metin çevirisi API'si filtreleme küfür kullanın.
 services: cognitive-services
-author: v-pawal
+author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
+origin.date: 02/21/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880039"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Translator metin çevirisi API'si ile filtreleme küfür Ekle
 
@@ -35,3 +36,4 @@ Translate() yöntemi yeni bir öğe "ProfanityAction" içerir "options" parametr
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Translator API çağrınızı filtreleme küfür Uygula](reference/v3-0-translate.md)
+

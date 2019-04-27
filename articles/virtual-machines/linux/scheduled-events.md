@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799257"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -74,7 +74,7 @@ Bir sanal ağdaki bulut Hizmetleri ve klasik VM'ler, varsayılan durumlarda VM o
 ### <a name="version-and-region-availability"></a>Sürümü ve bölge kullanılabilirliği
 Zamanlanmış olaylar olarak tutulan hizmetidir. Sürümleri zorunludur; geçerli sürümü `2017-11-01`.
 
-| Sürüm | Yayın türü | Bölgeler | Sürüm Notları | 
+| Version | Yayın türü | Bölgeler | Sürüm Notları | 
 | - | - | - | - | 
 | 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 

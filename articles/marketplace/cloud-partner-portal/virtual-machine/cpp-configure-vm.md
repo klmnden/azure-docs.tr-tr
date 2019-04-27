@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744355"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure'da barındırılan VM yapılandırma
 
@@ -77,7 +77,7 @@ Sysprep çalıştırma hakkında daha fazla bilgi için bkz. [VHD genelleştirme
 
 ### <a name="linux"></a>Linux
 
-İki aşamalı işlemi izleyerek bir Linux VM'yi Genelleştirme ve yeniden ayrı VM olarak dağıtma.  Daha fazla bilgi için [bir sanal makine veya VHD görüntüsü oluşturma](../../../virtual-machines/linux/capture-image.md). 
+İki aşamalı işlemi izleyerek bir Linux VM'yi Genelleştirme ve yeniden ayrı VM olarak dağıtma.  Daha fazla bilgi için bkz. [Sanal makine veya VHD görüntüsü oluşturma](../../../virtual-machines/linux/capture-image.md). 
 
 #### <a name="remove-the-azure-linux-agent"></a>Azure Linux aracısı kaldırma
 1.  Bir SSH istemcisi kullanarak Linux VM'nize bağlanın.

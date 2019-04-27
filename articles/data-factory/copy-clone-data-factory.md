@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780941"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopyalayın veya Azure Data Factory bir veri fabrikasında kopyalama
 

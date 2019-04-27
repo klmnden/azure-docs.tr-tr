@@ -17,13 +17,13 @@ ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60785357"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Öğretici: Azure'da Windows sanal makineleri için dosyaları yedekleme ve geri yükleme
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Öğretici: Yedekleme ve azure'da Windows sanal makineler için dosyaları geri yükleme
 
 Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yükleme yaptığınızda VM’nin tamamını veya belirli dosyaları geri yükleyebilirsiniz. Bu makalede tek bir dosyanın Windows Server ve IIS çalıştıran bir VM'ye nasıl geri yükleneceği açıklanır. Henüz kullanılabilecek bir VM’niz yoksa [Windows hızlı başlangıcını](quick-create-portal.md) kullanarak VM oluşturabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -79,15 +79,15 @@ Bu örnekte, IIS'nin varsayılan web sayfasında kullanılan görüntü dosyası
 6. Sol taraftaki menüde **Sanal makineler**'i ve listedeki VM'lerden birini seçin.
 8. VM dikey penceresinde, **Ayarlar** bölümünden **Yedekleme**’ye tıklayın. **Yedekleme** dikey penceresi açılır. 
 9. Dikey pencerenin üst tarafındaki menüde **Dosya Kurtarma** seçeneğini belirleyin. **Dosya Kurtarma** dikey penceresi açılır.
-10. **1. Adım: Kurtarma noktasını seçme** bölümünde, açılır menüden bir kurtarma noktası seçin.
-11. **2. Adım: Dosyalara göz atmak ve kurtarmak için betiği indirme indirme** bölümünde **Yürütülebilir Dosyayı İndir** düğmesine tıklayın. Dosyaya **İndirilenler** klasörünüze kaydedin.
+10. İçinde **1. adım: Kurtarma noktası seçin**, açılan listeden bir kurtarma noktası seçin.
+11. İçinde **2. adım: Göz atmak ve dosyaları kurtarmak için betiği indirme**, tıklayın **yürütülebilir dosyayı indir** düğmesi. Dosyaya **İndirilenler** klasörünüze kaydedin.
 12. Yerel bilgisayarınızda **Dosya Gezgini**'ni açın, **İndirilenler** klasörünüze gidin ve indirilen .exe dosyasını kopyalayın. Dosya adında ön ek olarak VM adınız bulunur. 
 13. VM'nizde (RDP bağlantısı üzerinden), .exe dosyasını VM'nizin Masaüstü'ne yapıştırın. 
 14. VM'nizin masaüstüne gidin ve .exe dosyasına çift tıklayın. Bu işlem bir komut istemi başlatır ve kurtarma noktasını erişebileceğiniz bir dosya paylaşımı olarak bağlar. Paylaşımı oluşturmayı tamamladığında, **q** yazarak komut istemini kapatın.
 15. VM'nizde **Dosya Gezgini**'ni açın ve dosya paylaşımı için kullanılmış olan sürücü harfine gidin.
 16. \inetpub\wwwroot konumuna gidin ve dosya paylaşımından **iisstart.png** dosyasını kopyalayıp \inetpub\wwwroot konumuna yapıştırın. Örneğin, F:\inetpub\wwwroot\iisstart.png dosyasını kopyalayın ve dosyayı kurtarmak için bunu c:\inetpub\wwwroot konumuna yapıştırın.
 17. Yerel bilgisayarınızda, IIS varsayılan sayfasını gösteren VM'nin IP adresine bağlandığınız tarayıcı sekmesini açın. Tarayıcı sayfasını yenilemek için CTRL + F5 tuşlarına basın. Artık görüntünün geri yüklendiğini görüyor olmalısınız.
-18. Yerel bilgisayarınızda Azure portalı için tarayıcı sekmesine geri dönün ve **3. Adım: Kurtarma işleminden sonra diskleri çıkarma** bölümünde **Diskleri Çıkar** düğmesine tıklayın. Bu adımı gerçekleştirmeyi unutursanız takma noktası ile bağlantı 12 saatin sonunda otomatik olarak kapatılır. Bu 12 saatin ardından yeni takma noktası oluşturmak için yeni bir betik indirmeniz gerekir.
+18. Yerel bilgisayarınızda Azure portalında hem de tarayıcı sekmesine dönün **3. adım: Kurtarma işleminden sonra diskleri çıkarma** tıklayın **diskleri çıkar** düğmesi. Bu adımı gerçekleştirmeyi unutursanız takma noktası ile bağlantı 12 saatin sonunda otomatik olarak kapatılır. Bu 12 saatin ardından yeni takma noktası oluşturmak için yeni bir betik indirmeniz gerekir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

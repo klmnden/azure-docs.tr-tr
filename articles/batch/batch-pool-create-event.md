@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776516"
 ---
 # <a name="pool-create-event"></a>Havuz oluşturma olayı
 
@@ -47,7 +47,7 @@ ms.locfileid: "55470612"
 }
 ```
 
-|Öğe|Type|Notlar|
+|Öğe|Tür|Notlar|
 |-------------|----------|-----------|
 |id|String|Havuz kimliği.|
 |displayName|String|Havuzun görünen adı.|
@@ -65,14 +65,14 @@ ms.locfileid: "55470612"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |osFamily|String|Azure konuk işletim sistemi ailesi'havuzundaki sanal makinelere yüklenecek.<br /><br /> Olası değerler şunlardır:<br /><br /> **2** – işletim sistemi ailesi 2, Windows Server 2008 R2 SP1'e eşdeğer.<br /><br /> **3** – işletim sistemi aile 3, Windows Server 2012'ye denk.<br /><br /> **4** – işletim sistemi ailesi 4, Windows Server 2012 R2'ye denk.<br /><br /> Daha fazla bilgi için [Azure konuk işletim sistemi sürümleri](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|String|Havuzundaki sanal makinelere yüklenecek Azure konuk işletim sistemi sürümü.<br /><br /> Varsayılan değer **\*** belirtilen ürün ailesi için en son işletim sistemi sürümünü belirtir.<br /><br /> Diğer izin verilen değerler için bkz. [Azure konuk işletim sistemi sürümleri](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Karmaşık Tür|Platform veya Market görüntüsü kullanmak hakkındaki bilgileri belirtir.|
 |Nodeagentskuıd|String|İşlem düğümü üzerinde sağlanan Batch düğüm Aracısı SKU.|
@@ -80,7 +80,7 @@ ms.locfileid: "55470612"
 
 ###  <a name="bk_imgref"></a> Imagereference
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |Yayımcı|String|Görüntünün yayımcısı.|
 |Teklif|String|Görüntünün teklifi.|
@@ -89,12 +89,12 @@ ms.locfileid: "55470612"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Boole|Sanal makine için Otomatik Güncelleştirmeler etkin olup olmadığını gösterir. Bu özellik belirtilmezse, varsayılan değer True'dur.|
+|enableAutomaticUpdates|Boolean|Sanal makine için Otomatik Güncelleştirmeler etkin olup olmadığını gösterir. Bu özellik belirtilmezse, varsayılan değer True'dur.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|--------------|----------|
 |subnetId|String|Havuzun işlem düğümleri oluşturulduğu alt kaynak tanımlayıcısını belirtir.|

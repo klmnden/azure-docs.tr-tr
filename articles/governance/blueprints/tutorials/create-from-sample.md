@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874674"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Blueprint örnekten bir ortam oluşturun
 
@@ -105,10 +105,10 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
      |Yapıt adı|Yapıt türü|Parametre adı|Değer|Açıklama|
      |-|-|-|-|-|
      |ProdRG kaynak grubu|Kaynak grubu|Ad|ProductionRG|İlk kaynak grubunun adını tanımlar.|
-     |ProdRG kaynak grubu|Kaynak grubu|Konum|Batı ABD 2|İlk kaynak grubunun konumunu ayarlar.|
+     |ProdRG kaynak grubu|Kaynak grubu|Location|Batı ABD 2|İlk kaynak grubunun konumunu ayarlar.|
      |Katılımcı|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _katkıda bulunan_ ilk kaynak grubu içinde rol ataması.|
      |PreProdRG kaynak grubu|Kaynak grubu|Ad|PreProductionRG|İkinci kaynak grubunun adını tanımlar.|
-     |PreProdRG kaynak grubu|Kaynak grubu|Konum|Batı ABD|İkinci kaynak grubunun konumunu ayarlar.|
+     |PreProdRG kaynak grubu|Kaynak grubu|Location|Batı ABD|İkinci kaynak grubunun konumunu ayarlar.|
      |Sahip|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _sahibi_ ikinci kaynak grubu içinde rol ataması.|
      |Okuyucular|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _okuyucular_ ikinci kaynak grubu içinde rol ataması.|
 

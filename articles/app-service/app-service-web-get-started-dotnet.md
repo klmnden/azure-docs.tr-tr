@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60854631"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure’da ASP.NET Core web uygulaması oluşturma
 
@@ -104,7 +104,7 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 | Ayar | Önerilen Değer | Açıklama |
 |-|-|-|
 |App Service Planı| myAppServicePlan | App Service planının adı. |
-| Konum | Batı Avrupa | Web uygulamasının barındırıldığı veri merkezi. |
+| Location | Batı Avrupa | Web uygulamasının barındırıldığı veri merkezi. |
 | Boyut | Ücretsiz | [Fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), barındırma özelliklerini belirler. |
 
 **Tamam**’ı seçin.

@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821264"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -175,7 +175,7 @@ Bir etkinlik, uzun süre çalışan bir işlemi temsil eder. Aşağıdaki işlem
 
 Bu işlemlerin ilerleme durumunu kolayca izleyebilir böylece etkinlikleri SDK veya web kullanıcı Arabirimi aracılığıyla bildirimleri sağlar.
 
-## <a name="image"></a>Görüntü
+## <a name="image"></a>Image
 
 Görüntüleri modelini kullanmak için gereken tüm bileşenleri ile birlikte bir model güvenilir bir şekilde dağıtmak için bir yol sağlar. Görüntü, aşağıdaki öğeleri içerir:
 

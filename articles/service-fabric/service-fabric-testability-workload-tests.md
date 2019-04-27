@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865281"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Hizmet iş yükleri sırasında hata benzetimleri yapma
 Azure Service fabric'te Test Edilebilirlik senaryoları, geliştiricilerin tek hataları ne yapılacağı hakkında endişe duymamanızı olanak sağlar. Burada bir açık istemci iş yükü ve hataları Interleaving gerekebilecek senaryo vardır. İstemci iş yükü ve hataları Interleaving hata gerçekleştiğinde hizmet aslında bir eylem gerçekleştiriyor sağlar. Test Edilebilirlik sağlar denetim düzeyini göz önünde bulundurulduğunda, bu iş yükü yürütmeye kesin noktalarda olabilir. Bu endüksiyon farklı durumlarda uygulama hatalarını, hataları bulabilir ve kalitesini geliştirin.

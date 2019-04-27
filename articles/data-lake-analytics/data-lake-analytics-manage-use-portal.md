@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813443"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,9 +32,9 @@ Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesapların�
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Tıklayın **kaynak Oluştur** > **zeka + analiz** > **Data Lake Analytics**.
 3. Aşağıdaki öğeler için değerleri seçin: 
-   1. **Ad**: Data Lake Analytics hesabının adı.
-   2. **Abonelik**: hesap için kullanılan Azure aboneliği.
-   3. **Kaynak grubu**: hesabın oluşturulacağı Azure kaynak grubu. 
+   1. **Ad**: Data Lake Analytics hesap adı.
+   2. **Abonelik**: Hesabı için kullanılan Azure aboneliği.
+   3. **Kaynak grubu**: Hesabın oluşturulacağı Azure kaynak grubu. 
    4. **Konum**: Data Lake Analytics hesabı için Azure veri merkezi. 
    5. **Data Lake Store**: Data Lake Analytics hesabı için kullanılacak varsayılan depolama. Azure Data Lake Store hesabı ve Data Lake Analytics hesabı aynı konumda olmalıdır.
 4. **Oluştur**’a tıklayın. 
@@ -98,9 +98,9 @@ Kullanabileceğiniz **kullanıcı ekleme sihirbazını** kolayca yeni Data Lake 
 Diğer Azure Hizmetleri gibi kullanıcıların hizmetle nasıl etkileşim denetlemek için rol tabanlı erişim denetimi (RBAC) kullanabilirsiniz.
 
 Standart RBAC rolleri aşağıdaki özelliklere sahiptir:
-* **Sahibi**: işleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal et ve hesabı yapılandırın.
-* **Katkıda bulunan**: işleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal et ve hesabı yapılandırın.
-* **Okuyucu**: işleri izleyebilirsiniz.
+* **Sahibi**: İşleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal ve hesabı yapılandırın.
+* **Katkıda bulunan**: İşleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal ve hesabı yapılandırın.
+* **Okuyucu**: İşleri izleyebilirsiniz.
 
 U-SQL geliştiricilerin Data Lake Analytics hizmeti kullanmak için Data Lake Analytics Geliştirici rolünü kullanın. Data Lake Analytics geliştiricisi rolüne kullanabilirsiniz:
 * İşleri göndermek.
@@ -131,8 +131,8 @@ U-SQL geliştiricilerin Data Lake Analytics hizmeti kullanmak için Data Lake An
 
 2. Tıklayın **yeni iş**. Her bir iş için yapılandırın:
 
-    1. **İş adı**: işin adı.
-    2. **Öncelik**: düşük rakamlı daha yüksek önceliğe sahip. Düşük öncelik değerine sahip iki işi kuyruğa alınır, ilk olarak çalışır.
+    1. **İş adı**: İş adı.
+    2. **Öncelik**: Daha düşük bir sayı daha yüksek önceliğe sahiptir. Düşük öncelik değerine sahip iki işi kuyruğa alınır, ilk olarak çalışır.
     3. **Paralellik**: Bu proje için ayrılacak işlem işleme sayısı.
 
 3. **İşi Gönder**'e tıklayın.

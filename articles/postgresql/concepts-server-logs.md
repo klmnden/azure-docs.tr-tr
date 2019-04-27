@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871544"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sunucu günlüklerini 
 PostgreSQL için Azure veritabanı oluşturur, sorgu ve hata günlükleri. Sorgu ve Hata günlüklerini belirlemek, sorun giderme ve yapılandırma hatalarını ve performansın onarmak için kullanılabilir. (İşlem günlükleri için erişim dahil değildir). 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Seçtiğiniz ç�
 | TenantId | Kiracı Kimliğiniz |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
-| Type | Günlük türü. Her zaman `AzureDiagnostics` |
+| Tür | Günlük türü. Her zaman `AzureDiagnostics` |
 | SubscriptionId | Sunucunun ait olduğu aboneliğin GUID |
 | ResourceGroup | Sunucunun ait olduğu kaynak grubu adı |
 | ResourceProvider | Kaynak sağlayıcı adı. Her zaman `MICROSOFT.DBFORPOSTGRESQL` |

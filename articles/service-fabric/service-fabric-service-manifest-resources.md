@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837768"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Bir hizmet bildiriminde kaynakları belirtme
 ## <a name="overview"></a>Genel Bakış
 Hizmet bildirimi, hizmet tarafından bildirilen ve değiştirilen derlenmiş kodunu değiştirmeden için kullanılan kaynaklar sağlar. Azure Service Fabric hizmeti için uç nokta kaynakların yapılandırmasını destekler. Hizmet bildiriminde belirtilen kaynaklara erişimi, IDAP uygulama bildiriminde aracılığıyla denetlenebilir. Kaynak bildirimi, dağıtım sırasında hizmetin yeni bir yapılandırma mekanizması tanıtmak gerekmez anlamı değiştirilmesi bu kaynakları sağlar. ServiceManifest.xml dosyasına ilişkin şema tanımı ile Service Fabric SDK'sı yüklü olduğundan ve araçları *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-## <a name="endpoints"></a>Uç nokta
+## <a name="endpoints"></a>Uç Noktalar
 Hizmet bildiriminde tanımlanan uç nokta kaynağı oluşturduğunuzda, Service Fabric açıkça bir bağlantı noktası belirtilmezse ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Örneğin, uç noktada Ara *ServiceEndpoint1* sonra bu paragrafın sağlanan bildirimi kod parçacığı belirtilen. Ayrıca, hizmetler kaynağın belirli bir bağlantı noktası isteyebilir. Çoğaltmaları aynı düğümde çalışan bir hizmetin bağlantı noktası paylaşma sırada farklı bir bağlantı noktası numaraları, farklı küme düğümleri üzerinde çalışan hizmet çoğaltmalardan atanabilir. Hizmet çoğaltmaları daha sonra bu bağlantı noktaları gerektiğinde çoğaltma ve istemci isteklerini dinlemek için kullanabilirsiniz.
 
 ```xml

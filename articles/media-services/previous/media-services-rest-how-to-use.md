@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762527"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -55,7 +55,7 @@ REST kullanırken aşağıdaki maddeler geçerlidir.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP isteği üstbilgileri
 Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde içermelidir bir dizi yoktur ve aynı zamanda bir dizi isteğe bağlı üst bilgiler dahil etmek istediğiniz. Aşağıdaki tabloda gerekli üst bilgileri listeler:
 
-| Üst bilgi | Type | Değer |
+| Üst bilgi | Tür | Değer |
 | --- | --- | --- |
 | Yetkilendirme |Taşıyıcı |Taşıyıcı yalnızca kabul edilen yetkilendirme mekanizmadır. Değer, Azure Active Directory tarafından sağlanan erişim belirtecini de içermelidir. |
 | x-ms-version |Decimal |2.17 (veya en son sürüm)|
@@ -69,7 +69,7 @@ Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde i
 
 Aşağıdaki isteğe bağlı bir üst kümesidir:
 
-| Üst bilgi | Type | Değer |
+| Üst bilgi | Tür | Değer |
 | --- | --- | --- |
 | Tarih |RFC 1123 tarihi |İstek zaman damgası |
 | Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json;odata=verbose<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
@@ -83,7 +83,7 @@ Aşağıdaki isteğe bağlı bir üst kümesidir:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP yanıt üst bilgileri
 Aşağıdakileri yapmanızı isteyen kaynak ve gerçekleştirmek istediğiniz eylemi bağlı olarak döndürülen üst bilgiler kümesidir.
 
-| Üst bilgi | Type | Değer |
+| Üst bilgi | Tür | Değer |
 | --- | --- | --- |
 | İstek Kimliği |String |Geçerli işlem, oluşturulan hizmet için benzersiz bir tanımlayıcı. |
 | İstemci istek kimliği |String |Varsa özgün istekteki çağıran tarafından belirtilen bir tanımlayıcı. |

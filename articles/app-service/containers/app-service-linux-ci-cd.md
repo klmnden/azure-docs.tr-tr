@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852541"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcılar için Web App ile sürekli dağıtım
 
@@ -69,4 +69,4 @@ Web kancası URL'sini kopyalayın. Docker Hub için bir Web kancası eklemek, ta
 * [Linux üzerinde App Service'te bir Ruby web uygulaması oluşturma](quickstart-ruby.md)
 * [Kapsayıcılar için Web App'te bir Docker/Go web uygulaması dağıtma](quickstart-docker-go.md)
 * [Linux’ta Azure App Service hakkında SSS](./app-service-linux-faq.md)
-* [Azure CLI kullanarak kapsayıcılar için Web uygulamasını yönetme](./app-service-linux-cli.md)
+* [Azure CLI ile Kapsayıcılar için Web App Yönetimi](./app-service-linux-cli.md)

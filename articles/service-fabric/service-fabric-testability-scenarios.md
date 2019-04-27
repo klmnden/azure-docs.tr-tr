@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865042"
 ---
 # <a name="testability-scenarios"></a>Test Edilebilirlik senaryoları
 Doğası gereği güvenilir bulut altyapıları gibi büyük çaplı dağıtılmış sistemlerde. Azure Service Fabric, geliştiricilerin Hizmetleri güvenilir altyapıları üzerinde çalıştırmak için yazma olanağı sunar. Yüksek kaliteli hizmetler yazmak üzere anlamına böyle güvenilir bir altyapı hizmetlerinin kararlılığını test etmek geliştiricilerin gerekir.
@@ -49,11 +49,11 @@ Kaos test hataları ve küme doğrulama çoklu yinelemelerini belirtilen süre i
 Mevcut haliyle chaos testinde hata üretme altyapısı yalnızca güvenli hataları sevk. Bu, dış hataların olmaması durumunda, bir çekirdek veya veri kaybı asla meydana gelmez anlamına gelir.
 
 ### <a name="important-configuration-options"></a>Önemli yapılandırma seçenekleri
-* **Timetorun değeri**: toplam süre, test başarılı bir şekilde bitmeden önce çalışır. Test, daha önce bir doğrulama hatası yerine tamamlayabilir.
-* **MaxClusterStabilizationTimeout**: en çok kümenin sağlıklı duruma test başarısız olmadan önce beklenecek süre. Küme durumu Tamam olup gerçekleştirilen denetimler olan, hizmet durumu sağlam, hizmet bölüm hedef çoğaltma kümesi boyutu elde edilir ve hiçbir Inbuild çoğaltmaların mevcut.
-* **MaxConcurrentFaults**: eş zamanlı hatalarının sayısı üst sınırı, her yinelemede başlattı. Sayı, daha agresif bu nedenle daha karmaşık yük devretmeler ve geçiş kombinasyonları kaynaklanan test. Test dış hataların olmaması durumunda olmaz, bu yapılandırmanın nasıl yüksek olduğu fark etmeksizin çekirdek veya veri kaybı garanti eder.
-* **EnableMoveReplicaFaults**: etkinleştirir veya birincil veya ikincil çoğaltmaları taşınmasına neden olan hataları devre dışı bırakır. Bu hatalar, varsayılan olarak devre dışıdır.
-* **WaitTimeBetweenIterations**: hataları ve karşılık gelen doğrulama bir tur sonra başka bir deyişle, yinelemeleri arasında beklenecek süre.
+* **Timetorun değeri**: Test başarılı bir şekilde bitmeden önce çalışır, toplam süre. Test, daha önce bir doğrulama hatası yerine tamamlayabilir.
+* **MaxClusterStabilizationTimeout**: En fazla kümenin sağlıklı duruma test başarısız olmadan önce beklenecek süre miktarı. Küme durumu Tamam olup gerçekleştirilen denetimler olan, hizmet durumu sağlam, hizmet bölüm hedef çoğaltma kümesi boyutu elde edilir ve hiçbir Inbuild çoğaltmaların mevcut.
+* **MaxConcurrentFaults**: En fazla eş zamanlı hataların sayısı, her yinelemede başlattı. Sayı, daha agresif bu nedenle daha karmaşık yük devretmeler ve geçiş kombinasyonları kaynaklanan test. Test dış hataların olmaması durumunda olmaz, bu yapılandırmanın nasıl yüksek olduğu fark etmeksizin çekirdek veya veri kaybı garanti eder.
+* **EnableMoveReplicaFaults**: Etkinleştirir veya birincil veya ikincil çoğaltmaları taşınmasına neden olan hataları devre dışı bırakır. Bu hatalar, varsayılan olarak devre dışıdır.
+* **WaitTimeBetweenIterations**: Hataları ve karşılık gelen doğrulama bir tur sonra başka bir deyişle, yinelemeleri arasında beklenecek süre miktarı.
 
 ### <a name="how-to-run-the-chaos-test"></a>Kaos test çalıştırma
 C# örneği
@@ -160,10 +160,10 @@ Yük devretme testi senaryosu, bir hizmete bölüm hedefleyen chaos test senaryo
 Yük devretme testi seçilen hata sevk ve kendi kararlılık sağlamak hizmette doğrulama çalıştırır. Yük devretme testi tek bir hata chaos test birden çok hatalarının olası aksine, bir zaman sevk. Hizmet bölüm sonra her hata yapılandırılmış zaman aşımı süresi içinde Sabitle değil, test başarısız olur. Test yalnızca güvenli hataları sevk. Başka bir deyişle, dış hataları olmaması durumunda, bir çekirdek veya veri kaybı olmayan ortaya çıkar.
 
 ### <a name="important-configuration-options"></a>Önemli yapılandırma seçenekleri
-* **PartitionSelector**: hedeflenmesi gerekiyor bölüm belirten Seçici nesnesi.
-* **Timetorun değeri**: toplam süre bitmeden önce test çalışacak.
-* **MaxServiceStabilizationTimeout**: en çok kümenin sağlıklı duruma test başarısız olmadan önce beklenecek süre. Hizmet durumu Tamam olup gerçekleştirilen denetimler olan, hedef çoğaltma kümesi boyutu tüm bölümler için elde edilir ve hiçbir Inbuild çoğaltmaların mevcut.
-* **WaitTimeBetweenFaults**: her hata ve doğrulama döngüsü arasında beklenecek süre.
+* **PartitionSelector**: Hedeflenecek gereken bölümü belirtir Seçici nesnesi.
+* **Timetorun değeri**: Test bitmeden önce çalışır, toplam süre.
+* **MaxServiceStabilizationTimeout**: En fazla kümenin sağlıklı duruma test başarısız olmadan önce beklenecek süre miktarı. Hizmet durumu Tamam olup gerçekleştirilen denetimler olan, hedef çoğaltma kümesi boyutu tüm bölümler için elde edilir ve hiçbir Inbuild çoğaltmaların mevcut.
+* **WaitTimeBetweenFaults**: Her hata ve doğrulama döngüsü arasında beklenecek süre miktarı.
 
 ### <a name="how-to-run-the-failover-test"></a>Yük devretme testi çalıştırma
 **C#**

@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817159"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -288,7 +288,7 @@ Geçici silme tekniği kullanarak, geçici silme ilkesi şu şekilde oluştururk
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL ve Azure Search veri türleri arasında eşleme
 | SQL veri türü | Hedef dizin izin alan türleri | Notlar |
 | --- | --- | --- |
-| Bit |Edm.Boolean, Edm.String | |
+| bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |EDM.Int32, EDM.Int64, Edm.String | |
 | bigint |EDM.Int64, Edm.String | |
 | Gerçek, float |Edm.Double, Edm.String | |

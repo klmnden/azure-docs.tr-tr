@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883879"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Ana bilgisayar havuzu için kullanıcı profili paylaşımı ayarlama
 
@@ -62,9 +62,9 @@ Sanal makineler ile FSLogix yazılım yapılandırmak için aşağıdaki ana hav
 6. Adlı bir anahtar oluşturun **profilleri**.
 7. Profilleri anahtarı için aşağıdaki değerleri oluşturun:
 
-| Ad                | Type               | Veri/değer                        |
+| Ad                | Tür               | Veri/değer                        |
 |---------------------|--------------------|-----------------------------------|
-| Etkin             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Çok dizeli değer | "Dosya paylaşımı için ağ yolu"     |
 
 >[!IMPORTANT]

@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832882"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -72,7 +72,7 @@ Sertifikayı seçin [App Service sertifikaları](https://portal.azure.com/#blade
 |-|-|
 | Ad | Alfasayısal karakterler ve kısa çizgiler için oluşan benzersiz bir ad. |
 | Kaynak grubu | Bir öneri App Service sertifikanızı olarak aynı kaynak grubunu seçin. |
-| Konum | App Service uygulamanızı aynı konumu seçin. |
+| Location | App Service uygulamanızı aynı konumu seçin. |
 | Fiyatlandırma katmanı | Bilgi için [Azure anahtar kasası fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Erişim ilkeleri| Uygulamalar ve izin verilen erişimi kasa kaynaklara tanımlar. Daha sonra bu adımları uygulayarak yapılandırma [çeşitli uygulamalar bir anahtar kasası erişim](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Sanal Ağ Erişimi | Belirli bir Azure sanal ağları kasa erişimi kısıtlayın. Daha sonra bu adımları uygulayarak yapılandırma [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal ağlar](../key-vault/key-vault-network-security.md) |

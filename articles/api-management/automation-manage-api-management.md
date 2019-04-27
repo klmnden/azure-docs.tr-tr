@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880120"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Azure API Management'ı yönetme
 Bu kılavuz size Azure Otomasyonu ve nasıl Azure API Management yönetimini basitleştirmek için kullanılabilmesi için tanıtır.
@@ -36,7 +36,7 @@ API Yönetimi yönetilen Azure Automation'da kullanarak [Azure API Management AP
 
 API Management'ı Powershell ile kullanmanın bazı örnekleri aşağıda verilmiştir:
 
-* [API yönetimi için Azure PowerShell örnekleri](https://docs.microsoft.com/azure/api-management/powershell-samples)
+* [API Management için Azure PowerShell örnekleri](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Azure Otomasyonu ve nasıl Azure API Management'ı yönetmek için kullanılmadan ilişkin temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.

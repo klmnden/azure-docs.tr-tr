@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823955"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Gelen MySQL Azure Data Factory ile veri taşıma
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-onprem-mysql-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-mysql.md)
 
@@ -82,7 +82,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölümü için veri kümesi türü **RelationalTable** (MySQL veri kümesini içeren) aşağıdaki özelliklere sahip
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Bağlı hizmeti MySQL veritabanı örneğinde tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
@@ -93,7 +93,7 @@ Diğer yandan bulunan özelliklerin **typeProperties** etkinlik bölümünü her
 
 Kopya etkinlikteki kaynak türünde olduğunda **RelationalSource** (MySQL içeren), typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -301,44 +301,44 @@ Mysql'e veri taşıma, aşağıdaki eşlemeler MySQL türlerinden .NET türleri 
 
 | MySQL veritabanı türü | .NET framework türü |
 | --- | --- |
-| işaretsiz büyük tamsayı |Onluk |
+| işaretsiz büyük tamsayı |Decimal |
 | bigint |Int64 |
-| Bit |Onluk |
-| blob |Bayt] |
-| bool |Boole |
-| Char |Dize |
-| date |Tarih saat |
-| datetime |Tarih saat |
-| decimal |Onluk |
-| çift duyarlık |çift |
-| double |çift |
-| Sabit listesi |Dize |
-| float |Tek |
+| bit |Decimal |
+| blob |Byte[] |
+| bool |Boolean |
+| char |String |
+| date |DateTime |
+| datetime |DateTime |
+| decimal |Decimal |
+| çift duyarlık |Double |
+| double |Double |
+| Sabit listesi |String |
+| float |Single |
 | işaretsiz int |Int64 |
 | int |Int32 |
 | işaretsiz tamsayı |Int64 |
 | integer |Int32 |
-| uzun varbinary |Bayt] |
-| uzun varchar |Dize |
-| longblob |Bayt] |
-| LONGTEXT |Dize |
-| mediumblob |Bayt] |
+| uzun varbinary |Byte[] |
+| uzun varchar |String |
+| longblob |Byte[] |
+| LONGTEXT |String |
+| mediumblob |Byte[] |
 | İmzasız mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |Dize |
-| Sayısal |Onluk |
-| Gerçek |çift |
-| set |Dize |
+| mediumtext |String |
+| numeric |Decimal |
+| real |Double |
+| set |String |
 | işaretsiz tamsayı |Int32 |
 | smallint |Int16 |
-| metin |Dize |
-| time |Zaman aralığı |
-| timestamp |Tarih saat |
-| tinyblob |Bayt] |
+| metin |String |
+| time |TimeSpan |
+| timestamp |DateTime |
+| tinyblob |Byte[] |
 | İmzasız Mini tamsayı |Int16 |
 | tinyint |Int16 |
-| tinytext |Dize |
-| varchar |Dize |
+| tinytext |String |
+| varchar |String |
 | yıl |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi

@@ -17,11 +17,11 @@ ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 0a3edac7638d8b63086482cdecf8d74bde426c35
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865636"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Öğretici: Başarısız üstünde ve Service Fabric ile kapsayıcı hizmetlerinin ölçeklendirme gösterme
 

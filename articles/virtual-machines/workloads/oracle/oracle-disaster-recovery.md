@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835896"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma
 
@@ -52,13 +52,13 @@ Azure kurulumu bir özeti aşağıda verilmiştir:
 
 ![DR topolojisi sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Senaryo 2: Birincil siteye şirket içi ve Azure üzerinde DR sitesi
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Senaryo 2: Birincil site şirket içi ve Azure üzerinde DR sitesi
 
 Bir müşterinin bir şirket içi Oracle Veritabanı Kurulumu (birincil site). Azure'da bir DR sitedir. Oracle Data Guard, bu siteler arasında hızlı kurtarma için kullanılır. Birincil site, raporlama için ikincil bir veritabanı ve diğer kullanımlar da vardır. 
 
 Bu ayar için iki yaklaşım vardır.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Yaklaşım 1: Şirket içi ve Azure, güvenlik duvarında TCP bağlantı noktalarını açma gerektiren arasında doğrudan bağlantıya 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Yaklaşım 1: Şirket içi ve Azure, güvenlik duvarında TCP bağlantı noktalarını açma gerektiren arasında doğrudan bağlantı 
 
 Dış dünya için TCP bağlantı noktalarını ortaya olduğundan doğrudan bağlantılar önerilmemektedir.
 
@@ -78,7 +78,7 @@ Azure Kurulum özeti aşağıda verilmiştir:
 
 ![DR topolojisi sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Yaklaşım 2: Siteden siteye VPN
+### <a name="approach-2-site-to-site-vpn"></a>Yaklaşım 2: Konumdan konuma VPN
 Siteden siteye VPN daha iyi bir yaklaşımdır. VPN ayarlama hakkında daha fazla bilgi için bkz. [CLI kullanarak siteden siteye VPN bağlantısı ile sanal ağ oluşturma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topoloji
@@ -106,5 +106,5 @@ Azure Kurulum özeti aşağıda verilmiştir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: yüksek oranda kullanılabilir VM'ler oluşturma](../../linux/create-cli-complete.md)
+- [Öğretici: Yüksek oranda kullanılabilir VM'ler oluşturma](../../linux/create-cli-complete.md)
 - [VM dağıtımı Azure CLI örneklerini keşfedin](../../linux/cli-samples.md)

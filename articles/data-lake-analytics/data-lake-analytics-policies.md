@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813418"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>İlkeleri kullanarak Azure Data Lake Analytics'i yönetme
 
@@ -68,8 +68,8 @@ Proje düzeyi ilkeleri, maksimum AUS değerini ve bireysel kullanıcılar (veya 
 
 Data Lake Analytics proje düzeyinde ayarlayabileceğiniz iki ilke sahiptir:
 
-* **İş başına AU sınırı**: kullanıcılar yalnızca bu AU sayısı için sahip işler gönderin. Varsayılan olarak, bu sınır AU sınırını hesabı ile aynıdır.
-* **Öncelik**: kullanıcılar yalnızca bu değere eşit veya daha düşük bir önceliğe sahip iş gönderin. Daha yüksek bir sayı daha düşük bir öncelik gösterir. Varsayılan olarak, bu sınır, olası en yüksek öncelikli olduğu 1 olarak ayarlanır.
+* **İş başına AU sınırı**: Kullanıcılar yalnızca AU bu sayıya sahip bir iş gönderebilirsiniz. Varsayılan olarak, bu sınır AU sınırını hesabı ile aynıdır.
+* **Öncelik**: Kullanıcılar yalnızca bu değere eşit veya daha düşük bir önceliğe sahip iş gönderebilirsiniz. Daha yüksek bir sayı daha düşük bir öncelik gösterir. Varsayılan olarak, bu sınır, olası en yüksek öncelikli olduğu 1 olarak ayarlanır.
 
 Her hesap üzerinde ayarlanmış varsayılan bir ilke yoktur. Varsayılan ilke, tüm hesap kullanıcıları için geçerlidir. Belirli kullanıcılar ve gruplar için ek ilkeler ayarlayabilir. 
 
@@ -82,10 +82,10 @@ Her hesap üzerinde ayarlanmış varsayılan bir ilke yoktur. Varsayılan ilke, 
 1. Azure portalında Data Lake Analytics hesabınıza gidin.
 2. **Özellikler**'e tıklayın.
 3. Altında **iş gönderme sınırları**, tıklayın **ilke Ekle** düğmesi. Sonra seçin veya aşağıdaki ayarları girin:
-    1. **İşlem İlkesi adı**: ilkenin amacı hatırlatmak için bir ilke adı girin.
-    2. **Kullanıcı veya Grup Seç**: kullanıcı veya grup bu ilkenin uygulandığı seçin.
-    3. **İş AU sınırını ayarlayın**: seçilen kullanıcı veya grup için geçerlidir AU sınırını ayarlayın.
-    4. **Önceliği sınırını ayarlayın**: seçilen kullanıcı veya grup için geçerlidir önceliği sınırını ayarlayın.
+    1. **İşlem İlkesi adı**: İlkenin amacı hatırlatmak için bir ilke adı girin.
+    2. **Kullanıcı veya Grup Seç**: Kullanıcı veya grup bu ilkenin uygulanacağı seçin.
+    3. **İş AU sınırını ayarlayın**: Seçilen kullanıcı veya grup için geçerlidir AU sınırını ayarlayın.
+    4. **Önceliği sınırını ayarlayın**: Seçilen kullanıcı veya grup için geçerlidir önceliği sınırını ayarlayın.
 
 4. **Tamam**’a tıklayın.
 

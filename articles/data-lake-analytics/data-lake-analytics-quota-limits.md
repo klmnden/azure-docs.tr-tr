@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812659"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Kotalar ve sınırlar içinde Azure Data Lake Analytics ayarlama
 
@@ -22,7 +22,7 @@ Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarında sınırı ve kota art
 
 ## <a name="azure-subscriptions-limits"></a>Azure abonelik limitleri
 
-**Bölge başına abonelik başına en fazla sayısını ADLA hesapları:** 5
+**ADLA hesapları bölge başına abonelik başına en fazla sayısı:**  5
 
 Altıncı bir ADLA hesabı oluşturmayı denerseniz, ", Data Lake Analytics hesapları (5) izin verilen en fazla sayısı abonelik adı altındaki bölgede ulaştığınız" bir hata alırsınız. 
 
@@ -32,14 +32,14 @@ Bu sınırı aşan gitmek isterseniz, bu seçenekler deneyebilirsiniz:
 
 ## <a name="default-adla-account-limits"></a>Varsayılan ADLA hesabı sınırları
 
-**Hesap başına en fazla sayısını analiz birimi (AU):** 32
+**Hesap başına en fazla sayı Analytics birimi (AU):** 32
 
 Hesabınızda eş zamanlı olarak çalışabilen AU sayısı budur. AU çalışan tüm işler arasında toplam sayısı bu sınırı aşarsa, yeni işleri otomatik olarak kuyruğa alınır. Örneğin:
 
 * Yalnızca bir iş varsa 32 ile ikinci gönderdiğinizde AU, işi çalıştırılırken ilk iş tamamlanana kadar iş kuyruğunda bekler.
 * Zaten sahip olduğunuz çalışan dört işler ve her 8 kullanılıyorsa 8 gereken beşinci bir iş gönderdiğinizde Avustralya, AU 8 kadar iş kuyruğunda bekler Au'lar kullanılabilir.
 
-**İş başına en fazla sayısını analiz birimi (AU):** 32
+**İş başına en fazla sayı Analytics birimi (AU):** 32
 
 Bu, her bir iş hesabınızda atanabilecek AU'ların sayısını varsayılan en yüksek sayıdır. Gönderen İş başına daha fazla AU sağlayan bir işlem İlkesi (iş gönderme sınırı) tarafından etkilenen sürece, bu sınır birden fazla atanan işleri reddedilir. AU sınırı hesabı için bu değeri üst sınırıdır.
 

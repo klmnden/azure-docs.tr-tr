@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831427"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -42,8 +42,8 @@ Giriş JSON içinde yapılandırılmamış ham metin olmalıdır. XML desteklenm
 
 | Öğe | Geçerli değerler | Gerekli mi? | Kullanım |
 |---------|--------------|-----------|-------|
-|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gereklidir | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
-|`text` | Yapılandırılmamış ham metni, en çok 5.120 karakter. | Gereklidir | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
+|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gerekli | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
+|`text` | Yapılandırılmamış ham metni, en çok 5.120 karakter. | Gerekli | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
 |`language` | 2 karakterli [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) için kod bir [dil desteklenmiyor](../text-analytics-supported-languages.md) | Değişir | Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama için gerekli; dil algılama için isteğe bağlı. Hata yoktur, hariç tutarsanız, ancak analiz olmadan zayıflar. Dil kodu karşılık gelmelidir `text` size sağlar. |
 
 Sınırları hakkında daha fazla bilgi için bkz. [metin Analizi'ne genel bakış > veri sınırları](../overview.md#data-limits). 

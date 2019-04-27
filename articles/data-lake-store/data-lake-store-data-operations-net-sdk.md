@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878860"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekl
 
 Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kimlik doğrulama, dosyayı karşıya yükleme vb. işlemleri gerçekleştirmek üzere nasıl kullanılacağını öğrenebilirsiniz.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 * Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [son kullanıcı kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-end-user-authenticate-net-sdk.md).
 * Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-net-sdk.md).

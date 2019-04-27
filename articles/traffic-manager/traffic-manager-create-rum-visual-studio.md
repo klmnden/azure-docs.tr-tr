@@ -13,11 +13,11 @@ ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884062"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Traffic Manager için Visual Studio Mobile Center ile gerçek kullanıcı ölçümleri gönderme
 

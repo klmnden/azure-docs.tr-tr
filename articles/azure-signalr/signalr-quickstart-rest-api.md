@@ -7,11 +7,11 @@ ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809682"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Hızlı Başlangıç: Konsol uygulamasından gerçek zamanlı iletileri yayın
 
@@ -119,7 +119,7 @@ Azure SignalR hizmeti, üçüncü taraf hizmetlerin sistemle tümleştirilmesini
 
 Aşağıdaki tabloda, desteklenen tüm REST API sürümleri gösterilmektedir. Belirli bir sürüme ait tanım dosyasını da bulabilirsiniz
 
-Sürüm | API Durumu | Kapı | Özel
+Version | API Durumu | Kapı | Özel
 --- | --- | --- | ---
 `1.0-preview` | Kullanılabilir | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
 `1.0` | Kullanılabilir | Standart | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
@@ -139,7 +139,7 @@ Bazı kullanıcılara gönder | **&#x2713;**(Kullanım dışı) | `N / A`
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Herkese yayınlama
 
-Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
+Version | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Yukarıdakiyle aynı
@@ -147,7 +147,7 @@ Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Gruba yayınla
 
-Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
+Version | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Yukarıdakiyle aynı
@@ -155,7 +155,7 @@ Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>Belirli kullanıcılara gönderme
 
-Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
+Version | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Yukarıdakiyle aynı
@@ -163,14 +163,14 @@ Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Gruba kullanıcı ekleme
 
-Sürüm | API HTTP Yöntemi | İstek URL'si
+Version | API HTTP Yöntemi | İstek URL'si
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Gruptan kullanıcı kaldırma
 
-Sürüm | API HTTP Yöntemi | İstek URL'si
+Version | API HTTP Yöntemi | İstek URL'si
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 

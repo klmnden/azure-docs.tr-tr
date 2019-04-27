@@ -4,14 +4,15 @@ description: Bu makalede, PowerShell ile Application Gateway içindeki web uygul
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 03/11/2019
+ms.author: v-junlch
 ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831461"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell aracılığıyla Web uygulaması güvenlik duvarı kurallarını özelleştirme
 
@@ -112,3 +113,5 @@ Devre dışı kurallarınızı yapılandırdıktan sonra WAF günlükleri görü
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: code update -->

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837795"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
 Yürütülebilir bir Service Fabric hizmeti başlatıldığında önce bazı yapılandırma ve kurulum için bir iş çalıştırmak gerekli olabilir.  Örneğin, ortam değişkenlerini yapılandırma. Hizmeti için hizmet bildiriminde yürütülebilir hizmeti başlatıldığında önce çalıştırılacak bir betik belirtebilirsiniz. Hangi hesabı değiştirebilirsiniz Hizmet Kurulumu giriş noktası için bir RunAs ilkesini yapılandırarak yürütülebilir Kurulum altında çalışır.  Ayrı bir Kurulum giriş noktası yürütülebilir hizmet konağı uzun sürelerle yüksek ayrıcalıklarla çalıştırmanız gerekmez, kısa bir süre için yüksek ayrıcalıklı yapılandırması çalıştırmanıza olanak tanır.

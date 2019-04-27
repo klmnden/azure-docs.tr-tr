@@ -4,14 +4,15 @@ description: Bu makalede, Azure CLI ile Application Gateway içindeki web uygula
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832906"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI aracılığıyla Web uygulaması güvenlik duvarı kurallarını özelleştirme
 
@@ -25,7 +26,7 @@ Aşağıdaki kod örnekleri, kuralları ve yapılandırılabilir bir kural grupl
 
 Aşağıdaki örnek, kural gruplarını görüntülemek gösterilmektedir:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ Aşağıdaki çıktı, önceki örnekte kesilmiş bir yanıt.
 
 Aşağıdaki örnek, belirtilen kural grupta kurallarını görüntülemek gösterilmektedir:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ Aşağıdaki çıktı, önceki örnekte kesilmiş bir yanıt.
 
 Aşağıdaki örnek, kuralları devre dışı bırakır `910018` ve `910017` bir uygulama ağ geçidi:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 Aşağıdaki listede, WAF önleme modundayken (özel durumlar olarak oturum açmış algılama modunda) istekte engellemek neden koşulları içerir. Bu yapılandırılmış veya devreden çıkarılamaz:
 
-* Gövde İnceleme açık sürece devre dışı (XML, JSON, form verileri) istek gövdesi ayrıştırılamadı. hata engellenme, istekte sonuçlanır.
-* İstek gövdesi (dosya ile) veri uzunluğu yapılandırılan sınırdan daha büyük:
-* İstek gövdesi (dosyaları dahil) sınırdan büyük
-* WAF altyapısında bir iç hata oluştu
+- Gövde İnceleme açık sürece devre dışı (XML, JSON, form verileri) istek gövdesi ayrıştırılamadı. hata engellenme, istekte sonuçlanır.
+- İstek gövdesi (dosya ile) veri uzunluğu yapılandırılan sınırdan daha büyük:
+- İstek gövdesi (dosyaları dahil) sınırdan büyük
+- WAF altyapısında bir iç hata oluştu
 
 CRS 3.x özel:
 
-* Gelen anomali puanı aşıldı eşiği
+- Gelen anomali puanı aşıldı eşiği
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -142,3 +143,5 @@ Devre dışı kurallarınızı yapılandırdıktan sonra WAF günlükleri görü
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

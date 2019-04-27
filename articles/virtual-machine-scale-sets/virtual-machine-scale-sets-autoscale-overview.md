@@ -17,11 +17,11 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883679"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek ile otomatik ölçeklendirmeye genel bakış ayarlar
 Bir Azure sanal makine ölçek kümesini otomatik olarak artırabilir veya uygulamanızı çalıştıran VM örneği sayısını azaltabilirsiniz. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Pozitif bir müşteri deneyimi için kabul edilebilir performans tanımlayan kuralları oluşturun. Bu tanımlı eşikler karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümenizin kapasitesinin ayarlamak için gerekeni yapın. Ayrıca, olayları otomatik olarak artırma veya azaltma ölçek kümenizin kapasitesinin kez sabit zamanlayabilirsiniz. Bu makalede performans ölçümleri kullanılabilir bir genel bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilir sağlar.

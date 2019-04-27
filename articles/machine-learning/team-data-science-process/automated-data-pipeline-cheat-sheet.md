@@ -12,11 +12,11 @@ ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826205"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning öngörüleri için otomatik veri işlem hattı kopya sayfası
 **Microsoft Azure Machine Learning otomatik veri işlem hattı kopya kağıdı** gidin, Machine Learning, verileri almak için kullanabileceğiniz teknolojisi aracılığıyla yardımcı web burada bunu puanlanmış tarafından Tahmine dayalı analiz hizmeti Model.

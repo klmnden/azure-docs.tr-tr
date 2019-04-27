@@ -2,19 +2,19 @@
 title: Azure Stream Analytics Pencereleme işlevleri'ne giriş
 description: Bu makalede, Azure Stream Analytics işlerinde kullanılan dört Pencereleme işlevleri (atlayan atlamalı, kayan, oturumu) açıklanmaktadır.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/21/19
 ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844765"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics Pencereleme işlevleri'ne giriş
 Saat akış senaryolarda, zamana bağlı windows bulunan veriler üzerinde işlem gerçekleştirme yaygın modelidir. Stream Analytics, geliştiricilerin çok az bir çabayla Yazar karmaşık akış işleme işlerini Pencereleme işlevleri için yerel desteğe sahiptir.
@@ -51,7 +51,6 @@ Olaylar belirtilen süre içinde gerçekleşen korumak ise en fazla süre ulaş�
 
 Bir bölüm anahtarı sağlandığında olayları anahtarıyla birlikte gruplanır ve oturum penceresi bağımsız olarak her gruba uygulanır. Bu bölümleme, farklı oturum windows farklı kullanıcılar veya cihazlar için gereken durumlarda yararlıdır.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
@@ -59,3 +58,4 @@ Bir bölüm anahtarı sağlandığında olayları anahtarıyla birlikte gruplan�
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+<!--Update_Description: update meta properties -->

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630203"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860527"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple Cihazınızı güncelleştirme 4'ü yükleyin
 
@@ -74,16 +74,16 @@ Düzeltme yöntemi, aşağıdaki üç adımdan oluşur:
 
 İndirin ve önceden belirlenmiş bir sırada ve önerilen klasörlerinde aşağıdaki düzeltmeleri yüklemeniz gerekir:
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Yazılım güncelleştirmesi |Normal <br></br>Kesintiye neden olmayan |~ 25 dakika |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM üretici yazılımı güncelleştirmesi (sürüm 3,38) |Normal <br></br>Kesintiye neden olmayan |~ 3 saat <br> (2A içerir. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM üretici yazılımı güncelleştirmesi (sürüm 3,38) |Normal <br></br>Kesintiye neden olmayan |~ 3 saat <br> (2A içerir. + 2B. + 2C.)|SecondOrderUpdate|
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |İşletim sistemi güvenlik güncelleştirmeleri paketi <br> Windows Server 2012 R2 indirin |Normal <br></br>Kesintiye neden olmayan |- |SecondOrderUpdate|
 | 2 C |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |İşletim sistemi güncelleştirmeleri paketi <br> Windows Server 2012 R2 indirin |Normal <br></br>Kesintiye neden olmayan |- |SecondOrderUpdate|
 
 Yukarıdaki tabloda gösterilen tüm güncelleştirmeleri üzerinde disk üretici yazılımı güncelleştirmelerini yüklemek gerekebilir. Disk üretici yazılımı güncelleştirmelerini çalıştırarak gerekmediğini doğrulayın `Get-HcsFirmwareVersion` cmdlet'i. Bu bellenim sürümleri çalıştırıyorsanız: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, sonra da bu güncelleştirmeleri yüklemeniz gerekmez.
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Disk üretici yazılımı |Bakım <br></br>Kesintiye uğratan bir durumdur |yaklaşık 30 dakika | ThirdOrderUpdate |
 

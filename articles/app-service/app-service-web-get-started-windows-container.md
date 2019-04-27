@@ -15,11 +15,11 @@ ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852980"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme)
 

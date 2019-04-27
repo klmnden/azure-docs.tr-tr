@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0b120cedf35a6f88c880443dee626cce18835d42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859286"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API'sini içeri aktarma ve REST’e dönüştürme
 
@@ -31,7 +31,7 @@ Bu makalede şunları öğreneceksiniz:
 > * Azure portalında API’yi test etme
 > * Geliştirici portalında API’yi test etme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
 
@@ -50,7 +50,7 @@ Bu makalede şunları öğreneceksiniz:
 
 5. Sekme tuşuna basın.
 
-    Şu alanlar, SOAP API’sinde bulunan bilgilerle doldurulur: Görünen ad, Ad, Açıklama.
+    Aşağıdaki alanlar SOAP API'si bilgilerle doldurulur: Görünen ad, ad, açıklama.
 6. API URL'si soneki ekleyin. Sonek, bu belirli API’yi bu APIM örneğinde tanımlayan bir addır. Son ekin bu APIM örneğinde benzersiz olması gerekir.
 9. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.
 

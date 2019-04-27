@@ -9,11 +9,11 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813503"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe programlama arabirimleri U-SQL yerel derleme çalıştırın,
 
 Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
-|Parametre|Type|Açıklama|
+|Parametre|Tür|Açıklama|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|Çıkış iletileri için konsolunu kullanmak için null olarak|
 

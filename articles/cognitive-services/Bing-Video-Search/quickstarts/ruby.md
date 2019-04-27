@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 837a47b0eb1eff37eeafc1cdaad6370b8abc595f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824836"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Hızlı Başlangıç: Bing Video arama REST API'si ile Ruby videolar için arama yapın
 

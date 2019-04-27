@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837360"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Başlatma, durdurma ve kaos raporda test hizmeti.
@@ -32,9 +32,9 @@ Başlatma, durdurma ve kaos raporda test hizmeti.
 
 |Komut|Açıklama|
 | --- | --- |
-| olay | Devamlılık belirteci veya zaman aralığına göre Chaos olayları sonraki segmentini alır. |
+| etkinlikler | Devamlılık belirteci veya zaman aralığına göre Chaos olayları sonraki segmentini alır. |
 | Al | Kaos durumunu alın. |
-| başlangıç | Kaos kümede başlatır. |
+| start | Kaos kümede başlatır. |
 | Durdur | Kaos kümede çalışan ve kaos zamanlama durduruldu durumuna durdurur. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos olayları

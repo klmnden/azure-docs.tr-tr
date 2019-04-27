@@ -9,13 +9,13 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839323"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: Azure portalı
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -71,7 +71,7 @@ Yapılandırmaya başlamadan önce aşağıdaki ölçütleri karşıladığında
  - Etkin bir Microsoft eşlemesi olması gerekir. Konumundaki yönergeleri [oluştur ve eşleme yapılandırmasını değiştirme](expressroute-howto-routing-portal-resource-manager.md)
 
 
-## <a name="prefixes"></a>1. adım: bir ön ek listesini ve BGP topluluk değerlerini alma
+## <a name="prefixes"></a>1. adım: Bir ön ek listesini ve BGP topluluk değerlerini alma
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP topluluk değerlerini bir listesini alın
 
@@ -81,7 +81,7 @@ Microsoft eşlemesi aracılığıyla erişilebilen hizmetler ile ilişkili BGP t
 
 Bir rota filtresinde kullanmak istediğiniz BGP topluluk değerlerini listesini hazırlayın. Örneğin, Dynamics 365 Hizmetleri için BGP topluluk değeri 12076:5040 ' dir.
 
-## <a name="filter"></a>2. adım: bir yol filtresi ve bir filtre kuralı oluşturma
+## <a name="filter"></a>2. adım: Rota filtresi ve filtre kuralı oluşturma
 
 Bir rota filtresinde yalnızca bir kuralınız olabilir ve kural 'İzin ver' türünde olmalıdır. Bu kural, kendisiyle ilişkili BGP topluluk değerlerini listesi olabilir.
 
@@ -106,7 +106,7 @@ Açılır listeden bağlanmak ve işiniz bittiğinde kuralını kaydetmek için 
 ![Rota filtresi oluşturma](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>3. adım: bir ExpressRoute bağlantı hattı için rota filtresi ekleme
+## <a name="attach"></a>3. adım: Bir ExpressRoute bağlantı hattı için rota filtresi ekleme
 
 Rota filtresini, "Bağlantı hattı Ekle" düğmesi ve ExpressRoute bağlantı hattı açılır listeden seçerek bir devreye ekleyebilirsiniz.
 

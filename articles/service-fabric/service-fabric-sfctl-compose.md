@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837275"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Oluşturma, silme ve Docker Compose uygulamaları yönetin.
@@ -28,8 +28,8 @@ Oluşturma, silme ve Docker Compose uygulamaları yönetin.
 
 |Komut|Açıklama|
 | --- | --- |
-| oluştur | Oluşturur bir Service Fabric compose dağıtımı. |
-| liste | Service Fabric kümesinde oluşturulan dağıtımlar alır listesi oluşturun. |
+| oluşturmaya | Oluşturur bir Service Fabric compose dağıtımı. |
+| list | Service Fabric kümesinde oluşturulan dağıtımlar alır listesi oluşturun. |
 | kaldır | Siler mevcut bir Service Fabric Küme dağıtımı oluşturun. |
 | durum | Compose dağıtımı bir Service Fabric hakkında bilgi alır. |
 | yükselt | Service Fabric kümesindeki bir compose dağıtımı yükseltme işlemini başlatır. |

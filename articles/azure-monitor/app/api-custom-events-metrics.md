@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794457"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -1171,7 +1171,7 @@ Bu değerlerden herhangi birini kendinize ayarlarsanız, ilgili satırından kal
 * **Oturum**: Kullanıcının oturumu. Kimlik, kullanıcı bir süredir etkin olmayan kaldırıldığında, değiştirildiğinde oluşturulan bir değere ayarlanır.
 * **Kullanıcı**: Kullanıcı bilgileri.
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

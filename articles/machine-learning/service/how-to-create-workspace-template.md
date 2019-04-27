@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819544"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanma
 

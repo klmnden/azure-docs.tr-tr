@@ -9,11 +9,11 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883342"
 ---
 # <a name="troubleshooting-network-performance"></a>Ağ performansı sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -179,7 +179,7 @@ Test Kurulumu:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Konum|Azure<br/>Bölge|Tahmini<br/>Uzaklık (km)|Gecikme süresi|1 oturumu<br/>Bant Genişliği|Maksimum<br/>Bant Genişliği|
+|ExpressRoute<br/>Location|Azure<br/>Bölge|Tahmini<br/>Uzaklık (km)|Gecikme süresi|1 oturumu<br/>Bant Genişliği|Maksimum<br/>Bant Genişliği|
 | Seattle | Batı ABD 2        |    191 km |   5 ms | 262.0 Mbits/sn |  3.74 Gbits/sn |
 | Seattle | Batı ABD          |  1,094 km |  18 ms |  82.3 Mbits/sn |  3.70 Gbits/sn |
 | Seattle | Orta ABD       |  2,357 km |  40 ms |  38.8 Mbits/sn |  2.55 Gbits/sn |

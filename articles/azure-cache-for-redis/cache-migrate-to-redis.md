@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830304"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Yönetilen önbellek Hizmeti'nden Azure önbelleği için Redis için geçirme
 Azure önbelleği için Redis için Azure yönetilen önbellek hizmeti kullanan, uygulamaları geçirme uygulamanızın, önbelleğe alma uygulamanız tarafından kullanılan yönetilen önbellek hizmeti özelliklere bağlı olarak küçük değişiklikler ile gerçekleştirilebilir. API'leri tam olarak aynı olsa da benzemez ve yönetilen önbellek hizmeti bir önbelleğe erişmek için kullandığı mevcut kodunuzu çoğunu minimum değişikliklerle yeniden kullanılabilir. Bu makalede, gerekli yapılandırma yapma gösterilmektedir ve uygulama, Azure önbelleği için Redis kullanmak üzere yönetilen önbellek hizmeti uygulamalarınızı geçirmeyi değiştirir ve nasıl bazı özellikleri Azure önbelleği için Redis işlevselliğini uygulamak için kullanılabileceğini gösterir bir yönetilen önbellek hizmeti önbelleği.

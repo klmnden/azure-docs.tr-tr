@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809016"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure işlevleri geliştirme ve Azure SignalR hizmeti ile yapılandırma
 

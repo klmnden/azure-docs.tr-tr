@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
 ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831340"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>App service gibi çok kiracılı arka için Application Gateway desteği sona erer
 
@@ -47,7 +47,7 @@ Bu özellik sayesinde müşteriler, HTTP ayarları ve özel araştırmalardaki s
 
 Yukarıdaki resimde dikkat edin, App service arka uç olarak seçildiğinde kimlik doğrulama sertifikaları eklemek için bir gereksinimi yoktur.
 
-### <a name="health-probe"></a>Durum araştırması
+### <a name="health-probe"></a>Durum yoklaması
 
 Ana bilgisayar üstbilgisi için geçersiz kılma **HTTP ayarları** yalnızca istek ve akışı etkiler. Sistem durumu araştırma davranışını etkilemez. Uçtan uca işlevselliğin çalışması için hem araştırma hem de HTTP ayarları doğru yapılandırmayı yansıtacak şekilde değiştirilmelidir. Özel araştırmalar araştırma yapılandırmasında bir ana bilgisayar üst bilgisi belirtme olanağı sağlamanın yanı sıra, şu anda yapılandırılmış HTTP ayarlarından ana bilgisayar üstbilgisi türetme olanağını da desteklemektedir. Bu yapılandırma, araştırma yapılandırmasındaki `PickHostNameFromBackendHttpSettings` parametresi kullanılarak belirtilebilir.
 

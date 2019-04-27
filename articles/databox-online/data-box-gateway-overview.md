@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754225"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure veri kutusu ağ geçidi nedir?
 

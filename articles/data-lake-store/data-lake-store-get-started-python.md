@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877266"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini Python kullanarak
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Değişiklikleri örneğim.py uygulamasına kaydedin.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Bu bölümde Azure AD ile gerçekleştirilen farklı kimlik doğrulama yöntemlerinden bahsedeceğiz. Şu seçenekleri kullanabilirsiniz:
 

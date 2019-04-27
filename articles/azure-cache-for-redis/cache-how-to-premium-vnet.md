@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
 ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831085"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.
@@ -110,7 +110,7 @@ Yedi giden bağlantı noktası gereksinimleri vardır.
 - Üç bağlantı noktalarının Azure depolama ve Azure DNS hizmeti Azure uç noktaları için trafiği yönlendirme.
 - Kalan bağlantı noktası aralıkları ve dahili Redis alt ağ iletişimi için. Hiçbir alt ağda NSG kuralları iç Redis alt ağ iletişimleri için gerekli değildir.
 
-| Bağlantı noktaları | Yön | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
+| Bağlantı noktaları | Direction | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Giden |TCP |Redis bağımlılıklar üzerinde Azure depolama/PKI (Internet) | (Alt ağ redis) |* |
 | 53 |Giden |TCP/UDP |DNS (Internet/VNet) bağımlılıkları redis | (Alt ağ redis) |* |
@@ -126,7 +126,7 @@ Yedi giden bağlantı noktası gereksinimleri vardır.
 
 Sekiz gelen bağlantı noktası aralığı gereksinimi yoktur. Bu aralıklardaki gelen istekler, aynı sanal ağda barındırılan diğer hizmetlerden gelen veya iç Redis alt ağ iletişimi için.
 
-| Bağlantı noktaları | Yön | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
+| Bağlantı noktaları | Direction | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Gelen |TCP |Redis, Azure Yük Dengeleme istemci iletişimi | (Alt ağ redis) | (Redis. alt ağ), sanal ağ, Azure Load Balancer |
 | 8443 |Gelen |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
