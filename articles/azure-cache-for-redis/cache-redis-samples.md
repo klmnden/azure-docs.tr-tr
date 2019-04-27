@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: yegu
+origin.date: 01/23/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829812"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Redis için Azure Önbelleği örnekleri
 Bu konu, önbellek, okuma ve yazma verileri azure'a veya önbellekten bağlanma ve ASP.NET Azure önbelleği için Redis sağlayıcıları kullanan gibi senaryoları kapsayan, Redis örnekleri için Azure önbellek listesini sağlar. Örneklerden bazıları indirilebilir projelerdir ve bazı adım adım rehberlik ve kod parçacıkları içerir ancak indirilebilir bir projeye bağlamayın.
@@ -31,14 +32,14 @@ Bu bölümdeki örnekler, bir Azure önbelleği için Redis örneği bağlama ve
 
 Bu örnek, gösterir nasıl yapılır:
 
-* Çeşitli bağlantı seçenekleri kullanın
-* Okuma ve yazma için ve zaman uyumlu ve zaman uyumsuz işlemler kullanarak önbellekten nesneleri
-* Belirtilen anahtar değer döndürmek için Redis MGET/MSET komutları kullanın.
-* Redis işlem işlemleri
-* Redis listeler ve sıralanmış kümeleri ile çalışma
-* Store .NET nesneleri kullanarak JsonConvert seri hale getiricileri genişletme
-* Redis kümesi etiketleme uygulamak için kullanma
-* Redis küme ile çalışmanıza
+- Çeşitli bağlantı seçenekleri kullanın
+- Okuma ve yazma için ve zaman uyumlu ve zaman uyumsuz işlemler kullanarak önbellekten nesneleri
+- Belirtilen anahtar değer döndürmek için Redis MGET/MSET komutları kullanın.
+- Redis işlem işlemleri
+- Redis listeler ve sıralanmış kümeleri ile çalışma
+- Store .NET nesneleri kullanarak JsonConvert seri hale getiricileri genişletme
+- Redis kümesi etiketleme uygulamak için kullanma
+- Redis küme ile çalışmanıza
 
 Daha fazla bilgi için [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub ve daha fazla kullanım senaryoları için belgelere bakın [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) birim testleri.
 
@@ -52,8 +53,8 @@ Daha fazla bilgi için [StackExchange.Redis](https://github.com/StackExchange/St
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure önbelleği için Redis müşteri sorgu örneği
 Bu örnek, bir önbelleğe alınan verilere ve verilere erişim kalıcı depolama alanından arasında karşılaştırır performans gösterir. Bu örnek, iki proje yok.
 
-* [Azure önbelleği için Redis performans verileri önbelleğe alarak nasıl geliştireceğiniz gösteri](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [Tanıtım için çekirdek önbellek ve veritabanı](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+- [Azure önbelleği için Redis performans verileri önbelleğe alarak nasıl geliştireceğiniz gösteri](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+- [Tanıtım için çekirdek önbellek ve veritabanı](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET oturum durumu ve çıktı önbelleği
 [Kullanan Azure Cache için ASP.NET SessionState ve OutputCache depolamak Redis](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) örnek gösterir nasıl ASP.NET oturumunu ve çıkış SessionState ve OutputCache sağlayıcıları kullanarak Redis önbelleği depolamak için Azure önbelleği için Redis kullanmak için .
@@ -69,4 +70,6 @@ Bu örnek, bir önbelleğe alınan verilere ve verilere erişim kalıcı depolam
 
 ## <a name="bandwidth-monitor"></a>Bant genişliği İzleyicisi
 [Bant genişliği İzleyici](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) örnek, istemcide kullanılan bant genişliğini izlemenize olanak sağlar. Bant genişliği ölçmek için örneği önbellek istemci makinede çalıştırmak, önbellek çağrı yapmak ve bant genişliği İzleyici örnek tarafından bildirilen bant genişliği gözlemleyin.
+
+<!-- Update_Description: update metedata properties -->
 

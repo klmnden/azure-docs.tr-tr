@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887341"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -208,12 +208,12 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 | gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Durumlar 
-| Name          | Görünen ad   | NORMAL | UYARI | DANGER | 
+| Ad          | Görünen ad   | NORMAL | UYARI | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
 
 #### <a name="events"></a>Olaylar 
-| Name             | Görünen ad      | 
+| Ad             | Görünen ad      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Basılan düğme B  | 
 
@@ -235,7 +235,7 @@ Geçiş ayarları
 
 ### <a name="properties"></a>Özellikler
 
-| Type            | Görünen ad | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Cihaz özelliği | Cihaz konumu   | location  | location    |
@@ -246,7 +246,7 @@ Geçiş ayarları
 | Görünen ad | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | echo       | metin        | görüntülenecek değer         | displayedValue   | metin             |
-| Geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
+| geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

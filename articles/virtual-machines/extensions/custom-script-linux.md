@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
 ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869886"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 2 ile Linux sanal makineleri kullanın.
 Özel betik uzantısı sürüm 2 indirir ve Azure sanal makinelerinde betikleri çalıştırır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için kullanışlıdır. Betikler Azure depolama veya başka bir erişilebilir internet konuma indirebilir veya uzantı çalışma zamanında sağlayabilir. 
@@ -51,15 +51,15 @@ Harici olarak GitHub ya da Azure depolama gibi bir betik indirmeniz gerekiyorsa,
 Kodunuzu yerel bir sunucusundaysa sonra ek güvenlik duvarı/ağ güvenlik hala gerekebilir grup bağlantı noktaları açılması gerekir.
 
 ### <a name="tips-and-tricks"></a>İpuçları ve Püf Noktaları
-* Bu uzantı için en yüksek hata oranı hata, komut dosyasını çalıştırır test komut dosyasında sözdizimi hataları kaynaklanır ve başarısız olduğu bulmak daha kolay hale getirmek için komut dosyası bir günlük daha koyun de.
-* Eşgüçlüdür, komut dosyaları yazmak için yeniden birden çok kez yanlışlıkla çalıştırma alınamadı, da sistem değişiklikleri neden olmaz.
+* Bu uzantı için en çok karşılaşılan hatalar, betikteki söz dizimi hatalarıdır. Betiğin hatasız bir şekilde çalıştığından emin olun ve ayrıca hata noktalarını daha kolay bir şekilde belirlemek için betiğe ek günlük kaydı işlevleri ekleyin.
+* Bir kez etkili betikler yazın. Bu sayede yanlışlıkla birden fazla çalıştırılan betikler, sistemde değişiklik gerçekleştirilmesine neden olmaz.
 * Betikleri çalıştırdıklarında kullanıcı girişi gerektirmeyen emin olun.
 * Çalıştırılacak betik için izin verilen 90 dakika, başarısız bir sağlama uzantının uzun herhangi bir şey neden olur.
 * Yeniden başlatma komut dosyası içine koymayın bu yüklenmekte olan diğer uzantılarla sorunlarına neden olur ve sonrası yeniden başlatma, uzantıyı yeniden başlatma sonrasında devam etmez. 
-* Yeniden başlatma neden olacak bir betiğiniz varsa, uygulama yükleme ve betikler vb. çalıştırın. Bir sıralanmış işin veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden zamanlamanız gerekir.
+* Yeniden başlatmaya neden olacak bir betiğiniz varsa uygulamaları yükleyip betikleri sonra çalıştırma yöntemini izleyin. Bir sıralanmış işin veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden zamanlamanız gerekir.
 * Kullanabileceğiniz sonra her önyükleme üzerinde bir komut dosyası çalıştırmak istiyorsanız, uzantı yalnızca bir komut dosyası bir kez çalışır [cloud-init görüntü](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) ve bir [betikleri başına önyükleme](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modülü. Alternatif olarak, bir Systemd hizmeti birim oluşturmak için komut dosyasını kullanabilirsiniz.
 * Çalışacak bir betik zamanlama istiyorsanız, bir sıralanmış iş oluşturmak için uzantıyı kullanmanız gerekir. 
-* Komut dosyası çalıştırılırken, yalnızca Azure portal veya CLI 'geçirmeyi' bir uzantı durumu görürsünüz. Çalışan bir betiğin daha sık aralıklı durum güncelleştirmeleri isterseniz, kendi çözümünüzü oluşturmak gerekir.
+* Betik çalışırken Azure portalı veya CLI üzerinden uzantı durumunu yalnızca "geçiş durumunda" şeklinde görürsünüz. Çalışan bir betiğin daha sık aralıklı durum güncelleştirmeleri isterseniz, kendi çözümünüzü oluşturmak gerekir.
 * Özel betik uzantısı yerel olarak proxy sunucularını desteklemez, ancak komut dosyanızın içinde proxy sunucuları gibi destekleyen bir dosya aktarım aracı kullanabilir *Curl*. 
 * Betikler veya komutlar System.Environment.UserInteractive varsayılan olmayan dizin konumlarını unutmayın, bu durumu çözmek için mantığı vardır.
 
@@ -115,7 +115,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | typeHandlerVersion | 2.0 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örn.) | Python MyPythonScript.py < param1 my > | string |
-| komut dosyası | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (örn.) | false | boole |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
 | storageAccountName (örn.) | examplestorageacct | string |

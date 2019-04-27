@@ -13,11 +13,11 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901034"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Bağımlılık telemetrisi: Application Insights veri modeli
 

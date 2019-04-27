@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778263"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Sorguları listesi Batch kaynaklarını verimli bir şekilde oluşturun
 
@@ -179,7 +179,7 @@ Filtre, özellik adları seçin ve dizeleri genişletin *gerekir* REST API karş
 ## <a name="example-construct-a-filter-string"></a>Örnek: bir filtre dizesi oluşturun
 İçin bir filtre dizesi oluşturmak zaman [ODATADetailLevel.FilterClause][odata_filter], yukarıdaki tabloda "Eşlemeleri için filtre dizelerinde" altında karşılık gelen bulma REST API belgeleri sayfasına bakın gerçekleştirmek istediğiniz listeleme işlemi. Bu sayfadaki ilk çok satırlı tabloda filtrelenebilir özelliklerini ve bunların desteklenen işleçleri bulabilirsiniz. Çıkış kodu sıfır olmayan tüm görevleri almak istiyorsanız, örneğin, bu satır üzerinde [işi ile ilişkili görevleri listeleyin] [ rest_list_tasks] izin verilen işleçler ve ilgili özellik dize belirtir:
 
-| Özellik | İzin verilen işlemleri | Type |
+| Özellik | İzin verilen işlemleri | Tür |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Bu nedenle, sıfır olmayan çıkış kodu ile tüm görevleri listelemek için 
 ## <a name="example-construct-a-select-string"></a>Örnek: select bir dize oluşturur.
 Oluşturmak için [ODATADetailLevel.SelectClause][odata_select], yukarıdaki tabloda "Select dizeleri eşlemeleri" altında başvurun ve listeleme varlık türü için karşılık gelen REST API sayfasına gidin. Bu sayfada ilk çok satırlı tablodaki seçilebilir özelliklerini ve bunların desteklenen işleçleri bulabilirsiniz. Yalnızca kimliği ve her görev bir liste için komut satırı almak istiyorsanız, örneğin, bu satırlar geçerli tabloda üzerinde bulursunuz [bir görev hakkında bilgi alma][rest_get_task]:
 
-| Özellik | Type | Notlar |
+| Özellik | Tür | Notlar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

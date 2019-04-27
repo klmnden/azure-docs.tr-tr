@@ -11,11 +11,11 @@ ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817305"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Portalda Azure Search dizini oluşturma
 

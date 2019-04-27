@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871356"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.

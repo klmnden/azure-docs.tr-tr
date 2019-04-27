@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
 ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889461"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos Gezgini'ni kullanarak verileri ile çalışma 
+# <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos gezginini kullanarak verilerle çalışma 
 
 Azure Cosmos DB Gezgini'ni görüntülemek ve Azure Cosmos DB'de depolanan verileri yönetmenize olanak sağlayan bir tek başına web tabanlı arabirimidir. Azure Cosmos DB Gezgini'ni varolan eşdeğerdir **Veri Gezgini** Azure Cosmos DB hesabı oluşturduğunuzda, Azure portalında kullanılabilen sekmesi. Mevcut Veri Gezgini üzerinden Azure Cosmos DB explorer'ın önemli avantajlar şunlardır:
 

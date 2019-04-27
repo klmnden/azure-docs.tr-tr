@@ -1,20 +1,22 @@
 ---
 title: Azure Cosmos DB Gremlin API veri bölümleme
 description: Bölümlenmiş bir grafik Azure Cosmos DB'de nasıl kullanabileceğinizi öğrenin. Bu makalede ayrıca gereksinimleri ve bölümlenmiş bir grafik için en iyi uygulamaları açıklar.
-author: luisbosquez
-ms.author: lbosq
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888427"
 ---
+<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Bölümlenmiş bir grafik Azure Cosmos DB içinde kullanma
 
 Azure Cosmos DB Gremlin API anahtar özelliklerini de yatay ölçeklendirme aracılığıyla büyük ölçekli grafikleri işlemek yeteneğidir. Yatay ölçeklendirme aracılığıyla gerçekleştirilir [özellikleri Azure Cosmos DB'de bölümleme](partition-data.md). Kapsayıcıları, depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirebilirsiniz. Azure Cosmos DB'de graf verilerini depolamak için otomatik olarak ölçeklendirilebilir kapsayıcılar oluşturabilirsiniz. Verileri otomatik olarak bağlı olarak belirtilen dengelenir **bölüm anahtarı**.
@@ -37,27 +39,26 @@ Bölünmüş grafik kapsayıcısı oluştururken önce anlamanız gereken Ayrın
 
     - `/id` ve `/label` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak desteklenmez.
 
-
     - Ardından Kimliğe göre bir köşe seçerek **kullanarak `.has()` bölüm anahtar özelliği belirtmek için adım**: 
-    
+
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
+
     - Bir köşe tarafından seçilmesi **bölüm anahtarı değeri ve kimliği de dahil olmak üzere bir tanımlama grubu belirterek**: 
-    
+
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Belirten bir **diziler bölüm anahtarı değerlerine ve kimlikler dizisi**:
-    
+
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
+
     - Köşe kümesini seçme ve **bölüm anahtar değerlerin bir listesini belirtme**: 
-    
+
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -81,3 +82,6 @@ Ardından bu makaleleri okuyun geçebilirsiniz:
 * Hakkında bilgi edinin [bölümleme ve ölçeklendirme Azure Cosmos DB'de](partition-data.md).
 * Hakkında bilgi edinin [Gremlin API Gremlin desteği](gremlin-support.md).
 * Hakkında bilgi edinin [Gremlin API giriş](graph-introduction.md).
+
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

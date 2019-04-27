@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60833579"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
 
@@ -125,7 +125,7 @@ when making changes in one don't forget the other two.
    | **Ad** | myTriggeredWebJob | Bir App Service uygulaması içinde benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_".|
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* programları veya betikleri çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir veya betik dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
    | **Türü** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
-   | **Tetikleyiciler** | El ile | |
+   | **Tetikleyiciler** | Manual | |
 
 4. **Tamam** düğmesine tıklayın.
 

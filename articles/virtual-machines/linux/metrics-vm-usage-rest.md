@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773273"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API kullanarak sanal makine kullanım ölçümleri alma
 
@@ -49,7 +49,7 @@ Aşağıdaki üst bilgiler gereklidir:
 | vmname | Azure sanal makine adı. |
 | metricnames | Virgülle ayrılmış listesi geçerli [Load Balancer ölçümleri](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | API sürümü | İstek için kullanılacak API sürümü.<br /><br /> Api sürümü bu belgede ele alınmaktadır `2018-01-01`, yukarıdaki URL'deki yer.  |
-| Zaman aralığı | Dize aşağıdaki biçimde `startDateTime_ISO/endDateTime_ISO` , döndürülen ölçümler zaman aralığını tanımlar. Örnekte, bir günün değerinde veri döndürmek için bu isteğe bağlı parametreyi ayarlayın. |
+| TimeSpan | Dize aşağıdaki biçimde `startDateTime_ISO/endDateTime_ISO` , döndürülen ölçümler zaman aralığını tanımlar. Örnekte, bir günün değerinde veri döndürmek için bu isteğe bağlı parametreyi ayarlayın. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>İstek gövdesi

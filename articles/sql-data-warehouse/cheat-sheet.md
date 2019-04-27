@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732323"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
 Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
@@ -50,7 +50,7 @@ Veri ambarınızda çalıştırılacak birincil işlemleri ve sorguları öncede
 
 Tablo özelliklerini bağlı olarak aşağıdaki stratejileri kullanın:
 
-| Type | İdeal olduğu öğe...| İzlenmesi gereken şey...|
+| Tür | İdeal olduğu öğe...| İzlenmesi gereken şey...|
 |:--- |:--- |:--- |
 | Çoğaltılmış | • Sıkıştırmadan (~5x sıkıştırma) sonra 2 GB’tan az depolama alanına sahip bir yıldız şemasındaki küçük boyut tabloları |• Tabloda birçok yazma işlemi olup olmadığı (örn. ekleme, upsert, silme, güncelleştirme)<br></br>• Veri Ambarı Birimleri (DWU) sağlamayı sık sık değiştirip değiştirmediğiniz<br></br>• Yalnızca 2-3 sütun kullanıp kullanmadığınız, ancak tablonuzun birçok sütun içerip içermediği<br></br>• Çoğaltılmış bir tabloyu dizinleyip dizinlemediğiniz |
 | Hepsini Bir Kez Deneme (varsayılan) | • Geçici/hazırlama tablosu<br></br> • Belirgin bir birleştirme anahtarı veya iyi aday sütunu olmaması |• Veri taşıma nedeniyle performansın düşüp düşmediği |
@@ -70,7 +70,7 @@ Tablo özelliklerini bağlı olarak aşağıdaki stratejileri kullanın:
 
 Dizinleme, tabloların hızlı şekilde okunması için faydalıdır. Gereksinimlerinize göre kullanabileceğiniz bir dizi benzersiz teknoloji vardır:
 
-| Type | İdeal olduğu öğe... | İzlenmesi gereken şey...|
+| Tür | İdeal olduğu öğe... | İzlenmesi gereken şey...|
 |:--- |:--- |:--- |
 | Yığın | • Hazırlama/geçici tablo<br></br>• Küçük aramalar içeren küçük tablolar |• Aramaların tam tabloyu tarayıp taramadığı |
 | Kümelenmiş dizin | • En fazla 100 milyon satır içeren tablolar<br></br>• Yalnızca 1-2 sütunun yoğun şekilde kullanıldığı büyük tablolar (100 milyondan fazla satır içeren) |• Çoğaltılmış bir tabloda kullanılıp kullanılmadığı<br></br>• Birden fazla birleştirme ve Gruplama Ölçütü işlemini içeren karmaşık sorgularınız olup olmadığı<br></br>• Dizinlenmiş sütunlarda güncelleştirme yapıp yapmadığınız: bu, bellek tüketir |

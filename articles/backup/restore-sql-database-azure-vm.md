@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: raynew
 ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60781826"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure vm'lerde SQL Server veritabanlarını geri yükleme
 
@@ -42,7 +42,7 @@ Bir veritabanını geri yüklemeden önce aşağıdakilere dikkat edin:
 - Geri yüklemeyi tetikleyecek önce (modeli, master, msdb), tüm sistem veritabanları için SQL Server Agent hizmetini durdurun.
 - Tüm bu veritabanlarını için bağlantı geçirmeye çalışan tüm uygulamaları kapatın.
 
-## <a name="restore-a-database"></a>Bir veritabanını geri yükleme
+## <a name="restore-a-database"></a>Veritabanını geri yükleme
 
 Geri yüklemek için aşağıdaki izinler gerekir:
 

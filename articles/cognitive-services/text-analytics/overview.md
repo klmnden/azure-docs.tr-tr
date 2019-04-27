@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
 ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829540"
 ---
 # <a name="what-is-text-analytics-api"></a>Metin analizi API'si nedir?
 
@@ -83,7 +83,7 @@ Bu bölüm, daha kolay bulunmasını sağlama amacıyla başka bir makaleye taş
 
 Tüm Metin Analizi API'si uç noktaları ham metin verisi kabul eder. Her belge için geçerli sınır 5.120 karakterdir; daha büyük belgelere çözümlemeniz gerekiyorsa, bunları daha küçük öbeklere ayırmak. Sınırı yine de yükseltmeye ihtiyacınız varsa gereksinimleriniz üzerinde konuşmak için [bize ulaşın](https://azure.microsoft.com/overview/sales-number/).
 
-| Sınır | Value |
+| Sınır | Değer |
 |------------------------|---------------|
 | Tek belge için maksimum boyut | ölçülen gibi 5.120 karakter [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | İsteğin tamamının maksimum boyutu | 1 MB |

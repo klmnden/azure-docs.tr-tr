@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883122"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:

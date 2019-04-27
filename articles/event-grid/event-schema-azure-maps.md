@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861863"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure haritalar için Azure Event Grid olay şeması
 
@@ -104,21 +104,21 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | Bölge sınırlaması olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| apiCategory | dize | Olay kategorisi API. |
-| ApiName | dize | Olayın API adı. |
+| apiCategory | string | Olay kategorisi API. |
+| ApiName | string | Olayın API adı. |
 | Sorunları | object | İşleme sırasında karşılaşılan sorunları listeler. Herhangi bir sorun yoksa, ardından olacaktır hiçbir geometriler ile bir yanıt döndürdü. |
 | responseCode | number | HTTP yanıt kodu |
 | Geometri | object | Liste koordinatını içeren sınır geometriler getirin veya konumu etrafında searchBuffer çakışıyor. |
@@ -133,26 +133,26 @@ Haritalar API'SİNDE hata oluştuğunda ErrorDetails nesne döndürülür. Hata 
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| kod | dize | HTTP durum kodu. |
-| message | dize | Varsa, hatanın insan tarafından okunabilir bir açıklaması. |
+| kod | string | HTTP durum kodu. |
+| message | string | Varsa, hatanın insan tarafından okunabilir bir açıklaması. |
 | innererror | InnerError | Varsa, hizmete özgü hata hakkında bilgi içeren bir nesne. |
 
 InnerError hatayla ilgili hizmete özel bilgi içeren bir nesnedir. InnerError nesnesi, aşağıdaki özelliklere sahiptir: 
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| kod | dize | Hata iletisi. |
+| kod | string | Hata iletisi. |
 
 Geometri nesnesi geometri göre istekteki kullanıcı süresi dolmuş bölge sınırlarının kimliklerini listeler. Geometri nesnesi, geometri öğe aşağıdaki özelliklerle sahiptir: 
 
 | Özellik | Tür | Açıklama |
 |:-------- |:---- |:----------- |
-| cihaz kimliği | dize | Cihaz kimliği. |
-| uzaklık | dize | <p>Koordinat uzaklığı en yakın kenarlığı döndürürüz. Pozitif koordinat bölge sınırının dışında anlamına gelir. Koordinat döndürürüz, ancak birden çok değeri en yakın bölge sınırı kenarlığa uzağa searchBuffer dışında ise, değer-999'dur. Negatif koordinat bölge sınırının içinde olduğu anlamına gelir. Ardından koordinat Çokgen, ancak birden çok değeri en yakın bölge sınırlaması kenarlık uzağa searchBuffer içinde ise, değer -999 ' dir. Değeri harika güvenle olduğunu 999 anlamına gelir koordinat iyi bölge sınırının dışında ' dir. Bir harika güvenle yok-999 anlamına gelir. koordinat iyi bölge sınırı içinde değerdir.<p> |
-| geometryid |dize | Benzersiz kimliği döndürürüz geometri tanımlar. |
+| cihaz kimliği | string | Cihaz kimliği. |
+| uzaklık | string | <p>Koordinat uzaklığı en yakın kenarlığı döndürürüz. Pozitif koordinat bölge sınırının dışında anlamına gelir. Koordinat döndürürüz, ancak birden çok değeri en yakın bölge sınırı kenarlığa uzağa searchBuffer dışında ise, değer-999'dur. Negatif koordinat bölge sınırının içinde olduğu anlamına gelir. Ardından koordinat Çokgen, ancak birden çok değeri en yakın bölge sınırlaması kenarlık uzağa searchBuffer içinde ise, değer -999 ' dir. Değeri harika güvenle olduğunu 999 anlamına gelir koordinat iyi bölge sınırının dışında ' dir. Bir harika güvenle yok-999 anlamına gelir. koordinat iyi bölge sınırı içinde değerdir.<p> |
+| geometryid |string | Benzersiz kimliği döndürürüz geometri tanımlar. |
 | nearestlat | number | Geometri, yakın noktasının enlem. |
 | nearestlon | number | Geometri, yakın noktası bulunduğu boylam. |
-| Udıd'si | dize | Bir bölge sınırının karşıya yüklenirken kullanıcı karşıya yükleme hizmetten döndürülen benzersiz kimliği. Bölge sınırlaması post API'SİNDE dahil edilmez. |
+| Udıd'si | string | Bir bölge sınırının karşıya yüklenirken kullanıcı karşıya yükleme hizmetten döndürülen benzersiz kimliği. Bölge sınırlaması post API'SİNDE dahil edilmez. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 

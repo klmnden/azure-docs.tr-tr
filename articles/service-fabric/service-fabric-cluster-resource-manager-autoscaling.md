@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844032"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.

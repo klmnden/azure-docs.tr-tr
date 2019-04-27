@@ -1,6 +1,6 @@
 ---
-title: Çoğaltmaları ve Azure Service Fabric durumlarda | Microsoft Docs
-description: Çoğaltmaları ve örnekleri--kendi işlevi ve yaşam döngüleri anlama
+title: Çoğaltmalar ve örnekler Azure Service fabric'te | Microsoft Docs
+description: Çoğaltmalar ve örnekler--kendi işlevi ve yaşam döngüleri anlama
 services: service-fabric
 documentationcenter: .net
 author: appi101
@@ -15,134 +15,134 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882427"
 ---
-# <a name="replicas-and-instances"></a>Çoğaltmaları ve örnekleri 
-Bu makalede, durum bilgisi olan hizmetler ve durum bilgisi olmayan hizmetler örneklerini çoğaltmalarının yaşam döngüsüne genel bakış sunulmaktadır.
+# <a name="replicas-and-instances"></a>Çoğaltmalar ve örnekler 
+Bu makalede, durum bilgisi olan hizmetler ve durum bilgisi olmayan hizmetler örneklerini kopyasının yaşam döngüsüne genel bir bakış sağlar.
 
 ## <a name="instances-of-stateless-services"></a>Durum bilgisi olmayan hizmetler örnekleri
-Durum bilgisiz hizmet örneği, küme düğümlerinden biri üzerinde çalışan hizmet mantığı kopyasıdır. Bir örnek bölüm içinde benzersiz olarak tanımlanır, **InstanceId**. Aşağıdaki şemada bir örnek yaşam döngüsü modellenir:
+Küme düğümlerinden biri üzerinde çalışan hizmet mantığı bir kopyasını bir durum bilgisi olmayan hizmet örneğidir. Bir örnek bölüm içindeki benzersiz olarak tanımlanır, **InstanceId**. Aşağıdaki diyagramda yaşam döngüsü örneği modellenmiştir:
 
 ![Örnek yaşam döngüsü](./media/service-fabric-concepts-replica-lifecycle/instance.png)
 
 ### <a name="inbuild-ib"></a>Inbuild (IB)
-Küme Kaynak Yöneticisi'ni örneği için bir yerleştirme belirledikten sonra bu yaşam döngüsü durumuna girer. Örneğin düğümde başlatılır. Uygulama ana bilgisayarı başlatıldığında, örnek oluşturulur ve daha sonra açılır. Başlatma tamamlandıktan sonra örnek hazır duruma geçer. 
+Küme Kaynak Yöneticisi örneği için bir yerleştirme belirledikten sonra bu yaşam döngüsü durumuna girer. Örneğin düğümde başlatılır. Uygulama konağı başlatıldığında, örneği oluşturulmuş ve ardından açılır. Başlangıç tamamlandıktan sonra örnek hazır duruma geçer. 
 
-Uygulama ana bilgisayarı veya örnek için düğüm çökerse bırakılan durumuna geçiş yapar.
+Bu örnek için düğüm ve uygulama konağı çökerse, bırakılan durumuna geçer.
 
-### <a name="ready-rd"></a>Hazır (RD)
-Hazır durumda hazır ve çalışır düğümde örneğidir. Bu örnek güvenilir bir hizmet ise **RunAsync** çağrılmış. 
+### <a name="ready-rd"></a>(RD) hazır
+Hazır durumda çalışmaya düğümde örneğidir. Bu örnek, bir güvenilir hizmet ise **RunAsync** çağrılmış. 
 
-Uygulama ana bilgisayarı veya örnek için düğüm çökerse bırakılan durumuna geçiş yapar.
+Bu örnek için düğüm ve uygulama konağı çökerse, bırakılan durumuna geçer.
 
-### <a name="closing-cl"></a>Kapatma (CL)
-Kapatma durumda bu düğüm örneğinde kapatma işleminde Azure Service Fabric değil. Bu kapatma birçok nedenden dolayı--Örneğin, bir uygulama yükseltme, Yük Dengeleme veya Silinen hizmet olabilir. Kapatma tamamlandıktan sonra bırakılan bir duruma geçer.
+### <a name="closing-cl"></a>Kapatma (CI)
+Kapatma, Azure Service Fabric bu düğüm örneğinde kapatma işleminde durumdadır. Bu kapatma nedeniyle birçok nedenden Örneğin, bir uygulama yükseltmesi, Yük Dengeleme veya Silinen hizmet olabilir. Kapatma tamamlandıktan sonra bırakılan durumuna geçer.
 
 ### <a name="dropped-dd"></a>Bırakılan (gg)
-Bırakılan durumda örneği artık düğümde çalışmıyor. Bu noktada, Service Fabric sonunda da silinir Bu örnek hakkındaki meta verileri korur.
+Bırakılan durumda örneği artık düğümde çalışmıyor. Bu noktada, Service Fabric sonunda de silinir Bu örneği hakkındaki meta veriler tutar.
 
 > [!NOTE]
-> Geçiş bırakılan durumuna herhangi bir durumdan kullanarak mümkündür **ForceRemove** seçeneği `Remove-ServiceFabricReplica`.
+> Geçiş bırakılan durumuna herhangi bir durumdan kullanarak mümkündür **ForceRemove** seçeneğini `Remove-ServiceFabricReplica`.
 >
 
-## <a name="replicas-of-stateful-services"></a>Durum bilgisi olan hizmetler, çoğaltmaları
-Durum bilgisi olan hizmet çoğaltmasını küme düğümlerinden biri üzerinde çalışan hizmet mantığı kopyasıdır. Ayrıca, çoğaltma bu hizmetin durumunu bir kopyasını tutar. Yaşam döngüsü ve durum bilgisi olan çoğaltmaları davranışını iki ilgili kavramları açıklanmaktadır:
+## <a name="replicas-of-stateful-services"></a>Durum bilgisi olan hizmetler çoğaltmaları
+Durum bilgisi olan hizmet çoğaltmasını küme düğümlerinden biri üzerinde çalışan hizmet mantıksal bir kopyasıdır. Ayrıca, çoğaltma, hizmet durumunun bir kopyasını tutar. İki ilgili kavramları yaşam döngüsü ve durum bilgisi olan yinelemeler davranışını açıklar:
 - Çoğaltma yaşam döngüsü
 - Çoğaltma rolü
 
-Aşağıdaki tartışma kalıcı durum bilgisi olan hizmetler açıklar. Volatile (veya bellek içi) durum bilgisi olan hizmetler için aşağı ve bırakılan durumlarını eşdeğerdir.
+Kalıcı durum bilgisi olan hizmetler aşağıdaki tartışma açıklar. Volatile (veya bellek içi) durum bilgisi olan hizmetler için aşağı ve bırakılan durumları eşdeğerdir.
 
 ![Çoğaltma yaşam döngüsü](./media/service-fabric-concepts-replica-lifecycle/replica.png)
 
 ### <a name="inbuild-ib"></a>Inbuild (IB)
-Bir Inbuild çoğaltma oluşturulan veya çoğaltma kümesi katılmak için hazırlanmış bir çoğaltmadır. Çoğaltma rolü bağlı olarak farklı semantiği IB sahiptir. 
+Inbuild çoğaltma oluşturulan veya çoğaltma kümesine katılmak için hazırlanmış bir çoğaltmadır. Çoğaltma rolü bağlı olarak IB farklı semantiğe sahip. 
 
-Uygulama ana bilgisayarı veya bir Inbuild çoğaltma düğümünü çökerse aşağı durumuna geçiş yapar.
+Uygulama konağı veya düğüm Inbuild çoğaltma için bir çökme gerçekleşirse aşağı durumuna geçer.
 
-   - **Birincil Inbuild çoğaltmaların**: birincil Inbuild olan bir bölüm için ilk çoğaltma. Bu çoğaltma, genellikle bölümü oluşturulduğunda gerçekleşir. Birincil bir bölümün tüm çoğaltmaları yeniden başlattığınızda çoğaltmaları ayrıca ortaya Inbuild veya olan bırakıldı.
+   - **Birincil Inbuild çoğaltmaların**: Bir bölüm için ilk çoğaltmaları birincil Inbuild var. Bu yineleme, genellikle bölüm oluşturulduğunda gerçekleşir. Birincil çoğaltmaları ayrıca tüm bölüm çoğaltmaları yeniden başlattığınızda ortaya Inbuild veya olan bırakıldı.
 
-   - **IdleSecondary Inbuild çoğaltmaların**: küme kaynak yöneticisi tarafından oluşturulan ya da yeni çoğaltmaları bunlar ya da aşağı ve eklenmesi gereken oluştu mevcut çoğaltmaları kümesine yedekleyin. Bu çoğaltmalar sağlanmış veya çoğaltma kümesi ActiveSecondary olarak katılmak ve işlemleri çekirdek bildirim içinde katılmak için önce birincil tarafından oluşturulmuş.
+   - **IdleSecondary Inbuild çoğaltmaların**: Bunlar küme kaynak yöneticisi tarafından oluşturulan yeni çoğaltmalar veya kapanmış mevcut çoğaltmaları ve kümesine eklenmesi gerekir. Bu çoğaltmaların çekirdek değeri oluşturulmuş veya ActiveSecondary olarak çoğaltma kümesine katılın ve işlem çekirdek bildirim içinde katılmak önce birincil tarafından oluşturulmuş.
 
-   - **ActiveSecondary Inbuild çoğaltmaların**: Bu durum bazı sorgular gözlenir. Bu, çoğaltma belirlendiği bir iyileştirme değiştirmeden, ancak bir yineleme oluşturulması gerekiyor olur. Çoğaltma normal durumu makine geçişleri (çoğaltma rollerinde bölümünde açıklandığı gibi) izler.
+   - **ActiveSecondary Inbuild çoğaltmaların**: Bu durum, bazı sorgularda dikkate alınır. Bu, çoğaltma ayarlandığı bir iyileştirme değişmiyor, ancak bir yineleme derlenmesi gerekir olur. Çoğaltma normal durumu makine geçişleri (çoğaltma rolü bölümünde anlatıldığı gibi) izler.
 
-### <a name="ready-rd"></a>Hazır (RD)
-Hazır bir çoğaltma çoğaltma ve çekirdek bildirim işlemlerinin katılan bir çoğaltmadır. Hazır birincil ve etkin ikincil çoğaltmalar için geçerli değil.
+### <a name="ready-rd"></a>(RD) hazır
+Hazır bir çoğaltma çoğaltma ve çekirdek bildirim işlemlerinin yer aldığı bir yinelemedir. Birincil ve etkin ikincil çoğaltmalara hazır durumunda geçerlidir.
 
-Uygulama ana bilgisayarı veya hazır bir çoğaltma için düğümünü çökerse aşağı durumuna geçiş yapar.
+Uygulama konağı veya düğüm hazır bir çoğaltma için bir çökme gerçekleşirse aşağı durumuna geçer.
 
-### <a name="closing-cl"></a>Kapatma (CL)
-Bir çoğaltma aşağıdaki senaryolarda kapatma durumuna girer:
+### <a name="closing-cl"></a>Kapatma (CI)
+Bir çoğaltma, aşağıdaki senaryolarda kapatma durumuna girer:
 
-- **Çoğaltma için kod kapatma**: Service Fabric kod çalıştırırken bir çoğaltma için kapatmak üzere gerekebilir. Bu kapatma için birçok nedeni olabilir. Örneğin, bir uygulama, doku veya altyapı yükseltmesi nedeniyle ya da çoğaltma tarafından raporlanan bir hata nedeniyle oluşabilir. Çoğaltma tamamlanmadan kapattığınızda, çoğaltma aşağı duruma geçer. Diskte depolanan Bu çoğaltma ile ilişkili kalıcı durum temizlenmez.
+- **Çoğaltma için kod kapatma**: Service Fabric, bir çoğaltma için çalışan kod kapatmanız gerekebilir. Bu kapatma için birçok neden olabilir. Örneğin, bir uygulama, doku veya altyapı yükseltmesi nedeniyle ya da çoğaltma raporlanan bir hata nedeniyle oluşabilir. Çoğaltma, çoğaltma tamamlanmadan kapattığınızda aşağı duruma geçer. Kalıcı durum diskte depolanan Bu çoğaltma ile ilişkili temizlenmez.
 
-- **Çoğaltma kümeden kaldırmadan**: Service Fabric kalıcı durum kaldırmak ve bir çoğaltma için kod çalıştırırken kapatmak gerekebilir. Bu nedenlerle, örneğin, Yük Dengeleme kapatılması.
+- **Çoğaltma kümeden kaldırma**: Service Fabric kalıcı durum kaldırın ve bir yineleme için çalışan kod kapatmanız gerekebilir. Bu kapatma çeşitli nedenlerle, örneğin, Yük Dengeleme olabilir.
 
 ### <a name="dropped-dd"></a>Bırakılan (gg)
-Bırakılan durumda örneği artık düğümde çalışmıyor. Düğümde sol yok durumu yok. Bu noktada, Service Fabric sonunda da silinir Bu örnek hakkındaki meta verileri korur.
+Bırakılan durumda örneği artık düğümde çalışmıyor. Düğümde sol yok durumu yoktur. Bu noktada, Service Fabric sonunda de silinir Bu örneği hakkındaki meta veriler tutar.
 
 ### <a name="down-d"></a>(D)
-Aşağı durumda çoğaltma kod çalışmıyor, ancak bu düğümde Bu çoğaltma kalıcı durum yok. Bir çoğaltma aşağı çeşitli nedenlerle--Örneğin, aşağı, olan düğüm çoğaltma kodu, uygulama yükseltmesi ya da çoğaltma hatalarının bir kilitlenme olabilir.
+Aşağı durumunda çoğaltma kod çalışmadığı, ancak bu yineleme için kalıcı durum o düğümde yok. Bir çoğaltma aşağı çeşitli nedenlerle--örneğin aşağı olan düğüm çoğaltma kod, bir uygulama yükseltmesi ya da çoğaltma hatalarının bir kilitlenme olabilir.
 
-Yükseltme düğümde tamamlandığında aşağı çoğaltma Service Fabric tarafından gerektiği şekilde, örneğin, açılır.
+Düğümde Yükseltme tamamlandığında aşağı çoğaltma Service Fabric tarafından gerektiği şekilde, örneğin, açılır.
 
 Çoğaltma rolü aşağı durumunda ilgili değildir.
 
 ### <a name="opening-op"></a>Açılış (işlem)
-Service Fabric çoğaltma yeniden Getir yedekleme gerektiğinde aşağı çoğaltma açılırken durumuna girer. Örneğin, bir düğümde uygulama için bir kod yükseltme tamamlandıktan sonra bu durum olabilir. 
+Service Fabric çoğaltma tekrar Getir yedekleme gerektiğinde aşağı çoğaltma açılış durumuna girer. Örneğin, bir düğümünde uygulama için bir kod yükseltme tamamlandıktan sonra bu durum olabilir. 
 
-Uygulama ana bilgisayarı veya bir açılış çoğaltma düğümünü çökerse aşağı durumuna geçiş yapar.
+Uygulama konağı veya düğüm açılış çoğaltma için bir çökme gerçekleşirse aşağı durumuna geçer.
 
 Çoğaltma rolü açılış durumunda ilgili değildir.
 
 ### <a name="standby-sb"></a>Bekleme (SB)
-Bekleme çoğaltma kapandı ve ardından açılmış kalıcı bir hizmetin bir çoğaltmadır. Başka bir çoğaltma (çoğaltma durumu kısmı zaten varsa ve yapı işlemi hızlıdır olduğundan) çoğaltma eklemek gerekiyorsa bu çoğaltma Service Fabric tarafından kullanılıyor olabilir. StandByReplicaKeepDuration süresi dolduktan sonra bekleme çoğaltma göz ardı edilir.
+Bekleme kapandı ve ardından açılan bir kalıcı hizmet çoğaltmasını çoğaltmasıdır. Başka bir çoğaltmaya (çoğaltma durumu bölümü zaten varsa ve yapı işlemi hızlıdır çünkü) çoğaltma eklemeniz gerekiyorsa bu çoğaltma Service Fabric tarafından kullanılıyor olabilir. StandByReplicaKeepDuration süresi dolduktan sonra bekleme çoğaltmayı göz ardı edilir.
 
-Uygulama ana bilgisayarı veya bir bekleme çoğaltma düğümünü çökerse aşağı durumuna geçiş yapar.
+Uygulama konağı veya düğüm bekleme çoğaltma için bir çökme gerçekleşirse aşağı durumuna geçer.
 
 Çoğaltma rolü bekleme durumunda ilgili değildir.
 
 > [!NOTE]
-> Kapalı değil ya da bırakılan herhangi bir çoğaltma olarak kabul edilir *yukarı*.
+> Aşağı değil veya bırakılan herhangi bir çoğaltma olarak kabul edilir *yukarı*.
 >
 
 > [!NOTE]
-> Geçiş bırakılan durumuna herhangi bir durumdan kullanarak mümkündür **ForceRemove** seçeneği `Remove-ServiceFabricReplica`.
+> Geçiş bırakılan durumuna herhangi bir durumdan kullanarak mümkündür **ForceRemove** seçeneğini `Remove-ServiceFabricReplica`.
 >
 
 ## <a name="replica-role"></a>Çoğaltma rolü 
-Çoğaltma rolü kendi işlevini yineleme kümesindeki belirler:
+Çoğaltmanın rolü, onun çoğaltma kümesine işlevinde belirler:
 
-- **Birincil (P)**: bir birincil çoğaltma kümesinde gerçekleştirmek için sorumlu okuma ve yazma işlemleri. 
-- **ActiveSecondary (S)**: birincil sunucudan durum güncelleştirmeleri almak, bunları uygulayın ve ardından geri bildirimleri gönderin çoğaltmaların bunlar. Çoğaltma kümesinde birden fazla etkin ikincil öğe yok. Bu etkin ikincil kopya sayısını hizmet işleyebilir dayanabileceği arıza sayısını belirler.
-- **IdleSecondary (ı)**: Bu çoğaltmalar birincil tarafından oluşturulmakta. Etkin ikincil yükseltilebilmesi için önce birincil sunucudan durum aldığını. 
-- **Hiçbiri (N)**: Bu çoğaltmalar kopya kümesinde bir sorumluluğu yoktur.
-- **Bilinmeyen (U)**: herhangi bir almadan önce bu ilk çoğaltmaların rolüdür **ChangeRole** Service Fabric API çağrısından.
+- **Birincil (P)**: Bir birincil çoğaltma kümesindeki yapmaktan sorumlu olan okuma ve yazma işlemleri. 
+- **ActiveSecondary (S)**: Birincil durum güncelleştirmeleri almak, bunları uygulamak ve daha sonra geri bildirimleri göndermek çoğaltmaları şunlardır. Kopya kümesinde birden çok etkin ikincil veritabanı vardır. Bu etkin ikincil veritabanı hizmeti üstesinden hataların sayısını belirler.
+- **(I) IdleSecondary**: Bu çoğaltmaların birincil tarafından oluşturulur. Etkin ikincil yükseltilebilmesi durumu birincilden alıyorsunuz. 
+- **Hiçbiri (N)**: Bu çoğaltmaların kopya kümesinde bir sorumluluğu yoktur.
+- **Bilinmeyen (U)**: Tüm almadan önce bir çoğaltmasının ilk rol budur **ChangeRole** Service fabric'teki API çağrısı.
 
-Aşağıdaki diyagramda, çoğaltma rolü geçişler ve ortaya çıkabilir bazı örnek senaryolar gösterilmektedir:
+Aşağıdaki diyagramda, çoğaltma rolü geçişi ve ortaya çıkabilir bazı örnek senaryolar gösterilmektedir:
 
 ![Çoğaltma rolü](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> Yeni bir birincil çoğaltmaya P: oluşturma.
-- U -> Yeni bir boş çoğaltma I: oluşturma.
-- U -> bekleme çoğaltma N: silinmesini.
-- Böylece kendi onayları katkıda çekirdek etkin ikincil boşta ikinciye S: yükseltme ->.
-- I birincil boşta ikincil P: yükseltme ->. Birincil olarak doğru adayı boşta ikincil bu özel yeniden yapılandırmaların altında ortaya çıkar.
-- I N: silinmesini boşta ikincil çoğaltma ->.
-- S -> etkin ikincil birincil P: yükseltme. Bu, yük devretme birincil ya da küme kaynak yönetici tarafından başlatılan bir birincil taşıma nedeniyle olabilir. Örneğin, bir uygulamanın yükseltmesi veya Yük Dengeleme yanıt olabilir.
-- S N: silinmesini etkin ikincil çoğaltma ->.
-- P S: indirgeme birincil çoğaltma ->. Bu, küme kaynak yönetici tarafından başlatılan bir birincil taşıma nedeniyle olabilir. Örneğin, bir uygulamanın yükseltmesi veya Yük Dengeleme yanıt olabilir.
-- P N: silinmesini birincil çoğaltma ->.
+- U -&GT; P: Yeni bir birincil çoğaltmaya oluşturma.
+- U -&GT; I: Yeni bir boş çoğaltma oluşturma.
+- U -&GT; N: Bir yedek kopya silme işlemi.
+- S: BEN -&GT; Yükseltme boşta, böylece onun bir onayları doğru çekirdek katkıda ikincil etkin ikincil.
+- BEN P: -&GT; Birincil boşta ikincil yükseltme. Özel yeniden yapılandırmalar altında boşta ikincil birincil olarak doğru aday olduğunda bu durum oluşabilir.
+- BEN N: -&GT; Boşta ikincil çoğaltmayı silme işlemi.
+- S -> P: Birincil etkin ikincil yükseltme. Bu, yük devretme birincil ya da küme kaynak yöneticisi tarafından başlatılan bir birincil taşıma nedeniyle olabilir. Örneğin, bir uygulama yükseltmesi veya Yük Dengeleme yanıt olabilir.
+- S -&GT; N: Etkin ikincil çoğaltmayı silme işlemi.
+- S: P -&GT; Birincil çoğaltma indirgenmesi. Bu, küme kaynak yöneticisi tarafından başlatılan bir birincil taşıma nedeniyle olabilir. Örneğin, bir uygulama yükseltmesi veya Yük Dengeleme yanıt olabilir.
+- P -&GT; N: Birincil çoğaltmayı silme işlemi.
 
 > [!NOTE]
-> Gibi daha üst düzey programlama modelleri [Reliable Actors](service-fabric-reliable-actors-introduction.md) ve [Reliable Services](service-fabric-reliable-services-introduction.md), geliştirici çoğaltma rollerden kavramı gizle. Aktör bir rol kavramı gerekli değildir. Hizmetleri, bu çoğu senaryoları için büyük ölçüde basitleştirilmiştir.
+> Gibi daha üst düzey programlama modelleri [Reliable Actors](service-fabric-reliable-actors-introduction.md) ve [Reliable Services](service-fabric-reliable-services-introduction.md), çoğaltma rolleri ' geliştiriciden kavramını gizle. Aktör bir rol kavramı gerekli değildir. Hizmetlerinde, çoğu senaryo için büyük ölçüde basitleştirilmiştir.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Fabric kavramlarla ilgili daha fazla bilgi için aşağıdaki makaleye bakın:
+Service Fabric kavramları hakkında daha fazla bilgi için şu makaleye bakın:
 
 [Reliable Services yaşam döngüsü - C#](service-fabric-reliable-services-lifecycle.md)
 

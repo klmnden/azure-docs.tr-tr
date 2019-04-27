@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
 ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800067"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
 ## <a name="overview"></a>Genel Bakış
@@ -36,7 +36,7 @@ Bu makalede, denetleyin veya bir diski onarmak için Azure VMAccess uzantısı k
 
 VM erişimi uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz:
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS ve 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.openlocfilehash: 2fde25e4d21081d350fb2a7ecf07b66f348e7ab1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879719"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak bir dizeye çevirmek için kullanın
 

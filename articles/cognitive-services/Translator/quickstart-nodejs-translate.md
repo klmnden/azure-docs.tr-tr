@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879702"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Hızlı Başlangıç: Translator metin çevirisi API'si Node.js dizesiyle çevirmek için kullanın
 
@@ -92,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

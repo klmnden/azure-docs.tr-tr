@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883576"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
 Birden çok ExpressRoute bağlantı hattına sahip olduğunuzda, Microsoft'a bağlanmak için birden fazla yolunuz vardır. Sonuç olarak, yetersiz yönlendirme olabilir, diğer bir deyişle, trafiğinizin Microsoft’a ulaşması ve Microsoft’un ağınıza ulaşması daha uzun bir yol alabilir. Ne kadar uzun ağ yolu, o kadar yüksek gecikme. Gecikmenin uygulama performansı ve kullanıcı deneyimi üzerinde doğrudan etkisi vardır. Bu makale, bu sorunu gösterir ve standart yönlendirme teknolojilerini kullanarak yönlendirmenin nasıl iyileştirileceğini açıklar.

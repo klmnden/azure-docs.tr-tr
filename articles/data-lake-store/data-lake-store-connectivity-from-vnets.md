@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878877"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Bir Azure sanal ağ içindeki vm'lerden erişim Azure Data Lake depolama Gen1
 Azure Data Lake depolama Gen1 genel Internet IP adreslerinde çalıştırılan bir PaaS hizmetidir. Genel Internet'e bağlanabilen herhangi bir sunucu genellikle de Azure Data Lake depolama Gen1 Uç noktalara bağlanabilirsiniz. Varsayılan olarak, Azure sanal ağ tüm VM'lerin İnternet'e erişebilir ve bu nedenle Azure Data Lake depolama Gen1 erişebilir. Ancak, internet erişimi olmaması için bir vnet'teki VM'ler yapılandırmak mümkündür. Bu tür VM'ler için Azure Data Lake depolama Gen1 erişimi de sınırlıdır. Azure sanal ağlardaki sanal makineler için genel Internet erişimini engelleyen yapılabilir aşağıdaki yaklaşımlardan birini kullanarak:

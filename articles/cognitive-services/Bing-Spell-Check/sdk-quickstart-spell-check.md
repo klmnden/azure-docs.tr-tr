@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: v-gedod
 ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60766028"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Hızlı Başlangıç: Bing yazım denetlemek için SDK ile yazım denetimiC#
 

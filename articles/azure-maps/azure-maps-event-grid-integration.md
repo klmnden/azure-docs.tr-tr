@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799164"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid kullanarak Azure haritalar olaylarına tepki verme 
 

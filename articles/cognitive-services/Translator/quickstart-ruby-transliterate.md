@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: 37ea719811d9b47dbe809278a0ad8f0bd9d25081
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879166"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Hızlı Başlangıç: Translator metin REST API (Ruby) metinle alfabeye
 
@@ -49,8 +50,8 @@ require 'securerandom'
 
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
-
-host = 'https://api.cognitive.microsofttranslator.com'
+region = 'your region'
+host = 'https://api.translator.azure.cn'
 path = '/transliterate?api-version=3.0'
 
 # Transliterate text in Japanese from Japanese script (i.e. Hiragana/Katakana/Kanji) to Latin script.
@@ -67,6 +68,7 @@ request = Net::HTTP::Post.new(uri)
 request['Content-type'] = 'application/json'
 request['Content-length'] = content.length
 request['Ocp-Apim-Subscription-Key'] = key
+request['Ocp-Apim-Subscription-Region'] = region
 request['X-ClientTraceId'] = SecureRandom.uuid
 request.body = content
 
@@ -99,3 +101,4 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 
 > [!div class="nextstepaction"]
 > [GitHub’da Ruby örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=ruby)
+

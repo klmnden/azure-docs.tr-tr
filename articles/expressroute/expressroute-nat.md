@@ -9,11 +9,11 @@ ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883441"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT gereksinimleri
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, NAT’leri ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları NAT ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu tür bir hizmet sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Aksi durumda, aşağıda açıklanan gereksinimlere uymalısınız. 

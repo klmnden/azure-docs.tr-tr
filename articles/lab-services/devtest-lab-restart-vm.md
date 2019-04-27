@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 34c08a79abf6acb5ae8582ecd0743a890d850fc8
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60864430"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara içinde bir VM'yi yeniden başlatma
 Hızla ve kolayca bir sanal makine DevTest Labs'de bu makaledeki adımları izleyerek yeniden başlatabilirsiniz. Bir VM'yi yeniden başlatmadan önce aşağıdakileri dikkate alın:

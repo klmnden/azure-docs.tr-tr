@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885823"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Traffic Manager profili oluşturma
 
@@ -52,7 +52,7 @@ Bu hızlı başlangıçta, iki farklı Azure bölgelerinde dağıtılan web uygu
     | Ayar | Değer |
     | ------- | ----- |
     | App Service planı | Girin *myAppServicePlanEastUS*. |
-    | Konum | Doğu ABD |
+    | Location | Doğu ABD |
     | Fiyatlandırma katmanı | S1 Standart |
 
 6. **Tamam**’ı seçin.
@@ -69,7 +69,7 @@ Bu hızlı başlangıçta, iki farklı Azure bölgelerinde dağıtılan web uygu
     | İşletim Sistemi | Seçin **Windows** işletim sisteminiz olarak. |
     | Yayımlama | Seçin **kod** yayımlamak istediğiniz biçimi olarak. |
     | Uygulama hizmeti planı/Konumu | Girin *myAppServicePlanWestEurope*. |
-    | Konum | Batı Avrupa |
+    | Location | Batı Avrupa |
     | Fiyatlandırma katmanı | S1 Standart |
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
@@ -85,7 +85,7 @@ Uç nokta önceliği temelinde kullanıcı trafiği yönlendiren bir Traffic Man
     | Yönlendirme yöntemi | Seçin **öncelik**.|
     | Abonelik | Traffic manager profili uygulanmasını istediğiniz aboneliği seçin. |
     | Kaynak grubu | Seçin *myResourceGroupTM1*.|
-    | Konum |Bu ayar, kaynak grubunun konumunu ifade eder. Genel olarak dağıtılacak Traffic Manager profili bir etkisi yoktur.|
+    | Location |Bu ayar, kaynak grubunun konumunu ifade eder. Genel olarak dağıtılacak Traffic Manager profili bir etkisi yoktur.|
 
 3. **Oluştur**’u seçin.
 
@@ -100,7 +100,7 @@ Tüm kullanıcı trafiğini yönlendirmek için birincil uç nokta olarak *Doğu
 
     | Ayar | Değer |
     | ------- | ------|
-    | Type | Seçin **Azure uç noktası**. |
+    | Tür | Seçin **Azure uç noktası**. |
     | Ad | Girin *myPrimaryEndpoint*. |
     | Hedef kaynak türü | Seçin **App Service'e**. |
     | Hedef kaynak | Seçin **uygulama hizmeti seçin** > **Doğu ABD**. |
@@ -113,7 +113,7 @@ Tüm kullanıcı trafiğini yönlendirmek için birincil uç nokta olarak *Doğu
 
     | Ayar | Değer |
     | ------- | ------|
-    | Type | Seçin **Azure uç noktası**. |
+    | Tür | Seçin **Azure uç noktası**. |
     | Ad | Girin *myFailoverEndpoint*. |
     | Hedef kaynak türü | Seçin **App Service'e**. |
     | Hedef kaynak | Seçin **uygulama hizmeti seçin** > **Batı Avrupa**. |

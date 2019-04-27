@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
 ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885508"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes hizmeti ve Terraform kullanan uygulama ağ geçidi giriş denetleyicisine ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/) , barındırılan Kubernetes ortamınızı yönetir. AKS hızlı ve kolay kapsayıcı düzenleme uzmanlığı gerektirmeden kapsayıcıya alınmış uygulamaları dağıtmayı ve yönetmeyi kolaylaştırır. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.

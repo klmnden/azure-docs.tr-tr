@@ -1,5 +1,5 @@
 ---
-title: Bing yazım denetimi API'si isteği gönderme
+title: Bing Yazım Denetimi API’sine istek gönderme
 titlesuffix: Azure Cognitive Services
 description: Bing yazım denetimi modları, ayarları ve API için ilgili diğer bilgileri hakkında bilgi edinin.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 64025165a5a88370a02ba3b4554b1e12d36c8810
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60895983"
 ---
-# <a name="sending-requests-to-the-bing-spell-check-api"></a>Bing yazım denetimi API'si isteği gönderme
+# <a name="sending-requests-to-the-bing-spell-check-api"></a>Bing Yazım Denetimi API’sine istek gönderme
 
 Bir metin dizesinde yazım ve dilbilgisi denetimi gerçekleştirmek için şu uç noktaya GET isteği göndermeniz gerekir:  
   

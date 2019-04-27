@@ -14,11 +14,11 @@ ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
 ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901861"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET için Application Insights konsol uygulamaları
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) web uygulamanızın kullanılabilirliğini, performansını ve kullanımını izlemenize olanak tanır.

@@ -8,11 +8,11 @@ ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892106"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB'de ayrılmış bir kapasiteyle maliyeti iyileştirin
 
@@ -57,7 +57,7 @@ Rezervasyon boyutu toplam mevcut veya yakında-için--dağıtılması Azure Cosm
    |Kapsam   |   Kaç aboneliğe ayırma ile ilişkili faturalandırma avantajından yararlanabilirsiniz denetimleri seçeneği. Ayırma belirli abonelikler için nasıl uygulanacağını denetler.   <br/><br/>  Seçerseniz **tek abonelik**, ayırma indirimini seçili Abonelikteki Azure Cosmos DB örneklerine uygulanır. <br/><br/>  Seçerseniz **paylaşılan**, ayırma indirimini herhangi bir abonelik, fatura bağlamı içinde çalışan Azure Cosmos DB örneklerine uygulanır. Fatura bağlamı için Azure kaydolan nasıl dayanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.  <br/><br/> Ayırma kapsamı ayrılmış kapasite satın sonra değiştirebilirsiniz.  |
    |Ayrılmış kapasite türü   |  İstek birimi sağlanan aktarım hızı. Her iki kurulumları için-sağlanan aktarım hızı için bir ayırma satın alabilir tek bölge de olarak birden çok bölgeye yazma yazar.|
    |Ayrılmış kapasite birimleri  |      Ayırmak istediğiniz üretilen iş miktarı. Bölge başına aktarım hızı, Cosmos DB için tüm kaynakları (örneğin, veritabanları veya kapsayıcıları) gerekli belirleyerek bu değeri hesaplayabilirsiniz. Ardından bu Cosmos DB veritabanınıza ile ilişkilendireceksiniz bölge sayısı ile çarpın.  <br/><br/> Örneğin: Beş bölge 1 milyon RU/sn ile her bölgede varsa, 5 milyon RU/sn rezervasyon kapasitesi satın alma için seçin.    |
-   |Dönem  |   Bir yıl veya üç yıl.   |
+   |Sözleşme Dönemi  |   Bir yıl veya üç yıl.   |
 
 5. İndirim ve rezervasyonu fiyatı gözden **maliyetleri** bölümü. Bu rezervasyon fiyat, tüm bölgelerde sağlanan aktarım hızı ile Azure Cosmos DB kaynakları için geçerlidir.  
 

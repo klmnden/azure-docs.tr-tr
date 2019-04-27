@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60886648"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -104,10 +104,10 @@ Sayısal ayarları
 
 ### <a name="properties"></a>Özellikler
 
-| Type            | Görünen ad | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Text            | Location     | location   | Yok       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

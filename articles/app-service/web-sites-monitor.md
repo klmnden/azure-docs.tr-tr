@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832599"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları izleme
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulamaları, mobil arka uçlar ve API uygulamaları, yerleşik izleme işlevselliği sağlayan [Azure portalında](https://portal.azure.com).

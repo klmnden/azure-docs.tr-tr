@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837343"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seçin, yönetmek ve Service Fabric kümeleri çalışır.
@@ -30,7 +30,7 @@ Seçin, yönetmek ve Service Fabric kümeleri çalışır.
 | --- | --- |
 | kod-versions | Bir Service Fabric kümesinde sağlanan kod sürümlerini fabric listesini alır. |
 | config-versions | Bir Service Fabric kümesinde sağlanan yapılandırma sürümlerini fabric listesini alır. |
-| sistem durumu | Service Fabric kümesi durumunu alır. |
+| sağlık | Service Fabric kümesi durumunu alır. |
 | Bildirimi | Service Fabric küme bildirimi alın. |
 | işlemi iptal etme | Bir kullanıcı nedenli hata işlemi iptal eder. |
 | işlem listesi | Hata kullanıcı nedenli işlemleri tarafından sağlanan girişin filtrelenmiş bir listesini alır. |

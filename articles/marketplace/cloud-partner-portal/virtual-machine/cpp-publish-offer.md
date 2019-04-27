@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844260"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Bir sanal makine teklifi yayımlama
 
@@ -27,7 +27,8 @@ ms.locfileid: "49639915"
 
 ![Sanal makine için yayımlama adımları sunar.](./media/publishvm_013.png)
 
-Aşağıdaki tabloda, adımları açıklar ve bunların tamamlanmasını en uzun süreyi tahmin sağlar: <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+Aşağıdaki tabloda, adımları açıklar ve bunların tamamlanmasını en uzun süreyi tahmin sağlar:
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Yayımlama Adım**           | **saat**    | **Açıklama**                                                            |

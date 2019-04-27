@@ -13,11 +13,11 @@ ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900719"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri Bağlam: Application Insights veri modeli
 
@@ -126,7 +126,7 @@ SDK sürümü. Bkz: https://github.com/Microsoft/ApplicationInsights-Home/blob/m
 En fazla uzunluk: 64
 
 
-## <a name="internal-node-name"></a>İç: Node adı
+## <a name="internal-node-name"></a>İç: Düğüm adı
 
 Bu alan, faturalandırma için kullanılan düğüm adı temsil eder. Standart algılama düğümlerinin geçersiz kılmak için kullanın.
 

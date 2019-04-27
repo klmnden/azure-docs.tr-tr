@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800174"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux) için Azure Disk şifrelemesi
 
@@ -74,21 +74,21 @@ Linux için Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, 
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
-| Yayımcı | Microsoft.Azure.Security | dize |
-| type | AzureDiskEncryptionForLinux | dize |
+| apiVersion | 2015-06-15 | date |
+| Yayımcı | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | dize |
-| AADClientCertificate | parmak izi | dize |
+| AADClientSecret | password | string |
+| AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path": "", "name": "","file_system": ""} | JSON sözlüğü |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | dize | 
-| KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | dize |
-| KeyEncryptionKeyURL | url | dize |
-| KeyVaultURL | url | dize |
-| Parola | password | dize | 
-| SequenceVersion | benzersiz tanımlayıcı | dize |
-| VolumeType | İşletim sistemi, veri, tüm | dize |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| Parola | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | İşletim sistemi, veri, tüm | string |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 

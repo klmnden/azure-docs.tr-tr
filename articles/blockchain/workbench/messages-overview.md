@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896430"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
@@ -477,7 +477,7 @@ Bir sözleşme hakkında bilgi içerir. İleti sözleşmesi özelliklere sahip b
 |--------------------|-------------|
 | WorkflowPropertyId | Azure Blockchain Workbench içinde iş akışı özellik için benzersiz tanımlayıcı |
 | ad | İş akışı özelliğin adı |
-| değer | İş akışı özelliğinin değeri |
+| value | İş akışı özelliğinin değeri |
 
 Örnek bir *ContractMessage* blok zinciri workbench'ten:
 
@@ -588,7 +588,7 @@ Bir sözleşme işlevi çağrıldığında işlev adı, parametreleri giriş ve 
 | Ad | Açıklama |
 |------|-------------|
 | ad | Parametre adı |
-| değer | Parametre değeri |
+| value | Parametre değeri |
 
 #### <a name="event-message-transaction-information"></a>Olay iletisi işlem bilgileri
 

@@ -8,11 +8,11 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 07d5aa752d6613f6733a44c9b34e48f537eb67ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889593"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB'de veri şifreleme 
 
@@ -37,25 +37,25 @@ Bir kullanıcı isteği temel akışı aşağıdaki gibidir:
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>S: Ne kadar depolama hizmeti şifrelemesi etkinleştirilirse Azure depolama maliyeti?
-C: Hiçbir ek ücret yoktur.
+Y: Hiçbir ek ücret yoktur.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>S: Şifreleme anahtarları yöneten?
-C: Anahtarlar, Microsoft tarafından yönetilir.
+Y: Anahtarlar, Microsoft tarafından yönetilir.
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>S: Şifreleme anahtarlarını ne sıklıkta döndürülür?
-C: Microsoft, Cosmos DB izleyen şifreleme anahtar döndürme için iç yönergeleri kümesi vardır. Özel yönergeleri yayımlanmaz. Microsoft, yayımlama [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), iç Kılavuzu kümesini görülür ve geliştiriciler için yararlı en iyi yöntemler vardır.
+Y: Microsoft, Cosmos DB izleyen şifreleme anahtar döndürme için iç yönergeleri kümesi vardır. Özel yönergeleri yayımlanmaz. Microsoft, yayımlama [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), iç Kılavuzu kümesini görülür ve geliştiriciler için yararlı en iyi yöntemler vardır.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>S: Kendi şifreleme anahtarlarını kullanabilir miyim?
-C: Sabit hizmet kullanımı kolay tutmaya çalıştık ve cosmos DB bir PaaS hizmetidir. Bir uyumluluk gereksinimini PCI-DSS gibi toplantı için proxy soru olarak bu sorunun sıklıkla sorulması etmiş olabilirsiniz. Bu özellik oluşturmanın bir parçası olarak, Cosmos DB kullanan müşteriler anahtarları yönetmek zorunda kalmadan kendi gereksinimlerini karşıladığından emin olmak için Uyumluluk denetçiler birlikte çalıştık.
+Y: Sabit hizmet kullanımı kolay tutmaya çalıştık ve cosmos DB bir PaaS hizmetidir. Bir uyumluluk gereksinimini PCI-DSS gibi toplantı için proxy soru olarak bu sorunun sıklıkla sorulması etmiş olabilirsiniz. Bu özellik oluşturmanın bir parçası olarak, Cosmos DB kullanan müşteriler anahtarları yönetmek zorunda kalmadan kendi gereksinimlerini karşıladığından emin olmak için Uyumluluk denetçiler birlikte çalıştık.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>S: Hangi bölgeler şifreleme açık?
-C: Tüm Azure Cosmos DB bölgeler için tüm kullanıcı verilerini açık şifreleme vardır.
+Y: Tüm Azure Cosmos DB bölgeler için tüm kullanıcı verilerini açık şifreleme vardır.
 
 ### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>S: Şifreleme performans, gecikme süresi ve aktarım hızı SLA'lar etkiliyor mu?
-C: Herhangi bir etkisi veya değişiklikleri SLA'ları tüm mevcut ve yeni hesaplar için bekleyen şifrelemenin etkin göre performans. Hakkında daha fazla edinebilirsiniz [Cosmos DB için SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) son garantileri görmek için sayfayı.
+Y: Herhangi bir etkisi veya değişiklikleri SLA'ları tüm mevcut ve yeni hesaplar için bekleyen şifrelemenin etkin göre performans. Hakkında daha fazla edinebilirsiniz [Cosmos DB için SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) son garantileri görmek için sayfayı.
 
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>S: Yerel öykünücü bekleyen şifrelenmesini destekliyor mu?
-C: Öykünücü, bir tek başına geliştirme/test aracıdır ve yönetilen Cosmos DB hizmetini kullanan anahtar yönetimi Hizmetleri'ni kullanmaz. Bizim önerimiz burada hassas öykünücü test verilerini depolama sürücülerinde BitLocker etkinleştirmektir. [Öykünücü destekler varsayılan veri dizinine değiştirme](local-emulator.md) iyi bilinen bir konum kullanarak yanı sıra.
+Y: Öykünücü, bir tek başına geliştirme/test aracıdır ve yönetilen Cosmos DB hizmetini kullanan anahtar yönetimi Hizmetleri'ni kullanmaz. Bizim önerimiz burada hassas öykünücü test verilerini depolama sürücülerinde BitLocker etkinleştirmektir. [Öykünücü destekler varsayılan veri dizinine değiştirme](local-emulator.md) iyi bilinen bir konum kullanarak yanı sıra.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
 ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787361"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry için en iyi yöntemler
 
@@ -50,11 +50,11 @@ Bir kayıt defteri, kapsayıcı kayıt defterleri birden çok kapsayıcı konağ
 
 Azure Container Instances gibi belirli bir konak türüyle denemeler yapabilecek olsanız da muhtemelen işiniz bittiğinde kapsayıcı örneğini silmek isteyeceksinizdir. Bununla birlikte, Azure Container Registry’ye gönderdiğiniz görüntü koleksiyonunu korumak da isteyebilirsiniz. Kayıt defterinizi kendi kaynak grubuna yerleştirerek, kapsayıcı örneğinin kaynak grubunu silerken yanlışlıkla kayıt defterindeki görüntü koleksiyonunu da silme riskini en aza indirirsiniz.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Bir Azure kapsayıcı kayıt defteri ile kimlik doğrulama için iki ana senaryo vardır: bireysel kimlik doğrulama ve hizmet (veya "gözetimsiz") kimlik doğrulaması. Aşağıdaki tabloda, bu senaryolara kısa bir genel bakış ve her biri için önerilen kimlik doğrulama yöntemi sağlanmıştır.
 
-| Type | Örnek senaryo | Önerilen metot |
+| Tür | Örnek senaryo | Önerilen metot |
 |---|---|---|
 | Bireysel kimlik | Geliştirme makinesinden görüntü çeken veya gönderen bir geliştirici. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Gözetimsiz kimlik/hizmet kimliği | Kullanıcıyla doğrudan ilgili olmayan derleme ve dağıtım işlem hatları. | [Hizmet sorumlusu](container-registry-authentication.md#service-principal) |

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800050"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows (Microsoft.Azure.Security.AzureDiskEncryption) için Azure Disk şifrelemesi
 
@@ -85,14 +85,14 @@ Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, depolama ve 
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (isteğe bağlı) Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (isteğe bağlı) AADClientSecret | password | string |
-| (isteğe bağlı) AADClientCertificate | parmak izi | string |
+| (isteğe bağlı) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption | string | 
 | KeyEncryptionAlgorithm | RSA-OAEP RSA1_5 | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultResourceId | Kaynak Uri'si | string |
 | KekVaultResourceId | Kaynak Uri'si | string |
 | KeyVaultURL | url | string |
-| SequenceVersion | benzersiz tanımlayıcı | string |
+| SequenceVersion | uniqueidentifier | string |
 | VolumeType | İşletim sistemi, veri, tüm | string |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
