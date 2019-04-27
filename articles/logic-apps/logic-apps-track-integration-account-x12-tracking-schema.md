@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845775"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Oluşturma X12 izleme şemaları tümleştirme hesapları Azure Logic Apps için iletileri
 
@@ -72,10 +72,10 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | transactionSetControlNumber | String | İşlem kümesi denetim numarası. (İsteğe bağlı) |
 | CorrelationMessageId | String | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
 | messageType | String | İşlem kümesi veya belge türü. (İsteğe bağlı) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
-| isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
-| isFunctionalAcknowledgmentExpected | Boole | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
-| needAk2LoopForValidMessages | Boole | AK2 döngü için geçerli bir ileti gerekli olup olmadığı. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
+| isTechnicalAcknowledgmentExpected | Boolean | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
+| isFunctionalAcknowledgmentExpected | Boolean | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
+| needAk2LoopForValidMessages | Boolean | AK2 döngü için geçerli bir ileti gerekli olup olmadığı. (Zorunlu) |
 | segmentsCount | Tamsayı | Kesim X12 içinde işlem kümesi. (İsteğe bağlı) |
 ||||
 
@@ -131,11 +131,11 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | respondingFunctionalGroupId | String | İçinde bildirim için AK101 eşleştiren işlevsel Grup Kimliği yanıt. (İsteğe bağlı) |
 | respondingtransactionSetControlNumber | String | Yanıt veren işlem kümesi denetim numarası. (İsteğe bağlı) |
 | respondingTransactionSetId | String | Yanıt veren işlem AK201 için bildirim içinde eşleştiren kimliği ayarlayın. (İsteğe bağlı) |
-| statusCode | Boole | Onay durum kodunu işlem kümesi. (Zorunlu) |
+| statusCode | Boolean | Onay durum kodunu işlem kümesi. (Zorunlu) |
 | segmentsCount | Sabit listesi | Onay durum kodunu. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | İşlem durumu alındı. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
 | CorrelationMessageId | String | Bağıntı ileti kimliği. {AgreementName} birleşimi {*GroupControlNumber*} {TransactionSetControlNumber}. (İsteğe bağlı) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | ak2Segment | String | Bildirim için bir işlem içinde alınan işlevsel grup kümesi. (İsteğe bağlı) |
 | ak3Segment | String | Veri segmenti hataları bildirir. (İsteğe bağlı) |
 | ak5Segment | String | İşlem AK2 segment tanımlanan kümesi kabul ya da reddedilen ve neden bildirir. (İsteğe bağlı) |
@@ -183,8 +183,8 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | yön | Sabit listesi | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
 | interchangeControlNumber | String | Değişim denetim numarası. (İsteğe bağlı) |
 | isaSegment | String | İleti ISA segmenti. (İsteğe bağlı) |
-| isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
+| isTechnicalAcknowledgmentExpected | Boolean | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | isa09 | String | X12 belge değişim tarih. (İsteğe bağlı) |
 | isa10 | String | Değişim zaman X12 belgeleyin. (İsteğe bağlı) |
 | ısa11 | String | X12 Değişim Denetimi standartları tanımlayıcısı. (İsteğe bağlı) |
@@ -235,7 +235,7 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | interchangeControlNumber | String | Değişim denetim numarası, iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
 | isaSegment | String | İş ortaklarından alınan Teknik Bildirim için ISA segmenti. (İsteğe bağlı) |
 | respondingInterchangeControlNumber |String | Değişim denetim numarası için iş ortaklarından alınan Teknik Bildirim. (İsteğe bağlı) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | statusCode | Sabit listesi | Onay durum kodunu değişimi. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | Bildirim durumu. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
 | ta102 | String | Tarih değişimi. (İsteğe bağlı) |
@@ -288,9 +288,9 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | interchangeControlNumber | String | Değişim denetim numarası. (İsteğe bağlı) |
 | functionalGroupControlNumber | String | İşlevsel denetim numarası. (İsteğe bağlı) |
 | gsSegment | String | İleti GS kesimi. (İsteğe bağlı) |
-| isTechnicalAcknowledgmentExpected | Boole | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
-| isFunctionalAcknowledgmentExpected | Boole | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu)|
+| isTechnicalAcknowledgmentExpected | Boolean | Teknik Bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
+| isFunctionalAcknowledgmentExpected | Boolean | İşlev bildirim X12 içinde yapılandırılmış olup olmadığı sözleşme. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu)|
 | gs01 | String | İşlev tanımlayıcı kod. (İsteğe bağlı) |
 | gs02 | String | Uygulama gönderen kodu. (İsteğe bağlı) |
 | gs03 | String | Uygulama alıcının kodu. (İsteğe bağlı) |
@@ -347,7 +347,7 @@ Yardımcı olması için İzleyici başarı, hataları ve işletmeler arası (B2
 | gsSegment | String | İşlevsel Grup aynı numarası, ancak yalnızca belirli durumlarda doldurulmuş denetler. (İsteğe bağlı) |
 | respondingfunctionalGroupControlNumber | String | Özgün işlevsel Grup denetim numarası. (İsteğe bağlı) |
 | respondingFunctionalGroupId | String | AK101 eşlenir bildirim işlevsel grubun kimliği. (İsteğe bağlı) |
-| isMessageFailed | Boole | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
+| isMessageFailed | Boolean | Olmadığını X12 ileti başarısız oldu. (Zorunlu) |
 | statusCode | Sabit listesi | Onay durum kodunu. İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
 | processingStatus | Sabit listesi | İşlem durumu alındı. İzin verilen değerler **alınan**, **oluşturulan**, ve **gönderilen**. (Zorunlu) |
 | ak903 | String | Alınan işlem kümesi sayısı. (İsteğe bağlı) |

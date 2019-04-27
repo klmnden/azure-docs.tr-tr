@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623995"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Azure Notification hubs'ı kayıtları toplu halde alma ve verme
 Hangi oluşturmak veya bir bildirim hub'ı kayıtları çok sayıda değiştirmek için gereklidir senaryo vardır. Bu senaryolardan bazıları batch hesaplamaları şu veya bildirim hub'ları kullanmak için mevcut bir anında iletme uygulamasına geçirirken etiketi güncelleştirmelerdir.

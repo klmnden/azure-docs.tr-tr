@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
 ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813821"
 ---
 # <a name="convert-data-format-of-utterances"></a>Konuşma veri biçimini Dönüştür
 LUIS, Bilişsel hizmetler konuşma hizmeti konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için kullanır. 

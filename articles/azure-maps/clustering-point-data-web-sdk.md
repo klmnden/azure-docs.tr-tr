@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795939"
 ---
 # <a name="clustering-point-data"></a>Veri noktası kümeleme
 
@@ -84,7 +84,7 @@ Kalem bkz <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>küme ağırlıklı
 
 Kümelenmiş bir veri noktasının kümelenmiş veri noktalarını içeren bir katmanda fare olaylar meydana geldiğinde, olaya bir GeoJSON noktası özelliği nesnesi olarak döndürülür. Bu nokta özelliği şu özelliklere sahip:
 
-| Özellik adı | Type | Açıklama |
+| Özellik adı | Tür | Açıklama |
 |---------------|------|-------------|
 | küme | boole | Özellik bir kümeyi temsil edip etmediğini belirtir. |
 | cluster_id | string | Veri kaynağı ile kullanılabilecek kümesi için benzersiz bir kimlik `getClusterExpansionZoom`, `getClusterChildren`, ve `getClusterLeaves` yöntemleri. |

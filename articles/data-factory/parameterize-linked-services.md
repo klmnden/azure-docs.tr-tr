@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635559"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory bağlı Hizmetleri Parametreleştirme
 
@@ -34,7 +34,7 @@ Yedi dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 ## <a name="supported-data-stores"></a>Desteklenen veri depolar
 
 Şu anda aşağıdaki veri depolarını için Azure portalında Data Factory kullanıcı arabiriminde bağlı hizmet Parametreleştirme desteklenir. Diğer tüm veri depoları için bağlı hizmet seçerek parametreleştirebilirsiniz **kod** simgesine **bağlantıları** sekmesi ve JSON Düzenleyicisi'ni kullanarak.
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure SQL Veri Ambarı
 - SQL Server
 - Oracle

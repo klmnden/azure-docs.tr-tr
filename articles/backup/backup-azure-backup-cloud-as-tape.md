@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646977"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uzun vadeli depolama alanınızı banttan Azure bulutuna taşıyın.
 Azure yedekleme ve System Center Data Protection Manager müşterileri yapabilirsiniz:
@@ -44,10 +44,10 @@ Bekletme İlkesi, yedekleme depolanmalıdır süreyi belirtir. Müşteriler, yal
 ## <a name="example--putting-both-together"></a>Örneğin, her ikisi de bir araya getirilmesi
 ![Örnek ekran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Günlük Bekletme İlkesi**: günlük alınan yedeklemeler yedi gün boyunca saklanır.
-2. **Haftalık Bekletme İlkesi**: yedeklemeler her gece yarısı ve 18: 00 Cumartesi gece geçen dört hafta boyunca korunur
-3. **Aylık Bekletme İlkesi**: gece yarısı ve her ayın son Cumartesi günleri 6 pm alınan yedeklemeler, 12 ay boyunca korunur
-4. **Yıllık Bekletme İlkesi**: her Mart Son Cumartesi gece alınan yedeklemeler 10 yıl boyunca korunur
+1. **Günlük Bekletme İlkesi**: Günlük gerçekleştirilen yedeklemeleri yedi gün boyunca saklanır.
+2. **Haftalık Bekletme İlkesi**: Yedeklemeler her gece yarısı ve 18: 00 Cumartesi gece geçen dört hafta için korunur.
+3. **Aylık Bekletme İlkesi**: Gece yarısı ve her ayın son Cumartesi günleri 6 pm alınan yedeklemeler 12 ay boyunca korunur.
+4. **Yıllık Bekletme İlkesi**: Her Mart Son Cumartesi gece alınan yedeklemeler 10 yıl boyunca korunur.
 
 "Bekletme noktalarını" toplam sayısı (içinden bir müşteri geri yükleyebilir, veri noktaları) önceki diyagramda şu şekilde hesaplanır:
 

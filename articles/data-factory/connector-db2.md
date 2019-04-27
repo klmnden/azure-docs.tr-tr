@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786382"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak gelen DB2 veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-db2-connector.md)
 > * [Geçerli sürüm](connector-db2.md)
 
@@ -174,31 +174,31 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemeler DB2 veri tür
 | DB2 veritabanı türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BigInt |Int64 |
-| İkili |Bayt] |
-| Blob |Bayt] |
-| Char |Dize |
-| CLOB |Dize |
-| Tarih |Tarih saat |
-| DB2DynArray |Dize |
-| DbClob |Dize |
-| Onluk |Onluk |
-| DecimalFloat |Onluk |
-| çift |çift |
-| Kayan |çift |
-| Grafiği |Dize |
+| binary |Byte[] |
+| Blob |Byte[] |
+| char |String |
+| Clob |String |
+| Tarih |DateTime |
+| DB2DynArray |String |
+| DbClob |String |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
+| Grafiği |String |
 | Tamsayı |Int32 |
-| LONGVARBINARY |Bayt] |
-| LongVarChar |Dize |
-| LongVarGraphic |Dize |
-| Sayısal |Onluk |
-| Real |Tek |
+| LONGVARBINARY |Byte[] |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numeric |Decimal |
+| real |Single |
 | Tamsayı |Int16 |
-| Zaman |Zaman aralığı |
+| Zaman |TimeSpan |
 | Zaman damgası |DateTime |
-| VarBinary |Bayt] |
-| VarChar |Dize |
-| VarGraphic |Dize |
-| Xml |Bayt] |
+| VarBinary |Byte[] |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

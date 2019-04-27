@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749351"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search dizin oluşturucularında alan eşlemeleri
 Azure Search dizin oluşturucuyu kullanırken, kendiniz bazen burada giriş verileriniz, hedef dizin şemasını oldukça eşleşmiyor durumlarda bulabilirsiniz. Bu gibi durumlarda, kullandığınız **alan eşlemeleri** verilerinizi istediğiniz şekle dönüştürmek için.

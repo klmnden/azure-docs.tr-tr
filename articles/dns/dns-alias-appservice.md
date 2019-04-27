@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790751"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Konak yük dengeli Azure web apps bölgenin tepesindeki
 
@@ -43,7 +43,7 @@ Bu makalede kullanılan tüm kaynakları tutmak için bir kaynak grubu oluşturu
 Yapılandırma bilgileri için aşağıdaki tabloyu kullanarak kaynak grubunuzda iki Web App Service planı oluşturun. Bir App Service planı oluşturma hakkında daha fazla bilgi için bkz. [bir Azure App Service planında yönetme](../app-service/app-service-plan-manage.md).
 
 
-|Ad  |İşletim Sistemi  |Konum  |Fiyatlandırma Katmanı  |
+|Ad  |İşletim Sistemi  |Location  |Fiyatlandırma Katmanı  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Doğu ABD|Geliştirme ve Test D1 paylaşılan|
 |ASP-02     |Windows|Orta ABD|Geliştirme ve Test D1 paylaşılan|
@@ -87,7 +87,7 @@ Artık iki web uygulaması uç noktaları oluşturabilirsiniz.
 3. **Ekle**'ye tıklayın.
 4. Uç noktaları yapılandırmak için aşağıdaki tabloyu kullanın:
 
-   |Type  |Ad  |Hedef  |Konum  |Özel Üstbilgi ayarları|
+   |Tür  |Ad  |Hedef  |Location  |Özel Üstbilgi ayarları|
    |---------|---------|---------|---------|---------|
    |Harici uç nokta     |Bitiş-01|App-01 için kayıtlı IP adresi|Doğu ABD|konak:\<uygulama-01 için kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-01.azurewebsites.net**|
    |Harici uç nokta     |Bitiş-02|App-02 için kayıtlı IP adresi|Orta ABD|konak:\<uygulama-02 kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-02.azurewebsites.net**
@@ -104,7 +104,7 @@ DNS bölgenizi hazır olduğunda bir diğer ad kaydı için bölge tepesinde ekl
 2. **Kayıt kümesi**’ne tıklayın.
 3. Aşağıdaki tabloda kullanılarak ayarlanan kaydı ekleyin:
 
-   |Ad  |Type  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynağı|
+   |Ad  |Tür  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynağı|
    |---------|---------|---------|---------|-----|
    |@     |A|Evet|Azure kaynağı|Traffic Manager - profilinizi|
 

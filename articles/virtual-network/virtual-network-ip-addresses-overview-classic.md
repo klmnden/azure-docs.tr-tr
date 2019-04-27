@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742131"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresi türleri ve ayırma yöntemleri (Azure'da Klasik)
 Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişim kurmak için Azure kaynaklarına IP adresleri atayabilirsiniz. Azure'da kullanabileceğiniz IP adreslerinin iki tür vardır: Genel ve özel.
@@ -144,14 +144,14 @@ Aşağıdaki tabloda olası ayırma yöntemleri (dinamik/statik) ile birden çok
 | İç yük dengeleyici ön ucuna |Evet |Evet |Evet |
 | Uygulama ağ geçidi ön uç |Evet |Evet |Evet |
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 Aşağıdaki tabloda, Azure'da abonelik başına adresleme IP uygulanan sınırları gösterir. [Destek ekibiyle iletişime geçerek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) varsayılan limitleri iş ihtiyaçlarınıza göre en üst düzeye çıkarabilirsiniz.
 
 |  | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| Genel IP adresleri (dinamik) |5 |destekle iletişime geç |
-| Ayrılmış genel IP adresleri |20 |destekle iletişime geç |
-| Dağıtım (bulut hizmeti) başına genel VIP |5 |destekle iletişime geç |
+| Genel IP adresleri (dinamik) |5 |desteğe başvurun |
+| Ayrılmış genel IP adresleri |20 |desteğe başvurun |
+| Dağıtım (bulut hizmeti) başına genel VIP |5 |desteğe başvurun |
 | Özel VIP (ILB) başına dağıtım (bulut hizmeti) |1 |1 |
 
 Eksiksiz bir listesi okuduğunuzdan emin olun [ağ limitlerinin](../azure-subscription-service-limits.md#networking-limits) azure'da.

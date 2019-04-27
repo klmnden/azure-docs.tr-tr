@@ -2,20 +2,21 @@
 title: SQL veri ambarı'na şemanızın geçişini yapın | Microsoft Docs
 description: Şemanızı çözümleri geliştirmek için Azure SQL veri ambarı'na geçirmek için ipuçları.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 4139ea776f6947eeacf4620c3676606d6535dd2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748161"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Şemaları SQL veri ambarı'na geçirme
 SQL veri ambarı, SQL şemaları geçişine ilişkin yönergeler. 
@@ -40,13 +41,6 @@ En iyi performans için tablolarınızı satır uzunluğu en aza indirin. Daha i
 
 Tablo için satır genişlik, PolyBase 1 MB sınırı vardır.  PolyBase ile SQL veri ambarı'na veri yükleme planlıyorsanız, en büyük satır genişliğini 1 MB'tan az olması tablolarınızı güncelleştirin. 
 
-<!--
-- For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
-
-- This table uses variable length data and the defined row width is less than one MB. When loading rows, PolyBase allocates the full length of the variable-length data. The full length of this row is greater than one MB.  PolyBase will not load data into this table.  
-
--->
-
 ## <a name="specify-the-distribution-option"></a>Dağıtım seçeneğini belirtin
 SQL veri ambarı dağıtılan bir veritabanı sistemidir. Her tablo dağıtılmış veya işlem düğümleri arasında çoğaltılır. Verilerin nasıl dağıtılacağını belirtmenize olanak sağlar. bir tablo seçenek mevcuttur. Seçimleri çoğaltılan, hepsini bir kez deneme, veya karma dağıtılmış. Her avantajları ve dezavantajları vardır. SQL veri ambarı dağıtım seçeneği belirtmezseniz hepsini bir kez deneme varsayılan olarak kullanır.
 
@@ -55,7 +49,6 @@ SQL veri ambarı dağıtılan bir veritabanı sistemidir. Her tablo dağıtılm�
 - Karma dağıtılmış satırları bir karma işlevi ile tüm düğümler arasında dağıtır. Karma dağıtılmış tablo SQL veri ambarı'nın temelini olduğundan yüksek sorgu performansı büyük tablolarda sağlamak için tasarlanmıştır. Bu seçenek, bazı verileri dağıtmak en iyi sütunu seçmek planlama gerektirir. İlk kez en iyi sütun seçmezseniz, ancak, kolayca veriler üzerinde farklı bir sütun yeniden dağıtabilirsiniz. 
 
 Her tablo için en iyi dağıtım seçeneği için bkz: [dağıtılmış tablolar](sql-data-warehouse-tables-distribute.md).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelerden birine, veritabanı şemasını SQL veri ambarı'na başarıyla geçirdikten sonra devam edin:
@@ -78,5 +71,6 @@ SQL veri ambarı en iyi uygulamalar hakkında daha fazla bilgi için bkz. [en iy
 
 <!--MSDN references-->
 
-
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, add new content about Migrate schemas to SQL Data Warehouse -->

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749266"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0 ile Service Bus .NET kullanma
 
@@ -75,10 +75,10 @@ Oluşturduğunuzda bir [BrokeredMessage] [ BrokeredMessage] örneği, ileti göv
 | float |float |AMQP değeri |
 | double |double |AMQP değeri |
 | decimal |decimal128 |AMQP değeri |
-| Char |Char |AMQP değeri |
+| char |char |AMQP değeri |
 | DateTime |timestamp |AMQP değeri |
 | Guid |uuid |AMQP değeri |
-| bayt] |İkili |AMQP değeri |
+| byte[] |binary |AMQP değeri |
 | string |string |AMQP değeri |
 | System.Collections.IList |list |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. |
 | System.Array |array |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. |
@@ -86,8 +86,8 @@ Oluşturduğunuzda bir [BrokeredMessage] [ BrokeredMessage] örneği, ileti göv
 | Uri |Dize açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | DateTimeOffset |Uzun açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | TimeSpan |Uzun açıklanan (aşağıdakilere bakın) |AMQP değeri |
-| Akış |İkili |AMQP verileri (birden fazla olabilir). Veri bölümler Stream nesnesinden okuma ham bayt içerir. |
-| Diğer nesne |İkili |AMQP verileri (birden fazla olabilir). DataContractSerializer veya uygulama tarafından sağlanan bir seri hale getirici kullanan nesne seri hale getirilmiş ikili içerir. |
+| Akış |binary |AMQP verileri (birden fazla olabilir). Veri bölümler Stream nesnesinden okuma ham bayt içerir. |
+| Diğer nesne |binary |AMQP verileri (birden fazla olabilir). DataContractSerializer veya uygulama tarafından sağlanan bir seri hale getirici kullanan nesne seri hale getirilmiş ikili içerir. |
 
 | .NET türü | Türü eşleşen AMQP açıklanan | Notlar |
 | --- | --- | --- |

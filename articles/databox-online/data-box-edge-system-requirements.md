@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60756554"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure veri kutusu Edge sistem gereksinimleri
 
@@ -58,7 +58,7 @@ Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulutuna bir
 
 Azure IOT Edge çalışma zamanı barındırma sunucuları için bağlantı noktası yapılandırması için aşağıdaki tabloyu kullanın:
 
-| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gereklidir | Rehber |
+| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Rehber |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Çıkış       | WAN        | Evet      | IOT Edge sağlama için giden açın. Bu yapılandırma, el ile komut dosyaları veya Azure IOT cihaz sağlama hizmeti (DPS) kullanılırken gereklidir.|
 

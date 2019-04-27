@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631235"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Cihazınızı kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış
 Microsoft Azure StorSimple 8100 tek kutu, rafa monte edilen cihaz olur. Bu öğreticide, ambalajını açmak açıklanmaktadır rafa monte yanı sıra, yapılandırmak ve StorSimple Cihazınızı dağıtma önce StorSimple 8100 kablo cihaz donanım.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>StorSimple 8100 model Cihazınızı kutusundan çıkarma
-Aşağıdaki adımlar, StorSimple 8100 depolama Cihazınızı paketinden çıkarma hakkında NET, ayrıntılı yönergeler sağlar. Bu cihaz, tek bir kutuda gönderilir.
+Aşağıdaki adımlar, StorSimple 8100 depolama Cihazınızı paketinden çıkarma hakkında NET, ayrıntılı yönergeler sağlar. Cihaz tek bir kutuda gönderilir.
 
 ### <a name="prepare-to-unpack-your-device"></a>Cihazınızı paketinden çıkarma hazırlama
 Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin.
@@ -34,13 +34,13 @@ Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)![büyük ağırlık simgesi](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **uyarı!**
 
 1. El ile işlemekte olduğunuz kasa ağırlığı yönetmek için kullanılabilecek iki kişinin bilgisayarınızda yüklü olduğundan emin olun. Tam olarak yapılandırılmış bir kutu, en fazla 32 kg (70'ten lb.) Tart.
-2. Kutuya bir düz, düzey yüzeyinde koyun.
+2. Kutuyu düz ve sabit bir yüzeye yerleştirin.
 
 Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-unpack-your-device"></a>Cihazınızı paketinden çıkarma için
-1. Kutunun ve paketleme köpük crushes, keser, su zarar veya herhangi bir belirgin hasar inceleyin. Paketleme ve kutusu ciddi zarar, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) , cihazın iyi çalışma sırayla olup değerlendirmenize yardımcı olmak için.
-2. Kutunun ayıklayın. Aşağıdaki görüntüde, StorSimple Cihazınızı paketten çıkarılan görünümünü gösterir.
+1. Kutuda ve ambalajda ezik, kesik, su hasarı veya gözle görülür herhangi bir hasar olup olmadığını kontrol edin. Kutu veya ambalajda ciddi hasar varsa kutuyu açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) , cihazın iyi çalışma sırayla olup değerlendirmenize yardımcı olmak için.
+2. Kutuyu açın. Aşağıdaki görüntüde, StorSimple Cihazınızı paketten çıkarılan görünümünü gösterir.
    
      ![Depolama Cihazınızı paketinden çıkarma](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
@@ -53,7 +53,7 @@ Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tama
    |   3 |Cihaz |
    |   4 |Üst köpük |
    |   5 |Aksesuar kutusu |
-3. Kutunun akışının paketi açılırken sonra sahip olduğunuzdan emin olun:
+3. Kutuyu açtıktan sonra aşağıdakilerin bulunduğundan emin olun:
    
    * 1 tek kutu cihaz
    * 2 güç kablosu
@@ -67,7 +67,7 @@ Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tama
      
      Yukarıda listelenen öğelerden herhangi birini almadı, [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 
-Sonraki adım rafa monte Cihazınızı sağlamaktır.
+Bir sonraki adım cihazınızı rafa yerleştirmektir.
 
 ## <a name="rack-mount-your-storsimple-8100-device"></a>StorSimple 8100 cihazınızın rafa monte
 StorSimple 8100 depolama cihazınızın standart 19 inç raf ön ve arka gönderiler ile yüklemek için sonraki adımları izleyin. StorSimple 8100 cihazda tek bir birincil kutu vardır.
@@ -83,7 +83,7 @@ Her biri aşağıdaki yordamlarda açıklanan birden çok adım yükleme oluşur
 Cihazın ön ve arka gönderileri olan standart bir 19 inç rafa yüklü olması gerekir. Raf yüklemesine hazırlanmak için aşağıdaki yordamı kullanın.
 
 #### <a name="to-prepare-the-site-for-rack-installation"></a>Site, raf yüklemesine hazırlanmak için
-1. Cihaz güvenli bir şekilde düz, kararlı ve düzeyi iş surface (veya benzeri) üzerine emin olun.
+1. Cihazın düz, sabit ve dengeli bir çalışma yüzeyi (veya benzeri) üzerinde güvenli bir şekilde durduğundan emin olun.
 2. Burada ayarlamak için istediğinize site bağımsız bir kaynak veya bir raf güç dağıtım birimi (PDU) bir kesintisiz güç kaynağı (UPS) ile standart AC gücü sahip olduğunu doğrulayın.
 3. 2U yuvanın bir cihaz bağlamak istediğiniz rafa kullanılabilir olduğundan emin olun.
 
@@ -114,7 +114,7 @@ Rails bağlama kümesi 19 inç raf dolap ile kullanım için sağlanır. Rails m
     2     | Kasa slayt
 
 2. Sol dış parmaklık ve dış doğru parmaklık derlemeleri raf dolap dikey üyeleri ekleyin. Köşeli ayraçlar işaretlenmiş **LH**, **RH**, ve **bu tarafı yukarı** doğru yönlendirmeyi size yol gösterecek.
-3. Ön ve arka parmaklık derlemenin parmaklık PIN'ler bulun. Parmaklık arasında rafa gönderileri uygun ve PIN'leri ön ve arka raf post dikey üye boşluklarını eklemek için genişletin. Parmaklık derleme düzeyinde olduğundan emin olun.
+3. Ray tertibatının ön ve arkasındaki ray pimlerini bulun. Parmaklık arasında rafa gönderileri uygun ve PIN'leri ön ve arka raf post dikey üye boşluklarını eklemek için genişletin. Parmaklık derleme düzeyinde olduğundan emin olun.
 4. İki sağlanan ölçüm Vida rafa parmaklık derlemeye dikey üyeleri güvenliğini sağlamak için kullanın. Ön ve arka birinde tek Sarmal kullanın.
 5. Diğer parmaklık derleme için bu adımları yineleyin.<br/>
    
@@ -158,7 +158,7 @@ Sonraki adım, güç, ağ ve seri erişim için cihazınızın kablolarını ba�
 Aşağıdaki yordamlarda, güç, ağ ve seri bağlantı için StorSimple 8100 cihazınızın kablolarını bağlama işlemleri açıklanmaktadır.
 
 ### <a name="prerequisites"></a>Önkoşullar
-Cihazınızın kablo başlamadan önce ihtiyacınız olacak:
+Cihazınızın kablolarını bağlamaya başlamadan önce şunlara ihtiyacınız olacaktır:
 
 * Depolama cihazı tamamen açılmış ve raf bağlanır.
 * cihazınızla birlikte gelen 2 güç kabloları
@@ -236,11 +236,11 @@ Seri bağlantı kablolarını bağlama için aşağıdaki adımları gerçekleş
 2. Etkin denetleyicide, aygıt devre kartı belirleyin. Yanıp sönen bir mavi LED denetleyici etkin olduğunu gösterir.
 3. (Gerekirse, dizüstü bilgisayarınız için USB seri dönüştürücü) sağlanan seri kablo kullanın ve konsolu veya (terminal öykünme cihaza ile) bilgisayarınızın etkin denetleyiciyi seri bağlantı noktasına bağlanın.
 4. (Cihazı ile birlikte gelen) seri USB sürücüleri bilgisayarınıza yükleyin.
-5. Seri bağlantı aşağıdaki gibi ayarlayın: 115.200 baud, 8 veri bitleri, 1 dur bit, eşlik yok ve akış denetimi hiçbiri olarak ayarlayın.
+5. Seri bağlantı aşağıdaki gibi ayarlayın: 115.200 baud, 8 veri bitleri, 1 dur bit, eşlik yok ve akış kümesi hiçbiri denetler.
 6. Bağlantı Konsolu'nda Enter tuşuna basarak çalıştığını doğrulayın. Seri konsol menüsünde görüntülenmelidir.
 
 > [!NOTE]
-> **Uzaktan Yönetim**: cihaz uzak bir veri merkezinde veya sınırlı erişimli bilgisayar odasında yüklendiğinde, her iki denetleyicilerinin seri bağlantıları her zaman bir seri konsol anahtarı veya benzer ekipman bağlandığınızdan emin olun. Ağ kesintileri veya beklenmeyen hatalar varsa bu bant uzaktan denetim ve Destek işlemleri sağlar.
+> **Uzaktan Yönetim**: Cihaz uzak bir veri merkezinde veya sınırlı erişimli bilgisayar odasında yüklendiğinde, her iki denetleyicilerinin seri bağlantıları her zaman bir seri konsol anahtarı veya benzer ekipman bağlandığınızdan emin olun. Ağ kesintileri veya beklenmeyen hatalar varsa bu bant uzaktan denetim ve Destek işlemleri sağlar.
 > 
 > 
 

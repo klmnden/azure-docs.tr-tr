@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
 ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60682807"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - geçiş altyapısı dağıtma
 
@@ -25,7 +25,7 @@ Bu makalede, Contoso, şirket içi altyapı geçiş için hazırlar ve hazırlı
 Bu makalede, bir dizi Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belge makaleleri bir parçasıdır. Seri arka plan bilgileri içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını dağıtım senaryolarında bir dizi geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve farklı türde geçiş çalıştırın. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
 
 
-**Makale** | **Ayrıntılar** | **Durumu**
+**Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
 [1. makale: Genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
 2. makale: Azure altyapısını dağıtma | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Bu makalede
@@ -81,7 +81,7 @@ Altyapısını bakarak başlamadan önce bu makalede ele Azure özellikleri hakk
 - Etki alanı denetleyicileri veri merkezindeki VMware VM'ler üzerinde çalıştırın. Yerel dalları etki alanı denetleyicilerde fiziksel sunucularda çalıştırın.
 
 
-## <a name="step-1-buy-and-subscribe-to-azure"></a>1. adım: Satın alma ve Azure'a abone olma
+## <a name="step-1-buy-and-subscribe-to-azure"></a>1. Adım: Satın alma ve Azure'a abone olma
 
 Azure satın alma, nasıl abonelikleri Mimar ve hizmetlerinizi ve kaynaklarınızı lisans nasıl bağlayacağınızı contoso gerekir.
 
@@ -94,7 +94,7 @@ Contoso çalışmaya bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pr
 - Herhangi bir nedenle Contoso taahhüdü aşıyor ve daha fazla geçirdiği, Microsoft bunların fark için fatura.
 - Taahhüt sonucunda herhangi bir maliyet aynı ücretleri ve bu Contoso sözleşmesindeki olacaktır. Giden hiçbir yaptırımlara vardır.
 
-### <a name="manage-subscriptions"></a>Abonelikleri yönet
+### <a name="manage-subscriptions"></a>Abonelikleri yönetme
 
 Azure için ödeme sonra Contoso Azure Aboneliklerini yönetmek nasıl gerekir. Contoso bir EA vardır ve bu nedenle Azure abonelik sayısı sınırı ayarlayabilirsiniz.
 
@@ -132,7 +132,7 @@ SA aracılığıyla lisans taşınabilirliği Contoso gibi Microsoft Toplu Lisan
 Belirli sanal makine için ayrılmış örnekler kullanarak lisanslarınıza örnekleri gerekir saklanabilir süreyi büyük sürelerini konsolu bir indirim hem öncelikli kapasite alabilirsiniz. Kullanarak [Azure ayrılmış örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/)birlikte Azure hibrit teklifi'nden Contoso kazandırabilir %82 varan normal Kullandıkça Öde fiyatlandırması (Nisan 2018).
 
 
-## <a name="step-2-manage-hybrid-identity"></a>2. adım: Karma Kimlik Yönetimi
+## <a name="step-2-manage-hybrid-identity"></a>2. Adım: Karma Kimlik Yönetimi
 
 Ayırabilir ve Azure kaynaklarıyla kimlik ve erişim yönetimi (IAM) kullanıcı erişimini denetleme Azure altyapısının bir araya getirmek, önemli bir adımdır.  
 
@@ -240,7 +240,7 @@ Tümleştirme kolaylaştırmak için Contoso kullanan [Azure AD Connect aracın�
 
 5. İçinde **yapılandırma için hazır**, simgeye **Yapılandırma tamamlandığında eşitleme işlemini başlatmak** eşitleme hemen başlatmak için. Ardından bunlar yükleyin.
 
-Aşağıdakilere dikkat edin:
+Şunlara dikkat edin:
 - Contoso Azure doğrudan bir bağlantı vardır. Şirket içi AD, bir proxy'nin arkasındayken, okuma bu [makale](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity).
 - İlk eşitleme sonrasında, Azure AD'de AD nesnelerini görülebilir şirket içi.
 
@@ -264,7 +264,7 @@ Contoso yöneticileri artık, şirket içi ad'nizden eşitlenmiş AD grupları r
     ![Şirket içinde Azure AD üyeleri](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
 
-## <a name="step-3-design-for-resilience-and-disaster"></a>3. adım: Esneklik ve olağanüstü durum tasarımı
+## <a name="step-3-design-for-resilience-and-disaster"></a>3. Adım: Esneklik ve olağanüstü durum tasarımı
 
 ### <a name="set-up-regions"></a>Bölgeleri ayarlayın
 
@@ -518,7 +518,7 @@ VNET ASR cu VNet Doğu ABD 2, ancak etki alanı denetleyicisi olan bir alt ağ g
 
 #### <a name="configure-peered-connections"></a>Eşlenen bağlantıları yapılandırma
 
-Her bölgede hub hub bölge içindeki tüm sanal ağları ve başka bir bölgede hub'ına eşlenmesi. Bu hub'ları için iletişim kurmak ve tüm sanal ağları bir bölge içinde görüntülemek için sağlar. Aşağıdakilere dikkat edin:
+Her bölgede hub hub bölge içindeki tüm sanal ağları ve başka bir bölgede hub'ına eşlenmesi. Bu hub'ları için iletişim kurmak ve tüm sanal ağları bir bölge içinde görüntülemek için sağlar. Şunlara dikkat edin:
 
 - Eşleme, iki taraflı bir bağlantı oluşturur. İlk VNet üzerinde başlatma eşten bir ve ikinci VNet üzerinde başka bir.
 - Karma bir dağıtımda, eşler arasında geçen trafiği şirket içi veri merkeziniz ile Azure arasında VPN bağlantısı görülen gerekir. Bunu etkinleştirmek için eşlenen bağlantılarda ayarlanması gereken bazı özel ayarları vardır.
@@ -707,7 +707,7 @@ Bilgi kaynakları ve sahipleri hakkında sağlamaya ek olarak, etiketleri Contos
 
 **Etiket adı** | **Değer**
 --- | ---
-CostCenter | 12345: SAP geçerli maliyet merkezi olmalıdır.
+Maliyet merkezi | 12345: SAP geçerli maliyet merkezi olmalıdır.
 Departmanı | İş birimi (SAP'den) adı. CostCenter eşleşir.
 ApplicationTeam | Uygulama için destek sahibi olan takım e-posta diğer adı.
 Katalog adı | Kaynağın desteklediği hizmet Kataloğu başına ShareServices, ve uygulama adıdır.
@@ -783,10 +783,10 @@ Asg'ler ile ilişkili Nsg'ler paketler yalnızca izin verilen bir ağın parças
 
 **Eylem** | **Ad** | **Kaynak** | **Hedef** | **Bağlantı Noktası**
 --- | --- | --- | --- | --- 
-İzin ver | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-İzin ver | AllowWebToApp | APP1-FE | APP1-DB | 1433
-İzin ver | AllowAppToDB | APP1 UYGULAMA | Herhangi | Herhangi
-Engelle | DenyAllInbound | Herhangi | Herhangi | Herhangi
+İzin Ver | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
+İzin Ver | AllowWebToApp | APP1-FE | APP1-DB | 1433
+İzin Ver | AllowAppToDB | APP1 UYGULAMA | Herhangi biri | Herhangi biri
+Reddet | DenyAllInbound | Herhangi biri | Herhangi biri | Herhangi biri
 
 ### <a name="encrypt-data"></a>Verileri şifreleme
 

@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727956"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI uygulamaları sunar Ayarlar sekmesi
 
 Açtığınızda **yeni teklif** sayfasında hizmet uygulamaları için ilk gördüğünüz **teklif ayarları** sekmesi. Bu sekmede birincil tanımlayıcıları ve teklifiniz için bir ad sağlayın. Bir yıldız işareti (*) gerekli bir alanı belirtir.
 
-![Teklif ayarları sekmesi](./media/offer-settings-tab.png)
+![Teklif Ayarları sekmesi](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Teklif ayarları alanları 

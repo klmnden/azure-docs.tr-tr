@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845638"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Sertifika kimlik doğrulaması (Klasik) kullanarak noktadan siteye bağlantı yapılandırma
 
@@ -85,7 +85,7 @@ Bir test ortamı oluşturabilir veya bu değerlere bu makaledeki örnekleri daha
 
 Başlamadan önce bir Azure aboneliğine sahip olduğunuzu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
-### <a name="part-1-create-a-virtual-network"></a>1. Bölüm: Sanal ağ oluştur
+### <a name="part-1-create-a-virtual-network"></a>1. Bölüm: Sanal ağ oluşturma
 
 Bir sanal ağın (VNet) yoksa bir tane oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Azure portalını kullanarak sanal ağ oluşturmak için şu adımları uygulayın:
 

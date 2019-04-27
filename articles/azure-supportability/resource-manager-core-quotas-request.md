@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 204deaf3a67984c0dd5eca5352686719e7767885
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649358"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Kaynak Yöneticisi'ni vCPU kota artışı istekleri
 
@@ -26,7 +26,7 @@ Bir artış istemek için Azure'nın 'kullanımı + kota' aracılığıyla bir d
 
 1. Gelen https://portal.azure.comseçin **abonelikleri**.
 
-   ![Abonelikler](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Kotasını artırmanız gereken aboneliği seçin.
 

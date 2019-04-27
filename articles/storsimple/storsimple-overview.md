@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630210"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 serisi: bir hibrit bulut depolaması çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -96,7 +96,7 @@ StorSimple Cloud Appliance iki modellerinde kullanılabilir: (önceden 1100 mode
 
 StorSimple Cloud Appliance hakkında daha fazla bilgi için Git [Dağıt ve azure'da bir StorSimple Cloud Appliance'ı yönetme](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti
+## <a name="storsimple-device-manager-service"></a>StorSimple Device Manager hizmeti
 Microsoft Azure StorSimple, merkezi olarak veri merkezinin yönetimi ve bulut depolama sağlayan bir web tabanlı kullanıcı arabirimi (StorSimple cihaz Yöneticisi hizmeti) sağlar. StorSimple cihaz Yöneticisi hizmeti, aşağıdaki görevleri gerçekleştirmek için kullanabilirsiniz:
 
 * StorSimple cihazlar için sistem ayarları yapılandırın.
@@ -205,7 +205,7 @@ Yinelenenleri kaldırma genel yedeklilik depolanan veri kümesindeki ortadan kal
 ## <a name="storsimple-workload-summary"></a>StorSimple iş yükü özeti
 Desteklenen StorSimple iş yüklerinin bir özeti aşağıda tabloda verilmiştir.
 
-| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Sürüm |
+| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Version |
 | --- | --- | --- | --- | --- |
 | İş Birliği |Dosya paylaşımı |Evet | |Tüm sürümler |
 | İş Birliği |Dağıtılmış bir dosya paylaşımı |Evet | |Tüm sürümler |
@@ -232,7 +232,7 @@ Aşağıdaki iş yükleri, StorSimple 8000 serisi cihazlar tarafından desteklen
 
 Aşağıdaki desteklenen StorSimple altyapı bileşenlerini bir listesidir.
 
-| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Sürüm |
+| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Version |
 | --- | --- | --- | --- | --- |
 | Genel |Express Route |Evet | |Tüm sürümler |
 | Genel |DataCore FC |Evet* |DataCore SANsymphony ile desteklenen |Tüm sürümler |
@@ -299,7 +299,7 @@ Microsoft Azure StorSimple çözümünüzle dağıtmadan önce aşağıdaki teri
 | katı hal sürücüsü (SSD) |Hiçbir hareketli parçadan içeren bir diski; Örneğin, bir flash sürücü. |
 | depolama hesabı |Erişim kimlik bilgileri kümesi için belirli bir bulut hizmeti sağlayıcısı depolama hesabınıza bağlı. |
 | SharePoint için StorSimple Bağdaştırıcısı |SharePoint sunucu grupları StorSimple depolaması ve veri koruma şeffaf bir şekilde genişleten bir Microsoft Azure StorSimple bileşeni. |
-| StorSimple Cihaz Yöneticisi hizmeti |Azure StorSimple şirket içi ve sanal cihazları yönetmenize olanak sağlar Azure portalının bir uzantısıdır. |
+| StorSimple Device Manager hizmeti |Azure StorSimple şirket içi ve sanal cihazları yönetmenize olanak sağlar Azure portalının bir uzantısıdır. |
 | StorSimple Snapshot Manager |Bir Microsoft Yönetim Konsolu (MMC) ek Microsoft Azure StorSimple yedekleme ve geri yükleme işlemleri yönetmek için bileşeni. |
 | yedek Al |Kullanıcının bir birim etkileşimli bir yedeğini almak bir özelliği. El ile yedekleme tanımlanmış bir ilke aracılığıyla otomatik bir yedekleme sürüyor aksine, bir birimin alınmasına alternatif bir yoludur. |
 | ölçülü kaynak sağlama |Depolama sistemlerinde kullanılan kullanılabilir depolama alanı ile verimliliğini en iyi duruma getirme yöntemi. Ölçülü kaynak sağlama, depolama, her kullanıcı tarafından belirli bir zamanda gereken en düşük alanı göre birden çok kullanıcı arasında ayrılır. Ayrıca bkz: *fat sağlama*. |

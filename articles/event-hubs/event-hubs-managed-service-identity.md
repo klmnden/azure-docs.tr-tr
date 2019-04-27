@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746921"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs ile Azure kaynakları için yönetilen kimlikleri
 
@@ -54,7 +54,7 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Yeni Event Hubs ad alanı oluşturma
 
-Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) Azure kaynakları için yönetilen kimlikleri için Önizleme desteği olan Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya  **Batı Avrupa**. 
+Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) Azure kaynakları için yönetilen kimlikleri için Önizleme desteği olan Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
 
 Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın. Event Hubs ad alanı web uygulaması artık yönetilen kimlik erişimi ve daha önce oluşturduğunuz olay hub'ına. 
 

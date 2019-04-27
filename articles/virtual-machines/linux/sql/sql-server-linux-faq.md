@@ -14,11 +14,11 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739276"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure sanal Makineler'de sık sorulan sorular için SQL Server
 
@@ -63,7 +63,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 ## <a name="licensing"></a>Lisanslama
 
-1. **Bir Azure sanal makinesinde SQL Server lisanslı kopyamı nasıl yükleyebilirim?**
+1. **Lisanslı SQL Server kopyamı bir Azure sanal makinesine nasıl yükleyebilirim?**
 
    İlk olarak, bir Linux işletim sistemi yalnızca sanal makine oluşturun. Ardından çalıştırın [SQL Server yükleme adımlarını](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) Linux dağıtımınız için. Ayrıca ücretsiz lisanslı SQL Server sürümleri birini yüklemekte olduğunuz sürece, bir SQL Server Lisansı olmalıdır ve [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/).
 
@@ -71,7 +71,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
    Şu anda hiçbir BYOL Linux sanal makine görüntüleri için SQL Server vardır. Ancak, el ile SQL Server yalnızca Linux VM üzerinde önceki sorulara anlatıldığı gibi yükleyebilirsiniz.
 
-1. **Kullandıkça Öde galeri görüntülerden birini oluşturulmuşsa, kendi SQL Server Lisansımı kullanmak için bir VM değiştirebilirim?**
+1. **Kullandıkça ödeme galeri görüntülerinden biri kullanılarak oluşturulan sanal makineyi kendi SQL Server lisansımı kullanmak için değiştirebilir miyim?**
 
    Hayır. Kendi lisansınızı kullanarak için saniye başına ödeme lisanslama geçiş yapamazsınız. Yeni bir Linux VM oluşturma, SQL Server yükleme ve verilerinizi taşımanız gerekir. Kendi lisansınızı getirmek hakkında daha fazla ayrıntı için önceki soruda bakın.
 
@@ -81,15 +81,15 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
    Evet, ancak SSMS şu anda yalnızca Windows aracı. SSMS ile Linux SQL Server Vm'leri kullanmak için bir Windows makineden uzaktan bağlanmanız gerekir. Yerel olarak Linux'ta yeni [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) aracı, çoğu yönetim görevlerini gerçekleştirebilir. Platformlar arası veritabanı yönetim aracı için bkz: [Azure veri Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Bir SQL VM üzerindeki SQL Server tamamen kaldırabilirim?**
+1. **SQL Server'ı SQL VM'sinden tamamen kaldırabilir miyim?**
 
-   Evet, ancak bölümünde anlatıldığı gibi SQL sanal Makineniz için ödeme yapmaya devam edecek [SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). SQL Server artık ihtiyacınız yoksa, yeni bir sanal makine dağıtma ve veri ve uygulamaları yeni sanal makineye geçirin. Ardından, SQL Server sanal makineyi kaldırabilirsiniz.
+   Evet, ancak bölümünde anlatıldığı gibi SQL sanal Makineniz için ödeme yapmaya devam edecek [SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Artık SQL Server'a ihtiyacınız kalmadıysa yeni bir sanal makine dağıtabilir ve verilerle uygulamaları yeni sanal makineye geçirebilirsiniz. Ardından SQL Server sanal makinesini kaldırabilirsiniz.
 
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 
 1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl yükseltebilirim?**
 
-   Şu anda, bir Azure sanal Makinesinde çalışan SQL Server için yerinde yükseltme yoktur. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni kullanarak sunucuya geçirmenize [standart veri taşıma tekniklerini](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   Şu anda bir Azure sanal makinesinde çalışan SQL Server için yerinde yükseltme mevcut değildir. İstediğiniz SQL Server sürümü ile yeni bir Azure sanal makinesi oluşturun ve ardından [standart veri geçirme tekniklerini](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview) kullanarak veritabanlarınızı yeni sunucuya geçirin.
 
 ## <a name="general"></a>Genel
 

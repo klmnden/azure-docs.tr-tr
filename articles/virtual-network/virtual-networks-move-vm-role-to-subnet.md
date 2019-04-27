@@ -1,6 +1,6 @@
 ---
-title: Bir VM'yi (Klasik) veya Bulut Hizmetleri rol örneği farklı bir alt - Azure PowerShell taşıma | Microsoft Docs
-description: PowerShell kullanarak farklı bir alt ağa VM'ler (Klasik) ve bulut Hizmetleri rol örnekleri taşıma öğrenin.
+title: Bir VM (Klasik) veya Cloud Services rol örneği - Azure PowerShell gibi farklı bir alt ağa taşıma | Microsoft Docs
+description: PowerShell kullanarak farklı bir alt ağa VM'ler (Klasik) ve Cloud Services rol örneklerini taşımayı öğreneceksiniz.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb1576b7b842537dbdc49e6b9d402ef47ad9fae9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 787a50a0cbf16089cd15f922b494cd12d680cb43
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640404"
 ---
-# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>PowerShell kullanarak farklı bir alt ağa bir VM (Klasik) veya Bulut Hizmetleri rol örneğini taşıma
-Vm'leriniz (Klasik) bir alt ağdan başka bir programda aynı sanal ağ (VNet) taşımak için PowerShell kullanın. Rol örnekleri CSCFG dosyası düzenleme yerine PowerShell kullanarak taşınabilir.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>PowerShell kullanarak farklı bir alt ağa bir VM (Klasik) veya Cloud Services rol örneği Taşı
+Sanal makinelerinizin (Klasik) bir alt ağdan diğerine aynı sanal ağdaki (VNet) taşımak için PowerShell kullanabilirsiniz. Rol örnekleri CSCFG dosyası düzenleme yerine PowerShell kullanarak taşınabilir.
 
 > [!NOTE]
-> Bu makalede VM'ler yalnızca klasik dağıtım modeli aracılığıyla dağıtılan taşıma konusunda açıklanmaktadır.
+> Bu makalede, VM'ler yalnızca klasik dağıtım modeliyle dağıtılan gitme açıklanmaktadır.
 > 
 > 
 
-Neden sanal makineleri başka bir alt ağa taşıyın? Alt ağ geçiş eski alt ağı çok küçük ve bu alt ağdaki var olan çalışan sanal makinelerini nedeniyle genişletilemiyor faydalıdır. Bu durumda, yeni, büyük bir alt ağ oluşturmak ve yeni bir alt ağ için sanal makineleri geçirmek ardından geçiş tamamlandıktan sonra eski boş alt silebilirsiniz.
+Neden Vm'leri, başka bir alt ağa taşıma? Alt ağ geçiş daha eski bir alt ağ çok küçük ve bu alt ağdaki mevcut çalıştırılan sanal makinelerin nedeniyle genişletilemez yararlı olur. Bu durumda, yeni, daha büyük bir alt ağ oluşturun ve yeni alt ağ ile sanal makineleri geçirme ve ardından geçiş tamamlandıktan sonra eski boş alt ağ silebilirsiniz.
 
-## <a name="how-to-move-a-vm-to-another-subnet"></a>Başka bir alt ağ için bir VM taşıma
-Bir VM taşımak için aşağıdaki örnekte bir şablon olarak kullanıp kümesi AzureSubnet PowerShell cmdlet'ini çalıştırın. Aşağıdaki örnekte, biz TestVM mevcut kendi alt ağdan alt ağ-2'ye taşıyor. Ortamınızı yansıtmak üzere örnek düzenlemek emin olun. Her bir yordam bir parçası olarak güncelleştirme-AzureVM cmdlet'ini çalıştırdığınızda, güncelleştirme işleminin bir parçası olarak, VM başlayacaktır unutmayın.
+## <a name="how-to-move-a-vm-to-another-subnet"></a>Bir sanal makine başka bir alt ağa taşıma
+Bir VM'yi taşıma için aşağıdaki örnekte bir şablon olarak kullanılarak küme AzureSubnet PowerShell cmdlet'ini çalıştırın. Aşağıdaki örnekte, biz TestVM mevcut kendi alt ağdan alt ağ-2'ye taşınıyor. Örneği, ortamınızı yansıtacak şekilde düzenlemek emin olun. Bir yordam bir parçası olarak güncelleştirme-AzureVM cmdlet'ini çalıştırdığınız zaman, güncelleştirme işleminin bir parçası sanal makinenizin başlayacaktır unutmayın.
 
     Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
     | Set-AzureSubnet –SubnetNames Subnet-2 `
     | Update-AzureVM
 
-VM için statik iç özel IP belirtilmişse, yeni bir alt ağ için VM taşımadan önce bu ayarı temizlemek gerekir. Bu durumda, aşağıdakileri kullanın:
+Sanal Makineniz için statik iç özel IP belirttiyseniz, yeni bir alt ağ için VM taşımadan önce bu ayarı temizlemek gerekir. Bu durumda, aşağıdakini kullanın:
 
     Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
     | Remove-AzureStaticVNetIP `
@@ -48,8 +48,8 @@ VM için statik iç özel IP belirtilmişse, yeni bir alt ağ için VM taşımad
     | Set-AzureSubnet -SubnetNames Subnet-2 `
     | Update-AzureVM
 
-## <a name="to-move-a-role-instance-to-another-subnet"></a>Başka bir alt ağ için bir rol örneği taşımak için
-Rol örneği taşımak için CSCFG dosyasını düzenleyin. Aşağıdaki örnekte, biz "Role0" sanal ağında taşıyor *vnetname adlı* mevcut kendi alt ağdan *alt ağ-2*. Rol örneği zaten dağıtılmış olduğundan, alt ağ adı yalnızca değiştireceğiz = alt ağ-2. Ortamınızı yansıtmak üzere örnek düzenlemek emin olun.
+## <a name="to-move-a-role-instance-to-another-subnet"></a>Bir rol örneği için başka bir alt ağ taşımak için
+Bir rol örneği taşımak için CSCFG dosyasını düzenleyin. Aşağıdaki örnekte, biz "Role0" sanal ağ içinde taşıyor *VNETName* , mevcut bir alt ağa gelen *alt ağı 2*. Rol örneği zaten dağıtıldığından, yalnızca alt ağ adı değiştireceksiniz alt ağ-2 =. Örneği, ortamınızı yansıtacak şekilde düzenlemek emin olun.
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />

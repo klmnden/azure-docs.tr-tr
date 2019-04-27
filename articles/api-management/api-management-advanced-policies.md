@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795887"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Gelişmiş ilkeleri
 
@@ -867,7 +867,7 @@ Aşağıdaki örnek, bir değişken İlkesi ayarlama gelen bölümündeki göste
 | Öznitelik | Açıklama                                                              | Gerekli |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | ad      | Değişkenin adı.                                                | Evet      |
-| değer     | Değişken değeri. Bu, bir ifade veya değişmez değer olabilir. | Evet      |
+| value     | Değişken değeri. Bu, bir ifade veya değişmez değer olabilir. | Evet      |
 
 ### <a name="usage"></a>Kullanım
 

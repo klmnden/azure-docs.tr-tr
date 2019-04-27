@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770732"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Hızlı Başlangıç: Sanal ağ içinde bir Azure Databricks çalışma alanı oluşturma
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
     |Adres alanı|10.1.0.0/16|CIDR gösterimiyle sanal ağın adres aralığı.|
     |Abonelik|\<Aboneliğiniz\>|Kullanmak istediğiniz Azure aboneliğini seçin.|
     |Kaynak grubu|databricks hızlı başlangıç|Seçin **Yeni Oluştur** ve hesabınız için yeni bir kaynak grubu adı girin.|
-    |Konum|\<Kullanıcılarınıza en yakın bölgeyi seçin\>|Burada, sanal ağınızı barındırabilirsiniz coğrafi bir konum seçin. Kullanıcılarınıza en yakın konumu kullanın.|
+    |Location|\<Kullanıcılarınıza en yakın bölgeyi seçin\>|Burada, sanal ağınızı barındırabilirsiniz coğrafi bir konum seçin. Kullanıcılarınıza en yakın konumu kullanın.|
     |Alt ağ adı|default|Sanal ağınızda bulunan varsayılan alt ağ için bir ad seçin.|
     |Alt Ağ Adresi aralığı|10.1.0.0/24|CIDR gösteriminde alt ağın adres aralığı. Sanal ağın adres alanı tarafından bulunması gerekir. Kullanımda olan bir alt ağ adres aralığı düzenlenemez.|
 
@@ -58,7 +58,7 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
     |Çalışma alanı adı|databricks hızlı başlangıç|Azure Databricks çalışma alanınız için bir ad seçin.|
     |Abonelik|\<Aboneliğiniz\>|Kullanmak istediğiniz Azure aboneliğini seçin.|
     |Kaynak grubu|databricks hızlı başlangıç|Sanal ağ için kullanılan aynı kaynak grubunu seçin.|
-    |Konum|\<Kullanıcılarınıza en yakın bölgeyi seçin\>|Sanal ağınızla aynı konumu seçin.|
+    |Location|\<Kullanıcılarınıza en yakın bölgeyi seçin\>|Sanal ağınızla aynı konumu seçin.|
     |Fiyatlandırma Katmanı|Standart veya Premium arasında seçim yapın.|Fiyatlandırma katmanları hakkında daha fazla bilgi için bkz: [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).|
     |Azure Databricks çalışma alanında, sanal ağ dağıtma|Evet|Bu ayar, sanal ağınızda bir Azure Databricks çalışma alanı dağıtmanıza olanak sağlar.|
     |Sanal Ağ|databricks hızlı başlangıç|Önceki bölümde oluşturduğunuz sanal ağı seçin.|

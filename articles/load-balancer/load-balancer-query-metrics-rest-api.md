@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734550"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>REST API kullanarak yük dengeleyici kullanım ölçümlerini Al
 
@@ -50,7 +50,7 @@ Aşağıdaki üst bilgiler gereklidir:
 | loadBalancerName | Azure Load Balancer adı. |
 | metricnames | Virgülle ayrılmış listesi geçerli [Load Balancer ölçümleri](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | API sürümü | İstek için kullanılacak API sürümü.<br /><br /> Api sürümü bu belgede ele alınmaktadır `2018-01-01`, yukarıdaki URL'deki yer.  |
-| Zaman aralığı | Sorgu zaman aralığı. Bu bir dizedir aşağıdaki biçimde `startDateTime_ISO/endDateTime_ISO`. Örnekte, bir günün değerinde veri döndürmek için bu isteğe bağlı parametreyi ayarlayın. |
+| TimeSpan | Sorgu zaman aralığı. Bu bir dizedir aşağıdaki biçimde `startDateTime_ISO/endDateTime_ISO`. Örnekte, bir günün değerinde veri döndürmek için bu isteğe bağlı parametreyi ayarlayın. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>İstek gövdesi

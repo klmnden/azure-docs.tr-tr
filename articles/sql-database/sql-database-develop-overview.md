@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723417"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 
@@ -33,7 +33,7 @@ Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzer
 
 Açık kaynak araçlarla yararlanabileceğiniz [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Ayrıca, Azure SQL Veritabanı [Visual Studio](https://www.visualstudio.com/downloads/) ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) gibi Microsoft araçlarıyla birlikte çalışır. Azure portalı, PowerShell de kullanabilirsiniz ve REST API'leri yardımcı ek verimlilik elde edin.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Azure SQL veritabanına erişim, oturum açma bilgileri ve güvenlik duvarları ile korunur. Azure SQL veritabanı, hem SQL Server destekler ve [Azure Active Directory (AAD) kimlik doğrulaması](sql-database-aad-authentication.md) kullanıcılar ve oturum açma bilgileri. AAD oturum açma bilgileri, yalnızca yönetilen örneği'nde kullanılabilir. 
 

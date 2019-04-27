@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
 ms.openlocfilehash: 5cf94079dcd68887d9725ffbe9124f9b6c897dd0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736165"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Sertifika yetkililerini Azure ön kapısı hizmeti üzerinde özel HTTPS'yi etkinleştirmek için izin verilir.
 
@@ -27,8 +27,8 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 
 - AddTrust dış CA kök
 - AlphaSSL kök CA
-- DI Infra CA 01
-- DI Infra CA 02
+- AME Infra CA 01
+- AME Infra CA 02
 - Ameroot
 - AP kök CA
 - AP kök sertifika yetkilisi 2013
@@ -43,11 +43,11 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - CA-1 DigiCert bulut Hizmetleri
 - DigiCert genel kök CA
 - DigiCert Yüksek güvence CA-3
-- DigiCert Yüksek güvence EV kök CA
+- DigiCert High Assurance EV Root CA
 - Doğrulama sunucu CA DigiCert SHA2 genişletilmiş
 - DigiCert SHA2 Yüksek güvence sunucu sertifika yetkilisi
 - DigiCert SHA2 güvenli sunucu CA
-- DST kök CA'ın X3
+- DST Root CA X3
 - D güven kök sınıfı 3 CA 2 2009
 - Her yerde şifreleme DV TLS CA
 - Güvenilen kök sertifika yetkilisi

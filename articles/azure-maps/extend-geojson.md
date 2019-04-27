@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799142"
 ---
 # <a name="extending-geojson-geometries"></a>GeoJSON geometriler genişletme
 
@@ -30,7 +30,7 @@ Bu API'ler üzerinde standartlaştırmak [GeoJSON spec] [ 1] coğrafi özellikle
 * Noktası
 * Çokgen
 
-Bazı Azure haritalar API (örneğin: [içinde arama geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) olmayan geometriler "Daire" gibi kabul parçası [GeoJSON spec][1].
+Bazı Azure haritalar API (örneğin: [İçinde arama geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) olmayan geometriler "Daire" gibi kabul parçası [GeoJSON spec][1].
 
 Bu makalede Azure haritalar nasıl genişlettiğini ayrıntılı bir açıklama sağlar. [GeoJSON spec] [ 1] belirli geometriler temsil etmek için.
 
@@ -46,7 +46,7 @@ A `Circle` geometrisini kullanılarak temsil edilir; `GeoJSON Feature` nesne __g
 2. Yarıçap
    >Dairenin `radius` kullanılarak temsil edilir `GeoJSON Feature`ait özellikleri. Yarıçap değeri bulunduğu _ölçümleri_ ve türünde olmalıdır `double`.
 
-3. Alt tür
+3. SubType
    >Daire geometri da içermelidir `subType` özelliği. Bu özellik bir parçası olmalıdır `GeoJSON Feature`ait özellikleri ya da onun değeri _Circle_
 
 

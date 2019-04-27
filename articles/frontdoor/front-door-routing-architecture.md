@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42a9c4f9983a68459351fc98fb8b757759e585bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6af5e7c7d8788dffa8f144b2ee77c291ceda86c6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736300"
 ---
 # <a name="routing-architecture-overview"></a>Yönlendirme mimarisine genel bakış
 
@@ -45,4 +45,4 @@ Son olarak, önbellek yok yapılandırılmış olduğu varsayılırsa, kullanıc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
