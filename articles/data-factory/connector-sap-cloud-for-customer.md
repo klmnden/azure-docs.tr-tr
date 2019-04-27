@@ -3,21 +3,22 @@ title: Azure Data Factory kullanarak müşteri için/SAP buluta veri kopyalama |
 description: Desteklenen kaynak veri depolarından arasında desteklenen havuz veri depolarına müşteri için SAP Cloud (veya) için SAP Cloud müşteri için Data Factory kullanarak verileri kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: jingwang
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578717"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>SAP Cloud (C4C) müşteri için Azure Data Factory kullanarak verileri kopyalama
 
@@ -58,7 +59,7 @@ Aşağıdaki özellikler için SAP Cloud bağlı müşteri hizmetleri için dest
     "properties": {
         "type": "SapCloudForCustomer",
         "typeProperties": {
-            "url": "https://<tenantname>.crm.ondemand.com/sap/c4c/odata/v1/c4codata/" ,
+            "url": "https://<tenantname>.crm.ondemand.cn/sap/c4c/odata/v1/c4codata/" ,
             "username": "<username>",
             "password": {
                 "type": "SecureString",
@@ -156,7 +157,7 @@ Müşteri için SAP Cloud veri kopyalamak için kopyalama etkinliğine de Havuz 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomerSink**  | Evet |
-| WriteBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "ekleme". |
+| writeBehavior | İşlemi yazma davranışını. "Ekle", "Güncelleştir" olabilir. | Hayır. Varsayılan "ekleme". |
 | writeBatchSize | Yazma işlemi toplu iş boyutu. Toplu iş boyutu, en iyi performansı elde etmek için farklı bir tablo veya sunucusu için farklı olabilir. | Hayır. Varsayılan olarak 10. |
 
 **Örnek:**
@@ -204,20 +205,20 @@ Müşteri için SAP Buluttan veri kopyalama yapılırken, aşağıdaki eşlemele
 
 | SAP C4C OData veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| Edm.Binary | Bayt] |
-| Edm.Boolean | bool |
-| Edm.Byte | Bayt] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Bool |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Onluk |
-| Edm.Double | çift |
-| Edm.Single | Tek |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Dize |
-| Edm.Time | Zaman aralığı |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 

@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543078"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı Kılavuzu
 Bu makalede örnek uygulama altyapısı oluşturmaya gösterilmektedir. Biz, yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük Dengeleyiciler kararları bir araya basit bir çevrimiçi mağaza için bir altyapı tasarımı ve gerçekte sanal makinelerinizi (VM) dağıtma açıklamaktadır.
@@ -45,7 +45,7 @@ Sonuçta elde edilen tasarım eklemeniz gerekir:
 
 * Bir Azure aboneliği ve hesabı
 * Tek bir kaynak grubu
-* Azure Yönetilen Diskler
+* Azure Yönetilen Diskleri
 * İki alt ağa sahip bir sanal ağ
 * Benzer bir role sahip VM'ler için kullanılabilirlik kümeleri
 * Sanal makineler
@@ -61,7 +61,7 @@ Tüm adlandırma kurallarına yukarıda izleyin:
 ## <a name="azure-subscriptions-and-accounts"></a>Azure aboneliklerini ve hesaplarını
 Adventure Works Cycles, bu BT iş yükü için fatura bilgilerini sağlamak için Adventure Works Enterprise aboneliğinizin adlı Enterprise aboneliğini kullanıyor.
 
-## <a name="storage"></a>Depolama alanı
+## <a name="storage"></a>Depolama
 Adventure Works Cycles, Azure yönetilen diskler kullanması gerektiğini belirledi. Vm'leri oluştururken, her iki depolama alanı kullanılabilir depolama katmanları kullanılır:
 
 * **Standart depolama** web sunucuları, uygulama sunucuları ve etki alanı denetleyicileri ve veri diskleriyle.

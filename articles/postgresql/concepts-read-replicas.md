@@ -1,17 +1,18 @@
 ---
 title: PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
 description: Bu makalede, PostgreSQL için Azure veritabanı'nda okuma çoğaltması özelliğini açıklar.
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 04/22/2019
 ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564366"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
 
@@ -50,7 +51,7 @@ Bir çoğaltma oluşturduğunuzda, sanal ağ hizmet uç noktası ana sunucu ve g
 PostgreSQL sunucusu için normal bir Azure veritabanında olduğu gibi kendi ana bilgisayar adı ve geçerli kullanıcı hesabı kullanarak çoğaltmaya bağlanabilirsiniz. Adlı bir sunucu için **myreplica** yönetici kullanıcı adı ile **myadmin**, çoğaltmaya psql kullanarak bağlanabilirsiniz:
 
 ```
-psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
 ```
 
 İstemde, kullanıcı hesabı için parolayı girin.

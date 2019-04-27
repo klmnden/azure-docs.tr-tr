@@ -16,11 +16,11 @@ ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Öğretici: Spotinst ile Azure Active Directory Tümleştirme
 
@@ -123,9 +123,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Öznitelik adı | Öznitelik Değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |
-    | E-posta | User.Mail |
+    | Email | User.Mail |
     | FirstName | User.givenName |
     | LastName | User.surname |
     

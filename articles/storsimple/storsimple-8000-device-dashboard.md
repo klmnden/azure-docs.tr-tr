@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 serisi aygıt kullanma Özet | Microsoft Docs
-description: StorSimple cihaz Yöneticisi Hizmeti aygıt Özet ve storage ölçümleri ve bağlı başlatıcıları görüntüleyin ve seri numarasını ve IQN bulmak için kullanın açıklar.
+title: Kullanımı Özet StorSimple 8000 serisi cihaz | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti cihaz özetini ve bu depolama ölçümlerini ve bağlı başlatıcıları görüntüleyin ve seri numarasını ve IQN bulmak için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578326"
 ---
-# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple Aygıt Yöneticisi'ni hizmetinde Özet aygıtı kullanma
+# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Cihaz StorSimple cihaz Yöneticisi hizmet özetini kullanma
 
 ## <a name="overview"></a>Genel Bakış
-StorSimple cihaz Özet dikey bilgi Microsoft Azure StorSimple çözümünüzde dahil tüm cihazlar hakkında bilgi verir hizmeti Özet dikey aksine belirli bir StorSimple cihazı için genel bir bakış sağlar.
+StorSimple cihaz Özet dikey penceresinde, bilgi, Microsoft Azure StorSimple çözümde yer alan tüm cihazlar hakkında bilgi verir hizmeti Özet dikey aksine belirli bir StorSimple cihazı için genel bir bakış sağlar.
 
-Cihaz Özet dikey pencere, sistem yöneticisinin dikkat etmeniz gereken bu cihaz sorunları vurgulayan ile belirli bir StorSimple Aygıt Yöneticisi, kayıtlı bir StorSimple 8000 serisi aygıt Özet görünümünü sağlar. Bu öğretici aygıt Özet dikey tanıtır, içerik ve işlevi açıklanmaktadır ve bu dikey pencereden gerçekleştirebileceğiniz görevleri açıklar.
+Cihaz Özet dikey penceresinde, bir sistem yöneticisinin dikkat edilmesi gereken cihaz devretmeyle vurgulama ile belirli bir StorSimple cihaz Yöneticisi, kayıtlı bir StorSimple 8000 serisi cihaz Özet görünümünü sağlar. Bu öğretici, cihaz Özet dikey penceresinde sunar, içerik ve işlevi açıklanmaktadır ve bu dikey pencereden gerçekleştirebileceğiniz görevler açıklanmaktadır.
 
 Cihaz Özet dikey penceresinde aşağıdaki bilgileri görüntüler:
 
-![Cihaz Özet dikey penceresi](./media/storsimple-8000-device-dashboard/device-summary1.png)
+![Cihaz özeti dikey penceresi](./media/storsimple-8000-device-dashboard/device-summary1.png)
 
 ## <a name="management-command-bar"></a>Yönetim Komut çubuğu
 
-StorSimple cihaz dikey penceresinde, StorSimple Cihazınızı yönetmek için seçenekler bakın. Dikey ve sol tarafındaki üstte yönetimi komutları bakın. Paylaşımlar veya birimler eklemek veya güncelleştirmek veya Cihazınızı başarısız için bu seçenekleri kullanın.
+StorSimple cihaz dikey penceresinde, StorSimple Cihazınızı yönetmek için seçeneklere bakın. Dikey pencerenin ve sol taraftaki üstteki yönetimi komutları bakın. Paylaşımları veya birimler eklemek, güncelleştirmek veya Cihazınızda yük devretme gerçekleştirme için bu seçenekleri kullanın.
 
 ![Yönetim Komut çubuğu](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
 ## <a name="essentials"></a>Temel Bileşenler
 
-Temel alan bazı gibi önemli özellikleri, durumu, model, hedef IQN ve yazılım sürümü yakalar. 
+Temel alan gibi önemli özelliklerini, durumunu, model, hedef IQN ve yazılım sürümü bazıları yakalar. 
 
 ![Cihaz temelleri](./media/storsimple-8000-device-dashboard/device-summary3.png)
 
 ## <a name="monitoring"></a>İzleme
 
-* **Uyarıları** kutucuğu uyarı önem derecesine göre gruplandırılmış cihazınız için bir anlık görüntüsünü tüm etkin uyarıları sağlar.
+* **Uyarılar** kutucuğu uyarı önem derecesine göre gruplandırılmış cihazınız için tüm etkin uyarıları anlık görüntüsünü sağlar.
 
-    ![Uyarı döşeme](./media/storsimple-8000-device-dashboard/device-summary4.png)
+    ![Uyarı kutucuğu](./media/storsimple-8000-device-dashboard/device-summary4.png)
 
-    Açmak için kutucuğa tıklayın **uyarıları** dikey ve ardından herhangi dahil olmak üzere, bu uyarı hakkında ek ayrıntıları görüntülemek için bir bireysel uyarı önerilen eylemler. Sorunu çözerseniz uyarı işaretini kaldırabilirsiniz.
+    Açmak için kutucuğa tıklayın **uyarılar** dikey penceresinde ve ardından Eylemler dahil, bu uyarı hakkında ek ayrıntıları görüntülemek için bir bireysel uyarı önerilir. Uyarı, sorunu çözerseniz de temizleyebilirsiniz.
 
     ![Uyarı kutucuğa tıklayın](./media/storsimple-8000-device-dashboard/device-summary10.png)
 
-* **Durumunu** kutucuğu Aygıt durumu da dahil olmak üzere bir aygıt için donanım bileşen durumu fikir sağlar. Cihaz durumu, çevrimdışı, çevrimiçi, devre dışı bırakılmış veya ayarlamak hazır olması olabilir.
+* **Durum ve sistem durumu** kutucuğu, bir cihaz için cihaz durumu dahil olmak üzere donanım bileşeni sistem durumu hakkında Öngörüler sağlar. Cihaz durumu, çevrimdışı, çevrimiçi, devre dışı bırakılmış veya kuruluma hazır olabilir.
 
     ![Durum ve sistem durumu kutucuğu](./media/storsimple-8000-device-dashboard/device-summary5.png)
 
-* **Birimleri** kutucuğu duruma göre gruplanmış Cihazınızı birimlerin sayısı özetini sağlar.
+* **Birimleri** kutucuğu durumlarına göre gruplandırılmış cihazınızdaki birim sayısının bir özeti sağlar.
 
     ![Birimler kutucuğunu](./media/storsimple-8000-device-dashboard/device-summary6.png)
 
-    Açmak için kutucuğa tıklayın **birimleri** listesinde dikey ve onun özelliklerini görüntülemek veya değiştirmek için tek bir birimde'ye tıklayın.
+    Açmak için kutucuğa tıklayın **birimleri** listesi dikey penceresinde ve onun özelliklerini görüntülemek veya değiştirmek için tek bir birimin'ye tıklayın.
     
-    ![Birimler kutucuğunu tıklatın](./media/storsimple-8000-device-dashboard/device-summary9.png)
+    ![Birimleri kutucuğa tıklayın](./media/storsimple-8000-device-dashboard/device-summary9.png)
     
-    Daha fazla bilgi için bkz: nasıl yapılır [birimleri yönetme](storsimple-8000-manage-volumes-u2.md).
+    Daha fazla bilgi için bkz. nasıl [birimleri yönetme](storsimple-8000-manage-volumes-u2.md).
 
-* İçinde **kullanım** grafik, Cihazınızı kullanılan birincil depolama ve son 7 gün içindeki, varsayılan süre tüketilen bulut depolama görüntüleyebilirsiniz.
+* İçinde **kullanım** grafik, Cihazınızı kullanılan birincil depolama alanı ve bulut depolama son 7 gün, varsayılan süre miktarı görüntüleyebilirsiniz.
 
-     ![Kullanımı kutucuğu](./media/storsimple-8000-device-dashboard/device-summary7.png)
+     ![Kullanım kutucuğu](./media/storsimple-8000-device-dashboard/device-summary7.png)
     
-     Farklı bir zaman ölçeği seçmek için kullanın **Düzenle** grafiğin sağ üst köşedeki seçeneği.
+     Farklı zaman ölçeği seçmek için kullanın **Düzenle** grafiğin sağ üst köşedeki seçeneği.
 
-     ![Kullanım grafiği Düzenle](./media/storsimple-8000-device-dashboard/device-summary12.png)
+     ![Kullanım grafiğini Düzenle](./media/storsimple-8000-device-dashboard/device-summary12.png)
 
-     Bu grafik, toplam birincil depolama (aygıtınıza konaklar tarafından yazılan veri miktarı) ve bir süre boyunca cihazınız tarafından kullanılan toplam bulut depolama için ölçüleri görüntüleyebilirsiniz.
+     Bu grafikte, toplam birincil depolama alanı (cihazınıza konaklar tarafından yazılan veri miktarı) ve bir süre cihazınız tarafından tüketilen toplam bulut depolama için ölçümleri görüntüleyebilir.
   
-     Bu bağlamda *birincil depolama* toplam ana bilgisayar tarafından yazılan veri miktarını başvuruyor ve birim türüne göre ayrılabilir: *birincil katmanlı depolama* hem yerel olarak depolanan içeren veri ve veri katmanlı buluta. *Birincil yerel olarak sabitlenmiş depolama* yerel olarak depolanan yalnızca verileri içerir. *Bulut depolama*, toplam bulutta depolanan veri miktarına, diğer yandan ölçüsüdür. Bu depolama katmanlı veri ve yedeklemeler içerir. Bulutta depolanan veriler yinelenenleri kaldırılmış ve birincil depolama veri yinelenenleri kaldırılmış ve sıkıştırılmış önce kullanılan depolama alanı miktarını gösterir ancak sıkıştırılmış. (Sıkıştırma oranı hakkında bir fikir edinmek için bu iki sayı karşılaştırabilirsiniz.) Hem birincil hem de için ve bulut depolama, gösterilen tutarlar, yapılandırdığınız izleme sıklığına bağlı. Bir hafta sıklığı seçerseniz, örneğin, daha sonra grafik veri önceki hafta içinde her gün için gösterir.
+     Bu bağlamda *birincil depolama* toplam ana bilgisayar tarafından yazılan veri miktarı anlamına gelir ve birim türü tarafından ayrılabilir: *birincil katmanlı depolama* içerir hem yerel olarak depolanan verileri ve veri katmanlı için bulut. *Birincil yerel olarak sabitlenmiş depolama* yerel olarak depolanan yalnızca verileri içerir. *Bulut depolama*, diğer taraftan, bulutta depolanan verilerin toplam miktarı bir ölçümüdür. Bu depolama, katmanlı verileri ve yedeklemeler içerir. Bulutta depolanan veriler yinelenenleri kaldırılmış ve sıkıştırılmış ancak birincil depolama verileri kaldırılmış ve sıkıştırılmış önce kullanılan depolama miktarını gösterir. (Sıkıştırma oranı hakkında bir fikir edinmek için bu iki sayı karşılaştırabilirsiniz.) Hem birincil hem de için ve bulut depolama, gösterilen miktarları yapılandırdığınız izleme sıklığına bağlıdır. Bir hafta sıklığı seçin, örneğin, ardından grafik veri önceki haftanın her günü için gösterir.
 
-     Zaman içinde kullanılan bulut depolama alanı miktarını görmek için seçin **bulut depolama kullanılan** seçeneği. Ana bilgisayar tarafından yazılan toplam depolama görmek için seçin **birincil KATMANLI depolama kullanılan** ve **birincil yerel olarak SABİTLENMİŞ depolama kullanılan** seçenekleri. 
-     Daha fazla bilgi için bkz: [StorSimple Cihazınızı izlemek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-monitor-device.md).
+     Zaman içinde kullanılan bulut depolama miktarını görmek için seçin **bulut depolama kullanılan** seçeneği. Ana bilgisayar tarafından yazılan toplam depolama alanı görmek için seçin **birincil KATMANLI depolama kullanılan** ve **birincil yerel olarak SABİTLENMİŞ depolama kullanılan** seçenekleri. 
+     Daha fazla bilgi için [StorSimple Cihazınızı izlemek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-monitor-device.md).
 
 
-* **Kapasite** kutucuğu aynı için toplam depolama alanı kullanılabilir göre aygıt üzerinden sağlanan ve kalan birincil depolama görüntüler. **Sağlanan** hazır ve kullanım için ayrılan depolama alanı miktarını başvurduğu **kalan** bu aygıt arasında sağlanabilir kalan kapasite başvuruyor. 
+* **Kapasite** kutucuk göre kullanılabilir toplam depolama alanı için aynı cihaz üzerinden sağlanan ve kalan birincil depolama alanı görüntüler. **Sağlanan** hazır ve kullanılmak için ayrılan depolama alanı miktarının başvurduğu **kalan** bu cihaz sağlanabilir kalan kapasiteyi ifade eder. 
 
-    ![Kullanımı kutucuğu](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Kullanım kutucuğu](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
-    Kapasite katmanlı ve yerel olarak sabitlenmiş birimleri arasında nasıl sağlandığında görüntülemek için bu kutucuğa tıklayın. **Kalan katmanlı** kapasitesi ise bulut dahil olmak üzere sağlanabilir kullanılabilir kapasite sırada **kalan yerel** olduğundan bu cihaza bağlı diskler kalan kapasitesi.
+    Kapasite katmanlı ve yerel olarak sabitlenmiş birimler arasında nasıl sağlandığında görüntülemek için bu kutucuğa tıklayın. **Kalan katmanlı** bulut dahil olmak üzere sağlanabilir kullanılabilir kapasiteyi kapasitesidir sırada **kalan yerel** olup bu cihaza bağlı diskler kalan kapasitesi.
 
-    ![Kullanım grafiği tıklatın](./media/storsimple-8000-device-dashboard/device-summary13.png)
+    ![Kullanım grafiğini tıklatın](./media/storsimple-8000-device-dashboard/device-summary13.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [StorSimple hizmeti Özet dikey](storsimple-8000-service-dashboard.md).
-* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanarak](storsimple-8000-manager-service-administration.md).
+* Daha fazla bilgi edinin [StorSimple hizmeti Özet dikey](storsimple-8000-service-dashboard.md).
+* Daha fazla bilgi edinin [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanarak](storsimple-8000-manager-service-administration.md).
 

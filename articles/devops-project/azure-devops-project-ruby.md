@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: bir CI/CD işlem hattı için Ruby on Rails kullanarak Azure DevOps projeleri oluşturma'
+title: "Hızlı Başlangıç: Azure DevOps projeleri'ni kullanarak Ruby on Rails için CI/CD işlem hattı oluşturma"
 description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. Birkaç Hızlı adımda bir Azure hizmeti üzerinde Ruby web uygulaması başlatabilirsiniz.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 4cf3feeb92f04b4e97cbdc83c539c206790a78c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558540"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Azure DevOps projeleri'ni kullanarak Ruby on Rails için CI/CD işlem hattı oluşturma
 

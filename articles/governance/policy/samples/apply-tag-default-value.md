@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549708"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Örnek - etiketi ve varsayılan değerini Uygula
 
@@ -50,7 +50,7 @@ Azure CLI ve Azure PowerShell tarafından kullanılan, ilke parametrelerini tan�
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Ad |Type |Alan |Açıklama |
+|Ad |Tür |Alan |Açıklama |
 |---|---|---|---|
 |tagName |String |etiketler |Etiketin adı; örneğin costCenter|
 |tagValue |String |etiketler |Etiketin değeri; örneğin headquarter|

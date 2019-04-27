@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585719"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL veritabanı esnek sorgu genel bakış (Önizleme)
 
@@ -25,7 +25,7 @@ Esnek sorgu özelliği (önizlemede), Azure SQL veritabanında birden çok verit
 
 ## <a name="why-use-elastic-queries"></a>Elastik sorgular neden kullanılmalıdır
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 
 T-SQL de tamamen Azure SQL veritabanlarında sorgulama yapma. Bu salt okunur uzak veritabanlarını sorgulama için sağlar ve üç ve dört part adları ya da bağlantılı sunucuya SQL DB kullanarak uygulama konusunda geçerli şirket içi SQL Server müşterileri için bir seçenek sunar.
 

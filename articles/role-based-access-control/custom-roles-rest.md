@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596687"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için özel roller oluşturma
 
@@ -54,7 +54,7 @@ Bir kapsamda özel roller listelemek için kullanın [rol tanımları: liste](/r
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -78,7 +78,7 @@ Görünen adıyla bir özel rol hakkında bilgi almak için kullanın [rol tanı
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -104,7 +104,7 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -152,7 +152,7 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -217,7 +217,7 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -301,7 +301,7 @@ Bir özel rolü silmek için kullanın [rol tanımları: silme](/rest/api/author
 
 1. URI içinde değiştirin *{kapsamı}* özel rolü silmek istediğiniz kapsama sahip.
 
-    | Kapsam | Type |
+    | Kapsam | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |

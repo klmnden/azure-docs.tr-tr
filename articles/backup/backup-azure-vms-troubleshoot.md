@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550031"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
@@ -40,7 +40,7 @@ VM başarısız durumda yedekleme işlemi başarısız oldu. Başarılı yedekle
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>Bir veya daha fazla bağlama noktası, dosya sistemi ile tutarlı bir anlık görüntü almak üzere sanal dondurma UserErrorFsFreezeFailed - başarısız oldu
 
 Hata kodu: UserErrorFsFreezeFailed <br/>
-Hata iletisi: Bir veya daha fazla bağlama noktası sanal dosya sistemi ile tutarlı bir anlık görüntüsünü almak için dondurulamadı.
+Hata iletisi: Dosya sisteminde tutarlı anlık görüntü almak için VM'nin bir veya daha fazla takma noktası dondurulamadı.
 
 * Dosya sistem durumunu kullanarak tüm bağlı cihazları denetleme **tune2fs** Örneğin, komut **tune2fs -l/dev/sdb1 \\** .\| grep **Dosyasistemidurumu**.
 * Kullanarak, dosya sistemi durumu temizlenmedi, cihazları çıkarın **umount** komutu.
@@ -82,7 +82,7 @@ Kötü durumdaki VSS yazıcıları yeniden başlatın. Yükseltilmiş bir komut 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - yedekleme uzantısı için yapılandırma ayrıştırma hatası
 
 Hata kodu: ExtensionConfigParsingFailure<br/>
-Hata iletisi: Yedekleme uzantısı için yapılandırma ayrıştırılırken hata oluştu.
+Hata iletisi: Yedekleme uzantısı için yapılandırma ayrıştırma hatası.
 
 Bu hata, üzerinde değiştirilen izinler nedeniyle oluşur. **MachineKeys** dizin: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Aşağıdaki komutu çalıştırın ve doğrulayın, izinlerini **MachineKeys** directory varsayılan değerleri olan:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

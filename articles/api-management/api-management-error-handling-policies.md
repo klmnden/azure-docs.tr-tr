@@ -1,6 +1,6 @@
 ---
-title: Azure API Management ilkeleri işleme hatası | Microsoft Docs
-description: Azure API Management'te isteklerinin işlenmesi sırasında ortaya çıkabilecek hata koşullarını yanıt öğrenin.
+title: Azure API Management ilkeleri işleme hata | Microsoft Docs
+description: Azure API Yönetimi'nde istek işleme sırasında ortaya çıkabilecek hata koşullarını yanıt öğrenin.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564326"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management ilkeleri işleme hatası
 
-Sağlayarak bir `ProxyError` nesnesi, Azure API Management yayımcılar isteklerini işleme sırasında ortaya çıkabilecek hata koşullarını yanıt verir. `ProxyError` Nesnesi aracılığıyla erişilir [bağlamı. Son hata](api-management-policy-expressions.md#ContextVariables) özelliği ve ilkeleri tarafından kullanılan `on-error` ilke bölümü. Bu makalede bir başvuru hatası için Azure API Management'te işleme yetenekleri sağlar.  
+Sağlayarak bir `ProxyError` nesne, Azure API Management istekleri işleme sırasında ortaya çıkabilecek hata koşullarını, yanıt vermek yayımcılar sağlar. `ProxyError` Nesnesi aracılığıyla erişilen [bağlamı. LastError](api-management-policy-expressions.md#ContextVariables) özelliği ve ilkeleri tarafından kullanılan `on-error` ilke bölümü. Bu makalede bir başvuru için hata işleme özelliklerini Azure API Management'ta sağlar.  
   
-## <a name="error-handling-in-api-management"></a>API Management'te işleme hatası
+## <a name="error-handling-in-api-management"></a>API Yönetimi'nde işleme hatası
 
- Azure API Management ilkeleri uygulamasına bölünen `inbound`, `backend`, `outbound`, ve `on-error` bölümler aşağıdaki örnekte gösterildiği gibi.  
+ Azure API Management ilkeleri halinde bölünmüştür `inbound`, `backend`, `outbound`, ve `on-error` bölümler aşağıdaki örnekte gösterildiği gibi.  
   
 ```xml  
 <policies>  
@@ -48,86 +48,86 @@ Sağlayarak bir `ProxyError` nesnesi, Azure API Management yayımcılar istekler
 </policies>  
 ```  
   
-Bir isteğin işlenmesi sırasında istek için kapsamı bulunan tüm ilkeleri ile birlikte yerleşik adımları yürütülür. Bir hata oluşursa, hemen işleme için atlar `on-error` ilke bölümü.  
-`on-error` İlkesi bölümüne herhangi kapsamında kullanılabilir. API yayımcıların event hubs'a hata günlüğü veya çağırana dönmek için yeni bir yanıt oluşturma gibi özel davranışını yapılandırabilirsiniz.  
+Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama ilkelerle birlikte yürütülür. Bir hata oluşursa, hemen işlemeyi atlar için `on-error` ilke bölümü.  
+`on-error` İlke bölümü herhangi bir kapsamda kullanılabilir. API yayımcıları, event hubs'a hata günlüğü veya çağırana döndürmesi için yeni bir yanıt oluşturma gibi özel davranışını yapılandırabilirsiniz.  
   
 > [!NOTE]
->  `on-error` Bölümü ilkeleri varsayılan olarak mevcut değil. Eklenecek `on-error` bölümünde bir ilke, ilke düzenleyicisinde istenen ilke gözatın ve bunu ekleyin. İlkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
+>  `on-error` Bölümü ilkeleri varsayılan olarak mevcut değil. Eklenecek `on-error` bölümünde bir ilke için istediğiniz ilkeyi ilke düzenleyicisinde göz atın ve ekleyin. İlkeleri yapılandırma hakkında daha fazla bilgi için bkz. [API Management ilkeleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
 >   
->  Varsa hiçbir `on-error` bölümünde arayanlar alacağı 400 veya 500 HTTP yanıt iletilerini bir hata koşulu ortaya çıkarsa.  
+>  Yoksa hiçbir `on-error` bölümünde, Arayanların alacağı 400 veya 500 HTTP yanıt iletilerini bir hata durumu oluşursa.  
   
-### <a name="policies-allowed-in-on-error"></a>Üzerinde hatada izin ilkeleri
+### <a name="policies-allowed-in-on-error"></a>Hata izin verilen ilkeleri
 
  Aşağıdaki ilkeleri kullanılabilir `on-error` ilke bölümü.  
   
--   [seçin](api-management-advanced-policies.md#choose)  
+-   [Seçin](api-management-advanced-policies.md#choose)  
 -   [değişken Ayarla](api-management-advanced-policies.md#set-variable)  
 -   [Bul ve Değiştir](api-management-transformation-policies.md#Findandreplacestringinbody)  
--   [return yanıt](api-management-advanced-policies.md#ReturnResponse)  
--   [set üstbilgisi](api-management-transformation-policies.md#SetHTTPheader)  
+-   [döndürülecek yanıt](api-management-advanced-policies.md#ReturnResponse)  
+-   [üst bilgi ayarlama](api-management-transformation-policies.md#SetHTTPheader)  
 -   [Set yöntemi](api-management-advanced-policies.md#SetRequestMethod)  
 -   [durumunu ayarla](api-management-advanced-policies.md#SetStatus)  
 -   [Gönderme isteği](api-management-advanced-policies.md#SendRequest)  
 -   [bir şekilde İsteği Gönder](api-management-advanced-policies.md#SendOneWayRequest)  
 -   [Günlük eventhub](api-management-advanced-policies.md#log-to-eventhub)  
 -   [JSON xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
--   [XML json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
+-   [XML-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError
 
- Ne zaman bir hata oluşur ve denetim görüşmek için `on-error` İlkesi bölümünde hata depolanır [bağlamı. Son hata](api-management-policy-expressions.md#ContextVariables) ilkeleri tarafından erişilen özellik `on-error` bölümü. Son hata aşağıdaki özelliklere sahiptir.  
+ Ne zaman bir hata oluşur ve denetimi atlar için `on-error` İlkesi bölümünde hata depolanan [bağlamı. LastError](api-management-policy-expressions.md#ContextVariables) ilkeleri tarafından erişilen özelliği `on-error` bölümü. LastError aşağıdaki özelliklere sahiptir.  
   
 | Ad     | Tür   | Açıklama                                                                                               | Gerekli |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | dize | Hatanın oluştuğu öğe adları. İlke veya yerleşik ardışık düzen adım adı olabilir.     | Evet      |
-| `Reason`   | dize | Hata işleme kullanılabilir makine kolay hata kodu.                                       | Hayır       |
-| `Message`  | dize | Okunabilir hata açıklaması.                                                                         | Evet      |
-| `Scope`    | dize | Burada hata oluştu ve "Genel", "Ürün", "API" veya "işlem" biri olabilir kapsam adı | Hayır       |
-| `Section`  | dize | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "giden" veya "hata".       | Hayır       |
-| `Path`     | dize | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / ne zaman [2]".                                                        | Hayır       |
-| `PolicyId` | dize | Değeri `id` hatanın oluştuğu ilkedeki müşteri tarafından belirtilmişse özniteliği             | Hayır       |
+| Kaynak   | string | Hatanın oluştuğu öğe adları. İlke ya da yerleşik bir işlem hattı adım adı olabilir.     | Evet      |
+| Neden   | string | Hata işlemede kullanılan makine kullanımı kolay hata kodu.                                       | Hayır       |
+| İleti  | string | Kullanıcı tarafından okunabilen hata açıklaması.                                                                         | Evet      |
+| Kapsam    | string | Burada bir hata oluştu ve "Genel", "product", "API" veya "işlem" biri olabilir kapsamı adı | Hayır       |
+| Section  | string | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "çıkış" veya "hata".       | Hayır       |
+| Yol     | string | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / zaman [2]".                                                        | Hayır       |
+| PolicyId | string | Değeri `id` hatasının oluştuğu ilkesinde müşteri tarafından belirtilen, öznitelik             | Hayır       |
 
 > [!TIP]
-> Durum kodu bağlamı erişebilirsiniz. Response.StatusCode.  
+> Durum kodu bağlamı erişebilir. Response.StatusCode.  
 
 > [!NOTE]
-> Tüm ilkeler isteğe sahip `id` ilke kök öğesinin eklenebilir özniteliği. Bir hata koşulu oluştuğunda bu öznitelik bir ilke varsa, özniteliğinin değeri kullanılarak alınabilir `context.LastError.PolicyId` özelliği.
+> İsteğe bağlı tüm ilkelerin sahip `id` ilkesinin kök öğesine eklenebilir özniteliği. Bir hata koşulu olduğunda bu öznitelik bir ilke varsa, öznitelik değeri kullanılarak alınabilir `context.LastError.PolicyId` özelliği.
 
 ## <a name="predefined-errors-for-built-in-steps"></a>Yerleşik adımlar için önceden tanımlanmış hataları  
- Aşağıdaki hatalar yerleşik işleme adımları değerlendirme sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
+ Aşağıdaki hatalar yerleşik işleme adımları değerlendirmesi sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
   
 | Kaynak        | Koşul                                 | Neden                  | İleti                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
-| yapılandırma | URI herhangi bir API veya işlemi eşleşmiyor | OperationNotFound       | Gelen istek için bir işlem eşleştirilemiyor.                                                                      |
+| yapılandırma | URI, herhangi bir API veya işlemi eşleşmiyor. | OperationNotFound       | Gelen istek bir işlemle eşleşen yapılamıyor.                                                                      |
 | Yetkilendirme | Abonelik anahtarı sağlanmadı             | SubscriptionKeyNotFound | Erişim abonelik anahtarı eksik nedeniyle reddedildi. Bu API için istekleri yaparken, abonelik anahtarı eklediğinizden emin olun. |
-| Yetkilendirme | Abonelik anahtarı değeri geçersiz         | SubscriptionKeyInvalid  | Erişim reddedildi nedeniyle geçersiz abonelik anahtarı. Etkin bir aboneliğiniz için geçerli bir anahtar sağladığınızdan emin olun.            |
+| Yetkilendirme | Abonelik anahtarı değeri geçersiz         | SubscriptionKeyInvalid  | Erişim geçersiz bir abonelik anahtarı nedeniyle reddedildi. Etkin bir aboneliğiniz için geçerli bir anahtar sağladığınızdan emin olun.            |
   
 ## <a name="predefined-errors-for-policies"></a>İlkeleri için önceden tanımlanmış hataları  
  Aşağıdaki hatalar İlkesi değerlendirmesi sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
   
 | Kaynak       | Koşul                                                       | Neden                    | İleti                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| hız sınırı   | Hızı sınırı aşıldı                                             | RateLimitExceeded         | Hız sınırı aşıldı                                                                                                               |
-| Kota        | Kotası aşıldı                                                  | QuotaExceeded             | Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. - veya - bant genişliği kota dışında. Kota xx:xx:xx içinde yenilenmesi. |
-| jsonp        | Geri çağırma parametresi değeri geçersiz (hatalı karakterler içerir) | CallbackParameterInvalid  | {Geri arama parametresi adı} geri çağırma parametresinin değeri geçerli bir JavaScript tanımlayıcısı değil.                                          |
-| IP Filtresi    | İstek çağıran IP ayrıştırılamadı                          | FailedToParseCallerIP     | IP adresi için arayan kuramadı. Erişim engellendi.                                                                        |
-| IP Filtresi    | Arayan IP içinde değil izin verilen listesine                                | CallerIpNotAllowed        | Arayan IP adresi {IP adresi} izin verilmiyor. Erişim engellendi.                                                                        |
-| IP Filtresi    | Arayan IP Engellenenler listesinde değil                                    | CallerIpBlocked           | Arayan IP adresi engellendi. Erişim engellendi.                                                                                         |
-| onay üstbilgisi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderNotFound            | Üstbilgi {üstbilgi-adı} istekte bulunamadı. Erişim engellendi.                                                                    |
-| onay üstbilgisi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderValueNotAllowed     | {Üstbilgi değeri} {üstbilgi-adı} üstbilgi değerini izin verilmiyor. Erişim engellendi.                                                          |
-| doğrulama jwt | Jwt belirteci istekte eksik.                                 | TokenNotFound             | JWT istekte bulunamadı. Erişim engellendi.                                                                                         |
-| doğrulama jwt | İmza doğrulaması başarısız oldu                                     | TokenSignatureInvalid     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| doğrulama jwt | Geçersiz hedef kitle                                                | TokenAudienceNotAllowed   | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| doğrulama jwt | Geçersiz veren                                                  | TokenIssuerNotAllowed     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| doğrulama jwt | Belirtecin süresi                                                   | TokenExpired              | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| doğrulama jwt | İmza anahtarı Kimliğine göre çözümlenemedi                            | TokenSignatureKeyNotFound | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| doğrulama jwt | Gerekli talepleri belirtecinden eksik                          | TokenClaimNotFound        | JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim engellendi.                                                            |
-| doğrulama jwt | Talep değerleri eşleşmiyor                                           | TokenClaimValueNotAllowed | {Talep değeri} {talep-adı} talep değeri izin verilmiyor. Erişim engellendi.                                                             |
-| doğrulama jwt | Diğer doğrulama hataları                                       | JwtInvalid                | < İleti jwt kitaplığı\>                                                                                                          |
+| hız sınırı   | Hız sınırı aşıldı                                             | RateLimitExceeded         | Hız sınırı aşıldı                                                                                                               |
+| kota        | Kota aşıldı                                                  | QuotaExceeded             | Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. - veya - bant genişliği kota dışı. Kota xx:xx:xx içinde yenilenmesi. |
+| jsonp        | Geri çağırma parametresi değeri geçersiz (hatalı karakterler içeriyor) | CallbackParameterInvalid  | Geri çağırma parametresi {geri arama-parametre-adı} değeri geçerli bir JavaScript tanımlayıcı değil.                                          |
+| IP Filtresi    | Arayan IP istek ayrıştırılamadı                          | FailedToParseCallerIP     | Arayan için IP adresi oluşturulamadı. Erişim engellendi.                                                                        |
+| IP Filtresi    | Arayan IP değil izin verilen listesi                                | CallerIpNotAllowed        | Arayan IP adresi {IP adresi} izin verilmez. Erişim engellendi.                                                                        |
+| IP Filtresi    | Arayan IP Engellenenler listesinde değil                                    | CallerIpBlocked           | Arayan IP adresine engellenir. Erişim engellendi.                                                                                         |
+| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderNotFound            | Başlığı {üstbilgisi-adı} istek bulunamadı. Erişim engellendi.                                                                    |
+| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderValueNotAllowed     | {Üst bilgi değeri} başlığı {üstbilgisi-adı} değerine izin verilmez. Erişim engellendi.                                                          |
+| validate-jwt | İstekte Jwt belirteci eksik                                 | TokenNotFound             | JWT istekte bulunamadı. Erişim engellendi.                                                                                         |
+| validate-jwt | İmza doğrulama başarısız oldu                                     | TokenSignatureInvalid     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
+| validate-jwt | Geçersiz hedef kitle                                                | TokenAudienceNotAllowed   | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
+| validate-jwt | Geçersiz veren                                                  | TokenIssuerNotAllowed     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
+| validate-jwt | Belirtecin süresi doldu                                                   | TokenExpired              | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
+| validate-jwt | İmza anahtarı tarafından kimliği çözümlenemedi                            | TokenSignatureKeyNotFound | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
+| validate-jwt | Gerekli talepleri belirtecinden eksik                          | TokenClaimNotFound        | JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim engellendi.                                                            |
+| validate-jwt | Talep değerleri eşleşmiyor                                           | TokenClaimValueNotAllowed | Talep {talep-adı} değeri {talep değeri} izin verilmez. Erişim engellendi.                                                             |
+| validate-jwt | Diğer doğrulama hataları                                       | JwtInvalid                | < İleti jwt kitaplığından\>                                                                                                          |
 
 ## <a name="example"></a>Örnek
 
-Bir API İlkesi ayarlamak:
+API İlkesi ayarlamak:
 
 ```xml
 <policies>
@@ -170,15 +170,15 @@ Bir API İlkesi ayarlamak:
 </policies>
 ```
 
-ve yetkisiz isteği gönderilirken aşağıdaki yanıtta neden olur:
+ve yetkisiz bir isteği gönderirken aşağıdaki yanıta neden olur:
 
 ![Yetkisiz hata yanıtı](media/api-management-error-handling-policies/error-response.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlkeleriyle çalışma daha fazla bilgi için bkz:
+İlkeleriyle çalışma hakkında bilgi için bkz:
 
 + [API Management ilkeleri](api-management-howto-policies.md)
-+ [API dönüştürme](transform-api.md)
-+ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [API'leri dönüştürme](transform-api.md)
++ [İlke başvurusu](api-management-policy-reference.md) ilke bildirimlerine ve ayarlarının tam listesi için
 + [İlke örnekleri](policy-samples.md)   

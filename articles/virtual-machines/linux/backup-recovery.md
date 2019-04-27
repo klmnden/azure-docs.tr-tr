@@ -1,6 +1,6 @@
 ---
-title: Linux Azure VM'ler için yedekleme seçeneklerini genel bakış | Microsoft Docs
-description: Genel Bakış Linux Azure sanal makineler için yedekleme seçenekleri.
+title: Linux Azure Vm'leri için yedekleme seçeneklerini genel bakış | Microsoft Docs
+description: Linux Azure sanal makineler için yedekleme seçeneklerini genel bakış.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 67278c4f258fc8d437804e3637877f07089cab34
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dcb96b73b93dae759c06995152d032271dbf9234
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543719"
 ---
-# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure'daki Linux sanal makineleri için yedekleme ve geri yükleme seçenekleri
+# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure'da Linux sanal makineler için yedekleme ve geri yükleme seçenekleri
 
-Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Birkaç yedekleme seçenekleri bağlı olarak, kullanım örneği VM'ler için kullanılabilir.
+Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Bağlı olarak, kullanım örneği VM'ler için kullanılabilen çeşitli yedekleme seçenekleri vardır.
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]

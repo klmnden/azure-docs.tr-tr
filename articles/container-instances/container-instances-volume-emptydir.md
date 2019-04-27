@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
 ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563129"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir emptyDir birim bağlama
 
@@ -41,7 +41,8 @@ Bir kapsayıcı örneğine bir emptyDir birimi bağlamak için kullanarak dağı
 
 Örneğin, aşağıdaki Resource Manager şablonu oluşan iki kapsayıcı bir kapsayıcı grubu oluşturur her hangi takar *emptyDir* birim:
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json --> [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
+[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
 Kapsayıcı örneği dağıtımıyla bir Azure Resource Manager şablonu ile bir örneğini görmek için bkz: [Azure Container ınstances'da çok kapsayıcılı grupları dağıtma](container-instances-multi-container-group.md).
 

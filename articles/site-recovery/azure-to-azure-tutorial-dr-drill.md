@@ -2,19 +2,20 @@
 title: Azure Site Recovery hizmetiyle Azure VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatı çalıştırma
 description: Azure Site Recovery ile Azure IaaS VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatını nasıl çalıştıracağınızı öğrenin.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.author: raynew
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552952"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatı çalıştırma
 
@@ -33,7 +34,6 @@ Bu öğretici, bir Azure VM için yük devretme testiyle bir Azure bölgesinden 
 
 - Yük devretme testini çalıştırmadan önce, her şeyin beklenildiği gibi gittiğinden emin olmak için VM özelliklerini doğrulamanızı öneririz.  **Çoğaltılmış öğeler** bölümünde VM özelliklerine erişin. **Temel bileşenler** dikey penceresi, makinelerin ayarları ve durumuyla ilgili bilgileri gösterir.
 - Çoğaltmayı etkinleştirdiğinizde ayarlanmış varsayılan ağ yerine **yük devretme testi için ayrı bir Azure VM ağını kullanmanızı öneririz**.
-
 
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
@@ -55,3 +55,6 @@ Bu öğretici, bir Azure VM için yük devretme testiyle bir Azure bölgesinden 
 
 > [!div class="nextstepaction"]
 > [Üretim yük devretmesini çalıştırma](azure-to-azure-tutorial-failover-failback.md)
+
+<!-- Update_Description: update meta properties -->
+

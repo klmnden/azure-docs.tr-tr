@@ -1,17 +1,21 @@
 ---
 title: PostgreSQL için Azure veritabanı için bağlantı kitaplıkları
 description: Bu makalede çeşitli kitaplıkları ve geliştiricilerin ne zaman kullanabileceğini sürücüleri kodlama bağlanmak ve PostgreSQL için Azure veritabanı sorgulamak için uygulamalar.
-author: rachel-msft
-ms.author: raagyema
+services: postgresql
+author: WenJason
+ms.author: v-jay
+manager: digimobile
+editor: jasonwhowell
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+origin.date: 02/28/2018
+ms.date: 12/03/2018
 ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559781"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı için bağlantı kitaplıkları
 Bu makalede, kitaplıkları ve geliştiricilerin bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için uygulamalar geliştirmek için kullanabilecekleri sürücüleri listeler.
@@ -22,7 +26,7 @@ PostgreSQL sunucusuna bağlanmak için kullanılan birçok dil istemci kitaplık
 | **Dil** | **İstemci arabirimi** | **Ek bilgi** | **İndir** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0 uyumlu | [İndir](http://initd.org/psycopg/download/) |
-| PHP | [PHP-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Veritabanı uzantısı | [Yükleme](https://secure.php.net/manual/en/pgsql.installation.php) |
+| PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Veritabanı uzantısı | [Yükleme](https://secure.php.net/manual/en/pgsql.installation.php) |
 | Node.js | [PG npm paketi](https://www.npmjs.com/package/pg) | Engelleyici olmayan saf JavaScript istemcisi | [Yükleme](https://www.npmjs.com/package/pg) |
 | Java | [JDBC](https://jdbc.postgresql.org/) | Tür 4 JDBC sürücüsü | [İndirme](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [PG gem](https://deveiate.org/code/pg/) | Ruby arabirimi | [İndir](https://rubygems.org/downloads/pg-0.20.0.gem) |
@@ -35,4 +39,4 @@ PostgreSQL sunucusuna bağlanmak için kullanılan birçok dil istemci kitaplık
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçlara bağlanın ve istediğiniz dilde kullanarak PostgreSQL için Azure veritabanı sorgulama hakkında okuyun:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [gidin](./connect-go.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

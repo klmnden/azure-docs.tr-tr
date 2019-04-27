@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584863"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure'da SQL Server seçeneği sağ seçin
 
@@ -54,17 +54,17 @@ Bir uygulama tasarlarken, uygulamanın SQL Server kısmını barındırmak için
 - Sanallaştırılmamış fiziksel makinelerde SQL Server
 - Şirket içi sanallaştırılmış makinelerde SQL Server (özel bulut)
 - Azure Sanal Makine'de SQL Server (Microsoft genel bulut)
-- Azure SQL Database (Microsoft genel bulut)
+- Azure SQL Veritabanı (Microsoft genel bulut)
 
 Aşağıdaki bölümlerde, Microsoft Genel bulutta SQL Server hakkında bilgi edinin: Azure SQL veritabanı ve Azure vm'lerinde SQL Server. Ayrıca, hangi seçeneğin uygulamanız için en uygun olduğunu belirlemek üzere genel iş teşviklerini inceleyeceksiniz.
 
-## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database ve Azure VM'lerinde SQL Server'a daha ayrıntılı bir bakış
+## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Veritabanı ve Azure VM'lerinde SQL Server'a daha ayrıntılı bir bakış
 
 Genellikle, bu iki SQL seçeneği farklı amaçlar için en iyi hale getirilmiştir:
 
 - **Azure SQL Veritabanı**
 
-Çok sayıda veritabanının hazırlanması ve yönetilmesi için minimum genel yönetim maliyetlerini azaltmak için en iyi duruma getirilmiş. Herhangi bir sanal makineyi, işletim sistemini veya veritabanı yazılımını yönetmeniz gerekmediğinden, bu, devam eden yönetim maliyetlerini azaltır. Yükseltme, yüksek kullanılabilirlik veya [yedeklemeleri](sql-database-automated-backups.md) yönetmeniz gerekli değildir. Genellikle, Azure SQL Database tek bir BT veya geliştirme kaynağı tarafından yönetilen veritabanlarının sayısını önemli ölçüde artırabilir. [Elastik havuzlar](sql-database-elastic-pool.md) de Kiracı yalıtımı ve veritabanları arasında kaynakların paylaşılması, maliyetleri azaltmak için ölçeği olanağı gibi özellikler ile SaaS çok kiracılı uygulama mimarileri destekler. [Yönetilen örnek](sql-database-managed-instance.md) veritabanları arasında kaynakların paylaşılması yanı sıra mevcut uygulamaların kolayca taşınmasına etkinleştirme örneği kapsamlı özellikler için destek sağlar.
+Çok sayıda veritabanının hazırlanması ve yönetilmesi için minimum genel yönetim maliyetlerini azaltmak için en iyi duruma getirilmiş. Herhangi bir sanal makineyi, işletim sistemini veya veritabanı yazılımını yönetmeniz gerekmediğinden, bu, devam eden yönetim maliyetlerini azaltır. Yükseltme, yüksek kullanılabilirlik veya [yedeklemeleri](sql-database-automated-backups.md) yönetmeniz gerekli değildir. Genellikle, Azure SQL Veritabanı tek bir BT veya geliştirme kaynağı tarafından yönetilen veritabanlarının sayısını önemli ölçüde artırabilir. [Elastik havuzlar](sql-database-elastic-pool.md) de Kiracı yalıtımı ve veritabanları arasında kaynakların paylaşılması, maliyetleri azaltmak için ölçeği olanağı gibi özellikler ile SaaS çok kiracılı uygulama mimarileri destekler. [Yönetilen örnek](sql-database-managed-instance.md) veritabanları arasında kaynakların paylaşılması yanı sıra mevcut uygulamaların kolayca taşınmasına etkinleştirme örneği kapsamlı özellikler için destek sağlar.
 
 - **Azure Vm'lerinde çalışan SQL Server**
 
@@ -82,11 +82,11 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 | **Kaynaklar:** | Yapılandırma ve altyapı yönetimi için BT kaynaklarını kullanmak istemiyorsunuz istemediğiniz ancak uygulama katmanına odaklanmak istiyorsunuz. | SQL veritabanı tek ve havuza alınmış veritabanları ile aynıdır. | Yapılandırma ve yönetim için bazı BT kaynaklarına sahipsiniz. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. |
 | **Toplam sahip olma maliyeti:** | Donanım maliyetlerini ortadan kaldırır ve yönetim maliyetlerini azaltır. | SQL veritabanı tek ve havuza alınmış veritabanları ile aynıdır. | Donanım maliyetlerini ortadan kaldırır. |
 | **İş sürekliliği:** |Ek olarak [yerleşik hata toleransı altyapı özelliklerine](sql-database-high-availability.md), Azure SQL veritabanı özellikleri gibi sağlar [otomatik yedeklemeler](sql-database-automated-backups.md), [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore), [coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore), [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md), ve [otomatik yük devretme grupları](sql-database-auto-failover-group.md) iş sürekliliğini artırmak üzere. Daha fazla bilgi için bkz. [SQL Database iş sürekliliğine genel bakış](sql-database-business-continuity.md). | SQL veritabanı tek ve havuza alınmış veritabanlarını yanı sıra, kullanıcı tarafından başlatılan, yalnızca kopya yedekleri aynı kullanılabilir. | Azure VM’lerde SQL Server, veritabanınızın belirli gereksinimleri için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü ayarlamanıza olanak sağlar. Böylece, uygulamanız için en iyi hale getirilmiş bir sisteme sahip olabilirsiniz. Yük devretme işlemlerini ihtiyaç duyulduğunda kendi kendinize test edebilir ve çalıştırabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
-| **Karma bulut:** |Şirket içi uygulamanız, Azure SQL Database'deki verilere erişebilir. | [Yerel sanal ağ uygulaması](sql-database-managed-instance-vnet-configuration.md) ve Azure Express Route veya VPN ağ geçidi kullanarak şirket içi ortamınıza bir bağlantı. | Azure VM'lerinde SQL Server ile kısmen bulutta ve kısmen şirket içinde çalıştırılan uygulamalara sahip olabilirsiniz. Örneğin, şirket içi ağınızı ve Active Directory Etki Alanı'nı [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) üzerinden buluta genişletebilirsiniz. Hibrit bulut çözümleri hakkında daha fazla bilgi için bkz. [şirket içi veri çözümlerini buluta genişletme](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
+| **Karma bulut:** |Şirket içi uygulamanız, Azure SQL Veritabanı'ndaki verilere erişebilir. | [Yerel sanal ağ uygulaması](sql-database-managed-instance-vnet-configuration.md) ve Azure Express Route veya VPN ağ geçidi kullanarak şirket içi ortamınıza bir bağlantı. | Azure VM'lerinde SQL Server ile kısmen bulutta ve kısmen şirket içinde çalıştırılan uygulamalara sahip olabilirsiniz. Örneğin, şirket içi ağınızı ve Active Directory Etki Alanı'nı [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) üzerinden buluta genişletebilirsiniz. Hibrit bulut çözümleri hakkında daha fazla bilgi için bkz. [şirket içi veri çözümlerini buluta genişletme](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 |  | Verileri çoğaltmak için abone olarak [SQL Server işlem çoğaltmayı](https://msdn.microsoft.com/library/mt589530.aspx) destekler. | Çoğaltma için yönetilen örnek, bir önizleme özelliği olarak desteklenir. | Tam olarak destekler [SQL Server işlem çoğaltmayı](https://msdn.microsoft.com/library/mt589530.aspx), [Always On kullanılabilirlik grupları](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services ve günlük aktarma veri çoğaltmak için. Ayrıca, geleneksel SQL Server yedeklemeleri tam olarak desteklenir |
 |  | | |
 
-## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Azure VM'lerinde Azure SQL Database'in veya SQL Server'ın seçilmesine yönelik iş faydaları
+## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Azure VM'lerinde Azure SQL Veritabanı'in veya SQL Server'ın seçilmesine yönelik iş faydaları
 
 PaaS veya Iaas SQL veritabanlarınızın barındırılmasına yönelik seçme kararınızı etkileyebilir birkaç faktör vardır:
 

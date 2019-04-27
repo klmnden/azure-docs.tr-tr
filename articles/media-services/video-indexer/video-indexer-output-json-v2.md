@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560045"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -32,13 +32,13 @@ Bu makalede tarafından döndürülen JSON içeriği inceler **alma Video dizini
 
 ## <a name="root-elements"></a>Kök öğe
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |Hesap Kimliği|Çalma listesi'nın VI hesap kimliği.|
 |id|Çalma listesi'nın kimliği.|
 |ad|Çalma listesi'nın adı.|
-|description|Çalma listesi'nın açıklaması.|
-|userName|Çalma listesini oluşturan kullanıcının adı.|
+|açıklama|Çalma listesi'nın açıklaması.|
+|Kullanıcı adı|Çalma listesini oluşturan kullanıcının adı.|
 |oluşturuldu|Çalma listesi'nın oluşturma zamanı.|
 |privacyMode|Çalma listesi'nın Gizlilik modu (Private/Public).|
 |durum|Çalma listesi'nın (karşıya yüklenen, işleme, işlenen, başarısız, karantinaya alınmış).|
@@ -92,7 +92,7 @@ Bu bölümde, içgörüler özetini gösterir.
 
 ## <a name="videos"></a>videolar
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |Hesap Kimliği|Videonun VI hesap kimliği.|
 |id|Videonun kimliği.|
@@ -197,7 +197,7 @@ id|Blok kimliği.|
 
 #### <a name="transcript"></a>transkript
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Satır kimliği|
 |metin|Transkripti kendisi.|
@@ -235,7 +235,7 @@ id|Blok kimliği.|
 
 #### <a name="ocr"></a>OCR
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|OCR satır kimliği|
 |metin|OCR metin.|
@@ -270,7 +270,7 @@ id|Blok kimliği.|
 
 #### <a name="keywords"></a>anahtar sözcükler
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Anahtar sözcük kimliği.|
 |metin|Anahtar sözcüğü metin.|
@@ -301,12 +301,12 @@ id|Blok kimliği.|
 
 #### <a name="faces"></a>yüzleri
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Face ID|
 |ad|Yüz tanıma adı. Bu olabilir ' Bilinmeyen #0, tanımlanan bir ünlü veya müşteri eğitilen kişi.|
 |güven|Yüz tanıma güvenilirlik.|
-|description|Ünlü açıklaması. |
+|açıklama|Ünlü açıklaması. |
 |thumbnailId|Yüz tanıma, küçük resim kimliği.|
 |knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
 |Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
@@ -346,7 +346,7 @@ id|Blok kimliği.|
 
 #### <a name="labels"></a>etiketleri
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Etiket Kimliği|
 |ad|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
@@ -405,7 +405,7 @@ id|Blok kimliği.|
 
 #### <a name="scenes"></a>sahneleri
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Sahne kimliği.|
 |örnekler|Zaman aralıkları (Sahne yalnızca 1 örnek olabilir) bu sahnenin listesi.|
@@ -438,7 +438,7 @@ id|Blok kimliği.|
 
 #### <a name="shots"></a>anlık görüntüleri
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Görüntüsü kimliği.|
 |ana kareler|Ana kareleri (her bir kimlik ve örnekleri zaman aralıkları listesi vardır) görüntüsü içindeki bir listesi. Ana kare ait küçük resmi tutan bir thumbnailId alan her bir ana kare örneği olan kimliği|
@@ -488,13 +488,13 @@ id|Blok kimliği.|
 
 İş ve ürün marka konuşma metin dökümü ve/veya videoyu OCR algılandı adları. Bu, markaları veya logosu algılama visual tanıma içermez.
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Marka kimliği|
 |ad|Markaları adı.|
 |Başvuru Kimliği | Marka wikipedia URL'si son eki. Örneğin, "Target_Corporation" soneki eklenir [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Marka, Wikipedia URL'si, kullanıcının bulunmaktadır. Örneğin, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Markaları açıklaması.|
+|açıklama|Markaları açıklaması.|
 |etiketler|Bu marka ile ilişkili önceden tanımlanmış Etiketler listesi.|
 |güven|Video Indexer marka algılayıcısı (0-1) güvenle değeri.|
 |örnekler|Bu marka zaman aralıklarının listesi. Her örnek, bu marka transkripti veya OCR görünen olup olmadığını gösteren bir brandType sahiptir.|
@@ -547,7 +547,7 @@ id|Blok kimliği.|
 
 #### <a name="statistics"></a>İstatistikleri
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |CorrespondenceCount|Videoda yazışmalar sayısı.|
 |SpeakerWordCount|Konuşmacı sözcük sayısı.|
@@ -557,7 +557,7 @@ id|Blok kimliği.|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Ses efekti kimliği.|
 |type|Ses efekti türü (örneğin, Clapping, okuma, sessizlik).|
@@ -586,7 +586,7 @@ id|Blok kimliği.|
 
 Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Yaklaşım kimliği.|
 |Ortalama Not karşılaştırması |Bu yaklaşım türdeki - nötr/olumlu/olumsuz tüm örneklerin tüm puanları ortalaması|
@@ -625,7 +625,7 @@ Video Indexer, büyük olasılıkla yetişkinlere yönelik içeriğe sahip bulun
 
 Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca özel görünüm için olabilir. Kullanıcılar bir insan tarafından İnceleme çalışması IsAdult öznitelik insan tarafından İnceleme sonucunu içerecek içerik için bir istek göndermek seçeneğiniz vardır.
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Görsel içerik denetleme kimliği.|
 |adultScore|Yetişkinlere yönelik içerik puanı (Başlangıç, content moderator).|
@@ -661,7 +661,7 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Metinsel içerik denetleme kimliği.|
 |bannedWordsCount |Yasaklı bir sözcük sayısı.|
@@ -671,7 +671,7 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 
 Video Indexer, konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duyguları tanımlar. Tanımlanan duygu olabilir: oyun, üzüntü, kızgınlık veya Korkmayın.
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Duygu tanıma kimliği.|
 |type|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.|
@@ -761,7 +761,7 @@ Video Indexer, konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duygu
 
 Video Indexer dökümleri ana konulardan biri çıkarımı yapar. Mümkün olduğunda, 1. düzey [IPTC](https://iptc.org/standards/media-topics/) sınıflandırma dahildir. 
 
-|Name|Açıklama|
+|Ad|Açıklama|
 |---|---|
 |id|Konu kimliği.|
 |ad|Konu adı, örneğin: "Eczacılık".|

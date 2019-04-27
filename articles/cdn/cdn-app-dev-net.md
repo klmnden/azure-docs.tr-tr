@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579967"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ Yazılan programımız temel yapısını geçelim.
 
 Temel yapısını programımız yazılır, çağıran yöntemleri oluşturmanız gerekir `Main` yöntemi.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 Azure CDN Yönetim kitaplığı kullanabiliriz önce bizim hizmet sorumlusu kimlik doğrulaması ve kimlik doğrulama belirteci almak ihtiyacımız var.  Bu yöntem, belirteci almak için ADAL kullanır.
 
 ```csharp

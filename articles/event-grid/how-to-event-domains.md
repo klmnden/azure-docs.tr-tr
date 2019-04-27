@@ -8,11 +8,11 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561779"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Konuları Yönet ve olay etki alanları kullanarak olay yayımlama
 
@@ -106,7 +106,7 @@ New-AzureRmRoleAssignment `
 
 Event Grid işlemleri için erişimi yönetme hakkında daha fazla bilgi için bkz. [Event Grid güvenliğini ve kimlik doğrulaması](./security-authentication.md).
 
-## <a name="create-topics-and-subscriptions"></a>Konuları ve abonelikleri oluşturma
+## <a name="create-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri oluşturma
 
 Event Grid hizmet otomatik olarak oluşturur ve etki alanı tabanlı bir etki alanı konu için bir olay aboneliği oluşturmak için çağrıda karşılık gelen konusunda yönetir. Bir etki alanındaki bir konu oluşturmak için ayrı hiçbir adım yok. Benzer şekilde, bir konu için son olay aboneliği silindiğinde, konu de silinir.
 

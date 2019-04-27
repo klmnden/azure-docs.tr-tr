@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552015"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşma
 Bir Pano yapılandırdıktan sonra uygulamayı yayımlayın ve kuruluşunuzdaki diğer kullanıcılarla paylaşabilirsiniz. Diğerlerinin Azure kullanarak panonuza görüntülemesine izin vermek [rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir role bir kullanıcı veya kullanıcı grubuna atayın ve bu role kullanıcılar görüntüleyebilir veya değiştirebilirsiniz Panosu yayımlandı olup olmadığını tanımlar. 
@@ -75,6 +75,6 @@ Panonuz artık yayımlanır. Abonelikten devralınmış izinlere uygun olup olma
      ![atanan roller](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Rollerinin bir listesi için bkz. [RBAC: yerleşik roller](../role-based-access-control/built-in-roles.md).
+* Rollerinin bir listesi için bkz. [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md).
 * Kaynakları yönetme hakkında daha fazla bilgi için bkz: [Azure kaynaklarınızı portal üzerinden yönetme](resource-group-portal.md).
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557894"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management şablon kaynakları
 Azure API Management aşağıdaki türdeki kaynakları portal şablonları kullanılmak üzere Geliştirici sağlar.  
@@ -112,13 +112,13 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |PageTitleApis|API'ler|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Uygulama önizlemesi|  
 |WebApplicationsRequirementsHeader|Gereksinimler|  
@@ -127,7 +127,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Uygulamayı kaldırmak istediğinizden emin misiniz?|  
 |WebDevelopersAppNotPublished|Yayımlanmadı|  
@@ -143,13 +143,13 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebApplicationsHeader|Uygulamalar|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |NoItemsToDisplay|Sonuç bulunamadı.|  
 |GeneralExceptionMessage|Doğru değildir. Geçici bir sorun veya hata olabilir. Lütfen yeniden deneyin.|  
@@ -160,7 +160,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |ButtonLabelCancel|İptal|  
 |ButtonLabelSave|Kaydet|  
@@ -184,7 +184,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="Documentation"></a> Belgeleri  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Geçersiz üst bilgi '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|Geçersiz İstek URL'si|  
@@ -332,7 +332,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |LinkLabelBack|geri|  
 |LinkLabelHomePage|giriş sayfasını ziyaret edin|  
@@ -350,7 +350,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Sorunlar|  
 |WebIssuesNoActiveSubscriptions|Hiç etkin aboneliğiniz yok. Bir sorunu bildirmek için bir ürüne abone olmanız.|  
@@ -361,7 +361,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |LinkLabelHomePage|giriş sayfasını ziyaret edin|  
 |LinkLabelSendUsEmail|bize e-posta gönderin|  
@@ -376,7 +376,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebProductsAgreement|Abone tarafından {0} ürün, kabul ediyorum için `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Kullanım Koşulları|  
@@ -398,13 +398,13 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
-|PageTitleProducts|Ürünler|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Oturum açma, yöneticiler tarafından devre dışı bırakılmış durumda.|  
 |TextboxExternalIdentitiesSigninInvitation|Oturum açmak için alternatif olarak şunu kullanabilirsiniz:|  
@@ -412,7 +412,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |PrincipalNotFound|Sorumlu bulunamadı veya imza geçersiz|  
 |ErrorSsoAuthenticationFailed|SSO kimlik doğrulaması başarısız oldu|  
@@ -508,7 +508,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Parolanızı mı unuttunuz?|  
 |WebAuthenticationIfAdministrator|Bir yöneticiyseniz, oturum açmanız gerekir `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |PageTitleSignup|Kaydolma|  
 |WebAuthenticationAlreadyAMember|Zaten üye misiniz?|  
@@ -530,7 +530,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Bu aboneliği iptal etmek istediğinizden emin misiniz?|  
 |SubscriptionRenewConfirmation|Bu aboneliği yenilemek istediğinizden emin misiniz?|  
@@ -553,7 +553,7 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Hesabınızı kapatmak mı istiyorsunuz?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -564,14 +564,14 @@ Yerelleştirme şunlardan desteklenir:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Profili güncelleştir|  
 |PageTitleUpdateProfile|Hesap bilgilerini güncelleştir|  
   
 ###  <a name="UserProfile"></a> Kullanıcı profili  
   
-|Ad|Metin|  
+|Ad|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Hesap bilgilerini değiştir|  
 |ButtonLabelChangePassword|Parolayı değiştir|  
