@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 787d9ef509bcafeb6a21d4b0ec952ea1eb4fd52b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776820"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>En son platform yükseltme kodu
 
@@ -35,6 +35,6 @@ Dynamics 365 uygulama nesnesi sunucusu (AOS), veri yönetimi altyapısını, rap
 2. Uygulama temeli
 3. Sınama Essentials
 
-**Önemli**: işlem platformuna yönelik en son Dynamics 365 taşımak için işlem uygulaması, Dynamics 365 özelleştirmeler (overlayering) herhangi bir platforma ait AOT paketleri sahip olamaz. Bu kısıtlama, sorunsuz sürekli güncelleştirmeler platforma hale getirilebilir, böylece platform güncelleştirmesi 3, kullanılmaya başlandı. Çalıştırıyorsanız, platformu eski bir platform güncelleştirme 3, güncelleştirme 3, bu makalenin sonunda daha eski bir yapı bölümünden yükseltme platforma bakın.
+**Önemli**: İşlem platformuna yönelik en son Dynamics 365 taşımak için işlem uygulaması, Dynamics 365 özelleştirmeler (overlayering) herhangi bir platforma ait AOT paketleri sahip olamaz. Bu kısıtlama, sorunsuz sürekli güncelleştirmeler platforma hale getirilebilir, böylece platform güncelleştirmesi 3, kullanılmaya başlandı. Çalıştırıyorsanız, platformu eski bir platform güncelleştirme 3, güncelleştirme 3, bu makalenin sonunda daha eski bir yapı bölümünden yükseltme platforma bakın.
 
 Kod yükseltme hakkında daha fazla bilgi için lütfen bakın [burada](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update).

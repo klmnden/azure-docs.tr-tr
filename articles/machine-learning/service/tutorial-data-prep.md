@@ -12,11 +12,11 @@ ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764598"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -322,7 +322,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Tür</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>
@@ -474,7 +474,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Tür</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>
@@ -608,7 +608,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Tür</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
 ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587870"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -36,7 +36,7 @@ Bu denetim listesini açıklayarak hemen kuruluşunuzu korumak için kritik öne
 
 Bu belgedeki önerileri ile hizalanır [kimlik güvenli puanı](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), bir Azure AD kiracınızın kimliğini güvenlik yapılandırması değerlendirmesinin otomatik. Kuruluşlar geçerli Microsoft güvenlik için en iyi uygulamaları takip etmeleri emin olmak için geçerli güvenlik yapılandırmalarını boşlukları bulmak için Azure AD portalında güvenli kimlik puanı sayfasını kullanabilirsiniz. Her önerinin güvenli puanı sayfasında uygulama puanınız artırmak ve ilerlemenizi izleyin yanı sıra diğer benzer boyutu kuruluşlar veya sektörünüze yönelik uygulamanızda karşılaştırmanıza yardımcı olanak sağlar.
 
-![Güvenli kimlik puanı](media/azure-ad/azure-ad-sec-steps0.png)
+![Kimlik Güvenliği Puanı](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Başlamadan önce: MFA ile ayrıcalıklı hesapları korumak
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
 ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691333"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -479,7 +479,7 @@ Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Ins
 
 [Kullanılabilirlik web testleri ayarlama hakkında daha fazla bilgi edinin.][availability]
 
-## <a name="questions-problems"></a>Sorular? Sorunlarınız mı var?
+## <a name="questions-problems"></a>Sorularınız mı var? Sorunlarınız mı var?
 [Java Sorun Giderme](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

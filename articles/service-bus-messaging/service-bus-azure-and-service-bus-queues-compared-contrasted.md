@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714583"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -174,7 +174,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından destek
 
 | Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
-| Authentication |**Simetrik anahtar** |**Simetrik anahtar** |
+| Kimlik Doğrulaması |**Simetrik anahtar** |**Simetrik anahtar** |
 | Güvenlik modeli |Temsilcili erişim aracılığıyla SAS belirteçleri. |SAS |
 | Kimlik sağlayıcısı Federasyonu |**Hayır** |**Evet** |
 

@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Azure komut satırı arabirimi (CLI) kullanarak bir sanal makineye birden çok IP adresi atama hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: jimdial
+ms.author: kumud
 ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742279"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI kullanarak sanal makineler için birden çok IP adresi atama
 

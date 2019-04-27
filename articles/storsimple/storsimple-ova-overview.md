@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630368"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizisi giriş
 
@@ -137,7 +137,7 @@ Sanal dizi aşağıdaki özelliklere sahiptir:
 > [!NOTE]
 > Sanal dizi genişletilemez. Bu nedenle, sanal diziyi oluşturduğunuzda yeterli depolama sağlamak önemlidir.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti
+### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager hizmeti
 
 Microsoft Azure StorSimple, StorSimple depolama merkezi olarak yönetmenize olanak sağlayan StorSimple cihaz Yöneticisi hizmeti bir web tabanlı kullanıcı arabirimi sağlar. StorSimple cihaz Yöneticisi hizmeti, aşağıdaki görevleri gerçekleştirmek için kullanabilirsiniz:
 

@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726919"
 ---
-# <a name="cloud-solution-providers"></a>Bulut çözüm sağlayıcıları
+# <a name="cloud-solution-providers"></a>Bulut Çözüm Sağlayıcıları
 
 Yazılım teklifleri artık milyonlarca değişikliğiyle bulut çözümü sağlayıcısı (CSP) iş ortakları tarafından sunulan tam Microsoft müşteriye ulaşmak pazarlama ve satış yatırım.  Yayımcılar, CSP iş ortağı Kanallar, genel kullanılabilirlik tekliflerini ek olarak şimdi yararlanabilir [Microsoft'un web vitrinler](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 

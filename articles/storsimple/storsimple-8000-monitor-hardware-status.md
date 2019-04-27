@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632883"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple cihaz Yöneticisi hizmetini İzleyicisi donanım bileşenleri ve durumu
 
@@ -79,7 +79,7 @@ Bir cihaz bileşeni donanım durumunu görüntülemek için aşağıdaki adımla
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple cihazının birincil kasası için bileşen listesi
 Aşağıdaki tabloda birincil muhafazada, şirket içi StorSimple Cihazınızı (mevcut 8100 ve 8600) bulunan fiziksel ve mantıksal bileşenler açıklanmaktadır.
 
-| Bileşen | Modül | Tür | Konum | Alan bulunduğu yerde değiştirilebilen biriminin (FRU)? | Açıklama |
+| Bileşen | Modül | Tür | Location | Alan bulunduğu yerde değiştirilebilen biriminin (FRU)? | Açıklama |
 | --- | --- | --- | --- | --- | --- |
 | Sürücü yuva [0-11] |Disk sürücüleri |Fiziksel |Paylaşılan |Evet |SSD veya HDD sürücülerini birincil muhafazada her biri için bir satır görüntülenir. |
 | Ortam sıcaklığı algılayıcısı |Kutu |Fiziksel |Paylaşılan |Hayır |Kasanın içinde sıcaklık ölçer. |
@@ -93,7 +93,7 @@ Aşağıdaki tabloda birincil muhafazada, şirket içi StorSimple Cihazınızı 
 | Güç kaynağı [0-1] |PCM |Fiziksel |Paylaşılan |Evet |Bir satır her güç kaynakları aygıtın arkasında bulunan iki PCMs içinde sunulur. |
 | Soğutma [0-1] |PCM |Fiziksel |Paylaşılan |Evet |Bir satır için her iki PCMs içinde bulunan dört soğutma fanları sunulur. |
 | Pil [0-1] |PCM |Fiziksel |Paylaşılan |Evet |Bir satır her yedek pil PCM yerleştirildiğinden modülleri için sunulur. |
-| Metıs |Yok |Mantıksal |Paylaşılan |Yok |Pil durumunu görüntüler: olup şarj duydukları ve ömrü sonu yaklaşan. |
+| Metis |Yok |Mantıksal |Paylaşılan |Yok |Pil durumunu görüntüler: olup şarj duydukları ve ömrü sonu yaklaşan. |
 | Küme |Yok |Mantıksal |Paylaşılan |Yok |Oluşturulan kümenin iki tümleşik denetleyicisi modüller arasında durumunu görüntüler. |
 | Küme düğümü |Yok |Mantıksal |Paylaşılan |Yok |Kümenin bir parçası olarak denetleyici durumunu belirtir. |
 | Küme Çekirdeği |Yok |Mantıksal | |Yok |HDD depolama havuzu çoğu disk üyelik varlığını gösterir. |
@@ -120,7 +120,7 @@ Aşağıdaki tabloda birincil muhafazada, şirket içi StorSimple Cihazınızı 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple cihaz EBOD muhafazası için bileşen listesi
 EBOD muhafazada, şirket içi StorSimple Cihazınızı (yalnızca 8600 modelde varsa) bulunan fiziksel ve mantıksal bileşenler aşağıdaki tabloda açıklanmaktadır.
 
-| Bileşen | Modül | Tür | Konum | FRU? | Açıklama |
+| Bileşen | Modül | Tür | Location | FRU? | Açıklama |
 | --- | --- | --- | --- | --- | --- |
 | Sürücü yuva [0-11] |Disk sürücüleri |Fiziksel |Paylaşılan |Evet |Bir satır, her bir kuyruğun EBOD muhafazası HDD sürücülerini sunulur. |
 | Ortam sıcaklığı algılayıcısı |Kutu |Fiziksel |Paylaşılan |Hayır |Kasanın içinde sıcaklık ölçer. |

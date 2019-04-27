@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614390"
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
 Bu makalede, Azure Service Fabric uygulaması yükseltme sırasında geçerli olan çeşitli parametreler açıklanmaktadır. Uygulama yükseltme parametreleri zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme ve bunlar yükseltme başarısız olduğunda uygulanmalıdır ilkeleri belirtin. Uygulama parametreleri kullanarak yükseltmeleri için geçerlidir:
@@ -112,7 +112,7 @@ en fazla sağlıksız-uygulamalar | Varsayılan ve önerilen değer: 0. Dağıt�
 mode | İzin verilen değerler **izlenen**, **UpgradeMode**, **UnmonitoredAuto**, **UnmonitoredManual**. Varsayılan değer **UnmonitoredAuto**. Visual Studio ve PowerShell *gerekli parametreleri* bölümünde bu değerlerin açıklaması.|
 çoğaltma-kümesi-onay-zaman aşımı |Saniye cinsinden ölçülür. <br>**Durum bilgisi olmayan hizmet**--hizmetin ek örneklerini kullanılabilir olmasını sağlamak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric hedef örnek sayısı, birden fazla ise, birden fazla örneğini bir maksimum zaman aşımı değeri en fazla kullanılabilir olmasını bekler. Bu zaman aşımı kullanılarak belirtilen *çoğaltma-kümesi-onay-zaman aşımı* özelliği. Zaman aşımı süresi dolarsa, Service Fabric service örnek sayısından bağımsız olarak yükseltme işlemine devam eder. Hedef örnek sayısını ise, Service Fabric beklememeyi ve hemen yükseltme işlemine devam eder.<br><br>**Durum bilgisi olan hizmet**--çoğaltma kümesine bir çekirdek olduğundan emin olmak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric bir çekirdek bir maksimum zaman aşımı değeri en fazla kullanılabilir olmasını bekler (tarafından belirtilen *çoğaltma-kümesi-onay-zaman aşımı* özelliği). Zaman aşımı süresi dolarsa, Service Fabric çekirdek bakılmaksızın yükseltme işlemine devam eder. Bu ayar kümesi olarak hiçbir zaman (sonsuz) İleri sarmadır olduğunda ve 1200 saniye olan zaman geri alınıyor. |
 Hizmet sistem durumu ilkesi | JSON hizmet türü sistem durumu ilkesi başına hizmet türü adı eşlemeyle kodlanmış. Bir eşlem boşsa, varsayılan olarak. [Parametre JSON biçimi. ](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap). "Value" bölümü için JSON içeriyor **MaxPercentUnhealthyServices**, **MaxPercentUnhealthyPartitionsPerService**, ve **MaxPercentUnhealthyReplicasPerPartition**. Bu parametre açıklamaları için Visual Studio ve PowerShell isteğe bağlı parametreler bölümüne bakın.
-zaman aşımı | İşlemi için saniye cinsinden zaman aşımı süresini belirtir. Varsayılan: 60. |
+timeout | İşlemi için saniye cinsinden zaman aşımı süresini belirtir. Varsayılan: 60. |
 Yükseltme etki alanı timeout | Önce tamamlamak, her bir yükseltme etki alanı süreyi sahip *FailureAction* yürütülür. Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. Varsayılan: P10675199DT02H48M05.4775807S. |
 Yükseltme zaman aşımı | Önce tamamlamak, her bir yükseltme etki alanı süreyi sahip *FailureAction* yürütülür. Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. Varsayılan: P10675199DT02H48M05.4775807S.|
 warning-as-error | İzin verilen değerler **True** ve **False**. Varsayılan ayar, **False** değeridir. İçinde bir bayrak olarak geçirilebilir. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında durumunu değerlendirilirken hata olarak değerlendir. Varsayılan olarak, Service Fabric uyarı olayları olsa bile, yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |

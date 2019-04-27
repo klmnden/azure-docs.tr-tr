@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742076"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure portalını kullanarak IOT hub oluşturma
 
@@ -34,13 +34,13 @@ IOT hub'ı bölmesinden oluşturulduktan sonra var olan IOT hub'ının ayarları
 
 IOT hub'ı için ayarlayabileceğiniz özelliklerden bazıları şunlardır:
 
-**Fiyatlandırma ve ölçek**: farklı bir katmana geçiş veya IOT Hub birimleri ayarlamak için bu özelliği kullanabilirsiniz. 
+**Fiyatlandırma ve ölçek**: Farklı bir katmana geçiş veya IOT Hub birimleri ayarlamak için bu özelliği kullanabilirsiniz. 
 
-**İşlem izleme**: açma veya kapatma bir CİHAZDAN buluta iletileri veya Bulut-cihaz iletilerini ilgili olayları günlüğe kaydetme gibi farklı izleme kategorileri açın.
+**İşlem izleme**: Farklı izleme kategorileri açmak veya kapatmak için CİHAZDAN buluta iletileri veya Bulut-cihaz iletilerini ilgili olayları günlüğe kaydetme gibi etkinleştirin.
 
-**IP Filtresi**: kabul edilecek veya IOT hub tarafından reddedilen bir IP adresi aralığı belirtin.
+**IP Filtresi**: Kabul edilecek veya IOT hub tarafından reddedilen bir IP adresi aralığı belirtin.
 
-**Özellikler**: kopyalayın ve başka bir yerde, kaynak kimliği, kaynak grubu, konum ve benzeri gibi kullanmak özelliklerinin listesini sağlar.
+**Özellikler**: Özellikler listesini kopyalayabilir ve başka bir yerde, kaynak kimliği, kaynak grubu, konum ve benzeri gibi kullanmak sağlar.
 
 ### <a name="shared-access-policies"></a>Paylaşılan erişim ilkeleri
 

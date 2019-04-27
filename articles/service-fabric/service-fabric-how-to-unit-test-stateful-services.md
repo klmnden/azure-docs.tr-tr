@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720136"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Durum bilgisi olan hizmetler için birim testleri oluşturma
 Birim testi Service Fabric durum bilgisi olan hizmetler mutlaka geleneksel uygulama veya etki alanına özgü birim testi tarafından yakalanabilen değil yaygın hataları açıklığa kavuşturur. Durum bilgisi olan hizmetler için birim testleri geliştirirken akılda tutulması gereken bazı noktalar vardır.

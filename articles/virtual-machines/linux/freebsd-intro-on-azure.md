@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
 ms.openlocfilehash: 1f2d3c40352d60d3cc7366aca6f38a8255a7a629
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627717"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde Freebsd'ye giriş
 Bu makalede, FreeBSD sanal makine Azure'da çalışan genel bir bakış sağlar.

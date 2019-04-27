@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60774072"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>İşlemler ve Azure Service Fabric Reliable Collections kilit modları
 
@@ -48,8 +48,8 @@ Güvenilir bir sözlük ve kuyruk işlemleri için yalıtım düzeyi varsayılan
 
 | İşlem \ rolü | Birincil | İkincil |
 | --- |:--- |:--- |
-| Tek varlık okuma |Tekrarlanabilir okuma |Anlık görüntü |
-| Numaralandırma, sayısı |Anlık görüntü |Anlık görüntü |
+| Tek varlık okuma |Tekrarlanabilir okuma |Anlık Görüntü |
+| Numaralandırma, sayısı |Anlık Görüntü |Anlık Görüntü |
 
 > [!NOTE]
 > Tek varlık işlemleri ortak verilebilir `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
@@ -75,10 +75,10 @@ Bir güncelleştirme kilidi birden çok işlem sonraki bir zamanda potansiyel g�
 
 Kilit uyumluluk matrisi aşağıdaki tabloda bulunabilir:
 
-| İstek \ verildi | Hiçbiri | Paylaşılan | Güncelleştir | Özel |
+| İstek \ verildi | None | Paylaşılan | Güncelleştirme | Özel |
 | --- |:--- |:--- |:--- |:--- |
 | Paylaşılan |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
-| Güncelleştir |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
+| Güncelleştirme |Çakışma yok |Çakışma yok |Çakışma |Çakışma |
 | Özel |Çakışma yok |Çakışma |Çakışma |Çakışma |
 
 Güvenilir koleksiyonlar API'lerde zaman aşımı bağımsız değişkeni, kilitlenme algılaması için kullanılır.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630147"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple sanal dizisi en iyi uygulamalar
 ## <a name="overview"></a>Genel Bakış
@@ -75,9 +75,9 @@ Bize önceki birimler veya paylaşımlar için yerel katman alanı gereksinimler
 * 120 GB için ayrılmış yerel alanlarınız (1 TB katmanlı birim/paylaşım)
 * 330 GB yerel olarak sabitlenmiş birim veya paylaşım (ayrılmış yerel alanlarınız % 10 sağlanan 300 GB boyutunu ekleme)
 
-Yerel katmanında şimdiye gereken toplam alan: 240 GB + 120 GB + 330 GB = 690 GB.
+Yerel katmanında şimdiye gereken toplam alanı verilmiştir: 240 GB + 120 GB + 330 GB = 690 GB.
 
-İkinci olarak, yerel katmanında en az bir alan en büyük tek ayırma ihtiyacımız var. Bu ek miktar, bulut anlık görüntüden geri yüklemeniz gereken durumlarda kullanılır. Bu örnekte, en büyük ayrılmış yerel alanlarınız 330 (dosya sistemi ayırma dahil), GB'dir bu nedenle 690 GB: 690 GB + 330 GB = 1020 GB eklemeniz.
+İkinci olarak, yerel katmanında en az bir alan en büyük tek ayırma ihtiyacımız var. Bu ek miktar, bulut anlık görüntüden geri yüklemeniz gereken durumlarda kullanılır. Bu örnekte, en büyük ayrılmış yerel alanlarınız 330 (dosya sistemi ayırma dahil), GB'dir bu nedenle, 690 GB ile eklemeniz: 690 GB + 330 GB = 1020 GB.
 Sonraki ek geri yüklemeler gerçekleştirdiğimiz, size her zaman önceki geri yükleme işlemi yer boşaltabilirsiniz.
 
 Böylece yalnızca % 85, kullanılabilir üçüncü şimdiye yerel anlık görüntüleri depolamak için toplam yerel alanınızın % 15 ihtiyacımız var. Bu örnekte, olurdu etrafında 1020 GB = 0.85&ast;sağlanan verilerin TB disk. Bu nedenle, sağlanan veri diski olacaktır (1020&ast;(1/0.85)) 1200 GB = 1.20 TB = ~ 1,25 (en yakın dörtte için yuvarlama) TB
@@ -99,7 +99,7 @@ Sanal diziniz için kullanabilmek ister.
 * 240 GB yerel ayırma (birim/paylaşım için 2 TB katmanlı)
 * Yerel olarak sabitlenmiş birim veya paylaşım (10 yerel ayırma yüzdesi 300 GB sağlanan alanına eklemek) için 330 GB
 
-Yerel katmanında gereken toplam alan: 240 GB + 330 GB = 570 GB
+Yerel katmanında gereken toplam alan şöyledir: 240 GB + 330 GB = 570 GB
 
 Geri yükleme için gereken en düşük yerel alan 330 GB'dir.
 

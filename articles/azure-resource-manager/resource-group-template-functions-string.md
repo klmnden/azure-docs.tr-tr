@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782931"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -120,7 +120,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Bir iki üç |
-| toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
+| toJsonOutput | Object | {"bir": "a", "iki": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -132,7 +132,7 @@ Bir JSON nesnesi için bir base64 gösterimine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |string |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
+| base64Value |Evet |string |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -185,7 +185,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Bir iki üç |
-| toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
+| toJsonOutput | Object | {"bir": "a", "iki": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -197,7 +197,7 @@ Bir base64 gösterimi bir dizeye dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |string |Bir dizeye dönüştürmek için base64 gösterimi. |
+| base64Value |Evet |string |Bir dizeye dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -250,7 +250,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Bir iki üç |
-| toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
+| toJsonOutput | Object | {"bir": "a", "iki": "b"} |
 
 ## <a name="concat"></a>concat
 

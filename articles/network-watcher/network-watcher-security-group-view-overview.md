@@ -3,8 +3,8 @@ title: Azure Ağ İzleyicisi'nde güvenlik grubu görünümü giriş | Microsoft
 description: Bu sayfa Ağ İzleyicisi güvenlik görünümü özelliği genel bir bakış sağlar.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: jdial
-ms.openlocfilehash: 15f6bd0d7da63924e52db8ec7e2cbb0ee7483f82
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: aae57603dea9b7142956065dd65727e59014dcb7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684361"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Ağ güvenlik grubu Görünümü'nde Azure Ağ İzleyicisi giriş
 

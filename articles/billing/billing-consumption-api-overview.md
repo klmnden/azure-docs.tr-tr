@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615890"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure tüketim API genel bakış 
 
-Azure tüketim API'leri, Azure kaynaklarınızın maliyet programlı erişim ve kullanım verileri sağlar. Bu API'ler şu anda yalnızca Kurumsal kayıtları ve Web Direct Aboneliklerindeki (birkaç istisna dışında) destekler. API'leri, Azure abonelikleri diğer türlerini desteklemek için sürekli olarak güncelleştirilir.
+Azure Tüketim API'leri, Azure kaynaklarınızla ilgili maliyet ve kullanım verilerinize program aracılığıyla erişmenizi sağlar. Bu API'ler şu anda yalnızca Kurumsal kayıtları ve Web Direct Aboneliklerindeki (birkaç istisna dışında) destekler. API'leri, Azure abonelikleri diğer türlerini desteklemek için sürekli olarak güncelleştirilir.
 
-Azure tüketim API'ler için erişim sağlayın:
-- Kurumsal ve Web Direct müşterileri 
+Azure Tüketim API'leri şu verilere erişim sunar:
+- Kurumsal ve Doğrudan Web Müşterileri 
     - Kullanım Ayrıntıları 
-    - Market ücretlerini 
-    - Ayırma önerileri 
-    - Rezervasyon ayrıntıları 
-    - Ayırma özetleri 
-- Yalnızca Kurumsal müşteriler 
+    - Market Ücretleri 
+    - Rezervasyon Önerileri 
+    - Rezervasyon Ayrıntıları 
+    - Rezervasyon Özetleri 
+- Yalnızca Kurumsal Müşteriler 
     - Fiyat listesi 
     - Bütçeler 
-    - Faturanın bakiyeler 
+    - Bakiyeler 
 
 ## <a name="usage-details-api"></a>API kullanım ayrıntıları
 

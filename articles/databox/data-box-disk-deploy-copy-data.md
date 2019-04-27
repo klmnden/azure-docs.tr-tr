@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727699"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Veri için Azure Data Box Disk kopyalama ve doğrulayın
 
@@ -223,7 +223,7 @@ Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması g
  
 7. Bir komut istemi penceresi açın. 
 
-8. Çalıştırma `DataBoxDiskSplitCopy.exe`. Type
+8. Çalıştırma `DataBoxDiskSplitCopy.exe`. Tür
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 

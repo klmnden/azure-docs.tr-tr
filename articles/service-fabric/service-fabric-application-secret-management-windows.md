@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615264"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Windows Küme parolaları şifrelemek ve bir şifreleme sertifikasını ayarlama
 Bu makalede, bir şifreleme sertifikası ayarlayın ve Windows Küme parolaları şifrelemek için kullanma gösterilmektedir. Linux kümeleri için bkz: [ayarlamak Linux kümelerinde parolaları şifrelemek ve bir şifreleme sertifikası ayarlama.][secret-management-linux-specific-link]

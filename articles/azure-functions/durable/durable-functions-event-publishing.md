@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733785"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
 
@@ -42,7 +42,7 @@ Dayanıklı işlevler olayları göndermek için event grid konusu oluşturun. A
 * [EventGrid hızlı Başlangıçlar: Özel olay - PowerShell oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid hızlı Başlangıçlar: Özel olay - Azure portalında oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 `az group create` komutuyla bir kaynak grubu oluşturun. Azure Event Grid, tüm bölgeler şu anda desteklemiyor. Hangi bölgeler desteklenir daha fazla bilgi için bkz: [Azure Event Grid genel bakış](https://docs.microsoft.com/azure/event-grid/overview).
 

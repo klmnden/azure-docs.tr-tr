@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
 ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653309"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Öğretici: WPF ile bir çeviri uygulaması oluşturma
 
@@ -244,7 +244,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
 
 Bu kod bloğunda biz çevirisi kullanılabilir diller hakkında bilgi içeren iki üye değişkenleri bildirdikten:
 
-| Değişken | Type | Açıklama |
+| Değişken | Tür | Açıklama |
 |----------|------|-------------|
 |`languageCodes` | dize dizisi |C dil kodlarını aches. Translator hizmeti dilleri belirlemek için kısa kodlar kullanır (örneğin İngilizce için `en`). |
 |`languageCodesAndTitles` | Sıralanmış sözlük | Kullanıcı arabirimindeki "kolay anlaşılır" adları, API’de kullanılan kısa kodlarla eşleştirir. Büyük küçük harf kullanımından bağımsız olarak alfabetik sırayla tutulur. |

@@ -1,6 +1,6 @@
 ---
 title: Bir Azure Service Fabric tek başına Küme yükseltme | Microsoft Docs
-description: Sürüm veya bir Azure Service Fabric tek başına küme yapılandırmasını yükseltme hakkında bilgi edinin.  P
+description: Sürüm veya bir Azure Service Fabric tek başına küme yapılandırmasını yükseltme hakkında bilgi edinin.  T
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
 ms.openlocfilehash: 1d96a2e81917af5e80bb847ea25610ccb71ad70f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711069"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Yükseltme ve Service Fabric tek başına küme güncelleştiriliyor
 

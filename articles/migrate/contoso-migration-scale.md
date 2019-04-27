@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667456"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - ölçek azure'a geçiş
 
@@ -293,6 +293,7 @@ Contoso kapasite konularına göre bu bileşenleri dağıtmanın nasıl ekleyece
 **İşlem sunucusu** | Contoso 100 200 Vm'lerini çoğaltma özelliği sayesinde tek başına adanmış işlem sunucusu dağıtır:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> İşlem sunucusu sabit çalışma olacaktır ve bu nedenle bir ESXi konağındaki disk g/ç ve ağ trafiğini çoğaltma için gereken CPU işleyebilir bulunması gerekir. Contoso, bu amaç için adanmış bir ana bilgisayar dikkate alacaktır. 
 **Ağ** | Contoso, geçerli siteden siteye VPN altyapısı gözden geçirdi ve Azure ExpressRoute uygulamaya karar verdi. Bu daha düşük gecikme süresi ve Contoso'nun birincil Doğu ABD 2 Azure bölgesini bant genişliğini iyileştirmek için kritik bir uygulamasıdır.<br/><br/> **İzleme**: Contoso veri akışının işlem sunucusundan dikkatle izlemeniz gerekir. Veri Contoso dikkate alınır ağ bant genişliği aşırı varsa [işlem sunucusu bant genişliği azaltma](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure depolama alanı** | Geçiş için doğru tür ve sayıda hedef Azure depolama hesabı, Contoso tanımlamanız gerekir.  Site Recovery, sanal makine verilerini Azure depolama alanına çoğaltır.<br/><br/> Site Recovery, standart veya premium (SSD) depolama hesaplarına çoğaltabilir.<br/><br/> Depolama hakkında karar vermek üzere Contoso gözden geçirmelisiniz [depolama sınırları](../virtual-machines/windows/disks-types.md)ve beklenen büyüme ve artan kullanım zaman içinde faktörü. Hız ve geçişlerin öncelik verildiğinde, Contoso premium SSD kullanmaya karar verdi<br/><br/>
+
 Contoso, Azure'da dağıtılan tüm VM'ler için yönetilen diskleri kullanmayı karar vermiştir.  Gerekli IOPS disk standart HDD, SSD standart veya Premium (SSD) olup olmayacağını belirler.<br/><br/>
 
 #### <a name="data-migration-service"></a>Veri geçiş hizmeti

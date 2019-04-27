@@ -2,17 +2,18 @@
 title: Cisco ASA cihazların Azure VPN ağ geçitlerine bağlanmak için örnek yapılandırma | Microsoft Docs
 description: Bu makalede, Cisco ASA cihazların Azure VPN ağ geçitlerine bağlanmak için örnek bir yapılandırma sağlar.
 services: vpn-gateway
-author: yushwang
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: yushwang
+origin.date: 10/19/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648756"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Örnek Yapılandırması: Cisco ASA cihazı (IKEv2/BGP yok)
 Bu makalede Azure VPN ağ geçitleri için bağlantı Cisco Uyarlamalı güvenlik Gereci (ASA) cihazlar için örnek yapılandırmaları sağlar. Örnekte Ikev2 Border Gateway Protocol (BGP) olmadan çalıştıran Cisco ASA cihazlar için geçerlidir. 
@@ -302,3 +303,4 @@ Hata ayıklama amacıyla aşağıdaki ASA komutları kullanın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Etkin-Etkin şirket içi ve VNet-VNet bağlantıları yapılandırmak için bkz: [etkin-etkin VPN ağ geçitlerini yapılandırmanızı](vpn-gateway-activeactive-rm-powershell.md).
+<!--Update_Description: wording update -->

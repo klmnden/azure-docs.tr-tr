@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771982"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 
@@ -46,7 +46,7 @@ Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları
 
    ![Azure akış analizi işi için uyarı ayarlama](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. **Kaynak**, **koşul**, ve **Eylem grupları** her bir giriş olmalıdır. Uyarıların tetikleneceği sırada tanımlanan koşullar karşılanması gerektiğini unutmayın. Örneğin, son 15 dakika boyunca, her 5 dakikada bir ölçüm 's ortalama değerini ölçebilirsiniz.
+7. **Kaynak**, **koşul**, ve **Eylem grupları** her bir giriş olmalıdır. Uyarıların tetikleneceği sırada tanımlanan koşullar karşılanması gerektiğini unutmayın. Örneğin, son 15 dakika için ölçümün ortalama değerini her 5 dakikada bir ölçebilirsiniz.
 
    ![Stream Analytics uyarı kuralı oluşturma](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 

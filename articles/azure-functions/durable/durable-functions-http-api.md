@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730716"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -90,7 +90,7 @@ Bu protokol, dış istemcilere ya da bir HTTP uç noktasını yoklayarak ve aşa
 
 Tüm HTTP API'lerini aşağıdaki parametreleri uzantısı sınav zamanı tarafından uygulanır. Tüm parametre veri türü `string`.
 
-| Parametre        | Parametre türü  | Açıklama |
+| Parametre        | Parametre Türü  | Açıklama |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Sorgu dizesi    | Adını [görev hub](durable-functions-task-hubs.md). Belirtilmezse, geçerli işlevi uygulamanın görev hub adı varsayılır. |
 | **`connection`** | Sorgu dizesi    | **Adı** depolama hesabı için bağlantı dizesi. Belirtilmemişse, işlev uygulaması için varsayılan bağlantı dizesini kabul edilir. |
@@ -528,7 +528,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 İstek parametreleri bu API için şu benzersiz parametre yanı sıra daha önce bahsedilen varsayılan kümesi içerir.
 
-| Alan             | Parametre türü  | Açıklama |
+| Alan             | Parametre Türü  | Açıklama |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
@@ -577,7 +577,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 İstek parametreleri bu API için şu benzersiz parametre yanı sıra daha önce bahsedilen varsayılan kümesi içerir.
 
-| Alan             | Parametre türü  | Açıklama |
+| Alan             | Parametre Türü  | Açıklama |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği geri sarma nedeni. |

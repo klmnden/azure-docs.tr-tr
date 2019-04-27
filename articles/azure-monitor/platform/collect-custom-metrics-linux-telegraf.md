@@ -1,19 +1,19 @@
 ---
 title: Özel ölçümler InfluxData Telegraf Aracısı ile Linux VM için TOPLA
 description: Özel ölçümler InfluxData Telegraf Aracısı ile Linux VM için TOPLA
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.topic: howto
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741614"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Özel ölçümler InfluxData Telegraf Aracısı ile Linux VM için TOPLA
 
@@ -132,6 +132,5 @@ Artık ihtiyaç duyulan, kaynak grubunu, sanal makine ve tüm ilgili kaynakları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [özel ölçümler](metrics-custom-overview.md).
-
 
 

@@ -3,7 +3,8 @@ title: Azure Sanal Ağı | Microsoft Docs
 description: Azure Sanal Ağı kavramları ve özellikleri hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,13 +13,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 9fb6aa0c2bf585862f61d7c78bd09b340ff8a3ce
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640353"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
@@ -45,7 +46,7 @@ Bir sanal ağdaki tüm kaynaklar varsayılan olarak İnternet’e giden yönde i
 Azure kaynakları, aşağıdaki yöntemlerden birini uygulayarak birbiriyle güvenli şekilde iletişim kurar:
 
 - **Bir sanal ağ üzerinden**: Azure App Service ortamları, Azure Kubernetes Service (AKS) ve Azure sanal makine ölçek kümeleri gibi sanal ağ için VM'ler ve diğer çeşitli Azure kaynaklarını dağıtın. Bir sanal ağa dağıtabileceğiniz Azure kaynaklarının tam listesini görüntülemek için bkz. [Sanal ağ hizmeti tümleştirmesi](virtual-network-for-azure-services.md). 
-- **Bir sanal ağ hizmet uç noktası aracılığıyla**: Sanal ağ özel adres alanınızı ve Azure depolama hesapları ve Azure SQL veritabanları gibi Azure hizmet kaynakları için sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletin. Hizmet uç noktaları, kritik Azure hizmeti kaynaklarınızı yalnızca bir sanal ağla sınırlayarak güvenliğini sağlamanıza imkan verir. Daha fazla bilgi için bkz. [Sanal ağ hizmeti uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md).
+- **Bir sanal ağ hizmet uç noktası aracılığıyla**: Sanal ağ özel adres alanınızı ve Azure depolama hesapları ve Azure SQL veritabanları gibi Azure hizmet kaynakları için sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletin. Hizmet uç noktaları, kritik Azure hizmeti kaynaklarınızı yalnızca bir sanal ağla sınırlayarak güvenliğini sağlamanıza imkan verir. Daha fazla bilgi için bkz. [Sanal ağ hizmet uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Şirket içi kaynaklarla iletişim kurma
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631915"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 serisi yazılım, yüksek kullanılabilirlik ve ağ gereksinimleri
 
@@ -61,7 +61,7 @@ Aşağıdaki yazılım gereksinimleri, isteğe bağlı StorSimple bileşenler (S
 
 StorSimple Cihazınızı kilitli aygıttır. Ancak, bağlantı noktaları iSCSI, Bulut ve yönetim trafiği için izin vermek için güvenlik duvarını açılması gerekir. Aşağıdaki tabloda, güvenlik duvarından açılması gereken bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* gelen istemci isteklerini Cihazınızı erişim yönünü gösterir. *Çıkış* veya *giden* , StorSimple Cihazınızı gönderir dışarıdan, veri dağıtımı dışında yön ifade eder: Örneğin, Internet'e giden.
 
-| Bağlantı noktası No<sup>1,2</sup> | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Notes |
+| Bağlantı noktası No<sup>1,2</sup> | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Notlar |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Çıkış |WAN |Hayır |<ul><li>Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır.</li><li>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.</li><li>Sistem güncelleştirmeleri izin vermek için bu bağlantı noktası de sabit IP'ler denetleyici için açık olması gerekir.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Çıkış |WAN |Evet |<ul><li>Giden bağlantı noktası, bulut veri erişimi için kullanılır.</li><li>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.</li><li>Sistem güncelleştirmeleri izin vermek için bu bağlantı noktası de sabit IP'ler denetleyici için açık olması gerekir.</li><li>Bu bağlantı noktası, çöp toplama için iki denetleyicide de kullanılır.</li></ul> |
@@ -96,7 +96,7 @@ StorSimple liberally çoğu zaman sabit IP adreslerinin, temel giden trafik içi
 
 | URL deseni | Bileşen/işlevi | Cihaz IP'ler |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Cihaz Yöneticisi hizmeti<br>Erişim Denetimi Hizmeti<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti |Bulut özellikli ağ arabirimleri |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti |Bulut özellikli ağ arabirimleri |
 | `https://*.backup.windowsazure.com` |Cihaz kaydı |Yalnızca veri 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Sertifika iptal etme |Bulut özellikli ağ arabirimleri |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure depolama hesapları ve izleme |Bulut özellikli ağ arabirimleri |
@@ -108,7 +108,7 @@ StorSimple liberally çoğu zaman sabit IP adreslerinin, temel giden trafik içi
 
 | URL deseni | Bileşen/işlevi | Cihaz IP'ler |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Cihaz Yöneticisi hizmeti<br>Erişim Denetimi Hizmeti<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti |Bulut özellikli ağ arabirimleri |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti |Bulut özellikli ağ arabirimleri |
 | `https://*.backup.windowsazure.us` |Cihaz kaydı |Yalnızca veri 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Sertifika iptal etme |Bulut özellikli ağ arabirimleri |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure depolama hesapları ve izleme |Bulut özellikli ağ arabirimleri |

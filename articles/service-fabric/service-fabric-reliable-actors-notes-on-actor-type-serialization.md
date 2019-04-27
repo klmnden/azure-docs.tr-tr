@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c8eeeb0ade6ca002adf3211cbf49127be9b76edb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725661"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors hakkında notlar serileştirme türü
 Tüm yöntemlerin bağımsız değişkenlerini, görev sonuç türleri döndürülen her bir yöntemin bir aktör arabirimi tarafından ve bir aktörün durum Yöneticisi'nde depolanan nesnelere olmalıdır [veri sözleşme seri hale getirilebilir](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Bu tanımlı yöntem bağımsız değişkenleri için de geçerlidir [aktör olay arabirimleri](service-fabric-reliable-actors-events.md). (Aktör olay arabirim yöntemleri her zaman void döndürür.)

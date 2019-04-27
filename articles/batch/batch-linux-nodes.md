@@ -16,11 +16,11 @@ ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776161"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümleri sağlama
 
@@ -48,7 +48,7 @@ Bir sanal makine görüntü başvurusunu yapılandırdığınızda, sanal makine
 | Yayımcı |Canonical |
 | Sunduğu |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Sürüm |en son |
+| Version |en son |
 
 > [!TIP]
 > Bu özellikler ve Market görüntüleri listeleme hakkında daha fazla bilgi [seçin CLI veya PowerShell ile azure'da Linux sanal makine görüntülerine erişin ve](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tüm Market görüntüleri şu anda Batch ile uyumlu olduğunu unutmayın. Daha fazla bilgi için [düğüm Aracısı SKU](#node-agent-sku).

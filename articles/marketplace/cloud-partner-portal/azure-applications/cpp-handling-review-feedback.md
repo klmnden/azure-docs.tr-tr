@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745612"
 ---
-# <a name="handling-review-feedback"></a>İşleme gözden geçirme geri bildirimi
+# <a name="handling-review-feedback"></a>Gözden geçirme geri bildirimini işleme
 
 Bu makalede, Microsoft Azure Marketi gözden geçirme ekibi tarafından kullanılan Azure DevOps ortamına erişmek açıklanmaktadır.  Azure uygulama teklifinizi sırasında kritik sorunlar bulunuyorsa **Microsoft gözden geçirme** adım (İnceleme görüşüne) Bu sorunlar hakkında ayrıntılı bilgi görüntülemek için bu sisteme imzalayabilirsiniz.  Bu sorunları giderdikten sonra teklifinizin Azure Market'te yayımlamak devam etmek için yeniden göndermeniz gerekir.  Aşağıdaki diyagram, bu geri bildirim süreci için yayımlama işlemi ilişkisini gösterir.
 

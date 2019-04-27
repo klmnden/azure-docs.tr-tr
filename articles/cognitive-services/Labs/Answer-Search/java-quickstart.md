@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: fc0f8519644c5b9f722ab67f2e9d600a0be7960b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708337"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Hızlı Başlangıç: Java'da proje yanıt arama sorgusu
 Bu makalede, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Yanıt Arama API'sini göstermek için Java kullanılmaktadır. API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir REST Web hizmetidir.

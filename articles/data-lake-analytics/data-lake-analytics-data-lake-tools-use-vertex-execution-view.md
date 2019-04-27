@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
-ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687841"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları, köşe yürütme görünümünü kullanma
 Köşe yürütme görünümünü sınavı Data Lake Analytics işleri için kullanmayı öğrenin.
@@ -40,12 +40,12 @@ Köşe yürütme görünümü, üç bölümden oluşur:
 
 Alt Orta bölmede, her köşe hakkında bilgileri gösterir:
 * İşlem adı: Köşe örneğinin adı. Farklı parçaların StageName içinde oluşan | VertexName | VertexRunInstance. Örneğin, ikinci çalışan örneği (.v1, dizini 0'dan itibaren) SV7_Split [62] .v1 köşe gösterir 62 köşe sayısının aşama SV7_Split.
-* Toplam veri okuma/yazılan: Tarafından bu köşenin okunan/yazılan veri.
-* Durum/Çıkış durumu: köşe sonlandırıldığında son durumu.
-* Çıkış kodu/hata türü: köşe başarısız olduğunda hata.
+* Toplam veri okunan/yazılan: Bu köşenin tarafından okunan/yazılan veri.
+* Durumu/durum çıkışı: Köşe sonlandırıldığında son durumu.
+* Kod/hata türü çıkış: Köşe başarısız olduğunda hata oluştu.
 * Oluşturma nedeni: Neden köşe oluşturuldu.
 * Kaynak gecikme süresi/işlem gecikme süresi/PN kuyruk gecikme süresi: kaynaklar için beklenecek köşe verilerini işlemek ve kuyrukta kalmak için geçen süre.
-* İşlem/oluşturucusunun GUID: GUID geçerli çalışan köşe veya Oluşturucusu.
+* İşlem/Oluşturucu GUID'si: Geçerli çalışan köşe veya oluşturana GUİD'i.
 * Sürüm: n. örneğini çalıştıran köşe (yedeklilik, vb. birçok nedeni, örneğin yük devretme, işlem için sistem yeni bir köşe örneklerini zamanlayabilirsiniz.)
 * Sürüm oluşturma saati.
 * İşlem oluşturma başlangıç zaman/işlemi sıraya alınan zaman/işlem başlangıç saati/işlem tam zamanı: oluşturma; köşe işlem başladığında Köşe işlem kuyruğuna başladığında; belirli köşe işlem başladığında; belirli bir köşe tamamlandığında.

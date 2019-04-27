@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808856"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı Etkinlik yürütme
 İşlem hattı yürütme etkinliği bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.
@@ -66,7 +66,7 @@ ad | İşlem hattı yürütme etkinliğinin adı. | String | Evet
 type | Ayarlamanız gerekir: **ExecutePipeline**. | String | Evet
 ardışık düzen | Bu işlem hattını çağıran bağımlı işlem hattının işlem hattı başvuru. Bir işlem hattı başvuru nesnesi iki özelliğe sahiptir: **başvuru adını** ve **türü**. Başvuru adını Özellik Başvurusu işlem hattının adını belirtir. PipelineReference için type özelliği ayarlanmalıdır. | PipelineReference | Evet
 parametreler | Çağrılan işlem hattına geçirilen parametreleri | Parametre adları ve bağımsız değişken değerleri eşleyen bir JSON nesnesi | Hayır
-waitOnCompletion | Etkinlik yürütme tamamlanması için bağımlı bir işlem hattı yürütme beklemediğini tanımlar. Varsayılan değer false’tur. | Boole | Hayır
+waitOnCompletion | Etkinlik yürütme tamamlanması için bağımlı bir işlem hattı yürütme beklemediğini tanımlar. Varsayılan değer false’tur. | Boolean | Hayır
 
 ## <a name="sample"></a>Örnek
 Bu senaryo, iki işlem hattı sahiptir:

@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691010"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix Bağlayıcısı ile çalışmaya başlama
 Informix için Microsoft Bağlayıcısı Logic Apps bir IBM Informix veritabanına depolanmış olan kaynaklara bağlar. Informix Bağlayıcısı uzak Informix sunucu bilgisayarları için bir TCP/IP ağı üzerinden iletişim kurmak için bir Microsoft client içerir. Bu Windows çalıştıran Azure sanallaştırma için IBM Informix gibi bulut veritabanlarını içerir ve şirket içi şirket içi veri ağ geçidini kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platformlarını ve sürümlerini (Bu konudaki).

@@ -10,17 +10,17 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737168"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 
 Azure Otomasyonu aşağıdaki tabloda kısaca açıklanmış runbook'ları çeşitli türlerini destekler.  Aşağıdaki bölümlerde, her zaman hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
 
-| Type | Açıklama |
+| Tür | Açıklama |
 |:--- |:--- |
 | [Grafik](#graphical-runbooks)|Windows PowerShell ve Azure portalında oluşturulan ve tamamen düzenlenen grafik düzenleyicisini temel. |
 | [Grafik PowerShell iş akışı](#graphical-runbooks)|Windows PowerShell iş akışına dayalı, oluşturulan ve Azure portalında grafik düzenleyicisinde düzenlenir. |

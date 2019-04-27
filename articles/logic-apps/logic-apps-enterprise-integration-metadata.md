@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846234"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile tümleştirme hesaplarındaki yapıt meta verileri yönetme
 
@@ -63,7 +63,7 @@ Tümleştirme hesapları yapıtlar için özel meta verileri tanımlamak ve kull
 
 1. Bulmak istediğiniz bu bilgileri yapıtı sağlayın:
 
-   | Özellik | Gereklidir | Değer | Açıklama | 
+   | Özellik | Gereklidir | Value | Açıklama | 
    |----------|---------|-------|-------------| 
    | **Yapıt türü** | Evet | **Şema**, **harita**, **iş ortağı**, **sözleşmesi**, ya da özel bir tür | İstediğiniz yapıt türü | 
    | **Yapıt adı** | Evet | <*yapıt adı*> | İstediğiniz yapıt adı | 
@@ -85,7 +85,7 @@ Tümleştirme hesapları yapıtlar için özel meta verileri tanımlamak ve kull
 
       Örneğin, almak istediğiniz varsayalım `routingUrl` bu konuda daha önce eklemiş meta verileri. Belirttiğiniz özellik değerleri şunlardır: 
 
-      | Özellik | Gereklidir | Değer | Açıklama | 
+      | Özellik | Gereklidir | Value | Açıklama | 
       |----------|----------|-------|-------------| 
       | **Yöntem** | Evet | <*işlem çalıştırma*> | Yapıt üzerinde çalıştırmak için HTTP işlemi. Örneğin, bu HTTP eylemi kullanır **alma** yöntemi. | 
       | **URI** | Evet | <*meta verilerinin konumu*> | Erişim için `routingUrl` yapıdan meta veri değeri alınmış bir ifade, örneğin kullanabilirsiniz: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 

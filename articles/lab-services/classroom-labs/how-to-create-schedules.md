@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696039"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Oluşturma ve zamanlamalarını Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
 Zamanlamaları bir sınıf laboratuvarına Vm'leri Laboratuvardaki otomatik olarak başlatın ve belirli bir zamanda kapatma şekilde yapılandırmanıza olanak sağlar. Tek seferlik zamanlama veya yinelenen bir zamanlama tanımlayabilirsiniz. Aşağıdaki yordamlar oluşturmak ve yönetmek için bir sınıf laboratuvarına zamanlamaları için adımları şunları sağlar: 

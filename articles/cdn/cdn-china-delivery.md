@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681517"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN ile içerik teslim Çin
 
@@ -38,7 +38,7 @@ Azure CDN genel ve Azure CDN Çin'de, aşağıdaki özelliklere sahiptir:
 
      - Çin dışında içerik teslim gerçekleştirir
 
-     - Dört fiyatlandırma katmanı: standart Microsoft, standart Verizon, Verizon premium ve standart Akamai
+     - Dört fiyatlandırma katmanı: Microsoft standart, standart Verizon, Verizon premium ve standart Akamai
 
      - [Belgeleri](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ Azure CDN genel ve Azure CDN Çin'de, aşağıdaki özelliklere sahiptir:
 
      - İçerik teslim Çin içinde gerçekleştirir
 
-     - İki fiyatlandırma katmanı: standart ve premium
+     - İki fiyatlandırma katmanı: Standart ve premium
 
      - [Belgeleri](https://docs.azure.cn/en-us/cdn/)
  

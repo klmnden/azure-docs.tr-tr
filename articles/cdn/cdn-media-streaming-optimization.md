@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636273"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Medya akışı Azure CDN ile iyileştirme 
  
@@ -86,8 +86,8 @@ Varsa **akamai'den Azure CDN standart** algılar akış bildirimi veya parça va
 
 |   | Genel web teslimatı | Genel medya akışı | İsteğe bağlı video medya akışı  
 --- | --- | --- | ---
-Önbelleğe alma: pozitif <br> HTTP 200 203, 300, <br> 301, 302 ve 410 | 7 gün |365 gün | 365 gün   
-Önbelleğe alma: negatif <br> HTTP 204 305, 404, <br> ve 405 | None | 1 saniye | 1 saniye
+Önbelleğe alma: Olumlu <br> HTTP 200 203, 300, <br> 301, 302 ve 410 | 7 gün |365 gün | 365 gün   
+Önbelleğe alma: Olumsuz <br> HTTP 204 305, 404, <br> ve 405 | None | 1 saniye | 1 saniye
  
 ### <a name="deal-with-origin-failure"></a>Kaynak hatası işlem  
 
@@ -105,7 +105,7 @@ Akış türleri desteklenir | Dosya uzantıları
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, anahtarı, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Seg parça URL yapısı <br> (normal ifade eşleştirme: ^(/.*)Seq(\d+)-Frag(\d+)
-TİRE | mpd, tire, dıvx, ismv, m4s, m4v, mp4, mp4v, <br> sidx webm, mp4a m4a, ISMA
-Kesintisiz akış | / bildirimi//QualityLevels parçaları /
+TİRE | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Kesintisiz akış | /manifest/, /QualityLevels/Fragments/
   
  

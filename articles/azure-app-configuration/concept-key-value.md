@@ -4,20 +4,20 @@ description: Yapılandırma verilerini Azure uygulama yapılandırmasında depol
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741198"
 ---
 # <a name="key-value-store"></a>Anahtar değeri deposu
 
@@ -45,29 +45,27 @@ Uygulama yapılandırma anahtarlarını birçok yönden hiyerarşik olarak düze
 
 Bir hiyerarşiye, anahtar adlarını nasıl yapısı çeşitli örnekler şunlardır:
 
-* Ortamda tabanlı
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Bileşen Hizmetleri tabanlı
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Dağıtım bölgelerine bağlı
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Etiket anahtarları
+
+Uygulama yapılandırma anahtarı değerleri isteğe bağlı olarak bir etiket özniteliği olabilir. Etiketler, aynı anahtarla anahtar değerlerini ayırt etmek için kullanılır. Bir anahtar *app1* etiketlerle *A* ve *B* bir uygulama yapılandırma deposu içinde iki ayrı anahtar oluşturur. Varsayılan olarak, bir anahtar değer etiketi boş olduğundan veya `null`.
+
+Etiket bir anahtar varyantlarını oluşturmak için kullanışlı bir yol sağlar. Bir ortak etiketleri aynı anahtar için birden çok ortama belirtmek için kullanılır:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Sürüm anahtar değerleri
-
-Uygulama yapılandırma anahtarı değerleri isteğe bağlı olarak bir etiket özniteliği olabilir. Etiketler, aynı anahtarla anahtar değerlerini ayırt etmek için kullanılır. Bir anahtar *app1* etiketlerle *v1* ve *v2* bir uygulama yapılandırma deposu iki ayrı anahtar değerlerini oluşturur. Varsayılan olarak, bir anahtar değer etiketi boş olduğundan veya `null`.
 
 Değişen uygulama yapılandırması sürümü anahtar değerlerini otomatik olarak değil. Etiket bir anahtar değeri birden çok sürümünü oluşturmak için bir yol kullanın. Örneğin, bir uygulama sürüm numarası girebilirsiniz veya anahtar değerlerini tanımlamak için bir Git işleme kimliği etiketlerde belirli yazılım derleme ile ilişkili.
 

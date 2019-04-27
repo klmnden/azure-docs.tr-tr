@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Microsoft Azure sanal ağları hakkında sık sorulan sorulara yanıtlar.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713626"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -304,7 +305,7 @@ Sanal ağ TAP Önizleme aşamasındadır. Önizleme sırasında hizmet düzeyi a
 
 Bir DOKUNUN yapılandırması ile hızlandırılmış ağ etkin bir sanal makineye bağlı ağ arabirimi eklemek mümkün olacaktır. Ancak, sanal makinede gecikme süresi ve performans yük boşaltma trafiği yansıtma için şu anda Azure tarafından desteklenmediğinden DOKUNUN yapılandırma hızlandırılmış ağ bağlantısı ekleyerek etkilenecek.
 
-## <a name="virtual-network-service-endpoints"></a>Sanal ağ hizmeti uç noktaları
+## <a name="virtual-network-service-endpoints"></a>Sanal ağ hizmet uç noktaları
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Bir Azure hizmeti için hizmet uç noktaları ayarlama işlemlerini doğru dizi nedir?
 Bir hizmet uç noktaları aracılığıyla Azure hizmet kaynağıyla güvenliğini sağlamak için iki adımı vardır:

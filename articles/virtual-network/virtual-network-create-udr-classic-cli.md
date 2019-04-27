@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743930"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Yönlendirilmesini denetlemesini ve Azure CLI kullanarak sanal gereçler (Klasik) kullanma
 
@@ -51,7 +51,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure config mode asm
     ```
 
-    Çıktı:
+    Çıkış:
 
         info:    New mode is asm
 
@@ -61,7 +61,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure network route-table create -n UDR-FrontEnd -l uswest
     ```
    
-    Çıktı:
+    Çıkış:
    
         info:    Executing command network route-table create
         info:    Creating route table "UDR-FrontEnd"
@@ -80,7 +80,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-    Çıktı:
+    Çıkış:
    
         info:    Executing command network route-table route set
         info:    Getting route table "UDR-FrontEnd"
@@ -99,7 +99,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
     ```
    
-    Çıktı:
+    Çıkış:
    
         info:    Executing command network vnet subnet route-table add
         info:    Looking up the subnet "FrontEnd"

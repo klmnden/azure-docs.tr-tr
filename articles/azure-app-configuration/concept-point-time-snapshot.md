@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
 ms.openlocfilehash: 83770e8c5f415670855b5cf2502d02c4d6919440
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741147"
 ---
 # <a name="point-in-time-snapshot"></a>Belirli bir noktanın anlık görüntüsü
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815107"
 ---
 # <a name="structured-query-expression"></a>Yapılandırılmış sorgu ifadesi
 
@@ -29,7 +29,7 @@ Yapılandırılmış sorgu ifadeleri öğesinden alınan [ *yorumlama* ](interpr
 
 Bir öznitelik sorgu ifadesi karşı belirli bir öznitelik eşleşmesi temeline göre bir nesne tanımlar.  Farklı eşleşen işlemlerini, öznitelik türüne bağlı olarak desteklenir ve dizinli işlemi belirtilen [şema](SchemaFormat.md):
 
-| Type | İşlem | Örnekler |
+| Tür | İşlem | Örnekler |
 |------|-------------|------------|
 | String | şuna eşittir: | Başlık 'görünmeyen anlam çözümleme' = (kurallı + eş anlamlılar) |
 | String | şuna eşittir: | Author.Name=='susan t dumais (kurallı yalnızca)|

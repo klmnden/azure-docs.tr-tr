@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1346018d99a1c26290ad8928d9794f3b55050910
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 15de566d756d6b0f7719eabf74ee9c7ac66659d6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794000"
 ---
 # <a name="certification"></a>Sertifika
 
 NetWeaver sertifika yanı sıra, SAP, SAP hana, SAP HANA Azure Iaas gibi belirli altyapıları desteklemek özel bir sertifika gerektirir.
 
-Temel, derece SAP HANA sertifika ve NetWeaver'lu SAP notuna [SAP notu #1928533-azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533).
+Temel, derece SAP HANA sertifika ve NetWeaver'lu SAP notuna [SAP notu #1928533-azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533).
 
 SAP HANA (büyük örnekler) Azure birimlerdeki sertifika kayıtlarını bulunabilir [SAP HANA sertifikalı ve Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
 

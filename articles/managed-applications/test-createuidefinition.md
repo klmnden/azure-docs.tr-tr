@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746338"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal arabirimi testi
 Sonra [createUiDefinition.json dosyası oluşturma](create-uidefinition-overview.md) Azure yönetilen uygulama için kullanıcı deneyimini test gerekir. Test etmeyi kolaylaştırmak için portal dosyanızda yükleyen bir betik kullanın. Aslında, yönetilen uygulamayı dağıtmak gerekmez.

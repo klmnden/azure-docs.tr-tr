@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725610"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Reliable Services WCF tabanlı iletişim yığını
 Reliable Services framework servisine kullanmak istedikleri iletişim yığını seçmek hizmet yazarlar sağlar. İletişim yığını kendi seçtikleri takabilirsiniz **ICommunicationListener** döndürüldüğü [CreateServiceReplicaListeners veya Createserviceınstancelisteners](service-fabric-reliable-services-communication.md) yöntemleri. Framework'te iletişim WCF tabanlı kullanmak istediğiniz hizmet yazarları için Windows Communication Foundation (WCF) tabanlı iletişim yığını bir uygulamasını sağlar.

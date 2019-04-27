@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 3/26/2019
 ms.author: raiye
 ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623077"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
@@ -487,7 +487,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 17-09 | [4038779], [4038786], [4038793] |Yalnızca Windows Güvenlik |2.66, 3.53, 4.46 |12 Eylül 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|.NET Eylül güncelleştirmesi |2.66, 3.53, 4.46 |12 Eylül 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |12 Eylül 2017 |
-| CVE-2017-8704 | [4038782] |Hizmet reddi |5.11 |12 Eylül 2017 |
+| CVE-2017-8704 | [4038782] |Hizmet Reddi |5.11 |12 Eylül 2017 |
 | Yok | [4034664] |Ağustos olmayan güvenlik dökümü  |2.66 |8 Ağustos 2017 |
 | Yok | [4034665] |Ağustos olmayan güvenlik dökümü |5.11 |8 Ağustos 2017 |
 | Yok | [4034681] |Ağustos olmayan güvenlik dökümü |4.46 |8 Ağustos 2017 |

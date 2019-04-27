@@ -17,11 +17,11 @@ ms.date: 04/18/2019
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c959b42086df2df816583ea9d2f8f2fc7a9243fd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743585"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Azure Otomasyonu ile Azure Linux sanal makine dikey olarak ölçeklendirme
 Dikey ölçeklendirme artan veya azalan bir makine yanıt iş yükü olarak kaynaklarını işlemidir. Azure'da bu sanal makinenin boyutunu değiştirerek gerçekleştirilebilir. Bu, aşağıdaki senaryolarda yardımcı olabilir

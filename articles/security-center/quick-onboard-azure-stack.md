@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706489"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Hızlı Başlangıç:  Yerleşik Güvenlik Merkezi, Azure Stack sanal makinelere
 Sonra yerleşik Azure abonelik özelliklerini ekleyerek Azure Stack üzerinde çalıştırılan sanal makinelerinizi korumak için Güvenlik Merkezi'ni etkinleştirebilirsiniz **Azure İzleyici, güncelleştirme ve yapılandırma yönetimi** sanal makine uzantısını Azure Stack marketini.

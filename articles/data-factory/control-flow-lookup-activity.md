@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768667"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data factory'de arama etkinliği
 
@@ -53,14 +53,15 @@ Aşağıdaki veri kaynaklarını arama etkinliği için desteklenir. 5.000, en b
 ```
 
 ## <a name="type-properties"></a>Tür özellikleri
+
 Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
 Veri kümesi | Veri kümesi başvurusu arama için sağlar. Ayrıntılı bilgi **veri kümesi özellikleri** karşılık gelen her Bağlayıcısı makalesi bölümü. | Anahtar/değer çifti | Evet
 source | Kopyalama etkinliği kaynak ile aynı veri kümesine özgü kaynak özelliklerini içerir. Ayrıntılı bilgi **kopyalama etkinliği özellikleri** karşılık gelen her Bağlayıcısı makalesi bölümü. | Anahtar/değer çifti | Evet
-firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülüp döndürülmeyeceğini gösterir. | Boole | Hayır. Varsayılan değer: `true`.
+firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülüp döndürülmeyeceğini gösterir. | Boolean | Hayır. Varsayılan değer: `true`.
 
 > [!NOTE]
-
+> 
 > * Kaynak sütunlar **ByteArray** türü desteklenmez.
 > * **Yapı** veri kümesi tanımında desteklenmiyor. Metin biçimi dosyaları için üst bilgi satırı sütun adını belirtmek için kullanın.
 > * Arama kaynağınız bir JSON dosyası ise `jsonPathDefinition` ayarı JSON nesnesi yeniden şekillendirilmesine desteklenmiyor. Tüm nesneleri alınır.
@@ -311,5 +312,5 @@ Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın
 
 - [İşlem hattı yürütme etkinliği](control-flow-execute-pipeline-activity.md)
 - [ForEach etkinliği](control-flow-for-each-activity.md)
-- [GetMetadata etkinliği](control-flow-get-metadata-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Web etkinliği](control-flow-web-activity.md)

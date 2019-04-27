@@ -2,20 +2,21 @@
 title: Dayanıklı işlevler - Azure, dış düzenlemeler
 description: Dış düzenlemeler, Azure işlevleri için dayanıklı işlevler uzantısını kullanarak uygulamayı öğrenin.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732425"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) içinde dış düzenlemeler
 
@@ -84,3 +85,4 @@ Bir düzenleyici işlevi sonsuz bir döngüye ve durdurulması gerekir, kullanı
 
 > [!div class="nextstepaction"]
 > [Tekil düzenlemeler uygulamayı öğrenin](durable-functions-singletons.md)
+

@@ -3,17 +3,17 @@ title: Azure IoT Hub Cihazı Sağlama Hizmeti’ne Genel Bakış | Microsoft Doc
 description: Bu makale Azure’da Cihaz Sağlama Hizmeti ve IoT Hub ile cihaz sağlamayı açıklar
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 12/05/2017
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746164"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama
 Microsoft Azure, tüm IoT çözüm ihtiyaçlarınız için zengin bir tümleşik genel bulut hizmetleri kümesi sağlar. IoT Hub Cihazı Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabilir.

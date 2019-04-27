@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759920"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure İzleyici günlük sorgu örnekleri
 Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) kullanarak [Kusto sorgu dili](/azure/kusto/query/) Azure İzleyici'den farklı türde günlük verileri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  

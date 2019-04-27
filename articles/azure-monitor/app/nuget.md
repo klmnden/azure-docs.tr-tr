@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
 ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699214"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet paketleri
 
@@ -29,8 +29,8 @@ Application Insights için NuGet paketlerini kararlı sürüm geçerli listesi a
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Yöntem çağrılarının durdurma sağlar | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | .NET uygulamaları için Application Insights bağımlılık Toplayıcı. Bu Application Insights platforma özel paketler için bağımlı bir paket ve bağımlılık telemetrisi otomatik olarak toplanmasını sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights performans sayaçları Toplayıcı, Application Insights için toplanan performans sayaçlarını tarafından veri göndermesini sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.applicationınsights.Web | 2.8.0 | .NET için Application Insights web uygulamaları | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
-| Microsoft.applicationınsights.windowsserver | 2.8.0 | Application Insights Windows Server NuGet paketini otomatik olarak .NET uygulamaları için application ınsights telemetrisi toplama sağlar. Bu paket veya tek başına paketin platforma özel paketler (like .NET çalışan rolleri için) tarafından kapsanmayan .NET uygulamaları için Application Insights platforma özel paketler için bağımlı bir paket olarak kullanılabilir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
+| Microsoft.ApplicationInsights.Web | 2.8.0 | .NET için Application Insights web uygulamaları | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet paketini otomatik olarak .NET uygulamaları için application ınsights telemetrisi toplama sağlar. Bu paket veya tek başına paketin platforma özel paketler (like .NET çalışan rolleri için) tarafından kapsanmayan .NET uygulamaları için Application Insights platforma özel paketler için bağımlı bir paket olarak kullanılabilir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Çevrimdışı senaryolarda telemetri korur Application Insights Windows Server SDK telemetri kanal sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## <a name="common-packages-for-aspnet-core"></a>ASP.NET Core için ortak paketleri
@@ -41,7 +41,7 @@ Application Insights için NuGet paketlerini kararlı sürüm geçerli listesi a
 | Microsoft.ApplicationInsights | 2.8.0 | Bu paket, tüm Application Insights Telemetri türlerini iletimini için temel işlevleri sağlar ve diğer tüm Application Insights paketleri için bağımlı bir paket | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | .NET uygulamaları için Application Insights bağımlılık Toplayıcı. Bu Application Insights platforma özel paketler için bağımlı bir paket ve bağımlılık telemetrisi otomatik olarak toplanmasını sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights performans sayaçları Toplayıcı, Application Insights için toplanan performans sayaçlarını tarafından veri göndermesini sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.applicationınsights.windowsserver | 2.8.0 | Application Insights Windows Server NuGet paketini otomatik olarak .NET uygulamaları için application ınsights telemetrisi toplama sağlar. Bu paket veya tek başına paketin platforma özel paketler (like .NET çalışan rolleri için) tarafından kapsanmayan .NET uygulamaları için Application Insights platforma özel paketler için bağımlı bir paket olarak kullanılabilir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
+| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet paketini otomatik olarak .NET uygulamaları için application ınsights telemetrisi toplama sağlar. Bu paket veya tek başına paketin platforma özel paketler (like .NET çalışan rolleri için) tarafından kapsanmayan .NET uygulamaları için Application Insights platforma özel paketler için bağımlı bir paket olarak kullanılabilir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Çevrimdışı senaryolarda telemetri korur Application Insights Windows Server SDK telemetri kanal sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## <a name="listenerscollectorsappenders"></a>Dinleyicileri/toplayıcıları/appenders
@@ -61,7 +61,7 @@ Application Insights için NuGet paketlerini kararlı sürüm geçerli listesi a
 | Paket adı | Kararlı bir sürüm | Açıklama | İndirme |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.ServiceFabric | 2.2.0 | Bu paket, uygulamayı service fabric bağlamla telemetri otomatik düzenleme çalıştığı sağlar. Bu NuGet yerel Service Fabric uygulamaları için kullanmayın. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric/) |
-| Microsoft.applicationınsights.servicefabric.Native | 2.2.0 | Service fabric uygulamaları için Application Insights modülü. Bu NuGet yalnızca yerel Service Fabric uygulamaları için kullanın. Kapsayıcılarda çalıştırılan uygulamalar için Microsoft.ApplicationInsights.ServiceFabric paketi kullanın. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
+| Microsoft.ApplicationInsights.ServiceFabric.Native | 2.2.0 | Service fabric uygulamaları için Application Insights modülü. Bu NuGet yalnızca yerel Service Fabric uygulamaları için kullanın. Kapsayıcılarda çalıştırılan uygulamalar için Microsoft.ApplicationInsights.ServiceFabric paketi kullanın. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
 
 ## <a name="status-monitor"></a>Durum İzleyicisi
 

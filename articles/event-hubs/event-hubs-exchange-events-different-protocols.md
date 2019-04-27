@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821779"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Tüketiciler ve farklı protokoller kullanan üreticileri arasındaki Exchange olayları: AMQP, Kafka ve HTTPS
 Azure Event Hubs Tüketicileri ve üreticileri için üç protokolden destekler: AMQP, Kafka ve HTTPS. Her biri bu protokolleri, bir ileti, bu nedenle doğal olarak aşağıdaki soruyu ortaya temsil eden kendi yolu vardır: bir uygulama bir protokol olan olay Hub'ına olayları gönderir ve bunları farklı bir protokol kullanır, çeşitli bölümlerini ve değerlerini ne yapması Olay aramak gibi tüketici ulaştığında? Bu makalede, üretici ve tüketici olaya içindeki değerleri kullanan uygulama tarafından doğru şekilde yorumlandığından emin olmak için en iyi uygulamalar açıklanmaktadır.

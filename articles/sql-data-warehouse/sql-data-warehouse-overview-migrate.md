@@ -2,20 +2,21 @@
 title: Çözümünüzü SQL veri ambarı'na geçirme | Microsoft Docs
 description: Geçiş Kılavuzu, çözümü için Azure SQL veri ambarı platformu sunmaktadır.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 04c921282d3591e7326d326c230bf72e7f5c1812
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776229"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Çözümünüzü Azure SQL veri ambarı'na taşıyın
 Ne var olan veritabanı çözümünü Azure SQL veri ambarı'na geçiş ile ilgili bakın. 
@@ -36,7 +37,6 @@ SQL veri ambarı sahip işlem (gerçekleştirme OLTP) iş yükleri için kullanm
 - Satır satır işleme
 - Uyumsuz biçimleri (JSON, XML)
 
-
 ## <a name="plan-the-migration"></a>Geçişi planlama
 
 Varolan bir çözümü SQL Data Warehouse'a geçirmeye karar verdikten sonra başlama önce planlamanız önemlidir. 
@@ -51,17 +51,6 @@ Başarılı bir geçiş gerçekleştirmek için tablo şemalarını, kodunuz ve 
 -  [Kodunuzu geçirme](sql-data-warehouse-migrate-code.md)
 -  [Verilerinizi geçirme](sql-data-warehouse-migrate-data.md). 
 
-<!--
-## Perform the migration
-
-
-## Deploy the solution
-
-
-## Validate the migration
-
--->
-
 ## <a name="next-steps"></a>Sonraki adımlar
 CAT (Müşteri danışma ekibi), Web günlükleri yayımlama bazı harika SQL veri ambarı yönergeler de vardır.  Kendi makaleye göz atın [uygulamada Azure SQL veri ambarı Storsimple'a veri] [ Migrating data to Azure SQL Data Warehouse in practice] geçiş hakkında ek yönergeler için.
 
@@ -73,3 +62,5 @@ CAT (Müşteri danışma ekibi), Web günlükleri yayımlama bazı harika SQL ve
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+
+<!--Update_Description: update meta properties, wording update-->

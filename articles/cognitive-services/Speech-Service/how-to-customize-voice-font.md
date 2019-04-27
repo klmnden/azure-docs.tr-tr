@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654080"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -33,7 +33,7 @@ Bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturm
 
 2. Hesap adınızın altında sağ üst kısımdaki, Git **abonelikleri**.
 
-    ![Abonelikler](media/custom-voice/subscriptions.png)
+    ![Subscriptions](media/custom-voice/subscriptions.png)
 
 3. Abonelikler sayfasında seçin **mevcut aboneliğe bağlanma**. Konuşma Hizmetleri farklı bölgelerdeki desteklediğini unutmayın. Burada abonelik anahtarınızı oluşturuldu ve anahtarınızı doğru alt portala bağlandığınızdan emin olun bölgeyi denetleyin.  
 

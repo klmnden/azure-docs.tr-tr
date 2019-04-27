@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782999"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
@@ -190,7 +190,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | yesOutput | String | evet |
 | noOutput | String | hayır |
-| objectOutput | Nesne | {"test": "value1"} |
+| objectOutput | Object | {"test": "value1"} |
 
 Aşağıdaki [örnek şablonu](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) bu işlevi yalnızca koşullu olarak geçerli olan ifadeleri ile kullanma işlemi gösterilmektedir.
 

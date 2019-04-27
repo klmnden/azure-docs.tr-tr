@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636528"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara yönelik tüm ilkeleri yönetme
 
@@ -91,7 +91,7 @@ Laboratuvar sahibi olarak, tüm VM'ler için laboratuvarda bir kapanma zamanlama
 
 1. Laboratuvarınız için giriş sayfasında, seçin **yapılandırması ve ilkelerini**.
 2. Seçin **otomatik kapatma ilke** içinde **zamanlamaları** soldaki menüden bölümü.
-3. Seçeneklerden birini seçin. Aşağıdaki bölümlerde bu seçenekler hakkında daha fazla bilgi verin: İlkesi ayarlama laboratuvar'da oluşturulan yalnızca yeni VM'ler ve zaten var olan VM'ler için geçerlidir. 
+3. Seçeneklerden birini seçin. Aşağıdaki bölümlerde, bu seçenekler hakkında daha fazla ayrıntı sağlar: İlkesi ayarlama, yalnızca laboratuvar'da oluşturulan yeni vm'lere ve zaten var olan VM'ler için geçerlidir. 
 
     ![Otomatik kapatma ilkesi seçenekleri](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

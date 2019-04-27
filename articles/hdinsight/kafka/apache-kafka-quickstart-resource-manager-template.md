@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640166"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -56,7 +56,7 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonunu kullanarak bir [Apa
     | --- | --- |
     | Abonelik | Azure aboneliğiniz. |
     | Kaynak grubu | Kümenin oluşturulduğu kaynak grubu. |
-    | Konum | Kümenin oluşturulduğu Azure bölgesi. |
+    | Location | Kümenin oluşturulduğu Azure bölgesi. |
     | Küme Adı | Kafka kümesinin adı. |
     | Küme Oturum Açma Kullanıcı Adı | Kümede barındırılan HTTPs tabanlı hizmetlerde oturum açmak için kullanılan hesap adı. |
     | Küme Oturum Açma Parolası | Oturum açma adının parolası. |

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5a5d462be5555090d1dfced5fa07c9b748eb312
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f046304121e0aed8efa1bbc2535d34186eba3496
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713716"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Azure'da SAP HANA (büyük örnekler) izleme
 
@@ -32,11 +32,11 @@ SAP HANA (büyük örnekler) azure'da diğer bir Iaas dağıtımından farklı �
 
 Azure sanal makineler ile yukarıda adlı kaynak sınıfları yeterli olup olmadığını anlamak ihtiyacınız veya tükenmiş. İşte ayrıntılı her farklı sınıflar:
 
-**CPU kaynak tüketimi:** bellekte depolanan veriler aracılığıyla çalışması yeterli CPU kaynağı olmalıdır emin olmak için SAP HANA karşı belirli iş yükü için tanımlanan oranı uygulanır. Bununla birlikte, burada HANA eksik dizinleri veya benzer sorunlar nedeniyle sorgular yürütme birçok CPU kullanan durumlar olabilir. Başka bir deyişle, CPU kaynak tüketimi belirli bir HANA Hizmetleri tarafından tüketilen CPU kaynaklarının yanı sıra HANA büyük örnek birim izlemeniz gerekir.
+**CPU kaynak tüketimi:** SAP HANA karşı iş yükü belirli tanımlanan oranı bellekte depolanan veriler aracılığıyla çalışması yeterli CPU kaynağı olmalıdır emin olmak için uygulanır. Bununla birlikte, burada HANA eksik dizinleri veya benzer sorunlar nedeniyle sorgular yürütme birçok CPU kullanan durumlar olabilir. Başka bir deyişle, CPU kaynak tüketimi belirli bir HANA Hizmetleri tarafından tüketilen CPU kaynaklarının yanı sıra HANA büyük örnek birim izlemeniz gerekir.
 
 **Bellek tüketimi:** HANA içinde yanı sıra dışında HANA biriminde izlemek önemlidir. HANA içinde nasıl veri HANA SAP içinde gerekli boyutlandırma yönergeleri kalmak için ayrılan bellek tüketiyor izleyin. Ayrıca, ek yüklü olmayan-HANA yazılım değil çok fazla bellek kullanmasına ve bu nedenle HANA bellek için rekabet emin olmak için en büyük örnek düzeyi bellek tüketimi izlemek istiyorsanız.
 
-**Ağ bant genişliği:** Azure VNet ağ geçidi, Azure Vnet'te giren ve çıkan bant genişliği sınırlandırılmıştır, sel izlemek yararlı olacak şekilde ne kadar yakın, Azure ağ geçidi SKU'sunu sınırlarına kadar anlamasına, bir sanal ağ içindeki tüm Azure Vm'leri tarafından veri alma ili. Algılama de gelen ve giden ağ trafiğini izlemek ve zaman içinde işlenir birimleri izlemek için HANA büyük örneği biriminde kolaylaştırır.
+**Ağ bant genişliği:** Azure VNet ağ geçidinin bant genişliğini ne kadar yakın, Azure ağ geçidi SKU'sunu seçtiğiniz sınırları için anlamasına sanal ağ içindeki tüm Azure Vm'leri tarafından alınan verileri izlemek yararlı olacak şekilde, Azure Vnet'te giren sınırlıdır. Algılama de gelen ve giden ağ trafiğini izlemek ve zaman içinde işlenir birimleri izlemek için HANA büyük örneği biriminde kolaylaştırır.
 
 **Disk alanı:** Disk alanı tüketimini genellikle zamanla artar. En yaygın nedenler: veri hacmi artar, işlem günlüğü yedeklemeleri, izleme dosyalarını depolamak ve depolama anlık görüntüleri gerçekleştirme yürütülmesi. Bu nedenle, disk alanı kullanımını izlemek ve HANA büyük örneği birimi ile ilişkilendirilmiş disk alanını yönetmek önemlidir.
 

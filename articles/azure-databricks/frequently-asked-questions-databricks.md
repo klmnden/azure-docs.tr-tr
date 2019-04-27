@@ -1,5 +1,5 @@
 ---
-title: 'Azure Databricks: Sık kullanılan sorular ve Yardım'
+title: 'Azure Databricks: İlgili yaygın soruları ve Yardım'
 description: Sık sorulan sorular ve sorun giderme bilgileri Azure Databricks hakkında yanıtlarını alın.
 services: azure-databricks
 author: mamccrea
@@ -10,11 +10,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784716"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
@@ -44,7 +44,7 @@ Databricks ile karşılaşabileceğiniz bazı sorunlar aşağıda verilmiştir.
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. (Code: MissingSubscriptionRegistration) "
+"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. (Kod: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Çözüm
 
@@ -78,28 +78,28 @@ Bu sorunun çözümü birkaç şunlardır:
     e. Databricks çalışma alanı, bu kullanıcı olarak başlatın.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Sorun: Hesabınızı {email} Databricks'te kaydedilmedi 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Sorun: Hesabınızı {email} Databricks'te kayıtlı değil 
 
 #### <a name="solution"></a>Çözüm
 
 Çalışma alanı oluşturma ve bir kullanıcı olarak eklenir, çalışma alanını oluşturan kişiye başvurun. Azure Databricks yönetici konsolunu kullanarak ekleme söz konusu kişinin sahip. Yönergeler için [ekleme ve kullanıcıları yönetme](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Çalışma alanı oluşturulur ve bu hatayı almaya devam ediyorsanız, seçmeyi deneyin **çalışma alanını Başlat** Azure portalından.
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Sorun: (PublicIPCountLimitReached) kümesi oluşturma sırasında bulut sağlayıcısı başlatma hatası
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Sorun: Küme (PublicIPCountLimitReached) ayarlanırken bulut sağlayıcısı başlatma hatası
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bulut sağlayıcısı başlatma hatası: küme ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın. Azure hata kodu: PublicIPCountLimitReached. Azure hata iletisi: Bu bölgede Bu abonelik için 60'tan fazla genel IP adresleri oluşturulamıyor. "
+"Bulut sağlayıcısı başlatma hatası: Bir bulut Sağlayıcısı hatası küme ayarlarken hatayla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın. Azure hata kodu: PublicIPCountLimitReached. Azure hata iletisi: Bu abonelik için 60'tan fazla genel IP adresleri bu bölgede oluşturulamıyor."
 
 #### <a name="solution"></a>Çözüm
 
 Databricks küme düğümü başına bir genel IP adresini kullanın. Aboneliğinizi zaten tüm genel IP'ler kullandıysa, aşağıdakileri yapmalısınız [Kotayı artırmak için istek](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Seçin **kota** olarak **sorun türü**, ve **ağ: ARM** olarak **kota türü**. İçinde **ayrıntıları**, bir genel IP adresi kota artışı isteyebilir. Örneğin, sınırınızı 60 şu anda ise ve 100 düğümlü bir küme oluşturmak istediğiniz, sınır artışı 160 için istek.
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Sorun: Bir ikinci tür küme (MissingSubscriptionRegistration) ayarlanırken bulut sağlayıcısı başlatma hatası
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Sorun: İkinci türü (MissingSubscriptionRegistration) kümesi oluşturma sırasında bulut sağlayıcısı başlatma hatası
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bulut sağlayıcısı başlatma hatası: küme ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
-Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. "
+"Bulut sağlayıcısı başlatma hatası: Bir bulut Sağlayıcısı hatası küme ayarlarken hatayla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
+Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik, 'Microsoft.Compute' ad alanını kullanacak şekilde kaydedilmedi. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. "
 
 #### <a name="solution"></a>Çözüm
 
@@ -109,7 +109,7 @@ Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'M
 
 Daha ayrıntılı yönergeler için bkz. [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Sorun: Azure Databricks yöneticisinin yalnızca kuruluşunuzdaki kaynaklara erişmek için izinler gerekiyor.
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Sorun: Azure Databricks, yalnızca bir yöneticisinin, kuruluşunuzdaki kaynaklara erişmek için izinler gerekiyor.
 
 #### <a name="background"></a>Arka plan
 

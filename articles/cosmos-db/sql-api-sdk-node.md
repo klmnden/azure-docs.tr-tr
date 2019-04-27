@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626749"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ ms.locfileid: "54033596"
 * Burada bir hatalı concat sonuçlarının nedeniyle bağlantıları döndürmeden değil RangePartitionResolver.resolveForRead hata düzeltildi.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Sabit hashPartitionResolver resolveForRead(): Ne zaman sağlanan hiçbir bölüm anahtarı, kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu oluşturmaya.
+* Fixed hashPartitionResolver resolveForRead(): Ne zaman sağlanan hiçbir bölüm anahtarı, kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu oluşturmaya.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -adanmış HTTPS aracı: Azure Cosmos DB amacıyla genel aracı değiştirme kaçının. Adanmış bir aracı tüm lib'ın istekleri için kullanın.
@@ -212,7 +212,7 @@ Devre dışı bırakılan bir SDK'sı Cosmos DB kullanarak tüm istekleri hizmet
 
 <br/>
 
-| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
+| Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 Ağustos 2018 |--- |
 | [1.14.4](#1.14.4) |03 Mayıs 2018 |--- |

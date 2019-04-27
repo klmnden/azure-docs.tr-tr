@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747271"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IOT Central işlecin görünümünü özelleştirme
 
@@ -61,7 +61,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
     | Ölçüm Türü | Telemetri |
     | Ölçüm | sıcaklık |
     | Toplama | Maksimum |
-    | Görünürlük  | Etkin |
+    | Görünürlük  | Enabled |
 
     ![KPI ekleme](media/tutorial-customize-operator/addkpi.png)
 

@@ -11,21 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736590"
 ---
 # <a name="health-probes"></a>Sistem durumu araştırmaları
 
-Her bir arka uç sistem durumu belirlemek için her bir ön kapısı ortamı düzenli aralıklarla yapay bir HTTP/HTTPS isteği her yapılandırılmış uçlarınıza gönderir. Ön kapı, bu araştırmaların alınan yanıtları sonra "iyi" arka uçları için gerçek istemci isteklerini yönlendirmek belirlemek için kullanır.
+Her bir arka uç sistem durumu belirlemek için her bir ön kapısı ortamı düzenli aralıklarla yapay bir HTTP/HTTPS isteği her yapılandırılmış uçlarınıza gönderir. Front Door bu araştırmalardan gelen yanıtları kullanarak gerçek istemci isteklerini yönlendireceği "en iyi" arka uçları belirler.
 
 
 ## <a name="supported-protocols"></a>Desteklenen protokoller
 
-Ön kapısı gönderen bir araştırmalarla HTTP veya HTTPS protokollerini destekler. Bu araştırmaların yönlendirme istemci istekleri için yapılandırılan aynı TCP bağlantı noktaları üzerinden gönderilir, geçersiz kılınamaz.
+Ön kapısı gönderen bir araştırmalarla HTTP veya HTTPS protokollerini destekler. Bu araştırmalar istemci isteklerini yönlendirmek için yapılandırılmış olan TCP bağlantı noktaları üzerinden gönderilir ve bu ayar geçersiz kılınamaz.
 
 ## <a name="health-probe-responses"></a>Sistem durumu araştırma yanıtları
 
@@ -58,5 +58,5 @@ Herhangi bir arka uçtan bir sağlık durumuna geri döndüğünde, ön kapısı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.

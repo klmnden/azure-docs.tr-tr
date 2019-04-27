@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656816"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management sayfası şablonları
 Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
@@ -228,11 +228,11 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|referenceCode|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
-|errorCode|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
-|emailBody|dize|Bu sayfa bir iç hata sonucunda görüntülendiyse oluşturulan gövdesi e-posta.|  
-|requestedUrl|dize|Sayfa bulunamadı, istenen URL.|  
-|referrerUrl|dize|İstenen URL başvuran URL'si.|  
+|referenceCode|string|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
+|hata kodu|string|Bu sayfa bir iç hata sonucunda görüntülendiyse üretilen kod.|  
+|emailBody|string|Bu sayfa bir iç hata sonucunda görüntülendiyse oluşturulan gövdesi e-posta.|  
+|requestedUrl|string|Sayfa bulunamadı, istenen URL.|  
+|referrerUrl|string|İstenen URL başvuran URL'si.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   

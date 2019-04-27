@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783980"
 ---
 # <a id="troubleshooting"></a> Application Insights Snapshot Debugger'ı etkinleştirme veya anlık görüntüleri görüntüleme sorunlarını giderme
 Uygulamanız için Application Insights Snapshot Debugger etkin, ancak özel durumlar için anlık görüntüleri görememek, sorunlarını gidermek için bu yönergeleri kullanabilirsiniz. Neden anlık görüntüleri oluşturulmaz birçok farklı neden olabilir. Bazı olası ortak nedenleri belirlemek için anlık görüntü sistem durumu denetimi çalıştırabilirsiniz.

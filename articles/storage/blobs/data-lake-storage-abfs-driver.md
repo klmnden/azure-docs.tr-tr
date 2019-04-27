@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708626"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Dahili olarak ABFS sürücü dosyalara ve dizinlere URI belirtilen kaynaklar çevirir ve bu başvuruları ile Azure Data Lake depolama REST API çağrıları yapar.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 Hadoop application Data Lake depolama Gen2'ye yeteneğine sahip bir hesap içinde yer alan kaynaklara güvenle erişin, böylece iki tür kimlik doğrulaması ABFS sürücü destekler. Kullanılabilir kimlik doğrulama düzenleri tam ayrıntıları verilmiştir [Azure depolama Güvenlik Kılavuzu](../common/storage-security-guide.md). Bunlar:
 

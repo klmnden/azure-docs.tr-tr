@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721020"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -83,7 +83,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın.  
   
   
-|Ad|Değer|Type|Gerekli|  
+|Ad|Değer|Tür|Gerekli|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** URL önizlemesi API'sı şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|String|Evet|  
 |<a name="query" />q|Önizleme URL'si|String|Evet|  
@@ -96,7 +96,7 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
 Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması API'si olduğu gibi. İstek başarısız olursa, en üst düzey nesnedir [ErrorResponse](#errorresponse) nesne.
 
 
-|Nesne|Açıklama|  
+|Object|Açıklama|  
 |------------|-----------------|  
 |[Web]|Önizleme özniteliklerini içeren üst düzey JSON nesnesi.|  
 |[Olay]|Bilgiler içeren üst düzey JSON nesnesi.| 
@@ -106,7 +106,7 @@ Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması AP
 ### <a name="error"></a>Hata  
 Gerçekleşen hata tanımlar.  
   
-|Öğe|Açıklama|Type|  
+|Öğe|Açıklama|Tür|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|String|  
 |<a name="error-message" />İleti|Hatanın açıklaması.|String|  
@@ -119,7 +119,7 @@ Gerçekleşen hata tanımlar.
 ### <a name="errorresponse"></a>ErrorResponse  
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|Tür ipucu.|String|  
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata:](#error)|  
@@ -129,7 +129,7 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 ### <a name="license"></a>Lisans  
 Altında bir metin veya resim kullanılabilir lisans tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |ad|Lisans adı.|String|  
 |url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|String|  
@@ -138,19 +138,19 @@ Altında bir metin veya resim kullanılabilir lisans tanımlar.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Lisans attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|LicenseAttribution için ayarlanmış bir tür ipucu.|String|  
 |lisans|İçeriği altında kullanılabilir lisans.|[Lisans](#license)|  
 |licenseNotice|Hedeflenen alanının yanındaki lisans. Örneğin, "Metin SA tarafından CC lisansı altında".<br /><br /> Lisans'ın adını ve URL'sini kullan `license` lisans ayrıntılarını açıklayan Web sitesi için köprü oluşturma için alan. Ardından, lisans adı değiştirin `licenseNotice` oluşturduğunuz köprü dizesiyle (örneğin, CC-tarafından-SA).|String|  
-|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
+|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boolean|  
 |targetPropertyName|Kuralın uygulanacağı alanın adı.|String|  
   
 
 ### <a name="link"></a>Bağlantı  
 Köprü bileşenlerinin tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|Tür ipucu.|String|  
 |metin|Görünen metin.|String|  
@@ -160,10 +160,10 @@ Köprü bileşenlerinin tanımlar.
 ### <a name="linkattribution"></a>LinkAttribution  
 İçin bağlantı attribution sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|LinkAttribution için ayarlanmış bir tür ipucu.|String|  
-|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
+|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boolean|  
 |targetPropertyName|Kuralın uygulanacağı alanın adı.<br /><br /> Bir hedef belirtilmemişse atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin ve bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi. Örneğin, "verilerden < sağlayıcısı name1\> &#124; < sağlayıcısı name2\>".|String|  
 |metin|Attribution metin.|String|  
 |url|Sağlayıcının Web sitesi URL'si. Kullanım `text` ve'nın köprü oluşturmak için URL.|String|  
@@ -172,10 +172,10 @@ Köprü bileşenlerinin tanımlar.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Medya attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|MediaAttribution için ayarlanmış bir tür ipucu.|String|  
-|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
+|mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boolean|  
 |targetPropertyName|Kuralın uygulanacağı alanın adı.|String|  
 |url|Medya içeriklerinin köprüsünü oluşturmak için kullandığınız URL. Örneğin, hedef görüntü varsa görüntü tıklanabilir yapmak için URL kullanın.|String|  
   
@@ -186,7 +186,7 @@ Bir yayımcı olarak tanımlar.
   
 Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |ad|Yayımcının adı.|String|  
 |url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|String|  
@@ -196,7 +196,7 @@ Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın
 ### <a name="webpage"></a>Web sayfası  
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|
 |ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|  
@@ -208,36 +208,36 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 ### <a name="querycontext"></a>QueryContext  
 Bing istek için kullanılan sorgu bağlamı tanımlar.  
   
-|Öğe|Açıklama|Type|  
+|Öğe|Açıklama|Tür|  
 |-------------|-----------------|----------|  
-|adultIntent|Belirtilen sorgu yetişkinlere yönelik sonuçlar olup olmadığını belirten bir Boole değeri. Değer **true** yetişkinlere yönelik sonuçlar; sorgu varsa, aksi takdirde, **false**.|Boole|  
+|adultIntent|Belirtilen sorgu yetişkinlere yönelik sonuçlar olup olmadığını belirten bir Boole değeri. Değer **true** yetişkinlere yönelik sonuçlar; sorgu varsa, aksi takdirde, **false**.|Boolean|  
 |alterationOverrideQuery|Orijinal dizeyi kullanmak için Bing zorlamak için kullanılacak sorgu dizesi. Örneğin, sorgu dizesi ise *downwind saling*, geçersiz kılma sorgu dizesi olacaktır *+ downwind saling*. Sonuçlanan sorgu dizesini kodlayın unutmayın *% 2Bsaling + downwind*.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|String|  
 |alteredQuery|Bing tarafından sorguyu gerçekleştirmek için kullanılan sorgu dizesi. Bing yazım hatalarını özgün sorgu dizesini içerdiği değiştirilen sorgu dizesini kullanır. Örneğin, sorgu dizesi ise `saling downwind`, değiştirilen sorgu dizesi olacaktır `sailing downwind`.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|String|  
-|askUserForLocation|Bing doğru sonuçlar sağlamak için kullanıcının konumuna isteyip istemediğini gösteren bir Boole değeri. Kullanarak kullanıcının bulunduğu konum belirttiyseniz [X MSEdge Clientıp](#clientip) ve [X arama konumu](#location) üst bilgiler, bu alan yoksayabilirsiniz.<br /><br /> "Günün hava durumu" veya "kullanıcının konumuna doğru sonuçlar sağlamak için gereken Yakınımdaki restoranlar" gibi konumu kullanan sorgular için bu alan ayarlanır **true**.<br /><br /> ' % S'konum (örneğin, "Seattle hava") içeren konumu kullanan sorgular için bu alan kümesine **false**. Bu alan ayrıca kümesine **false** konumu "gibi en iyi satıcılar" uyumlu olmayan sorgular.|Boole|  
+|askUserForLocation|Bing doğru sonuçlar sağlamak için kullanıcının konumuna isteyip istemediğini gösteren bir Boole değeri. Kullanarak kullanıcının bulunduğu konum belirttiyseniz [X MSEdge Clientıp](#clientip) ve [X arama konumu](#location) üst bilgiler, bu alan yoksayabilirsiniz.<br /><br /> "Günün hava durumu" veya "kullanıcının konumuna doğru sonuçlar sağlamak için gereken Yakınımdaki restoranlar" gibi konumu kullanan sorgular için bu alan ayarlanır **true**.<br /><br /> ' % S'konum (örneğin, "Seattle hava") içeren konumu kullanan sorgular için bu alan kümesine **false**. Bu alan ayrıca kümesine **false** konumu "gibi en iyi satıcılar" uyumlu olmayan sorgular.|Boolean|  
 |originalQuery|İstekte belirtilen sorgu dizesi.|String|  
 
 ### <a name="identifiable"></a>Tanımlama
 
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
 
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |-------------|-----------------|----------|
 |öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
 
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |-------------|-----------------|----------|
 |resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|
 |answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|String|
 |textualIndex|Görüntülenecek textualAnswers yanıt dizini.| İşaretsiz tamsayı|
-|değer|Görüntülenecek yanıt veya öğeyi görüntülemek için bir yanıt tanımlayan kimliği. Kimliği bir yanıt tanımlıyorsa, yanıtın tüm öğeleri görüntüler.|Tanımlama|
+|value|Görüntülenecek yanıt veya öğeyi görüntülemek için bir yanıt tanımlayan kimliği. Kimliği bir yanıt tanımlıyorsa, yanıtın tüm öğeleri görüntüler.|Tanımlama|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sırayla tanımlar.  
@@ -254,7 +254,7 @@ Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sır
   
 Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unutmayın (HTTP durum kodudur 200 Tamam); Ancak, yanıt gövdesi boş olur.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|Tür ipucu SearchResponse için ayarlanır.|String|  
 |Web sayfası|Önizleme tanımlayan bir JSON nesnesi|string|  
@@ -263,7 +263,7 @@ Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unut
 ### <a name="textattribution"></a>TextAttribution  
 Düz metin attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Type|  
+|Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|TextAttribution için ayarlanmış bir tür ipucu.|String|  
 |metin|Attribution metin.<br /><br /> Metin atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin veya bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi.|String| 

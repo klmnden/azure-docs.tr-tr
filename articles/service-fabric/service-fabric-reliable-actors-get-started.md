@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726391"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors hizmetini kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -116,7 +116,7 @@ Aktör hizmeti çağırmak için basit bir konsol uygulaması oluşturun.
 
     ActorClient projesinde NuGet paketi ve tüm bağımlılıklar yüklenir.
 
-5. İstemci projesi ayrıca arabirimleri projeye bir başvuru gerektirir.  ActorClient projeye sağ **bağımlılıkları** ve ardından **Başvurusu Ekle...** .  Seçin **projeleri > Çözüm** (seçili değilse) ve ardından onay kutusunun yanındaki işaretleyerek **HelloWorld.Interfaces**.  **Tamam**'ı tıklatın.
+5. İstemci projesi ayrıca arabirimleri projeye bir başvuru gerektirir.  ActorClient projeye sağ **bağımlılıkları** ve ardından **Başvurusu Ekle...** .  Seçin **projeleri > Çözüm** (seçili değilse) ve ardından onay kutusunun yanındaki işaretleyerek **HelloWorld.Interfaces**.  **Tamam** düğmesine tıklayın.
     
     ![Başvurusu Ekle iletişim kutusu][7]
 

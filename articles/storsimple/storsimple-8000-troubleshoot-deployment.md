@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: MT
+ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631562"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple cihaz dağıtım sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -39,7 +39,7 @@ Cihazınız ilk kez dağıtırken bir sorunla çalıştırırsanız, aşağıdak
 * Dağıtım önkoşulları denetleyin. Açıklanan tüm bilgilere sahip olduğunuzdan emin olun [dağıtım yapılandırma denetim listesi](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
 * Sorun açıklanan görmek için StorSimple sürüm notlarını gözden geçirin. Sürüm Notları yükleme bilinen sorunlara yönelik geçici çözümler içerir. 
 
-Cihaz dağıtımı sırasında yaygın yüz ortaya kullanıcıların Kurulum Sihirbazı'nı çalıştırdığınızda ve bunlar StorSimple için Windows PowerShell üzerinden cihazı ne zaman kaydedin verir. (StorSimple için Windows PowerShell kullanarak StorSimple aygıtınızı yapılandırmak ve kaydetmek için kullandığınız. Cihaz kaydı hakkında daha fazla bilgi için bkz. [3. adım: yapılandırmak ve StorSimple için Windows PowerShell aracılığıyla cihazınızın kaydetmek](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+Cihaz dağıtımı sırasında yaygın yüz ortaya kullanıcıların Kurulum Sihirbazı'nı çalıştırdığınızda ve bunlar StorSimple için Windows PowerShell üzerinden cihazı ne zaman kaydedin verir. (StorSimple için Windows PowerShell kullanarak StorSimple aygıtınızı yapılandırmak ve kaydetmek için kullandığınız. Cihaz kaydı hakkında daha fazla bilgi için bkz. [3. adım: Yapılandırma ve StorSimple için Windows PowerShell aracılığıyla cihazınızın kaydetme](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
 Aşağıdaki bölümlerde, StorSimple cihaz ilk kez yapılandırırken, karşılaştığınız sorunları çözmenize yardımcı olabilir.
 
@@ -71,22 +71,22 @@ Aşağıdaki tablolar ne zaman karşılaşabileceğiniz genel hatalar listeler:
 ## <a name="errors-during-the-required-network-settings"></a>Gerekli ağ ayarlarını sırasında hatalar
 | Hayır. | Hata iletisi | Olası nedenler | Önerilen eylem |
 | --- | --- | --- | --- |
-| 1 |Invoke-hcssetupwizard'ı: Bu komut yalnızca etkin denetleyicide çalıştırılabilir. |Yapılandırma edilgen denetleyiciye gerçekleştirildi. |Bu komut, etkin denetleyiciden çalıştırın. Daha fazla bilgi için [Cihazınızda etkin bir denetleyiciyi belirleme](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| 1 |Invoke-hcssetupwizard'ı: Bu komut, yalnızca etkin denetleyicide çalıştırılabilir. |Yapılandırma edilgen denetleyiciye gerçekleştirildi. |Bu komut, etkin denetleyiciden çalıştırın. Daha fazla bilgi için [Cihazınızda etkin bir denetleyiciyi belirleme](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | 2 |Invoke-hcssetupwizard'ı: Cihaz hazır değil. |DATA 0 ağ bağlantısı sorunları vardır. |DATA 0 üzerindeki fiziksel ağ bağlantısını denetleyin. |
-| 3 |Invoke-hcssetupwizard'ı: Ağdaki başka bir sistem ile bir IP adresi çakışması yok (HRESULT özel durum: 0x80070263). |DATA 0 için sağlanan IP zaten başka bir sistem tarafından kullanımda olan. |Kullanımda olmayan bir yeni IP sağlar. |
+| 3 |Invoke-hcssetupwizard'ı: Ağdaki başka bir sistem ile bir IP adresi çakışması (HRESULT özel durum: 0x80070263). |DATA 0 için sağlanan IP zaten başka bir sistem tarafından kullanımda olan. |Kullanımda olmayan bir yeni IP sağlar. |
 | 4 |Invoke-hcssetupwizard'ı: Küme kaynağı başarısız oldu. (HRESULT özel durum: 0x800713AE). |Yinelenen VIP. Sağlanan IP zaten kullanılıyor. |Kullanımda olmayan bir yeni IP sağlar. |
-| 5 |Invoke-hcssetupwizard'ı: Geçersiz bir IPv4 adresi. |IP adresi, yanlış bir biçimde sağlanır. |Biçimini denetleyin ve yeniden IP adresinizi sağlayın. Daha fazla bilgi için [IPv4 adresleme][1]. |
-| 6 |Invoke-hcssetupwizard'ı: Geçersiz bir IPv6 adresi. |IP adresi, yanlış bir biçimde sağlanır. |Biçimini denetleyin ve yeniden IP adresinizi sağlayın. Daha fazla bilgi için [IPv6 adresleme][2]. |
-| 7 |Invoke-hcssetupwizard'ı: Uç nokta eşleyicisinden kullanılabilir daha fazla uç nokta yok. (HRESULT özel durum: 0x800706D9) |Küme işlevselliğini çalışmıyor. |[Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) sonraki adımlar için. |
+| 5 |Invoke-hcssetupwizard'ı: Geçersiz IPv4 adresi. |IP adresi, yanlış bir biçimde sağlanır. |Biçimini denetleyin ve yeniden IP adresinizi sağlayın. Daha fazla bilgi için [IPv4 adresleme][1]. |
+| 6 |Invoke-hcssetupwizard'ı: IPv6 adresi geçersiz. |IP adresi, yanlış bir biçimde sağlanır. |Biçimini denetleyin ve yeniden IP adresinizi sağlayın. Daha fazla bilgi için [IPv6 adresleme][2]. |
+| 7 |Invoke-hcssetupwizard'ı: Uç nokta eşleyicisinden kullanılabilir daha fazla uç nokta yok. (HRESULT özel durum: 0x800706D9) |Küme işlevselliğini çalışmıyor. |Sonraki adımlar için [Microsoft Desteği](storsimple-8000-contact-microsoft-support.md)'ne başvurun. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>İsteğe bağlı web proxy ayarlarını sırasında hatalar
 | Hayır. | Hata iletisi | Olası nedenler | Önerilen eylem |
 | --- | --- | --- | --- |
 | 1 |Invoke-hcssetupwizard'ı: Geçersiz parametre (HRESULT özel durum: 0x80070057) |Bir proxy ayarları için sağlanan parametreler geçerli değil. |URI, doğru biçimde sağlanmadı. Aşağıdaki biçimi kullanın: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 |Invoke-hcssetupwizard'ı: RPC sunucusu kullanılamıyor (HRESULT özel durum: 0x800706ba) |Kök nedeni aşağıdakilerden biridir:<ol><li>Küme en fazla değil.</li><li>Edilgen denetleyici etkin denetleyiciyle iletişim kuramıyor ve komutunun pasif denetleyicisinden çalıştırılır.</li></ol> |Kök nedenine bağlı olarak:<ol><li>[Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) kümesi olduğundan emin olmak için.</li><li>Komut etkin denetleyiciden çalıştırın. Pasif denetleyicisinden komutu çalıştırmak istiyorsanız, edilgen denetleyici etkin denetleyiciyle iletişim kurabildiğinden emin olmak gerekir. Şunları yapmanız gerekir [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) varsa bu bağlantı bozuk.</li></ol> |
-| 3 |Invoke-hcssetupwizard'ı: RPC çağrısı başarısız oldu (HRESULT özel durum: 0x800706be) |Küme çalışmıyor. |[Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) kümesi olduğundan emin olmak için. |
+| 3 |Invoke-hcssetupwizard'ı: RPC çağrısı başarısız oldu (HRESULT özel durum: 0X800706be) |Küme çalışmıyor. |[Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) kümesi olduğundan emin olmak için. |
 | 4 |Invoke-hcssetupwizard'ı: Küme kaynağı bulunamadı (HRESULT özel durum: 0x8007138f) |Küme kaynağı bulunamadı. Yüklemenin doğru değildi, bu durum oluşabilir. |Cihazı varsayılan fabrika ayarlarına sıfırlamanız gerekebilir. [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) küme kaynağı oluşturmak için. |
-| 5 |Invoke-hcssetupwizard'ı: Küme kaynağı çevrimiçi değil (HRESULT özel durum: 0x8007138c) |Küme kaynaklarını çevrimiçi değil. |[Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) sonraki adımlar için. |
+| 5 |Invoke-hcssetupwizard'ı: Küme kaynağı çevrimiçi değil (HRESULT özel durum: 0x8007138c) |Küme kaynaklarını çevrimiçi değil. |Sonraki adımlar için [Microsoft Desteği](storsimple-8000-contact-microsoft-support.md)'ne başvurun. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Cihaz Yöneticisi parolası için ilgili hataları
 Varsayılan cihaz Yöneticisi parolası **Password1**. Bu parola süresi dolduktan sonra ilk oturum açma; Bu nedenle, değiştirmek için Kurulum Sihirbazı'nı kullanmanız gerekecektir. Cihaz ilk kez kaydolduğunuzda yeni bir cihaz Yöneticisi parolasını sağlamanız gerekir. 
@@ -111,7 +111,7 @@ Cihaz yöneticisini ve StorSimple Snapshot Manager parolalarını ayarlanırken 
 | 4 |Parola, sayısal karakterler içermelidir. |Parolalar, 3, 4 karakter türlerinden birini içermelidir: küçük harfler, büyük harfler, sayısal ve özel. Parolanız şu gereksinimleri karşıladığından emin olun. |
 | 5 |Parola, özel karakterler içermelidir. |Parolalar, 3, 4 karakter türlerinden birini içermelidir: küçük harfler, büyük harfler, sayısal ve özel. Parolanız şu gereksinimleri karşıladığından emin olun. |
 | 6 |Parola 3 4 karakter türlerinden birini içermelidir: büyük harf, küçük harfler, sayısal ve özel. |Parolanızı karakter gerekli türlerini içermiyor. Parolanız şu gereksinimleri karşıladığından emin olun. |
-| 7 |Parametresi, onay eşleşmiyor. |Parolanızı tüm gereksinimlerini karşıladığından ve onu doğru girildiğinden emin olun. |
+| 7 |Parametre onayla eşleşmiyor. |Parolanızı tüm gereksinimlerini karşıladığından ve onu doğru girildiğinden emin olun. |
 | 8 |Parolanızı varsayılan aynı olamaz. |Varsayılan parola *Password1*. İlk kez oturum açtıktan sonra bu parolayı değiştirmeniz gerekir. |
 | 9 |Cihaz parolasının girdiğiniz parola eşleşmiyor. Lütfen parolayı yeniden yazın. |Parolayı denetleyin ve yeniden yazın. |
 
@@ -128,15 +128,15 @@ Microsoft Azure'da çalışan StorSimple cihaz Yöneticisi hizmeti, cihaz kaydet
 
 | Hayır. | Hata iletisi | Olası nedenler | Önerilen eylem |
 | --- | --- | --- | --- |
-| 1 |Hata 350027: cihaz StorSimple cihaz Yöneticisi ile kaydedilemedi. | |Birkaç dakika bekleyin ve sonra işlemi yeniden deneyin. Sorun devam ederse [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md). |
-| 2 |Hata 350013: Cihaz kaydedilirken bir hata oluştu. Bu, hizmet kayıt anahtarının hatalı nedeniyle olabilir. | |Lütfen cihazı doğru hizmet kayıt anahtarıyla yeniden kaydedin. Daha fazla bilgi için [hizmet kayıt anahtarını alın.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
+| 1 |350027. hata: Cihaz StorSimple cihaz Yöneticisi ile kaydetme başarısız oldu. | |Birkaç dakika bekleyin ve sonra işlemi yeniden deneyin. Sorun devam ederse [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md). |
+| 2 |350013. hata: Cihaz kaydedilirken bir hata oluştu. Bu, hizmet kayıt anahtarının hatalı nedeniyle olabilir. | |Lütfen cihazı doğru hizmet kayıt anahtarıyla yeniden kaydedin. Daha fazla bilgi için [hizmet kayıt anahtarını alın.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
 | 3 |350063. hata: Kimlik doğrulaması için StorSimple cihaz Yöneticisi hizmetine geçirilen ancak kayıt başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. |ACS ile kimlik doğrulaması başarılı ancak hizmete yapılan kayıt çağrı başarısız oldu, bu hata gösterir. Bu işlem sonucunda ara sıra bir sorun olabilir. |Sorunu ederse, lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md). |
 | 4 |350049. hata: Kayıt sırasında hizmete erişilemedi. |Hizmete çağrı yapıldığında, bir web özel durum aldı. Bazı durumlarda, bu işlemi daha sonra yeniden denenerek düzeltilecek. |Lütfen IP adresi ve DNS adını denetleyin ve sonra işlemi yeniden deneyin. Sorun devam ederse [Microsoft Support başvurun.](storsimple-8000-contact-microsoft-support.md) |
-| 5 |Hata 350031: Cihaz zaten kayıtlı. | |Hiçbir eylem gerekmiyor. |
-| 6 |Hata 350016: Cihaz kaydı başarısız oldu. | |Lütfen kayıt anahtarının doğru olduğundan emin olun. |
-| 7 |Git desteği paketleri ve cihaz günlükleri kullanılabilir sorun giderme için. Yukarıdaki adımlar sorunu çözmezse Microsoft Support başvurun Yardım almak için. StorSimple cihaz sorunlarını gidermek için Tanılama Aracı'nı kullanmayı öğrenin](storsimple-8000-contact-microsoft-support.md). (Hata 350050) |Cihazınızın Ağ dışından ping atabilirsiniz emin olun. Kayıt, dış ağ bağlantısı yoksa bu hata ile başarısız olabilir. Bu hata, bir veya daha fazlasını bir birleşimi olabilir:<ul><li>Hatalı IP</li><li>Yanlış alt ağ</li><li>Hatalı ağ geçidi</li><li>DNS ayarları yanlış</li></ul> |Açıklanan adımları izleyerek [adım adım sorun giderme örnek](#step-by-step-storsimple-troubleshooting-example). |
-| 8 |Invoke-hcssetupwizard'ı: Geçerli işlemi [0x1FBE2] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft Support başvurun. |Bu, hizmeti veya aracı için tüm kullanıcı görünmez hataları oluşturulur, genel bir hatadır. En yaygın nedeni, ACS kimlik doğrulaması başarısız oldu olabilir. Hatanın olası nedeni NTP sunucusu yapılandırılması ile ilgili sorunları vardır ve cihaz üzerinde zaman doğru ayarlanmamış olmasıdır. |(Bir sorun varsa) saati düzeltin ve ardından kayıt işlemi yeniden deneyin. Saat dilimini ayarlamak için Set-HcsSystem - Timezone komutunu kullanırsanız, saat dilimi (örneğin "Pasifik Standart Saati") her sözcüğün büyük harfe Dönüştür.  Bu sorun devam ederse [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) sonraki adımlar için. |
-| 9 |Uyarı: cihaz etkinleştirilemedi. Cihaz yöneticinize ve StorSimple Snapshot Manager parolalar değiştirilmedi. |Kayıt başarısız olursa cihaz yöneticisini ve StorSimple Snapshot Manager parolalar değiştirilmez. | |
+| 5 |350031. hata: Cihaz zaten kayıtlı. | |Hiçbir eylem gerekmiyor. |
+| 6 |350016. hata: Cihaz kaydı başarısız oldu. | |Lütfen kayıt anahtarının doğru olduğundan emin olun. |
+| 7 |Invoke-hcssetupwizard'ı: Cihazınız kaydedilirken bir hata oluştu; Bu, hatalı IP adresi veya DNS adı nedeniyle olabilir. Lütfen ağ ayarlarınızı denetleyin ve yeniden deneyin. Sorun devam ederse [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md). (Hata 350050) |Cihazınızın Ağ dışından ping atabilirsiniz emin olun. Kayıt, dış ağ bağlantısı yoksa bu hata ile başarısız olabilir. Bu hata, bir veya daha fazlasını bir birleşimi olabilir:<ul><li>Hatalı IP</li><li>Yanlış alt ağ</li><li>Hatalı ağ geçidi</li><li>DNS ayarları yanlış</li></ul> |Açıklanan adımları izleyerek [adım adım sorun giderme örnek](#step-by-step-storsimple-troubleshooting-example). |
+| 8 |Invoke-hcssetupwizard'ı: Geçerli işlem bir [0x1FBE2] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft Support başvurun. |Bu, hizmeti veya aracı için tüm kullanıcı görünmez hataları oluşturulur, genel bir hatadır. En yaygın nedeni, ACS kimlik doğrulaması başarısız oldu olabilir. Hatanın olası nedeni NTP sunucusu yapılandırılması ile ilgili sorunları vardır ve cihaz üzerinde zaman doğru ayarlanmamış olmasıdır. |(Bir sorun varsa) saati düzeltin ve ardından kayıt işlemi yeniden deneyin. Saat dilimini ayarlamak için Set-HcsSystem - Timezone komutunu kullanırsanız, saat dilimi (örneğin "Pasifik Standart Saati") her sözcüğün büyük harfe Dönüştür.  Bu sorun devam ederse [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) sonraki adımlar için. |
+| 9 |Uyarı: Cihaz etkinleştirilemedi. Cihaz yöneticinize ve StorSimple Snapshot Manager parolalar değiştirilmedi. |Kayıt başarısız olursa cihaz yöneticisini ve StorSimple Snapshot Manager parolalar değiştirilmez. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>StorSimple dağıtımlarının sorunlarını gidermeye yönelik Araçlar
 StorSimple, StorSimple çözümünüzü gidermek için kullanabileceğiniz çeşitli araçlar içerir. Bunlar:
@@ -169,12 +169,12 @@ Destek Paketi cihaz sorunlarını giderme ile Microsoft Support ekibine yardımc
 ## <a name="cmdlets-available-for-troubleshooting"></a>Sorun giderme için uygun cmdlet'leri
 Bağlantı hataları algılamak için aşağıdaki Windows PowerShell cmdlet'lerini kullanın.
 
-* `Get-NetAdapter`: Ağ arabirimlerinin sağlığını algılamak için bu cmdlet'i kullanın.
+* `Get-NetAdapter`: Ağ arabirimleri durumunu algılamak için bu cmdlet'i kullanın.
 * `Test-Connection`: İçindeki ve dışındaki ağ ağ bağlantısını denetlemek için bu cmdlet'i kullanın.
 * `Test-HcsmConnection`: Başarıyla kayıtlı bir cihazın bağlantısını kontrol etmek için bu cmdlet'i kullanın.
 * `Sync-HcsTime`: Cihaz saatini görüntülemek ve NTP sunucusuyla zaman eşitlemeye zorlamak için bu cmdlet'i kullanın.
-* `Enable-HcsPing` ve `Disable-HcsPing`: StorSimple Cihazınızı ağ arabirimlerindeki ping ana izin vermek için bu cmdlet'leri kullanın. Varsayılan olarak, StorSimple ağ arabirimleri ping isteklere yanıt vermez.
-* `Trace-HcsRoute`: Bu cmdlet bir rota izleme aracı kullanın. Bir süre son hedefine her yönlendiriciye paketleri gönderir ve ardından her adımdan döndürülen paketlerin göre sonuçları hesaplar. Bu yana `Trace-HcsRoute` hangi yönlendiriciler saptayabilirler veya bağlantıları ağ sorunlara neden herhangi belirli bir yönlendirici veya bağlantı, paket kaybı derecesini gösterir.
+* `Enable-HcsPing` ve `Disable-HcsPing`: StorSimple Cihazınızda ağ arabirimleri ping ana izin vermek için bu cmdlet'leri kullanın. Varsayılan olarak, StorSimple ağ arabirimleri ping isteklere yanıt vermez.
+* `Trace-HcsRoute`: Bu cmdlet, bir rota izleme aracı kullanın. Bir süre son hedefine her yönlendiriciye paketleri gönderir ve ardından her adımdan döndürülen paketlerin göre sonuçları hesaplar. Bu yana `Trace-HcsRoute` hangi yönlendiriciler saptayabilirler veya bağlantıları ağ sorunlara neden herhangi belirli bir yönlendirici veya bağlantı, paket kaybı derecesini gösterir.
 * `Get-HcsRoutingTable`: Yerel IP yönlendirme tablosu görüntülemek için bu cmdlet'i kullanın.
 
 ## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Get-NetAdapter cmdlet'iyle sorun giderme

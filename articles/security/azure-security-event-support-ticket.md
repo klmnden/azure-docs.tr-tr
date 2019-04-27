@@ -1,6 +1,6 @@
 ---
-title: Azure güvenlik olay destek bileti - oturum | Microsoft Docs
-description: Olası bir güvenlik olayı tanımladıktan Azure Market'te satıcının olarak ı uygun bir bilet günlüğe kaydetme hakkında bilmeniz gerekir.
+title: Azure - güvenlik olayı destek biletini günlüğe kaydetme hakkında | Microsoft Docs
+description: Olası bir güvenlik olayı tanımladıktan Azure Market'te bir satıcı olarak uygun bir biletini günlüğe kaydetme öğrenmek istiyorum.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586598"
 ---
-# <a name="how-to-log-a-security-event-support-ticket"></a>Güvenlik olay destek bileti günlüğe kaydetme hakkında
+# <a name="how-to-log-a-security-event-support-ticket"></a>Güvenlik olayı destek biletini günlüğe kaydetme hakkında
 
-1. Gidin [yayımcı desteğine](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) Microsoft kimlik bilgileriyle oturum açın.
-2. "Güvenlik olayı" sorun türü seçin ve "Güvenlik olay" ve "Güvenlik Açığı" kategoriler arasında seçin.
+1. Gidin [yayımcının Destek](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) ve Microsoft kimlik bilgilerinizle oturum açın.
+2. "Güvenlik olayı" sorun türü olarak seçin ve "Güvenlik olayı" ve "Güvenlik" kategoriler arasında seçin.
 
     ![Olay türü ve tanımı][1]
 
-3. Sorun türü ve kategori seçtikten sonra tıklayın '**başlatma isteği**' düğmesi. Sorunu daha iyi anlamasına yardımcı olmak için aşağıdaki bilgileri sağlayın.
+3. Sorun türü ve kategori seçtikten sonra tıklayın '**başlatma isteği**' düğmesi. Sorunu daha iyi anlamamıza yardımcı olması için aşağıdaki bilgileri sağlayın.
 
-    ı. Sorun ve/veya güvenlik nedir?
+    i. Sorun ve/veya güvenlik açığı nedir?
 
-    II. Güvenlik açıkları için lütfen CVSS3 v3 hesaplayıcı (https://www.first.org/cvss/calculator/3.0) CVE (mitre.org) veya dolu sağlayın.
+    ii. Güvenlik açıkları için lütfen CVE (mitre.org) veya doldurulmuş CVSS3 v3 hesaplayıcıyı sağlayın (https://www.first.org/cvss/calculator/3.0).
 
-    III. Bir çözüm veya azaltma var mı? Yanıt Evet ise, lütfen düzeltme adımları sağlar.
+    iii. Bir çözüm veya azaltma var mı? Yanıt Evet ise Lütfen düzeltme adımları sağlanır.
 
-    IV. Müşterilere göndermek istediğiniz bir ileti var mı? Size uygun bir mesaj varsa oluşturabilir için sizinle birlikte çalışır.
+    IV. Müşterilerinize göndermek istediğiniz bir ileti var mı? Size uygun bir mesaj varsa çalışıyorlardı çalışacağız.
 
-4. Gönderme onayı - sorununuzu gönderildikten sonra biz bir iş günü içinde giriş kabul ve sorunu öncelik ve önem derecesi atayın.
+4. Gönderim onayı - sorununuzu gönderildikten sonra iptal eder bir iş günü içinde alındığını onaylamak ve sorununuzu bir öncelik ve önem derecesi atayın.
 
-    - Bizimle sorununuz hakkında iletişim kurmak gerekiyorsa, tüm yazışmaları onay numarasını kullanın.
+    - Sorununuzu bizimle iletişim kurması gerekiyorsa, içinde Tüm yazışmaları onay numarasını kullanın.
     - Herhangi bir zamanda sorunu ilerleme durumunu görüntüleyebilirsiniz.
 
-5. Sonraki ne olur? Sorun ve önem derecesine bağlı olarak, aşağıdaki adımlar izlenebilir:
+5. Sonra ne oluyordu? Sorun ve önem derecesine bağlı olarak, aşağıdaki adımlar izlenebilir:
 
-    - Biz de bizim değerlendirme sonucunu iletişim kurar. Sonuca bağlı olarak, kaldırmak veya teklifinizle değiştirme isteği edebiliriz. Bu durumda, biz etkilenen müşteriler kesintiyi en aza indirilir emin olmak için sizinle birlikte çalışır.
-    - Karşılıklı müşterilerimiz için olay/güvenlik açığı etkisini azaltmaya yardımcı olmak için birlikte çalışır.
+    - Biz de bizim değerlendirme sonucunu iletişim kurar. Sonuca bağlı olarak, kaldırmak veya teklifiniz değiştirme isteği edebiliriz. Bu durumda, biz kesintisi etkilenen müşteriler için simge durumuna küçültülmüş emin olmak için sizinle birlikte çalışır.
+    - Karşılıklı müşterilerimiz için olay/güvenlik açığı etkisini azaltmaya yardımcı olmak üzere sizinle işbirliği yaparız.
 
 
 [1]: ./media/azure-security-event-support-ticket/chart.png

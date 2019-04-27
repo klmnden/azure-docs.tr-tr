@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: b83a6e2c81eac9993c481561e3cebbed681d2c4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640336"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell (Klasik) kullanarak iç özel statik IP adresi ayarlama
 Çoğu durumda, sanal makineniz için statik iç IP adresi belirtmeniz gerekmez. Bir sanal ağdaki VM'ler otomatik olarak bir dahili IP adresine, belirttiğiniz aralıktan alır. Ancak bazı durumlarda, belirli bir sanal makine için statik bir IP adresi belirtme mantıklıdır. Örneğin, sanal makinenizin DNS çalıştıracağınız veya bir etki alanı denetleyicisi olacaktır. Statik iç IP adresi ile VM stop/sağlamayı kaldırma durumunda bile aracılığıyla kalır. 

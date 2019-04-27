@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704994"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -119,7 +119,7 @@ Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız
 |Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. |
 |Abonelik|5|Aboneliğinizde birden çok sahip belirleyin|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
 |Abonelik|5|Aboneliğinizde en fazla 3 sahip belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
-|Key Vault|5|Anahtar Kasası'nda tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|Key Vault|5|Key Vault'ta tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |Abonelik|15|Okuma izinleri olan dış hesapları aboneliğinizden kaldırın|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
 |Abonelik|1|Güvenlik ilgili kişi bilgilerini belirtin|Her aboneliğiniz için güvenlik kişi bilgilerini sağlayın. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır|
 
@@ -129,7 +129,7 @@ Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:
 
-- [Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma](security-center-virtual-machine-recommendations.md)
+- [Azure Güvenlik Merkezi'nde makinelerinizi ve uygulamalarınızı koruma](security-center-virtual-machine-recommendations.md)
 - [Azure Güvenlik Merkezi'nde ağınızı koruma](security-center-network-recommendations.md)
 - [Azure SQL hizmetini ve Azure Güvenlik Merkezi'nde veri koruma](security-center-sql-service-recommendations.md)
 

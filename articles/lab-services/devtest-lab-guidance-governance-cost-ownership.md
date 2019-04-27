@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775721"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>İdare maliyet ve sahipliğinin - Azure DevTest Labs altyapısını yönetme
 Geliştirme sürecinizi oluşturmayı düşünün ve test ortamları maliyet ve sahiplik birincil edilir. Bu bölümde, maliyetini en iyi duruma getirmek ve ortamınız genelinde sahipliği hizalama yardımcı olan bilgiler bulabilirsiniz.

@@ -1,10 +1,10 @@
 ---
-title: Paket yakalama Azure Ağ İzleyicisi giriş | Microsoft Docs
-description: Bu sayfa Ağ İzleyicisi paket yakalama özelliği genel bir bakış sağlar
+title: Azure Ağ İzleyicisi paket yakalama giriş | Microsoft Docs
+description: Bu sayfa Ağ İzleyicisi paket yakalama özelliği genel bir bakış sağlar.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
@@ -13,48 +13,48 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 3ca9619dcfe9054ab69d248e20f6d8e59324d308
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23864297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727038"
 ---
-# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Ağ İzleyicisi değişken paket yakalama giriş
+# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Değişken paket yakalama Azure Ağ İzleyicisi'nde giriş
 
-Ağ İzleyicisi değişken paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için paket yakalama oturumları oluşturmanıza olanak sağlar. Her iki ağ anormallikleri Tepkisel tanılamak için paket Yakalama yardımcı olur ve proactivity. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir.
+Ağ İzleyicisi değişken paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için paket yakalama oturumu oluşturmanıza olanak sağlar. Ve proactivity her iki ağ anomalileri öngörülebiliyorsa tanılamak için paket Yakalama yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir.
 
-Paket yakalama Ağ İzleyicisi uzaktan başlatılan bir sanal makine uzantısıdır. Bu özellik, bir paket yakalama değerli zaman kazandırır istenen sanal makinesinin üzerinde el ile çalıştırmayı yükünü kolaylaştırır. Paket yakalama portal, PowerShell'i, CLI veya REST API tetiklenebilir. Paket yakalama nasıl tetiklenebilir bir sanal makine uyarılara örnektir. Filtreler sağlamak, izlemek istediğiniz trafiği yakalamak yakalama oturumu için sağlanır. Filtreler, 5-tanımlama grubu üzerinde (protokolü, yerel IP adresi, uzak IP adresi, yerel bağlantı noktası ve uzak bağlantı noktası) dayalı bilgileri. Yakalanan veriler, yerel disk veya bir depolama blob depolanır. Her Abonelikteki bölge başına 10 paket yakalama oturumu sınırı yoktur. Bu sınır yalnızca oturumlar için geçerlidir ve kaydedilmiş paket yakalama dosyalarını VM yerel olarak veya bir depolama hesabı için geçerli değildir.
+Paket yakalaması Uzaktan Ağ İzleyicisi başlatılan bir sanal makine uzantısıdır. Bu özellik, bir paket yakalama değerli zaman kazandırır istenen sanal makineye üzerinde el ile çalıştırmayı yükünü kolaylaştırır. Paket yakalama, portal, PowerShell, CLI veya REST API tetiklenebilir. Paket yakalaması nasıl tetiklenebilir bir sanal makine uyarılara örnektir. Filtreler, izlemek istediğiniz trafik yakalama emin olmak yakalama oturumu için sağlanır. Filtreler 5 veri grubu üzerinde (protokol, yerel IP adresi, uzak IP adresi, yerel bağlantı noktası ve uzak bağlantı noktası) göre bilgi. Yakalanan veriler, yerel disk veya depolama blobu depolanır. Her Abonelikteki bölge başına 10 paket yakalama oturumu sınırı yoktur. Bu sınırı yalnızca oturumları için geçerlidir ve kaydedilen paket yakalama dosyalarını VM üzerinde yerel olarak veya bir depolama hesabı için geçerli değildir.
 
 > [!IMPORTANT]
-> Paket yakalama gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Paket yakalaması gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM'de uzantıyı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret [LinuxiçinAzureAğİzleyicisiAracısısanalmakineuzantısı](../virtual-machines/linux/extensions-nwa.md).
 
-Yalnızca istediğiniz bilgileri yakalamak bilgi azaltmak için aşağıdaki seçenekleri paket yakalama oturum açmak için kullanılabilir:
+Yalnızca istediğiniz bilgileri yakalamak bilgi miktarını azaltmak için aşağıdaki seçenekler için bir paket yakalama oturumu kullanılabilir:
 
-**Yapılandırma Yakalama**
+**Yapılandırma Yakala**
 
 |Özellik|Açıklama|
 |---|---|
-|**Paket (bayt) başına en fazla bayt sayısı** | Sayı yakalanan bayt gelen her paket, tüm baytlar boş bırakılırsa yakalanır. Sayı yakalanan bayt gelen her paket, tüm baytlar boş bırakılırsa yakalanır. Yalnızca IPv4 üstbilgisi – gerekirse burada 34 belirtin |
-|**Oturum (bayt) başına en fazla bayt sayısı** | Oturum sona erdirilir değere ulaşıldığında, bayt toplam sayısı yakalanır.|
-|**Süre (saniye)** | Paket bir zaman kısıtlama kümelerini oturum yakalayın. Varsayılan değer 18000 saniye veya 5 saat olur.|
+|**Paket (bayt) başına en fazla bayt** | Sayı yakalanan bayt her paket, tüm baytları boş bırakılırsa yakalanır. Sayı yakalanan bayt her paket, tüm baytları boş bırakılırsa yakalanır. IPv4 üst bilgisi yalnızca – gerekiyorsa 34 burada belirtin. |
+|**Oturum (bayt) başına en fazla bayt** | Toplam sayısı, bayt değeri oturumu sonra erene ulaşıldıktan sonra yakalanır.|
+|**Süre (saniye)** | Bir zaman kısıtlaması paket yakalama oturumu ayarlar. Varsayılan değer 18000 saniye veya 5 saat ' dir.|
 
 **(İsteğe bağlı) filtreleme**
 
 |Özellik|Açıklama|
 |---|---|
-|**Protokol** | Paket yakalama için filtre uygulamak için protokol. Kullanılabilir TCP, UDP ve tüm değerlerdir.|
-|**Yerel IP adresi** | Bu değer, yerel IP adresi bu filtre değeri eşleştiği paket için paket yakalama filtreler.|
-|**Yerel bağlantı noktası** | Bu değer, yerel bağlantı noktası bu filtre değeri eşleştiği paket için paket yakalama filtreler.|
-|**Uzak IP adresi** | Bu değer, uzak IP Bu filtre değeri eşleştiği paket için paket yakalama filtreler.|
-|**Uzak bağlantı noktası** | Bu değer, uzak bağlantı noktası bu filtre değeri eşleştiği paket için paket yakalama filtreler.|
+|**Protokol** | Paket yakalaması için filtre uygulamak için protokol. TCP, UDP ve tüm değerleri kullanılabilir.|
+|**Yerel IP adresi** | Bu değer, yerel IP adresi bu filtre değeri eşleştiği paketleri paket yakalaması filtreler.|
+|**Yerel bağlantı noktası** | Bu değer, yerel bağlantı noktası bu filtre değeri eşleştiği paketleri paket yakalaması filtreler.|
+|**Uzak IP adresi** | Bu değer, paket için paket yakalaması uzak IP Bu filtre değeri eşleştiği filtreler.|
+|**Uzak bağlantı noktası** | Bu değer, uzak bağlantı noktası bu filtre değeri eşleştiği paketleri paket yakalaması filtreler.|
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Paket yakalama Portalı aracılığıyla ziyaret ederek nasıl yönetebileceğiniz öğrenin [paket yakalama Azure portalında yönetmek](network-watcher-packet-capture-manage-portal.md) veya şu adresi ziyaret ederek PowerShell ile [PowerShell ile paket yakalama yönetmek](network-watcher-packet-capture-manage-powershell.md).
+Portal üzerinden paket yakalamaları ederek nasıl yönetebileceğinizi öğrenin [Azure portalında paket yakalamayı yönetme](network-watcher-packet-capture-manage-portal.md) veya PowerShell ederek [PowerShell ile yönetme paket yakalama](network-watcher-packet-capture-manage-powershell.md).
 
-Sanal makine uyarılar ziyaret ederek temelinde öngörülü paket yakalamaları oluşturmayı öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Sanal makine uyarılara göre ziyaret ederek proaktif paket yakalamaları oluşturmayı [uyarı tetiklendi paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

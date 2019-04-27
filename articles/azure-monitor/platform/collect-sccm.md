@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741691"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Configuration Manager'a bağlanmak için Azure İzleyici
 System Center Configuration Manager ortamınızı Azure İzleyici eşitleme cihaz koleksiyonu verilere ve Azure İzleyici ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -27,7 +27,7 @@ System Center Configuration Manager ortamınızı Azure İzleyici eşitleme ciha
 
 Azure İzleyici, System Center Configuration Manager geçerli dal sürümü 1606 ve üstünü destekler.  
 
-## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
+## <a name="configuration-overview"></a>Yapılandırmaya genel bakış
 Aşağıdaki adımlar, Azure İzleyici ile Configuration Manager tümleştirmesini yapılandırma adımlarını özetler.  
 
 1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../../active-directory/develop/howto-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.

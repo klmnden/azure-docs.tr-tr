@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615033"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,11 +32,11 @@ Bu öğreticiye başlamadan önce bir **Azure aboneliğinizin** olması gerekir.
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. **Kaynak oluştur** >  **Veri ve Analiz** > **Data Lake Analytics** seçeneğine tıklayın.
 3. Aşağıdaki öğeler için değerleri seçin:
-   * **Ad**: Data Lake Analytics hesabınızı adlandırın (Yalnızca küçük harf ve sayı kullanılabilir).
-   * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.
+   * **Ad**: (Yalnızca küçük harf ve sayı kullanılabilir) Data Lake Analytics hesabınızı adlandırın.
+   * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliği seçin.
    * **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun.
    * **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin.
-   * **Data Lake depolama Gen1**: yeni bir Data Lake depolama Gen1 hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir'ı seçin. 
+   * **Data Lake depolama Gen1**: Yeni bir Data Lake depolama Gen1 hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olanı seçin. 
 4. İsteğe bağlı olarak Data Lake Analytics hesabınıza yönelik bir fiyatlandırma katmanı seçebilirsiniz.
 5. **Oluştur**’a tıklayın. 
 

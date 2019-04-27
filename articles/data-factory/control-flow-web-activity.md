@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764297"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data factory'de Web etkinliği
 Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz.
@@ -61,10 +61,10 @@ Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | Web etkinliği adı | Dize | Evet
-type | Ayarlanmalıdır **WebActivity**. | Dize | Evet
+ad | Web etkinliği adı | String | Evet
+type | Ayarlanmalıdır **WebActivity**. | String | Evet
 method | Hedef uç nokta için REST API yöntemi. | dize. <br/><br/>Desteklenen türler: "POST", "PUT GET" | Evet
 url | Hedef uç nokta ve yolu | Dize (veya dizenin ifadenin resulttype'ı ile). Etkinlik yapmayacağınıza zaman aşımı 1 dakika ile bir hata, uç noktasından bir yanıt almaz. | Evet
 Üst bilgileri | Gönderilen istek için üstbilgiler. Örneğin dil ve türdeki bir istek üzerinde ayarlanan: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dizenin ifadenin resulttype'ı ile) | Evet, Content-type üst bilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`

@@ -16,11 +16,11 @@ ms.date: 08/29/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720812"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesine CI/CD ile bir kapsayıcı uygulaması dağıtma
 
@@ -71,7 +71,7 @@ Bir Azure DevOps derleme tanımı, sırayla yürütülen derleme adımları küm
 
 Bir Azure DevOps yayın tanımı bir kümeye bir uygulama paketi dağıtan bir iş akışını açıklar. Derleme tanımı ve yayın tanımı birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Azure DevOps hakkında daha fazla bilgi [yayın tanımları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
-### <a name="create-a-build-definition"></a>Bir yapı tanımı oluşturun
+### <a name="create-a-build-definition"></a>Derleme tanımı oluşturma
 
 Giderek yeni takım projenizi açın https://dev.azure.com bir web tarayıcısı ve kuruluşunuz seçerek yeni proje tarafından izlenen. 
 
@@ -90,7 +90,7 @@ Seçin **Azure depoları Git** kaynağı olarak, ekibinizin proje adı, projeniz
 
 **Görevler**’de, **Aracı havuzu** olarak **Hosted VS2017**’yi seçin.
 
-![Görev seçin][task-agent-pool]
+![Görevleri seçme][task-agent-pool]
 
 **Görüntüleri etiketle**’ye tıklayın.
 

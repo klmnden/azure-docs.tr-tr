@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734533"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 

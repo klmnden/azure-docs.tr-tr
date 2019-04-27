@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764314"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data factory'de Web kancası etkinliği
 İşlem hattı yürütme, özel kod aracılığıyla denetlemek için bir web kancası etkinliği kullanabilirsiniz. Müşterilerin, Web kancası etkinliği kullanarak, bir uç noktasını çağırmak ve bir geri çağırma URL'si geçirin. İşlem hattı çalıştırması sonraki etkinliğe geçmeden önce çağrılacak geri arama bekler.

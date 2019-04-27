@@ -17,11 +17,11 @@ ms.date: 09/27/2018
 ms.author: szark
 ms.subservice: disks
 ms.openlocfilehash: 08f98775360b8c0a82f68f322053cb71f0e79af3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739089"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure'da Linux sanal makinesi üzerinde LVM'yi yapılandırma
 Bu belge, Azure sanal makineler'de mantıksal birim Yöneticisi (LVM) yapılandırma işlemi ele alınmaktadır. LVM'yi işletim sistemi diski veya veri diskleri Azure sanal makinelerinde kullanılabilir, ancak varsayılan olarak çoğu bulut görüntü işletim sistemi diskinde yapılandırılmış LVM olmaz. Aşağıdaki adımlar, veri diskleri için LVM'yi yapılandırma üzerinde odaklanır.

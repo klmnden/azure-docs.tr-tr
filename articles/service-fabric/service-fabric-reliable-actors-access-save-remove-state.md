@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725406"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Kaydet ve Reliable Actors durum kaldırma erişimi
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) hem mantıksal hem de durum kapsüllemek ve güvenilir bir şekilde durumunu korumak tek iş parçacıklı nesnelerdir. Her aktör örnek kendi bölümüne sahiptir [durum Yöneticisi](service-fabric-reliable-actors-state-management.md): güvenilir bir şekilde depolayan bir sözlüğü benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Hangi verileri depolamak için kullanabileceğiniz [Kalıcılık ayarı](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) kullanılır.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620609"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify yeniden izlemesine Linux Aracısı uzantısı
 
@@ -44,7 +44,7 @@ Bu uzantı, yeniden izlemesine için Linux aracısı için bir yükleme yolu sa�
 
 Yeniden izlemesine aracı bu Linux dağıtımları karşı çalıştırabilirsiniz
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 ve 17.04 |
 | Debian | 7,9 + ve 8.2 +, 9 |

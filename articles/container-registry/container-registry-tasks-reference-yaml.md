@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827264"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR görevleri başvurusu: YAML
 
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 Görev özellikleri genellikle üst kısmında görünür bir `acr-task.yaml` dosyasını bulun ve tam yürütülmesini görev adımları uygulanan genel özellikler. Bu genel özelliklerin bazıları içinde tek bir adımı kılınabilir.
 
-| Özellik | Type | İsteğe bağlı | Açıklama | Desteklenen bir geçersiz kılma | Varsayılan değer |
+| Özellik | Tür | İsteğe bağlı | Açıklama | Desteklenen bir geçersiz kılma | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Evet | Sürümü `acr-task.yaml` ACR görevleri hizmeti tarafından ayrıştırılan gibi dosya. Geriye dönük uyumluluğu korumak ACR görevleri içindedir, ancak bu değer, ACR içinde tanımlı bir sürüm uyumluluğu korumak için görevleri sağlar. En son sürüme belirtilmemişse, varsayılan olarak. | Hayır | None |
 | `stepTimeout` | int (saniye) | Evet | Bir adım çalıştırabilirsiniz saniye sayısı. Özelliği bir görevde belirtilmezse, varsayılan ayarlar `timeout` tüm adımları özelliğidir. Varsa `timeout` özelliği belirtilen bir adımında, görev tarafından sağlanan özelliğini geçersiz kılar. | Evet | 600 (10 dakika) |
@@ -92,7 +92,7 @@ Görev özellikleri genellikle üst kısmında görünür bir `acr-task.yaml` do
 
 Gizli dizi nesnesi, aşağıdaki özelliklere sahiptir.
 
-| Özellik | Type | İsteğe bağlı | Açıklama | Varsayılan değer |
+| Özellik | Tür | İsteğe bağlı | Açıklama | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Hayır | Gizli dizi tanımlayıcısı. | None |
 | `akv` | string | Evet | Azure Key Vault (AKV) gizli URL'si. | None |
@@ -102,7 +102,7 @@ Gizli dizi nesnesi, aşağıdaki özelliklere sahiptir.
 
 Ağ nesnesini aşağıdaki özelliklere sahiptir.
 
-| Özellik | Type | İsteğe bağlı | Açıklama | Varsayılan değer |
+| Özellik | Tür | İsteğe bağlı | Açıklama | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | Hayır | Ağ adı. | None |
 | `driver` | string | Evet | Ağı yönetmek için sürücü. | None |
@@ -362,7 +362,7 @@ Standart kullanarak `docker run` görüntü başvurusu kuralı `cmd` görüntül
 
 Her adım türü kendi türü için uygun çeşitli özelliklerini destekler. Aşağıdaki tabloda tüm kullanılabilir adım özelliklerini tanımlar. Adım türü tüm özellikleri desteklemez. Her bir adım türü için bu özelliklerin kullanılabildiğini görmek için bkz: [cmd](#cmd), [derleme](#build), ve [anında iletme](#push) adım türü başvurusu bölümler.
 
-| Özellik | Type | İsteğe bağlı | Açıklama | Varsayılan değer |
+| Özellik | Tür | İsteğe bağlı | Açıklama | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Evet | Olup kapsayıcı çalıştırırken ayrılmış. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Evet | Devre dışı bırakılıp bırakılmayacağını `workingDirectory` işlevleri geçersiz kılar. Bu ile birlikte kullanma `workingDirectory` kapsayıcının çalışma dizini üzerinde tam denetime sahip. | `false` |

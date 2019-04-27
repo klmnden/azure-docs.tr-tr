@@ -2,18 +2,18 @@
 title: IOT cihaz sağlama hizmeti güvenlik uç noktaların | Microsoft Docs
 description: Kavramlar - arka uç uygulamaları için IOT cihaz sağlama Hizmeti'ne erişimi denetleme. Güvenlik belirteçleri hakkında bilgi içerir.
 author: wesmc7777
-manager: philmea
+manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/09/2019
+ms.date: 09/28/2017
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626657"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama Hizmeti'ne erişimi denetleme
 
@@ -39,7 +39,7 @@ Size verebilir [izinleri](#device-provisioning-service-permissions) aşağıdaki
 > [!NOTE]
 > Bkz: [izinleri](#device-provisioning-service-permissions) ayrıntılı bilgi için.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Azure IOT Hub cihazı sağlama hizmeti, paylaşılan erişim ilkeleri karşı bir belirteci doğrulayarak uç noktalarına erişimi verir. Simetrik anahtarlar gibi güvenlik kimlik bilgilerini asla kablo üzerinden gönderilir.
 
