@@ -2,23 +2,19 @@
 title: Azure Anahtar Kasası nedir? | Microsoft Docs
 description: Azure Key Vault, şifreleme anahtarlarını koruma sağlar ve bulut uygulamaları ve Hizmetleri gizli dizileri kullanmak nasıl öğrenin.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 48ac0c3efe74723099e87a77871aa1a78834efbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640574"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -57,7 +53,7 @@ Diğer önemli koşullar şunlardır:
 
     ![Azure kaynaklarını iş için yönetilen kimlikleri diyagramı](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 Key Vault ile herhangi bir işlemi yapmak için önce için kimlik doğrulaması yapması gerekir. Anahtar Kasası'na kimlik doğrulaması için üç yolu vardır:
 
 - [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): Azure'da bir sanal makinede bir uygulamayı dağıttığınızda, sanal makinenize Key Vault erişimi olan bir kimlik atayabilirsiniz. Kimlikleri de atayabilirsiniz [diğer Azure kaynakları](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı uygulama veya hizmetin ilk gizli döndürmesini yönetme değil ' dir. Azure, otomatik olarak kimliğini döndürür. En iyi uygulama bu yaklaşım önerilir. 

@@ -11,11 +11,11 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809476"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -50,7 +50,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 ## <a name="which-azure-backup-components-should-i-use"></a>Hangi Azure Backup bileşenlerini kullanmalıyım?
 Azure Backup bileşeniyle neleri koruyabileceğiniz hakkında bilgi edinmek için aşağıdaki tabloyu kullanın.
 
-| Bileşen | Avantajlar | Sınırlar | Neler korunuyor? | Yedekler nerede saklanıyor? |
+| Bileşen | Avantajlar | Limits | Neler korunuyor? | Yedekler nerede saklanıyor? |
 | --- | --- | --- | --- | --- |
 | Azure Backup (MARS) aracısı |<li>Fiziksel veya sanal Windows işletim sistemi üzerindeki dosya ve klasörleri yedekler (VM’ler şirket içinde veya Azure’da olabilir)<li>Ayrı bir yedekleme sunucusu gerekli değildir. |<li>Günde 3 kez yedekleme <li>Uygulamayı algılamaz; yalnızca dosya, klasör ve birim düzeyinde geri yükleme, <li>  Linux desteği yok. |<li>Dosyalar, <li>Klasörler, <li>Sistem Durumu |Kurtarma Hizmetleri kasası |
 | System Center DPM |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Kurtarma Hizmetleri kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği <li>DPM 2012 R2 kullanarak VMware WM’lerini yedekleme ve geri yükleme |Oracle iş yükü yedeklenemiyor.|<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri <li>Sistem Durumu |<li>Kurtarma Hizmetleri kasası,<li> Yerel olarak bağlı disk,<li>  Bant (yalnızca şirket içi) |

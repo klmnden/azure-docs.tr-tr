@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
 ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595984"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Azure İzleyici ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 

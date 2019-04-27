@@ -1,6 +1,6 @@
 ---
 title: Sanal ağ iş sürekliliği | Microsoft Docs
-description: Azure sanal ağlar etkileyen bir Azure hizmet kesintisi durumunda yapmanız gerekenler hakkında bilgi edinin.
+description: Azure sanal ağları etkileyen bir Azure hizmet kesintisi olması durumunda yapmanız gerekenler öğrenin.
 services: virtual-network
 documentationcenter: ''
 author: NarayanAnnamalai
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: d993144006d1fb17d79ffee4f2da538264a309a4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742724"
 ---
 # <a name="virtual-network--business-continuity"></a>Sanal ağ – iş sürekliliği
 
 ## <a name="overview"></a>Genel Bakış
-Bir sanal ağ (VNet) bulut ağınızdaki mantıksal bir gösterimidir. Ağ alt ağlara ayırabilir ve kendi özel IP adres alanını tanımlamak sağlar. Sanal ağlar, Azure sanal makineler ve bulut Hizmetleri (web/çalışan rolleri) gibi işlem kaynaklarınızı barındırmak için bir güven sınırı görevi görür. VNet içinde barındırılan kaynaklar arasında doğrudan özel IP iletişim sağlar. Bir şirket içi ağınıza bir VPN ağ geçidi veya ExpressRoute aracılığıyla bir sanal ağa bağlayabilirsiniz.
+Bir sanal ağın (VNet) buluttaki ağınızın mantıksal bir gösterimidir. Kendi özel IP adres alanı tanımlayın ve ağ alt ağlar biçiminde segmentlere olanak tanır. Sanal ağlar, işlem kaynaklarınızı Azure Virtual Machines ve Cloud Services (web/çalışan rolleri) gibi barındırmak için bir güven sınırı görevi görür. Bir sanal ağ içinde bulunan kaynaklar arasında doğrudan özel IP iletişim sağlar. Bir şirket içi ağınıza bir VPN ağ geçidi veya ExpressRoute aracılığıyla bir sanal ağa bağlayabilirsiniz.
 
-Bir sanal ağa bir bölge kapsamında oluşturulur. Sanal ağlar ile iki farklı bölgelerde (örneğin, ABD Doğu ve Batı ABD) aynı adres alanında oluşturabilirsiniz, ancak bunları birlikte bağlanamıyor. 
+Bir sanal ağ bir bölge kapsamında oluşturulur. Sanal ağlar aynı adres alanında iki farklı bölge (örneğin, ABD Doğu ve Batı ABD) ile oluşturabilirsiniz, ancak birlikte bağlanamıyor. 
 
 ## <a name="business-continuity"></a>İş Sürekliliği
 
-Uygulamanızı kesintiye birkaç farklı yolu olabilir. Bir bölge doğal afet ya da birden fazla cihazda veya hizmetleri bir hata nedeniyle kısmi bir olağanüstü durum nedeniyle tamamen kesilebilir. VNet hizmeti üzerindeki etkiyi her bu durumlarda farklıdır.
+Uygulamanızı kesintiye birkaç farklı yol olabilir. Bir bölge doğal afet veya birden çok cihaz veya hizmet hatası nedeniyle kısmi bir olağanüstü durum nedeniyle tamamen kesilebilir. VNet hizmeti üzerindeki etkiyi bu durumların her farklıdır.
 
-**S: bir kesinti tüm bölge için oluşursa, ne yapmalıyım? Örneğin bir bölge tamamen doğal afet nedeniyle kesiliyor? Bölgede barındırılan sanal ağlara ne olur?**
+**S: Tüm bir bölge için bir kesinti oluşursa, ne yapmalıyım? Örneğin bir bölge tamamen doğal afet nedeniyle kesiliyor? Bölgesinde barındırılan sanal ağlara ne olur?**
 
-Y: sanal ağ ve etkilenen bölge içindeki kaynaklara kalır erişilemez hizmet kesintisi süre boyunca.
+Y: Sanal ağ kaynakları etkilenen bölgede kalır ve erişilemez hizmet kesintisi sırada.
 
-![Basit sanal ağ diyagramı](./media/virtual-network-disaster-recovery-guidance/vnet.png)
+![Basit bir sanal ağ diyagramı](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**S: neler yapabilirim aynı sanal ağda farklı bir bölgede yeniden oluşturmak için?**
+**S: Neler ekleyebilirim aynı sanal ağda farklı bir bölgede yeniden oluşturmak için?**
 
-Y: sanal ağlar oldukça basit kaynaklardır. Azure API'ları farklı bir bölgede aynı adres alanına sahip bir VNet oluşturmak için çalıştırabilirsiniz. Etkilenen bölgede yoktu aynı ortamını yeniden oluşturmak için bulut Hizmetleri web ve çalışan rolleri ve sahip olduğunuz sanal makineleri dağıtmak için API çağrıları yapma. Şirket içi bağlantınız gibi bir karma dağıtımında, yeni bir VPN ağ geçidi dağıtmak ve şirket içi ağınıza bağlanmak varsa.
+Y: Sanal ağlar oldukça basit kaynaklardır. Farklı bir bölgede aynı adres alanına sahip bir VNet oluşturmak için Azure API'leri çağırabilirsiniz. Etkilenen bölgede mevcut aynı ortama yeniden oluşturmak için Cloud Services web ve çalışan rolleri ve, olan sanal makineleri yeniden dağıtmak için API çağrıları olun. Şirket içi bağlantı varsa, örneğin karma bir dağıtımda, yeni bir VPN ağ geçidi dağıtımı ve şirket içi ağınıza bağlama sahip.
 
-Bir sanal ağ oluşturmak için bkz: [bir sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network).
+Bir sanal ağ oluşturmak için bkz [sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network).
 
-**S: sanal ağ içinde belirli bir bölgedeki çoğaltmasını önceden başka bir bölgede yeniden oluşturulabilir?**
+**S: Sanal ağ içinde belirli bir bölgeye çoğaltmasını önceden başka bir bölgede yeniden oluşturulabilir mi?**
 
-A: Evet vaktinden iki farklı bölgelerde aynı özel IP adres alanı ve kaynakları kullanarak iki sanal ağlar oluşturabilirsiniz. Sanal ağ internet'e yönelik Hizmetleri'nde barındırıyorsanız, trafik Yöneticisi etkin bölge coğrafi yol trafiğini tarafından ayarlayın. Ancak, yönlendirme sorununa neden olur ile aynı adres alanı, şirket içi ağınıza iki Vnet bağlanamıyor. Bir olağanüstü durum süresi ve bir bölgede bulunan bir sanal ağ kaybı, şirket içi ağınıza eşleşen adres alanına sahip bir VNet kullanılabilir bölge içinde bağlanabilir.
+Y: Evet, önceden iki farklı bölgelerde aynı özel IP adres alanı ve kaynakları kullanarak iki sanal ağ oluşturabilirsiniz. İnternet'e yönelik VNet Hizmetleri'nde barındırıyorsanız, Traffic Manager'ı etkin olduğu bölgeye coğrafi olarak yönlendirin trafiği tarafından ayarlanmış. Ancak, yönlendirme sorunlarına neden gibi aynı adres alanıyla şirket içi ağınıza iki sanal ağ bağlanamıyor. Olağanüstü bir durum saati ve bir bölgedeki bir sanal ağ kaybı, şirket içi ağınıza eşleşen bir adres alanı ile kullanılabilir bölgede başka bir sanal ağ bağlanabilirsiniz.
 
-Bir sanal ağ oluşturmak için bkz: [bir sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network).
+Bir sanal ağ oluşturmak için bkz [sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network).
 

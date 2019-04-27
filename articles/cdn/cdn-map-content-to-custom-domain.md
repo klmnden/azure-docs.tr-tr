@@ -15,11 +15,11 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636918"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Öğretici: Azure CDN uç noktanıza özel etki alanı Ekle
 Bu öğreticide bir Azure Content Delivery Network (CDN) uç noktasına özel etki alanı ekleme işlemi gösterilmektedir. İçerik ulaştırmak için bir CDN uç noktası kullandığınızda, CDN URL’nizde kendi etki alanı adınızın görünmesini istiyorsanız özel bir etki alanı gereklidir. Görünür bir etki alanınızın olması, müşterileriniz için kolaylık sağlar ve markalama için faydalıdır. 
@@ -66,7 +66,7 @@ cdnverify alt etki alanı ile bir CNAME kaydı oluşturmak için:
 
 3. Özel etki alanınız için bir CNAME kaydı girişi oluşturun ve alanları (alan adları değişebilir) aşağıdaki tabloda gösterildiği gibi tamamlayın:
 
-    | Kaynak                    | Type  | Hedef                     |
+    | Kaynak                    | Tür  | Hedef                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -160,7 +160,7 @@ cdnverify alt etki alanının uç noktanıza başarıyla eşlendiğini doğrulad
 
 3. Özel etki alanınız için bir CNAME kaydı girişi oluşturun ve alanları (alan adları değişebilir) aşağıdaki tabloda gösterildiği gibi tamamlayın:
 
-    | Kaynak          | Type  | Hedef           |
+    | Kaynak          | Tür  | Hedef           |
     |-----------------|-------|-----------------------|
     | < www.contoso.com> | CNAME | contoso.azureedge.net |
 

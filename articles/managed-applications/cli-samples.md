@@ -1,6 +1,6 @@
 ---
-title: Azure CLI örnekler - Azure yönetilen uygulamaların | Microsoft Docs
-description: Azure CLI örnekler - Azure yönetilen uygulamalar
+title: Azure CLI örnekleri - Azure yönetilen uygulamalar | Microsoft Docs
+description: Azure CLI örnekleri - Azure yönetilen uygulamalar
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 38ebea86783970e0b045dcf5a8a91f54ae6c6d6a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: d8b7c645bd9ee87faf51eab58651ddc5c7cde46a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23939937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588867"
 ---
-# <a name="azure-cli-samples"></a>Azure CLI örnekleri
+# <a name="azure-cli-samples"></a>Azure CLI Örnekleri
 
-Aşağıdaki tabloda Azure yönetilen Azure CLI kullanan uygulamalar için komut dosyaları bash bağlantılar içerir.
+Aşağıdaki tablo, Azure yönetilen Azure CLI'yı kullanan uygulamalar için bash betiklerine yönelik bağlantılar içerir.
 
 | | |
 |-|-|
 |**Yönetilen uygulama oluşturma**||
-| [Yönetilen uygulama tanımı oluşturun](scripts/managed-application-cli-sample-create-definition.md) | Hizmet Kataloğu'nda bir yönetilen uygulama tanımı oluşturur.  |
-| [Yönetilen uygulama dağıtma](scripts/managed-application-cli-sample-create-application.md) | Hizmet Kataloğu'ndan yönetilen uygulamayı dağıtır.  |
+| [Yönetilen uygulama tanımı oluşturma](scripts/managed-application-cli-sample-create-definition.md) | Hizmet kataloğunda bir yönetilen uygulama tanımı oluşturur.  |
+| [Yönetilen uygulamayı dağıtma](scripts/managed-application-cli-sample-create-application.md) | Hizmet kataloğundan yönetilen bir uygulama dağıtır.  |
 | | |
 |**Yönetilen kaynak grubunu güncelleştir**||
-| [Yönetilen kaynak grubunda kaynaklar alın ve sanal makineleri yeniden boyutlandırma](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | Yönetilen kaynak grubundan kaynakları alır ve sanal makineleri yeniden boyutlandırır. |
+| [Yönetilen kaynak grubundaki kaynakları alma ve Vm'leri yeniden boyutlandırma](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | Yönetilen kaynak grubundan kaynakları alır ve Vm'leri yeniden boyutlandırır. |

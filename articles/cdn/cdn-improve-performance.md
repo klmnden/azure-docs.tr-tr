@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637037"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN'de dosyaları sıkıştırarak performansı geliştirme
 Dosya sıkıştırma dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce bir dosyanın boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Dosya sıkıştırma, bant genişliği maliyetlerini azaltmak ve kullanıcılarınız için daha hızlı bir deneyim sağlayın.

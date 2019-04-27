@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure DevOps projeleri'ni kullanarak mevcut kodunuz için bir CI/CD işlem hattı oluşturma"
+title: "Öğretici: Azure DevOps projeleri'ni kullanarak mevcut kodunuz için CI/CD işlem hattı oluşturma"
 description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. DevOps projeleri birkaç Hızlı adımda, tercih ettiğiniz bir Azure hizmeti üzerinde uygulama başlatın, kendi kod ve GitHub deposunun yardımcı olur.
 services: vsts
 documentationcenter: vs-devops-build
@@ -18,13 +18,13 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 88ee15a3b5cc53542d9e098dee485b8a526bb9a6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60555360"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak mevcut kodunuz için bir CI/CD işlem hattı oluşturma
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak mevcut kodunuz için CI/CD işlem hattı oluşturma
 
 Azure DevOps projeleri, mevcut kodunuzu ve Git deposuna taşıyın veya sürekli tümleştirme (CI) ve azure'a sürekli teslim (CD) işlem hattı oluşturmak için örnek bir uygulama seçin basitleştirilmiş bir deneyim sunar.
 

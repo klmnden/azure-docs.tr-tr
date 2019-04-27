@@ -13,13 +13,13 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585479"
 ---
-# <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database ile ölçek genişletme
+# <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Veritabanı ile ölçek genişletme
 Out kullanarak Azure SQL veritabanlarını kolayca ölçeklendirebilirsiniz **esnek veritabanı** araçları. Bu araçlar ve özellikler, veritabanı kaynaklarını kullanmanıza olanak tanır **Azure SQL veritabanı** hizmet (SaaS) uygulamaları olarak işlem tabanlı iş yüklerinizi ve özellikle yazılım çözümleri oluşturun. Elastik veritabanı özellikleri oluşur:
 
 * [Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md): İstemci kitaplığı oluşturmak ve parçalı veritabanlarını korumak sağlayan bir özelliktir.  Bkz: [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
@@ -81,7 +81,7 @@ Bazı uygulamalar, her Kiracı için ayrı bir veritabanı oluşturmanın en kol
 
 ![Tek bir kiracı ile çok kiracılı karşılaştırması][4]
 
-Diğer senaryoları paketi birden çok kiracının birlikte halinde bunları ayrı veritabanlarına yalıtma yerine veritabanları. Bu tipik bir desendir **çok kiracılı parçalama düzeni** - ve uygulama çok sayıda küçük Kiracı yönetir olgusu odaklı. Çok kiracılı parçalama veritabanı tablolarını satırlarda tüm Kiracı kimliği tanımlayan anahtar veya parçalama anahtarı yürütmek için tasarlanmıştır. Tekrar uygun veritabanına bir kiracının istek yönlendirme için uygulama katmanı sorumludur ve bu elastik veritabanı istemci kitaplığı tarafından desteklenebilir. Satır düzeyi güvenlik filtresine hangi satırların her Kiracı erişebilir - Ayrıntılar için bkz. Ayrıca, kullanılabilir [esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamaları](sql-database-elastic-tools-multi-tenant-row-level-security.md). Veritabanları arasında verileri yeniden dağıtma ile çok kiracılı parçalama düzeni gerekli olabilir ve elastik veritabanı bölme-Birleştirme aracı tarafından sağlanır. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Diğer senaryoları paketi birden çok kiracının birlikte halinde bunları ayrı veritabanlarına yalıtma yerine veritabanları. Bu tipik bir desendir **çok kiracılı parçalama düzeni** - ve uygulama çok sayıda küçük Kiracı yönetir olgusu odaklı. Çok kiracılı parçalama veritabanı tablolarını satırlarda tüm Kiracı kimliği tanımlayan anahtar veya parçalama anahtarı yürütmek için tasarlanmıştır. Tekrar uygun veritabanına bir kiracının istek yönlendirme için uygulama katmanı sorumludur ve bu elastik veritabanı istemci kitaplığı tarafından desteklenebilir. Satır düzeyi güvenlik filtresine hangi satırların her Kiracı erişebilir - Ayrıntılar için bkz. Ayrıca, kullanılabilir [esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamaları](sql-database-elastic-tools-multi-tenant-row-level-security.md). Veritabanları arasında verileri yeniden dağıtma ile çok kiracılı parçalama düzeni gerekli olabilir ve elastik veritabanı bölme-Birleştirme aracı tarafından sağlanır. Elastik havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Veritabanı kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Birden çok veri taşıma tek kiracılı veritabanlarına
 Bir SaaS uygulaması oluştururken, ileriki müşterilerini yazılım deneme sürümü teklifi normaldir. Bu durumda, uygun maliyetli bir çok kiracılı veritabanı verileri için kullanın. Bir müşteri adaylarını olur, çünkü daha iyi performans sağlar ancak, tek kiracılı veritabanı daha iyidir. Müşteri verileri deneme süresi boyunca oluşturduysanız kullanın [bölme-birleştirme aracını](sql-database-elastic-scale-overview-split-and-merge.md) verileri birden çok kiracıdan yeni tek kiracılı veritabanına taşımak için.

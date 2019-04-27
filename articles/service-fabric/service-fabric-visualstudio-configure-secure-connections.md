@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628311"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Visual Studio'dan bir Service Fabric kümesine güvenli bağlantı yapılandırma
 Güvenli bir şekilde yapılandırılmış erişim denetimi ilkeleri ile bir Azure Service Fabric kümesine erişmek için Visual Studio kullanmayı öğrenirsiniz.
@@ -42,9 +42,9 @@ Bir Service Fabric projesi Visual Studio'dan yayımlama kullanırsanız **Servic
 1. Hedef küme güvendiği istemci sertifikalarını birini erişebildiğinden emin olun. Sertifika genellikle bir kişisel bilgi değişimi (.pfx) dosyası olarak paylaşılır. Bkz: [Azure portalından bir Service Fabric kümesi ayarlama](service-fabric-cluster-creation-via-portal.md) için bir istemci erişim sunucusu nasıl yapılandırılır.
 2. Güvenilir sertifika yükleyin. Bunu yapmak için .pfx dosyasını çift tıklatın veya sertifikaları almak için Import-PfxCertificate PowerShell betiğini kullanın. Sertifikayı yükleme **Cert: \LocalMachine\My**. Sertifika içeri aktarılırken, tüm varsayılan ayarları kabul etmek için Tamam var.
 3. Seçin **Yayımla...**  açmak için projenin kısayol menüsünde komutunu **Azure uygulamasını Yayımla** iletişim kutusu ve hedef kümeyi seçin. Araç otomatik olarak bağlantı giderir ve güvenli bağlantı parametreleri yayımlama profilinde kaydeder.
-4. İsteğe bağlı: Güvenli küme bağlantısını belirtmek için yayımlama profili düzenleyebilirsiniz.
+4. İsteğe bağlı: Güvenli kümeye bağlantı belirtmek için yayımlama profili düzenleyebilirsiniz.
    
-   Sertifika bilgileri belirtmek için sertifika deposunun adını not etmeyi unutmayın yayımlama profili XML dosyasını el ile düzenlediğiniz olduğundan, konum ve sertifika parmak izini saklar. Bu değerleri sertifika deposu için adı ve depolama konumu sağlamanız gerekir. Bkz: [nasıl yapılır: bir sertifikanın parmak izini alma](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) daha fazla bilgi için.
+   Sertifika bilgileri belirtmek için sertifika deposunun adını not etmeyi unutmayın yayımlama profili XML dosyasını el ile düzenlediğiniz olduğundan, konum ve sertifika parmak izini saklar. Bu değerleri sertifika deposu için adı ve depolama konumu sağlamanız gerekir. Bkz: [nasıl yapılır: Bir sertifikanın parmak izini alma](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) daha fazla bilgi için.
    
    Kullanabileceğiniz *ClusterConnectionParameters* Service Fabric kümeye bağlanırken kullanmak için PowerShell parametreleri belirtmek için parametreleri. Herhangi biri Connect-ServiceFabricCluster cmdlet tarafından kabul edilen geçerli parametrelerdir. Bkz: [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) kullanılabilir parametrelerin listesi.
    

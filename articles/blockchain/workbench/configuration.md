@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578991"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench yapılandırma başvurusu
 
@@ -67,11 +67,11 @@ Bir uygulamanın iş mantığı, burada bir durumdan diğerine taşımak için i
 
 Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tür
 
 Desteklenen veri türleri.
 
-| Type | Açıklama |
+| Tür | Açıklama |
 |-------|-------------|
 | adres  | Blok zinciri adres türü gibi *sözleşmeleri* veya *kullanıcılar*. |
 | array    | Tek düzey dizi türü tamsayı, bool, para ve zaman. Diziler, statik veya dinamik olabilir. Kullanım **ElementType** dizinin içindeki öğelerin veri türü belirtmek için. Bkz: [örnek yapılandırma](#example-configuration-of-type-array). |
@@ -79,7 +79,7 @@ Desteklenen veri türleri.
 | Sözleşme | Sözleşme türü adresi. |
 | Sabit listesi     | Adlandırılmış değerler numaralandırılmış kümesi. Enum türü kullanırken, ayrıca EnumValues listesini belirtin. Her değer 255 karakterle sınırlıdır. Geçerli değer üst karakterler ve küçük harfler (A-Z, a-z) ve sayılar (0-9). Bkz: [örnek yapılandırma ve kullanım Solidity](#example-configuration-of-type-enum). |
 | int      | Tamsayı veri türü. |
-| para    | Para veri türü. |
+| money    | Para veri türü. |
 | durum    | İş akışı durumu. |
 | string  | Dize veri türü. 4000 karakter üst sınırı. Bkz: [örnek yapılandırma](#example-configuration-of-type-string). |
 | kullanıcı     | Türü kullanıcı adresi. |

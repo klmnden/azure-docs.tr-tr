@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591468"
 ---
 # <a name="azure-production-operations-and-management"></a>Azure Üretim Operasyon ve Yönetimi    
 Yönetim ve işlem Azure üretim ağ operasyon ekiplerine Azure ve Azure SQL veritabanı arasında eşgüdümlü bir çaba olduğu. Çeşitli sistem ve uygulama performansı izleme araçları ortamda takımlar kullanın. Ve ağ cihazları, sunucuları, hizmetleri ve uygulama işlemleri izlemek için uygun araçları kullanırlar.

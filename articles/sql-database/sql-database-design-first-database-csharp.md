@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
 ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553222"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Öğretici: Azure SQL veritabanı C içindeki tek bir veritabanında ilişkisel veritabanı tasarlama&#x23; ve ADO.NET
 

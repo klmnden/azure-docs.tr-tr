@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613260"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services Tanım Şeması (.csdef dosyası)
 Hizmet tanım dosyası, bir uygulama için hizmet modelini tanımlar. Dosya bir bulut hizmeti için kullanılabilir olan rolleri için tanımları içerir, hizmet uç noktalarını belirtir ve hizmeti için yapılandırma ayarlarını oluşturur. Yapılandırma ayarı değerleri, hizmet yapılandırma dosyasında ayarlanır, açıklandığı [bulut hizmeti (Klasik) yapılandırma şeması](/previous-versions/azure/reference/ee758710(v=azure.100)).

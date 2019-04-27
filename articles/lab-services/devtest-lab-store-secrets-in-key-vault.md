@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622940"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir anahtar kasasındaki gizli dizileri Store
 Azure DevTest Labs'i kullanarak, karmaşık bir parola girmeniz gerekebilir: Windows vm'nizin Linux VM veya kişisel erişim belirteci bir yapıt Git deponuzu kopyalamak bir ortak SSH anahtarının parola. Gizli dizileri genellikle uzun ve rastgele karakterler sahiptir. Bu nedenle, başlarına zor ve kullanışsız bulabilir, özellikle birden çok kez aynı parolayı kullanmanız durumunda olabilir.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597834"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
 Güvenliğini sağlamaya yardımcı olmak için bulut tabanlı çözümlerinizi Microsoft azure'da güçlü bir mimari temel önemlidir. Mimarları, tasarımcılar ve uygulayıcılar sağlam bir uygulama ve Hizmetleri mimarisi bilgilerden yararlanın. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlayın ve güvenlik tasarımı ve uygulaması tüm yönlerini tümleştirmeyi kolaylaştırmak yardımcı olur.

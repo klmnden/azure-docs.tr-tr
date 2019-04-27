@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+origin.date: 10/23/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710957"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Dayanıklı işlevler Azure portalını kullanarak oluşturma
 
@@ -91,7 +92,7 @@ Dayanıklı işlevler JavaScript oluşturuyorsanız yüklemeniz gerekir [ `durab
 1. Kopyaladığınız URL'ye bir POST isteği göndermek için bir Postman veya cURL gibi HTTP aracını kullanın. Aşağıdaki örnek, bir POST isteği gönderir dayanıklı işleve bir cURL komutu:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
     ```
 
     Bu örnekte, `{your-function-app-name}` , işlev uygulamanızın adı olduğu etki alanıdır. Yanıt iletisi, aşağıdaki örnekteki gibi görünür yürütme yönetmek ve izlemek için kullanabileceğiniz bir URI uç noktaları kümesini içerir:
@@ -140,3 +141,5 @@ Dayanıklı ilk işlevinizi Azure'da artık hazır ve çalışır olduğu.
 
 > [!div class="nextstepaction"]
 > [Ortak dayanıklı işlevi desenler hakkında bilgi edinin](durable-functions-concepts.md)
+
+<!-- Update_Description: wording update -->

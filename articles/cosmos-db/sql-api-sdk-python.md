@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626800"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB için Python SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -151,7 +151,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 <br/>
 
-| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
+| Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 Kasım 2018 |--- |
 | [3.0.1](#3.0.1) |04 Ekim 2018 |--- |

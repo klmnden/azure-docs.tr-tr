@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 7/02/2017
 ms.author: atsenthi
 ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621233"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric uygulama senaryoları
 Azure Service Fabric sayesinde yazmak ve çeşitli iş uygulamaları ve hizmetleri çalıştırmak güvenilir ve esnek bir platform sunar. Durum bilgisi olan veya bu uygulamalar ve mikro hizmetler olabilir ve bunlar verimliliğini en üst düzeye çıkarmak için sanal makineler arasında kaynak dengeli. Service Fabric benzersiz mimarisi, neredeyse gerçek zamanlı veri analizi, bellek içi hesaplama, paralel işlemleri ve olay işleme, uygulamalarınızda gerçekleştirmenizi sağlar. Kolayca uygulamalarınızı yukarı veya aşağı (gerçekten iç veya dış), değişen kaynak gereksinimlerinize bağlı olarak ölçeklendirebilirsiniz.

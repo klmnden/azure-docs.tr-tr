@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703380"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
@@ -227,7 +227,7 @@ SQL veritabanı, tanımlama ve olası bir iş parçacığı veritabanına oluşt
 
 Azure Güvenlik Merkezi ile güvenlik önerileri Pano genelinde tanımlamak ve bunları tek bir tıklamayla uygulayabilirsiniz.
 
-### <a name="cost-optimization"></a>Maliyet iyileştirme
+### <a name="cost-optimization"></a>Maliyet iyileştirmesi
 
 Azure SQL platformu kullanım geçmişini değerlendirir ve maliyet iyileştirmesi seçenekler önerilir sunucuya veritabanları arasında analiz eder. Bu analiz, genellikle çözümleyin ve eyleme dönüştürülebilir öneriler oluşturmak için bir fortnight alır. Elastik havuz, böyle bir seçenek ' dir. Öneri Portalı'nda bir başlık görünür:
 

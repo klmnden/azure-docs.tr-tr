@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
 ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613029"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -247,7 +247,7 @@ Tüm Azure depolama hizmetleri (Blob Depolama, kuyruk depolama, tablo depolama v
 - İstemci tarafı: Azure Blobları, tablolar ve Kuyruklar, istemci tarafı Şifreleme destekler. İstemci tarafı şifreleme kullanırken, müşterilerin verileri şifrelemek ve verileri şifrelenmiş bir blob olarak karşıya yükleyin. Anahtar Yönetimi, müşteri tarafından gerçekleştirilir. Daha fazla bilgi için [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 
 Azure SQL veritabanı, şu anda Microsoft tarafından yönetilen hizmet tarafı ve istemci tarafı şifreleme senaryoları için bekleyen şifrelemenin destekler.
 

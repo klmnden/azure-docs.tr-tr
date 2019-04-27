@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749453"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -361,9 +361,9 @@ Yönetim belirtimi tarafından tanımlanan istek/yanıt exchange Protokolü hare
 
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
-| işlem |Hayır |dize |**PUT-token** |
-| type |Hayır |dize |Put yöntemi uygulanan Belirtecin türü. |
-| ad |Hayır |dize |Belirtecin geçerli olduğu "audience". |
+| işlem |Hayır |string |**PUT-token** |
+| type |Hayır |string |Put yöntemi uygulanan Belirtecin türü. |
+| ad |Hayır |string |Belirtecin geçerli olduğu "audience". |
 | süre sonu |Evet |timestamp |Belirteç süre sonu zamanı. |
 
 *Adı* özelliği ile belirteç olmalıdır ilişkili varlık tanımlar. Service Bus kuyruk veya konu/abonelik yoludur. *Türü* özelliği tanımlar belirteç türü:
@@ -381,7 +381,7 @@ Yanıt iletisi aşağıdaki sahip *uygulama özellikleri* değerleri
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
 | Durum kodu |Hayır |int |HTTP yanıt kodu **[RFC2616]**. |
-| Durum açıklaması |Evet |dize |Durum açıklaması. |
+| Durum açıklaması |Evet |string |Durum açıklaması. |
 
 İstemci çağırabilirsiniz *put belirteci* sürekli olarak ve mesajlaşma altyapısı herhangi bir varlık için. Belirteçleri geçerli istemci için kapsamlı ve bağlantılı geçerli bağlantıda bağlantı düştüğünde tutulan tarafından istenen belirteçleri sunucu bıraktığı anlamına gelir.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
 ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552706"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure portalında panoları oluşturma ve paylaşma
 Birden çok Pano oluşturma ve Azure aboneliklerinizi erişimi olan diğer kişilerle paylaşabilirsiniz.  Bu makalede, oluşturma, düzenleme, yayımlama ve Pano erişimini yönetme temelleri gider.

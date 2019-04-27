@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620181"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Sıralı sanal makine ölçek kümesinde uzantı sağlama ayarlar
 Azure sanal makine uzantıları, dağıtım sonrası yapılandırma ve yönetim, izleme, güvenlik ve daha fazlası gibi özellikler sunar. Üretim dağıtımları genellikle istenen sonuçları elde etmek için bir sanal makine örnekleri için yapılandırılmış birden fazla uzantı birleşimini kullanın.

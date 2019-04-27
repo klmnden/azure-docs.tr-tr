@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621471"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Uygulamalar ve hizmetler Azure Resource Manager kaynaklarını yönetme
 
-Service Fabric kümenizi Azure Resource Manager aracılığıyla üzerine uygulamaları ve Hizmetleri dağıtın. Bu, dağıtma ve küme için hazır olmasını beklemek zorunda sonra PowerShell veya CLI aracılığıyla uygulamaları yönetmek yerine, artık uygulamaları ve Hizmetleri json'da express ve aynı Resource Manager şablonu kümenizi dağıtın, anlamına gelir. Uygulama kayıt, sağlama ve dağıtım tüm işlem tek bir adımda'olmuyor.
+Uygulama ve hizmetlerinizi Service Fabric kümesine Azure Resource Manager üzerinden dağıtabilirsiniz. Bu, dağıtma ve küme için hazır olmasını beklemek zorunda sonra PowerShell veya CLI aracılığıyla uygulamaları yönetmek yerine, artık uygulamaları ve Hizmetleri json'da express ve aynı Resource Manager şablonu kümenizi dağıtın, anlamına gelir. Uygulama kaydetme, hazırlama ve dağıtma işlemlerinin tümü tek bir adımda gerçekleşir.
 
 Herhangi bir Kurulum, idare veya kümenizde gerektiren küme yönetim uygulamaları dağıtmanız için önerilen yöntem budur. Bu içerir [düzeltme düzenleme uygulaması](service-fabric-patch-orchestration-application.md), Watchdogs veya diğer uygulamalar veya hizmetler dağıtılmadan önce kümenizde çalışan olması gereken uygulamaları. 
 

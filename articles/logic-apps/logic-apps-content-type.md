@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685768"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic apps'te içerik türlerini işleme
 
@@ -140,14 +140,14 @@ Bazı veri türleri korumak için Logic Apps içerik korur hem de uygun meta ver
 
 Bu liste, bunları kullandığınızda Logic Apps içerik nasıl dönüştürür açıklar [işlevleri](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Veri çevirir `application/json`
-* `xml()`: Veri çevirir `application/xml`
-* `binary()`: Veri çevirir `application/octet-stream`
-* `string()`: Veri çevirir `text/plain`
+* `json()`: Yayınları verileri `application/json`
+* `xml()`: Yayınları verileri `application/xml`
+* `binary()`: Yayınları verileri `application/octet-stream`
+* `string()`: Yayınları verileri `text/plain`
 * `base64()`: İçeriği bir base64 dizesine dönüştürür
 * `base64toString()`: Bir base64 ile kodlanmış dizeye dönüştürür `text/plain`
 * `base64toBinary()`: Bir base64 ile kodlanmış dizeye dönüştürür `application/octet-stream`
-* `encodeDataUri()`: Bir dizeyi dataUri bayt dizisi olarak kodunu çözer
+* `encodeDataUri()`: Bir dize dataUri bayt dizisi olarak kodunu çözer.
 * `decodeDataUri()`: Kodunu çözer bir `dataUri` bir bayt dizisi halinde
 
 Örneğin, bir HTTP isteğini almaya devam ederseniz burada `Content-Type` kümesine `application/xml`, bu içeriği gibi:

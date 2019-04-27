@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609962"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure güvenlik ve uyumluluk planı: PaaS Web uygulaması için PCI DSS
 
@@ -64,7 +64,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz d
 - Azure İzleyici
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure Storage
 - Azure Sanal Ağ
     - (1) /16 ağ

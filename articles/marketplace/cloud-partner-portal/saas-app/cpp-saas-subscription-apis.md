@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594514"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 
@@ -506,7 +506,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
@@ -578,7 +578,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
@@ -632,7 +632,7 @@ Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildir
 | id  | String       | Tetiklenen işlem benzersiz kimliği.                |
 | activityId   | String        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
 | subscriptionId                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
+| offerId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
 | publisherId                | String        | Yayımcı kimliği SaaS teklifi         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
 | action                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |

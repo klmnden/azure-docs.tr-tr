@@ -2,7 +2,7 @@
 title: Azure Batch görev başarısızlık olayı | Microsoft Docs
 description: Toplu görev için başvuru event başarısız.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: f37769ceb761b8c8bc4834568813bb1b7af7f66a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549997"
 ---
 # <a name="task-fail-event"></a>Görev başarısızlık olayı
 
@@ -52,7 +53,7 @@ ms.locfileid: "55459001"
 }
 ```
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |iş kimliği|String|Görevi içeren işi kimliği.|
 |id|String|Görevin kimliği.|
@@ -65,30 +66,32 @@ ms.locfileid: "55459001"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |poolId|String|Görevin çalıştırıldığı Havuz kimliği.|
 |NodeId|String|Görevin çalıştırıldığı düğümün kimliği.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|Görevin gerektirdiği işlem düğüm sayısı.|
 
 ###  <a name="constraints"></a> Kısıtlamaları
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|Maksimum görev yeniden deneme sayısı. Çıkış kodu sıfır değilse toplu işlem hizmeti görevi yeniden dener.<br /><br /> Bu değer özel yeniden deneme sayısını kontrol edin. Batch hizmeti görevi bir kez dener ve sonra bu sınıra kadar yeniden deneyebilir. Örneğin, en fazla yeniden deneme sayısı 3, Batch çalışır bir görevin en fazla ise 4 (bir ilk deneme ve 3 yeniden deneme) zaman.<br /><br /> En fazla yeniden deneme sayısının 0 olması durumunda toplu işlem hizmeti görevleri yeniden denemez.<br /><br /> En fazla yeniden deneme sayısı -1 olması durumunda, Batch hizmeti görevleri sınır olmaksızın yeniden dener.<br /><br /> Varsayılan değer 0 (yeniden deneme yok) ' dir.|
 
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Öğe adı|Type|Notlar|
+|Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
 |startTime|DateTime|Hangi çalışan görev başlama zamanı. 'Çalışıyor' karşılık gelen **çalıştıran** durum görev kaynak dosyaları veya uygulama paketlerini belirtir, başlangıç zamanı, görevi başlattığınız indirerek veya bu dağıtımı zaman yansıtmasını sağlayın.  Görev yeniden ya da yeniden, çalışan, görevi başlattığınız en son zamanı budur.|
 |endTime|DateTime|Hangi görev tamamlanma zamanı.|
 |ExitCode|Int32|Görevin çıkış kodu.|
 |RetryCount|Int32|Görev Batch hizmeti tarafından yeniden deneme sayısı. Belirtilen MaxTaskRetryCount kadar bir sıfır olmayan çıkış kodu ile çıkılıyorsa görevi yeniden denenir.|
 |requeueCount|Int32|Batch hizmeti tarafından bir kullanıcı isteğinin sonucu olarak görev yeniden kuyruğa sayısı.<br /><br /> Çalışan düğümlerine görevleri yeniden boyutlandırma veya havuza küçültme) bir havuz (veya zaman işi devre dışı bırakılıyor, kullanıcı kullanıcı kaldırır düğümleri belirttiğinizde, yürütme için yeniden kuyruğa. Bu sayı, bu nedenle kaç kez görevi yeniden kuyruğa izler.|
+
+<!-- Update_Description: update metedata properties -->

@@ -11,11 +11,11 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556752"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak Azure SQL veritabanı içinde tek bir veritabanında ilişkisel veritabanı tasarlama
 
@@ -227,10 +227,10 @@ Aşağıdaki diyagramda bu tabloların birbirleriyle nasıl ilişkili olduğu g�
 4. İçin değerleri değiştirerek tablolara örnek veriler eklemek için aşağıdaki komutları yürütün *sunucu*, *veritabanı*, *kullanıcı*, ve *parola* ortamınız için değerlerle.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Daha önce oluşturduğunuz tablolara örnek veriler yüklediniz.

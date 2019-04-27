@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735808"
 ---
-# <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
+# <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne Kaydolma  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
 1.  Bir satıcı geliştirme Merkezi'ndeki olarak kaydedin.  
     *   Oturum açın ve bir satıcı kaydetmek için sayfasında bulunan Azure geliştirme Merkezi'ni ziyaret edin [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  

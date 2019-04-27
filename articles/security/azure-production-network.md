@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611352"
 ---
 # <a name="the-azure-production-network"></a>Azure üretim ağı
 Kendi Azure uygulamaları ve üretim ağı yönetmek iç Azure destek personeli erişen hem de dış müşterilere Azure üretim ağı kullanıcıları içerir. Bu makalede, Azure üretim ağ bağlantı kurma için koruma mekanizmaları ve güvenlik erişim yöntemleri açıklanmaktadır.

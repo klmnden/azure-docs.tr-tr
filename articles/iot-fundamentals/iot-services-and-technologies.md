@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626419"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Nesnelerin interneti (IOT) teknolojilerini ve çözümlerini: PaaS ve SaaS
 

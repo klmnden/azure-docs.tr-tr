@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560440"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -28,7 +28,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 **Bilişsel İçgörüler** pencere öğeleri, video dizini oluşturma işleminizden elde edilen tüm görsel içgörüleri içerir. İçgörüler pencere öğesi, aşağıdaki isteğe bağlı URL parametrelerini destekler:
 
-|Name|Tanım|Açıklama|
+|Ad|Tanım|Açıklama|
 |---|---|---|
 |widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** Pencere öğeleri URL parametre 2 sürümünde desteklenmiyor. |
 
@@ -36,7 +36,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 **Yürütücü** pencere öğeleri, bit hızı uyarlamalı video akışı yapmanıza olanak tanır. Yürütücü pencere öğesi, aşağıdaki isteğe bağlı URL parametrelerini destekler:
 
-|Name|Tanım|Açıklama|
+|Ad|Tanım|Açıklama|
 |---|---|---|
 |t|Başlangıçtan itibaren saniye sayısı|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: t=60|
 |captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: captions=en-US|

@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540411"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows Vm'leri için örnek Azure altyapı Kılavuzu
 Bu makalede örnek uygulama altyapısı oluşturmaya gösterilmektedir. Biz, yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük Dengeleyiciler kararları bir araya basit bir çevrimiçi mağaza için bir altyapıya tasarlama ve gerçekte sanal makinelerinizi (VM) dağıtma açıklamaktadır.
@@ -72,14 +72,14 @@ Sanal ağ Adventure iş döngüleri şirket içi ağınıza bağlantı gerekmedi
 
 Azure portalını kullanarak aşağıdaki ayarlara sahip bir yalnızca bulut sanal ağ oluşturdukları:
 
-* Name: Kullanım AZOS VN01
+* Ad: AZOS-USE-VN01
 * Konum: Doğu ABD 2
-* Sanal ağ adres alanı: 10.0.0.0/8
+* sanal ağ adres alanı: 10.0.0.0/8
 * İlk alt ağı:
-  * Adı: FrontEnd
+  * Ad: FrontEnd
   * Adres alanı: 10.0.1.0/24
 * İkinci alt ağı:
-  * Ad: arka uç
+  * Ad: BackEnd
   * Adres alanı: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri

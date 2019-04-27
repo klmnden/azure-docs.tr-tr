@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589469"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) ek olarak iki ortak denetimli makine öğrenimi görevlerini içerir:

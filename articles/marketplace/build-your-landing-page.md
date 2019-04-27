@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf7216d5634adf42c2e3435b122dcff58446821a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625321"
 ---
 # <a name="build-your-landing-page"></a>Derleme, giriş sayfası
 
@@ -43,7 +43,7 @@ Daha tutarlı, Mesajlaşma ve çağrınız eylemi, müşterilerinize çözümün
 
 Bir kampanya plan hazır olduğunda, giriş sayfanızın Market'te oluşturun. Aşağıdaki tabloda, giriş sayfanızın verimliliğini en üst düzeye yardımcı yöntemler açıklanır: 
 
-| En iyi uygulama | Kaçının |
+| En iyi yöntem | Kaçının |
 |:--- |:--- |
 | **Çözümünüzü çözer müşteri sorunu iletişim kurmak ve gerçekleşecek şekilde Azure kullanma** | Çözümünüz Azure ile çalıştığı şekilde iletişim yok. |
 | **Kısa ve kolay hatırlanır URL'si oluşturun** | Çok uzun URL'ler kullanarak. Çok uzun URL'ler akılda kalıcı değildir ve bulmak zordur. |

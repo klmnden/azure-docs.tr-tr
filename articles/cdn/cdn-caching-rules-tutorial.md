@@ -15,22 +15,22 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684310"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Öğretici: Azure CDN önbelleğe alma kurallarını ayarlama
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Öğretici: Azure CDN önbelleğe alma kuralları ayarlayın
 
 > [!NOTE] 
 > Azure CDN önbelleğe alma kuralları yalnızca **Verizon'dan Azure CDN Standart** ve **Akamai'den Azure CDN Standart** için kullanılabilir. **Verizon'dan Azure CDN Premium**’da, benzer işlevler için **Yönet** portalında [Azure CDN kuralları altyapısı](cdn-rules-engine.md)’nı kullanın.
  
 
 Bu öğreticide, Azure Content Delivery Network (CDN) önbelleğe alma kurallarını kullanarak varsayılan önbellek süre sonu davranışının hem genel olarak hem de URL yolu ve dosya uzantısı gibi özel koşullarla ayarlanması veya değiştirilmesi açıklanmıştır. Azure CDN iki tür önbelleğe alma kuralı sağlar:
-- Genel önbelleğe alma kuralları: Profilinizdeki her uç nokta için bir genel önbelleğe alma kuralı ayarlayabilirsiniz. Bu işlem uç noktaya yönelik tüm istekleri etkiler. Genel önbelleğe alma kuralı ayarlandığında tüm HTTP önbellek yönergesi üst bilgilerini geçersiz kılar.
+- Genel önbelleğe alma kuralları: Uç nokta için tüm istekleri etkileyen profilinizde her uç nokta için bir genel önbelleğe alma kuralı ayarlayabilirsiniz. Genel önbelleğe alma kuralı ayarlandığında tüm HTTP önbellek yönergesi üst bilgilerini geçersiz kılar.
 
-- Özel önbelleğe alma kuralları: Profilinizdeki her uç nokta için bir veya daha fazla özel önbelleğe alma kuralı ayarlayabilirsiniz. Özel önbelleğe alma kuralları ayarlandığında belirli yollar ve dosya uzantılarıyla eşleşir, sırasıyla işlenir ve genel önbelleğe alma kuralını geçersiz kılar. 
+- Özel önbelleğe alma kuralları: Profilinizde bir veya daha fazla özel önbelleğe alma kuralları her uç noktası için ayarlayabilirsiniz. Özel önbelleğe alma kuralları ayarlandığında belirli yollar ve dosya uzantılarıyla eşleşir, sırasıyla işlenir ve genel önbelleğe alma kuralını geçersiz kılar. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
@@ -40,9 +40,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticideki adımları tamamlayabilmeniz için öncelikle bir CDN profili ve en az bir CDN uç noktası oluşturmanız gerekir. Daha fazla bilgi için bkz. [Hızlı Başlangıç: Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).
+Bu öğreticideki adımları tamamlayabilmeniz için öncelikle bir CDN profili ve en az bir CDN uç noktası oluşturmanız gerekir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Azure CDN önbelleğe alma kuralları sayfasını açın
 

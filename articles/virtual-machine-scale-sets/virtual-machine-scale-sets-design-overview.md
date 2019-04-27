@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618481"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ölçek kümeleri için tasarım konuları
 Bu makalede, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümelerine genel bakış](virtual-machine-scale-sets-overview.md).
@@ -66,7 +66,7 @@ Açıdan sağlama başarı oranlarını artırmalarına, görünen ve ardından 
 
 Kullanıcı tarafından yönetilen depolama ölçek kümeniz kullanır ve, açıdan devre dışı bırakmanız, depolama hesabı başına 20'den fazla Vm'niz olabilir, ancak 40 GÇ performansı artırmak için yukarıda gitmek için önerilmez. 
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 Bir Market görüntüsü (platform görüntüsü olarak da bilinir) üzerinde oluşturulmuş ve Azure yönetilen diskleri kullanacak şekilde yapılandırılmış bir ölçek kümesi kapasitesi 1.000 VM'ye kadar destekler. Ölçek kümenizi 100'den fazla Vm'leri destekleyecek şekilde yapılandırırsanız, tüm senaryolarda (için örnek Yük Dengeleme) aynı şekilde işler. Daha fazla bilgi için [büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). 
 
 Bir ölçek kümesi kullanıcı tarafından yönetilen depolama hesapları ile yapılandırılan 100 VM ile şu anda sınırlı olmasına (ve 5 depolama hesapları, bu ölçek birimi için önerilir).
