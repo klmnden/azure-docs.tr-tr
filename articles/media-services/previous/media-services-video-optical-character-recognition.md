@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825617"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure medya analizi, metin içerikli videoları dijital metne dönüştürmek için kullanın  
 ## <a name="overview"></a>Genel Bakış
@@ -106,7 +106,7 @@ Video OCR çıkış videonuza bulunan karakterleri zaman bölümlenmiş verileri
 | Öğe | Açıklama |
 | --- | --- |
 | Timescale |Videoyu saniye başına "ticks" |
-| Uzaklık |zaman damgaları için uzaklık. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. |
+| Offset |zaman damgaları için uzaklık. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. |
 | Framerate |Saniyedeki kare video sayısı |
 | Genişlik |videonun piksel cinsinden genişliği |
 | Yükseklik |piksel cinsinden görüntü yüksekliği |

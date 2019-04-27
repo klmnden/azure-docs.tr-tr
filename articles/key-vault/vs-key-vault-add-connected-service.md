@@ -7,16 +7,15 @@ manager: jillfra
 ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
 ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764565"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
@@ -152,7 +151,7 @@ Bu bölümde ekleme Key Vault bağlı hizmeti Visual Studio kullanarak bir ASP.N
 
 NuGet paket başvuruları ve proje dosya .NET başvuruları etkiler.
 
-| Type | Başvuru |
+| Tür | Başvuru |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -188,7 +187,7 @@ Bu bölümde ekleme Key Vault bağlı hizmeti Visual Studio kullanarak bir ASP.N
 
 Proje .NET başvurulara etkiler ve `packages.config` (NuGet başvurularını).
 
-| Type | Başvuru |
+| Tür | Başvuru |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

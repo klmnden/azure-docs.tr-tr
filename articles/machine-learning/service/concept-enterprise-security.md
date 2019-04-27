@@ -11,11 +11,11 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
 ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821309"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için Kurumsal güvenlik
 
@@ -23,7 +23,7 @@ Bu makalede, Azure Machine learning hizmeti kullanılabilir güvenlik özellikle
 
 Bir bulut hizmeti kullanılırken, ihtiyaç duymayan kullanıcıların erişimini kısıtlamak için en iyi bir uygulamadır. Bu, hizmet tarafından kullanılan kimlik doğrulama ve yetkilendirme modeli anlayarak başlatır. Ayrıca ağ erişimi kısıtlamak istediğiniz veya güvenli bir şekilde bu bulut ile şirket içi ağınızdaki kaynaklara katılın. Veri şifreleme Ayrıca, hem beklerken hem de veri hizmetleri arasında taşırken önemlidir. Son olarak, hizmet izleme ve Denetim günlüğüne tüm etkinliklerin üretmek gerekir.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 Azure Active Directory (Azure AD) için yapılandırılmışsa, çok faktörlü kimlik doğrulaması desteklenir.
 * İstemci, Azure AD ile günlüğe kaydeder ve Azure Resource Manager belirtecini alır.  Kullanıcı ve hizmet sorumluları tam olarak desteklenir.
 * İstemci belirteci için Azure Resource Manager ve tüm Azure Machine Learning hizmetleri sunar.
@@ -86,7 +86,7 @@ Yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure 
 | Kaynak | İzinler |
 | ----- | ----- |
 | Çalışma alanı | Katılımcı | 
-| Depolama Hesabı | Depolama Blob verileri katkıda bulunan | 
+| Depolama Hesabı | Depolama Blob Verileri Katkıda Bulunanı | 
 | Key Vault | Tüm anahtarları, parolaları, sertifikaları erişimi | 
 | Azure Container Registry | Katılımcı | 
 | Çalışma alanı içeren bir kaynak grubu | Katılımcı | 

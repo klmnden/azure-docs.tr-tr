@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837853"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Güvenli hizmet ters proxy ile bağlanma
 
@@ -35,14 +35,14 @@ Ters proxy sertifikasını kullanarak hizmetlere kendisini tanımlar. İle Azure
 Hizmetleri ters proxy tarafından sunulan sertifika doğrulamak için mantığı uygulayabilir. Hizmetler, yapılandırma ayarlarında yapılandırma paketi olarak kabul edilen istemci sertifikası ayrıntıları belirtebilirsiniz. Bu çalışma zamanında okunabilir ve ters proxy tarafından sunulan sertifika doğrulamak için kullanılır. Başvurmak [uygulama parametrelerini yönetme](service-fabric-manage-multiple-environment-app-configuration.md) yapılandırma ayarlarını eklemek için. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Ters proxy hizmeti tarafından sunulan sertifika aracılığıyla hizmet kimliği doğrulanıyor:
-Ters proxy hizmetleri tarafından sunulan sertifikaların sunucu sertifikası doğrulamayı gerçekleştirmek için aşağıdaki ilkeleri destekler: hiçbiri, ServiceCommonNameAndIssuer ve ServiceCertificateThumbprints.
+Ters proxy hizmetleri tarafından sunulan sertifikaların sunucu sertifikası doğrulamayı gerçekleştirmek için aşağıdaki ilkeleri destekler: None, ServiceCommonNameAndIssuer ve ServiceCertificateThumbprints.
 Ters proxy'nin kullanması ilkeyi seçmek için **ApplicationCertificateValidationPolicy** içinde **Applicationgateway'inin/Http** bölümüne [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 Sonraki bölümde bu seçeneklerin her biri için yapılandırma ayrıntılarını gösterir.
 
 ### <a name="service-certificate-validation-options"></a>Hizmet sertifika doğrulama seçenekleri 
 
-- **Hiçbiri**: ters proxy proxy hizmet sertifikası doğrulamasını atlar ve güvenli bir bağlantı kurar. Bu varsayılan davranıştır.
+- **Hiçbiri**: Ters proxy proxy hizmet sertifikası doğrulamasını atlar ve güvenli bir bağlantı kurar. Bu varsayılan davranıştır.
 Belirtin **ApplicationCertificateValidationPolicy** değerle **hiçbiri** içinde [ **Applicationgateway'inin/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) bölümü.
 
    ```json
@@ -63,7 +63,7 @@ Belirtin **ApplicationCertificateValidationPolicy** değerle **hiçbiri** içind
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: ters proxy, sertifikanın ortak adı ve hemen verenin parmak izi bağlı hizmeti tarafından sunulan sertifika doğrular: belirtin **ApplicationCertificateValidationPolicy** değerle **ServiceCommonNameAndIssuer** içinde [ **Applicationgateway'inin/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) bölümü.
+- **ServiceCommonNameAndIssuer**: Ters proxy, sertifikanın ortak adı ve hemen verenin parmak izi bağlı hizmeti tarafından sunulan sertifika doğrular: Belirtin **ApplicationCertificateValidationPolicy** değerle **ServiceCommonNameAndIssuer** içinde [ **Applicationgateway'inin/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) bölümü.
 
    ```json
    {
@@ -110,7 +110,7 @@ Belirtin **ApplicationCertificateValidationPolicy** değerle **hiçbiri** içind
    }
    ```
 
-- **ServiceCertificateThumbprints**: ters proxy, parmak izinden yola çıkarak proxy hizmet sertifika doğrulama. Hizmetleri ile kendi kendine yapılandırıldığında bu yolu imzalı sertifikaları Git seçebilirsiniz: belirtin **ApplicationCertificateValidationPolicy** değerle **ServiceCertificateThumbprints** içinde [ **Applicationgateway'inin/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) bölümü.
+- **ServiceCertificateThumbprints**: Ters proxy proxy hizmet sertifikası, parmak izinden yola çıkarak doğrular. Git Hizmetleri ile kendi kendine yapılandırıldığında bu yolu otomatik olarak imzalanan sertifikalar seçebilirsiniz: Belirtin **ApplicationCertificateValidationPolicy** değerle **ServiceCertificateThumbprints** içinde [ **Applicationgateway'inin/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) bölümü.
 
    ```json
    {
