@@ -4,24 +4,24 @@ description: Bu konu, Azure AD CONNECT'te engelle (yanlışlıkla silmeleri enge
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383414"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme
 Bu konu, Azure AD CONNECT'te engelle (yanlışlıkla silmeleri engelleme) yanlışlıkla silmeleri özelliğini açıklar.
@@ -31,9 +31,9 @@ Azure AD Connect yükleme önlediğinde yanlışlıkla silmeleri varsayılan ola
 ## <a name="what-is-prevent-accidental-deletes"></a>Ne yanlışlıkla silmeleri engelleme olduğu
 Dahil birçok siler gördüğünüzde yaygın senaryolar:
 
-* Değişikliklerini [filtreleme](how-to-connect-sync-configure-filtering.md) tüm durumlarda [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) veya [etki alanı](how-to-connect-sync-configure-filtering.md#domain-based-filtering) seçimi kaldırıldı.
-* Bir kuruluş birimi içindeki tüm nesnelerin silinmesi.
-* Bir kuruluş biriminin yeniden adlandırılması nedeniyle içindeki tüm nesnelerin eşitleme kapsamı dışında olarak değerlendirilmesi.
+- Değişikliklerini [filtreleme](how-to-connect-sync-configure-filtering.md) tüm durumlarda [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) veya [etki alanı](how-to-connect-sync-configure-filtering.md#domain-based-filtering) seçimi kaldırıldı.
+- Bir kuruluş birimi içindeki tüm nesnelerin silinmesi.
+- Bir kuruluş biriminin yeniden adlandırılması nedeniyle içindeki tüm nesnelerin eşitleme kapsamı dışında olarak değerlendirilmesi.
 
 PowerShell ile varsayılan değer 500 nesnelerin değiştirilebilir kullanarak `Enable-ADSyncExportDeletionThreshold`, Azure Active Directory Connect ile yüklenen AD eşitleme modülü bir parçası değildir. Bu değer, kuruluşunuzun sığacak şekilde yapılandırmanız gerekir. Eşitleme Zamanlayıcısı 30 dakikada çalıştığından, değer 30 dakika içinde görülen siler sayısıdır.
 
@@ -69,5 +69,6 @@ Ardından tüm silmeleri isterseniz, aşağıdakileri yapın:
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
-* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
+- [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
+

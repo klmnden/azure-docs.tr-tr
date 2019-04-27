@@ -12,11 +12,11 @@ ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401434"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme REST API ve Python kullanarak yerel bir resmi çözümleme
 

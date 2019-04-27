@@ -1,6 +1,6 @@
 ---
-title: Yerel ağ geçidi IP adresi öneklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | PowerShell | Microsoft Docs
-description: Bu makalede, PowerShell kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla açıklanmaktadır.
+title: Yerel ağ geçidi IP adresi ön eklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | PowerShell | Microsoft Docs
+description: Bu makalede, PowerShell kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla gösterilmektedir.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2a095b96a8c352abeca72640d37c0d629b447763
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 923c478909e0393f36da06802023b3f40ee63a3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23885108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419177"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirme
 
-Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarınızı değiştirmek nasıl gösterir. Aşağıdaki listeden farklı bir seçeneği seçerek farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
+Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarını değiştirme gösterilmektedir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
@@ -37,7 +37,7 @@ Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını d
 
 Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-## <a name="ipaddprefix"></a>IP adres öneklerini değiştirme
+## <a name="ipaddprefix"></a>IP adresi ön eklerini değiştirme
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 

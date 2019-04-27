@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
 ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394413"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 

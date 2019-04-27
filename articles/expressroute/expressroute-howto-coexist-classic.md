@@ -10,11 +10,11 @@ ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084218"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370432"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma (klasik)
 > [!div class="op_single_selector"]

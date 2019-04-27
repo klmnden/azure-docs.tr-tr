@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538007"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -101,7 +101,7 @@ Depolama ve Veri Yönetimi Hizmetleri:
 
 - Azure depolama (Azure Blob, kuyruk, tablo ve Dosya Hizmetleri oluşur)
 
-- Azure SQL Database
+- Azure SQL Veritabanı
 
 - Azure Cosmos DB
 

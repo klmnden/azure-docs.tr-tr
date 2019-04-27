@@ -3,8 +3,8 @@ title: Sorun giderme Azure Ağ İzleyicisi ile VPN ağ geçitleri izleyin | Micr
 description: Bu makalede nasıl Azure Otomasyonu ve Ağ İzleyicisi ile şirket içi bağlantıyı tanılama
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 4995d7ae846652c374a289603f29f88f6f56dfef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 476fc9aa98eef300b981d2009fcee9244db25e8a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532698"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Sorun giderme Ağ İzleyicisi ile VPN ağ geçitlerini izleme
 

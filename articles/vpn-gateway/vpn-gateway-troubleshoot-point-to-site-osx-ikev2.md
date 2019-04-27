@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457093"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN istemcilerinden noktadan siteye VPN bağlantı sorunlarını giderme
 
@@ -63,7 +63,7 @@ Bu makale, Mac OS X yerel VPN istemcisini ve IKEv2'yi kullanarak noktadan siteye
 
 Önceki adımları deneyin ve her şeyin doğru şekilde yapılandırıldığından, indirme [Wireshark](https://www.wireshark.org/#download) ve bir paket yakalama gerçekleştirin.
 
-1. Filtre *ISAKMP* bakın **IKE_SA** paketler. SA Teklif Ayrıntıları altında bakmak olmalıdır **yükü: güvenlik ilişkisi**. 
+1. Filtre *ISAKMP* bakın **IKE_SA** paketler. SA Teklif Ayrıntıları altında bakmak olmalıdır **yükü: Güvenlik ilişkisi**. 
 2. İstemci ve sunucu bir dizi ortak sahip olduğunuzu doğrulayın.
 
    ![Paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 

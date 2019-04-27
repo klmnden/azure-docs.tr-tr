@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497680"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Itanium tabanlı sistemler için kapsayıcı günlükleri gerçek zamanlı Azure İzleyici ile kapsayıcılar (Önizleme) için görüntüleme
 Şu anda önizlemede olan bu özellik, kubectl komutlarını çalıştırmak zorunda kalmadan Azure Kubernetes Service (AKS), kapsayıcı günlüklerini (stdout/stderr) gerçek zamanlı bir görünüm sağlar. Bu seçeneği belirlediğinizde, yeni bölmesi altında kapsayıcıları performans veri tablosu üzerinde görünür. **kapsayıcıları** görünümü.  Bu, daha fazla gerçek zamanlı sorunları gidermeye yardımcı olması için kapsayıcı altyapısı tarafından oluşturulan dinamik günlüğü gösterir. **Katkıda bulunan** erişim küme kaynağı için bu özelliğin çalışması için gereklidir.

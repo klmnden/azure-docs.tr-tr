@@ -2,20 +2,21 @@
 title: Azure SQL veri ambarı işlemleri hakkında bilgi edinin | Microsoft Docs
 description: "SQL Data Warehouse'un esnekliği sayesinde, bir veri ambarı birimi (DWU) kaydırıcı ölçeğini kullanarak işlem gücünü büyütebilir, küçültebilir veya duraklatabilirsiniz. Bu makalede veri ambarı ölçümleri ve bunların DWU'larla olan ilişkisi açıklanmaktadır. "
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
-ms.date: 04/17/2018
-ms.author: kevin
+ms.component: design
+origin.date: 04/17/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531201"
 ---
 # <a name="data-warehouse-workload"></a>Veri ambarı iş yükü
 Veri ambarı iş yükü, bir veri ambarında gerçekleşen tüm işlemleri niteler. Veri ambarına verilerin yüklenmesi, veri ambarıyla ilgili analiz ve raporlama yapılması, veri ambarındaki verilerin yönetilmesi ve veri ambarından verilerin dışarı aktarılması sürecinin tamamı veri ambarı iş yükünün kapsamındadır. Bu bileşenlerin derinliği ve genişliği genellikle veri ambarının olgunluk seviyesi ile orantılıdır.

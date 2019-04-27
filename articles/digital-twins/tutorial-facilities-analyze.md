@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
 ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534814"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin
 

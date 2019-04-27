@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521362"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
+Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Veritabanı](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
 
 Öğreticide, uygulamayı yerel olarak oluşturup çalıştırma, Azure’a dağıtma ve bulutta çalıştırmanın yanı sıra sıfırdan oluşturma işlemleri de gösterilmektedir. Tercih ederseniz sıfırdan oluşturmaya başlayabilir ve ardından test ve dağıtım adımlarını gerçekleştirebilirsiniz.
 

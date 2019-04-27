@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502156"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Veri bilimi sanal makinesi tabanlı takım analizi ve yapay ZEKA ortamı 
 [Veri bilimi sanal makinesi](overview.md) (DSVM), Azure platformunda yapay zeka (AI) ve veri analizi için önceden oluşturulmuş yazılım ile zengin bir ortam sağlar. 

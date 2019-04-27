@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 03/01/2019
 ms.author: danlep
 ms.openlocfilehash: 1ca23a95c746139963aa70ed20bb888152fd5cd8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537773"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure bölgelerinde Azure Container Instances için kaynak kullanılabilirliği
 
@@ -27,7 +27,7 @@ Kotalar ve diğer dağıtımlarınızı sınırları hakkında daha fazla bilgi 
 
 ## <a name="availability---general"></a>Kullanılabilirlik - genel
 
-| Konum | İşletim Sistemi | CPU | Bellek (GB) |
+| Location | İşletim Sistemi | CPU | Bellek (GB) |
 | -------- | -- | :---: | :-----------: |
 | Kanada Orta, Orta ABD, Doğu ABD 2, Orta Güney ABD | Linux | 4 | 16 |
 | Doğu ABD, Kuzey Avrupa, Batı Avrupa, Batı ABD, Batı ABD 2 | Linux | 4 | 14 |

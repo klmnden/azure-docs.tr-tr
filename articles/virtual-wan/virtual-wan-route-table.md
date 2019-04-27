@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457614"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Bir ağ sanal Gerecinin trafik faaliyetidir için sanal Hub yönlendirme tablosu oluşturma
 

@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478115"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux için SMT sunucusu ayarlama
 Büyük örnekler, SAP HANA doğrudan internet bağlantısı yok. Böyle bir birim işletim sistemi sağlayıcısı ile kaydolmak için indirme ve güncelleştirmeleri uygulamak için basit bir işlem değil. Bir SUSE Linux için bir Azure sanal makine'de SMT sunucusunu ayarlamak için çözümüdür. HANA büyük örneği için bağlı olan bir Azure sanal ağında sanal makine konağının. Böyle bir SMT sunucusu ile HANA büyük örneği birim kaydedin ve güncelleştirmeleri karşıdan. 

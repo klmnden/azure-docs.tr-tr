@@ -9,11 +9,11 @@ ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459946"
 ---
 # <a name="virtual-wan-partners"></a>Sanal WAN iş ortakları
 
@@ -28,7 +28,7 @@ Bir dal cihaz (müşterinin şirket içi VPN cihazına veya SDWAN CPE) denetleyi
 * Azure sanal WAN'ın portal deneyimi görmek için test edin.
 * Ardından, hangi kısmını bağlantı adımları otomatikleştirmek istediğiniz karar verin. En azından otomatikleştirme öneririz:
 
-  * Access Control
+  * Erişim Denetimi
   * Dal aygıt bilgileri Azure sanal WAN'ın karşıya yükleme
   * Azure yapılandırma indiriliyor ve Azure sanal WAN içine dal CİHAZDAN bağlantısı ayarlama
 

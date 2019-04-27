@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: 1b92adcf528a1ccd00983e6c0dd952fefab5dd7d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60509910"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Hızlı Başlangıç: Translator metin REST API'si (Ruby) ile desteklenen dilleri Al
 
@@ -39,7 +40,7 @@ require 'uri'
 require 'cgi'
 require 'json'
 
-host = 'https://api.cognitive.microsofttranslator.com'
+host = 'https://api.translator.azure.cn'
 path = '/languages?api-version=3.0'
 
 uri = URI (host + path)
@@ -156,3 +157,4 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 
 > [!div class="nextstepaction"]
 > [GitHub’da Ruby örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=ruby)
+

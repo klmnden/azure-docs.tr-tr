@@ -3,8 +3,8 @@ title: Azure Ağ İzleyicisi - Azure REST API'si ile bağlantı sorunlarını gi
 description: Bağlantıyı kullanmayı öğrenin özelliği, Azure REST API'sini kullanarak Azure Ağ İzleyicisi sorun giderme.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 45fbdac3c099b44f8f12a54f5bde147524f10458
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535754"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile bağlantı sorunlarını giderme
 

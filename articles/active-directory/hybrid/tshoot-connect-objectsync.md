@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382510"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile nesne eşitleme sorunlarını giderme
 Bu makalede, sorun giderme görevini kullanarak nesne eşitleme sorunlarını giderme için adımları sağlar. Azure Active Directory (Azure AD) Connect sorun giderme nasıl çalıştığını görmek için izleme [bu kısa video](https://aka.ms/AADCTSVideo).
