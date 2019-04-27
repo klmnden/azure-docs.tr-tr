@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: yegu
+origin.date: 07/31/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542341"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>İçeri ve dışarı aktarma verileri Azure önbelleği için Redis
 İçeri/dışarı aktarma olan Azure önbelleği için Redis içine veri aktarmak veya Azure önbelleği için Redis içeri ve dışarı aktarma bir Azure önbelleği için Redis veritabanı (RDB) anlık görüntü için bir premium önbelleğinden tarafından verileri dışarı aktarma olanak tanıyan Redis veri yönetimi işlemi için bir Azure önbelleği bir bir Azure depolama hesabında blob. 
@@ -99,16 +100,16 @@ Dışarı aktarma, Redis için Redis uyumlu RDB dosyaları Azure önbelleğinde 
 ## <a name="importexport-faq"></a>İçeri/dışarı aktarma ile ilgili SSS
 Bu bölüm, içeri/dışarı aktarma özelliği hakkında sık sorulan sorular içerir.
 
-* [Fiyatlandırma katmanları içeri/dışarı aktarma kullanabilir miyim?](#what-pricing-tiers-can-use-importexport)
-* [Herhangi bir Redis sunucusundan verileri alabilir miyim?](#can-i-import-data-from-any-redis-server)
-* [Hangi RDB sürümleri alabilirim?](#what-rdb-versions-can-i-import)
-* [Önbelleğimin bir içeri/dışarı aktarma işlemi sırasında kullanılabilir mi?](#is-my-cache-available-during-an-importexport-operation)
-* [İçeri/dışarı aktarma Redis kümesi ile kullanabilir miyim?](#can-i-use-importexport-with-redis-cluster)
-* [İçeri/dışarı aktarma ayarlamak için özel bir veritabanlarını nasıl çalışır?](#how-does-importexport-work-with-a-custom-databases-setting)
-* [İçeri/dışarı aktarma Redis kalıcılığı farklı mı?](#how-is-importexport-different-from-redis-persistence)
-* [İçeri/dışarı aktarma PowerShell, CLI veya diğer yönetim istemcilerini kullanarak otomatik hale getirebilirim?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [My içeri/dışarı aktarma işlemi sırasında zaman aşımı hatası aldım. Bu ne demektir?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-* [Azure Blob depolama alanına verilerimi dışarı aktarılırken bir hata aldım. Ne oldu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [Fiyatlandırma katmanları içeri/dışarı aktarma kullanabilir miyim?](#what-pricing-tiers-can-use-importexport)
+- [Herhangi bir Redis sunucusundan verileri alabilir miyim?](#can-i-import-data-from-any-redis-server)
+- [Hangi RDB sürümleri alabilirim?](#what-rdb-versions-can-i-import)
+- [Önbelleğimin bir içeri/dışarı aktarma işlemi sırasında kullanılabilir mi?](#is-my-cache-available-during-an-importexport-operation)
+- [İçeri/dışarı aktarma Redis kümesi ile kullanabilir miyim?](#can-i-use-importexport-with-redis-cluster)
+- [İçeri/dışarı aktarma ayarlamak için özel bir veritabanlarını nasıl çalışır?](#how-does-importexport-work-with-a-custom-databases-setting)
+- [İçeri/dışarı aktarma Redis kalıcılığı farklı mı?](#how-is-importexport-different-from-redis-persistence)
+- [İçeri/dışarı aktarma PowerShell, CLI veya diğer yönetim istemcilerini kullanarak otomatik hale getirebilirim?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
+- [My içeri/dışarı aktarma işlemi sırasında zaman aşımı hatası aldım. Bu ne demektir?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+- [Azure Blob depolama alanına verilerimi dışarı aktarılırken bir hata aldım. Ne oldu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>Fiyatlandırma katmanları içeri/dışarı aktarma kullanabilir miyim?
 İçeri/dışarı aktarma fiyatlandırma katmanı premium katmanında kullanılabilir.
@@ -126,8 +127,8 @@ Evet, Azure önbelleği için Redis örneği dışarı aktarılan verileri içer
 Azure önbelleği için Redis RDB içeri aktarma sürüm 7 RDB yukarı destekler.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Önbelleğimin bir içeri/dışarı aktarma işlemi sırasında kullanılabilir mi?
-* **Dışarı aktarma** - önbellekler kullanılabilir olmaya devam eder ve bir dışa aktarma işlemi sırasında önbelleğinizi kullanmaya devam edebilirsiniz.
-* **İçeri aktarma** - önbellekler içeri aktarma işlemi başladığında kullanılamaz hale ve içeri aktarma işlemi tamamlandığında kullanılabilir hale gelir.
+- **Dışarı aktarma** - önbellekler kullanılabilir olmaya devam eder ve bir dışa aktarma işlemi sırasında önbelleğinizi kullanmaya devam edebilirsiniz.
+- **İçeri aktarma** - önbellekler içeri aktarma işlemi başladığında kullanılamaz hale ve içeri aktarma işlemi tamamlandığında kullanılabilir hale gelir.
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>İçeri/dışarı aktarma Redis kümesi ile kullanabilir miyim?
 Evet, ve, içeri aktarma/kümelenmiş bir önbellek ve kümelenmiş olmayan önbellek arasında dışarı aktarma. Redis kümesi beri [destekler 0 veritabanı yalnızca](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), herhangi bir veri 0 dışında veritabanlarında aktarılmamış. Kümelenmiş önbellek veriler içeri aktarıldığında, anahtarları kümenin parçalar arasında dağıtılır.
@@ -135,10 +136,10 @@ Evet, ve, içeri aktarma/kümelenmiş bir önbellek ve kümelenmiş olmayan önb
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>İçeri/dışarı aktarma ayarlamak için özel bir veritabanlarını nasıl çalışır?
 Bazı fiyatlandırma katmanları farklı sahip [veritabanları sınırları](cache-configure.md#databases), böylece bazı önemli noktalar için özel bir değer yapılandırdıysanız içeri aktarılırken `databases` önbellek oluşturma işlemi sırasında ayarlama.
 
-* Bir fiyatlandırma katmanına düşük ile içeri aktarılırken `databases` içinden dışarı aktardığınız katmanından sınırı:
-  * Varsayılan sayısını kullanıyorsanız `databases`16 tüm fiyatlandırma katmanlarına yönelik olan, veri kaybedilmez.
-  * Özel bir dizi kullanıyorsanız `databases` sınırları içinde bu düştüğünde, içeri aktardığınız, katman için veri kaybedilmez.
-  * Dışarı aktarılan verilerinizi yeni katmanı sınırlarını aşan bir veritabanında veri içeriyorsa, daha yüksek veritabanlarınızdaki veriler içe aktarılmaz.
+- Bir fiyatlandırma katmanına düşük ile içeri aktarılırken `databases` içinden dışarı aktardığınız katmanından sınırı:
+  - Varsayılan sayısını kullanıyorsanız `databases`16 tüm fiyatlandırma katmanlarına yönelik olan, veri kaybedilmez.
+  - Özel bir dizi kullanıyorsanız `databases` sınırları içinde bu düştüğünde, içeri aktardığınız, katman için veri kaybedilmez.
+  - Dışarı aktarılan verilerinizi yeni katmanı sınırlarını aşan bir veritabanında veri içeriyorsa, daha yüksek veritabanlarınızdaki veriler içe aktarılmaz.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>İçeri/dışarı aktarma Redis kalıcılığı farklı mı?
 Azure önbelleği için Redis kalıcılığı, Redis Azure Depolama'da depolanan verileri kalıcı hale getirmenize olanak tanır. Kalıcılık yapılandırıldığında, Azure önbelleği için Redis anlık görüntüsünü Azure önbelleği için Redis diske yapılandırılabilir bir yedekleme sıklığı temel alarak bir Redis ikili biçimde devam ettirir. Birincil ve çoğaltma önbellek devre dışı bırakan bir felaket ortaya çıkarsa, önbellek verilerini otomatik olarak en son anlık görüntü kullanılarak geri yüklenir. Daha fazla bilgi için [Premium Azure önbelleği için Redis veri kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
@@ -161,7 +162,7 @@ Dışarı aktarma, sayfa blobu olarak depolanan RDB dosyaları ile birlikte çal
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla premium önbellek özelliklerini kullanmayı öğrenin.
 
-* [Azure önbelleği için Redis Premium katmanına giriş](cache-premium-tier-intro.md)    
+- [Azure önbelleği için Redis Premium katmanına giriş](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
@@ -176,3 +177,6 @@ Daha fazla premium önbellek özelliklerini kullanmayı öğrenin.
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+
+<!-- Update_Description: update metedata properties -->

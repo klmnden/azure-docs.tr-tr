@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594221"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS uygulama Test Sürüşü sekmesi
 
@@ -31,9 +31,11 @@ Müşterileriniz için bir deneme sürümü deneyimi oluşturma güvenle satın 
 
 Test sürüşü, müşterilere ürün uygulamasının temel özellikler ve avantajları, gerçek uygulama senaryoda gösterildiği uygulamalı, kendi kendine yol gösteren denemesini sağlar.
 
+
 ## <a name="how-a-test-drive-works"></a>Bir test sürüşüne nasıl çalışır?
 
 Bir müşteri adayını arar ve uygulamanızı Marketi'nde bulur. Müşteri açar ve kullanım koşullarını kabul eder. Bu noktada, müşteri ile takip etmek için yüksek oranda tam bir müşteri adayı alırken saat için sabit sayıda denemek için önceden yapılandırılmış ortamınıza alır. Daha fazla bilgi için [Test Sürüşü nedir?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Yayımlama adımları
 
@@ -44,6 +46,7 @@ Bir test sürücü eklemek için ana yayımlama adımlar şunlardır:
 3. Test Sürüşü hakkında adım adım el ile oluşturma
 4. Teklifinizi yeniden yayımlayın
 
+
 ## <a name="setting-up-a-test-drive"></a>Bir test sürüşüne ayarlama
 
 Her ürün, senaryo ve Market üzeresiniz türüne göre kullanılabilir Test Sürüşleri, dört farklı türleri vardır.
@@ -52,8 +55,10 @@ Her ürün, senaryo ve Market üzeresiniz türüne göre kullanılabilir Test S�
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu tür bir Test Sürüşü uygun ürünler, yalnızca Azure kaynakları şunlardır.               |       [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Şirket Dışında Barındırılan             |       Bir barındırılan Test Sürüşü Microsoft barındırma tarafından kurulumun karmaşıklığını ortadan kaldırır ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını.             |         [Barındırılan Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
-|      Mantıksal Uygulama              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
+|      Logic App              |       Mantıksal uygulamayı Test Sürüşü, tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır bir dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.            |      [Mantıksal uygulamayı Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Power BI Test Sürüşü özel oluşturulan bir panoya katıştırılmış bir bağlantı içerir. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediği herhangi bir ürünü. Karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.          |        [Power BI Test Sürüşü](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Power BI test sürüşü
 

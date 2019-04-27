@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608092"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
@@ -143,7 +143,7 @@ Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç
 |PostgreSQL için Azure Veritabanı  | Özel önizleme  |
 |MySQL için Azure Veritabanı       | Özel önizleme  |
 |Azure SQL Veri Ambarı       | Genel önizleme   |
-|Azure SQL Database             | Genel kullanılabilirlik (GA) |
+|Azure SQL Veritabanı             | Genel kullanılabilirlik (GA) |
 |Azure Storage                  | GA               |
 
 ### <a name="support-for-virtual-network-injection"></a>Destek için sanal ağ ekleme
@@ -258,7 +258,7 @@ Microsoft Azure, Office 365 ve Dynamics 365 olarak yazılmış ve tanımlanmış
 | Web ve mobil | API uygulamaları | | App Service Ortamı | |
 | Kapsayıcılar | Azure Container Service | | | Evet |
 | Kapsayıcılar | Azure Kubernetes Service'i (AKS) \* | | | Evet |
-| Database | Azure SQL Database | | Azure SQL veritabanı yönetilen örneği \* | Azure SQL |
+| Database | Azure SQL Veritabanı | | Azure SQL veritabanı yönetilen örneği \* | Azure SQL |
 | Database | MySQL için Azure Veritabanı | | | Evet |
 | Database | PostgreSQL için Azure Veritabanı | | | Evet |
 | Database | Azure SQL Veri Ambarı | | | Evet |

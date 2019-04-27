@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551741"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure İzleyici görünümlerde filtreleri
 A **filtre** içinde bir [Azure İzleyici görünümü](view-designer.md) kullanıcılar görünümü değiştirmeden belirli bir özellik değeri tarafından görünümünde verileri filtrelemek olanak sağlar.  Örneğin, görünümünüzü yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için kullanıcıları veya bilgisayarları kümesini izin verebilir.  Filtre birden çok özellikleri tarafından kullanıcılara izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
@@ -56,7 +56,7 @@ Aşağıdaki tablo, birkaç ortak filtrelere örnekleri içerir.
 
 | Alan Adı | Değerler için sorgu | Etiket |
 |:--|:--|:--|
-| Bilgisayar   | Sinyal &#124; farklı bilgisayar &#124; bilgisayar asc göre sırala | Bilgisayarlar |
+| Computer   | Sinyal &#124; farklı bilgisayar &#124; bilgisayar asc göre sırala | Bilgisayarlar |
 | EventLevelName | Olay &#124; ayrı EventLevelName | Severity |
 | Err | Syslog &#124; ayrı Err | Severity |
 | SvcChangeType | ConfigurationChange &#124; ayrı svcChangeType | ChangeType |

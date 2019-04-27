@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: service-health
 ms.date: 11/14/2017
 ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621016"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>PagerDuty ile hizmet sistem durumu uyarılarını yapılandırma
 

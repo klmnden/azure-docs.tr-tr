@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561837"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Event hubs için Azure Event Grid olay şeması
 
@@ -59,28 +59,28 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | Olay hub'ı olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| FileURL ' | dize | Yakalama dosyası yolu. |
-| fileType | dize | Yakalama dosyası dosya türü. |
-| PartitionID | dize | Parça kimliği. |
+| FileURL ' | string | Yakalama dosyası yolu. |
+| fileType | string | Yakalama dosyası dosya türü. |
+| PartitionID | string | Parça kimliği. |
 | sizeInBytes | integer | Dosya boyutu. |
 | eventCount | integer | Bu dosyadaki olaylar sayısı. |
 | firstSequenceNumber | integer | Kuyruğu'ndan küçük sıra numarası. |
 | lastSequenceNumber | integer | Kuyruğu'ndan son sıra numarası. |
-| firstEnqueueTime | dize | Kuyruğu'ndan ilk kez. |
-| lastEnqueueTime | dize | Kuyruğu'ndan son zaman. |
+| firstEnqueueTime | string | Kuyruğu'ndan ilk kez. |
+| lastEnqueueTime | string | Kuyruğu'ndan son zaman. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586573"
 ---
 # <a name="azure-infrastructure-security"></a>Azure Altyapı güvenliği
 Microsoft Azure, yönetilen ve Microsoft tarafından işletilen veri merkezlerinde çalışır. Bu coğrafi olarak dağınık veri merkezleri, ISO/IEC 27001: 2013 ve güvenlik ve güvenilirlik için NIST SP 800-53'ü gibi temel sektör standartlarıyla uyumlu. Veri Merkezi yönetilen, izlenen ve Microsoft Operasyon personeli tarafından yönetilir. Operasyon personeli, dünyanın en büyük çevrimiçi hizmetlerini 24 x 7 süreklilikle teslim deneyim vardır.

@@ -10,11 +10,11 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616254"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>İş tarayıcı ve iş görünümünü kullanma Azure Data Lake Analytics için
 Azure Data Lake Analytics hizmetine gönderilen işler sorgu Deposu'nda arşivler. Bu makalede, iş tarayıcı ve iş görünümünü Visual Studio için Azure Data Lake araçları geçmiş iş bilgilerini bulmak için nasıl kullanılacağını öğrenin. 

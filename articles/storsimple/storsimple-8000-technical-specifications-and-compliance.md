@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631899"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Teknik Özellikler ve StorSimple cihaz için uyumluluğu
 
@@ -36,14 +36,14 @@ EBOD muhafazası bir 580 W PCM ve birincil bir 764 W PCM kullanır. Aşağıdaki
 | Belirtimi | 580 W PCM (EBOD) | 764 W PCM (birincil) |
 | --- | --- | --- |
 | En yüksek çıkış gücü |580 W |764 |
-| Sıklık |50 60 Hz |50 60 Hz |
-| Voltaj aralık seçimi |Otomatik arasında değişen: 90 – 264 V AC, 47/63 Hz |Otomatik arasında değişen: 90-264 V AC, 47/63 Hz |
+| Sıklık |50/60 Hz |50/60 Hz |
+| Voltaj aralık seçimi |Otomatik arasında değişen: 90 – 264 V AC, 47/63 Hz |Otomatik arasında değişen: 90 - 264 V AC, 47/63 Hz |
 | En fazla inrush geçerli |20 A |20 A |
 | Güç Faktörlü düzeltme |> %95 nominal giriş gerilimi |> %95 nominal giriş gerilimi |
 | Uyumları |Karşılayan EN61000 3 2 |Karşılayan EN61000 3 2 |
 | Çıktı |5v bekleme voltaj \@ 2.0 A |5v bekleme voltaj \@ 2.7 A |
-| + 5V \@ 42 A |+ 5V \@ 40 A | |
-| + 12 V \@ 38 A |+ 12 V \@ 38 A | |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Takılabilir seyrek |Evet |Evet |
 | Anahtarlar ve LED'leri |AC Kapat anahtar ve dört durumu gösterge LED'lerini |AC Kapat anahtar ve altı durumu gösterge LED'lerini |
 | Soğutma kasası |Soğutma fanları değişken fanı hızı denetimi ile Eksenel |Soğutma fanları değişken fanı hızı denetimi ile Eksenel |
@@ -150,7 +150,7 @@ Microsoft Azure StorSimple Cihazınızı aşağıdaki Uluslararası Standartlar 
 Microsoft Azure StorSimple Cihazınızı aşağıdaki güvenlik derecelendirmeleri karşılar:
 
 * Sistemi ürün türü onayı: UL, cUL, CE
-* Güvenlik uyumluluk: UL 60950, IEC 60950, tr 60950
+* Güvenlik uyumluluk: UL 60950, IEC 60950, TR 60950
 
 ## <a name="emc-compliance"></a>EMC uyumluluk
 
@@ -160,8 +160,8 @@ Microsoft Azure StorSimple Cihazınızı aşağıdaki EMC derecelendirmeleri kar
 
 Cihaz EMC-emisyonlarını yürütülür ve dayanıklılık düzeyleri için uyumludur.
 
-* Gerçekleştirilen emisyonlarını sınırlamak düzeyleri: CFR 47 bölümü 15B sınıf A EN55022 sınıf A CISPR sınıf A
-* Emisyonlarını dayanıklılık düzeyleri sınırlayın: CFR 47 bölümü 15B sınıf A EN55022 sınıf A CISPR sınıf A
+* Emisyonlarını sınırı düzeyleri yürütülür: CFR 47 bölümü 15B sınıfı EN55022 CISPR sınıf A sınıfı
+* Emisyonlarını sınırı düzeyleri dayanıklılık: CFR 47 bölümü 15B sınıfı EN55022 CISPR sınıf A sınıfı
 
 ### <a name="harmonics-and-flicker"></a>Uyumları ve titreşimini
 

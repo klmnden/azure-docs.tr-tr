@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683177"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps belirli değerlere göre iş akışının eylemlerini çalıştıran switch deyimleri oluşturma
 
@@ -32,7 +32,7 @@ Nesneleri, ifadeler veya belirteçleri değerlerine göre özel eylemler çalı�
 
 * Bu makaledeki örnek [Bu örnek mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) ile bir Outlook.com veya Office 365 Outlook hesabı.
 
-  1. E-posta göndermek için eylem eklediğinizde, bulun ve bunun yerine şu eylemi seçin: **bir onay e-posta Gönder**
+  1. E-posta göndermek için eylem ekleme bulun ve bunun yerine şu eylemi seçin: **Bir onay e-posta Gönder**
 
      !["Onay e-posta Gönder" öğesini seçin](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Nesneleri, ifadeler veya belirteçleri değerlerine göre özel eylemler çalı�
 
    Switch deyimi adımlar arasında eklemek istediğinizde, işaretçiyi switch ifadesi eklemek istediğiniz okun üzerine getirin. Seçin **artı** (**+**) görünür, ardından **Eylem Ekle**.
 
-1. Arama kutusuna filtreniz olarak "geçiş" girin. Şu eylemi seçin: **geçiş - denetim**
+1. Arama kutusuna filtreniz olarak "geçiş" girin. Şu eylemi seçin: **Switch - denetim**
 
    ![Anahtar Ekle](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 

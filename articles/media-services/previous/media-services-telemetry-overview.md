@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545529"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
 
@@ -79,7 +79,7 @@ Telemetri verilerini toplama bir tablodaki "nerede"20160321"oluşturulmuş bir t
 PartitionKey|{hesabı kimliği} _ {varlık kimliği}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Hesap Kimliği iş akışları birden çok Media Services hesapları için aynı depolama hesabını burada yazıyorsanız basitleştirmek için bölüm anahtarını dahil edilir.
 RowKey|{seconds yarısından} _ {rastgele değer}|01688_00199<br/><br/>Satır anahtarı bölüm üst n stili sorgulara izin vermek için gece saniye sayısı ile başlar. Daha fazla bilgi için [bu makaleye](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) bakın. 
 Zaman damgası|Tarih/Saat|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
-Type|Telemetri verilerini sağlayan varlık türü|StreamingEndpoint/kanal/arşivleme<br/><br/>Olay türü yalnızca bir dize değeridir.
+Tür|Telemetri verilerini sağlayan varlık türü|StreamingEndpoint/kanal/arşivleme<br/><br/>Olay türü yalnızca bir dize değeridir.
 Ad|Telemetri olayı adı|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|(UTC) telemetrisi olayın gerçekleştiği zaman|2016-09-09T22:42:36.924Z<br/><br/>Gözlemlenen saat (örneğin bir kanal) telemetri gönderdiği varlık tarafından sağlanır. Bu değer, bu nedenle bileşenler arasındaki eşitleme sorunlarını yaklaşık bir saat olabilir
 ServiceId|{service} kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -100,7 +100,7 @@ Varlığa özgü özellikleri|Olay tarafından tanımlandığı şekilde|StreamN
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
-Type|Type|StreamingEndpoint
+Tür|Tür|StreamingEndpoint
 Ad|Ad|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -119,7 +119,7 @@ E2ELatency|Ortalama uçtan uca gecikme süresi|250
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
-Type|Type|Kanal
+Tür|Tür|Kanal
 Ad|Ad|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -144,7 +144,7 @@ Sorunsuz|Gerekirse true, <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonInc
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
-Type|Type|Arşiv
+Tür|Tür|Arşiv
 Ad|Ad|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

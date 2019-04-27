@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554856"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data factory'de filtre etkinliği
 Bir filtre ifadesi bir giriş dizisine uygulamak için bir işlem hattındaki bir filtre etkinliği kullanabilirsiniz. 
@@ -37,12 +37,12 @@ Bir filtre ifadesi bir giriş dizisine uygulamak için bir işlem hattındaki bi
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-name | Adını `Filter` etkinlik. | Dize | Evet
-type | Ayarlanmalıdır **filtre**. | Dize | Evet
-condition | Giriş filtreleme için kullanılacak koşul. | İfade | Evet
-items | Filtre uygulanması gereken giriş dizisi. | İfade | Evet
+ad | Adını `Filter` etkinlik. | String | Evet
+type | Ayarlanmalıdır **filtre**. | String | Evet
+koşul | Giriş filtreleme için kullanılacak koşul. | İfade | Evet
+öğeler | Filtre uygulanması gereken giriş dizisi. | İfade | Evet
 
 ## <a name="example"></a>Örnek
 

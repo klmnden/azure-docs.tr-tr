@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729877"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Azure ve AppSource Market teklifleri yönetme
 
@@ -33,7 +33,7 @@ Bir yayımcı, teklif aşağıdaki temel işlemleri gerçekleştirmek bulut iş 
 |     İşlem      |  Açıklama                                           |
 |     ---------      |  -----------                                           |
 | [Teklif oluşturma](./cpp-create-offer.md)   | Onboarding deposunda bekleyen Teklif girişi oluşturur, ancak otomatik olarak bir Microsoft Market'te yayımlamaz | 
-| [Teklif Durumu görüntüle](./cpp-view-status-offer.md)   | Bir teklifi Yayımlama durumunu sağlar.  Durum bilgisi görüntülendiği birden fazla yerde portalında vardır. |
+| [Teklif durumunu görüntüleme](./cpp-view-status-offer.md)   | Bir teklifi Yayımlama durumunu sağlar.  Durum bilgisi görüntülendiği birden fazla yerde portalında vardır. |
 | [Teklif yayımlama](./cpp-publish-offer.md) | Doğrular ve ardından uygun Microsoft Market'te bir tamamlanmış Teklif girişi gönderir.  Bu teklif, ardından olduğu söylenir *canlı*. |
 | [Teklifi güncelleştirme](./cpp-update-offer.md)   | Var olan bir teklif belirli özelliklerini değiştirilmesine izin verir.  Bekleyen ve yayımlanan teklifler için geçerlidir. |
 | [Teklifi silme](./cpp-delete-offer.md)   | Var olan bekleyen veya canlı bir teklif siler.  | 

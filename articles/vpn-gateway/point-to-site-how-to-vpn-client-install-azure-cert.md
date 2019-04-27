@@ -1,5 +1,5 @@
 ---
-title: 'Noktadan siteye bir istemci sertifikasını yükleme: Azure | Microsoft Docs'
+title: 'Noktadan siteye bir istemci sertifikası yükleyin: Azure | Microsoft Docs'
 description: P2S sertifika kimlik doğrulaması - Windows, Mac, Linux için istemci sertifikası yükleyin.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: eec15b84e4bdb8df3fe84a53909d5da4b39545ff
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679988"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>P2S sertifika kimlik doğrulaması bağlantıları için istemci sertifikalarını yükleme
 

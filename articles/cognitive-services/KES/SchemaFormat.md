@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814404"
 ---
 # <a name="schema-format"></a>Şema biçimi
 
@@ -41,7 +41,7 @@ ms.locfileid: "59549696"
 
 Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 
-| Type | Açıklama | İşlemler | Örnek |
+| Tür | Açıklama | İşlemler | Örnek |
 |------|-------------|------------|---------|
 | `String` | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
 | `Int32` | İşaretli 32 bit tam sayı | is_between starts_with, eşittir | 2016 |

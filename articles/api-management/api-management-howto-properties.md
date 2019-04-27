@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658044"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Adlandırılmış değerler Azure API Management ilkelerini kullanma
 API Management ilkeleri güçlü bir API configuration aracılığıyla davranışını değiştirmek Azure portalın sistem özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. İlke ifadeleri, metin değerleri, ilke ifadeleri kullanarak ve adlandırılmış değerler oluşturulabilir. 
 
 Her API Management hizmet örneği adlı hizmet örneği için genel kabul edilen değerler, adlı bir anahtar/değer çiftleri özellikleri koleksiyonu vardır. Bu adlandırılmış değerler, dize sabit değerleri, tüm API yapılandırması ve ilkelerini yönetmek için kullanılabilir. Her bir özellik aşağıdaki özniteliklere sahip olabilir:
 
-| Öznitelik | Type | Açıklama |
+| Öznitelik | Tür | Açıklama |
 | --- | --- | --- |
-| `Display name` |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
-| `Value` |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
-| `Secret` |boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
-| `Tags` |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
+| Görünen ad |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
+| Değer |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
+|Gizli dizi|boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
+| Etiketler |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
 
 ![Adlandırılmış değerler](./media/api-management-howto-properties/named-values.png)
 

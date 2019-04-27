@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593794"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Öğretici: Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -31,7 +31,7 @@ Bu öğreticide, Azure sanal makineler üzerinde bir SQL Server Always On kullan
 
 Öğreticide yapı diyagramda gösterilmektedir.
 
-![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
+![Kullanılabilirlik Grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -402,7 +402,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
 
    | Ayar | Açıklama | Örnek
    | --- | --- |---
-   | **Ad** | Metin | SQLAlwaysOnEndPointProbe |
+   | **Ad** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokol** | TCP seçin | TCP |
    | **Bağlantı Noktası** | Kullanılmayan herhangi bir bağlantı noktası | 59999 |
    | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
@@ -418,7 +418,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
 
    | Ayar | Açıklama | Örnek
    | --- | --- |---
-   | **Ad** | Metin | SQLAlwaysOnEndPointListener |
+   | **Ad** | Text | SQLAlwaysOnEndPointListener |
    | **Ön uç IP adresi** | Adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 1433 |
@@ -426,7 +426,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | **Araştırma** |Yoklama için belirtilen adı | SQLAlwaysOnEndPointProbe |
    | **Oturum kalıcılığı** | Açılan liste | **Yok.** |
    | **Boşta kalma zaman aşımı** | TCP bağlantısı açık tutmak için dakika | 4 |
-   | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
+   | **Kayan IP (doğrudan sunucu dönüşü)** | |Enabled |
 
    > [!WARNING]
    > Doğrudan sunucu dönüşü oluşturma sırasında ayarlanır. Bu değer değiştirilemez.
@@ -445,7 +445,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
 
    | Ayar | Açıklama | Örnek
    | --- | --- |---
-   | **Ad** | Metin | WSFCEndPointProbe |
+   | **Ad** | Text | WSFCEndPointProbe |
    | **Protokol** | TCP seçin | TCP |
    | **Bağlantı Noktası** | Kullanılmayan herhangi bir bağlantı noktası | 58888 |
    | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
@@ -459,7 +459,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
 
    | Ayar | Açıklama | Örnek
    | --- | --- |---
-   | **Ad** | Metin | WSFCEndPoint |
+   | **Ad** | Text | WSFCEndPoint |
    | **Ön uç IP adresi** | Adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. Bu dinleyici IP adresi farklıdır |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Bağlantı noktası için küme IP adresini kullanın. Bu dinleyici araştırma bağlantı noktası için kullanılmaz kullanılabilir bir bağlantı noktasıdır. | 58888 |
@@ -467,7 +467,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
    | **Araştırma** |Yoklama için belirtilen adı | WSFCEndPointProbe |
    | **Oturum kalıcılığı** | Açılan liste | **Yok.** |
    | **Boşta kalma zaman aşımı** | TCP bağlantısı açık tutmak için dakika | 4 |
-   | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
+   | **Kayan IP (doğrudan sunucu dönüşü)** | |Enabled |
 
    > [!WARNING]
    > Doğrudan sunucu dönüşü oluşturma sırasında ayarlanır. Bu değer değiştirilemez.

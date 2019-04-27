@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630946"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Cihazınızı kutusundan çıkarma, rafa monte ve StorSimple 8600 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış
@@ -34,12 +34,12 @@ Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)![büyük ağırlık simgesi](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **uyarı!**
 
 1. El ile işleme cihaz ağırlığını yönetmek için kullanılabilecek iki kişinin bilgisayarınızda yüklü olduğundan emin olun. Tam olarak yapılandırılmış bir kutu, en fazla 32 kg (70'ten lb.) Tart.
-2. Kutuya bir düz, düzey yüzeyinde koyun.
+2. Kutuyu düz ve sabit bir yüzeye yerleştirin.
 
 Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-unpack-your-device"></a>Cihazınızı paketinden çıkarma için
-1. Kutunun ve paketleme köpük crushes, keser, su zarar veya herhangi bir belirgin hasar inceleyin. Paketleme ve kutusu ciddi zarar, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) , cihazın iyi çalışma sırayla olup değerlendirmenize yardımcı olmak için.
+1. Kutuda ve ambalajda ezik, kesik, su hasarı veya gözle görülür herhangi bir hasar olup olmadığını kontrol edin. Kutu veya ambalajda ciddi hasar varsa kutuyu açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) , cihazın iyi çalışma sırayla olup değerlendirmenize yardımcı olmak için.
 2. Dış kutusunu açın ve ardından birincil ve ebod için karşılık gelen iki kutu kullanıma alın. Artık birincil ve ebod monte edebilir. Aşağıdaki şekilde kasaları birini paketten çıkarılan görünümünü gösterir.
    
     ![Depolama Cihazınızı paketinden çıkarma](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -69,7 +69,7 @@ Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tama
      
      Yukarıda listelenen öğelerden herhangi birini almadı, [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).  
 
-Sonraki adım rafa monte Cihazınızı sağlamaktır.
+Bir sonraki adım cihazınızı rafa yerleştirmektir.
 
 ## <a name="rack-mount-your-storsimple-8600-device"></a>Rafa monte StorSimple 8600 cihazınızın
 Standart 19 inç raf ön ve arka gönderiler ile StorSimple 8600 depolama cihazınızın yüklemek için sonraki adımları izleyin. Bu cihaz iki kasaları ile birlikte gelir: birincil muhafaza ve EBOD muhafazası. Bunların her ikisi de rafa monte edilen gerekir.
@@ -115,7 +115,7 @@ Rails bağlama kümesi 19 inç raf dolap ile kullanım için sağlanır. Rails m
    |  1 |M 3 x 4 düğmesi baş Vida |
    |  2 |Kasa slayt |
 2. Doğru parmaklık derlemeleri ve Sol parmaklık raf dolap dikey üyeleri ekleyin. Köşeli ayraçlar işaretlenmiş **LH**, **RH**, ve **bu tarafı yukarı** doğru yön size yol gösterecek.
-3. Ön ve arka parmaklık derlemenin parmaklık PIN'ler bulun. Parmaklık arasında rafa gönderileri uygun ve PIN'leri ön ve arka raf post dikey üye boşluklarını eklemek için genişletin. Parmaklık derleme düzeyinde olduğundan emin olun.
+3. Ray tertibatının ön ve arkasındaki ray pimlerini bulun. Parmaklık arasında rafa gönderileri uygun ve PIN'leri ön ve arka raf post dikey üye boşluklarını eklemek için genişletin. Parmaklık derleme düzeyinde olduğundan emin olun.
 4. Rafa parmaklık derlemeye dikey üyeleri iki sağlanan ölçüm Vida kullanarak güvenli hale getirin. Ön ve arka birinde tek Sarmal kullanın.
 5. Diğer parmaklık derleme için bu adımları yineleyin.
    
@@ -260,7 +260,7 @@ Seri bağlantı kablolarını bağlama için aşağıdaki adımları gerçekleş
 6. Bağlantı Konsolu'nda Enter tuşuna basarak çalıştığını doğrulayın. Seri konsol menüsünde görüntülenmelidir.
 
 > [!NOTE]
-> **Uzaktan Yönetimi:** cihaz uzak bir veri merkezinde veya sınırlı erişimli bilgisayar odasında yüklendiğinde, her iki denetleyicilerinin seri bağlantıları her zaman bir seri konsol anahtarı veya benzer ekipman bağlandığınızdan emin olun. Bu, bant dışı uzaktan denetim ve Destek işlemleri ağ kesintisi veya beklenmeyen arıza durumunda sağlar.
+> **Uzaktan Yönetimi:** Cihaz uzak bir veri merkezinde veya sınırlı erişimli bilgisayar odasında yüklendiğinde, her iki denetleyicilerinin seri bağlantıları her zaman bir seri konsol anahtarı veya benzer ekipman bağlandığınızdan emin olun. Bu, bant dışı uzaktan denetim ve Destek işlemleri ağ kesintisi veya beklenmeyen arıza durumunda sağlar.
 > 
 > 
 

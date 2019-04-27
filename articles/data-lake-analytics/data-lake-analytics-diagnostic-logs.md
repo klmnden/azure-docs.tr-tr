@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616526"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için tanılama günlüklerine erişme
 
@@ -134,7 +134,7 @@ JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak
 | resultType |String |Örneğin, 200 işlem durumu. |
 | callerIpAddress |String |İsteği yapan istemcinin IP adresi |
 | correlationId |String |Oturum tanımlayıcısı. Bu değer, bir dizi ilgili günlük girişlerini gruplandırmak için kullanılabilir. |
-| identity |Nesne |Günlük oluşturulan kimlik |
+| identity |Object |Günlük oluşturulan kimlik |
 | properties |JSON |Ayrıntılar için sonraki bölüme (istek günlüğü özellikleri şema) bakın |
 
 #### <a name="request-log-properties-schema"></a>İstek günlüğü özellikleri şeması

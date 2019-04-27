@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540888"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights’ı kullanarak özel KPI panoları oluşturma
 
@@ -78,7 +78,7 @@ Yalnızca statik metin içeren bir pano ilgi çekici olmadığından, uygulaman�
 1. **Ölçümler**’i seçin.  
 2. Boş bir grafik oluşturulur ve bir ölçüm eklemeniz istenir.  Grafiğe bir ölçüm ve isteğe bağlı olarak bir filtre ve gruplandırma ekleyin.  Aşağıdaki örnekte başarı ölçütüne göre gruplandırılmış sunucu isteklerinin sayısı gösterilmektedir.  Bu, başarılı ve başarısız isteklerin sürekli bir görünümünü sunar.
 
-    ![Ölçüm ekle](media/tutorial-app-dashboards/5sumserverrequests.png)
+    ![Ölçüm ekleme](media/tutorial-app-dashboards/5sumserverrequests.png)
 
 4. Seçin **panoya Sabitle** sağ. Bu, görünümü üzerinde çalıştığınız en son panoya ekler.
 
@@ -99,7 +99,7 @@ Azure Applications Insights Analytics, ayrı bir hizmet olduğundan Analytics so
 
     ![Panoyu yayımlama](media/tutorial-app-dashboards/8dashboard-share.png)
 
-2. Panoyu paylaşmak için **Pano adını** aynı tutun ve **Abonelik Adı**’nı.  Tıklayın **yayımlama**.  Pano artık diğer hizmetler ve abonelikler tarafından kullanılabilir.  İsteğe bağlı olarak panoya erişebilecek belirli kullanıcıları tanımlayabilirsiniz.
+2. Panoyu paylaşmak için **Pano adını** aynı tutun ve **Abonelik Adı**’nı.  **Yayımla**’ta tıklayın.  Pano artık diğer hizmetler ve abonelikler tarafından kullanılabilir.  İsteğe bağlı olarak panoya erişebilecek belirli kullanıcıları tanımlayabilirsiniz.
 1. Seçin, **Application Insights** giriş ekranına kaynakta.
 2. Analytics portalını açmak için ekranın üst kısmındaki **Analytics** seçeneğine tıklayın.
 

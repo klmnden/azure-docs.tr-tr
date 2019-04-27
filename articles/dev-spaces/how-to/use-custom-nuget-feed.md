@@ -11,11 +11,11 @@ description: Akış erişmek ve bir Azure geliştirme alanında NuGet paketlerin
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
 manager: ghogen
 ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686466"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Bir Azure geliştirme alanında özel bir NuGet akışı kullanma
 

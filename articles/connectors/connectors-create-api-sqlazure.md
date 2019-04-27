@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541153"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps'ten SQL Server veya Azure SQL veritabanına bağlanma
 
@@ -24,7 +24,7 @@ Bu makalede, SQL Server Bağlayıcısı ile bir mantıksal uygulama içinde SQL 
 
 SQL veritabanınız veya Dynamics CRM Online gibi diğer sistemlerde olaylar tarafından tetiklendiğinde çalışan mantıksal uygulamalar oluşturabilirsiniz. Ayrıca mantıksal uygulamalarınızı alma, ekleme ve SQL sorguları ve saklanan yordamların yürütülmesi yanı sıra veri silme. Örneğin, Dynamics CRM Online içinde yeni kayıtlar için otomatik olarak denetler, tüm kayıtları için SQL veritabanı sunucunuza öğeler ekler ve ardından e-posta uyarıları gönderir, bir mantıksal uygulama oluşturabilirsiniz.
 
-Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bağlayıcısı özel teknik bilgiler için bkz. <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server bağlayıcı başvurusu</a>.
+Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bağlayıcısı özel teknik bilgiler için bkz. <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server bağlayıcı başvurusu</a>.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_b
 
   * SQL Server için bu Ayrıntılar bağlantı dizesinde bulabilirsiniz: 
 
-    "Server = <*yourServerAddress*>; Veritabanı = <*yourDatabaseName*>; Kullanıcı Kimliği = <*kullanıcıadınız*>; Parola = <*yourPassword*>; "
+    "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
 * Logic apps, SQL Server gibi şirket içi sistemlere bağlanabilmeniz gerekir [bir şirket içi veri ağ geçidi ayarlama](../logic-apps/logic-apps-gateway-install.md). Bu şekilde mantıksal uygulamanız için SQL bağlantı oluşturduğunuzda ağ geçidini seçebilirsiniz.
 

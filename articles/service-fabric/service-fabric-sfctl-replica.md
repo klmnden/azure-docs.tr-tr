@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544679"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Hizmet bölümlere ait çoğaltmaları yönetin.
@@ -30,12 +30,12 @@ Hizmet bölümlere ait çoğaltmaları yönetin.
 | --- | --- |
 | dağıtılan | Bir Service Fabric dağıtıldığını çoğaltma ayrıntılarını alır. |
 | dağıtılan listesi | Bir Service Fabric dağıtıldığını çoğaltmaların listesini alır. |
-| sistem durumu | Bir Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisi olmayan hizmet durumunu alır. |
+| sağlık | Bir Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisi olmayan hizmet durumunu alır. |
 | bilgi | Bir Service Fabric bölümünün bir çoğaltma bilgilerini alır. |
-| liste | Bir Service Fabric hizmeti bölüm çoğaltmaları hakkında daha fazla bilgi alır. |
+| list | Bir Service Fabric hizmeti bölüm çoğaltmaları hakkında daha fazla bilgi alır. |
 | kaldır | Bir düğümde çalışan bir hizmet çoğaltmaya kaldırır. |
 | durumu- | Service Fabric çoğaltma üzerindeki bir sistem durumu raporu gönderir. |
-| yeniden başlat | Bir düğüm üzerinde çalışan kalıcı bir hizmet hizmeti çoğaltmasını yeniden başlatır. |
+| restart | Bir düğüm üzerinde çalışan kalıcı bir hizmet hizmeti çoğaltmasını yeniden başlatır. |
 
 ## <a name="sfctl-replica-deployed"></a>dağıtılan sfctl çoğaltma
 Bir Service Fabric dağıtıldığını çoğaltma ayrıntılarını alır.

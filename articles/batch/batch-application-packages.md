@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722220"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı
 
@@ -29,14 +29,11 @@ Azure batch'in uygulama paketleri özelliği, kolay yönetim görev uygulamalar�
 Bu makalede, karşıya yüklemek ve Azure portalında uygulama paketlerini yönetmek öğrenin. Daha sonra bunları bir havuzun işlem düğümleri ile yükleme öğrenin [Batch .NET] [ api_net] kitaplığı.
 
 > [!NOTE]
-> 
 > Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez.
 >
 > API oluşturma ve uygulama paketleri yönetme parçası olan [toplu işlem yönetimi .NET] [ api_net_mgmt] kitaplığı. Bir işlem düğümünde uygulama paketleri yüklemek için API'ler parçası olan [Batch .NET] [ api_net] kitaplığı. Diğer diller için kullanılabilir Batch API'lerine karşılaştırılabilir özellikler alır. 
 >
 > Burada açıklanan uygulama paketleri özelliği, ' service'nın önceki sürümlerinde kullanılabilir Batch Apps özelliğini yerini alır.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Uygulama paketi gereksinimleri
 Uygulama paketlerini kullanmak için yapmanız [bir Azure depolama hesabı bağlantı](#link-a-storage-account) Batch hesabınıza.
@@ -116,6 +113,14 @@ Bu pencereyi her uygulama Kimliğini hesabınızı ve aşağıdaki özellikleri 
 * **Paketleri**: Bu uygulamayla ilişkili sürüm sayısı.
 * **Varsayılan sürüm**: Uygulama havuzu için belirttiğiniz zaman, bir sürüm belirtmiyorsa yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
 * **Güncelleştirmelere izin ver**: Paket olup olmadığını güncelleştirir, silme ve ekleme belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirmeleri ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**’tir.
+
+Uygulama paketi dosyası yapısını, işlem düğümü üzerinde görmek istiyorsanız, portalda Batch hesabınıza gidin. Batch hesabınızdaki e gidin **havuzları**. İlgilendiğiniz işlem düğümlerini içeren bir havuz seçin.
+
+![Havuzdaki düğümler][13]
+
+Havuzunuz seçtikten sonra uygulama paketi yüklendiğinde işlem düğümüne gidin. Uygulama paketi ayrıntılarını bulunan buradan **uygulamaları** klasör. Ek klasörleri işlem düğümünde başlangıç görevleri, Çıkış dosyalarını, hata çıktısı, vb. gibi diğer dosyaları içerir.
+
+![Düğümdeki dosyalar][14]
 
 ### <a name="view-application-details"></a>Uygulama ayrıntılarını görüntüle
 Uygulama ayrıntılarını görmek için uygulamayı seçin. **uygulamaları** penceresi.
@@ -374,3 +379,5 @@ Uygulama paketlerinde, müşterilerinizin işlerini uygulamaları seçin ve Batc
 [10]: ./media/batch-application-packages/app_pkg_10.png "Azure portalında depolama hesabı dikey penceresi seçin"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure portalında güncelleştirme paketi dikey penceresi"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Paket onay iletişim kutusunda Azure portalında silme"
+[13]: ./media/batch-application-packages/package-file-structure.png "Azure portalında düğümü bilgi işlem"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Azure Portalı'nda görüntülenen işlem düğümünde dosyaları"

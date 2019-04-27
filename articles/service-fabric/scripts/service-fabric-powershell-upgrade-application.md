@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8a291e49272c47035f73ad70534ac5393060940a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f896e0ff8d05d9c77a4a11c97afd9c0ffc17b7d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621766"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Service Fabric uygulaması yükseltme
 
@@ -36,7 +36,7 @@ Gerekirse, [Service Fabric SDK’sı](../service-fabric-get-started.md) ile Serv
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
 | [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Service Fabric kümesindeki tüm uygulamaları ya da belirli bir uygulama alır.  |
 | [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Bir Service Fabric uygulaması yükseltme durumunu alır. |

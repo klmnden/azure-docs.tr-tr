@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702439"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Bir sınıf laboratuvarı VM şablon içinde birden çok VM ile bir ortam oluşturun
 Azure Lab Services şu anda tek bir şablonda sanal makinede bir laboratuvarı ayarlama ve tek bir kopyasını her kullanıcı için kullanılabilir kılmanıza olanak sağlar. Ancak, güvenlik duvarları veya sunucularını ayarlamak nasıl bir BT sınıfında veren bir Profesör varsa, her biri, Öğrenciler, birden çok sanal makineleri birbirine bir ağ üzerinden konuşabilirsiniz bir ortam ile sağlamanız gerekebilir.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599322"
 ---
 # <a name="requirements-by-listing-type"></a>Liste türü tarafından gereksinimleri  
 Teknik ve pazarlama içeriği gereksinimleri vitrini, Teklif türü ve liste türüne göre değişir. Uyumluluğunuzu doğrulamak için aşağıdaki özellikleri gözden geçirin.  
@@ -44,16 +44,16 @@ Aşağıdaki tabloda, Appsource'ta yayımlama için önkoşul gereksinimleri aç
 | ***Gizlilik İlkesi ve kullanım koşulları*** | Uygulamanızı genel bir URL kullanarak gizlilik ilkesi sayfanıza bir bağlantı sağlamanız gerekir. Metin olarak yayımlama sırasında kullanım koşullarınızı sağlanması gerekir. | Gerekli |  
 | ***Destek*** | Uygulamanızı genel bir URL kullanarak müşteri destek sayfanız için bir bağlantı sağlamanız gerekir. Uygulamanız bir deneme ise, deneme süresi boyunca ek ücret ödemeden desteklemesi gerekir. | Gerekli |  
 
-## <a name="storefront-requirements-azure-marketplace"></a>StoreFront gereksinimleri: Azure Marketi  
+## <a name="storefront-requirements-azure-marketplace"></a>StoreFront gereksinimleri: Azure Market  
 Azure Marketi'nde türlerini listeleme önkoşul gereksinimleri aşağıda verilmiştir.  
 
 | Gereksinim | Ayrıntılar | Liste türü |  
 |:--- |:--- |:--- |  
-| ***Katılım ilkeleri*** | Uygulamanızı Azure Market katılım ilkeleri izlemeniz gerekir.<ul> <li>Katılım ilkeleri hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Azure Marketi katılım ilkeleri [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | liste<br />Transact<br />trial |  
-| ***Microsoft ile tümleştirme*** | Teklifinizi kullanmak veya Microsoft Azure işlem, ağ veya depolama gibi hizmet türleri genişleten gerekir. Teklifiniz, veritabanları, güvenlik veya ağ gibi var olan bir Azure Marketi kategori ile hizalamanız gerekir.<ul> <li>Market teklifleri hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Market uygulamaları [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | liste<br />Transact<br />trial |  
-| ***Hedef kitle*** | Teklifiniz, BT uzmanları, bulut geliştiricilerine veya diğer teknik müşteri rolleri olması gerekir. | liste<br />Transact<br />trial |  
-| ***Müşteri adayı yönetimi*** | Mağazada aldığınız önce müşteri adayı verilerini müşteri adayları kabul etmek CRM (Marketo, Microsoft Dynamics veya Salesforce) etkinleştirin. | liste<br />Transact<br />trial |  
-| ***Gizlilik İlkesi ve kullanım koşulları*** | Uygulamanızı genel bir URL kullanarak gizlilik ilkesi sayfanıza bir bağlantı sağlamanız gerekir. Metin olarak yayımlama sırasında kullanım koşullarınızı sağlanması gerekir. | liste<br />Transact<br />trial |  
+| ***Katılım ilkeleri*** | Uygulamanızı Azure Market katılım ilkeleri izlemeniz gerekir.<ul> <li>Katılım ilkeleri hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Azure Marketi katılım ilkeleri [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />Transact<br />trial |  
+| ***Microsoft ile tümleştirme*** | Teklifinizi kullanmak veya Microsoft Azure işlem, ağ veya depolama gibi hizmet türleri genişleten gerekir. Teklifiniz, veritabanları, güvenlik veya ağ gibi var olan bir Azure Marketi kategori ile hizalamanız gerekir.<ul> <li>Market teklifleri hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Market uygulamaları [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />Transact<br />trial |  
+| ***Hedef kitle*** | Teklifiniz, BT uzmanları, bulut geliştiricilerine veya diğer teknik müşteri rolleri olması gerekir. | list<br />Transact<br />trial |  
+| ***Müşteri adayı yönetimi*** | Mağazada aldığınız önce müşteri adayı verilerini müşteri adayları kabul etmek CRM (Marketo, Microsoft Dynamics veya Salesforce) etkinleştirin. | list<br />Transact<br />trial |  
+| ***Gizlilik İlkesi ve kullanım koşulları*** | Uygulamanızı genel bir URL kullanarak gizlilik ilkesi sayfanıza bir bağlantı sağlamanız gerekir. Metin olarak yayımlama sırasında kullanım koşullarınızı sağlanması gerekir. | list<br />Transact<br />trial |  
 | ***Destek*** | Teklifiniz, genel bir URL kullanarak müşteri destek sayfanız bir bağlantı sağlamanız gerekir. Teklifinizi deneme varsa deneme süresi boyunca ek ücret ödemeden desteklemesi gerekir. | Transact<br />trial |    
 
 ## <a name="non-transact-listings"></a>Transact listeleri  
@@ -65,9 +65,9 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
 | Danışmanlık Hizmetleri | AppSource | Gereksinimler: AppSource: Listesi: Danışmanlık Hizmetleri |  
-| Danışmanlık Hizmetleri | Azure Marketi | Gereksinimler: Azure Market: Listesi: Danışmanlık Hizmetleri |  
+| Danışmanlık Hizmetleri | Azure Market | Gereksinimler: Azure Market: Listesi: Danışmanlık Hizmetleri |  
 | Benimle iletişime geçin | AppSource | [](#) |  
-| Benimle iletişime geçin | Azure Marketi | Gereksinimler: AppSource: Listesi: Benimle iletişime geçin |  
+| Benimle iletişime geçin | Azure Market | Gereksinimler: AppSource: Listesi: Benimle iletişime geçin |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Gereksinimler: AppSource: Listesi: Danışmanlık hizmeti  
 
@@ -92,11 +92,11 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
 | Ücretsiz / SaaS denemesi | AppSource | Liste türü gereksinimleri: Deneme |  
-| Ücretsiz / SaaS denemesi | Azure Marketi | Gereksinimler: Azure Market: Deneme sürümü: Ücretsiz deneme sürümü / SaaS denemesi |  
+| Ücretsiz / SaaS denemesi | Azure Market | Gereksinimler: Azure Market: Deneme sürümü: Ücretsiz deneme sürümü / SaaS denemesi |  
 | Etkileşimli tanıtım | AppSource | Liste türü gereksinimleri: Deneme |  
-| Etkileşimli tanıtım | Azure Marketi | [Gereksinimler: Azure Market: Deneme sürümü: Etkileşimli tanıtım](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Etkileşimli tanıtım | Azure Market | [Gereksinimler: Azure Market: Deneme sürümü: Etkileşimli tanıtım](#requirements-azure-marketplace-trial-interactive-demo) |  
 | Test sürüşü | AppSource | Liste türü gereksinimleri: Deneme |  
-| Test sürüşü | Azure Marketi | [Gereksinimler: Azure Market: Deneme sürümü: Test sürüşü](#requirements-azure-marketplace-trial-test-drive) |  
+| Test sürüşü | Azure Market | [Gereksinimler: Azure Market: Deneme sürümü: Test sürüşü](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Gereksinimler: Azure Market: Deneme  
 
@@ -133,11 +133,11 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 
 | Teklif türü | Vitrin | Ayrıntılar |   
 |:---        |:---        | :--- |  
-| Azure uygulamaları için: Yönetilen uygulama | Azure Marketi | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Yönetilen uygulama |  
-| Azure uygulamaları için: Çözüm şablonu | Azure Marketi | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Çözüm şablonu |  
-| Kapsayıcılar | Azure Marketi | [Gereksinimler: Azure Market: Transact: Container](#requirements-azure-marketplace-transact-container) |  
-| SaaS uygulama  | Azure Marketi | [Gereksinimler: Azure Market: Transact: SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  
-| Sanal makine | Azure Marketi | [Gereksinimler: Azure Market: Transact: Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  
+| Azure uygulamaları için: Yönetilen uygulama | Azure Market | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Yönetilen uygulama |  
+| Azure uygulamaları için: Çözüm şablonu | Azure Market | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Çözüm şablonu |  
+| Kapsayıcılar | Azure Market | [Gereksinimler: Azure Market: Transact: Container](#requirements-azure-marketplace-transact-container) |  
+| SaaS uygulama  | Azure Market | [Gereksinimler: Azure Market: Transact: SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  
+| Sanal makine | Azure Market | [Gereksinimler: Azure Market: Transact: Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 

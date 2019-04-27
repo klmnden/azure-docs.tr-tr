@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684225"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Öğretici: Bir Azure Container ınstances'a kapsayıcı uygulaması dağıtma
 

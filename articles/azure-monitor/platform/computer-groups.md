@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741003"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları bilgisayar grupları
 Azure İzleyici'de bilgisayar grupları kapsamına izin [oturum sorguları](../log-query/log-query-overview.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grup içinde bir günlük sorgu eklendiğinde sonuçları gruptaki bilgisayarların eşleşen kayıtları sınırlıdır.

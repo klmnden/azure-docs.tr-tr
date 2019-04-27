@@ -16,11 +16,11 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 7768dde424aedc295b53512db50c9dfc9db9ab8c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635644"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Azure CDN profili için Premium Verizon standart Verizon geçirme
 
@@ -41,7 +41,7 @@ Yükseltmek için bir **verizon'dan Azure CDN standart** profili, kişi [Microso
 - Fiyatlandırma: Premium Verizon standart Verizon daha veri aktarımları için farklı bir fiyatlandırma yapısına sahiptir. Daha fazla bilgi için [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 
 **Verizon'dan Azure CDN Premium** profilleri şu ek özellikleri vardır:
-- [Belirteç kimlik doğrulaması](cdn-token-auth.md): kullanıcıların elde edilir ve güvenli kaynaklara getirmek için bir belirteç verir.
+- [Belirteç kimlik doğrulaması](cdn-token-auth.md): Güvenli kaynaklara getirmek için bir belirteç elde edilir ve kullanıcıların sağlar.
 - [Kural altyapısı](cdn-rules-engine.md): HTTP isteklerinin nasıl işleneceğini özelleştirmenize olanak sağlar.
 - Gelişmiş analiz araçları:
    - [Ayrıntılı HTTP analizi](cdn-advanced-http-reports.md)

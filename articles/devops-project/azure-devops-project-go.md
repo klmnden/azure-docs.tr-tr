@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Azure DevOps projeleri'ni kullanarak Go programlama dili için bir CI/CD işlem hattı oluşturma"
+title: "Hızlı Başlangıç: Azure DevOps projeleri'ni kullanarak Go programlama dili için CI/CD işlem hattı oluşturma"
 description: DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. Birkaç Hızlı adımda bir Azure hizmeti üzerinde Go programlama dili web uygulaması başlatın yardımcı olur.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554984"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Azure DevOps projeleri'ni kullanarak Go için bir CI/CD işlem hattı oluşturma
 

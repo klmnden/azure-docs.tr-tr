@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723876"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Yedekleme ve Reliable Services ve Reliable Actors geri yükleme
 Azure Service Fabric durum bu yüksek kullanılabilirliği sürdürmek için birden fazla düğümde çoğaltan bir yüksek kullanılabilirlik platformudur.  Bu nedenle, kümedeki bir düğümün başarısız olsa bile, hizmetler kullanılabilir olmaya devam. Bazı durumlarda daha bu yerleşik yedeklilik platform tarafından sağlanan bazı için yeterli olmakla birlikte bile hizmeti (bir dış depoya) verileri yedeklemek tercih edilir.
@@ -106,7 +106,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 Önceki örnekte `ExternalBackupStore` kullanılan örnek sınıfı, Azure Blob Depolama ile arabirim oluşturmak için ve `UploadBackupFolderAsync` klasörü sıkıştırır ve Azure Blob deposuna yerleştirir yöntemidir.
 
-Aşağıdakilere dikkat edin:
+Şunlara dikkat edin:
 
   - Olabilir yalnızca bir yedekleme işlemi çoğaltma uçuşan herhangi bir zamanda. Birden fazla `BackupAsync` çağrısı aynı anda oluşturur `FabricBackupInProgressException` bir hareket halindeki yedeklemeleri sınırlamak için.
   - Bir yedekleme işlemi devam ederken bir çoğaltma üzerinde başarısız olursa, yedekleme tamamlanmamış. Bu nedenle, yük devretme bittikten sonra çağırarak yedeklemeyi yeniden başlatmak için hizmetin sorumluluğu gelir `BackupAsync` gerektiği şekilde.
@@ -175,7 +175,7 @@ Hangi yedeklemeleri bozuk olduğundan emin değilseniz, yeni bir Service Fabric 
 
 Şimdi, adımları "silinmiş veya kayıp hizmet içinde" bölümü hatalı kod durumu bozulmuş önce hizmetinin durumunu durumuna geri yüklemek için kullanılabilir.
 
-Aşağıdakilere dikkat edin:
+Şunlara dikkat edin:
 
   - Geri yüklendiğinde, veriler kayboldu önce geri yüklenen yedekleme bölüm durumunu eski bir fırsat yoktur. Bu nedenle, mümkün olduğunca verileri kurtarmak için son çare olarak geri yüklemeniz gerekir.
   - Yedekleme klasörü yolunu ve yedekleme klasörün içindeki dosyaların yollarını temsil eden dize FabricDataRoot yol ve uygulama türü adı'nın uzunluğu 255 karakterden daha uzun olabilir. Bu gibi bazı .NET yöntemleri neden `Directory.Move`, throw `PathTooLongException` özel durum. Bir geçici çözüm olduğu gibi doğrudan kernel32 API'leri çağırmak için `CopyFile`.
@@ -246,12 +246,12 @@ Kritik verilerin yedeklenmekte ve geri yüklenebileceği emin olmak önemlidir. 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Başlık altında: yedekleme ve geri yükleme hakkında daha fazla bilgi
 Yedekleme ve geri yükleme hakkında daha fazla ayrıntı aşağıdadır.
 
-### <a name="backup"></a>Yedekle
+### <a name="backup"></a>Backup
 Güvenilir durum Yöneticisi tüm okuma engellemeden tutarlı yedeklemeler oluşturmak ya da yazma işlemleri olanağı sağlar. Bunu yapmak için bir denetim noktası ve günlük Kalıcılık mekanizması kullanır.  Güvenilir durum Yöneticisi kurtarma sürelerini geliştirmeye ve işlem günlük baskısı hafifletmek için belirli noktaları belirsiz (Basit) denetim noktası alır.  Zaman `BackupAsync` , güvenilir durum Yöneticisi tüm güvenilir nesneler bildirir, en son kontrol noktası dosyalarını yerel bir yedekleme klasörüne kopyalamak için çağrılır.  Ardından, güvenilir durum Yöneticisi, "Başlangıç işaretçisinden" yedekleme klasörüne en son günlük kaydı için başlangıç tüm günlük kayıtları kopyalar.  En son günlük kaydının kadar tüm günlük kayıtları yedeklemeye dahildir ve güvenilir durum Yöneticisi yazma tamamlanan günlük korur olduğundan, güvenilir durum Yöneticisi tüm işlemleri, kaydedilmiş olduğunu garanti (`CommitAsync` başarıyla verdi ) yedeklemeye dahil edilir.
 
 Tamamlandıktan sonra herhangi bir işlem `BackupAsync` Mayıs adlı veya yedeklemeye olmayabilir.  Yerel yedekleme klasörü, platform tarafından doldurulmadı sonra (diğer bir deyişle, yerel yedekleme çalışma zamanı tarafından tamamlandığında), hizmetin yedekleme geri çağırma çağrılır.  Yedekleme klasörü Azure depolama gibi bir dış konuma taşımak için bu geri çağırma sorumludur.
 
-### <a name="restore"></a>Geri Yükle
+### <a name="restore"></a>Geri Yükleme
 Güvenilir durum Yöneticisi'ni kullanarak bir yedekten geri yükleme yeteneği sağlar `RestoreAsync` API.  
 `RestoreAsync` Metodunda `RestoreContext` yalnızca içinde çağrılabilir `OnDataLossAsync` yöntemi.
 Tarafından döndürülen bool `OnDataLossAsync` hizmet, bir dış kaynaktan durumuna geri olup olmadığını gösterir.

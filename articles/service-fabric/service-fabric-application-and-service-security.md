@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621576"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric uygulaması ve hizmet güvenliği
 Bir mikro hizmet mimarisi getirebilirsiniz [birçok avantaj](service-fabric-overview-microservices.md). Mikro hizmetler, güvenliğini yönetme ancak sınama ve geleneksel tek parçalı uygulamalarla güvenliğini yönetme farklı olabilir. 
@@ -31,7 +31,7 @@ Bu makalede, mikro hizmetler Güvenlik Kılavuzu değil, kullanılabilir birçok
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 Genellikle, gerekli kaynak ve hizmet tarafından sunulan API'ler belirli güvenilen kullanıcıların veya istemciler için sınırlı olur. Kimlik doğrulaması güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Yetki API'leri yapan veya kullanılabilir hizmetleri işlemi, bazı kullanıcılar, ancak diğerlerini kimlik doğrulaması.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 Kimlik doğrulama API düzeyinde güven kararları için ilk adımdır. Kimlik doğrulaması güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Mikro hizmet senaryolarda, kimlik doğrulaması genellikle merkezi olarak yönetilir. Bir API ağ geçidi kullanıyorsanız, yapabilecekleriniz [kimlik doğrulaması boşaltma](/azure/architecture/patterns/gateway-offloading) ağ geçidine. Bu yaklaşımı kullanın, ek güvenlik iletileri kimlik doğrulaması yerinde olup olmadığını ağ geçidinden veya geldikleri olmadıkça tek tek Hizmetleri doğrudan (API ağ geçidi) ulaşılamıyor emin olun.
 
 Hizmetleri doğrudan erişilebilir, kimlik doğrulama hizmeti Azure Active Directory veya bir güvenlik belirteci hizmeti (STS), kullanıcıların kimliklerini doğrulamak için kullanılabilir davranan bir özel kimlik doğrulama mikro hizmet gibi. Güven kararları güvenlik belirteçleri veya tanımlama bilgileri ile hizmetler arasında paylaşılır. 

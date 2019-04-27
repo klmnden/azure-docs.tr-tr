@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
 ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733309"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
 
@@ -72,7 +72,7 @@ Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azur
 |Uç Noktalar ||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Kimlik Doğrulaması | `https://login.microsoftonline.com/` | 
 | Belirteç hedef kitlesi | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Kamu
@@ -80,7 +80,7 @@ Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azur
 |Uç Noktalar||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Kimlik Doğrulaması | `https://login.microsoftonline.us/` | 
 | Belirteç hedef kitlesi | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Almanya
@@ -88,7 +88,7 @@ Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azur
 | Uç Noktalar ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Kimlik Doğrulaması | `https://login.microsoftonline.de/` |
 | Belirteç hedef kitlesi | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure Çin 21Vianet
@@ -96,7 +96,7 @@ Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azur
 |Uç Noktalar||
 | --- | --- | 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Kimlik Doğrulaması | `https://login.chinacloudapi.cn/` |
 | Belirteç hedef kitlesi |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Sonraki adımlar

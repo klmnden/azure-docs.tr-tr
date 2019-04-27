@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615232"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio kullanarak Service Fabric uygulaması yükseltme Öğreticisi
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Visual Studio Araçları seçerek temel sürümleri otomatik toplamaları yapabi
 
 Değişiklikleri kaydetmek ve şimdi denetle **uygulamayı Yükselt** kutusu.
 
-## <a name="step-3--upgrade-your-application"></a>3. adım:  Uygulamanızı yükseltme
+## <a name="step-3--upgrade-your-application"></a>3. Adım:  Uygulamanızı yükseltme
 İle kendinizi alıştırın [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve olabilir sistem durumu ölçütü iyi bir anlayış edinmek için uygulanır. Bu kılavuz için hizmet sistem durumu değerlendirme ölçütü (izlenmeyen modu) varsayılan olarak ayarlanır. Seçerek bu ayarları yapılandırabilirsiniz **yükseltme ayarlarını yapılandırma** ve ardından istediğiniz gibi parametreleri değiştirme.
 
 Seçerek uygulama yükseltme işlemini başlatmak için tüm küme duyuyoruz artık **Yayımla**. Bu seçenek, sürüm 2.0.0, hangi nesneleri döndürme uygulamanıza yükseltir. Service Fabric (bazı nesneler ilk olarak, başkaları tarafından izlenen güncelleştirilir) bir anda bir güncelleştirme etki alanı yükseltir ve yükseltme sırasında hizmet erişilebilir kalır. Hizmete erişimi istemci (tarayıcı) denetlenebilir.  

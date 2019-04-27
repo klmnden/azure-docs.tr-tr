@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629789"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Olağan dışı bir yinelenen iş sorunlarını giderme
 
@@ -27,7 +27,7 @@ Yinelenen işleri genellikle aynı sorgu mantığının ve benzer bir giriş ver
 
 **İş görünümü ilgili** yardımcı Visual Studio için Azure Data Lake araçları içinde her iki durumda ile sorun giderme ilerleme hızlandırın.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>1. adım: yinelenen işleri bulmak ve ilgili iş görünümünde Aç
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>1. Adım: Yinelenen işleri bulun ve ilgili iş görünümünde Aç
 
 Yinelenen bir iş sorununu gidermek için ilgili iş görünümü kullanmak için önce yinelenen iş Visual Studio'da bulun ve ardından ilgili iş görünümünü açmak gerekir.
 
@@ -37,7 +37,7 @@ Aracılığıyla **Araçları** > **Data Lake** > **iş görünümü**, Visual S
 
 ![Data Lake Analytics araçları, görünüm ilgili işleri bağlantısı](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Durum 2: Yinelenen iş, ancak URL için işlem hattı sahip
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>2. durum: İşlem hattının yinelenen iş, ancak URL için sahip olduğunuz
 
 Visual Studio'da Sunucu Gezgini aracılığıyla ardışık düzenli tarayıcı açın > Azure Data Lake Analytics hesabınızı > **işlem hatları**. (Sunucu Gezgini'nde, bu düğüm bulamazsanız [son eklentinizi indirin](https://aka.ms/adltoolsvs).) 
 
@@ -47,7 +47,7 @@ Visual Studio'da Sunucu Gezgini aracılığıyla ardışık düzenli tarayıcı 
 
 ![Bir işlem hattı seçerek ve ilişkili iş görünümünü açma](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-## <a name="step-2-analyze-a-statistics-report"></a>2. adım: bir istatistik raporunu analiz etme
+## <a name="step-2-analyze-a-statistics-report"></a>2. Adım: İstatistikleri raporu analiz etme
 
 İlgili iş görünümü üst kısmında bir özeti ve istatistikleri raporu gösterilir. Burada, olası sorunun kök nedenini bulabilirsiniz. 
 
@@ -56,7 +56,7 @@ Visual Studio'da Sunucu Gezgini aracılığıyla ardışık düzenli tarayıcı 
 
 ![İstatistiklerine için işlem diyagramı](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>3. adım: normal bir iş olağan dışı iş karşılaştırma
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>3. Adım: Normal bir iş anormal işi Karşılaştır
 
 Tüm ilgili iş görünümü altındaki proje listesi üzerinden yinelenen işleri gönderilen bulabilirsiniz. Daha fazla Öngörüler ve olası çözümler bulmak için olağan dışı iş sağ tıklayın. Olağan dışı iş normal bir öncekine ile karşılaştırmak için iş farkı görünümünü kullanın.
 

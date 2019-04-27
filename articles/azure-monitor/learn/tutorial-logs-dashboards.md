@@ -15,11 +15,11 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5ed0cfba9abaed1f1fdbacc8fcf28918403b82f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589925"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics verilerinin panolarını oluşturma ve paylaşma
 

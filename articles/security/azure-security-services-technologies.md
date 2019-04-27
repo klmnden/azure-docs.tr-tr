@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610906"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Güvenlik Hizmetleri ve teknolojileri Azure üzerinde kullanılabilir
 
@@ -91,4 +91,4 @@ Zamanla, bu liste değiştirin ve Azure gibi büyütün. Bu sayfada, güvenlikle
 | [Azure uygulama proxy'si](../active-directory/active-directory-application-proxy-get-started.md)| Bir web uygulaması için uzaktan erişimin güvenliğini sağlamak için kullanılan ön uç kimlik doğrulaması, şirket içinde barındırılan. |
 |[Azure güvenlik duvarı](../firewall/overview.md)|Azure sanal ağ kaynaklarınıza koruyan yönetilen, bulut tabanlı bir ağ güvenlik hizmeti.|
 |[Azure DDoS koruması](../virtual-network/ddos-protection-overview.md)|Uygulama tasarım en iyi yöntemleri ile birlikte, DDoS saldırılarına karşı koruma sağlar.|
-|[Sanal ağ hizmeti uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)|Sanal ağ özel adres alanınızı ve Azure Hizmetleri, sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletir.|
+|[Sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)|Sanal ağ özel adres alanınızı ve Azure Hizmetleri, sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletir.|

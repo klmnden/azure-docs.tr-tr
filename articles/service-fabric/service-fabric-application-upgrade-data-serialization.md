@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 55cbd869e7434469ebddd7af493c91bfedafc594
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614438"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Veri seri hale getirme, bir uygulama yükseltmesi nasıl etkiler?
 İçinde bir [sıralı yükseltme uygulama](service-fabric-application-upgrade.md), düğümlerinin bir alt kümesi, aynı anda bir yükseltme etki alanı yükseltme uygulanır. Bu işlem sırasında bazı yükseltme etki alanları, uygulamanızın daha yeni sürümüne ve bazı yükseltme etki alanlarında, uygulamanın eski sürümünü temel. Dağıtım sırasında uygulamanızın yeni sürümünü verilerinizi eski sürümü okuyabilir ve uygulamanızın eski sürümünü verilerinizi yeni sürümünü okuyabilir olmalıdır. Veri biçimi ileriye ve geriye dönük olarak uyumlu değilse, yükseltme başarısız olabilir veya daha da kötüsü, veriler kaybolursa veya bozulursa. Hangi veri biçiminiz oluşturan ve verilerinizin ileriye ve geriye doğru olmasını sağlamaya yönelik en iyi uygulamaları sunar anlatılmaktadır uyumlu.

@@ -1,5 +1,5 @@
 ---
-title: Azure Güvenlik Merkezi'nde depolama hesabı için şifrelemeyi etkinleştirme | Microsoft Docs
+title: Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi | Microsoft Docs
 description: Bu belge Azure Güvenlik Merkezi önerilerinin uygulanması gösterilmektedir **Azure depolama hesabı için şifrelemeyi etkinleştirme**.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703937"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme
-Azure Güvenlik Merkezi, bekleyen veri için Azure depolama hizmeti şifrelemesi etkinleştirmenizi önerebilir.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi
 
-Azure depolama birimine yazıldığında, verileri şifrelemek ve alma önce verilerin şifresini çözme depolama hizmeti şifrelemesi (SSE) çalışır.  SSE, şu anda yalnızca Azure Blob hizmeti için kullanılabilir ve blok blobları, sayfa blobları için kullanılabilir ve ekleme blobları.  Daha fazla bilgi için bkz. [bekleyen veriler için depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Şifreleme etkinleştirdikten sonra yalnızca yeni veriler şifrelenir. Var olan BLOB Depolama hesabınızda şifrelenmemiş olarak kalır. Mevcut blobları şifrelemek için bkz: [depolama hizmeti şifrelemesi hakkında SSS](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-Depolama hizmeti şifrelemesi yalnızca Resource Manager depolama hesaplarında desteklenir. Klasik depolama hesapları şu anda desteklenmemektedir. Klasik ve Resource Manager dağıtım modelleri anlamak için bkz [Azure dağıtım modelleri](../azure-classic-rm.md).
-
-> [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belgede, adım adım bir kılavuz değildir.
->
->
-
-## <a name="implement-the-recommendation"></a>Önerisini uygulama
-1. İçinde **önerileri** dikey penceresinde **Azure depolama hesabı için şifrelemeyi etkinleştirme**.
-   ![Depolama hesabı için şifrelemeyi etkinleştirme][1]
-2. **Depolama şifrelemesini etkinleştir** dikey penceresi açılır. Bu dikey pencere, burada depolama şifreleme devre dışı Azure depolama hesaplarını listeler. Bu örnekte, seçelim **storageacct1**.
-   ![Depolama şifrelemesini etkinleştirme][2]
-3. **Şifreleme** dikey **storageacct1** açılır. **Etkin**’i seçin.
-   ![Şifreleme dikey penceresi][3]
-4. **Kaydet**’i seçin.
-
-Depolama şifrelemesi için artık etkinleştirdiğiniz **storageacct1**.
-
-
-## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede Güvenlik Merkezi önerisini "Azure depolama hesabı için şifrelemeyi etkinleştirir." uygulama nasıl oluşturulacağını gösterir Azure depolama hizmeti şifrelemesi hakkında daha fazla bilgi için aşağıdakilere bakın:
-
-* [Bekleyen veri için Azure depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md)
+Azure depolama şifrelemesi, bekleyen veriler için tüm Azure depolama hesapları için varsayılan olarak etkindir. Azure depolama, Azure Depolama'ya yazılan ve alma önce çözer verileri şifreler. Daha fazla bilgi için [bekleyen veriler için Azure depolama şifrelemesi](../storage/common/storage-service-encryption.md).
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 

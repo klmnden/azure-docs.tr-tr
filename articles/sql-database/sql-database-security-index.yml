@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b97629551823cfc77d0d88dbd6a19fe1a6ba2b70
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852313"
 documentType: LandingData
 title: Azure SQL veritabanı - Gelişmiş Güvenlik
 metadata:
@@ -18,84 +12,84 @@ metadata:
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/07/2019
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Azure SQL veritabanı, veritabanlarınızı korumaya yardımcı olan yerleşik güvenlik özelliklerinin Gelişmiş sahiptir.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: 'Azure SQL veritabanı, veritabanlarınızı korumaya yardımcı olan yerleşik güvenlik özelliklerinin Gelişmiş sahiptir.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Genel Bakış
+            href: /azure/sql-database/sql-database-security-overview
+            html: '<p>Azure SQL veritabanı, verilerinizi güvenli hale getirme yardımcı olabilecek Gelişmiş güvenlik özellikleri sunmaktadır.</p>'
+          - title: Tehdit algılama
+            href: /azure/sql-database/sql-database-threat-detection
+            html: <p>Erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılayın.</p>
+          - title: Güvenlik açığı değerlendirmesi
+            href: /azure/sql-database/sql-vulnerability-assessment
+            html: '<p>Güvenlik Açığı değerlendirmesi, bulmak, izlemek ve olası veritabanı güvenlik açıklarını düzeltme sağlar.</p>'
+          - title: Rest olarak şifreleme
+            href: /azure/sql-database/transparent-data-encryption-azure-sql
+            html: '<p>Veritabanlarınızı bilgileri şeffaf bir şekilde şifrelenir, saydam veri şifrelemesi (TDE) sağlar.</p>'
+          - title: Veri bulma ve sınıflandırma
+            href: /azure/sql-database/sql-database-data-discovery-and-classification
+            html: '<p>Veri bulma ve Sınıflandırma, keşfedin, sınıflandırmak, etiketlemek ve veritabanlarınızı hassas verileri korumaya olanak sağlar.</p>'
+          - title: Azure Active Directory
+            href: /azure/sql-database/sql-database-aad-authentication
+            html: <p>Azure SQL veritabanı kimlikleri Azure Active Directory (Azure AD) kullanarak veritabanınıza bağlamanıza olanak sağlar.</p>
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - title: Genel Bakış
-      href: /azure/sql-database/sql-database-security-overview
-      html: <p>Azure SQL veritabanı, verilerinizi güvenli hale getirme yardımcı olabilecek Gelişmiş güvenlik özellikleri sunmaktadır.</p>
-    - title: Tehdit algılama
-      href: /azure/sql-database/sql-database-threat-detection
-      html: <p>Erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılayın.</p>
-    - title: Güvenlik açığı değerlendirmesi
-      href: /azure/sql-database/sql-vulnerability-assessment
-      html: <p>Güvenlik Açığı değerlendirmesi, bulmak, izlemek ve olası veritabanı güvenlik açıklarını düzeltme sağlar.</p>
-    - title: Rest olarak şifreleme
-      href: /azure/sql-database/transparent-data-encryption-azure-sql
-      html: <p>Veritabanlarınızı bilgileri şeffaf bir şekilde şifrelenir, saydam veri şifrelemesi (TDE) sağlar.</p>
-    - title: Veri bulma ve sınıflandırma
-      href: /azure/sql-database/sql-database-data-discovery-and-classification
-      html: <p>Veri bulma ve Sınıflandırma, keşfedin, sınıflandırmak, etiketlemek ve veritabanlarınızı hassas verileri korumaya olanak sağlar.</p>
-    - title: Azure Active Directory
-      href: /azure/sql-database/sql-database-aad-authentication
-      html: <p>Azure SQL veritabanı kimlikleri Azure Active Directory (Azure AD) kullanarak veritabanınıza bağlamanıza olanak sağlar.</p>
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Kurulum ve Azure portalı, Azure CLI veya PowerShell kullanarak Azure SQL veritabanı güvenlik özellikleri yönetebilirsiniz:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/portal.svg
-      title: Azure portal
-    - image:
-        src: media/index/cli.svg
-      title: Azure CLI
-    - image:
-        src: media/index/logo_powershell.svg
-      title: PowerShell
-    rows:
-    - title: Tek veritabanı tehdit algılamayı ayarlama
-      values:
-      - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
-    - title: Yönetilen örnek tehdit algılamayı ayarlama
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
-      - href: 
-      - href: 
-    - title: Veritabanı tek veritabanı sunucusu güvenlik duvarı kurallarını ayarlama
-      values:
-      - href: /azure/sql-database/sql-database-firewall-configure
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-cli
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell
-    - title: Güvenlik Açığı değerlendirmesi kurallarını yönetme
-      values:
-      - href: /azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
-      - href: 
-      - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
-- title: Diğer kaynaklar
-  items:
-  - type: paragraph
-    text: Azure SQL veritabanı, veritabanlarınızın güvenliğini artırmak ek yerleşik özellikler kümesi sağlar.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Kurulum ve Azure portalı, Azure CLI veya PowerShell kullanarak Azure SQL veritabanı güvenlik özellikleri yönetebilirsiniz:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Azure portal
+          - image:
+              src: media/index/cli.svg
+            title: Azure CLI
+          - image:
+              src: media/index/logo_powershell.svg
+            title: PowerShell
+        rows:
+          - title: Tek veritabanı tehdit algılamayı ayarlama
+            values:
+              - href: '/azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal'
+              - href: null
+              - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
+          - title: Yönetilen örnek tehdit algılamayı ayarlama
+            values:
+              - href: '/azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal'
+              - href: null
+              - href: null
+          - title: Veritabanı tek veritabanı sunucusu güvenlik duvarı kurallarını ayarlama
+            values:
+              - href: /azure/sql-database/sql-database-firewall-configure
+              - href: '/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-cli'
+              - href: '/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell'
+          - title: Güvenlik Açığı değerlendirmesi kurallarını yönetme
+            values:
+              - href: '/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment'
+              - href: null
+              - href: '/azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell'
+  - title: Diğer kaynaklar
     items:
-    - html: Tehdit koruması <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-threat-detection">veritabanları</a> erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
-    - html: İçin denetimi <a href="/azure/sql-database/sql-database-managed-instance-auditing">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-auditing">veritabanları</a> veritabanı olaylarını izler ve bir denetim günlüğüne, Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yazar.
-    - html: <a href="/azure/sql-database/sql-database-firewall-configure">Veritabanı sunucusu güvenlik duvarı kuralları</a> tek veritabanları etkinleştirmeniz, hangi IP adresleri denetlemek için veritabanınıza erişebilirsiniz.
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet tümleştirmesi</a> içinde yönetilen örnek veritabanları kendi özel adres alanında yerleştirmenizi sağlar.
-    - html: <a href="/azure/sql-database/sql-database-always-encrypted">Her zaman şifreli</a> istemci ve sunucu arasında taşıma sırasında sunucu üzerinde bekleyen hassas verileri koruyan ve veri kullanımda olsa da, hassas verileri hiçbir zaman içinde bir veritabanı sistemi düz metin olarak göründüğünü sağlama.
-    - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dinamik veri maskeleme</a> önlemeye yardımcı olur yetkisiz erişim için hassas verileri uygulama katmanı üzerinde en az etki ile ortaya çıkarmak için hassas verilerin ne kadar müşterilerin etkinleştirerek.
+      - type: paragraph
+        text: 'Azure SQL veritabanı, veritabanlarınızın güvenliğini artırmak ek yerleşik özellikler kümesi sağlar.'
+      - type: list
+        style: ordered
+        items:
+          - html: Tehdit koruması <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-threat-detection">veritabanları</a> erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
+          - html: 'İçin denetimi <a href="/azure/sql-database/sql-database-managed-instance-auditing">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-auditing">veritabanları</a> veritabanı olaylarını izler ve bir denetim günlüğüne, Azure depolama hesabı, OMS çalışma alanına veya olay hub''ları yazar.'
+          - html: '<a href="/azure/sql-database/sql-database-firewall-configure">Veritabanı sunucusu güvenlik duvarı kuralları</a> tek veritabanları etkinleştirmeniz, hangi IP adresleri denetlemek için veritabanınıza erişebilirsiniz.'
+          - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet tümleştirmesi</a> içinde yönetilen örnek veritabanları kendi özel adres alanında yerleştirmenizi sağlar.
+          - html: '<a href="/azure/sql-database/sql-database-always-encrypted">Her zaman şifreli</a> istemci ve sunucu arasında taşıma sırasında sunucu üzerinde bekleyen hassas verileri koruyan ve veri kullanımda olsa da, hassas verileri hiçbir zaman içinde bir veritabanı sistemi düz metin olarak göründüğünü sağlama.'
+          - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dinamik veri maskeleme</a> önlemeye yardımcı olur yetkisiz erişim için hassas verileri uygulama katmanı üzerinde en az etki ile ortaya çıkarmak için hassas verilerin ne kadar müşterilerin etkinleştirerek.

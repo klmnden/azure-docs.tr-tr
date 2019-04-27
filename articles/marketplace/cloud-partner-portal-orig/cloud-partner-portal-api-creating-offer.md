@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624998"
 ---
 <a name="create-or-modify-an-offer"></a>Oluşturun veya bir teklife değiştirin
 =========================
@@ -34,8 +34,8 @@ Bu çağrı, belirli bir teklif yayımcı ad alanı içindeki güncelleştirir v
 
 |  **Ad**         |  **Açıklama**                      |  **Veri türü**  |
 |  --------         |  ----------------                     |  -------------  |
-| Publisherıd       |  Örneğin, yayımcı tanımlayıcısı `contoso` |   Dize |
-| OfferId           |  Teklif tanımlayıcısı                     |   Dize        |
+| publisherId       |  Örneğin, yayımcı tanımlayıcısı `contoso` |   String |
+| offerId           |  Teklif tanımlayıcısı                     |   String        |
 | API sürümü       |  API'nin en son sürümü            |   Tarih           |
 |  |  |  |
 

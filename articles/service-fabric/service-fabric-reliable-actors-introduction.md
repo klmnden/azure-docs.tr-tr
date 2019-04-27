@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727207"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors hizmetine giriş
 Reliable Actors, temel bir Service Fabric uygulama altyapısıdır [sanal aktör](https://research.microsoft.com/en-us/projects/orleans/) deseni. Reliable Actors API Service Fabric tarafından sağlanan ölçeklenebilirlik ve güvenilirlik garantisi temel alan bir tek iş parçacıklı programlama modeli sağlar.
@@ -106,7 +106,7 @@ Aktör proxy nesnesi oluşturmak için kullanılan bilgilerin iki parça kimliğ
 * İleti, en iyi çaba teslimatıdır.
 * Aktör, aynı istemciden yinelenen iletileri alabilirsiniz.
 
-## <a name="concurrency"></a>Eş Zamanlılık
+## <a name="concurrency"></a>Eşzamanlılık
 Reliable Actors çalışma zamanı, aktör yöntemleri erişmek için bir basit sırayla oynadıkları erişim modeli sağlar. Başka bir deyişle, birden fazla iş parçacığı herhangi bir zamanda bir aktör nesnenin kod içinde etkin olabilir. Veri erişimi için eşitleme mekanizmaları gerek olmadığından erişim sırayla oynadıkları eş zamanlı sistemleri büyük ölçüde kolaylaştırır. Ayrıca, ilgili özel konular her aktör örneğinin ile tek iş parçacıklı erişimi yapısı sistemleri tasarlanmalıdır anlamına gelir.
 
 * Bir tek aktör örneği aynı anda birden fazla isteği işleyemiyor. Eş zamanlı istekleri işlemek üzere bekleniyorsa aktör örneği bir aktarım hızı performans sorununa neden olabilir.

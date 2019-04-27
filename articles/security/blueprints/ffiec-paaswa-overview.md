@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 63ad692e1050f900310f8195b79f26dd99704b93
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609628"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure güvenlik ve uyumluluk planı: PaaS Web uygulaması için FFIEC finansal hizmetler
 
@@ -64,7 +64,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz d
 - Azure İzleyici (günlük)
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure Storage
 - Azure Sanal Ağ
     - (1) /16 ağ

@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 54cb9f604e9d1b817947990e657390387df6c881
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556609"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric adları altında Store ve sorgu özellikleri.
@@ -28,9 +28,9 @@ Service Fabric adları altında Store ve sorgu özellikleri.
 
 |Komut|Açıklama|
 | --- | --- |
-| sil | Belirtilen Service Fabric özelliği siler. |
+| delete | Belirtilen Service Fabric özelliği siler. |
 | Al | Belirtilen Service Fabric özelliği alır. |
-| liste | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
+| list | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
 | yerleştirme | Oluşturur veya bir Service Fabric özelliğini güncelleştirir. |
 
 ## <a name="sfctl-property-delete"></a>sfctl özelliği Sil

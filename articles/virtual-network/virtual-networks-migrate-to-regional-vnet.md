@@ -1,6 +1,6 @@
 ---
-title: Bir Azure sanal ağ (Klasik) bir benzeşim grubu bir bölgeye geçirme | Microsoft Docs
-description: Bir sanal ağ (Klasik) bir benzeşim grubu bir bölgeye geçirmek öğrenin.
+title: Bir Azure sanal ağ (Klasik) bir benzeşim grubundan bölgeye geçiş | Microsoft Docs
+description: Bir sanal ağ (Klasik) bir benzeşim grubundan bölgeye geçiş öğrenin.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648644"
 ---
-# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Bir sanal ağ (Klasik) bir benzeşim grubu bir bölge'ye geçirme
+# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Bir sanal ağ (Klasik) bir benzeşim grubundan bölgeye geçiş
 
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir.
 
-Benzeşim grupları aynı benzeşim grubunda oluşturulan kaynakları fiziksel olarak daha hızlı iletişim kurmak bu kaynakları etkinleştirme birbirine yakın olan sunucuları tarafından barındırılan emin olun. Geçmişte, benzeşim grupları sanal ağları (Klasik) oluşturmak için bir gereksinim yoktu. O anda sanal ağları (Klasik) yönetilen Ağ Yöneticisi hizmeti yalnızca fiziksel sunucularda veya ölçek birimi kümesinde işe yarayabilir. Mimari geliştirmeleri bir bölgeye ağ yönetim kapsamını artırmıştır.
+Benzeşim grupları aynı benzeşim grubunda oluşturulan kaynakları fiziksel olarak daha hızlı iletişim kurmak bu kaynakları etkinleştirme birbirine yakın olan sunucuları tarafından barındırılan emin olun. Geçmişte, benzeşim grupları sanal ağlar (Klasik) oluşturmaya yönelik bir gereksinim olan. Bu sırada, yönetilen sanal ağlar (Klasik) Ağ Yöneticisi hizmeti yalnızca fiziksel sunucularda ya da Ölçek birimi bir dizi içinde işe yarayabilir. Mimari geliştirmeleri bir bölgeye ağ yönetim kapsamını artırmıştır.
 
-Bu mimari geliştirmeler sonucunda benzeşim grupları artık önerilen veya sanal ağları (Klasik) için gerekli. Benzeşim grupları sanal ağları (Klasik) için kullanımı bölgeleri değiştirilir. (Klasik) bölgeleri ile ilişkilendirilmiş sanal ağları bölgesel sanal ağ adı verilir.
+Bu mimari geliştirmeler nedeniyle benzeşim grupları artık önerilen veya sanal ağlar (Klasik) gerekli. Benzeşim grupları sanal ağlar (Klasik) için kullanımı bölgeleri tarafından değiştirilir. Bölge ile ilişkili sanal ağlar (Klasik), bölgesel sanal ağlar olarak adlandırılır.
 
-Benzeşim grupları genel kullanmamanızı öneririz. Sanal ağ gereksinimi yanı sıra benzeşim grupları ayrıca işlem (Klasik) ve depolama (Klasik) gibi kaynaklar sağlamak için kullanın önemli, diğer yerleştirildi. Ancak, geçerli Azure ağ mimarisiyle bu yerleştirme gereksinimleri artık gerekli değildir.
+Benzeşim grupları genel kullanmamanızı öneririz. Sanal ağ gereksinimi dışında benzeşim grupları da (Klasik) işlem ve depolama (Klasik) gibi kaynakları sağlamak için kullanın önemli, birbirine yakın yerleştirildi. Ancak, geçerli Azure ağ mimarisi ile bu yerleştirme gereksinimleri artık gerekli değil.
 
 > [!IMPORTANT]
-> Bir benzeşim grubu ile ilişkili bir sanal ağ oluşturma hala teknik olarak mümkün olsa da, bunu yapmak için ilgi çekici bir neden yoktur. Ağ güvenlik grupları gibi birçok sanal ağ özellikleri bölgesel bir sanal ağ kullanırken yalnızca kullanılabilir ve benzeşim gruplarıyla ilişkili sanal ağlar için kullanılamıyor.
+> Bir benzeşim grubu ile ilişkili olan bir sanal ağ oluşturma hala teknik olarak mümkün olsa da, bunu yapmak için ilgi çekici bir neden yoktur. Ağ güvenlik grupları gibi çok sayıda sanal ağ özelliği, bölgesel bir sanal ağ kullanılırken yalnızca kullanılabilir ve benzeşim grupları ile ilişkili sanal ağlar için kullanılamıyor.
 > 
 > 
 
-## <a name="edit-the-network-configuration-file"></a>Ağ yapılandırma dosyasını düzenleyin
+## <a name="edit-the-network-configuration-file"></a>Ağ yapılandırma dosyasını Düzenle
 
-1. Ağ yapılandırma dosyasını dışarı aktarın. PowerShell veya Azure komut satırı arabirimi (CLI) 1.0 kullanarak bir ağ yapılandırma dosyasını dışarı aktarmak öğrenmek için bkz: [bir ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md#export).
-2. Ağ yapılandırma dosyasını düzenlemenize değiştirme **AffinityGroup** ile **konumu**. Bir Azure belirttiğiniz [bölge](https://azure.microsoft.com/regions) için **konumu**.
+1. Ağ yapılandırma dosyasını dışarı aktarın. PowerShell veya Azure komut satırı arabirimi (CLI) 1.0 kullanarak bir ağ yapılandırma dosyasını dışarı aktarmanıza öğrenmek için bkz. [bir ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md#export).
+2. Ağ yapılandırma dosyasını düzenleyin değiştirerek **AffinityGroup** ile **konumu**. Azure, belirttiğiniz [bölge](https://azure.microsoft.com/regions) için **konumu**.
    
    > [!NOTE]
-   > **Konumu** , sanal ağ (Klasik) ile ilişkili benzeşim grubu için belirtilen bölgedir. Örneğin, sanal ağ (Klasik) geçirdiğinizde, Batı ABD içinde bulunan bir benzeşim grubu ile ilişkili ise, **konumu** Batı ABD işaret etmelidir. 
+   > **Konumu** , sanal ağ (Klasik) ile ilişkili bir benzeşim grubu için belirttiğiniz bölgedir. Örneğin, sanal ağınız (Klasik) geçiş yaptığınızda, Batı ABD bölgesinde bulunan bir benzeşim grubu ile ilişkili ise, **konumu** Batı ABD için işaret etmelidir. 
    > 
    > 
    
-    Değerleri kendi değerlerinizle değiştirerek aşağıdaki satırları ağ yapılandırma dosyanızı düzenleyin: 
+    Değerleri kendi değerlerinizle değiştirerek aşağıdaki satırları ağ yapılandırma dosyanızdaki düzenleyin: 
    
-    **Eski değer:** \<VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG" =\> 
+    **Eski değer:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Yeni değer:** \<VirtualNetworkSitename = "VNetUSWest" Konum "Batı ABD" =\>
-3. Değişikliklerinizi kaydetmek ve [alma](virtual-networks-using-network-configuration-file.md#import) Azure ağ yapılandırması.
+    **Yeni değer:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+3. Değişikliklerinizi kaydetmek ve [alma](virtual-networks-using-network-configuration-file.md#import) azure'a ağ yapılandırması.
 
 > [!NOTE]
-> Bu geçiş kapalı kalma süresi hizmetlerinize neden olmaz.
+> Bu geçiş kapalı kalma süresi Services hesabınıza neden olmaz.
 > 
 > 
 
-## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Bir benzeşim grubunda bir VM'ye (Klasik) varsa yapmanız gerekenler
-(Klasik), şu anda bir benzeşim grubunda yer alan VM'ler benzeşim grubundan kaldırılmış gerekmez. Bir VM dağıtıldığında, bir tek ölçek birimi dağıtılır. Benzeşim grupları kullanılabilir VM boyutları yeni VM Dağıtım için sınırlamak ancak dağıtılan var olan VM VM boyutları VM dağıtıldığı ölçek biriminde kullanılabilir kümesine zaten sınırlanır. VM için bir ölçek birimi zaten dağıtılmış olduğundan, bir VM bir benzeşim grubundan kaldırma VM üzerinde etkisi yoktur.
+## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Bir benzeşim grubunda bir VM (Klasik) varsa yapmanız gerekenler
+Şu anda bir benzeşim grubunda olan VM'ler (Klasik) benzeşim grubundan kaldırılması gerek yoktur. VM dağıtıldıktan sonra bir tek bir ölçek birimi için dağıtılır. Benzeşim grupları yeni bir VM dağıtımı için kullanılabilir VM boyutlarını sınırlamak, ancak dağıtılan var olan bir VM'yi sanal Makinenin dağıtıldığı ölçek birimindeki kullanılabilir VM boyutları kümesine zaten sınırlıdır. VM Ölçek birimine zaten dağıtıldığından bir VM bir benzeşim grubundan kaldırılıyor. VM üzerinde etkisi yoktur.

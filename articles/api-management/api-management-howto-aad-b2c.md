@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558482"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Yönetimi'nde Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C, tüketicilere yönelik web ve mobil uygulamalar içi
    ![Uygulama kimliği 1][api-management-howto-aad-b2c-app-id]
 
 9. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve içine yapıştırma kimliği **istemci kimliği** metin kutusu.
-
-   ![Uygulama kimliği 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. B2C uygulaması kayıt anahtarı, tıklatın **anahtarları** düğmesine ve ardından **anahtar üret**. Tıklayın **Kaydet** yapılandırmasını kaydetmek ve görüntülemek için **uygulama anahtarı**. Anahtar, panoya kopyalayın.
 
     ![1 uygulama anahtarı][api-management-howto-aad-b2c-app-key]
 
 11. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve anahtarını yapıştırın **gizli** metin kutusu.
+    
+12. Azure Active Directory B2C kiracısında etki alanı adını **Signın Kiracı**.
 
-    ![2 uygulama anahtarı][api-management-howto-aad-b2c-client-secret]
+13. **Yetkilisi** alanı kullanmak için Azure AD B2C oturum açma URL'sini denetlemenize olanak tanır. Değerine **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Azure Active Directory B2C kiracısında etki alanı adını **Kiracının izin verilen**.
+14. Belirtin **kaydolma İlkesi** ve **Signın ilke** B2C Kiracısı ilkelerden. İsteğe bağlı olarak, sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parolası sıfırlama İlkesi**.
 
-    ![İzin verilen Kiracı][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Belirtin **kaydolma İlkesi** ve **Signın ilke** B2C Kiracısı ilkelerden. İsteğe bağlı olarak, sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parolası sıfırlama İlkesi**.
-
-    ![İlkeler][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > İlkeleri hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Genişletilebilir ilke çerçevesi].
-
-14. İstenen yapılandırmayı belirledikten sonra tıklayın **Kaydet**.
+15. İstenen yapılandırmayı belirledikten sonra tıklayın **Kaydet**.
 
     Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturmanız ve Azure Active Directory B2C kullanarak oturum açın ve geliştirici portalında mümkün olacaktır.
 

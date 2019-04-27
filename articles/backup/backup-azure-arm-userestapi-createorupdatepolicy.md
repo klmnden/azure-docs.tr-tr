@@ -1,5 +1,5 @@
 ---
-title: 'Azure yedekleme: Yedekleme ilkelerini REST API kullanarak oluşturma'
+title: 'Azure yedekleme: REST API kullanarak yedekleme ilkeleri oluşturma'
 description: (Zamanlama ve bekletme) yedekleme ilkelerini yönetme REST API'sini kullanma
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648814"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API kullanarak Azure kurtarma Hizmetleri yedekleme ilkeleri oluşturma
 
@@ -30,8 +30,8 @@ Azure kurtarma Hizmetleri kasası için bir yedekleme ilkesi oluşturmak için a
   - Azure Dosya Paylaşımı
 - Bir ilke birçok kaynağa atanabilir. Bir Azure VM yedekleme İlkesi, birçok Azure Vm'leri korumak için kullanılabilir.
 - Bir ilke iki bileşenden oluşur.
-  - Zamanlama: Ne zaman yedekleyin
-  - Bekletme: ne kadar süreyle her yedekleme tutulmalıdır.
+  - Zamanlaması: Ne zaman yedekleyin
+  - Saklama: Her yedekleme için ne kadar süre tutulacağını.
 - Zamanlama, "Günlük" veya "haftalık" ile belirli bir zaman noktası olarak tanımlanabilir.
 - Bekletme tanımlanabilir "Günlük", "haftalık", "aylık", "yıllık" Yedekleme noktaları için.
 - "haftalık" bir yedekleme için haftanın belirli bir günde başvuruyor, "aylık" bir yedekleme bir ayın günü gösterir ve "yıllık" bir yedekleme için belirli bir yılın günü başvuruyor.
@@ -53,7 +53,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 |Ad  |Gerekli  |Tür  |Açıklama  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource özellikleri        |
-|etiketler     |         | Nesne        |  Kaynak etiketleri       |
+|etiketler     |         | Object        |  Kaynak etiketleri       |
 
 İstek gövdesi tanımlarında tam listesi için başvurmak [yedekleme İlkesi REST API belge](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -156,7 +156,7 @@ Aşağıdaki istek gövdesi, Azure VM yedeklemeleri için yedekleme İlkesi tan�
 
 Yedekleme ilkesi oluşturma/güncelleştirme bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve 200 (Tamam) Bu işlem tamamlandığında.
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 200 (Tamam) Bu işlem tamamlandığında.
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|

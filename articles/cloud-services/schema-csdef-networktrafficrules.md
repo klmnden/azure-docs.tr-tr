@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613877"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services tanım NetworkTrafficRules şeması
 `NetworkTrafficRules` Rolleri birbirleri ile nasıl iletişim kuracağını belirtir Hizmet tanım dosyası isteğe bağlı bir öğedeki bir düğümdür. Sınırlar hangi rollerin belirli rolünün iç Uç noktalara erişebilir. `NetworkTrafficRules` Değil bir tek başına öğesi; bir hizmet tanımı dosyasında iki veya daha fazla rol ile birleştirilir.
@@ -76,7 +76,7 @@ AllowAllTraffic öğesi
 ##  <a name="RoleEndpoint"></a> RoleEndpoint öğesi
 `RoleEndpoint` Öğesi ile iletişime izin vermek için bir rol üzerinde bir uç nokta açıklar. Birden çok belirtebilirsiniz `RoleEndpoint` rolünde birden fazla uç nokta varsa öğeleri.
 
-| Öznitelik      | Type     | Açıklama |
+| Öznitelik      | Tür     | Açıklama |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Gereklidir. Trafiğe izin vermek için uç nokta adı.|
 | `roleName`     | `string` | Gereklidir. Web rolü için iletişim sağlamak üzere adı.|
@@ -87,14 +87,14 @@ AllowAllTraffic öğesi
 ##  <a name="WhenSource"></a> WhenSource öğesi
 `WhenSource` Açıklar rolleri koleksiyonu içinde tanımlanan uç noktaları ile iletişim kurabilmesi daha `Destinations` düğümü.
 
-| Öznitelik | Type     | Açıklama |
+| Öznitelik | Tür     | Açıklama |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Gereklidir. Kuralın iletişimleri izin verirken uygulanmasını belirtir. Şu anda geçerli olan tek değer olduğu `AnyRule`.|
   
 ##  <a name="FromRole"></a> FromRole öğesi
 `FromRole` Öğe içinde tanımlanan uç noktaları ile iletişim kurabilen rolleri belirtir `Destinations` düğümü. Birden çok belirtebilirsiniz `FromRole` uç noktaları ile iletişim kurabilen birden fazla rol varsa öğeleri.
 
-| Öznitelik  | Type     | Açıklama |
+| Öznitelik  | Tür     | Açıklama |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Gereklidir. İletişime izin vermek üzere rol adı.|
 

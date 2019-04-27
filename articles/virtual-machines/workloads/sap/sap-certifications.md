@@ -18,11 +18,11 @@ ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648933"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP sertifikaları ve Microsoft Azure üzerinde çalışan yapılandırmaları
 
@@ -48,7 +48,7 @@ SAP terimi 'Kümeleme' kullandığını unutmayın [SAP HANA sertifikalı Iaas p
 Microsoft Azure, aşağıdaki SAP ürünleri için Microsoft ve SAP'den tam destek alacak şekilde sertifikaya sahiptir.
 Başvurular:
 
-- [1928533 - azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533) tüm SAP NetWeaver tabanlı uygulamalar için SAP TREX LiveCache SAP ve SAP içerik sunucusu dahil olmak üzere. Ve SAP HANA hariç, tüm veritabanları.
+- [1928533 - azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533) tüm SAP NetWeaver tabanlı uygulamalar için SAP TREX LiveCache SAP ve SAP içerik sunucusu dahil olmak üzere. Ve SAP HANA hariç, tüm veritabanları.
 
 
 | SAP Ürünü | Konuk işletim sistemi | RDBMS | Sanal Makine Türleri |

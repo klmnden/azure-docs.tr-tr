@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614900"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Blob Depolama için Azure Event Grid olay şeması
 
@@ -90,28 +90,28 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | BLOB Depolama olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| api | dize | Olayı tetikleyen işlemi. |
-| clientRequestId | dize | Bir 1 KB'lık karakter sınırı ile istemci oluşturulur, genel olmayan bir değer. Depolama analizi günlük kaydı etkinleştirildiğinde, bu analizi günlüklerine kaydedilir. |
-| requestId | dize | İstek için benzersiz tanımlayıcı. İstek sorun giderme için kullanın. |
-| eTag | dize | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz bir değer. |
-| contentType | dize | Blob'u için belirtilen içerik türü. |
+| api | string | Olayı tetikleyen işlemi. |
+| clientRequestId | string | Bir 1 KB'lık karakter sınırı ile istemci oluşturulur, genel olmayan bir değer. Depolama analizi günlük kaydı etkinleştirildiğinde, bu analizi günlüklerine kaydedilir. |
+| requestId | string | İstek için benzersiz tanımlayıcı. İstek sorun giderme için kullanın. |
+| eTag | string | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz bir değer. |
+| contentType | string | Blob'u için belirtilen içerik türü. |
 | contentLength | integer | Blob bayt cinsinden boyutu. |
-| BlobType | dize | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
-| url | dize | Blob yolu. |
-| Sıralayıcı | dize | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
+| BlobType | string | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
+| url | string | Blob yolu. |
+| Sıralayıcı | string | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
 | storageDiagnostics | object | Depolama Tanılama hakkında bilgi sağlar. |
  
 ## <a name="next-steps"></a>Sonraki adımlar

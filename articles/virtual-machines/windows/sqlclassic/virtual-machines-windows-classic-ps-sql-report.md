@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609948"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -56,7 +56,7 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
     ![Galeriden yeni vm](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 5. Tıklayın **SQL Server 2014'ten RTM'ye Standard – Windows Server 2012 R2** ve ardından devam etmek için oka tıklayın.
    
-    ![sonraki](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+    ![ileri](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
    
     Reporting Services veri abonelikleri özellik temelli gerekiyorsa seçin **SQL Server 2014'ten RTM'ye Enterprise – Windows Server 2012 R2**. SQL Server sürümleri ve özellik desteği hakkında daha fazla bilgi için bkz. [SQL Server 2012 sürümleri tarafından desteklenen özellikler](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 6. Üzerinde **sanal makine yapılandırması** sayfasında, aşağıdaki alanları düzenleyin:
@@ -79,7 +79,7 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
      
      * **HTTP**: Varsayılan Genel ve özel bağlantı noktaları **80**. Özel bir bağlantı noktası 80 dışında kullanırsanız, değiştirme Not **$HTTPport = 80** http komut.
      * **HTTPS**: Varsayılan Genel ve özel bağlantı noktaları **443**. En iyi güvenlik uygulaması özel bağlantı noktasını değiştirin ve güvenlik duvarını ve rapor sunucusunu özel bağlantı noktasını kullanacak şekilde yapılandırmaktır. Uç noktaları hakkında daha fazla bilgi için bkz. [kümesi ayarlama iletişim bir sanal makine ile nasıl](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Bir bağlantı noktası 443 dışındaki kullanırsanız parametreyi değiştirmeniz gerektiğini unutmayın **$HTTPsport = 443** HTTPS komut.
-   * İleri'ye tıklayın. ![sonraki](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * İleri'ye tıklayın. ![ileri](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Sihirbazın son sayfasında, varsayılan tutun **VM aracısını yükleyin** seçili. Bu konu başlığındaki adımları VM Aracısı yazılımınız değil ancak bu VM devam etmeyi planlıyorsanız, VM aracısı ve uzantıları, kendisinin CM geliştirmek izin verir.  VM Aracısı hakkında daha fazla bilgi için bkz. [VM aracısı ve uzantılar – bölüm 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Bir çalışan varsayılan yüklü uzantıları ad VM masaüstüne, iç IP ve boş disk alanı gibi sistem bilgilerini görüntüleyen "BGINFO" uzantısıdır.
 9. Tam tıklayın. ![tamam](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. **Durumu** sanal makinenin görüntüler olarak **başlangıç (hazırlama)** olarak sonra görüntüler ve sağlama işlemi sırasında **çalıştıran** VM'nin, sağlanmış ve kullanıma hazır olduğunda.
@@ -141,7 +141,7 @@ Sanal makine sağlanırken VM'de otomatik olarak imzalanan bir sertifika oluştu
 
 Otomatik olarak imzalanan bir SSL sertifikası kullanıyorsanız sertifika adına VM konak adı zaten eşleşir. Bu nedenle, makinenin DNS genel olarak kaydedilmiş ve herhangi bir istemciden erişilebilir.
 
-## <a name="step-3-configure-the-report-server"></a>3. adım: Rapor sunucusunu yapılandırma
+## <a name="step-3-configure-the-report-server"></a>3. Adım: Rapor sunucusunu yapılandırma
 Bu bölümde, sanal Makinenin bir Reporting Services yerel mod rapor sunucusu nasıl yapılandıracağınız anlatılmaktadır. Rapor sunucusunu yapılandırmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
 * Rapor sunucusunu yapılandırmak için komut dosyası kullan
@@ -466,7 +466,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell kullanmak için aşağ
      
        Çıktı aşağıdakine benzer olacaktır. Komut dosyası boş bir satır döndürürse, VM örnek yapılandırılmış bir sertifikanın yok, bakın [sanal makineleri otomatik olarak imzalanan sertifika kullanmaya](#to-use-the-virtual-machines-self-signed-certificate).
      
-     VEYA
+     OR
    * Mmc.exe VM'de çalıştırmak ve ardından eklemek **sertifikaları** ek.
    * Altında **güvenilen kök sertifika yetkilileri** düğüme çift tıklayın, sertifika adı. Sanal makinenin otomatik olarak imzalanan sertifika kullanıyorsanız, sertifikayı sonra sanal makinenin DNS adı olarak adlandırılır ve ile sona erer **cloudapp.net**.
    * **Ayrıntılar** sekmesine tıklayın.
@@ -547,7 +547,7 @@ Bağlantı noktası açık olduğunu doğrulamak için bir Windows PowerShell pe
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
 Temel rapor sunucusu işlevselliği artık çalışır durumda olduğunu doğrulamak için tarayıcınızı yönetici ayrıcalıklarıyla açın ve ardından aşağıdaki rapor sunucusu ad Rapor Yöneticisi için URL'leri göz atın:
 
 * Sanal makinede rapor sunucusu URL'sine gidin:

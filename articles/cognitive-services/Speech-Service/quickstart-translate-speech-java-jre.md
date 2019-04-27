@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619246"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma Çevir
 
@@ -46,7 +46,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kodu ekleme
+## <a name="add-sample-code"></a>Örnek kod ekleme
 
 1. Java projenize yeni bir boş sınıf eklemek için **Dosya** > **Yeni** > **Sınıf** seçeneklerini belirleyin.
 
@@ -70,7 +70,7 @@ F11 tuşuna basın veya **Çalıştır** > **Hata Ayıkla** seçeneğini belirle
 
 Mikrofondan giriş konuşma Almanca transcribed ve konsol penceresinde günlüğe kaydedilir. Konuşma Yakalamayı durdurmak için "Enter" tuşuna basın.
 
-![Başarılı tanıma sonrası konsol çıktısının ekran görüntüsü](media/sdk/qs-translate-java-jre-output.png)
+![Başarılı tanıma sonrasında konsol çıktısının ekran görüntüsü](media/sdk/qs-translate-java-jre-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

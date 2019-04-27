@@ -1,6 +1,6 @@
 ---
-title: StorSimple sanal dizinin web kullanıcı Arabirimi Yönetim | Microsoft Docs
-description: StorSimple sanal dizinin web kullanıcı Arabirimi aracılığıyla temel aygıt yönetim görevlerinin nasıl gerçekleştirileceğini açıklar.
+title: StorSimple sanal dizisi web kullanıcı Arabirimi Yönetim | Microsoft Docs
+description: StorSimple sanal dizisi web UI aracılığıyla temel cihaz yönetim görevlerinin nasıl gerçekleştirileceğini açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,100 +14,100 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630518"
 ---
-# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>StorSimple sanal dizinizi yönetmek için Web kullanıcı arabirimini kullanın
+# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>StorSimple Virtual Array'iniz yönetmek için Web kullanıcı arabirimini kullanın
 ![Kurulum işlem akışı](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede öğreticileri Microsoft Azure StorSimple sanal Mart 2016 genel kullanılabilirlik (GA) sürüm çalıştıran diziye (olarak da bilinen StorSimple şirket içi sanal cihazı) geçerlidir. Bu makalede karmaşık iş akışları ve StorSimple sanal dizi gerçekleştirilebilir yönetim görevlerini bazıları açıklanmaktadır. StorSimple sanal StorSimple Yöneticisi'ni kullanarak dizi yönetebilmeniz için kullanıcı Arabirimi (UI portalı olarak adlandırılır) ve cihaz için yerel web kullanıcı Arabirimi hizmet. Bu makalede, web kullanıcı arabirimini kullanarak gerçekleştirebileceğiniz görevler odaklanır.
+Öğreticiler, bu makalede, Microsoft Azure StorSimple sanal Mart 2016 genel kullanılabilirlik (GA) sürümünü çalıştıran dizisi için (diğer adıyla StorSimple şirket içi sanal cihazı) uygulanır. Bu makalede, StorSimple sanal dizisi üzerinde gerçekleştirilebilen yönetim görevleri ve karmaşık iş akışları bazılarını açıklar. StorSimple Virtual Array'ı StorSimple Yöneticisi'ni kullanarak yönetebilmeniz için kullanıcı Arabirimi (UI portalı adlandırılır) ve cihazın yerel web kullanıcı Arabirimi hizmet. Bu makalede, web kullanıcı arabirimini kullanarak gerçekleştirebileceğiniz görevler üzerinde odaklanır.
 
-Bu makalede aşağıdaki öğreticiler içerir:
+Bu makale aşağıdaki öğreticileri içerir:
 
-* Hizmet verileri şifreleme anahtarı alma
-* Web kullanıcı Arabirimi Kurulum hatalarında sorun giderme
-* Bir günlük paketi oluştur
-* Kapatıldı veya aygıtınızı yeniden başlatın
+* Hizmet veri şifreleme anahtarı alma
+* Web kullanıcı Arabirimi Kurulum hatalarını giderme
+* Bir günlük paketi oluşturun
+* Cihazınızı kapatma ya da yeniden başlatma
 
-## <a name="get-the-service-data-encryption-key"></a>Hizmet verileri şifreleme anahtarı alma
-StorSimple Yöneticisi hizmetiyle ilk Cihazınızı kaydederken bir hizmet verileri şifreleme anahtarı oluşturulur. Bu anahtarı ise StorSimple Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarı ile gerekli.
+## <a name="get-the-service-data-encryption-key"></a>Hizmet veri şifreleme anahtarı alma
+Hizmet veri şifreleme anahtarı StorSimple Yöneticisi hizmetine ilk Cihazınızı kaydettiğinizde oluşturulur. Bu durumda bu anahtar StorSimple Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarıyla gereklidir.
 
-Hizmet verileri şifreleme anahtarı ve bunu almak için gereksinim yanlış olmadığını aşağıdakileri gerçekleştirmek yerel web kullanıcı Arabirimi cihazın adımlarda hizmetiniz ile kayıtlı.
+Hizmet veri şifreleme anahtarı ve bunu alma gerek kaybedilmesi, aşağıdaki işlemi gerçekleştirin adımları yerel Web kullanıcı Arabiriminde cihazın kayıtlı hizmetinizle.
 
-#### <a name="to-get-the-service-data-encryption-key"></a>Hizmet verileri şifreleme anahtarı alma
-1. Yerel web kullanıcı Arabirimi bağlayın. Git **yapılandırma** > **bulut ayarları**.
-2. Sayfanın alt kısmındaki tıklatın **Get hizmet verileri şifreleme anahtarı**. Bir anahtarı görüntülenir. Kopyalayın ve bu anahtar kaydedin.
+#### <a name="to-get-the-service-data-encryption-key"></a>Hizmet veri şifreleme anahtarı almak için
+1. Yerel web kullanıcı Arabirimine bağlanın. Git **yapılandırma** > **Cloud ayarları**.
+2. Sayfanın en altında tıklayın **hizmet veri şifreleme anahtarını Al**. Bir anahtarı görüntülenir. Kopyalayın ve bu anahtarı kaydedin.
    
-    ![Hizmet verileri şifreleme anahtarı 1 alma](./media/storsimple-ova-web-ui-admin/image27.png)
+    ![Hizmet veri şifreleme anahtarı 1 alma](./media/storsimple-ova-web-ui-admin/image27.png)
 
-## <a name="troubleshoot-web-ui-setup-errors"></a>Web kullanıcı Arabirimi Kurulum hatalarında sorun giderme
-Bazı durumlarda, yerel web kullanıcı Arabirimi üzerinden Cihazınızı yapılandırırken hatalarla karşılaşırsanız çalıştırabilirsiniz. Tanılamak ve bu tür hatalarında sorun giderme için tanılama testleri çalıştırabilirsiniz.
+## <a name="troubleshoot-web-ui-setup-errors"></a>Web kullanıcı Arabirimi Kurulum hatalarını giderme
+Bazı durumlarda, yerel web kullanıcı Arabirimi üzerinden Cihazınızı yapılandırırken hatalarla karşılaşırsanız çalıştırmanız gerekebilir. Tanılama ve bu tür hataları gidermek için tanılama testlerini çalıştırabilirsiniz.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Tanılama testleri çalıştırmak için
 1. Yerel web kullanıcı Arabirimi, Git **sorun giderme** > **tanılama testleri**.
    
-    ![Tanılama'yı 1 çalıştırın](./media/storsimple-ova-web-ui-admin/image29.png)
-2. Sayfanın alt kısmındaki tıklatın **tanılama Testleri Çalıştır**. Bu ağ, aygıt, web proxy ile ilgili tüm olası sorunları tanılamak için testleri başlatır zaman ya da bulut ayarları. Cihaz testleri çalıştığını bildirilir.
-3. Sınamalar tamamladıktan sonra sonuçları görüntülenir. Aşağıdaki örnek tanılama testleri sonuçlarını gösterir. Bu aygıtta web proxy ayarları yapılandırılmadı ve bu nedenle, web proxy testi değil çalıştırıldığı unutmayın. Ağ ayarlarını, DNS sunucusu ve saat ayarları için diğer tüm sınamalar başarılı oldu.
+    ![1. tanılama Çalıştır](./media/storsimple-ova-web-ui-admin/image29.png)
+2. Sayfanın en altında tıklayın **tanılama Testleri Çalıştır**. Bu ağ, cihaz, web Ara sunucusu, olası sorunları tanılamak için testleri başlatır zaman ya da bulut ayarları. Cihaz testleri çalıştığını size bildirilir.
+3. Testleri tamamladıktan sonra sonuçları görüntülenir. Aşağıdaki örnek, tanılama testlerin sonuçlarını gösterir. Web proxy ayarlarını bu cihaz üzerinde yapılandırılmamış ve bu nedenle, web proxy testi değil çalıştırıldığı unutmayın. Ağ ayarlarını, DNS sunucusu ve saat ayarlarını diğer tüm testler başarılı.
    
-    ![Tanılama 2 çalıştırma](./media/storsimple-ova-web-ui-admin/image30.png)
+    ![2 tanılama Çalıştır](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## <a name="generate-a-log-package"></a>Bir günlük paketi oluştur
-Bir günlük paketi Microsoft Support cihaz sorunları gidermenize yardımcı olabilecek ilgili günlükleri oluşur. Bu sürümde, bir günlük paketi yerel web kullanıcı Arabirimi oluşturulabilir.
+## <a name="generate-a-log-package"></a>Bir günlük paketi oluşturun
+Microsoft Support cihaz sorunları gidermeye yardımcı olabilecek ilgili günlükler bir günlük paketi içerir. Bu sürümde, bir günlük paketi yerel web UI oluşturulabilir.
 
 #### <a name="to-generate-the-log-package"></a>Günlük paketi oluşturmak için
 1. Yerel web kullanıcı Arabirimi, Git **sorun giderme** > **sistem günlüklerini**.
    
-    ![Günlük Paketi 1 oluştur](./media/storsimple-ova-web-ui-admin/image31.png)
-2. Sayfanın alt kısmındaki tıklatın **günlük Paket Oluştur**. Sistem günlüklerini paketi oluşturulacak. Bu işlem birkaç dakika sürebilir.
+    ![1 günlük paketini oluşturma](./media/storsimple-ova-web-ui-admin/image31.png)
+2. Sayfanın en altında tıklayın **günlük paketi oluştur**. Sistem günlüklerinin bir paket oluşturulur. Bu işlem birkaç dakika sürebilir.
    
-    ![2 günlük paketi oluştur](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![2. günlük paketi oluştur](./media/storsimple-ova-web-ui-admin/image32.png)
    
-    Paket başarıyla oluşturuldu ve sayfa paketinin oluşturulduğu tarih ve saatini belirtmek için güncelleştirilmiş sonra size bildirilecek.
+    Paket başarıyla oluşturulduktan sonra sayfa, paketin oluşturulduğu tarih ve saatini göstermek için güncelleştirilir bildirim alırsınız.
    
     ![3 günlük paketi oluştur](./media/storsimple-ova-web-ui-admin/image33.png)
-3. Tıklatın **yükleme günlük paketini**. Sıkıştırılmış paketi sisteminizde indirilir.
+3. Tıklayın **indirme günlük paketi**. Sıkıştırılmış bir paket, sisteminize yüklenir.
    
-    ![Günlük Paketi 4 oluştur](./media/storsimple-ova-web-ui-admin/image34.png)
+    ![4 günlük paketini oluşturma](./media/storsimple-ova-web-ui-admin/image34.png)
 4. İndirilen günlük paketin sıkıştırmasını açın ve sistem günlük dosyalarını görüntüleyin.
 
-## <a name="shut-down-and-restart-your-device"></a>Kapatılır ve aygıtınızı yeniden başlatın
-Kapatıldı veya yerel web kullanıcı arabirimini kullanarak sanal Cihazınızı yeniden başlatın. Biz yeniden başlatmadan önce birimleri veya ana bilgisayar ve aygıt çevrimdışı paylaşımları alın önerilir. Bu veri bozulması olasılığını en aza indirgenecektir. 
+## <a name="shut-down-and-restart-your-device"></a>Cihazınızı yeniden başlatın ve kapatın
+Kapatabilir veya sanal cihazınızın yerel web UI aracılığıyla yeniden başlatın. Biz yeniden başlatmadan önce birimleri veya ana bilgisayar ve cihaz çevrimdışı paylaşımları olması önerilir. Bu, veri bozulması olasılığını en aza indirirsiniz. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Sanal cihazı kapatmak için
 1. Yerel web kullanıcı Arabirimi, Git **Bakım** > **güç ayarları**.
-2. Sayfanın alt kısmındaki tıklatın **kapatma**.
+2. Sayfanın en altında tıklayın **kapatma**.
    
-    ![cihaz kapatma 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Kapalı kalma süresi ile elde edilen etmekte olan tüm g/ç aygıtı bir kapatma kesintiye uğrar bildiren bir uyarı görüntülenir. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-ova-web-ui-admin/image3.png).
+    ![1 cihaz kapatma](./media/storsimple-ova-web-ui-admin/image36.png)
+3. Cihazın bir kapatma bir çalışmama süresi sürmekte olan tüm GÇ kesintiye uğrar belirten bir uyarı görüntülenir. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-ova-web-ui-admin/image3.png).
    
-    ![cihaz kapatma uyarı](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![cihaz kapatma Uyarısı](./media/storsimple-ova-web-ui-admin/image37.png)
    
-    Kapatma başlatıldı bildirilir.
+    Kapatma başlatıldığını bildirilir.
    
     ![cihaz kapatma başlatıldı](./media/storsimple-ova-web-ui-admin/image38.png)
    
-    Cihaz şimdi kapanacak. Cihazınızı başlatmak istiyorsanız, Hyper-V Yöneticisi'yle yapmak gerekir.
+    Cihaz artık kapanır. Cihazınızı başlatmak istiyorsanız, Hyper-V Yöneticisi'yle yapmak gerekir.
 
-#### <a name="to-restart-your-virtual-device"></a>Sanal cihazınız yeniden başlatmak için
+#### <a name="to-restart-your-virtual-device"></a>Sanal Cihazınızı yeniden başlatmak için
 1. Yerel web kullanıcı Arabirimi, Git **Bakım** > **güç ayarları**.
-2. Sayfanın alt kısmındaki tıklatın **yeniden**.
+2. Sayfanın en altında tıklayın **yeniden**.
    
-    ![Aygıt yeniden başlatma](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Cihaz yeniden kapalı kalma süresi ile elde edilen etmekte olan tüm IOs kesecektir bildiren bir uyarı görüntülenir. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-ova-web-ui-admin/image3.png).
+    ![cihaz yeniden başlatma](./media/storsimple-ova-web-ui-admin/image36.png)
+3. Cihaz yeniden başlatma bir çalışmama süresi sürmekte olan tüm IOs kesme bildiren bir uyarı görüntülenir. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![Uyarı yeniden başlatın](./media/storsimple-ova-web-ui-admin/image37.png)
    
     Yeniden başlatma başlatıldı bildirilir.
    
-    ![başlatılan yeniden başlatma](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![yeniden başlatma başlatıldı](./media/storsimple-ova-web-ui-admin/image39.png)
    
-    Yeniden başlatma işlemi devam ederken, kullanıcı Arabiriminde bağlantıyı kaybedeceksiniz. Kullanıcı arabirimini düzenli aralıklarla yenileyerek yeniden izleyebilirsiniz. Alternatif olarak, Hyper-V Yöneticisi aracılığıyla aygıt yeniden başlatma durumunu izleyebilirsiniz.
+    Yeniden başlatma işlemi devam ederken, kullanıcı Arabirimi için bağlantıyı kaybedeceksiniz. Kullanıcı arabirimini düzenli aralıklarla yenileyerek yeniden izleyebilirsiniz. Alternatif olarak, cihaz yeniden başlatma durumu Hyper-V Yöneticisi aracılığıyla izleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bilgi edinmek için nasıl [Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-virtual-array-manager-service-administration.md).

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
 ms.openlocfilehash: 3c82a88ea15b52672f9bed428e2e7af40a65309c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610183"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure güvenlik ve uyumluluk planı - Iaas Web uygulaması için korumalı Avustralya
 
@@ -56,7 +56,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Diğer ayrıntılar içi
 - Azure İzleyici
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
-- Azure izleme günlükleri
+- Azure İzleyici günlükleri
 - Azure Storage
 - Azure Sanal Makineler
     - (1) yönetim/savunma (Windows Server 2016 Datacenter)

@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561770"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus için Azure Event Grid olay şeması
 
@@ -82,25 +82,25 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | BLOB Depolama olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| namespaceName | dize | Service Bus ad alanı kaynak bulunmaktadır. |
-| requestUri | dize | Belirli bir kuyruk veya olay yayma abonelik URI'si. |
-| entityType | dize | Olayları (kuyruk veya abonelik) yayınlama Service Bus varlık türü. |
-| queueName | dize | Bir kuyruğa abone olursa active iletilerle kuyruk. Konuları kullanıyorsanız null değer / abonelikler. |
-| topicName | dize | Konu etkin iletileriniz ile Service Bus aboneliği aittir. Bir kuyruk kullanma değilse null değeri. |
-| subscriptionName | dize | Etkin iletiler ile Service Bus aboneliği. Bir kuyruk kullanma değilse null değeri. |
+| namespaceName | string | Service Bus ad alanı kaynak bulunmaktadır. |
+| requestUri | string | Belirli bir kuyruk veya olay yayma abonelik URI'si. |
+| entityType | string | Olayları (kuyruk veya abonelik) yayınlama Service Bus varlık türü. |
+| queueName | string | Bir kuyruğa abone olursa active iletilerle kuyruk. Konuları kullanıyorsanız null değer / abonelikler. |
+| topicName | string | Konu etkin iletileriniz ile Service Bus aboneliği aittir. Bir kuyruk kullanma değilse null değeri. |
+| subscriptionName | string | Etkin iletiler ile Service Bus aboneliği. Bir kuyruk kullanma değilse null değeri. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

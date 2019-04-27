@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622448"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell kullanarak DevTest Labs ile bir sanal makine oluşturun
 Bu makalede Azure PowerShell kullanarak Azure DevTest Labs'de sanal makine oluşturma işlemini gösterir. Azure DevTest labs'deki bir laboratuvara sanal makinelerin oluşturmayı otomatikleştirmek için PowerShell komut dosyalarını kullanabilirsiniz. 

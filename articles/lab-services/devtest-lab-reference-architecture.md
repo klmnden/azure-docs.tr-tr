@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561524"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs - kuruluş için başvuru mimarisi
 Bu makalede, bir kuruluşta Azure DevTest Labs dayalı bir çözümü dağıtmak için bir başvuru mimarisi sağlar. Bu, sanal makinelerine uzaktan oturum açma Uzak Masaüstü Ağ geçidi, özel yapıtlar ve Laboratuvar içinde kullanılan diğer PaaS Hizmetleri için bir yapıt deposu bağlantısı Express Route üzerinden şirket içi bağlantıyı içerir.

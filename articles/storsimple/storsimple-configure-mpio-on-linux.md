@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630788"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple ana bilgisayarında MPIO yapılandırma
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu, iSCSI başlatıcılarının aracılığıyla yüksek kullanılabilirlik için Microsoft Azure StorSimple cihazınıza bağlıdır. Bu, çok yollu cihazlar ve yalnızca StorSimple birimlerini için özel kurulum otomatik olarak bulunmasını ayrıntılı olarak açıklanmaktadır.
@@ -420,7 +420,7 @@ A. Cihazınızı izin verilenler listesinde olup olmadığını doğrulamak içi
 Daha fazla bilgi için Git [etkileşimli komutu çoklu yol oluşturma için sorun giderme kullanmak](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Yararlı komut listesi
-| Type | Komut | Açıklama |
+| Tür | Komut | Açıklama |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |İSCSI Hizmeti |
 | &nbsp; |`service iscsid stop` |İSCSI hizmetini durdurun |

@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: acc5862a8794da4fde991025eacfcccf6e16916a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607678"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 GET ve delete gizli kaynaklara kafes.
@@ -28,8 +28,8 @@ GET ve delete gizli kaynaklara kafes.
 
 |Komut|Açıklama|
 | --- | --- |
-| sil | Gizli kaynak siler. |
-| liste | Tüm gizli kaynakları listeler. |
+| delete | Gizli kaynak siler. |
+| list | Tüm gizli kaynakları listeler. |
 | göster | Belirtilen ada sahip gizli kaynağını alır. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl kafes secret delete

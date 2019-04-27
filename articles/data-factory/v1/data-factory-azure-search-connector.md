@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567240"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Veri göndermek için Azure Data Factory kullanarak Azure Search dizini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri 
 
 Kopyalama etkinliği Havuz türü olduğunda, **AzureSearchIndexSink**, typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Bir belge dizinde zaten mevcut olduğunda değiştirin ya da birleştirme belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).| (Varsayılan) birleştirme<br/>Karşıya Yükle| Hayır |
 | WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında, verileri Azure Search dizinine yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için. | 1 ila 1.000. Varsayılan değer 1000'dir. | Hayır |
@@ -100,13 +100,13 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 
 | Azure Search veri türü | Azure Search'ü havuz desteklenen |
 | ---------------------- | ------------------------------ |
-| Dize | E |
+| String | E |
 | Int32 | E |
 | Int64 | E |
-| çift | E |
-| Boole | E |
+| Double | E |
+| Boolean | E |
 | DataTimeOffset | E |
-| Dize dizisi | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON örneği: Verileri şirket içi SQL Server'dan Azure Search dizinine kopyalayın.

@@ -3,8 +3,8 @@ title: Azure Ağ İzleyicisi özellikleri kullanmak için gerekli izinleri | Mic
 description: Ağ İzleyicisi özellikleri ile çalışmak için gereken hangi Azure rol tabanlı erişim denetimi izinleri hakkında bilgi edinin.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652903"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Ağ İzleyicisi özellikleri kullanmak için gereken rol tabanlı erişim denetimi izinleri
 
@@ -48,7 +48,7 @@ Azure rol tabanlı erişim denetimi (RBAC), yalnızca belirli eylemler atanan so
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Test sorgu sonuçlarının bir bağlantı sorunlarını giderme                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Çalıştırma bağlantı testi sorunlarını giderme                             |
 
-## <a name="connection-monitor"></a>Bağlantı İzleyicisi
+## <a name="connection-monitor"></a>Bağlantı izleyicisi
 
 | Eylem                                                              | Ad                                                           |
 | ---------                                                           | -------------                                                  |

@@ -8,11 +8,11 @@ ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679297"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -36,9 +36,9 @@ Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve s�
 
 Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 
-- Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde gereç keşiften durdurun ve yeniden başlatın. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+- Öğelerin eklenmesi (VM, disk, çekirdek vb.): Bu değişiklikleri Azure portalına yansıtmak için bulma işlemini gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
 
-- VM silme: Bulma durdurup bile gereç tasarlandığı şekilde nedeniyle, VM'ler silinmesini yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+- VM silme: Gerecin tasarlanma şekli nedeniyle bulma işlemini durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 > [!NOTE]
 > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
@@ -242,11 +242,11 @@ Toplayıcı, 180 gün için geçerli olan bir Windows Server 2012 R2 değerlendi
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>İşletim sistemini, Toplayıcı VM güncelleştiriliyor
 
-Toplayıcı gerecini 180 gün boyunca bir değerlendirme lisansına sahip olsa da, sürekli olarak otomatik kapatma aşağı gereç önlemek için işletim sistemi gereçte güncelleştirmeniz gerekiyor.
+Toplayıcı gereci 180 günlük değerlendirme lisansına sahiptir ancak gerecin otomatik olarak kapanmasını önlemek için gereçteki işletim sistemini sürekli güncelleştirmeniz gerekir.
 
-- Toplayıcı 60 gün boyunca güncelleştirilmemesi durumunda otomatik olarak makinesi kapatılıyor başlatır.
-- Bulma çalışıyorsa, 60 gün geçtiğinde bile makine kapatılmış gerekmez. Bulma tamamlandıktan sonra makine kapatılır.
-- 60 günden fazla Toplayıcı kullandıysanız, çalışan Windows update tarafından her zaman güncelleştirme makine tutma öneririz.
+- Toplayıcının 60 gün boyunca güncelleştirme yapılmaması durumunda makine otomatik olarak kapanmaya başlar.
+- Bulma işlemi çalışıyorsa makine 60 gün geçmiş olsa dahi kapatılmaz. Makine, bulma işlemi tamamlandıktan sonra kapatılır.
+- Toplayıcıyı 60 günden uzun bir süre kullandıysanız Windows Update'i çalıştırarak makineyi sürekli güncel tutmanız önerilir.
 
 ## <a name="upgrading-the-collector-appliance-version"></a>Toplayıcı Gereci sürümüne yükseltme
 

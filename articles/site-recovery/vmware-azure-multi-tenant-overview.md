@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718130"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>VMware olağanüstü durum kurtarma için Azure CSP ile çok kiracılı desteği'ne genel bakış
 
@@ -89,7 +89,7 @@ Yapılandırma sunucusu, özel bir rol atanmış olan bir hesap ile yapılandır
 
 3. (Kiracı yapılandırma sunucusunda kullanılan) vCenter hesabı için erişim düzeyleri gibi çeşitli nesneler için ata:
 
->| Nesne | Rol | Açıklamalar |
+>| Object | Rol | Açıklamalar |
 >| --- | --- | --- |
 >| vCenter | Salt Okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Tüm yönetim işlemleri vcenter için kullanılan veya hesabı bir kiracıya sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
 >| Veri merkezi | Azure_Site_Recovery |  |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587649"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -110,7 +110,7 @@ Veri koruma, verilerinize erişimi denetleme ile başlar. Verilerinizi barındı
 
 Azure SQL veritabanı hizmeti yalnızca 1433 numaralı TCP bağlantı kullanılabilir. Bilgisayarınızdan bir SQL veritabanına erişmek için istemci bilgisayar Güvenlik Duvarı'nın 1433 numaralı TCP bağlantı noktasını giden TCP iletişimine izin verdiğinden emin olun. Diğer uygulamalar için gelen bağlantı gerekli değilse 1433 numaralı TCP bağlantı noktasını engelleyebilirsiniz.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Kimlik Doğrulaması
 
 Kimlik doğrulaması, veritabanına bağlanırken kimliğinizi nasıl kanıtlayacağınızı belirtir. SQL Veritabanı iki kimlik doğrulaması türünü destekler:
 
@@ -188,7 +188,7 @@ Denetim iki yöntem vardır:
 SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama gibi gelişmiş SQL güvenlik özellikleri sunar. 
 
 - [Veri bulma & sınıflandırma](../sql-database/sql-database-data-discovery-and-classification.md)
-- [Güvenlik Açığı değerlendirmesi](../sql-database/sql-vulnerability-assessment.md)  
+- [Güvenlik Açığı Değerlendirmesi](../sql-database/sql-vulnerability-assessment.md)  
 - [Tehdit algılama](../sql-database/sql-database-threat-detection.md)
 
 [Gelişmiş tehdit koruması PostgreSQL için Azure veritabanı](../postgresql/concepts-data-access-and-security-threat-protection.md) yeni bir algılama ve anormal etkinliklerde güvenlik uyarıları sağlayarak oluşunca potansiyel tehditleri olanak tanıyan bir güvenlik katmanı sağlar. Kullanıcılar şüpheli veritabanı etkinlikleri ve olası güvenlik açıklarını yanı sıra anormal veritabanı erişim ve sorgu desenleri sırasında bir uyarı alırsınız. PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi uyarıları birleştirir. Uyarı türü şunlardır:

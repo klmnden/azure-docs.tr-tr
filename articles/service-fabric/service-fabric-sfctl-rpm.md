@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556364"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Sorgulamak ve onarım Yöneticisi hizmetine komutlar gönderebilirsiniz.
@@ -29,8 +29,8 @@ Sorgulamak ve onarım Yöneticisi hizmetine komutlar gönderebilirsiniz.
 |Komut|Açıklama|
 | --- | --- |
 | onaylama zorla | Verilen onarım görevi onayını zorlar. |
-| sil | Tamamlanan onarım görevi siler. |
-| liste | Belirtilen filtrelerle eşleşen onarım görevlerinin listesini alır. |
+| delete | Tamamlanan onarım görevi siler. |
+| list | Belirtilen filtrelerle eşleşen onarım görevlerinin listesini alır. |
 
 ## <a name="sfctl-rpm-approve-force"></a>onaylama sfctl rpm-force
 Verilen onarım görevi onayını zorlar.

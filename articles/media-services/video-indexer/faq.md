@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553700"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -160,7 +160,7 @@ Video Indexer, dizin içerik giriş süresine göre basit Kullandıkça Öde fiy
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer'ı kullanmak için ne zaman faturalandırılırım?
 
-Sıralanacak video gönderirken, kullanıcı video analizi ses analizi veya her ikisi de olarak dizinleme tanımlayın. Bu, SKU'ları ücretlendirilir belirler. İşleme sırasında önemli bir düzey hata varsa, bir hata kodu yanıt olarak döndürülür. Böyle bir durumda hiçbir faturalandırma gerçekleşir.  Kritik bir hata kodumuz hatanın neden olabilir veya bir iç hizmet bağımlılık kritik bir hata var. Hataları yanlış kimlik veya öngörü ayıklama gibi kritik olarak kabul edilmez ve bir yanıt döndürdü. Her durumda geçerli (hata olmayan kod) yanıt döndürülür burada faturalandırma gerçekleşir.
+Bir video dizin oluşturma için gönderilirken, dizin oluşturmanın video analizini mi, ses analizi mi yoksa ikisini birden mi içereceği kullanıcı tarafından belirtilir. Bu, hangi SKU’ların ücretlendirileceğini belirler. İşleme sırasında bir kritik düzey hatası oluşursa yanıt olarak bir hata kodu döndürülür. Bu durumda faturalama gerçekleştirilmez.  Kritik hatalar, koddaki bir hatadan veya hizmetin bir iç bağımlılığında oluşan kritik bir hatadan kaynaklanabilir. Yanlış tanımlama veya içgörü ayıklama gibi hatalar kritik olarak kabul edilmez ve bir yanıt döndürülür. Geçerli (hata kodu olmayan) bir yanıt döndürülen durumlarda faturalama gerçekleşir.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Video Indexer ücretsiz bir deneme sunar?
 

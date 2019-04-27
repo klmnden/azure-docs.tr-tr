@@ -1,27 +1,22 @@
 ---
-title: Linux tabanlı HDInsight - Azure ile betik eylemi geliştirme
-description: Linux tabanlı HDInsight kümeleri özelleştirmek için Bash betiklerini kullanmayı öğrenin. HDInsight betik eylemi özelliği, küme oluşturma sırasında veya sonrasında betikleri çalıştırmanıza olanak tanır. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılımlar yüklemek için kullanılabilir.
-services: hdinsight
+title: Azure HDInsight kümeleri özelleştirmek için betik eylemleri geliştirme
+description: HDInsight kümeleri özelleştirmek için Bash betiklerini kullanmayı öğrenin. Betik eylemleri, küme yapılandırma ayarlarını değiştirmek veya ek yazılımlar yüklemek için küme oluşturma sırasında veya sonrasında betikleri çalıştırmanıza olanak tanır.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 04/22/2019
+ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60590790"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
 Bash betiklerini kullanarak HDInsight kümenize özelleştirmeyi öğrenin. Betik eylemleri, HDInsight küme oluşturma sırasında veya sonrasında özelleştirmek için bir yoludur.
-
-> [!IMPORTANT]  
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Betik eylemleri nelerdir
 
@@ -61,13 +56,28 @@ Bir HDInsight kümesi için özel bir betik geliştirirken akılda tutulması ge
 
 Farklı sürümlerini HDInsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Betiğinizi bir hizmet veya bileşenin belirli bir sürümünü görüyorsa, yalnızca betik gerekli bileşenleri içeren bir HDInsight sürümü ile kullanmanız gerekir. HDInsight'ı kullanarak dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
 
+### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetleniyor
+
+HDInsight'ın farklı sürümlerini Ubuntu belirli sürümlerinde kullanır. Betiğinizde için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, Ubuntu sürümüne bağlı olmayan bir ikili yüklemeniz gerekebilir.
+
+İşletim sistemi sürümü denetlemek için kullanmak `lsb_release`. Örneğin, aşağıdaki betik, bir işletim sistemi sürümüne bağlı olarak belirli tar dosyasını nasıl başvurulacağını gösterir:
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
 ### <a name="bps10"></a> Hedef işletim sistemi sürümü
 
 Linux tabanlı HDInsight, Ubuntu Linux dağıtımı temel alır. HDInsight'ın farklı sürümlerini, kodunuzu nasıl davranacağını değişebilir Ubuntu, farklı sürümlerinde kullanır. Örneğin, HDInsight 3.4 ve önceki Upstart kullanan Ubuntu sürümlerinde bağlıdır. 3.5 ve üzeri sürümleri kullanan Systemd Ubuntu 16.04 üzerinde temel alır. Betiğinizi ikisiyle iş yazılması gerektiğini şekilde Systemd ve Upstart farklı komutları kullanır.
 
-HDInsight 3.4 ve 3.5 arasında başka bir önemli fark `JAVA_HOME` artık Java 8 işaret eder.
-
-Kullanarak işletim sistemi sürümünü kontrol edebilirsiniz `lsb_release`. Aşağıdaki kodu betik Ubuntu 14 ya da 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmektedir:
+HDInsight 3.4 ve 3.5 arasında başka bir önemli fark `JAVA_HOME` artık Java 8 işaret eder. Aşağıdaki kodu betik Ubuntu 14 ya da 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmektedir:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -136,10 +146,10 @@ Linux tabanlı HDInsight kümeleri küme içinde etkin olan iki baş düğümü 
 
 Kümede yüklemek bileşenleri, Apache Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan varsayılan yapılandırması olabilir. HDInsight, varsayılan depolama alanı olarak Azure depolama ya da Data Lake Storage kullanır. Her iki küme silinse bile, veri devam HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanılacak Yükleme bileşenleri yapılandırmanız gerekebilir.
 
-İşlemlerinin çoğu için dosya sistemini belirtmek gerekmez. Örneğin, aşağıdaki giraph-examples.jar dosyasını yerel dosya sisteminden küme depolama alanına kopyalayan:
+İşlemlerinin çoğu için dosya sistemini belirtmek gerekmez. Örneğin, aşağıdaki hadoop common.jar dosyanın yerel dosya sisteminden küme depolama alanına kopyalayan:
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` için Azure Data Lake depolama Gen1 `abfs:///example/jars` için Data Lake depolama Gen2'ye veya `wasb:///example/jars` Azure depolama için.
@@ -289,23 +299,6 @@ Bir Azure depolama hesabına veya Azure Data Lake Storage dosyaların depolanmas
 
 > [!NOTE]  
 > Betik başvurmak için kullanılan URI biçimi, kullanılan hizmete bağlı olarak farklılık gösterir. HDInsight kümesi ile ilişkili depolama hesapları için kullanmak `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake depolama için kullanmak `adl://`.
-
-### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetleniyor
-
-HDInsight'ın farklı sürümlerini Ubuntu belirli sürümlerinde kullanır. Betiğinizde için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, Ubuntu sürümüne bağlı olmayan bir ikili yüklemeniz gerekebilir.
-
-İşletim sistemi sürümü denetlemek için kullanmak `lsb_release`. Örneğin, aşağıdaki betik, bir işletim sistemi sürümüne bağlı olarak belirli tar dosyasını nasıl başvurulacağını gösterir:
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
 
 ## <a name="deployScript"></a>Betik eylemi dağıtma denetim listesi
 

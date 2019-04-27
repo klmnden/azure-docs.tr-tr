@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646716"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API kullanarak Azure kurtarma Hizmetleri kasası oluşturma
 
@@ -50,7 +50,7 @@ Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 |location     |  true       |String         |   Kaynak konumu      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Kasa Özellikleri       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Her Azure kaynağı için benzersiz sistem tanımlayıcıyı belirtir     |
-|etiketler     |         | Nesne        |     Kaynak etiketleri    |
+|etiketler     |         | Object        |     Kaynak etiketleri    |
 
 Kasa adı ve kaynak grubu adı PUT URI'SİNDE verildiğini unutmayın. İstek gövdesi konumunu tanımlar.
 

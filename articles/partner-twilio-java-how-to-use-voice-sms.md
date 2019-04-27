@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623961"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Ses ve SMS özellikleri Java için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -37,22 +37,22 @@ Twilio ses ve SMS işlevselliğini uygulamaları için sağlayan bir RESTful API
 
 Twilio API'si önemli yönlerini Twilio fiilleri ve Twilio biçimlendirme dili (TwiML) var.
 
-### <a id="Verbs"></a>Twilio fiiller
+### <a id="Verbs"></a>Twilio Verbs
 Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanımı bir çağrıda bir iletiyi teslim etmek için Twilio bildirir.
 
 Twilio fiillerin listesi verilmiştir.
 
-* **&lt;Arama&gt;**: çağıran başka bir telefonu bağlanır.
-* **&lt;Toplama&gt;**: telefon tuş takımında girilen sayı toplar.
-* **&lt;Kapat&gt;**: bir aramasını sonlandırır.
-* **&lt;Play&gt;**: bir ses dosyası çalar.
-* **&lt;Kuyruk&gt;**: ekleme çağıranlar kuyruğuna.
-* **&lt;Duraklatma&gt;**: sessiz bir şekilde belirtilen sayıda saniye bekler.
-* **&lt;Kayıt&gt;**: arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
-* **&lt;Yeniden yönlendirme&gt;**: farklı bir URL'de TwiML çağrısı veya SMS denetim aktarır.
-* **&lt;Reddetme&gt;**: faturalama olmadan Twilio numaranızı için gelen bir çağrıyı reddeder.
-* **&lt;Söyleyin&gt;**: dönüştürür metin üzerindeki bir çağrı yapan okuma.
-* **&lt;SMS&gt;**: SMS iletisi gönderir.
+* **&lt;Arama&gt;**: Çağıran, başka bir telefonu bağlanır.
+* **&lt;Gather&gt;**: Telefon tuş takımında girilen sayı toplar.
+* **&lt;Kapat&gt;**: Bir çağrı sona erer.
+* **&lt;Play&gt;**: Ses dosyası yürütülür.
+* **&lt;Kuyruk&gt;**: Ekleme çağıranlar kuyruğuna.
+* **&lt;Duraklatma&gt;**: Sessiz bir şekilde belirtilen sayıda saniye bekler.
+* **&lt;Kayıt&gt;**: Arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
+* **&lt;Yeniden yönlendirme&gt;**: Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
+* **&lt;Reddetme&gt;**: Faturalama olmadan Twilio numaranızı için gelen bir çağrıyı reddeder.
+* **&lt;Söyleyin&gt;**: Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
+* **&lt;SMS&gt;**: Bir SMS mesajı gönderir.
 
 ### <a id="TwiML"></a>TwiML
 TwiML çağrı işlemek nasıl Twilio veya SMS konusunda bilgilendiren Twilio fiilleri XML tabanlı yönergeleri kümesidir.
@@ -104,7 +104,7 @@ Java sunucu sayfası (JSP) için kaynak dosyaları:
  
 Hangi Twilio paketleri veya sınıflar bağlı olarak kullanmak istediğiniz, **alma** deyimleri farklı olabilir.
 
-## <a id="howto_make_call"></a>Nasıl yapılır: giden bir çağrı yapın
+## <a id="howto_make_call"></a>Nasıl Yapılır: Giden bir çağrı yapın
 Aşağıdaki çağrıda giden hale getirmeyi açıklayan **çağrı** sınıfı. Bu kod, Twilio tarafından sağlanan bir site ayrıca Twilio biçimlendirme dili (TwiML) yanıt için kullanır. Kendi değerlerinizi yerleştirin **gelen** ve **için** telefon numaraları ve doğrulamanız olun **gelen** kodu çalıştırmadan önce Twilio hesabı için telefon numarası.
 
 ```java
@@ -133,7 +133,7 @@ Aşağıdaki çağrıda giden hale getirmeyi açıklayan **çağrı** sınıfı.
 
 Belirtildiği gibi bu kod bir Twilio tarafından sağlanan site TwiML yanıt döndürmek için kullanır. Bunun yerine, kendi site TwiML yanıt sağlamak için de kullanabilirsiniz; Daha fazla bilgi için [TwiML yanıtlarını azure'da bir Java uygulaması sağlamak için nasıl](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Nasıl yapılır: bir SMS iletisi gönderin
+## <a id="howto_send_sms"></a>Nasıl Yapılır: Bir SMS iletisi gönderin
 Aşağıdakileri kullanarak bir SMS iletisi göndermek nasıl gösterir **ileti** sınıfı. **Gelen** numarası **4155992671**, SMS mesajları gönderebilir tarafından deneme hesapları için Twilio sağlanır. **İçin** numarası doğrulandı, kodu çalıştırmadan önce Twilio hesabınız için.
 
 ```java
@@ -157,7 +157,7 @@ Aşağıdakileri kullanarak bir SMS iletisi göndermek nasıl gösterir **ileti*
 
 İçin geçirilen parametreler hakkında daha fazla bilgi için **Message.creator** yöntemi bkz [ https://www.twilio.com/docs/api/rest/sending-sms ] [ twilio_rest_sending_sms].
 
-## <a id="howto_provide_twiml_responses"></a>Nasıl yapılır: kendi Web sitesinden TwiML yanıtları sağlayın
+## <a id="howto_provide_twiml_responses"></a>Nasıl Yapılır: Kendi Web sitesinden TwiML yanıtları sağlayın
 Ne zaman uygulamanızı başlatan Twilio API'sine çağrıda örneğin aracılığıyla **CallCreator.create** yöntemi, Twilio gönderecek isteğiniz TwiML yanıt dönmesi beklenen bir URL. Yukarıdaki örnekte, Twilio tarafından sağlanan URL'yi kullanır [ https://twimlets.com/message ] [ twimlet_message_url]. (TwiML Web Hizmetleri tarafından kullanılmak üzere tasarlandığından, TwiML tarayıcınızda görüntüleyebilirsiniz. Örneğin, [ https://twimlets.com/message ] [ twimlet_message_url] boş görmek için **&lt;yanıt&gt;** öğesi; başka bir örnek olarak, tıklayın [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] görmek için bir **&lt;yanıt&gt;** öğesini içeren bir **&lt;Say&gt;** öğesi.)
 
 Twilio tarafından sağlanan URL üzerinde işlemine güvenmek yerine, HTTP yanıtlarını döndürür kendi URL site oluşturabilirsiniz. Sitenin HTTP yanıtlarını döndüren herhangi bir dilde oluşturabilirsiniz; Bu konuda, bir JSP sayfası URL'de barındırma varsayılır.
@@ -204,7 +204,7 @@ Aracılığıyla TwiML ile yanıt için başka bir seçenek, **VoiceResponse** k
 
 Twilio Azure'u Java ile kullanma hakkında ek bilgi için bkz: [nasıl bir telefon araması Twilio kullanarak azure'da bir Java uygulaması görünebileceğini][howto_phonecall_java].
 
-## <a id="AdditionalServices"></a>Nasıl yapılır: ek Twilio hizmetlerini kullanma
+## <a id="AdditionalServices"></a>Nasıl Yapılır: Ek Twilio hizmetlerini kullanma
 Burada gösterilen örneklerden yanı sıra, Twilio, Azure uygulamanızı ek Twilio işlevinden yararlanmak için kullanabileceğiniz web tabanlı API'ler sunar. Tüm Ayrıntılar için bkz. [Twilio API'si belgeleri][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Sonraki Adımlar

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542357"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı bilgi işlem, sanal makine boyutları
 
@@ -33,8 +33,10 @@ ms.locfileid: "49344498"
 
 ### <a name="mpi"></a>MPI 
 
-Yalnızca Intel MPI 5.x sürümler desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı, Azure Linux RDMA sürücüleri ile uyumlu değildir.
+Yalnızca Intel MPI 5.x sürümler desteklenir.
 
+> [!NOTE]
+> Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı olabilir veya Azure Linux RDMA sürücüleri ile uyumlu olmayabilir.
 
 ### <a name="distributions"></a>Dağıtımlar
  

@@ -1,5 +1,5 @@
 ---
-title: 'Azure yedekleme: REST API kullanarak Azure sanal makinelerini yedekleme'
+title: "Azure yedekleme: REST API kullanarak Azure Vm'lerini yedekleme"
 description: Azure sanal makine REST API kullanarak yedekleme, yedekleme işlemlerini yönetme
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646784"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API aracılığıyla Azure Backup'ı kullanarak Azure VM yedekleme
 
@@ -45,11 +45,11 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 'Yenile' işlem bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve 200 (Tamam) Bu işlem tamamlandığında.
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 200 (Tamam) Bu işlem tamamlandığında.
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
-|204 İçerik yok     |         |  Tamam düğmesiyle döndürülen içerik yok      |
+|204 No Content     |         |  Tamam düğmesiyle döndürülen içerik yok      |
 |202 kabul edildi     |         |     Kabul Edildi    |
 
 ##### <a name="example-responses"></a>Örnek yanıt
@@ -163,8 +163,8 @@ Yanıt ve her korumasız Azure Vm'lerinin listesini içeren `{value}` yedeklemey
 
 Örnekte, yukarıdaki değerler için çevir:
 
-- containerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
-- protectedItemName = "vm; iaasvmcontainerv2; testRG; testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Azure VM için korumayı etkinleştirme
 
@@ -212,7 +212,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe oluşturmak için gereken özel
 
 Korumalı bir öğe oluşturma bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve 200 (Tamam) Bu işlem tamamlandığında.
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 200 (Tamam) Bu işlem tamamlandığında.
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
@@ -323,7 +323,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe için bir yedek tetiklemek içi
 
 İsteğe bağlı yedekleme tetikleniyor olduğu bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve 200 (Tamam) Bu işlem tamamlandığında.
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 200 (Tamam) Bu işlem tamamlandığında.
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
@@ -443,7 +443,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 *SİLME* koruma bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 204 (Bu işlem tamamlandığında NoContent).
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 204 (Bu işlem tamamlandığında NoContent).
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|

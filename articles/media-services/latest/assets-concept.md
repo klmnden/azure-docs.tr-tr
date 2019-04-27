@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734363"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -34,18 +34,18 @@ Bir varlık, bir blob kapsayıcısını eşlendi [Azure depolama hesabı](storag
 
 Genel medya Hizmetleri iş akışlarını karşıya yükleme, kodlama ve bir dosya akışı biridir. Bu bölümde, genel adımlar anlatılmaktadır.
 
-1. Yeni bir "Giriş" varlık oluşturmak için Media Services v3 API'sini kullanın. Bu işlem, Media Services hesabınızla ilişkili depolama hesabında bir kapsayıcı oluşturur. API, kapsayıcı adı döndürür (örneğin, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Media Services v3 API'sini kullanarak yeni bir "input" Varlığı oluşturun. Bu işlem, Media Services hesabınızla ilişkilendirilen depolama hesabında bir kapsayıcı oluşturur. API, kapsayıcı adı döndürür (örneğin, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
-    Bir varlık ile ilişkilendirmek istediğiniz bir blob kapsayıcısı zaten varsa, bir varlık oluştururken, kapsayıcı adı belirtebilirsiniz. Media Services şu anda yalnızca BLOB kapsayıcı kök ve değil dosya adında yolları destekler. Bu nedenle, bir kapsayıcı "input.mp4" dosya adıyla birlikte çalışır. Ancak, "videos/inputs/input.mp4" dosya adıyla bir kapsayıcı çalışmaz.
+    Varlıkla ilişkilendirmek istediğiniz bir blob kapsayıcınız varsa, Varlığı oluştururken ilgili kapsayıcının adını belirtebilirsiniz. Media Services şu anda blobları yalnızca kapsayıcı kökünde destekler ve dosya adında yol kullanılmasını desteklemez. Bu nedenle "input.mp4" gibi bir dosya adına sahip kapsayıcıları kullanabilirsiniz. Ancak "videos/inputs/input.mp4" dosya adına sahip bir kapsayıcıyı kullanamazsınız.
 
-    Doğrudan herhangi bir depolama hesabı ve aboneliğinizde haklarınız kapsayıcı yüklemek için Azure CLI'yı kullanabilirsiniz. <br/>Kapsayıcı adı benzersiz olmalı ve depolama adlandırma yönergeleri izleyin. Ad, biçimlendirme medya Hizmetleri varlık kapsayıcı adı (varlık GUID'si) izleyin gerekmez. 
+    Azure CLI'yi kullanarak aboneliğinizde gerekli izinlere sahip olduğunuz tüm depolama hesaplarına ve kapsayıcılara içerik yükleyebilirsiniz. <br/>Kapsayıcı adının benzersiz ve depolama adlandırma kurallarına uygun olması gerekir. Ad için Media Services Varlık kapsayıcısı adı (Varlık-GUID) biçimlendirmesinin kullanılması şart değildir. 
     
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Varlık kapsayıcısının içine dijital dosyalar karşıya yüklemek için kullanılacak olan okuma-yazma izinlerine sahip bir SAS URL'sini alın. Media Services API'sine kullanabileceğiniz [varlık kapsayıcı URL'lerin listesi](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Azure depolama API veya SDK'larını (örneğin, [depolama REST API'si](../../storage/common/storage-rest-api-auth.md), [JAVA SDK'sı](../../storage/blobs/storage-quickstart-blobs-java-v10.md), veya [.NET SDK'sı](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) dosyaları varlık kapsayıcıya yüklemek için. 
-4. Media Services v3 API'ler, Dönüşüm ve bir iş Varlığınızı "Giriş" işlemi oluşturmak için kullanın. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md).
+2. Dijital dosyaları Varlık kapsayıcısına yüklemek için kullanmak üzere okuma-yazma izinlerine sahip bir SAS URL'si alın. Media Services API'sini kullanarak [varlık kapsayıcısı URL'lerini listeleyebilirsiniz](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+3. Azure Depolama API'lerini veya SDK'larını ([Depolama REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) veya [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md) gibi) kullanarak dosyaları Varlık kapsayıcısına yükleyin. 
+4. Media Services v3 API'lerini kullanarak "input" Varlığınızı işlemek üzere bir Dönüşüm ve bir İş oluşturun. Daha fazla bilgi için [Dönüşümler ve İşler](transform-concept.md) konusuna bakın.
 5. "Çıktı" varlığına içerikten Stream.
 
 Gösteren tam bir .NET örneği için nasıl yapılır: varlık oluşturma, depolama kapsayıcısını varlığın yazılabilir bir SAS URL'si almak, SAS URL'sini kullanarak depolama kapsayıcısına dosya karşıya yükleme, bkz [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md).
@@ -60,7 +60,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 REST örnek için bkz: [REST ile bir varlık oluşturun](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) örnek.
 
-Bu örnek nasıl oluşturulacağını gösterir **istek gövdesi** açıklaması, kapsayıcı adı, depolama hesabı ve diğer bilgileri gibi yararlı bilgileri belirtebileceğiniz.
+Bu örnekte açıklama, kapsayıcı adı, depolama hesabı ve benzeri gerekli bilgileri belirtebileceğiniz **İstek Gövdesini** oluşturma adımları gösterilmektedir.
 
 #### <a name="curl"></a>cURL
 
@@ -105,5 +105,5 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
-* [Bir bulut DVR kullanma](live-event-cloud-dvr.md)
+* [Bulut DVR kullanma](live-event-cloud-dvr.md)
 * [Medya arasındaki farklar Hizmetleri v2 ve v3](migrate-from-v2-to-v3.md)

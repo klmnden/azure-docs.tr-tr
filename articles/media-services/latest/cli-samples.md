@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733190"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure Media Services için Azure CLI örnekleri
 
@@ -28,7 +28,7 @@ Aşağıdaki tabloda, Azure Media Services için Azure CLI örnekleri bağlantı
 |  |  |
 |---|---|
 |**Ölçeklendirme**||
-| [Ölçek medya ayrılmış birimleri](media-reserved-units-cli-how-to.md)|Ses analizi ve Video analizi işleri, Media Services v3 tarafından tetiklenen veya Video Indexer için 10 S3 MRU hesabınızla sağlama önemle tavsiye edilir. <br/>Komut, medya ayrılmış birimi (MRU) ölçeklendirmek için CLI kullanmayı gösterir.|
+| [Ölçek medya ayrılmış birimleri](media-reserved-units-cli-how-to.md)|Media Services v3 veya Video Indexer ile tetiklenen Ses Analizi ve Video Analizi İşleri için hesabınıza 10 S3 MRU sağlamanız önerilir. <br/>Komut, medya ayrılmış birimi (MRU) ölçeklendirmek için CLI kullanmayı gösterir.|
 |**Hesap**||
 | [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md) | Betik bir Azure Media Services hesabı oluşturur. |
 | [Hesap kimlik bilgilerini Sıfırla](./scripts/cli-reset-account-credentials.md)|Hesap kimlik bilgilerinizi sıfırlar ve app.config ayarlarını geri alır.|
@@ -47,4 +47,4 @@ Aşağıdaki tabloda, Azure Media Services için Azure CLI örnekleri bağlantı
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Hızlı Başlangıç: Stream video dosyaları - CLI](stream-files-cli-quickstart.md)
+- [Hızlı Başlangıç: Video dosyalarını akışla aktarma - CLI](stream-files-cli-quickstart.md)

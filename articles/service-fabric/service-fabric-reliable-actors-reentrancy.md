@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725423"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors yeniden giriş
 Reliable Actors çalışma zamanı varsayılan olarak, mantıksal çağrı Bağlam tabanlı yeniden giriş sağlar. Bu aktörler ve aynı çağrı bağlamı zincirine olmaları durumunda yeniden girilen olmasını sağlar. Örneğin, bir aktör aktör C'ye ileti gönderen aktör B için bir ileti gönderir Aktör C aktör A çağırırsa izin verecek şekilde ileti işleme işleminin bir parçası olarak yeniden girilen, iletisidir. İşlem tamamlanana kadar farklı bir çağrı bağlamı parçası olan herhangi bir iletiyi aktör A engellenir.

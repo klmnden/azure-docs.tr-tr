@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543232"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Test Edilebilirlik senaryoları: Hizmet iletişimleri
 Mikro hizmetler ve hizmet odaklı mimari stilleri yüzeyini doğal olarak Azure Service Fabric. Bu dağıtılmış mimariler türlerinde bileşenlerden mikro hizmet uygulamaları genellikle birbirine konuşmak için gereken birden çok hizmet oluşur. En basit durumlarda bile, genellikle en az bir durum bilgisi olmayan web hizmeti ve iletişim kurması gereken bir durum bilgisi olan veri depolama hizmeti vardır.

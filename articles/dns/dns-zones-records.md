@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563401"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları'na genel bakış
 
@@ -34,7 +34,7 @@ Bir etki alanı adı kayıt şirketi 'contoso.com' gibi bir etki alanı adı sat
 
 Azure DNS, etki alanınız barındırmak için kullanabileceğiniz bir Global olarak dağıtılmış, yüksek kullanılabilirlik adı sunucu altyapısı sağlar. Azure DNS etki alanlarınızı barındırarak diğer Azure hizmetlerinde kullandığınız kimlik bilgilerini, API'leri, araçları, faturalandırma ve Destek ile DNS kayıtlarınızı yönetebilirsiniz.
 
-Azure DNS, etki alanı adları satın alımını şu anda desteklemiyor. Bir etki alanı adı satın almak istiyorsanız, bir üçüncü taraf etki alanı adı kayıt şirketi kullanmanız gerekir. Kayıt şirketi, genelde küçük bir yıllık ücret uygular. Etki alanlarını Azure DNS'de DNS kayıtlarını yönetimi için ardından barındırılabilir. Bkz: [bir etki alanını Azure DNS'ye devretme](dns-domain-delegation.md) Ayrıntılar için.
+Azure DNS, etki alanı adları satın alımını şu anda desteklemiyor. Bir etki alanı adı satın almak istiyorsanız, bir üçüncü taraf etki alanı adı kayıt şirketi kullanmanız gerekir. Kayıt şirketi, genelde küçük bir yıllık ücret uygular. Etki alanlarını Azure DNS'de DNS kayıtlarını yönetimi için ardından barındırılabilir. Ayrıntılar için bkz. [Azure DNS'ye bir etki alanı devretme](dns-domain-delegation.md).
 
 ## <a name="dns-zones"></a>DNS bölgeleri
 
@@ -139,7 +139,7 @@ Azure DNS REST API düzeyinde Etag'ler HTTP üst bilgilerini kullanarak belirtil
 | IF-none-match * |Kaynak yoksa PUT yalnızca başarılı |
 
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 
 Azure DNS kullanırken aşağıdaki varsayılan sınırlar geçerlidir:
 

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612040"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Azure IOT Edge güvenlik standartlarını
 
@@ -28,7 +28,7 @@ Bu makalede, IOT Edge güvenlik Çerçevesi'ne genel bakış sağlar. Daha fazl
 
 Standartlar scrutiny kolaylığı ve ikisi için de güvenlik hallmarks olan uygulama, kolay tanıtın. Bir güvenlik çözümü kendisini scrutiny altında güven oluşturmak için değerlendirme ödünç vermek ve dağıtım için bir hurdle olmamalıdır. Azure IOT Edge güvenliğini sağlamak için tasarım framework'ün üzerinde zaman içinde kendini kanıtlamış temel alır ve sektörde kanıtlanmış güvenlik bilgisi ve yeniden kullanımı için protokoller. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Bir IOT çözümünü dağıttığınızda, yalnızca güvenilir aktör, cihazlar ve modülleri çözümünüzü erişimi olduğunu bilmeniz gerekir. Oluşturabildiğinden, katılımcıların güvenli sorumluluk sunar. Azure IOT Edge, bu bilgileri kimlik doğrulaması üzerinden attains. Sertifika tabanlı kimlik doğrulaması için kimlik doğrulaması için Azure IOT Edge platformunda birincil mekanizmadır. Bu mekanizma, bir dizi ortak anahtar altyapısı (PKIX) Internet Engineering Task Force (IETF) tarafından yöneten standartları türetir.     
 

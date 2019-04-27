@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612697"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için sanal ağ tümleştirmesi
 
@@ -33,7 +33,7 @@ Data Lake Storage 1. Nesil için sanal ağ tümleştirmesi, erişim belirtecinde
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage 1. Nesil sanal ağ tümleştirmesi senaryoları
 
-Data Lake Storage 1. Nesil sanal ağ tümleştirmesi ile Data Lake Storage 1. Nesil hesabınıza erişimi belirli sanal ağlar ve alt ağlar ile sınırlandırabilirsiniz. Hesabınız belirtilen sanal ağ alt ağına kilitlendikten sonra Azure'daki diğer sanal ağlar/VM'ler tarafından erişim sağlanamaz. Data Lake Storage 1. Nesil sanal ağ tümleştirmesi, işlev açısından [sanal ağ hizmeti uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) ile aynı senaryoyu etkinleştirir. İki senaryo arasındaki önemli farklar aşağıdaki bölümlerde belirtilmiştir. 
+Data Lake Storage 1. Nesil sanal ağ tümleştirmesi ile Data Lake Storage 1. Nesil hesabınıza erişimi belirli sanal ağlar ve alt ağlar ile sınırlandırabilirsiniz. Hesabınız belirtilen sanal ağ alt ağına kilitlendikten sonra Azure'daki diğer sanal ağlar/VM'ler tarafından erişim sağlanamaz. Data Lake Storage 1. Nesil sanal ağ tümleştirmesi, işlev açısından [sanal ağ hizmet uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) ile aynı senaryoyu etkinleştirir. İki senaryo arasındaki önemli farklar aşağıdaki bölümlerde belirtilmiştir. 
 
 ![Data Lake Storage 1. Nesil sanal ağ tümleştirmesi senaryo diyagramı](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -93,7 +93,7 @@ Kullanılabilen seçeneklerin bazıları şunlardır:
  
 4.  **Ekle**'yi seçerek yeni bir hizmet uç noktası ekleyin.
 
-    ![Sanal ağ hizmeti uç noktası ekleme](media/data-lake-store-network-security/config-vnet-1.png)
+    ![Sanal ağ hizmet uç noktası ekleme](media/data-lake-store-network-security/config-vnet-1.png)
 
 5.  Uç noktası hizmeti olarak **Microsoft.AzureActiveDirectory** seçeneğini belirleyin.
 

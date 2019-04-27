@@ -1,8 +1,9 @@
 ---
 title: Azure bulut Hizmetleri def olarak LoadBalancerProbe şeması | Microsoft Docs
 ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+origin.date: 04/14/2015
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613872"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services tanım LoadBalancerProbe şeması
 Yük Dengeleyici araştırması, müşteri tanımlı bir durum araştırması UDP uç noktaları ve rol örneklerinde uç noktaları olur. `LoadBalancerProbe` Bir tek başına öğesi; değil web rolü veya çalışan rolü bir hizmet tanımı dosyasında ile birleştirilir. A `LoadBalancerProbe` birden fazla rol için kullanılabilir.

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534649"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Öğretici: Azure Digital Twins’i dağıtma ve uzamsal graf yapılandırma
 

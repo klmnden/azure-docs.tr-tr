@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622856"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Eğitim için Azure DevTest Labs kullanma
 Azure DevTest Labs, geliştirme/test yanı sıra birçok önemli senaryolar uygulamak için kullanılabilir. Bu senaryolardan biri, eğitim için laboratuvar ayarlamaktır. Azure DevTest Labs, burada her Yardımcısı Eğitim özdeş ve yalıtılmış ortamlar oluşturmak için kullanabileceğiniz özel şablonları sağlayabilir Laboratuvar oluşturmanıza olanak sağlar. Yalnızca bunlar ihtiyacınız ve eğitim için gereken sanal makineler gibi-yeterli kaynak - içeren eğitim ortamları her Yardımcısı için kullanılabilir olmasını sağlamak için ilkeler uygulayabilirsiniz. Son olarak, Laboratuvar, tek bir tıklamayla erişebilirsiniz yardımıyla ile kolayca paylaşabilirsiniz.

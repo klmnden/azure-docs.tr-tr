@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743440"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
@@ -36,7 +36,7 @@ Bu makalede, Linux için Ağ İzleyicisi Aracısı VM uzantısı için dağıtı
 
 Ağ İzleyicisi Aracısı uzantısı aşağıdaki Linux dağıtımları için yapılandırılabilir:
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 ve 8 |

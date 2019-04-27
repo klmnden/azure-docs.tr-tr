@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648423"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskler Çevrimdışı Yedekleme verileri Azure'a karşıya yüklemek için kullanabilirsiniz.
@@ -175,7 +175,7 @@ Aşağıdaki yordam, Azure içeri aktarma işi Sevkiyat ayrıntıları güncelle
 5. Sevkiyat operatörünüz izleme numarası varsa, Azure içeri aktarma işi genel bakış sayfasında başlığa tıklayın ve aşağıdaki ayrıntıları girin:
 
    > [!IMPORTANT] 
-   > Azure içeri aktarma işi oluşturma iki hafta içinde en taşıyıcısı bilgileri ve izleme numarası güncelleştirildiğinden emin olun. İki hafta içinde bu bilgileri doğrulamak için başarısız işi siliniyor ve sürücüleri işlenmeyen neden olabilir.
+   > Azure içeri aktarma işini oluşturduktan itibaren iki hafta içinde taşıyıcı bilgilerini ve takip numarasını güncelleştirmeyi unutmayın. İki hafta içinde bu bilgileri doğrulamak için başarısız işi siliniyor ve sürücüleri işlenmeyen neden olabilir.
 
    ![Sevkiyat bilgilerini depolama](./media/backup-azure-backup-import-export/joboverview.png)<br/>
 
