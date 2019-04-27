@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1a811d3d0796b37053ffbabf56b63b4e4f68e203
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500217"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıçta, bir ilke ataması oluşturma ve adlı yerleşik ilke 
    |------|-------|
    | Abonelik | Azure aboneliğinizi seçin. |
    | Kaynak grubu | Seçin **Yeni Oluştur**bir ad belirtin ve ardından **Tamam**. Kaynak grubu adı ekran görüntüsünde olduğu *mypolicyquickstart\<MMDD tarih > rg*. |
-   | Konum | Bölge seçin. Örneğin, **Orta ABD**. |
+   | Location | Bölge seçin. Örneğin, **Orta ABD**. |
    | İlke ataması adı | Bir ilke ataması adı belirtin. İsterseniz, ilke tanımı görünen kullanabilirsiniz. Örneğin, **denetim yönetilen diskleri kullanmayan Vm'leri**. |
    | Rg adı | İlkeyi atamak istediğiniz yerin bir kaynak grubu adı belirtin. Bu hızlı başlangıçta, varsayılan değeri kullanın **[resourceGroup () .name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  kaynak grubunu alır. bir şablon işlevi. |
    | İlke tanım kimliği | Belirtin **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |

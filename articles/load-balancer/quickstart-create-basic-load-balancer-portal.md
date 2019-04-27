@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57869821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507968"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir temel yük dengeleyici oluşturma
 
@@ -43,7 +43,7 @@ Portalı kullanarak ilk olarak genel bir temel yük dengeleyici oluşturun. Olu�
     | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *MyResourceGroupLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
     | Bölge         | **Batı Avrupa**'yı seçin.                                        |
-    | Type          | Seçin **genel**.                                        |
+    | Tür          | Seçin **genel**.                                        |
     | SKU           | **Temel**'i seçin.                          |
     | Genel IP adresi | **Yeni oluştur**’u seçin. |
     | Ortak IP adresi adı              | *Mypublicıp*   |

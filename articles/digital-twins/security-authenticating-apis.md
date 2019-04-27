@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533841"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Bağlanıp API'lerine kimlikleri
 
@@ -25,11 +25,11 @@ Bir uygulama veya hizmeti Azure AD ile tümleştirmek için geliştiricilerin ö
 
 [Beş birincil uygulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) Azure AD tarafından desteklenir:
 
-* Tek sayfalı uygulama (SPA): bir kullanıcının Azure AD tarafından güvenliği sağlanan bir tek sayfalı uygulama için oturum açmanız gerekir.
-* Web uygulamasına Web tarayıcısı: bir kullanıcı Azure AD tarafından güvenliği sağlanan bir web uygulamasına oturum açması gerekiyor.
-* Web API'si yerel uygulamaya: telefon, tablet veya PC çalıştıran yerel bir uygulama, Azure AD tarafından güvenliği sağlanan bir web API'sini kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde.
-* Web uygulaması web API'si için: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekir.
-* Web API arka plan programı ya da sunucu uygulamasında: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir arka plan programı uygulaması veya web kullanıcı Arabirimi ile bir sunucu uygulaması gerekir.
+* Tek sayfalı uygulama (SPA): Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir tek sayfalı uygulama için oturum açmanız gerekir.
+* Web uygulamasına Web tarayıcısı: Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir web uygulaması için oturum açmanız gerekir.
+* Web API'si yerel uygulamaya: Telefon, tablet veya PC çalıştıran yerel bir uygulama, Azure AD tarafından güvenliği sağlanan bir web API'sini kaynakları almak için bir kullanıcının kimliğini doğrulaması gerekir.
+* Web uygulaması web API'si için: Bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekir.
+* Web API arka plan programı ya da sunucu uygulamasında: Daemon uygulamasının veya bir sunucu uygulaması web ile Azure AD tarafından güvenliği sağlanan bir web API'den kaynakları almak kullanıcı Arabirimi gerekir.
 
 Windows Azure kimlik doğrulama kitaplığı, Active Directory belirteçlerini almak için birçok yol sunar. Kitaplık ve kod örnekleri hakkında daha fazla bilgi için bkz: [bu makalede](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 

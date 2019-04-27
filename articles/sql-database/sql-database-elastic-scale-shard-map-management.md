@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332338"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Veritabanları parça eşleme Yöneticisi ile ölçeklendirme
 
@@ -57,9 +57,9 @@ Esnek ölçek, parçalama anahtarı olarak aşağıdaki türlerini destekler:
 | integer |integer |
 | uzun |uzun |
 | GUID |uuid |
-| bayt]  |bayt] |
+| byte[]  |byte[] |
 | datetime | timestamp |
-| Zaman aralığı | süre|
+| TimeSpan | süre|
 | Datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Liste ve aralık parça eşlemesi

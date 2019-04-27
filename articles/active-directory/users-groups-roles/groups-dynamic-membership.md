@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471651"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -60,7 +60,7 @@ Parantezler için tek bir ifade isteğe bağlıdır. Üyeliklerini kuralınız g
 
 Üç türde bir üyelik kuralı oluşturmak için kullanılan özellikleri vardır.
 
-* Boole
+* Boolean
 * String
 * Dize koleksiyonu
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337485"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
 Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır http://contoso.cloudapp.net. Azure Ayrıca, sanal bir IP adresi atar.

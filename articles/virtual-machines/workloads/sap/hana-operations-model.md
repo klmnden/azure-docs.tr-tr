@@ -15,13 +15,13 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477886"
 ---
-# <a name="operations-model-and-responsibilities"></a>İşlem modeli ve sorumlulukları
+# <a name="operations-model-and-responsibilities"></a>İşlem modeli ve sorumluluklar
 
 SAP HANA (büyük örnekler) azure'da ile sağlanan hizmeti, Azure Iaas Hizmetleri ile hizalanır. SAP HANA için en iyi duruma getirilmiş yüklü bir işletim sistemi bir HANA büyük örneği örneğini sahip olursunuz. Azure Iaas Vm'lerle, işletim sistemini sağlamlaştırma, ek yazılım yüklemeniz, HANA yükleme, işletim sistemi ve HANA işletim ve işletim sistemi ve HANA güncelleştirme görevlerin çoğunu gibidir sizin sorumluluğunuzdadır. Microsoft işletim sistemi güncelleştirmeleri veya HANA güncelleştirmeleri size zorlamaz.
 

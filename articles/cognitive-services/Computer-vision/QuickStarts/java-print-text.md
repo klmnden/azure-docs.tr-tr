@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 96d6a1281abfd8307ea997d30c92e39dcc8f0b77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408895"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Java ve REST API kullanarak yazdırılan metin (OCR) ayıklayın
 

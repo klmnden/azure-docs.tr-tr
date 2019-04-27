@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538252"
 ---
 # <a name="get-started-with-the-query-action"></a>Sorgu eylemi ile çalışmaya başlama
 Sorgu eylemi kullanarak, toplu işleri ve iş akışlarına gerçekleştirmek için dizileri ile çalışabilirsiniz:

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ec37b4c3bdeb924b3e35dbcb5d07a478611f631
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510866"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Python kullanarak görüntü Öngörüler elde edin
 

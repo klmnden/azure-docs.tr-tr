@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382309"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Bu belgenin amacı, Azure AD Connect uygulama tasarım sırasında düşündüğünüz alanlarını açıklayan sağlamaktır. Bu belge belirli alanları ayrıntılı bir bakış ve diğer belgelerde Bu kavramlar kısaca açıklanmaktadır.

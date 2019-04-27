@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381998"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, karma kimlik çözümü içinde bahsedilen iş gereksinimlerini karşılamak için karma kimlik benimseme stratejinizi tanımlayın:

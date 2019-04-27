@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443604"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) erişmek için bir istemci uygulaması yapılandırma
 

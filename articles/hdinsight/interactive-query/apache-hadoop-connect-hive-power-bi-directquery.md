@@ -1,7 +1,6 @@
 ---
 title: Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini Görselleştirme
 description: Azure HDInsight etkileşimli sorgu Hive verilerini görselleştirmek için Microsoft Power BI'ı kullanma
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: d9639a4a116e06e17005ebddbb26379882491b33
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483783"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Doğrudan sorgu kullanarak Azure HDInsight Microsoft Power BI ile etkileşimli sorgu Apache Hive verileri Görselleştirme
 

@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60450752"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>İzleme ve Azure Logic Apps ile SharePoint kaynaklarını yönetme
 

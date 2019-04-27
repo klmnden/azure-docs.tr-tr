@@ -1,7 +1,6 @@
 ---
 title: Okumak ve Azure SQL veritabanına veri yazmak için Apache Spark'ı kullanma
 description: HDInsight Spark kümesi ve veri okuma, verileri ve veri akışı, bir SQL veritabanı'na yazmak için bir Azure SQL veritabanı arasında bir bağlantı kurmayı öğrenin
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/15/2018
 ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327043"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 

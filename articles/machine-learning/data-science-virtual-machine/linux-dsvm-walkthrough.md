@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516901"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.

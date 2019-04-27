@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
 ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525539"
 ---
 # <a name="use-service-management-from-python"></a>Hizmet Yönetimi'nden Python kullanma
 Bu kılavuz, yaygın hizmet yönetimi görevlerini Python'dan programlama yoluyla gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-python) kullanılabilir Hizmet Yönetimi ile ilgili işlevselliğinin programlı erişim destekler [Azure Portal][management-portal]. Bu işlev, oluşturmak, güncelleştirmek ve bulut Hizmetleri, dağıtımlar, Veri Yönetimi Hizmetleri ve sanal makineleri silmek için kullanabilirsiniz. Bu işlev Hizmet Yönetimi programlı erişim gerekir. uygulamaları oluşturmada faydalı olabilir.

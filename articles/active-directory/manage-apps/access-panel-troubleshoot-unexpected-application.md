@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442837"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Uygulama erişim panelinde nasıl görünür?
 
@@ -74,7 +74,7 @@ Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -102,7 +102,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -122,7 +122,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 

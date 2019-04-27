@@ -16,11 +16,11 @@ ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542535"
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
 Microsoft Azure; çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, sanal makine, veritabanı, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.

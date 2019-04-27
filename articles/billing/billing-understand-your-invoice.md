@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369973"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızla ilgili koşulları anlama
 
@@ -31,7 +31,7 @@ Dikkat edilecek bazı noktalar:
 
 -   24 saatlik kullanım önceki fatura döneminin sonuna kadar geçerli faturanıza gösterebilir.
 
--   Uluslararası müşterilerin fatura ekstrelerinde listelenen ücretler yalnızca tahmin amaçlıdır. Bankalar, dönüştürme oranlarını farklı maliyetlerini olabilir.
+-   Uluslararası müşterilerin fatura ekstrelerinde listelenen ücretler yalnızca tahmin amaçlıdır. Bankaların döviz kuru dönüştürme maliyetleri farklı olabilir.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -100,7 +100,7 @@ Aşağıdaki tabloda, faturanızı üzerinde gösterilen kullanım ücretleri s�
 | Sözleşme Dönemi |Açıklama |
 | --- | --- |
 | Ad |Kullanımı için üst düzey hizmeti belirtir |
-| Type |Hızı etkileyen Azure hizmet türü tanımlar. |
+| Tür |Hızı etkileyen Azure hizmet türü tanımlar. |
 | Kaynak |Tüketilen ölçüm için ölçü birimini belirtir |
 | Bölge |Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir |
 | Kullanılan |Fatura dönemi boyunca kullanılan ölçüm miktarı |

@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531011"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 sürüm notları için StorSimple 8000 serisi Cihazınızı güncelleştirme
 
@@ -67,7 +67,7 @@ Aşağıdaki tabloda, güncelleştirmeleri 1.2, 1.1 ve 1'de düzeltilen sorunlar
 | Hayır. | Özellik | Sorun | Düzeltilen güncelleştirme | Fiziksel cihaz için geçerlidir | Sanal cihaza uygulanır |
 | --- | --- | --- | --- | --- | --- |
 | 1 |StorSimple için Windows PowerShell |Bir kullanıcı StorSimple için Windows PowerShell kullanarak StorSimple cihazı uzaktan erişilir ve ardından Kurulum Sihirbazı'nı kullanmaya bir kilitlenme IP girişi Data 0 olan en kısa sürede oluştu. Bu hata, güncelleştirme 1'de artık düzeltildi. |Güncelleştirme 1 |Evet |Evet |
-| 2 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirildiğinde StorSimple cihaz takılı hale geldi ve bu ileti görüntülenir: **yapıp fabrika ayarlarına sıfırlama ediyor (aşama 8)**. Bu cmdlet devam ederken CTRL + C basıldıysa oldu. Bu hata artık düzeltildi. |Güncelleştirme 1 |Evet |Hayır |
+| 2 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirildiğinde StorSimple cihazı takılı hale geldi ve bu ileti görüntülenir: **Fabrika sıfırlama ediyor (aşama 8)**. Bu cmdlet devam ederken CTRL + C basıldıysa oldu. Bu hata artık düzeltildi. |Güncelleştirme 1 |Evet |Hayır |
 | 3 |Fabrika sıfırlaması |Başarısız olan çift denetleyici Fabrika sıfırlaması sonra cihaz kayıt işlemine devam etmek için izin verildi. Bu desteklenmeyen sistem yapılandırması sonuçlandı. Güncelleştirme 1'de bir hata iletisi gösterilir ve kayıt başarısız bir Fabrika sıfırlaması sahip bir cihazda engellenir. |Güncelleştirme 1 |Evet |Hayır |
 | 4 |Fabrika sıfırlaması |Bazı durumlarda, yanlış pozitif uyuşmazlığı uyarılar ortaya çıktı. Yanlış uyuşmazlığı uyarıları güncelleştirme 1 çalıştıran cihazlarda artık oluşturulur. |Güncelleştirme 1 |Evet |Hayır |
 | 5 |Fabrika sıfırlaması |Fabrika sıfırlaması tamamlanmadan kesildiyse, cihaz kurtarma moduna ve StorSimple için Windows PowerShell erişmesine izin vermedi. Bu hata artık düzeltildi. |Güncelleştirme 1 |Evet |Hayır |
@@ -89,10 +89,10 @@ Aşağıdaki tabloda, bu sürümdeki bilinen sorunlara ilişkin bir Özet sağla
 | 3 |Depolama hesapları |Depolama hesabını silmek için depolama hizmeti kullanarak desteklenmeyen bir senaryodur. Bu, kullanıcı verilerini geri alınamaz bir durum için yol açacaktır. |Evet |Evet | |
 | 4 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme işlemleri desteklenmiyor. Birden çok cihaz için cihaz yük devretme tek bir ölü CİHAZDAN veri sahipliği kaybetmek birim kapsayıcıları cihaz başarısız ilk neden olur. Böyle bir yük devrinden sonra bu birim kapsayıcıları görünür veya Azure Klasik Portalı'nda görüntülediğinizde farklı davranır. | |Evet |Hayır |
 | 5 |Yükleme |SharePoint yüklemesi için StorSimple bağdaştırıcısını sırasında yükleme başarıyla tamamlanması için sırayla bir cihazın IP sağlamanız gerekir. | |Evet |Hayır |
-| 6 |Web ara sunucusu |Belirtilen Protokolü HTTPS, web proxy yapılandırması varsa, cihazı hizmeti iletişiminizin etkilenecek ve cihaz çevrimdışı olarak geçer. Destek paketleri, Cihazınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
-| 7 |Web ara sunucusu |Yapılandırırsanız ve bir kayıtlı cihazda web Ara sunucusunu etkinleştirme, Cihazınızda etkin denetleyiciyi yeniden başlatmanız gerekir. | |Evet |Hayır |
+| 6 |Web proxy'si |Belirtilen Protokolü HTTPS, web proxy yapılandırması varsa, cihazı hizmeti iletişiminizin etkilenecek ve cihaz çevrimdışı olarak geçer. Destek paketleri, Cihazınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
+| 7 |Web proxy'si |Yapılandırırsanız ve bir kayıtlı cihazda web Ara sunucusunu etkinleştirme, Cihazınızda etkin denetleyiciyi yeniden başlatmanız gerekir. | |Evet |Hayır |
 | 8 |Bulut yüksek gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye cinsinden sırası) ve yüksek g/ç iş yükü karşılaştığında, cihaz birimlerine düzeyi düşürülmüş bir duruma geçmesine ve g/ç bir "cihaz hazır değil" hatası ile başarısız olabilir. |El ile cihaz denetleyicileri yeniden veya bu durumdan kurtulmak için cihaz yük devretme gerçekleştirmeniz gerekecektir. |Evet |Hayır |
-| 9 |Azure PowerShell |StorSimple cmdlet kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmeniz ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet gibi parantez içine sarmalamak: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - First 1 - bekleme** |Evet |Evet |
+| 9 |Azure PowerShell |StorSimple cmdlet kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmeniz ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet, parantez içine şu şekilde kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - ilk 1 - bekleme** |Evet |Evet |
 | 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde ETA en son yedekleme için yalnızca ilk birim kapsayıcısı için doğru olur. Ayrıca, ilk 4 yedeklemeler ilk birim kapsayıcısı, geçirildikten sonra paralel geçiş başlar. |Bir birim kapsayıcısı teker teker geçirmek öneririz. |Evet |Hayır |
 | 11 |Geçiş |Geri yüklemeden sonra yedekleme İlkesi ya da sanal disk grubu birimleri eklenmez. |Yedeklemeler oluşturmak için bir yedekleme ilkesi için bu birimler eklemeniz gerekir. |Evet |Evet |
 | 12 |Geçiş |5000/7000 Serisi cihaz, geçiş tamamlandıktan sonra geçirilen verileri kapsayıcıları erişmemelidir. |Geçiş tamamlandı ve kaydedilmiş duruma geldikten sonra geçirilen verileri kapsayıcıları silmenizi öneririz. |Evet |Hayır |

@@ -10,11 +10,11 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60512576"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(KULLANIM DIŞI) Docker kapsayıcı barındırma çözümlerine Azure Container Service ile giriş 
 

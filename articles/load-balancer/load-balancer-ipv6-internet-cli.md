@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516693"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI kullanarak IPv6 ile genel yük dengeleyici oluşturma
 
@@ -46,11 +46,11 @@ Aşağıdaki adımlarda, Azure CLI kullanarak herkese açık yük dengeleyici ol
 
 Yük Dengeleyici dağıtmak için oluşturun ve aşağıdaki nesneleri yapılandırın:
 
-* **Ön uç IP yapılandırmasını**: gelen ağ trafiği için genel IP adreslerini içerir.
-* **Arka uç adres havuzu**: sanal makinelerin yük dengeleyiciden ağ trafiği alması için ağ arabirimlerini (NIC'ler) içerir.
-* **Yük Dengeleme kuralları**: yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki bağlantı noktasına eşleyen kuralları içerir.
-* **Gelen NAT kuralları**: yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki belirli bir sanal makineye ait bağlantı noktasına eşlenen ağ adresi çevirisi (NAT) kuralları içerir.
-* **Araştırmalar**: arka uç adres havuzundaki sanal makine örneklerinin kullanılabilirliğini kontrol etmek için kullanılan durum araştırmalarını içerir.
+* **Ön uç IP yapılandırmasını**: Gelen ağ trafiği için genel IP adreslerini içerir.
+* **Arka uç adres havuzu**: Sanal makinelerin yük dengeleyiciden ağ trafiği alması için ağ arabirimlerini (NIC'ler) içerir.
+* **Yük Dengeleme kuralları**: Yük Dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki bağlantı noktasına eşleyen kuralları içerir.
+* **Gelen NAT kuralları**: Yük Dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki belirli bir sanal makineye ait bağlantı noktasına eşlenen ağ adresi çevirisi (NAT) kuralları içerir.
+* **Araştırmalar**: Arka uç adres havuzundaki sanal makine örneklerinin kullanılabilirliğini kontrol etmek için kullanılan durum araştırmalarını içerir.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI'yı ayarlama
 

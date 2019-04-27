@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337638"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup’ta dosya ve klasörlerin yavaş yedekleme sorunlarını giderme
 Bu makalede, Azure Backup kullanırken, dosya ve klasörlerin yavaş yedekleme performansı nedenini tanılamanıza yardımcı olmak için sorun giderme kılavuzu verilmiştir. Dosyalarını yedeklemek için Azure Backup Aracısı'nı kullandığınızda, yedekleme işlemi beklenenden daha uzun sürebilir. Bu gecikme, bir veya daha fazlasını tarafından kaynaklanabilir:
@@ -31,7 +31,7 @@ Ayrıca gözden geçirmenizi öneririz [Azure Backup hizmeti hakkında SSS](back
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Neden: Bilgisayarda performans sorunlarına
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Neden: Bilgisayarda performans sorunları
 Yedeklenmekte olan bir bilgisayarda performans sorunlarını gecikmelere neden olabilir. Örneğin, bilgisayarın özelliği okuma veya yazma disk veya ağ üzerinden veri göndermek için kullanılabilir bant genişliği performans sorunlarını neden olabilir.
 
 Windows adlı yerleşik bir aracı sağlayan [Performans İzleyicisi](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Bu performans sorunlarını algılamak için Perfmon).
@@ -55,7 +55,7 @@ Bazı performans sayaçları ve en iyi yedekleme için performans sorunlarını 
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Neden: Başka işlem veya virüsten koruma yazılımı Azure Backup ile engelliyor
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Neden: Başka bir işlem veya virüsten koruma yazılımı Azure Backup ile engelliyor
 Windows sisteminde diğer işlemleri olumsuz yönde etkilenen Azure Backup aracısı işleminin performansını burada birkaç örneğe gördük. Örneğin, verileri yedeklemek için Azure Backup aracısını hem de başka bir program kullanıyorsanız veya virüsten koruma yazılımı çalıştıran ve yedeklenecek dosyaları üzerinde bir kilit sahiptir, üzerinde birden çok kilitler dosyaları Çekişme neden olabilir. Bu durumda, yedekleme başarısız veya iş beklenenden daha uzun sürebilir.
 
 Bu senaryoda en iyi kullanılması, Azure Yedekleme aracısı yedekleme zamanını değişiklikler olup olmadığını görmek için diğer yedekleme programınızı kapatmak için önerilir. Genellikle, birden çok yedekleme işleri aynı anda çalışmayan sağlamaktan birbirine etkilemesini önlemek yeterli olur.
@@ -68,7 +68,7 @@ Virüsten koruma programları için konumları ve aşağıdaki dosyaları dışa
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Neden: bir Azure sanal makinesinde çalışan yedekleme aracısı
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Neden: Azure sanal makinesinde çalışan yedekleme aracısı
 Backup Aracısı VM üzerinde çalıştırıyorsanız, performansı, fiziksel bir makinede çalıştırıldığında yavaş olur. IOPS sınırlamaları nedeniyle bu bekleniyor.  Ancak, Azure Premium Depolama'ya yedeklenen veri sürücülerine geçiş yaparak performansını iyileştirebilirsiniz. Bu sorunu düzeltmeye çalışıyoruz ve düzeltme gelecekteki bir sürümde sağlanacaktır.
 
 <a id="cause4"></a>

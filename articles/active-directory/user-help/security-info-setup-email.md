@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480630"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Güvenlik bilgileri (Önizleme) e-posta adresinizi ayarlayın
 Yöntemi, parolanızı sıfırlayamıyoruz eklemek için aşağıdaki adımları izleyebilirsiniz. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.

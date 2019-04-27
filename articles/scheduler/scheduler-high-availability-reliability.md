@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533392"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Yüksek kullanılabilirlik ve güvenilirlik için Azure Zamanlayıcı
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Azure Zamanlayıcı sağlar hem de [yüksek kullanılabilirlik](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) ve işleriniz için güvenilirlik. Daha fazla bilgi için [Zamanlayıcı için SLA](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -50,7 +50,7 @@ Azure Zamanlayıcı, kendi yüksek kullanılabilirliği garanti eder, ancak kull
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Yeniden deneme ilkelerine
+### <a name="retry-policies"></a>İlkeleri yeniden deneme
 
 Azure Zamanlayıcı, yeniden deneme ilkeleri ayarlamanıza olanak tanır. Sonra varsayılan olarak, bir işi, başarısız olursa Zamanlayıcı İş dört kez 30 saniyelik aralıklarla yeniden dener. Bu yeniden deneme ilkesi daha agresif, gibi 10 kez aralıklarla 30 saniye veya daha az agresiftir, gibi iki kez, günlük aralıklarla yapabilirsiniz.
 
@@ -73,6 +73,6 @@ Diğer uç nokta ayarlamayı öğrenmek için bkz. [errorAction](scheduler-conce
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Azure Scheduler nedir?](scheduler-intro.md)
-* [Kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
-* [Karmaşık zamanlamalar ve Gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
-* [Limitler, kotalar, varsayılan değerleri ve hata kodları](scheduler-limits-defaults-errors.md)
+* [Kavramlar, terminoloji ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](scheduler-advanced-complexity.md)
+* [Sınırlar, kotalar, varsayılan değerler ve hata kodları](scheduler-limits-defaults-errors.md)

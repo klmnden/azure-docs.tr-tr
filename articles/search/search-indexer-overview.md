@@ -1,6 +1,6 @@
 ---
 title: Dizin oluşturucular dizin oluşturma sırasında-gezinme veri kaynakları için Azure arama
-description: Aranabilir verileri ayıklamak ve bir Azure Search dizinini doldurmak için Azure SQL Database, Azure Cosmos DB veya Azure depolama alanında gezinin.
+description: Aranabilir verileri ayıklamak ve bir Azure Search dizinini doldurmak için Azure SQL Veritabanı, Azure Cosmos DB veya Azure depolama alanında gezinin.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -11,11 +11,11 @@ ms.date: 03/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321936"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 

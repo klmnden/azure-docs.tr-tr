@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: robb
 ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395059"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).

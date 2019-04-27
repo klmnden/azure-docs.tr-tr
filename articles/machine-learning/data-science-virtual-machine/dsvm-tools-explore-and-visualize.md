@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502271"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Veri keşfi ve görselleştirme araçları üzerinde veri bilimi sanal makinesi
 

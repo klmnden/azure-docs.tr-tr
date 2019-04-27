@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527285"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath ile bir ortam değişkeni olarak rol yapılandırma ayarlarını kullanıma sunma
 Bulut hizmeti çalışan veya web rolü Hizmet tanım dosyası, ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (Bu API değerlere karşılık gelir) desteklenir.
@@ -29,7 +29,7 @@ Bu XPath değerleri de aracılığıyla [Microsoft.WindowsAzure.ServiceRuntime](
 ## <a name="app-running-in-emulator"></a>Öykünücüsünde çalışan uygulama
 Uygulamayı öykünücüde çalıştığını gösterir.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Kod |var x RoleEnvironment.IsEmulated; = |
@@ -37,7 +37,7 @@ Uygulamayı öykünücüde çalıştığını gösterir.
 ## <a name="deployment-id"></a>Dağıtım Kimliği
 Örneği için dağıtım Kimliğini alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Kod |Varyasyon Deploymentıd RoleEnvironment.DeploymentId; = |
@@ -45,7 +45,7 @@ Uygulamayı öykünücüde çalıştığını gösterir.
 ## <a name="role-id"></a>Rol Kimliği
 Örneğinin geçerli rol Kimliğini alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Kod |değişken kimliği RoleEnvironment.CurrentRoleInstance.Id; = |
@@ -53,7 +53,7 @@ Uygulamayı öykünücüde çalıştığını gösterir.
 ## <a name="update-domain"></a>Etki alanını güncelleştirme
 Güncelleme etki alanı örneği alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Kod |var ud RoleEnvironment.CurrentRoleInstance.UpdateDomain; = |
@@ -61,7 +61,7 @@ Güncelleme etki alanı örneği alır.
 ## <a name="fault-domain"></a>Hata etki alanı
 Hata etki alanı örneği alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Kod |var fd RoleEnvironment.CurrentRoleInstance.FaultDomain; = |
@@ -69,7 +69,7 @@ Hata etki alanı örneği alır.
 ## <a name="role-name"></a>Rol adı
 Örnek rol adını alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Kod |Varyasyon rname RoleEnvironment.CurrentRoleInstance.Role.Name; = |
@@ -77,7 +77,7 @@ Hata etki alanı örneği alır.
 ## <a name="config-setting"></a>Yapılandırma ayarı
 Belirtilen bir yapılandırma ayarı değerini alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/ConfigurationSettings/ConfigurationSetting [@name'Setting1' =]/@value" |
 | Kod |değişken ayarı RoleEnvironment.GetConfigurationSettingValue("Setting1"); = |
@@ -85,7 +85,7 @@ Belirtilen bir yapılandırma ayarı değerini alır.
 ## <a name="local-storage-path"></a>Yerel depolama yolu
 Örneğin yerel depolama yolunu alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/LocalResources/LocalResource [@name'LocalStore1' =]/@path" |
 | Kod |Varyasyon localResourcePath RoleEnvironment.GetLocalResource("LocalStore1") =. RootPath; |
@@ -93,7 +93,7 @@ Belirtilen bir yapılandırma ayarı değerini alır.
 ## <a name="local-storage-size"></a>Yerel depolama boyutu
 Örneğin yerel depolama boyutunu alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/LocalResources/LocalResource [@name'LocalStore1' =]/@sizeInMB" |
 | Kod |Varyasyon localResourceSizeInMB RoleEnvironment.GetLocalResource("LocalStore1") =. MaximumSizeInMegabytes; |
@@ -101,7 +101,7 @@ Belirtilen bir yapılandırma ayarı değerini alır.
 ## <a name="endpoint-protocol"></a>Protokol uç noktası
 Uç nokta Protokolü örneği alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Kod |değişken değerler bağlantı noktası RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protokol; |
@@ -109,7 +109,7 @@ Uç nokta Protokolü örneği alır.
 ## <a name="endpoint-ip"></a>Uç noktası IP
 Belirtilen uç noktasının IP adresini alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Kod |var adresi RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Address |
@@ -117,7 +117,7 @@ Belirtilen uç noktasının IP adresini alır.
 ## <a name="endpoint-port"></a>Uç nokta bağlantı noktası
 Uç nokta bağlantı noktası örneği alır.
 
-| Type | Örnek |
+| Tür | Örnek |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Kod |var bağlantı noktası RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |

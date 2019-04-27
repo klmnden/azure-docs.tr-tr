@@ -3,7 +3,7 @@ title: Belirteçleri - Azure Active Directory B2C genel bakış | Microsoft Docs
 description: Azure Active Directory B2C'de kullanılan belirteçleri hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316944"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C belirteçlerinde genel bakış
 
@@ -57,11 +57,11 @@ Aşağıdaki tabloda, kimliği belirteçlerinde beklediğiniz ve Azure AD B2C ta
 | Çıkışı | `iat` | `1438535543` | Belirteç düzenlendiği zaman dönem saatle gösterilir. |
 | Sona erme zamanı | `exp` | `1438539443` | Başlangıçtan belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızın bu talep belirteci ömrü geçerliliğini doğrulamak için kullanması gerekir. |
 | Öncesine değil | `nbf` | `1438535543` | Başlangıçtan belirtecin geçerli hale geldiği tarih dönem saatle gösterilir. Bu süre genellikle belirtecin verilmiş saat ile aynıdır. Uygulamanızın bu talep belirteci ömrü geçerliliğini doğrulamak için kullanması gerekir. |
-| Sürüm | `ver` | `1.0` | Azure AD B2C tarafından tanımlanan kimlik belirteci sürümü. |
+| Version | `ver` | `1.0` | Azure AD B2C tarafından tanımlanan kimlik belirteci sürümü. |
 | Kod karması | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Kod karma belirteci ile birlikte bir OAuth 2.0 yetkilendirme kodu verildiğinde bir kimliği belirtece dahildir. Kod karma bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Erişim belirteci karması | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Bir kimliği belirtece dahildir, yalnızca OAuth 2.0 erişim belirteci ile birlikte belirtecin verildiğinde bir erişim belirteci karması. Bir erişim belirteci karma bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | Nonce belirteç yeniden yürütme saldırıları azaltmak için kullanılan bir stratejidir. Uygulamanızı bir geçici öğe içinde bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değeri içinde değiştirilmemiş yayıldığını `nonce` yalnızca bir kimlik belirteci talep. Bu talep, istekte belirtilen değerle değerini doğrulamak uygulamanızın sağlar. Uygulamanız kimlik belirteci doğrulama işlemi sırasında bu doğrulaması gerçekleştirmeniz gerekir. |
-| Özne | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. |
 | Kimlik doğrulaması bağlamı sınıf başvurusu | `acr` | Uygulanamaz | Yalnızca eski ilkeleriyle kullanılır. |
 | Güven Framework İlkesi | `tfp` | `b2c_1_signupsignin1` | Kimlik belirteci almak için kullanılan ilke adı. |
 | Kimlik doğrulama süresi | `auth_time` | `1438535543` | Hangi kullanıcı kimlik bilgileri, en son girilen saati dönem saatle gösterilir. |

@@ -2,17 +2,18 @@
 title: Azure Kubernetes Service (AKS) kubeconfig'i denetleyin erişimi sınırlayın
 description: Küme yöneticileri ve küme kullanıcılar için Kubernetes yapılandırma dosyası (kubeconfig'i denetleyin) erişimi denetleme hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
-ms.author: iainfou
+origin.date: 01/03/2019
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466469"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure rol tabanlı erişim denetimleri Kubernetes yapılandırma dosyasının Azure Kubernetes Service (AKS) erişim tanımlamak için kullanın
 
@@ -51,7 +52,7 @@ Azure rollerden biri için bir kullanıcı atamak için AKS kümesi kaynak Kimli
 
 Aşağıdaki örnek atar *Azure Kubernetes hizmeti Küme Yöneticisi rolüne*:
 
-```azurecli-interactive
+```azurecli
 # Get the resource ID of your AKS cluster
 AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query id -o tsv)
 
@@ -87,7 +88,7 @@ Rol ataması başarıyla oluşturuldu, aşağıdaki örnek çıktı gösterilmek
 
 Atanan RBAC rolleri ile [az aks get-credentials] [ az-aks-get-credentials] almak için komut *kubeconfig'i denetleyin* AKS kümenizin tanımı. Aşağıdaki örnekte *--yönetici* kullanıcı verilmişse, düzgün çalışması kimlik bilgilerini *Küme Yöneticisi rolüne*:
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
@@ -100,7 +101,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: DATA+OMITTED
-    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.eastus.azmk8s.io:443
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast.azmk8s.io:443
   name: myAKSCluster
 contexts:
 - context:
@@ -122,7 +123,7 @@ users:
 
 Rol atamalarını kaldırmak için [az rol atamasını Sil] [ az-role-assignment-delete] komutu. Hesap Kimliği ve küme kaynağı kimliği, önceki komutlarda elde edilmiş olarak belirtin:
 
-```azurecli-interactive
+```azurecli
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
@@ -137,14 +138,14 @@ Gelişmiş Güvenlik AKS kümelerine erişim [Azure Active Directory kimlik doğ
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
-[api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-account-show]: /cli/azure/account#az-account-show
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: azure-ad-integration.md
+[api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
+[api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
+[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
+[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete
+[aad-integration]: aad-integration.md

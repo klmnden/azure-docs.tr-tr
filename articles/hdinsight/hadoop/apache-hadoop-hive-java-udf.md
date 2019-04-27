@@ -2,19 +2,26 @@
 title: Java kullanıcı tanımlı işlev (UDF Apache Hive, HDInsight - Azure)
 description: Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnek, bir küçük metin dizesi tablosunu UDF dönüştürür.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537641"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
@@ -194,13 +201,13 @@ Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması du
 2. Kullanım `scp` komut dosyası, aşağıdaki komutu girerek HDInsight kümesine kopyalamak için:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. Aşağıdaki komutu girerek SSH kullanarak kümeye bağlanın:
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. Açık SSH oturumundan, HDInsight depolama alanına jar dosyasını kopyalayın.
@@ -249,7 +256,7 @@ Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması du
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 Hive işi çalıştırılırken aşağıdaki metne benzer bir hatayla karşılaşabilirsiniz:
 

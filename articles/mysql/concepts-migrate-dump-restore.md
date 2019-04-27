@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2018
 ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525808"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>MySQL veritabanınızı, döküm ve geri yükleme kullanarak MySQL için Azure veritabanı'na geçirme
 Bu makalede, MySQL için Azure veritabanı veritabanlarını geri iki yaygın yolları açıklanmaktadır.

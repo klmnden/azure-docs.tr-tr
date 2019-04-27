@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
 ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447527"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile yinelenen görevleri ve iş akışları çalıştırma
 
@@ -95,7 +95,7 @@ Mantıksal uygulamanızı tetikleyecek ve gelecekte yalnızca bir kez çalışt�
 
 Bu özellikler için yineleme tetikleyicisi yapılandırabilirsiniz.
 
-| Ad | Gerekli | Özellik adı | Type | Açıklama | 
+| Ad | Gerekli | Özellik adı | Tür | Açıklama | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Sıklık** | Evet | frequency | String | Yineleme için zaman birimi: **İkinci**, **dakika**, **saat**, **gün**, **hafta**, veya **ay** | 
 | **Aralık** | Evet | interval | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Aralığı için varsayılan değer 1'dir. Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve "Month" sıklığıdır yinelenme her 6 ayda olur. | 

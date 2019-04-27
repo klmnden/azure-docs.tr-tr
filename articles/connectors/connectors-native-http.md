@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447612"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps ile HTTP veya HTTPS uç noktalarına çağrı
 
@@ -77,7 +77,7 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. İşiniz bittiğinde mantıksal uygulamanızı kaydettiğinizden emin olun. Tasarımcı araç çubuğunda **Kaydet**'i seçin. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Kimlik doğrulaması koymak için **Gelişmiş Seçenekleri Göster** eylem veya tetikleyici içinde. HTTP Tetikleyicileri ve eylemleri için kullanılabilir kimlik doğrulama türleri hakkında daha fazla bilgi için bkz. [tetikleyici ve eylem türleri başvurusu](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

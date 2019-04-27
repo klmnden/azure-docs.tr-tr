@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457111"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Topluluk tarafından önerilen üçüncü taraf VPN veya güvenlik duvarı cihaz ayarları için Azure VPN ağ geçidi
 
@@ -33,7 +33,7 @@ Bu makale, üçüncü taraf VPN veya Azure VPN ağ geçidi ile kullanılan güve
 
 Aşağıdaki tabloda, çeşitli genel cihaz ve ilgili Yardım listelenmektedir:
 
-|Ürün    |Başvuru                                                |
+|Product    |Başvuru                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Topluluk çözümleri, Azure VPN Cisco ASA için önerilen](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Topluluk çözümleri, Azure VPN Cisco ISR için önerilen](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |

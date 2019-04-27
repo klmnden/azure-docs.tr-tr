@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322086"
 ---
 # <a name="report-and-check-service-health"></a>Hizmet durumunu raporlama ve denetleme
 Hizmetlerinizi sorunlarla, yanıt ve olayları ve kesintileri düzeltme olanağınız sorunları hızlı bir şekilde algılamak için yeteneğinizi bağlıdır. Sorunlar ve hatalar için Azure Service Fabric sistem durumu Yöneticisi hizmeti kodunuzdan raporu standart sistem durumu izleme Service Fabric sistem durumunu denetlemek için sağladığı araçları kullanabilirsiniz.

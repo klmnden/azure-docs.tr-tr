@@ -2,17 +2,18 @@
 title: Kavramlar - Azure Kubernetes Hizmetleri (AKS) uygulamaları ölçeklendirme
 description: Azure Kubernetes hizmeti (yatay pod otomatik ölçeklendiricinin, küme ölçeklendiriciyi ve Azure Container Instances Bağlayıcısı gibi AKS), ölçeklendirme hakkında bilgi edinin.
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: zarhoads
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466975"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ölçeklendirme seçenekleri
 

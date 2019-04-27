@@ -9,11 +9,11 @@ ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345893"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 
@@ -102,13 +102,13 @@ Burada herhangi bir bilgisayarda, % 90'ın işlemci kullanımı üç kez tekrar 
 - **Zaman aralığı:** 30 dakika<br>
 - **Uyarı sıklığı:** beş dakika<br>
 - **Alert Logic - koşul & eşiği:** 90'dan büyük<br>
-- **Alan (toplama üzerinde):** Bilgisayar
+- **Alan (toplama üzerinde):** Computer
 - **Bağlı olarak uyarıyı Tetikle:** 2'den büyük toplam ihlal sayısı<br>
 
 Sorguyu 5 dakikalık aralıklarla her bilgisayar için ortalama bir değer oluşturur.  Bu sorgu, önceki 30 dakika boyunca 5 dakikada bir toplanan veriler için çalıştırılmaz. Seçilen alan (toplam açma) sütunlu 'bilgisayara' - olduğundan AggregatedValue 'Bilgisayara' çeşitli değerleri için ayrılır ve ortalama işlemci kullanımını her bilgisayar için 5 dakikalık bir zaman depo belirlenir.  Örnek sorgu sonucu için (örneğin üç bilgisayar) olacak şekilde aşağıda.
 
 
-|TimeGenerated [UTC] |Bilgisayar  |AggregatedValue  |
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
 |---------|---------|---------|
 |20xx-xx-xxT01:00:00Z     |   Srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   SRV02.contoso.com      |    91     |

@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472490"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 
@@ -82,7 +82,7 @@ Zaten bir kiracı Azure hizmetlerine veya Office 365 ile yönetiyorsanız, zaten
 Etki alanı sahipliğini doğrulayın, Azure AD etki alanı adı yönetilmeyen kiracıdan kaldırır ve mevcut kiracınıza taşır. Dış yönetici devralma işlemini bir yönetilmeyen dizinin iç yönetici devralma işlemini aynı DNS TXT doğrulama işlemine gerektirir. Aşağıdakileri de etki alanı adıyla taşınması fark vardır:
 
 - Kullanıcılar
-- Abonelikler
+- Subscriptions
 - Lisans ataması
 
 ### <a name="support-for-external-admin-takeover"></a>Dış yönetici devralma işlemini desteği

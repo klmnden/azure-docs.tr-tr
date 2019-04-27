@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
 ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510471"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Ruby kullanarak görüntü Öngörüler elde edin
 

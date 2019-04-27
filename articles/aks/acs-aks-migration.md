@@ -10,11 +10,11 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467570"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) Azure kapsayıcı hizmeti (ACS) ' geçiş
 
@@ -55,7 +55,7 @@ Kubernetes denetim düzlemi AKS yönetir olsa da, yeni kümeye dahil etmek isted
 
 Ek sanal makineler, geçiş sırasında aboneliğinizi içine dağıtılacak olduğundan, kotalar ve sınırlar bu kaynaklar için yeterli olduğunu doğrulamanız gerekir. İnceleyerek daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits). Geçerli kotanızı denetlemek için Git [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında aboneliğinizi seçin ve ardından `Usage + quotas`.
 
-### <a name="networking"></a>Ağ İletişimi
+### <a name="networking"></a>Ağ
 
 Karmaşık uygulamalar için genellikle zaman içinde yerine tek seferde geçirmek. Ağ üzerinden iletişim kurmak eski ve yeni ortamlar gerektiği anlamına gelir. Daha önce kullanmanız mümkün uygulamaları `ClusterIP` Hizmetleri iletişim kurmak için tür olarak açığa gerekebilir `LoadBalancer` ve güvenliği uygun şekilde.
 
@@ -88,7 +88,7 @@ AKS için var olan kalıcı birimler geçiş yapıyorsanız, dikkate alınması 
 4. AKS kalıcı birimler oluşturun
 5. Pod belirtimlerine güncelleştirme [var olan birimler kullanmak](https://docs.microsoft.com/azure/aks/azure-disk-volume) PersistentVolumeClaims (statik sağlama) yerine
 6. AKS için uygulama dağıtma
-7. Doğrula
+7. Doğrulama
 8. AKS kümesi noktası trafiği
 
 > **Önemli**: Değil sessiz moda alın yazma işlemlerini seçerseniz, bu yana disk anlık görüntü yazılan veri eksik gibi yeni dağıtım, verileri çoğaltmak gerekir
@@ -109,7 +109,7 @@ Aksi durumda, bir olası geçiş yaklaşımı aşağıdaki adımları içerir:
 1. Bir yineleme sayısı 0 ile AKS uygulamanızı dağıtma
 2. Ölçek ACS uygulamayı 0 (kapalı kalma süresi gerektirir)
 3. Uygulama AKS'de 1 kadar ölçeklendirin.
-4. Doğrula
+4. Doğrulama
 5. AKS kümesi noktası trafiği
 
 Burada boş bir paylaşımı ile başlayın, ardından kaynak verilerin bir kopyasını aktarmak istediğiniz durumlarda kullanabilirsiniz [ `az storage file copy` ](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) komutlarını verilerinizi geçirin.
@@ -150,7 +150,7 @@ Birimleri, ACS kümenizden, AKS kümeye geçirme. Daha fazla ayrıntı bulunabil
 
 AKS uygulamaları dağıtmak veya YAML tanımları uygulamak için kubectl kullanmayı CI/CD sisteminize kullanın.
 
-### <a name="5-validate"></a>5. Doğrula
+### <a name="5-validate"></a>5. Doğrulama
 
 Uygulamalarınızı beklendiği gibi çalıştığını ve geçirilen tüm veriler üzerinde kopyalandığını doğrulayın.
 

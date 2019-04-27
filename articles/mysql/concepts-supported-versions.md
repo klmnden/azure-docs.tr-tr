@@ -5,15 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.openlocfilehash: ecd6466d8d7a7e4497d076ced0c9f2375d5dfb7f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 3/13/2019
+ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525927"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>MySQL server sürümleri için desteklenen Azure veritabanı
+
 MySQL için Azure veritabanı geliştirilen gelen [MySQL Community Edition](https://www.mysql.com/products/community/), Innodb altyapısı kullanarak.
 
 MySQL X.Y.Z adlandırma şeması kullanır. X sürümle Y ikincil sürüm ve Z hata düzeltmesi sürümüdür. Düzen hakkında daha fazla bilgi için bkz: [MySQL belgeleri](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
@@ -22,15 +23,15 @@ MySQL için Azure veritabanı şu anda aşağıdaki sürümlerini destekler:
 
 ## <a name="mysql-version-56"></a>MySQL 5.6 sürümü
 
-Yayın hata düzeltmesi: 5.6.39
+Yayın hata düzeltmesi: 5.6.42
 
-Mysql'e başvuran [sürüm notları](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) geliştirmeleri ve MySQL 5.6.39 düzeltmeler hakkında daha fazla bilgi için.
+Mysql'e başvuran [sürüm notları](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) geliştirmeleri ve MySQL 5.6.42 düzeltmeler hakkında daha fazla bilgi için.
 
 ## <a name="mysql-version-57"></a>MySQL sürümü 5.7
 
-Yayın hata düzeltmesi: 5.7.21
+Yayın hata düzeltmesi: 5.7.24
 
-Mysql'e başvuran [sürüm notları](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) iyileştirmeler ve düzeltmeler hakkında bilgi için MySQL 5.7.21 içinde.
+Mysql'e başvuran [sürüm notları](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) iyileştirmeler ve düzeltmeler hakkında bilgi için MySQL 5.7.24 içinde.
 
 > [!NOTE]
 > Hizmeti, bir ağ geçidi sunucu örnekleri bağlantılarını yeniden yönlendirmek için kullanılır. Bağlantı kurulduktan sonra MySQL istemci değil, MySQL server örneğinde çalışan asıl sürümü ağ geçidi kümesindeki MySQL sürümünü gösterir. MySQL server örneğinin sürümü belirlemek için `SELECT VERSION();` MySQL isteminde komutu.

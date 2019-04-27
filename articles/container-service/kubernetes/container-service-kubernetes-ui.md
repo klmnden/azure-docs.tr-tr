@@ -10,11 +10,11 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309778"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(KULLANIM DIŞI) Azure Container Service ile Kubernetes web kullanıcı arabirimini kullanarak
 
@@ -63,7 +63,7 @@ Bu, yerel makinenize Kubernetes web kullanıcı Arabirimine bağlanma güvenli b
 ### <a name="create-and-expose-a-service"></a>Oluşturma ve bir hizmeti göstermesi
 1. Kubernetes web kullanıcı Arabirimi,'ı **Oluştur** üst sağ pencerede düğmesi.
 
-    ![Kubernetes kullanıcı arabirimini oluşturma](./media/container-service-kubernetes-ui/create.png)
+    ![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
 
     Uygulamanızı oluşturmaya başlayabileceğiniz bir iletişim kutusu açılır.
 
@@ -123,7 +123,7 @@ Kullanıcı Arabiriminde nesnelerinizi görüntülemenin yanı sıra düzenleyin
 
 Bu görünümde olduktan sonra üzerinde çoğaltma kümesine tıklayın ve ardından **Düzenle** üst gezinti çubuğundaki:
 
-![Kubernetes Düzenle](./media/container-service-kubernetes-ui/edit.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit.png)
 
 Düzen `spec.replicas` olmasını alan `2`, tıklatıp **güncelleştirme**.
 

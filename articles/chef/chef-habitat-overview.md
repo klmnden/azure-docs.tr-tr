@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388820"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Habitat uygulamanızı azure'a dağıtmak için kullanın
 [Habitat](https://www.habitat.sh/) uygulama ve onun Otomasyon dağıtım birimi olarak birlikte toplamıştır bir uygulama paketleme ve çalışma zamanı sistemidir. Bu uygulama, kapsayıcılar, sanal makineler, çıplak veya PaaS, yeniden dağıtılması izin veren veya yeniden paketleme için ultimate taşınabilirlik oluşturur.

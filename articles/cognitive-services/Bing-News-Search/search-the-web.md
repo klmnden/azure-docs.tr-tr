@@ -12,11 +12,11 @@ ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539171"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing Haber Arama API’si nedir?
 

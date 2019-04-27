@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408605"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Oluşturabilir, izleyebilir ve Azure Logic Apps kullanarak FTP dosyalarını yönetme
 
@@ -28,7 +28,7 @@ Azure Logic Apps ve FTP Bağlayıcısı ile otomatik görevler ve iş akışlar�
 
 FTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. FTP sunucunuzdaki dosyaları yönetmek için logic apps çalışma eylemlerini kullanabilirsiniz. Ayrıca, FTP eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, FTP sunucunuzdan düzenli olarak dosyaları alırsanız, Office 365 Outlook Bağlayıcısı veya Outlook.com Bağlayıcısı'nı kullanarak dosyaları ve içeriklerini hakkında e-posta gönderebilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 
 * FTP eylemleri desteklemek yalnızca dosyaları *50 MB veya daha küçük* kullanılmadıkça [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md), hangi sağlar, bu sınırı aşan. Şu anda FTP Tetikleyicileri Öbekleme desteklemez.
 

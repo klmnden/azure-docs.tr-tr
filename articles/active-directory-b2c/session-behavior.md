@@ -3,7 +3,7 @@ title: Oturum davranışını - Azure Active Directory B2C'yi yapılandırma | M
 description: Azure Active Directory B2C'de oturum davranışını yapılandırın.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 1140a3cbb43e86bf222c73c95a03b11871f7a2d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360439"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de oturum davranışını yapılandırma
 

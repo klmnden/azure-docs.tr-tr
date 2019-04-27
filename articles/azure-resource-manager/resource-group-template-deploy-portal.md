@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60520427"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
 Bu makalede nasıl kullanılacağını gösterir [Azure portalında](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı dağıtmak için. Kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz: [Azure portalını kullanarak Azure kaynaklarınızı yönetme](manage-resources-portal.md).
 
-## <a name="create-resource-group"></a>Kaynak grubu oluştur
+## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 1. Boş bir kaynak grubu oluşturmak için Seç **kaynak grupları**.
 
@@ -60,7 +60,7 @@ Bir kaynak grubu oluşturduktan sonra Market'ten için kaynakları dağıtabilir
 
 1. Seçilen kaynak türüne bağlı olarak, dağıtım öncesinde ayarlanacak ilgili özellikler koleksiyonu vardır. Tüm türleri için bir hedef kaynak grubu seçmeniz gerekir. Aşağıdaki resimde, bir web uygulaması oluşturma ve oluşturduğunuz kaynak grubuna dağıtma işlemi gösterilmektedir.
 
-   ![Kaynak grubu oluştur](./media/resource-group-template-deploy-portal/select-existing-group.png)
+   ![Kaynak grubu oluşturma](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
    Alternatif olarak, kaynaklarınızı dağıtırken bir kaynak grubu oluşturmak karar verebilirsiniz. Seçin **Yeni Oluştur** ve kaynak grubuna bir ad verin.
 
@@ -103,7 +103,7 @@ Bir dağıtım yürütülürler ancak şablonlardan herhangi birini Market'te ku
 
 1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri girmeyi bitirdiğinizde seçin **Tamam**.
 
-   ![Depolama hesabı seçin](./media/resource-group-template-deploy-portal/add-storage-account.png)
+   ![Depolama hesabı seçme](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
 1. Düzenleyici JSON kaynak türü için otomatik olarak ekler. Depolama hesabı türünü tanımlamak için bir parametre içerdiğine dikkat edin. **Kaydet**’i seçin.
 

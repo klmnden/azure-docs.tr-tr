@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322293"
 ---
 # <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
@@ -57,7 +57,7 @@ Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırı
 
 ## <a name="system-presets"></a>Sistem önayarlarını
 
-Live encoding kullanıldığında (canlı olay kümesine **standart**), Çoklu bit hızlarında veya katmanları gelen nasıl kodlandığını kodlama Önayarı tanımlar. Şu anda yalnızca izin verilen değer için hazır *Default720p* (varsayılan).
+Gerçek zamanlı kodlama (**Standart** Canlı Etkinlik ile) kullanıldığında gelen akışın birden fazla bit hızı veya katman halinde kodlanma biçimi, kodlama ön ayarı tarafından belirlenir. Şu anda yalnızca izin verilen değer için hazır *Default720p* (varsayılan).
 
 **Default720p** video aşağıdaki 6 katmanlara kodlar.
 
@@ -73,7 +73,7 @@ Live encoding kullanıldığında (canlı olay kümesine **standart**), Çoklu b
 | 200 |340 |192 |30 |Yüksek |Video_340x192_200kbps |
 
 > [!NOTE]
-> Özel bir canlı kodlama Önayarı kullanmanız gerekiyorsa, lütfen başvurun amshelp@microsoft.com. İstediğiniz tabloyu çözünürlük ve bit hızlarına dönüştürme belirtmeniz gerekir. 720 p yalnızca bir katmanında ve en fazla 6 katmanları olduğundan emin olun.
+> Özel gerçek zamanlı kodlama ön ayarı kullanmanız gerekiyorsa lütfen amshelp@microsoft.com üzerinden bizimle iletişime geçin. İstediğiniz çözünürlüklerin ve bit hızlarının yer aldığı tabloyu paylaşmanız gerekir. 720p çözünürlükte yalnızca bir katman ve toplamda en fazla 6 katman bulunduğundan emin olun.
 
 ### <a name="output-audio-stream"></a>Ses çıkış Stream
 

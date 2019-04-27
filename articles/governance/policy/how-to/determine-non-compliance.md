@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499362"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 

@@ -2,22 +2,19 @@
 title: Öğretici - Azure Key Vault ile bir Azure Linux sanal makinesinde .NET - Azure kullanmak için Key Vault nasıl | Microsoft Docs
 description: Öğretici Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: 354ffb14eb95e7f09256f337ffea069cff14b226
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460873"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Linux sanal makinesine .NET kullanma
 

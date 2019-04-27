@@ -17,11 +17,11 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362144"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Otomatik düzeltme eki uygulama SQL Server Azure sanal makineler'de (Klasik)
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "54331325"
 > 
 > 
 
-Otomatik düzeltme eki uygulama, bir Azure sanal makinesinde SQL Server çalıştıran bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için en iyi olası zaman gerçekleşmesini sağlar. 
+Otomatik düzeltme eki uygulama, bir Azure sanal makinesinde SQL Server çalıştıran bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için en iyi olası zaman gerçekleşmesini sağlar. 
 
 > [!IMPORTANT]
-> Yalnızca işaretli Windows güncelleştirmelerini **önemli** yüklenir. Toplu güncelleştirmeleri gibi diğer SQL Server güncelleştirmelerini elle yüklenmesi gerekir. 
+> Yalnızca **Önemli** olarak işaretlenmiş Windows güncelleştirmeleri yüklenir. Toplu Güncelleştirmeler gibi diğer SQL Server güncelleştirmelerinin el ile yüklenmesi gerekir. 
 
-Otomatik düzeltme eki uygulama bağlıdır [SQL Server Iaas Aracısı uzantısı](../classic/sql-server-agent-extension.md).
+Otomatik Yama Uygulama [SQL Server IaaS Aracı Uzantısı](../classic/sql-server-agent-extension.md)'na bağımlıdır.
 
 > [!IMPORTANT] 
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bu makalede Resource Manager sürümünü görüntülemek için bkz: [otomatik düzeltme eki uygulama SQL Server Azure sanal makineler Kaynak Yöneticisi'nde](../sql/virtual-machines-windows-sql-automated-patching.md).

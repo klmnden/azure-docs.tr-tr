@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422364"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Ses ve SMS özellikleri php'de için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -39,13 +39,13 @@ Twilio ses ve SMS işlevselliğini uygulamaları için sağlayan bir RESTful API
 
 Twilio API'si önemli yönlerini Twilio fiilleri ve Twilio biçimlendirme dili (TwiML) var.
 
-### <a id="Verbs"></a>Twilio fiiller
+### <a id="Verbs"></a>Twilio Verbs
 Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanımı bir çağrıda bir iletiyi teslim etmek için Twilio bildirir.
 
 Twilio fiillerin listesi verilmiştir. Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge](https://www.twilio.com/docs/api/twiml).
 
 * **&lt;Arama&gt;**: Çağıran, başka bir telefonu bağlanır.
-* **&lt;Toplama&gt;**: Telefon tuş takımında girilen sayı toplar.
+* **&lt;Gather&gt;**: Telefon tuş takımında girilen sayı toplar.
 * **&lt;Kapat&gt;**: Bir çağrı sona erer.
 * **&lt;Play&gt;**: Ses dosyası yürütülür.
 * **&lt;Duraklatma&gt;**: Sessiz bir şekilde belirtilen sayıda saniye bekler.

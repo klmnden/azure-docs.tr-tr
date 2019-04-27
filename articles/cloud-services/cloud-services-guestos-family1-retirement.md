@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518961"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Konuk işletim sistemi ailesi 1 kullanımdan kaldırma bildirimi
 İşletim sistemi ailesi 1 kullanımdan kaldırma, ilk 1 Haziran 2013'te tanıtıldı.
@@ -37,7 +37,7 @@ Cloud Services, aşağıdakilerden herhangi biri geçerliyse etkilenir:
 2. Açıkça bulut hizmetiniz için ServiceConfiguration.cscfg dosyasında belirtilen osFamily için bir değere sahip değil. Şu anda, bu durumda varsayılan değer olan "1" sistemi kullanır.
 3. Azure portalı, konuk işletim sistemi ailesi değeri "Windows sunucusu olarak 2008" listelenir.
 
-Gerekir ancak cloud services'ın hangi işletim sistemi ailesi çalıştığı bulmak için aşağıdaki betiği Azure PowerShell'de çalıştırabileceğiniz [Azure PowerShell ayarlama ayarlamak](/powershell/azureps-cmdlets-docs) ilk. Komut dosyası hakkında daha fazla bilgi için bkz. [Azure konuk işletim sistemi ailesi 1 uç, yaşam: Haziran 2014'te](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Gerekir ancak cloud services'ın hangi işletim sistemi ailesi çalıştığı bulmak için aşağıdaki betiği Azure PowerShell'de çalıştırabileceğiniz [Azure PowerShell ayarlama ayarlamak](/powershell/azureps-cmdlets-docs) ilk. Komut dosyası hakkında daha fazla bilgi için bkz. [Azure konuk işletim sistemi ailesi 1 uç, ömrü: Haziran 2014'te](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

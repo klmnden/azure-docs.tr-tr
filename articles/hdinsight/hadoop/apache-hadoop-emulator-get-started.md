@@ -3,7 +3,6 @@ title: Bir Apache Hadoop korumalı alanı - öykünücüsü - Azure HDInsight'ı
 description: 'Apache Hadoop ekosistemindeki kullanma hakkında öğrenmeye başlayın için bir Azure sanal makinesinde Hortonworks Hadoop korumalı alan ayarlayabilirsiniz. '
 keywords: hadoop öykünücüsü, hadoop korumalı alanı
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536343"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 

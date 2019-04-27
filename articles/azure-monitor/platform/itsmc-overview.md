@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395875"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -199,7 +199,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Kapatılma tarihi
 - Çözüm Tarihi
 - Son Değişiklik Tarihi
-- Bilgisayar
+- Computer
 
 
 **İş öğesi:** **Değişiklik istekleri**
@@ -214,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Kaynak
 - Atanan
 - Unvan
-- Type
+- Tür
 - Kategori
 - Durum
 - Önem Yükseltme
@@ -233,7 +233,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - İş başlangıç tarihi
 - İş bitiş tarihi
 - Açıklama
-- Bilgisayar
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Çıktı verileri için ServiceNow olayı
 
@@ -255,7 +255,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedDate_t|  Açıldı |
 | ClosedDate_t| Kapalı|
 | ResolvedDate_t|Çözümlendi|
-| Bilgisayar  | Yapılandırma öğesi |
+| Computer  | Yapılandırma öğesi |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Çıktı verilerini bir ServiceNow için değişiklik isteği
 
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Kapatma tarihi |
 | AssignedTo_s | Atanan:  |
 | Title_s|  Kısa açıklama |
-| Type_s|  Type |
+| Type_s|  Tür |
 | Category_s|  Kategori |
 | CRState_s|  Durum|
 | Urgency_s|  Aciliyet |
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Gerçek başlangıç tarihi |
 | WorkEndDate_t | Gerçek bitiş tarihi|
 | Description_s | Açıklama |
-| Bilgisayar  | Yapılandırma öğesi |
+| Computer  | Yapılandırma öğesi |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>ITSM bağlantılarında sorun giderme

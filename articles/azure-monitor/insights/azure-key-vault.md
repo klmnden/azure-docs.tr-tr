@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498534"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure İzleyici'de Azure Key Vault Analytics çözümü
 
@@ -105,7 +105,7 @@ Azure Key Vault çözümü bir tür olan kayıtları çözümler **KeyVaults** g
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
+| Tür |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | callerIpAddress |İsteği yapan istemcinin IP adresi |
 | Kategori | *AuditEvent* |
@@ -118,13 +118,13 @@ Azure Key Vault çözümü bir tür olan kayıtları çözümler **KeyVaults** g
 | operationVersion |İstemci tarafından istenen REST API sürümü (örneğin *2015-06-01*) |
 | requestUri_s |İsteğin URI'si |
 | Kaynak |Anahtar kasasının adı |
-| Kaynak Grubu |Anahtar kasasının kaynak grubu |
+| ResourceGroup |Anahtar kasasının kaynak grubu |
 | ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu anahtar kasası kaynak kimliğidir. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *KASALARI* |
 | resultSignature |HTTP durumu (örneğin, *Tamam*) |
 | resulttype'ı |REST API'si isteğinin sonucunu (örneğin, *başarı*) |
-| Abonelik Kimliği |Key Vault içeren aboneliği, Azure abonelik kimliği |
+| SubscriptionId |Key Vault içeren aboneliği, Azure abonelik kimliği |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Eski Key Vault çözümünden geçiş
 Ocak 2017'de, günlükleri Key Vault'tan Log Analytics'e gönderme desteklenen yönteminizi değiştirdik. Bu değişiklikler, aşağıdaki avantajları sağlar:
@@ -149,7 +149,7 @@ Güncel çözümü kullanmak için:
 
 Değişiklik yeni çözümde görünür değil. önce toplanan veriler. Alan adları ve eski türünü kullanarak bu verileri sorgulamak devam edebilirsiniz.
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

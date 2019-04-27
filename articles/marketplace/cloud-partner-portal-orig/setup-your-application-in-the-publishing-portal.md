@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483239"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Yayımlama Portalı'nda uygulamanızı kurma
 
@@ -106,7 +106,7 @@ Bu, uygulama Ayrıntıları sayfasında görünecek açıklamasıdır. İzin ver
 
 Uygulamanızı en iyi hizalanır sektör seçin. Uygulamanız varsa bu boş bırakabilirsiniz birden çok sektörler için ilişkilendirir.
 
-### <a name="categories"></a>Kategoriler
+### <a name="categories"></a>Categories
 
 Uygulamanıza uygun olan kategorilerini seçin. En fazla 3 seçin.
 

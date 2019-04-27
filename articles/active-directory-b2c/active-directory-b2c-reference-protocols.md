@@ -3,7 +3,7 @@ title: Azure Active Directory B2C'de kimlik doğrulama protokolleri | Microsoft 
 description: Nasıl doğrudan Azure Active Directory B2C tarafından desteklenen protokoller kullanarak uygulamalar oluşturun.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 47c99b14a41ac50e13198f934e38718e205e6e79
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317030"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Kimlik doğrulama protokolleri
 Azure Active Directory B2C (Azure AD B2C) sağlayan kimlik uygulamalarınız için hizmet olarak iki sektör standardı protokolleri destekleyerek: Openıd Connect ve OAuth 2.0. Hizmet standartlarıyla uyumlu olduğu halde bu protokolleri, iki belirtilmesinden küçük farklılıklar olabilir. 

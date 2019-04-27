@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
 ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535329"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -275,7 +275,7 @@ Dynamics veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **DynamicsSink**. | Evet |
-| WriteBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen **"Upsert"**. | Evet |
+| writeBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen **"Upsert"**. | Evet |
 | writeBatchSize | Her toplu Dynamics yazılan veriler satır sayısı. | Hayır (varsayılan: 10) |
 | ignoreNullValues | (Anahtar alanı dışında) giriş verilerinden null değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: Verileri hedef nesneyi upsert/güncelleştirme işlemi yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: Upsert/güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
 
@@ -329,15 +329,15 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 | Dynamics veri türü | Veri Fabrikası geçici veri türü | Kaynak olarak desteklenen | Havuz olarak desteklenen |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
-| AttributeType.DateTime | Tarih saat | ✓ | ✓ |
+| AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (ile ilişkili tek hedef) |
-| AttributeType.ManagedProperty | Boole | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |

@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483026"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uygulamalarım portalında profili ve hesabı bilgilerinizi güncelleştirin
 Web tabanlı iş veya Okul hesabınızı kullanabilirsiniz **uygulamalarım** görüntülemek ve bazı görmek için profili ve hesabı bilgilerinizi güncelleştirmek için kuruluşunuzun bulut tabanlı uygulamalar, birçoğu başlatmak için portal, **grupları** bilgi edinmek ve gerçekleştirmek için **erişim gözden geçirmeleriyle** grupları ve uygulamaları için. Erişiminiz yoksa, **uygulamalarım** portal, Yardım masanız için izni başvurmanız gerekir.

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
 ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419042"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme
 Bu makalede, PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizmetleri'ni etkinleştirme işlemini göstermektedir.
@@ -69,14 +69,14 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Görev 4: Azure AD Domain Services kaynak sağlayıcısını kaydetme
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>4. Görev: Azure AD Domain Services kaynak sağlayıcısını kaydetme
 Azure AD Domain Services için kaynak sağlayıcısını kaydetmek için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>Görev 5: Kaynak grubu oluşturma
+## <a name="task-5-create-a-resource-group"></a>5. Görev: Kaynak grubu oluşturma
 Bir kaynak grubu oluşturmak için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"

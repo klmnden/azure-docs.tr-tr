@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345490"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid olay işleyicileri
 

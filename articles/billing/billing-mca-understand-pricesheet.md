@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371368"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Bir Microsoft Müşteri sözleşmesi, fiyat koşullarını anlama
 
@@ -40,7 +40,7 @@ Aşağıdaki bölümde, Microsoft Müşteri sözleşmesi fiyat listesinde göste
 | billingProfileName  | Fatura alacak şekilde ayarlanmış fatura profilinin adı. Fiyat listesindeki fiyat fatura bu profille ilişkilendirilmiş. |
 | productOrderName  | Satın alınan ürün planı adı. |
 | serviceFamily  | Azure hizmet türü. Örn: İşlem, analiz, güvenlik |
-| Ürün  | Ücretler tahakkuk ürün adı. Örn: Temel SQL veritabanı ile standart SQL veritabanı  |
+| Product  | Ücretler tahakkuk ürün adı. Örn: Temel SQL veritabanı ile standart SQL veritabanı  |
 | productId  | Ölçüm, kullanılan ürün için benzersiz tanımlayıcı. |
 | unitOfMeasure  | Faturalama hizmeti için ölçü tanımlar. Örneğin, işlem Hizmetleri, saat başına faturalandırılır. |
 | meterId  | Ölçüm için benzersiz tanımlayıcı. |

@@ -15,11 +15,11 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533170"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -208,4 +208,4 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Erişim
 * [Öğretici: RBAC ve Azure portalını kullanarak Azure kaynaklarına kullanıcı erişimi](quickstart-assign-role-user-portal.md)
 * [Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi](tutorial-role-assignments-user-powershell.md)
 * [RBAC, Azure kaynakları için sorun giderme](troubleshooting.md)
-* [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../governance/management-groups/index.md)
+* [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../governance/management-groups/index.md)

@@ -13,11 +13,11 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337799"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı'nda, uygulama performansını artırmak için kullanım bellek içi OLTP
 
@@ -167,7 +167,7 @@ Ağ gecikmesini en aza indirmek için veritabanının mevcut olduğu aynı Azure
 İzleme, bir bellek içi üretim uygulamalarında performans etkilerini göz önünde bulundurun:
 
 * [Bellek içi depolama alanı izleme](sql-database-in-memory-oltp-monitoring.md).
-* [Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme](sql-database-monitoring-with-dmvs.md)
+* [Dinamik yönetim görünümlerini kullanarak Azure SQL Veritabanı’nı izleme](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Bellek içi OLTP (bellek içi iyileştirme)](https://msdn.microsoft.com/library/dn133186.aspx)

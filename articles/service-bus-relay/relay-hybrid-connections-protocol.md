@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420054"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure geçiş karma bağlantılar Protokolü
 

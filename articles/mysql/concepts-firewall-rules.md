@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: a7016b8ca43abee9c3f346c6dec55a101ce4020a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528307"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı
 Güvenlik duvarları, hangi bilgisayarların izinli olduğunu belirtmenize kadar veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı her isteğin kaynak IP adresi tabanlı sunucu erişim verir.

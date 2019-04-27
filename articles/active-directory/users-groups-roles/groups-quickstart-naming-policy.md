@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471221"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de gruplar için adlandırma ilkesi
 
@@ -89,7 +89,7 @@ PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için 
 
   
 
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3. adım: Adlandırma ilkesini ve herhangi bir özel engellenen sözcük ayarlayın
+### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3. Adım: Adlandırma ilkesini ve herhangi bir özel engellenen sözcük ayarlayın
 
 1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
   

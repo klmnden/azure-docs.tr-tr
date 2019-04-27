@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371317"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Bir Microsoft Müşteri sözleşmesi Azure kullanım ve Ücret CSV ilgili koşulları anlama
 
@@ -42,7 +42,7 @@ Bir EA müşterisinin olsaydı, faturalandırma profili CSV dosyası Azure kulla
 | Ay| date |
 | Gün | date |
 | Yıl | date |
-| Ürün | ürün |
+| Product | ürün |
 | Ölçüm kimliği | meterID |
 | Ölçüm kategorisi | meterCategory |
 | Ölçüm alt kategorisi | meterSubCategory |
@@ -101,7 +101,7 @@ productId | Ücretler tahakkuk ürün için benzersiz tanımlayıcı
 ürün | Ücretler tahakkuk ürün adı
 Abonelik kimliği | Ücretler tahakkuk abonelik için benzersiz tanımlayıcı
 subscriptionName | Ücretler tahakkuk abonelik adı
-Reservationıd | Satın alınan ayırmanın örneği için benzersiz tanımlayıcı
+reservationId | Satın alınan ayırmanın örneği için benzersiz tanımlayıcı
 reservationName | Satın alınan ayırmanın örneğinin adı
 publisherType | Yayımcı türü (değerleri: firstParty, thirdPartyReseller, thirdPartyAgency)
 publisherName | Yayımcının Market Hizmetleri

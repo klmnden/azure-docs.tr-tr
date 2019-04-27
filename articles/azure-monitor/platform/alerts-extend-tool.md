@@ -9,11 +9,11 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60431173"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 OMS portalında uyarıları özelliği, Azure Uyarıları'nda Azure kamu Bulutu ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:

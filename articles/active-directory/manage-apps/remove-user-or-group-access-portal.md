@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443090"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırma
 Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) birine atanan erişimden bir kullanıcıyı veya grubu kaldırmak kolay bir işlemdir. Kurumsal uygulama Yönetme iznine ihtiyacınız var. Ve dizin için genel yönetici olması gerekir.

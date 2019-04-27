@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539188"
 ---
 # <a name="translator-speech-api"></a>Translator Konuşma Çevirisi API’si
 
@@ -31,7 +31,7 @@ Translator konuşma tanıma API'si, istemci ve sunucu arasında bir tam çift y�
 ## <a name="1-getting-started"></a>1. Başlarken
 Translator Text API gerekecek erişmeye [için Microsoft Azure'a kaydolun](translator-speech-how-to-signup.md).
 
-## <a name="2-authentication"></a>2. Authentication
+## <a name="2-authentication"></a>2. Kimlik Doğrulaması
 
 Kimlik doğrulaması için abonelik anahtarını kullanın. Translator konuşma tanıma API'si, kimlik doğrulamasının iki modu destekler:
 
@@ -70,7 +70,7 @@ Bağlantı kurulduktan sonra istemci hizmete ses akışı başlar. İstemci öbe
 
 Ses giriştir dalga ses dosyası biçimi (WAVE ya da daha fazla yaygın olarak da WAV nedeniyle dosya adı uzantısı bilinen). İstemci uygulaması, tek kanal, 16 kHz örneklenen işaretli 16 bit PCM ses akışı. İstemci tarafından akışa bayt ilk kümesi WAV üst bilgi içerir. Tek bir kanal 16 kHz örneklenen 16 bit PCM stream imzalı 44 baytlık üst bilgi gösterilmiştir:
 
-|Uzaklık|Değer|
+|Offset|Değer|
 |:---|:---|
 |0 - 3|"RIFF"|
 |4 - 7|0|
@@ -166,30 +166,30 @@ Bir istemci uygulaması ses akışı tamamlandı ve son nihai sonucu aldı, WebS
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Değer|Açıklama|Parametre Türü|Veri Türü|
 |:---|:---|:---|:---|:---|
-|API sürümü|1.0|İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|sorgu   |dize|
-|başlangıç|(boş)   |Gelen konuşma dilini belirtir. Değer dil tanımlayıcılardan biridir `speech` dilleri API yanıtından kapsam.|sorgu|dize|
-|-|(boş)|Transcribed metne çevrilecek dilini belirtir. Değer dil tanımlayıcılardan biridir `text` dilleri API yanıtından kapsam.|sorgu|dize|
-|SaaS Uygulamaları Geliştirme|(boş)   |Virgülle ayrılmış istemci tarafından seçilen özellikler kümesidir. Kullanılabilir özellikler şunlardır:<ul><li>`TextToSpeech`: hizmet son çevrilen cümlenin çevrilmiş ses döndürmesi gerektiğini belirtir.</li><li>`Partial`: hizmet ses hizmete akışa sırasında Ara tanıma sonuçları döndürmesi gerektiğini belirtir.</li><li>`TimingInfo`: Hizmet her tanıma ile ilişkili zamanlama bilgilerini döndürmesi gerektiğini belirtir.</li></ul>Örneğin, bir istemci belirtirsiniz `features=partial,texttospeech` kısmi sonuçlar ve metin okuma, ancak hiçbir zamanlama bilgilerini almak için. Son sonuçları istemciye her zaman akışa unutmayın.|sorgu|dize|
-|Ses|(boş)|Hangi sesli metin okuma çevrilmiş metin işleme için kullanılacağını tanımlar. Değer dilleri API yanıtından tts kapsamda ses tanımlayıcılardan biridir. Bir ses, sistem otomatik olarak ayarlanır belirtilmezse metin okuma özelliği etkinleştirilmişse seçin.|sorgu|dize|
-|biçim|(boş)|Hizmet tarafından döndürülen metin okuma ses akışı biçimini belirtir. Kullanılabilen seçenekler:<ul><li>`audio/wav`: Oluşturulan dalga biçiminin ses akışı. İstemci, ses biçimi doğru şekilde yorumlamasına WAV başlığı kullanmanız gerekir. Metin okuma için WAV ses tek kanal PCM 24 kHz veya 16 kHz örnekleme oranını 16 bit ' dir.</li><li>`audio/mp3`: MP3 ses akışı.</li></ul>`audio/wav` varsayılan değerdir.|sorgu|dize|
-|ProfanityAction    |(boş)    |Hizmet konuşma dilinde tanınan profanities nasıl işleyeceğini belirtir. Geçerli eylemler şunlardır:<ul><li>`NoAction`: Profanities olduğu gibi bırakılır.</li><li>`Marked`: Profanities işaretçisi ile değiştirilir. Bkz: `ProfanityMarker` parametresi.</li><li>`Deleted`: Profanities silinir. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a .".`</li></ul>Varsayılan olarak işaretlenmiş.|sorgu|dize|
-|ProfanityMarker|(boş)    |Nasıl algılanan profanities belirtir ne zaman işleneceğini `ProfanityAction` ayarlanır `Marked`. Geçerli seçenekler şunlardır:<ul><li>`Asterisk`: Profanities dize ile değiştirilir `***`. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a ***.".`</li><li>`Tag`: Küfür küfür XML etiketi tarafından çevrilmiş. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olacak `"He is a <profanity>jackass</profanity>."`.</li></ul>Varsayılan değer: `Asterisk`.|sorgu|dize|
-|Yetkilendirme|(boş)  |İstemcinin taşıyıcı belirteç değerini belirtir. Önek kullanması `Bearer` değeri tarafından izlenen `access_token` kimlik doğrulama belirteci hizmet tarafından döndürülen değer.|üst bilgi   |dize|
-|Ocp-Apim-Subscription-Key|(boş)|Gerekli if `Authorization` üstbilgisi belirtilmedi.|üst bilgi|dize|
-|access_token|(boş)   |Geçerli bir OAuth erişim belirteci geçirmek için alternatif bir yolu. Taşıyıcı belirteç genellikle üstbilgiyle sağlanan `Authorization`. Bazı websocket kitaplıklar, üst bilgilerini ayarlayacak şekilde istemci kodu izin vermeyin. Böyle bir durumda istemcinin kullanabileceği `access_token` sorgu parametresi geçerli bir belirteç geçirilecek. Varsa, kimlik doğrulamak için bir erişim belirteci kullanarak `Authorization` üst bilgisi ayarlanmadı, ardından `access_token` ayarlamanız gerekir. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir. İstemcileri yalnızca belirtecin geçip için bir yöntem kullanmanız gerekir.|sorgu|dize|
-|Abonelik anahtarı|(boş)   |Abonelik anahtarı geçirmek için alternatif bir yolu. Bazı websocket kitaplıklar, üst bilgilerini ayarlayacak şekilde istemci kodu izin vermeyin. Böyle bir durumda istemcinin kullanabileceği `subscription-key` sorgu parametresi geçerli bir abonelik anahtarı geçirilecek. Varsa, kimlik doğrulamak için bir abonelik anahtarı kullanarak `Ocp-Apim-Subscription-Key` üst bilgisi ayarlanmadı sonra abonelik anahtarı ayarlanmalıdır. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir. İstemcileri yalnızca kullanması gereken yöntemini geçirilecek `subscription key`.|sorgu|dize|
-|X-ClientTraceId    |(boş)    |Bir istek izleme için kullanılan istemci tarafından oluşturulan GUID. Doğru sorunlarını gidermek için istemciler her bir istekle yeni bir değer sağlayın ve oturumu.<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-ClientTraceId`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|dize|
-|X-Correlationıd|(boş)    |Bir konuşma birden çok kanalda ilişkilendirmek için kullanılan istemci tarafından oluşturulan bir tanımlayıcı. Birden çok konuşma çevirisi oturumlar, kullanıcılar arasında yapılan görüşmeler etkinleştirmek için oluşturulabilir. Böyle bir senaryoda tüm konuşma çevirisi oturumları kanalları birbirine bağlamak için aynı bağıntı Kimliğini kullanın. Bu, izleme ve tanılamayı kolaylaştırır. Tanımlayıcı için uygun olmalıdır: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-CorrelationId`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|dize|
-|X-ClientVersion|(boş)    |İstemci uygulama sürümünü tanımlar. Örnek: "2.1.0.123".<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-ClientVersion`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|dize|
-|X-OsPlatform|(boş)   |İstemci uygulamasının üzerinde çalıştığı işletim sistemi sürümü ve adını tanımlar. Örnekler: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-OsPlatform`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|dize|
+|API sürümü|1.0|İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|sorgu   |string|
+|başlangıç|(boş)   |Gelen konuşma dilini belirtir. Değer dil tanımlayıcılardan biridir `speech` dilleri API yanıtından kapsam.|sorgu|string|
+|-|(boş)|Transcribed metne çevrilecek dilini belirtir. Değer dil tanımlayıcılardan biridir `text` dilleri API yanıtından kapsam.|sorgu|string|
+|SaaS Uygulamaları Geliştirme|(boş)   |Virgülle ayrılmış istemci tarafından seçilen özellikler kümesidir. Kullanılabilir özellikler şunlardır:<ul><li>`TextToSpeech`: hizmet son çevrilen cümlenin çevrilmiş ses döndürmesi gerektiğini belirtir.</li><li>`Partial`: hizmet ses hizmete akışa sırasında Ara tanıma sonuçları döndürmesi gerektiğini belirtir.</li><li>`TimingInfo`: Hizmet her tanıma ile ilişkili zamanlama bilgilerini döndürmesi gerektiğini belirtir.</li></ul>Örneğin, bir istemci belirtirsiniz `features=partial,texttospeech` kısmi sonuçlar ve metin okuma, ancak hiçbir zamanlama bilgilerini almak için. Son sonuçları istemciye her zaman akışa unutmayın.|sorgu|string|
+|Ses|(boş)|Hangi sesli metin okuma çevrilmiş metin işleme için kullanılacağını tanımlar. Değer dilleri API yanıtından tts kapsamda ses tanımlayıcılardan biridir. Bir ses, sistem otomatik olarak ayarlanır belirtilmezse metin okuma özelliği etkinleştirilmişse seçin.|sorgu|string|
+|biçim|(boş)|Hizmet tarafından döndürülen metin okuma ses akışı biçimini belirtir. Kullanılabilen seçenekler:<ul><li>`audio/wav`: Oluşturulan dalga biçiminin ses akışı. İstemci, ses biçimi doğru şekilde yorumlamasına WAV başlığı kullanmanız gerekir. Metin okuma için WAV ses tek kanal PCM 24 kHz veya 16 kHz örnekleme oranını 16 bit ' dir.</li><li>`audio/mp3`: MP3 ses akışı.</li></ul>`audio/wav` varsayılan değerdir.|sorgu|string|
+|ProfanityAction    |(boş)    |Hizmet konuşma dilinde tanınan profanities nasıl işleyeceğini belirtir. Geçerli eylemler şunlardır:<ul><li>`NoAction`: Profanities olduğu gibi bırakılır.</li><li>`Marked`: Profanities işaretçisi ile değiştirilir. Bkz: `ProfanityMarker` parametresi.</li><li>`Deleted`: Profanities silinir. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a .".`</li></ul>Varsayılan olarak işaretlenmiş.|sorgu|string|
+|ProfanityMarker|(boş)    |Nasıl algılanan profanities belirtir ne zaman işleneceğini `ProfanityAction` ayarlanır `Marked`. Geçerli seçenekler şunlardır:<ul><li>`Asterisk`: Profanities dize ile değiştirilir `***`. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olur `"He is a ***.".`</li><li>`Tag`: Küfür küfür XML etiketi tarafından çevrilmiş. Örneğin, word `"jackass"` ifadesinin bir küfür kabul edilir `"He is a jackass."` olacak `"He is a <profanity>jackass</profanity>."`.</li></ul>Varsayılan değer: `Asterisk`.|sorgu|string|
+|Yetkilendirme|(boş)  |İstemcinin taşıyıcı belirteç değerini belirtir. Önek kullanması `Bearer` değeri tarafından izlenen `access_token` kimlik doğrulama belirteci hizmet tarafından döndürülen değer.|üst bilgi   |string|
+|Ocp-Apim-Subscription-Key|(boş)|Gerekli if `Authorization` üstbilgisi belirtilmedi.|üst bilgi|string|
+|access_token|(boş)   |Geçerli bir OAuth erişim belirteci geçirmek için alternatif bir yolu. Taşıyıcı belirteç genellikle üstbilgiyle sağlanan `Authorization`. Bazı websocket kitaplıklar, üst bilgilerini ayarlayacak şekilde istemci kodu izin vermeyin. Böyle bir durumda istemcinin kullanabileceği `access_token` sorgu parametresi geçerli bir belirteç geçirilecek. Varsa, kimlik doğrulamak için bir erişim belirteci kullanarak `Authorization` üst bilgisi ayarlanmadı, ardından `access_token` ayarlamanız gerekir. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir. İstemcileri yalnızca belirtecin geçip için bir yöntem kullanmanız gerekir.|sorgu|string|
+|Abonelik anahtarı|(boş)   |Abonelik anahtarı geçirmek için alternatif bir yolu. Bazı websocket kitaplıklar, üst bilgilerini ayarlayacak şekilde istemci kodu izin vermeyin. Böyle bir durumda istemcinin kullanabileceği `subscription-key` sorgu parametresi geçerli bir abonelik anahtarı geçirilecek. Varsa, kimlik doğrulamak için bir abonelik anahtarı kullanarak `Ocp-Apim-Subscription-Key` üst bilgisi ayarlanmadı sonra abonelik anahtarı ayarlanmalıdır. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir. İstemcileri yalnızca kullanması gereken yöntemini geçirilecek `subscription key`.|sorgu|string|
+|X-ClientTraceId    |(boş)    |Bir istek izleme için kullanılan istemci tarafından oluşturulan GUID. Doğru sorunlarını gidermek için istemciler her bir istekle yeni bir değer sağlayın ve oturumu.<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-ClientTraceId`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|string|
+|X-Correlationıd|(boş)    |Bir konuşma birden çok kanalda ilişkilendirmek için kullanılan istemci tarafından oluşturulan bir tanımlayıcı. Birden çok konuşma çevirisi oturumlar, kullanıcılar arasında yapılan görüşmeler etkinleştirmek için oluşturulabilir. Böyle bir senaryoda tüm konuşma çevirisi oturumları kanalları birbirine bağlamak için aynı bağıntı Kimliğini kullanın. Bu, izleme ve tanılamayı kolaylaştırır. Tanımlayıcı için uygun olmalıdır: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-CorrelationId`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|string|
+|X-ClientVersion|(boş)    |İstemci uygulama sürümünü tanımlar. Örnek: "2.1.0.123".<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-ClientVersion`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|string|
+|X-OsPlatform|(boş)   |İstemci uygulamasının üzerinde çalıştığı işletim sistemi sürümü ve adını tanımlar. Örnekler: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Üst bilgi kullanmak yerine, bu değer ile sorgu parametresi geçirilebilir `X-OsPlatform`. Hem üst hem de sorgu parametresi ayarlarsanız, sorgu parametresi göz ardı edilir.|üst bilgi|string|
 
 ### <a name="response-messages"></a>Yanıt iletilerini
 
 |HTTP durum kodu|Neden|Yanıt modeli|Üst bilgiler|
 |:--|:--|:--|:--|
-|101    |WebSocket yükseltin.|Model örnek değer <br/> Nesne {}|X-RequestId<br/>Sorun giderme amacıyla isteği tanımlayan bir değer.<br/>dize|
+|101    |WebSocket yükseltin.|Model örnek değer <br/> Nesne {}|X-RequestId<br/>Sorun giderme amacıyla isteği tanımlayan bir değer.<br/>string|
 |400    |Hatalı istek. Geçerli olduklarından emin olmak için giriş parametrelerini denetleyin. Yanıt nesnesini hatanın daha ayrıntılı bir açıklama içerir.|||
 |401    |Yetkilendirilmedi. Kimlik bilgileri belirlenen, geçerli olduğunu ve iyi durumda olduğunuzu kullanılabilir bir bakiye ile Azure veri marketi aboneliğinizin olduğundan emin olun.|||
 |500    |Bir hata oluştu. Sorun devam ederse, istemci izleme tanımlayıcısı (X-ClientTraceId) rapor ya da istek tanımlayıcısı (X-RequestId).|||
