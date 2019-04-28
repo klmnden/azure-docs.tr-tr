@@ -8,17 +8,17 @@ ms.service: service-health
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.openlocfilehash: d2a77e831290aa1ee0fcb6d4addf8f6e90786d52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119867"
 ---
 # <a name="azure-resource-health-overview"></a>Azure kaynak durumu genel bakış
  
 Azure kaynak durumu, tanılamanıza ve bir Azure hizmet sorunu kaynaklarınızı etkilediğinde destek almanıza yardımcı olur. Güncel ve geçmiş kaynaklarınızın sistem durumunu hakkında bilgilendirir. Ve sorunları azaltmaya yardımcı olmak için teknik destek sağlar.
 
-Oysa [Azure durumu](https://status.azure.com) çok sayıda Azure müşterileri etkileyecek hizmet sorunlar hakkında sizi bilgilendirir, kaynak durumu, kaynaklarınızın durumuna kişiselleştirilmiş bir Pano sağlar. Kaynak durumu, kaynaklarınızı Azure hizmet sorunlarına nedeniyle geçmişte kullanılamaz her zaman gösterilir. Ardından, sizin için bir SLA ihlal edilen anlamak basit değildir. 
+Oysa [Azure durumu](https://status.azure.com) çok sayıda Azure müşterileri etkileyecek hizmet sorunlar hakkında sizi bilgilendirir, kaynak durumu, kaynaklarınızın durumuna kişiselleştirilmiş bir Pano sağlar. Kaynak Durumu, geçmişte Azure hizmetiyle ilgili sorunlar nedeniyle kaynaklarınızın kullanılamaz durumda olduğu zamanları gösterir. Ardından, sizin için bir SLA ihlal edilen anlamak basit değildir. 
 
 ## <a name="resource-definition-and-health-assessment"></a>Kaynak tanımı ve sistem durumu değerlendirmesi
 Bir Azure hizmeti belirli bir örneğini bir kaynaktır: Örneğin, bir sanal makineyi, bir web uygulaması veya bir SQL veritabanı.

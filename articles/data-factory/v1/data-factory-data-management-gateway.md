@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60489766"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -367,7 +367,7 @@ Aşağıdaki tabloda yer alan sütun açıklanmakta **ağ geçidi düğümleri**
 :------------------ | :----------
 Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı. Ağ geçidi üzerinde yüklü olan bir şirket içi Windows makine düğümüdür. Birden fazla düğümü (en fazla dört düğüm) sahip tek bir mantıksal ağ geçidi hakkında daha fazla bilgi için bkz: [veri yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik](data-factory-data-management-gateway-high-availability-scalability.md).
 Durum | Mantıksal ağ geçidini ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vb. Bu durumlar hakkında daha fazla bilgi için bkz. [ağ geçidi durumu](#gateway-status) bölümü.
-Sürüm | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir.
+Version | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir.
 Uygun bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
 CPU kullanımı | Bir ağ geçidi düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
 Ağ (daraltma/genişletme) | Bir ağ geçidi düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.

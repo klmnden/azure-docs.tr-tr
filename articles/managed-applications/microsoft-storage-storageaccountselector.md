@@ -1,6 +1,6 @@
 ---
 title: Azure StorageAccountSelector UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Storage.StorageAccountSelector kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Storage.StorageAccountSelector UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104882"
 ---
-# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI öğesi
+# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector kullanıcı Arabirimi öğesi
 Yeni veya var olan depolama hesabını seçmek için bir denetim.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 
-Denetimin varsayılan değerini gösterir.
+Varsayılan değer denetim gösterir.
 
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
-Yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını seçmek kullanıcı denetimi sağlar.
+Yeni bir depolama hesabı oluşturun veya mevcut bir depolama hesabını seçmek kullanıcı denetimi sağlar.
 
 ![Yeni Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
 
@@ -57,10 +57,10 @@ Yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını seçme
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Belirtilmişse, `defaultValue.name` benzersizlik için otomatik olarak doğrulanır. Depolama hesabı adı benzersiz değilse, kullanıcının farklı bir ad belirtin veya mevcut bir depolama hesabını seçin.
-- İçin varsayılan değer `defaultValue.type` olan **Premium_LRS**.
-- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
-- Varsa `options.hideExisting` olan **doğru**, kullanıcının mevcut bir depolama hesabını seçemezsiniz. Varsayılan değer **false**.
+- Belirtilmişse `defaultValue.name` benzersizlik için otomatik olarak doğrulanır. Depolama hesabı adı benzersiz değilse, kullanıcı farklı bir ad belirtin veya mevcut bir depolama hesabını seçin.
+- İçin varsayılan değer `defaultValue.type` olduğu **Premium_LRS**.
+- Belirtilen değil herhangi bir türü `constraints.allowedTypes` gizli ve belirtilen değil herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem de isteğe bağlıdır, ancak aynı anda kullanılamaz.
+- Varsa `options.hideExisting` olduğu **true**, kullanıcının mevcut bir depolama hesabını seçemezsiniz. Varsayılan değer **false**.
 
 ## <a name="sample-output"></a>Örnek çıktı
 
@@ -74,5 +74,5 @@ Yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını seçme
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

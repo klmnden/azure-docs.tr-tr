@@ -2,18 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/11/2018
-ms.author: cherylmc
+origin.date: 12/11/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320236"
 ---
 (Önerilen) bir kuruluş çözümü ile oluşturulan bir kök sertifika kullanabilir veya otomatik olarak imzalanan bir sertifika oluşturun. Kök sertifikayı oluşturduktan sonra ortak sertifika verilerini (özel anahtarı değil) bir Base64 ile kodlanmış X.509 .cer dosyası olarak dışarı aktarın. Ardından, genel sertifika verilerini Azure sunucusuna yükleyin.
 

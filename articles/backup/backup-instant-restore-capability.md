@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733882"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -24,7 +24,7 @@ Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sa�
 
 * Veri aktarımı tamamlamak için kasaya beklemeden kurtarma için kullanılabilir olan bir yedekleme işi kapsamında alınan anlık görüntülere kullanabilme özelliği. Bunu geri yüklemeyi tetikleme önce kasaya kopyalamak anlık görüntüler için bekleme süresini azaltır.
 * Varsayılan olarak iki gün için yerel anlık görüntüleri koruyarak yedekleme ve geri yükleme süresi kısalır. Bu varsayılan anlık görüntü saklama değeri 1 ile 5 gün arasında herhangi bir değer için yapılandırılabilir.
-* 4 TB'a kadar destekler disk boyutları. Azure yedekleme şeritli diskleri desteklemez. Diski yeniden boyutlandırma, Azure Backup tarafından önerilmez.
+* 4 TB'a kadar destekler disk boyutları. Diski yeniden boyutlandırma, Azure Backup tarafından önerilmez.
 * Standart SSD disk yanı sıra diskleri HDD standart ve Premium SSD diskleri destekler.
 *   Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına (disk başına), kullanma yeteneğini geri yüklerken. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır.
 
@@ -47,7 +47,7 @@ Varsayılan olarak, iki gün için anlık görüntüleri korunur. Bu özellik, g
 * Anlık görüntüler, disk kurtarma noktası oluşturma artırın ve geri yükleme işlemlerini hızlandırmak için birlikte depolanır. Sonuç olarak, bu süre boyunca alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
 * Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm kullanıcılar, kendi yerel depolama hesabında depolanan anlık görüntüler için ücretlendirilir. Yönetilen VM yedeklemeleri tarafından kullanılan geri yükleme noktası koleksiyonları temel alınan depolama düzeyinde blob anlık görüntüleri kullandığından, yönetilen diskler için anlık görüntü fiyatlandırma blob karşılık gelen maliyetleri görürsünüz ve bunların artımlı.
 * Premium depolama hesapları için anında kurtarma noktalarının sayısı 10 TB sınırını doğrultusunda için alınan anlık görüntülere ayrılmış alanı.
-* Geri yükleme gereksinimlerini temel alan anlık görüntü saklama yapılandırma yeteneği sahip olursunuz. Gereksinim bağlı olarak, anlık görüntü saklama en az bir gün aşağıda açıklandığı gibi yedekleme İlkesi dikey penceresinde ayarlayabilirsiniz. Bu, sık geri yükleme gerçekleştirme, anlık görüntü saklama için maliyet tasarruf etmenize yardımcı olabilir.
+* Geri yükleme gereksinimlerini temel alan anlık görüntü saklama yapılandırma yeteneği sahip olursunuz. Gereksinim bağlı olarak, anlık görüntü saklama en az bir gün aşağıda açıklandığı gibi yedekleme İlkesi dikey penceresinde ayarlayabilirsiniz. Bu, sık geri yükleme gerçekleştirme, anlık görüntü saklama için maliyet tasarruf etmenize yardımcı olur.
 * Bu kez anında geri yükleme için yükseltilmiş tek yönlü bir yükseltme, geri dönemezsiniz.
 
 >[!NOTE]
@@ -55,7 +55,7 @@ Varsayılan olarak, iki gün için anlık görüntüleri korunur. Bu özellik, g
 
 ## <a name="cost-impact"></a>Maliyet etkisi
 
-Artımlı anlık anında kurtarma için kullanılan sanal makinenin depolama hesabında depolanır. Artımlı anlık görüntü, bir anlık görüntü tarafından kaplanan alanı anlık görüntü oluşturulduktan sonra yazılan sayfa kapladığı alanı eşittir anlamına gelir. Faturalandırma hala içindir anlık görüntü ve GB başına fiyat kapladığı kullanılan GB başına belirtildiği gibi aynı [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/managed-disks/).
+Artımlı anlık anında kurtarma için kullanılan sanal makineleri depolama hesabında depolanır. Artımlı anlık görüntü, bir anlık görüntü tarafından kaplanan alanı anlık görüntü oluşturulduktan sonra yazılan sayfa kapladığı alanı eşittir anlamına gelir. Faturalandırma hala içindir anlık görüntü ve GB başına fiyat kapladığı kullanılan GB başına belirtildiği gibi aynı [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > Anlık görüntü saklama, haftalık ilkeleri için 5 gün olarak sabitlenmiştir.

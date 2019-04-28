@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: efaa23fdc0eb035147e191276e52cbc4a447511c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 9774de9e5a975439468e2619841608c8d02548b9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38731935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342479"
 ---
 [Kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md#terminology) web uygulamaları, veritabanları ve depolama hesapları gibi Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Örneğin, daha sonra tek bir basit adımda kaynak grubun tamamını silmeyi seçebilirsiniz.

@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Azure’da genel ve özel IP adresleri hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108153"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -78,6 +79,9 @@ Standart SKU genel IP adresleri:
  
 > [!NOTE]
 > Standart SKU kaynakla gelen iletişim istekleri oluşturma ve ilişkilendirme kadar başarısız bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ve istenen gelen trafiğe izin verir.
+
+> [!NOTE]
+> Yalnızca temel SKU genel IP adresleri kullanırken kullanılabilir [örnek meta veri hizmeti IMDS](../virtual-machines/windows/instance-metadata-service.md). Standart SKU desteklenmiyor.
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
 
@@ -180,7 +184,7 @@ Aşağıdaki tabloda, özel bir IP adresinin en üst düzey bir kaynakla tam ola
 | Yük dengeleyici |Ön uç yapılandırması |Evet |Evet |
 | Uygulama ağ geçidi |Ön uç yapılandırması |Evet |Evet |
 
-## <a name="limits"></a>Sınırlar
+## <a name="limits"></a>Limits
 IP adresleme için uygulanan limitler, Azure’daki tüm [ağ limitlerinin](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) belirtildiği dizide bulunabilir. Limitler bölge ve abonelik başınadır. [Destek ekibiyle iletişime geçerek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) varsayılan limitleri iş ihtiyaçlarınıza göre en üst düzeye çıkarabilirsiniz.
 
 ## <a name="pricing"></a>Fiyatlandırma

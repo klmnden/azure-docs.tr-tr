@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127438"
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -213,7 +213,7 @@ API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde t
 | userId | string | Geçerli istek için kullanıcı varlığı tanımlayıcısı | 
 | apimSubscriptionId | string | Geçerli istek için abonelik varlığı tanımlayıcısı | 
 | backendId | string | Geçerli istek için arka uç varlığı tanımlayıcısı | 
-| lastError | object | Son istek işleme hatası | 
+| LastError | object | Son istek işleme hatası | 
 | elapsed | integer | Ağ Geçidinin isteği aldığı andan, hatanın oluştuğu ana kadar geçen milisaniye cinsinden süre | 
 | source | string | İlke veya işleme iç işleyicisinin adı hataya neden oldu | 
 | scope | string | Hataya neden olan ilkeyi içeren ilke belgesinin kapsamı | 

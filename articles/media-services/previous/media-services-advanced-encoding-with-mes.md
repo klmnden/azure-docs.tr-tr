@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230262"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES ön Ayarları özelleştirerek Gelişmiş encoding gerçekleştirme 
 
@@ -244,7 +244,7 @@ Aşağıdaki maddeler geçerlidir:
     Karışık ve yazarken gösterimler Lütfen eşleşen.
 
     Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (Başlangıç {iyi} olarak ayarlandığında adım ve aralığı göz ardı edilir)
-  * Varsayılan olarak: Başlangıç: {en iyi}
+  * Varsayılanlar: Başlangıç: {en iyi}
 * Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekir: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
 
 ## <a id="trim_video"></a>(Kırpma) bir videoyu Kırp

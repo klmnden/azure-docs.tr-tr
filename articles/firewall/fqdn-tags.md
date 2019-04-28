@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738797"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN etiketleri genel bakış
 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda kullanabileceğiniz geçerli FQDN etiket gösterilmektedir.
 |Microsoft Etkin Koruma Hizmeti (MAPS)|Giden erişime izin ver [HARİTALAR](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service ortamı (ASE)|ASE platform trafiği giden erişim sağlar. Bu etiket, müşteriye özgü depolama ve SQL uç noktaları ASE tarafından oluşturulan ele alınmamıştır. Bunlar üzerinden etkinleştirilmelidir [hizmet uç noktaları](../virtual-network/tutorial-restrict-network-access-to-resources.md) veya el ile eklenmiş.<br><br>Azure güvenlik duvarı ASE ile tümleştirme hakkında daha fazla bilgi için bkz. [App Service ortamı kilitleme](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Azure Backup hizmetlerine giden erişim sağlar.|
-|Azure HDInsight<br>(Önizleme)|HDInsight platform trafiği için giden erişim sağlar. Bu etiket, HDInsight müşteriye özgü depolama veya SQL trafiği ele alınmamıştır. Bunlar üzerinden etkinleştirilip [hizmet uç noktaları](../virtual-network/tutorial-restrict-network-access-to-resources.md) veya el ile eklenmiş.|
+|Azure HDInsight<br>(Önizleme)|HDInsight platform trafiği için giden erişim sağlar. Bu etiket, HDInsight müşteriye özgü depolama veya SQL trafiği ele alınmamıştır. Aracılığıyla bunları etkinleştirmek [hizmet uç noktaları](../virtual-network/tutorial-restrict-network-access-to-resources.md) veya bunları el ile ekleyin.|
 
 > [!NOTE]
 > FQDN etiketi, bir uygulama kuralı seçerken, protokol: bağlantı noktası alanına ayarlanmalıdır **https**.

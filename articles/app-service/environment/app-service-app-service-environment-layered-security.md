@@ -16,11 +16,11 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130696"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>App Service ortamları ile yüksek katmanlı güvenlik mimarisi uygulama
 ## <a name="overview"></a>Genel Bakış

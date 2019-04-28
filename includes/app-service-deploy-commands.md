@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343758"
 ---
 Kaynakları Azure’da dağıtmak için, Azure hesabınızda oturum açmış olmanız ve Azure Resource Manager modülünü kullanıyor olmanız gerekir. Azure Resource Manager’ı Azure PowerShell veya Azure CLI ile kullanmayı öğrenmek için bkz:
 

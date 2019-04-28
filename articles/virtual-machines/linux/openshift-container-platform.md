@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 39eea84cc9301263381533e03e8f783e0a73ea19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127014"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
@@ -251,7 +251,7 @@ Farklı sürümleri, bu nedenle kullandığınız dal için gerekli parametreler
 
 | Özellik | Açıklama | Geçerli seçenekler şunlardır: | Varsayılan Değer |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | Yapıtları (json, betikleri, vb.) için URL |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | Yapıtları (json, betikleri, vb.) için URL |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Kaynakların dağıtılacağı azure bölgesi |  |  |
 | `masterVmSize` | Ana VM'nin boyutu. Azuredeploy.json dosyasında listelenen izin verilen VM boyutları arasından seçin |  | Standard_E2s_v3 |
 | `infraVmSize` | Boyutu Infra VM. Azuredeploy.json dosyasında listelenen izin verilen VM boyutları arasından seçin |  | Standard_D4s_v3 |

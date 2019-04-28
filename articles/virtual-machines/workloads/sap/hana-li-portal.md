@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482304"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure portalı üzerinden Azure HANA Büyük Örnekler denetimi
 Bu belge yolu nasıl etkinleştireceğinizi de açıklar [HANA büyük örnekleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sunulur [Azure portalında](https://portal.azure.com) ve hangi etkinlikler sizin için dağıtılan HANA büyük örneği birimleri ile Azure portalı üzerinden gerçekleştirilir. HANA büyük örnekleri görünürlüğünü Azure portalında şu anda genel Önizleme aşamasında olan HANA büyük örnekleri, bir Azure kaynak sağlayıcısı aracılığıyla sağlanır

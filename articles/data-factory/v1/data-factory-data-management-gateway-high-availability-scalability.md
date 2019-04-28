@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488943"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
 > [!NOTE]
@@ -188,7 +188,7 @@ Etkinleştirebilirsiniz **Gelişmiş ayarları** içinde **ağ geçidi** gibi ge
 :------------------ | :---------- 
 Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı.  
 Durum | Mantıksal ağ geçidini ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vb. Bu durumlar hakkında daha fazla bilgi için bkz. [ağ geçidi durumu](#gateway-status) bölümü. 
-Sürüm | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir. 
+Version | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir. 
 Uygun bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
 CPU kullanımı | Bir ağ geçidi düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
 Ağ (daraltma/genişletme) | Bir ağ geçidi düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 

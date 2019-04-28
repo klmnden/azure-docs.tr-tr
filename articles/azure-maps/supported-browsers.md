@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: bc876fbf0eb15f887d57d4ddcca2301ef7233afa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 84c5dbcf5073ba8c0ae662af019cde590a9adf10
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738397"
 ---
-# <a name="web-sdk-supported-browsers"></a>Web SDK'sı ile desteklenen tarayıcılar
+# <a name="web-sdk-supported-browsers"></a>Web SDK destekleyen tarayıcılar
 
-Azure haritalar Web SDK'sı yardımcı işlevini sağlar [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-) en az bir web tarayıcısı olup olmadığını algılamak için WebGL özellikleri yükleniyor ve harita denetiminin işleme desteklemek için gereklidir. 
+Azure haritalar Web SDK'sı olarak adlandırılan bir yardımcı işlevini sağlar [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Bu işlev, bir web tarayıcısı WebGL özellikleri yükleniyor ve harita denetimini işleme desteklemek için gereken en düşük ayarlanıp ayarlanmadığını algılar. İşlev ilişkin bir örnek aşağıda verilmiştir:
 
 ```
 if(!atlas.isSupported()) {
@@ -25,35 +25,35 @@ if(!atlas.isSupported()) {
 } else if(!atlas.isSupported(true)) {
     alert('Your browser is supported by Azure Maps, but may have major performance caveats.');
 } else {
-    //Your browser is supported. Add your map code here.
+    // Your browser is supported. Add your map code here.
 }
 ```
 
 ## <a name="desktop"></a>Masaüstü
 
-Azure haritalar Web SDK'sı aşağıdaki masaüstü tarayıcıları destekler.
+Azure haritalar Web SDK'sı aşağıdaki masaüstü tarayıcıları destekler:
 
-- Microsoft Edge geçerli ve önceki sürümü 
-- Chrome geçerli ve önceki sürümü 
-- Firefox geçerli ve önceki sürümü 
-- Safari (Mac OS X) geçerli ve önceki sürümü 
+- Microsoft Edge (geçerli ve önceki sürüm)
+- Google Chrome (geçerli ve önceki sürüm)
+- Mozilla Firefox (geçerli ve önceki sürüm)
+- Apple Safari (Mac OS X) (geçerli ve önceki sürüm)
 
-Ayrıca bkz: [hedef eski tarayıcılar](#Target-Legacy-Browsers).
+Ayrıca bkz: [hedef eski tarayıcılar](#Target-Legacy-Browsers) bu makalenin ilerleyen bölümlerinde.
 
 ## <a name="mobile"></a>Cep telefonu
 
-Azure haritalar Web SDK'sı aşağıdaki mobil tarayıcılar destekler.
+Azure haritalar Web SDK'sı aşağıdaki mobil tarayıcılar destekler:
 
--  Android
-    * Geçerli sürümünde Chrome Android 6.0 ve üzeri
-    * Chrome WebView üzerinde Android 6.0 ve üzeri
+- Android
+  - Geçerli sürümü Chrome Android 6.0 ve üzeri
+  - Chrome WebView Android 6.0 ve üzeri
 - iOS
-    * Geçerli ve önceki ana sürümü üzerinde iOS mobil Safari
-    * UIWebView ve geçerli ve önceki ana sürümü üzerinde iOS WKWebView
-    * Geçerli sürümü Chrome iOS için
+  - Geçerli ve önceki ana sürümü üzerinde iOS mobil Safari
+  - UIWebView ve geçerli ve önceki ana sürümü üzerinde iOS WKWebView
+  - Geçerli sürümü Chrome iOS için
 
 > [!TIP]
-> Bir eşlem içinde bir WebView denetimi kullanarak mobil bir uygulama ekliyorsanız kullanmayı tercih edebilir [Azure haritalar Web SDK'sının npm paketini](https://www.npmjs.com/package/azure-maps-control) SDK'sının barındırılan CDN sürümüne başvurmayı sürdürmesi yerine. SDK'sı kullanıcının cihazda zaten olması ve çalışma zamanında yüklenmesine gerek kalmayacak şekilde bu yükleme süresini azaltır.
+> Bir WebView denetimi kullanarak mobil uygulamasına bir harita ekleme yapıyorsanız, kullanmayı tercih edebilirsiniz [Azure haritalar Web SDK'sının npm paketini](https://www.npmjs.com/package/azure-maps-control) yerine Azure içerik teslim üzerinde barındırılan SDK sürümü başvurma Ağ. SDK, kullanıcının cihazında zaten olması ve çalışma zamanında indirilmesi gerekmez çünkü bu yaklaşım yükleme süresini azaltır.
 
 ## <a name="nodejs"></a>Node.js
 
@@ -63,8 +63,9 @@ Aşağıdaki Web SDK'sı modüller, node.js'de de desteklenir:
 
 ## <a name="Target-Legacy-Browsers"></a>Eski tarayıcılar
 
-Desteklemediği veya sınırlı destek WebGL için eski tarayıcılar hedeflemek gerekiyorsa gibi Azure haritalar Hizmetleri bir açık kaynak harita denetimi ile birlikte kullanmak önerilir [leaflet](https://leafletjs.com/). 
+Yalnızca bu desteği sınırlı veya, WebGL desteklemeyen eski tarayıcılar hedeflemek isteyebilirsiniz. Azure haritalar Hizmetleri gibi bir açık kaynak harita denetimi ile birlikte kullanmanızı tavsiye ederiz Böyle durumlarda [Leaflet](https://leafletjs.com/). Bir örneği aşağıda verilmiştir:
 
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure haritalar + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Kalem bkz <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure haritalar + Leaflet</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
@@ -73,7 +74,7 @@ Kalem bkz <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure haritalar + L
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure haritalar Web SDK'sı hakkında daha fazla bilgi edinin.
+Azure haritalar Web SDK'sı hakkında daha fazla bilgi edinin:
 
 > [!div class="nextstepaction"]
 > [Harita denetimi](how-to-use-map-control.md)

@@ -2,18 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30197163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320257"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -27,11 +28,11 @@ Kurumsal PKI çözümünüzü (dahili PKI'nizi), Azure PowerShell'i, MakeCert'i 
 
 ### <a name="certsettings"></a>Sertifika ayarları ve parametreler için yönergeler var mı?
 
-* **Dahili PKI/Kurumsal PKI çözümü:** [Sertifikaları oluşturma](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert) adımlarına bakın.
+* **İç PKI/Kuruluş PKI çözümü:** Adımlar için bkz: [sertifikaları oluşturmak](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell:** Adımlar için [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) makalesine bakın.
+* **Azure PowerShell:** Bkz: [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) adımları makalesinde bulabilirsiniz.
 
-* **MakeCert:** Adımlar için [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) makalesine bakın.
+* **MakeCert:** Bkz: [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) adımları makalesinde bulabilirsiniz.
 
 * **OpenSSL:** 
 

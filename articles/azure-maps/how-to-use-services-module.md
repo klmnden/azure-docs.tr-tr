@@ -1,5 +1,5 @@
 ---
-title: Azure haritalar Hizmetleri modülü - kullanarak | Microsoft Docs
+title: Azure haritalar Hizmetleri modülü - kullanın | Microsoft Docs
 description: Azure haritalar Hizmetleri modülü kullanmayı öğrenin.
 author: rbrundritt
 ms.author: richbrun
@@ -8,95 +8,96 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: f3650d4db06a763308939e9fb1a98fddb0eaa04a
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738792"
 ---
-# <a name="using-the-azure-maps-services-module"></a>Azure haritalar Hizmetleri Modülünü Kullanma
+# <a name="use-the-azure-maps-services-module"></a>Azure haritalar Hizmetleri modülü kullanın
 
-Azure haritalar Web SDK'sı, web veya JavaScript veya TypeScript kullanarak Node.js uygulamaları Azure haritalar REST hizmetleri kullanmak üzere kolay bir yardımcı kitaplık bir Hizmetleri modülü sağlar.
+Azure haritalar Web SDK'sı sağlar bir *services Modülü*. JavaScript veya TypeScript kullanarak web veya Node.js uygulamalarını Azure haritalar REST hizmetleri sağlayan bir yardımcı kitaplık modülüdür.
 
-## <a name="using-the-services-module-in-a-web-page"></a>Bir web sayfasında services modülü kullanma
+## <a name="use-the-services-module-in-a-webpage"></a>Bir Web sayfasında services modülü kullanın
 
 1. Yeni bir HTML dosyası oluşturun.
-2. Azure haritalar Hizmetleri modülüne yükleyin. Bu yapılabilir; iki seçenekten birini kullanma
+1. Azure haritalar Hizmetleri modülü Bunu iki yoldan biriyle yükleyebilirsiniz:
+    - Azure haritalar Hizmetleri modülü genel olarak barındırılan Azure Content Delivery Network sürümünü kullanın. Bir komut dosyası referansı eklemek `<head>` öğesi:
 
-    a. Betik başvuru ekleyerek Azure haritalar Hizmetleri modülü genel olarak barındırılan CDN sürümünü kullanmanız `<head>` öğesi:
-    
-    ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
-    ```
-    
-    b. Alternatif olarak, Azure haritalar Web SDK kaynak kodu kullanarak yerel olarak yükleme [azure haritalar rest](https://www.npmjs.com/package/azure-maps-rest) NPM paketini ve uygulamanızı barındırın. Bu paket ayrıca TypeScript tanımları içerir.
-    
-    > npm yükleme azure-haritalar-rest
-    
-    Ardından bir komut dosyası başvuru ekleyin `<head>` öğesi:
-    
-    ```html
-    <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
-    ```
+        ```html
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        ```
 
-3. Hizmet URL'si istemci uç noktasını başlatmak için bir kimlik doğrulama işlem hattını oluşturmanız gerekir. Arama hizmeti istemcinin kimliğini doğrulamak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (AAD) kimlik bilgilerini kullanın. Bu örnekte, arama hizmeti URL'si istemcisi oluşturulur. Bir abonelik anahtarı kimlik doğrulaması için kullanıyorsanız:
+    - Alternatif olarak, Azure haritalar Web SDK kaynak kodu kullanarak yerel olarak yükleme [azure haritalar rest](https://www.npmjs.com/package/azure-maps-rest) npm paketini ve uygulamanızla ana bilgisayar. Bu paket ayrıca TypeScript tanımları içerir. Bu komutu kullanın:
+    
+        > **npm yükleme azure-haritalar-rest**
+    
+        Ardından, bir komut dosyası başvuru ekleyin `<head>` öğesi:
+
+         ```html
+        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+         ```
+
+1. Bir kimlik doğrulaması işlem hattı oluşturursunuz. Hizmet URL'si istemci uç noktası başlatabilirsiniz önce işlem hattı oluşturmanız gerekir. Bir Azure haritalar arama hizmeti istemcinin kimliğini doğrulamak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (Azure AD) kimlik bilgilerini kullanın. Bu örnekte, arama hizmeti URL'si istemcisi oluşturulur. 
+
+    Kimlik doğrulaması için bir abonelik anahtarı kullanıyorsanız:
 
     ```javascript
-    //Get an Azure Maps key at https://azure.com/maps
+    // Get an Azure Maps key at https://azure.com/maps.
     var subscriptionKey = '<Your Azure Maps Key>';
-    
-    //Use SubscriptionKeyCredential with a subscription key.
+
+    // Use SubscriptionKeyCredential with a subscription key.
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(subscriptionKey);
-    
-    //Use subscriptionKeyCredential to create a pipeline.
+
+    // Use subscriptionKeyCredential to create a pipeline.
     var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
       retryOptions: { maxTries: 4 } // Retry options
     });
-    
-    //Create an instance of the SearchURL client.
+
+    // Create an instance of the SearchURL client.
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
-    
-    Azure Active Directory (AAD) kimlik doğrulaması için kullanıyorsanız:
+
+    Azure AD kimlik doğrulaması için kullanıyorsanız:
 
     ```javascript
-    // Enter your Azure Actiuve Directory client ID.
+    // Enter your Azure AD client ID.
     var clientId = "<Your Azure Active Directory Client Id>";
-    
-    // Use TokenCredential with OAuth token (AAD or Anonymous).
+
+    // Use TokenCredential with OAuth token (Azure AD or Anonymous).
     var aadToken = await getAadToken();
     var tokenCredential = new atlas.service.TokenCredential(clientId, aadToken);
-    
-    // Create a repeating timeout that will renew the AAD token.
-    // This timeout must be cleared once the TokenCredential object is no longer needed.
-    // If the timeout is not cleared the memory used by the TokenCredential will never be reclaimed.
+
+    // Create a repeating time-out that will renew the Azure AD token.
+    // This time-out must be cleared when the TokenCredential object is no longer needed.
+    // If the time-out is not cleared, the memory used by the TokenCredential will never be reclaimed.
     var renewToken = async () => {
-        try {
-            console.log("Renewing token");
-            var token = await getAadToken();
-            tokenCredential.token = token;
-            tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
-        } catch (error) {
-            console.log("Caught error when renewing token");
-            clearTimeout(tokenRenewalTimer);
-            throw error;
-        }
+    try {
+      console.log("Renewing token");
+      var token = await getAadToken();
+      tokenCredential.token = token;
+      tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
+    } catch (error) {
+      console.log("Caught error when renewing token");
+      clearTimeout(tokenRenewalTimer);
+      throw error;
+    }
     }
     tokenRenewalTimer = setTimeout(renewToken, getExpiration(aadToken));
-    
-    // Use tokenCredential to create a pipeline
+
+    // Use tokenCredential to create a pipeline.
     var pipeline = atlas.service.MapsURL.newPipeline(tokenCredential, {
-        retryOptions: { maxTries: 4 } // Retry options
+    retryOptions: { maxTries: 4 } // Retry options
     });
-    
-    //Create an instance of the SearchURL client.
+
+    // Create an instance of the SearchURL client.
     var searchURL = new atlas.service.SearchURL(pipeline);
 
     function getAadToken() {
-        //Use the logged in auth context to get a token.
+        // Use the signed-in auth context to get a token.
         return new Promise((resolve, reject) => {
-            //The resource should always be https://atlas.microsoft.com/.
+            // The resource should always be https://atlas.microsoft.com/.
             const resource = "https://atlas.microsoft.com/";
             authContext.acquireToken(resource, (error, token) => {
                 if (error) {
@@ -109,13 +110,13 @@ Azure haritalar Web SDK'sı, web veya JavaScript veya TypeScript kullanarak Node
     }
 
     function getExpiration(jwtToken) {
-        //Decode the JWT token to get the expiration timestamp.
+        // Decode the JSON Web Token (JWT) to get the expiration time stamp.
         const json = atob(jwtToken.split(".")[1]);
         const decode = JSON.parse(json);
 
-        //Return the milliseconds until the token needs renewed.
-        //Reduce the time until renew by 5 minutes to avoid using an expired token.
-        //The exp property is the timestamp of the expiration in seconds.
+        // Return the milliseconds remaining until the token must be renewed.
+        // Reduce the time until renewal by 5 minutes to avoid using an expired token.
+        // The exp property is the time stamp of the expiration, in seconds.
         const renewSkew = 300000;
         return (1000 * decode.exp) - Date.now() - renewSkew;
     }
@@ -123,37 +124,37 @@ Azure haritalar Web SDK'sı, web veya JavaScript veya TypeScript kullanarak Node
 
     Daha fazla bilgi için [Azure Haritalar ile kimlik doğrulaması](azure-maps-authentication.md).
 
-4. Aşağıdaki kod geocode bir adres, yeni oluşturulan arama hizmeti URL'si istemciye kullanır "1, Microsoft, yol, Redmond, WA" kullanarak `searchAddress` işlev ve sonuçlar sayfasının gövdesinde bir tablo olarak görüntüler. 
+1. Aşağıdaki kod, geocode adresin yeni oluşturulan Azure Search Hizmeti URL'sini istemciye kullanır: "1 Microsoft Way, Redmond, WA". Kod `searchAddress` işlev ve sonuçları sayfasının gövdesinde tablo olarak görüntüler.
 
     ```javascript
-    //Search for "1 microsoft way, redmond, wa".
+    // Search for "1 microsoft way, redmond, wa".
     searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa').then(response => {
       var html = [];
-      
-      //Display the total results.
+
+      // Display the total results.
       html.push('Total results: ', response.summary.numResults, '<br/><br/>');
-     
-      //Create a table of the results.
+
+      // Create a table of the results.
       html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
-      
+
       for(var i=0;i<response.results.length;i++){
         html.push('<tr><td>', (i+1), '.</td><td>', 
-                    response.results[i].address.freeformAddress, 
-                    '</td><td>', 
-                    response.results[i].position.lat,
-                    '</td><td>', 
-                    response.results[i].position.lon,
-                    '</td></tr>');
+          response.results[i].address.freeformAddress, 
+          '</td><td>', 
+          response.results[i].position.lat,
+          '</td><td>', 
+          response.results[i].position.lon,
+          '</td></tr>');
       }
-      
+
       html.push('</table>');
-      
-      //Add the result HTML to the body of the page.
+
+      // Add the resulting HTML to the body of the page.
       document.body.innerHTML = html.join('');
     });
     ```
 
-    Tam olarak çalışan kod örneği aşağıdadır:
+    Tam kod örneğini çalıştırmak, şu şekildedir:
 
 <br/>
 
@@ -180,7 +181,7 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 > [!div class="nextstepaction"]
 > [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-iot-typescript-latest)
 
-Hizmetleri modülü kullanmak daha fazla kod örneği için aşağıdaki makalelere bakın:
+Hizmetleri modülü kullanmak daha fazla kod örneği için şu makalelere bakın:
 
 > [!div class="nextstepaction"]
 > [Harita üzerinde arama sonuçlarını göster](./map-search-location.md)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130220"
 ---
 # <a name="geofencing-geojson-data"></a>Bölge sınırlaması GeoJSON veri
 
-Azure haritalar [alma Döndürürüz](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) ve [POST Döndürürüz](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API'leri yakınlığını sağlanan döndürürüz göreli koordinat veya sınırlar kümesini almanıza olanak sağlar. Bu makalede Azure haritalar alın ve POST API'sini kullanılabilir döndürürüz verileri hazırlama işlemi açıklanmaktadır.
+Azure haritalar [alma Döndürürüz](/rest/api/maps/spatial/getgeofence) ve [POST Döndürürüz](/rest/api/maps/spatial/postgeofence) API'leri yakınlığını sağlanan döndürürüz göreli koordinat veya sınırlar kümesini almanıza olanak sağlar. Bu makalede Azure haritalar alın ve POST API'sini kullanılabilir döndürürüz verileri hazırlama işlemi açıklanmaktadır.
 
 Bölge sınırının veya bölge sınırlarını dizi verilerini tarafından temsil edilen `Feature` nesne ve `FeatureCollection` nesnesine `GeoJSON` tanımlanan biçimi [rfc7946](https://tools.ietf.org/html/rfc7946). Bu ek olarak:
 

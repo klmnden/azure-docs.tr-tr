@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: b515a0b226723989b1cc73356f1377da421dc9aa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485664"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makine kullanımını anlama
 Azure kullanım verilerinizi analiz etmeye tarafından güçlü tüketim öngörüleri elde edebileceğimize – etkinleştirebilirsiniz ınsights daha iyi maliyet yönetim ve kuruluşunuz genelinde ayırma. Bu belge, Azure işlem tüketim ayrıntılarınızı ayrıntılar sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlama](../../billing/billing-understand-your-bill.md).

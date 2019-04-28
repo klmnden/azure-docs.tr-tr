@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733976"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -168,7 +168,7 @@ Korumalı VM diski yeniden boyutlandırma | Destekleniyor.
 Paylaşılan depolama| Küme Paylaşılan birimi (CSV) veya genişleme dosya sunucusu kullanan sanal makineleri yedeklemeye önerilmez. CSV yazıcılar yedekleme sırasında başarısız olabilir. Geri yükleme, CSV birimleri içeren diskler gelen yukarı değil.
 
 > [!NOTE]
-> Azure yedekleme şeritli diskleri desteklemez. Diski yeniden boyutlandırma, Azure Backup tarafından önerilmez.
+> Diski yeniden boyutlandırma, Azure Backup tarafından önerilmez.
 
 
 ## <a name="vm-network-support"></a>VM ağ desteği
@@ -187,7 +187,7 @@ Azure Traffic Manager   | Destekleniyor.<br/><br/>El ile yedeklenen VM'ye trafik
 Azure DNS | Destekleniyor.
 Özel DNS |    Destekleniyor.
 HTTP Ara sunucusu üzerinden giden bağlantı | Destekleniyor.<br/><br/> Kimliği doğrulanmış bir ara sunucular desteklenmez.
-Sanal ağ hizmeti uç noktaları   | Destekleniyor.<br/><br/> Güvenlik Duvarı ve sanal ağ, depolama hesabı ayarlarını tüm ağlardan erişime izin vermelidir.
+Sanal ağ hizmet uç noktaları   | Destekleniyor.<br/><br/> Güvenlik Duvarı ve sanal ağ, depolama hesabı ayarlarını tüm ağlardan erişime izin vermelidir.
 
 
 

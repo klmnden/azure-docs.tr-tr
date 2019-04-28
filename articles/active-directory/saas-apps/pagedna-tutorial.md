@@ -16,202 +16,199 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f01529af7725cded6e73c17b9c3f7b0b9b34dec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59287409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62736435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Öğretici: PageDNA ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile PageDNA tümleştirme konusunda bilgi edinin.
+
 Azure AD ile PageDNA tümleştirme ile aşağıdaki avantajları sağlar:
 
-* PageDNA erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) PageDNA için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Azure AD'de PageDNA için kimlerin erişebildiğini denetleyebilirsiniz.
+* Kullanıcılarınız için PageDNA (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmanız etkinleştirebilirsiniz.
+* Hesaplarınızı tek bir merkezi konumda yönetebilir: Azure portalı.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile PageDNA yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* Abonelik PageDNA çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+* Çoklu oturum etkin açma PageDNA abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin ve PageDNA Azure AD ile tümleştirme yapılandırın.
 
-* PageDNA destekler **SP** tarafından başlatılan
+PageDNA aşağıdaki özellikleri destekler:
 
-* PageDNA destekler **zamanında** kullanıcı sağlama
+* SP tarafından başlatılan çoklu oturum açma (SSO).
 
-## <a name="adding-pagedna-from-the-gallery"></a>Galeriden PageDNA ekleme
+* Just-ın-time kullanıcı sağlama.
 
-Azure AD'de PageDNA tümleştirmesini yapılandırmak için PageDNA Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+## <a name="add-pagedna-from-the-azure-marketplace"></a>Azure Market'ten PageDNA Ekle
 
-**Galeriden PageDNA eklemek için aşağıdaki adımları gerçekleştirin:**
+Azure AD'ye PageDNA tümleştirmesini yapılandırmak için PageDNA Azure Market'te yönetilen SaaS uygulamaları listesine eklemeniz gerekir:
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. [Azure Portal](https://portal.azure.com?azure-portal=true) oturum açın.
+1. Sol bölmede **Azure Active Directory**’yi seçin.
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
+    ![Azure Active Directory seçeneği](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+1. Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **+ yeni uygulama** bölmenin üstünde.
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+    ![Yeni uygulama seçeneği](common/add-new-app.png)
 
-4. Arama kutusuna **PageDNA**seçin **PageDNA** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **PageDNA**. Arama sonuçlarında seçin **PageDNA**ve ardından **Ekle** uygulama eklemek için.
 
     ![Sonuç listesinde PageDNA](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma PageDNA adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının PageDNA ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma PageDNA adlı bir test kullanıcı tabanlı test **Britta Simon**. Tek iş için oturum açma için PageDNA içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma PageDNA ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[PageDNA çoklu oturum açmayı yapılandırma](#configure-pagedna-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[PageDNA test kullanıcısı oluşturma](#create-pagedna-test-user)**  - kullanıcı Azure AD gösterimini bağlı PageDNA Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
+1. **[PageDNA çoklu oturum açmayı yapılandırma](#configure-pagedna-single-sign-on)**  üzerinde uygulama tarafından çoklu oturum açma ayarları yapılandırmak için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. **[PageDNA test kullanıcısı oluşturma](#create-a-pagedna-test-user)**  kullanan Azure AD kullanıcı için bağlantılı adlandırılmış Britta Simon PageDNA, böylece bir kullanıcı Britta Simon adlı.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma ile PageDNA yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile PageDNA yapılandırmak için aşağıdaki adımları uygulayın:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **PageDNA** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
+    ![Çoklu oturum açma seçeneği yapılandırın](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+1. İçinde **tek bir oturum açma yönteminizi seçmeniz** bölmesinde seçin **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
     ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** bölmesinde **Düzenle** (açmak için kalem simgesi) **temel SAML yapılandırma** bölmesi.
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **temel SAML yapılandırma** bölmesinde, aşağıdaki adımları uygulayın:
 
-    ![PageDNA etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![Oturum açma bilgileri çoklu PageDNA etki alanı ve URL'ler](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    1. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desenlerden birini kullanarak bir URL girin:
 
-    ||
-    |--|
-    | `https://stores.pagedna.com/<your site>` |
-    | `https://<your domain>` |
-    | `https://<your domain>/<your site>` |
-    | `https://www.nationsprint.com/<your site>` |
-    | |
-    
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+        ||
+        |--|
+        | `https://stores.pagedna.com/<your site>` |
+        | `https://<your domain>` |
+        | `https://<your domain>/<your site>` |
+        | `https://www.nationsprint.com/<your site>` |
+        | |
 
-    ||
-    |--|
-    | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-    | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-    | |
+    1. İçinde **tanımlayıcı (varlık kimliği)** kutusunda, aşağıdaki desenlerden birini kullanarak bir URL girin:
+
+        ||
+        |--|
+        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
+        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
+        | |
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [PageDNA istemci Destek ekibine](mailto:success@pagedna.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Bu değerleri almak için iletişime geçin [PageDNA Destek ekibine](mailto:success@pagedna.com). Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölmesinde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (ham)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesinde, **SAML imzalama sertifikası** bölümünden **indirme** indirmek için **sertifika (ham)** belirtilen seçenekler ve bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](common/certificateraw.png)
+    ![Sertifika (ham) yükleme seçeneği](common/certificateraw.png)
 
-6. Üzerinde **PageDNA kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. İçinde **PageDNA kümesi** bölümünde, URL veya gereken URL'leri kopyalayın:
+
+   * **Oturum açma URL'si**
+   * **Azure AD tanımlayıcısı**
+   * **Oturum kapatma URL'si**
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+### <a name="configure-pagedna-single-sign-on"></a>PageDNA çoklu oturum açmayı yapılandırın
 
-    b. Azure AD Tanımlayıcısı
+Çoklu oturum açma PageDNA tarafında yapılandırmak için indirilen sertifika (ham) ve uygun kopyalanan URL'leri için Azure Portalı'ndan göndermek [PageDNA Destek ekibine](mailto:success@pagedna.com). PageDNA takım SAML SSO bağlantının her iki kenarı da düzgün ayarlandığından emin olun.
 
-    c. Oturum Kapatma URL'si
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="configure-pagedna-single-sign-on"></a>PageDNA tek oturum açmayı yapılandırın
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
 
-Çoklu oturum açmayı yapılandırma **PageDNA** tarafı, indirilen göndermek için ihtiyacınız **sertifika (ham)** ve uygun Azure portalına kopyalanan URL'lerden [PageDNA Destek ekibine](mailto:success@pagedna.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**   > **kullanıcılar** > **tüm kullanıcılar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+    ![Kullanıcılar ve "Tüm kullanıcılar" seçenekleri](common/users.png)
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+1. Ekranın üst kısmında seçin **+ yeni kullanıcı**.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+    ![Yeni kullanıcı seçeneği](common/new-user.png)
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+1. İçinde **kullanıcı** bölmesinde, aşağıdaki adımları uygulayın:
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+    ![Kullanıcı bölmesi](common/user-properties.png)
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
-
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
-
-    ![Kullanıcı iletişim kutusu](common/user-properties.png)
-
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
+    1. İçinde **kullanıcı adı** kutusuna **BrittaSimon\@\<yourcompanydomain >.\< Uzantı >**. Örneğin, **BrittaSimon\@contoso.com**.
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için PageDNA erişim vererek Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **PageDNA**.
+1. Azure portalında **kurumsal uygulamalar** > **tüm uygulamaları** > **PageDNA**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **PageDNA**.
+1. Uygulamalar listesinde **PageDNA**.
 
-    ![Uygulamalar listesinde PageDNA bağlantı](common/all-applications.png)
+    ![Uygulamalar listesinde PageDNA](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Sol bölmede altında **Yönet**seçin **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    !["Kullanıcılar ve Gruplar" seçeneği](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+1. Seçin **+ Ekle kullanıcı**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** bölmesi.
 
     ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **kullanıcılar ve gruplar** bölmesinde **Britta Simon** içinde **kullanıcılar** listeleyin ve ardından **seçin** bölmesinin alt kısmındaki.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+1. SAML onaylaması rol değerinde ardından içinde beklediğiniz varsa **rolü Seç** bölmesinde, listeden bir kullanıcı için uygun rolü seçin. Bölmesinin en altında seçin **seçin**.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+1. İçinde **atama Ekle** bölmesinde **atama**.
 
-### <a name="create-pagedna-test-user"></a>PageDNA test kullanıcısı oluşturma
+### <a name="create-a-pagedna-test-user"></a>PageDNA test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı PageDNA oluşturulur. PageDNA just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı PageDNA içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+Britta Simon adlı bir kullanıcı PageDNA oluşturuldu. Bu kullanıcı oluşturmak için herhangi bir şey yapmanız gerekmez. PageDNA just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Britta Simon adlı bir kullanıcı PageDNA içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, uygulamalarım portalını kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Erişim paneli PageDNA kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama PageDNA için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Seçtiğinizde, **PageDNA** uygulamalarım portalında, otomatik olarak kendisi için ayarladığınız çoklu oturum açmayı PageDNA aboneliğe oturum. Uygulamalarım portal hakkında daha fazla bilgi için bkz. [erişim ve kullanım uygulamaları uygulamalarım portalında](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

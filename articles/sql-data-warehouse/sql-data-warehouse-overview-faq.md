@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747617"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
@@ -84,19 +84,19 @@ A. DW sürücü desteği bulunabilir [bağlantı dizeleri] sayfası
 
 S: Hangi dosya biçimlerine PolyBase ile SQL veri ambarı tarafından destekleniyor mu?
 
-C: ORC, RC, Parquet ve sınırlandırılmış düz metin
+Y: ORC, RC, Parquet ve sınırlandırılmış düz metin
 
 S: Ne için PolyBase aracılığıyla SQL DW'ye bağlayabilirim? 
 
-C: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
+Y: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
 
 S: Azure depolama Blobları veya ADLS bağlanırken hesaplama itme mümkün mü? 
 
-C: Hayır, SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
+Y: Hayır, SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
 
 S: HDI için bağlayabilirim?
 
-C: HDI ADLS ya da WASB HDFS katman olarak kullanabilirsiniz. HDFS katmanınızdaki olarak varsa, bu verileri SQL DW'ye yükleyebilirsiniz. Ancak, itme hesaplama HDI örneği oluşturulamıyor. 
+Y: HDI ADLS ya da WASB HDFS katman olarak kullanabilirsiniz. HDFS katmanınızdaki olarak varsa, bu verileri SQL DW'ye yükleyebilirsiniz. Ancak, itme hesaplama HDI örneği oluşturulamıyor. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir bütün olarak SQL veri ambarı hakkında daha fazla bilgi için bkz. bizim [genel bakış] sayfası.

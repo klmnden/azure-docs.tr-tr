@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733909"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM’lerinde SQL Server veritabanlarını yedekleme
 
@@ -40,12 +40,12 @@ SQL Server veritabanınızı yedekleyin önce aşağıdaki koşulları denetleyi
 
 ### <a name="establish-network-connectivity"></a>Ağ bağlantısı kurma
 
-Tüm işlemler için SQL Server sanal makinesi sanal makine Azure genel IP adreslerine bağlantısı gerekir. VM işlemleri (veritabanı bulma, yedeklemeleri yapılandırma, yedeklemeler zamanlamak, geri yükleme kurtarma noktaları vb.) genel IP adreslerine bağlantısı olmadan başarısız. Bu seçeneklerden biri ile bağlantı kurar:
+Tüm işlemler için SQL Server sanal makinesi sanal makine Azure genel IP adreslerine bağlantısı gerekir. Genel IP adreslerine bağlantısı olmadan (veritabanı keşfi, yedeklemeleri yapılandırma, yedeklemeler zamanlamak, Kurtarma noktalarını geri ve benzeri) VM işlem başarısız. Bu seçeneklerden biri ile bağlantı kurar:
 
 - **Azure veri merkezi IP aralıklarına izin verin**: İzin [IP aralıklarını](https://www.microsoft.com/download/details.aspx?id=41653) indirmesindeki. Ağ güvenlik grubu (NSG) erişmek için **kümesi AzureNetworkSecurityRule** cmdlet'i.
 - **Trafiği yönlendirmek için bir HTTP Ara sunucusunu dağıtmak**: Bir Azure sanal makinesinde bir SQL Server veritabanını yedeklediğinizde, VM'deki yedekleme uzantısına Azure Backup ve Azure Depolama'ya veri yönetimi komutları göndermek için HTTPS API'lerini kullanır. Backup uzantısı, Azure Active Directory (Azure AD) kimlik doğrulaması için de kullanır. HTTP proxy üzerinden bu üç hizmeti yedekleme uzantısını trafiği yönlendirme. Uzantı genel internet erişimi için yapılandırılan tek bir bileşenidir.
 
-Her seçenek avantajları ve dezavantajları vardır
+Her bir seçeneğin avantajları ve dezavantajları vardır.
 
 **Seçenek** | **Avantajları** | **Dezavantajları**
 --- | --- | ---
@@ -60,11 +60,11 @@ Azure yedekleme, SQL Server veritabanı için yedeklemeyi yapılandırdığını
 - Sanal makine üzerindeki veritabanlarını bulmak için Azure Backup, hesabı oluşturan **NT SERVICE\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin izinleri gerektirir.
 - Azure Backup yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece veritabanı bulma/sorgulama için hesap.
 
-SQL Server VM Azure Market'te oluşturmadıysanız, bir hata alabilirsiniz **UserErrorSQLNoSysadminMembership**. Bu meydana gelirse [bu yönergeleri izleyin](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+SQL Server VM Azure Market'te oluşturmadıysanız, bir hata alabilirsiniz **UserErrorSQLNoSysadminMembership**. Bu meydana gelirse [bu yönergeleri izleyerek](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Azure Backup için veritabanı adlandırma yönergeleri doğrulayın
 
-Veritabanı adları için aşağıdakileri kaçının:
+Önlemek aşağıda veritabanı adları için:
 
   * Baştaki/sondaki boşluk
   * Sondaki '!'
@@ -106,7 +106,7 @@ Sanal makinede çalışan veritabanları keşfedin.
 
     ![Dağıtım başarılı iletisi](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure yedekleme, VM üzerindeki tüm SQL Server veritabanlarını bulur. Bulma işlemi sırasında arka planda aşağıdakiler gerçekleşir:
+8. Azure yedekleme, VM üzerindeki tüm SQL Server veritabanlarını bulur. Bulma sırasında aşağıda arka planda gerçekleşir:
 
     - Azure yedekleme, iş yükü yedekleme kasası ile VM kaydedin. Tüm kayıtlı VM veritabanlarında, bu kasaya yalnızca yedeklenebilir.
     - Azure Backup'ı yükler **AzureBackupWindowsWorkload** VM uzantısı. SQL veritabanı'nda yüklü aracı yok.
@@ -171,7 +171,7 @@ Bir yedekleme İlkesi yedeklemeleri ne zaman alınır ve ne kadar süreyle tutul
 Bir yedekleme ilkesi oluşturmak için:
 
 1. Kasaya tıklayın **yedekleme ilkeleri** > **Ekle**.
-2. İçinde **Ekle** menüsünü tıklatın **Azure VM'de SQL Server**. Bu ilke türü tanımlar.
+2. İçinde **Ekle** menüsünü tıklatın **Azure VM'de SQL Server**. İlke türü tanımlar.
 
    ![Yeni bir yedekleme ilkesi için bir ilke türü seçin](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Bir yedekleme ilkesi oluşturmak için:
 4. İçinde **tam yedekleme İlkesi**seçin bir **yedekleme sıklığı**, seçin **günlük** veya **haftalık**.
 
    - İçin **günlük**yedekleme işi başladığında saat dilimini ve saat seçin.
-   - Tam yedekleme çalıştırmanız gerekir, devre dışı bırakamazlar **tam yedekleme** seçeneği.
+   - Devre dışı bırakamazlar gibi bir tam yedekleme çalıştırmanız gerekir **tam yedekleme** seçeneği.
    - Tıklayın **tam yedekleme** ilkesini görüntülemek için.
    - Günlük tam yedekleme için fark yedeklemelerinin oluşturulamıyor.
    - İçin **haftalık**, yedekleme işi başladığında günü, haftanın günü, saat ve saat dilimi seçin.
@@ -238,7 +238,7 @@ Otomatik olarak mevcut tüm veritabanlarını ve gelecekte bir tek başına SQL 
 
 - Tek bir seferde otomatik koruma için seçebileceğiniz veritabanı sayısı sınırlı değildir.
 - Seçmeli olarak içerik koruyamıyor veya veritabanlarını korumadan örneği otomatik korumasını etkinleştirme zaman hariç.
-- Örneğiniz korumalı bazı veritabanları içeriyorsa, otomatik koruma üzerinde açana altında ilgili ilkelerini korunması olmaya devam eder. Ancak, korumalı olmayan tüm veritabanlarını ve gelecekte eklenin veritabanları olacaktır altında otomatik korumayı etkinleştirme sırasında tanımladığınız yalnızca tek bir ilke **yedeklemeyi Yapılandır**. Ancak, daha sonra otomatik korumalı bir veritabanıyla ilişkili ilkeyi değiştirebilirsiniz.  
+- Örneğiniz korumalı bazı veritabanları içeriyorsa, otomatik koruma üzerinde açana altında ilgili ilkelerini korunması olmaya devam eder. Ancak, tüm korumasız veritabanlarını ve gelecekte eklenin veritabanları olacaktır altında otomatik korumayı etkinleştirme sırasında tanımladığınız yalnızca tek bir ilke **yedeklemeyi Yapılandır**. Ancak, daha sonra otomatik korumalı bir veritabanıyla ilişkili ilkeyi değiştirebilirsiniz.  
 
 Otomatik korumayı etkinleştirmek için adımlar aşağıdaki gibidir:
 

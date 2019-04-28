@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123476"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management örneği otomatik olarak ölçeklendirme  
 
@@ -79,7 +80,7 @@ Bir Azure API Management hizmeti için otomatik ölçeklendirmeyi yapılandırma
     | Ölçüm adı           | Kapasite          | Kapasite ölçüm, bir Azure API Management örneğinin kaynak kullanımı yansıtan bir Azure API Management unsurdur.                                                                                                                                                            |
     | Zaman dilimi istatistiği  | Ortalama           |                                                                                                                                                                                                                                                                                 |
     | İşleç              | Büyüktür      |                                                                                                                                                                                                                                                                                 |
-    | Eşik             | % 80               | Ortalama kapasite ölçüm için eşik değer.                                                                                                                                                                                                                                 |
+    | Eşik             | %80               | Ortalama kapasite ölçüm için eşik değer.                                                                                                                                                                                                                                 |
     | Süre (dakika) | 30                | Kapasite ölçüm üzerinden ortalaması alınacak timespan kullanım desenlerini özeldir. Uzun zamandır, daha yumuşak tepki olacaktır - aralıklı olarak ortaya çıkan ani genişleme karar üzerinde daha az etkisi olmayacaktır. Bununla birlikte, Ölçek genişletme tetikleyici de geciktirir. |
     | *Eylem*              |                   |                                                                                                                                                                                                                                                                                 |
     | İşlem             | Sayıyı şu kadar artır: |                                                                                                                                                                                                                                                                                 |
@@ -106,7 +107,7 @@ Bir Azure API Management hizmeti için otomatik ölçeklendirmeyi yapılandırma
     | Ölçüm adı           | Kapasite          | Ölçek genişletme kuralı için kullanılan aynı ölçümü.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Zaman dilimi istatistiği  | Ortalama           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | İşleç              | Şu değerden az:         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Eşik             | % 35               | Benzer şekilde ölçek genişletme kuralı, bu değer Azure API Management kullanım modellerini yoğun bir şekilde bağlıdır. |
+    | Eşik             | 35%               | Benzer şekilde ölçek genişletme kuralı, bu değer Azure API Management kullanım modellerini yoğun bir şekilde bağlıdır. |
     | Süre (dakika) | 30                | Ölçek genişletme kuralı için kullanılanla aynı değeri.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Eylem*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | İşlem             | Sayıyı şu kadar azalt: | Ne ters yönde, Ölçek genişletme kuralı için kullanıldı.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -128,4 +129,4 @@ Bir Azure API Management hizmeti için otomatik ölçeklendirmeyi yapılandırma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ [Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma](api-management-howto-deploy-multi-region.md)
++ [Bir Azure API Management hizmeti örneğini birden fazla Azure bölgesine dağıtma](api-management-howto-deploy-multi-region.md)

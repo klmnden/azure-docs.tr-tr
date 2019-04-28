@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: c3b30085e1036e49706d73fd68b80221e5177d03
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4a360968285b91b00c8ca1999f81c11951e74482
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479856"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning tümleştirme Stream analytics'te
 Stream Analytics, Azure Machine Learning Uç noktalara çağıran kullanıcı tanımlı işlevleri destekler. Bu özelliği için REST API desteği ayrıntılı olarak [Stream Analytics REST API Kitaplığı](https://msdn.microsoft.com/library/azure/dn835031.aspx). Bu makalede, Stream Analytics bu özelliği başarılı uygulaması için gerekli ek bilgileri sağlar. Bir öğretici de forumumuza gönderildi ve kullanılabilir [burada](stream-analytics-machine-learning-integration-tutorial.md).

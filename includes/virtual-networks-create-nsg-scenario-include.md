@@ -2,18 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 873549442284ede2e9f020bd90879f721b9c1a18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38760377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309972"
 ---
 ## <a name="scenario"></a>Senaryo
 Nsg'ler oluşturma daha iyi anlamak için bu belge aşağıdaki senaryoyu kullanır:
@@ -30,4 +31,3 @@ Bu senaryoda, her alt ağ için bir NSG oluşturmak **TestVNet** gösterildiği 
   * **Web kuralı**. Tüm İnternet'e bağlı trafiği engeller *arka uç* alt ağ.
 
 Bu kurallar birleşimi oluşturma bir DMZ gibi senaryosu, burada arka uç alt ağı yalnızca SQL için ön uç alt ağından gelen trafiği alabilir ve ön uç alt ağına Internet ile iletişim kurmak ve almak, İnternet'e erişim yok yalnızca gelen HTTP istekleri için.
-

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
 ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125823"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus kuyrukları, konu başlıkları ve abonelikleri
 
@@ -55,7 +55,7 @@ Kuyruklar, her ileti tek bir tüketici tarafından işlenir aksine *konuları* v
 
 Karşılaştırma, yoluyla doğrudan bir konuya bir kuyruğa ileti gönderme işlevlerini eşler ve bir abonelik için ileti alma işlevselliğini eşler. Abonelikleri kuyruklar ile ilgili bu bölümde daha önce açıklanan aynı desenleri desteklemesini yanı sıra, bu özellik anlamına gelir: Yarışan tüketici, zamana bağlı ayırma, Yük Dengeleme ve Yük Dengeleme.
 
-### <a name="create-topics-and-subscriptions"></a>Konuları ve abonelikleri oluşturma
+### <a name="create-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri oluşturma
 
 Bir konu oluşturmak önceki bölümde açıklandığı gibi bir kuyruk oluşturma işlemiyle benzerdir. Ardından kullanarak ileti gönderme [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) sınıfı. İleti almak için konuya bir veya daha fazla abonelik oluşturun. Benzer şekilde, kuyruklar, ileti kullanarak bir abonelik alındığında bir [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) yerine Nesne bir [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) nesne. Konu adı, abonelik ve (isteğe bağlı) alma modu adını parametre olarak geçirmeyi abonelik istemcisi oluşturmak.
 

@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889871"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Azure IOT açık Platform iletişim (OPC) cihaz yönetimi nedir?
 
@@ -28,7 +28,7 @@ OPC İkizi OPC UA sunucuları bulundu ve kayıtlı Fabrika ağ taramak Fabrika i
 ### <a name="simple-control"></a>Basit Denetim
 OPC İkizi olaylarına tepki verme ve Fabrika katı makinelerinde buluttan otomatik olarak veya el ile yeniden çalışma sırasında Fabrika işleçleri sağlar. OPC İkizi OPC UA server hizmetlerini çağırmak için değişkenleri okuma/yazma yöntemleri ve yürütme için adres alanı de göz atın, REST API'ler sağlar. Örneğin, bir ortak, üretim hattı denetlemek için sıcaklık KPI'yı kullanır. Sıcaklık algılayıcısı değişiklik OPC Publisher'ı kullanarak verileri yayımlar. Fabrika işleci sıcaklık eşiğine ulaştığında bir uyarı alır. Üretim hattı otomatik olarak OPC İkizi soğutma imkanı sunar. Fabrika işleci, aşağı seyrek erişimli bildirilir.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 Basit kimlik doğrulaması ve basit bir geliştirici deneyimi için OPC İkizi'ni kullanabilirsiniz.
 
 ### <a name="simple-authentication"></a>Basit kimlik doğrulaması 

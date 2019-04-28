@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859082"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps ve Mobile Services istemci ve sunucu sürümü oluşturma
 Azure Mobile Services'ın en son sürüm **Mobile Apps** Azure App Service özelliğidir.
@@ -70,7 +70,7 @@ Aşağıdaki tabloda istemci SDK'ları ile uyumludur **mobil Hizmetler**.
 Not: Mobil hizmetler istemci SDK'ları *olmayan* bir üstbilgi değerini göndermek `ZUMO-API-VERSION`. Hizmet bu üst bilgi veya sorgu dizesi değerini alırsa açıkça yukarıda açıklanan şekilde dışarı bayraklarımızın sürece bir hata döndürülür.
 
 ### <a name="MobileServicesClients"></a> Mobil *Hizmetleri* istemci SDK'ları
-| İstemci Platformu | Sürüm | Sürüm üst bilgisi değeri |
+| İstemci Platformu | Version | Sürüm üst bilgisi değeri |
 | --- | --- | --- |
 | Yönetilen istemci (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |yok |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |yok |
@@ -78,7 +78,7 @@ Not: Mobil hizmetler istemci SDK'ları *olmayan* bir üstbilgi değerini gönder
 | HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |yok |
 
 ### <a name="mobile-services-server-sdks"></a>Mobil *Hizmetleri* sunucu SDK'ları
-| Sunucu platformu | Sürüm | Kabul edilen sürüm üst bilgisi |
+| Sunucu platformu | Version | Kabul edilen sürüm üst bilgisi |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* sürüm 1.0.x kullanılır](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Sürüm üst bilgisi yok** |
 | Node.js |(çok yakında) |**Sürüm üst bilgisi yok** |
@@ -96,7 +96,7 @@ Not: Mobil hizmetler istemci SDK'ları *olmayan* bir üstbilgi değerini gönder
 ### <a name="MobileAppsClients"></a> Mobil *uygulamaları* istemci SDK'ları
 Sürüm denetimi tanıtılmıştır istemci SDK'sı aşağıdaki sürümleri ile başlatma için **Azure Mobile Apps**:
 
-| İstemci Platformu | Sürüm | Sürüm üst bilgisi değeri |
+| İstemci Platformu | Version | Sürüm üst bilgisi değeri |
 | --- | --- | --- |
 | Yönetilen istemci (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

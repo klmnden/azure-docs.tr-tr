@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732381"
 ---
 # <a name="advanced-resource-graph-queries"></a>Gelişmiş Kaynak Grafiği sorguları
 
@@ -22,7 +22,7 @@ Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../conc
 Aşağıdaki gelişmiş sorguları inceleyeceğiz:
 
 > [!div class="checklist"]
-> - [VMSS kapasite ve boyutunu alma](#vmss-capacity)
+> - [Sanal makine ölçek kümesi kapasitesini ve boyutunu alma](#vmss-capacity)
 > - [Tüm etiket adlarını listeleme](#list-all-tags)
 > - [Normal ifade tarafından eşleştirilen sanal makineler](#vm-regex)
 
@@ -38,7 +38,7 @@ Azure CLI (bir uzantı yoluyla) ve Azure PowerShell (bir modül yoluyla), Azure 
 
 Bu sorgu, sanal makine ölçek kümesi kaynaklarını arar ve sanal makine boyutu ve ölçek kümesinin kapasitesini içeren çeşitli ayrıntıları alır. Sorgu, sıralanabilmesi için ve kapasiteyi bir sayıya dönüştürmek amacıyla `toint()` işlevini kullanır. Son olarak sütunlar, özel olarak adlandırılmış özellikler kullanılarak yeniden adlandırılır.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 Bu sorgu etiketle başlar ve tüm benzersiz etiket adlarını ve bunlara karşılık gelen türleri listeleyen bir JSON nesnesi oluşturur.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ Bu sorgu, [normal ifadeyle](/dotnet/standard/base-types/regular-expression-langu
 
 Ada göre eşleşmeden sonra sorgu, adı ve siparişleri ada göre artan şekilde yansıtır.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

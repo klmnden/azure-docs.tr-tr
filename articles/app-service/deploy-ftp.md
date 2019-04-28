@@ -16,11 +16,11 @@ ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
 ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130118"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -89,7 +89,7 @@ FTP kullanarak dağıtım için [Azure PowerShell](/cli/azure), bkz: [FTP (Power
 ## <a name="troubleshoot-ftp-deployment"></a>FTP dağıtım sorunlarını giderme
 
 - [FTP dağıtım'ilgili sorunları nasıl giderebilirim?](#how-can-i-troubleshoot-ftp-deployment)
-- [FTP mümkün değil ve kodum yayımlama bildirimi. Sorunu çözmek ne?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [FTP kullanamıyorum ve kodumu yayımlayamıyorum. Sorunu çözmek ne?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Nasıl Azure App Service'te FTP'yi Pasif modu bağlanabilirim?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>FTP dağıtım'ilgili sorunları nasıl giderebilirim?
@@ -115,6 +115,6 @@ Azure App Service, hem etkin ve Pasif modu bağlanmayı destekler. (İşletim si
 
 Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma](deploy-local-git.md). Git tabanlı azure'a dağıtım, sürüm denetimi, paket geri yükleme, MSBuild ve daha fazlasını sağlar.
 
-## <a name="more-resources"></a>Daha fazla kaynak
+## <a name="more-resources"></a>Diğer kaynaklar
 
 * [Azure App Service'e dağıtım kimlik bilgileri](deploy-configure-credentials.md)

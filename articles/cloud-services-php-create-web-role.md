@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337570"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP web ve çalışan rolleri oluşturma
 
@@ -26,13 +26,13 @@ ms.locfileid: "52425685"
 
 Bu kılavuz, Windows geliştirme ortamında PHP web veya çalışan rolleri oluşturma, belirli bir PHP sürümünü kullanılabilir "yerleşik" sürümlerinden birini seçin, PHP yapılandırmasını değiştirmek, uzantılarını etkinleştirme ve son olarak, Azure'a dağıtma gösterilmektedir. Ayrıca, sağlayan bir PHP çalışma zamanı (ile özel yapılandırma ve uzantıları) kullanmak için bir web veya çalışan rolünün nasıl yapılandırılacağı açıklanır.
 
-Azure, üç hesaplama modeli uygulamaları çalıştırmaya yönelik sağlar: Azure App Service, Azure sanal makineler ve Azure bulut Hizmetleri. PHP üç modeli destekler. Web ve çalışan rollerini içeren bulut hizmetleri sunan *(PaaS) hizmet olarak platform*. Bir bulut hizmetinde ön uç web uygulamalarını barındırmak için adanmış bir Internet Information Services (IIS) web sunucusu bir web rolü sağlar. Bir çalışan rolü, kullanıcı etkileşimi veya girişi bağımsız zaman uyumsuz, uzun süreli veya kalıcı görevleri çalıştırabilir.
+Azure, uygulamaları çalıştırmak için üç bilgi işlem modeli sağlar: Azure App Service, Azure sanal makineleri ve Azure bulut Hizmetleri. PHP üç modeli destekler. Web ve çalışan rollerini içeren bulut hizmetleri sunan *(PaaS) hizmet olarak platform*. Bir bulut hizmetinde ön uç web uygulamalarını barındırmak için adanmış bir Internet Information Services (IIS) web sunucusu bir web rolü sağlar. Bir çalışan rolü, kullanıcı etkileşimi veya girişi bağımsız zaman uyumsuz, uzun süreli veya kalıcı görevleri çalıştırabilir.
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [işlem barındırma seçenekleri Azure tarafından sağlanan](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>PHP için Azure SDK'sını indirme
 
-[PHP için Azure SDK'sı](php-download-sdk.md) birkaç bileşenden oluşur. Bu makalede, iki tanesi kullanır: Azure PowerShell ve Azure öykünücüleri. Bu iki bileşen Microsoft Web Platformu yükleyicisi aracılığıyla yüklenebilir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+[PHP için Azure SDK'sı](php-download-sdk.md) birkaç bileşenden oluşur. Bu makalede, iki tanesi kullanın: Azure PowerShell ve Azure öykünücüleri. Bu iki bileşen Microsoft Web Platformu yükleyicisi aracılığıyla yüklenebilir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Cloud Services projesi oluşturma
 

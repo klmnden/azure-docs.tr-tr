@@ -2,7 +2,6 @@
 title: Apache Sqoop Apache Hadoop - Azure HDInsight ile
 description: HDInsight üzerinde Apache Hadoop ve Azure SQL veritabanı arasında alma ve verme için Apache Sqoop'u kullanma konusunda bilgi edinin.
 keywords: hadoop sqoop, sqoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 75a77843bd7634e8a3fe7a6b46177efe54878682
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 6dcb6853daf34fede590011d165c0ba9001cbac6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128983"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>HDInsight üzerinde Apache Hadoop ile SQL veritabanı arasında verileri dışarı aktarma ve içeri aktarmak için Apache Sqoop'u kullanma
 

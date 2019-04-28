@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469137"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Azure Active Directory'de yönetici rolleri uygulama temsilcisi
 
@@ -58,7 +58,7 @@ Bir kullanıcı bir uygulama kaydettiğinde, uygulamanın ilk sahibi olarak otom
 
 ## <a name="delegate-app-ownership"></a>Uygulama sahipliğini devretme
 
-Uygulama sahipleri ve uygulama kayıt sahipleri her yalnızca uygulama uygulamalar veya sahip oldukları uygulama kayıtları olarak yönetebilirsiniz. Örneğin, Salesforce uygulama için bir sahibe eklediğinizde, o sahibi erişim ve Salesforce, ancak hiçbir diğer uygulamalar için yapılandırma yönetebilir. Bir uygulamanın fazla sahip olabilir ve bir kullanıcı çok sayıda uygulama sahibi olabilir.
+Uygulama sahipleri ve uygulama kayıt sahipleri her yalnızca uygulamaları veya sahip oldukları uygulama kayıtları olarak yönetebilirsiniz. Örneğin, Salesforce uygulama için bir sahibe eklediğinizde, o sahibi erişim ve Salesforce, ancak hiçbir diğer uygulamalar için yapılandırma yönetebilir. Bir uygulamanın fazla sahip olabilir ve bir kullanıcı çok sayıda uygulama sahibi olabilir.
 
 Uygulama sahibi yapabilirsiniz:
 

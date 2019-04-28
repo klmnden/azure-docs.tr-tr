@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127421"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara, Laboratuvar veya VM silme
 Bu makalede bir laboratuvar veya VM bir laboratuar ortamında nasıl silineceği gösterilmektedir.

@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: 514f2fe7e8c2b94e175bc6f6fb0cec8ea3d0c9c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125891"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure veritabanı yapılandırmalarını listeleme ve güncelleştirme
 Bu örnek CLI betiği, tüm kullanılabilir yapılandırma parametrelerini ve bunun yanı sıra izin verilen değerleriyle MariaDB sunucusu için Azure veritabanı listelenir ve ayarlar *innodb_lock_wait_timeout* varsayılandan olan bir değer.

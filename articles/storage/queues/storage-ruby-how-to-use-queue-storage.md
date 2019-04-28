@@ -11,11 +11,11 @@ ms.date: 12/08/2016
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112013"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

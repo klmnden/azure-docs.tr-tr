@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128897"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Oluşturma bir App Service ortamı v1 
 
@@ -34,7 +34,7 @@ App Service ortamı (ASE), çok kiracılı Damgalar içinde kullanılabilir olma
 ### <a name="before-you-create-your-ase"></a>ASE'NİZİN oluşturmadan önce
 Değiştiremezsiniz koca farkında olmak önemlidir. Oluşturulduktan sonra ASE'nizi hakkında değiştiremezsiniz. Bu yönleri şunlardır:
 
-* Konum
+* Location
 * Abonelik
 * Kaynak Grubu
 * Kullanılan sanal ağ

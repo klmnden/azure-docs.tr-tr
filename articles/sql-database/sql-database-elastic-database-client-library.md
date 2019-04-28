@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475873"
 ---
 # <a name="building-scalable-cloud-databases"></a>Ölçeklenebilir bulut veritabanları oluşturma
 
@@ -28,7 +28,7 @@ Veritabanlarını ölçeklendirme, kolayca Azure SQL veritabanı için ölçekle
 * Java sürümü kitaplığının görmek [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 * .NET sürümü kitaplığının görmek [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-## <a name="documentation"></a>Belge
+## <a name="documentation"></a>Belgeler
 
 1. [Esnek Veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md)
 2. [Elastik veritabanı özellikleri](sql-database-elastic-scale-introduction.md)

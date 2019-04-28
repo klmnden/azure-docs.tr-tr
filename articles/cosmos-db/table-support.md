@@ -4,17 +4,19 @@ description: Azure Cosmos DB Tablo API'si ile Azure Depolama Tabloları'nın bir
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
-author: wmengmsft
-ms.author: wmeng
+origin.date: 11/15/2017
+ms.date: 04/15/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130339"
 ---
+<!--Verify sucessfully-->
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması ile geliştirme
 
 Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması aynı tablo veri modelini paylaşır ve SDK'ları aracılığıyla aynı oluşturma, silme, güncelleştirme ve sorgulama işlemlerini gösterir. 
@@ -33,7 +35,6 @@ Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması aynı tablo veri modelin
 
 * [Node.js SDK'sı](table-sdk-nodejs.md): Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
 
-
 Tablo API'si ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API'si ile geliştirme](faq.md#table) makalesi.
 
 ## <a name="developing-with-azure-table-storage"></a>Azure Tablo depolamasıyla geliştirme
@@ -49,10 +50,5 @@ Azure Tablo depolamasının geliştirme için kullanılabilen SDK'ları vardır:
 - [Ruby için Azure Depolama Tablosu İstemci Kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table). Bu proje, Azure depolaması Tablo hizmetlerine erişmeyi kolaylaştıran bir Ruby paketi sağlar.
 - [Azure Depolama Tablosu PHP İstemci Kitaplığı](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Bu proje, Azure depolaması Tablo hizmetlerine erişmeyi kolaylaştıran bir PHP istemci kitaplığı sağlar.
 
-
-   
-
-
-
-
-
+<!--Update_Description: new articles on table support -->
+<!--ms.date: 03/18/2019-->

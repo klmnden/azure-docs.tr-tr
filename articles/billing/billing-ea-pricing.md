@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127642"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Görüntüleyin ve indirin, kuruluşunuzun Azure fiyatlandırması
 
@@ -51,7 +51,7 @@ Fatura Profil sahibi, katkıda bulunan, okuyucu veya fatura Yöneticisi görünt
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Geçerli fatura dönemi için fiyat listeleri indirin
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
 1. İçinde **genel bakış** dikey penceresinde, indirme bağlantıları ay başından bu yana ücretleri altında bulabilirsiniz.
 1. Seçin **Azure fiyat**.
@@ -60,9 +60,9 @@ Fatura Profil sahibi, katkıda bulunan, okuyucu veya fatura Yöneticisi görünt
 ### <a name="download-price-sheets-for-billed-charges"></a>Fiyat listeleri faturalandırılan ücretler indirin
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Arama **maliyet Yönetimi + faturalandırma**.
+1. **Maliyet Yönetimi + Faturalama** araması yapın.
 1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
-1. Seçin **faturalar**.
+1. **Faturalar**'ı seçin.
 1. Fatura kılavuzunda fatura indirmek istediğiniz fiyat listesine karşılık gelen satırı bulur.
 1. Üç noktaya tıklayın (`...`) satırın sonunda.
 ![Seçili nokta gösteren ekran görüntüsü](./media/billing-ea-pricing/billingprofile-invoicegrid.png)

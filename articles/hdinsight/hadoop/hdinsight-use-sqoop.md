@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129408"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Apache Sqoop'u kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -80,7 +80,7 @@ Küme, SQL veritabanı ve diğer nesneleri, bir Azure Resource Manager şablonu 
     |---|---|
     |Abonelik |Aşağı açılan listeden Azure aboneliğinizi seçin.|
     |Kaynak grubu |Aşağı açılan listeden kaynak grubunuzu seçin veya yeni bir tane oluşturun|
-    |Konum |Aşağı açılan listeden bir bölge seçin.|
+    |Location |Aşağı açılan listeden bir bölge seçin.|
     |Küme Adı |Hadoop kümesi için bir ad girin. Yalnızca küçük harf kullanın.|
     |Küme Oturum Açma Kullanıcı Adı |Önceden doldurulmuş değeri tutun `admin`.|
     |Küme Oturum Açma Parolası |Parola girin.|
@@ -91,7 +91,7 @@ Küme, SQL veritabanı ve diğer nesneleri, bir Azure Resource Manager şablonu 
     |_artifacts konumu | Farklı bir konumda kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.|
     |_artifacts konumu Sas belirteci |Boş bırakın.|
     |Bacpac dosyası adı |Kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.|
-    |Konum |Varsayılan değeri kullanın.|
+    |Location |Varsayılan değeri kullanın.|
 
     Azure SQL sunucusu adı olacaktır `<ClusterName>dbserver`. Veritabanı adı `<ClusterName>db`. Varsayılan depolama hesabı adı olacaktır `e6qhezrh2pdqu`.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931726"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js'den SendGrid kullanarak e-posta gönderme
 
@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 SendGrid modülü aktarır **SendGrid** ve **e-posta** işlevleri.
 **SendGrid** Web API'si aracılığıyla e-posta göndermekten sorumludur sırada **e-posta** bir e-posta iletisi kapsüller.
 
-## <a name="how-to-create-an-email"></a>Nasıl yapılır: bir e-posta oluşturma
+## <a name="how-to-create-an-email"></a>Nasıl yapılır: E-posta oluşturma
 
 Modül SendGrid kullanarak e-posta iletisi oluşturmak, ilk e-posta işlevi kullanılarak ve SendGrid işlevi kullanarak göndermek için bir e-posta iletisi oluşturmayı içerir. E-posta işlevi kullanarak yeni bir ileti oluşturma örneği verilmiştir:
 
@@ -82,7 +82,7 @@ Metin içeriği için normal bir geri dönüş metin ve html özellikleri ayarla
 
 E-posta işlevi tarafından desteklenen tüm özellikleri hakkında daha fazla bilgi için bkz. [sendgrid nodejs][sendgrid-nodejs].
 
-## <a name="how-to-send-an-email"></a>Nasıl yapılır: bir e-posta Gönder
+## <a name="how-to-send-an-email"></a>Nasıl yapılır: E-posta Gönder
 
 E-posta işlevi kullanarak bir e-posta iletisi oluşturduktan sonra SendGrid tarafından sağlanan Web API'sini kullanarak gönderebilirsiniz. 
 
@@ -108,7 +108,7 @@ sendgrid.send(email, function(err, json){
 > ```
 >
 
-## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: bir ek ekleyin
+## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: Bir ek ekleyin
 Ekleri eklenebilir bir ileti yollarda ve dosya adları belirterek **dosyaları** özelliği. Aşağıdaki örnek, bir ek gönderme gösterir:
 
 ```javascript
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Nasıl yapılır: Enable altbilgiler ve izleme için filtreleri kullanın
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Nasıl yapılır: Etkinleştirme altbilgiler ve izleme için filtreleri kullanın
 
 SendGrid filtreleri kullanarak ek e-posta işlevselliğini sağlar. Bu izleme'ye tıklayın, Google analytics, izleme aboneliği ve benzeri etkinleştirme gibi belirli işlevleri etkinleştirmek için bir e-posta iletisi eklenebilir ayarlarıdır. Filtreler tam bir listesi için bkz. [Filtresi Ayarları][Filter Settings].
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>Nasıl yapılır: e-posta özelliklerini güncelleştir
+## <a name="how-to-update-email-properties"></a>Nasıl yapılır: E-posta özelliklerini güncelleştir
 
 Bazı e-posta özellikleri kullanılarak geçersiz kılınabilir **setProperty** veya kullanılarak eklenen **addProperty**. Örneğin, kullanarak ek alıcılar ekleyebilir miyim
 
@@ -203,7 +203,7 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 Daha fazla bilgi için [sendgrid nodejs][sendgrid-nodejs].
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Nasıl yapılır: ek SendGrid hizmetlerini kullanma
+## <a name="how-to-use-additional-sendgrid-services"></a>Nasıl yapılır: Ek SendGrid hizmetlerini kullanma
 
 SendGrid, Azure uygulamanızı ek SendGrid işlevinden yararlanmak için kullanabileceğiniz web tabanlı API'ler sunar. Tüm Ayrıntılar için bkz. [SendGrid API belgeleri][SendGrid API documentation].
 

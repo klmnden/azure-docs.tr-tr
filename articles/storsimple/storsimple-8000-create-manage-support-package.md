@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481878"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Oluşturmak ve yönetmek için StorSimple 8000 serisi bir destek paketi
 
@@ -121,7 +121,7 @@ Destek Paketi oluşturduktan sonra önemli bilgileri kaldırmak için paketi dü
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Yeni parolayı not yazın, böylece Microsoft istendiğinde Support paylaşabilirsiniz.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Örnek: Destek paketi dosyası parola korumalı bir paylaşılan düzenleme
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Örnek: Destek Paketi parola korumalı bir paylaşımı üzerindeki dosyaları düzenleme
 
 Aşağıdaki örnek, şifresini çözmek için düzenlemek ve bir destek paketi yeniden şifrele gösterilmektedir.
 

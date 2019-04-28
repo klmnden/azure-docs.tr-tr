@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121169"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource ve Azure Market karşılaştırma
 İçinde vitrinler [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Microsoft AppSource](https://appsource.microsoft.com) benzersiz müşteri gereksinimleri hizmet. Hedef müşterilere vitrinler, rol için kullanın. Hizmet, müşteriye göre ve doğru çözümü sunabilir.
@@ -35,7 +35,7 @@ Aşağıdaki tabloda bir mağaza kullanmanın avantajları açıklanmaktadır:
 
 | Avantajlar | AppSource | Azure Market |
 |:--- |:--- | :--- |
-| **Faturalandırma esneklik** | Bir deneme sürümü deneyimi sağlar. Şu anda, ticari etkin yayımlama seçeneği sunulmaz. Hiçbir ek yatırım ya da değişiklikler geçerli sıralama ve fatura altyapısı kullanabilirsiniz. | Sanal makineler için Microsoft Kurumsal sözleşmeler (EA'lar) veya web doğrudan satış modelleri Kullandıkça Öde faturalandırma seçenekleri kullanın. Fiyatlandırma seçenekleri, bir teklif sürekli olarak ücretsiz olan ve ücretsiz katman abonelik içerir. Fiyatlandırma seçenekleri de şimdi deneyin abonelik içerir. Şimdi deneyin abonelik sınırlı bir süre için Tanıtım amaçlı ücretsiz olarak kullanılabilir. VM, dönem sona erdiğinde, ücretli bir aboneliğe dönüştürülür. Kendi lisansını (etkinleştirme diğer müşterileri için kullanabileceğiniz bir seçenek ise KLG) getirin.<br /><br/>Faturalandırma seçenekleri ve aşağıdaki VM teklifleri için sağlanan tüm Azure kaynaklarını doğrudan müşteriye faturalandırılır:<ul> <li>Azure uygulamaları: yönetilen uygulama</li> <li>Azure uygulamaları: Çözüm şablonu</li> </ul> |
+| **Faturalandırma esneklik** | Bir deneme sürümü deneyimi sağlar. Şu anda, ticari etkin yayımlama seçeneği sunulmaz. Hiçbir ek yatırım ya da değişiklikler geçerli sıralama ve fatura altyapısı kullanabilirsiniz. | Sanal makineler için Microsoft Kurumsal sözleşmeler (EA'lar) veya web doğrudan satış modelleri Kullandıkça Öde faturalandırma seçenekleri kullanın. Fiyatlandırma seçenekleri, bir teklif sürekli olarak ücretsiz olan ve ücretsiz katman abonelik içerir. Fiyatlandırma seçenekleri de şimdi deneyin abonelik içerir. Şimdi deneyin abonelik sınırlı bir süre için Tanıtım amaçlı ücretsiz olarak kullanılabilir. VM, dönem sona erdiğinde, ücretli bir aboneliğe dönüştürülür. Kendi lisansını (etkinleştirme diğer müşterileri için kullanabileceğiniz bir seçenek ise KLG) getirin.<br /><br/>Faturalandırma seçenekleri ve aşağıdaki VM teklifleri için sağlanan tüm Azure kaynaklarını doğrudan müşteriye faturalandırılır:<ul> <li>Azure uygulamaları için: Yönetilen uygulama</li> <li>Azure uygulamaları için: Çözüm şablonu</li> </ul> |
 | **Diğer iş ortaklarıyla bağlantı** | Bağlantılar bağımsız yazılım satıcıları, sistem tümleştiricileri ve belirli uygulama senaryoları için Yönetilen hizmet sağlayıcıları. İşbirliği içinde yeni müşterilere satabilirsiniz. | Şu anda, teklifinizin bir hizmet sağlayıcısı veya teslim iş ortakları bağlanamıyor. | 
 | **Otomasyon** | Bağlantılar bağımsız yazılım satıcıları, sistem tümleştiricileri ve belirli uygulama senaryoları için Yönetilen hizmet sağlayıcıları. İşbirliği içinde yeni müşterilere satabilirsiniz. | Şu anda, teklifinizin bir hizmet sağlayıcısı veya teslim iş ortakları bağlanamıyor. Otomatik yazılım eklenti sağlama ile hizmet (SaaS) olarak yararlanın. Azure uygulamaları kullanın: Çözüm şablonu seçeneği SaaS tabanlı veri koleksiyonu ve dağıtım senaryoları otomatik hale getirmek için yayımlama. |
 | **Birden çok bulut türleri** | Şu anda, Azure Stack, Azure kamu veya bölgesel bulut desteklememektedir. | Aşağıdaki türleri kullanarak hem bulutta hem de şirket içi çözümleri yayımlayın:<ul> <li>Azure Stack</li> <li>Azure Kamu</li> <li>Çin ve Almanya dahil olmak üzere bölgesel Bulutlar</li></ul> |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611241"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
@@ -75,7 +75,7 @@ PIM size yardımcı olur:
 
 -   Ayrıcalıklı bir role erişimi hakkında uyarı alın.
 
-## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+## <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 [Azure İzleyici günlüklerine](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir Microsoft bulut tabanlı BT yönetimi çözümüdür. Bulut tabanlı bir hizmet olarak Azure İzleyici günlüklerine gerçekleştirilir olduğundan, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Yeni güvenlik özellikleri otomatik olarak devam eden bakım tasarruf sağlarsınız ve yükseltme maliyetlerinden.
 

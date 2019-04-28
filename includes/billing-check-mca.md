@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370937"
 ---
 Bir Microsoft Müşteri sözleşmesi için bir faturalama hesabı erişimine sahip olup olmadığını belirlemek için sözleşme türünü kontrol edin.
 
 1. [Azure Portal]( http://portal.azure.com) oturum açın.
 
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-check-mca/billing-search-cost-management-billing.png)
 

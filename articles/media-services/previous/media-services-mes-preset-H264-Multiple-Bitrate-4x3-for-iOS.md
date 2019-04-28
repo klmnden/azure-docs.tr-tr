@@ -1,8 +1,8 @@
 ---
 title: H264 Çoklu bit hızı 4 x 3 iOS için | Microsoft Docs
 description: Konusuna genel bir fikir veren **H264 Çoklu bit hızı 4 x 3 iOS için** görev hazır.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+origin.date: 03/18/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: 45dbaea4e2c6f8cdbe3d33df5d3b82b9df519ff2
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463659"
 ---
-# <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 Çoklu bit hızı 4 x 3 iOS için
+# <a name="h264-multiple-bitrate-4x3-for-ios"></a>iOS için H264 Multiple Bitrate 4x3
 `Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   
  Bu konu başlığı altında gösterilir `H264 Multiple Bitrate 4x3 for iOS` XML ve JSON biçiminde hazır.  

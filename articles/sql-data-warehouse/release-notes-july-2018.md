@@ -11,11 +11,11 @@ ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
 ms.openlocfilehash: 123198b21122a23d81794db0a5ca2051b15ee2e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476128"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Temmuz 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temmuz 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.

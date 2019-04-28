@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122209"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Klasik dağıtım modelini kullanarak SSL yük boşaltımı için uygulama ağ geçidi yapılandırma
 
@@ -99,17 +99,17 @@ Bir uygulama ağ geçidi yapılandırması birden çok değerden oluşur. Değer
 
 Değerler şunlardır:
 
-* **Arka uç sunucu havuzu**: arka uç sunucularının IP adresleri listesi. Listede bulunan IP adresleri, sanal ağ alt ağına ait olmalıdır veya genel bir VIP ve IP adresi olmalıdır.
-* **Arka uç sunucu havuzu ayarları**: her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
+* **Arka uç sunucu havuzu**: Arka uç sunucularının IP adresleri listesi. Listede bulunan IP adresleri, sanal ağ alt ağına ait olmalıdır veya genel bir VIP ve IP adresi olmalıdır.
+* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
 * **Ön uç bağlantı noktası**: Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
-* **Dinleyici**: dinleyici sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https; bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (yapılandırma bir SSL yük boşaltımı yapılandırılıyorsa).
-* **Kural**: kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve ne zaman bir Dinleyicide denk gelir trafiği yönlendirmek için hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Şu anda yalnızca *temel* kural desteklenmektedir. *Temel* kural hepsini bir kez deneme yöntemiyle yük dağıtımıdır.
+* **Dinleyici**: Dinleyicinin sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https; bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (yapılandırma bir SSL yük boşaltımı yapılandırılıyorsa).
+* **Kural**: Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve ne zaman bir Dinleyicide denk gelir trafiği yönlendirmek için hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Şu anda yalnızca *temel* kural desteklenmektedir. *Temel* kural hepsini bir kez deneme yöntemiyle yük dağıtımıdır.
 
 **Ek yapılandırma notları**
 
 SSL sertifikaları yapılandırmada **HttpListener**’daki protokol **Https** (küçük/büyük harf duyarlı) ile değiştirilmelidir. Ekleme **SslCert** öğesine **HttpListener** kullanılan ile aynı ad ayarlanan değer ile [karşıya SSL sertifikaları](#upload-ssl-certificates) bölümü. Ön uç bağlantı noktasıyla güncelleştirilmelidir **443**.
 
-**Tanımlama bilgisi temelli benzeşimi etkinleştirmek için**: bir istemci oturumundan gelen bir isteğin web grubunda aynı VM'e her zaman yönlendirildiğinden emin olmak için bir uygulama ağ geçidi yapılandırabilirsiniz. Bunu gerçekleştirmek için ağ geçidinin trafiği uygun bir şekilde yönlendirmesini sağlayacak oturum tanımlama bilgisinin ekleyin. Tanımlama bilgisi temelli benzeşimi etkinleştirmek için, **CookieBasedAffinity**’yi **BackendHttpSetting** öğesindeki **Enabled**’a ayarlayın.
+**Tanımlama bilgisi temelli benzeşimi etkinleştirmek için**: Bir istemci oturumundan gelen bir isteğin web grubunda aynı VM'e her zaman yönlendirildiğinden emin olmak için bir uygulama ağ geçidi yapılandırabilirsiniz. Bunu gerçekleştirmek için ağ geçidinin trafiği uygun bir şekilde yönlendirmesini sağlayacak oturum tanımlama bilgisinin ekleyin. Tanımlama bilgisi temelli benzeşimi etkinleştirmek için, **CookieBasedAffinity**’yi **BackendHttpSetting** öğesindeki **Enabled**’a ayarlayın.
 
 Yapılandırma, bir yapılandırma nesnesi oluşturma veya yapılandırma XML dosyasını kullanarak oluşturabilirsiniz.
 Bir yapılandırma XML dosyasını kullanarak yapılandırmanızı oluşturmak için aşağıdaki örnek girin:
