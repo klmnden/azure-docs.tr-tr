@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61254827"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Aşağıdaki yönergeler, özel bir .NET etkinliği oluşturmayı ve bir işlem 
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)’yı indirip yükleyin
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch önkoşulları
-Kılavuzda, Azure Batch bir işlem kaynağı kullanarak, özel .NET etkinlikleri çalıştırın. **Azure Batch** (HPC) uygulamalarını bulutta verimli bir şekilde bir platform hizmetini çalıştırmak büyük ölçekli paralel ve yüksek performanslı bilgi işlem. Azure Batch, yönetilen üzerinde çalıştırılacak işlem yoğunluklu işi zamanlar **sanal makine koleksiyonunu**, ve ölçek işlerinizi ihtiyaçlarını karşılamak için kaynakları işlem otomatik olarak. Bkz: [Azure Batch temel bilgileri] [ batch-technical-overview] Azure Batch hizmetinin ayrıntılı bir genel bakış makalesi.
+Kılavuzda, Azure Batch bir işlem kaynağı kullanarak, özel .NET etkinlikleri çalıştırın. **Azure Batch**, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlayan bir platform hizmetidir. Azure Batch, yönetilen üzerinde çalıştırılacak işlem yoğunluklu işi zamanlar **sanal makine koleksiyonunu**, ve ölçek işlerinizi ihtiyaçlarını karşılamak için kaynakları işlem otomatik olarak. Bkz: [Azure Batch temel bilgileri] [ batch-technical-overview] Azure Batch hizmetinin ayrıntılı bir genel bakış makalesi.
 
 Öğreticide, VM'lerin bir havuzla Azure Batch hesabı oluşturun. Adımlar aşağıdaki gibidir:
 

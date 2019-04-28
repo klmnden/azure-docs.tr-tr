@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363760"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
 Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için giriş olarak destekler. SQL veritabanı, Stream Analytics işiniz için Visual Studio ve Azure portalında Stream Analytics araçları ile başvuru veri kullanabilirsiniz. Bu makalede, iki yöntem de bunu nasıl yapacağınızı gösterir.
 
-## <a name="azure-portal"></a>Azure portalı
+## <a name="azure-portal"></a>Azure portal
 
 Azure portalını kullanarak bir başvuru giriş kaynağı Azure SQL veritabanı eklemek için aşağıdaki adımları kullanın:
 
@@ -68,7 +68,7 @@ Visual Studio kullanarak bir başvuru giriş kaynağı Azure SQL veritabanı ekl
 
 3. Sahibi [Visual Studio için Stream Analytics Araçları](stream-analytics-quick-create-vs.md) hızlı başlangıç.
 
-4. Bir depolama hesabı oluşturun.
+4. Depolama hesabı oluşturma.
 
 ### <a name="create-a-sql-database-table"></a>SQL veritabanı tablosu oluşturma
 

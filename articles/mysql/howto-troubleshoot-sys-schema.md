@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61422385"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı performans ayarlama ve veritabanı bakımı için sys_schema kullanma
 
@@ -31,7 +31,7 @@ MySQL performance_schema, ilk MySQL 5. 5'da, kullanılabilir bellek ayırma, sak
 
 Artık sys_schema bazı ortak kullanım desenleri bakalım. Başlangıç olarak, biz kullanım düzenlerine iki kategoride Grup: **Performans ayarlama** ve **veritabanı bakım**.
 
-## <a name="performance-tuning"></a>Performans ayarı
+## <a name="performance-tuning"></a>Performans ayarlama
 
 ### <a name="sysusersummarybyfileio"></a>*sys.user_summary_by_file_io*
 

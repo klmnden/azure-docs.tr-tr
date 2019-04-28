@@ -3,17 +3,18 @@ title: Uzaktan izleme çözümü için kullanıcı Arabirimi - Azure bir geçici
 description: Bu makalede Uzaktan izleme çözüm Hızlandırıcı Web kullanıcı Arabiriminde sayfasında yeni bir geçici açılır pencere ekleme gösterilmektedir.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447123"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel bir açılır öğesi Ekle
 
@@ -39,7 +40,7 @@ Devam etmeden önce aşağıdaki makaleleri adımları tamamlaması gerekir:
 - [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel hizmet ekleme](iot-accelerators-remote-monitoring-customize-service.md)
 - [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel kılavuz ekleme](iot-accelerators-remote-monitoring-customize-grid.md)
 
-## <a name="add-a-flyout"></a>Bir açılır öğesi Ekle
+## <a name="add-a-flyout"></a>Açılır öğe ekleme
 
 Web kullanıcı Arabirimine bir açılır öğesi eklemek için açılan menüyü tanımlayan kaynak dosyalarını ekleyin ve web kullanıcı Arabirimi yeni bileşen haberdar olmak için bazı mevcut dosyaları değiştirmek gerekir.
 
@@ -49,11 +50,11 @@ Başlamak, için **src/gözden geçirme/bileşenleri/sayfaları/pageWithFlyout/�
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 Kopyalama **gözden geçirme/src/bileşenleri/pageWithFlyout/sayfaları/çıkarmalar** klasörüne **src/bileşenleri/sayfaları/örnek** klasör.
 

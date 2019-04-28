@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466808"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST kullanarak bir Media Services hesabına dosya yükleme
 
@@ -63,4 +63,4 @@ Azure depolama API veya SDK'larını (örneğin, [depolama REST API'si](../../st
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST](stream-files-tutorial-with-rest.md)
+[Öğretici: Uzak dosya tabanlı URL kodlama ve video akışı yapma - REST](stream-files-tutorial-with-rest.md)

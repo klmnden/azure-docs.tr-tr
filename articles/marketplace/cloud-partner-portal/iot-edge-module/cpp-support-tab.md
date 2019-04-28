@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909865"
 ---
 # <a name="iot-edge-module-support-tab"></a>IOT Edge modülü Destek sekmesi
 
-Kullanım **Destek** sekmesinde **yeni teklif** teknik ve kullanıcı kaynaklarını teklifiniz için desteği sayfası.  Aşağıdaki giriş alanları destek formunda sağlanır: **mühendislik birimi ilgili kişisi**, **müşteri desteği**, ve **destek URL'lerini**. Gerekli alan adına eklenmiş bir yıldız işareti (*) gösterir.
+Kullanım **Destek** sekmesinde **yeni teklif** teknik ve kullanıcı kaynaklarını teklifiniz için desteği sayfası.  Aşağıdaki giriş alanları, destek formunda sağlanır: **İlgili kişi mühendislik**, **müşteri desteği**, ve **destek URL'lerini**. Gerekli alan adına eklenmiş bir yıldız işareti (*) gösterir.
 
 ![Yeni Teklif form IOT Edge modülleri için sekmesinde desteği](./media/iot-edge-module-support-tab.png)
 

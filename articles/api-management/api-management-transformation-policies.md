@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946618"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -507,7 +507,7 @@ OriginalUrl.
 |Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |üst bilgi ayarlama|Kök öğe.|Evet|
-|değer|Ayarlanacak üstbilgi değerini belirtir. Aynı ada sahip birden çok üst bilgi ek eklemek için `value` öğeleri.|Evet|
+|value|Ayarlanacak üstbilgi değerini belirtir. Aynı ada sahip birden çok üst bilgi ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
@@ -567,7 +567,7 @@ OriginalUrl.
 |Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |kümesi sorgu parametresi|Kök öğe.|Evet|
-|değer|Ayarlanacak sorgu parametresi'ünün değerini belirtir. Aynı ada sahip birden çok sorgu parametreleri ek eklemek için `value` öğeleri.|Evet|
+|value|Ayarlanacak sorgu parametresi'ünün değerini belirtir. Aynı ada sahip birden çok sorgu parametreleri ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 

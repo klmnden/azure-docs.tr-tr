@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948527"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service fabric'te olağanüstü durum kurtarma
 Yüksek kullanılabilirlik sunmak için kritik bir parçası Hizmetleri tüm farklı türde hataları hayatta kalamaz sağlamaktır. Bu planlanmamış hataları için özellikle önemlidir ve denetiminiz dışında. Bu makalede olağanüstü durumlar olabilir değilse modellenir ve doğru bir şekilde yönetilen bazı yaygın hata modlarını açıklanır. Bu da ele risk azaltma işlemleri ve yine de olağanüstü bir durum oluştuysa gerçekleştirilecek eylemler. Sınırlamak veya aksi halde ortaya ortaya çıkan hataları, planlı kapalı kalma süresi veya veri kaybı riskini ortadan kaldırmak için hedeftir.

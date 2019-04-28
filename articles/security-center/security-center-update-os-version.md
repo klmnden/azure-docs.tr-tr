@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: a17bc3cf8c8f1ffbb2a91e17944bfc1c203f439d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905865"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde işletim sistemi sürümünü güncelleştirme
 Sanal makinelerine (VM) bulut hizmetlerinde, Azure Güvenlik Merkezi, daha yeni bir sürümü kullanılabilir işletim sistemi (OS) güncelleştirilmesi önerilir.  Yuva izlenen üretimde çalışan web ve çalışan rolleri yalnızca bulut Hizmetleri.

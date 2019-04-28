@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61256062"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +41,7 @@ Data Factory'de veri dönüştürme etkinlikleri kullanma [işlem hattı](data-f
 
 Saklı yordam etkinliği, kuruluşunuzda veya bir Azure sanal makine'de (VM) aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için kullanabilirsiniz:
 
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure SQL Veri Ambarı
 - SQL Server veritabanı. SQL Server kullanıyorsanız, veri yönetimi ağ geçidi veritabanını barındıran aynı makinede veya veritabanına erişimi olan ayrı bir makineye yükleyin. Veri Yönetimi ağ geçidi, veri bağlayan bir bileşeni, güvenli ve yönetilen bir şekilde şirket içi/açık bulut Hizmetleri ile Azure VM kaynakları ' dir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale Ayrıntılar için.
 

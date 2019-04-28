@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60919726"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Uyarı ve akıllı grup durumlarını yönetme
 Azure İzleyici'de uyarıları artık sahip bir [uyarı durumu ve izleme koşulu](https://aka.ms/azure-alerts-overview) ve benzer şekilde, akıllı grubunuz bir [akıllı Grup durumu](https://aka.ms/smart-groups). Durumu değişiklikleri şimdi geçmişine ilgili uyarı veya akıllı grubuyla ilişkili yakalanır. Bu makalede, bir uyarı hem akıllı bir grup için durum değiştirme işleminde size yol gösterir.
@@ -47,4 +47,3 @@ Azure İzleyici'de uyarıları artık sahip bir [uyarı durumu ve izleme koşulu
 
 1. Bunu yaptıktan sonra durum değişikliği ilgili akıllı Grup geçmişinde kaydedilir. Bu işlem, İlgili Ayrıntılar sayfasını açarak ve Geçmiş bölümü denetimi de görüntülenebilir.     
 ![İzleme](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

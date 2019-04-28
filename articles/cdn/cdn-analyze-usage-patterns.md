@@ -1,6 +1,6 @@
 ---
 title: Çekirdek Verizon raporları | Microsoft Docs
-description: "Aşağıdaki Raporlar'ı kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: bant genişliğini, aktarılan veriler, isabet sayısı, önbellek durumları, önbellek isabet oranını, IPv4/IPv6 aktarılan veriler."
+description: 'Aşağıdaki raporlar kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: Bant genişliğini, aktarılan veriler, isabetleri, önbellek durumları, isabetli önbellek okuması oranı, IPv4/IPv6 veri aktarılır.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061585"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon'dan alınan çekirdek raporlar
 
@@ -86,27 +86,27 @@ Süresi dolmuş önbellek isabet azaltmak için bir varlığın ayarlamak `max-a
 ![Önbellek durumları raporu](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Ana önbellek durumları şunlardır:
-* TCP_HIT: edge sunucudan hizmet. Nesne önbellekte olduğu ve onun max-age aştı değil.
-* TCP_MISS: kaynak sunucudan hizmet. Nesne önbellekte değil ve kaynağa geri yanıt:.
-* TCP_EXPIRED _MISS: kaynak yeniden doğrulanırken sonra kaynak sunucudan hizmet. Nesne önbellekte oldu, ancak kendi max-age aşmıştı. Kaynaktan yeni bir yanıt değiştiriliyor önbellek nesnesi içinde bir yeniden doğrulanırken başlangıç sonuçlandı.
-* TCP_EXPIRED _HIT: Edge'den başlangıç yeniden doğrulanırken sonra hizmet. Nesne önbellekte oldu, ancak kendi max-age aşmıştı. Bir kaynak sunucuya yeniden doğrulanırken değiştirilmemiş önbellek nesnesinde sonuçlandı.
+* TCP_HIT: Edge sunucudan hizmet. Nesne önbellekte olduğu ve onun max-age aştı değil.
+* TCP_MISS: Kaynak sunucudan hizmet. Nesne önbellekte değil ve kaynağa geri yanıt:.
+* TCP_EXPIRED _MISS: Kaynağı yeniden doğrulanırken sonra kaynak sunucudan hizmet. Nesne önbellekte oldu, ancak kendi max-age aşmıştı. Kaynaktan yeni bir yanıt değiştiriliyor önbellek nesnesi içinde bir yeniden doğrulanırken başlangıç sonuçlandı.
+* TCP_EXPIRED _HIT: Kaynağı yeniden doğrulanırken sonra Edge'den sunulur. Nesne önbellekte oldu, ancak kendi max-age aşmıştı. Bir kaynak sunucuya yeniden doğrulanırken değiştirilmemiş önbellek nesnesinde sonuçlandı.
 
 ### <a name="full-list-of-cache-statuses"></a>Önbellek durumları tam listesi
 * TCP_HIT - istek istemci için doğrudan POP sunulduğunda, bu durum bildirilir. İstemcinin en yakın POP önbelleğe alınır ve geçerli yaşam süresi (TTL) sahip bir varlık hemen POP sunulur. TTL şu yanıt üst bilgilerini tarafından belirlenir:
   
   * Cache-Control: s-maxage
   * Cache-Control: Maksimum yaş
-  * Süre Sonu
+  * Bitiş Tarihi
 * TCP_MISS: Bu durum, istenen varlık önbelleğe alınmış bir sürümü üzerinde istemcinin en yakın POP bulunamadı gösterir. Varlık, kaynak sunucuyu veya bir kaynak kalkan sunucu istenmektedir. Bir varlık, kaynak sunucu veya kaynak kalkan sunucu döndürürse, istemciye sunulan ve hem istemci hem de uç sunucusunu önbelleğe alınır. Aksi takdirde, olmayan-200 durum kodu (örneğin, 403 Yasak veya 404 bulunamadı) döndürülür.
-* TCP_EXPIRED_HIT: süresi dolmuş bir TTL ile bir varlığı hedefleyen bir isteğin doğrudan POP istemciye sunulduğu bu durum raporlanır. Örneğin, varlık max-age ne zaman sona erdi. 
+* TCP_EXPIRED_HIT: Süresi dolmuş bir TTL ile bir varlığı hedefleyen bir isteğin doğrudan POP istemciye sunulduğu bu durum raporlanır. Örneğin, varlık max-age ne zaman sona erdi. 
   
    Süresi dolmuş bir isteği, genellikle kaynak sunucuya yeniden doğrulama istekte sonuçlanır. Varlık daha yeni bir sürümü yok TCP_EXPIRED_HIT durumu oluşmasına kaynak sunucu belirtmeniz gerekir. Bu durum genellikle bir varlığın Cache-Control ve Expires üst bilgileri güncelleştirmede sonuçlanır.
-* TCP_EXPIRED_MISS: süresi dolmuş bir önbelleğe alınan varlık daha yeni bir sürümü için istemci POP sunulduğunda bu durum raporlanır. Önbelleğe alınan bir varlık için TTL'nin süresi Bu durum oluşur (örneğin, süresi doldu, max-age) ve kaynak sunucu, varlık daha yeni bir sürümünü döndürür. Varlık bu yeni sürümü, önbelleğe alınmış sürümün yerine istemciye hizmet verir. Ayrıca, bu uç sunucu ve istemci önbelleğe alınır.
+* TCP_EXPIRED_MISS: Bu durum, süresi dolmuş bir önbelleğe alınan varlık daha yeni bir sürümü için istemci POP sunulduğunda bildirilir. Önbelleğe alınan bir varlık için TTL'nin süresi Bu durum oluşur (örneğin, süresi doldu, max-age) ve kaynak sunucu, varlık daha yeni bir sürümünü döndürür. Varlık bu yeni sürümü, önbelleğe alınmış sürümün yerine istemciye hizmet verir. Ayrıca, bu uç sunucu ve istemci önbelleğe alınır.
 * CONFIG_NOCACHE: Bu durum, müşteriye özgü yapılandırma uç POP varlık önbelleğe alınmasını önledi olduğunu gösterir.
 * HİÇBİRİ - bu durum, bir önbellek içerik güncellik denetimi gerçekleştirilmemiş gösterir.
-* TCP_CLIENT_REFRESH_MISS: bir uç POP yeni bir sürümü eski bir varlık kaynak sunucudan almak için bir tarayıcı gibi bir HTTP istemci zorlar, bu durum raporlanır. Varsayılan olarak, sunucular, uç sunucularda kaynak sunucudan varlık yeni bir sürümünü almak için zorlama gelen HTTP istemci engeller.
-* TCP_PARTIAL_HIT: vuruş kısmen önbelleğe alınmış bir varlık için bir bayt aralığı isteği sonuçlanır olduğunda bu durum raporlanır. İstenen bayt aralığı, istemciye POP hemen sunulur.
-* UNCACHEABLE: Bir varlık ayarlandığında bu durum bildirilir `Cache-Control` ve `Expires` üst bilgileri gösterir, POP veya HTTP istemcisi tarafından önbelleğe alınması gerektiğini değil. Bu tür istekleri kaynak sunucudan sunulur.
+* TCP_CLIENT_REFRESH_MISS: Bir edge POP yeni bir sürümü eski bir varlık kaynak sunucudan almak için bir tarayıcı gibi bir HTTP istemci zorlar, bu durum raporlanır. Varsayılan olarak, sunucular, uç sunucularda kaynak sunucudan varlık yeni bir sürümünü almak için zorlama gelen HTTP istemci engeller.
+* TCP_PARTIAL_HIT: Bu durum, bir bayt aralığı isteği kısmen önbelleğe alınmış bir varlık için isabet sonuçlandığında bildirilir. İstenen bayt aralığı, istemciye POP hemen sunulur.
+* UNCACHEABLE: Bu durum, bir varlık ayarlandığında bildirilir `Cache-Control` ve `Expires` üst bilgileri gösterir, POP veya HTTP istemcisi tarafından önbelleğe alınması gerektiğini değil. Bu tür istekleri kaynak sunucudan sunulur.
 
 ## <a name="cache-hit-ratio"></a>İsabetli Önbellek okuması oranı
 Bu rapor, doğrudan önbellekten sunulduğunu önbelleğe alınmış istekler yüzdesini gösterir.
@@ -123,7 +123,7 @@ Rapor içermez:
 * Bunlar değil konumlandırılmalıdır başlıklarını belirtmek varlıklar için istekler. Örneğin, `Cache-Control: private`, `Cache-Control: no-cache`, veya `Pragma: no-cache` üstbilgileri bir varlık önbelleğe alınmasını engellemek.
 * Kısmen önbelleğe alınmış içeriği için bayt aralığı isteklerini.
 
-Formül şu şekildedir: (TCP_ İSABET / (TCP_ İSABET + TCP_MISS)) * 100
+Formülü aşağıdaki gibidir: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 ![İsabetli Önbellek okuması oranı raporu](./media/cdn-reports/cdn-cache-hit-ratio.png)
 

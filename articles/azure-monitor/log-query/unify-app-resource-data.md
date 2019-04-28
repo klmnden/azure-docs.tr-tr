@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424655"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
 Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar. 100 olarak kaynakları tek bir sorgu ekleyebilirsiniz, Application Insights kaynakları sayısı sınırlıdır.  
@@ -112,7 +112,7 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 | Tarayıcı | client_browser |
 | Şehir | client_city |
 | Clientıp | client_IP |
-| Bilgisayar | cloud_RoleInstance | 
+| Computer | cloud_RoleInstance | 
 | Ülke | client_CountryOrRegion | 
 | CustomEventCount | ItemCount | 
 | CustomEventDimensions | customDimensions |

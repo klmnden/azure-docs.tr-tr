@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347788"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Dynamics AX'ten veri kopyalama
 
@@ -101,7 +101,7 @@ Dynamics AX'ten veri kopyalamak için ayarlanmış **türü** veri kümesine öz
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kümesinin özelliği ayarlanmalıdır **DynamicsAXResource**. | Evet |
-| yol | Dynamics AX OData varlık yolu. | Evet |
+| path | Dynamics AX OData varlık yolu. | Evet |
 
 **Örnek**
 

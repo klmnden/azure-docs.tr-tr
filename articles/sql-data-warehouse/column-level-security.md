@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
 ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082819"
 ---
 # <a name="column-level-security"></a>Sütun düzeyinde güvenlik
 Sütun düzeyi güvenlik (CLS), kullanıcının yürütme bağlamı veya grup üyeliklerini temel veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar.

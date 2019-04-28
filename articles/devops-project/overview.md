@@ -15,11 +15,11 @@ ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
 ms.openlocfilehash: 6ae2d0723b195ed59f8c6a7320245509145094df
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925961"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Azure DevOps projeleri genel bakış
 

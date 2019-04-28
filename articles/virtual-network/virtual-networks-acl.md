@@ -1,6 +1,6 @@
 ---
-title: Bir Azure ağı erişim denetimi listesi nedir?
-description: Azure'daki erişim denetim listeleri hakkında bilgi edinin
+title: Bir Azure ağına erişim denetim listesi nedir?
+description: Azure'da erişim denetim listeleri hakkında bilgi edinin
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,81 +15,81 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 3a7155380a51273d376226c6be7a004f386181ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035266"
 ---
-# <a name="what-is-an-endpoint-access-control-list"></a>Bir uç noktası erişim denetimi listesi nedir?
+# <a name="what-is-an-endpoint-access-control-list"></a>Uç nokta erişim denetim listesi nedir?
 
 > [!IMPORTANT]
-> Azure sahip iki farklı [dağıtım modellerini](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir. 
+> Azure iki farklı olan [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve bu kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir. 
 
-Bir uç noktası erişim denetimi listesi (ACL) Azure dağıtımınız için kullanılabilir bir güvenlik yeniliktir. Bir ACL seçmeli olarak izin veren veya trafiği bir sanal makine uç noktası için reddetme olanağı sağlar. Bu paket filtreleme özelliği, ek bir güvenlik katmanı sağlar. Yalnızca uç noktaları için ağ ACL'leri belirtebilirsiniz. Bir sanal ağ veya bir sanal ağda bulunan belirli bir alt ağ için bir ACL belirtemezsiniz. ACL'ler yerine, mümkün olduğunda ağ güvenlik grupları (Nsg'ler) kullanmak için önerilir. Nsg'ler kullanırken, uç noktası erişim denetim listesi değiştirildi ve yapılandırmalar artık zorlanmaz. Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md)
+Bir uç nokta erişim denetim listesi (ACL) Azure dağıtımınız için bir güvenlik geliştirmesi ' dir. Bir ACL seçmeli olarak erişime izin verebilir veya trafiği bir sanal makine uç noktası için olanağı sağlar. Bu paket filtreleme özelliği, ek bir güvenlik katmanı sağlar. Yalnızca uç noktaları için ağ ACL'leri belirtebilirsiniz. ACL'ye yönelik bir sanal ağ veya sanal ağ içinde yer alan belirli bir alt ağ belirtemezsiniz. ACL'ler yerine, mümkün olduğunda ağ güvenlik grupları (Nsg'ler) kullanmak için önerilir. Nsg'leri kullanarak, uç nokta erişim denetim listesi değiştirildi ve artık zorunlu. Nsg'ler hakkında daha fazla bilgi edinmek için [ağ güvenlik grubu genel bakış](security-overview.md)
 
-ACL, PowerShell veya Azure portalı kullanılarak yapılandırılabilir. PowerShell kullanarak bir ağ ACL yapılandırmak için bkz: [yönetme erişim denetim listeleri için PowerShell kullanarak uç noktaları](virtual-networks-acl-powershell.md). Azure portalı kullanarak bir ağ ACL yapılandırmak için bkz: [uç noktaları bir sanal makine için ayarlamak üzere nasıl](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ACL, PowerShell veya Azure portalını kullanarak yapılandırılabilir. PowerShell kullanarak bir ağ ACL yapılandırmak için bkz [yönetme erişim denetim listeleri için PowerShell kullanarak uç](virtual-networks-acl-powershell.md). Azure portalını kullanarak bir ağ ACL yapılandırmak için bkz [bir sanal makineye uç noktaları ayarlama işlemini](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Ağ ACL'leri kullanarak aşağıdakileri yapabilirsiniz:
+Ağ ACL'leri kullanarak bunu yapabilirsiniz:
 
-* Seçmeli olarak izin vermek veya uzak alt ağ bir sanal makine giriş uç noktası için IPv4 adres aralığı göre gelen trafiği engelle.
+* Seçmeli olarak erişime izin verebilir veya uzak alt ağ IPv4 adres aralığı için bir sanal makine giriş uç noktasına göre gelen trafiği.
 * Kara liste IP adresleri
 * Sanal makine uç noktası başına birden çok kural oluşturma
-* Kullanım Kuralları doğru kümesini emin olmak için kural sıralama verilen sanal makine uç noktası (en düşük, büyüğe) üzerinde uygulanır
-* Belirli bir uzak alt IPv4 adresi için bir ACL belirtin.
+* Kullanım Kuralları doğru kümesini emin olmak için kural sıralama belirli sanal makine uç noktası (en düşük, en yüksek için) üzerinde uygulanır
+* ACL'ye yönelik belirli bir uzak alt IPv4 adresi belirtin.
 
-Bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) ACL sınırları için makale.
+Bkz: [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) makale ACL sınırları.
 
-## <a name="how-acls-work"></a>ACL'ler nasıl çalışır
-Bir ACL kuralları listesini içeren bir nesnedir. Bir ACL oluşturmak ve sanal makine uç noktası için geçerli olduğunda, paket filtreleme VM ana bilgisayar düğümü üzerinde gerçekleşir. Bu, uzak IP adreslerinden gelen trafik, VM'de eşleşen ACL kuralları yerine ana bilgisayar düğümü tarafından filtre anlamına gelir. Bu, VM paket filtreleme değerli CPU döngülerini harcama önler.
+## <a name="how-acls-work"></a>ACL'leri nasıl çalışır?
+Bir ACL kurallarının bir listesini içeren bir nesnedir. Bir ACL oluşturmak ve bir sanal makine uç noktası için geçerli olduğunda, paket filtreleme, sanal Makinenizin ana bilgisayar düğümü üzerinde gerçekleşir. Bu, uzak IP adreslerinden gelen trafik için vm'nizdeki eşleşen ACL kuralları yerine ana bilgisayar düğümü tarafından filtrelenir anlamına gelir. Bu, sanal makinenizin üzerinde paket filtreleme değerli CPU döngülerini harcamalarını engeller.
 
-Bir sanal makine oluşturulduğunda, varsayılan bir ACL tüm gelen trafiği engellemek için yürürlükte yerleştirilir. Ancak, bir uç nokta (3389 bağlantı noktası için), ardından ACL değiştiren Bu uç nokta için tüm gelen trafiğe izin vermek için varsayılan oluşturulur. Uzak bir alt ağdan gelen trafiği sonra Bu uç noktasına izin verilir ve hiçbir güvenlik duvarı sağlama gereklidir. Uç noktalar için bu bağlantı noktalarını oluşturulan sürece diğer tüm bağlantı noktalarına gelen trafik için engellenir. Giden trafik, varsayılan olarak izin verilir.
+Bir sanal makine oluşturulduğunda varsayılan ACL'nin gelen tüm trafiği engellemek için yerinde konur. Ancak, bir uç noktası (3389 bağlantı noktası için), ardından ACL değiştirilmişse bu uç nokta için tüm gelen trafiğe izin veren varsayılan oluşturulur. Tüm uzak alt ağından gelen trafiğe daha sonra Bu uç noktasına izin verilir ve hiçbir güvenlik duvarı sağlama gereklidir. Uç noktaları için bu bağlantı noktalarını oluşturulan sürece diğer tüm bağlantı noktaları için gelen trafik engellenir. Giden trafiğe varsayılan olarak izin verilir.
 
-**Örnek varsayılan ACL tablo**
+**Örnek varsayılan ACL'si tablo**
 
-| **Kuralı #** | **Uzak alt ağ** | **uç noktası** | **İzin ver ve Reddet** |
+| **Kuralı #** | **Uzak alt ağ** | **Uç noktası** | **İzin verme ve reddetme** |
 | --- | --- | --- | --- |
 | 100 |0.0.0.0/0 |3389 |İzin ver |
 
 ## <a name="permit-and-deny"></a>İzin ve reddetme
-Seçmeli olarak izin vermek veya "izin ver" belirten kuralları veya "Reddet" oluşturarak sanal makine giriş uç noktası için ağ trafiğini engellemek. Bir uç noktası oluşturulduğunda, varsayılan olarak, uç nokta için tüm trafiğe izin verildiğini dikkate almak önemlidir. Bu nedenle, izin verme/reddetme kurallarını oluşturma ve sanal makine uç noktası erişmesine izin vermek için seçtiğiniz ağ trafiği üzerinde ayrıntılı denetim isterseniz, bunları uygun öncelik sırasına göre yerleştirmek anlamak önemlidir.
+Seçmeli olarak izin vermek veya trafiği bir sanal makine giriş uç noktası için "izin ver" belirten kuralları veya "Reddet" oluşturarak reddet. Bir uç noktası oluşturulduğunda, varsayılan olarak, uç nokta için tüm trafiğe izin verildiğini unutmayın. Bu nedenle, izin verme/reddetme kurallarını oluşturma ve sanal makine uç noktası erişmesine izin vermeyi seçtiğiniz ağ trafik üzerinde ayrıntılı denetim istiyorsanız, bunları uygun öncelik sırasına göre Yerleştir anlamak önemlidir.
 
 Dikkate alınacak noktalar:
 
-1. **Hiçbir ACL –** bir uç noktası oluşturulduğunda, varsayılan olarak şu uç nokta için tüm izin verir.
-2. **İzin ver -** bir veya daha fazla "izin ver" aralıkları eklediğinizde, varsayılan olarak tüm aralıklarını engelleme. Yalnızca izin verilen IP aralığı paketler sanal makine uç noktası ile iletişim kuramaz.
+1. **Hiçbir ACL –** bir uç noktası oluşturulduğunda, varsayılan olarak biz tüm uç nokta için izin verir.
+2. **İzin ver -** bir veya daha fazla "izin ver" aralıkları eklediğinizde, varsayılan olarak tüm aralıkları reddediyorsunuz. Yalnızca izin verilen IP aralığından paketlerin sanal makine uç noktası ile iletişim kurmak mümkün olacaktır.
 3. **Reddetme -** bir veya daha fazla "Reddet" aralıkları eklediğinizde, varsayılan olarak tüm trafiği aralıklarına vermiş olursunuz.
-4. **İzin verme ve reddetme - birleşimi** "izin ver" ve "izin verilen veya reddedilen belirli bir IP aralığı ayırması istediğinizde reddetme" bileşimini kullanabilirsiniz.
+4. **İzin verme ve reddetme - birleşimi** "izin ver" ve "izin verilen veya reddedilen için belirli bir IP aralığı ayırma işlemini koordine istediğinizde reddetme" bir birleşimini kullanabilirsiniz.
 
 ## <a name="rules-and-rule-precedence"></a>Kurallar ve kural önceliği
-Ağ ACL'leri belirli bir sanal makine uç noktalarda ayarlanabilir. Örneğin, bir sanal makineye hangi kilitleri erişim tuşunu belirli IP adresleri oluşturulan bir RDP uç noktası için ACL ağ belirtebilirsiniz. Aşağıdaki tablo için RDP erişime izin vermek için ortak sanal IP (VIP), belirli bir aralıkla erişim vermek için bir yol gösterir. Diğer uzak IP'leri engellenir. Biz izleyin bir *en düşük öncelik kazanır* kural sırası.
+Ağ ACL'leri belirli sanal makine uç noktalarına üzerinde ayarlanabilir. Örneğin, bir ağ erişim tuşunu hangi kilitleri belirli IP adresleri bir sanal makine üzerinde oluşturulan bir RDP uç noktası için ACL belirtebilirsiniz. Aşağıdaki tabloda, RDP erişimine izin verecek şekilde genel sanal IP (VIP), belirli bir aralıkla erişim vermek için bir yol gösterir. Diğer uzak tüm IP'lere engellenir. Sizinle bir *en düşük öncelik kazanır* kural sırası.
 
 ### <a name="multiple-rules"></a>Birden çok kural
-Yalnızca iki ortak IPv4 adres aralıklarını (65.0.0.0/8 ve 159.0.0.0/8), RDP uç noktasına erişimine izin vermek istiyorsanız, aşağıdaki örnekte, bu iki belirterek elde edebilirsiniz *izin* kuralları. Bu durumda, varsayılan olarak bir sanal makine için RDP oluşturulduğundan, uzak bir alt ağa datalı RDP bağlantı noktasına erişim kilitleme isteyebilirsiniz. Aşağıdaki örnek, RDP için erişime izin vermek için ortak sanal IP (VIP), belirli bir aralıkla erişim vermek için bir yol gösterir. Diğer uzak IP'leri engellenir. Bu, belirli bir sanal makine uç noktası için ağ ACL'leri ayarlanabilir ve varsayılan olarak erişimi reddedilir çünkü çalışır.
+Yalnızca iki ortak IPv4 adres aralıklarını (65.0.0.0/8 ve 159.0.0.0/8), RDP uç noktaya erişime izin vermek istiyorsanız, aşağıdaki örnekte, iki belirterek bunu gerçekleştirebilirsiniz *izin* kuralları. Bu durumda varsayılan sanal makine için RDP oluşturulduğundan, uzak bir alt ağa dayalı RDP bağlantı noktası erişimi kilitleme isteyebilirsiniz. Aşağıdaki örnek, RDP erişimine izin verecek şekilde genel sanal IP (VIP), belirli bir aralıkla erişim vermek için bir yol gösterir. Diğer uzak tüm IP'lere engellenir. Bu belirli bir sanal makine uç noktası için ağ ACL'lerini ayarlanabilir ve varsayılan olarak erişim reddedildi çünkü çalışır.
 
-**Örnek – birden çok kural**
+**Örneğin, birden çok kural**
 
-| **Kuralı #** | **Uzak alt ağ** | **uç noktası** | **İzin ver ve Reddet** |
+| **Kuralı #** | **Uzak alt ağ** | **Uç noktası** | **İzin verme ve reddetme** |
 | --- | --- | --- | --- |
 | 100 |65.0.0.0/8 |3389 |İzin ver |
 | 200 |159.0.0.0/8 |3389 |İzin ver |
 
 ### <a name="rule-order"></a>Kural sırası
-Birden çok kural için bir uç nokta belirtilebilir çünkü hangi kuralın önceliklidir belirlemek için kuralları düzenlemek için bir yol olmalıdır. Kural sırası önceliği belirtir. ACL'ler izleyin ağ bir *en düşük öncelik kazanır* kural sırası. Aşağıdaki örnekte, uç nokta bağlantı noktası 80 üzerinde seçmeli olarak yalnızca belirli IP adresi aralıklarını erişimi verilir. Bir reddetme kuralı sahibiz bunu yapılandırmak için (kural \# 100) 175.1.0.1/24 alan adres. İkinci bir kural, ardından diğer tüm adresler 175.0.0.0/8 altında erişimine 200 önceliğe sahip belirtilir.
+Birden çok kural için bir uç nokta belirtilebilir, çünkü hangi kural öncelikli olur belirlemek için kuralları düzenlemek için bir yol olmalıdır. Kural sırası önceliği belirtir. Ağ ACL'leri izleme bir *en düşük öncelik kazanır* kural sırası. Aşağıdaki örnekte, uç nokta bağlantı noktası 80 üzerinde seçmeli olarak yalnızca belirli IP adresi aralıklarını erişimi verilir. Bir reddetme kuralı sahibiz bunu yapılandırmak için (kural \# 100) 175.1.0.1/24 alan adresleri. İkinci bir kural, ardından 175.0.0.0/8 altında diğer tüm adreslere erişimine 200 önceliğe sahip belirtilir.
 
-**Örnek – kural önceliği**
+**Örneğin, kural önceliği**
 
-| **Kuralı #** | **Uzak alt ağ** | **uç noktası** | **İzin ver ve Reddet** |
+| **Kuralı #** | **Uzak alt ağ** | **Uç noktası** | **İzin verme ve reddetme** |
 | --- | --- | --- | --- |
 | 100 |175.1.0.1/24 |80 |Reddet |
 | 200 |175.0.0.0/8 |80 |İzin ver |
 
-## <a name="network-acls-and-load-balanced-sets"></a>Ağ ACL'leri ve yük dengeli ayarlar
-Ağ ACL'leri bir yük dengeli kümesi uç noktasında belirtilebilir. Yük dengelenmiş bir küme için bir ACL belirtilirse, bu yük dengelenmiş küme tüm sanal makinelerin ağ ACL uygulanır. Örneğin, bir yük dengeli kümesi "Bağlantı noktası 80" oluşturulur ve yük dengeli küme 3 VM varsa, "VM otomatik olarak diğer VM'ler için uygulanacak bir bağlantı noktası 80" noktadaki ACL ağ oluşturuldu.
+## <a name="network-acls-and-load-balanced-sets"></a>Ağ ACL'leri ve yük dengeli kümeler
+Bir yük dengeli küme uç noktası üzerinde ağ ACL'lerine belirtilebilir. Bir ACL için yük dengeli bir küme belirtilirse, ACL ağ, yük dengeli kümedeki tüm sanal makinelere uygulanır. Örneğin, bir yük dengeli kümesi "80 numaralı bağlantı noktasıyla" oluşturulur ve yük dengeli küme 3 VM varsa, "VM otomatik olarak diğer Vm'lere uygulanır birinin 80 numaralı bağlantı noktası" uç noktasında ACL ağ oluşturulur.
 
-![Ağ ACL'leri ve yük dengeli ayarlar](./media/virtual-networks-acl/IC674733.png)
+![Ağ ACL'leri ve yük dengeli kümeler](./media/virtual-networks-acl/IC674733.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[PowerShell kullanarak uç noktalar için erişim denetim listeleri yönetme](virtual-networks-acl-powershell.md)
+[PowerShell kullanarak uç noktalar için erişim denetim listelerini yönetebilir](virtual-networks-acl-powershell.md)
 

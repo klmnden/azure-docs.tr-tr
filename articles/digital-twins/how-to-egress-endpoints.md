@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924814"
 ---
 # <a name="egress-and-endpoints"></a>Çıkış ve uç noktaları
 
@@ -49,14 +49,14 @@ Olayları Azure ileti ve olay aracıları tarafından işlenmek IOT nesneler (ö
 
 | Öznitelik | Tür | Açıklama |
 | --- | --- | --- |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
 | veriler | object | Kaynak sağlayıcıya özel olay verileri. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
 
 Event Grid olay şeması hakkında daha fazla bilgi için:
 

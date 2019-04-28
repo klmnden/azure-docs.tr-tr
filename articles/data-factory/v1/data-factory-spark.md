@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257651"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlarını çağırma
 
@@ -267,7 +267,8 @@ Bu adımda, bir HDInsightSpark etkinliği ile işlem hattı oluşturma. Şu anda
 
     ![Jupyter sorgu sonuçları](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Ayrıntılı yönergeler için konudaki [bir Spark SQL sorgusu çalıştırma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Ayrıntılı yönergeler için konudaki [bir Spark SQL sorgusu çalıştırma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 Getdebugınfo kümesine çünkü **her zaman**, blob kapsayıcınızdaki pyFiles klasöründeki günlük alt görürsünüz. Günlük klasörü günlük dosyasına ek bilgi sağlar. Bu günlük dosyası bir hata olduğunda özellikle yararlıdır. Bir üretim ortamında ayarlamak isteyebilirsiniz **hatası**.
@@ -326,7 +327,7 @@ Bir Spark etkinliği ile işlem hattı JSON tanımını örnek aşağıda verilm
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır.
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
 | ad | İşlem hattındaki bir etkinliğin adı. | Evet |
 | açıklama | Etkinliğin ne yaptığını açıklayan metin. | Hayır |
@@ -338,7 +339,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | bağımsız değişkenler | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır |
 | Proxyuserpassword | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı. | Hayır |
 | sparkConfig | Listelenen Spark yapılandırma özellikleri için değerleri belirtin [Spark yapılandırması: Uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
-| Getdebugınfo | HDInsight küme tarafından kullanılan depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler, her zaman veya hata yok. Varsayılan değer, Yok'tur. | Hayır |
+| getDebugInfo | HDInsight küme tarafından kullanılan depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler, her zaman veya hata yok. Varsayılan değer, Yok'tur. | Hayır |
 | sparkJobLinkedService | Depolama bağlı iş dosyası, bağımlılıklar ve günlükleri Spark tutan hizmeti. Bu özellik için bir değer belirtmezseniz, HDInsight kümesi ile ilişkili depolama kullanılır. | Hayır |
 
 ## <a name="folder-structure"></a>klasör yapısı
@@ -346,12 +347,12 @@ Spark etkinliği bir satır içi betik Pig olarak desteklemez ve Hive etkinlikle
 
 HDInsight bağlı hizmeti tarafından başvurulan blob depolama alanındaki aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, Python dosyaları pyFiles alt klasöre yüklemek ve jar dosyaları dışındaki kök klasörün alt dosyalarını jar. Çalışma zamanında Data Factory hizmeti blob depolamada aşağıdaki klasör yapısına bekliyor: 
 
-| Yol | Açıklama | Gereklidir | Tür |
+| Yol | Açıklama | Gerekli | Tür |
 | ---- | ----------- | -------- | ---- |
 | . | Spark işi depolama bağlı hizmeti kök yolu. | Evet | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yol. | Evet | Dosya |
 | . / jar'lar | Bu klasör altındaki tüm dosyaları karşıya ve küme Java sınıf yolu yerleştirilir. | Hayır | Klasör |
-| . / pyFiles | Bu klasör altındaki tüm dosyaları karşıya ve küme ise PYTHONPATH üzerinde yerleştirilir. | Hayır | Klasör |
+| ./pyFiles | Bu klasör altındaki tüm dosyaları karşıya ve küme ise PYTHONPATH üzerinde yerleştirilir. | Hayır | Klasör |
 | . / dosyaları | Bu klasör altındaki tüm dosyaları karşıya ve yürütücü çalışma dizinine yerleştirilir. | Hayır | Klasör |
 | . / arşivleri | Bu klasör altındaki tüm dosyaları sıkıştırılmamış. | Hayır | Klasör |
 | . / günlüğe kaydeder | Spark kümesinden günlüklerinin depolandığı klasör.| Hayır | Klasör |

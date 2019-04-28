@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905009"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Veri odaklı stili ifadeleri (Web SDK'sı)
 
@@ -83,11 +83,11 @@ Veri ifadeleri bir özellik özelliği verilere erişim sağlar.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Bir dizideki öğeyi alır. |
 | `['geometry-type']` | string | Özelliğin geometri türünü alır: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | değer | Özellik değeri geçerli özelliğin özelliklerini alır. İstenen özellik eksik değilse null değerini döndürür. |
-| `['get', string, object]` | değer | Sağlanan nesne özelliklerinden özellik değerini alır. İstenen özellik eksik değilse null değerini döndürür. |
+| `['get', string]` | value | Özellik değeri geçerli özelliğin özelliklerini alır. İstenen özellik eksik değilse null değerini döndürür. |
+| `['get', string, object]` | value | Sağlanan nesne özelliklerinden özellik değerini alır. İstenen özellik eksik değilse null değerini döndürür. |
 | `['has', string]` | boole | Bir özellik özelliklerini belirtilen özellik olup olmadığını belirler. |
 | `['has', string, object]` | boole | Nesnenin özelliklerini belirtilen özellik olup olmadığını belirler. |
-| `['id']` | değer | Varsa özelliğin kimliği alır. |
+| `['id']` | value | Varsa özelliğin kimliği alır. |
 | `['length', string | array]` | number | Bir dize ya da dizinin uzunluğunu alır. |
 
 **Örnekler**

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033909"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
 
@@ -191,5 +191,5 @@ Hizmet uç noktası ilkelerinde aşağıdaki limitler zorunlu tutulur:
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 - [Sanal ağ hizmet uç noktası ilkelerini nasıl yapılandıracağınızı](virtual-network-service-endpoint-policies-portal.md) öğrenin
-- [Sanal ağ Hizmeti Uç Noktaları](virtual-network-service-endpoints-overview.md) hakkında daha fazla bilgi edinin
+- [Sanal Ağ Hizmet Uç Noktaları](virtual-network-service-endpoints-overview.md) hakkında daha fazla bilgi edinin
 

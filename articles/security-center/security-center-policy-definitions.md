@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9d9369afd36f64c27cd2222cab0de5912aa913de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909205"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Güvenlik Merkezi tarafından izlenen azure güvenlik ilkeleri
 Bu makalede, Azure Güvenlik Merkezi'nde izleyebilirsiniz Azure ilke tanımlarını listesini sağlar. Güvenlik ilkeleri hakkında daha fazla bilgi için bkz. [güvenlik ilkeleriyle çalışma](tutorial-security-policy.md).

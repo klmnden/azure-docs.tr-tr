@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928301"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 ve S3 performans düzeyleri devre dışı bırakma
 
@@ -45,8 +45,8 @@ Aşağıdaki tabloda, tek bölümlü koleksiyonlar, bölümlenmiş koleksiyonlar
 
 |   |Bölümlenmiş koleksiyonu|Tek bölümlü koleksiyona|S1|S2|S3|
 |---|---|---|---|---|---|
-|Aktarım hızı üst sınırı|Sınırsız|10 K RU/sn|250 RU/sn|1 K RU/sn|2.5 K RU/sn|
-|En az aktarım hızı|2.5 K RU/sn|400 RU/sn|250 RU/sn|1 K RU/sn|2.5 K RU/sn|
+|Aktarım hızı üst sınırı|Sınırsız|10 K RU/sn|250 RU/s|1 K RU/sn|2.5 K RU/sn|
+|En az aktarım hızı|2.5 K RU/sn|400 RU/sn|250 RU/s|1 K RU/sn|2.5 K RU/sn|
 |En fazla depolama|Sınırsız|10 GB|10 GB|10 GB|10 GB|
 |Fiyat (aylık)|Aktarım hızı: 6 ABD Doları / 100 RU/sn<br><br>Depolama: 0,25 dolar/GB|Aktarım hızı: 6 ABD Doları / 100 RU/sn<br><br>Depolama: 0,25 dolar/GB|25 ABD DOLARI|50 ABD DOLARI|100 ABD DOLARI|
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899257"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -28,7 +28,7 @@ Yüklediğinizde [Azure Application Insights] [ start] buluta uygulamanızla ilg
 * Hassas verileri hizmete göndermek "kutu dışı" çalıştıran standart telemetri modülleri düşüktür. Telemetri, yük, performans ve kullanım ölçümleri, özel durum raporları ve diğer Tanılama verileri ile ilgilidir. Ana kullanıcı verilerini tanılama raporlarında görünür durumda URL'leri işlevleridir. Ancak, uygulamanızın düz metin biçiminde bir URL içinde hassas verileri her durumda put olmamalıdır.
 * Tanılama ve kullanım izleme yardımcı olması için ek özel telemetri gönderen kod yazabilirsiniz. (Bu genişletilebilirlik yer Application Insights harika bir özelliğidir.) Bunun yanlışlıkla, kişisel ve hassas veriler içerir, böylece bu kod yazmak için mümkün olur. Uygulamanız bu tür veriler ile çalışıyorsa, yazdığınız tüm kod kapsamlı bir gözden geçirme işlemlerini uygulamanız gerekir.
 * Geliştirme ve uygulamanızı test ederken SDK'sı tarafından gönderildiği incelemek kolaydır. Veri IDE ve tarayıcı hata ayıklama çıktı pencerelerinde görünür. 
-* Veriler tutulur [Microsoft Azure](https://azure.com) ABD veya Avrupa sunucuları. (Ancak uygulamanızı herhangi bir yere çalıştırabilirsiniz.) Azure'da [güçlü güvenlik işleyen ve çok çeşitli uyumluluk standartlarını karşıladığını](https://azure.microsoft.com/support/trust-center/). Yalnızca size ve takımınıza atanan verilerinize erişebilirsiniz. Microsoft çalışanları için yalnızca belirli sınırlı koşullarda bilginiz dahilinde sınırlı erişimi. Ancak sunuculara değil, aktarım sırasında şifrelenir.
+* Veriler tutulur [Microsoft Azure](https://azure.com) ABD veya Avrupa sunucuları. (Ancak uygulamanızı herhangi bir yere çalıştırabilirsiniz.) Azure'da [güçlü güvenlik işleyen ve çok çeşitli uyumluluk standartlarını karşıladığını](https://azure.microsoft.com/support/trust-center/). Yalnızca size ve takımınıza atanan verilerinize erişebilirsiniz. Microsoft çalışanları için yalnızca belirli sınırlı koşullarda bilginiz dahilinde sınırlı erişimi. Aktarımda ve bekleme sırasında şifrelenir.
 
 Bu makalenin geri kalanında, daha tam olarak bu yanıtları elaborates. Böylece, hemen bir ekibin parçası olmayan iş arkadaşlarınıza göstermek kendi içinde olacak şekilde tasarlanmıştır.
 
@@ -127,12 +127,9 @@ Evet, biz web sunucuları, cihazlar ve HTTPS web sayfaları dahil olmak üzere n
 
 Evet, bazı Telemetri kanalları yerel olarak bir uç nokta ulaşılamıyorsa veri açık kalır. Lütfen hangi çerçeveleri ve telemetri kanalları etkilendiğini görmek için aşağıda inceleyin.
 
-
 Yerel depolama alanını telemetri kanalları geçici dosyaları, uygulamanızı çalıştıran belirli bir hesabın kısıtlanır TEMP veya APPDATA dizini oluşturun. Bu, bir uç nokta geçici olarak kullanılamıyor veya azaltma sınırına olduğunda ortaya çıkabilir. Bu sorun çözüldükten sonra telemetri kanal tüm yeni ve kalıcı veri göndermeye devam eder.
 
-
-Bu kalıcı veri **şifreli** ve özel veri koleksiyonunu devre dışı bırakmak için veri toplama İlkesi yapılandırılacak önemle tavsiye edilir. (Bkz [dışarı aktarın ve özel veri silme](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) daha fazla bilgi için.)
-
+Bu kalıcı verileri yerel olarak şifrelenmez. Bu önemliyse, verileri gözden geçirin ve özel veri koleksiyonunu sınırlayabilirsiniz. (Bkz [dışarı aktarın ve özel veri silme](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) daha fazla bilgi için.)
 
 Bu dizin ile belirli güvenlik gereksinimlerini yapılandırmak bir müşteri gerekiyorsa framework yapılandırılabilir. Uygulama çalışan işlemi bu dizine yazma erişimi olduğundan emin olun, ancak aynı zamanda bu dizin, istenmeyen kullanıcılar tarafından okunan telemetri önlemek için korunduğundan emin olun.
 

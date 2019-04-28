@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450673"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA güvenli istemci ve OPC UA sunucu uygulaması 
 Kasa OPC yapılandırma, kaydetme ve sertifika yaşam döngüsü OPC UA sunucusu ve istemci uygulamalarını bulutta yönetme bir mikro hizmetidir. Bu makalede bir OPC UA istemcisi ve OPC UA sunucu uygulaması yeni bir anahtar çifti ve OPC kasasını kullanarak sertifika ile güvenli gösterilmektedir.

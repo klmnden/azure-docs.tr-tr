@@ -11,11 +11,11 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474428"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 önbelleğini izleme
 Gen2 depolama mimarisi, en sık Sorgulanmış columnstore segmentleri NVMe SSD tabanlı Gen2 veri ambarları için tasarlanmış bulunan bir önbellekte otomatik olarak katmanlandırır. Sorgularınızın önbelleğinde bulunan segmentleri aldığınızda daha yüksek performans alırlar. Bu makalede, izleme ve iş yükünüz Gen2 önbellek en iyi şekilde yararlanma olup olmadığını belirleyerek yavaş sorgu performansı sorunlarını giderme açıklar.  

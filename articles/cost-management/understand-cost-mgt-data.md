@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004015"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
 Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde dahildir daha iyi anlamanıza yardımcı olur. Ve ne sıklıkta veri toplanan, gösterilen ve kapalı işleneceğini açıklar. Aylık Azure kullanım için faturalandırılırsınız. Bununla birlikte, faturalandırma ayınızdan sona erdiğinde Azure abonelik türü belirler. Maliyet Yönetimi veri değişir kullanım ne sıklıkta alan farklı etkenlere bağlı olarak. Verileri işlemek için ne kadar sürer ve Azure Hizmetleri kullanımı faturalandırma sistemine ne sıklıkta yayma gibi faktörleri içerir.
+
+Maliyet yönetimi, tüm kullanım ve satın alma işlemleri, ayırmaları ve üçüncü taraf teklifleri, Kurumsal Anlaşma (EA) hesapları için de dahil olmak üzere içerir. Microsoft Müşteri Sözleşmesi (MCA) hesapları ve Kullandıkça Öde Abonelikleri, yalnızca Azure ve Market Hizmetleri kullanımınızdan içerir. Destek ve diğer maliyetleri dahil değildir. Maliyet tahmini fatura oluşturulana kadar ve krediler faktör değildir.
 
 ## <a name="supported-microsoft-offers"></a>Desteklenen Microsoft teklifleri
 
@@ -86,6 +88,7 @@ Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu ver
 |   | Krediler - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> azure hizmet kullanımı üzerinde ayırma temel alır ve fiyatlarını görüştü.
+
 <sup>2</sup> Market kullanım teklifi, Kullandıkça Öde için MSDN, kullanılabilir değil ve Visual Studio, şu anda sunar.
 
 **Meta verileri**

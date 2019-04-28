@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436180"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -109,7 +109,7 @@ Event Grid şema olayları için anahtar için aşağıdaki değerleri kullanın
 
 * Kimlik
 * Konu
-* Özne
+* Subject
 * EventType
 * dataVersion
 * Olay verilerini (gibi Data.key1)
@@ -129,7 +129,7 @@ Bulut olayları şemasında olayları için anahtar için aşağıdaki değerler
 Değerler olabilir:
 
 * number
-* dize
+* string
 * boole
 * array
 

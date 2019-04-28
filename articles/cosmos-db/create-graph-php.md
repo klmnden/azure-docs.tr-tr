@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
 ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893164"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Hızlı Başlangıç: PHP ve Azure portalını kullanarak Azure Cosmos DB içinde bir grafik veritabanı oluşturma
 

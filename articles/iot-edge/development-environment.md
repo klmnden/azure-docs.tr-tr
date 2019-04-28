@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247566"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IOT Edge için geliştirme ve test ortamı hazırlama
 
@@ -80,10 +80,10 @@ IOT Edge cihazları benzetimini yapmak veya modülleri daha verimli bir şekilde
 
 Yalnızca IOT Edge çalışma zamanı, üretim dağıtımları için desteklenir, ancak aşağıdaki araçları benzetimini yapmak veya IOT Edge cihazları geliştirme ve test etme amacıyla kolayca oluşturmanıza olanak sağlar. Bu araçlar, birbirini dışlayan değildir, ancak tam geliştirme deneyimi için birlikte çalışabilir. 
 
-| Aracı | Olarak da bilinir | Desteklenen platformlar | En iyi kullanım alanı: |
+| Tool | Olarak da bilinir | Desteklenen platformlar | En iyi kullanım alanı: |
 | ---- | ------------- | ------------------- | --------- |
 | IOT EdgeHub geliştirme aracı  | iotedgehubdev | Windows, Linux, MacOS | Modüller hata ayıklamak için bir cihazı benzetme |
-| IOT Edge geliştirme kapsayıcı | Microsoft/iotedgedev | Windows, Linux, MacOS | Bağımlılıkları yüklemeden geliştirme. |
+| IOT Edge geliştirme kapsayıcı | microsoft/iotedgedev | Windows, Linux, MacOS | Bağımlılıkları yüklemeden geliştirme. |
 | Bir kapsayıcıda IOT Edge çalışma zamanı | iotedgec | Windows, Linux, MacOS, ARM | Çalışma zamanı desteği olmayan bir cihazda test etme. |
 | IOT Edge cihaz kapsayıcı | toolboc/azure-IOT-edge-cihaz-container | Windows, Linux, MacOS, ARM | Birçok IOT Edge cihazları uygun ölçekte bir senaryo testi. |
 

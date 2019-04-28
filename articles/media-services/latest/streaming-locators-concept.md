@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466740"
 ---
 # <a name="streaming-locators"></a>Akış Bulucuları
 
-Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve daha sonra akış URL'lerini oluşturabilirsiniz. .NET örnek için bkz: [bir akış Bulucu alma](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+Çıkış Varlığınızdaki videoların istemcilerde kayıttan yürütülebilmesi için bir [Akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve ardından akış URL'si oluşturmanız gerekir. .NET örneği için bkz. [Akış Bulucu edinme](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
 Oluşturma işlemi bir **akış Bulucu** yayımlama denir. Varsayılan olarak, **akış Bulucu** API çağrılarını hemen sonra geçerli olduğunu ve isteğe bağlı bir başlangıç ve bitiş zamanlarını yapılandırmadığınız sürece silinene kadar sürer. 
 
@@ -42,5 +42,5 @@ Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](ent
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Öğretici: Karşıya yükleme, kodlama ve .NET kullanarak video akışı](stream-files-tutorial-with-api.md)
-* [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
+* [Öğretici: .NET kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma](stream-files-tutorial-with-api.md)
+* [DRM dinamik şifreleme ve lisans teslim hizmetini kullanma](protect-with-drm.md)

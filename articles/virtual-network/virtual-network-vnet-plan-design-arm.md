@@ -3,8 +3,8 @@ title: Azure sanal ağları planlama | Microsoft Docs
 description: Sanal ağ yalıtımı, bağlantı ve konum gereksinimlerinize göre planlama hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034748"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -37,7 +37,7 @@ Tüm Azure kaynakları, bir Azure bölgesi ve abonelik oluşturulur. Bir kaynak 
 - Veri yerleşikliği, özerkliği, uyumluluk ve dayanıklılık gereksinimleri var mı? Bu durumda gereksinimlerine uygun bölgeyi seçmek önemlidir. Daha fazla bilgi için [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/geographies/).
 - Dağıttığınız kaynakların aynı Azure bölgesindeki Azure kullanılabilirlik alanları genelinde esneklik gerekiyor mu? Sanal makineler (VM) gibi kaynakları, aynı sanal ağ içindeki farklı kullanılabilirlik bölgelerine dağıtabilirsiniz. Tüm Azure bölgeleri, ancak kullanılabilirlik alanlarını destekler. Kullanılabilirlik alanları ve bunları destekleyen bölgeleri hakkında daha fazla bilgi için bkz: [kullanılabilirlik](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Abonelikler
+## <a name="subscriptions"></a>Subscriptions
 
 En fazla sayıda sanal ağlar her Abonelikteki gerektiği gibi dağıtabilirsiniz [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Bazı kuruluşlar, örneğin farklı Departmanlar için farklı Aboneliklerde olabilir. Daha fazla bilgi ve dikkat edilecek noktalar geçici abonelikleri için bkz. [abonelik İdaresi](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 

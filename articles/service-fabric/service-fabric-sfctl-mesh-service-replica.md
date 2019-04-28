@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038457"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Çoğaltma ayrıntılarını ve liste çoğaltmalarını belirli bir hizmete bir uygulama kaynağı alın.
@@ -28,7 +28,7 @@ ms.locfileid: "58662440"
 
 |Komut|Açıklama|
 | --- | --- |
-| liste | Bir hizmetin tüm çoğaltmaların listeler. |
+| list | Bir hizmetin tüm çoğaltmaların listeler. |
 | göster | Bir uygulamanın hizmet verilen kopyasını alır. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl kafes hizmet çoğaltma listesi

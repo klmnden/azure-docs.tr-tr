@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61128186"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure portalı kullanarak içerik koruma ilkelerini yapılandırma
  Azure Media Services ile depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlayabilirsiniz. Media Services, dinamik olarak Gelişmiş Şifreleme Standardı (AES ile) 128 bit şifreleme anahtarları kullanılarak şifrelenir, içeriğinizi teslim etmek için kullanabilirsiniz. Ayrıca, ortak şifreleme (CENC) ile PlayReady ve/veya Widevine dijital hak yönetimi (DRM) ve Apple FairPlay kullanarak kullanabilirsiniz. 

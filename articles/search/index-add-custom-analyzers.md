@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60914917"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
@@ -214,7 +214,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Type|Çözümleyici türü listesinden Çözümleyicileri desteklenmiyor. Bkz: **analyzer_type** sütununda [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
+|Tür|Çözümleyici türü listesinden Çözümleyicileri desteklenmiyor. Bkz: **analyzer_type** sütununda [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
 |Seçenekler|Listelenen önceden tanımlanmış bir çözümleyici seçenekleri geçerli olmalıdır [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
 
 #### <a name="custom-analyzers"></a>Özel çözümleyiciler
@@ -222,7 +222,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Type|"#Microsoft.Azure.Search.CustomAnalyzer" olmalıdır.|  
+|Tür|"#Microsoft.Azure.Search.CustomAnalyzer" olmalıdır.|  
 |CharFilters|Listelenen önceden tanımlanmış karakter filtreleri birini ayarlayın [Char filtreleri](#CharFilter) tablo veya dizin tanımında belirtilen bir özel karakter filtre.|  
 |Belirteç Oluşturucu|Gereklidir. Listelenen önceden tanımlanmış oluşturma denenmeden birini ayarlayın [oluşturma denenmeden](#Tokenizers) aşağıdaki tablo veya dizin tanımında belirtilen özel bir belirteç Oluşturucu.|  
 |TokenFilters|Listelenen önceden tanımlanmış simge filtreleri birini ayarlayın [filtreler Token](#TokenFilters) tablo veya dizin tanımında belirtilen özel bir belirteç Filtresi.|  
@@ -236,7 +236,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Type|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#CharFilter) aşağıdaki tabloda.|  
+|Tür|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#CharFilter) aşağıdaki tabloda.|  
 |Seçenekler|Geçerli seçenekleri olmalıdır bir verilen [Char filtreleri](#CharFilter) türü.|  
 
 ### <a name="tokenizers"></a>Oluşturma denenmeden
@@ -249,7 +249,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Type|Desteklenen oluşturma denenmeden listesinden belirteç oluşturucu adı. Bkz: **tokenizer_type** sütununda [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
+|Tür|Desteklenen oluşturma denenmeden listesinden belirteç oluşturucu adı. Bkz: **tokenizer_type** sütununda [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 |Seçenekler|Listelenen belirli simgeleştirici türü geçerli seçenekler olmalıdır [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 
 ### <a name="token-filters"></a>Belirteç filtreleri
@@ -260,7 +260,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Type|Desteklenen belirteç filtreleri listesinden belirteci filtre adı. Bkz: **token_filter_type** sütununda [filtreler Token](#TokenFilters) aşağıdaki tabloda.|  
+|Tür|Desteklenen belirteç filtreleri listesinden belirteci filtre adı. Bkz: **token_filter_type** sütununda [filtreler Token](#TokenFilters) aşağıdaki tabloda.|  
 |Seçenekler|Olmalıdır [filtreler Token](#TokenFilters) verilen belirteç filtre türü.|  
 
 <a name="PropertyReference"></a>  

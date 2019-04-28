@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093208"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
 
@@ -95,7 +95,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 7 | Kullanım Koşulları'nı kullanılabilir & Gizlilik İlkesi  |  İlkeleri veya koşulları gerekli değildir  | | 
 | 8 | Hizmet türleri | Hizmet türü ile eşleşen başlık emin olun. | |
 | 9 | Yetkinlikler |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Data Center <br>• Veri Platformu <br>• DevOps |
-| 10 | Ürünler | Azure olmalıdır | |
+| 10 | Products | Azure olmalıdır | |
 | 11 | Ülke/Bölge | Para birimi seçilen ülke ve bölgeye eşleşme emin olun | |
 | 12 | Daha Fazla Bilgi Edinin  | <br>• Bağlantılar alt (altında açıklama, Market bağlantıları soldaki değil) çözümü hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme. <br>• Bağlantılar bir "kolay adı" olmalıdır ve dosya adı herhangi bir indirme olarak görünmeyen | |
 

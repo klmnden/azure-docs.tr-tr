@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006701"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002684"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure veri Kataloğu Geliştirici kavramları
 Microsoft **Azure veri Kataloğu** kitle kaynak veri kaynağı meta verilerini ve veri kaynağı bulma için özellikler sağlayan bir tam olarak yönetilen bir bulut hizmetidir. Geliştiriciler, hizmet, REST API'leri aracılığıyla kullanabilir. Hizmette uygulanan kavramları anlamak, başarılı bir şekilde tümleştirmek geliştiricilere yönelik önemli **Azure veri Kataloğu**.
@@ -99,7 +99,7 @@ Bu özellikler, tüm singleton olmayan ek açıklama türleri için geçerlidir 
 
 <table>
 <tr><td><b>Özellik adı</b></td><td><b>Veri türü</b></td><td><b>Açıklamalar</b></td></tr>
-<tr><td>key</td><td>String</td><td>Bir kullanıcı tarafından belirtilen ek açıklama geçerli koleksiyonunda benzersiz olarak tanımlayan anahtar. Anahtar uzunluğu 256 karakterden uzun olamaz.</td></tr>
+<tr><td>anahtar</td><td>String</td><td>Bir kullanıcı tarafından belirtilen ek açıklama geçerli koleksiyonunda benzersiz olarak tanımlayan anahtar. Anahtar uzunluğu 256 karakterden uzun olamaz.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Kök varlık türleri
@@ -115,7 +115,7 @@ Ek açıklama türleri katalog içindeki diğer türlerine atanan meta veri tür
 <tr><td><b>Ek açıklama türü (iç içe Görünüm adı)</b></td><td><b>Ek Özellikler</b></td><td><b>Veri türü</b></td><td><b>Açıklamalar</b></td></tr>
 
 <tr><td>Açıklaması ("Açıklamalar")</td><td></td><td></td><td>Bu özellik, bir varlık için bir açıklama içerir. Sistemin her bir kullanıcı kendi açıklama ekleyebilirsiniz.  Yalnızca bu kullanıcının açıklama nesneyi düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri açıklama nesneyi silmek ancak düzenleme olmadan). Sistem, kullanıcıların açıklamaları ayrı ayrı tutar.  Bu nedenle her varlık (büyük olasılıkla bir veri kaynağından elde edilen bilgileri içeren ek olarak, varlık hakkında bilgilerini katkılarıyla her kullanıcı için bir tane) üzerinde açıklamaları dizisi yok.</td></tr>
-<tr><td></td><td>description</td><td>string</td><td>Varlık kısa açıklaması (2-3 satır)</td></tr>
+<tr><td></td><td>açıklama</td><td>string</td><td>Varlık kısa açıklaması (2-3 satır)</td></tr>
 
 <tr><td>Etiketi ("tags")</td><td></td><td></td><td>Bu özellik, bir varlık için bir etiket tanımlar. Her bir kullanıcı sistemin bir varlık için birden çok etiket ekleyebilirsiniz.  Etiket nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri etiket nesneyi silmek ancak düzenleme olmadan). Sistem, kullanıcıların etiket ayrı ayrı tutar.  Bu nedenle her varlık etiketi nesneleri dizisi yok.</td></tr>
 <tr><td></td><td>etiket</td><td>string</td><td>Varlığı açıklayan bir etiketi.</td></tr>
@@ -128,7 +128,7 @@ Ek açıklama türleri katalog içindeki diğer türlerine atanan meta veri tür
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Bu özellik, bir sütun için bir açıklama içerir.  Sistemin her kullanıcı birden çok sütun (en fazla sütun başına) için kendi açıklamalar ekleyebilirsiniz. ColumnDescription nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz.  (Yöneticiler ve varlık sahipleri ColumnDescription nesnesini silme ancak düzenleme olmadan). Sistem, bu kullanıcının sütun açıklamaları ayrı ayrı tutar.  Bu nedenle her varlık (büyük olasılıkla bir veri kaynağından elde edilen bilgileri içeren ek sütun hakkında bilgilerini katkılarıyla her bir kullanıcı için sütun başına bir adet) ColumnDescription nesneleri dizisi yok.  Eşitlenmemiş alabilmeniz ColumnDescription gevşek şemaya bağlı. Şemada artık bir sütun ColumnDescription açıklayabilir.  Bu açıklama ve şema eşitlenmiş şekilde tutmanızı sağlayacak kadar yazardır.  Veri kaynağı de sütun açıklaması bilgilere sahip ve bunlar Aracı çalıştırırken oluşturulacak ek ColumnDescription nesneler.</td></tr>
 <tr><td></td><td>ColumnName</td><td>String</td><td>Bu açıklama başvurduğu sütunun adı.</td></tr>
-<tr><td></td><td>description</td><td>String</td><td>kısa bir açıklaması (2-3 satır) sütun.</td></tr>
+<tr><td></td><td>açıklama</td><td>String</td><td>kısa bir açıklaması (2-3 satır) sütun.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Bu özellik, bir sütun için bir etiket içerir. Sistemin her bir kullanıcı belirtilen sütun için birden fazla etiket ekleyebilir ve birden çok sütun için etiketler ekleyebilirsiniz. ColumnTag nesneleri oluşturan kullanıcı bunları düzenleyebilirsiniz. (Yöneticiler ve varlık sahipleri ColumnTag nesnesini silme ancak düzenleme olmadan). Sistem, bu kullanıcıların sütun etiketleri ayrı ayrı tutar.  Bu nedenle her varlık üzerinde ColumnTag nesnelerinin bir dizisi yok.  Eşitlenmemiş alabilmeniz ColumnTag gevşek şemaya bağlı. Şemada artık bir sütun ColumnTag açıklayabilir.  Bu sütun etiketi ve şema eşitlenmiş şekilde tutmanızı sağlayacak kadar yazardır.</td></tr>
 <tr><td></td><td>ColumnName</td><td>String</td><td>Bu etiket başvurduğu sütunun adı.</td></tr>

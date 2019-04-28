@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911114"
 ---
-# <a name="all-offers-page"></a>Tüm sayfa sunar
+# <a name="all-offers-page"></a>Tüm teklifler sayfası
 
 [ **Tüm teklifleri** ](https://cloudpartner.azure.com/#alloffers) oluşturulan teklifleri, adı, türü, yayımcı ve geçerli durumunu içeren bir listesini görüntülemek iş ortakları sayfası sağlar.  Sonuçları filtrelemek için bir dize belirtebilirsiniz.   Sayfanın altındaki durum alanında toplama ve sayfa sayısını görüntüler ve liste sayfalarının arasında gitmenizi sağlar. Bu teklif, bu listeden bir teklif ilişkili teklif Düzenleyicisi'nde görüntülenir. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "52267036"
 
 Aşağıdaki görüntüde **tüm teklifleri** sayfa filtre dizesi `Contoso`.
 
-![Tüm sayfa sunar](./media/all-offers-page1.png)
+![Tüm teklifler sayfası](./media/all-offers-page1.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

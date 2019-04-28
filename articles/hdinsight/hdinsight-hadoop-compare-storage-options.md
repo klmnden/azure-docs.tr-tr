@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922017"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile kullanılmak üzere depolama seçeneklerini karşılaştırma
 
@@ -29,9 +29,9 @@ HDInsight'ın farklı sürümleriyle desteklenen Azure depolama hizmetleri aşa�
 | Depolama birimi hizmeti | Hesap türü | Namespace türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları | HDInsight Sürümü | Küme türü |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Genel amaçlı V2 | Hiyerarşik (dosya sistemi) | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
-|Azure Storage| Genel amaçlı V2 | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
-|Azure Storage| Genel amaçlı V1 | Nesne | Blob | Standart | Yok | Tümü | Tümü |
-|Azure Storage| Blob Depolama | Nesne | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
+|Azure Storage| Genel amaçlı V2 | Object | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
+|Azure Storage| Genel amaçlı V1 | Object | Blob | Standart | Yok | Tümü | Tümü |
+|Azure Storage| Blob Depolama | Object | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
 |Azure Data Lake Storage Gen1| Yok | Hiyerarşik (dosya sistemi) | Yok | Yok | Yok | Yalnızca 3.6 | HBase dışında tümü |
 
 Azure depolama erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../storage/blobs/storage-blob-storage-tiers.md)
@@ -213,7 +213,7 @@ Data Lake depolama Gen1 kullanan Azure Active Directory kimlik doğrulaması ve 
 
 | **Özellik** | **Açıklama** |
 | --- | --- |
-| Authentication |Data Lake depolama Gen1, Data Lake depolama Gen1 içinde depolanan tüm veriler için kimlik ve erişim yönetimi için Azure Active Directory (Azure AD) ile tümleşir. Tümleştirme nedeniyle, Data Lake depolama Gen1 tüm Azure AD özelliklerden faydalanır. Bu özellikler, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izleme ve uyarı içerir ve benzeri. Data Lake depolama Gen1 REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz: [kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Data Lake depolama Gen1 içinde](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Kimlik Doğrulaması |Data Lake depolama Gen1, Data Lake depolama Gen1 içinde depolanan tüm veriler için kimlik ve erişim yönetimi için Azure Active Directory (Azure AD) ile tümleşir. Tümleştirme nedeniyle, Data Lake depolama Gen1 tüm Azure AD özelliklerden faydalanır. Bu özellikler, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izleme ve uyarı içerir ve benzeri. Data Lake depolama Gen1 REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz: [kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Data Lake depolama Gen1 içinde](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Erişim denetimi |Data Lake depolama Gen1 WebHDFS protokolünün kullanıma sunulan POSIX stili izinleri destekleyerek erişim denetimi sağlar. ACL’ler kök klasörde, alt klasörlerde ve dosyalarda tek tek etkinleştirilebilir. ACL'ler Data Lake depolama Gen1 bağlamında nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Data Lake depolama Gen1'deki erişim denetimi](../data-lake-store/data-lake-store-access-control.md). |
 | Şifreleme |Data Lake depolama Gen1 ayrıca hesapta depolanan veriler için şifreleme sağlar. Bir Data Lake depolama Gen1 hesabı oluşturulurken şifreleme ayarlarını belirtirsiniz. Verilerinizin şifrelenmesini tercih ya da şifrelemeyi kabul seçebilirsiniz. Daha fazla bilgi için [şifreleme Data Lake depolama Gen1](../data-lake-store/data-lake-store-encryption.md). Bir şifreleme tabanlı yapılandırma sağlama konusunda yönergeler için bkz. [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](../data-lake-store/data-lake-store-get-started-portal.md). |
 

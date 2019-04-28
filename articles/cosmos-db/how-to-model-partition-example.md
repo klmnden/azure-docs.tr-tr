@@ -1,17 +1,18 @@
 ---
 title: Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
 description: Model ve Azure Cosmos DB Core API'si kullanarak bir gerçek örnek bölümü hakkında bilgi edinin
-author: ThomasWeiss
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
-ms.author: thweiss
+origin.date: 03/27/2019
+ms.date: 04/15/2019
+ms.author: v-yeche
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61057627"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
 
@@ -333,7 +334,7 @@ Bizim kullandığımız değişiklik akışını `users` kullanıcılar, kullan�
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-  
+
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -576,3 +577,6 @@ Pratik veri modelleme ve bölümleme bu giriş sonra kapsamına kavramlarını g
 - [Veritabanları, kapsayıcılar ve öğeleri ile çalışma](databases-containers-items.md)
 - [Azure Cosmos DB'de bölümleme](partitioning-overview.md)
 - [Azure Cosmos DB'de akış değiştirme](change-feed.md)
+
+<!--Update_Description: new articles on how to model partition example -->
+<!--ms.date: 04/15/2019-->

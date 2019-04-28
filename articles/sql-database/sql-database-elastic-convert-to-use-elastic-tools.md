@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075216"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Ölçeği genişletmek için mevcut veritabanlarını geçirme
 Azure SQL veritabanı, veritabanı araçları kullanarak mevcut, ölçeği genişletilen parçalı veritabanlarını kolayca yönetin (gibi [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md)). Var olan bir veritabanı kullanmak için kümesi dönüştürmeniz [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). 
@@ -159,7 +159,7 @@ Araç, Github'da da vardır: [Azure/elastik-db-tools](https://github.com/Azure/e
 Ayırma-Birleştirme aracı için bir tek kiracılı model veya çok kiracılı model aracılığıyla veri taşımak için kullanın. Bkz: [bölme-Birleştirme aracı](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-Çok kiracılı hizmet olarak yazılım (SaaS) veritabanı uygulamalarının ortak veri mimarisi düzenlerine ilişkin bilgi için bkz. [Azure SQL Database ile Çok Kiracılı SaaS Uygulamaları için Tasarım Düzenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Çok kiracılı hizmet olarak yazılım (SaaS) veritabanı uygulamalarının ortak veri mimarisi düzenlerine ilişkin bilgi için bkz. [Azure SQL Veritabanı ile Çok Kiracılı SaaS Uygulamaları için Tasarım Düzenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Sorular ve özellik istekleri
 Sorularınız için kullanmak [SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) ve özellik istekleri için ekleyebilmesi [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).

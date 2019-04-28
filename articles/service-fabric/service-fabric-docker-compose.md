@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose dağıtımı Önizleme
 description: Azure Service Fabric, Service Fabric kullanarak mevcut kapsayıcıları düzenleyin daha kolay hale getirmek için Docker Compose biçimlerini kabul eder. Bu destek, şu anda Önizleme aşamasındadır.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
-ms.author: aljo, subramar
+origin.date: 02/23/2018
+ms.date: 01/07/2019
+ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948843"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>(Önizleme) Azure Service fabric'te docker Compose dağıtımı desteği
 
@@ -165,3 +166,6 @@ Bu model, üst düzeyde esneklik sunar ancak biz de burada türleri bildirim dos
 
 * Üzerinde okuma [Service Fabric uygulama modeli](service-fabric-application-model.md)
 * [Service Fabric CLI kullanmaya başlama](service-fabric-cli.md)
+
+<!-- Update_Description: new articles on service fabric docker compose -->
+<!--ms.date: 01/14/2019 -->

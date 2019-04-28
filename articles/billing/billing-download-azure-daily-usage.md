@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60919010"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure kullanım ve Ücret görüntülemenize ve indirmenize
 
@@ -77,9 +77,9 @@ Microsoft Müşteri sözleşmesi varsa, Azure kullanımı ve ücretleri fatura p
 ### <a name="download-usage-for-billed-charges"></a>Faturalandırılan ücretler kullanımı indir
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 3. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
-4. Seçin **faturalar**.
+4. **Faturalar**'ı seçin.
 5. Fatura kılavuzunda fatura indirmek istediğiniz kullanım için karşılık gelen satırı bulur.
 6. Üç noktaya tıklayın (`...`) satırın sonunda.
 
@@ -94,7 +94,7 @@ Microsoft Müşteri sözleşmesi varsa, Azure kullanımı ve ücretleri fatura p
 Geçerli fatura dönemi için ayın başından bu yana kullanımı da indirebilirsiniz. Henüz faturalandırılmış değil Bu kullanım ücretlerine uygulanır.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. **Maliyet Yönetimi + Faturalama** araması yapın.
 3. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
 4. İçinde **genel bakış** dikey penceresinde, indirme bağlantıları ay başından bu yana ücretleri altında bulabilirsiniz.
 5. Seçin **Azure kullanım ve Ücret**.
@@ -104,7 +104,7 @@ Geçerli fatura dönemi için ayın başından bu yana kullanımı da indirebili
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -113,7 +113,7 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
 Faturayı ve kullanım ücretlerinizin hakkında daha fazla bilgi için bkz:
 
 - [Şirket koşulları anlama, Microsoft Azure ayrıntılı kullanım](billing-understand-your-usage.md)
-- [Microsoft Azure için faturanızı anlayın](billing-understand-your-bill.md)
+- [Microsoft Azure faturanızı anlama](billing-understand-your-bill.md)
 - [Görüntüleyin ve Microsoft Azure faturanızı indirin](billing-download-azure-invoice.md)
 - [Görüntüleyin ve indirin, kuruluşunuzun Azure fiyatlandırması](billing-ea-pricing.md)
 

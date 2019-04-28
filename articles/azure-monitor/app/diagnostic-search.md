@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900265"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](../../azure-monitor/app/app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
@@ -112,7 +112,7 @@ Aralık, daha kısa bir aralık içinde aramalar olarak daha hızlı bir zaman a
 
 Arama için tam sözcük, alt dizeler değil. Özel karakterleri için tırnak işaretleri kullanın.
 
-| dize | olan *değil* tarafından bulunamadı | ancak bunlar Bul |
+| string | olan *değil* tarafından bulunamadı | ancak bunlar Bul |
 | --- | --- | --- |
 | HomeController.About |giriş sayfası<br/>Denetleyici<br/>Çıkış | homecontroller<br/>hakkında<br/>"homecontroller.about"|
 |Amerika Birleşik Devletleri|UNI<br/>ted|Birleşik<br/>durumları<br/>VE Birleşik Devletleri<br/>"ABD"

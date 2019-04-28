@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476262"
 ---
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Ayırdığınız disk sanal makineden kaldırılır ancak Azure depolama hesabından silinmez.
 
@@ -28,7 +28,7 @@ Diskin adını bilmiyorsanız veya ayırma işleminden önce doğrulamak istiyor
 
 3. Sanal makine panosunun sol kenarındaki **Ayarlar**'ın altından **Diskler**'e tıklayın.
 
-   Sanal makine panosunda tüm ekli disklerin adı ve türü listelenir. Örneğin, bu ekran bir işletim sistemi (OS) diskine ve bir veri diskine sahip bir sanal makineyi göstermektedir:
+ Sanal makine panosunda tüm ekli disklerin adı ve türü listelenir. Örneğin, bu ekran bir işletim sistemi (OS) diskine ve bir veri diskine sahip bir sanal makineyi göstermektedir:
 
     ![Veri diskini bulma](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Diskin adını bilmiyorsanız veya ayırma işleminden önce doğrulamak istiyor
 
 3. Ayırmak istediğiniz diske tıklayın.
 
-   ![Ayrılacak diski tanımlayın](./media/howto-detach-disk-windows-linux/disklist.png)
+  ![Ayrılacak diski tanımlayın](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Komut çubuğundan **Ayır**'a tıklayın.
 
-   ![Ayırma komutunu bulun](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+  ![Ayırma komutunu bulun](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Diski ayırmak için onay penceresinde **Evet**'e tıklayın.
 
-   ![Diski ayırmayı onaylayın](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+  ![Diski ayırmayı onaylayın](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.

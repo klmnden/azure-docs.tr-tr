@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067463"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Bulut iş ortağı portalını kullanmaya başlama
 
@@ -51,7 +51,7 @@ Yeni bir teklif başlattığınızda veya teklifiniz düzenlemek için geri dön
 ![Teklif](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Teklif sayfasında, şunları yapabilirsiniz:
-- İçerik ekleme veya iki üst düzey modlar arasında geçiş tarafından ürününüzün durumunu kontrol edin: **Düzenleyicisi** ve **durumu**.
+- İçerik ekleme veya iki üst düzey modlar arasında geçiş tarafından ürününüzün durumunu kontrol edin: **Düzenleyici** ve **durumu**.
 - Kullanım **Eylem çubuğu** açıkça ürününüzün değişikliklerini kaydetme ve giriş atma yönetme.
 - Gerekli arasında gezinmek **Forms** yazarken her teklif için ürününüzün ayarlarını değiştirin.
 

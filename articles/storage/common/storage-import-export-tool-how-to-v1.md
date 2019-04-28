@@ -9,11 +9,11 @@ ms.date: 1/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 6116212ae81eb334386eebab057af967309370d6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478547"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Azure içeri/dışarı aktarma Aracı'nı (Klasik dağıtım modeli) kullanma
 

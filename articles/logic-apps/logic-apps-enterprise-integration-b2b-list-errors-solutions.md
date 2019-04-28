@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998837"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B hatalar ve çözümleri için Azure Logic Apps
 
@@ -145,7 +145,7 @@ Bu makalede Logic Apps B2B senaryolarda oluşabilir ve bu hataları düzeltmek i
 
 |   |   | 
 |---|---|
-| Hata açıklaması | InvalidTemplate. Satır '1', sütun '1902', eylem 'Flat_File_Decoding' girişlerinde işlem şablon dili ifadeleri alınamıyor: ' gerekli 'content' özelliği, bir değer alındı null bekliyor. Yol ''.'. |
+| Hata açıklaması | InvalidTemplate. Eylem 'Flat_File_Decoding' şablon dili ifadeleri işlenemiyor, '1', sütun '1902' satırında giriş: ' Gerekli 'content' özelliği, bir değer alındı null bekliyor. Yol ''.'. |
 | Bir kullanıcı eylemi | Giriş iletisi gövdesi içermiyor bu hata gösterir. |
 |   |   | 
 

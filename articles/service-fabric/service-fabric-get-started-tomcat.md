@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947464"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Apache Tomcat sunucusunu Linux'ta çalışan Service Fabric kapsayıcı oluşturma
 Apache Tomcat, Java Servlet ve Java sunucusu teknolojileri popüler, açık kaynaklı bir uygulamasıdır. Bu makalede, Apache Tomcat ve basit bir Web uygulaması ile bir kapsayıcı oluşturmak, Linux çalıştıran bir Service Fabric kümesine dağıtma ve Web uygulamasına bağlanma işlemini göstermektedir.  
@@ -144,7 +144,7 @@ Bir kapsayıcı kayıt defterine Tomcat görüntü gönderildi, derleme ve Tomca
    * Uygulamanızı adlandırın: ServiceFabricTomcat
    * Uygulama hizmeti adı: TomcatService
    * Görüntü adı girin: Kapsayıcı kayıt defterindeki kapsayıcı görüntüsünün URL'sini sağlayın; Örneğin, myregistry.azurecr.io/samples/tomcattest.
-   * Komutlar: Burayı boş bırakın. Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekmez (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar).
+   * Komutlar: Bunu boş bırakın. Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekmez (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar).
    * Konuk kapsayıcı uygulamasının örnek sayısı: 1
 
    ![Kapsayıcılar için Service Fabric Yeoman oluşturucusu](./media/service-fabric-get-started-tomcat/yo-generator.png)

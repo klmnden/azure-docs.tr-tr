@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: a3c88953eea95871529e8ab257f52b694db443a9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61244319"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>MySQL veri çoğaltma için Azure veritabanı saklı yordamlar
 
@@ -21,10 +21,10 @@ Aşağıdaki saklı yordamlara ayarlayın veya verileri, bir ana çoğaltma aras
 
 |**Saklı yordam adı**|**Giriş parametreleri**|**Çıktı parametreleri**|**Kullanım notu**|
 |-----|-----|-----|-----|
-|*MySQL.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Yok|SSL modu ile veri aktarımı için CA sertifikanın bağlamda master_ssl_ca parametresine geçirin. </br><br>SSL olmayan veri aktarmak için boş bir dize içinde master_ssl_ca parametresine geçirin.|
-|*MySQL.az_replication _başlatmayı*|Yok|Yok|Çoğaltma başlatır.|
-|*MySQL.az_replication _hata*|Yok|Yok|Çoğaltmayı durdurur.|
-|*MySQL.az_replication _remove_master*|Yok|Yok|Ana ve çoğaltma arasındaki çoğaltma ilişkisini kaldırır.|
-|*MySQL.az_replication_skip_counter*|Yok|Yok|Bir çoğaltma hatası atlar.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Yok|SSL modu ile veri aktarımı için CA sertifikanın bağlamda master_ssl_ca parametresine geçirin. </br><br>SSL olmayan veri aktarmak için boş bir dize içinde master_ssl_ca parametresine geçirin.|
+|*mysql.az_replication _start*|Yok|Yok|Çoğaltma başlatır.|
+|*mysql.az_replication _stop*|Yok|Yok|Çoğaltmayı durdurur.|
+|*mysql.az_replication _remove_master*|Yok|Yok|Ana ve çoğaltma arasındaki çoğaltma ilişkisini kaldırır.|
+|*mysql.az_replication_skip_counter*|Yok|Yok|Bir çoğaltma hatası atlar.|
 
 Veri çoğaltma bir ana ve Azure veritabanı'nda çoğaltma arasında MySQL için ayarlamak için başvurmak [veri çoğaltma yapılandırma](howto-data-in-replication.md).

@@ -10,16 +10,16 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230394"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(KULLANIM DIŞI) Kubernetes pod'larını ve altyapısını ölçeklendirme
 
 > [!TIP]
-> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) uygulama ölçeklendirme](../../aks/tutorial-kubernetes-scale.md).
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [Öğreticisi: Azure Kubernetes Service (AKS) uygulama ölçeklendirme](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -48,7 +48,7 @@ Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 �
 kubectl get pods
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -68,7 +68,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 kubectl get pods
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -107,7 +107,7 @@ Otomatik ölçeklendiricinin durumunu görmek için aşağıdaki komutu çalış
 kubectl get hpa
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

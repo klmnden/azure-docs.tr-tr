@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: ramkris
 ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330255"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Apache Spark'ı kullanarak büyük veri analizi hızlandırın
 
@@ -203,7 +203,7 @@ Daha fazla bilgi sahibiz `azure-cosmosdb-spark` [wiki](https://github.com/Azure/
 * [Sorgu Test çalıştırmaları](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
 * [Yazma Test çalıştırmaları](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
 
-### <a name="change-feed"></a>Değişiklik akışı
+### <a name="change-feed"></a>Değişiklik Akışı
 
 * [Stream Azure Cosmos DB değişiklik akışı ile Apache Spark'ı kullanarak değişiklikleri işleme](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 * [Değişiklik akışı tanıtımları](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)

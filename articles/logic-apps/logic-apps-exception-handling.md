@@ -11,11 +11,11 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996613"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic apps'te özel durumları işleme
 
@@ -29,7 +29,7 @@ En temel özel durum ve hata işleme için kullanabileceğiniz bir *yeniden dene
 
 Yeniden deneme ilkesi türleri şunlardır: 
 
-| Type | Açıklama | 
+| Tür | Açıklama | 
 |------|-------------| 
 | **Varsayılan** | Bu ilke, en fazla dört yeniden denemeleri gönderir *katlanarak artan* ölçeklendirme 7.5 saniye ancak 5-45 saniye arasında kapsanacaksınız aralıkları. | 
 | **Üstel aralık**  | Bu ilke, sonraki isteği göndermeden önce bir katlanarak artan aralığında seçilen rastgele bir aralığını bekler. | 
@@ -71,7 +71,7 @@ Veya el ile yeniden deneme ilkesinde belirtebileceğiniz `inputs` bölüm için 
 
 *Gerekli*
 
-| Değer | Type | Açıklama |
+| Değer | Tür | Açıklama |
 |-------|------|-------------|
 | <*yeniden deneme ilkesi türü*> | String | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
 | <*yeniden deneme aralığı*> | String | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
@@ -80,7 +80,7 @@ Veya el ile yeniden deneme ilkesinde belirtebileceğiniz `inputs` bölüm için 
 
 *İsteğe bağlı*
 
-| Değer | Type | Açıklama |
+| Değer | Tür | Açıklama |
 |-------|------|-------------|
 | <*en düşük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en küçük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*en büyük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en büyük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

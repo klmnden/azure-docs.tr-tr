@@ -11,11 +11,11 @@ ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
 ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995731"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -420,7 +420,7 @@ Azure Logic Apps, güvenli ve güvenilir için bu hizmetleri ile tümleştirme �
 
 Azure Logic Apps için birçok yönetilen bağlayıcılar, şirket içi sistemler, dosya sistemi, SQL, SharePoint, DB2 ve diğerleri gibi güvenli bağlantılar sağlar. Ağ geçidi, şifrelenmiş kanallarda Azure Service Bus aracılığıyla şirket içi kaynaklardan verileri gönderir. Tüm trafiği, ağ geçidi aracının giden trafiği güvenli olarak kaynaklanır. Bilgi [şirket içi veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
 
-#### <a name="azure-api-management"></a>Azure API Yönetimi
+#### <a name="azure-api-management"></a>Azure API Management
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/) siteden siteye sanal özel ağ ve ExpressRoute tümleştirme güvenli proxy ve şirket içi sistemler ile iletişim gibi şirket içi bağlantı seçenekleri sunar. Logic Apps Tasarımcısı'nda, şirket içi sistemlere hızlı erişim sağlayarak mantıksal uygulamanızın iş akışından API Management tarafından sunulan bir API seçebilirsiniz.
 

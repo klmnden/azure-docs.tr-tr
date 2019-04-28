@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
 ms.openlocfilehash: 835a7027293694551e672220a3d7db4c7085550b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61039872"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP İş Ortağı programına kaydolun ve maliyetle ilgili verileri görüntüleyin
 

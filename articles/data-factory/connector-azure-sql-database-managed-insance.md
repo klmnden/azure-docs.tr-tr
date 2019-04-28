@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093956"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı yönetilen örneği gelen ve giden veri kopyalama
 
@@ -525,7 +525,7 @@ Azure SQL veritabanı yönetilen örneği gelen ve giden veriler kopyalandığı
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| Sayısal |Decimal |
+| Numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowVersion |Byte[] |
@@ -538,7 +538,7 @@ Azure SQL veritabanı yönetilen örneği gelen ve giden veriler kopyalandığı
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| varbinary |Byte[] |
+| Varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

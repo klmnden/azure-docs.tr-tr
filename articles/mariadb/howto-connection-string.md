@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61039693"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı uygulamalara bağlanma
 Bu konu, şablonları ve örnekler ile birlikte MariaDB için Azure veritabanı tarafından desteklenmeyen bağlantı dize türleri listeler. Bağlantı dizenizi farklı parametreler ve ayarları olabilir.

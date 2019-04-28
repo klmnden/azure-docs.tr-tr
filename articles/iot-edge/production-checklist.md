@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998464"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IOT Edge çözümünüzü üretim ortamında dağıtmaya hazırlanma
 
@@ -208,7 +208,7 @@ Tüm kapsayıcı logfiles kapsayıcı altyapısı günlük seçenekleri boyutunu
 
 Bu bilgiler adlı bir dosyaya ekleyin (veya ekleme) `daemon.json` ve cihaz platformunuz için doğru konuma yerleştirin.
 
-| Platform | Konum |
+| Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby-data\config\` |

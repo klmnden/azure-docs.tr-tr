@@ -11,11 +11,11 @@ ms.date: 05/04/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60951807"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Bilişsel arama iş yükleri için belge kaynakları
 
@@ -57,6 +57,6 @@ Bilişsel arama için kapsamlı belgeler makaleleridir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Azure Search REST API'si](https://docs.microsoft.com/rest/api/searchservice/)
++ [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Azure Search'te dizin oluşturucular](search-indexer-overview.md)
 + [Azure Search nedir?](search-what-is-azure-search.md)

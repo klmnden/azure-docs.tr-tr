@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
 ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61441635"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics'i kullanarak avro verileri Sorgulama
 
@@ -56,7 +56,7 @@ Bu bölümde, Avro verileri sorgulamak ve diğer depolara veya veri depolarında
 
 6. Visual Studio'da bir U-SQL projesi oluşturun.
  
-   ! U-SQL project](./media/iot-hub-query-avro-data/query-avro-data-6.png) oluşturma
+   !Create a U-SQL project](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Aşağıdaki komut dosyası içeriğini yeni oluşturulan dosyaya yapıştırın. Üç vurgulanan bölüm değiştirme: Data Lake Analytics hesabınızı ve ilişkili DLL dosya yolları depolama hesabınız için doğru yol.
     

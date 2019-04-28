@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459563"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MySQL sunucusu için Azure veritabanı'nı yönetme
 Bu konu, yeni bir Azure veritabanını MySQL sunucusu için hızlı bir şekilde nasıl oluşturacağınızı açıklar. Ayrıca Azure portalını kullanarak sunucuyu yönetme hakkında bilgi içerir. Sunucu Yönetimi Sunucusu ayrıntıları ve parola sıfırlama için kaynakların ölçeklendirilmesi ve sunucuyu silmek veritabanları görüntüleme içerir.

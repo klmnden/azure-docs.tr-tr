@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906201"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Güvenlik uyarıları haritası ve tehdit bilgileri
 Bu makalede Azure Güvenlik Merkezi'nde güvenlik uyarıları harita ve güvenlik olay-tabanlı tehdit bilgileri Haritası güvenlikle ilgili sorunları gidermek üzere kullanmanıza yardımcı olur.

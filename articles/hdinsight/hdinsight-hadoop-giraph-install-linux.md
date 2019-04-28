@@ -1,27 +1,22 @@
 ---
-title: Yükleme ve HDInsight (Hadoop) - Azure Giraph kullanma
-description: Betik eylemlerini kullanarak Linux tabanlı HDInsight kümelerinde Giraph yüklemeyi öğrenin. Betik eylemleri, küme oluşturma sırasında küme yapılandırmasını değiştirme veya hizmetleri ve yardımcı programları'nı yükleme özelleştirmenize olanak sağlar.
-services: hdinsight
+title: Yükleme ve Azure HDInsight üzerinde Giraph kullanma
+description: Komut dosyası Eylemleri'ni kullanarak HDInsight kümelerinde Giraph yüklemeyi öğrenin. Giraph grafik içinde Apache Hadoop Azure bulutunda işleme yapmak için kullanabilirsiniz.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61395393"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 
 Bir HDInsight kümesi üzerinde Apache giraph'ı yüklemeyi öğrenin. HDInsight betik eylemi özelliği, bir bash betiğini çalıştırarak kümeniz özelleştirmenizi sağlar. Betikler, sırasında ve Küme oluşturulduktan sonra kümeleri özelleştirmek için kullanılabilir.
-
-> [!IMPORTANT]  
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Giraph nedir
 
@@ -58,7 +53,7 @@ Bu bölümde, örnek betik Azure portalını kullanarak kümeyi oluştururken ku
 > [!NOTE]  
 > Betik eylemi, aşağıdaki yöntemlerden birini kullanarak uygulanabilir:
 > * Azure PowerShell
-> * Klasik Azure CLI
+> * The Azure CLI
 > * HDInsight .NET SDK'sı
 > * Azure Resource Manager şablonları
 > 
@@ -148,7 +143,7 @@ Küme oluşturulduktan sonra Giraph dahil SimpleShortestPathsComputation örneğ
 
     Bu ve Giraph örnekleri ile kullanılan diğer parametreleri hakkında daha fazla bilgi için bkz. [Giraph hızlı](https://giraph.apache.org/quick_start.html).
 
-6. İş tamamlandıktan sonra sonuçları depolanan **/example/out/shotestpaths** dizin. Çıkış dosyası adı şununla **bölümü-m -** ve birinci, ikinci, vb. dosya belirten bir sayı ile bitmelidir. Çıkışı görüntülemek için aşağıdaki komutu kullanın:
+6. İş tamamlandıktan sonra sonuçları depolanan **/example/out/shortestpaths** dizin. Çıkış dosyası adı şununla **bölümü-m -** ve birinci, ikinci, vb. dosya belirten bir sayı ile bitmelidir. Çıkışı görüntülemek için aşağıdaki komutu kullanın:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

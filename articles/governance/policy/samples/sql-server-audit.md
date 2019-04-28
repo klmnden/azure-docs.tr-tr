@@ -1,18 +1,20 @@
 ---
 title: Örnek - denetim SQL Server denetim ayarları
 description: Bu örnek ilke tanımını auditIfNotExists ile SQL sunucusunun denetim ayarlarını denetler.
+services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 01/23/2019
-ms.author: dacoulte
+origin.date: 04/27/2018
+ms.date: 03/11/2019
+ms.author: v-biyu
 ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926737"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Örneği - denetim SQL server denetim ayarları
 
@@ -64,7 +66,7 @@ Bir ilke atarken, kullanılabilir yerleşik tanımlardan **SQL Server Düzeyi De
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-```azurepowershell-interactive
+```powershell
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
 
 New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
@@ -74,7 +76,7 @@ New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -Po
 
 İlke atamasını kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurepowershell-interactive
+```powershell
 Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 ```
 
@@ -82,7 +84,7 @@ Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```cli
 az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9 --params '{"setting": {"value":"enabled"}}'
 ```
 
@@ -90,7 +92,7 @@ az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6
 
 İlke atamasını kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli-interactive
+```cli
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 

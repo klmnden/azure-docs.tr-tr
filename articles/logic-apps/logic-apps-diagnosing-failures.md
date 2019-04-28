@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999823"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı hatalarını tanılama ve giderme
 
@@ -42,7 +42,7 @@ Her mantıksal uygulama tetikleyicisi ile başlatılır. İlk tetikleyici etkinl
    | ------ | ----------- | 
    | **Başarılı oldu** | Tetikleyici, uç noktayı kullanıma ve kullanılabilir veri bulunamadı. Genellikle, bir "Fired" durumu da yanı sıra bu durum görüntülenir. Tetikleyici tanımında bir koşula sahip olmayabilir, varsa veya `SplitOn` karşılanmadığı komutu. <p>Bu durum, el ile tetikleyici, yineleme tetikleyicisi veya yoklama tetikleyici uygulayabilirsiniz. Tetikleyici başarıyla çalıştırabilirsiniz, ancak çalışma eylemleri işlenmeyen bir hata oluşturduğunuzda yine de başarısız olabilir. | 
    | **Atlandı** | Uç nokta tetikleyici işaretli, ancak hiçbir veri bulunamadı. | 
-   | **Başarısız oldu** | Bir hata oluştu. Başarısız bir tetikleyicinin herhangi oluşturulan hata iletileri gözden geçirmek için Bu tetikleyici girişim seçip **çıkışları**. Örneğin, geçerli olmayan girişler bulabilirsiniz. | 
+   | **Başarısız** | Bir hata oluştu. Başarısız bir tetikleyicinin herhangi oluşturulan hata iletileri gözden geçirmek için Bu tetikleyici girişim seçip **çıkışları**. Örneğin, geçerli olmayan girişler bulabilirsiniz. | 
    ||| 
 
    Aynı saat ve tarihi mantıksal uygulamanız birden çok öğe bulduğunda gerçekleşen, birden çok tetikleyici girdilere sahip olabilir. 
@@ -82,7 +82,7 @@ Bir iş akışı çalıştırma her başlatılan bir tetikleyici başlatır. Ça
    | Durum | Açıklama | 
    | ------ | ----------- | 
    | **Başarılı oldu** | Tüm eylemleri başarılı oldu. <p>Belirli bir eylem içinde herhangi bir hata oluştuysa, bu hata aşağıdaki bir eylem iş akışı içinde işlenir. | 
-   | **Başarısız oldu** | En az bir eylem başarısız oldu ve iş akışındaki sonraki eylem yok hatayı işlemek için ayarlanmış. | 
+   | **Başarısız** | En az bir eylem başarısız oldu ve iş akışındaki sonraki eylem yok hatayı işlemek için ayarlanmış. | 
    | **İptal edildi** | İş akışının çalıştığı ancak bir iptal isteği aldı. | 
    | **Çalıştıran** | İş akışı şu anda çalışıyor. <p>Bu durum, daraltılmış iş akışları için ya da geçerli fiyatlandırma planı nedeniyle gerçekleşebilir. Daha fazla bilgi için [eylem sınırları Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/logic-apps/). Ayarlarsanız [tanılama günlüğünü](../logic-apps/logic-apps-monitor-your-logic-apps.md), aynı zamanda gerçekleşen herhangi bir kısıtlama olayları hakkında bilgi edinebilirsiniz. | 
    ||| 

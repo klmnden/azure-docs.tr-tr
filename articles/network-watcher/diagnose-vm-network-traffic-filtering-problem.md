@@ -3,8 +3,8 @@ title: Sanal makine ağ trafiği filtreleme sorununu tanılama - hızlı başlan
 description: Bu hızlı başlangıçta, Azure Ağ İzleyicisi’nin IP akış doğrulama özelliği kullanılarak sanal makine ağ trafiği filtreleme sorununun nasıl tanılanacağını öğrenirsiniz.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065140"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir sanal makine ağ trafik filtresi sorununu tanılama
 
@@ -46,7 +46,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Abonelik| Aboneliğinizi seçin.|
-    |Kaynak grup| **Yeni oluştur**’u seçin ve **myResourceGroup** değerini girin.|
+    |Kaynak grubu| **Yeni oluştur**’u seçin ve **myResourceGroup** değerini girin.|
     |Konum| **Doğu ABD**’yi seçin|
 
 4. Sanal makine için bir boyut seçin ve **Seç** seçeneğini belirleyin.
@@ -78,11 +78,11 @@ Bir sanal makine oluşturduğunuzda Azure varsayılan olarak sanal makineye/sana
 
     |Ayar            |Değer                                                                                              |
     |---------          |---------                                                                                          |
-    | Kaynak grup    | myResourceGroup öğesini seçin                                                                            |
+    | Kaynak grubu    | myResourceGroup öğesini seçin                                                                            |
     | Sanal makine   | MyVm öğesini seçin                                                                                       |
     | Ağ arabirimi | myvm - VM’yi oluşturduğunuzda portalın oluşturduğu ağ arabiriminin adı farklıdır. |
     | Protokol          | TCP                                                                                               |
-    | Yön         | Giden                                                                                          |
+    | Direction         | Giden                                                                                          |
     | Yerel IP adresi  | 10.0.0.4                                                                                          |
     | Yerel bağlantı noktası      | 60000                                                                                                |
     | Uzak IP adresi | 13.107.21.200 - için adreslerinden biri < www.bing.com>.                                             |

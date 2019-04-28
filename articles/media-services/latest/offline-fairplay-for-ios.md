@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996634"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>İOS için çevrimdışı FairPlay Streaming 
 
@@ -47,8 +47,8 @@ Bu makalede, iOS 10 veya üstünü çalıştıran cihazları hedefleyen FairPlay
 
 * FairPlay için çevrimiçi içerik koruma gözden geçirin: 
 
-    - [Apple FairPlay lisansı gereksinimleri ve yapılandırma](fairplay-license-overview.md)
-    - [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
+    - [Apple FairPlay lisansı gereksinimleri ve yapılandırması](fairplay-license-overview.md)
+    - [DRM dinamik şifreleme ve lisans teslim hizmetini kullanma](protect-with-drm.md)
     - Çevrimiçi akış FPS yapılandırmasını içeren bir .NET örneği: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Apple Geliştirici ağdan FPS SDK'sını alın. FPS SDK'sı iki bileşenleri içerir:
 

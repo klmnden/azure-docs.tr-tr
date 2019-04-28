@@ -10,11 +10,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073954"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Otomasyonu durumu Azure İzleyici günlüklerine veri raporlama yapılandırma ilet
 
@@ -129,15 +129,15 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki kategoriye kay�
 | --- | --- |
 | TimeGenerated |Tarih ve saat uyumluluk denetimi ne zaman çalıştırıldığı. |
 | OperationName |DscNodeStatusData |
-| ResultType |Düğüm uyumlu olup olmadığı. |
+| resulttype'ı |Düğüm uyumlu olup olmadığı. |
 | NodeName_s |Yönetilen düğümün adı. |
 | NodeComplianceStatus_s |Düğüm uyumlu olup olmadığı. |
 | DscReportStatus |Uyumluluk denetimi olmadığını başarıyla çalıştı. |
 | ConfigurationMode | Nasıl yapılandırma düğüme uygulanır. Olası değerler __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma, hedef düğüme veya bir sunucudan yeni bir yapılandırma çekildiğinde gönderildiğinde sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra önceden yapılandırılmış bir durumdan kayması için DSC denetlemez. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyOnly__ etkinleşir. </li><li> __ApplyAndMonitor__: Varsayılan değer budur. LCM herhangi bir yeni yapılandırmalar geçerlidir. Hedef düğüm istenen durumundan drifts sonra ilk uygulama yeni bir yapılandırma günlüklerini tutarsızlık DSC bildirir. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkinleşir.</li><li>__ApplyAndAutoCorrect__: DSC, herhangi bir yeni yapılandırmalar geçerlidir. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve sonra geçerli yapılandırmasını yeniden uygular.</li></ul> |
 | HostName_s | Yönetilen düğümün adı. |
 | IPAddress | Yönetilen düğüme IPv4 adresi. |
-| Category | DscNodeStatus |
-| Resource | Azure Otomasyon hesabı adı. |
+| Kategori | DscNodeStatus |
+| Kaynak | Azure Otomasyon hesabı adı. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | NodeId_g |Yönetilen düğümde tanımlayan GUID. |
 | DscReportId_g |Rapor tanımlayan GUID. |
@@ -160,10 +160,10 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki kategoriye kay�
 | --- | --- |
 | TimeGenerated |Tarih ve saat uyumluluk denetimi ne zaman çalıştırıldığı. |
 | OperationName |DscResourceStatusData|
-| ResultType |Kaynak uyumlu olup olmadığı. |
+| resulttype'ı |Kaynak uyumlu olup olmadığı. |
 | NodeName_s |Yönetilen düğümün adı. |
-| Category | DscNodeStatus |
-| Resource | Azure Otomasyon hesabı adı. |
+| Kategori | DscNodeStatus |
+| Kaynak | Azure Otomasyon hesabı adı. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | NodeId_g |Yönetilen düğümde tanımlayan GUID. |
 | DscReportId_g |Rapor tanımlayan GUID. |

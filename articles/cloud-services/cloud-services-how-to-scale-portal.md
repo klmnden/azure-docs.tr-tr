@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435330"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Otomatik ölçeklendirme portalda bir bulut hizmeti için yapılandırma
 
@@ -41,14 +41,14 @@ Uygulamanız için ölçeklendirme yapılandırmadan önce aşağıdakileri dikk
 
 * Uygulamanızın yüksek kullanılabilirliği etkinleştirmek için iki veya daha fazla rol örneğini ile dağıtıldığından emin olmak. Daha fazla bilgi için [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
 
-* Otomatik ölçeklendirme yalnızca tüm roller olduğunda gerçekleşir **hazır** durumu.  
+* Otomatik ölçeklendirme yalnızca tüm roller olduğunda gerçekleşir **hazır** durumu.  
 
 
 ## <a name="where-scale-is-located"></a>Ölçek bulunduğu
 Bulut hizmetinizin seçtikten sonra bulut hizmeti dikey görünür olmalıdır.
 
 1. Bulut hizmeti dikey üzerinde **roller ve örnekler** kutucuğunda, bulut hizmeti adını seçin.   
-   **Önemli**: Bulut hizmeti rolü, rolün rol örneği tıkladığınızdan emin olun.
+   **ÖNEMLİ**: Bulut hizmeti rolü, rolün rol örneği tıkladığınızdan emin olun.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Seçin **ölçek** Döşe.
@@ -78,7 +78,7 @@ Minimum ve maksimum örnekleri için ölçek, profilin ayarlar ve ayrıca bu öl
     Her zaman bu aralığı kullanılabilir örneklerinin tutun.  
 
     ![Her zaman ölçeklenebilen bulut hizmeti](./media/cloud-services-how-to-scale-portal/select-always.png)
-* **Yinelenme**
+* **Yineleme**
 
     Bir dizi ölçeklendirmek için haftanın günlerini seçin.
 

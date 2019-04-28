@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922685"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Depolama kaynağı silme hatalarını giderme
 
@@ -39,7 +39,7 @@ Azure bozulmasını önlemek için bir sanal Makineye bağlı bir disk silinmesi
 
 Bu adımları tamamladıktan sonra depolama hesabı, kapsayıcı veya blob siliniyor. yeniden deneyin.
 
-## <a name="step-1-identify-blob-attached-to-a-vm"></a>1. adım: Bir VM'ye blob tanımlayın
+## <a name="step-1-identify-blob-attached-to-a-vm"></a>1. Adım: Bir VM'ye blob tanımlayın
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Senaryo 1: Bir blob – silme ekli VM tanımlayın
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -73,7 +73,7 @@ Bu adımları tamamladıktan sonra depolama hesabı, kapsayıcı veya blob silin
 3. İçinde **kapsayıcıları** bölmesinde, tüm kapsayıcıları tanımlamak burada **kiralama durumu** olduğu **kiralanmış** izleyin [Senaryo 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) her  **Kiralanmış** kapsayıcı.
 4. İzleyin [2. adım](#step-2-delete-vm-to-detach-os-disk) ve [3. adım](#step-3-detach-data-disk-from-the-vm) vm'lerle silmek **OSDisk** ve ayırma **DataDisk**. 
 
-## <a name="step-2-delete-vm-to-detach-os-disk"></a>2. adım: İşletim sistemi diskini ayırmak VM silme
+## <a name="step-2-delete-vm-to-detach-os-disk"></a>2. Adım: İşletim sistemi diskini ayırmak VM silme
 VHD bir işletim sistemi diski, VHD'nin silinebilmesi için önce sanal Makineyi silmeniz gerekir. Başka bir işlem bu adımları tamamladıktan sonra aynı sanal Makineye bağlı veri diskleri için gerekli olacaktır:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -83,7 +83,7 @@ VHD bir işletim sistemi diski, VHD'nin silinebilmesi için önce sanal Makineyi
 5. Üst kısmındaki **sanal makine ayrıntıları** bölmesinde **Sil**ve ardından **Evet** onaylamak için.
 6. Sanal Makinenin silinmesi gerekir, ancak VHD tutulabilir. Ancak, VHD'yi bir VM'ye bağlı artık veya üzerinde bir kira sahip. Bu, kira serbest bırakılması için birkaç dakika sürebilir. Kira serbest bırakılır doğrulamak için hem de blob konumuna Gözat **Blob özellikleri** bölmesinde **kiralama durumu** olmalıdır **kullanılabilir**.
 
-## <a name="step-3-detach-data-disk-from-the-vm"></a>3. adım: VM'den veri diski çıkarma
+## <a name="step-3-detach-data-disk-from-the-vm"></a>3. Adım: VM'den veri diski çıkarma
 VHD kirayı kaldırmaktır VM'den veri diski VHD ise ayırma:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.

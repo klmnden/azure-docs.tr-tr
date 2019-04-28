@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331350"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure kapsayıcı kayıt defteri Web kancası başvurusu
 
@@ -40,7 +40,7 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 
 ### <a name="push-event-payload"></a>Anında iletme olay yükü
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
@@ -50,7 +50,7 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 
 ### <a name="target"></a>Hedef
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|String|Başvurulan nesnenin MIME türü.|
 |`size`|Int32|İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır.|
@@ -61,7 +61,7 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 
 ### <a name="request"></a>İstek
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`id`|String|Olayı başlatan isteği kimliği.|
 |`host`|String|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
@@ -104,7 +104,7 @@ Web kancası bir Helm grafiği bir depoya gönderildiğinde tetiklenir.
 
 ### <a name="chart-push-event-payload"></a>Grafik anında iletme olay yükü
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
@@ -113,7 +113,7 @@ Web kancası bir Helm grafiği bir depoya gönderildiğinde tetiklenir.
 
 ### <a name="helm_target"></a>Hedef
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|String|Başvurulan nesnenin MIME türü.|
 |`size`|Int32|İçeriğin bayt sayısı.|
@@ -154,7 +154,7 @@ Görüntü deposu, Web kancası ile tetiklenen veya bildirimi silinir. Bir etike
 
 ### <a name="delete-event-payload"></a>Olay yükü Sil
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
@@ -164,7 +164,7 @@ Görüntü deposu, Web kancası ile tetiklenen veya bildirimi silinir. Bir etike
 
 ### <a name="delete_target"></a> Hedef
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|String|Başvurulan nesnenin MIME türü.|
 |`digest`|String|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
@@ -172,7 +172,7 @@ Görüntü deposu, Web kancası ile tetiklenen veya bildirimi silinir. Bir etike
 
 ### <a name="delete_request"></a> İstek
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`id`|String|Olayı başlatan isteği kimliği.|
 |`host`|String|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
@@ -216,7 +216,7 @@ Web kancası bir Helm grafiği veya depo silindiğinde tetiklenir.
 
 ### <a name="chart-delete-event-payload"></a>Grafiği Sil olay yükü
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
@@ -225,7 +225,7 @@ Web kancası bir Helm grafiği veya depo silindiğinde tetiklenir.
 
 ### <a name="chart_delete_target"></a> Hedef
 
-|Öğe|Type|Açıklama|
+|Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|String|Başvurulan nesnenin MIME türü.|
 |`size`|Int32|İçeriğin bayt sayısı.|

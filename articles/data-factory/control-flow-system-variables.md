@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935713"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen sistem değişkenleri
 Bu makalede Azure Data Factory tarafından desteklenen sistem değişkenleri açıklanır. Data Factory varlıklarını tanımlarken ifadelerinde bu değişkenleri kullanabilirsiniz.
@@ -27,13 +27,13 @@ Bu sistem değişkenlerini herhangi bir işlem hattı JSON başvurulabilir.
 
 | Değişken adı | Açıklama |
 | --- | --- |
-| @pipeline(). DataFactory |Data factory işlem hattı adı içinde çalışıyor |
-| @pipeline(). İşlem hattı |İşlem hattı adı |
+| @pipeline().DataFactory |Data factory işlem hattı adı içinde çalışıyor |
+| @pipeline().Pipeline |İşlem hattı adı |
 | @pipeline().RunId | Özel işlem hattı çalıştırma kimliği |
 | @pipeline(). TriggerType | Çağrılan işlem hattı (el ile Zamanlayıcı) tetikleyici türü |
 | @pipeline().TriggerId| İşlem hattını çağıran bir tetikleyici kimliği |
-| @pipeline(). TriggerName| İşlem hattını çağıran bir tetikleyici adı |
-| @pipeline(). TriggerTime| Saati işlem hattını çağıran bir tetikleyici. Tetikleme zamanı gerçek tetiklenme saati, zamanlanan saat ' dir. Örneğin, `13:20:08.0149599Z` yerine döndürülür `13:20:00.00Z` |
+| @pipeline().TriggerName| İşlem hattını çağıran bir tetikleyici adı |
+| @pipeline().TriggerTime| Saati işlem hattını çağıran bir tetikleyici. Tetikleme zamanı gerçek tetiklenme saati, zamanlanan saat ' dir. Örneğin, `13:20:08.0149599Z` yerine döndürülür `13:20:00.00Z` |
 
 ## <a name="schedule-trigger-scope"></a>Zamanlama tetikleyicisi kapsamı
 Tetikleyici türü ise bu sistem değişkenleri JSON tetikleyici içinde herhangi bir yerde başvurulabilir: "ScheduleTrigger."

@@ -1,20 +1,22 @@
 ---
 title: Azure Cosmos DB tablo API'si hesabı mevcut verileri geçirme
 description: Bilgi nasıl geçirme veya şirket içi içeri aktarma veya Bulut verileri Azure tablo API'si hesabı Azure Cosmos DB'de.
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/07/2017
-ms.author: sngun
+origin.date: 12/07/2017
+ms.date: 04/15/2019
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935873"
 ---
+<!--Verify sucessfully-->
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
 Bu öğretici, Azure Cosmos DB [Tablo API’si](table-introduction.md) ile kullanmak üzere veri içeri aktarma hakkında yönergeler sağlar. Azure Tablo depolama alanında depolanan verileriniz varsa verilerinizi Azure Cosmos DB Tablo API'sine aktarmak için Veri Taşıma Aracı'nı veya AzCopy'yi kullanabilirsiniz. Bir Azure Cosmos DB Tablo API'si (önizleme) hesabında depolanan verileriniz varsa, verilerinizi taşımak için Veri Taşıma Aracı'nı kullanmanız gerekir. 
@@ -41,18 +43,18 @@ Tablo verilerinin geçişini gerçekleştirmek için aşağıdaki görevleri tam
 1. Geçiş aracını [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)'dan indirin.
 2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın. `dt.exe` aşağıdaki biçimde bir komut alır:
 
-   ```bash
+    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-   ```
+    ```
 
-Komutun seçenekleri şunlardır:
+    Komutun seçenekleri şunlardır:
 
-    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-    /OverwriteErrorLog: Optional. Overwrite error log file
-    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-    /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+        /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
+        /OverwriteErrorLog: Optional. Overwrite error log file
+        /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
+        /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
+        /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
+        /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
 
 ### <a name="command-line-source-settings"></a>Komut satırı kaynak ayarları
 
@@ -90,21 +92,21 @@ Azure Cosmos DB Tablo API'sini geçiş hedefi olarak tanımlarken aşağıdaki h
     /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
-<a id="azure-table-storage"></a>
+<a name="azure-table-storage"></a>
 ### <a name="sample-command-source-is-azure-table-storage"></a>Örnek komut: Kaynak Azure tablo depolama
 
 Azure Tablo depolamasından Tablo API'sine içeri aktarmayı gösteren bir komut satırı örneği:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
-<a id="table-api-preview"></a>
+<a name="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Örnek komut: Azure Cosmos DB tablo API'si (Önizleme) kaynaktır
 
 Tablo API önizleme sürümünden Table API GA'ya içeri aktarma için bir komut satırı örneği:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.cn; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
 ## <a name="migrate-data-by-using-azcopy"></a>AzCopy'yi kullanarak veri geçirme
@@ -116,7 +118,7 @@ Azure Cosmos DB'ye içeri aktarmayı gerçekleştirirken aşağıdaki örneğe b
 Örnek içeri aktarma komutu:
 
 ```
-AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.chinacloudapi.cn/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
 ## <a name="migrate-from-table-api-preview-to-table-api"></a>Tablo API’sinden (önizleme) Tablo API’sine geçiş
@@ -148,3 +150,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="nextstepaction"]
 >[Veriler nasıl sorgulanır?](../cosmos-db/tutorial-query-table.md)
+
+<!--Update_Description: new articles on table import -->
+<!--ms.date: 03/18/2019-->

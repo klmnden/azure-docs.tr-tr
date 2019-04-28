@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2018
-ms.author: victorh
+origin.date: 04/23/2018
+ms.date: 04/17/2019
+ms.author: v-junlch
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361962"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure Application Gateway URL yolu tabanlı yönlendirmeye genel bakış
 
@@ -100,3 +101,5 @@ PathBasedRouting kuralının kod parçacığı:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 URL tabanlı içerik yönlendirme hakkında bilgi edindikten sonra, URL yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturmak için [URL tabanlı yönlendirme kullanan uygulama ağ geçidi oluşturma](tutorial-url-route-powershell.md) bölümüne gidin.
+
+<!-- Update_Description: update metedata properties -->

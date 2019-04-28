@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262040"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ Bağlı hizmet, Data Factory JSON biçiminde şu şekilde tanımlanır:
 
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
-Özellik | Açıklama | Gereklidir |
+Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
 ad | Bağlı hizmetin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
 type | Bağlı hizmet türü. Örneğin: (Veri deposu) AzureStorage veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
@@ -91,7 +91,7 @@ Aşağıdaki bağlı hizmet bir Azure depolama bağlı hizmetidir. Türü için 
 }
 ```
 
-## <a name="dataset-json"></a>Veri kümesi JSON
+## <a name="dataset-json"></a>Dataset JSON
 Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
 
 ```json
@@ -119,7 +119,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
 ```
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
-Özellik | Açıklama | Gereklidir |
+Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
 ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
 type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
@@ -185,7 +185,7 @@ Farklı türlerde veri kümeleri, kullandığınız veri deposuna bağlı olarak
 
 Her sütunda yapısı aşağıdaki özellikleri içerir:
 
-Özellik | Açıklama | Gereklidir
+Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
 ad | Sütunun adı. | Evet
 type | Sütunun veri türü. Data Factory izin verilen değerler aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, ondalık, bayt [], Boolean, dize, Guid, Datetime, Datetimeoffset ve Timespan** | Hayır

@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447021"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme çözüm Hızlandırıcısını dağıtma
 
@@ -68,7 +68,7 @@ Temel dağıtım, çözümü sergilemeye yöneliktir. Maliyetleri azaltmak için
 
 Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 
-| Sayı | Kaynak                       | Type         | İçin kullanılan |
+| Sayı | Kaynak                       | Tür         | İçin kullanılan |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux sanal makinesi](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Mikro hizmet barındırma |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standart katman | Cihaz yönetimi ve iletişim |

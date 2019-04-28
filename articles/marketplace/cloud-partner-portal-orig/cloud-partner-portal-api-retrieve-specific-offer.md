@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61096072"
 ---
 <a name="retrieve-a-specific-offer"></a>Belirli bir teklif alma
 =========================
@@ -47,10 +47,10 @@ Teklif, belirli bir sürümünü alma veya teklif taslağı, görünümü veya �
 
 | **Ad**    | **Açıklama**                                                                          | **Veri türü** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| Publisherıd | Publisherıd. Örneğin, Contoso                                                        | Dize        |
-| OfferId     | Teklifin benzersiz olarak tanımlayan GUID.                                                 | Dize        |
+| publisherId | Publisherıd. Örneğin, Contoso                                                        | String        |
+| offerId     | Teklifin benzersiz olarak tanımlayan GUID.                                                 | String        |
 | version     | Teklif alınmasını sürümü. Varsayılan olarak, en son teklif sürümü alınır. | Tamsayı       |
-| SlotID      | Teklif alınmasına izin olduğu yuvası aşağıdakilerden biri olabilir:      <br/>  - `Draft` (varsayılan), şu anda taslak teklif sürümü alır.  <br/>  -  `Preview` şu anda önizlemede teklif sürümünü alır.     <br/>  -  `Production` şu anda üretimde teklif sürümünü alır.          |      Sabit listesi |
+| slotId      | Teklif alınmasına izin olduğu yuvası aşağıdakilerden biri olabilir:      <br/>  - `Draft` (varsayılan), şu anda taslak teklif sürümü alır.  <br/>  -  `Preview` şu anda önizlemede teklif sürümünü alır.     <br/>  -  `Production` şu anda üretimde teklif sürümünü alır.          |      Sabit listesi |
 | API sürümü | API'sının en son sürümü                                                                    | Tarih          |
 |  |  |  |
 
@@ -178,7 +178,7 @@ Teklif, belirli bir sürümünü alma veya teklif taslağı, görünümü veya �
 |  **Ad**       |   **Açıklama**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Teklif türünü tanımlar                                                                                                    |
-|  Publisherıd    | Benzersiz yayımcı tanımlayıcısı                                                                                              |
+|  publisherId    | Benzersiz yayımcı tanımlayıcısı                                                                                              |
 |  durum         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                                  |
 |  Kimlik             | Teklifin benzersiz olarak tanımlayan GUID                                                                                         |
 |  version        | Teklifin geçerli sürümü. İstemci tarafından version özelliği değiştirilemez. Bu, her yayımladıktan sonra artırılır.    |

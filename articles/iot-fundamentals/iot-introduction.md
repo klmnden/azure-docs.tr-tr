@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
 ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61232260"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure nesnelerin interneti (IOT) nedir?
 
-Azure nesnelerin interneti (IOT), Denetim milyarlarca IOT varlığını bağlayın, izleyin ve Microsoft tarafından yönetilen bir bulut Hizmetleri koleksiyonudur. Daha basit bir deyişle bir IOT çözümündeki bir veya daha fazla IOT cihazları ve birbirleri ile iletişim kuran bulutta çalışan bir veya daha fazla arka uç Hizmetleri oluşur. 
+Azure Nesnelerin İnterneti (IoT), Microsoft tarafından yönetilen ve milyarlarca IoT varlığını bağlayan, izleyen ve denetleyen bulut hizmetlerinden oluşan bir koleksiyondur. Daha basit bir deyişle, bir IoT çözümü bulutta çalışan ve birbiriyle iletişim halinde olan bir veya daha çok IoT cihazından ve arka uç hizmetinden oluşur. 
 
 Bu makalede, IOT temelleri açıklanır, kullanım örnekleri hakkında konuşuyor ve sekiz farklı hizmetler kullanılabilir kısaca açıklanmaktadır. Nelerin kullanılabildiğini anlama tarafından yakından yardımcı olmak üzere daha senaryonuz aramak istediğiniz anlayabilir.
 

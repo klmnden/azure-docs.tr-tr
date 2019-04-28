@@ -13,22 +13,22 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946731"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric ortam değişkenleri
 
 Service Fabric kümesi her hizmet örneği için bir yerleşik ortam değişkenleri vardır. Ortam değişkenlerinin tam listesini aşağıda verilmiştir:
 
-| Ortam değişkeni                         | Açıklama                                                            | Örnek                                                              |
+| Ortam Değişkeni                         | Açıklama                                                            | Örnek                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Uygulamanın yapı URI'si adı                                 | fabric: / Uygulamam                                                |
 | Fabric_CodePackageName                       | İşlem ait olduğu kod paketi adı              | Kod                                                                 |
 | Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | IP adresi veya FQDN uç noktası                                 | 10.0.0.1                                                     |
-| Fabric\_uç nokta\_*ServiceEndpointName*              | Uç noktası için bağlantı noktası numarası                                  | 8234                                                                 |
+| Fabric\_Endpoint\_*ServiceEndpointName*              | Uç noktası için bağlantı noktası numarası                                  | 8234                                                                 |
 | Fabric_Folder_App_Log                        | Günlük klasörü                                                             | C:\\\\veri\\\\_uygulama\\\\_Node_0\\\\MyApplicationType_App12\\\\günlüğü      |
 | Fabric_Folder_App_Temp                       | Geçici klasörü                                                            | C:\\\\veri\\\\_uygulama\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
 | Fabric_Folder_App_Work                       | Çalışma klasörü                                                            | C:\\\\veri\\\\_uygulama\\\\_Node_0\\\\MyApplicationType_App12\\\\çalışma     |

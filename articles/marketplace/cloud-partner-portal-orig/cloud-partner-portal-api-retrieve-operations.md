@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094236"
 ---
-<a name="retrieve-operations"></a>İşlemleri Al
+<a name="retrieve-operations"></a>İşlemleri alma
 ===================
 
 Tüm işlemler teklif veya belirli bir işlem için belirtilen Operationıd almak için alır. İstemci işlemleri üzerinde çalışan filtrelemek için sorgu parametrelerini kullanabilir.
@@ -40,10 +40,10 @@ Tüm işlemler teklif veya belirli bir işlem için belirtilen Operationıd alma
 
 |  **Ad**          |      **Açıklama**                                                                                           | **Veri türü** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  Publisherıd       |  Örneğin, yayımcı tanımlayıcısı `Contoso`                                                                   |  Dize       |
-|  OfferId           |  Teklif tanımlayıcısı                                                                                              |  Dize       |
+|  publisherId       |  Örneğin, yayımcı tanımlayıcısı `Contoso`                                                                   |  String       |
+|  offerId           |  Teklif tanımlayıcısı                                                                                              |  String       |
 |  operationId       |  Teklif işlemi benzersiz olarak tanımlayan GUID. Operationıd bu API kullanılarak alınabilir ve ayrıca herhangi bir uzun süre çalışan işlem için yanıtın HTTP üst bilgisindeki gibi döndürülür [Yayımla teklif](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
-|  filteredStatus    | Duruma göre filtrelemek için kullanılan isteğe bağlı bir sorgu parametresi (örneğin `running`) bu API'si tarafından döndürülen koleksiyonu.  |   Dize |
+|  filteredStatus    | Duruma göre filtrelemek için kullanılan isteğe bağlı bir sorgu parametresi (örneğin `running`) bu API'si tarafından döndürülen koleksiyonu.  |   String |
 |  API sürümü       | API'sının en son sürümü                                                                                           |    Tarih      |
 |  |  |  |
 
@@ -187,9 +187,9 @@ Tüm işlemler teklif veya belirli bir işlem için belirtilen Operationıd alma
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | İşlem benzersiz olarak tanımlayan GUID                                                       |
 |  submissionType              | Teklif için örneğin bildirilen işlemi türünü tanımlar `Publish/GGoLive`      |
-|  oluşturma tarihi/saati             | İşlemi oluşturulduğunda UTC tarih/saat                                                       |
+|  createdDateTime             | İşlemi oluşturulduğunda UTC tarih/saat                                                       |
 |  lastActionDateTime          | Son güncelleştirme işlemi bittiğinde UTC tarih/saat                                       |
-|  durum                      | İşlemin durumu ya da ' başlatılmadı | çalışıyor | başarısız | Tamamlanan`. Only one operation can have status `çalışan ' bir zaman. |
+|  durum                      | İşlemin durumu ya da `not started` \| `running` \| `failed` \| `completed`. Yalnızca tek bir işlem durumu olabilir `running` birer güncelleştirir. |
 |  error                       | Başarısız işlemler için hata iletisi                                                               |
 |  |  |
 

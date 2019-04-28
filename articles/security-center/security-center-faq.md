@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909629"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -303,7 +303,7 @@ Azure Güvenlik Merkezi, aşağıdaki Azure kaynakları izler:
 
 Ayrıca, Azure dışı (şirket içi) dahil bilgisayar de Azure Güvenlik Merkezi tarafından izlenebilir (her ikisi de [Windows bilgisayarları](./quick-onboard-windows-computer.md) ve [Linux bilgisayarları](./quick-onboard-linux-computer.md) desteklenir)
 
-## <a name="virtual-machines"></a>Sanal Makineler
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Sanal makinelerin hangi türleri desteklenir?
 İzleme ve öneriler her ikisi de kullanılarak oluşturulan sanal makineler için (VM'ler) kullanılabilir [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md).
 

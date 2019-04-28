@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320827"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps’tan bir görüntü fabrikası çalıştırma
 Bu makale, Azure DevOps (eski adıyla Visual Studio Team Services) görüntü Fabrika çalıştırmak için gerekli hazırlıklar kapsar.
@@ -78,7 +78,7 @@ Bu noktada, Azure DevOps Git deposunda depolanan kaynak dosyalar içeriyor. Şim
 Komut satırı parametreleri basitleştirmek için görüntü Fabrika yapı değişkenleri kümesi için sürücü anahtar değerlerini kapsüller. Seçin **değişkenleri** sekmesine tıkladığınızda birkaç varsayılan değişkenler listesini göreceksiniz. Azure DevOps girmek için değişkenleri listesi aşağıda verilmiştir:
 
 
-| Değişken adı | Value | Notlar |
+| Değişken adı | Değer | Notlar |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | / Betikleri/ImageFactory/yapılandırma | Bu tam bir depoya yoludur **yapılandırma** klasör. Yukarıdaki tüm depo aldıysanız, sola doğru değeridir. Aksi durumda yapılandırma konumuna işaret edecek şekilde güncelleştirin. |
 | DevTestLabName | MyImageFactory | Fabrika görüntüleri oluşturmak için kullanılan Azure DevTest Labs Laboratuvar adı. Yoksa, bir tane oluşturun. Laboratuar hizmet uç noktası erişimi olan aynı abonelikte olduğundan emin olun. |

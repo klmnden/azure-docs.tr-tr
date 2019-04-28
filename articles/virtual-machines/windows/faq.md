@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
 ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095685"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan soruya](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,7 +33,7 @@ MSDN Azure avantajı aboneleri ve MSDN Geliştirme ve Test Kullandıkça Öde ab
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
 Her veri diski 4 TB'a kadar (4.095 GB) olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen Diskler iki tür dayanıklı depolama seçeneği sunar: Premium ve Standart Yönetilen Diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen diskler teklif iki tür dayanıklı depolama seçeneği Premium ve standart yönetilen diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure depolama hesapları, aynı zamanda işletim sistemi diski ve varsa veri diskleri için depolama sağlayabilir. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -94,13 +94,13 @@ Aşağıdaki kullanıcı adlarını izin verilmez:
     <tr>
         <td style="text-align:center">adm</td><td style="text-align:center">Yönetici</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
     </tr>   <tr>
-        <td style="text-align:center">Yönetici</td><td style="text-align:center">ASP.NET</td><td style="text-align:center">yedekleme</td><td style="text-align:center">console</td>
+        <td style="text-align:center">yönetici</td><td style="text-align:center">ASP.NET</td><td style="text-align:center">yedekleme</td><td style="text-align:center">console</td>
     </tr>
     <tr>
         <td style="text-align:center">David </td><td style="text-align:center">Konuk</td><td style="text-align:center">John</td><td style="text-align:center">sahip</td>
     </tr>
     <tr>
-        <td style="text-align:center">Kök</td><td style="text-align:center">sunucu</td><td style="text-align:center">SQL</td><td style="text-align:center">destek</td>
+        <td style="text-align:center">kök</td><td style="text-align:center">sunucu</td><td style="text-align:center">SQL</td><td style="text-align:center">destek</td>
     </tr>
     <tr>
         <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">Test1</td>

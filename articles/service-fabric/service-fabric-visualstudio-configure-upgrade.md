@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082862"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio'da bir Service Fabric uygulamasının yükseltmesini yapılandırma
 Azure Service Fabric için Visual Studio Araçları, yerel veya uzak kümelerine yayımlama için yükseltme desteği sağlar. Uygulamanızı test ve hata ayıklama sırasında uygulama değiştirmek yerine daha yeni bir sürüme yükseltmek istediğiniz üç senaryo vardır:
@@ -31,7 +31,7 @@ Azure Service Fabric için Visual Studio Araçları, yerel veya uzak kümelerine
 ## <a name="parameters-needed-to-upgrade"></a>Yükseltme için gereken parametreleri
 İki dağıtım türünden seçebilirsiniz: normal veya yükseltme. Bir yükseltme dağıtımı, korur ancak bir normal dağıtım herhangi bir önceki dağıtım bilgileri ve veri kümesinde siler. Visual Studio'da Service Fabric uygulaması yükseltme yaptığınızda, uygulama yükseltme parametreleri ve sistem durumu ilkeleri kontrol sağlamanız gerekir. Uygulama yükseltme parametreleri, sistem durumu denetimi ilkeleri yükseltmenin başarılı olup olmadığını belirler. yükseltme, Denetim yardımcı olur. Bkz: [Service Fabric uygulama yükseltme: yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) daha fazla ayrıntı için.
 
-Üç yükseltme modu vardır: *izlenen*, *UnmonitoredAuto*, ve *UnmonitoredManual*.
+Üç yükseltme modu vardır: *İzlenen*, *UnmonitoredAuto*, ve *UnmonitoredManual*.
 
 * İzlenen yükseltme yükseltme otomatikleştirir ve uygulama sistem durumu denetimi.
 * UnmonitoredAuto yükseltme yükseltme otomatikleştirir, ancak uygulama sistem durumu denetimini atlar.

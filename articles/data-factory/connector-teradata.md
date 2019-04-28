@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347760"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Teradata, Azure Data Factory kullanarak verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -164,44 +164,44 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemeler Teradata ver
 | Teradata veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Bayt] |
-| Bayt |Bayt] |
+| Blob |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |Dize |
-| CLOB |Dize |
+| char |String |
+| Clob |String |
 | Tarih |DateTime |
-| Onluk |Onluk |
-| çift |çift |
-| Grafiği |Dize |
+| Decimal |Decimal |
+| Double |Double |
+| Grafiği |String |
 | Tamsayı |Int32 |
-| Gün aralığı |Zaman aralığı |
-| Saat gün aralığı |Zaman aralığı |
-| Dakika gün aralığı |Zaman aralığı |
-| İkinci gün aralığı |Zaman aralığı |
-| Saat aralığı |Zaman aralığı |
-| Aralığı saat dakika |Zaman aralığı |
-| İkinci saat aralığı |Zaman aralığı |
-| Aralık dakika |Zaman aralığı |
-| İkinci aralık dakika |Zaman aralığı |
-| Aralık ayı |Dize |
-| Aralık ikinci |Zaman aralığı |
-| Aralığı yıl |Dize |
-| Yıl ay aralığı |Dize |
-| Sayı |çift |
-| Period(Date) |Dize |
-| Period(Time) |Dize |
-| Süresi (saat dilimiyle birlikte) |Dize |
-| Period(timestamp) |Dize |
-| Süre (saat dilimi ile zaman damgası) |Dize |
+| Gün aralığı |TimeSpan |
+| Saat gün aralığı |TimeSpan |
+| Dakika gün aralığı |TimeSpan |
+| İkinci gün aralığı |TimeSpan |
+| Saat aralığı |TimeSpan |
+| Aralığı saat dakika |TimeSpan |
+| İkinci saat aralığı |TimeSpan |
+| Aralık dakika |TimeSpan |
+| İkinci aralık dakika |TimeSpan |
+| Aralık ayı |String |
+| Aralık ikinci |TimeSpan |
+| Aralığı yıl |String |
+| Yıl ay aralığı |String |
+| Sayı |Double |
+| Period(Date) |String |
+| Period(Time) |String |
+| Süresi (saat dilimiyle birlikte) |String |
+| Period(timestamp) |String |
+| Süre (saat dilimi ile zaman damgası) |String |
 | Tamsayı |Int16 |
-| Zaman |Zaman aralığı |
-| Saat dilimi ile zaman |Dize |
+| Zaman |TimeSpan |
+| Saat dilimi ile zaman |String |
 | Zaman damgası |DateTime |
 | Saat dilimi ile zaman damgası |DateTimeOffset |
-| VarByte |Bayt] |
-| VarChar |Dize |
-| VarGraphic |Dize |
-| Xml |Dize |
+| VarByte |Byte[] |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

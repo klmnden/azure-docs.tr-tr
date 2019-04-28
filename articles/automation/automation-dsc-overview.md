@@ -11,11 +11,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61071485"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -62,7 +62,7 @@ Linux çalıştıran düğümleri için aşağıdaki dağıtım paketlerini/sür
 
 DSC Linux uzantısı tüm Linux dağıtımları destekler [Azure üzerinde desteklenen](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hariç:
 
-Dağıtım | Sürüm
+Dağıtım | Version
 -|-
 Debian  | Tüm sürümler
 Ubuntu  | 18.04

@@ -11,11 +11,11 @@ ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935889"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data warehouse'da tablo bölümleme
 Öneriler ve Azure SQL Data Warehouse'da tablo bölümleri kullanımına ilişkin örnekler.

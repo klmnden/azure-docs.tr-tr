@@ -1,18 +1,19 @@
 ---
 title: Azure Cosmos DB MongoDB başına belge TTL özelliği
 description: Belgeleri otomatik olarak sistemden bir süre sonra temizlemek için Azure Cosmos DB'nin MongoDB API'si kullanarak canlı değerine süresini ayarlama konusunda bilgi edinin.
-author: sivethe
-ms.author: sivethe
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 12/26/2018
+origin.date: 12/26/2018
+ms.date: 03/18/2019
 ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330691"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'si ile verileri süresi dolacak
 
@@ -38,7 +39,7 @@ Yukarıdaki örnekte verilen komut, TTL işlevine sahip bir dizin oluşturur. Di
 > [!NOTE]
 > **_ts**, Cosmos DB’ye özel bir alandır ve MongoDB istemcilerinden erişilemez. Belgenin son değiştirme tarihinin zaman damgasını içeren ayrılmış (sistem) bir özelliktir.
 >
-    
+
 C# örneği de aşağıda belirtilmiştir: 
 
 ```csharp
@@ -72,6 +73,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>Belgeye özgü TTL özelliğini etkinleştirme
 
+<!-- Verify successfully on mongodb TTL-->
 Belge başına TTL özelliği, Azure Cosmos DB API'si ile MongoDB için etkinleştirilebilir.
 
 ![Portalında başına belge TTL özellik etkinleştirme ekran görüntüsü](./media/mongodb-ttl/mongodb_portal_ttl.png) 
@@ -79,3 +81,5 @@ Belge başına TTL özelliği, Azure Cosmos DB API'si ile MongoDB için etkinle�
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Yaşam süresi otomatik olarak Azure Cosmos DB'de verilerle süresi dolacak](../cosmos-db/time-to-live.md)
 * [MongoDB için Azure Cosmos DB API'si ile yapılandırılan, Cosmos veritabanı dizini oluşturma](../cosmos-db/mongodb-indexing.md)
+
+<!-- Update_Description: update meta properties, wording update -->

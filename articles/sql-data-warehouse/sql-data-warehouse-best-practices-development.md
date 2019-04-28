@@ -11,11 +11,11 @@ ms.date: 09/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 1682a26ba713db564484e8984010e9c12ce9d79e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61421435"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için en iyi uygulamaları geliştirme
 Bu makalede, rehberlik ve en iyi uygulamalar, veri ambarı Çözümünüzü geliştirirken açıklanır. 

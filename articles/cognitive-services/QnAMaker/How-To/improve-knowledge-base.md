@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372731"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Etkin öğrenme bilgi bankanızı geliştirmek için kullanın
 
@@ -169,7 +169,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP isteği özelliği|Ad|Type|Amaç|
+|HTTP isteği özelliği|Ad|Tür|Amaç|
 |--|--|--|--|
 |URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
 |Ana bilgisayar alt etki alanı|QnAMaker kaynak adı|string|Azure aboneliğinizdeki, soru-cevap Oluşturucu için konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
@@ -179,7 +179,7 @@ Content-Type: application/json
 
 JSON gövdesi birkaç ayar vardır:
 
-|JSON gövdesi özelliği|Type|Amaç|
+|JSON gövdesi özelliği|Tür|Amaç|
 |--|--|--|--|
 |`feedbackRecords`|array|Geri bildirim listesi.|
 |`userId`|string|Önerilen sorular kabul eden kişinin kullanıcı kimliği. Kullanıcı Kimliği biçimi size bağlıdır. Örneğin, bir e-posta adresi geçerli bir kullanıcı kimliği mimarinizdeki olabilir. İsteğe bağlı.|
