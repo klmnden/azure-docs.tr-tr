@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478564"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi
 Meta veriler ve özellikler için bir veya daha fazla BLOB'ları içeri aktarma işi veya dışarı aktarma işi bir parçası olarak belirtebilirsiniz. Meta veri veya içeri aktarma işi bir parçası olarak oluşturulan BLOB'ları için özellikleri ayarlamak için sabit sürücüde içeri aktarılacak veri içeren bir meta veri veya özellikleri dosyası sağlayın. Bir dışarı aktarma işi için meta veriler ve özellikler için döndürülen sabit sürücüde bulunan bir meta veri veya özellikler dosyasına yazılır.  
@@ -30,7 +30,7 @@ Meta veri dosyasının biçimi aşağıdaki gibidir:
 </Metadata>  
 ```
   
-|XML öğesi|Type|Açıklama|  
+|XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Kök öğe|Meta veri dosyası kök öğesi.|  
 |`metadata-name`|String|İsteğe bağlı. XML öğesi için blob meta verileri adını belirtir ve meta verilerini ayarın değerini değerini belirtir.|  
@@ -52,7 +52,7 @@ Meta veri dosyasının biçimi aşağıdaki gibidir:
 </Properties>  
 ```
   
-|XML öğesi|Type|Açıklama|  
+|XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
 |`Properties`|Kök öğe|Özellikler dosyası kök öğesi.|  
 |`Last-Modified`|String|İsteğe bağlı. Blob için son değiştirilme zamanı. Yalnızca dışarı aktarma işleri için.|  

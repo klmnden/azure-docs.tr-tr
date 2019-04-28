@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910996"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IOT Edge modülü SKU'ları sekmesi
 
@@ -41,7 +41,7 @@ Yeni bir teklif oluşturma başlattığınızda, bir teklifle ilgili SKU'ları y
 
 |  **Alan**       |     **Açıklama**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU KİMLİĞİ**       | Bu SKU için tanımlayıcı. Bu ada sahip en fazla 50 karakterden oluşan, küçük harf alfasayısal karakterler veya tire (-), ancak bir kısa çizgi ile bitemez. **Not:** teklif yayımlanma sonra bu adı değiştiremezsiniz. Adı, ürün URL'lerinde herkese görünür. |
+| **SKU KİMLİĞİ**       | Bu SKU için tanımlayıcı. Bu ada sahip en fazla 50 karakterden oluşan, küçük harf alfasayısal karakterler veya tire (-), ancak bir kısa çizgi ile bitemez. **Not:** Teklif yayımlanma sonra bu adı değiştiremezsiniz. Adı, ürün URL'lerinde herkese görünür. |
 
 ## <a name="sku-details"></a>SKU ayrıntıları
 
@@ -109,7 +109,7 @@ Amaç, içeriği, aşağıdaki tabloda açıklanmıştır ve alanların biçimle
 | **Abonelik kimliği**        | ACR Azure abonelik kimliği.|
 | **Kaynak grubu adı**      | Kaynak grubunu, ACR adıdır.|
 | **Kayıt defteri adı**  | ACR kayıt defterinizin adı. Yalnızca kayıt defteri adı, oturum açma sunucu adını kopyalayın (örneğin, olmadan `azurecr.io`.) |
-| **Depo adı**  | Depo, IOT Edge modülü içerir, ACR adı. **Not:** adı belirlendikten sonra daha sonra değiştirilemez. Diğer herhangi bir teklif hesabınızda aynı ada sahip olmak için benzersiz bir ad kullanın. |
+| **Depo adı**  | Depo, IOT Edge modülü içerir, ACR adı. **Not:** Daha sonra adı ayarlandıktan sonra değiştirilemez. Diğer herhangi bir teklif hesabınızda aynı ada sahip olmak için benzersiz bir ad kullanın. |
 | **Kullanıcı Adı** | ACR (yönetici kullanıcı adı) ile ilişkili kullanıcı adı. |
 | **Parola** | ACR ile ilişkili parola. |
 |  ***Görüntü sürümü***   |  |

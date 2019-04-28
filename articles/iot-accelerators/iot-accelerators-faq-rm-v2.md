@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447922"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm hızlandırıcısının için sık sorulan sorular
 
@@ -32,7 +32,7 @@ Yeni çözüm Hızlandırıcısını iki dağıtım seçeneği sunar:
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Temel ve standart dağıtım seçenekleri arasındaki fark nedir? İki dağıtım seçeneğinden nasıl karar verebilirim?
 
-Her dağıtım seçeneğinin, farklı ihtiyaçlarına yanıt verir. Temel dağıtımın, PT ve küçük pilotlar geliştirmesine başlamak için tasarlanmıştır. En düşük gerekli kaynakları ve daha düşük bir maliyet basitleştirilmiş bir mimari sağlar. Standart dağıtım oluşturun ve üretime hazır bir çözümü özelleştirmek için tasarlanmıştır ve bir dağıtım, hayata geçirmek için gereken öğeleri sağlar. Güvenilirlik ve ölçek için uygulama mikro hizmetler, Docker kapsayıcıları olarak oluşturulur ve bir düzenleyici (varsayılan olarak Kubernetes) aracılığıyla dağıtılır. Orchestrator, dağıtım, ölçeklendirme ve uygulama yönetimi için sorumludur. Geçerli gereksinimlerinize göre bir seçenek seçmeniz gerekir. Biri, diğer veya, proje aşama bağlı olarak her ikisinin bir birleşimini kullanabilirsiniz.
+Her dağıtım seçeneğinin, farklı ihtiyaçlarına yanıt verir. Temel dağıtımın, PT ve küçük pilotlar geliştirmesine başlamak için tasarlanmıştır. En düşük gerekli kaynakları ve daha düşük bir maliyet basitleştirilmiş bir mimari sağlar. Standart dağıtım oluşturun ve üretime hazır bir çözümü özelleştirmek için tasarlanmıştır ve bir dağıtım, hayata geçirmek için gereken öğeleri sağlar. Güvenilirlik ve ölçek için uygulama mikro hizmetler, Docker kapsayıcıları olarak oluşturulur ve bir düzenleyici (varsayılan olarak Kubernetes) aracılığıyla dağıtılır. Düzenleyici, uygulamanın dağıtımından, ölçeklenmesinden ve yönetiminden sorumludur. Geçerli gereksinimlerinize göre bir seçenek seçmeniz gerekir. Biri, diğer veya, proje aşama bağlı olarak her ikisinin bir birleşimini kullanabilirsiniz.
 
 ### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Dinamik bir harita Panoda nasıl yapılandırabilirim?
 

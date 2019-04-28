@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921781"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -154,7 +154,7 @@ Azure kapsayıcılar uygulamalarınızda kullanmak için çeşitli yollar sunar.
   > 
   > **Başlama**: [Linux üzerinde App Service'te özel bir Docker görüntüsü kullanma](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz erişimi önlemek için önemlidir. Azure, uygulama istemcilerin kimliğini doğrulamak için çeşitli yollar sunar.
 

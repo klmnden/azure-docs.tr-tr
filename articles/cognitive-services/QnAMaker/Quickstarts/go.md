@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913557"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Soru-cevap Oluşturucu REST API ile Git kullanma 
 <a name="HOLTop"></a>

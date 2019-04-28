@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478632"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmet bildirimi dosyası biçimi
 Sürücü bildirim dosyası, Azure Blob Depolama'daki blobları ve dosyaları bir içeri veya dışarı aktarma işi kapsayan sürücüde arasındaki eşlemeyi açıklar. Bildirim dosyası, bir içeri aktarma işlemi için sürücü hazırlama işleminin bir parçası olarak oluşturulur ve Azure veri merkezine bir sürücü gönderilmeden önce bir sürücüde depolanır. Bir dışarı aktarma işlemi sırasında bildirim oluşturulur ve bu sürücüde Azure içeri/dışarı aktarma hizmeti tarafından depolanan.  
@@ -90,7 +90,7 @@ block-list ::=
 
 Aşağıdaki tabloda, veri öğeleri ve öznitelikleri sürücü bildirim XML biçiminde belirtilir.  
   
-|XML öğesi|Type|Açıklama|  
+|XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Kök öğe|Bildirim dosyasının kök öğe. Bu öğenin dosyasındaki tüm diğer öğeleri şunlardır:|  
 |`Version`|Öznitelik, dize|Bildirim dosyası sürümü.|  

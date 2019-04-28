@@ -9,11 +9,11 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438299"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure kaynakları için erişim BLOB'lar ve Kuyruklar ile Azure Active Directory ve yönetilen kimlikleri için kimlik doğrulaması
 

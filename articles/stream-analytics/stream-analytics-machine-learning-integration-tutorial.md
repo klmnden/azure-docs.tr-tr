@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480825"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme
 Bu makalede, Azure Machine Learning tümleşik basit bir Azure Stream Analytics işi hızlı bir şekilde ayarlamak açıklar. Cortana Intelligence Galerisi'nde akış metin verileri analiz ve gerçek zamanlı yaklaşım puanını belirlemek için Machine Learning yaklaşım analizi modeli kullanın. Cortana Intelligence Suite'i kullanarak yaklaşım analizi model oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden, bu görevi gerçekleştirmenize olanak tanır.

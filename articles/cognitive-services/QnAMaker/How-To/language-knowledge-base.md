@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: f6c317cc1281a5a9bc18a2057fa12b7b61bb7689
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372042"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Bilgi Bankası içerikleri soru-cevap Oluşturucu için dil desteği
 Soru-cevap Oluşturucu, Bilgi Bankası içerikleri birçok dilde gösterilmesini destekler. Ancak her soru-cevap Oluşturucu hizmetini tek bir dil için ayrılmış olması. Belirli bir soru-cevap Oluşturucu hizmetini hedefleyen oluşturulan ilk Bilgi Bankası hizmet dili ayarlar. Bkz: [burada](../Overview/languages-supported.md) desteklenen dillerin listesi.
@@ -34,7 +34,7 @@ Dil ayıklanırken veri kaynaklarının içeriği otomatik olarak kabul edilir. 
 
 4. Seçin **alanları** testkb ayrıntılarını gösteren bölüm.
 
-    ![Alanları seçin](../media/qnamaker-how-to-language-kb/selectfields.png)
+    ![Alanları Seçin](../media/qnamaker-how-to-language-kb/selectfields.png)
 
 5. İçin kutuyu **Çözümleyicisi** dil ayrıntılarını görmek için.
 

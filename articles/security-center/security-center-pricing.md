@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
 ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905746"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin
 Azure Güvenlik Merkezi, Azure’da, şirket içinde ve diğer bulutlarda çalışan iş yükleri için birleşik güvenlik yönetimi ve gelişmiş tehdit koruması sağlar. Bu, hibrit bulut iş yükleri, hızla gelişen siber saldırı ile uydurmanıza yardımcı olmak için tehditleri ve akıllı algılama maruz kalma riskinizi azaltmak etkin savunmaları üzerinde görünürlük ve denetim sunar.

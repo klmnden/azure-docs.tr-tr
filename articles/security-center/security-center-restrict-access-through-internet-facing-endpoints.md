@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906595"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalarla erişimi sınırlama
 Azure Güvenlik Merkezi, herhangi bir ağ güvenlik grupları (Nsg) varsa "tümü" kaynak IP adresinden erişime izin veren bir veya daha fazla gelen kuralları Internet'e yönelik uç noktalarla erişimi sınırlama önerir. "Herhangi bir" Access'i açıp saldırganların kaynaklarınıza erişimi sağlayabilir. Güvenlik Merkezi, gerçekten erişmesi gereken kaynak IP adresleri için erişimi kısıtlamak için aşağıdaki gelen kurallarını düzenlemenizi önerir.

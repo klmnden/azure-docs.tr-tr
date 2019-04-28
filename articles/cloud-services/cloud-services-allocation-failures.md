@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 22888c76b27d287a8d7fb0f0f1f0a0d39d92375d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: d1f24c3661a23496d1873f12ce46083bf5258269
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435517"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme
 ## <a name="summary"></a>Özet
@@ -44,7 +44,7 @@ Aşağıdaki hata iletisini görebilirsiniz:
 
     "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
-### <a name="common-issues"></a>Yaygın Sorunlar
+### <a name="common-issues"></a>Genel Sorunlar
 Tek bir küme için sabitlenmelidir ayırma isteği neden ortak bir ayırma senaryoları aşağıda verilmiştir.
 
 * Bir bulut hizmeti ya da yuvasında bir dağıtım varsa - hazırlama yuvasına dağıtma, ardından tüm bulut hizmeti için belirli bir küme sabitlenir.  Diğer bir deyişle, üretim yuvasında bir dağıtım zaten varsa, yeni bir hazırlama dağıtımı yalnızca üretim yuvası ile aynı kümede ayrılabilir. Kümenin kapasitesine yaklaşıyor istek başarısız.

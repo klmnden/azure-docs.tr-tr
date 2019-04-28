@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341932"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
 Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
@@ -143,7 +143,7 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Sorgu |Halka için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. |
 | Tıklama Gezinti | Başlığında'a tıkladığınızda gerçekleştirilen eylem.  Daha fazla bilgi için [ortak ayarları](#click-through-navigation). |
 | **Halka** |**> Merkezi** |
-| Metin |Halka içindeki değeri altında görüntülenen metin. |
+| Text |Halka içindeki değeri altında görüntülenen metin. |
 | İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<ul><li>Toplama: Tüm kayıtların değerleri toplar.</li><li>Yüzdesi: Değerler tarafından döndürülen kayıtları oranını **neden merkezdeki işlemde kullanılan değerleri** sorgu toplam kayıtlara.</li></ul> |
 | Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işaretini (+) seçin. Sorgu sonuçlarını kayıtlarını belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz tüm kayıtları sorguya dahil edilir. |
 | **Ek Seçenekler** |**> Renkler** |
@@ -209,7 +209,7 @@ Günlük sorguları listesi sorguların parçası listesini görüntüler. Her s
 | Yeni Grup |Geçerli görünüme başlangıç Görünümü'nde yeni bir grup oluşturmak için bu bağlantıyı seçin. |
 | Renk |Başlık arka plan rengi. |
 | **Üst bilgi** | |
-| Görüntü |Üst bilgide görüntülenen resim dosyası. |
+| Image |Üst bilgide görüntülenen resim dosyası. |
 | Etiket |Üst bilgide görüntülenen metin. |
 | **Üst bilgi** |**> Bağlantı** |
 | Etiket |Bağlantı metni. |
