@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110353"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) hedefleme izleme çözümleri
 Aboneliğinize bir izleme çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır.  Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını **çözüm hedefleme** çözümlerinize bir kapsam uygulamanıza imkan sağlayan bir özelliği olan.

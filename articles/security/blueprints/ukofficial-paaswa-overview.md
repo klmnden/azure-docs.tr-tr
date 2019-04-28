@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109336"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -61,7 +61,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz d
 - Application Insights
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure Storage
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
@@ -117,7 +117,7 @@ Bu şablon, aşağıdaki App Service özellikleri dağıtır:
 - Ölçüm [uyarıları](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Veritabanı
 
 SQL Veritabanı, Microsoft Azure'da yer alan ve ilişkisel veri, JSON, uzamsal ve XML gibi yapıları destekleyen çok amaçlı ilişkisel veritabanı yönetilen hizmetidir. SQL veritabanı teklifler yönetilen tek SQL veritabanları, içinde yönetilen SQL veritabanları bir [elastik havuz](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)ve SQL [yönetilen örnekler](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (genel önizlemede). [Dinamik olarak ölçeklenebilir performans](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) sunan bu hizmet çok büyük ölçekli analitik analiz ve raporlama için [columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) gibi seçenekler, raporlama ve çok büyük ölçekli işlemler için [bellek içi OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) özelliklerine sahiptir. Microsoft, SQL kod tabanıyla ilgili tüm düzeltme ve güncelleştirme işlerini sorunsuz olarak yaparak altyapı yönetimini tamamen soyutlar.
 

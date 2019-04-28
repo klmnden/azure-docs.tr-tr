@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: b2b707585df4a7ec26f689b4213be74bdaab680d
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 388c4d5f28e87f5cfe26336771d30fa44c6f9ef0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123017"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Bu makalede oluşturduğunuz veya Visual Studio kullanarak bir ASP.NET Core proj
 
 Azure Blob Depolama, büyük miktarlarda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen yapılandırılmamış verileri depolamak için kullanılan bir hizmettir. Bir blobun herhangi bir boyutta olabilir. Görüntüleri, ses ve video dosyaları, ham verileri ve belge dosyaları gibi blobları olabilir. Bu makale, Visual Studio kullanarak bir Azure depolama hesabı oluşturduktan sonra blob depolama ile çalışmaya başlama işlemini açıklamaktadır **bağlı hizmetler** bir ASP.NET Core projesi içinde.
 
-Dosyaları klasörler halinde yalnızca canlı olarak kapsayıcılarda depolama BLOB'ları dinamik. Bir blob oluşturduktan sonra bir blobun bir veya daha fazla kapsayıcı oluşturun. Örneğin, "Koleksiyon defteri" adlı bir blob, resimleri depolamak için "Görüntü" adı verilen kapsayıcıları oluşturabilirsiniz ve başka "ses dosyaları depolamak için ses" denir. Kapsayıcıları oluşturduktan sonra bunları tek tek dosyaları karşıya yükleyebilirsiniz. Bkz: [hızlı başlangıç: yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md) program aracılığıyla BLOB'ları düzenleme hakkında daha fazla bilgi.
+Dosyaları klasörler halinde yalnızca canlı olarak kapsayıcılarda depolama BLOB'ları dinamik. Bir blob oluşturduktan sonra bir blobun bir veya daha fazla kapsayıcı oluşturun. Örneğin, "Koleksiyon defteri" adlı bir blob, resimleri depolamak için "Görüntü" adı verilen kapsayıcıları oluşturabilirsiniz ve başka "ses dosyaları depolamak için ses" denir. Kapsayıcıları oluşturduktan sonra bunları tek tek dosyaları karşıya yükleyebilirsiniz. Bkz: [hızlı başlangıç: Karşıya yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md) program aracılığıyla BLOB'ları düzenleme hakkında daha fazla bilgi.
 
 Bazı Azure depolama API'leri uyumsuzdur ve bu makalede kod zaman uyumsuz yöntemler kullanıldığını varsayar. Bkz: [zaman uyumsuz programlama](https://docs.microsoft.com/dotnet/csharp/async) daha fazla bilgi için.
 
@@ -140,7 +140,7 @@ do
 } while (token != null);
 ```
 
-Bkz: [hızlı başlangıç: yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) bir blob kapsayıcı içeriğini listelemek için kullanabileceğiniz diğer yöntemler için.
+Bkz: [hızlı başlangıç: Karşıya yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) bir blob kapsayıcı içeriğini listelemek için kullanabileceğiniz diğer yöntemler için.
 
 ## <a name="download-a-blob"></a>Blob indirme
 
@@ -157,7 +157,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Bkz: [hızlı başlangıç: yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) diğer yollarını blobları dosyaları olarak kaydedin.
+Bkz: [hızlı başlangıç: Karşıya yükleme, indirme ve .NET kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) diğer yollarını blobları dosyaları olarak kaydedin.
 
 ## <a name="delete-a-blob"></a>Blob silme
 

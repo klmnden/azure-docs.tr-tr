@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485524"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Çok müşterili barındırma hakları ile azure'da Windows 10 dağıtma 
 Müşteriler için Windows 10 Enterprise E3/E5 ile Windows sanal masaüstü erişimi ya da kullanıcı başına kullanıcı (kullanıcı Abonelik lisansı veya eklenti kullanıcı Abonelik Lisansı), çok Kiracılı barındırma hakları Windows 10 için Windows 10 lisanslarınızı buluta getirmenize olanak sağlar ve Windows 10 sanal makineleri başka bir lisans için ödeme yapmadan Azure üzerinde çalıştırın. Daha fazla bilgi için lütfen bkz [Windows 10 için çok Kiracılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

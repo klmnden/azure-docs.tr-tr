@@ -3,16 +3,16 @@ title: Özel ilke tanımı oluşturma
 description: Azure İlkesi, özel iş kurallarını uygulamak için özel bir ilke tanımı oluşturabilir.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267761"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760867"
 ---
 # <a name="create-a-custom-policy-definition"></a>Özel ilke tanımı oluşturma
 
@@ -69,9 +69,9 @@ Bakmak için birkaç şekilde bir [Resource Manager şablonu](../../../azure-res
 #### <a name="existing-resource-in-the-portal"></a>Portalda mevcut kaynağı
 
 Özellikleri bulmak için en basit yolu, mevcut bir kaynağı aynı türde aramaktır. Uygulamak istediğiniz ayarı ile yapılandırılmış kaynaklara karşı Karşılaştırılacak değer de sağlar.
-Bakmak **Otomasyon betiği** sayfa (altında **ayarları**), belirli bir kaynak için Azure portalında.
+Bakmak **şablonu dışarı aktarma** sayfa (altında **ayarları**), belirli bir kaynak için Azure portalında.
 
-![Şablon sayfasında, var olan kaynak dışarı aktarma](../media/create-custom-policy-definition/automation-script.png)
+![Şablon sayfasında, var olan kaynak dışarı aktarma](../media/create-custom-policy-definition/export-template.png)
 
 Bunu yapmak için bir depolama hesabı şu örneğe benzer bir şablon gösterir:
 
@@ -197,8 +197,9 @@ Azure CLI gibi adlı depolama hesabı tarafından desteklenen bir diğer ad sonu
 
 [Azure Kaynak Grafiği](../../resource-graph/overview.md) önizlemede yeni bir hizmettir. Bu, Azure kaynaklarını özelliklerini bulmak için başka bir yöntem sağlar. Aşağıda, bir tek bir depolama hesabı kaynak grafiği ile arama için örnek sorgu verilmiştir:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +210,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Sonuçlar şu Resource Manager şablonları ve Azure kaynak Gezgini üzerinden gördükleri için benzer görünür. Ancak, Azure kaynak Graph sonuçları de [diğer](../concepts/definition-structure.md#aliases) ayrıntıları. Diğer adlar için bir depolama hesabından örnek çıktı aşağıdaki gibidir:
+Sonuçlar şu Resource Manager şablonları ve Azure kaynak Gezgini üzerinden gördükleri için benzer görünür. Ancak, Azure kaynak Graph sonuçları da içerebilir [diğer](../concepts/definition-structure.md#aliases) tarafından ayrıntıları _planlanması_ _diğer adlar_ dizisi:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Diğer adlar için bir depolama hesabından örnek çıktı aşağıdaki gibidir:
 
 ```json
 "aliases": {

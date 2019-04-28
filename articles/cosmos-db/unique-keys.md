@@ -1,18 +1,19 @@
 ---
 title: Azure Cosmos DB'de benzersiz anahtarlar kullanın
 description: Azure Cosmos veritabanınızda benzersiz anahtarlar kullanmayı öğrenin
-author: rimman
-ms.author: rimman
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115732"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB'de benzersiz anahtar kısıtlamaları
 
@@ -26,14 +27,14 @@ Aynı e-posta ile öğeleri oluşturmak için benzersiz anahtar ilkesi için dah
 
 Örneğin, kapsayıcı öğeleri burada her öğeyi benzersiz anahtar kısıtlaması geliştirir aşağıdaki değerlerle içerebilir.
 
-|Companyıd|Ad|Soyadı|E-posta adresi|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Çalışan Ivan|Duperre|gaby@fabrikam.com|
-|Fabrkam|   |Duperre|gaby@fabraikam.com|
-|Fabrkam|   |   |gaby@fabraikam.com|
+| Companyıd | Ad | Soyadı |   E-posta adresi    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Çalışan Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrkam  |            |           | gaby@fabraikam.com |
 
 Önceki tabloda listelenen birleşimleri olan başka bir öğe eklemeye çalışırsanız, bir hata alırsınız. Benzersiz anahtar kısıtlaması'nin karşılanmadığı durumların hata gösterir. Ya da aldığınız `Resource with specified ID or name already exists` veya `Resource with specified ID, name, or unique index already exists` dönüş iletisi. 
 
@@ -56,3 +57,5 @@ Yalnızca bir Azure Cosmos kapsayıcısı oluşturduğunuzda, benzersiz anahtarl
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinin [mantıksal bölümler](partition-data.md).
+
+<!-- Update_Description: update meta propreties, wording update -->

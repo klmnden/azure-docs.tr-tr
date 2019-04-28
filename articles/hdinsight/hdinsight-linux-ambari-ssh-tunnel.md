@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+origin.date: 04/30/2018
+ms.date: 02/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: MT
+ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382620"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766764"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -34,7 +35,7 @@ Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 
 Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir hizmet veya bir web hizmeti kullanıma sunmak, yüklediğiniz yardımcı programları SSH tüneli gerektirir. Örneğin, bir betik eylemi kullanarak Hue yüklemek, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > HDInsight için bir sanal ağ üzerinden doğrudan erişimi varsa, SSH tünelleri kullanın gerekmez. HDInsight üzerinden bir sanal ağa doğrudan erişim ilişkin bir örnek için bkz [HDInsight'ı şirket içi ağınıza bağlama](connect-on-premises-network.md) belge.
 
 ## <a name="what-is-an-ssh-tunnel"></a>SSH tüneli nedir
@@ -47,7 +48,7 @@ Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir
 
 * SOCKS5 Ara sunucusunu kullanacak şekilde yapılandırılmış bir web tarayıcısı.
 
-    > [!WARNING]  
+    > [!WARNING]
     > Windows Internet ayarlarına yerleşik SOCKS proxy desteği SOCKS5 desteklemiyor ve bu belgedeki adımlar ile çalışmıyor. Aşağıdaki tarayıcılardan Windows proxy ayarlarını kullanan ve şu anda bu belgedeki adımlar ile çalışmaz:
     >
     > * Microsoft Edge
@@ -110,14 +111,14 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Tarayıcınızdan tüneli kullanma
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Aynı proxy ayarları tüm platformlarda sağladığı gibi Mozilla FireFox tarayıcısı bu bölümdeki adımları kullanın. Google Chrome gibi modern tarayıcılar gibi FoxyProxy tünel ile çalışmak için bir uzantı gerektirebilir.
 
 1. Kullanılacak tarayıcı yapılandırma **localhost** ve ne zaman kullanılan bağlantı noktası olarak tünel oluşturma bir **SOCKS v5** proxy. İşte Firefox ayarları şöyle görünür. Farklı bir bağlantı noktasıyla 9876 kullandıysanız, kullandığınız bir bağlantı noktasını değiştirin:
    
     ![Firefox ayarlarının görüntüsü](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]  
+   > [!NOTE]
    > Seçme **uzak DNS** HDInsight kümesi kullanarak etki alanı adı sistemi (DNS) istekleri giderir. Bu ayar kümesinin baş düğümünü kullanarak DNS çözümleniyor.
 
 2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Döndürülen IP, bir Microsoft Azure veri merkezi tarafından kullanılan olmalıdır.
@@ -139,7 +140,7 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
 
     ![Genişletilmiş QuickLinks menüsünde görüntü](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
+   > [!NOTE]
    > Seçtiğinizde, __hızlı bağlantılar__, bekleme göstergesi alabilirsiniz. Yavaş bir internet bağlantınız varsa bu durum ortaya çıkabilir. Bir veya iki sunucudan alınacak veri için dakika bekleyin ve listeyi yeniden deneyin.
    >
    > Bazı girişleri **hızlı bağlantılar** menü ekranın sağ tarafındaki tarafından kesilmiş. Bu durumda, farenizi kullanarak menüsünü genişletin ve ekran menü kalanını görmek için sağa kaydırmak için sağ ok tuşunu kullanın.

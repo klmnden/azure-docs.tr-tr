@@ -2,7 +2,6 @@
 title: Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase ve R Server - Azure HDInsight için Kurulum küme
 description: Hadoop, Kafka, Spark, HBase, R Server veya Storm kümeleri HDInsight için bir tarayıcı, Klasik Azure CLI, Azure PowerShell, REST veya SDK'sı ayarlayın.
 keywords: hadoop kümesi kurulumu, kafka küme kurulum hadoop kümesi nedir, spark kümesi Kurulumu
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: 3ccff4409dde92a23ccdbb1c31af687449bf9d48
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817942"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766383"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama
 
@@ -159,7 +158,7 @@ Kümenin var olduğu sürece düğüm kullanım için faturalandırılırsınız
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü kendi sayısı düğüm, düğümleri ve varsayılan VM boyutu için terimler vardır. Aşağıdaki tabloda, parantez içinde her düğüm türü için düğümler sayısıdır.
 
-| Type | Düğümler | Diyagram |
+| Tür | Düğümler | Diyagram |
 | --- | --- | --- |
 | Hadoop |Baş düğüm (2) veri düğümü (1 +) |![HDInsight Hadoop küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |HEAD sunucu (2), bölge sunucusu (1 +), master/ZooKeeper düğümü (3) |![HDInsight HBase küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

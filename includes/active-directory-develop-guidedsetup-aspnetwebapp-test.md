@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298248"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -47,7 +47,7 @@ Denetleyici görünüme Gözat sonra kullanıcı için temel özelliklerini içe
 |---|---|---|
 |**Ad** |Kullanıcının tam adı | Kullanıcı adı ve soyadı.
 |**Kullanıcı Adı** |Kullanıcı<span>@domain.com</span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.
-|**Konu** |Özne |Kullanıcı Web'de benzersiz olarak tanımlayan bir dize.|
+|**Konu** |Subject |Kullanıcı Web'de benzersiz olarak tanımlayan bir dize.|
 |**Kiracı kimliği** |Guid | A **GUID** , benzersiz kullanıcının Azure AD kuruluşu temsil eder.|
 
 Ayrıca, kimlik doğrulama isteğine olan tüm talep tablosu görmeniz gerekir. Daha fazla bilgi için [olan bir Azure AD kimlik belirteci talepler listesinin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

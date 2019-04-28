@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107882"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Büyük veri analiz çözümlerinizi Azure Data Lake depolama 2. nesil için Azure Data Lake depolama Gen1 ' yükseltme
 
@@ -249,7 +249,7 @@ Burada ana görevi öneki olan URI'si Çevir, `adl://` sahip URI'si içine bir `
 
 Data Lake depolama Gen1 URI şeması bahsedilen [burada](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) ayrıntı, ancak genel anlamda içinde olduğu *adl://mydatalakestore.azuredatalakestore.net/\<Dosya_yolu\>.*
 
-Data Lake depolama Gen2 dosyalara erişmek için URI şeması açıklanan [burada](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) ayrıntı, ancak genel anlamda içinde olduğu `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Data Lake depolama Gen2 dosyalara erişmek için URI şeması açıklanan [burada](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) ayrıntı, ancak genel anlamda içinde olduğu `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Var olan uygulamalarınız gidin ve bir URI'leri uygun şekilde için Data Lake depolama Gen2'ye işaret edecek şekilde değiştirdiğinizi emin olmak ihtiyacınız olanları. Ayrıca, uygun kimlik bilgilerini eklemeniz gerekecektir. Son olarak, özgün uygulamaları devre dışı bırakma ve yeni bir uygulama ile değiştirmek nasıl genel yükseltme stratejinizi yakından hizalanması gerekir.
 

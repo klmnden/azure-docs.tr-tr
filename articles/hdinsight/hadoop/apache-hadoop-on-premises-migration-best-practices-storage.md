@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight - depolama en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 description: Azure HDInsight için geçirme şirket içi Hadoop kümeleri için en iyi depolama öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095294"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Azure HDInsight - depolama en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -172,11 +171,11 @@ Varsayılan olarak HDInsight kümesi ile ilişkili Azure depolama hesaplarında 
 
 5. Kapsayıcı paylaşılan erişim imzası ile sınırlamak için Ambari HDFS yapılandırmaları Gelişmiş özel çekirdek site ekleme özelliği altında bir küme için çekirdek site yapılandırması özel bir giriş ekleyin.
 
-6. İçin aşağıdaki değerleri kullanın **anahtarı** ve **değer** alanlar:
+6. İçin aşağıdaki değerleri kullanın **anahtarı** ve **değer** alanlar:
 
     **Anahtar**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Değer**: SAS ANAHTARINI Python uygulama FROM adım 4 yukarıdaki döndürdü.
 
-7. Tıklayın **Ekle** bu anahtar ve değer Kaydet düğmesine ve ardından tıklayın **Kaydet** yapılandırma değişikliklerini kaydetmek için düğme. İstendiğinde, değişikliği ("SAS depolama erişim örneğin ekleme") bir açıklama ekleyin ve ardından **Kaydet**.
+7. Tıklayın **Ekle** bu anahtar ve değer Kaydet düğmesine ve ardından tıklayın **Kaydet** yapılandırma değişikliklerini kaydetmek için düğme. İstendiğinde, değişikliği ("SAS depolama erişim örneğin ekleme") bir açıklama ekleyin ve ardından **Kaydet**.
 
 8. İçinde Ambari web kullanıcı Arabirimi, HDFS, sol taraftaki listeden seçin ve ardından **yeniden tüm etkilenen** hizmet Eylemler, sağdaki listeden açılır. Sorulduğunda, **tüm yeniden onaylayın**.
 

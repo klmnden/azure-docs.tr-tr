@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117034"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruma
 
@@ -196,7 +196,7 @@ Anahtar döndürme için bu en iyi uygulamaları izlemenizi öneririz:
 
 StorSimple, depolanan verileri korumak için aşağıdaki şifreleme algoritmalarını veya StorSimple çözümünüzün bileşenleri arasında seyahat kullanır.
 
-| Algoritması | Anahtar uzunluğu | Uygulamalar/protokolleri/açıklamaları |
+| Algoritma | Anahtar uzunluğu | Uygulamalar/protokolleri/açıklamaları |
 | --- | --- | --- |
 | RSA |2048 |RSA PKCS 1 v1.5 Azure portal tarafından cihaza gönderilen yapılandırma verilerini şifrelemek için kullanılır: Örneğin, depolama hesabı kimlik bilgileri, StorSimple cihaz yapılandırması ve bulut depolama şifreleme anahtarları. |
 | AES |256 |AES CBC ile Azure portalında StorSimple cihazından gönderilmeden önce ortak kısmını hizmet veri şifreleme anahtarı şifrelemek için kullanılır. Bu ayrıca, StorSimple cihaz tarafından verileri bulut depolama hesabına gönderilmeden önce verileri şifrelemek için kullanılır. |
@@ -223,34 +223,34 @@ Bazı sorular ve cevaplar güvenlik ve Microsoft Azure StorSimple hakkında aşa
 
 **S:** Hizmetimi gizliliği. Ne sonraki adımlarım olması gerekiyor mu?
 
-**Y:** Hizmet veri şifreleme anahtarı ve katmanlama veri için kullanılan depolama hesabı için depolama hesabı anahtarları hemen değiştirmeniz. Yönergeler için şuraya gidin:
+**C:** Hizmet veri şifreleme anahtarı ve katmanlama veri için kullanılan depolama hesabı için depolama hesabı anahtarları hemen değiştirmeniz. Yönergeler için şuraya gidin:
 
 * [Hizmet veri şifreleme anahtarı değiştirme](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Depolama hesabı anahtar rotasyonu](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **S:** Hizmet kayıt anahtarı için soran yeni bir StorSimple cihazı var. Bunu nasıl aldığını?
 
-**Y:** Bu anahtar, StorSimple cihaz Yöneticisi hizmetine ilk oluşturduğunuzda oluşturulur. Cihaza bağlanmak için StorSimple cihaz Yöneticisi hizmeti kullandığınızda, görüntülemek veya hizmet kayıt anahtarını yeniden oluşturmak için hizmet hızlı başlangıç sayfasını kullanabilirsiniz. Yeni bir hizmet kayıt anahtarı oluşturma, var olan kayıtlı cihazları etkilemez. Yönergeler için şuraya gidin:
+**C:** Bu anahtar, StorSimple cihaz Yöneticisi hizmetine ilk oluşturduğunuzda oluşturulur. Cihaza bağlanmak için StorSimple cihaz Yöneticisi hizmeti kullandığınızda, görüntülemek veya hizmet kayıt anahtarını yeniden oluşturmak için hizmet hızlı başlangıç sayfasını kullanabilirsiniz. Yeni bir hizmet kayıt anahtarı oluşturma, var olan kayıtlı cihazları etkilemez. Yönergeler için şuraya gidin:
 
 * [Görüntülemek veya hizmet kayıt anahtarını yeniden oluştur](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
 **S:** Ben my hizmet veri şifreleme anahtarı kayboldu. Ne yapmalıyım?
 
-**Y:** Microsoft Desteği'ne başvurun. Bunlar destek oturumu cihaz ve Yardım (en az bir cihaz çevrimiçi olması koşuluyla) anahtarı almak için oturum açabilir. Hizmet veri şifreleme anahtarını elde hemen sonra yeni anahtarı yalnızca sizin bildiğiniz emin olmak için değiştirmeniz gerekir. Yönergeler için şuraya gidin:
+**C:** Microsoft Desteği'ne başvurun. Bunlar destek oturumu cihaz ve Yardım (en az bir cihaz çevrimiçi olması koşuluyla) anahtarı almak için oturum açabilir. Hizmet veri şifreleme anahtarını elde hemen sonra yeni anahtarı yalnızca sizin bildiğiniz emin olmak için değiştirmeniz gerekir. Yönergeler için şuraya gidin:
 
 * [Hizmet veri şifreleme anahtarı değiştirme](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **S:**  Bir cihaz için bir hizmet veri şifreleme anahtarı değiştirme yetkisi, ancak anahtar değiştirme işlemi başlatılamadı. Ne yapmalıyım?
 
-**Y:** Zaman aşımı süresi dolmuşsa, hizmet veri şifreleme anahtar değişimi için cihaz yeniden yetkilendirin ve işlemi yeniden başlatmak gerekir.
+**C:** Zaman aşımı süresi dolmuşsa, hizmet veri şifreleme anahtar değişimi için cihaz yeniden yetkilendirin ve işlemi yeniden başlatmak gerekir.
 
 **S:**  Hizmet veri şifreleme anahtarı değiştirdim ama ben 4 saat içinde diğer cihazları güncelleştirmek mümkün değildi. Yeniden başlatmak zorunda mıyım?
 
-**Y:** Yalnızca değişiklik başlatmak için 4 saatlik bir zaman aralığıdır. Yetkili StorSimple cihazında güncelleştirme işlemini başlattıktan sonra tüm cihazlar güncelleştirilene kadar yetkilendirme geçerli değil.
+**C:** Yalnızca değişiklik başlatmak için 4 saatlik bir zaman aralığıdır. Yetkili StorSimple cihazında güncelleştirme işlemini başlattıktan sonra tüm cihazlar güncelleştirilene kadar yetkilendirme geçerli değil.
 
 **S:** Bizim StorSimple yönetici şirketten. Ne yapmalıyım?
 
-**Y:** Değiştirin ve StorSimple cihazı için erişime izin ver parolaları sıfırlama ve yeni bilgilerin yetkisiz personele bilinmiyor emin olmak için hizmet veri şifreleme anahtarı değiştirme. Yönergeler için şuraya gidin:
+**C:** Değiştirin ve StorSimple cihazı için erişime izin ver parolaları sıfırlama ve yeni bilgilerin yetkisiz personele bilinmiyor emin olmak için hizmet veri şifreleme anahtarı değiştirme. Yönergeler için şuraya gidin:
 
 * [StorSimple cihaz Yöneticisi hizmetini kullanarak storsimple parolalarını değiştirmek için kullanın](storsimple-8000-change-passwords.md)
 * [Hizmet veri şifreleme anahtarı değiştirme](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
@@ -258,28 +258,28 @@ Bazı sorular ve cevaplar güvenlik ve Microsoft Azure StorSimple hakkında aşa
 
 **S:** StorSimple Snapshot Manager parolasını StorSimple cihaz için bağlanan bir konak sağlamak istiyorum, ancak parola kullanılabilir değil. Ne yapabilirim?
 
-**Y:** Parolanızı unuttuysanız, yeni bir tane oluşturmanız gerekir. Ardından, tüm mevcut Kullanıcılar Parola değiştirildi ve yeni parolayı kullanmak üzere istemcileri güncelleştirmelisiniz bilgilendirmek emin olun. Yönergeler için şuraya gidin:
+**C:** Parolanızı unuttuysanız, yeni bir tane oluşturmanız gerekir. Ardından, tüm mevcut Kullanıcılar Parola değiştirildi ve yeni parolayı kullanmak üzere istemcileri güncelleştirmelisiniz bilgilendirmek emin olun. Yönergeler için şuraya gidin:
 
 * [StorSimple Snapshot Manager parolasını değiştirme](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Bir cihaz kimlik doğrulaması](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
 **S:** StorSimple için Windows PowerShell için uzaktan erişim için sertifika cihazda değiştirildi. Uzaktan erişim müşterilerim nasıl güncelleştirebilirim?
 
-**Y:** StorSimple cihaz Yöneticisi hizmetinden yeni sertifikayı yükleyin ve ardından, uzaktan erişim istemcilerinin sertifika deposunda yüklü olmasını sağlayın. Yönergeler için şuraya gidin:
+**C:** StorSimple cihaz Yöneticisi hizmetinden yeni sertifikayı yükleyin ve ardından, uzaktan erişim istemcilerinin sertifika deposunda yüklü olmasını sağlayın. Yönergeler için şuraya gidin:
 
 * [Sertifikayı içeri aktarma cmdlet'i](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **S:** My veri korumalı StorSimple cihaz Yöneticisi hizmetinin güvenliği aşılmış ise?
 
-**Y:** Bir web tarayıcısında görüntülediğinizde hizmet yapılandırma verilerini sizin ortak anahtarınızla her zaman şifrelenir. Hizmet, hizmet özel anahtarına erişime sahip olmadığından, tüm verileri görmek mümkün olmayacaktır. StorSimple cihaz Yöneticisi hizmeti tehlikedeyse etkisi yoktur, olarak StorSimple cihaz Yöneticisi hizmeti depolanan anahtar yok.
+**C:** Bir web tarayıcısında görüntülediğinizde hizmet yapılandırma verilerini sizin ortak anahtarınızla her zaman şifrelenir. Hizmet, hizmet özel anahtarına erişime sahip olmadığından, tüm verileri görmek mümkün olmayacaktır. StorSimple cihaz Yöneticisi hizmeti tehlikedeyse etkisi yoktur, olarak StorSimple cihaz Yöneticisi hizmeti depolanan anahtar yok.
 
 **S:** Birisi veri şifreleme sertifikasını erişim kazanırsa, verilerimi zarar görecektir?
 
-**Y:** Microsoft Azure Müşteri'nin veri şifreleme anahtarı (.pfx dosyası) şifrelenmiş biçimde depolar. Yalnızca .pfx dosyasına erişimi alma seçeneği .pfx dosyasını şifrelenir ve .pfx dosyasının şifresini çözmek için hizmet veri şifreleme anahtarı StorSimple hizmeti yoktur çünkü gizli dizileri açığa çıkarmamak.
+**C:** Microsoft Azure Müşteri'nin veri şifreleme anahtarı (.pfx dosyası) şifrelenmiş biçimde depolar. Yalnızca .pfx dosyasına erişimi alma seçeneği .pfx dosyasını şifrelenir ve .pfx dosyasının şifresini çözmek için hizmet veri şifreleme anahtarı StorSimple hizmeti yoktur çünkü gizli dizileri açığa çıkarmamak.
 
 **S:** Bir mercilerce Microsoft'tan benim verilerimi isterse, ne olur?
 
-**Y:** Hizmette tüm veriler şifrelenir ve özel anahtarı cihazla tutulur çünkü mercilerce müşteri verilerini istemeleri gerekir.
+**C:** Hizmette tüm veriler şifrelenir ve özel anahtarı cihazla tutulur çünkü mercilerce müşteri verilerini istemeleri gerekir.
 
 
 

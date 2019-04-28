@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: terrylan
 ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107455"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -111,8 +111,8 @@ Aşağıdaki tabloda STRIDE tehditler listesi ve Azure özelliklerini kullanmak 
 
 | Tehdit | Güvenlik özelliği | Azure platformu hafifletmelerle |
 | --- | --- | --- |
-| Kimlik sahtekarlığı | Authentication | HTTPS bağlantıları gerektirir. |
-| Bozma | Bütünlük | SSL sertifikaları doğrulayın. |
+| Kimlik sahtekarlığı | Kimlik Doğrulaması | HTTPS bağlantıları gerektirir. |
+| Kurcalama | Bütünlük | SSL sertifikaları doğrulayın. |
 | Red | İnkar edilemez | Azure'ı etkinleştirme [izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Bilgilerin açığa çıkması | Gizliliği | Bekleyen hassas verileri kullanarak şifrelenip şifrelenmeyeceğinizi [hizmet sertifikaları](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Hizmet reddi | Kullanılabilirlik | Olası hizmet reddi koşulları için performans ölçümlerini izleyin. Bağlantı filtreleri uygulayın. |

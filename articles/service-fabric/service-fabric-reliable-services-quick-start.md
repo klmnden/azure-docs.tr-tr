@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130101"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ Aynı *HelloWorld* uygulama ekleyebileceğiniz yeni bir hizmet uygulaması proje
 
 ![Service Fabric uygulamanızı hizmet ekleme](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Seçin **.NET Core 2.0 ->, durum bilgisi olan hizmet** ve adlandırın *HelloWorldStateful*. **Tamam**'ı tıklatın.
+Seçin **.NET Core 2.0 ->, durum bilgisi olan hizmet** ve adlandırın *HelloWorldStateful*. **Tamam** düğmesine tıklayın.
 
 ![Yeni bir Service Fabric durum bilgisi olan hizmet oluşturmak için yeni proje iletişim kutusunu kullanın.](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

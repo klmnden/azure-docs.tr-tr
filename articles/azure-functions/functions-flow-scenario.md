@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106979"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
@@ -120,19 +120,19 @@ Artık özel bağlayıcı ile oluşturduğunuz SharePoint listesi kullanan bir a
 
 2. SharePoint tetikleyicisini tıklayın **bir öğe oluşturulduğunda**.
 
-    ![Bir tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
+    ![Tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
 
     SharePoint ile henüz oturum açmadıysanız, bunu yapmak için istenir.
 
 3. İçin **Site adresi**, SharePoint site adınızı girin ve **liste adı**, türbinin verileri içeren bir liste girin.
 
-    ![Bir tetikleyici seçin](media/functions-flow-scenario/site-list.png)
+    ![Tetikleyici seçin](media/functions-flow-scenario/site-list.png)
 
 4. Tıklayın **yeni adım**, ardından **koşul Ekle**.
 
-    ![Koşul Ekle](media/functions-flow-scenario/add-condition.png)
+    ![Koşul ekle](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow, akışı için iki dal ekler: **Evet ise** ve **hiçbir**. Eşleştirmek istediğiniz koşulu tanımlandıktan sonra bir veya iki dalı için adımları ekleyin.
+    Microsoft Flow, akışı için iki dal ekler: **Yanıt Evet ise** ve **hiçbir**. Eşleştirmek istediğiniz koşulu tanımlandıktan sonra bir veya iki dalı için adımları ekleyin.
 
     ![Koşul dallar](media/functions-flow-scenario/condition-branches.png)
 
@@ -176,7 +176,7 @@ Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart 
 
 4. Sayfanın alt kısmında **Evet ise** dal, tıklayın **daha fazla**, ardından **koşul Ekle**.
 
-    ![Koşul Ekle](media/functions-flow-scenario/condition2-add.png)
+    ![Koşul ekle](media/functions-flow-scenario/condition2-add.png)
 
 5. Üzerinde **koşul 2** kart, ilk kutuyu tıklayın ve ardından seçin **ileti** gelen **dinamik içerik** iletişim kutusu.
 

@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130288"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makinesi](https://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](https://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz ile yapay zeka (AI) uygulamaları oluşturmanıza yardımcı olmak için ayrıntılı öğrenme çerçevelerini destekler ve bilişsel yetenekleri, görüntü ve dil anlama gibi.

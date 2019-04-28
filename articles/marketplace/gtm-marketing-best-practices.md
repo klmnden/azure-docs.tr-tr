@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121034"
 ---
-# <a name="marketing-best-practices"></a>Pazarlama en iyi uygulamalar
+# <a name="marketing-best-practices"></a>En iyi pazarlama deneyimleri
 
 Teklifiniz Market'te yayımlama yalnızca ilk adımdır. Ayrıca, listenizi sürücüsüne en büyük etkiyi en iyi duruma getirme belirlemeniz gerekir. Güzel bir haberimiz var listesini Market'te yayımlayarak, Microsoft ile birleşik önemli Go-To-Market (GTM) etkinlikleri kilidini açmak başlamadan emin olur.  Gerçek anlamda işletmenizi büyütün ve yeni GTM girişim dışında en çok bu almak için yeni bir liste mevcut bir parçası olarak dahil etmek istediğiniz pazarlama ve satış etkinlikleri.
 

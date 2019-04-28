@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Bu öğreticide, Azure portalını kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme hakkında bilgi edineceksiniz.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098650"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     | Ad | Girin *myRouteTablePublic*. |
     | Abonelik | Aboneliğinizi seçin. |
     | Kaynak grubu | Seçin **Yeni Oluştur**, girin *myResourceGroup*seçip *Tamam*. |
-    | Konum | Varsayılan değeri bırakın **Doğu ABD**.
+    | Location | Varsayılan değeri bırakın **Doğu ABD**.
     | BGP rota yayma | Varsayılan değeri bırakın **etkin**. |
 
 1. **Oluştur**’u seçin.
@@ -99,7 +99,7 @@ Bir yönlendirme tablosunu bir alt ağ ilişkilendirmeden önce bir sanal ağ ve
     | Adres alanı | Girin *10.0.0.0/16*. |
     | Abonelik | Aboneliğinizi seçin. |
     | Kaynak grubu | Seçin ***var olanı Seç*** > **myResourceGroup**. |
-    | Konum | Varsayılan değeri bırakın **Doğu ABD**. |
+    | Location | Varsayılan değeri bırakın **Doğu ABD**. |
     | Alt ağ - adı | Girin *genel*. |
     | Alt Ağ - Adres aralığı | Girin *10.0.0.0/24*. |
 
@@ -160,7 +160,7 @@ Nva'ları, Yönlendirme ve güvenlik duvarı iyileştirme gibi ağ işlevlerini 
     | Sanal makine adı | Girin *myVmNva*. |
     | Bölge | **Doğu ABD**’yi seçin. |
     | Kullanılabilirlik seçenekleri | Varsayılan değeri bırakın **gerekli altyapı artıklık**. |
-    | Görüntü | Varsayılan değeri bırakın **Windows Server 2016 Datacenter**. |
+    | Image | Varsayılan değeri bırakın **Windows Server 2016 Datacenter**. |
     | Boyut | Varsayılan değeri bırakın **standart DS1 v2**. |
     | **YÖNETİCİ HESABI** |  |
     | Kullanıcı adı | Seçtiğiniz bir kullanıcı adını girin. |

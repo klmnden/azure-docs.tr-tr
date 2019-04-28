@@ -8,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126707"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Öğretici: Bir Cosmos DB uç noktası ile Azure Databricks uygulayın
 
@@ -55,7 +55,7 @@ Başlamadan önce aşağıdakileri yapın:
 
 2. Doldurun **örnek ayrıntıları** üzerinde **Temelleri** aşağıdaki ayarlar ile sekmesindeki:
 
-   |Ayar|Value|
+   |Ayar|Değer|
    |-------|-----|
    |Abonelik|*aboneliğiniz*|
    |Kaynak Grubu|*Kaynak grubunuz*|

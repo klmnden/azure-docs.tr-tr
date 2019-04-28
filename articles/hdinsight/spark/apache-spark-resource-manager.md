@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme
 description: Nasıl kullanacağınızı öğrenin daha iyi performans için Azure HDInsight Spark kümelerinde kaynaklarını yönetme.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098786"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme 
 

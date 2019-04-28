@@ -1,7 +1,6 @@
 ---
 title: Apache Kafka - Azure HDInsight için Azure izleme günlükleri
 description: Azure HDInsight üzerinde Apache Kafka kümesi günlükleri analiz etmek için Azure İzleyici günlüklerine kullanmayı öğrenin.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: b4eced461f798f3cbf3ce968dae59cfb8f1a0363
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115103"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 

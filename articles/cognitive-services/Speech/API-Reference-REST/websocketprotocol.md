@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515330"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
 
@@ -174,7 +174,7 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 
 | Alan | Açıklama |
 |----|----|
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Gövde | Yükü olarak JSON yapısı |
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
@@ -243,7 +243,7 @@ Konuşma hizmeti kullanan ilk `audio` içeren yeni bir istek/yanıt döngüsü b
 
 | Alan | Açıklama |
 |-------------|----------------|
-| WebSocket ileti kodlama | İkili |
+| WebSocket ileti kodlama | binary |
 | Gövde | Ses öbek için ikili veriler. En büyük boyutu 8192 bayttır. |
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
@@ -307,7 +307,7 @@ Kullanıcının bir şekilde konuşma sonu sinyal olanak tanıyan istemci uygula
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `telemetry` |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ Bu bölümde, konuşma hizmeti kaynaklanan ve istemciye gönderilen iletileri a�
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `speech.startDetected` |
 | Content-Type | Uygulama/json; Charset = utf-8 |
 | Gövde | Konuşma başlangıcını algılandığında koşullarla ilgili bilgiler içeren JSON yapısı. *Uzaklığı* bu yapı alanında belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman konuşma algılandı akışın başlangıç göre bir ses akışı olarak. |
@@ -354,7 +354,7 @@ Sırasında Konuşma tanıma, konuşma tanıma hizmeti sözcükler hakkında var
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `speech.hypothesis` |
 | X-RequestId | "No-dash" biçiminde UUID |
 | Content-Type | uygulama/json |
@@ -386,7 +386,7 @@ Konuşma hizmeti ne zaman belirler hizmeti oluşturan değişmez bir tanıma son
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `speech.phrase` |
 | Content-Type | uygulama/json |
 | Gövde | Konuşma tümcecik JSON yapısı |
@@ -414,7 +414,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `speech.endDetected` |
 | Gövde | Konuşma sonu algılandığında uzaklık içeren JSON yapısı. Uzaklık birimleri 100 nanosaniyelik uzaklığı başından itibaren ses tanıma için kullanılan temsil edilir. |
 | Content-Type | Uygulama/json; Charset = utf-8 |
@@ -439,7 +439,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `turn.start` |
 | Content-Type | Uygulama/json; Charset = utf-8 |
 | Gövde | JSON yapısı |
@@ -466,7 +466,7 @@ Gövdesi `turn.start` iletisidir Aç başlangıcını bağlamının içeren JSON
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
-| WebSocket ileti kodlama | Metin |
+| WebSocket ileti kodlama | Text |
 | Yol | `turn.end` |
 | Gövde | None |
 

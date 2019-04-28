@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121140"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure Market ve AppSource Microsoft iş ortakları, iş hedefleri ve Hizmetleri ile bağlantı müşterilerin Azure kullanımını genişleten ve desteklemek için hedef sağlar. 

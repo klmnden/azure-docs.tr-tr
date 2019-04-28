@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432458"
 ---
 # <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
 Proje akustik bir 3B etkileşimli deneyimleri için wave akustik altyapısıdır. Karmaşık sahneler diffraction portaling ve yankı efektleri gibi wave etkileri, el ile bölgeye biçimlendirme gerek kalmadan modelleri. Ayrıca, oyun altyapısı ve ses ara yazılım tümleştirme de içerir. Proje akustik felsefesi statik Aydınlatmanın benzerdir: fiziksel temel sağlamak için çevrimdışı ayrıntılı fizik hazırlama ve basit bir çalışma zamanı ifadesel tasarım denetimlerle Artistik hedeflerinize ulaşmak için kullanabilirsiniz.

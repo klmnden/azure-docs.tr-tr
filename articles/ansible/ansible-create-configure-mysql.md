@@ -1,36 +1,47 @@
 ---
-title: Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
+title: Öğretici - Ansible kullanarak MySQL için Azure veritabanı'nda veritabanlarını yapılandırma | Microsoft Docs
 description: MySQL sunucusu için Azure Veritabanı oluşturmak ve yapılandırmak için Ansible'ı kullanmayı öğrenin
-ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, mysql, veritabanı
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/23/2018
-ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 7238e993ebd812734b3b08f57b7a4c2f080a7384
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095407"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764079"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
-[MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/), bulutta yüksek kullanılabilirlikte MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan yönetilen bir hizmettir. Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. 
+# <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Öğretici: Ansible'ı kullanarak MySQL için Azure veritabanı'nda veritabanlarını yapılandırın
 
-Bu hızlı başlangıçta MySQL sunucusu için Azure Veritabanı oluşturmak ve bu veritabanının güvenlik duvarı kuralını yapılandırmak için Ansible kullanma gösterilmektedir. Bu görevleri Azure portalını kullanarak yaklaşık beş dakika içinde tamamlayabilirsiniz.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[MySQL için Azure veritabanı](/azure/mysql/overview) bir ilişkisel veritabanı hizmeti üzerinde MySQL Community sürümünü temel alır. MySQL için Azure veritabanı, web uygulamalarınızda MySQL veritabanlarını yönetmenizi sağlar.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * MySql sunucusu oluşturma
+> * MySql veritabanı oluşturma
+> * Bir dış uygulama sunucunuza bağlanabilmesi filewall kuralı yapılandırma
+> * Azure cloud shell'de, MySql sunucusuna bağlanma
+> * Sorgu, kullanılabilir MySQL sunucuları
+> * Tüm veritabanları, bağlı sunucular listesi
 
 ## <a name="prerequisites"></a>Önkoşullar
-- **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. 
+* [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+* [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.  
 
-Aşağıdaki örnek **eastus** konumunda **myResourceGroup** adlı bir kaynak grubu oluşturur:
+Bu bölümdeki playbook kodu bir Azure kaynak grubu oluşturur. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.  
+
+Aşağıdaki playbook'u `rg.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -44,15 +55,24 @@ Aşağıdaki örnek **eastus** konumunda **myResourceGroup** adlı bir kaynak gr
         location: "{{ location }}"
 ```
 
-Önceki playbook'u **rg.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
+Playbook'u çalıştırmadan önce aşağıdaki alan notlara bakın:
+
+* Adlı bir kaynak grubu `myResourceGroup` oluşturulur.
+* Kaynak grubu oluşturulur `eastus` konumu:
+
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
+
 ```bash
 ansible-playbook rg.yml
 ```
 
 ## <a name="create-a-mysql-server-and-database"></a>MySQL sunucusu ve veritabanı oluşturma
-Aşağıdaki örnek **mysqlserveransible** adlı bir MySQL sunucusu ve **mysqldbansible** adlı bir MySQL için Azure Veritabanı örneği oluşturur. Bu, 1 Sanal Çekirdek içeren 5. Nesil bir Temel Amaçlı sunucudur. 
 
-**mysqlserver_name** değerinin benzersiz olması gerekir. Bölgelere ve katmanlara göre geçerli olan değerleri anlamak için lütfen [fiyatlandırma katmanları](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) belgelerini inceleyin. `<server_admin_password>` parolasını bir parolayla değiştirin.
+Bu bölümde playbook kodda bir MySQL server ve MySQL örneği için Azure veritabanı oluşturur. Yeni MySQL server ile bir sanal çekirdek Gen 5 temel amacı sunucusudur ve adlı `mysqlserveransible`. Veritabanı örneği adlı `mysqldbansible`.
+
+Fiyatlandırma katmanları hakkında daha fazla bilgi için bkz. [fiyatlandırma katmanları MySQL için Azure veritabanı](/azure/mysql/concepts-pricing-tiers). 
+
+Aşağıdaki playbook'u `mysql_create.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -84,16 +104,24 @@ Aşağıdaki örnek **mysqlserveransible** adlı bir MySQL sunucusu ve **mysqldb
         name: "{{ mysqldb_name }}"
 ```
 
-Önceki playbook'u **mysql_create.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
+Playbook'u çalıştırmadan önce aşağıdaki alan notlara bakın:
+
+* İçinde `vars` bölümü değerini `mysqlserver_name` benzersiz olması gerekir.
+* İçinde `vars` bölümünde, değiştirin `<server_admin_password>` parolayla.
+
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
+
 ```bash
 ansible-playbook mysql_create.yml
 ```
 
 ## <a name="configure-a-firewall-rule"></a>Güvenlik duvarı kuralını yapılandırma
-Sunucu düzeyinde bir güvenlik duvarı kuralı, dış bir uygulamanın Azure MySQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına izin verir. **mysql** komut satırı aracı veya MySQL Workbench dış uygulama örnekleridir.
-Aşağıdaki örnek **extenalaccess** adında ve dış IP adresinden gelen bağlantılara izin veren bir güvenlik duvarı kuralı oluşturur. 
 
-**startIpAddress** ve **endIpAddress** için kendi değerlerinizi girin. Bağlanacağınız yere karşılık gelen IP adres aralığını kullanın. 
+Sunucu düzeyinde güvenlik duvarı kuralı, bir dış uygulamanın Azure MySQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına izin verir. Dış uygulamalar örnekler `mysql` komut satırı aracı ve MySQL Workbench.
+
+Bu bölümde playbook kodda adlı bir güvenlik duvarı kuralı oluşturur `extenalaccess` , herhangi bir dış IP adresinden bağlantılara izin verir. 
+
+Aşağıdaki playbook'u `mysql_firewall.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -117,76 +145,81 @@ Aşağıdaki örnek **extenalaccess** adında ve dış IP adresinden gelen bağl
           endIpAddress: "255.255.255.255"
 ```
 
-> [!NOTE]
-> MySQL için Azure Veritabanı bağlantıları 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu örnekte, BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece sunucunuza bağlanamazsınız.
-> 
+Playbook'u çalıştırmadan önce aşağıdaki alan notlara bakın:
 
-Burada bu görevi gerçekleştirmek için **azure_rm_resource** modülü kullanılmaktadır. REST API'sinin doğrudan kullanılmasına izin verir.
+* Değişken bölümünde değiştirin `startIpAddress` ve `endIpAddress`. Bağlanmakta aralığın karşılık gelen IP adresi aralığı kullanın.
+* MySQL için Azure Veritabanı bağlantıları 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu örnekte, BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece sunucunuza bağlanamazsınız.
+* Playbook'u kullanan `azure_rm_resource` modülü REST API'sini doğrudan kullanımına izin verir.
 
-Önceki playbook'u **mysql_firewall.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
+
 ```bash
 ansible-playbook mysql_firewall.yml
 ```
 
-## <a name="connect-to-the-server-by-using-the-command-line-tool"></a>Komut satırı aracını kullanarak sunucuya bağlanma
-[MySQL'ı indirebilir](https://dev.mysql.com/downloads/) ve bilgisayarınıza yükleyebilirsiniz. Veya kod örneklerindeki **Deneyin** düğmesini ya da Azure portalında sağ köşedeki araç çubuğundan **>_** düğmesini seçebilir ve **Azure Cloud Shell**'i açabilirsiniz.
+## <a name="connect-to-the-server"></a>Sunucuya bağlanma
 
-Aşağıdaki komutları girin: 
+Bu bölümde, daha önce oluşturduğunuz sunucuya bağlanmak için Azure cloud shell kullanın.
 
-1. **mysql** komut satırı aracını kullanarak sunucuya bağlanın:
-   ```azurecli-interactive
-   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-   ```
+1. Seçin **deneyin** aşağıdaki kodda düğmesi:
 
-2. Sunucu durumunu görüntüleyin:
-   ```sql
-   mysql> status
-   ```
+    ```azurecli-interactive
+    mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+    ```
 
-Her şey yolunda giderse komut satırı aracı aşağıdaki metni oluşturmalıdır:
+1. İstemde, sunucu durumunu sorgulamak için aşağıdaki komutu girin:
 
-```
-demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 65233
-Server version: 5.6.39.0 MySQL Community Server (GPL)
+    ```sql
+    mysql> status
+    ```
+    
+    Her şey yolunda giderse, aşağıdaki sonuçları benzer bir çıktı görürsünüz:
+    
+    ```
+    demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+    Enter password:
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 65233
+    Server version: 5.6.39.0 MySQL Community Server (GPL)
+    
+    Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+    
+    Oracle is a registered trademark of Oracle Corporation and/or its
+    affiliates. Other names may be trademarks of their respective
+    owners.
+    
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    
+    mysql> status
+    --------------
+    mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64) using  EditLine wrapper
+    
+    Connection id:          65233
+    Current database:
+    Current user:           mysqladmin@13.76.42.93
+    SSL:                    Cipher in use is AES256-SHA
+    Current pager:          stdout
+    Using outfile:          ''
+    Using delimiter:        ;
+    Server version:         5.6.39.0 MySQL Community Server (GPL)
+    Protocol version:       10
+    Connection:             mysqlserveransible.mysql.database.azure.com via TCP/IP
+    Server characterset:    latin1
+    Db     characterset:    latin1
+    Client characterset:    utf8
+    Conn.  characterset:    utf8
+    TCP port:               3306
+    Uptime:                 36 min 21 sec
+    
+    Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open tables: 10  Queries per second avg: 0.256
+    --------------
+    ```
+    
+## <a name="query-mysql-servers"></a>Sorgu MySQL sunucuları
 
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+Bu bölümdeki playbook kod MySQL sunucuları sorgular `myResourceGroup` ve bulunan sunucular veritabanlarını listeler.
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> status
---------------
-mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64) using  EditLine wrapper
-
-Connection id:          65233
-Current database:
-Current user:           mysqladmin@13.76.42.93
-SSL:                    Cipher in use is AES256-SHA
-Current pager:          stdout
-Using outfile:          ''
-Using delimiter:        ;
-Server version:         5.6.39.0 MySQL Community Server (GPL)
-Protocol version:       10
-Connection:             mysqlserveransible.mysql.database.azure.com via TCP/IP
-Server characterset:    latin1
-Db     characterset:    latin1
-Client characterset:    utf8
-Conn.  characterset:    utf8
-TCP port:               3306
-Uptime:                 36 min 21 sec
-
-Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open tables: 10  Queries per second avg: 0.256
---------------
-```
-
-## <a name="using-facts-to-query-mysql-servers"></a>MySQL sunucularını sorgulamak için olguları kullanma
-Aşağıdaki örnek **myResourceGroup** içindeki MySQL sunucularını ve ardından sunuculardaki tüm veritabanlarını sorgular:
+Aşağıdaki playbook'u `mysql_query.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -214,13 +247,14 @@ Aşağıdaki örnek **myResourceGroup** içindeki MySQL sunucularını ve ardın
         var: mysqldatabasefacts
 ```
 
-Önceki playbook'u **mysql_query.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-Bundan sonra MySQL sunucusu için aşağıdaki çıktıyı görürsünüz: 
+Playbook'u çalıştırdıktan sonra aşağıdaki sonuçları benzer bir çıktı görürsünüz:
+
 ```json
 "servers": [
     {
@@ -244,7 +278,8 @@ Bundan sonra MySQL sunucusu için aşağıdaki çıktıyı görürsünüz:
 ]
 ```
 
-Ayrıca MySQL veritabanı için de aşağıdaki çıktıyı görürsünüz:
+Ayrıca MySQL veritabanı için aşağıdaki çıktıyı görürsünüz:
+
 ```json
 "databases": [
     {
@@ -280,7 +315,9 @@ Ayrıca MySQL veritabanı için de aşağıdaki çıktıyı görürsünüz:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu kaynaklara ihtiyacınız yoksa, bunları aşağıdaki örneği çalıştırarak silebilirsiniz. **myResourceGroup** adlı kaynak grubunu siler. 
+Artık gerekli değilse, bu makalede oluşturduğunuz kaynakları silin. 
+
+Aşağıdaki playbook'u `cleanup.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -293,31 +330,13 @@ Bu kaynaklara ihtiyacınız yoksa, bunları aşağıdaki örneği çalıştırar
         state: absent
 ```
 
-Önceki playbook'u **rg_delete.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
+
 ```bash
-ansible-playbook rg_delete.yml
-```
-
-Yalnızca yeni oluşturulan MySQL sunucusunu silmek istiyorsanız aşağıdaki örneği çalıştırın:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-    mysqlserver_name: mysqlserveransible
-  tasks:
-    - name: Delete MySQL Server
-      azure_rm_mysqlserver:
-        resource_group: "{{ resource_group }}"
-        name: "{{ mysqlserver_name }}"
-        state: absent
-```
-
-Önceki playbook'u **mysql_delete.yml** olarak kaydedin. Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
-```bash
-ansible-playbook mysql_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"] 
-> [Azure üzerinde Ansible](https://docs.microsoft.com/azure/ansible/)
+> [Azure üzerinde Ansible](/azure/ansible/)

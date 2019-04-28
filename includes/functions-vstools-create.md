@@ -5,15 +5,16 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
-ms.author: glenga
+origin.date: 03/05/2019
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403871"
 ---
 Visual Studio'daki Azure İşlevleri proje şablonu, Azure'daki bir işlev uygulamasında yayımlanabilen bir proje oluşturur. Bir işlev uygulaması grubun işlevleri için bir mantıksal birim olarak yönetim, dağıtım ve kaynakların paylaşımı için kullanabilirsiniz.
 
@@ -38,3 +39,4 @@ Visual Studio'daki Azure İşlevleri proje şablonu, Azure'daki bir işlev uygul
     > Ayarladığınızdan emin olun **erişim hakları** için `Anonymous`. Varsayılan düzeyini seçerseniz `Function`, sunmak için gerekmesinden [işlev anahtarı](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) işlevi uç noktanızı erişmek için istek.
     
 4. Seçin **Tamam** HTTP ile tetiklenen bir işlev ve işlev projesi oluşturmak için.
+

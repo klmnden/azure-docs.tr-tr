@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33765d57f1a0e5788011b2d9d9c2f57d06713ddb
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101974"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Azure depolama için genel güvenlik öznitelikleri
 
@@ -29,7 +29,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 | Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet |  |
 | Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | HTTPS/TLS mekanizmalarını destekler.  Hizmete aktarılmadan önce kullanıcılar ayrıca veri şifreleyebilirsiniz. |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Evet | Bkz: [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Sütun düzeyinde şifrelemeyi (Azure Veri Hizmetleri)| Yok |  |
+| Sütun düzeyinde şifrelemeyi (Azure Data Services)| Yok |  |
 | Şifrelenmiş API çağrıları| Evet |  |
 
 ## <a name="network-segmentation"></a>Ağ kesimleme
@@ -38,8 +38,8 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 |---|---|--|
 | Hizmet uç noktası desteği| Evet |  |
 | vNET ekleme desteği| Yok |  |
-| Ağ yalıtımı / destek özellikleri| Evet | |
-| Zorlamalı tünel için destek | Yok |  |
+| Ağ yalıtımı ve saldırısından desteği| Evet | |
+| Zorlamalı tünel oluşturma desteği| Yok |  |
 
 ## <a name="detection"></a>Algılama
 
@@ -47,20 +47,20 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 |---|---|--|
 | Azure izleme desteği (Log analytics, Application ınsights, vb.)| Evet | Azure İzleyici ölçümleri artık, başlangıç Önizleme günlükleri |
 
-## <a name="iam-support"></a>IAM desteği
+## <a name="identity-and-access-management"></a>Kimlik ve erişim yönetimi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Erişim yönetimi - kimlik doğrulama| Evet | Azure Active Directory, paylaşılan anahtar, paylaşılan erişim belirteci. |
-| Erişim Yönetimi - yetkilendirme| Evet | RBAC, POSIX ACL ve SAS belirteçleri ile yetkilendirme desteği |
+| Kimlik Doğrulaması| Evet | Azure Active Directory, paylaşılan anahtar, paylaşılan erişim belirteci. |
+| Yetkilendirme| Evet | RBAC, POSIX ACL ve SAS belirteçleri ile yetkilendirme desteği |
 
 
 ## <a name="audit-trail"></a>Denetim Kaydı
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Günlüğe kaydetme ve denetim Denetim/yönetimini planlama | Evet | Azure Resource Manager etkinlik günlüğü |
-| Veri günlük kaydı ve denetim düzlemi| Evet | Hizmet tanılama günlükleri ve Azure izleyici günlüğü başlangıç Önizleme  |
+| Denetim ve yönetim düzlemi günlüğe kaydetme ve Denetim | Evet | Azure Resource Manager etkinlik günlüğü |
+| Veri düzlemi günlük kaydı ve Denetim| Evet | Hizmet tanılama günlükleri ve Azure izleyici günlüğü başlangıç Önizleme  |
 
 ## <a name="configuration-management"></a>Yapılandırma Yönetimi
 

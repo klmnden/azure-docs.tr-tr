@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127098"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure'da Linux sanal makineleri için DNS ad çözümleme seçenekleri
 Azure DNS ad çözümlemesi, tek bir sanal ağdaki tüm sanal makineler için varsayılan olarak sağlar. Barındıran Azure üzerindeki sanal makinelerinize kendi DNS hizmetleri yapılandırarak kendi DNS ad çözümlemesi çözüm uygulayabilirsiniz. Aşağıdaki senaryolar sizin durumunuz için çalışan bir seçmenize yardımcı olacaktır.

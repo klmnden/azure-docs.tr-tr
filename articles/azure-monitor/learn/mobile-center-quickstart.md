@@ -1,22 +1,22 @@
 ---
 title: Azure Application Insights ile Hızlı Başlangıç | Microsoft Docs
-description: Application Insights ve App Center ile izleme için bir mobil uygulamayı hızla ayarlamaya ilişkin yönergeler sağlar
+description: Application Insights ve App Center ile izleme için bir mobil uygulama hızlı bir şekilde ayarlamak için yönergeler sağlar
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: MT
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126876"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobil uygulamanızı App Center ve Application Insights ile analiz etmeye başlama
 
@@ -67,7 +67,7 @@ Diğer uygulama platformlarından özel olayları göndermek için, App Center S
 
 Uygulamanız özel olayları gönderdikten ve bunlar App Center tarafından alındıktan sonra, Azure Portal'da App Center türünde bir Application Insights kaynağı oluşturmalısınız:
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. **Kaynak oluştur** > **Yönetim Araçları** > **Application Insights** seçeneğini belirleyin.
 
     ![Application Insights kaynağı ekleme](./media/mobile-center-quickstart/add-b.png)
@@ -87,7 +87,9 @@ Uygulamanız birden çok platformu (iOS, Android, vb.) destekliyorsa, en iyisi h
 
 ## <a name="export-to-application-insights"></a>Application Insights'a aktarma
 
-Yeni Application Insights kaynağınızda **Genel Bakış** sayfasının üst kısmındaki **Temel Parçalar** bölümünde bu kaynağın izleme anahtarını kopyalayın.
+İçinde yeni Application Insights kaynağınızda **genel bakış** sayfası. Kaynağınızın izleme anahtarını kopyalayın.
+
+   ![Application Insights Analiz düğmesi](./media/mobile-center-quickstart/overview-01.png)
 
 Uygulamanızın App Center örneğinde:
 
@@ -108,7 +110,7 @@ Application Insights, uygulamalarınızın özel olay telemetrisini App Center'�
 
 1. **Özel olay telemetrinizi sorgulayın.** Application Insights **Genel Bakış** sayfasında, **Analiz**'i seçin. 
 
-   ![Application Insights Analiz düğmesi](./media/mobile-center-quickstart/analytics.png)
+   ![Application Insights Analiz düğmesi](./media/mobile-center-quickstart/analytics-001.png)
 
    Application Insights kaynağınızla ilişkilendirilmiş Application Insights Analiz portalı açılır. Analiz portalı Log Analytics sorgu dilini kullanarak verilerinizi doğrudan sorgulamanıza olanak tanıdığından, uygulamanız ve onun kullanıcıları hakkında rastgele karmaşık sorular sorabilirsiniz.
    
@@ -121,7 +123,7 @@ Application Insights, uygulamalarınızın özel olay telemetrisini App Center'�
    | order by dcount_user_Id desc 
    ```
 
-   ![Analiz portalı](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analiz portalı](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Metin düzenleyicisinde sorgunun herhangi bir yerine tıklayarak sorguyu seçin.
    2. Ardından, **Git**'e tıklayarak sorguyu çalıştırın. 
@@ -131,17 +133,17 @@ Application Insights, uygulamalarınızın özel olay telemetrisini App Center'�
 
 2. **Özel olay telemetrinizi segmentlere ayırın ve filtreleyin.** Application Insights **Genel Bakış** sayfasında, içindekiler tablosundan **Kullanıcılar**'ı seçin.
 
-   ![Kullanıcılar aracı simgesi](./media/mobile-center-quickstart/users-icon.png)
+   ![Kullanıcılar aracı simgesi](./media/mobile-center-quickstart/users-icon-001.png)
 
    Kullanıcılar aracı, belirli düğmelere tıklayan, belirli ekranları ziyaret eden veya App Center SDK'sıyla olay olarak izlediğiniz başka herhangi bir eylemi gerçekleştiren uygulama kullanıcılarınızın sayısını gösterir. App Center olaylarınızı segmentlere ayırmanın ve filtrelemenin bir yolunu arıyorsanız, Kullanıcılar aracı harika bir seçenektir.
 
-   ![Kullanıcılar aracı](./media/mobile-center-quickstart/users.png) 
+   ![Kullanıcılar aracı](./media/mobile-center-quickstart/users-001.png) 
 
    Örneğin, **Bölme ölçütü** açılan menüsünde **Ülke veya bölge**'yi seçerek kullanımınızı bölgelere göre segmentlere ayırın.
 
 3. **Uygulamanızdaki dönüştürme, elde tutma ve gezinme desenlerini analiz edin.** Application Insights **Genel Bakış** sayfasında, içindekiler tablosundan **Kullanıcı Akışları**'nı seçin.
 
-   ![Kullanıcı Akışları aracı](./media/mobile-center-quickstart/user-flows.png)
+   ![Kullanıcı Akışları aracı](./media/mobile-center-quickstart/user-flows-001.png)
 
    Kullanıcı Akışları aracı bazı başlangıç olaylarından sonra kullanıcıların gönderdiği olayları görselleştirir. Kullanıcıların uygulamanızdaki gezintilerinin genel bir görünümünü elde etme açısından yararlı olur. Ayrıca, kullanıcıların uygulamanızdan ayrıldığı veya aynı eylemleri tekrar tekrar kullandığı yerleri ortaya koyabilir.
 

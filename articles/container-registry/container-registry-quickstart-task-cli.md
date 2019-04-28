@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109826"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Hızlı Başlangıç: Derleme ve kapsayıcı görüntüsü Azure Container kayıt defteri görevleri kullanarak çalıştırma
 
@@ -52,7 +52,7 @@ Bu örnekte bir *temel* kayıt defteri, bir Azure Container Registry hakkında �
 Artık bir görüntüsünü oluşturmak için Azure Container Registry'yi kullanın. İlk olarak, bir çalışma dizini oluşturmak ve adlı bir Dockerfile oluşturup *Dockerfile* aşağıdaki içeriğe sahip. Bu bir Linux kapsayıcı görüntünüzü oluşturmak için basit bir örnektir, ancak standart Dockerfile oluşturun ve diğer platformlar için görüntü oluşturma.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Çalıştırma [az acr build] [ az-acr-build] görüntüsünü oluşturmak için komutu. Başarılı bir şekilde yapılandırıldığında, görüntünün kayıt defterinize itilir. Aşağıdaki örnek gönderim `sample/hello-world:v1` görüntü. `.` Komutu sonunda Dockerfile konumunu bu durumda geçerli dizini ayarlar.

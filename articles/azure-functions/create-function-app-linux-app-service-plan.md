@@ -12,11 +12,11 @@ ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
 ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126638"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Bir işlev uygulaması Azure App Service planı oluşturma
 
@@ -53,7 +53,7 @@ Linux’ta işlevlerinizin yürütülmesini barındıran bir işlev uygulamasın
     | **App Service planı/konumu** | Plan oluşturma | Seçin **Yeni Oluştur** ve tedarik bir **App Service planı** adı. Seçin bir **konumu** içinde bir [bölge](https://azure.microsoft.com/regions/) işlevlerinizi yakınınızdaki veya erişeceği diğer hizmetlere erişim. Öğeleri için istediğiniz değerleri seçin  **[fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>Hem Linux hem de Windows işlev uygulamaları aynı App Service planında çalıştıramazsınız. |
     | **Çalışma zamanı yığını** | Tercih edilen dil | Tercih ettiğiniz işlev programlama dilini destekleyen bir çalışma zamanı seçin. C# ve F# için **.NET** işlevlerini seçin. [Python desteği](functions-reference-python.md) şu anda Önizleme aşamasındadır. |
     | **[Depolama](../storage/common/storage-quickstart-create-account.md)** |  Genel olarak benzersiz bir ad |  İşlev uygulamanız tarafından kullanılan bir depolama hesabı oluşturun. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Dilerseniz [depolama hesabı gereksinimlerini](functions-scale.md#storage-account-requirements) karşılayan mevcut bir hesap da kullanabilirsiniz. |
-    | **[Application Insights](functions-monitoring.md)** | Etkin | Application Insights varsayılan olarak devre dışıdır. Artık Application Insights tümleştirmesi etkinleştiriliyor ve, App Service planı konumu yakın barındırma konumu seçme öneririz. Bunu daha sonra yapmak istiyorsanız, bkz. [İzleyici Azure işlevleri](functions-monitoring.md).  |
+    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights varsayılan olarak devre dışıdır. Artık Application Insights tümleştirmesi etkinleştiriliyor ve, App Service planı konumu yakın barındırma konumu seçme öneririz. Bunu daha sonra yapmak istiyorsanız, bkz. [İzleyici Azure işlevleri](functions-monitoring.md).  |
 
 3. İşlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'u seçin.
 

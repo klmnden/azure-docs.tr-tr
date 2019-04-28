@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478904"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Program aracılığıyla bir Stream Analytics işi İzleyicisi oluşturma
 

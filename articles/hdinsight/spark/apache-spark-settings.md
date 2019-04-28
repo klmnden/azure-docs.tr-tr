@@ -1,7 +1,6 @@
 ---
 title: Spark ayarları - Azure HDInsight'ı yapılandırma
 description: Bir Azure HDInsight kümesi için Spark'ı yapılandırma
-services: hdinsight
 author: maxluk
 ms.author: maxluk
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098397"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark ayarlarını yapılandırma
 
@@ -111,8 +110,8 @@ Spark yükünüze bağlı olarak, varsayılan olmayan Spark yapılandırması da
 Aşağıdaki liste, anahtar Spark Yürütücü bellek parametreleri gösterir.
 
 * `spark.executor.memory` kullanılabilir belleğin toplam tutarı için bir yürütücü tanımlar.
-* `spark.storage.memoryFraction` (varsayılan 60 ~ %) kalıcı Rdd depolamak için kullanılabilir bellek miktarı tanımlar.
-* `spark.shuffle.memoryFraction` (yaklaşık %20 varsayılan) karışık için ayrılmış bellek miktarı tanımlar.
+* `spark.storage.memoryFraction` (varsayılan değer 60 ~ %) kalıcı Rdd depolamak için kullanılabilir bellek miktarı tanımlar.
+* `spark.shuffle.memoryFraction` (varsayılan değer 20 ~ %) shuffle için ayrılmış bellek miktarı tanımlar.
 * `spark.storage.unrollFraction` ve `spark.storage.safetyFraction` (yaklaşık %30 toplam belleğin toplamı) - bu değerleri Spark tarafından dahili olarak kullanılır ve değiştirilmesi gerekir.
 
 YARN her Spark düğümde kapsayıcıları tarafından kullanılan bellek en yüksek toplamını denetler. Aşağıdaki diyagramda, YARN yapılandırma nesneleri ve Spark nesneleri düğüm başına ilişkilerini gösterir.

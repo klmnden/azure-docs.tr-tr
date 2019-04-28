@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120188"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps'te veri işlemleri
 
@@ -62,7 +62,7 @@ Bu makaledeki örnekleri izlemek için bu öğeler gerekir:
 
 * İşlemi verilerle çalışmak için gerek duyduğunuz mantıksal uygulama 
 
-  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * A [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı ilk adımı olarak 
 
@@ -82,7 +82,7 @@ Bu çıktıyı oluşturur:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Bir örnek denemek için Logic Apps Tasarımcısı'nı kullanarak aşağıdaki adımları izleyin. Ya da kod görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **Compose** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [veri işlem kod örnekleri - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Bir örnek denemek için Logic Apps Tasarımcısı'nı kullanarak aşağıdaki adımları izleyin. Ya da kod görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **Compose** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [Veri işlem kod örnekleri - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
@@ -95,12 +95,12 @@ Bir örnek denemek için Logic Apps Tasarımcısı'nı kullanarak aşağıdaki a
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-compose-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna filtreniz olarak "Oluştur" girin. Eylem listesinden şu eylemi seçin: **oluştur**
+3. Arama kutusuna filtreniz olarak "Oluştur" girin. Eylem listesinden şu eylemi seçin: **Oluştur**
 
    !["Oluştur" eylemini seçin](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -142,7 +142,7 @@ Onaylamak için olup olmadığını **Compose** eylemi beklenen sonuçları olu�
 
 Özelliklerini ve değerlerini JavaScript nesne gösterimi (JSON) nesnelerinden bir dizi içeren bir virgülle ayrılmış değer (CSV) tabloda oluşturmak için kullanın **veri işlemleri - CSV tablosu oluştur** eylem. Ardından ortaya çıkan tabloda izleyen eylemlerde kullanabiliriz **CSV tablosu oluştur** eylem. 
 
-Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **CSV tablosu oluştur** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [veri işlem kod örnekleri - CSV tablosu oluştur](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **CSV tablosu oluştur** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [Veri işlem kod örnekleri - CSV tablosu oluştur](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
@@ -156,12 +156,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna "filtreniz olarak csv tablosu oluştur" girin. Eylem listesinden şu eylemi seçin: **CSV tablosu oluştur**
+3. Arama kutusuna "filtreniz olarak csv tablosu oluştur" girin. Eylem listesinden şu eylemi seçin: **CSV tablosu oluşturma**
 
    ![Seçin "oluşturma CSV tablosu" eylemi](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -211,7 +211,7 @@ Onaylamak için olup olmadığını **CSV tablosu oluştur** eylemi beklenen son
 
 Bir dizi içinde özelliklerini ve değerlerini nesnelerinden JavaScript nesne gösterimi (JSON) sahip bir HTML tablosu oluşturmak için kullanın **veri işlemleri - HTML tablosu oluştur** eylem. Ardından ortaya çıkan tabloda izleyen eylemlerde kullanabiliriz **HTML tablosu oluştur** eylem.
 
-Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **HTML tablosu oluştur** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [veri işlem kod örnekleri - HTML tablosu oluştur](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **HTML tablosu oluştur** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [Veri işlem kod örnekleri - HTML tablosu oluştur](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
@@ -225,12 +225,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna "filtreniz olarak html tablosu oluştur" girin. Eylem listesinden şu eylemi seçin: **HTML tablosu oluştur**
+3. Arama kutusuna "filtreniz olarak html tablosu oluştur" girin. Eylem listesinden şu eylemi seçin: **HTML tablosu oluşturma**
 
    !["Oluştur HTML tablosu" eylemini seçin](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -288,7 +288,7 @@ Mevcut bir diziden belirli ölçütlere uyan öğeleri, daha küçük bir dizi o
 > 
 > Dizi çıkışı kullanmak eylemler için **filtre dizisi** eylem, bu eylemlerin diziler girdi olarak kabul etmesi gereken veya çıkış dizisi uyumlu başka bir biçime dönüştürmek sahip. 
 
-Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **filtre dizisi** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [veri işlem kod örnekleri - diziyi Filtrele](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **filtre dizisi** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [Veri işlem kod örnekleri - diziyi Filtrele](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
@@ -304,12 +304,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna filtreniz olarak "filtre dizisi" girin. Eylem listesinden şu eylemi seçin: **diziyi Filtrele**
+3. Arama kutusuna filtreniz olarak "filtre dizisi" girin. Eylem listesinden şu eylemi seçin: **Diziyi filtreleme**
 
    !["Diziyi filtreleme" eylemini seçin](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -357,7 +357,7 @@ Onaylamak için olup olmadığını **filtre dizisi** eylemi beklenen sonuçlar�
 
 Bir dizideki tüm öğeler içeren bir dize oluşturmak ve belirli bir ayırıcı karakteri ile bu öğeleri ayırmak için kullanın **veri işlemleri - Birleştir** eylem. Dize sonra izleyen Eylemler daha sonra kullanabileceğiniz **katılın** eylem.
 
-Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **katılın** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [ Veri işlem kod örnekleri - katılın](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalayabilirsiniz **katılın** ve **değişken Başlat** mantıksal uygulamanız bu makaledeki eylem tanımlarını temel aldığı iş akışı tanımı: [Veri işlem kod örnekleri - katılın](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
@@ -371,12 +371,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-join-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna filtreniz olarak "join" girin. Eylem listesinden şu eylemi seçin: **katılın**
+3. Arama kutusuna filtreniz olarak "join" girin. Eylem listesinden şu eylemi seçin: **Birleştir**
 
    !["Veri işlemleri – Birleştir" eylemini seçin](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -435,12 +435,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna "filtreniz olarak json Ayrıştır" girin. Eylem listesinden şu eylemi seçin: **JSON Ayrıştır**
+3. Arama kutusuna "filtreniz olarak json Ayrıştır" girin. Eylem listesinden şu eylemi seçin: **JSON Ayrıştırma**
 
    !["JSON Ayrıştır" eylemini seçin](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -513,12 +513,12 @@ Kod Görünümü Düzenleyicisi'nde çalışma tercih ederseniz, örnek kopyalay
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![Eylem ekle](./media/logic-apps-perform-data-operations/add-select-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna filtreniz olarak "seçin" girin. Eylem listesinden şu eylemi seçin: **seçin**
+3. Arama kutusuna filtreniz olarak "seçin" girin. Eylem listesinden şu eylemi seçin: **Seç**
 
    !["Seç" eylemini seçin](./media/logic-apps-perform-data-operations/select-select-action.png)
 

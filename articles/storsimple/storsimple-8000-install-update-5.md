@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126758"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5'i yükleme
 
@@ -76,28 +76,28 @@ Düzeltme yöntemi, aşağıdaki üç adımdan oluşur:
 
 İndirin ve önceden belirlenmiş bir sırada ve önerilen klasörlerinde aşağıdaki düzeltmeleri yüklemeniz gerekir:
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Yazılım güncelleştirmesi<br> Her ikisi de indirme _HcsSoftwareUpdate.exe_ ve _CisMSDAgent.exe_ |Normal <br></br>Kesintiye neden olmayan |~ 25 dakika |FirstOrderUpdate|
 
 Güncelleştirme 4 çalıştıran bir CİHAZDAN güncelleştirme, yalnızca işletim sistemi toplu güncelleştirmeler ikinci sipariş güncelleştirmelerini yüklemek gereklidir.
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |İşletim sistemi toplu güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü indirin |Normal <br></br>Kesintiye neden olmayan |- |SecondOrderUpdate|
 
 Güncelleştirme 3'ü çalıştıran bir CİHAZDAN yükleme ya da önceki toplu güncelleştirmelere ek olarak aşağıdaki yükleyin.
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM üretici yazılımı güncelleştirmesi (sürüm 3,38) |Normal <br></br>Kesintiye neden olmayan |~ 3 saat <br> (2A içerir. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM üretici yazılımı güncelleştirmesi (sürüm 3,38) |Normal <br></br>Kesintiye neden olmayan |~ 3 saat <br> (2A içerir. + 2B. + 2C.)|SecondOrderUpdate|
 | 2 C |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |İşletim sistemi güvenlik güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü indirin |Normal <br></br>Kesintiye neden olmayan |- |SecondOrderUpdate|
 | 2B. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |İşletim sistemi güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü indirin |Normal <br></br>Kesintiye neden olmayan |- |SecondOrderUpdate|
 
 
 Yukarıdaki tabloda gösterilen tüm güncelleştirmeleri üzerinde disk üretici yazılımı güncelleştirmelerini yüklemek gerekebilir. Disk üretici yazılımı güncelleştirmelerini çalıştırarak gerekmediğini doğrulayın `Get-HcsFirmwareVersion` cmdlet'i. Bu bellenim sürümleri çalıştırıyorsanız: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, sonra da bu güncelleştirmeleri yüklemeniz gerekmez.
 
-| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükle|
+| Sipariş verme | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükle|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Disk üretici yazılımı |Bakım <br></br>Kesintiye uğratan bir durumdur |yaklaşık 30 dakika | ThirdOrderUpdate |
 

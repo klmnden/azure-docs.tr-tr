@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279984"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767042"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Parametreler ile dinamik şemaları oluşturma
 
@@ -169,7 +169,7 @@ Oluşturma **statik parametreler** bir yapıt üzerinde benzer, ancak kullanmak 
 
 ### <a name="dynamic-parameters"></a>Dinamik parametreler
 
-Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema üzerinde tanımlı değil, ancak bunun yerine her blueprint ataması sırasında tanımlanır. Kaynak grubu örnekte kullanımı bir **dinamik parametre** anlamlı kaynak grubu adı için. Bu blueprint'in her atama için farklı bir ad sağlar.
+Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema üzerinde tanımlı değil, ancak bunun yerine her blueprint ataması sırasında tanımlanır. Kaynak grubu örnekte kullanımı bir **dinamik parametre** anlamlı kaynak grubu adı için. Bu blueprint'in her atama için farklı bir ad sağlar. Blueprint işlevlerin bir listesi için bkz. [blueprint işlevleri](../reference/blueprint-functions.md) başvuru.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Portalda dinamik parametreleri ayarlanıyor
 
@@ -185,9 +185,7 @@ Statik bir parametrenin tersidir bir **dinamik parametre**. Bu parametre, şema 
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API'SİNDEN dinamik parametreleri ayarlanıyor
 
-Ayarı **dinamik parametreleri** değer girerek doğrudan atama sırasında gerçekleştirilir.
-Gibi bir işlevi yerine `parameters()`, sağlanan değer uygun bir dizedir.
-Yapıtlar bir kaynak grubu için bir "şablonu adıyla" tanımlanmış **adı**, ve **konumu** özellikleri. Dahil edilen bir yapıt için diğer tüm parametreleri bölümünde tanımlanan **parametreleri** ile bir **\<adı\>** ve **değer** anahtar çifti. Blueprint ataması sırasında sağlanmayan dinamik bir parametre için yapılandırılmışsa, atama başarısız olur.
+Ayarı **dinamik parametreleri** değer girerek doğrudan atama sırasında gerçekleştirilir. Gibi bir işlevi yerine [parameters()](../reference/blueprint-functions.md#parameters), sağlanan değer uygun bir dizedir. Yapıtlar bir kaynak grubu için bir "şablonu adıyla" tanımlanmış **adı**, ve **konumu** özellikleri. Dahil edilen bir yapıt için diğer tüm parametreleri bölümünde tanımlanan **parametreleri** ile bir **\<adı\>** ve **değer** anahtar çifti. Blueprint ataması sırasında sağlanmayan dinamik bir parametre için yapılandırılmışsa, atama başarısız olur.
 
 - REST API URI'si
 
@@ -240,6 +238,7 @@ Yapıtlar bir kaynak grubu için bir "şablonu adıyla" tanımlanmış **adı**,
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- Listesine bakın [blueprint işlevleri](../reference/blueprint-functions.md).
 - [Şema yaşam döngüsü](lifecycle.md) hakkında bilgi edinin.
 - [Şema sıralama düzenini](sequencing-order.md) özelleştirmeyi öğrenin.
 - [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin.

@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112298"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft kimlik platformu ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
 
@@ -66,10 +66,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
-| `grant_type` | Gereklidir | Ayarlanmalıdır `password`. |
-| `username` | Gereklidir | Kullanıcının e-posta adresi. |
-| `password` | Gereklidir | Kullanıcının parolası. |
+| `tenant` | Gerekli | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
+| `grant_type` | Gerekli | Ayarlanmalıdır `password`. |
+| `username` | Gerekli | Kullanıcının e-posta adresi. |
+| `password` | Gerekli | Kullanıcının parolası. |
 | `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md), ya da uygulamanın gerektirdiği izinler. Etkileşimli bir akışta, yönetici veya kullanıcı, bu kapsamlara önceden onaylamalıdır. |
 
 ### <a name="successful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını

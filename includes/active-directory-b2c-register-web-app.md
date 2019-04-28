@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
-ms.author: patricka
+origin.date: 11/03/2016
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4d5c8373f2a8f02ccfbe51cb970ab08744950e7e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128222"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -31,3 +32,4 @@ Yeni kaydettiğiniz uygulamanız B2C kiracısı için uygulamalar listesinde gö
 ![Web uygulaması özellikleri](./media/active-directory-b2c-register-web-app/b2c-web-app-properties.png)
 
 Genel benzersiz **Uygulama İstemci Kimliğini** not alın. Bu kimliği uygulamanızın kodlarında kullanırsınız.
+

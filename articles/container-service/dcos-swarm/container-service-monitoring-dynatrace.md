@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119869"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(KULLANIM DIŞI) Bir Azure Container Service DC/OS kümesi ile Dynatrace SaaS/yönetilen İzleyici
 
@@ -27,7 +27,7 @@ Dynatrace, yüksek oranda dinamik kapsayıcı ve küme ortamları için bir bulu
 
 Dynatrace kullanıcı Arabirimi aşağıdaki şekilde gösterilmiştir:
 
-![Dynatrace kullanıcı Arabirimi](./media/container-service-monitoring-dynatrace/dynatrace.png)
+![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Önkoşullar 
 [Dağıtma](container-service-deployment.md) ve [bağlanma](./../container-service-connect.md) Azure Container Service tarafından yapılandırılmış bir kümeye. [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Git [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) Dynatrace SaaS hesabı ayarlamak için.  

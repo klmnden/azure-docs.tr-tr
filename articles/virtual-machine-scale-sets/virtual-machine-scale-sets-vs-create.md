@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108075"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio ile bir sanal makine ölçek kümesi oluşturma
 Bu makalede bir Azure sanal makine bir Visual Studio kaynak grubu dağıtımı kullanarak ölçek kümesi dağıtmayı gösterir.
 
 [Azure sanal makine ölçek kümeleri](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) dağıtma ve otomatik ölçeklendirme ile benzer sanal makine koleksiyonunu yönetin ve Yük Dengeleme için bir Azure işlem kaynağıdır. Sağlama ve sanal makine ölçek kümeleri kullanarak dağıtın [Azure Resource Manager şablonları](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager şablonları kullanarak Azure CLI, PowerShell, REST dağıtılabilir ve ayrıca doğrudan Visual Studio'dan. Visual Studio, bir Azure kaynak grubu dağıtım projesi bir parçası olarak dağıtılabilir örnek şablonları, bir dizi sağlar.
 
-Azure kaynak grubu dağıtımlarında, Grup ve bir dizi ilgili Azure kaynaklarını tek bir dağıtım işleminde yayımlamak için bir yoludur. Bunları hakkında daha fazla burada bulabilirsiniz: [Visual Studio aracılığıyla Azure kaynak gruplarını oluşturma ve dağıtma](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Azure kaynak grubu dağıtımlarında, Grup ve bir dizi ilgili Azure kaynaklarını tek bir dağıtım işleminde yayımlamak için bir yoludur. Bunlar hakkında daha fazla buradan bilgi edinebilirsiniz: [Oluşturma ve Visual Studio aracılığıyla Azure kaynak grupları dağıtma](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Ön koşullar
 Visual Studio'da sanal makine ölçek kümeleri dağıtımına başlamak için aşağıdakiler gerekir:
@@ -84,7 +84,7 @@ Yük Dengeleyici (Linux) SSH veya RDP (Windows) ile sanal makine örneklerine ba
 
 5. Şimdi tıklayarak **Dağıt**. **Çıkış** penceresinde dağıtımın ilerleme durumunu gösterir. Eylemi yürütmenin Not **Dağıt AzureResourceGroup.ps1** betiği.
    
-   ![Çıkış penceresi][output_window]
+   ![Çıktı Penceresi][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Sanal makine ölçek kümenizi keşfetme
 Dağıtım tamamlandığında, yeni sanal makine ölçek kümesi Visual Studio'da görüntüleyebilirsiniz **Cloud Explorer** (yenileme). Cloud Explorer uygulamalar geliştirmeye devam ederken Visual Studio'daki Azure kaynaklarını yönetmenizi sağlar. Ayrıca, sanal makine ölçek kümesi'nde görüntüleyebilirsiniz [Azure portalında](https://portal.azure.com) ve [Azure kaynak Gezgini](https://resources.azure.com/).

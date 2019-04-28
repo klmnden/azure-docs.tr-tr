@@ -10,11 +10,11 @@ ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
 ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122752"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 

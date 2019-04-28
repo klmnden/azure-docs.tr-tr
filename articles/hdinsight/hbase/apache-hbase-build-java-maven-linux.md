@@ -1,20 +1,19 @@
 ---
-title: Apache Maven - Azure HDInsight'ı kullanarak Java HBase istemci oluşturun
+title: Azure HDInsight için HBase Java istemci oluşturmak için Apache Maven kullanma
 description: Apache Maven bir Java tabanlı Apache HBase uygulaması oluşturmayı ve ardından Azure HDInsight üzerinde HBase dağıtmak için kullanmayı öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: fa831ad878d214515849787988ccb32f6c57ce20
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.date: 04/16/2019
+ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114419"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları oluşturun
 
@@ -22,336 +21,370 @@ Oluşturmayı bir [Apache HBase](https://hbase.apache.org/) Java uygulaması. Ar
 
 Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve projeyi oluşturmak için. Maven, yazılım proje yönetimi ve yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak sağlayan kavramayı Aracı ' dir.
 
-> [!NOTE]  
-> Bu belgedeki adımlarda HDInsight 3.6 ile birlikte en son test edilmiştir.
+## <a name="prerequisites"></a>Önkoşullar
+
+* HDInsight üzerinde Apache HBase kümesi. Bkz: [Apache HBase ile çalışmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
+
+* [Java Developer Kit (JDK) 8 sürümünü](https://aka.ms/azure-jdks).
+
+* [Apache Maven](https://maven.apache.org/download.cgi) düzgün [yüklü](https://maven.apache.org/install.html) Apache göre.  Maven derleme sistemi Java projeleri için proje olur.
+
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* PowerShell kullanarak, ihtiyacınız olacak [AZ modül](https://docs.microsoft.com/powershell/azure/overview).
+
+* Bir metin düzenleyici. Bu makalede, Microsoft Notepad kullanır.
 
 > [!IMPORTANT]  
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Azure PowerShell cmdlet'lerini [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) ve [Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) şu anda ne zaman iş değil [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md) depolama hesabında etkin .
 
-## <a name="requirements"></a>Gereksinimler
+## <a name="test-environment"></a>Test ortamı
+Windows 10 çalıştıran bir bilgisayar için bu makalede kullanılan ortamı oluştu.  Komutları komut isteminde yürütüldü ve çeşitli dosyaların Notepad ile düzenlendi. Uygun şekilde değiştirin, ortamınız için.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Bir komut isteminden çalışma ortamı oluşturmak için aşağıdaki komutları girin:
 
-* [Java platformu JDK](https://aka.ms/azure-jdks) 8 veya üzeri.
+```cmd
+IF NOT EXIST C:\HDI MKDIR C:\HDI
+cd C:\HDI
+```
 
-    > [!NOTE]  
-    > Java 8 HDInsight 3.5 ve daha sonraki sürümleri gerektirir. HDInsight'ın önceki sürümlerinde, Java 7 gerektirir.
+## <a name="create-a-maven-project"></a>Bir Maven projesi oluşturun
 
-* [Apache Maven](https://maven.apache.org/)
+1. Adlı bir Maven projesi oluşturmak için aşağıdaki komutu girin **hbaseapp**:
 
-* [Apache HBase ile bir Azure HDInsight Linux tabanlı küme](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
-
-## <a name="create-the-project"></a>Proje oluşturma
-
-1. Geliştirme ortamınızdaki komut satırından, dizinleri, bu gibi bir durumda projesini oluşturmak istediğiniz konuma değiştirin `cd code\hbase`.
-
-2. Kullanım **mvn** proje için yapı iskelesini oluşturmak için Maven ile yüklenir, komutu.
-
-    ```bash
+    ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+    cd hbaseapp
+    mkdir conf
     ```
 
-    > [!NOTE]  
-    > PowerShell kullanıyorsanız, almalısınız `-D` çift tırnak parametreleri.
-    >
-    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
+    Bu komut, adlı bir dizin oluşturur. `hbaseapp` geçerli konumunda, temel bir Maven projesi içerir. İkinci komut, çalışma dizinini değiştirir `hbaseapp`. Üçüncü komut yeni bir dizin oluşturur `conf`, doğrulayacak daha sonra. `hbaseapp` Dizini aşağıdaki öğeleri içerir:
 
-    Bu komut aynı ada sahip bir dizin oluşturur. **Artifactıd** parametre (**hbaseapp** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
+    * `pom.xml`:  Proje nesne modeli ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+    * `src\main\java\com\microsoft\examples`: Uygulama kodunuza içerir.
+    * `src\test\java\com\microsoft\examples`: Uygulamanız için testleri içerir.
 
-   * **pom.xml**:  Proje nesne modeli ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
-   * **src**: İçeren dizine **main/java/com/microsoft/örnekler** Yazar burada uygulama dizini.
+2. Oluşturulan örnek kodu kaldırın. Oluşturulan test ve uygulama dosyalarını silin `AppTest.java`, ve `App.java` aşağıdaki komutları girerek:
 
-3. Silme `src/test/java/com/microsoft/examples/apptest.java` dosya. Bu, bu örnekte kullanılmaz.
+    ```cmd
+    DEL src\main\java\com\microsoft\examples\App.java
+    DEL src\test\java\com\microsoft\examples\AppTest.java
+    ```
 
 ## <a name="update-the-project-object-model"></a>Proje nesne modeli güncelleştirme
 
-1. Düzen `pom.xml` dosya ve içine aşağıdaki kodu ekleyin `<dependencies>` bölümü:
+Pom.xml dosyasını tam başvuru için bkz: https://maven.apache.org/pom.html.  Açık `pom.xml` aşağıdaki komutu girerek:
 
-   ```xml
-    <dependency>
-        <groupId>org.apache.hbase</groupId>
-        <artifactId>hbase-client</artifactId>
-        <version>1.1.2</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.phoenix</groupId>
-        <artifactId>phoenix-core</artifactId>
-        <version>4.4.0-HBase-1.1</version>
-    </dependency>
-   ```
+```cmd
+notepad pom.xml
+```
 
-    Bu bölümde, proje gerektiğini belirtir **hbase istemci** ve **phoenix çekirdek** bileşenleri. Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
+### <a name="add-dependencies"></a>Bağımlılıkları ekleyin
 
-   > [!IMPORTANT]  
-   > Hbase istemcisinin sürüm numarası, Apache HBase, HDInsight kümenizle sağlanan sürümünü eşleşmesi gerekir. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
+İçinde `pom.xml`, aşağıdaki metni ekleyin `<dependencies>` bölümü:
 
-   | HDInsight küme sürümü | Apache HBase sürümü kullanmak için |
-   | --- | --- |
-   | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4, 3.5 ve 3.6 |1.1.2 |
+```xml
+<dependency>
+    <groupId>org.apache.hbase</groupId>
+    <artifactId>hbase-client</artifactId>
+    <version>1.1.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.phoenix</groupId>
+    <artifactId>phoenix-core</artifactId>
+    <version>4.14.1-HBase-1.1</version>
+</dependency>
+```  
 
-    HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Apache Hadoop bileşenlerinin nelerdir](../hdinsight-component-versioning.md).
+Bu bölümde, proje gerektiğini belirtir **hbase istemci** ve **phoenix çekirdek** bileşenleri. Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
 
-3. Aşağıdaki kodu ekleyin **pom.xml** dosya. Bu metin içinde olmalıdır `<project>...</project>` etiketleri dosyasında, örneğin, arasında `</dependencies>` ve `</project>`.
+> [!IMPORTANT]  
+> Hbase istemcisinin sürüm numarası, Apache HBase, HDInsight kümenizle sağlanan sürümünü eşleşmesi gerekir. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
 
-   ```xml
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <resources>
-        <resource>
-            <directory>${basedir}/conf</directory>
-            <filtering>false</filtering>
-            <includes>
-            <include>hbase-site.xml</include>
-            </includes>
-        </resource>
-        </resources>
-        <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-            </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-shade-plugin</artifactId>
-            <version>2.3</version>
-            <configuration>
-            <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                </transformer>
-            </transformers>
-            </configuration>
-            <executions>
-            <execution>
-                <phase>package</phase>
-                <goals>
-                <goal>shade</goal>
-                </goals>
-            </execution>
-            </executions>
+| HDInsight küme sürümü | Apache HBase sürümü kullanmak için |
+| --- | --- |
+| 3.6 | 1.1.2 |
+| 4.0 | 2.0.0 |
+
+HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Apache Hadoop bileşenlerinin nelerdir](../hdinsight-component-versioning.md).
+
+### <a name="build-configuration"></a>Derleme yapılandırması
+
+Maven eklentileri proje derleme aşamalarında özelleştirmenizi sağlar. Bu bölümde, eklentiler, kaynaklar ve diğer yapı yapılandırma seçenekleri eklemek için kullanılır.
+
+Aşağıdaki kodu ekleyin `pom.xml` dosyasını kaydedin ve dosyayı kapatın. Bu metin içinde olmalıdır `<project>...</project>` etiketleri dosyasında, örneğin, arasında `</dependencies>` ve `</project>`.
+
+```xml
+<build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+    <resource>
+        <directory>${basedir}/conf</directory>
+        <filtering>false</filtering>
+        <includes>
+        <include>hbase-site.xml</include>
+        </includes>
+    </resource>
+    </resources>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
         </plugin>
-        </plugins>
-    </build>
-   ```
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+        <transformers>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+            </transformer>
+        </transformers>
+        </configuration>
+        <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+            <goal>shade</goal>
+            </goals>
+        </execution>
+        </executions>
+    </plugin>
+    </plugins>
+</build>
+```
 
-    Bu bölümde, bir kaynak yapılandırır (`conf/hbase-site.xml`), HBase için yapılandırma bilgilerini içerir.
+Bu bölümde, bir kaynak yapılandırır (`conf/hbase-site.xml`), HBase için yapılandırma bilgilerini içerir.
 
-   > [!NOTE]  
-   > Ayrıca, kod aracılığıyla yapılandırma değerlerini ayarlayabilirsiniz. Bölümündeki yorumlara bakın `CreateTable` örnek.
+> [!NOTE]  
+> Ayrıca, kod aracılığıyla yapılandırma değerlerini ayarlayabilirsiniz. Bölümündeki yorumlara bakın `CreateTable` örnek.
 
-    Bu bölümde ayrıca yapılandırır [Apache Maven derleme eklentisini](https://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](https://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu eklenti, HDInsight kümesi üzerinde çalışma zamanında bir "yinelenen lisans files" hatayı önlemek için kullanılır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama hatasını önler.
+Bu bölümde ayrıca yapılandırır [Apache Maven derleme eklentisini](https://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](https://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu eklenti, HDInsight kümesi üzerinde çalışma zamanında bir "yinelenen lisans files" hatayı önlemek için kullanılır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama hatasını önler.
 
-    Maven gölge eklentisi ayrıca uygulamanın gerektirdiği tüm bağımlılıklarını içeren bir uber jar üretir.
+Maven gölge eklentisi ayrıca uygulamanın gerektirdiği tüm bağımlılıklarını içeren bir uber jar üretir.
 
-4. `pom.xml` dosyasını kaydedin.
+### <a name="download-the-hbase-sitexml"></a>Hbase-site.xml indirin
 
-5. Adlı bir dizin oluşturmak `conf` içinde `hbaseapp` dizin. Bu dizin için HBase bağlanmak için yapılandırma bilgilerini saklamak için kullanılır.
+HBase kümesi için HBase yapılandırma kopyalamak için aşağıdaki komutu kullanın `conf` dizin. Değiştirin `CLUSTERNAME` , HDInsight ile küme adı ve ardından komutu girin:
 
-6. HBase kümesi için HBase yapılandırma kopyalamak için aşağıdaki komutu kullanın `conf` dizin. Değiştirin `USERNAME` , SSH oturum açma adı. Değiştirin `CLUSTERNAME` ile HDInsight kümenizin adıdır:
-
-    ```bash
-    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
-    ```
-
-   Kullanma hakkında daha fazla bilgi için `ssh` ve `scp`, bkz: [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+```cmd
+scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+```
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 
-1. Git `hbaseapp/src/main/java/com/microsoft/examples` dizin ve yeniden adlandırma app.java dosyasını `CreateTable.java`.
+### <a name="implement-a-createtable-class"></a>CreateTable sınıf uygulama
 
-2. Açık `CreateTable.java` dosya ve varolan içeriği aşağıdaki metinle değiştirin:
+Oluşturmak ve yeni bir dosya açmak için aşağıdaki komutu girin `CreateTable.java`. Seçin **Evet** istemine yeni bir dosya oluşturun.
 
-   ```java
-    package com.microsoft.examples;
-    import java.io.IOException;
+```cmd
+notepad src\main\java\com\microsoft\examples\CreateTable.java
+```
 
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.hbase.HBaseConfiguration;
-    import org.apache.hadoop.hbase.client.HBaseAdmin;
-    import org.apache.hadoop.hbase.HTableDescriptor;
-    import org.apache.hadoop.hbase.TableName;
-    import org.apache.hadoop.hbase.HColumnDescriptor;
-    import org.apache.hadoop.hbase.client.HTable;
-    import org.apache.hadoop.hbase.client.Put;
-    import org.apache.hadoop.hbase.util.Bytes;
+Ardından kopyalayıp aşağıdaki java kod yeni dosyasına yapıştırın. Dosyayı kaydedip kapatın.
 
-    public class CreateTable {
-        public static void main(String[] args) throws IOException {
-        Configuration config = HBaseConfiguration.create();
+```java
+package com.microsoft.examples;
+import java.io.IOException;
 
-        // Example of setting zookeeper values for HDInsight
-        // in code instead of an hbase-site.xml file
-        //
-        // config.set("hbase.zookeeper.quorum",
-        //            "zookeepernode0,zookeepernode1,zookeepernode2");
-        //config.set("hbase.zookeeper.property.clientPort", "2181");
-        //config.set("hbase.cluster.distributed", "true");
-        //
-        //NOTE: Actual zookeeper host names can be found using Ambari:
-        //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.util.Bytes;
 
-        //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
-        config.set("zookeeper.znode.parent","/hbase-unsecure");
+public class CreateTable {
+    public static void main(String[] args) throws IOException {
+    Configuration config = HBaseConfiguration.create();
 
-        // create an admin object using the config
-        HBaseAdmin admin = new HBaseAdmin(config);
+    // Example of setting zookeeper values for HDInsight
+    // in code instead of an hbase-site.xml file
+    //
+    // config.set("hbase.zookeeper.quorum",
+    //            "zookeepernode0,zookeepernode1,zookeepernode2");
+    //config.set("hbase.zookeeper.property.clientPort", "2181");
+    //config.set("hbase.cluster.distributed", "true");
+    //
+    //NOTE: Actual zookeeper host names can be found using Ambari:
+    //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
 
-        // create the table...
-        HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
-        // ... with two column families
-        tableDescriptor.addFamily(new HColumnDescriptor("name"));
-        tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
-        admin.createTable(tableDescriptor);
+    //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
+    config.set("zookeeper.znode.parent","/hbase-unsecure");
 
-        // define some people
-        String[][] people = {
-            { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
-            { "2", "Franklin", "Holtz", "franklin@contoso.com" },
-            { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
-            { "4", "Rae", "Schroeder", "rae@contoso.com" },
-            { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
-            { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+    // create an admin object using the config
+    HBaseAdmin admin = new HBaseAdmin(config);
 
-        HTable table = new HTable(config, "people");
+    // create the table...
+    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
+    // ... with two column families
+    tableDescriptor.addFamily(new HColumnDescriptor("name"));
+    tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
+    admin.createTable(tableDescriptor);
 
-        // Add each person to the table
-        //   Use the `name` column family for the name
-        //   Use the `contactinfo` column family for the email
-        for (int i = 0; i< people.length; i++) {
-            Put person = new Put(Bytes.toBytes(people[i][0]));
-            person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
-            person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
-            person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
-            table.put(person);
-        }
-        // flush commits and close the table
-        table.flushCommits();
-        table.close();
-        }
+    // define some people
+    String[][] people = {
+        { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
+        { "2", "Franklin", "Holtz", "franklin@contoso.com" },
+        { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
+        { "4", "Rae", "Schroeder", "rae@contoso.com" },
+        { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
+        { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+
+    HTable table = new HTable(config, "people");
+
+    // Add each person to the table
+    //   Use the `name` column family for the name
+    //   Use the `contactinfo` column family for the email
+    for (int i = 0; i< people.length; i++) {
+        Put person = new Put(Bytes.toBytes(people[i][0]));
+        person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
+        person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
+        person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
+        table.put(person);
     }
-   ```
-
-    Bu kodu **CreateTable** adlı bir tablo oluşturur sınıfı **kişiler** ve önceden tanımlanmış bazı kullanıcılar ile doldurabilirsiniz.
-
-3. `CreateTable.java` dosyasını kaydedin.
-
-4. İçinde `hbaseapp/src/main/java/com/microsoft/examples` dizin adlı bir dosya oluşturun `SearchByEmail.java`. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
-
-   ```java
-    package com.microsoft.examples;
-    import java.io.IOException;
-
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.hbase.HBaseConfiguration;
-    import org.apache.hadoop.hbase.client.HTable;
-    import org.apache.hadoop.hbase.client.Scan;
-    import org.apache.hadoop.hbase.client.ResultScanner;
-    import org.apache.hadoop.hbase.client.Result;
-    import org.apache.hadoop.hbase.filter.RegexStringComparator;
-    import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
-    import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
-    import org.apache.hadoop.hbase.util.Bytes;
-    import org.apache.hadoop.util.GenericOptionsParser;
-
-    public class SearchByEmail {
-        public static void main(String[] args) throws IOException {
-        Configuration config = HBaseConfiguration.create();
-
-        // Use GenericOptionsParser to get only the parameters to the class
-        // and not all the parameters passed (when using WebHCat for example)
-        String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
-        if (otherArgs.length != 1) {
-            System.out.println("usage: [regular expression]");
-            System.exit(-1);
-        }
-
-        // Open the table
-        HTable table = new HTable(config, "people");
-
-        // Define the family and qualifiers to be used
-        byte[] contactFamily = Bytes.toBytes("contactinfo");
-        byte[] emailQualifier = Bytes.toBytes("email");
-        byte[] nameFamily = Bytes.toBytes("name");
-        byte[] firstNameQualifier = Bytes.toBytes("first");
-        byte[] lastNameQualifier = Bytes.toBytes("last");
-
-        // Create a regex filter
-        RegexStringComparator emailFilter = new RegexStringComparator(otherArgs[0]);
-        // Attach the regex filter to a filter
-        //   for the email column
-        SingleColumnValueFilter filter = new SingleColumnValueFilter(
-            contactFamily,
-            emailQualifier,
-            CompareOp.EQUAL,
-            emailFilter
-        );
-
-        // Create a scan and set the filter
-        Scan scan = new Scan();
-        scan.setFilter(filter);
-
-        // Get the results
-        ResultScanner results = table.getScanner(scan);
-        // Iterate over results and print  values
-        for (Result result : results ) {
-            String id = new String(result.getRow());
-            byte[] firstNameObj = result.getValue(nameFamily, firstNameQualifier);
-            String firstName = new String(firstNameObj);
-            byte[] lastNameObj = result.getValue(nameFamily, lastNameQualifier);
-            String lastName = new String(lastNameObj);
-            System.out.println(firstName + " " + lastName + " - ID: " + id);
-            byte[] emailObj = result.getValue(contactFamily, emailQualifier);
-            String email = new String(emailObj);
-            System.out.println(firstName + " " + lastName + " - " + email + " - ID: " + id);
-        }
-        results.close();
-        table.close();
-        }
+    // flush commits and close the table
+    table.flushCommits();
+    table.close();
     }
-   ```
+}
+```
 
-    **SearchByEmail** sınıfı kullanılabilir sorgulamak için e-posta adresine göre satır. Normal ifade filtresi kullandığından, sınıf kullanırken bir dize veya bir normal ifade sağlayabilir.
+Bu kodu `CreateTable` adlı bir tablo oluşturur sınıfı `people` ve önceden tanımlanmış bazı kullanıcılar ile doldurabilirsiniz.
 
-5. `SearchByEmail.java` dosyasını kaydedin.
+### <a name="implement-a-searchbyemail-class"></a>SearchByEmail sınıf uygulama
 
-6. İçinde `hbaseapp/src/main/hava/com/microsoft/examples` dizin adlı bir dosya oluşturun `DeleteTable.java`. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
+Oluşturmak ve yeni bir dosya açmak için aşağıdaki komutu girin `SearchByEmail.java`. Seçin **Evet** istemine yeni bir dosya oluşturun.
 
-   ```java
-    package com.microsoft.examples;
-    import java.io.IOException;
+```cmd
+notepad src\main\java\com\microsoft\examples\SearchByEmail.java
+```
 
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.hbase.HBaseConfiguration;
-    import org.apache.hadoop.hbase.client.HBaseAdmin;
+Ardından kopyalayıp aşağıdaki java kod yeni dosyasına yapıştırın. Dosyayı kaydedip kapatın.
 
-    public class DeleteTable {
-        public static void main(String[] args) throws IOException {
-        Configuration config = HBaseConfiguration.create();
+```java
+package com.microsoft.examples;
+import java.io.IOException;
 
-        // Create an admin object using the config
-        HBaseAdmin admin = new HBaseAdmin(config);
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.filter.RegexStringComparator;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.util.GenericOptionsParser;
 
-        // Disable, and then delete the table
-        admin.disableTable("people");
-        admin.deleteTable("people");
-        }
+public class SearchByEmail {
+    public static void main(String[] args) throws IOException {
+    Configuration config = HBaseConfiguration.create();
+
+    // Use GenericOptionsParser to get only the parameters to the class
+    // and not all the parameters passed (when using WebHCat for example)
+    String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
+    if (otherArgs.length != 1) {
+        System.out.println("usage: [regular expression]");
+        System.exit(-1);
     }
-   ```
 
-    Bu sınıf, bu örnekte, devre dışı bırakma ve tarafından oluşturulan tabloyu bırakarak oluşturduğunuz HBase tablolarını temizler `CreateTable` sınıfı.
+    // Open the table
+    HTable table = new HTable(config, "people");
 
-7. `DeleteTable.java` dosyasını kaydedin.
+    // Define the family and qualifiers to be used
+    byte[] contactFamily = Bytes.toBytes("contactinfo");
+    byte[] emailQualifier = Bytes.toBytes("email");
+    byte[] nameFamily = Bytes.toBytes("name");
+    byte[] firstNameQualifier = Bytes.toBytes("first");
+    byte[] lastNameQualifier = Bytes.toBytes("last");
+
+    // Create a regex filter
+    RegexStringComparator emailFilter = new RegexStringComparator(otherArgs[0]);
+    // Attach the regex filter to a filter
+    //   for the email column
+    SingleColumnValueFilter filter = new SingleColumnValueFilter(
+        contactFamily,
+        emailQualifier,
+        CompareOp.EQUAL,
+        emailFilter
+    );
+
+    // Create a scan and set the filter
+    Scan scan = new Scan();
+    scan.setFilter(filter);
+
+    // Get the results
+    ResultScanner results = table.getScanner(scan);
+    // Iterate over results and print  values
+    for (Result result : results ) {
+        String id = new String(result.getRow());
+        byte[] firstNameObj = result.getValue(nameFamily, firstNameQualifier);
+        String firstName = new String(firstNameObj);
+        byte[] lastNameObj = result.getValue(nameFamily, lastNameQualifier);
+        String lastName = new String(lastNameObj);
+        System.out.println(firstName + " " + lastName + " - ID: " + id);
+        byte[] emailObj = result.getValue(contactFamily, emailQualifier);
+        String email = new String(emailObj);
+        System.out.println(firstName + " " + lastName + " - " + email + " - ID: " + id);
+    }
+    results.close();
+    table.close();
+    }
+}
+```
+
+`SearchByEmail` Sınıfı kullanılabilir sorgulamak için e-posta adresine göre satır. Normal ifade filtresi kullandığından, sınıf kullanırken bir dize veya bir normal ifade sağlayabilir.
+
+### <a name="implement-a-deletetable-class"></a>DeleteTable sınıf uygulama
+
+Oluşturmak ve yeni bir dosya açmak için aşağıdaki komutu girin `DeleteTable.java`. Seçin **Evet** istemine yeni bir dosya oluşturun.
+
+```cmd
+notepad src\main\java\com\microsoft\examples\DeleteTable.java
+```
+
+Ardından kopyalayıp aşağıdaki java kod yeni dosyasına yapıştırın. Dosyayı kaydedip kapatın.
+
+```java
+package com.microsoft.examples;
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
+
+public class DeleteTable {
+    public static void main(String[] args) throws IOException {
+    Configuration config = HBaseConfiguration.create();
+
+    // Create an admin object using the config
+    HBaseAdmin admin = new HBaseAdmin(config);
+
+    // Disable, and then delete the table
+    admin.disableTable("people");
+    admin.deleteTable("people");
+    }
+}
+```
+
+`DeleteTable` Sınıfı, bu örnekte, devre dışı bırakma ve tarafından oluşturulan tabloyu bırakarak oluşturduğunuz HBase tablolarını temizler `CreateTable` sınıfı.
 
 ## <a name="build-and-package-the-application"></a>Derleme ve uygulamayı paketlemeyi
 
 1. Gelen `hbaseapp` dizin, uygulamayı içeren JAR dosyasını oluşturmak için aşağıdaki komutu kullanın:
 
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
@@ -362,28 +395,23 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
    > [!NOTE]  
    > `hbaseapp-1.0-SNAPSHOT.jar` Uber jar dosyasıdır. Bu uygulamayı çalıştırmak için gereken tüm bağımlılıkları içerir.
 
-
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Jar dosyasını karşıya yükleme ve işlerinizi (SSH)
 
 Aşağıdaki adımları kullanın `scp` HDInsight kümesinde, Apache HBase, birincil baş düğüme JAR kopyalanacak. `ssh` Komutu ardından kümeye bağlanın ve doğrudan baş düğümünde örneği çalıştırmak için kullanılır.
 
-1. Kümeye jar dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
+1. Jar dosyasını kümeye yükleyin. Değiştirin `CLUSTERNAME` , HDInsight ile küme adı ve ardından aşağıdaki komutu girin:
 
-    ```bash
-    scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
+    ```cmd
+    scp ./target/hbaseapp-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
     ```
 
-    Değiştirin `USERNAME` , SSH oturum açma adı. Değiştirin `CLUSTERNAME` ile HDInsight kümenizin adıdır.
+2. HBase kümeye bağlanın. Değiştirin `CLUSTERNAME` , HDInsight ile küme adı ve ardından aşağıdaki komutu girin:
 
-2. HBase kümeye bağlanmak için aşağıdaki komutu kullanın:
-
-    ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Değiştirin `USERNAME` , SSH oturum açma adı. Değiştirin `CLUSTERNAME` ile HDInsight kümenizin adıdır.
-
-3. Java uygulaması kullanarak bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
+ 3. Java uygulaması kullanarak bir HBase tablosu oluşturmak için aşağıdaki komutu, Open ssh bağlantı kullanın:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -414,9 +442,9 @@ Aşağıdaki adımları kullanın `scp` HDInsight kümesinde, Apache HBase, biri
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Jar dosyasını karşıya yükleme ve işlerinizi (PowerShell)
 
-Aşağıdaki adımlar, varsayılan depolama alanı, Apache HBase kümesi için jar dosyasını yüklemek için Azure PowerShell kullanırsınız. HDInsight cmdlet'leri, daha sonra örnekleri uzaktan çalıştırmak için kullanılır.
+Azure PowerShell aşağıdaki adımları kullanın [AZ modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) varsayılan depolama alanı, Apache HBase kümesi için JAR yükleyebilirsiniz. HDInsight cmdlet'leri, daha sonra örnekleri uzaktan çalıştırmak için kullanılır.
 
-1. Yükleme ve Azure PowerShell, yapılandırma oluşturduktan sonra adlı bir dosya `hbase-runner.psm1`. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
+1. Yükleme ve yapılandırma AZ modül oluşturduktan sonra adlı bir dosya `hbase-runner.psm1`. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
 
    ```powershell
     <#
@@ -570,7 +598,7 @@ Aşağıdaki adımlar, varsayılan depolama alanı, Apache HBase kümesi için j
         $sub = Get-AzSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
+            Connect-AzAccount
         }
     }
 
@@ -620,41 +648,41 @@ Aşağıdaki adımlar, varsayılan depolama alanı, Apache HBase kümesi için j
    * **Ekleme HDInsightFile** - kümeye dosyaları karşıya yüklemek için kullanılır
    * **Başlangıç HBaseExample** - daha önce oluşturulan sınıflar çalıştırmak için kullanılır
 
-2. `hbase-runner.psm1` dosyasını kaydedin.
+2. Kaydet `hbase-runner.psm1` dosyası `hbaseapp` dizin.
 
-3. Yeni bir Azure PowerShell penceresi açın, dizinleri `hbaseapp` dizin ve ardından aşağıdaki komutu çalıştırın:
+3. Modüller, Azure PowerShell ile kaydedin. Yeni bir Azure PowerShell penceresi açın ve aşağıdaki komutu değiştirerek düzenleyin `CLUSTERNAME` değerini kümenizin adıyla. Ardından aşağıdaki komutları girin:
 
     ```powershell
-    PS C:\ Import-Module c:\path\to\hbase-runner.psm1
+    cd C:\HDI\hbaseapp
+    $myCluster = "CLUSTERNAME"
+    Import-Module .\hbase-runner.psm1
     ```
-
-    Yolun konumuyla değiştirin `hbase-runner.psm1` daha önce oluşturulan dosya. Bu komut modülü, Azure PowerShell ile kaydeder.
 
 4. Karşıya yüklemek için aşağıdaki komutu kullanın `hbaseapp-1.0-SNAPSHOT.jar` kümenize.
 
     ```powershell
-    Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
+    Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName $myCluster
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin. Komut yükler `hbaseapp-1.0-SNAPSHOT.jar` için `example/jars` kümeniz için birincil depolama konumu.
+    İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin. Komut yükler `hbaseapp-1.0-SNAPSHOT.jar` için `example/jars` kümeniz için birincil depolama konumu.
 
 5. Kullanarak tablo oluşturmak için `hbaseapp`, aşağıdaki komutu kullanın:
 
     ```powershell
-    Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
+    Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName $myCluster
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin.
+    İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin.
 
     Bu komut, adlı bir tablo oluşturur. **kişiler** HDInsight kümenizdeki HBase içinde. Bu komut, konsol penceresinde herhangi bir çıktı göstermez.
 
 6. Tablodaki girişleri aramak için aşağıdaki komutu kullanın:
 
     ```powershell
-    Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
+    Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName $myCluster -emailRegex contoso.com
     ```
 
-    `hdinsightclustername` değerini kümenizin adıyla değiştirin. İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin.
+    İstendiğinde, küme oturum açma (Yönetici) adını ve parolasını girin.
 
     Bu komut `SearchByEmail` herhangi bir satır için aranacak sınıfı burada `contactinformation` sütun ailesi ve `email` sütun içeren dize `contoso.com`. Aşağıdaki sonuçlar almanız gerekir:
 
@@ -667,21 +695,15 @@ Aşağıdaki adımlar, varsayılan depolama alanı, Apache HBase kümesi için j
 
     Kullanarak **fabrikam.com** için `-emailRegex` değeri döndürür, kullanıcılar **fabrikam.com** e-posta alanına. Arama terimi olarak normal ifadeler de kullanabilirsiniz. Örneğin, **^ r** e-posta 'r' harfi ile başlayan adresler döndürür.
 
+7. Tablo silmek için aşağıdaki komutu kullanın:
+
+    ```PowerShell
+    Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName $myCluster
+    ```
+
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Sonuçları ya da başlangıç HBaseExample kullanırken, beklenmeyen sonuçlar
 
 Kullanım `-showErr` işi çalıştırılırken üretilen standart hata (STDERR) görüntülemek için parametre.
-
-## <a name="delete-the-table"></a>Tabloyu sil
-
-Örnek ile işiniz bittiğinde, aşağıdaki silmek için kullanın **kişiler** Bu örnekte kullanılan tablo:
-
-__Gelen bir `ssh` oturumu__:
-
-`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
-
-__Azure powershell'den__:
-
-`Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

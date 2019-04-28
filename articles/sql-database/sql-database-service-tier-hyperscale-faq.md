@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111841"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -44,7 +44,7 @@ Kullanılabilirlik, depolama türü ve IOPS temel sanal çekirdek tabanlı hizme
 - Hiper ölçekli Hizmet katmanını, çok büyük veritabanı iş yükleri için optimize edilmiştir.
 - İş açısından kritik Hizmet katmanını GÇ gecikmesine öncelikli olduğu iş yükü için uygundur.
 
-| | Kaynak türü | Genel Amaçlı |  Hiper ölçeklendirme | İş Açısından Kritik |
+| | Kaynak türü | Genel Amaçlı |  Hiper Ölçek | İş Açısından Kritik |
 |:---|:---:|:---:|:---:|:---:|
 | **En iyi** |Tümü|  Çoğu iş yükü. Teklifler yönlendirilmiş dengeli işlem ve depolama seçenekleri bütçe. | Otomatik ölçeklendirme depolama ve ölçeklendirme ile büyük veri kapasitesi gereksinimlerini özelliği veri uygulamalarınızı sorunsuzca işlem. | Yüksek işlem oranına ve düşük gecikme süresi GÇ uygulamalarla OLTP. En yüksek düzeyde dayanıklılık sunar birkaç kullanarak hataları için yalıtılmış çoğaltmaları.|
 |  **Kaynak türü** ||Tek veritabanı / elastik havuz / yönetilen örnek | Tek veritabanı | Tek veritabanı / elastik havuz / yönetilen örnek |
@@ -132,7 +132,7 @@ Hayır.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>My bellek kullanımı yoğun iş yükü için ek RAM ile bir işlem sağlayabilir miyim
 
-Hayır. Daha fazla RAM almak için daha yüksek bir işlem boyutu için yükseltmeniz gerekir. 4. nesil donanım için 5. nesil donanım kıyasla daha fazla RAM sağlar. Daha fazla bilgi için [hiper ölçekli depolama ve işlem boyutları](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+Hayır. Daha fazla RAM almak için daha yüksek bir işlem boyutu için yükseltmeniz gerekir. 4. nesil donanım için 5. nesil donanım kıyasla daha fazla RAM sağlar. Daha fazla bilgi için [hiper ölçekli depolama ve işlem boyutları](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Farklı boyutlardaki birden fazla işlem düğümünde sağlayabilirim
 

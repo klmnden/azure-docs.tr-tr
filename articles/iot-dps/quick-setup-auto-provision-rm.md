@@ -9,19 +9,19 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126486"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu ile IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
 
 Cihazlarınızın sağlanması için gerekli Azure bulut kaynaklarını programlı olarak ayarlamak için [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)’ı kullanabilirsiniz. Bu adımlarda, IoT hub ve yeni bir IoT Hub Cihazı Sağlama Hizmeti oluşturmanın yanı sıra Azure Resource Manager şablonunu kullanarak iki hizmeti birbirine bağlama işlemleri gösterilmektedir. Bu Hızlı Başlangıç, kaynak grubu oluşturmak ve şablonu dağıtmak için gerekli programlı adımları gerçekleştirmek için [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) kullanır. Ancak bu adımları gerçekleştirmek ve şablonunuzu dağıtmak için [Azure portalını](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)’i, .NET’i, ruby’yi veya başka bir programlama dilini kolayca kullanabilirsiniz. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 - Bu Hızlı Başlangıç, Azure CLI’yı yerel olarak çalıştırmanızı gerektirir. Azure CLI 2.0 veya sonraki bir sürümünü yüklemiş olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).

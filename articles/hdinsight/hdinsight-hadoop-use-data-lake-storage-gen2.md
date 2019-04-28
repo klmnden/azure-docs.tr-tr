@@ -1,19 +1,18 @@
 ---
 title: Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 description: Azure HDInsight kümeleri ile Azure Data Lake depolama Gen2'ı kullanmayı öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004967"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766931"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -69,7 +68,7 @@ Yönetilen kimlik için Ata **depolama Blob verileri sahibi** depolama hesabınd
         ![Kimlik ayarları, Azure HDInsight ile Data Lake depolama Gen2 kullanma](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> İkincil depolama aynı küme üzerindeki bir veya daha fazla Data Lake depolama Gen2 hesapları ekleyebilirsiniz. Yalnızca aynı yönetilen kimlik kullanarak eklemek istediğiniz her bir Data Lake depolama Gen2 hesabındaki yukarıdaki adımları yineleyin.
+> Depolama hesabı düzeyinde ikincil bir Data Lake depolama Gen2 hesabı eklemek için eklemek istediğiniz yeni Data Lake depolama Gen2'ye depolama hesabı için daha önce oluşturulan yönetilen kimlik yalnızca atayın. Lütfen HDInsight üzerinde "ek depolama hesapları" dikey penceresi aracılığıyla ikincil bir Data Lake depolama Gen2 hesap ekleme desteklenmiyor dikkat edin. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Data Lake depolama Gen2 aracılığıyla Azure CLI ile küme oluşturma
 

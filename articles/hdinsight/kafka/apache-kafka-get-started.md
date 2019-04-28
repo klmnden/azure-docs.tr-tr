@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/01/2019
-ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8600e9c9d8566d3b9f6cd0fbca60d7db904a6265
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115270"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -59,7 +59,7 @@ HDInsight kümesinde Apache Kafka oluşturmak için aşağıdaki adımları kull
     | Ayar | Değer |
     | --- | --- |
     | Küme Türü | Kafka |
-    | Sürüm | Kafka 1.1.0 (HDI 3.6) |
+    | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Seçin **seçin** küme türü ayarlarını kaydedin ve dönmek için __Temelleri__.
 
@@ -73,7 +73,7 @@ HDInsight kümesinde Apache Kafka oluşturmak için aşağıdaki adımları kull
     | Küme oturum açma parolası | Web hizmetlerine veya küme üzerinde barındırılan REST API’lerine erişirken kullanılan oturum açma parolası. |
     | Secure Shell (SSH) kullanıcı adı | SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır. |
     | Kaynak Grubu | İçinde kümenin oluşturulduğu kaynak grubu. |
-    | Konum | İçinde kümenin oluşturulacağı Azure bölgesi. |
+    | Location | İçinde kümenin oluşturulacağı Azure bölgesi. |
 
     > [!TIP]  
     > Her Azure bölgesi (konum) _hata etki alanları_ sağlar. Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantıksal bir gruplandırmadır. Her hata etki alanı ortak bir güç kaynağı ve ağ anahtarına sahiptir. Bir HDInsight kümesi içindeki düğümleri uygulayan sanal makineler ve yönetilen diskler, bu hata etki alanlarına dağıtılır. Bu mimari, fiziksel donanım hatalarının olası etkisini sınırlar.

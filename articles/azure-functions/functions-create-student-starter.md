@@ -13,11 +13,11 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107151"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Öğrenciler için Azure'ı kullanarak bir işlev oluşturma
 
@@ -56,7 +56,7 @@ Azure hesabınızla Azure portalında <https://portal.azure.com> sayfasında otu
     | **[Kaynak Grubu](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | İşlev uygulamanızın oluşturulacağı yeni kaynak grubunun adı. |
    | **[App Service planı/konumu](./functions-scale.md)** | Yeni | Barındırma planı denetleyen işlev uygulamanız için dağıtılan hangi bölge ve kaynaklarınızın yoğunluğu. Birden fazla işlev uygulaması aynı planı olarak dağıtılan tüm ücretsiz aynı tek örnek paylaşır. Öğrenci başlangıç planın bir sınırlama budur. Tam barındırma seçenekleri [burada açıklanmıştır.](./functions-scale.md)|
     | **Çalışma zamanı yığını** | Tercih edilen dil | Tercih ettiğiniz işlev programlama dilini destekleyen bir çalışma zamanı seçin. C# ve F# için **.NET** işlevlerini seçin. |
-    |**[Application Insights](./functions-monitoring.md)**| Etkin | Application Insights, işlev uygulamanızın günlüklerini çözümlemek ve depolamak için kullanılır. Application Insights'ı destekleyen bir konuma seçerseniz, varsayılan olarak etkindir. Application Insights herhangi bir işlev için el ile yakın bir bölge seçerek Application Insights'ı dağıtmak için etkinleştirilebilir. Application Insights, yalnızca canlı akış günlüklerini görüntülemek mümkün olmayacak.
+    |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights, işlev uygulamanızın günlüklerini çözümlemek ve depolamak için kullanılır. Application Insights'ı destekleyen bir konuma seçerseniz, varsayılan olarak etkindir. Application Insights herhangi bir işlev için el ile yakın bir bölge seçerek Application Insights'ı dağıtmak için etkinleştirilebilir. Application Insights, yalnızca canlı akış günlüklerini görüntülemek mümkün olmayacak.
 
 3. Seçin **App Service planı/konumu** üst farklı bir konum seçin
 

@@ -1,18 +1,17 @@
 ---
 title: Azure HDInsight, YARN sorunlarını giderme
 description: Azure HDInsight ve Apache Hadoop YARN ile çalışma hakkında sık sorulan soruların yanıtlarını alın.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408839"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764292"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache Hadoop YARN sorunlarını giderme
 
@@ -25,8 +24,9 @@ Apache Ambari, Apache Hadoop YARN yükü ile çalışırken sık karşılaşıla
 Yeni YARN kuyruk oluşturmak için Ambari aşağıdaki adımları kullanın ve ardından kapasite ayırma tüm kuyrukları arasında dengeleme. 
 
 Bu örnekte, iki mevcut kuyrukları (**varsayılan** ve **thriftsvr**) hem de % 50 kapasiteden yeni kuyruğu (spark) % 50 kapasitesini sunan % 25 kapasiteye değiştirilir.
+
 | Kuyruk | Kapasite | Maksimum kapasite |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | default | %25 | 50% |
 | thrftsvr | %25 | 50% |
 | Spark | 50% | 50% |

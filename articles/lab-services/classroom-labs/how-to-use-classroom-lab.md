@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
 ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104161"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services’teki bir sınıf laboratuvarına erişme
 Bu makalede, bir sınıf laboratuvarına nasıl erişileceği, laboratuvardaki sanal makineye nasıl bağlanılacağı ve sanal makinenin nasıl durdurulacağı açıklanmaktadır. 

@@ -2,17 +2,17 @@
 title: Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) - Azure depolama etkinleştirin.
 description: Kimlik tabanlı kimlik doğrulaması, Azure Active Directory (Azure AD) etki alanı Hizmetleri aracılığıyla Azure dosyaları için SMB üzerinden (sunucu ileti bloğu) (Önizleme) etkinleştirme konusunda bilgi edinin. Etki alanına katılmış Windows sanal makinelerinizi (VM), ardından Azure AD kimlik bilgilerini kullanarak Azure dosya paylaşımlarını erişebilirsiniz.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
-ms.author: tamram
-ms.openlocfilehash: 796e104dd0b3b2cfdef2ee3515625cba0a9fdc1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497150"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766392"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122966"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adlarını değiştirme
 Ana bilgisayar adına göre başvurulmak üzere rol örneklerinizin izin vermek için hizmet yapılandırma dosyasında her rol için konak adı için bir değer ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değerini **vmName** özniteliği, her bir rol örneğinin ana bilgisayar adı için bir temel olarak kullanılır. Örneğin, varsa **vmName** olduğu *webrole* ve bu rolü üç örnekleri vardır, örneklerin ana bilgisayar adları olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulduğundan yapılandırma dosyasında sanal makineler için bir ana bilgisayar adı belirtmeniz gerekmez. Bir Microsoft Azure hizmetini yapılandırma hakkında daha fazla bilgi için bkz. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

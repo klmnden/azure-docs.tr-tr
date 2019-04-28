@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105589"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Azure Service Bus ve Azure Logic Apps ile bulutta Exchange iletileri
 
@@ -74,7 +74,7 @@ Mantıksal uygulamanız için Service Bus ad alanınızı erişme izinleri oldu�
 
 1. Eklemek için bir *tetikleyici* boş mantıksal uygulama için arama kutusuna filtreniz olarak "Azure Service Bus" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   Örneğin, mantıksal uygulamanızın yeni bir öğe bir Service Bus kuyruğuna gönderilen tetiklemek için şu tetikleyiciyi seçin: **ne zaman bir ileti alındığında (Otomatik Tamamlama) kuyrukta**
+   Örneğin, mantıksal uygulamanızın yeni bir öğe bir Service Bus kuyruğuna gönderilen tetiklemek için şu tetikleyiciyi seçin: **(Otomatik Tamamlama) kuyrukta bir ileti alındığında**
 
    ![Service Bus tetikleyicisi seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -95,7 +95,7 @@ Mantıksal uygulamanız için Service Bus ad alanınızı erişme izinleri oldu�
    1. Arama kutusuna filtreniz olarak "Azure Service Bus" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin. 
  
-      Örneğin, şu eylemi seçin: **ileti gönder**
+      Örneğin, şu eylemi seçin: **İleti Gönder**
 
       ![Hizmet veri yolu eylemi seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ Mantıksal uygulamanız için Service Bus ad alanınızı erişme izinleri oldu�
 
 1. Tetikleyici veya eylem için gerekli bilgileri sağlayın. Bu örnekte, tetikleyici veya eylemi için ilgili adımları izleyin: 
 
-   * **Örnek tetikleyicinin**: yoklama aralığı ve kuyruk denetleme sıklığını ayarlayın.
+   * **Örnek tetikleyicinin**: Yoklama aralığı ve kuyruk denetleme sıklığını ayarlayın.
 
      ![Yoklama aralığı ayarlayın](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      İşiniz bittiğinde, istediğiniz eylemler ekleyerek mantıksal uygulamanızın iş akışı oluşturmaya devam edin. Örneğin, yeni bir ileti geldiğinde e-posta gönderen bir eylem ekleyebilirsiniz.
      Tetikleyicinize kuyruğunuzun denetler ve yeni bir iletiyi bulur, mantıksal uygulamanız seçili eylemlerinizi bulundu iletisi için çalışır.
 
-   * **Örnek eylem**: ileti içeriği ve diğer ayrıntıları girin. 
+   * **Örnek eylem**: İleti içeriği ve diğer ayrıntıları girin. 
 
      ![İleti içeriği ve ayrıntılarını sağlayın](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

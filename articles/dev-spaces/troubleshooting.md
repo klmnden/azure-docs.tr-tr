@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609084"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761412"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -296,7 +296,7 @@ Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu ç
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Bir geliştirme alanında çalışan diğer pod'ları ile Azure geliştirme alanları proxy etkileyebilir
 
 ### <a name="reason"></a>Neden
-AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı, geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod hizmetlere çağrılarını yakalar; Ancak, bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Azure önbelleği için Redis çalıştırma, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile etkileşime bilinir.
+AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı, geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod hizmetlere çağrılarını yakalar; Ancak, bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Azure önbelleği için Redis çalıştırma, birincil/ikincil iletişim bağlantısı hataları neden pod'ları ile etkileşime bilinir.
 
 ### <a name="try"></a>Deneyin:
 Etkilenen pod'ların yapan küme içinde bir ad alanına taşıyabilirsiniz _değil_ geliştirme etkin boşluk. Uygulamanızın rest geliştirme alanları özellikli bir ad alanı içinde çalıştırmaya devam edebilirsiniz. Geliştirme alanları yüklemez _mindaro proxy_ kapsayıcı geliştirme olmayan alanları içinde etkin ad alanları.

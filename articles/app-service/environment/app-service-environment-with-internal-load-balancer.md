@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130611"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service ortamı ile iç yük dengeleyici kullanma
 
@@ -127,7 +127,7 @@ Ek yönetim sertifikası ve DNS Yönetimi öğelerdir. Edinmeli ve ILB ASE oluş
 Dış VIP kullanırken, DNS, Azure tarafından yönetilir. ASE’nizde oluşturulan herhangi bir uygulama, genel bir DNS olan Azure DNS'e otomatik olarak eklenir. ILB ASE'de kendi DNS’inizi yönetmeniz gerekir. Contoso.corp.net gibi belirli bir alt kayıtları için ILB adresini işaret eden DNS A oluşturmanız gerekir:
 
     * 
-    *.SCM ftp yayımlama 
+    *.scm ftp publish 
 
 
 ## <a name="getting-started"></a>Başlarken

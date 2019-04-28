@@ -3,8 +3,8 @@ title: Bir Windows sanal makine yönetilmeyen disklerden yönetilen disklere - A
 description: Yönetilmeyen diskler için bir Windows VM dönüştürmek Resource Manager dağıtım modelinde PowerShell kullanarak yönetilen diskleri
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
-ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120797"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766135"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Bir Windows sanal makine yönetilmeyen disklerden yönetilen disklere dönüştürme
 
 Mevcut Windows yönetilmeyen diskler kullanan sanal makineleri (VM'ler) varsa, VM'lerin üzerinden yönetilen diskleri kullanma dönüştürebilirsiniz [Azure yönetilen diskler](managed-disks-overview.md) hizmeti. Bu işlem, hem işletim sistemi diski hem de bağlı veri diskleri dönüştürür.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -94,7 +94,7 @@ Dönüştürmek istediğiniz Vm'leri yönetilen diskleri olan bir kullanılabili
    ```
 
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 Dönüştürme sırasında bir hata varsa veya bir VM, önceki bir dönüştürme sorunları nedeniyle başarısız bir durumda ise, çalıştırın `ConvertTo-AzVMManagedDisk` cmdlet'ini yeniden. Basit bir yeniden deneme durum genellikle engellemesini kaldırır.
 Dönüştürmeden önce dönüştürme 409 hata kodu ile başarısız olur ya da tüm VM Uzantıları 'sağlama başarılı' durumda olduğundan emin olun.

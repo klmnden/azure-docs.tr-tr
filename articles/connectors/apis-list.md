@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895892"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759435"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
@@ -117,7 +117,7 @@ Bağlayıcılar oluştururken ve ödeme logic apps ile işletmeden işletmeye (B
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API simgesi][as2-icon]<br/>**AS2</br> kodunu çözme**][as2-decode-doc] | [![API simgesi][as2-icon]<br/>**AS2</br> kodlama**][as2-encode-doc] | [![API simgesi][edifact-icon]<br/>**EDIFACT</br> kodunu çözme**][edifact-decode-doc] | [![API simgesi][edifact-icon]<br/>**EDIFACT</br> kodlama**][edifact-encode-doc] | 
+| [![API simgesi][as2-icon]<br/>**AS2</br> kodunu çözme**][as2-doc] | [![API simgesi][as2-icon]<br/>**AS2</br> kodlama**][as2-doc] | [![API simgesi][edifact-icon]<br/>**EDIFACT</br> kodunu çözme**][edifact-decode-doc] | [![API simgesi][edifact-icon]<br/>**EDIFACT</br> kodlama**][edifact-encode-doc] | 
 | [![API simgesi][flat-file-decode-icon]<br/>**düz dosya</br> kodunu çözme**][flat-file-decode-doc] | [![API simgesi][flat-file-encode-icon]<br/>**düz dosya</br> kodlama**][flat-file-encode-doc] | [![API simgesi][integration-account-icon]<br/>**tümleştirme<br/>hesabı**][integration-account-doc] | [![API simgesi][liquid-icon]<br/>**Liquid**</br>**dönüştürür**][json-liquid-transform-doc] | 
 | [![API simgesi][x12-icon]<br/>**X12</br> kodunu çözme**][x12-decode-doc] | [![API simgesi][x12-icon]<br/>**X12</br> kodlama**][x12-encode-doc] | [![API simgesi][xml-transform-icon]<br/>**XML**</br>**dönüştürür**][xml-transform-doc] | [![API simgesi][xml-validate-icon]<br/>**XML <br/>doğrulama**][xml-validate-doc] |  
 ||||| 
@@ -257,8 +257,6 @@ Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya si
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."

@@ -1,7 +1,6 @@
 ---
 title: 'Eclipse için Azure Araç Seti: HDInsight Spark Scala uygulamaları oluşturma '
 description: Spark Scala içinde yazılmış uygulamalar geliştirmek ve bunları doğrudan Eclipse IDE içinden bir HDInsight Spark kümesine göndermek için Eclipse için Azure Araç Seti HDInsight araçlarını kullanın.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 1ae585322316a9c215fc32cc2f8ffba2f332ff61
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124382"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
@@ -238,7 +237,7 @@ Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
 
 ![Eclipse alma hatası ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## <a name="feedback"></a>Geri bildirim
+## <a name="feedback"></a>Geri Bildirim
 Bir Geri bildiriminiz varsa veya bu aracı kullanırken diğer herhangi bir sorunla karşılaşırsanız, bize bir e-postası gönderin hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Ayrıca bkz.

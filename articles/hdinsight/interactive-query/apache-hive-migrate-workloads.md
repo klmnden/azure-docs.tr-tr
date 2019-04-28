@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight 3.6 Hive iş yükleri için HDInsight 4.0 geçirme
 description: Apache Hive iş yükleri HDInsight 3.6 üzerinde HDInsight 4.0 geçirmeyi öğrenin.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126571"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive iş yükleri için HDInsight 4.0 geçirme
 

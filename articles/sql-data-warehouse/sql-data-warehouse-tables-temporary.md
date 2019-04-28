@@ -2,20 +2,21 @@
 title: SQL Data warehouse'daki geçici tabloları | Microsoft Docs
 description: Geçici tablolar ve oturum düzeyi geçici tablolar sürecin prensiplerini vurgular kullanarak temel Kılavuzu.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/01/2019
-ms.author: rortloff
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474904"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda geçici tablolar
 Bu makalede, geçici tabloları kullanmaya yönelik temel rehberlik içerir ve oturum düzeyi geçici tablolar sürecin prensiplerini vurgular. Bu makalede verilen bilgileri kullanarak, hem çalışmalarında kodunuzun bakım kolaylığı geliştirip kodunuzu modülerleştirmek yardımcı olabilir.

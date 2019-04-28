@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 6a4f7daa337618278c3652fad3053c20557a9e28
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62102059"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI uygulaması teklif oluşturma
 

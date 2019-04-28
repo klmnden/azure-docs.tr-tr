@@ -1,25 +1,24 @@
 ---
 title: Apache Kafka - Azure HDInsight, otomatik konu oluşturmayı etkinleştirme
 description: Konular otomatik olarak oluşturmak için HDInsight üzerinde Apache Kafka yapılandırmayı öğrenin. Kafka auto.create.topics.enable Ambari aracılığıyla veya PowerShell veya Resource Manager şablonları ile küme oluşturma sırasında true olarak ayarlayarak yapılandırabilirsiniz.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.openlocfilehash: af26bcee08ded8eb66d640f954113be3e7672e1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097870"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Konular otomatik olarak oluşturmak için HDInsight üzerinde Apache Kafka yapılandırma
 
 Varsayılan olarak, [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde otomatik konu oluşturmayı etkinleştirme değil. Var olan kümeleri kullanarak otomatik konu oluşturmayı etkinleştirebilirsiniz [Apache Ambari](https://ambari.apache.org/). Ayrıca, bir Azure Resource Manager şablonu kullanarak yeni bir Kafka kümesi oluştururken otomatik konu oluşturmayı etkinleştirebilirsiniz.
 
-## <a name="apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı Arabirimi
+## <a name="apache-ambari-web-ui"></a>Apache Ambari Web UI
 
 Ambari Web kullanıcı Arabirimi aracılığıyla var olan bir kümede otomatik konu oluşturmayı etkinleştirmek için aşağıdaki adımları kullanın:
 

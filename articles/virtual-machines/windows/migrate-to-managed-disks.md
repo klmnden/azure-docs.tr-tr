@@ -3,8 +3,8 @@ title: Azure Vm'leri yönetilen disklere geçirme | Microsoft Docs
 description: Yönetilen diskleri kullanacak şekilde depolama hesaplarındaki yönetilmeyen diskler kullanılarak oluşturulan Azure sanal makineleri geçirin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f1f786ea4fbf9cea5afbbd2ff038b2b3f8bc3eaf
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.openlocfilehash: 12cd1caa4cb96dbd5862776589d4a34aeb294ca1
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56803592"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763726"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure Vm'leri azure'da yönetilen disklere geçirme
 
@@ -34,9 +34,9 @@ Aşağıdaki senaryolarda yönetilen disklere geçirebilirsiniz:
 
 | **Geçiş...**                                            | **Belgeleri bağlantısı**                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tek başına Vm'leri ve Vm'leri bir kullanılabilirlik kümesindeki yönetilen disklere dönüştürme   | [Vm'leri yönetilen diskleri kullanacak şekilde dönüştürme](convert-unmanaged-to-managed-disks.md) |
-| Tek bir VM Klasik'ten Resource Manager'için yönetilen diskler üzerindeki     | [Klasik bir VHD'den VM oluşturma](create-vm-specialized-portal.md)  | 
-| Bir sanal ağ içindeki Klasik'ten Resource Manager'a yönetilen diskler üzerindeki tüm sanal makineler     | [Iaas kaynaklarının Klasikten Resource Manager'a geçiş](migration-classic-resource-manager-ps.md) ardından [VM'yi yönetilmeyen disklerden yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) | 
+| Tek başına VM'leri ve bir kullanılabilirlik kümesindeki VM'leri yönetilen disklere dönüştürme   | [Vm'leri yönetilen diskleri kullanacak şekilde dönüştürme](convert-unmanaged-to-managed-disks.md) |
+| Tek bir VM'yi klasikten yönetilen diskler üzerinde Resource Manager'a dönüştürme     | [Klasik bir VHD'den VM oluşturma](create-vm-specialized-portal.md)  | 
+| Bir sanal ağ içindeki tüm VM'leri klasikten yönetilen diskler üzerinde Resource Manager'a dönüştürme     | [Iaas kaynaklarının Klasikten Resource Manager'a geçiş](migration-classic-resource-manager-ps.md) ardından [VM'yi yönetilmeyen disklerden yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) | 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

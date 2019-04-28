@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight Go SDK'sı
 description: Azure HDInsight Go SDK için başvuru
-services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098567"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
 
@@ -32,7 +31,7 @@ HDInsight Go SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmeniz
 
 GOPATH konumunuzdan çalıştırın `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 SDK'sı, ilk Azure aboneliğinizle kimliğinin doğrulanması gerekiyor.  Hizmet sorumlusu oluşturma ve kimlik doğrulaması için kullanmak için aşağıdaki örneği takip edin. Bunu yaptıktan sonra bir örneğine sahip bir `ClustersClient`, yönetim işlemlerini gerçekleştirmek için kullanılan birçok işlev (aşağıdaki bölümde anlatılan) içerir.
 

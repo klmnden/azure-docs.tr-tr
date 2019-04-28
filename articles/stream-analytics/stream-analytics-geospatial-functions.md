@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479992"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics Jeo-uzamsal işlevleri'ne giriş
 
@@ -27,7 +27,7 @@ Jeo-uzamsal işlevleri yararlanabilir senaryolarına örnekler şunlardır:
 * Şirketin coğrafı
 * Hücre siteler arasında telefon izleme
 
-Stream Analytics sorgu dili olan yedi yerleşik Jeo-uzamsal İşlevler: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, ve **ST_WITHIN**.
+Stream Analytics sorgu dili yedi yerleşik Jeo-uzamsal işlevler sahiptir: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_ KESİŞEN**, ve **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -77,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>Çıkış örneği
   
- {"type": "Point", "coordinates": [-10.2, 3.0]}  
+ {"type": "Nokta", "koordinatları": [-10.2, 3.0]}  
   
- {"type": "Point", "coordinates": [20.2321,-87.33]}  
+ {"type": "Nokta", "koordinatları": [20.2321,-87.33]}  
 
 Daha fazla bilgi için ziyaret [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) başvuru.
 

@@ -2,19 +2,20 @@
 title: Yük devretme ve Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için ikincil Azure bölgesine çoğaltılmış Azure Vm'lerini yeniden koruyun.
 description: Yük devretme ve Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için ikincil Azure bölgesine çoğaltılmış Azure Vm'lerini yeniden koruma hakkında bilgi edinin.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.author: raynew
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115967"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Yük devretme ve bölgeleri arasında Azure Vm'lerini yeniden koruma
 
@@ -34,17 +35,18 @@ Bu öğreticide bir Azure sanal makinesi için ikincil Azure bölgesine yük dev
 - Her şeyin beklenildiği gibi çalışıp çalışmadığını denetlemek için bir [olağanüstü durum kurtarma tatbikatını](azure-to-azure-tutorial-dr-drill.md) tamamladığınızdan emin olun.
 - Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) uymalıdır.
 
+<a name="run-a-failover"></a>
 ## <a name="run-a-failover-to-the-secondary-region"></a>İkincil bölgeye yük devretme çalıştırma
 
 1. **Çoğaltılmış öğeler** bölümünde, yük devretmek istediğiniz VM’yi seçin > **Yük devretme**
 
-   ![Yük devretme](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+    ![Yük devretme](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. **Yük devretme** kısmında, yük devredeceğiniz bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
 
-   * **En son** (varsayılan): Site Recovery hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
-   * **En son işlenen**: Site Recovery hizmeti tarafından işlenen en son kurtarma noktasını sanal makineye geri döner.
-   * **Özel**: Belirli kurtarma noktasına devreder. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
+    * **En son** (varsayılan): Site Recovery hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
+    * **En son işlenen**: Site Recovery hizmeti tarafından işlenen en son kurtarma noktasını sanal makineye geri döner.
+    * **Özel**: Belirli kurtarma noktasına devreder. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
 
 3. Seçin **yük devretmeye başlamadan önce makineyi Kapat** Site Recovery, yük devretmeyi tetiklemeden önce kaynak sanal makineleri kapatmayı denemek istiyorsanız. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Site Recovery temiz kaynak yük devretme sonrasında yukarı değil.
 
@@ -62,7 +64,7 @@ VM’nin yük devretmesinden sonra, birincil bölgeye geri çoğaltması için V
 1. VM’nin **Yük devretme yürütüldü** durumunda olduğundan emin olun ve birincil bölgenin kullanılabilir olduğunu ve içinde yeni kaynaklar oluşturup bunlara erişebildiğinizi denetleyin.
 2. **Kasa** > **Çoğaltılmış öğeler** bölümünde, yük devredilmiş VM’ye sağ tıklayın ve sonra **Yeniden Koru** seçeneğini belirleyin.
 
-   ![Yeniden korumaya sağ tıklayın](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+    ![Yeniden korumaya sağ tıklayın](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Koruma, birincil bölgeden yönünü zaten seçili olduğunu doğrulayın.
 3. **Kaynak grubu, Ağ, Depolama ve Kullanılabilirlik kümeleri** bilgilerini gözden geçirin. Yeni olarak işaretli tüm kaynaklar yeniden koruma işleminin bir parçası olarak oluşturulur.
@@ -71,3 +73,5 @@ VM’nin yük devretmesinden sonra, birincil bölgeye geri çoğaltması için V
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bulunmayı sonra [öğrenin nasıl](azure-to-azure-tutorial-failback.md) uygun olduğunda birincil bölgeye geri başarısız.
 - [Daha fazla bilgi edinin](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) yeniden koruma akışla ilgili.
+
+<!-- Update_Description: update meta properties, wording update -->

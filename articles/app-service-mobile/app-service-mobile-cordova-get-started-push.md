@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114356"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
 
@@ -240,11 +240,11 @@ Geçerli gerekli kitaplıkları listelenen [modul phonegap plugin push yükleme 
 
 Şimdi test anında iletme bildirimleri, uygulamayı çalıştırarak ve öğeleri Todoıtem tablosu ekleme yapabilirsiniz. Aynı arka uç kullanmakta olduğunuz sürece, aynı cihaza ikinci bir CİHAZDAN veya test edebilirsiniz. Cordova uygulamanızı Android platformunda aşağıdaki yollardan biriyle test edin:
 
-* *Fiziksel bir cihazda:* geliştirme bilgisayarınıza bir USB kablosu ile Android Cihazınızı ekleme.  Yerine **Google Android öykünücüsü**seçin **cihaz**. Visual Studio, cihaza uygulama dağıtır ve uygulamayı çalıştırır. Cihazdaki uygulama ile etkileşim kurabilir.
+* *Fiziksel bir cihaz üzerinde:* Android Cihazınızı geliştirme bilgisayarınıza bir USB kablosuyla iliştirin.  Yerine **Google Android öykünücüsü**seçin **cihaz**. Visual Studio, cihaza uygulama dağıtır ve uygulamayı çalıştırır. Cihazdaki uygulama ile etkileşim kurabilir.
 
   Ekran paylaşımı gibi uygulamalar [Mobizen] [ 20] Android uygulamaları geliştirmenize yardımcı olabilir. Mobizen Bilgisayarınızda bir web tarayıcısı Android ekrana yansıtıyor.
 
-* *Bir Android emulator'da:* bir öykünücü kullanılırken gerekli olan ek yapılandırma adımları vardır.
+* *Bir Android emulator'da:* Bir öykünücü kullanılırken gerekli olan ek yapılandırma adımları vardır.
 
     Android sanal cihazı (AVD) Yöneticisi'nde gösterildiği Google API'leri hedef olarak ayarlanmış olan bir sanal cihaza dağıttığınız emin olun.
 
@@ -384,7 +384,7 @@ Bir öğe eklendiğinde bir bildiriminin alındığını doğrulayın.
 
 Aşağıdaki Sdk'lardan kullanmayı öğrenin:
 
-* [Apache Cordova SDK'sı][15]
+* [Apache Cordova SDK][15]
 * [ASP.NET sunucusu SDK][1]
 * [Node.js sunucu SDK'sı][16]
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124975"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
@@ -120,7 +120,7 @@ Site Recovery altyapı Kurulumu ayarlamadan önce aşağıdaki etmenlere ölçme
 
 ## <a name="deploy-additional-process-servers"></a>Ek işlem sunucusu dağıtma
 
-Dağıtımınız kaynak için 200 makine ötesinde ölçeği veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek işlem sunucusu eklemeniz gerekir. İşlem Sunucusu hakkında bilgi edinmek için bkz: [ek işlem sunucularının kullanarak yeniden çalışma için ölçek](vmware-azure-set-up-process-server-scale.md). İşlem sunucusunu ayarladıktan sonra bunu kullanmak için kaynak makineleri geçirebilirsiniz.
+Dağıtımınız kaynak için 200 makine ötesinde ölçeği veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek işlem sunucusu eklemeniz gerekir. Ürün sağlamak 9.24 sürümünde geliştirdik [ürün Kılavuzu](vmware-azure-manage-process-server.md#process-server-selection-guidance) ne zaman bir genişleme işlem sunucusu kurma hakkında. [İşlem sunucusu kurma](vmware-azure-set-up-process-server-scale.md) yeni kaynak makineyi korumak için veya [Yük Dengelemesi](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Yeni işlem sunucusu kullanabilmek için makineleri geçirme
 

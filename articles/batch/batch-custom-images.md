@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752135"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764269"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makine havuzu oluşturmak için özel görüntü kullanma 
 
@@ -48,9 +48,9 @@ Senaryonuz için yapılandırılmış özel bir görüntü kullanarak çeşitli 
 
 Azure'da bir Azure VM'nin işletim sistemi ve veri disklerinin anlık görüntüleri, genelleştirilmiş Azure VM'yi yönetilen disklere sahip veya yüklediğiniz şirket genelleştirilmiş VHD'den yönetilen bir görüntü hazırlayabilirsiniz. Batch havuzları özel bir görüntü ile güvenilir bir şekilde ölçeklendirmek için yönetilen bir görüntü kullanarak bir oluşturmanızı öneririz *yalnızca* ilk yöntem: sanal makinenin disk anlık görüntülerini kullanarak. Bir VM'yi hazırlama, bir anlık görüntüsünü alın ve anlık görüntüden bir görüntü oluşturmak için aşağıdaki adımlara bakın. 
 
-### <a name="prepare-a-vm"></a>Bir VM hazırlama 
+### <a name="prepare-a-vm"></a>Bir VM hazırlama
 
-Görüntü için yeni bir VM oluşturuyorsanız, yönetilen bir görüntü için temel görüntü olarak Batch tarafından desteklenen Azure Market görüntüsü kullanmak ve ardından özelleştirin.  Azure Batch tarafından desteklenen Azure Market görüntü başvuruları listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/rest/api/batchservice/account/listnodeagentskus) işlemi. 
+Görüntü için yeni bir VM oluşturuyorsanız, Batch tarafından yönetilen bir görüntü için temel görüntü olarak desteklenen bir birinci taraf Azure Market görüntüsü kullanın. Yalnızca birinci taraf görüntülerini temel görüntü olarak kullanılabilir. Azure Batch tarafından desteklenen Azure Market görüntü başvuruları, tam bir listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/rest/api/batchservice/account/listnodeagentskus) işlemi.
 
 > [!NOTE]
 > Ek lisans ve satın alma koşulları, temel görüntü olarak içeren bir üçüncü taraf görüntüyü kullanamazsınız. Yönergeler için bu Market görüntüleri hakkında daha fazla bilgi için bkz [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ Anlık görüntüden yönetilen bir görüntü oluşturmak için Azure komut sat
 > [!NOTE]
 > Batch API'lerini kullanarak bir havuz oluşturuyorsanız, AAD kimlik doğrulaması için kullandığınız kimlik görüntü kaynağını izni olduğundan emin olun. Bkz: [Batch hizmeti çözümlerinin kimliğini Active Directory ile](batch-aad-auth.md).
 >
+> Yönetilen bir görüntü için kaynak havuzu ömrü boyunca mevcut olması gerekir. Temel alınan kaynak silinirse, havuz ölçeklendirilemiyor. 
 
 1. Azure portalında Batch hesabınıza gidin. Bu hesap, özel görüntü içeren bir kaynak grubu aynı abonelik ve aynı bölgede olması gerekir. 
 2. İçinde **ayarları** penceresi seçin sol taraftaki **havuzları** menü öğesi.
@@ -109,6 +110,16 @@ Ayrıca aşağıdakilere dikkat edin:
 - **Yeniden boyutlandırma zaman aşımı** : havuzunuz sabit içeriyorsa, 20-30 dakika gibi bir değere havuzunun resizeTimeout özelliği artırmaz düğüm sayısını otomatik ölçeklendirme. Havuzunuzun hedef boyutunu, zaman aşımı süresi içinde ulaşmaz, başka bir gerçekleştirmek [yeniden boyutlandırma işlemi](/rest/api/batchservice/pool/resize).
 
   300'den fazla işlem düğümlerinin bir havuzuyla planlıyorsanız, hedef boyutu ulaşmak için birden çok kez havuz yeniden boyutlandırma gerekebilir.
+
+## <a name="considerations-for-using-packer"></a>Packer kullanma konuları
+
+Doğrudan Packer ile yönetilen bir görüntü kaynak oluşturmaya yalnızca kullanıcı aboneliği modunda Batch hesapları ile yapılabilir. Batch hizmeti modu hesapları için bir VHD oluşturun ve sonra VHD için bir yönetilen bir görüntü kaynağı içeri aktarmak gerekir. Havuz ayırma moduna bağlı olarak (kullanıcı aboneliği ve Batch hizmeti), yönetilen bir görüntü kaynağı oluşturmak için adımları farklılık gösterir.
+
+Yönetilen bir görüntü oluşturmak için kullanılan kaynak yaşam süreleri özel görüntüyü başvuran havuzunun var olduğundan emin olun. Bunun yapılmaması havuzu ayırma hataları neden ve/veya hataları yeniden boyutlandırın. 
+
+Görüntüyü ya da temel alınan kaynak kaldırılırsa, hata benzer şekilde alabilirsiniz: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Bu durumda, temel alınan kaynak kaldırılmamıştır emin olun.
+
+Bir VM oluşturmak için Packer kullanma hakkında daha fazla bilgi için bkz. [Packer ile bir Linux görüntüsü oluşturun](../virtual-machines/linux/build-image-with-packer.md) veya [Packer ile Windows görüntü derleme](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

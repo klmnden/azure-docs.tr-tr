@@ -1,6 +1,6 @@
 ---
-title: AS2 iletilerini B2B Kurumsal tümleştirme - Azure Logic Apps | Microsoft Docs
-description: AS2 iletilerini paylaşma için Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme
+title: B2B Kurumsal tümleştirme - Azure Logic Apps için AS2 iletileri
+description: Azure Logic Apps Enterprise Integration Pack ile Exchange AS2 iletileri
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,170 +8,122 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.date: 06/08/2017
-ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872594"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760216"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2 iletilerini paylaşma için Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme
 
-AS2 iletilerini Azure Logic Apps için exchange önce bir AS2 sözleşmesi oluşturun ve bu sözleşme, tümleştirme hesabında depolamak gerekir. Bir AS2 sözleşmesi oluşturmak için adımlar aşağıda verilmiştir.
+AS2 iletileri Azure Logic Apps ile çalışmak için tetikleyiciler ve Eylemler AS2 iletişimi Yönetimi sağlayan AS2 Bağlayıcısı kullanabilirsiniz. Örneğin, güvenlik ve güvenilirlik ileti iletilirken kurmak için bu eylemleri kullanabilirsiniz:
 
-## <a name="before-you-start"></a>Başlamadan önce
+* [**AS2 iletisine kodlayın** eylem](#encode) şifreleme, dijital imza ve onayları ileti değerlendirme bildirimleri (MDN) aracılığıyla sağlamaya yönelik Yardımı takası destekler. Örneğin, bu eylem, AS2/HTTP üst bilgilerini uygular ve yapılandırıldığında bu görevleri gerçekleştirir:
 
-Gereksinim duyduğunuz öğeleri şu şekildedir:
+  * Giden iletileri imzalar.
+  * Giden iletileri şifreler.
+  * İleti sıkıştırır.
+  * Dosya adını arar iletir.
 
-* Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-accounts.md) zaten tanımlanmış ve Azure aboneliğinizle ilişkili
-* En az iki [iş ortakları](logic-apps-enterprise-integration-partners.md) , zaten tümleştirme hesabınızdaki tanımlanır ve AS2 niteleyicisi altında yapılandırılmış **iş kimlikleri**
+* [**AS2 iletisinin kodunu çözün** eylem](#decode) şifre çözme, dijital imza ve bildirimleri üzerinden ileti değerlendirme bildirimleri (MDN) sağlamak için. Örneğin, bu eylem, bu görevleri gerçekleştirir: 
 
-> [!NOTE]
-> Bir sözleşme oluşturduğunuzda sözleşme dosyasının içeriğini sözleşme türüyle eşleşmelidir.    
+  * AS2/HTTP üst bilgilerini işler.
+  * Özgün giden iletileri ile alınan çok Mdn'leri mutabık kılar.
+  * Güncelleştirir ve takası veritabanında kayıt ilişkilendirir.
+  * AS2 durum raporlama için kayıtları yazar.
+  * Çıktı yükü içeriği base64 ile kodlanmış olarak.
+  * Mdn'leri gerekli olup olmadığını belirler. AS2 üzerinde sözleşme belirler Mdn'leri zaman uyumlu veya zaman uyumsuz olması gerekir.
+  * AS2 anlaşmasına göre zaman uyumlu veya zaman uyumsuz Mdn'leri oluşturur.
+  * Özellikler ve bağıntı belirteçleri üzerinde Mdn'leri ayarlar.
 
-Çalıştırdıktan sonra [tümleştirme hesabı oluşturma](../logic-apps/logic-apps-enterprise-integration-accounts.md) ve [iş ortakları ekleme](logic-apps-enterprise-integration-partners.md), aşağıdaki adımları izleyerek bir AS2 sözleşmesi oluşturabilirsiniz.
+  Bu eylem ayrıca yapılandırıldığında bu görevleri gerçekleştirir:
 
-## <a name="create-an-as2-agreement"></a>Bir AS2 sözleşmesi oluşturma
+  * İmzayı doğrular.
+  * İletilerin şifresini çözer.
+  * İleti açar. 
+  * Denetleyin ve ileti kimliği yinelenmesine izin verme.
 
-1.  [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın.  
+Bu makalede, AS2 kodlama ekleme ve var olan bir mantıksal uygulama kod çözme eylemleri gösterir.
 
-2. Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
+## <a name="prerequisites"></a>Önkoşullar
 
-   ![Tümleştirme hesabı bulunamadı](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+* Azure aboneliği. Henüz Azure aboneliğiniz yoksa, [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
-   > [!TIP]
-   > Görmüyorsanız **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde, seçin **metin etiketlerini göster**.
+* AS2 bağlayıcı ve mantıksal uygulamanızın iş akışı başlatan tetikleyici olarak kullanmak istediğiniz mantıksal uygulaması. AS2 bağlayıcı yalnızca Eylemler, Tetikleyiciler değil sağlar. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-3. Altında **tümleştirme hesapları**, tümleştirme hesabı sözleşmesi oluşturmak istediğiniz yeri seçin.
+* Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , Azure aboneliğinizle ilişkili olan ve AS2 Bağlayıcısı'nı kullanmayı planladığınız burada mantıksal uygulamaya bağlandı. Hem, mantıksal uygulama ve tümleştirme hesabı aynı konumda veya Azure bölgesinde bulunmalıdır.
 
-   ![Tümleştirme hesabı sözleşmesi oluşturmak istediğiniz yeri seçin](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+* En az iki [ortaklar](../logic-apps/logic-apps-enterprise-integration-partners.md) zaten tümleştirme hesabınızdaki AS2 kimliği niteleyicisi kullanarak tanımladığınız olduğunu.
 
-4. Seçin **sözleşmeleri** Döşe. Anlaşmaları kutucuk yoksa kutucuk önce ekleyin.
+* AS2 Bağlayıcısı'nı kullanabilmeniz için önce bir AS2 oluşturmalısınız [sözleşmesi](../logic-apps/logic-apps-enterprise-integration-agreements.md) ticaret iş ortakları ve deposu arasındaki bu, tümleştirme hesabındaki sözleşmeyi.
 
-    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+* Kullanırsanız [Azure anahtar kasası](../key-vault/key-vault-overview.md) kasa anahtarlarınızı izin vermek için sertifika yönetimi, denetleyin **şifrele** ve **şifresini** operations. Aksi takdirde, kodlama ve kod çözme eylemleri başarısız.
 
-5. Altında **sözleşmeleri**, seçin **Ekle**.
+  Azure portalında, anahtar Kasası'na gidin, kasa anahtarının görüntülemek **işlemlerine izin**, doğrulayın **şifrele** ve **şifresini** operations seçilir.
 
-    !["Ekle" öğesini seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+  ![Anahtar kasası işlemleri denetleyin](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
-6. Altında **Ekle**, girin bir **adı** sözleşmenize için. İçin **sözleşme türü**seçin **AS2**. Seçin **konak iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenize için.
+<a name="encode"></a>
 
-    ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+## <a name="encode-as2-messages"></a>AS2 iletilerini kodlar
 
-    | Özellik | Açıklama |
-    | --- | --- |
-    | Ad |Anlaşma adı |
-    | Sözleşme Türü | AS2 olmalıdır |
-    | Konak İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konak iş ortağı sözleşmesi yapılandıran kuruluşu temsil eder. |
-    | Konak Kimliği |Konak iş ortağı için bir tanımlayıcı |
-    | Konuk İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı, konak iş ortağı iş yapmakta kuruluşu temsil eder. |
-    | Konuk Kimliği |Konuk iş ortağı için bir tanımlayıcı |
-    | Ayarları Al |Bu özellikler, bir anlaşma tarafından alınan tüm iletileri için geçerlidir. |
-    | Gönderme Ayarları |Bu özellikler, bir anlaşma tarafından gönderilen tüm iletiler için geçerlidir. |
+1. Henüz kaydolmadıysanız, [Azure portalında](https://portal.azure.com), mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Nasıl iletileri, anlaşma tanıtıcıları alınan yapılandırma
+1. Tasarımcısı'nda, mantıksal uygulamanızın yeni bir eylem ekleyin. 
 
-Sözleşme özelliklerini ayarladıysanız, işbu sözleşme nasıl tanımlar ve işbu sözleşme aracılığıyla iş ortağınız alınan gelen iletileri işleyen yapılandırabilirsiniz.
+1. Altında **eylem seçin** ve arama kutusunda **tüm**. Arama kutusuna "as2 kodlama" girin ve şu eylemi seçin: **AS2 iletisine kodlayın**.
 
-1.  Altında **Ekle**seçin **alma ayarı**.
-Sizinle iletiler birbiriyle değiştirir iş ortaklarıyla sözleşmenize göre bu özelliklerini yapılandırın. Özellik açıklamaları için bu bölümdeki tabloya bakın.
+   !["Encode AS2 iletisi" seçin](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-    !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+1. Mevcut bir bağlantıyı tümleştirme hesabınız yoksa, artık bu bağlantıyı oluşturmak için istenir. Bağlantınızı adlandırın, bağlanma ve istediğiniz tümleştirme hesabı seçin **Oluştur**.
 
-2. İsteğe bağlı olarak, gelen iletileri özelliklerini seçerek geçersiz kılabilirsiniz **ileti özelliklerini geçersiz kılma**.
+   ![Tümleştirme hesabına bağlantı oluşturma](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
+ 
+1. Artık bu özellikler için bilgileri sağlayın:
 
-3. İmzalanacak gelen tüm iletileri zorunlu kılmak için seçin **ileti imzalanmasını**. Gelen **sertifika** listesinde, var olan bir seçin [Konuk iş ortağı ortak sertifika](../logic-apps/logic-apps-enterprise-integration-certificates.md) iletileri imzayı doğrulamak için. Veya, yoksa, bir sertifika oluşturun.
+   | Özellik | Açıklama |
+   |----------|-------------|
+   | **AS2-gelen** | AS2 sözleşmenize tarafından belirtilen ileti gönderen tanımlayıcısı |
+   | **AS2-için** | AS2 sözleşmenize tarafından belirtilen ileti alıcı tanımlayıcısı |
+   | **Gövde** | İleti yükü |
+   |||
 
-4.  Şifrelenmiş gelen tüm iletileri zorunlu kılmak için seçin **ileti şifrelenir**. Gelen **sertifika** listesinde, var olan bir seçin [konak iş ortağı özel sertifika](../logic-apps/logic-apps-enterprise-integration-certificates.md) gelen iletilerin şifresini çözmek için. Veya, yoksa, bir sertifika oluşturun.
+   Örneğin:
 
-5. Sıkıştırılacak iletileri zorunlu kılmak için seçin **iletisi sıkıştırılmış**.
+   ![İleti kodlama özellikleri](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
-6. Alınan iletiler için (MDN) zaman uyumlu ileti değerlendirme bildirim göndermek için seçin **MDN Gönder**.
+<a name="decode"></a>
 
-7. İmzalı Mdn'leri alınan iletileri göndermek için seçin **imzalı MDN Gönder**.
+## <a name="decode-as2-messages"></a>AS2 iletilerini kodunu çözme
 
-8. Alınan iletiler için zaman uyumsuz Mdn'leri göndermek için seçin **zaman uyumsuz MDN Gönder**.
+1. Henüz kaydolmadıysanız, [Azure portalında](https://portal.azure.com), mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-9. Bitirdikten sonra seçerek ayarlarınızı kaydettiğinizden emin olun **Tamam**.
+1. Tasarımcısı'nda, mantıksal uygulamanızın yeni bir eylem ekleyin. 
 
-Artık, anlaşmanız seçili ayarlarınıza uygun gelen iletileri işlemek hazırdır.
+1. Altında **eylem seçin** ve arama kutusunda **tüm**. Arama kutusuna "as2 kod çözme" girin ve şu eylemi seçin: **AS2 iletisinin kodunu çözün**
 
-| Özellik | Açıklama |
-| --- | --- |
-| İleti özelliklerini geçersiz kıl |Alınan iletilerin özelliklerinde kılınabileceğini belirtir. |
-| İletinin imzalanmış olması gerekir |İletileri dijital olarak imzalanmasını gerektirir. Konuk iş ortağı ortak sertifika imza doğrulaması için yapılandırın.  |
-| İletinin şifrelenmiş olması gerekir |İletileri şifrelenmesini gerektirir. Olmayan şifrelenmiş iletileri reddedilir. İletilerin şifresini çözmek için konak iş ortağı özel sertifika yapılandırın.  |
-| İletinin sıkıştırılmış olması gerekir |Sıkıştırılacak iletileri gerektirir. İletileri olmayan sıkıştırılmış reddedilir. |
-| MDN Metni |İletiyi gönderenin için gönderilecek varsayılan ileti değerlendirme bildirim (MDN). |
-| MDN gönder |Gönderilecek Mdn'leri gerektirir. |
-| İmzalı MDN gönder |Mdn'leri imzalanmasını gerektirir. |
-| MIC Algoritması |İletileri imzalamak için kullanılacak algoritmayı seçin. |
-| Zaman uyumsuz MDN gönder | Zaman uyumsuz olarak gönderilecek iletilerin gerektirir. |
-| URL'si | URL'yi Mdn'leri gönderileceği adresi belirtin. |
+   !["Decode AS2 message" seçin](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-## <a name="configure-how-your-agreement-sends-messages"></a>Sözleşmenize iletileri nasıl göndereceğini yapılandırın
+1. Mevcut bir bağlantıyı tümleştirme hesabınız yoksa, artık bu bağlantıyı oluşturmak için istenir. Bağlantınızı adlandırın, bağlanma ve istediğiniz tümleştirme hesabı seçin **Oluştur**.
 
-İşbu sözleşme nasıl tanımlar ve işbu sözleşme aracılığıyla iş ortaklarınızla göndermek giden iletileri işleyen yapılandırabilirsiniz.
+   ![Tümleştirme hesabına bağlantı oluşturma](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
-1.  Altında **Ekle**seçin **gönderme ayarları**.
-Sizinle iletiler birbiriyle değiştirir iş ortaklarıyla sözleşmenize göre bu özelliklerini yapılandırın. Özellik açıklamaları için bu bölümdeki tabloya bakın.
+1. İçin **gövdesi** ve **üstbilgileri**, önceki tetikleyici veya eylemi çıkışları bu değerleri seçin.
 
-    !["Gönderme ayarları" özelliklerini ayarlama](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+   Örneğin, mantıksal uygulamanızı istek tetikleyicisi aracılığıyla iletileri alan varsayalım. Bu tetikleyiciyi çıkışları seçebilirsiniz.
 
-2. Ortağınıza imzalı ileti göndermek için seçin **ileti imzalamayı etkinleştir**. Buna, iletileri imzalamak için **MIC algoritması** listesinden *konak iş ortağı özel sertifika MIC algoritması*. Ve **sertifika** listesinde, var olan bir seçin [konak iş ortağı özel sertifika](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+   ![Gövde ve üstbilgileri, istek çıkışları seçin](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
 
-3. İş ortağı şifrelenmiş iletileri göndermek için şunu seçin **ileti şifrelemeyi etkinleştir**. İçinde iletileri şifrelemek için **şifreleme algoritması** listesinden *Konuk iş ortağı ortak sertifika algoritması*.
-Ve **sertifika** listesinde, var olan bir seçin [Konuk iş ortağı ortak sertifika](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+## <a name="sample"></a>Örnek
 
-4. İleti sıkıştırılacak seçin **ileti sıkıştırmayı etkinleştir**.
+Bir tam olarak işlevsel bir mantıksal uygulama ve örnek AS2 senaryo dağıtmak denemek için bkz [AS2 mantıksal uygulama şablonunu ve senaryo](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-5. HTTP content-type üstbilgisi tek bir satıra unfold seçin **Unfold HTTP üstbilgileri**.
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-6. Zaman uyumlu Mdn'leri gönderilen iletileri almak için seçin **MDN iste**.
-
-7. İmzalı Mdn'leri gönderilen iletileri almak için seçin **imzalı MDN isteği**.
-
-8. Zaman uyumsuz Mdn'leri gönderilen iletileri almak için seçin **isteği zaman uyumsuz MDN**. Bu seçeneği belirlerseniz Mdn'leri gönderileceği URL'sini girin.
-
-9. İnkar giriş zorunlu kılmak için seçin **etkinleştirme NRR**.  
-
-10. MIC veya imzalama AS2 iletisinin veya MDN'nin giden üst bilgilerinde kullanılacak algoritması biçimi belirtmek için seçin **SHA2 algoritması biçimi**.  
-
-11. Bitirdikten sonra seçerek ayarlarınızı kaydettiğinizden emin olun **Tamam**.
-
-Artık, anlaşmanız seçili ayarlarınıza uygun giden iletileri işlemek hazırdır.
-
-| Özellik | Açıklama |
-| --- | --- |
-| İleti imzalamayı etkinleştir |İmzalanacak anlaşmamdan gönderilen tüm iletiler gerektirir. |
-| MIC Algoritması |İletileri imzalamak için kullanılacak algoritmayı. Konak iş ortağı özel sertifika MIC algoritması, iletileri imzalamak için yapılandırır. |
-| Sertifika |İletileri imzalamak için kullanılacak sertifikayı seçin. İletileri imzalamak için konak iş ortağı özel sertifikasını yapılandırır. |
-| İleti şifrelemeyi etkinleştir |Bu anlaşmamdan gönderilen tüm iletilerin şifreleme gerektirir. Konuk iş ortağı ortak sertifika algoritması'iletileri şifrelemek için yapılandırır. |
-| Şifreleme Algoritması |İleti şifreleme için kullanılacak şifreleme algoritması. İletileri şifrelemek için konuk iş ortağı ortak sertifikayı yapılandırır. |
-| Sertifika |İletileri şifrelemek için kullanılacak sertifika. İletileri şifrelemek için konuk iş ortağı özel sertifikasını yapılandırır. |
-| İleti sıkıştırmayı etkinleştir |Bu anlaşmamdan gönderilen tüm iletilerin sıkıştırma gerektirir. |
-| HTTP üst bilgilerini aç |HTTP content-type üstbilgisi tek bir satır üzerine yerleştirir. |
-| MDN iste |Bu anlaşmamdan gönderilen tüm iletiler için bir MDN gerektirir. |
-| İmzalı MDN iste |İşbu sözleşme ile imzalanması için gönderilen tüm Mdn'leri gerektirir. |
-| Zaman uyumsuz MDN iste |Zaman uyumsuz Mdn'leri, işbu sözleşme gönderilmesini gerektirir. |
-| URL'si |URL'yi Mdn'leri gönderileceği adresi belirtin. |
-| NRR'yi etkinleştir |İnkar edilemez makbuz (NRR) kanıt sağlayan bir iletişim özniteliği, gerektiren veri olarak ele alınan. |
-| SHA2 Algoritması biçimi |MIC veya imzalama AS2 iletisinin veya MDN'nin giden üst bilgilerinde kullanılacak algoritması biçimi seçin |
-
-## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenize Bul
-
-1. Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** sayfasında **Tamam** sözleşmenize oluşturma işlemini tamamladıktan ve tümleştirme hesabınıza döndürmek için.
-
-    Yeni eklenen sözleşmenize artık görünür, **sözleşmeleri** listesi.
-
-2. Tümleştirme hesabı genel bakış sözleşmelerinizi da görüntüleyebilirsiniz. Tümleştirme hesabı menüsünde **genel bakış**, ardından **sözleşmeleri** Döşe. 
-
-   ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
-
-## <a name="view-the-swagger"></a>Swagger görüntüleyin
-Bkz: [ayrıntıları swagger](/connectors/as2/). 
+Tetikleyiciler ve Eylemler sınırları, bağlayıcının Openapı'nin açıklandığı gibi teknik ayrıntılar için (önceki adıyla Swagger) dosyası, bkz: [bağlayıcının başvuru sayfası](/connectors/as2/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Enterprise Integration Pack hakkında daha fazla bilgi](logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")  
+
+Daha fazla bilgi edinin [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

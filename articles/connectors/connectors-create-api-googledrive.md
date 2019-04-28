@@ -1,6 +1,6 @@
 ---
-title: Google sürücüsüne - Azure mantıksal uygulamaları bağlanacak | Microsoft Docs
-description: Google sürücü REST API'leri ve Azure Logic Apps ile dosyaları oluşturmak ve yönetmek
+title: Google Drive'a - Azure Logic Apps'i bağlama | Microsoft Docs
+description: Oluşturun ve dosyalarını Google Drive REST API'leri ve Azure Logic Apps ile yönetme
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,33 +11,33 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 4994687afbdd23f0265138cd1d4eff53bb47c163
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43bd5248f1bb80c71a85935c585deac6152be78b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105098"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Google sürücü Bağlayıcısı ile çalışmaya başlama
-Dosyaları, get satırları ve daha fazlasını oluşturmak için Google sürücüye bağlanın. Google sürücüyle şunları yapabilirsiniz: 
+# <a name="get-started-with-the-google-drive-connector"></a>Google Drive Bağlayıcısı ile çalışmaya başlama
+Dosyaları, satırları Al ve daha fazlasını oluşturmak için Google Drive'a bağlanın. Google Drive ile şunları yapabilirsiniz: 
 
-* İş akışınız aramanıza alma verileri temel alan oluşturun. 
-* Eylemler görüntüleri arama, Haberler ve daha fazla bilgi aramak için kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir video arayın ve akış bir Twitter video göndermek için Twitter kullanın.
+* Aramanızdan alma verileri temel alan, iş akışınızı oluşturun. 
+* Eylemler ve haber arama görüntülerini aramak için kullanın. Bu Eylemler, yanıt alın ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir video aramak ve Twitter akışındaki video göndermek için Twitter'i kullanın.
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Şimdi mantıksal uygulama oluşturmaya başlama, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-the-connection-to-google-drive"></a>Google sürücü bağlantısı oluşturma
-Bu bağlayıcı mantıksal uygulamalarınızı eklediğinizde, Google sürücüsüne bağlanacak şekilde mantıksal uygulamalar yetkilendirmeniz gerekir.
+## <a name="create-the-connection-to-google-drive"></a>Google Drive bağlantısı oluşturma
+Bu bağlayıcı için logic apps eklediğinizde, mantıksal uygulamalar, Google Drive'ınıza bağlanmak için yetkilendirilmesi gerekir.
 
 > [!INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
 > 
 > 
 
-Bağlantı oluşturduktan sonra klasör yolu veya dosya adı gibi Google sürücü özelliklerini girin. 
+Bağlantıyı oluşturduktan sonra Google Drive özellikleri gibi klasör yolu veya dosya adı girin. 
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/googledrive/).
+Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/googledrive/).
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+## <a name="more-connectors"></a>Daha fazla bağlayıcı
+Geri Git [API listesi](apis-list.md).

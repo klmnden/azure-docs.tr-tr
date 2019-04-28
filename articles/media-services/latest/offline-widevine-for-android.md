@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111962"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
 
@@ -44,8 +44,8 @@ Makaleyi de çevrimdışı Widevine korumalı içeriğini ilgili bazı sık soru
 Android cihazlar için Widevine DRM çevrimdışı uygulamadan önce gerekir:
 
 - Windows'un Widevine DRM kullanarak çevrimiçi içerik koruma için tanıtılan kavramları öğrenin. Bu, aşağıdaki belgeleri/samples ayrıntılı ele alınmıştır:
-    - [Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı](design-multi-drm-system-with-access-control.md)
-    - [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
+    - [Erişim denetimi ile çoklu DRM'ye sahip içerik koruma sistemi tasarlama](design-multi-drm-system-with-access-control.md)
+    - [DRM dinamik şifreleme ve lisans teslim hizmetini kullanma](protect-with-drm.md)
 - Kopya https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     Kodda değiştirmeniz gerekecektir [şifrele .NET kullanarak DRM ile](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) Widevine yapılandırmaları eklemek için.  

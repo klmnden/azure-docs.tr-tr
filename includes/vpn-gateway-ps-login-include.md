@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 188f70d17531a3a7da12444ce5f1c97385ea33bc
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.openlocfilehash: 853bd32cf3ea97571929d54fb7d3ba04bde16b81
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405873"
 ---
 Bu yapılandırmaya başlamadan önce Azure hesabınızda oturum açmanız gerekir. Cmdlet için Azure hesabınızda oturum açma kimlik bilgilerini ister. Oturum açtıktan sonra Azure PowerShell kullanabilmesi için hesap ayarlarınızı indirir. Daha fazla bilgi için [Windows PowerShell’i Resource Manager ile kullanma](../articles/powershell-azure-resource-manager.md) konusuna bakın.
 

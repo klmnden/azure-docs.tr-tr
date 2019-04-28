@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: b31530966d2c5ca9a3f82f3e74ba349e66053a83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478932"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics çıkış hata İlkesi
 Bu makalede, Azure Stream Analytics'te yapılandırılabilir ilkeleri işleme çıkış veri hatası açıklanır.

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115372"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -50,10 +50,13 @@ Canlı ölçümleri şu anda ASP.NET, ASP.NET Core, Azure işlevleri, Java ve No
 
 4. [Denetim kanalı güvenli](#secure-the-control-channel) , müşteri adları gibi hassas verileri filtrelerinizi kullanabilirsiniz.
 
+### <a name="nodejs"></a>Node.js
+
+Node.js ile canlı ölçümleri kullanma 1.30 veya SDK'sının büyük sürüme güncelleştirmeniz gerekir. Varsayılan olarak Canlı ölçümleri Node.js SDK'yı devre dışı bırakıldı. Etkinleştirmek için Canlı ölçüm eklemeniz `setSendLiveMetrics(true)` için [yapılandırma yöntemleri](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) SDK'sını başlatmak gibi.
+
 ### <a name="no-data-check-your-server-firewall"></a>Veri yok mu? Sunucu güvenlik duvarınızdan denetleyin
 
 Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sunucularınızı Güvenlik Duvarı'nda açıktır. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Canlı ölçümler Stream ölçüm Gezgini ve analiz farkı nedir?
 
@@ -65,7 +68,6 @@ Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../
 |Ücretsiz|Canlı Stream veri için ücret alınmaz|Konusu [fiyatlandırması](../../azure-monitor/app/pricing.md)
 |Örnekleme|Tüm seçili ölçümlerini ve sayaçlarını aktarılır. Hataları ve Yığın izlemeleri örneklenir. TelemetryProcessors uygulanmaz.|Olayları olabilir [örneklenir](../../azure-monitor/app/api-filtering-sampling.md)|
 |Denetim kanalı|Filtre denetimi sinyalleri için SDK'sı gönderilir. Bu kanal güvenli öneririz.|Portala tek yönlü iletişim|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Seçin ve ölçümlerinizi Filtrele
 

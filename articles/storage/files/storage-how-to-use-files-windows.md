@@ -2,18 +2,18 @@
 title: Azure dosya paylaşımını Windows'da kullanma | Microsoft Docs
 description: Azure dosya paylaşımını Windows ve Windows Server ile kullanmayı öğrenin.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048852"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764381"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -237,13 +237,13 @@ Aşağıdaki tabloda tüm Windows sürümlerinde SMB 1 protokolünün durumu hak
 | Windows Server 2019 (önizleme)             | Devre dışı             | Windows özelliği ile kaldırma |
 | Windows Server, sürüm 1709+            | Devre dışı             | Windows özelliği ile kaldırma |
 | Windows 10, sürüm 1709+                | Devre dışı             | Windows özelliği ile kaldırma |
-| Windows Server 2016                       | Etkin              | Windows özelliği ile kaldırma |
-| Windows 10, sürüm 1507, 1607 ve 1703 | Etkin              | Windows özelliği ile kaldırma |
-| Windows Server 2012 R2                    | Etkin              | Windows özelliği ile kaldırma | 
-| Windows 8.1                               | Etkin              | Windows özelliği ile kaldırma | 
-| Windows Server 2012                       | Etkin              | Kayıt defteri ile devre dışı bırakma       | 
-| Windows Server 2008 R2                    | Etkin              | Kayıt defteri ile devre dışı bırakma       |
-| Windows 7                                 | Etkin              | Kayıt defteri ile devre dışı bırakma       | 
+| Windows Server 2016                       | Enabled              | Windows özelliği ile kaldırma |
+| Windows 10, sürüm 1507, 1607 ve 1703 | Enabled              | Windows özelliği ile kaldırma |
+| Windows Server 2012 R2                    | Enabled              | Windows özelliği ile kaldırma | 
+| Windows 8.1                               | Enabled              | Windows özelliği ile kaldırma | 
+| Windows Server 2012                       | Enabled              | Kayıt defteri ile devre dışı bırakma       | 
+| Windows Server 2008 R2                    | Enabled              | Kayıt defteri ile devre dışı bırakma       |
+| Windows 7                                 | Enabled              | Kayıt defteri ile devre dışı bırakma       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1 kullanımını denetleme
 > Windows Server 2019 (önizleme), Windows Server yarı yıllık kanal (sürüm 1709 ve 1803), Windows Server 2016, Windows 10 (sürüm 1507, 1607, 1703, 1709 ve 1803), Windows Server 2012 R2 ve Windows 8.1 için geçerlidir

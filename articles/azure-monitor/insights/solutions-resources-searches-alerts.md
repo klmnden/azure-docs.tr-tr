@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8590c9ef89e68a823beefd7e74a894edd219359
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104842"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -120,11 +120,13 @@ Kayıtlı bir aramayı bir veya daha fazla zamanlama ayrı bir uyarı kuralı te
         }
     }
 Zamanlama kaynakların özellikleri aşağıdaki tabloda açıklanmıştır.
+
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | enabled       | Evet | Oluşturulduğunda uyarının etkinleştirilip etkinleştirilmeyeceğini belirtir. |
 | interval      | Evet | Ne sıklıkla sorgu dakikalar içinde çalışır. |
 | QueryTimeSpan | Evet | Sürenin sonuçları değerlendirileceği üzerinden dakika cinsinden uzunluğu. |
+
 Böylece zamanlama önce oluşturulan zamanlama kaynak kayıtlı arama üzerinde bağlı olmalıdır.
 > [!NOTE]
 > Zamanlama adı verilen bir çalışma alanında benzersiz olmalıdır; farklı kayıtlı aramalar ile ilişkili olsalar bile iki zamanlamaları aynı Kimliğe sahip olamaz. Ayrıca tüm kayıtlı aramalar, zamanlamalar ve günlük analizi API'si ile oluşturulan eylem adı küçük harfle olması gerekir.
@@ -174,7 +176,7 @@ Uyarı eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanmışt�
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Type | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
+| Tür | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
 | Ad | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
 | Açıklama | Hayır | Uyarının isteğe bağlı bir açıklama. |
 | Severity | Evet | Önem derecesi uyarı kaydını aşağıdaki değerleri:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
@@ -231,9 +233,9 @@ Her zamanlama varsa **uyarı** eylem. Bu, uyarı ve isteğe bağlı olarak bildi
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Alıcılar | Evet | Virgülle ayrılmış bir uyarı aşağıdaki örnekte olduğu gibi oluşturulduğunda, bildirim göndermek için e-posta adresleri listesi.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Özne | Evet | E-posta konu satırı. |
-| Ek | Hayır | Ekleri şu anda desteklenmemektedir. Bu öğe dahil ise, olmalıdır **hiçbiri**. |
+| Recipients | Evet | Virgülle ayrılmış bir uyarı aşağıdaki örnekte olduğu gibi oluşturulduğunda, bildirim göndermek için e-posta adresleri listesi.<br><br>**["recipient1\@contoso.com", "recipient2\@contoso.com"]** |
+| Subject | Evet | E-posta konu satırı. |
+| Attachment | Hayır | Ekleri şu anda desteklenmemektedir. Bu öğe dahil ise, olmalıdır **hiçbiri**. |
 
 ##### <a name="remediation"></a>Düzeltme
 Bu bölüm isteğe bağlıdır ve uyarıya yanıt olarak başlatılması için bir runbook istiyorsanız bunu ekleyin. 
@@ -242,7 +244,7 @@ Bu bölüm isteğe bağlıdır ve uyarıya yanıt olarak başlatılması için b
 |:--|:--|:--|
 | RunbookName | Evet | Başlamak için runbook'un adı. |
 | WebhookUri | Evet | Runbook için bir Web kancası URI'si. |
-| Süre Sonu | Hayır | Tarih ve saat, düzeltme süresi dolar. |
+| Expiry | Hayır | Tarih ve saat, düzeltme süresi dolar. |
 
 ##### <a name="webhook-actions"></a>Web kancası eylemleri
 
@@ -266,6 +268,7 @@ Uyarınız bir Web kancasını çağıracak sonra türünde bir eylem kaynak ger
       }
     }
 Web kancası eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanmıştır.
+
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | type | Evet | Eylem türü. Bu **Web kancası** Web kancası işlemleri için. |

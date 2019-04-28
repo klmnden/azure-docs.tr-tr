@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121510"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -135,7 +135,7 @@ Dahil edilen raporlar aşağıdaki tabloda listelenmiştir:
 |Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri|   Bireysel kullanıcı etkinliği||
 |Anormal oturum açma etkinliği gösteren kullanıcılar| Grup etkinlik raporu||
 ||Parola sıfırlama kayıt Etkinlik Raporu||
-||Parola sıfırlama etkinliği|||
+||Parola sıfırlama etkinliği||
 
 Bu raporlardaki verileri güvenlik bilgileri ve Olay yönetimi (SIEM) sistemleri, Denetim ve iş zekası araçları gibi uygulamalarınız için yararlı olabilir. Azure AD raporlama API'leri, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Bu çağrı [API'leri](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) çeşitli programlama dilleri ve araçları.
 
@@ -230,15 +230,15 @@ Yukarıda açıklanan günlük özelliklere ek olarak Ağ İzleyicisi şu anda a
 
 - [Değişken paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Bir sanal makine içine ve dışına paket verilerini yakalar. Gelişmiş filtreleme seçenekleri ve zaman ve boyut sınırlaması ayarları gibi ince ayar yapma denetimleri yönlülük sağlar. Paket verileri blob depolama veya yerel diskte depolanan *.cap* dosya biçimi.
 
-* [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Bir paket izin verilip verilmediğini denetler akış bilgileri 5-tuple paket parametrelere (diğer bir deyişle, hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) bağlı. Paket bir güvenlik grubu tarafından reddedilirse, kural ve paketi reddeden Grup döndürülür.
+- [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Bir paket izin verilip verilmediğini denetler akış bilgileri 5-tuple paket parametrelere (diğer bir deyişle, hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) bağlı. Paket bir güvenlik grubu tarafından reddedilirse, kural ve paketi reddeden Grup döndürülür.
 
-* [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Yapılandırılmış tüm kullanıcı tanımlı yollar tanılayabilirsiniz. böylece Azure ağ dokusunda yönlendirilen paketler için sonraki atlama belirler.
+- [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Yapılandırılmış tüm kullanıcı tanımlı yollar tanılayabilirsiniz. böylece Azure ağ dokusunda yönlendirilen paketler için sonraki atlama belirler.
 
-* [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır.
+- [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır.
 
-* [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Sanal ağ ağ geçitleriniz ve bağlantılarınızı gidermenize yardımcı olur.
+- [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Sanal ağ ağ geçitleriniz ve bağlantılarınızı gidermenize yardımcı olur.
 
-* [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
+- [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -276,17 +276,17 @@ Aşağıdaki tabloda, listeler ve tümleştirme senaryoları açıklanmıştır:
 
 | Tümleştirme senaryosu | Açıklama |
 | --------------------- | :---------- |
-|[Uygulama Haritası](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.||
-|[Tanılama verileri örneği için arama](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.||
-|[Toplu veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.||
-|[Panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.||
-|[Canlı ölçümleri Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.||
-|[Analizler](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.||
-|[Otomatik ve el ile uyarılar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerini uyum ve olduğunda ve normal desenin dışında bir şey tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.||
-|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Koddaki performans verilerini görüntüleyin. Yığın izlemelerinden koda gidin.||
-|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.||
-|[REST API](https://dev.applicationinsights.io/)|Ölçümleriniz ve ham verileriniz üzerinde sorgu çalıştırmak için kod yazın.||
-|[Sürekli dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Depolama için ham verileri dışarı aktarma geldiğinde toplu.||
+|[Uygulama Haritası](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.|
+|[Tanılama verileri örneği için arama](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.|
+|[Toplu veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.|
+|[Panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.|
+|[Canlı ölçümleri Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.|
+|[Analizler](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.|
+|[Otomatik ve el ile uyarılar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerini uyum ve olduğunda ve normal desenin dışında bir şey tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.|
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Koddaki performans verilerini görüntüleyin. Yığın izlemelerinden koda gidin.|
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.|
+|[REST API](https://dev.applicationinsights.io/)|Ölçümleriniz ve ham verileriniz üzerinde sorgu çalıştırmak için kod yazın.|
+|[Sürekli dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Depolama için ham verileri dışarı aktarma geldiğinde toplu.|
 
 ### <a name="azure-security-center-alerts"></a>Azure Güvenlik Merkezi uyarıları
 
@@ -304,7 +304,7 @@ Güvenlik Merkezi, imza tabanlı yaklaşımların ötesine geçen gelişmiş gü
 
 Birçok güvenlik işlemleri ve olay yanıt ekiplerinin bir SIEM çözüm üzerinde güvenlik uyarılarının ve önceliklendirmek için başlangıç noktası olarak kullanır. Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarıları ve sanal makine, Azure tanılama ve Denetim günlükleri, Azure İzleyici günlüklerine veya neredeyse gerçek zamanlı SIEM çözüm tarafından toplanan güvenlik olaylarını eşitleyebilirsiniz.
 
-## <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+## <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 Azure İzleyici günlüklerine, azure'da bulut kaynaklar tarafından oluşturulan ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olan bir hizmettir. Bu işlem, tüm iş yüklerinizde ve sunucular, fiziksel konumlarından milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı Öngörüler sağlar.
 
@@ -358,7 +358,7 @@ Bağlı kaynaklar, bilgisayarları ve Azure İzleyici günlüklerine tarafından
 ||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtualMachines||||
 |Web sunucu grupları|Microsoft.Web/<br>serverfarms||   Tanılama
 |Web Siteleri|  Microsoft.Web/<br>siteler ||      Tanılama|    [Daha fazla bilgi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>Site /<br>yuvaları|||||
+||Microsoft.Web/<br>Site /<br>yuvaları||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Şirket içi SIEM sistemlerine sahip günlük tümleştirmesi

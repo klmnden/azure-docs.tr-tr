@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 64e4ea6e9bcb9fdbf2d2d7794d3ab8f6ff87bfa1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128660"
 ---
-# <a name="approvals-page"></a>Onay sayfası
+# <a name="approvals-page"></a>Onaylar sayfası
 
 [ **Onaylar** ](https://cloudpartner.azure.com/#approvals) sayfasına onaylanan teklifleri, teklif adı, yayımcı, Teklif türü ve geçerli eylem dahil olmak üzere bir listesini sağlar.  Onaylanan teklifler zaten yayımlandı veya sürecinde durdurulmasını yayımlanan.  Sonuçları bir sütuna göre sıralanmış veya belirtilen bir dizenin üzerinde filtre.  Sayfanın altındaki durum alanında toplama ve sayfa sayısını görüntüler ve liste sayfalarının arasında gitmenizi sağlar.  Bu teklif, bu listeden bir teklif ilişkili teklif Düzenleyicisi'nde görüntülenir. 
 

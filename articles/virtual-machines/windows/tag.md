@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: b6c63a868b7697522c708a4db483395a537a82cf
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: eef4681626c5e0aa0c5d8a67dbd0d19bcfd7121e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108314"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure'da Windows sanal makine etiketleme
 Bu makalede Resource Manager dağıtım modeliyle Azure'da Windows sanal makine etiketleme için farklı yollar açıklanmaktadır. Etiketler doğrudan bir kaynak veya kaynak grubu üzerinde yerleştirilen kullanıcı tanımlı anahtar/değer çiftleridir. Azure, şu anda kaynak ve kaynak grubu başına en fazla 15 etiket destekler. Etiket oluşturma sırasında bir kaynakta yerleştirilen veya var olan bir kaynağı eklendi. Etiketleri yalnızca Resource Manager dağıtım modeliyle oluşturulan kaynakları için desteklendiğini unutmayın. Linux sanal makinesi etiketlemek istiyorsanız, bkz. [Azure'da bir Linux sanal makinesi etiketleme](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -30,7 +30,7 @@ Bu makalede Resource Manager dağıtım modeliyle Azure'da Windows sanal makine 
 ## <a name="tagging-with-powershell"></a>PowerShell ile etiketleme
 Oluşturulacak, ekleyin ve ayarlamak için gerekir, PowerShell aracılığıyla etiketleri silme, [PowerShell ortamında Azure Resource Manager ile][PowerShell environment with Azure Resource Manager]. Kurulumu tamamladıktan sonra işlem, ağ ve depolama kaynakları oluşturma veya PowerShell kaynak oluşturulduktan sonra etiketleri yerleştirebilirsiniz. Bu makalede, sanal makineler üzerinde yerleştirilen görüntüleme veya düzenleme etiketleri hakkında odaklanacaktır.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 İlk olarak, sanal makinesine gidin `Get-AzVM` cmdlet'i.
 

@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120135"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile B2B iletilerini izleme
 
@@ -153,7 +153,7 @@ Her bir AS2 iletisi için özellik açıklamaları aşağıda verilmiştir.
 | Logic App | Mantıksal uygulama AS2 eylemleri nerede ayarlanır |
 | Durum | AS2 ileti durumu <br>Başarı alınan = ya da geçerli bir AS2 iletisi gönderdi. Hiçbir MDN ayarlayın. <br>Başarı alınan = ya da geçerli bir AS2 iletisi gönderdi. MDN ayarlama ve alınan veya MDN gönderilir. <br>Başarısız = geçersiz bir AS2 iletisi alındı. Hiçbir MDN ayarlayın. <br>Bekleyen alınan = ya da geçerli bir AS2 iletisi gönderdi. MDN ayarlanır ve MDN beklenmektedir. |
 | ACK | MDN iletisini durumu <br>Kabul edilen bir pozitif MDN gönderilen veya alınan =. <br>Bekleyen bir MDN göndermek veya almak için bekliyor =. <br>Reddedilen bir negatif MDN gönderilen veya alınan =. <br>Gerekli değil = MDN ayarlanmadı anlaşmasında. |
-| Yön | AS2 ileti yönü |
+| Direction | AS2 ileti yönü |
 | Bağıntı Kimliği | Tüm mantıksal uygulama eylemleri ve Tetikleyicileri karşılık gelen kimliği |
 | İleti Kimliği | AS2 iletisi başlıklarından AS2 ileti kimliği |
 | Zaman damgası | Ne zaman AS2 eylem ileti işleme süresi |
@@ -184,7 +184,7 @@ Her X12 için özellik açıklamaları İşte ileti.
 | Logic App | Mantıksal uygulama yeri eylemleri ayarlandığı X12 |
 | Durum | X12 durumu iletisi <br>Başarı alınan = ya da geçerli X12 gönderilen ileti. İşlevsel broker'dan bildirim alınmadı ayarlayın. <br>Başarı alınan = ya da geçerli X12 gönderilen ileti. İşlevsel ack ayarlama ve alınan ya da işlevsel bir bildirim gönderilir. <br>Başarısız alınan = ya da geçersiz x X12 gönderilen ileti. <br>Bekleyen alınan = ya da geçerli X12 gönderilen ileti. İşlevsel ack ayarlanır ve işlev bir onayı bekleniyor. |
 | ACK | İşlevsel Ack (997) durumu <br>Kabul edilen pozitif bir işlev bildirim gönderilen veya alınan = <br>Reddedilen negatif bir işlev bildirim gönderilen veya alınan = <br>Bekleyen = işlevsel bir onayı bekleniyor ancak alınmadı. <br>İşlevsel bir ack = oluşturulan ancak gönderilemiyor iş ortağına. <br>Gerekli değil işlevsel = ack ayarlı değil. |
-| Yön | X12 ileti yönü |
+| Direction | X12 ileti yönü |
 | Bağıntı Kimliği | Tüm mantıksal uygulama eylemleri ve Tetikleyicileri karşılık gelen kimliği |
 | İleti türü | EDI X 12 iletisi türü |
 | ICN | Değişim denetim numarası X12 için ileti |
@@ -217,7 +217,7 @@ Her EDIFACT iletisi için özellik açıklamaları aşağıda verilmiştir.
 | Logic App | Mantıksal uygulama EDIFACT eylemleri nerede ayarlanır |
 | Durum | EDIFACT ileti durumu <br>Başarı alınan = ya da geçerli bir EDIFACT iletisi gönderdi. İşlevsel broker'dan bildirim alınmadı ayarlayın. <br>Başarı alınan = ya da geçerli bir EDIFACT iletisi gönderdi. İşlevsel ack ayarlama ve alınan ya da işlevsel bir bildirim gönderilir. <br>Başarısız geçersiz EDIFACT iletisine gönderilen veya alınan = <br>Bekleyen alınan = ya da geçerli bir EDIFACT iletisi gönderdi. İşlevsel ack ayarlanır ve işlev bir onayı bekleniyor. |
 | ACK | İşlevsel Ack (997) durumu <br>Kabul edilen pozitif bir işlev bildirim gönderilen veya alınan = <br>Reddedilen negatif bir işlev bildirim gönderilen veya alınan = <br>Bekleyen = işlevsel bir onayı bekleniyor ancak alınmadı. <br>İşlevsel bir ack = oluşturulan ancak gönderilemiyor iş ortağına. <br>Gerekli değil = işlevsel Ack ayarlı değil. |
-| Yön | EDIFACT ileti yönü |
+| Direction | EDIFACT ileti yönü |
 | Bağıntı Kimliği | Tüm mantıksal uygulama eylemleri ve Tetikleyicileri karşılık gelen kimliği |
 | İleti türü | EDIFACT iletisi türü |
 | ICN | EDIFACT iletisi için değişim denetim numarası |

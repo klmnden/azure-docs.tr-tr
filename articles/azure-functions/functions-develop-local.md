@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 0f1d4fdbb9e5d2b05b8ec43c1393951a4c6a87b8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614001"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod ve Azure işlevleri yerel olarak test etme
 
@@ -25,7 +25,7 @@ Geliştirme ve Azure işlevleri'nde test ederken [Azure portal], birçok gelişt
 
 İçinde geliştirdiğiniz işlevleri yerel bilgisayarınızda bir şekilde bağlıdır, [dil](supported-languages.md) ve araç tercihleri. Aşağıdaki tabloda ortamlarında yerel geliştirme destekler:
 
-|Ortam                              |Diller         |Açıklama|
+|Ortam                              |Languages         |Açıklama|
 |-----------------------------------------|------------|---|
 | [Komut istemi veya terminal](functions-run-local.md) | [C# (sınıf kütüphanesi)](functions-dotnet-class-library.md), [C# betiği (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure işlevleri temel araçları] İşlevler, yerel geliştirme sağlayan oluşturmaya yönelik temel çalışma zamanı ve şablonlar sağlar. Sürüm 2.x Linux, MacOS ve Windows üzerinde geliştirme destekler. Tüm ortamlar için yerel işlevler çalışma zamanı Core araçları kullanır. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (sınıf kütüphanesi)](functions-dotnet-class-library.md), [C# betiği (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [VS Code için Azure işlevleri uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) işlevleri için VS Code desteği ekler. Core araçlarının yüklenmesini gerektirir. Geliştirme sürümü kullanırken, Linux, MacOS ve Windows, destekleyen 2.x çekirdek araçlar. Daha fazla bilgi için bkz. [Visual Studio Code kullanarak ilk işlevinizi oluşturma](functions-create-first-function-vs-code.md). |

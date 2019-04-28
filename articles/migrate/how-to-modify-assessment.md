@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129832"
 ---
 # <a name="customize-an-assessment"></a>Bir değerlendirmeyi özelleştirme
 
@@ -45,19 +45,19 @@ ms.locfileid: "54200318"
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Olarak şirket içi boyutlandırma ve performans tabanlı boyutlandırma arasındaki fark nedir?
 
-Olarak şirket içi olarak boyutlandırma ölçütü belirttiğinizde boyutlandırma, Azure Geçişi sanal makinelerin performans verilerini dikkate almaz ve şirket içi yapılandırmasını temel alan VM boyutları. Boyutlandırma ölçütü performans tabanlı olduğunda, boyutlandırma kullanım verilerine göre yapılır. Örneğin, 4 çekirdek içeren bir şirket içi sanal makine ve 8 GB bellek ile 50 CPU kullanımı ve % 50 bellek kullanımı ise. 4 çekirdek içeren bir Azure VM SKU'su boyutlandırma şirket olarak boyutlandırma ölçütü ise ve 8 GB bellek önerilir, ancak boyutlandırma ölçütü performansa dayalı sanal makine SKU'su 2 Çekirdek ve 4 GB önerilen olarak kullanım yüzdesi kabul ederken boyutu önerme.
+Olarak şirket içi olarak boyutlandırma ölçütü belirttiğinizde boyutlandırma, Azure Geçişi sanal makinelerin performans verilerini dikkate almaz ve şirket içi yapılandırmasını temel alan VM boyutları. Boyutlandırma ölçütü performans tabanlı olduğunda, boyutlandırma kullanım verilerine göre yapılır. Örneğin 4 çekirdekli, 8 GB belleğe sahip, %50 CPU kullanımı ve %50 bellek kullanımı olan bir şirket içi VM'yi düşünelim. Boyutlandırma ölçütü şirket içi boyutlandırma olarak ayarlanmışsa 4 çekirdekli ve 8 GB belleğe sahip bir Azure VM SKU’su önerilir; ancak boyut önerilerinde kullanım yüzdesi göz önünde bulundurulduğu için boyutlandırma ölçütü performans tabanlıysa 2 çekirdek ve 4 GB bir VM SKU’su önerilir.
 
-Benzer şekilde, diskler için disk boyutlandırma ölçütü ve depolama türü boyutlandırma iki değerlendirme özelliklerine - bağlıdır. Boyutlandırma ölçütü performansa dayalı ve depolama türünün otomatik olduğundan, diskin IOPS ve aktarım hızı değerleri hedef disk türünü (standart veya Premium) tanımlamak için olarak kabul edilir. Boyutlandırma ölçütü performansa dayalı ve premium depolama türü ise, bir premium disk önerilir, premium disk SKU azure'da Seçili şirket içi disk boyutuna göre. Aynı mantığı boyutlandırma, şirket içi boyutlandırma olarak boyutlandırma ölçütü olduğunda ve depolama türü standart veya premium disk için kullanılır.
+Benzer şekilde, diskler için disk boyutlandırma ölçütü ve depolama türü boyutlandırma iki değerlendirme özelliklerine - bağlıdır. Boyutlandırma ölçütü performans tabanlı ve depolama türü otomatikse hedef disk türünü (Standart veya Premium) tanımlamak için diskin IOPS ve aktarım hızı değerleri göz önünde bulundurulur. Boyutlandırma ölçütü performans tabanlı ve depolama türü premium ise premium bir disk önerilir. Azure’daki premium disk SKU’su şirket içi diskin boyutuna göre seçilir. Boyutlandırma ölçütü şirket içi boyutlandırma ve depolama türü standart veya premium olduğunda aynı mantık kullanılır.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Boyut önerileri üzerinde performans geçmişi ve yüzdebirlik kullanımı nasıl bir etkisi var mı?
 
-Bu özellikler, yalnızca performans tabanlı boyutlandırma için geçerlidir. Azure geçişi, şirket içi makinelerin performans geçmişi toplar ve Azure VM boyutu ve disk türü önermek için kullanır.
+Bu özellikler yalnızca performans tabanlı boyutlandırma için geçerlidir. Azure Geçişi, şirket içi makinelerin performans geçmişini toplar ve bunları Azure’da VM boyutu ve disk türü önermek için kullanır.
 
-- Toplayıcı gerecini her 20 saniyede gerçek zamanlı kullanım verilerini toplamak için şirket içi ortamı sürekli olarak profiller.
-- Gereç 20 saniye örneklerini yapar ve her 15 dakikada bir tek veri noktası oluşturur. Tek bir veri noktası oluşturmak için Gereci tüm 20 saniye örnekleri en yüksek değer seçer ve Azure'a gönderir.
-- Değerlendirme performansı süresi ve performans geçmişi yüzdelik dilim değeri, göre azure'da oluşturduğunuzda, Azure geçişi etkili kullanımı değeri hesaplar ve boyutlandırma için kullanır.
+- Toplayıcı aleti, her 20 saniyede bir gerçek zamanlı kullanım verilerini toplamak için sürekli olarak şirket içi ortamın profilini oluşturur.
+- Alet, 20 saniyelik örnekler toparlar ve her 15 dakika için tek bir veri noktası oluşturur. Tek veri noktasını oluşturmak için alet tüm 20 saniyelik örneklerden en yüksek değerleri seçer ve Azure’a gönderir.
+- Azure’da bir değerlendirme oluşturduğunuzda, Azure Geçişi performans süresi ve performans geçmişi yüzdebirlik değerine bağlı olarak Azure Geçişi etkili kullanım değerini hesaplar ve boyutlandırma için bunu kullanır.
 
-Örneğin, performans süresi 1 gün ve 95 yüzdelik dilim değeri olarak ayarlarsanız, Azure geçişi toplayıcısı tarafından gönderilen son bir gün için 15 dakikalık örnek noktaları kullanıyorsa, artan düzende sıralar ve 95. yüzdebirlik etkin olarak seçer kullanımı. 95. yüzdebirlik 99. yüzdebirlik dilimde seçerseniz, gelebilir herhangi bir aykırı değer, yoksayıyorsunuz sağlar. En yüksek kullanımı olarak döneme ait seçmek istediğiniz ve herhangi bir aykırı değer kaçırmayın istemiyorsanız, 99. yüzdebirlik dilimde seçmeniz gerekir.
+Örneğin, performans süresini 1 gün ve yüzdebirlik değeri 95 yüzdebirlik olarak ayarlarsanız, Azure Geçişi toplayıcı tarafından gönderilen son bir günün 15 dakikalık örnek noktalarını kullanır, bunları artan biçimde sıralar ve etkili kullanım değeri olarak 95 yüzdebirliği seçer. 95. yüzdebirlik değeri, 99. yüzdebirliği seçtiğinizde gelebilecek aykırı değerleri görmezden gelmenizi sağlar. Dönemin en yüksek kullanımını seçmek ve aykırı değerleri kaçırmamak istiyorsanız 99. yüzdebirliği seçmelisiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

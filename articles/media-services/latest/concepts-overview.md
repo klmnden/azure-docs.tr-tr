@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103871"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
 Bu konu Azure Media Services kavramları hakkında kısa bir genel bakış sağlar ve Media Services v3 kavramlarda ve işlevlerde ayrıntılı açıklaması ile makalelere bağlantılar sağlar. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
 ## <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
 
@@ -33,13 +33,13 @@ Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı
 - [Bulutta karşıya yükleme ve depolama](storage-account-concept.md)
 - [Varlıklar kavramı](assets-concept.md)
 
-## <a name="encoding"></a>Kodlama
+## <a name="encoding"></a>Encoding
 
 Yüksek kaliteli dijital medya dosyalarınızın varlıklarına karşıya yükledikten sonra çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlere şifreleyebilirsiniz. 
 
 Media Services v3 ile kodlanacak oluşturmanız gerekir **dönüştüren** ve **işleri**.
 
-![Dönüşümler](./media/encoding/transforms-jobs.png)
+![Dönüştürmeler](./media/encoding/transforms-jobs.png)
 
 - [Dönüşümler ve işler](transforms-jobs-concept.md)
 - [Media Services ile kodlama](encoding-concept.md)
@@ -89,14 +89,14 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 
 Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
-![geçiş](./media/live-streaming/pass-through.svg)
+![doğrudan geçiş](./media/live-streaming/pass-through.svg)
 
 - [Canlı akış genel bakış](live-streaming-overview.md)
 - [Canlı Etkinlikler ve Canlı Çıkışlar](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>İzleme
 
-### <a name="event-grid"></a>Olay Kılavuzu
+### <a name="event-grid"></a>Event Grid
 
 İşinin ilerleme durumunu görmek için kullanmalısınız **Event Grid**. Media Services, canlı olay türleri de gösterir. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. 
 
@@ -115,6 +115,10 @@ Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 Azure Media Player, birçok farklı tarayıcılar ve cihazlar üzerinde Media Services tarafından akışlı medya içeriği kayıttan yürütmek için kullanabilirsiniz. Azure Media Player, zenginleştirilmiş bir Uyarlamalı akış deneyimi sağlamak için HTML5, medya kaynağı Uzantıları (MSE) ve şifreli medya Uzantıları (EME) gibi endüstri standartlarından yararlanır. 
 
 - [Azure Media Player'a genel bakış](use-azure-media-player.md)
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

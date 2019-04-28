@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386363"
 ---
 Bir Azure sanal makinesine veri diski sayısı ekleyebilirsiniz. Bir sanal makinenin veri diskleri için ölçeklenebilirlik ve performans hedefleri bağlı olarak, performans ve kapasite gereksinimlerini karşılamak için gereken disk türü ve numarası belirleyebilirsiniz.
 

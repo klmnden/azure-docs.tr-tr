@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme
 description: Dağıtma, izleme ve Storm panosunu kullanarak Linux tabanlı HDInsight üzerinde Apache Storm topolojilerini yönetme hakkında bilgi edinin. Visual Studio için Hadoop araçlarını kullanın.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125247"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
@@ -222,7 +221,7 @@ Küme baş düğümü için tam etki alanı adı (FQDN) birkaç farklı yolla bu
 * **Ambari Web**: Seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **özeti** sekmesinde **Storm kullanıcı arabirimini sunucu**. REST API ve Storm kullanıcı arabirimini barındıran düğümü FQDN'si, sayfanın en üstünde görüntülenir.
 * **Ambari REST API'sinden**: Komutunu `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` REST API ve Storm kullanıcı arabirimini çalıştığı düğüm hakkında bilgi almak için. Değiştirin **CLUSTERNAME** küme adı ile. İstendiğinde oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta düğümü FQDN'si "host_name" giriş içerir.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, HDInsight küme yöneticisinin adı ve parola kullanın.
 

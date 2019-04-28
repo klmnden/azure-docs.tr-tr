@@ -1,30 +1,31 @@
 ---
-title: Ansible kullanarak Azure’da Linux sanal makine oluşturma
-description: Ansible kullanarak Azure’da Linux sanal makine oluşturmayı öğrenin
-ms.service: virtual-machines-linux
+title: Hızlı Başlangıç - ansible'ı kullanarak Azure'da Linux sanal makineleri yapılandırma | Microsoft Docs
+description: Bu hızlı başlangıçta, ansible'ı kullanarak Azure'da bir Linux sanal makinesi oluşturmayı öğrenin
 keywords: ansible, azure, devops, sanal makine
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 08/22/2018
-ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 4bf7d43b682a2a42d9909f9cd33aa9542a1a9330
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188139"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760537"
 ---
-# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Ansible kullanarak Azure’da Linux sanal makine oluşturma
-Ansible, bildirim temelli bir dil kullanarak Ansible *playbook'ları* aracılığıyla Azure kaynağı oluşturma, yapılandırma ve dağıtım işlemlerini otomatikleştirmenizi sağlar. Bu makalenin bölümleri, bir Ansible playbook içindeki bölümlerin nasıl görünebileceği ve Linux sanal makinesinin farklı yönlerini yapılandırabileceği konusunda bilgi vermektedir. [Ansible playbook'un tamamı](#complete-sample-ansible-playbook), bu makalenin sonunda listelenmiştir.
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Hızlı Başlangıç: Ansible'ı kullanarak Azure'da Linux sanal makineleri yapılandırma
+
+Ansible, bildirim temelli bir dil kullanarak Ansible *playbook'ları* aracılığıyla Azure kaynağı oluşturma, yapılandırma ve dağıtım işlemlerini otomatikleştirmenizi sağlar. Bu makalede, Linux sanal makineleri yapılandırmak için bir örnek Ansible playbook sunar. [Ansible playbook'un tamamı](#complete-sample-ansible-playbook), bu makalenin sonunda listelenmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
-
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+
 Ansible için kaynaklarınızın dağıtıldığı bir kaynak grubu gerekir. Aşağıdaki örnek Ansible playbook bölümünde `eastus` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturulur:
 
 ```yaml
@@ -35,6 +36,7 @@ Ansible için kaynaklarınızın dağıtıldığı bir kaynak grubu gerekir. Aş
 ```
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+
 Azure sanal makinesi oluştururken bir [sanal ağ](/azure/virtual-network/virtual-networks-overview) oluşturmanız ya da mevcut bir sanal ağı kullanmanız gerekir. Sanal ağda sanal makinelerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. Aşağıdaki örnek Ansible playbook bölümünde `10.0.0.0/16` adres alanında `myVnet` adlı bir sanal ağ oluşturulur:
 
 ```yaml
@@ -59,7 +61,12 @@ Aşağıdaki örnek Ansible playbook bölümünde `myVnet` sanal ağında `mySub
 ```
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-[Genel IP adresleri](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), İnternet kaynaklarının Azure kaynakları ile gelen iletişimi kurmasına izin verir. Genel IP adresleri ayrıca Azure kaynaklarının İnternet ve kaynağa atanmış bir IP adresi ile genel kullanıma yönelik Azure hizmetleri ile giden iletişimi kurmasını sağlar. Adres sizin atamayı kaldırmanıza kadar kaynağa ayrılmıştır. Bir genel IP adresi herhangi bir kaynağa atanmamışsa, kaynak yine de İnternet ile giden iletişim kurabilir, ancak Azure kaynağa ayrılmamış kullanılabilir bir IP adresini dinamik olarak atar. 
+
+
+
+
+
+[Genel IP adresleri](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), İnternet kaynaklarının Azure kaynakları ile gelen iletişimi kurmasına izin verir. Genel IP adresleri de genel kullanıma yönelik Azure hizmetlerine giden iletişim kurmak Azure kaynaklarını etkinleştirin. Her iki senaryoda, bir IP adresi erişilen kaynağa atanmış. Atamasını kadar adresi kaynağa ayrılmıştır. Genel bir IP adresi bir kaynağa atanmamış, kaynak yine de İnternet'e giden iletişim kurabilir. Bağlantı, Azure tarafından dinamik olarak kullanılabilir bir IP adresi atama yapılır. Dinamik olarak atanan adresi kaynağa özel değildir.
 
 Aşağıdaki örnek Ansible playbook bölümünde `myPublicIP` adlı bir genel IP adresi oluşturulur:
 
@@ -72,9 +79,10 @@ Aşağıdaki örnek Ansible playbook bölümünde `myPublicIP` adlı bir genel I
 ```
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-[Ağ güvenlik grubu](/azure/virtual-network/security-overview), bir Azure sanal ağı içindeki Azure kaynaklarına gelen ve bu kaynaklardan giden ağ trafiğini filtrelemenizi sağlar. Ağ güvenlik grupları, farklı Azure kaynaklarına gelen ya da bu kaynaklardan dışarı giden ağ trafiğine izin veren veya bu trafiği reddeden güvenlik kuralları içerir. 
 
-Aşağıdaki örnek Ansible playbook bölümünde `myNetworkSecurityGroup` adlı bir ağ güvenlik grubu ve 22 numaralı TCP bağlantı noktasında SSH trafiğine izin vermek için bir kural oluşturulmaktadır:
+[Ağ güvenlik grupları](/azure/virtual-network/security-overview) Azure kaynaklarını bir sanal ağ arasında ağ trafiğini filtreleme. Güvenlik kuralları için ve Azure kaynaklarından gelen ve giden trafiği yöneten tanımlanır. Azure kaynakları ve ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [Azure Hizmetleri için sanal ağ tümleştirmesi](/azure/virtual-network/virtual-network-for-azure-services)
+
+Aşağıdaki playbook adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`. Ağ güvenlik grubu, TCP bağlantı noktası 22 SSH trafiğine izin verecek bir kural içerir.
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -90,11 +98,11 @@ Aşağıdaki örnek Ansible playbook bölümünde `myNetworkSecurityGroup` adlı
         direction: Inbound
 ```
 
-
 ## <a name="create-a-virtual-network-interface-card"></a>Sanal ağ arabirimi kartı oluşturma
+
 Sanal ağ arabirimi kartı, sanal makinenizi belirli bir sanal ağa, genel IP adresine ve ağ güvenlik grubuna bağlar. 
 
-Örnek bir Ansible playbook bölümünü gösteren aşağıdaki bölümde oluşturduğunuz sanal ağ kaynaklarına bağlı `myNIC` adlı bir sanal ağ arabirimi kartı oluşturulmaktadır:
+Aşağıdaki bölümde örnek Ansible playbook bölümünde adlı bir sanal ağ arabirim kartı oluşturur `myNIC` oluşturduğunuz sanal ağ kaynaklarına bağlı:
 
 ```yaml
 - name: Create virtual network inteface card
@@ -108,6 +116,7 @@ Sanal ağ arabirimi kartı, sanal makinenizi belirli bir sanal ağa, genel IP ad
 ```
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+
 Son adım, bu makalenin önceki bölümlerinde oluşturduğunuz tüm kaynakları kullanan bir sanal makine oluşturmaktır. 
 
 Bu bölümde gösterilen örnek Ansible playbook bölümü, `myVM` adlı bir sanal makine oluşturur ve `myNIC` adlı bir sanal ağ arabirimi kartını ekler. &lt;your-key-data> yer tutucusunun yerine kendi ortak anahtar verilerinizi yazın.
@@ -278,5 +287,6 @@ Bu bölümde bu makalede gösterilen Ansible playbook'unun çalıştırılma ad�
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"] 
-> [Ansible kullanarak Azure’da Linux sanal makine yönetme](./ansible-manage-linux-vm.md)
+> [Hızlı Başlangıç: Ansible'ı kullanarak azure'da Linux sanal makinesi yönetin](./ansible-manage-linux-vm.md)

@@ -1,54 +1,49 @@
 ---
 title: Bir HDInsight kümesi - Azure silme
 description: Bir HDInsight kümesini silebilirsiniz çeşitli yollar hakkında bilgiler.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/17/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4df4fa29722dd3ad33cf1ce123877f04f9f4b4c1
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: eca7b4f8bd7e91bc8dcb9bcc49ed3b981010aaee
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097209"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Tarayıcınız, PowerShell veya Azure Klasik CLI kullanarak bir HDInsight kümesini silme
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Tarayıcınız, PowerShell veya Azure CLI kullanarak bir HDInsight kümesini silme
 
-HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, kullanarak küme silme hakkında bilgi edinin [Azure portalında](https://portal.azure.com), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)ve Azure Klasik CLI.
+HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, kullanarak küme silme hakkında bilgi edinin [Azure portalında](https://portal.azure.com), [Az Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/overview)ve [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!IMPORTANT]  
 > Azure depolama hesapları HDInsight küme silme silmez veya Data Lake Storage kümeyle ilişkili. Gelecekte bu Hizmetleri'nde depolanan verileri yeniden kullanabilirsiniz.
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve HDInsight kümenizi seçin. HDInsight kümenizi panoya sabitlenmemişse için arama alanını kullanarak adına göre arama yapabilirsiniz.
-   
-    ![Portal arama](./media/hdinsight-delete-cluster/navbar.png)
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Küme ayarları seçin **Sil** simgesi. Sorulduğunda, **Evet** kümeyi silmek için.
+2. Sol menüden gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri** ve kümenizi seçin.
+
+3. Varsayılan görünümünden seçim **Sil** simgesi. Kümenizi sildiğinizden için istemi izleyin.
    
     ![Sil simgesi](./media/hdinsight-delete-cluster/deletecluster.png)
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell-az-module"></a>Azure PowerShell Az Modülü
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Değiştirin `CLUSTERNAME` aşağıdaki kod, HDInsight kümenizin adıyla. Bir PowerShell isteminden kümeyi silmek için aşağıdaki komutu girin:
 
-Bir PowerShell isteminden kümeyi silmek için aşağıdaki komutu kullanın:
+```powershell
+Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
+```
 
-    Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
+## <a name="azure-cli"></a>Azure CLI
 
-**CLUSTERNAME** değerini HDInsight kümenizin adıyla değiştirin.
+Değiştirin `CLUSTERNAME` HDInsight kümenizin adıyla ve `RESOURCEGROUP` aşağıdaki kod, kaynak grubunuzda adı.  Bir komut istemi'nden kümeyi silmek için şunu girin:
 
-## <a name="azure-classic-cli"></a>Klasik Azure CLI
-
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-
-Bir isteminden kümeyi silmek için aşağıdakileri kullanın:
-
-    azure hdinsight cluster delete CLUSTERNAME
-
-**CLUSTERNAME** değerini HDInsight kümenizin adıyla değiştirin.
+```azurecli
+az hdinsight delete --name CLUSTERNAME --resource-group RESOURCEGROUP
+```

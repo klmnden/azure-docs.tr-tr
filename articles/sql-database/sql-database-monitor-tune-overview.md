@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097785"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -87,7 +87,7 @@ Bir çalıştırma ile ilgili performans sorunu olduğunu belirlerseniz, bir vey
 
 ### <a name="ParamSniffing"></a> Sorgu parametresi duyarlı sorgu yürütme planı sorunları giderme
 
-Parametre hassas planı (PSP) sorunu burada yalnızca bir özel parametre değeri (veya değerlerin kümesini) en iyi bir sorgu yürütme planı sorgu iyileştiricisi oluşturur ve önbelleğe alınan plan kullanılan parametre değerleri için uygun olmayan durumda bir senaryo gösterir birbirini izleyen yürütmeleri. Uygun olmayan planları sorgu performansı sorunlarını ve genel iş yükü performans düşüşüne neden olabilir. Parametre algılaması ve sorgu işleme hakkında daha fazla bilgi için bkz. [sorgu işleme Mimarisi Kılavuzu](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
+Parametre hassas planı (PSP) sorunu burada yalnızca bir özel parametre değeri (veya değerlerin kümesini) en iyi bir sorgu yürütme planı sorgu iyileştiricisi oluşturur ve önbelleğe alınan plan kullanılan parametre değerleri için uygun olmayan durumda bir senaryo gösterir birbirini izleyen yürütmeleri. Uygun olmayan planları sorgu performansı sorunlarını ve genel iş yükü performans düşüşüne neden olabilir. Parametre algılaması ve sorgu işleme hakkında daha fazla bilgi için bkz. [sorgu işleme Mimarisi Kılavuzu](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 Her ilişkili ödünler ve dezavantajları sorunları gidermek için kullanılan birkaç geçici çözümler vardır:
 

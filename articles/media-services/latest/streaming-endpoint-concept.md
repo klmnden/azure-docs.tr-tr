@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125432"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
@@ -39,7 +39,7 @@ Tüm ek uç noktalar için: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 Türler aşağıdaki tabloda açıklanmıştır:  
 
-|Type|Ölçek birimleri|Açıklama|
+|Tür|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
 |**Standart Akış Uç Noktası** (önerilen)|0|Varsayılan akış uç noktası olan bir **standart** yazın, ancak Premium türüne değiştirilebilir.<br/> Standart türü, neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türde giden bant genişliği otomatik olarak ölçeklendirilir. Bu tür bir akış uç noktası hizmetin performansını en fazla 600 MB / sn'dir. CDN'de önbelleğe video parçasının, akış uç noktası bant genişliği kullanmaz.<br/>Media Services, gereksinimleri çok yüksek olan müşteriler için kapasitenin en geniş internet kitlelerine göre ölçeklendirilmesini sağlayan **Premium** akış uç noktalarını sunar. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
 |**Premium Akış Uç Noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
@@ -149,6 +149,10 @@ CDN tümleştirmesi, Çin ve Federal devlet bölgeler dışındaki tüm Azure ve
 ### <a name="determine-if-dns-change-has-been-made"></a>DNS değişiklik yapılıp yapılmadığını belirlemek
 
 Bir akış (trafiği yönlendirildiğinde Azure CDN) uç noktasında DNS değişiklik yapılıp yapılmadığını kullanarak belirleyebilirsiniz https://www.digwebinterface.com. Sonuçları varsa azureedge.net etki alanı adları sonuçlarda, trafiği artık CDN işaret edilip.
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

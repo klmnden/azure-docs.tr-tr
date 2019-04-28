@@ -1,6 +1,6 @@
 ---
-title: Premium katman için mevcut Azure Service Bus standart ad alanları geçirme | Microsoft Docs
-description: Mevcut Azure Service Bus standart ad alanları Premium'a geçişini izin vermek için Kılavuzu
+title: Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme | Microsoft Docs
+description: Azure Service Bus standart ad alanları mevcut Premium'a geçiş izin vermek için Kılavuzu
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,212 +13,182 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896589"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766305"
 ---
-# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>Premium katman için mevcut Azure Service Bus standart ad alanları geçirme
+# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme
+Daha önce Azure Service Bus ad alanları yalnızca standart katmanında sunulur. Ad alanları, aktarım hızının düşük olmasını ve geliştirici ortamları için iyileştirilen çok kiracılı kurulumları ' dir. Premium katmanı, tahmin edilebilir gecikme süresi ve sabit bir fiyat karşılığında artan iş hacmi için ad alanı başına ayrılmış kaynaklar sunar. Premium katmanı, yüksek aktarım hızı ve ek Kurumsal özellikleri gerektiren üretim ortamları için optimize edilmiştir.
 
-Daha önce Azure Service Bus ad alanları yalnızca standart katmanında sunulur. Bu, aktarım hızının düşük olmasını ve geliştirici ortamları için iyileştirilmiş çok kiracılı kurulumları yoktu.
-
-Yakın geçmişte tahmin edilebilir gecikme süresi ve yüksek aktarım hızı ve üretim ortamları için iyileştirilmiştir, sabit bir fiyat karşılığında artan iş hacmi için ad alanı başına ayrılmış kaynakları sunan Premium katmanı sunmak için Azure Service Bus genişletildi gerektiren ek Kurumsal özellikler.
-
-Premium katmanına geçirilecek standart katman ad alanı mevcut etkinleştirir tooling aşağıda.
+Bu makalede, var olan bir standart katman ad alanı premium katmanına geçirmek açıklar.
 
 >[!WARNING]
-> Geçiş için Service Bus standart ad alanı olması amaçlanmıştır ***yükseltilmiş*** Premium katmanına.
->
-> Geçiş Araçları ***yok*** eski sürüme düşürme destekler.
->[!NOTE]
-> Bu geçiş yapılmasını yöneliktir ***yerinde***.
->
-> Bu, var olan gönderen ve alıcı uygulamalar herhangi bir kod veya yapılandırma değişiklik gerektirmeyen anlamına gelir.
->
-> Var olan bağlantı dizesini otomatik olarak yeni bir premium ad alanına işaret etmesini sağlayacaksınız.
->
-> Ayrıca, standart ad alanındaki tüm varlıkları kullanılabilir **üzerinden kopyalanan** geçiş işlemi sırasında Premium ad alanında.
->
->
-> Destekliyoruz ***Mesajlaşma birimi başına 1000 varlık*** kaç adet Mesajlaşma Birimi'ne belirlemek üzere bu nedenle Premium üzerinde Lütfen, geçerli bir standart ad alanı üzerinde sahip varlıklar sayısı ile başlatın.
+> Geçiş, premium katmanına yükseltme Service Bus standart ad alanları için tasarlanmıştır. Geçiş Aracı, eski sürüme düşürmeyi desteklemeyen.
+
+Bazı dikkat edilecek noktaları: 
+- Bu geçiş, yani, mevcut yerinde olmasını yöneliktir gönderen ve alıcı uygulamaların **kod veya yapılandırma değişiklikleri gerektirmeyen**. Var olan bağlantı dizesini otomatik olarak yeni bir premium ad alanına işaret etmesini sağlayacaksınız.
+- **Premium** ad olmalıdır **varlık** da başarılı olması geçiş için. 
+- Tüm **varlıkları** standart ad alanında **kopyalanan** geçiş işlemi sırasında premium ad alanı. 
+- Geçiş destekler **Mesajlaşma birimi başına 1.000 varlıkları** premium katmanı. Gereksinim duyduğunuz kaç Mesajlaşma birimi tanımlamak için geçerli bir standart ad alanı üzerinde sahip varlıklar sayısı ile başlayın. 
 
 ## <a name="migration-steps"></a>Geçiş adımları
+Bazı koşullar, geçiş işlemi ile ilişkilidir. Hata olasılığını azaltmak için aşağıdaki adımları hakkında bilgi edinin. Bu adımlar, geçiş işlemi özetlemektedir ve adım adım Ayrıntılar aşağıdaki bölümlerde listelenmiştir.
+
+1. Yeni bir premium ad alanı oluşturun.
+1. Standart ve premium ad alanları birbirine eşleştirin.
+1. Standart varlıklardan eşitleme (kopya üzerinden) için bir premium ad alanı.
+1. Geçiş tamamlama.
+1. Geçiş sonrası ad alanı adını kullanarak standart ad alanındaki varlıklar boşaltın.
+1. Standart ad alanı silin.
 
 >[!IMPORTANT]
-> Geçiş işlemi ile ilişkili bazı uyarılar vardır. Hataları olasılıklarını azaltmak yer alan adımların ile tam olarak tanımak için rica ederiz.
+> Geçiş kaydedildi sonra eski standart ad alanı erişmek ve kuyrukları ile aboneliklerinden boşaltın. İletileri boşaltılır sonra bunlar için yeni premium ad alanı alıcı uygulamaları tarafından işlenecek gönderilebilir. Kuyrukları ve aboneliklerinden boşaltılır sonra eski standart ad alanı silmenizi öneririz.
 
-Somut adım adım geçiş işlemi aşağıdaki kılavuzlarda ayrıntılı olarak verilmiştir.
+### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Azure CLI veya PowerShell kullanarak geçirme
 
-Mantıksal adımlar şunlardır:-
+Azure CLI veya PowerShell aracını kullanarak, Service Bus standart ad alanı için premium geçirmek için aşağıdaki adımları izleyin.
 
-1. Yeni bir Premium ad alanı oluşturun.
-2. Standart ve Premium ad alanı birbiriyle eşleştirin.
-3. Premium ad alanı için eşitleme (üzerinden kopyalama) standart varlıklardan
-4. Geçişi tamamlama
-5. Geçiş sonrası ad alanı adını kullanarak standart ad alanındaki varlıklar Boşalt
-6. Standart ad alanı Sil
+1. Yeni bir Service Bus premium ad alanı oluşturun. Başvurabileceğiniz [Azure Resource Manager şablonları](service-bus-resource-manager-namespace.md) veya [Azure portalını](service-bus-create-namespace-portal.md). Seçtiğinizden emin olun **premium** için **serviceBusSku** parametresi.
 
->[!NOTE]
-> Geçiş taahhüt silindikten sonra eski standart ad alanı erişmek ve kuyrukları ile aboneliklerinden boşaltma son derece önemlidir.
->
-> İletileri boşaltılır sonra bunlar yeni premium ad alanı için alıcı uygulamalar tarafından işlenecek gönderilebilir.
->
-> Kuyrukları ve aboneliklerinden boşaltılır sonra eski standart ad alanı siliniyor öneririz. Bu gereksinim duyuyor olması gerekmez!
-
-### <a name="migrate-using-azure-cli-or-powershell"></a>Azure CLI veya PowerShell kullanarak geçirme
-
-Service Bus standart ad alanınız için Premium Azure CLI veya PowerShell aracını kullanarak geçirmek için başvurmak aşağıda Kılavuzu.
-
-1. Yeni bir Service Bus Premium ad alanı oluşturun. Başvurabileceğiniz [Azure Resource Manager şablonları](service-bus-resource-manager-namespace.md) veya [Azure portalını](service-bus-create-namespace-portal.md). İçin "Premium" seçtiğinizden emin olun **serviceBusSku** parametresi.
-
-2. Ayarlama aşağıda geçiş komutları basitleştirmek için ortam değişkenleri.
-   ```
+1. Geçiş komutları basitleştirmek için aşağıdaki ortam değişkenlerini ayarlayın.
+   ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
-   premiumNamespaceArmId = <Azure Resource Manager ID of the Premium namespace to migrate to>
-   postMigrationDnsName = <post migration DNS name entry to access the Standard namespace>
+   premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
+   postMigrationDnsName = <post migration DNS name entry to access the standard namespace>
    ```
 
     >[!IMPORTANT]
-    > Geçiş sonrası adı (post_migration_dns_name) eski standart ad alanı geçiş sonrasında erişmek için kullanılır. Bu, kuyrukları ve aboneliklerinden boşaltın ve ardından ad alanını silmek için kullanmalısınız.
+    > Geçiş sonrası adı (post_migration_dns_name) eski standart ad alanı geçiş sonrasında erişmek için kullanılır. Kuyrukları ve aboneliklerinden boşaltma için bunu kullanın ve ardından ad alanı silin.
 
-3. **Çifti** standart ve Premium ad alanları ve **Eşitlemeyi Başlat** kullanarak aşağıdaki komutu -
+1. Standart ve premium ad alanları eşleştirebilir ve aşağıdaki komutu kullanarak bir eşitleme başlatın:
 
-    ```
+    ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-4. Geçiş kullanarak durumu denetleyin - komut aşağıda
-    ```
+1. Aşağıdaki komutu kullanarak geçiş durumunu denetleyin:
+    ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    Geçiş ne zaman tam olarak kabul edilir
+    Geçiş, aşağıdaki değerleri gördüğünüzde tamamlanmış olarak değerlendirilir:
     * MigrationState "Etkin" =
     * pendingReplicationsOperationsCount = 0
     * provisioningState "Başarılı" =
 
-    Bu komut ayrıca geçiş yapılandırmasını görüntüler. Lütfen olarak bildirilen değerleri önceki'olarak ayarlandığından emin olmak için kontrol edin.
+    Bu komut ayrıca geçiş yapılandırmasını görüntüler. Değerlerin doğru ayarlandığından emin olun. Ayrıca, premium ad alanındaki tüm kuyrukları ve konuları oluşturulmuş ve standart ad alanında varolduğunu ne eşleştiğinden emin olmak için portalı denetleyin.
 
-    Ayrıca, tüm kuyrukları ve konuları oluşturulmuş ve standart ad alanı üzerinde varolan ne eşleştiğinden emin olmak için Portalı'nda Premium ad alanı da denetleyin.
-
-5. Aşağıdaki tam komutu yürüterek geçişini Yürüt
-   ```
+1. Aşağıdaki tam komutu yürüterek geçişini Yürüt:
+   ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### <a name="migrate-using-azure-portal"></a>Azure portalını kullanarak geçirme
+### <a name="migrate-by-using-the-azure-portal"></a>Azure portalını kullanarak geçirme
 
-Azure portalı üzerinden geçiş komutlarını kullanarak geçiş olarak aynı mantıksal akışı vardır. Başvurmak aşağıda Portalı'nı kullanarak geçirmek için adım adım işlem kılavuzu.
+Azure portalını kullanarak geçiş komutları kullanarak geçiş olarak aynı mantıksal akışı vardır. Azure portalını kullanarak geçirmek için aşağıdaki adımları izleyin.
 
-1. Çekme **'Premium'e geçirme'** sol bölmede Gezinti menüsünde menü seçeneği. Tıklayın **'Başlarken'** düğmesine bir sonraki sayfasına devam edin.
+1. Üzerinde **Gezinti** sol bölmesinde, menüde **premium geçiş**. Tıklayın **Başlarken** düğmesine bir sonraki sayfasına devam edin.
     ![Geçiş giriş sayfası][]
 
-2. Tam **Kurulum**.
+1. Tam **Kurulum**.
    ![Ad alanı Kurulumu][]
-   1. Oluşturun ve mevcut standart ad alanına geçirmek için bir Premium ad alanı atayın.
+   1. Oluşturun ve mevcut standart ad alanına geçirmek için bir premium ad alanı atayın.
         ![Ad alanı kurulumu - premium ad alanı oluşturma][]
-   2. Çekme **'Geçiş sonrasında name'** geçiş tamamlandıktan sonra standart ad alanı tarafından erişmek için.
+   1. Seçin bir **geçiş sonrasında adı**. Geçiş tamamlandıktan sonra standart ad alanı erişmek için bu adı kullanacaksınız.
         ![Ad alanı kurulumu - post geçiş adı seçin][]
-   3. Tıklayın **'İleri'** devam etmek için.
-3. **Eşitleme** varlıklar arasında standart ve Premium ad alanı.
+   1. Seçin **'İleri'** devam etmek için.
+1. Varlıklar, standart ve premium ad alanları arasında eşitleyin.
     ![Ad alanı - eşitleme varlıkları - başlangıç Kurulumu][]
 
-   1. Tıklayın **Başlat'Sync '** varlıkları eşitlemeye başlamak için.
-   2. Tıklayın **'Evet'** Eşitlemeyi başlatmak için onaylayan açılır pencere üzerinde.
-   3. Bekle **eşitleme** tamamlandı. Durum ve durum çubuğunda kullanılabilir hale getirilir.
+   1. Seçin **Eşitlemeyi Başlat** varlıkları eşitlemeye başlamak için.
+   1. Seçin **Evet** onaylayın ve Eşitlemeyi Başlat iletişim kutusundaki.
+   1. Eşitleme işlemi tamamlanana kadar bekleyin. Durum ve durum çubuğunda kullanılabilir.
         ![Kurulum ad - eşitleme varlıkları - ilerleme durumu][]
         >[!IMPORTANT]
-        > Gerekirse **iptal** herhangi bir sebeple Lütfen SSS bölümünü bu belgenin iptal flow'da gözden geçirin.
-   4. Eşitleme tamamlandıktan sonra tıklayın **'İleri'** sayfanın alt kısmındaki düğmesi.
+        > Geçiş için herhangi bir nedenle iptal etmek ihtiyacınız varsa lütfen SSS bölümünü bu belgenin iptal flow'da gözden geçirin.
+   1. Eşitleme tamamlandıktan sonra seçin **sonraki** sayfanın alt kısmındaki.
 
-4. Özet sayfasında değişiklikleri gözden geçirin.
-    ![Geçiş ad alanı - anahtar menüsü][]
-
-5. Tıklayarak **'Geçişi Tamamla'** ad alanları geçmek ve Geçişi tamamlamak için.
+1. Özet sayfasında değişiklikleri gözden geçirin. Seçin **geçişi Tamamla** ad alanları geçmek ve Geçişi tamamlamak için.
+    ![Geçiş ad alanı - anahtar menü][] geçiş tamamlandığında onay sayfası görüntülenir.
     ![Geçiş ad alanı - başarılı][]
 
 ## <a name="faqs"></a>SSS
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>Geçiş kararlıdır ne olur?
 
-Geçiş kararlıdır sonra standart ad alanına işaret eden bağlantı dizesi Premium ad alanına işaret etmesini sağlayacaksınız.
+Geçiş kararlıdır sonra standart ad alanına işaret eden bağlantı dizesi premium ad alanına işaret etmesini sağlayacaksınız.
 
-Gönderen ve alıcı uygulama standart Namespace bağlantısını kesmek ve Premium ad alanına otomatik olarak yeniden.
+Gönderen ve alıcı uygulama standart Namespace bağlantısını kesmek ve premium ad alanına otomatik olarak yeniden.
 
-### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Neler standart Premium geçiş tamamlandıktan sonra yapabilirim?
+### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Neler standart premium geçiş tamamlandıktan sonra yapabilirim?
 
-Varlık meta verileri (konular, abonelikler, filtreler, et al.) kopyaladığınız üzerinden standart katmandan Premium ad alanı için Premium geçiş standart sağlar. Standart ad alanına işlendi ileti verileri üzerinde standart katmandan Premium ad alanına kopyalanmaz.
+Premium geçiş standart varlık meta verileri konu başlıkları, abonelikler ve filtreleri gibi kopyalanır, standart ad alanından premium ad alanına sağlar. Standart ad alanına işlendi ileti verileri standart ad alanından premium ad alanına kopyalanır değil.
 
-Bu nedenle, standart ad alanı gönderilen ve geçiş işlemi yürütülürken kaydedilmiş bazı iletileri olabilir. Bu iletiler el ile standart Namespace boşaltılır ve gönderilen el ile için Premium Namespace üzerinden gerekir.
+Standart ad alanı, gönderilen ve geçiş işlemi yürütülürken kaydedilmiş bazı iletileri olabilir. Standart Namespace ileti el ile boşaltabilir ve el ile premium Namespace gönderin. İletileri el ile boşaltabilir için bir konsol uygulaması veya geçiş komutlar belirtilen posta geçiş DNS adını kullanarak standart ad alanı varlıkları boşaltır bir betik kullanın. Bu iletiler alıcılar tarafından işlenebilir premium ad alanına gönderin.
 
-Bunu yapmak için ***gerekir*** bir konsol uygulaması kullanıp kullanarak standart ad alanı varlıkları boşaltma betiği **Post geçiş DNS adı** üzerinde belirtilen geçiş komutlar ve ardından gönderin iletileri Premium Namespace, böylece alıcılar tarafından işlenebilir.
-
-İletileri boşaltılır sonra standart ad alanı silmek için lütfen geçin.
+İletileri boşaltılır sonra standart ad alanı silin.
 
 >[!IMPORTANT]
-> Standart ad alanı iletilerden boşaltılır sonra lütfen unutmayın, **gerekir** standart ad alanı silin.
->
-> Bu, başlangıçta standart ad alanı için artık başvurulan bağlantı dizesi aslında Premium ad alanına başvurduğundan önemlidir. Bu standart Namespace artık gerek gerekmez.
->
-> Yardımcı geçişi standart ad alanı siliniyor daha sonraki bir tarihte karmaşıklığı azaltır. 
+> Standart ad alanı iletilerden boşaltılır sonra standart ad alanı silin. Bu, başlangıçta standart ad alanı için artık başvurulan bağlantı dizesi premium ad alanına başvurduğundan önemlidir. Standart Namespace artık gerekmez. Geçirdiğiniz standart ad alanı siliniyor, sonraki karışıklık azaltmaya yardımcı olur.
 
 ### <a name="how-much-downtime-do-i-expect"></a>Ne kadar kapalı kalma süresi miyim bekliyorsunuz?
-Yukarıda açıklanan geçiş işlemi, uygulamalar için beklenen kapalı kalma süresi azaltmak için tasarlanmıştır. Bu, yeni bir Premium ad alanına işaret edecek şekilde gönderen ve alıcı uygulamalarını kullanan bağlantı dizesini kullanarak gerçekleştirilir.
+Geçiş işlemi, uygulamalar için beklenen kapalı kalma süresi azaltmak için tasarlanmıştır. Yeni premium ad alanına işaret edecek şekilde gönderen ve alıcı uygulamalarını kullanan bağlantı dizesi kullanarak kapalı kalma süresi azalır.
 
-Kapalı kalma süresi uygulama tarafından deneyimli, Premium ad alanına işaret edecek şekilde DNS girişini güncelleştirmek için gereken süreyi sınırlıdır.
+Uygulama tarafından yaşadı kapalı kalma süresi, premium ad alanına işaret edecek şekilde DNS girişini güncelleştirmek için gereken süreyi sınırlıdır. Kapalı kalma süresi yaklaşık 5 dakikadır.
 
-Bu olmasını varsayılabilir ***yaklaşık 5 dakika***.
-
-### <a name="do-i-have-to-make-any-configuration-changes-while-performing-the-migration"></a>Geçiş gerçekleştirirken yapılandırma değişiklikleri yapmak zorunda mıyım?
-Hayır, bu geçiş yapmak için gereken kod/yapılandırma değişiklik bulunmamaktadır. Gönderen ve alıcı uygulamaların standart Namespace erişmek için kullandığı bağlantı dizesini olarak davranmak üzere otomatik olarak eşlenmiş bir **diğer** Premium Namespace için.
+### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Geçiş yaparken yapılandırma değişiklikleri yapmak zorunda mıyım?
+Hayır, geçiş yapmak için gereken kod veya yapılandırma değişiklik bulunmamaktadır. Gönderen ve alıcı uygulamaların standart Namespace erişmek için kullandığı bağlantı dizesini, premium ad alanı için bir diğer ad olarak davranmak üzere otomatik olarak eşlenir.
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>Geçişi durdurabilir miyim ne olur?
-Geçiş 'Durdur' komutunu kullanarak veya Azure Portalı aracılığıyla iptal. 
+Geçiş kullanarak durdurulmasına `Abort` Azure portalı kullanarak veya komutu. 
 
-#### <a name="azure-cli-or-powershell"></a>Azure CLI veya PowerShell
+#### <a name="azure-cli"></a>Azure CLI
 
-    az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```azurecli
+az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```
 
 #### <a name="azure-portal"></a>Azure portal
 
 ![Akış Durdur - eşitleme iptal][]
 ![iptal akış - tam iptal][]
 
-Geçiş işlemi iptal edildiğinde gerçekten varlıkları (konular, abonelikler ve filtreleri) kopyalama işlemi standart katmandan Premium ad alanına durdurur ve eşleştirme keser.
+Geçiş işlemi iptal edildiğinde, varlıkları (konular, abonelikler ve filtreleri) standart premium ad alanına kopyalama işlemi durdurur ve eşleştirme keser.
 
-Bağlantı dizesi **değil** Premium ad alanına işaret edecek şekilde güncelleştirildi. Mevcut uygulamalarınızı geçişi başlatmadan önce olduğu gibi çalışmaya devam edin.
+Bağlantı dizesi, premium ad alanına işaret edecek şekilde güncelleştirilmez. Mevcut uygulamalarınızı geçişi başlatmadan önce olduğu gibi çalışmaya devam edin.
 
-Ancak, bunu **yok** varlıkları Premium ad alanında veya Premium ad silebilirsiniz. Bu, geçiş işlemine tüm ilerlemek değil karar el ile yapılması gerekir.
+Ancak, bunu değil varlıkları premium ad alanında veya bir premium ad alanı silebilirsiniz. Geçişe devam değil karar verdiyseniz varlıkları el ile silin.
 
 >[!IMPORTANT]
-> Lütfen geçişi durdurun karar verirseniz, böylece kaynaklar için ücret alınmaz geçiş için sağlanan Premium Namespace silin.
+> Geçiş iptal etmek karar verirseniz, geçiş için sağlanan ve böylece kaynaklar için ücretlendirilmez Namespace premium silin.
 
 #### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>İletileri boşaltma zorunda kalmak istemiyorum. Ne yapmalıyım?
 
-Gönderen uygulama tarafından gönderilen ve geçiş gerçekleşirken depolama alanında standart Namespace taahhüdünde iletileri olabilir ve hemen önce geçiş kararlıdır.
+Standart Namespace depolama alanı geçişi gerçekleşirken ve yalnızca geçiş işlemi gerçekleştirilmeden önce kaydedilmiş ve gönderen uygulama tarafından gönderilen iletileri olabilir.
 
-Geçiş sırasında gerçek ileti veri/yükü üzerinden standart katmandan Premium kopyalanmaz düşünüldüğünde, bu el ile boşaltılır ve Premium ad alanına gönderilmesi gerekir.
+Geçiş sırasında gerçek ileti veri/yükü standart katmandan premium ad alanına kopyalanmıyor. İletileri el ile boşaltılır ve premium ad alanına gönderilmesi gerekir.
 
-Planlı bakım/temizlik penceresi sırasında geçirebilirsiniz ve el ile boşaltabilir ve ileti göndermek istemiyorsanız, ancak izleme Lütfen aşağıdaki adımları -
+Ancak, planlı bakım/temizlik penceresi sırasında geçirebileceğiniz ve el ile boşaltabilir ve ileti göndermek istemiyorsanız, aşağıdaki adımları izleyin:
 
-1. Gönderen uygulamaları durdurun ve şu anda standart ad alanında ve boşaltma kuyruğu iletileri işlemek üzere alıcılar sağlar.
-2. Kuyruklar ve standart Namespace aboneliklerinde boş olduğunda, geçiş standart katmandan Premium ad alanına yürütmek için yukarıda açıklanan yordamı izleyin.
-3. Geçiş işlemi tamamlandıktan sonra gönderici uygulama yeniden başlatabilirsiniz.
-4. Göndericiler ve alıcılar artık otomatik olarak Premium ad alanı ile bağlanır.
+1. Gönderen uygulamaları durdurun. Alıcı uygulamaları şu anda standart ad alanında ve kuyruğu boşaltacak iletileri işler.
+1. Kuyruklar ve standart Namespace aboneliklerinde boş olduktan sonra geçiş standart premium ad alanına yürütmek için daha önce açıklanan yordamı izleyin.
+1. Geçiş tamamlandıktan sonra gönderici uygulama yeniden başlatabilirsiniz.
+1. Göndericiler ve alıcılar artık otomatik olarak premium ad alanı ile bağlanır.
 
     >[!NOTE]
-    > Alıcı, geçiş için durdurulmuş.
+    > Geçiş için alıcı uygulamalarını durdurmanız gerekmez.
     >
-    > Geçiş işlemi tamamlandıktan sonra alıcılar standart ad alanından bağlantısını kesmek ve otomatik olarak Premium ad alanınıza bağlanın.
+    > Geçiş tamamlandıktan sonra alıcı uygulamaların standart ad alanından bağlantısını kesmek ve otomatik olarak premium ad alanınıza bağlanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha fazla bilgi edinin [standart ve Premium Mesajlaşma arasındaki farklar](./service-bus-premium-messaging.md)
-* Yüksek kullanılabilirlik ve coğrafi Diaster kurtarma yönleri hakkında bilgi edinmek için Service Bus Premium [burada](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)
+* Daha fazla bilgi edinin [standart ve premium Mesajlaşma arasındaki farklar](./service-bus-premium-messaging.md).
+* Hakkında bilgi edinin [Service Bus premium için yüksek kullanılabilirlik ve coğrafi olağanüstü durum kurtarma özelliklerini](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Geçiş giriş sayfası]: ./media/service-bus-standard-premium-migration/1.png
 [Ad alanı Kurulumu]: ./media/service-bus-standard-premium-migration/2.png

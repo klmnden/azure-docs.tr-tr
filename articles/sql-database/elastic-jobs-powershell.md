@@ -13,11 +13,11 @@ ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476077"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli 
 > * İşlerin hedeflerinde betik yürütebilmesi için iş kimlik bilgileri oluşturma
 > * İşi çalıştırmak istediğiniz hedefleri (sunucular, elastik havuzlar, parça eşlemeleri) tanımlama
 > * Aracının işlere bağlanıp yürütebilmesi için hedef veritabanlarında veritabanlı kapsamlı kimlik bilgileri oluşturma
-> * İş oluştur
+> * Bir iş oluşturma
 > * Bir işe iş adımları ekleme
 > * Bir işin yürütülmesini başlatma
 > * Bir işi izleme
@@ -230,7 +230,7 @@ $ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerNa
 $ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
 ```
 
-## <a name="create-a-job"></a>İş oluştur
+## <a name="create-a-job"></a>Bir iş oluşturma
 
 ```powershell
 Write-Output "Creating a new job"
@@ -317,7 +317,7 @@ Bu öğreticide bir veritabanı kümesinde Transact-SQL betiği çalıştırdın
 > * İşlerin hedeflerinde betik yürütebilmesi için iş kimlik bilgileri oluşturma
 > * İşi çalıştırmak istediğiniz hedefleri (sunucular, elastik havuzlar, parça eşlemeleri) tanımlama
 > * Aracının işlere bağlanıp yürütebilmesi için hedef veritabanlarında veritabanlı kapsamlı kimlik bilgileri oluşturma
-> * İş oluştur
+> * Bir iş oluşturma
 > * İşe bir iş adımı ekleme
 > * Bir işi yürütmeye başlatma
 > * İş izleme

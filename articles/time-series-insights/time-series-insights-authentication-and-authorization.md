@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: b9f3561155038e91bc278f5d7ddc995adb53ad78
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: MT
+ms.openlocfilehash: 66a3c40bf1e1e1dc6253520a555e19ebf011297c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198006"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761630"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme için Azure zaman serisi öngörüleri API'si
 
@@ -105,8 +105,9 @@ Ayrıntılı adımlar şunlardır:
 Uygulama kimliği ve anahtarı Azure zaman serisi görüşleri ile kimlik doğrulaması için uygulamanızı kullanın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Zaman serisi öngörüleri API'yi çağıran örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
+
 - API başvuru bilgileri için bkz: [sorgu API'si başvurusu](/rest/api/time-series-insights/ga-query-api).
 
-> [!div class="nextstepaction"]
-> [Hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md)
+- Bilgi edinmek için nasıl [hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).

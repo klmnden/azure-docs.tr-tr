@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479158"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme
 Stream Analytics işi ayarlama ve bazı örnek veriler üzerinden çalıştırmak için oldukça kolaydır. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde ne yapmamız gerekir? Stream Analytics işi, ölçeklendirir şekilde yapılandırmak nasıl anlamak bize gerektirir. Bu belgede, Machine Learning işlevleriyle birlikte Stream Analytics işlerini ölçeklendirme özel yönlerini odaklanıyoruz. Genel olarak Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz [işleri ölçeklendirme](stream-analytics-scale-jobs.md).

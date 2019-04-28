@@ -10,13 +10,13 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106219"
 ---
-# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile Logic apps izleme
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile mantıksal uygulamaları izleme
 
 İzleme ve logic apps hakkında daha zengin hata ayıklama bilgi almak üzere açmak [Azure İzleyici günlükleri](../log-analytics/log-analytics-overview.md) mantıksal uygulamanızı oluşturduğunuzda. Azure İzleyici günlüklerine Logic Apps yönetimi çözümü Azure Portalı'nda yüklediğinizde, logic apps için izleme ve günlüğe kaydetme tanılama sağlar. Bu çözüm, ayrıca mantıksal uygulamanız için toplanan bilgileri durumunu, yürütme süresi, yeniden gönderme durumu ve bağıntı kimlikleri gibi belirli Ayrıntılar ile çalışan sağlar. Bu makale Azure İzleyici günlüklerine üzerinde çalışma zamanı olayları görüntüleyebilir ve mantıksal uygulamanız için veri çalıştıran devre dışı bırakma.
 

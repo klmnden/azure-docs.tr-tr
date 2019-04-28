@@ -1,7 +1,6 @@
 ---
 title: Azure sanal ağları - Azure HDInsight içinde HBase kümesi çoğaltma ayarlama
 description: HBase çoğaltmanın dışında bir HDInsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresiyle geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma ayarlama konusunda bilgi edinin.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123095"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
@@ -69,15 +68,15 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 
 | Özellik | Değer |
 |----------|-------|
-| Konum | Batı ABD |
-| VNet adı | &lt;ClusterNamePrevix >-vnet1 |
+| Location | Batı ABD |
+| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet1 |
 | Adres alanı ön eki | 10.1.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.1.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.1.255.0/27 |
 | Ağ geçidi adı | vnet1gw |
-| Ağ geçidi türü | VPN |
+| Geçit türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |
@@ -86,15 +85,15 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 
 | Özellik | Değer |
 |----------|-------|
-| Konum | Doğu ABD |
-| VNet adı | &lt;ClusterNamePrevix >-vnet2'den |
+| Location | Doğu ABD |
+| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet2'den |
 | Adres alanı ön eki | 10.2.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.2.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.2.255.0/27 |
 | Ağ geçidi adı | vnet2gw |
-| Ağ geçidi türü | VPN |
+| Geçit türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |

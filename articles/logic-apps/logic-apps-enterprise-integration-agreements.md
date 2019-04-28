@@ -1,6 +1,6 @@
 ---
-title: B2B iletişim - Azure Logic Apps sözleşmelerini | Microsoft Docs
-description: B2B ticaret Azure Logic Apps ve Enterprise Integration Pack ile iş ortağı iletişim sözleşmelerini oluşturma
+title: Oluşturma ve ticari ortak sözleşmeleri - Azure Logic Apps'ı yönetme
+description: Oluşturma ve Azure Logic Apps ve Enterprise Integration Pack kullanarak ticari ortaklar arasında sözleşmelerini yönetme
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,67 +9,100 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 06/29/2016
-ms.openlocfilehash: 09bee10649e2bc0d745e42b8aa13ae9c21df35aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.date: 04/05/2019
+ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128836"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761299"
 ---
-# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile B2B iletişim için iş ortağı sözleşmeleri
+# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Oluşturma ve Azure Logic Apps ve Enterprise Integration Pack kullanarak ticari ortak sözleşmeleri yönetme
 
-Anlaşmaları iş varlıkları sorunsuz bir şekilde sektör standardı protokolleri kullanarak iletişim kurma sağlar ve işletmeler arası (B2B) iletişimi için temel taşlarıdır. B2B senaryoları için logic apps Enterprise Integration Pack ile etkinleştirirken, bir anlaşma B2B ticaret iş ortakları arasında iletişim düzenlemesidir. İşbu sözleşme, iş ortakları kurmak istediğiniz ve protokolü iletişimleri göre veya aktarım özgü değil.
+A [ticari ortak](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+*sözleşmesi* organizasyonlar ve işletmeler sorunsuz bir şekilde alışverişleri sırasında kullanılacak belirli endüstri standardı protokol tanımlayarak birbirleriyle iletişim yardımcı olur. işletmeden işletmeye (B2B) iletileri. Sözleşmeleri, örneğin ortak avantajları sağlar:
 
-Kurumsal tümleştirme, bu protokolü veya aktarım standartları destekler:
+* İyi bilinen bir biçimde kullanarak bilgi alışverişi kuruluşların olanak sağlar.
+* B2B işlemlerini yaparken, verimliliği artırın.
+* Oluşturma, yönetme ve kurumsal tümleştirme çözümleri oluşturmak için kullanmak kolaydır.
 
-* [AS2](logic-apps-enterprise-integration-as2.md)
-* [X12](logic-apps-enterprise-integration-x12.md)
-* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+Bu makalede bir AS2, EDIFACT veya X12 oluşturulacağını gösterir kullanarak kurumsal tümleştirme çözümleri B2B senaryoları için oluşturma sırasında kullanabileceğiniz sözleşmesi [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Bir anlaşma oluşturduktan sonra ardından AS2, EDIFACT veya X12 kullanabilirsiniz B2B iletilerini değişimi için bağlayıcılar.
 
-## <a name="why-use-agreements"></a>Anlaşmaları neden kullanılır?
+## <a name="prerequisites"></a>Önkoşullar
 
-Anlaşmaları kullanırken sık karşılaşılan bazı avantajları şunlardır:
+* Azure aboneliği. Henüz Azure aboneliğiniz yoksa, [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
-* Farklı Kuruluş ve işletmelerin iyi bilinen bir biçimde bilgi alışverişi sağlar.
-* B2B işlemlerini yaparken, verimliliği artırır.
-* Oluşturma, yönetme ve kurumsal tümleştirme uygulamaları oluştururken kullanmak daha kolay
+* Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sözleşmenizi ve diğer B2B yapıtlarını depolamak için. Bu tümleştirme hesabı, Azure aboneliğinizle ilişkili olmalıdır.
 
-## <a name="how-to-create-agreements"></a>Anlaşmaları oluşturma
+* En az iki [ortaklar](../logic-apps/logic-apps-enterprise-integration-partners.md) , tümleştirme hesabında zaten oluşturduğunuz. Bir anlaşma hem konak iş ortağı hem de Konuk iş ortağı gerektirir. Her iki iş ortakları, X 12 veya EDIFACT, AS2 gibi oluşturmak istediğiniz sözleşmesi olarak aynı "iş kimliği" niteleyicisi kullanmanız gerekir.
 
-* [Bir AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)
-* [X X12 oluşturma Sözleşmesi](logic-apps-enterprise-integration-x12.md)
-* [EDIFACT sözleşmesi oluşturun](logic-apps-enterprise-integration-edifact.md)
+* İsteğe bağlı: Sözleşmenizi ve mantıksal uygulamanızın iş akışı başlatan tetikleyici kullanmasını istediğiniz mantıksal uygulaması. Tümleştirme hesabı ve B2B yapıtları yalnızca oluşturmak için bir mantıksal uygulama gerekmez. Ancak, mantıksal uygulama B2B yapıtları tümleştirme hesabınızdaki kullanabilmeniz için önce mantıksal uygulamanıza tümleştirme hesabınızı bağlamanız gerekir. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="how-to-use-an-agreement"></a>Bir anlaşma kullanma
+## <a name="create-agreements"></a>Anlaşmaları oluşturma
 
-Oluşturabileceğiniz [logic apps](logic-apps-overview.md "Logic apps hakkında bilgi edinin") B2B özellikli kullanarak oluşturduğunuz bir anlaşma.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna filtreniz olarak "tümleştirme" girin. Bu kaynak sonuçlardan seçin: **Tümleştirme hesaplarına genel bakış**
 
-## <a name="how-to-edit-an-agreement"></a>Bir sözleşme düzenleme
+   ![Tümleştirme hesabı bulunamadı](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-Aşağıdaki adımları izleyerek her anlaşma düzenleyebilirsiniz:
+1. Altında **tümleştirme hesapları**, tümleştirme hesabı sözleşmesi oluşturmak istediğiniz yeri seçin.
 
-1. Güncelleştirmek istediğiniz sözleşmesindeki tümleştirme hesabı'nı seçin.
+   ![Tümleştirme hesabı sözleşmesi oluşturmak istediğiniz yeri seçin](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-2. Seçin **sözleşmeleri** Döşe.
+1. Sağ bölmede altında **bileşenleri**, seçin **sözleşmeleri** Döşe.
 
-3. Üzerinde **sözleşmeleri** dikey penceresinde Sözleşmesi'ni seçin.
+   !["Anlaşmaları" seçin](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-4. Seçin **Düzenle**. Değişikliklerinizi yapın.
+1. Altında **sözleşmeleri**, seçin **Ekle**. İçinde **Ekle** bölmesinde, örneğin, anlaşmanız hakkında bilgi sağlar:
 
-5. Değişikliklerinizi kaydetmek için seçin **Tamam**.
+   !["Ekle" öğesini seçin](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-## <a name="how-to-delete-an-agreement"></a>Bir anlaşma silme
+   | Özellik | Gereklidir | Value | Açıklama |
+   |----------|----------|-------|-------------|
+   | **Ad** | Evet | <*Anlaşma adı*> | Sözleşmenize adı |
+   | **Sözleşme türü** | Evet | **AS2**, **X12**, veya **EDIFACT** | Sözleşmenize protokol türü. Sözleşme dosyanızı oluşturduğunuzda, bu dosyanın içeriği sözleşme türüyle eşleşmelidir. | |  
+   | **Konak iş ortağı** | Evet | <*konak iş ortağı adı*> | Konak iş ortağı sözleşmesi belirten kuruluşu temsil eder. |
+   | **Konak kimliği** | Evet | <*konak iş ortağı tanımlayıcısı*> | Konak iş ortağının tanımlayıcısı |
+   | **Konuk iş ortağı** | Evet | <*Konuk iş ortağı adı*> | Konuk iş ortağı yapan iş konak iş ortağı kuruluşu temsil eder. |
+   | **Konuk kimliği** | Evet | <*Konuk iş ortağı tanımlayıcısı*> | Konuk iş ortağının tanımlayıcısı |
+   | **Ayarları Al** | Değişir | Değişir | Bu özellikler, sözleşmesi tarafından alınan tüm gelen iletilerin nasıl ele alınacağını belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
+   | **Gönderme ayarları** | Değişir | Değişir | Bu özellikler, sözleşmesi tarafından gönderilen tüm mesajları işlemek nasıl belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
+   |||||
 
-Tüm sözleşme, aşağıdaki adımları izleyerek silebilirsiniz:
+1. Bitirdiğinizde, sözleşmeniz oluşturma konusunda **Ekle** sayfasında **Tamam**ve tümleştirme hesabınıza döndürür.
 
-1. Silmek istediğiniz sözleşmesindeki tümleştirme hesabı'nı seçin.
-2. Seçin **sözleşmeleri** Döşe.
-3. Üzerinde **sözleşmeleri** dikey penceresinde Sözleşmesi'ni seçin.
-4. Seçin **Sil**.
-5. Seçilen anlaşmayı silmek istediğinizi onaylayın.
+   **Sözleşmeleri** listesi artık yeni sözleşmenize gösterir.
 
-    Anlaşmaları dikey penceresinde, artık silinen sözleşmesi gösterir.
+## <a name="edit-agreements"></a>Anlaşmaları Düzenle
+
+1. İçinde [Azure portalında](https://portal.azure.com), ana Azure menüsünde **tüm hizmetleri**.
+
+1. Arama kutusuna filtreniz olarak "tümleştirme" girin. Bu kaynak sonuçlardan seçin: **Tümleştirme hesaplarına genel bakış**
+
+1. Altında **tümleştirme hesapları**, düzenlemek istediğiniz sözleşmesindeki tümleştirme hesabı seçin.
+
+1. Sağ bölmede altında **bileşenleri**, seçin **sözleşmeleri** Döşe.
+
+1. Altında **sözleşmeleri**, sözleşmenizi seçip seçin **Düzenle**.
+
+1. Yapın ve ardından değişikliklerinizi kaydedin.
+
+## <a name="delete-agreements"></a>Anlaşmaları Sil
+
+1. İçinde [Azure portalında](https://portal.azure.com), ana Azure menüsünde **tüm hizmetleri**.
+
+1. Arama kutusuna filtreniz olarak "tümleştirme" girin. Bu kaynak sonuçlardan seçin: **Tümleştirme hesaplarına genel bakış**
+
+1. Altında **tümleştirme hesapları**, silmek istediğiniz sözleşmesindeki tümleştirme hesabı seçin.
+
+1. Sağ bölmede altında **bileşenleri**, seçin **sözleşmeleri** Döşe.
+
+1. Altında **sözleşmeleri**, sözleşmenizi seçip seçin **Sil**.
+
+1. Seçilen anlaşmayı silmek istediğinizi onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)
+
+* [AS2 iletilerini paylaşma](logic-apps-enterprise-integration-as2.md)
+* [EDIFACT iletilerini paylaşma](logic-apps-enterprise-integration-edifact.md)
+* [Exchange X12 iletileri](logic-apps-enterprise-integration-x12.md)

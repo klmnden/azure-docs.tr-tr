@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001091"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766912"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -47,7 +47,7 @@ IP güvenlik duvarı kurallarını her isteğin kaynak IP adresine göre veritab
 > [!IMPORTANT]
 > Veritabanları ve Azure içinde veritabanı sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. Azure SQL veritabanı iki kimlik doğrulaması türünü destekler:
 
@@ -66,19 +66,17 @@ Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. A
 > [!IMPORTANT]
 > Veritabanları ve Azure içinde sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md). Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **yönetilen örnek**. Üzerinde lütfen şu makaleye bakın [bir yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md) gereken ağ yapılandırması hakkında daha fazla bilgi.
 
-Yetkilendirme, bir Azure SQL veritabanındaki bir kullanıcıya atanan izinleri belirtir ve kullanıcı yapmak için verileceğini belirler. İzinleri, kullanıcı hesapları eklenerek denetlenir [veritabanı rolleri](/sql/relational-databases/security/authentication-access/database-level-roles) veritabanı düzeyi izinler veya belirli kullanıcı verme tanımlayan [nesne düzeyi izinleri](/sql/relational-databases/security/permissions-database-engine). Daha fazla bilgi için [oturumlar ve kullanıcılar](sql-database-manage-logins.md)
+## <a name="authorization"></a>Yetkilendirme
 
-En iyi uygulama, kullanıcılar kendi iş işlevi gerçekleştirmek için gereken en az ayrıcalıkla rolüne ekleyin. Sunucu yönetici hesabı kapsamlı izinlere sahiptir ve kullanıcılara dikkatli biçimde verilmelidir db_owner rolünün üyesidir. Uygulamaları Azure SQL veritabanı ile kullanırken [uygulama rolleri](/sql/relational-databases/security/authentication-access/application-roles) sınırlı izinlere sahip. Bu, veritabanına bağlanırken uygulama uygulama tarafından gereken en az ayrıcalığa sahip olmasını sağlar.
+Yetkilendirme, bir Azure SQL veritabanındaki bir kullanıcıya atanan izinleri belirtir ve kullanıcı yapmak için verileceğini belirler. İzinleri, kullanıcı hesapları eklenerek denetlenir [veritabanı rolleri](/sql/relational-databases/security/authentication-access/database-level-roles) ve bu rolleri veya belirli kullanıcı verme veritabanı düzeyindeki izinleri atama [nesne düzeyi izinleri](/sql/relational-databases/security/permissions-database-engine). Daha fazla bilgi için [oturumlar ve kullanıcılar](sql-database-manage-logins.md)
+
+En iyi uygulama, gerektiğinde özel roller oluşturun. Kullanıcılar kendi iş işlevi gerçekleştirmek için gereken en az ayrıcalıkla rolüne ekleyin. Doğrudan kullanıcılara izinleri atamayın. Sunucu yönetici hesabı kapsamlı izinlere sahiptir ve yalnızca birkaç yönetim görevlerini kullanıcılara verilecek yerleşik db_owner rolünün üyesidir. Azure SQL veritabanı uygulamaları için kullanıyor [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) çağrılan modülü yürütme bağlamı belirtin veya [uygulama rolleri](/sql/relational-databases/security/authentication-access/application-roles) sınırlı izinlere sahip. Bu uygulama, veritabanına bağlanan bir uygulama uygulama tarafından gereken en az ayrıcalığa sahip olmasını sağlar. Bu en iyi uygulamaları izleyerek, görevlerin ayrılmasını destekler.
 
 ### <a name="row-level-security"></a>Satır düzeyi güvenlik
 
-Satır düzeyi güvenlik (örneğin, grup üyeliği veya yürütme bağlamı) Sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek müşterilerin sağlar. Daha fazla bilgi için bkz. [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security).
+Satır düzeyi güvenlik (örneğin, grup üyeliği veya yürütme bağlamı) Sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek müşterilerin sağlar. Satır düzeyi güvenlik, özel etiket temel güvenlik kavramları uygulamak için de kullanılabilir. Daha fazla bilgi için bkz. [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Bu kimlik doğrulama yöntemi, bir kullanıcı adı ve parola kullanır. 
-
-Azure SQL veritabanı izinleri genel bakış için bkz. [oturumlar ve kullanıcılar](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>Tehdit koruması
 

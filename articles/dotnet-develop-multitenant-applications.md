@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119157"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure'daki çok müşterili uygulamalar
 Çok kiracılı bir uygulama farklı kullanıcılar veya "Kiracı" kendi olduğu gibi ancak uygulamayı görüntülemek izin veren bir paylaşılan bir kaynaktır. Kendi çok kiracılı bir uygulama için çok uygundur tipik bir senaryo, kullanıcı deneyimini özelleştirme ancak Aksi halde aynı temel iş gereksinimlerine sahip tüm kullanıcılar uygulamanın isteyebilir biridir. Office 365 ve Outlook.com visualstudio.com büyük çok kiracılı uygulamalar örnekleridir.
@@ -28,21 +28,21 @@ ms.locfileid: "52425055"
 
 Hedefleri ve gereksinimleri bir sağlayıcının açısından en önemli bir listesini sağlar.
 
-* **Sağlama**: uygulama için yeni kiracılar sağlama olmalıdır.  Çok sayıda kiracılar ile çok kiracılı uygulamaları için Self Servis sağlama etkinleştirilerek bu işlemi otomatikleştirmek genellikle gereklidir.
-* **Bakım**: Uygulama yükseltme ve birden çok kiracının kullanırken diğer bakım görevleri gerçekleştirmeniz gerekir.
-* **İzleme**: uygulamayı her zaman herhangi bir sorunu belirlemek ve bunları gidermek için izleme olmalıdır. Bu, her Kiracı uygulamanın nasıl kullandığını izleme içerir.
+* **Sağlama**: Uygulama için yeni kiracılar sağlama olması gerekir.  Çok sayıda kiracılar ile çok kiracılı uygulamaları için Self Servis sağlama etkinleştirilerek bu işlemi otomatikleştirmek genellikle gereklidir.
+* **Bakım**: Uygulama yükseltme ve birden çok kiracının kullanırken diğer bakım görevleri gerçekleştirmeniz mümkün olması gerekir.
+* **İzleme**: Sorunları tanımlamak ve bunları gidermek için her zaman uygulamayı izleme olması gerekir. Bu, her Kiracı uygulamanın nasıl kullandığını izleme içerir.
 
 Düzgün uygulanan bir çok kiracılı uygulaması kullanıcıların aşağıdaki avantajları sağlar.
 
-* **Yalıtım**: bireysel kiracılar etkinliklerini uygulama diğer kiracılar tarafından kullanımını etkilemez. Kiracılar, diğer tarafın verilere erişemez. Uygulamanın özel kullanımda olsa gibi kiracıya görünür.
-* **Kullanılabilirlik**: bireysel kiracılar istediğiniz uygulamanın belki de bir SLA'da tanımlanmış Garantisi ile sürekli olarak kullanılabilir. Yeniden diğer kiracıların etkinliklerini uygulamanın kullanılabilirliğini etkilemeyecektir.
-* **Ölçeklenebilirlik**: bireysel Kiracı talebi karşılamak üzere uygulama ölçeklendirir. Varlığı ve diğer kiracıların Eylemler uygulamanın kullanılabilirliğini etkilemeyecektir.
-* **Maliyetleri**: çok kiracılı kaynaklarının paylaşımı sağladığından, ayrılmış, tek kiracılı bir uygulama çalıştıran daha düşük maliyetler.
+* **Yalıtım**: Etkinlikleri tek bir kiracının başka kiracılar tarafından uygulama kullanımını etkilemez. Kiracılar, diğer tarafın verilere erişemez. Uygulamanın özel kullanımda olsa gibi kiracıya görünür.
+* **Kullanılabilirlik**: Tek tek kiracılar uygulama belki de bir SLA'da tanımlanmış Garantisi ile sürekli kullanılabilir olmasını istiyorsunuz. Yeniden diğer kiracıların etkinliklerini uygulamanın kullanılabilirliğini etkilemeyecektir.
+* **Ölçeklenebilirlik**: Uygulama, bireysel Kiracı talebi karşılamak üzere ölçeklendirir. Varlığı ve diğer kiracıların Eylemler uygulamanın kullanılabilirliğini etkilemeyecektir.
+* **Maliyetleri**: Maliyetleri, çok kiracılı kaynaklarının paylaşımı sağladığından, ayrılmış, tek kiracılı bir uygulama çalıştıran daha düşüktür.
 * **Özelleştirmeyi ölçme**. Uygulama ekleme veya özellik kaldırma, renkleri ve logoları değiştirme veya hatta kendi kod veya betik ekleme gibi çeşitli şekillerde tek bir kiracı için özelleştirme yeteneği.
 
 Kısacası, yüksek oranda ölçeklenebilir bir hizmet sağlamak için dikkate almanız gereken birçok konuları olsa da, vardır ayrıca birçok çok müşterili uygulamalar için ortak olan gereksinimler ve hedefleri. Bazı belirli senaryolarda ilgili olmayabilir ve bireysel hedefleri ve gereksinimleri önemini her senaryoda farklılık gösterir. Çok kiracılı uygulama sağlayıcısı olarak, ayrıca hedefleri ve gereksinimleri gibi kiracıların hedefleri ve gereksinimleri, kârlılığı, faturalama, birden çok hizmet düzeyleri, sağlama, devamlılık izleme ve Otomasyon toplantı da sahip olacaksınız.
 
-Çok kiracılı bir uygulamanın diğer tasarım konuları hakkında daha fazla bilgi için bkz. [azure'da çok Kiracılı bir uygulama barındırma][Hosting a Multi-Tenant Application on Azure]. Çok kiracılı hizmet olarak yazılım (SaaS) veritabanı uygulamalarının ortak veri mimarisi düzenlerine ilişkin bilgi için bkz. [Azure SQL Database ile Çok Kiracılı SaaS Uygulamaları için Tasarım Düzenleri](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Çok kiracılı bir uygulamanın diğer tasarım konuları hakkında daha fazla bilgi için bkz. [azure'da çok Kiracılı bir uygulama barındırma][Hosting a Multi-Tenant Application on Azure]. Çok kiracılı hizmet olarak yazılım (SaaS) veritabanı uygulamalarının ortak veri mimarisi düzenlerine ilişkin bilgi için bkz. [Azure SQL Veritabanı ile Çok Kiracılı SaaS Uygulamaları için Tasarım Düzenleri](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure, çok kiracılı bir sistem tasarlanırken karşılaşılan temel sorunları ele almak birçok özellik sağlar.
 

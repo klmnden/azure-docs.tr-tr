@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127888"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ Bu öğretici, Mobile Apps için [bir Xamarin iOS uygulaması oluşturma] öğre
         #define OFFLINE_SYNC_ENABLED
 3. (İsteğe bağlı) Windows cihazları desteklemek için aşağıdaki SQLite çalışma zamanı paketlerini yükleyin:
 
-   * **Windows 8.1 çalışma zamanı:** yükleme [Windows 8.1 için SQLite][3].
-   * **Windows Phone 8.1:** yükleme [Windows Phone 8.1 için SQLite][4].
+   * **Windows 8.1 çalışma zamanı:** Yükleme [Windows 8.1 için SQLite][3].
+   * **Windows Phone 8.1:** Yükleme [Windows Phone 8.1 için SQLite][4].
    * **Evrensel Windows platformu** yükleme [Evrensel Windows Evrensel için SQLite][5].
 
      Bu hızlı başlangıçta, bir evrensel Windows projesi içermiyor olsa da, Evrensel Windows platformu, Xamarin Forms ile desteklenir.

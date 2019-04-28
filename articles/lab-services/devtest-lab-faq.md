@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127404"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -350,7 +350,7 @@ Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirleri
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Yeni bir sanal ağ ve var olan bir sanal ağ kullanarak DevTest Labs ortamım için ne zaman oluşturmalıyım?
 Ardından, sanal makinelerinizin altyapınız ile etkileşim kurmak gerekiyorsa, DevTest Labs ortamınız içinde mevcut bir sanal ağ kullanmayı düşünün. ExpressRoute kullanıyorsanız, sanal ağlar en aza indirmek isteyebilirsiniz / alt ağlar Aboneliklerde kullanılmak üzere atanan, IP adres alanı parçalara böylece. 
 
-Sanal ağ eşleme düzeni burada kullanmayı deneyin ([merkez-uç modeli](/architecture/reference-architectures/hybrid-networking/hub-spoke)) çok. Bu yaklaşım, abonelikler arasında vnet/alt ağ iletişimi sağlar. Aksi takdirde, DevTest Labs her ortamın kendi sanal ağı olabilir. 
+Sanal ağ eşleme düzeni burada kullanmayı deneyin ([merkez-uç modeli](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) çok. Bu yaklaşım, abonelikler arasında vnet/alt ağ iletişimi sağlar. Aksi takdirde, DevTest Labs her ortamın kendi sanal ağı olabilir. 
 
 Vardır [sınırları](../azure-subscription-service-limits.md) abonelik başına sanal ağ sayısı. Bu sınır 100 olarak oluşturulabilir olsa varsayılan süreyi 50 ' dir.
 

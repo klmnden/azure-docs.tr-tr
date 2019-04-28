@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight içinde bir etkileşimli bir Spark Shell kullanma
 description: Etkileşimli bir Spark Shell, Spark, bir seferde komutları çalıştırma ve sonuçları görmek için bir okuma-yürütme-yazdırma işlemi sunar.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116082"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark Spark Kabuğu'ndan çalıştırma
 
@@ -62,7 +61,7 @@ Spark Shell komutu (`spark-shell`, `pyspark`, veya `sparkR`) birçok komut satı
 
 | anahtarı | açıklama | Örnek |
 | --- | --- | --- |
-| --Ana MASTER_URL | Ana URL'yi belirtir. HDInsight bu değer her zaman, `yarn`. | `--master yarn`|
+| --master MASTER_URL | Ana URL'yi belirtir. HDInsight bu değer her zaman, `yarn`. | `--master yarn`|
 | --jar'lar JAR_LIST | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için yerel jar dosyaları dışındaki virgülle ayrılmış listesi. HDInsight bu liste, Azure Depolama'da veya Data Lake Storage varsayılan dosya sistemi yolları oluşur. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS paketleri | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için maven koordinatları jar dosyaları dışındaki virgülle ayrılmış listesi. Herhangi bir ek uzak depolar ile belirtilen yerel maven deposu, ardından maven central arar `--repositories`. Koordinatları biçimi *GroupID*:*Artifactıd*:*sürüm*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py dosyaları listesi | Python için yalnızca .zip, .egg veya .py dosyaları üzerinde ise PYTHONPATH yerleştirmek için virgülle ayrılmış listesi. | `--pyfiles "samples.py"` |

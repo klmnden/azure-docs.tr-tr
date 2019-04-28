@@ -10,11 +10,11 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468304"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(KULLANIM DIŞI) Marathon web UI aracılığıyla bir Azure Container Service DC/OS kümesini yönetme
 
@@ -52,7 +52,7 @@ Yeni kapsayıcıyı Marathon kullanarak dağıtmak için **Uygulama Oluştur**'a
 | --- | --- |
 | Kimlik |nginx |
 | Bellek | 32 |
-| Görüntü |nginx |
+| Image |nginx |
 | Ağ |Bağlantı |
 | Ana Bilgisayar Bağlantı Noktası |80 |
 | Protokol |TCP |

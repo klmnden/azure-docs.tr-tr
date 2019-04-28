@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699415"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764343"
 ---
 # <a name="automation-with-service-principals"></a>Hizmet sorumlularıyla otomasyon
 
@@ -47,13 +47,37 @@ Hizmet sorumlusu uygulama kimliği ve parola veya sertifika kullanılabilir bağ
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-İle kaynak yönetimi işlemleri için bir hizmet sorumlusunu kullanırken [Az.AnalysisServices](/powershell/module/az.analysisservices) modülü, kullanım `Connect-AzAccount` cmdlet'i. İle sunucu işlemleri için bir hizmet sorumlusunu kullanırken [SQLServer](https://www.powershellgallery.com/packages/SqlServer) modülü, kullanım `Add-AzAnalysisServicesAccount` cmdlet'i. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Az.AnalysisServices modülünü kullanma
+
+İle kaynak yönetimi işlemleri için bir hizmet sorumlusunu kullanırken [Az.AnalysisServices](/powershell/module/az.analysisservices) modülü, kullanım `Connect-AzAccount` cmdlet'i. 
+
+Aşağıdaki örnekte, AppID ve parola, / ölçeği ve salt okunur kopyaya eşitleme için Denetim düzlemi işlemleri gerçekleştirmek için kullanılır:
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>SQLServer modülündeki kullanma
 
 Aşağıdaki örnekte, uygulama kimliği ve parola, bir model veritabanı yenileme işlemi gerçekleştirmek için kullanılır:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId

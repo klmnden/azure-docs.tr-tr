@@ -7,11 +7,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485564"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Ana bilgisayar depolama Azure'a taşıyın
 
@@ -51,7 +51,7 @@ Azure depolama alanı olarak kullanılabilir [Azure diskleri](/azure/virtual-mac
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Açıklama</th><th>Şunları yapmak istediğinizde kullanın:</th></tr>
+    <tr><th>Tür</th><th>Açıklama</th><th>Şunları yapmak istediğinizde kullanın:</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure Dosyaları
@@ -94,7 +94,7 @@ Belirli bir sistem için depolama türünü depolama boyutu, aktarım hızı ve 
 
 SSD'ler, Azure üzerinde en yüksek depolama performansı sağlar. (Bu belgede yazımını itibariyle) aşağıdaki seçenekler kullanılabilir:
 
-| Type         | Boyut           | IOPS                  |
+| Tür         | Boyut           | IOPS                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 GB ile 64 TB  | 1.200 için 160,000 IOPS |
 | Premium SSD  | 32 TB'ye kadar 32 GB | 12 için 15.000 IOPS     |
