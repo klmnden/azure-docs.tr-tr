@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: d3eb2affe76374eb35ac724dff0204f43b567e09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61225737"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık kullanarak Media Encoder .NET Standard ile kodlama  
 
@@ -205,7 +205,7 @@ namespace MediaEncoderStandardSample
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -11,11 +11,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: eddbb41f346661e86c64b1dd703321f434c5bbb6
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342619"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
@@ -24,7 +24,7 @@ Bu makalede, Azure Search ile sağlanan bilişsel beceriler hakkında bilgi edin
 > [!NOTE]
 > 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
 >
-> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
 
 ## <a name="predefined-skills"></a>Önceden tanımlanmış beceriler
 

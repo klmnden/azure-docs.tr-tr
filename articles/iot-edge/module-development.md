@@ -3,18 +3,18 @@ title: İçin Azure IOT Edge modülleri geliştirme | Microsoft Docs
 description: Azure IOT Edge çalışma zamanı ve IOT Hub ile iletişim kurabilen için modüllerinizi geliştirebilir.
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 02/25/2019
+ms.author: v-yiso
+origin.date: 02/25/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61322464"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Kendi IOT Edge modülleri geliştirin
 

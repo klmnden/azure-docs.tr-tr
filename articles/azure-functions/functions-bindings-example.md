@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437897"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure işlevleri tetikleyici ve bağlama örneği
 
@@ -141,3 +142,4 @@ Artık bir kuyruk'ına verileri çıkarır Azure tablo Depolama tarafından teti
 
 > [!div class="nextstepaction"]
 > [Azure işlevleri bağlama ifade desenleri](./functions-bindings-expressions-patterns.md)
+

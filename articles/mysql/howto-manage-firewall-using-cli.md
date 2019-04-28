@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61458476"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL sunucusu için Azure veritabanı'na yönetmek için kullanılabilir. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md).

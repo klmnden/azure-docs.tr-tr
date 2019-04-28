@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61414378"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanma ve rapor oluşturma
 
@@ -46,7 +46,7 @@ Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 20
    ![Sunucu adını ve oturum açma kimlik bilgilerini girme](./media/sql-database-connect-excel/connect-to-server.png)
 
    > [!TIP]
-   > Ağ ortamınıza bağlı olarak, SQL Database sunucusunun istemci IP adresinizden gelen trafiğe izin vermemesi halinde bağlanamayabilirsiniz veya mevcut bağlantınız kesilebilir. [Azure portalına](https://portal.azure.com/) gidip SQL sunucuları seçeneğine tıklayın, sunucunuza tıklayın ve ardından ayarlar altında bulunan güvenlik duvarı seçeneğine tıklayıp istemci IP adresinizi ekleyin. Ayrıntılı bilgi için bkz. [Güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
+   > Ağ ortamınıza bağlı olarak, SQL Veritabanı sunucusunun istemci IP adresinizden gelen trafiğe izin vermemesi halinde bağlanamayabilirsiniz veya mevcut bağlantınız kesilebilir. [Azure portalına](https://portal.azure.com/) gidip SQL sunucuları seçeneğine tıklayın, sunucunuza tıklayın ve ardından ayarlar altında bulunan güvenlik duvarı seçeneğine tıklayıp istemci IP adresinizi ekleyin. Ayrıntılı bilgi için bkz. [Güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
 
 5. İçinde **Gezgin**seçin listeden çalışmak istediğiniz veritabanını seçin tabloları veya görünümleri ile çalışmak istediğiniz (seçtik **vGetAllCategories**) ve ardından **yük**Excel elektronik tablosuna veritabanınızdan verileri taşımak için.
 

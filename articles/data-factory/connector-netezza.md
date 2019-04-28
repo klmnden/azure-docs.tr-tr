@@ -3,21 +3,22 @@ title: Azure Data Factory kullanarak Netezza'dan verileri kopyalama | Microsoft 
 description: Desteklenen bir havuz veri depolarına Netezza'dan bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: jingwang
+origin.date: 02/01/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 9bf90c9d3ce593ba5bf6339cd9cec31bb49f14f1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61399936"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Netezza'dan verileri kopyalama
 

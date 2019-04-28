@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320866"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineleri internet trafiği Yük Dengelemesi
 
@@ -53,7 +53,7 @@ Bu bölümde, standart yük yardımcı olan sanal makinelerin yük dengelemesini
     | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *myResourceGroupSLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
     | Bölge         | **Batı Avrupa**'yı seçin.                                        |
-    | Type          | Seçin **genel**.                                        |
+    | Tür          | Seçin **genel**.                                        |
     | SKU           | Seçin **standart**.                          |
     | Genel IP adresi | **Yeni oluştur**’u seçin. |
     | Ortak IP adresi adı              | Tür *Mypublicıp* metin kutusuna.   |
@@ -90,7 +90,7 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
     | Bağlantı noktası | Girin *80*.|
     | Interval | Girin *15* sayısı için **aralığı** araştırma denemeleri arasındaki saniye. |
     | İyi durumda olmayan eşik | Seçin *2* sayısı için **sağlıksız durum eşiği** veya VM sistem durumu kötü olarak kabul edilmeden önce gerçekleşmesi gereken ardışık araştırma hatası.|
-    | Durum araştırması | Seçin *myHealthProbe*. |
+    | Durum yoklaması | Seçin *myHealthProbe*. |
     
 4. **Tamam**’ı seçin.
 
@@ -109,7 +109,7 @@ Trafiğin sanal makinelere dağıtımını tanımlamak için bir Yük Dengeleyic
     | Bağlantı noktası | Girin *80*.|
     | Arka uç bağlantı noktası | Girin *80*. |
     | Arka uç havuzu | Seçin *myBackendPool*.|
-    | Durum araştırması | Seçin *myHealthProbe*. |
+    | Durum yoklaması | Seçin *myHealthProbe*. |
     
 4. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
 
@@ -128,7 +128,7 @@ Bu bölümde, bir sanal ağ oluşturma, yük dengeleyicinin arka uç havuzu içi
     | Adres alanı | Girin *10.1.0.0/16*. |
     | Abonelik | Aboneliğinizi seçin.|
     | Kaynak grubu | Mevcut kaynağı - seçin *myResourceGroupSLB*. |
-    | Konum | **Batı Avrupa**'yı seçin.|
+    | Location | **Batı Avrupa**'yı seçin.|
     | Alt ağ - adı | *myBackendSubnet* yazın. |
     | Alt Ağ - Adres aralığı | Girin *10.1.0.0/24*. |
     

@@ -10,11 +10,11 @@ ms.service: iot-hub
 services: iot-hub
 manager: briz
 ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320704"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub nedir?
 

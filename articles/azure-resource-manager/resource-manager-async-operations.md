@@ -14,11 +14,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061382"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure zaman uyumsuz işlemleri izleme
 Bazı Azure REST işlemlerini zaman uyumsuz olarak çalışır, çünkü işlem hızlı bir şekilde tamamlanamıyor. Bu makalede, yanıtta döndürülen değerleri arasında zaman uyumsuz işlemlerin durumunu izlemek açıklar.  

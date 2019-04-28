@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336526"
 ---
 # <a name="similarity-method"></a>Benzerlik yöntemi
 
@@ -28,26 +28,34 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>İstek Parametreleri
+
 Parametre        |Veri Türü      |Gerekli | Açıklama
 ----------|----------|----------|------------
 **s1**        |String   |Evet  |Karşılaştırılacak dize *
 **s2**        |String   |Evet  |Karşılaştırılacak dize *
+
 <sub> * En çok 1 MB Karşılaştırılacak dizeler sahip. </sub>
 <br>
+
 ## <a name="response"></a>Yanıt
+
 Ad | Açıklama
 --------|---------
 **SimilarityScore**        |Bir kayan nokta Kosinüs benzerliğini s1 ve s2, 1.0 anlamı daha benzer yakın değerler ve daha az anlamı -1.0 yakın değerler gösteren değer
+
 <br>
 
 ## <a name="successerror-conditions"></a>Başarı/hata koşulları
+
 HTTP durumu | Neden | Yanıt
 -----------|----------|--------
 **200**         |Başarılı | Kayan noktalı sayı
 **400**         | Hatalı istek veya istek geçersiz | Hata iletisi      
 **500**         |İç sunucu hatası | Hata iletisi
 **Zaman aşımına uğradı**     | İstek zaman aşımına uğradı.  | Hata iletisi
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Örnek: İki kısmi özetleri benzerliğini hesaplar
 #### <a name="request"></a>İstek:
 ```

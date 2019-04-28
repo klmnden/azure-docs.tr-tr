@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475822"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -1213,12 +1213,12 @@ Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-j
 
 |Sütun adı|   Veri türü   |Açıklama|
 |---------|---------|---------|
-|**job_execution_id**   |benzersiz tanımlayıcı|  İş yürütme örneğini benzersiz kimliği.
+|**job_execution_id**   |uniqueidentifier|  İş yürütme örneğini benzersiz kimliği.
 |**job_name**   |nvarchar(128)  |İşin adı.
-|**job_id** |benzersiz tanımlayıcı|  Projenin benzersiz kimliği.
+|**job_id** |uniqueidentifier|  Projenin benzersiz kimliği.
 |**job_version**    |int    |(İş değiştirilir her zaman otomatik olarak güncelleştirilir) iş sürümü.
 |**step_id**    |int|   Adım için (Bu işlem için) benzersiz tanımlayıcı. NULL, bu üst iş yürütme olduğunu gösterir.
-|**is_active**| Bit |Bilgi etkin veya devre dışı olup olmadığını belirtir. 1 etkin işleri gösterir ve 0 etkin olduğunu gösterir.
+|**is_active**| bit |Bilgi etkin veya devre dışı olup olmadığını belirtir. 1 etkin işleri gösterir ve 0 etkin olduğunu gösterir.
 |**yaşam döngüsü**| nvarchar(50)|İşinin durumunu belirten değer: 'Oluşturulan', 'Sürüyor', 'Başarısız', 'Başarılı', 'Atlanan', 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   Tarih ve saat iş oluşturuldu.
 |**start_time** |datetime2(7)|  Tarih ve saat iş yürütme başlatıldı. İşi henüz yürütülmedi yoksa NULL.
@@ -1227,7 +1227,7 @@ Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-j
 |**current_attempt_start_time** |datetime2(7)|  Tarih ve saat iş yürütme başlatıldı. NULL, bu üst iş yürütme olduğunu gösterir.
 |**last_message**   |nvarchar(max)| İş ya da adım geçmişi iletisi. 
 |**target_type**|   nvarchar(128)   |Hedef veritabanı veya tüm veritabanları bir sunucu, bir elastik havuzdaki tüm veritabanları veya veritabanı gibi veritabanlarının koleksiyon türü. 'SqlServer', 'SqlElasticPool' veya 'Temel' target_type için geçerli değerlerdir. NULL, bu üst iş yürütme olduğunu gösterir.
-|**target_id**  |benzersiz tanımlayıcı|  Hedef grup üyesi benzersiz kimliği.  NULL, bu üst iş yürütme olduğunu gösterir.
+|**target_id**  |uniqueidentifier|  Hedef grup üyesi benzersiz kimliği.  NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_group_name**  |nvarchar(128)  |Hedef grubun adı. NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_server_name**|    nvarchar(256)|  Hedef grup içinde bulunan SQL veritabanı sunucusunun adı. Yalnızca target_type 'SqlServer' belirtilmelidir. NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_database_name**   |nvarchar(128)| Hedef grup içinde bulunan veritabanının adı. Target_type 'Temel' olduğunda yalnızca belirtilen. NULL, bu üst iş yürütme olduğunu gösterir.
@@ -1242,7 +1242,7 @@ Tüm işleri gösterir.
 |Sütun adı|   Veri türü|  Açıklama|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |İşin adı.|
-|**job_id**|    benzersiz tanımlayıcı    |Projenin benzersiz kimliği.|
+|**job_id**|    uniqueidentifier    |Projenin benzersiz kimliği.|
 |**job_version**    |int    |(İş değiştirilir her zaman otomatik olarak güncelleştirilir) iş sürümü.|
 |**Açıklaması**    |nvarchar(512)| İş için açıklama. Etkin bit iş etkin mi yoksa devre dışı mı olduğunu belirtir. 1 etkin işleri gösterir ve 0'ı devre dışı bırakılan işler gösterir.|
 |**schedule_interval_type** |nvarchar(50)   |Yürütülecek iş olduğunda belirten değer: 'Bir kez', 'Minutes', 'Hours', 'Gün', ' hafta', 'Ay'
@@ -1260,7 +1260,7 @@ Tüm iş sürümlerini gösterir.
 |Sütun adı|   Veri türü|  Açıklama|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |İşin adı.|
-|**job_id**|    benzersiz tanımlayıcı    |Projenin benzersiz kimliği.|
+|**job_id**|    uniqueidentifier    |Projenin benzersiz kimliği.|
 |**job_version**    |int    |(İş değiştirilir her zaman otomatik olarak güncelleştirilir) iş sürümü.|
 
 
@@ -1273,7 +1273,7 @@ Tüm adımları her projenin geçerli sürümünde gösterir.
 |Sütun adı    |Veri türü| Açıklama|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| İşin adı.|
-|**job_id** |benzersiz tanımlayıcı   |Projenin benzersiz kimliği.|
+|**job_id** |uniqueidentifier   |Projenin benzersiz kimliği.|
 |**job_version**|   int|    (İş değiştirilir her zaman otomatik olarak güncelleştirilir) iş sürümü.|
 |**step_id**    |int    |Adım için (Bu işlem için) benzersiz tanımlayıcı.|
 |**step_name**  |nvarchar(128)  |Adım için (Bu işlem için) benzersiz bir ad.|
@@ -1282,15 +1282,15 @@ Tüm adımları her projenin geçerli sürümünde gösterir.
 |**Komutu**|   nvarchar(max)|  Esnek işler command_type aracılığıyla tarafından yürütülecek komutlar içerir.|
 |**credential_name**|   nvarchar(128)   |İş yürütme için kullanılan veritabanı kapsamlı kimlik bilgisinin adı.|
 |**target_group_name**| nvarchar(128)   |Hedef grubun adı.|
-|**target_group_id**|   benzersiz tanımlayıcı|   Hedef grubun benzersiz kimliği.|
+|**target_group_id**|   uniqueidentifier|   Hedef grubun benzersiz kimliği.|
 |**initial_retry_interval_seconds**|    int |İlk yeniden deneme girişiminden önce gecikme. Varsayılan değer 1'dir.|
 |**maximum_retry_interval_seconds** |int|   Yeniden deneme girişimleri arasındaki en büyük gecikme. Yeniden denemeler arasındaki gecikme bu değerden daha büyük geçerseniz, bunun yerine bu değere tavan sabitlenir. Varsayılan değer 120'dir.|
-|**retry_interval_backoff_multiplier**  |Gerçek|  Birden çok iş yürütme adım durumunda yeniden deneme gecikmesi uygulanacak çarpan denemesi başarısız. 2.0 varsayılan değerdir.|
+|**retry_interval_backoff_multiplier**  |real|  Birden çok iş yürütme adım durumunda yeniden deneme gecikmesi uygulanacak çarpan denemesi başarısız. 2.0 varsayılan değerdir.|
 |**retry_attempts** |int|   Yeniden deneme sayısı, bu adım başarısız olursa kullanmaya çalışır. Herhangi bir yeniden deneme girişimleri gösteren varsayılan 10.|
 |**step_timeout_seconds**   |int|   Yeniden deneme girişimleri arasındaki dakika cinsinden süre miktarı. Varsayılan değer 0 dakika arayla gösteren 0 ' dır.|
 |**output_type**    |nvarchar(11)|  Komut dosyasının konumu. Geçerli Önizleme 'Inline' varsayılandır ve yalnızca kabul edilen değer.|
 |**output_credential_name**|    nvarchar(128)   |Sonuçlarını depolamak için hedef sunucuya bağlanmak için kullanılacak kimlik bilgilerini ayarlayın.|
-|**output_subscription_id**|    benzersiz tanımlayıcı|   Sonuçları sorgu yürütmeyi ayarlamak için hedef server\database aboneliğini benzersiz kimliği.|
+|**output_subscription_id**|    uniqueidentifier|   Sonuçları sorgu yürütmeyi ayarlamak için hedef server\database aboneliğini benzersiz kimliği.|
 |**output_resource_group_name** |nvarchar(128)| Hedef sunucunun bulunduğu kaynak grubu adı.|
 |**output_server_name**|    nvarchar(256)   |Sonuçlar için hedef sunucunun adını ayarlayın.|
 |**output_database_name**   |nvarchar(128)| Hedef veritabanı adı sonuçlar için ayarlayın.|
@@ -1314,7 +1314,7 @@ Tüm hedef gruplarını listeler.
 |Sütun adı|Veri türü| Açıklama|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Hedef grup, veritabanlarının bir koleksiyon adı. 
-|**target_group_id**    |benzersiz tanımlayıcı   |Hedef grubun benzersiz kimliği.
+|**target_group_id**    |uniqueidentifier   |Hedef grubun benzersiz kimliği.
 
 ### <a name="targetgroupsmembers-view"></a>target_groups_members görüntüle
 
@@ -1325,12 +1325,12 @@ Tüm hedef grupların tüm üyeleri gösterir.
 |Sütun adı|Veri türü| Açıklama|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar (128|Hedef grup, veritabanlarının bir koleksiyon adı. |
-|**target_group_id**    |benzersiz tanımlayıcı   |Hedef grubun benzersiz kimliği.|
+|**target_group_id**    |uniqueidentifier   |Hedef grubun benzersiz kimliği.|
 |**membership_type**    |int|   Hedef grup üyesi dahil veya hedef grupta dışlanan belirtir. 'Include' veya 'Exclude' target_group_name için geçerli değerlerdir.|
 |**target_type**    |nvarchar(128)| Hedef veritabanı veya tüm veritabanları bir sunucu, bir elastik havuzdaki tüm veritabanları veya veritabanı gibi veritabanlarının koleksiyon türü. 'SqlServer', 'SqlElasticPool', 'Temel' veya 'SqlShardMap' target_type için geçerli değerlerdir.|
-|**target_id**  |benzersiz tanımlayıcı|  Hedef grup üyesi benzersiz kimliği.|
+|**target_id**  |uniqueidentifier|  Hedef grup üyesi benzersiz kimliği.|
 |**refresh_credential_name**    |nvarchar(128)  |Veritabanının adı hedef grubu üyesine bağlanmak için kullanılan kimlik bilgilerini kapsamı.|
-|**subscription_id**    |benzersiz tanımlayıcı|  Abonelik benzersiz kimliği.|
+|**subscription_id**    |uniqueidentifier|  Abonelik benzersiz kimliği.|
 |**resource_group_name**    |nvarchar(128)| Hedef grup üyesi bulunduğu kaynak grubunun adı.|
 |**SERVER_NAME**    |nvarchar(128)  |Hedef grup içinde bulunan SQL veritabanı sunucusunun adı. Yalnızca target_type 'SqlServer' belirtilmelidir. |
 |**database_name**  |nvarchar(128)  |Hedef grup içinde bulunan veritabanının adı. Target_type 'Temel' olduğunda yalnızca belirtilen.|

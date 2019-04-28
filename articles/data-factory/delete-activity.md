@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346352"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik Sil
 
@@ -87,7 +87,7 @@ Silme etkinliği kullanmak için bazı öneriler şunlardır:
 | EnableLogging | Silinmiş bir klasör veya dosya adlarını kaydedin gerekip gerekmediğini gösterir. TRUE ise silme etkinliği davranışlarını günlük dosyasını okuyarak izleyebilmeniz için daha fazla günlük dosyasını kaydetmek için bir depolama hesabı sağlamak gerekir. | Hayır |
 | logStorageSettings | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Silme etkinliği tarafından silinmiş klasör veya dosya adlarını içeren bir günlük dosyasını kaydetmek istediğiniz bir grup olabilir depolama özellik belirtilmiş. | Hayır |
 | linkedServiceName | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md#linked-service-properties), veya [Azure Data Lake depolama Gen2](connector-azure-data-lake-storage.md#linked-service-properties) günlük dosyasının depolanacağı klasörü içeren veya dosya adları Silme etkinliği tarafından silindi. | Hayır |
-| yol | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Günlük dosyasını depolama hesabınızdaki kaydetmek istediğiniz yola gözatın. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır |
+| path | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Günlük dosyasını depolama hesabınızdaki kaydetmek istediğiniz yola gözatın. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır |
 
 ## <a name="monitoring"></a>İzleme
 

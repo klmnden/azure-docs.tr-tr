@@ -17,13 +17,13 @@ ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 693f9144d1cb454b0a9dd98b5ae63938abd7d26d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473844"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Linux sanal makinesi oluşturma
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Linux sanal makinesi oluşturma
 
 Azure sanal makineleri (VM’ler), Azure portalı üzerinden oluşturulabilir. Azure portal, sanal makineleri ve tüm ilgili kaynaklarını oluşturmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bu hızlı başlangıçta Azure portalı kullanarak Ubuntu 16.04 LTS çalıştıran bir Linux sanal makinesinin (VM) nasıl dağıtılacağı gösterilir. Ayrıca VM'nizin çalıştığını görmek için SSH ile VM bağlantısı kurup NGINX web sunucusunu da yükleyeceksiniz.
 

@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61285614"
 ---
-# <a name="configure-the-review-tool"></a>Gözden geçirme Aracı'nı yapılandırma
+# <a name="configure-the-review-tool"></a>Gözden Geçirme aracını yapılandırma
 
 [Gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com) aracılığıyla erişebileceğiniz çeşitli önemli özelliklere sahip **ayarları** Panosu menüsünde.
 

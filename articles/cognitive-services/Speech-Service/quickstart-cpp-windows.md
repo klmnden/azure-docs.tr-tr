@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: a3fe14436a569a8354e4bfd58a9ba164881d8fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462497"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde c++ konuşma tanıma
 
@@ -29,9 +29,9 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kodu ekleme
+## <a name="add-sample-code"></a>Örnek kod ekleme
 
 1. *helloworld.cpp* kaynak dosyasını açın. İlk dahil etme deyiminin (`#include "stdafx.h"` veya `#include "pch.h"`) altındaki tüm kodu aşağıdakiyle değiştirin:
 
@@ -55,7 +55,7 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
 1. Bir şey söylemenizi isteyen bir konsol penceresi görünür. İngilizce bir deyim ya da cümle söyleyin. Konuşma konuşma hizmetlere iletilen ve transcribed aynı pencerede görünen metin.
 
-   ![Başarılı tanıma sonrası konsol çıktısının ekran görüntüsü](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Başarılı tanıma sonrasında konsol çıktısının ekran görüntüsü](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

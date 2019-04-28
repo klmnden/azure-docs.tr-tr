@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093975"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure İzleyici'de günlük veri alım zamanı
 Azure İzleyici binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir büyük ölçekli veri hizmetidir. Çoğunlukla için günlük verileri toplandıktan sonra kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
@@ -30,7 +30,7 @@ Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Azure 
 Toplam alım zaman belirli bir veri kümesi aşağıdaki üst düzey alanlarına ayrılabilir. 
 
 - Aracı saati - bir olay bulmak, toplamak ve Azure İzleyici alma noktası günlük kaydı olarak gönderin. Çoğu durumda, bu işlem bir aracı tarafından işlenir.
-- İşlem hattı saati - günlük kaydı işlenecek alım işlem hattının. Bu olay özelliklerini ayrıştırma ve potansiyel olarak hesaplanan bilgi eklemeyi içerir.
+- İşlem hattı süresi - Alım işlem hattının günlük kaydını işleme süresi. Bu olay özelliklerini ayrıştırma ve potansiyel olarak hesaplanan bilgi eklemeyi içerir.
 - Dizin oluşturma saati-günlük kaydı Azure İzleyici büyük veri deposuna veri alımı için harcanan süre.
 
 Bu işlemde sunulan farklı gecikme süresi ile ilgili ayrıntılar aşağıda açıklanmıştır.

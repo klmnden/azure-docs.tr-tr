@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425851"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics'e akıllı analiz örnekleri
 Bu makalede, kullanıcı etkinliğinin analiz gerçekleştirmek için Log Analytics'te akıllı analiz işlevleri kullanan örnekler içerir. Application Insights tarafından izlenen kendi uygulamalarınızı çözümlemek için bu örnekleri kullanın veya benzer diğer veri çözümleme için bu sorgular, kavramları kullanmaktadır. 

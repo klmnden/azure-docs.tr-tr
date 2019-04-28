@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475686"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanlarını yönetme
 
@@ -120,7 +120,7 @@ Aşağıdaki bileşenler yönetim işlemleri geçici olarak yürütülmesini sa�
 
   Elastik veritabanı işleri (Önizleme) yürütülmesi gereken görevleri gerçekleştirmek için bir müşteri barındırılan Azure bulut hizmeti olarak sunulur. Portaldan hizmetin dağıtılmış ve barındırılan Microsoft Azure aboneliğiniz. Varsayılan hizmeti çalıştığında en yüksek kullanılabilirlik için iki çalışan rolleri ile dağıtılabilir. Her bir çalışan rolü (ElasticDatabaseJobWorker) varsayılan boyutu A0 örneği üzerinde çalışır. Fiyatlandırma için bkz [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/).
 
-- Azure SQL Database
+- Azure SQL Veritabanı
 
   Hizmet olarak bilinen bir Azure SQL veritabanı kullanan **denetimi veritabanı** tüm iş meta verileri depolamak için. Varsayılan hizmet katmanına bir S0 ' dir. Fiyatlandırma için bkz [SQL veritabanı fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/).
 

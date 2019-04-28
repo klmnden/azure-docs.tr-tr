@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038261"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>çok katmanlı Citrix XenApp ve XenDesktop dağıtımı için olağanüstü durum kurtarmayı ayarlama
 

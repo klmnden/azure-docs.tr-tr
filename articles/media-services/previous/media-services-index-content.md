@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
 ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215814"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer ile medya dosyalarının dizinini oluşturarak
 Azure Media Indexer, medya dosyalarınızın içeriklerini aranabilir yapmanıza ve Kapalı Açıklamalı Altyazı veya anahtar sözcükler için bir tam metin dökümü oluşturmak için sağlar. Tek bir medya dosyasını işleyebileceğiniz gibi, birden çok medya dosyasını toplu olarak da işleyebilirsiniz.  

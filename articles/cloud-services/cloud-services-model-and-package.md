@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432645"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Bulut hizmeti modeli ve nasıl paketi nedir?
 Bir bulut hizmeti, üç bileşenlerini hizmet tanımı oluşturulur *(.csdef)*, hizmet yapılandırma *(.cscfg)* ve bir hizmet paketi *(.cspkg)*. Her iki **ServiceDefinition.csdef** ve **ServiceConfig.cscfg** dosyaları XML tabanlı ve topluca model adlı bulut hizmeti ve nasıl yapılandırıldığını; yapısını açıklar. **ServicePackage.cspkg** oluşturulduğu bir zip dosyası **ServiceDefinition.csdef** ve diğerlerinin yanı sıra ikili tabanlı tüm gerekli bağımlılıkları içerir. Azure hem de bulut hizmeti oluşturur **ServicePackage.cspkg** ve **ServiceConfig.cscfg**.

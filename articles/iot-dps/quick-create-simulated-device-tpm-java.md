@@ -11,11 +11,11 @@ manager: timlt
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258854"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -80,7 +80,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
     private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
     ```
 
-1. Projeyi oluşturun. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
+1. Projeyi derleyin. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
 
     ```cmd/sh
     mvn clean install
@@ -97,9 +97,9 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 
 1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar** düğmesine tıklayın ve Cihaz Sağlama hizmetinizi açın.
 
-1. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
+2. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 
-1. **Kayıt Ekle** altına aşağıdaki bilgileri girin:
+3. **Kayıt Ekle** altına aşağıdaki bilgileri girin:
    - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
    - TPM cihazınızın önceden not ettiğiniz *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin. 
    - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.

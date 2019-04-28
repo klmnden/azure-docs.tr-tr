@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465686"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure medya Content Moderator, olası yetişkinlere yönelik ve müstehcen içeriğin algılamak için kullanın 
 
 ## <a name="overview"></a>Genel Bakış
-**Azure medya Content Moderator** medya işlemci (MP) videolarınız için makine Yardımlı resim denetimi kullanmanıza olanak sağlar. Örneğin, videoları olası yetişkinlere yönelik ve müstehcen içerikleri algılama ve insan tarafından denetim takımlarınızın bayrak eklenen içeriği gözden geçir isteyebilirsiniz.
+**Azure medya Content Moderator** medya işlemci (MP) videolarınız için makine Yardımlı resim denetimi kullanmanıza olanak sağlar. Örneğin videolardaki yetişkinlere yönelik veya müstehcen içerikleri tespit edip belirlenen içeriklerin moderasyon ekibiniz tarafından gözden geçirilmesini isteyebilirsiniz.
 
 **Azure medya Content Moderator** MP şu anda Önizleme aşamasındadır.
 
@@ -71,7 +71,7 @@ JSON biçiminde yönetilen çıktı görüntüleri otomatik olarak algılanır v
 | reviewRecommended | `true` veya `false` bağlı olarak **adultScore** veya **racyScore** iç eşiklerini aşan. |
 | adultScore | Güvenilirlik puanı 0,00 için 0.99 ölçeğinde olası yetişkinlere yönelik içeriği. |
 | racyScore | Güvenilirlik puanı 0,00 için 0.99 ölçeğinde olası müstehcen içerik. |
-| dizin | Dizin çerçevenin bir ölçekte ilk çerçeve çerçeve dizinini son dizin. |
+| index | Dizin çerçevenin bir ölçekte ilk çerçeve çerçeve dizinini son dizin. |
 | timestamp | Konumu çerçevede "ticks." |
 | shotIndex | Görüntüsü üst dizini. |
 

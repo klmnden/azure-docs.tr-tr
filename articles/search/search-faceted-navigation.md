@@ -10,11 +10,11 @@ ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291656"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.

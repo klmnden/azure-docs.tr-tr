@@ -12,11 +12,11 @@ ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045484"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.

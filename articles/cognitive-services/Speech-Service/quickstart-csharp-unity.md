@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457132"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Hızlı Başlangıç: Konuşma SDK'sı (Beta) Unity için konuşma tanıma
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
 ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61231982"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını izleme ve yönetme
 
@@ -220,7 +220,7 @@ Korumalı örnek yedekleme Yönetim türü öğesi türüdür. Dört tür vardı
 
 Tek bir işlem veya tüm işlemleri görüntüleyebilirsiniz. İki veya üç işlem seçemezsiniz. Kullanılabilir işlemler şunlardır:
 
-* Tüm işlemler
+* Tüm İşlemler
 * Kaydolma
 * Yedeklemeyi yapılandırma
 * Backup

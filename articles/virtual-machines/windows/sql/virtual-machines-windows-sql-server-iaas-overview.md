@@ -16,11 +16,11 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477170"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Sanal Makinelerinde SQL Server nedir? (Windows)
 
@@ -58,7 +58,7 @@ Kullanmaya başlamak için, gerekli olan sürüm ve işletim sisteminizle birlik
 ### <a id="payasyougo"></a> Kullandıkça ödeyin
 Şu tabloda, kullandıkça öde SQL Server resimlerinin bir matrisi verilmektedir.
 
-| Sürüm | İşletim Sistemi | Sürüm |
+| Version | İşletim Sistemi | Sürüm |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
@@ -76,7 +76,7 @@ Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Li
 
 Kendi lisansını Getir için var olan kullanım başına ödeme SQL VM'yi ya da dönüştürebilir veya önekli bir resim dağıtabilirsiniz **{KLG}**. Lisanslama modelinizin kullanım başına ödeme ve KLG arasında geçiş yapma hakkında daha fazla bilgi için bkz. [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). 
 
-| Sürüm | İşletim sistemi | Sürüm |
+| Version | İşletim sistemi | Sürüm |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |

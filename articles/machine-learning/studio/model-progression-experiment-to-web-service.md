@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61066060"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio'da model denemeden bir Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:

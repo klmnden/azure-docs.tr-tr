@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323099"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services'tan Azure Logic Apps'e geçiş
 
@@ -98,7 +98,7 @@ BizTalk Services hizmetinde, yalnızca iki seçenek varsa, kullanarak bir *koşu
 
 Logic Apps, Gelişmiş mantık özellikleri yanı sıra gelişmiş denetim akışı ve ile yönlendirme sağlar [koşullu deyimler](../logic-apps/logic-apps-control-flow-conditional-statement.md) ve [switch ifadeleri](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-### <a name="enrich"></a>Zenginleştirin
+### <a name="enrich"></a>Enrich
 
 BizTalk Hizmetleri işlemede zenginleştirin aşama alınan verilerle ilişkili ileti bağlamı özellikler ekler. Örneğin, bir veritabanı araması veya bir XPath ifadesi kullanarak bir değer ayıklama yönlendirme için kullanılacak bir özellik yükseltiliyor. Logic Apps, Eylemler aynı davranışı çoğaltmak basit hale getirme, önceki gelen tüm bağlamsal veriler çıktıları erişim sağlar. Örnek olarak, `Get Row` SQL bağlantı eylemi, bir SQL Server veritabanından veri döndürmek ve yönlendirme için verileri bir karar eylemini kullanın. Benzer şekilde, Service Bus gelen özellikleri bir tetikleyici tarafından sıraya alınan iletileri olan adreslenebilir yanı sıra iş akışı tanımı dil xpath ifadesi kullanarak XPath.
 
@@ -106,7 +106,7 @@ BizTalk Hizmetleri işlemede zenginleştirin aşama alınan verilerle ilişkili 
 
 BizTalk Services sayesinde [özel kod çalıştıran](https://msdn.microsoft.com/library/azure/dn232389.aspx) kendi derlemeler yüklenir. Bu işlev tarafından uygulanan [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) arabirimi. Köprü her aşamasında bu arabirimi uygulayan oluşturduğunuz .NET türü sağlayan iki özellikleri (üzerinde denetçisi girin ve çıkış Inspector'ı üzerinde) içerir. Özel kod daha karmaşık bir işlem veri gerçekleştirmenize olanak tanıyan ve ortak iş mantığını gerçekleştirebilirsiniz derlemelerde mevcut kodu yeniden olanak tanır. 
 
-Logic Apps özel kod yürütmek için iki temel yol sunar: Azure işlevleri ve API Apps. Azure işlevleri oluşturulur ve logic apps'ten çağrılır. Bkz: [ekleme ve çalıştırma, Azure işlevleri ile logic apps için özel kod](../logic-apps/logic-apps-azure-functions.md). API Apps, Azure App Service'in bir parçası, kendi Tetikleyicileri ve eylemleri oluşturmak için kullanın. Daha fazla bilgi edinin [Logic Apps ile kullanılacak özel bir API oluşturma](../logic-apps/logic-apps-create-api-app.md). 
+Logic Apps özel kod yürütmek için iki birincil yöntem sağlar: Azure işlevleri ve API Apps. Azure işlevleri oluşturulur ve logic apps'ten çağrılır. Bkz: [ekleme ve çalıştırma, Azure işlevleri ile logic apps için özel kod](../logic-apps/logic-apps-azure-functions.md). API Apps, Azure App Service'in bir parçası, kendi Tetikleyicileri ve eylemleri oluşturmak için kullanın. Daha fazla bilgi edinin [Logic Apps ile kullanılacak özel bir API oluşturma](../logic-apps/logic-apps-create-api-app.md). 
 
 BizTalk Services'ı çağırın derlemelerde özel kodunuz varsa, Azure işlevleri için bu kodu Taşı veya ne uyguladığınız bağlı olarak, API Apps, özel API'ler oluşturma. Örneğin, Logic Apps bağlayıcı yok başka bir hizmete sarmalar kodunuz varsa, ardından API uygulaması oluşturma ve mantıksal uygulamanızın içinde API uygulamanızı sağlar eylemlerini kullanın. Ardından Azure işlevleri, büyük olasılıkla yardımcı işlevleri veya kitaplıkları varsa, en uygun olacaktır.
 

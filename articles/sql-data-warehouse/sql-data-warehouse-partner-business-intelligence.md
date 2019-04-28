@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477118"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası iş ortakları
 Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin.  Bu makalede, Azure SQL veri ambarı destek resmi iş zekası (BI) çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.

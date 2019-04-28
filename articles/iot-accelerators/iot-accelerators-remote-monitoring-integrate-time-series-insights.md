@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61443029"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
 
@@ -57,7 +57,7 @@ Ardından, zaman serisi görüşleri, Uzaktan izleme çözümünüze ek bir kayn
 
 1. Time Series Insights ortamınızı oluşturmak için aşağıdaki tablodaki değerleri kullanın:
 
-    | Ayar | Value |
+    | Ayar | Değer |
     | ------- | ----- |
     | Ortam adı | Aşağıdaki ekran adı kullanan **contorosrmtsi**. Bu adımı tamamladığınızda, kendi benzersiz bir ad seçin. |
     | Abonelik | Açılan listeden Azure aboneliğinizi seçin. |
@@ -86,7 +86,7 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
 
 1. IOT hub'ınıza yeni bir olay kaynağı yapılandırmak için aşağıdaki tablodaki değerleri kullanın:
 
-    | Ayar | Value |
+    | Ayar | Değer |
     | ------- | ----- |
     | Olay kaynağı adı | Aşağıdaki ekran adı kullanan **contosorm IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
     | Kaynak | **IoT Hub’ı** |

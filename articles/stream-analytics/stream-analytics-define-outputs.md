@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481214"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların türlerini açıklar. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
@@ -357,7 +357,7 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 | Çıkış türü | En büyük mesaj boyutu | Toplu iş boyutu en iyi duruma getirme |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Bkz: [Data Lake Storage sınırlar](../azure-subscription-service-limits.md#data-lake-store-limits). | Yazma işlemi başına en fazla 4 MB'ı kullanın. |
-| Azure SQL Database | tekil toplu başına en fazla 10.000 satır ekleyin.<br />tekil toplu başına en az 100 satır ekleyin. <br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta eklenmiş en yüksek toplu iş boyutu toplu olur. SQL yeniden denenebilir hatayla göre toplu yarıya (en düşük toplu iş boyutu ulaşana kadar) bölebilirsiniz. |
+| Azure SQL Veritabanı | tekil toplu başına en fazla 10.000 satır ekleyin.<br />tekil toplu başına en az 100 satır ekleyin. <br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta eklenmiş en yüksek toplu iş boyutu toplu olur. SQL yeniden denenebilir hatayla göre toplu yarıya (en düşük toplu iş boyutu ulaşana kadar) bölebilirsiniz. |
 | Azure Blob depolama | Bkz: [Azure depolama sınırlarını](../azure-subscription-service-limits.md#storage-limits). | En yüksek blob blok boyutu 4 MB'dir.<br />En yüksek blob bock sayısı 50. 000 ' dir. |
 | Azure Event Hubs  | İleti başına 256 KB. <br />Bkz: [Event Hubs sınırlar](../event-hubs/event-hubs-quotas.md). |  Giriş/Çıkış bölümleme hizalı değil, her olay, tek tek paketlenmiş **EventData** ve en büyük ileti boyutu (Premium SKU için 1 MB) kadar bir dizi içinde gönderilir. <br /><br />  Birden çok olay tek bir giriş/çıkış bölümleme hizalandığında paketlenir **EventData** , en büyük ileti boyutu en fazla örnek ve gönderilir.  |
 | Power BI | Bkz: [Power BI Rest API'si sınırlar](https://msdn.microsoft.com/library/dn950053.aspx). |

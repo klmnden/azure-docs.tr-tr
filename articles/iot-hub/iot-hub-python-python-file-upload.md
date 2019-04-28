@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61441313"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 

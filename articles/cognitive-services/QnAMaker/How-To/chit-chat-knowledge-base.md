@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376112"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Bilgi Bankası'na Chit sohbet Ekle
 
@@ -24,7 +24,8 @@ Botunuz için Sohbet chit ekleyerek daha damıtarak konuşma bağlamında kullan
 
 Bu veri kümesi içinde üç kişilikler - Professional, arkadaş Comic sesini chit sohbet yaklaşık 100 senaryoları sahiptir. Botunuzun ait ses en çok benzeyen bir kişi seçin. Kullanıcı sorgusu verildiğinde, soru-cevap Oluşturucu en yakın bilinen chit sohbet soru-cevap ile eşleştirmeye çalışır. 
 
-Farklı inancı bazı örnekler: <!-- added quotes so acrolinx doesn't score these sentences -->
+Farklı inancı bazı örnekler:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Kullanıcı sorgusu|Professional|Arkadaş|Comic|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

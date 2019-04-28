@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure CDN - Azure depolama kullanarak statik Web sitesi üzerinde özel etki alanı SSL ile etkinleştirme'
+title: 'Öğretici: SSL ile özel etki alanını Azure CDN - Azure depolama kullanarak statik Web sitesi üzerinde etkinleştirmek'
 description: Statik Web sitesi barındırmak için özel bir etki alanı yapılandırma konusunda bilgi edinin.
 services: storage
 author: tamram
@@ -9,13 +9,13 @@ ms.date: 12/07/2018
 ms.author: tamram
 ms.custom: seodec18
 ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427526"
 ---
-# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Öğretici: Kullanımı Azure CDN statik bir Web sitesi için SSL ile özel etki alanı etkinleştirmek için
+# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Öğretici: Statik bir Web sitesi için SSL ile özel etki alanı etkinleştirmek için Azure CDN'yi kullanma
 
 Bu öğretici, bir dizinin ikinci bölümüdür. İçinde statik bir Web siteniz için SSL ile bir özel etki alanı endpoint etkinleştirmeyi öğrenin. 
 
@@ -29,7 +29,7 @@ Serinin ikinci bölümünde şunları öğrenirsiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiye başlamadan önce bir bölümü tamamlayın [öğretici: Blob Depolama üzerinde statik Web sitesi barındırma](storage-blob-static-website-host.md). 
+Bu öğreticiye başlamadan önce bir bölümü tamamlayın [Öğreticisi: Blob Depolama üzerinde statik Web sitesi barındırma](storage-blob-static-website-host.md). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 

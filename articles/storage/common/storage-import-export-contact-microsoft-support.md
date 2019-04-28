@@ -9,11 +9,11 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483322"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için bir destek bileti açın
 
@@ -22,7 +22,7 @@ ms.locfileid: "58120372"
 * Bir destek isteği oluşturma
 * Nasıl bir destek isteği döngüsü portalında yönetilir.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturun
+## <a name="create-a-support-request"></a>Destek isteği oluşturma
 
 Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 

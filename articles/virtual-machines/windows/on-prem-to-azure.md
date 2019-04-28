@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126923"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Amazon Web Services (AWS) ve diğer platformlardan azure'da yönetilen disklere geçirme
 
@@ -55,7 +55,7 @@ Bu bölümde sanal makine disk türlerinde en iyi kararın yapmanıza yardımcı
 
 Yönetilmeyen disklerden yönetilen disklere geçirmeyi planlıyorsanız bilmeniz gereken söz konusu kullanıcılarla [sanal makine Katılımcısı](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacaktır. Yönetilen disklere sahip VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin gerektirmek olmasıdır.
 
-### <a name="location"></a>Konum
+### <a name="location"></a>Location
 
 Azure yönetilen diskler olduğu bir konum seçin. Premium yönetilen disklere geçiriyorsanız, ayrıca Premium depolama burada geçirmeyi planlıyorsanız bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumların hakkında güncel bilgi için.
 

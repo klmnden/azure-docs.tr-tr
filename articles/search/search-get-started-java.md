@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289884"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Bu örneği derlemek ve test etmek için aşağıdaki yazılımı kullandık:
 ## <a name="about-the-data"></a>Veriler hakkında
 Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
-Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Database'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
+Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Veritabanı'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
 
 > [!NOTE]
 > Ücretsiz fiyatlandırma katmanının 10.000 belge limiti altında kalmak için, bu veri kümesi üzerinde filtre uyguladık. Standart katmanı kullanırsanız bu limit uygulanmaz ve daha büyük bir veri kümesini kullanmak için bu kodu değiştirebilirsiniz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Limitler ve kısıtlamalar](search-limits-quotas-capacity.md).

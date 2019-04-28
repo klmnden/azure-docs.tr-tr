@@ -3,8 +3,8 @@ title: Azure CLI ile Azure DNS'te DNS kayıtlarını yönetme | Microsoft Docs
 description: DNS kayıt kümeleri ve Azure DNS kayıtları etki alanınızı Azure DNS'ye üzerinde barındırırken yönetme.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: WenJason
+manager: digimobile
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -12,14 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 05/15/2018
-ms.author: victorh
+origin.date: 05/15/2018
+ms.date: 04/15/2019
+ms.author: v-jay
 ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293364"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>DNS kayıtlarını ve Azure CLI kullanarak Azure DNS kayıt kümelerini yönetme
 
@@ -255,7 +256,7 @@ Bu bölge tepesinde yalnızca NS kayıt kümesi için geçerli olduğunu unutmay
 Aşağıdaki örnekte bölgenin tepesinde ayarlayın NS kaydı ek ad sunucusu ekleme gösterir:
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.cn
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Var olan bir kayıt kümesine TTL değiştirmek için

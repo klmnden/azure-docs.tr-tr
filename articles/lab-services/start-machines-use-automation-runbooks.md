@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61083630"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Azure Otomasyonu runbook'ları kullanarak sırasıyla bir laboratuvarda sanal makinelerini başlatma
 [Autostart](devtest-lab-set-lab-policy.md#set-autostart) özelliği DevTest Labs, Vm'leri belirli bir zamanda otomatik olarak başlayacak şekilde yapılandırmanıza olanak tanır. Ancak, bu özellik, belirli bir sırayla başlatmak için makineleri desteklemez. İse, bu tür bir Otomasyon yararlı olacağı birkaç senaryo mevcuttur.  Sıçrama kutusu diğer vm'lere erişim noktası olarak kullanılmak üzere bir Sıçrama kutusu VM bir laboratuvar içindeki diğer Vm'lere önce ilk olarak başlatılması gereken yere bir senaryodur.  Bu makalede, bir betik yürütür bir PowerShell runbook'u ile bir Azure Otomasyonu hesabını ayarlama işlemini göstermektedir. Komut dosyası etiketleri betik değiştirmek zorunda kalmadan başlama sırasını denetlemesine olanak tanımak için laboratuvar Vm'lerde kullanır.

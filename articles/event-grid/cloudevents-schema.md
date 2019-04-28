@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436626"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
@@ -62,7 +62,7 @@ Bir Azure Blob Depolama olayı CloudEvents biçiminde bir örnek aşağıda veri
 
 CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 
-| CloudEvents        | Type     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
+| CloudEvents        | Tür     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | olay türü          | String   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | olay türü
 | eventTypeVersion   | String   | "1.0"                            | (İsteğe bağlı) eventType sürümü                            | dataVersion
@@ -73,7 +73,7 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 | schemaURL          | URI      | "https:\//myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
 | contentType        | String   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
 | Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
-| veriler               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
+| veriler               | Object   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
 
 Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

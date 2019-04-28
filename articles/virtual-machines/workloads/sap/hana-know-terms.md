@@ -15,13 +15,13 @@ ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a8131bc953c2aba3c8d33f866cbbe9b1e232e168
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481046"
 ---
-# <a name="know-the-terms"></a>Koşulları bildirin
+# <a name="know-the-terms"></a>Terimleri öğrenme
 
 Mimari ve Teknik Dağıtım Kılavuzu, birkaç ortak tanımlara yaygın olarak kullanılır. Aşağıdaki terimler ve anlamlarını dikkat edin:
 

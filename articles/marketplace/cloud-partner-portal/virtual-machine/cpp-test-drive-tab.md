@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 97fb21dc390bd365357f6395c72aa282423c83c9
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61344620"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Sanal makine Test Sürüşü sekmesi
 
@@ -43,7 +43,7 @@ Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
 | **Kullanıcı el kitabı**           | Test Sürüşü kullanıcılar çözümünüzü kullanmayı öğrenmenize yardımcı olan ayrıntılı kullanıcı kılavuzuna (.pdf) karşıya yükleyin.  |
 | **Test sürücü tanıtım videosu** | Çözümünüzü gösteren bir video karşıya yükleyin.  Bu seçeneği seçerseniz video URL'si (YouTube veya Vimeo barındırılan) video ve (533 x 324 piksel) küçük bir ad sağlamanız gerekir. |
 | *Teknik yapılandırma* |  |
-| **Örnekleri**             | Bölge kullanılabilirliği hem göreli olarak kullanılabilirlik sanal makine örneği belirtin (daha fazla ayrıntı için bilgi simgesine tıklayın).  <br/>Olası eşzamanlı Test Sürüşü oturum aboneliğiniz kota sınırını aşmamalıdır.  İlk olarak hesaplanır: [numarası, seçili bölgeleri] [etkin örnekler] x + [, bölgeler seçili numarası] x [sıcak örnekleri] + [, bölgeler seçili numarası] x [soğuk örnekleri] |
+| **Örnekler**             | Bölge kullanılabilirliği hem göreli olarak kullanılabilirlik sanal makine örneği belirtin (daha fazla ayrıntı için bilgi simgesine tıklayın).  <br/>Olası eşzamanlı Test Sürüşü oturum aboneliğiniz kota sınırını aşmamalıdır.  İlk olarak hesaplanır: [numarası, seçili bölgeleri] [etkin örnekler] x + [, bölgeler seçili numarası] x [sıcak örnekleri] + [, bölgeler seçili numarası] x [soğuk örnekleri] |
 | **Test Sürüşü süresi**   | Saat cinsinden maksimum oturum süresi. Bu süre aşılırsa sonra Test Sürüşü oturumu otomatik olarak sona erer.  |
 |**Test sürücü ARM şablonu**| Bu Test Sürüşü ile ilişkili Azure Resource Manager şablonunu karşıya yükleyin. Daha fazla bilgi için [Test Sürüşü için sanal makine dağıtım şablonu dönüştürme](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
 | **Erişim bilgileri**    | Azure Resource Manager erişim ve deneme oturum açma bilgileri, basit bir HTML veya düz metin yazılır. |

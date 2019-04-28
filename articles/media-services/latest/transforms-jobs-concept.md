@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466757"
 ---
 # <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
 
@@ -67,7 +67,7 @@ A **dönüştürme** tarif sonra (adım 1) oluşturun ve bu tarif (Adım 2) kull
 
 Bkz: [hata kodları](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="paging"></a>Sayfalama
+## <a name="paging"></a>Paging
 
 Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
@@ -79,5 +79,5 @@ Ayrıntılar için bkz [medya CLI ile işlemeyi ölçeklendirme](media-reserved-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: Karşıya yükleme, kodlama ve .NET kullanarak video akışı](stream-files-tutorial-with-api.md)
+- [Öğretici: .NET kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma](stream-files-tutorial-with-api.md)
 - [Öğretici: Media Services v3 ile .NET kullanarak videoları analiz etme](analyze-videos-tutorial-with-api.md)

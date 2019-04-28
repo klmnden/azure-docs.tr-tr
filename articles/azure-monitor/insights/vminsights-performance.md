@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61385956"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Nasıl yapılır Azure İzleyici ile grafik performansı için Vm'leri (Önizleme)
 VM'ler için Azure İzleyici, birkaç ana performans göstergelerini (KPI'lar) bir sanal makineye ne kadar iyi belirlemenize yardımcı olmak için şu gerçekleştiriyor hedefleyen bir dizi performans grafiklerini içerir. Performans sorunlarını, anormallikleri belirlemek ya da seçili ölçüme göre kaynak kullanımını görüntülemek için her bir makine listeleyen bir perspektif geçiş grafikleri bir süre boyunca kaynak kullanımını gösterir. Performans ile işlem yapılırken dikkate alınması gereken çok sayıda öğe olsa da, Azure İzleyici Vm'leri izleyiciler anahtar işletim sistemi performans göstergeleri için işlemci, bellek, ağ bağdaştırıcısı ve disk kullanımı için ilgili. Performans sistem durumu izleme özelliğini tamamlar ve bir olası sistem bileşeni hatası, destek ayarlama ve iyileştirme verimlilik elde etmek için gösteren sorunları ortaya veya kapasite planlamasını desteklemek yardımcı olur.  

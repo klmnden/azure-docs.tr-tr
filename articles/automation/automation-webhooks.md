@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305041"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gereken özellik
 | Ad |Bu istemciye kullanıma bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
 | URL'si |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
 | Son kullanma tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Bu süre sonu tarihi, Web kancasının süresi dolmuş değil sürece Web kancası oluşturulduktan sonra değiştirilebilir. |
-| Etkin |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci bunu kullanabilirsiniz. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
+| Enabled |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci bunu kullanabilirsiniz. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
 
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 İstemci, aşağıdaki dönüş kodları POST isteği alır.
 
-| Kod | Metin | Açıklama |
+| Kod | Text | Açıklama |
 |:--- |:--- |:--- |
 | 202 |Kabul Edildi |İstek kabul edildi ve runbook başarıyla kuyruğa alındı. |
 | 400 |Bozuk İstek |İstek aşağıdaki nedenlerden biri için kabul edilmedi: <ul> <li>Web kancasının süresi doldu.</li> <li>Web kancası devre dışı bırakıldı.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |

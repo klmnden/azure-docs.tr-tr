@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Bu öğreticide, Azure Portalını kullanarak bir ağ güvenlik grubu ile ağ trafiğini alt ağa filtrelemeyi öğreneceksiniz.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456772"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir ağ güvenlik grubu ile ağ trafiğini filtreleme
 
@@ -51,7 +51,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
     | Adres alanı           | 10.0.0.0/16                                        |
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin. |
-    | Konum                | **Doğu ABD**’yi seçin.                                |
+    | Location                | **Doğu ABD**’yi seçin.                                |
     | Alt Ağ - Ad            | mySubnet                                           |
     | Alt Ağ - Adres aralığı  | 10.0.0.0/24                                        |
 
@@ -68,7 +68,7 @@ Uygulama güvenlik grubu, web sunucuları gibi benzer işlevlere sahip sunucular
     | Ad           | myAsgWebServers                                               |
     | Abonelik   | Aboneliğinizi seçin.                                     |
     | Kaynak grubu | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** öğesini seçin. |
-    | Konum       | Doğu ABD                                                       |
+    | Location       | Doğu ABD                                                       |
 
 4. 3. adımı yeniden tamamlayın ve aşağıdaki değerleri belirtin:
 
@@ -77,7 +77,7 @@ Uygulama güvenlik grubu, web sunucuları gibi benzer işlevlere sahip sunucular
     | Ad           | myAsgMgmtServers                                              |
     | Abonelik   | Aboneliğinizi seçin.                                     |
     | Kaynak grubu | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** öğesini seçin. |
-    | Konum       | Doğu ABD                                                       |
+    | Location       | Doğu ABD                                                       |
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
@@ -90,7 +90,7 @@ Uygulama güvenlik grubu, web sunucuları gibi benzer işlevlere sahip sunucular
     |Ad|myNsg|
     |Abonelik| Aboneliğinizi seçin.|
     |Kaynak grubu | **Mevcut olanı kullan**’ı seçin ve *myResourceGroup* seçeneğini belirleyin.|
-    |Konum|Doğu ABD|
+    |Location|Doğu ABD|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Ağ güvenlik grubunu alt ağ ile ilişkilendirme
 
@@ -149,7 +149,7 @@ Sanal ağ üzerinde iki sanal makine oluşturun.
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Abonelik| Aboneliğinizi seçin.|
     |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
-    |Konum| **Doğu ABD**’yi seçin|
+    |Location| **Doğu ABD**’yi seçin|
 
 4. Sanal makine için bir boyut seçin ve **Seç** seçeneğini belirleyin.
 5. **Ayarlar**'ın altında aşağıdaki değerleri seçin, kalan varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin:

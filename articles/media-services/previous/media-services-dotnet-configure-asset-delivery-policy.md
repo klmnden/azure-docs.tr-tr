@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b5e733c93fef8920c73c8cf460dac7a7051fddb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465618"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK'sı ile varlık teslim ilkelerini yapılandırma
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425948"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Görüntüleme ve Azure İzleyici'de günlük verilerini analiz etme
 Log Analytics, Azure İzleyicisi'nde sorgular oluşturma ve günlük verileri ile çalışma için birincil deneyimidir. Log Analytics bağlantısı açmak **günlükleri** içinde **Azure İzleyici** menüsü. Bu portalı giriş yapın ve onun özelliklerini inceleme [Azure portalında Log Analytics ile çalışmaya başlama](get-started-portal.md).

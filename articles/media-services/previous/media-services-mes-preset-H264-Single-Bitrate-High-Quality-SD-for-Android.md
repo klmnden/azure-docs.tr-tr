@@ -1,8 +1,8 @@
 ---
 title: H264 Android tekli bit hızı yüksek kaliteli SD | Microsoft Docs
 description: Konusuna genel bir fikir veren **H264 Çoklu bit hızı yüksek kaliteli SD Android** görev hazır.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: 217c4874f0375aeb4d80162af1b8453a3f7f625f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258692"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463523"
 ---
-# <a name="h264-single-bitrate-high-quality-sd-for-android"></a>H264 Android tekli bit hızı yüksek kaliteli SD
+# <a name="h264-single-bitrate-high-quality-sd-for-android"></a>Android için H264 Single Bitrate Yüksek Kaliteli SD
 `Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   
  Bu konu başlığı altında gösterilir `H264 Single Bitrate High Quality SD for Android` XML ve JSON biçiminde hazır.  

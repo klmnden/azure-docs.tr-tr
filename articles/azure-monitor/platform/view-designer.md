@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342133"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.

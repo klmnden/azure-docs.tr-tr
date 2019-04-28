@@ -14,11 +14,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462420"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -104,7 +104,7 @@ Aşağıdaki tabloda, Oracle bağlantılı hizmete özgü JSON öğeleri açıkl
 | --- | --- | --- |
 | type |**Türü** özelliği ayarlanmalıdır **OnPremisesOracle**. |Evet |
 | driverType | Ya da bir Oracle veritabanına veri kopyalamak için kullanılacak sürücüyü belirtin. İzin verilen değerler **Microsoft** ve **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) için sürücü ayrıntıları. | Hayır |
-| bağlantı dizesi | Oracle veritabanı örneği için bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. | Evet |
+| connectionString | Oracle veritabanı örneği için bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. | Evet |
 | gatewayName | Şirket içi Oracle sunucusuna bağlanmak için kullanılan ağ geçidi adı. |Evet |
 
 **Örnek: Microsoft sürücüsü kullanma**

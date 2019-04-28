@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 18be472dfc6a9928b8ceea72fe1b277d77311a63
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57909176"
 documentType: LandingData
 title: Azure SQL veritabanı - Özellikler
 metadata:
@@ -16,41 +10,41 @@ metadata:
   manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/06/2019
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Azure SQL veritabanı, SQL dilini kullanarak sorgu veri sağlayan bir Klasik ilişkisel veritabanı motorunu büyük. Veritabanı özellikleri Azure SQL veritabanı'nda daha fazla powerfull işlemleri yapmak ve Gelişmiş senaryolar uygulamasına olanak sağlar.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: 'Azure SQL veritabanı, SQL dilini kullanarak sorgu veri sağlayan bir Klasik ilişkisel veritabanı motorunu büyük. Veritabanı özellikleri Azure SQL veritabanı''nda daha fazla powerfull işlemleri yapmak ve Gelişmiş senaryolar uygulamasına olanak sağlar.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Bellek içi teknolojileri
+            href: /azure/sql-database/sql-database-in-memory
+            html: <p>Bellek içi teknolojileri kullanarak yüksek performanslı uygulamalar uygular.</p>
+          - title: Çok modelli özellikler
+            href: /azure/sql-database/sql-database-multi-model-features
+            html: '<p>Graf, JSON, XML, uzamsal Azure SQL veritabanı özellikleri hakkında bilgi edinin.</p>'
+          - title: İşlem çoğaltması
+            href: /azure/sql-database/sql-database-managed-instance-transactional-replication
+            html: <p>Verilerinizi Azure SQL veritabanı ve SQL Server tablolar arasında çoğaltılır.</p>
+          - title: Data Sync
+            href: /azure/sql-database/sql-database-sync-data
+            html: <p>Birden çok SQL veritabanları ve SQL Server örnekleri arasında veri eşitleyin.</p>
+          - title: İş otomasyonu
+            href: /azure/sql-database/sql-database-job-automation-overview
+            html: <p>Yinelenen görevleri kullanarak SQL aracısı ve elastik işleri zamanlayın.</p>
+          - title: Zamana bağlı tablolar
+            href: /azure/sql-database/sql-database-temporal-tables
+            html: <p>İzleme ve verilerinizdeki değişiklikleri tam geçmişini analiz edin.</p>
+  - title: Diğer kaynaklar
     items:
-    - title: Bellek içi teknolojileri
-      href: /azure/sql-database/sql-database-in-memory
-      html: <p>Bellek içi teknolojileri kullanarak yüksek performanslı uygulamalar uygular.</p>
-    - title: Çok modelli özellikler
-      href: /azure/sql-database/sql-database-multi-model-features
-      html: <p>Graf, JSON, XML, uzamsal Azure SQL veritabanı özellikleri hakkında bilgi edinin.</p>
-    - title: İşlem çoğaltması
-      href: /azure/sql-database/sql-database-managed-instance-transactional-replication
-      html: <p>Verilerinizi Azure SQL veritabanı ve SQL Server tablolar arasında çoğaltılır.</p>
-    - title: Data Sync
-      href: /azure/sql-database/sql-database-sync-data
-      html: <p>Birden çok SQL veritabanları ve SQL Server örnekleri arasında veri eşitleyin.</p>
-    - title: İş otomasyonu
-      href: /azure/sql-database/sql-database-job-automation-overview
-      html: <p>Yinelenen görevleri kullanarak SQL aracısı ve elastik işleri zamanlayın.</p>
-    - title: Zamana bağlı tablolar
-      href: /azure/sql-database/sql-database-temporal-tables
-      html: <p>İzleme ve verilerinizdeki değişiklikleri tam geçmişini analiz edin.</p>
-- title: Diğer kaynaklar
-  items:
-  - type: list
-    style: ordered
-    items:
-    - html: Hakkında bilgi edinin <a href="/azure/sql-database/sql-database-features">farklılıklardan SQL Server ve Azure SQL veritabanı özelliklerini</a>.
-    - html: Bu özelliklerin kullanmayı öğrenin <a href="/azure/sql-database/sql-database-howto">nasıl yapılır kılavuzları</a>.
+      - type: list
+        style: ordered
+        items:
+          - html: Hakkında bilgi edinin <a href="/azure/sql-database/sql-database-features">farklılıklardan SQL Server ve Azure SQL veritabanı özelliklerini</a>.
+          - html: Bu özelliklerin kullanmayı öğrenin <a href="/azure/sql-database/sql-database-howto">nasıl yapılır kılavuzları</a>.

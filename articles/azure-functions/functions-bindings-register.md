@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437863"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure işlevleri bağlama uzantılarını kaydetme
 
@@ -37,7 +38,7 @@ Aşağıdaki bağlama türleri, açık kaydı otomatik olarak tüm sürümleri v
 
 ## <a name="azure-portal-development"></a>Azure portal geliştirme
 
-Bir işlev oluşturma veya bağlama eklemek, tetikleyicisi veya bağlaması uzantısı kaydı gerektirdiğinde, sizden istenir. Tıklayarak istemine yanıt **yükleme** uzantısını kaydetmek için. Yükleme, bir tüketim planında 10 dakikaya kadar sürebilir.
+Bir işlev oluşturma veya bağlama eklemek, tetikleyicisi veya bağlaması uzantısı kaydı gerektirdiğinde, sizden istenir. Tıklayarak istemine yanıt **yükleme** uzantısını kaydetmek için. Yükleme, bir tüketim planında 10 dakikaya kadar sürebilir. 
 
 Yalnızca bir kez bir verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. Portalda veya güncelleştirmek için kullanılabilir olmayan desteklenen bağlamaları için yüklenmiş bir uzantı ayrıca [el ile yüklemek veya Azure Portalı'ndan uzantılarını bağlama işlevleri güncelleştirme](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Değiştirin `<target_version>` örnekte belirli bir paket sürümü ile gibi `3
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Azure işlevi tetikleyici ve bağlama örneği](./functions-bindings-example.md)
+
 

@@ -3,8 +3,8 @@ title: Sanal ağ eşlemesi ile sanal ağları bağlama - öğretici - Azure port
 description: Bu öğreticide, Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağların nasıl bağlanacağını öğreneceksiniz.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487792"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağları birbirine bağlama
 
@@ -54,7 +54,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
     |Adres alanı|10.0.0.0/16|
     |Abonelik| Aboneliğinizi seçin.|
     |Kaynak grubu| **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin.|
-    |Konum| **Doğu ABD**’yi seçin.|
+    |Location| **Doğu ABD**’yi seçin.|
     |Alt Ağ Adı|Subnet1|
     |Alt Ağ Adresi aralığı|10.0.0.0/24|
 
@@ -118,7 +118,7 @@ Sonraki bir adımda aralarında iletişim kurabilmeniz için her sanal ağ üzer
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
-    |Konum| **Doğu ABD**’yi seçin.|
+    |Location| **Doğu ABD**’yi seçin.|
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
 

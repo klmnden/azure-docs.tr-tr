@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023566"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services kaynak ve nesne sınırları
 
@@ -58,7 +58,7 @@ Bu katman, kullanıcı eşzamanlılığının elastik olmasını gerektiren ve h
 
 Bu sınırlar, teorik. Performans, düşük numaralarını yayınladıklarını.
 
-|Nesne|En büyük boyutları/numaraları|  
+|Object|En büyük boyutları/numaraları|  
 |------------|----------------------------|  
 |Bir örneğindeki veritabanları|16,000|  
 |Tabloları ve sütunları veritabanında toplam istemci sayısı|16,000|  

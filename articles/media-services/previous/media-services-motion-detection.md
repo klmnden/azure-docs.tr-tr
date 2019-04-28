@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463540"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure medya Analizi ile hareketlerin algılayın
 ## <a name="overview"></a>Genel Bakış
@@ -94,16 +94,16 @@ Aşağıdaki tabloda, çıkış JSON dosyasının öğeleri açıklar.
 
 | Öğe | Açıklama |
 | --- | --- |
-| Sürüm |Bu Video API'si sürümüne başvurur. Geçerli sürüm 2'dir. |
+| Version |Bu Video API'si sürümüne başvurur. Geçerli sürüm 2'dir. |
 | Timescale |Videoyu saniye başına "ticks". |
-| Uzaklık |Tarih damgası "saat döngüsü." içindeki saati uzaklığı Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte senaryoları destekliyoruz, bu değeri değiştirebilirsiniz. |
+| Offset |Tarih damgası "saat döngüsü." içindeki saati uzaklığı Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte senaryoları destekliyoruz, bu değeri değiştirebilirsiniz. |
 | Framerate |Videodaki saniye başına kare hızı. |
 | Genişlik, Yükseklik |Piksellerde görüntü yüksekliğini ve genişliğini belirtir. |
 | Başlatma |"Tick" cinsinden başlangıç zaman damgası. |
 | Süre |"Ticks" cinsinden uzunluğu. |
 | Interval |Her giriş olayı, "ticks" aralığı. |
 | Olaylar |Her olay parça bu süre içinde algılanan hareket içerir. |
-| Type |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir kategorilere ayırmak için Video API'lerini esnekliği gelecek sürümleri Ara. |
+| Tür |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir kategorilere ayırmak için Video API'lerini esnekliği gelecek sürümleri Ara. |
 | RegionID |Yukarıda açıklandığı gibi bu her zaman bu sürümde 0 olur. Bu etiket, Video API'si gelecekteki sürümlerde çeşitli bölgelerdeki hareket bulmak için esnekliği sunar. |
 | Bölgeler |Videonuzu hareket hakkında burada ilgilendiğiniz alanı ifade eder. <br/><br/>-"id" temsil Bölge alanı – bu sürümde yalnızca bir tane olduğunu, 0 kimliği. <br/>-"tür", önem verdiğiniz hareket bölge şeklini temsil eder. Şu anda "rectangle" ve "Çokgen" desteklenir.<br/> "Rectangle" belirttiyseniz, bölge, X boyuta sahiptir. Y, genişlik ve yükseklik. X ve Y koordinatları 0,0-1,0 normalleştirilmiş ölçeğini bölgede üst sol XY koordinatları temsil eder. Genişlik ve yükseklik 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede boyutunu temsil eder. Geçerli sürümde X, Y, genişlik ve yükseklik her zaman sabittir 0, 0 ve 1, 1. <br/>"Çokgen" belirttiyseniz, bölge boyutları noktaları vardır. <br/> |
 | Fragments |Meta verileri ayarlama parçaları olarak adlandırılan farklı parçalara öbekli. Her parçada başlangıç, süre, aralık sayısı ve olaylar vardır. Olay içermeyen bir parça, başlangıç zamanını ve süresini sırasında hiçbir hareket algılandı anlamına gelir. |

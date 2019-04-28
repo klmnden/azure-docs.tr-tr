@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361904"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerini kontrol noktası ve yeniden yürütme kavramları
 Bu makalede, bu kurtarma işi sahip iç denetim noktası ve yeniden yürütme kavramları Azure Stream Analytics ve etkisi açıklanır. Her zaman bir Stream Analytics işi çalıştırır, durum bilgilerini dahili olarak korunur. Bu durum bilgilerini bir denetim noktasında düzenli olarak kaydedilir. Bir iş hatası veya yükseltme oluşması durumunda bazı senaryolarda, iş kurtarma için denetim noktası bilgileri kullanılır. Diğer durumlarda, kontrol noktasını kurtarma için kullanılamaz ve bir yeniden yürütme gereklidir.
@@ -70,6 +70,6 @@ Bir kullanıcı tarafından başlatılan iş yeniden başlatma denetim noktası 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenilirlik ve ölçeklenebilirlik ile ilgili daha fazla bilgi için şu makalelere bakın:
-- [Öğretici: Azure Stream Analytics işleri için uyarılar ayarlama](stream-analytics-set-up-alerts.md)
+- [Öğretici: Azure Stream Analytics işleri için uyarıları ayarlama](stream-analytics-set-up-alerts.md)
 - [Azure Stream Analytics işi verimliliğini artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
 - [Stream Analytics işi güvenilirlik garanti sırasında hizmet güncelleştirmeleri](stream-analytics-job-reliability.md)

@@ -11,11 +11,11 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475623"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Azure SQL veri ambarı için işlem duraklatma ve sürdürme
 

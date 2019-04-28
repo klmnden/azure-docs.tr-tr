@@ -15,13 +15,13 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093990"
 ---
-<a name="retrieve-offer-status"></a>Teklif durumu alma 
+<a name="retrieve-offer-status"></a>Teklif durumunu alma 
 =====================
 
 Teklif geçerli durumunu alır.
@@ -33,8 +33,8 @@ Teklif geçerli durumunu alır.
 
 |  **Ad**       |   **Açıklama**                            |  **Veri türü** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  Publisherıd    | Örneğin, yayımcı tanımlayıcısı `Contoso`  |     Dize     |
-|  OfferId        | Teklifin benzersiz olarak tanımlayan GUID      |     Dize     |
+|  publisherId    | Örneğin, yayımcı tanımlayıcısı `Contoso`  |     String     |
+|  offerId        | Teklifin benzersiz olarak tanımlayan GUID      |     String     |
 |  API sürümü    | API'sının en son sürümü                        |     Tarih       |
 |  |  |
 
@@ -176,7 +176,7 @@ Teklif geçerli durumunu alır.
 |  **Ad**                    |    **Açıklama**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | Adım başlatılmadı.                        |
-|  İlerliyor                  | Adım çalışıyor.                             |
+|  Devam Ediyor                  | Adım çalışıyor.                             |
 |  WaitingForPublisherReview   | Adım yayımcı onay bekliyor.      |
 |  WaitingForApproval          | Adım işlemi onay bekliyor.        |
 |  Engellendi                     | Adım engellenir.                             |

@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 0ae9e7fa76c8ecbb724cf0f494e648df989dff30
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55726676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478700"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti, işleri numaralandırma
 Bir Abonelikteki tüm işleri numaralandırmak için çağrı [Listeleyemeyeceksiniz](/rest/api/storageimportexport/jobs) işlemi. `List Jobs` Aşağıdaki öznitelikleri yanı sıra işlerin listesini döndürür:

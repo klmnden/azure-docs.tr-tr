@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450032"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın
 
@@ -266,8 +266,8 @@ Bağlı Fabrika panosunu öğesinin görsel görünümüne özellikleri bu kateg
 
 * Ad
 * Açıklama
-* Görüntü
-* Konum
+* Image
+* Location
 * Birimler
 * Görünür
 

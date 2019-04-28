@@ -8,11 +8,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61000136"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda ilgili veri varlıklarını görüntülemek nasıl?
 Azure veri Kataloğu, aralarında seçili veri varlığına ve görünümü ilişkiler ilgili veri varlıklarını görüntülemenizi sağlar. 
@@ -21,7 +21,7 @@ Azure veri Kataloğu, aralarında seçili veri varlığına ve görünümü ili�
 Aşağıdaki veri kaynaklarından veri varlıklarını kaydetme, Azure veri Kataloğu, seçili veri varlıkları arasında birleştirme ilişkilerini hakkındaki meta verileri otomatik olarak kaydeder. 
 
 - SQL Server
-- Azure SQL Database
+- Azure SQL Veritabanı
 - MySQL
 - Oracle
 

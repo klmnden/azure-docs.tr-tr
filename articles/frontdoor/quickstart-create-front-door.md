@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461995"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Hızlı başlangıç: Yüksek oranda kullanılabilir global web uygulaması için Front Door oluşturma
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Hızlı Başlangıç: Bir ön kapısı yüksek oranda kullanılabilir bir küresel web uygulaması oluşturma
 
 Bu hızlı başlangıçta global web uygulamanız için yüksek oranda kullanılabilirlik ve yüksek performans sunan bir Front Door profili oluşturma adımları anlatılmaktadır. 
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 https://portal.azure.com adresinden Azure portalında oturum açın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıç için bir web uygulamasının farklı Azure bölgelerinde (*Doğu ABD* ve *Batı Avrupa*) çalışan iki örneğini dağıtmış olmanız gerekir. İki web uygulaması örneği de Etkin/Etkin modunda çalışıyor olmalıdır. Başka bir deyişle birinin yük devretme durumunda devreye girdiği Etkin/Beklemede yapılandırmasından farklı olarak ikisinin de her an trafik kabul eder durumda olması gerekir.
 
 1. Ekranın sol üst tarafından **Kaynak oluştur** > **Web** > **Web Uygulaması** > **Oluştur**'u seçin.
@@ -39,10 +39,10 @@ Bu hızlı başlangıç için bir web uygulamasının farklı Azure bölgelerind
 
      | Ayar         | Değer     |
      | ---              | ---  |
-     | Adı           | Web uygulamanız için benzersiz bir ad girin  |
+     | Ad           | Web uygulamanız için benzersiz bir ad girin  |
      | Kaynak grubu          | **Yeni**'yi seçin ve *myResourceGroupFD1* yazın. |
      | Uygulama hizmeti planı/Konumu         | **Yeni**'yi seçin.  App Service planına *myAppServicePlanEastUS* yazın ve **Tamam**'ı seçin. 
-     |      Konum  |   Doğu ABD        |
+     |      Location  |   Doğu ABD        |
     |||
 
 3. **Oluştur**’u seçin.
@@ -51,10 +51,10 @@ Bu hızlı başlangıç için bir web uygulamasının farklı Azure bölgelerind
 
      | Ayar         | Değer     |
      | ---              | ---  |
-     | Adı           | Web Uygulamanız için benzersiz bir ad girin  |
+     | Ad           | Web Uygulamanız için benzersiz bir ad girin  |
      | Kaynak grubu          | **Yeni**'yi seçin ve *myResourceGroupFD2* yazın. |
      | Uygulama hizmeti planı/Konumu         | **Yeni**'yi seçin.  App Service planına *myAppServicePlanWestEurope* yazın ve **Tamam**'ı seçin. 
-     |      Konum  |   Batı Avrupa      |
+     |      Location  |   Batı Avrupa      |
     |||
 
 

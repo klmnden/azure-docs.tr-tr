@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459717"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Web uygulaması güvenlik duvarı ile Azure ön kapı için özel kurallar
 Ön kapısı hizmeti ile Azure web uygulaması Güvenlik Duvarı (WAF), web uygulamalarınızı tanımladığınız koşullara göre erişim denetlemenize olanak tanır. Özel bir WAF kural öncelik numarası, kural türü, eşleştirme koşulları ve bir eylem oluşur. Özel kurallar iki tür vardır: eşleşecek kurallar ve hız sınırı kuralları. Bir eşleşme kuralı oranı sınırı kural koşulları ve gelen istekleri fiyatlarına eşleşmesi temeline göre erişim denetlerken koşullar eşleşmesi temeline göre erişimi denetler. Değerlendirilen gelen engellemek için özel bir kural devre dışı ancak yine de yapılandırmayı tutun. Bu makalede, http parametrelerine göre eşleştirme kuralları açıklanır.

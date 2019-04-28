@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61025330"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
 
@@ -57,7 +57,7 @@ Temel URL'ı kullanarak, kaynak ve işlem aşağıdaki parametreleri temel alara
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Tüm çağrıları ile geçerli bir Azure Active Directory (OAuth 2) belirteci yetkilendirme üst bilgisinde kimliğinin doğrulanması gerekir ve aşağıdaki gereksinimleri karşılaması gerekir:
 

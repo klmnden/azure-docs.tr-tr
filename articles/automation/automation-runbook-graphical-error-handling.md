@@ -2,19 +2,25 @@
 title: Azure Otomasyonu grafik runbook’larında hata işleme
 description: Bu makalede, Azure Otomasyonu grafik runbook’larında hata işleme mantığının nasıl uygulanacağı açıklanmıştır.
 services: automation
+documentationcenter: ''
+author: yunan2016
+manager: digimobile
+editor: tysonn
+ms.assetid: ''
 ms.service: automation
-ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: conceptual
-manager: carmonm
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 05/14/2018
+ms.author: v-nany
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233129"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Otomasyonu grafik runbook’larında hata işleme
 
@@ -69,4 +75,3 @@ Hata bağlantıları bu etkinliklerden tek bir **hata yönetimi** etkinliğine (
 * Bağlantılar ve grafik runbook’larındaki bağlantı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure Otomasyonu’nda grafik yazma](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-

@@ -5,16 +5,17 @@ description: Cosmos DB MongoDB Studio 3T ve Azure Cosmos DB'nin API'sini kullana
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 03/18/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61332042"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T kullanma Cosmos hesabına bağlanma
 
@@ -113,3 +114,5 @@ Veritabanı, koleksiyon ve belgelerin Studio 3T kullanma oluşturmak için aşa�
 
 - Bilgi edinmek için nasıl [Robo 3T kullanma](mongodb-robomongo.md) Azure Cosmos DB'nin MongoDB API'si ile.
 - MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -16,14 +16,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: c6413f923ca39293951044694303c50c049511c0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: fff34f6a36f9c01b1f28b6b1f13189537d8c9060
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323496"
 ---
-# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Azure CLI betiği örneği: Farklı kullanılabilirlik alanlarındaki VM’lerde yük dengeleme
+# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Azure CLI betik örneği: Farklı kullanılabilirlik bölgelerindeki VM’lerin yükünü dengeleme
 
 Bu Azure CLI betik örneği, yüksek oranda kullanılabilir ve yük dengeli bir yapılandırmada yapılandırılmış birkaç Ubuntu sanal makinesini çalıştırmak için gereken her şeyi oluşturur. Betiği çalıştırdıktan sonra Azure Standart Load Balancer üzerinden erişilebilen bir bölgenin içinde tüm kullanılabilirlik alanlarında yer alan üç sanal makineniz olur. 
 

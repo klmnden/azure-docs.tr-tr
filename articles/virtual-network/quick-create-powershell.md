@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Bu hızlı başlangıçta, Azure portalını kullanarak sanal ağ oluşturmayı öğreneceksiniz. Bir sanal ağ, sanal makineler gibi Azure kaynaklarının sağlar, birbiriyle ve internet ile özel olarak iletişim.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: jdial
-ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 280649edd61e076a286b7e3dae44dbbf9b3e3b3e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487875"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak sanal ağ oluşturma
 

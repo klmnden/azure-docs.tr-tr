@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485402"
 ---
 Yardımcı bir kullanılabilirlik kümesi, kesinti sırasında sanal makineleriniz gibi tutmak bakım sırasında. Bir kullanılabilirlik kümesinde iki veya daha çok benzer şekilde yapılandırılmış sanal makinelere yerleştirerek uygulamalar veya sanal makinenizi çalıştıran hizmet kullanılabilirliğini sürdürmek için gereken yedeklilik oluşturur. Bu işlemin nasıl çalıştığı hakkında daha fazla ayrıntı için bkz [sanal makinelerin kullanılabilirliğini yönetme][Manage the availability of virtual machines].
 

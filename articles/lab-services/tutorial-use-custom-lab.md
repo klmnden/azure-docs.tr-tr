@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61083592"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Öğretici: Azure DevTest labs'deki bir laboratuvara erişim
 Bu öğreticide, oluşturulan Laboratuvar kullandığınız [Öğreticisi: Azure DevTest Labs'de Laboratuvar oluşturma](tutorial-create-custom-lab.md) .

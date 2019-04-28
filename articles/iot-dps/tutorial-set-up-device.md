@@ -2,19 +2,20 @@
 title: Azure IoT Hub Cihazı Sağlama Hizmeti için cihazı ayarlama
 description: Cihaz üretim süreci sırasında IoT Hub Cihazı Sağlama Hizmeti aracılığıyla sağlanacak cihazı ayarlama
 author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61249086"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak sağlanacak bir cihaz ayarlama
 

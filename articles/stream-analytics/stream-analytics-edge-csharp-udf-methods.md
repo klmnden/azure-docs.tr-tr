@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481028"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>.NET Standard kullanıcı tanımlı işlevler (Önizleme) Azure Stream Analytics Edge işleri için geliştirin
 
@@ -134,6 +134,6 @@ UDF önizlemesi şu anda aşağıdaki sınırlamalara sahiptir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Öğretici: bir C# kullanıcı tanımlı işlev (Önizleme) Azure Stream Analytics Edge işi için yazın](stream-analytics-edge-csharp-udf.md)
-* [Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler](stream-analytics-javascript-user-defined-functions.md)
+* [Öğretici: Yazma bir C# Azure Stream Analytics Edge işi (Önizleme) için kullanıcı tanımlı işlevi](stream-analytics-edge-csharp-udf.md)
+* [Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri](stream-analytics-javascript-user-defined-functions.md)
 * [Azure Stream Analytics işleri görüntülemek için Visual Studio](stream-analytics-vs-tools.md)

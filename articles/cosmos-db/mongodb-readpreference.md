@@ -9,11 +9,11 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.openlocfilehash: dfb1e0093893fadf22c7a92ef5f351ae8920a977
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929296"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB kullanarak genel olarak nasıl dağıtacağınızı okur
 

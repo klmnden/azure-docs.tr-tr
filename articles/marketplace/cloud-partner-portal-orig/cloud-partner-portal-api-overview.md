@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094415"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Bulut iş ortağı portalı API Başvurusu
 ==================================
@@ -49,18 +49,18 @@ Bu başvuru aşağıdaki ortak görevleri gerçekleştirmek için API ayrıntıl
 
 -   [Tüm teklifler alma](./cloud-partner-portal-api-retrieve-offers.md)
 -   [Belirli bir teklif alma](./cloud-partner-portal-api-retrieve-specific-offer.md)
--   [Teklif durumu alma](./cloud-partner-portal-api-retrieve-offer-status.md)
+-   [Teklif durumunu alma](./cloud-partner-portal-api-retrieve-offer-status.md)
 -   [Teklif oluşturma](./cloud-partner-portal-api-creating-offer.md)
--   [Bir teklifi yayımlama](./cloud-partner-portal-api-publish-offer.md)
+-   [Teklif yayımlama](./cloud-partner-portal-api-publish-offer.md)
 
 ### <a name="operations"></a>İşlemler
 
--   [İşlemleri Al](./cloud-partner-portal-api-retrieve-operations.md)
--   [İşlemleri iptal edin](./cloud-partner-portal-api-cancel-operations.md)
+-   [İşlemleri alma](./cloud-partner-portal-api-retrieve-operations.md)
+-   [İşlemleri iptal etme](./cloud-partner-portal-api-cancel-operations.md)
 
 ### <a name="publish-an-app"></a>Uygulama yayımlama
 
--   [Canlı izleyin](./cloud-partner-portal-api-go-live.md)
+-   [Canlı yayına geçme](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Diğer görevler
 
@@ -68,4 +68,4 @@ Bu başvuru aşağıdaki ortak görevleri gerçekleştirmek için API ayrıntıl
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
--   [Kimlik doğrulama hataları sorunlarını giderme](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)
+-   [Kimlik doğrulaması sorunlarını giderme](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)

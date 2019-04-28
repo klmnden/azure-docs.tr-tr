@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437959"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
@@ -257,12 +257,12 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type**|| Gerekli - kümesine olmalıdır `sendGrid`.|
 |**direction**|| Gerekli - kümesine olmalıdır `out`.|
-|**name**|| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
+|**Adı**|| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
 |**ApiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
-|**to**|**Alıcı**| Alıcının e-posta adresi. |
-|**from**|**Kaynak**| Gönderenin e-posta adresi. |
+|**Hedef**|**Alıcı**| Alıcının e-posta adresi. |
+|**Kaynak**|**Kaynak**| Gönderenin e-posta adresi. |
 |**subject**|**Konu**| e-postanın konusu. |
-|**text**|**Metin**| e-posta içeriği. |
+|**Metin**|**Metin**| e-posta içeriği. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -288,7 +288,7 @@ Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|from|yok|Tüm işlevler arasında gönderenin e-posta adresi.| 
+|başlangıç|yok|Tüm işlevler arasında gönderenin e-posta adresi.| 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

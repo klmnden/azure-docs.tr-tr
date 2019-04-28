@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478615"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
 Microsoft Azure içeri/dışarı aktarma hizmeti içeri aktarma işi veya dışarı aktarma işi bir parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, günlükleri blok blobları, işi ile ilişkili depolama hesabına yazılır.  
@@ -101,7 +101,7 @@ properties-status ::=
 
 Aşağıdaki tabloda, günlük dosyasının öğeleri açıklar.  
   
-|XML öğesi|Type|Açıklama|  
+|XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML öğesi|Bir sürücü günlük temsil eder.|  
 |`Version`|Öznitelik, dize|Günlük biçimi sürümü.|  

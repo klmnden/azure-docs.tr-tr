@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430817"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Ve Azure Depolama Gezgini'ni kullanarak Azure Blob depolama alanından verileri taşıma
 Azure Depolama Gezgini, Microsoft'un Windows, macOS ve Linux'ta Azure depolama verileriyle çalışmanıza olanak sağlayan ücretsiz bir araçtır. Bu konuda, yüklemek ve Azure blob depolama alanından verileri indirmek için nasıl kullanılacağını açıklar. Aracı indirilebileceğini [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/).

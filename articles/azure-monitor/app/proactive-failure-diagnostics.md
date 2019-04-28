@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299104"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.

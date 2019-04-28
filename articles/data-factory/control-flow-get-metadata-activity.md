@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346927"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
 
@@ -62,7 +62,7 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 | Bağlayıcı/meta verileri | yapısı | columnCount | Var. |
 |:--- |:--- |:--- |:--- |
-| Azure SQL Database | √ | √ | √ |
+| Azure SQL Veritabanı | √ | √ | √ |
 | Azure SQL Veritabanı Yönetilen Örneği | √ | √ | √ |
 | Azure SQL Veri Ambarı | √ | √ | √ |
 | SQL Server | √ | √ | √ |

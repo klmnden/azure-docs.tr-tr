@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471944"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Kurtarma planlarına Azure Otomasyonu runbook'ları ekleme
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Otomasyonu ile nasıl tümleştirildiğini açıklar. Kurtarma planları, Site Recovery ile korunan Vm'leri kurtarma düzenleyebilirsiniz. Kurtarma planları, çoğaltma için ikincil bir Bulutu hem Azure'a çoğaltma için çalışır. Kurtarma planları da yardımcı olun kurtarma **tutarlı bir şekilde doğru**, **tekrarlanabilir**, ve **otomatik**. Azure Otomasyonu ile tümleştirme, sanal makinelerinizin azure'a yük devretme durumunda kurtarma planlarınızı genişletir. Güçlü otomasyon görevleri sunan runbook'ları çalıştırmak için kullanabilirsiniz.
@@ -29,7 +29,7 @@ Bu makalede, Kurtarma planlarına Azure Otomasyonu runbook'ları nasıl tümleş
 
 2. Sağ **Grup 1: Başlangıç**ve ardından **sonraki eylem Ekle**.
 
-    ![Sağ tıklama Grup 1: Başlatın ve sonraki eylem Ekle](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Sağ tıklama Grup 1: Başlat ve posta eylemi ekleme](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Tıklayın **betik seçme**.
 
@@ -43,7 +43,7 @@ Bu makalede, Kurtarma planlarına Azure Otomasyonu runbook'ları nasıl tümleş
 
 6. Otomasyon hesabınızda, bir runbook seçin. Bu runbook ilk grubun kurtarma işleminden sonra kurtarma planı yürütülmesi sırasında çalışacak olan betiğe ' dir.
 
-7. Komut dosyası kaydetmek için tıklatın **Tamam**. Betik eklenir **Grup 1: sonraki adımlar**.
+7. Komut dosyası kaydetmek için tıklatın **Tamam**. Betik eklenir **Grup 1: Sonraki adımlar**.
 
     ![Sonrası eylem grubu 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094378"
 ---
 <a name="publish-an-offer"></a>Teklif yayımlama
 ================
@@ -33,8 +33,8 @@ Belirtilen teklif için yayımlama işlemi başlar. Bu çağrı bir uzun süren 
 
 |  **Ad**      |    **Açıklama**                               |  **Veri türü** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  Publisherıd   | Örneğin, yayımcı tanımlayıcısı `contoso`      |   Dize       |
-|  OfferId       | Teklif tanımlayıcısı                                 |   Dize       |
+|  publisherId   | Örneğin, yayımcı tanımlayıcısı `contoso`      |   String       |
+|  offerId       | Teklif tanımlayıcısı                                 |   String       |
 |  API sürümü   | API'nin en son sürümü                        |   Tarih         |
 |  |  |
 

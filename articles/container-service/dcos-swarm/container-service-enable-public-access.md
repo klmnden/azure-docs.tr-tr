@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457382"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(KULLANIM DIŞI) Azure Container Service uygulamaya genel erişimini etkinleştirme
 
@@ -41,7 +41,7 @@ Bir ACS DC/OS kapsayıcısında [genel aracı havuzu](container-service-mesos-ma
    | Bağlantı noktası |Test etmek için kapsayıcının bağlantı noktası. |
    | Yol |(HTTP modunda olduğunda) Araştırma için göreli bir Web sitesi yolu. HTTPS desteklenmiyor. |
    | Interval |Araştırma arasındaki süre miktarını saniye olarak çalışır. |
-   | Sağlıksız durum eşiği |Ardışık araştırma sayısı, kapsayıcı sağlıksız olduğunu düşünmeden önce çalışır. |
+   | İyi durumda olmayan eşik |Ardışık araştırma sayısı, kapsayıcı sağlıksız olduğunu düşünmeden önce çalışır. |
 6. Geri özelliklerini aracı yük dengeleyicinin, tıklayın **Yük Dengeleme kuralları** ardından **Ekle**.
    
     ![Azure kapsayıcı hizmeti yük dengeleyici kuralları](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -54,7 +54,7 @@ Bir ACS DC/OS kapsayıcısında [genel aracı havuzu](container-service-mesos-ma
    | Arka uç bağlantı noktası |İç ortak bağlantı noktası kapsayıcısının trafiği yönlendirmek için. |
    | Arka uç havuzu |Bu havuzdaki kapsayıcıları Bu yük dengeleyici için hedef olur. |
    | Araştırma |Bir hedef olarak belirlemek için kullanılan araştırma **arka uç havuzu** kötü durumda. |
-   | Oturum kalıcılığı |İstemciden gelen trafiğin oturum boyunca nasıl işleneceğini belirler.<br><br>**Hiçbiri**: art arda gelen istekleri aynı istemciden gelen herhangi bir kapsayıcı tarafından işlenebilir.<br>**İstemci IP**: aynı istemci IP art arda gelen istekleri aynı kapsayıcı tarafından işlenir.<br>**İstemci IP ve protokol**: aynı istemci IP'si ve protokolü bileşiminden art arda gelen istekleri aynı kapsayıcı tarafından işlenir. |
+   | Oturum kalıcılığı |İstemciden gelen trafiğin oturum boyunca nasıl işleneceğini belirler.<br><br>**Hiçbiri**: Art arda gelen istekleri aynı istemciden gelen herhangi bir kapsayıcı tarafından işlenebilir.<br>**İstemci IP**: Aynı istemci IP art arda gelen istekleri aynı kapsayıcı tarafından işlenir.<br>**İstemci IP ve protokol**: Aynı istemci IP'si ve protokolü bileşiminden art arda gelen istekleri aynı kapsayıcı tarafından işlenir. |
    | Boşta kalma zaman aşımı |(Yalnızca TCP) Dakikalar içinde bir TCP/HTTP istemci saklanacağı süre açık bağlı kalmadan *tutma* iletileri. |
 
 ## <a name="add-a-security-rule-portal"></a>(Portal) bir güvenlik Kuralı Ekle

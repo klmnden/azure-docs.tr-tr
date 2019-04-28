@@ -16,11 +16,11 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462931"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Öğretici: Azure CDN, bir Azure App Service web uygulamasına ekleme
 
@@ -268,6 +268,6 @@ Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma d
 CDN performansını nasıl iyileştirebileceğinizi öğrenmek için aşağıdaki makalelere göz atın:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure CDN uç noktanıza özel etki alanı Ekle](cdn-map-content-to-custom-domain.md)
+> [Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
 
 

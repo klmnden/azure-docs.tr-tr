@@ -10,11 +10,11 @@ ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
 ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306362"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -143,7 +143,7 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
   Sınıflandırma türleri şunlardır:
 
-   |İşletim Sistemi  |Type  |
+   |İşletim Sistemi  |Tür  |
    |---------|---------|
    |Windows     | Kritik güncelleştirmeler</br>Güvenlik güncelleştirmeleri</br>Güncelleştirme paketleri</br>Özellik paketleri</br>Hizmet paketleri</br>Tanım güncelleştirmeleri</br>Araçlar</br>Güncelleştirmeler        |
    |Linux     | Kritik güncelleştirmeler ve güvenlik güncelleştirmeleri</br>Diğer güncelleştirmeler       |

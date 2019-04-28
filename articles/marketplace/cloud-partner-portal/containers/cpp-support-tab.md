@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472745"
 ---
 # <a name="container-support-tab"></a>Kapsayıcı desteği sekmesi
 
-Kullanım **Destek** sekmesinde **yeni teklif** teknik ve kullanıcı kaynaklarını teklifiniz için desteği sayfası.  Aşağıdaki giriş alanları destek formunda sağlanır: **mühendislik birimi ilgili kişisi**, **müşteri desteği**, ve **destek URL'lerini**. Gerekli alan adına eklenmiş bir yıldız işareti (*) gösterir.
+Kullanım **Destek** sekmesinde **yeni teklif** teknik ve kullanıcı kaynaklarını teklifiniz için desteği sayfası.  Aşağıdaki giriş alanları, destek formunda sağlanır: **İlgili kişi mühendislik**, **müşteri desteği**, ve **destek URL'lerini**. Gerekli alan adına eklenmiş bir yıldız işareti (*) gösterir.
 
 ## <a name="support-form-fields"></a>Form alanlarını destekler
 

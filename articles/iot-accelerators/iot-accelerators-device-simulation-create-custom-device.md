@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450582"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Öğretici: Özel simülasyon cihazı oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide şunları yaptınız:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Cihaz Simülasyonu'nun dağıtılmış örneğine sahip olmanız gerekir.
 
@@ -64,7 +64,7 @@ Formu aşağıdaki bilgilerle doldurun:
 | ------------------- | ---------------------------------------------------- |
 | Cihaz modeli adı   | Buzdolabı                                         |
 | Model açıklaması   | Sıcaklık ve nem algılayıcıları olan bir buzdolabı |
-| Sürüm             | 1.0                                                  |
+| Version             | 1.0                                                  |
 
 > [!NOTE]
 > Cihaz modeli adı benzersiz olmalıdır.

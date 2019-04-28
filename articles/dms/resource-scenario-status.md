@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
-ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473017"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
 Azure veritabanı geçiş hizmeti çevrimdışı her ikisi için farklı geçiş senaryolarının (kaynak/hedef çiftleri) destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve her senaryo için durumunu (özel Önizleme, genel Önizleme veya genel) tarafından şu anda desteklenen geçiş senaryoları tanımlar.

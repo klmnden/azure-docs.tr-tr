@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477453"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server Vm'leri için depolama yapılandırması
 
@@ -129,8 +129,8 @@ Azure, SQL Server Vm'leri üzerinde depolama havuzu oluşturmak için aşağıda
 | Disk boyutları |1 TB |
 | Önbellek |Okuma |
 | Ayırma boyutu |64 KB NTFS ayırma birimi boyutu |
-| Anında dosya başlatma |Etkin |
-| Sayfaları bellekte Kilitle |Etkin |
+| Anında dosya başlatma |Enabled |
+| Sayfaları bellekte Kilitle |Enabled |
 | Kurtarma |Basit kurtarma (esnekliği yok) |
 | Sütun sayısı |Veri diski sayısı<sup>1</sup> |
 | TempDB konumu |Veri disklerinde depolanan<sup>2</sup> |

@@ -1,6 +1,6 @@
 ---
-title: StorSimple sanal diziler için yeni kimlik doğrulama | Microsoft Docs
-description: Hizmetiniz için AAD tabanlı kimlik doğrulaması kullanmak, yeni kayıt anahtarı oluşturun ve aygıtların el ile kayıt gerçekleştirmek açıklanmaktadır.
+title: StorSimple sanal diziler için yeni kimlik doğrulaması | Microsoft Docs
+description: Hizmetiniz için temel AAD kimlik doğrulaması kullanması, yeni kayıt anahtarı oluşturun ve cihazların el ile kayıt gerçekleştirmek açıklanmaktadır.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61387665"
 ---
-# <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple için yeni kimlik doğrulama kullanın
+# <a name="use-the-new-authentication-for-your-storsimple"></a>Yeni kimlik doğrulaması için StorSimple'ınızı kullanın
 
 ## <a name="overview"></a>Genel Bakış
 
-StorSimple cihaz Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve birden çok StorSimple sanal diziler bağlanır. Bugüne kadar StorSimple Aygıt Yöneticisi'ni bir erişim denetimi hizmeti (ACS) StorSimple Cihazınızı hizmete kimlik doğrulaması için kullanılan hizmet. ACS mekanizması yakında kullanım ve Azure Active Directory (AAD) kimlik doğrulaması tarafından değiştirildi.
+StorSimple cihaz Yöneticisi hizmeti, Microsoft Azure'da çalışan ve birden çok StorSimple sanal dizisi bağlanır. Bugüne kadar StorSimple cihaz Yöneticisi hizmeti bir erişim denetimi hizmeti (ACS) StorSimple Cihazınızı hizmete kimlik doğrulaması için kullandı. ACS mekanizması yakında kullanımdan kaldırıldı ve bir Azure Active Directory (AAD) kimlik doğrulaması tarafından değiştirildi.
 
-Her iki StorSimple 1200 Serisi sanal diziler için yalnızca bu makalede yer alan bilgileri geçerli. Bu makalede ayrıntılarını AAD kimlik doğrulama ve ilişkili yeni hizmet kayıt anahtarını ve güvenlik duvarı kuralları StorSimple cihazlar için geçerli olarak yapılan değişiklikler açıklanmaktadır.
+Bu makalede yer alan bilgileri, her iki StorSimple 1200 Serisi sanal diziler için yalnızca geçerlidir. Bu makalede, AAD kimlik doğrulamasını ve ilişkili yeni hizmet kayıt anahtarını ve güvenlik duvarı kuralları olarak StorSimple cihazlar için geçerli bir değişiklik ayrıntılarını açıklar.
 
-StorSimple sanal diziler (modeli 1200) AAD kimlik doğrulaması gerçekleşir güncelleştirme 1 veya sonrasını çalıştırıyor.
+StorSimple sanal diziler (1200 model) AAD kimlik doğrulaması gerçekleşir güncelleştirme 1 veya sonrasını çalıştırıyor.
 
-AAD kimlik giriş nedeniyle değişiklikler ortaya:
+AAD kimlik doğrulamasını tanıtılması nedeniyle, değişiklikler ortaya:
 
-- Güvenlik duvarı kuralları için URL desenlerini.
+- URL desenleri için güvenlik duvarı kuralları.
 - Hizmet kayıt anahtarı.
 
-Bu değişiklikler, aşağıdaki bölümlerde ayrıntılı olarak ele alınmıştır.
+Bu değişiklikler aşağıdaki bölümlerde ayrıntılı olarak ele alınmıştır.
 
 ## <a name="url-changes-for-aad-authentication"></a>AAD kimlik doğrulaması için URL değişiklikleri
 
-Hizmet AAD tabanlı kimlik doğrulaması kullandığından emin olmak için tüm kullanıcılar, kendi güvenlik duvarı kurallarında yeni kimlik doğrulaması URL'lerini eklemeniz gerekir.
+Hizmet AAD tabanlı kimlik doğrulaması kullandığından emin olmak için tüm kullanıcılar kendi güvenlik duvarı kurallarında yeni kimlik doğrulaması URL'lerini içermelidir.
 
-StorSimple sanal dizinin kullanıyorsanız, aşağıdaki URL'yi güvenlik duvarı kurallarında bulunduğundan emin olun:
+StorSimple sanal dizisi kullanıyorsanız, aşağıdaki URL'yi güvenlik duvarı kurallarının eklendiğinden emin olun:
 
 | URL deseni                         | Bulut | Bileşen/işlevi         |
 |------------------------------------|-------|---------------------------------|
-| `https://login.windows.net`        | Azure genel |AAD kimlik doğrulama hizmeti      |
+| `https://login.windows.net`        | Azure kamu |AAD kimlik doğrulama hizmeti      |
 | `https://login.microsoftonline.us` | ABD Devleti |AAD kimlik doğrulama hizmeti      |
 
-StorSimple sanal diziler için tam bir URL listesi düzenleri için Git [güvenlik duvarı kuralları için URL desenlerini](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
+URL tam listesi için StorSimple sanal dizilerine desenleri için Git [URL desenleri için güvenlik duvarı kuralları](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 
-Kimlik doğrulaması URL'sini kullanımdan kaldırma tarihi ötesinde güvenlik duvarı kurallarında dahil edilmezse, kullanıcılar, StorSimple cihazını hizmetiyle kimlik doğrulaması yapamıyor kritik bir uyarı bakın. Hizmet aygıtla iletişim kuramıyor olmaz. Kullanıcılar bu uyarıyı görürseniz, yeni kimlik doğrulaması URL'sini eklemeniz gerekir. Uyarı hakkında daha fazla bilgi için Git [StorSimple Cihazınızı izlemek için uyarıları kullanın](storsimple-virtual-array-manage-alerts.md#networking-alerts).
+Kimlik doğrulama URL'si kullanımdan kaldırma tarihi ötesinde güvenlik duvarı kuralları yer almayan kullanıcıların StorSimple cihazını hizmeti ile doğrulanamadı kritik bir uyarı görürsünüz. Hizmet aygıtıyla iletişim kurmak mümkün olmayacaktır. Kullanıcılar bu uyarıyı görürseniz, bunlar yeni kimlik doğrulama URL'si eklemeniz gerekir. Uyarı hakkında daha fazla bilgi için Git [StorSimple aygıtınızı izleme için uyarıları kullanın](storsimple-virtual-array-manage-alerts.md#networking-alerts).
 
-## <a name="device-version-and-authentication-changes"></a>Cihaz sürümü ve kimlik doğrulama değişiklikleri
+## <a name="device-version-and-authentication-changes"></a>Cihaz sürümü ve kimlik doğrulaması değişiklikleri
 
-Bir StorSimple sanal dizisi kullanıyorsanız, uygulamanız gereken hangi eylemini kullanmakta olduğunuz cihaz yazılım sürümlerine göre belirlemek için aşağıdaki tabloyu kullanın.
+StorSimple Virtual Array kullanıyorsa, yapmanız gereken hangi eylemin kullanmakta olduğunuz cihaz yazılım sürüme göre belirlemek için aşağıdaki tabloyu kullanın.
 
-| Cihazınızı çalışıyorsa  | Aşağıdaki adımları uygulayın                                    |
+| Cihazınızı çalışıyorsa  | Aşağıdaki eylemi gerçekleştirin                                    |
 |----------------------------|--------------------------------------------------------------|
-| Güncelleştirme 1.0 veya üstü ve çevrimdışı. <br> URL Güvenilenler listesine değil bir uyarı görürsünüz.| 1. Güvenlik duvarı kurallarını kimlik doğrulaması URL'sini içerecek şekilde değiştirin. Bkz: [kimlik doğrulaması URL'lerini](#url-changes-for-aad-authentication). <br> 2. [Hizmetinden AAD kayıt anahtarını alın](#aad-based-registration-keys). <br> 3. 1-5 adımlarını gerçekleştirmek [sanal dizinin Windows PowerShell arabirimi Bağlan](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Kullanım `Invoke-HcsReRegister` cmdlet'ini Windows PowerShell üzerinden cihazı kaydedin. Önceki adımda aldığınız anahtarını belirtin.|
-| Güncelleştirme 1.0 veya üstü ve cihaz çevrimiçi.| Hiçbir eylem gerekli değildir.                                       |
-| Güncelleştirme 0,6 veya önceki bir sürümünü ve cihaz çevrimdışı. | 1. [Katalog sunucusundan güncelleştirme 1.0 indirmek](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Yerel web kullanıcı Arabirimi güncelleştirme 1.0 uygulamak](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Hizmetinden AAD kayıt anahtarını alın](#aad-based-registration-keys). <br>4. 1-5 adımlarını gerçekleştirmek [sanal dizinin Windows PowerShell arabirimi Bağlan](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Kullanım `Invoke-HcsReRegister` cmdlet'ini Windows PowerShell üzerinden cihazı kaydedin. Önceki adımda aldığınız anahtarını belirtin.|
-| Güncelleştirme 0,6 veya önceki bir sürümünü ve aygıtın çevrimiçi | Güvenlik duvarı kurallarını kimlik doğrulaması URL'sini içerecek şekilde değiştirin.<br> Güncelleştirme 1.0 Azure portalı üzerinden yükleyin. |
+| Güncelleştirme 1.0 veya üstü ve çevrimdışı. <br> URL izin verilenler listesinde değil bir uyarı görürsünüz.| 1. Güvenlik duvarı kurallarını, kimlik doğrulama URL'si içerecek şekilde değiştirin. Bkz: [kimlik doğrulaması URL'lerini](#url-changes-for-aad-authentication). <br> 2. [Hizmet AAD kayıt anahtarını almanız](#aad-based-registration-keys). <br> 3. 1-5 adımlarını gerçekleştirmek [sanal diziyi Windows PowerShell arabiriminde Bağlan](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Kullanım `Invoke-HcsReRegister` Windows PowerShell üzerinden cihazı kaydetmek için cmdlet'i. Önceki adımda aldığınız anahtarını belirtin.|
+| Güncelleştirme 1.0 veya üstü ve cihaz çevrimiçi.| İşlem yapmanız gerekmez.                                       |
+| Güncelleştirme 0.6 veya daha önceki ve cihaz çevrimdışı. | 1. [Katalog sunucusundan güncelleştirme 1.0 indirmek](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Güncelleştirme 1.0 yerel web kullanıcı Arabirimi uygulama](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Hizmet AAD kayıt anahtarını almanız](#aad-based-registration-keys). <br>4. 1-5 adımlarını gerçekleştirmek [sanal diziyi Windows PowerShell arabiriminde Bağlan](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Kullanım `Invoke-HcsReRegister` Windows PowerShell üzerinden cihazı kaydetmek için cmdlet'i. Önceki adımda aldığınız anahtarını belirtin.|
+| Güncelleştirme 0.6 veya daha önceki ve cihazın çevrimiçi | Güvenlik duvarı kurallarını, kimlik doğrulama URL'si içerecek şekilde değiştirin.<br> Güncelleştirme 1.0 Azure Portalı aracılığıyla yükleyin. |
 
 ## <a name="aad-based-registration-keys"></a>AAD tabanlı kayıt anahtarları
 
-Güncelleştirme 1.0 StorSimple sanal diziler için yeni AAD tabanlı kayıt anahtarları kullanılan başlangıcı. StorSimple cihaz Yöneticisi hizmetiniz cihazı kaydetmek için kayıt tuşlarını kullanın.
+StorSimple sanal diziler için yeni bir AAD tabanlı kayıt anahtarlarının kullanılması güncelleştirme 1.0 başlangıcı. Cihazı ile StorSimple cihaz Yöneticisi hizmetine kaydetmek için kayıt anahtarları kullanın.
 
-StorSimple sanal güncelleştirme 0,6 veya önceki sürümleri çalıştıran diziler kullanıyorsanız, yeni AAD hizmeti kayıt anahtarları kullanamazsınız. Hizmet kayıt anahtarını yeniden oluşturulması gerekir. Anahtar yeniden sonra yeni anahtar sonraki tüm cihazları kaydetmek için kullanılır. Eski anahtarı artık geçerli değil.
+StorSimple sanal güncelleştirme 0.6 veya önceki bir sürümü çalıştıran dizilere kullanıyorsanız yeni AAD hizmet Kayıt anahtarlarına kullanamazsınız. Hizmet kayıt anahtarını yeniden oluşturmak gerekir. Anahtarı yeniden sonra yeni anahtar sonraki tüm cihazları kaydetmek için kullanılır. Eski anahtar artık geçerli değil.
 
-- Yeni AAD kayıt anahtarı 3 gün sonra süresi dolar.
-- AAD kayıt anahtarları çalışmak yalnızca StorSimple 1200 Serisi sanal çalışan Update 1 veya sonrasını dizi. AAD kayıt anahtarını bir StorSimple 8000 serisi aygıttan çalışmaz.
-- AAD Kayıt anahtarlarını karşılık gelen ACS Kayıt anahtarlarını uzun.
+- Yeni bir AAD kayıt anahtarı, 3 gün sonra süresi dolar.
+- AAD kayıt anahtarları iş yalnızca StorSimple 1200 Serisi sanal ile çalışan Update 1 veya sonrasını dizi. StorSimple 8000 serisi cihaz AAD kayıt anahtarı, çalışmaz.
+- AAD kayıt anahtarlarının karşılık gelen ACS kayıt anahtarları uzun.
 
-Bir AAD hizmet kayıt anahtarını oluşturmak için aşağıdaki adımları gerçekleştirin.
+Bir AAD hizmet kayıt anahtarı oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>AAD hizmet kayıt anahtarını oluşturmak için
 
-1. İçinde **StorSimple Aygıt Yöneticisi'ni**gidin **Yönetim &gt;**  **anahtarları**.
+1. İçinde **StorSimple cihaz Yöneticisi**Git **Yönetim &gt;**  **anahtarları**.
     
     ![Anahtarları gidin](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 
-2. Tıklatın **anahtar üret**.
+2. Tıklayın **anahtar üret**.
 
-    ![Yeniden tıklatın](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
+    ![Regenerate tıklayın](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
 
-3. Yeni anahtarı kopyalayın. Eski anahtar artık çalışır.
+3. Yeni anahtarı kopyalayın. Eski anahtar artık çalışmaz.
 
-    ![Yeniden onaylayın](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
+    ![Regenerate onaylayın](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Nasıl dağıtılacağı hakkında daha fazla bilgi [StorSimple sanal dizinin](storsimple-virtual-array-deploy1-portal-prep.md)
+* Nasıl dağıtılacağı hakkında daha fazla bilgi [StorSimple sanal dizisi](storsimple-virtual-array-deploy1-portal-prep.md)

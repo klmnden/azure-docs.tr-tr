@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485211"
 ---
 ## <a name="using-vm-extensions"></a>VM uzantılarını kullanma
 Azure VM uzantıları uygulama davranışları veya ya da Azure Vm'lerde bulunan iş diğer programları yardımcı olan özellikler (örneğin, **WebDeployForVSDevTest** uzantı Visual Studio Web dağıtımı çözümleri Azure vm'nizdeki sağlar) veya sağlayın başka bir davranışı destekleme yeteneği, sanal makine ile etkileşim kurmak (örneğin, PowerShell, Azure CLI ve REST istemcisinden VM erişimi uzantılarını sıfırlama veya Azure sanal Makinenize uzaktan erişim değerleri değiştirmek için kullanabilirsiniz).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095469"
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -277,7 +277,7 @@ Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Azure API Ma
 | önbelleğe alma türü | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [bir dış Azure Cache Redis Azure API Yönetimi'nde kullanmak](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
 | süre         | Değer, belirtilen süre değerinin saniye cinsinden belirtilen için önbelleğe alınır.                                                                                                                                                                                                                                                                                 | Evet      | Yok               |
 | anahtar              | Önbellek anahtarı değerin altında depolanır.                                                                                                                                                                                                                                                                                                                   | Evet      | Yok               |
-| değer            | Önbelleğe alınacak değeri.                                                                                                                                                                                                                                                                                                                                     | Evet      | Yok               |
+| value            | Önbelleğe alınacak değeri.                                                                                                                                                                                                                                                                                                                                     | Evet      | Yok               |
 ### <a name="usage"></a>Kullanım
 Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 

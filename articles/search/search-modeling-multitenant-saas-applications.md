@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
 ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61288731"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Çok kiracılı SaaS uygulamaları ve Azure Search için desenler tasarlama
 Çok müşterili uygulamalarda herhangi bir sayıda göremez veya diğer bir kiracı veri paylaşımı Kiracı aynı Hizmetleri ve özellikleri sağlayan biridir. Bu belge, Azure Search ile derlenen çok kiracılı uygulamalar için Kiracı yalıtımı stratejileri açıklanır.

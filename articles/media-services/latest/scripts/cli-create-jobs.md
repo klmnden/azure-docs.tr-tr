@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 63d036ea4faaf7e24f337fa3956986d165c84854
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466978"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI örneği: Bir işi oluşturma ve gönderme
 
-Media Services v3 sürümünde kullanarak videolarınızı işleyin işleri gönderdiğinizde Media Services giriş videosunun nerede bulacağını söylemeniz gerekir. Seçeneklerden birini (Bu makalede gösterilen şekilde) giriş işi bir HTTPS URL'si belirtmek içindir. 
+Media Services v3 sürümünde işlenecek İşleri videolarınıza gönderirken Media Services'a giriş videosunun yerini de bildirmeniz gerekir. Seçeneklerden birini (Bu makalede gösterilen şekilde) giriş işi bir HTTPS URL'si belirtmek içindir. 
 
 ## <a name="prerequisites"></a>Önkoşullar 
 

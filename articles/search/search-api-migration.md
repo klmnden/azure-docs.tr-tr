@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127000"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
 Önceki bir sürümünü kullanıyorsanız, [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, uygulamanızın en son yükseltme yardımcı olacak genel kullanıma sunulan API Sürüm 2017-11-11.

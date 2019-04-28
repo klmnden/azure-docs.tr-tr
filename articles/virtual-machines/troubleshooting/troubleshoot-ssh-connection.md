@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61405280"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Hataları, başarısız veya reddedildi Azure Linux VM'ye SSH bağlantısı sorunlarını giderme
 Bu makale, bulun ve Secure Shell (SSH) hataları, SSH bağlantı hataları nedeniyle oluşan sorunları düzeltmek olur veya SSH, Linux sanal makinesi (VM) bağlanmaya çalıştığınızda reddedilir. Azure portalı, Azure CLI veya Linux için VM erişimi uzantısı ve bağlantı sorunlarını gidermek için kullanabilirsiniz.

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342063"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kutucukları için başvuru kılavuzu
 Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -58,7 +58,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 
@@ -79,7 +79,7 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 | Gösterge |Değerin altında görüntülenen metin. |
 | Sorgu |Sorgu çalıştırılır. Sorgu tarafından döndürülen kayıtları sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 
@@ -96,14 +96,14 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 | **Halka** | |
 | Sorgu |Halka için çalıştırılan sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. |
 | **Halka** |**> Merkezi** |
-| Metin |Halka içindeki değeri altında görüntülenen metin. |
+| Text |Halka içindeki değeri altında görüntülenen metin. |
 | İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Toplama: Tüm kayıtların değerleri özellik değeriyle ekleyin.</li><li>Yüzdesi: Tüm kayıtların toplanan değerlere kıyasla özellik değeri toplanan değerleriyle bir kayıt yüzdesi.</li></ul> |
 | Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işaretini (+) seçin. Sorgu sonuçlarını kayıtlarını belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz tüm kayıtları sorguya dahil edilir. |
 | **Halka** |**> Ek seçenekler** |
 | Renkler |Her üç üst özellik için görüntülenecek rengi. Belirli özellik değerleri için alternatif renkleri belirtmek için kullanın *gelişmiş renk eşleme*. |
 | Gelişmiş Renk Eşleme |Belirli özellik değerleri temsil eden bir renk görüntüler. İlk üç belirttiğiniz değer ise alternatif rengi standart renk yerine görüntülenir. Color özelliği ilk üç değilse, görüntülenmez. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 
@@ -124,7 +124,7 @@ Zaman içinde birden fazla seri günlük sorgudan gösteren bir çizgi grafik ku
 | Birimler |Sorgu tarafından döndürülen değerler için birimleri belirtin. Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerlerini dönüştürmek için etiketleri görüntülemek için kullanılır. **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir olan değerleri. Bir değer seçerseniz **Dönüştür** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **Dönüştür** türü. |
 | Özel Etiket |Y ekseninin yanındaki etiketi için görüntülenecek metni *birim* türü. Etiket yoktur, yalnızca belirtilirse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 
@@ -149,7 +149,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 | Birimler |Sorgu tarafından döndürülen değerler için birimlerin belirtin. Bu bilgiler değeri türlerini belirtmek görüntü grafiğini etiketlere ve da isteğe bağlı olarak için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *Dönüştür*, sayısal değerler gelen dönüştürülür *geçerli birim* için yazın *Dönüştür* türü. |
 | Özel Etiket |Y ekseninin yanındaki etiketi için görüntülenecek metni *birim* türü. Etiket yoktur, yalnızca belirtilirse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 
@@ -174,7 +174,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 | Grafik Sorgusu |İkinci bir seri için çalıştırılan sorgu. Her zaman aralığında kayıtların sayısını grafiğin sütunları tarafından temsil edilir. |
 | İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtların değerlerin ortalaması.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>Son örnek: Grafikte dahil son aralığı değeri.</li><li>En fazla: Grafikte yer aralıkları maksimum değer. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
+| Enabled |Veri akışı doğrulama kutucuğuna etkinleştirilmesi gerekiyorsa, bu bağlantıyı seçin. Bu yaklaşım, veri kullanılabilir durumda değilse alternatif bir ileti sağlar. Normalde bir ileti zaman görünümü yüklü olduğundan ve veri kullanılabilir olduğunda geçici döneminde sağlamak için bir yaklaşım kullanın. |
 | Sorgu |Sorgu veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın. Sorgu hiçbir sonuç döndürmezse, ana sorgunun değeri yerine bir ileti görüntülenir. |
 | İleti |Veri akışı doğrulama sorgusu veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız bir *değerlendirme gerçekleştiriliyor* durum iletisi görüntülenir. |
 

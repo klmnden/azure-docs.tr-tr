@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409996"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızı güncelleştirin
 > [!NOTE]
@@ -49,7 +49,7 @@ Düzenli güncelleştirmeler cihaz Normal modda olduğunda, yüklenebilen kesint
 * StorSimple için Windows PowerShell aracılığıyla düzenli güncelleştirmeler de yükleyebilirsiniz. Ayrıntılar için bkz [StorSimple için Windows PowerShell aracılığıyla düzenli güncelleştirmeler yüklemek](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Bakım modu güncelleştirmeleri
-Bakım modu güncelleştirmeleri, disk üretici yazılımını yükseltme gibi kesintiye uğratan güncelleştirmelerdir. Bu güncelleştirmeler, cihaz, bakım moduna yerleştirilecek gerektirir. Ayrıntılar için bkz [2. adım: girin Bakım modu](#step2). Bakım modu güncelleştirmeleri yüklemek için Azure Klasik portalı kullanamazsınız. Bunun yerine, StorSimple için Windows PowerShell kullanmanız gerekir. 
+Bakım modu güncelleştirmeleri, disk üretici yazılımını yükseltme gibi kesintiye uğratan güncelleştirmelerdir. Bu güncelleştirmeler, cihaz, bakım moduna yerleştirilecek gerektirir. Ayrıntılar için bkz [2. adım: Bakım Moduna gir](#step2). Bakım modu güncelleştirmeleri yüklemek için Azure Klasik portalı kullanamazsınız. Bunun yerine, StorSimple için Windows PowerShell kullanmanız gerekir. 
 
 Bakım modu güncelleştirmeleri yükleme hakkında daha fazla ayrıntı için bkz. [yükleme Bakım modu güncelleştirmeleri StorSimple için Windows PowerShell aracılığıyla](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -76,7 +76,7 @@ Alternatif olarak, normal (Normal Mod) güncelleştirmeleri uygulamak için Stor
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yükle
 StorSimple için Windows PowerShell, StorSimple cihazınız için Bakım modu güncelleştirmeleri uygulamak için kullanın. Tüm g/ç istekleri bu modda duraklatıldı. Geçici olmayan rastgele erişim belleği (NVRAM) gibi hizmetler veya Küme hizmetini de durduruldu. Her iki denetleyicilerinin girin ya da bu modundan çıkmak yeniden başlatılır. Bu mod çıktığınızda tüm hizmetleri devam eder ve iyi durumda olması gerekir. (Bu işlem birkaç dakika sürebilir.)
 
-Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı aracılığıyla yüklenmesi gereken güncelleştirmelerin sahip uyarı alırsınız. Bu uyarı güncelleştirmeleri yüklemek üzere StorSimple için Windows PowerShell kullanımıyla ilgili yönergeleri içerir. Cihazınızı güncelleştirmeden sonra cihaz normal moda geçmek için aynı yordamı kullanın. Adım adım yönergeler için bkz: [4. adım: çıkış Bakım modu](#step4).
+Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı aracılığıyla yüklenmesi gereken güncelleştirmelerin sahip uyarı alırsınız. Bu uyarı güncelleştirmeleri yüklemek üzere StorSimple için Windows PowerShell kullanımıyla ilgili yönergeleri içerir. Cihazınızı güncelleştirmeden sonra cihaz normal moda geçmek için aynı yordamı kullanın. Adım adım yönergeler için bkz: [4. adım: Bakım modundan çık](#step4).
 
 > [!IMPORTANT]
 > * Bakım modu girmeden önce kontrol ederek her iki cihaz denetleyicilerinin sağlıklı olduğunu doğrulayın **donanım durumunu** üzerinde **Bakım** Klasik Azure portalında sayfa. Denetleyicinin sağlam değilse Microsoft Support için sonraki adımlara başvurun. Daha fazla bilgi için ilgili Microsoft Desteği'ne gidin. 
@@ -84,22 +84,22 @@ Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı ar
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1. adım: seri konsoluna Bağlan <a name="step1">
+### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1. Adım: Seri konsoluna Bağlan <a name="step1">
 İlk olarak, seri konsoluna erişmek için PuTTY gibi bir uygulama kullanın. Aşağıdaki yordam seri konsoluna bağlanmak için PuTTY kullanın açıklanmaktadır.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2. adım: Bakım Moduna gir <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2. Adım: Bakım Moduna gir <a name="step2">
 Konsola bağlandıktan sonra yüklemek ve bunları yüklemek için bakım moduna girmek için güncelleştirmeler olup olmadığını belirler.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>3. adım: güncelleştirmelerinizi yükleme <a name="step3">
+### <a name="step-3-install-your-updates-a-namestep3"></a>3. Adım: Güncelleştirmelerinizi yükleyin <a name="step3">
 Ardından, güncelleştirmelerinizi yükleyin.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4. adım: Çıkış Bakım modu <a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4. Adım: Bakım modundan çık <a name="step4">
 Son olarak, bakım modundan çıkın.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

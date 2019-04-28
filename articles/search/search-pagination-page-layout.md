@@ -11,11 +11,11 @@ ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283840"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search'te sonuçlarını arama ile çalışma
 Bu makalede, standart arama sonuçları sayfası, toplam sayısı, belge alma, sıralama düzenleri ve gezinti gibi öğeleri ekleme hakkında yönergeler sağlanır. Veri veya arama sonuçlarındaki bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [belgede arama](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekler. 

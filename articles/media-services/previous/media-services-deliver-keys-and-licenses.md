@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: dbdfac143cb3254e558622fc1eecfdf95876240e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465782"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları sunmak için Media Services'i kullanma 
 
@@ -348,4 +348,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma](media-services-protect-with-playready-widevine.md)
-* [AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma](media-services-protect-with-aes128.md)
+* [AES-128 dinamik şifreleme ve anahtar dağıtım hizmetini kullanma](media-services-protect-with-aes128.md)

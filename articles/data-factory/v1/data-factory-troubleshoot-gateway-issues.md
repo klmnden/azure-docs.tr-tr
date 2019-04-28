@@ -13,11 +13,11 @@ ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61253760"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
 Bu makalede, veri yönetimi ağ geçidi kullanarak sorunlarını giderme hakkında bilgi sağlar.
@@ -36,7 +36,7 @@ Yükleme ve bir ağ geçidi, özellikle, ağ geçidi yükleme dosyası indirilir
 #### <a name="cause"></a>Nedeni
 Ağ geçidini Yüklemeye çalıştığınız makine bir ağ sorunu nedeniyle İndirme Merkezi'nden en son ağ geçidi yükleme dosyasını indirmek başarısız oldu.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Ayarları bilgisayardaki ağ bağlantısı block olup olmadığını görmek için güvenlik duvarı proxy sunucunuzun ayarları denetleyin [İndirme Merkezinden](https://download.microsoft.com/)ve sonra ayarları güncelleştirmek uygun şekilde.
 
 Alternatif olarak, en son ağ geçidini yükleme dosyasını indirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) diğer makinelere indirme Merkezi'ne erişebilirsiniz. Ardından, ağ geçidi ana bilgisayarına yükleyici dosyasını kopyalayın ve el ile yükleyin ve ağ geçidi güncelleştirmek için çalıştırın.
@@ -49,7 +49,7 @@ Tıklayarak bir ağ geçidini Yüklemeye çalıştığınız olduğunda bu hatay
 #### <a name="cause"></a>Nedeni
 Bir ağ geçidi, makinede zaten yüklü.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Makinede mevcut ağ geçidini kaldırın ve tıklayın **doğrudan bu bilgisayara yüklemek** yeniden bağlanın.
 
 ### <a name="3-problem"></a>3. Sorun
@@ -64,7 +64,7 @@ Aşağıdaki nedenlerden biri için bu iletiyi görebilirsiniz:
 * Ağ geçidi anahtarı geçersiz hale getirildi.
 * Ağ geçidi anahtarı portaldan üretildi.  
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Portaldan doğru ağ geçidi anahtarı kullanarak doğrulayın. Gerekirse, bir anahtar ve ağ geçidini kaydetmek için anahtarını kullanın.
 
 ### <a name="4-problem"></a>4. Sorun
@@ -79,7 +79,7 @@ Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 #### <a name="cause"></a>Nedeni
 İçerik veya giriş ağ geçidi anahtarının biçimi doğru değil. Nedenlerden biri, anahtarın yalnızca bir kısmını portaldan kopyaladığınız veya geçersiz bir anahtar kullandığınız olabilir.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Portalda bir ağ geçidi anahtarı oluşturun ve tüm anahtar kopyalamak için Kopyala düğmesini kullanın. Ardından ağ geçidini kaydetmek için bu penceresine yapıştırın.
 
 ### <a name="5-problem"></a>5. Sorun
@@ -92,7 +92,7 @@ Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 #### <a name="cause"></a>Nedeni
 Ağ geçidi anahtar yeniden oluşturulacak veya Azure portalında bir ağ geçidi silinmiş olabilir. Veri Yönetimi ağ geçidi Kurulum en son değilse de oluşabilir.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Veri Yönetimi ağ geçidi Kurulum en son sürüm ise bulabilirsiniz en son sürümü Microsoft denetleyin [İndirme Merkezinden](https://go.microsoft.com/fwlink/p/?LinkId=271260).
 
 Kurulumu, geçerli / latest ve ağ geçidi, portalı hala mevcut olduğundan, Azure portalında, ağ geçidi anahtarı yeniden ve tüm anahtar kopyalamak için Kopyala düğmesini kullanın ve ardından ağ geçidini kaydetmek için bu pencereyi yapıştırın. Aksi takdirde, ağ geçidini yeniden oluşturun ve baştan başlayın.
@@ -107,7 +107,7 @@ Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 #### <a name="cause"></a>Nedeni
 Bu hata, ağ geçidi silinmiş olabilir veya ilişkili bir ağ geçidi anahtar yeniden oluşturulacak nedeniyle gerçekleşebilir.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Ağ geçidi silinmiş olması durumunda, portaldan ağ geçidini yeniden oluşturmak, tıklayın **kaydetme**, anahtar portaldan kopyalayın, yapıştırın ve ağ geçidi kaydetmeyi deneyin.
 
 Ağ geçidi hala var, ancak anahtarıyla yeniden, ağ geçidini kaydetmek için yeni anahtarı kullanın. Anahtar yoksa, Portalı'ndan yeniden tuşunu yeniden oluşturun.
@@ -124,7 +124,7 @@ Ağ geçidi, diğer makinelere önce kaydedildi. Bir ağ geçidi ilk kayıt sır
 
 Ağ geçidi farklı bir konak makinesi üzerinde geri yüklerken, daha önce bu sertifika ile şifrelenmiş kimlik bilgilerinin şifresini çözmek Bu sertifika için Kayıt Sihirbazı'nı ister.  Bu sertifika olmadan kimlik bilgilerini yeni ağ geçidi tarafından şifresi çözülemiyor ve bu yeni ağ geçidi ile ilişkili sonraki kopyalama etkinliği yürütme başarısız olur.  
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Kimlik bilgisi sertifikası özgün ağ geçidi makineden kullanarak dışa aktardığınız varsa **dışarı** düğmesini **ayarları** sekmesinde Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde, sertifikayı kullanın Burada.
 
 Bu aşamada, ağ geçidi kurtarırken atlayamazsınız. Sertifika yoksa, portaldan ağ geçidini silin ve yeni bir ağ geçidi yeniden oluşturmanız gerekir.  Ayrıca, kullanıcıların kimlik bilgilerini yeniden girildi tarafından ağ geçidine ilgili tüm bağlantılı Hizmetleri güncelleştirin.
@@ -137,7 +137,7 @@ Aşağıdaki hata iletisini görebilirsiniz.
 #### <a name="cause"></a>Nedeni
 Ağ geçidi, proxy kimlik doğrulaması parola veya Internet kaynaklarına erişmek için bir HTTP proxy'sinin değişir ancak uygun şekilde güncelleştirilmez gerektiren bir ortamda olduğunda bu hata oluşur, ağ geçidi'nde.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Bu makalenin Proxy sunucusu konuları bölümünde yer alan yönergeleri izleyin ve veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile proxy ayarlarını yapılandırın.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Ağ geçidi sınırlı işlevsellikle çevrimiçi
@@ -152,7 +152,7 @@ Ağ geçidinin durumunu çevrimiçi olarak sınırlı işlevsellikle aşağıdak
 
 Ağ geçidi sınırlı işlevsellikle çevrimiçi olduğunda ya da şirket içi veri depolarından veri kopyalamak için veri işlem hatları oluşturmak için Data Factory Kopyalama Sihirbazı'nı kullanmayı mümkün olmayabilir. Geçici bir çözüm olarak, portal, Visual Studio veya Azure PowerShell, Data Factory Düzenleyicisi'ni kullanabilirsiniz.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Bu sorunun çözümü (sınırlı işlevsellikle çevrimiçi) ağ geçidi bulut hizmeti ya da başka bir şekilde bağlantı kurulamıyor üzerinde temel alır. Aşağıdaki bölümlerde, bu çözümleri sağlayın.
 
 ### <a name="2-problem"></a>2. Sorun
@@ -165,7 +165,7 @@ Aşağıdaki hatayı görürsünüz.
 #### <a name="cause"></a>Nedeni
 Ağ geçidi, Service Bus üzerinden bulut hizmetine bağlanamıyor.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Ağ geçidi çevrimiçine almak için aşağıdaki adımları izleyin:
 
 1. IP adresi, ağ geçidi makinesi ve kurumsal güvenlik duvarının giden kuralları sağlar. Windows olay günlüğünden IP adresleri bulabilirsiniz (kimliği 401 ==): Bir yuva erişim izinlerini XX tarafından yasaklanmış bir şekilde erişmek için girişimde bulunuldu. XX. XX. XX:9350.
@@ -180,7 +180,7 @@ Aşağıdaki hatayı görürsünüz.
 #### <a name="cause"></a>Nedeni
 Ağ bağlantısı geçici bir hata.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Ağ geçidi çevrimiçine almak için aşağıdaki adımları izleyin:
 
 1. Birkaç dakika bekleyin, bağlantı kayboldu hatası olduğunda otomatik olarak kurtarılır.
@@ -201,7 +201,7 @@ SSL sertifikası bir ağ geçidi makinesinde kesilmiş olabilir. Ağ geçidi bil
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Sorunu çözmek için aşağıdaki adımları izleyin:
 
 1. Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'ni başlatın.
@@ -222,7 +222,7 @@ Portalda bir işlem hattı ayarladıktan sonra aşağıdaki "UserErrorFailedToCo
 #### <a name="cause"></a>Nedeni
 Bu farklı nedenlerden kaynaklanıyor ve risk azaltma buna göre değişir.
 
-#### <a name="resolution"></a>Çözümleme
+#### <a name="resolution"></a>Çözüm
 Bir SQL veritabanına bağlanmadan önce veri yönetimi ağ geçidi istemci tarafında TCP/1433 numaralı bağlantı noktası üzerinden giden TCP bağlantılarına izin.
 
 Hedef veritabanının Azure SQL veritabanı, SQL Server için Güvenlik Duvarı ayarlarını Azure de denetleyin.

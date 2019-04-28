@@ -2,20 +2,21 @@
 title: SQL veri ambarı ile Azure Stream Analytics'i kullanma | Microsoft Docs
 description: Azure Stream Analytics ile Azure SQL veri ambarı çözümleri geliştirmek için kullanma hakkında ipuçları.
 services: sql-data-warehouse
-author: KavithaJonnakuti
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 03/22/2019
-ms.author: kavithaj
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474343"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
 Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme süreli, yüksek oranda kullanılabilir ve ölçeklenebilir karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temellerini öğrenebilirsiniz [Azure Stream analytics'e giriş][Introduction to Azure Stream Analytics]. Stream Analytics ile izleyerek uçtan uca çözüm oluşturmaya nasıl ardından öğrenebilirsiniz [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.
@@ -84,4 +85,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı’nda geli�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Stream Analytics documentation]: /stream-analytics/
+
+<!-- Update_Description: update meta properties, wording update -->

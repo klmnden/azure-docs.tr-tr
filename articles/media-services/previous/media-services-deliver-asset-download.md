@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465669"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: Bir varlık indirme ile teslim etme  
 Bu makalede, medya varlıklar Media Services'e sunmaya yönelik seçenekler açıklanmaktadır. Çok sayıda uygulama senaryolarında Media Services içerik teslim edebilirsiniz. Kodlama sonra oluşturulan medya varlıkları veya akış Bulucusu kullanarak erişebilir. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilirsiniz.
