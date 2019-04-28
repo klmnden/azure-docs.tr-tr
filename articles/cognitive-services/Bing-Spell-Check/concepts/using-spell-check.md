@@ -1,5 +1,5 @@
 ---
-title: Bing yazım denetimi API'sini kullanma
+title: Bing Yazım Denetimi API’sini kullanma
 titlesuffix: Azure Cognitive Services
 description: Bing yazım denetimi modları, ayarları ve API için ilgili diğer bilgileri hakkında bilgi edinin.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 9544337ef1322e52cbdf123bb48d283485a8c7dd
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896147"
 ---
-# <a name="using-the-bing-spell-check-api"></a>Bing yazım denetimi API'sini kullanma
+# <a name="using-the-bing-spell-check-api"></a>Bing Yazım Denetimi API’sini kullanma
 
 Bing yazım denetimi API'si bağlamsal dil bilgisi ve yazım denetimi kullanma hakkında bilgi edinmek için bu makaleyi kullanın. Sözlüğe dayalı kural kümeleri üzerinde yazım denetleyicileri kullanır, ancak makine öğrenimi ve istatistiksel makine çevirisi doğru ve bağlamsal düzeltmeleri sağlamak için Bing yazım denetleyicisi yararlanır. 
 

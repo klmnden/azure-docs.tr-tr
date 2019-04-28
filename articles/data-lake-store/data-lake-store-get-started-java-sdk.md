@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877473"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Azure Data Lake depolama Gen1 Java SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Data Lake depolama Gen1 için Java SDK API belgelerine erişebileceğiniz [Azure
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 * Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [uç-kullanıcı-Java kullanarak kimlik doğrulaması ile Data Lake depolama Gen1](data-lake-store-end-user-authenticate-java-sdk.md).
 * Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [Java ile hizmetten hizmete kimlik doğrulama ile Data Lake depolama Gen1](data-lake-store-service-to-service-authenticate-java.md).

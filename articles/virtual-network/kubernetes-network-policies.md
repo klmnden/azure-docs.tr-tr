@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b4f8577724781e5df10846a5fc4e30c8320403f2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824902"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes ağ ilkelerine genel bakış
 
@@ -38,7 +38,7 @@ Kümeniz için güvenlik uygularken, diğer bir deyişle, Kuzey-Güney trafiği 
 Azure ağ ilkeleri için pod'ların mikro segmentasyona sağlamak için aşağıdaki yollarla kullanılabilir.
 
 ### <a name="acs-engine"></a>ACS-engine
-ACS-Engine Azure'da bir Kubernetes kümesinin dağıtımı için bir Azure Resource Manager şablonu oluşturan bir araçtır. Küme yapılandırmasını, şablon oluşturulurken aracına geçirilen bir JSON dosyasında belirtilir. Desteklenen küme ayarları listesi ve açıklamaları hakkında daha fazla bilgi için Microsoft Azure Container Service altyapısı - Küme tanımı bakın.
+ACS-Engine Azure'da bir Kubernetes kümesinin dağıtımı için bir Azure Resource Manager şablonu oluşturan bir araçtır. Küme yapılandırması, şablon oluşturma sırasında araca geçirilen bir JSON dosyasında belirtilir. Desteklenen küme ayarları listesi ve açıklamaları hakkında daha fazla bilgi için Microsoft Azure Container Service altyapısı - Küme tanımı bakın.
 
 Acs-engine kullanılarak dağıtılan kümelerinde ilkelerini etkinleştirmek için "azure" olması küme tanım dosyasında networkPolicy ayarın değerini belirtin.
 
@@ -87,7 +87,7 @@ JSON Aşağıda örnek yapılandırma bir yeni sanal ağ ve alt ağ oluşturur v
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Azure'da kendi Kubernetes kümesi oluşturma
-Uygulama ağ ilkeleri ACS-Engine gibi araçları bağlı kalmadan kendiniz dağıtmak için pod'ların Kubernetes kümelerini sağlamak için kullanılabilir. Bu durumda, ilk eklenti CNI yükleyin ve kümesindeki her sanal makinedeki etkinleştirin. Ayrıntılı yönergeler için bkz. [eklenti için dağıtmadan bir Kubernetes kümesi dağıtma](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+Uygulama ağ ilkeleri ACS-Engine gibi araçları bağlı kalmadan kendiniz dağıtmak için pod'ların Kubernetes kümelerini sağlamak için kullanılabilir. Bu durumda, ilk eklenti CNI yükleyin ve kümesindeki her sanal makinedeki etkinleştirin. Ayrıntılı yönergeler için bkz. [Eklentiyi kendi dağıttığınız Kubernetes kümesi için dağıtma](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 Aşağıdaki komutu çalıştırın, küme dağıtıldıktan sonra `kubectl` indirin ve Azure ağ ilkesi uygulamak için komut *daemonset* kümeye.
 

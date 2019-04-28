@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric yeniden | Microsoft Docs
-description: Service Fabric bölüm yeniden yapılandırma anlama
+title: Azure Service fabric'te yeniden yapılandırma | Microsoft Docs
+description: Service fabric'te bölümleri yeniden yapılandırılmasına anlama
 services: service-fabric
 documentationcenter: .net
 author: appi101
@@ -15,51 +15,51 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882206"
 ---
-# <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric içinde yeniden yapılandırma
-A *yapılandırma* çoğaltmaları ve kendi rolleri için durum bilgisi olan hizmet bölümü olarak tanımlanır.
+# <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service fabric'te yeniden yapılandırma
+A *yapılandırma* çoğaltmalar ve kendi rolleri için durum bilgisi olan hizmet ilişkin bir bölüm olarak tanımlanır.
 
-A *yeniden yapılandırma* başka bir yapılandırma için bir yapılandırma taşıma işlemidir. Çoğaltma durum bilgisi olan bir hizmet için bir bölüm kümesi için bir değişiklik yapar. Eski yapılandırma olarak adlandırılır *önceki yapılandırma (PC)*, ve yeni yapılandırmayı adlı *geçerli yapılandırma (CC)*. Azure Service Fabric yeniden yapılandırma protokolünde tutarlılık korur ve kullanılabilirlik çoğaltma kümesi herhangi bir değişiklik sırasında korur.
+A *yeniden yapılandırma* başka bir yapılandırma için bir yapılandırma taşıma işlemi gerçekleşir. Çoğaltma kümesi için bir durum bilgisi olan hizmet ilişkin bir bölüm için bir değişiklik yapar. Eski yapılandırma olarak adlandırılır *önceki yapılandırma (PC)*, ve yeni yapılandırma olarak adlandırılır *geçerli yapılandırmasını (CC)*. Azure Service Fabric yeniden yapılandırma protokolünde tutarlılığı korur ve kullanılabilirlik çoğaltma kümesine herhangi bir değişiklik sırasında tutar.
 
-Yük Devretme Yöneticisi sistemde farklı olaylarına yanıt olarak yeniden yapılandırmaların başlatır. Örneğin, birincil sonra bir yeniden yapılandırma başarısız olursa birincil etkin bir ikincil yükseltmek için başlatılır. Birincil düğüm yükseltmek için başka bir düğüme taşımak gerekli olabilir, başka bir uygulama yükseltme yanıt örnektir.
+Yük Devretme Yöneticisi sistemde farklı olaylara yanıt olarak yeniden yapılandırmalar başlatır. Örneğin, birincil sonra bir yeniden yapılandırma başarısız olursa birincil etkin bir ikincil yükseltmek için başlatılır. Birincil düğüm yükseltmek için başka bir düğüme taşımak gerekli olabilir, başka bir yanıt olarak uygulama yükseltmeleri örnektir.
 
 ## <a name="reconfiguration-types"></a>Yeniden yapılandırma türleri
-Yeniden yapılandırmaların iki türlerine sınıflandırılabilir:
+İki tür olarak yeniden yapılandırmalar sınıflandırılabilir:
 
-- Burada birincil değiştirme yeniden yapılandırmaların:
-    - **Yük devretme**: yük devretme işlemlerini olan birincil çalışan bir hata yanıtı yeniden yapılandırmaların.
-    - **SwapPrimary**: Takasları olduğunuz nerede Service Fabric gereken çalışmasını birincil bir düğümden diğerine, Yük Dengeleme için genellikle yanıt taşımak için yeniden yapılandırmaların veya yükseltme.
+- Birincil burada değişiyor yeniden yapılandırmalar:
+    - **Yük devretme**: Yük devretme birincil çalışan bir hatanın yanıtta yeniden yapılandırmalar var.
+    - **SwapPrimary**: Service Fabric bir çalışan birincil bir düğümden diğerine, Yük Dengeleme için genellikle yanıt taşımak için gereken yere yeniden yapılandırmalar veya yükseltme takasları var.
 
-- Burada birincil değiştirmeden yeniden yapılandırmaların.
+- Burada birincil değişmiyor yeniden yapılandırmalar.
 
 ## <a name="reconfiguration-phases"></a>Yeniden yapılandırma aşamaları
-Bir yeniden yapılandırma birkaç evrede çalışır:
+Bir yeniden yapılandırma birkaç aşamada çalışır:
 
-- **Phase0**: Bu aşama burada geçerli birincil aktarır durumuna etkin ikincil geçişleri ve yeni birincil takas birincil yeniden yapılandırmaların içinde gerçekleşir.
+- **Phase0**: Bu aşama, burada geçerli birincil durumuna yeni birincil ve ikincil etkin geçişleri aktarır takas birincil yeniden yapılandırmalar içinde gerçekleşir.
 
-- **Aşama 1**: Bu aşama birincil burada değiştiriyor yeniden yapılandırmaların sırasında olur. Bu aşamada, Service Fabric geçerli çoğaltmalar arasında doğru birincil tanımlar. Yeni birincil zaten seçilmiş olan çünkü bu aşaması sırasında takas birincil yeniden yapılandırmaların gerekli değildir. 
+- **Aşama 1**: Bu aşama, birincil burada değişiyor yeniden yapılandırmalar sırasında gerçekleşir. Bu aşamada, Service Fabric geçerli çoğaltmaları arasında doğru birincil tanımlar. Yeni birincil zaten seçilmiş olduğundan bu aşama takas birincil yeniden yapılandırmalar sırasında gerekli değildir. 
 
-- **Aşama 2**: Bu aşamada, Service Fabric tüm verileri çoğunu geçerli yapılandırma, çoğaltmaları kullanılabilir olmasını sağlar.
+- **Aşama 2**: Bu aşamada, Service Fabric, tüm veri Çoğunluk yapılandırmasına kopyasının kullanılabilir olmasını sağlar.
 
-Yalnızca dahili kullanım içindir birkaç aşamadan vardır.
+Yalnızca dahili kullanım olan diğer birkaç aşama vardır.
 
-## <a name="stuck-reconfigurations"></a>Takılan yeniden yapılandırmaların
-Yeniden yapılandırmaların alabilirsiniz *takılmış* çeşitli nedenlerle için. Bazı yaygın nedenler şunlardır:
+## <a name="stuck-reconfigurations"></a>Takılan yeniden yapılandırmalar
+Yeniden yapılandırmalar alabilirsiniz *takılı* çeşitli nedenlerle için. Bazı yaygın nedenleri şunlardır:
 
-- **Aşağı çoğaltmaları**: bazı yeniden yapılandırma aşamaları yukarı olmasını yapılandırmasında çoğaltmaları çoğunu gerektirir.
-- **Ağ veya iletişimi sorunları**: yeniden yapılandırmaların farklı düğümler arasında ağ bağlantısı gerektirir.
-- **API hataları**: hizmet uygulamaları belirli API'leri son yeniden yapılandırma protokol gerektirir. Örneğin, güvenilir bir hizmette iptal belirteci uygularken değil Kutusu'nda SwapPrimary yeniden yapılandırmaların neden olur.
+- **Aşağı çoğaltmaları**: Bazı yeniden yapılandırma aşamaları kadar bir çoğaltma yapılandırmasında Çoğunluk gerektirir.
+- **Ağ veya iletişim sorunları**: Yeniden yapılandırmalar farklı düğümler arasında ağ bağlantısı gerektirir.
+- **API hataları**: Hizmet uygulamaları belirli API'leri son yeniden Yapılandırma Protokolü gerektirir. Örneğin, bir güvenilir hizmet iptal belirtecini uygularken değil, takılabilir SwapPrimary yeniden yapılandırmalar neden olur.
 
-Sistem bileşenleri sistem durumu raporlarını kullanmak için System.FM, System.RA ve System.RAP gibi bir yeniden yapılandırma burada tanılamak için takıldı. [Sistem durumu raporu sayfası](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) bu sistem durumu raporları açıklar.
+Sistem durumu raporlarının sistem bileşenlerinden kullanın, System.FM, System.RA ve System.RAP gibi bir yeniden yapılandırma burada tanılamak için takılı kalıyor. [Sistem durumu rapor sayfası](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) bu sistem durumu raporları açıklar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Fabric kavramları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Reliable Services yaşam döngüsü - C#](service-fabric-reliable-services-lifecycle.md)
-- [Sistem durumu raporları](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Sistem durumu raporlarını](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Çoğaltmalar ve örnekler](service-fabric-concepts-replica-lifecycle.md)

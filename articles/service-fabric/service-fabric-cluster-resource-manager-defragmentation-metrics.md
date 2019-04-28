@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844408"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Service Fabric yük ile ölçümleri ve birleştirme
 Yükleme ölçümleri kümedeki yönetmek için Service Fabric Küme Kaynak Yöneticisi ait varsayılan yükünü dağıtmak için stratejisidir. Düğümleri eşit olarak kullanılan sağlama Çekişme ve israfı neden sıcak ve soğuk noktaları ortadan kaldırır. Küme iş yüklerini dağıtma de hata belirli bir iş yükünün büyük bir yüzdesini almaz sağlar beri hataları geri kalan bakımından en güvenli yoldur. 

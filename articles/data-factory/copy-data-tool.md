@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787738"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory'de veri aracı kopyalayın
 Azure Data Factory veri kopyalama aracını kolaylaştırır ve almak veri işlemi, genellikle bir uçtan uca veri tümleştirme senaryosunu ilk adımı bir veri gölü içinde iyileştirir.  Zaman kaydeder özellikle kullandığınızda, Azure Data Factory ilk kez bir veri kaynağından veri alımı için. Bu aracı kullanarak avantajlarından bazıları şunlardır:
