@@ -4,21 +4,21 @@ description: Azure IOT Edge cihazı, aşağı akış cihazlardan bilgi işleyebi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/29/2018
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 722ee6197b467454818026c960e1ce0e5b39efb4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699022"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766314"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
-Bu makalede, diğer cihazlar IOT Hub ile iletişim kurmak için saydam bir ağ geçidi olarak çalışması için IOT Edge cihazları yapılandırmaya ayrıntılı yönergeleri sağlar. Bu makalede, terim *IOT Edge ağ geçidi* saydam bir ağ geçidi olarak kullanılan bir IOT Edge cihazı gösterir. Daha ayrıntılı bilgi için bkz. [nasıl bir IOT Edge cihazı ağ geçidi olarak kullanılabilir](./iot-edge-as-gateway.md), kavramsal bir genel bakış sağlar.
+Bu makalede, diğer cihazlar IOT Hub ile iletişim kurmak için saydam bir ağ geçidi olarak çalışması için IOT Edge cihazları yapılandırmaya ayrıntılı yönergeleri sağlar. Bu makalede, terim *IOT Edge ağ geçidi* saydam bir ağ geçidi olarak kullanılan bir IOT Edge cihazı gösterir. Daha fazla bilgi için [nasıl bir IOT Edge cihazı ağ geçidi olarak kullanılabilir](./iot-edge-as-gateway.md).
 
 >[!NOTE]
 >Şu anda:
@@ -26,21 +26,21 @@ Bu makalede, diğer cihazlar IOT Hub ile iletişim kurmak için saydam bir ağ g
 > * Edge özellikli cihazlar IOT Edge ağ geçidi için bağlantı kurulamıyor. 
 > * Aşağı Akış cihazları karşıya dosya yükleme kullanamazsınız.
 
-Bir cihaz bir ağ geçidi olarak çalışması, aşağı akış cihazlar için güvenli bir şekilde bağlanabilir olması gerekir. Azure IOT Edge cihazları arasında güvenli bağlantılar kurmak için bir ortak anahtar altyapısı (PKI) kullanmanıza olanak tanır. Bu durumda, biz saydam bir ağ geçidi olarak görev yapan bir IOT Edge cihazına bağlamak için bir aşağı akış cihazı vermiş olursunuz. Makul güvenliğini sağlamak için aşağı akış cihaz, ağ geçitleri ve değil kötü amaçlı olabilecek bir ağ geçidi'ne bağlama cihazlarınızı yalnızca istediğinden sınır cihazı kimliğini onaylamalıdır.
+Bir cihaz bir ağ geçidi olarak çalışması, aşağı akış cihazlar için güvenli bir şekilde bağlanabilir olması gerekir. Azure IOT Edge cihazları arasında güvenli bağlantılar kurmak için bir ortak anahtar altyapısı (PKI) kullanmanıza olanak tanır. Bu durumda, biz saydam bir ağ geçidi olarak görev yapan bir IOT Edge cihazına bağlamak için bir aşağı akış cihazı vermiş olursunuz. Makul güvenliğini sağlamak için aşağı akış cihazın IOT Edge cihaz kimliğini onaylamalıdır. Cihazlarınızı yalnızca, ağ geçitlerine, kötü amaçlı olmayan herhangi bir ağ geçidi bağlanmak istediğiniz.
 
 Bir aşağı akış cihaz herhangi bir uygulama veya ile oluşturulan bir kimliğe sahiptir platform olabilir [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub) bulut hizmeti. Çoğu durumda, bu uygulamaları kullanma [Azure IOT cihaz SDK'sını](../iot-hub/iot-hub-devguide-sdks.md). Tüm pratik amacıyla bir aşağı akış cihazın IOT Edge ağ geçidi cihazın kendisinde çalışan bir uygulama bile olabilir. 
 
-Ağ geçidi cihazı topolojiniz için gerekli güven sağlayan herhangi bir sertifika altyapısı oluşturabilirsiniz. Bu makalede, etkinleştirmek için kullanacağınız aynı sertifika Kurulumu varsayıyoruz [X.509 CA güvenlik](../iot-hub/iot-hub-x509ca-overview.md) belirli bir IOT hub (IOT hub'ı sahibi CA) ve sertifikaları bir dizi için ilişkili bir X.509 CA sertifikası içerir, IOT Hub'ındaki Sınır cihazı için bu CA ve bir CA ile imzalanmış.
+Ağ geçidi cihazı topolojiniz için gerekli güven sağlayan herhangi bir sertifika altyapısı oluşturabilirsiniz. Bu makalede, etkinleştirmek için kullanacağınız aynı sertifika Kurulumu varsayıyoruz [X.509 CA güvenlik](../iot-hub/iot-hub-x509ca-overview.md) belirli bir IOT hub (IOT hub'ı sahibi CA) ve sertifikaları bir dizi için ilişkili bir X.509 CA sertifikası içerir, IOT Hub'ındaki Bu CA ve bir CA ile IOT Edge cihazı için imzalanmış.
 
 ![Ağ geçidi sertifikası Kurulumu](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-Ağ geçidi bağlantı başlatma sırasında aşağı akış cihaza Edge cihaz CA sertifikasını sunar. Edge cihaz CA sertifika sahibi CA sertifikası tarafından imzalanmış emin olmak için aşağı akış cihaz denetler. Bu işlem, ağ geçidi güvenilir bir kaynaktan gelen onaylamak aşağı akış cihaz sağlar.
+Ağ geçidi, IOT Edge cihaz CA sertifikası aşağı akış cihaza bağlantının başlatma sırasında sunar. IOT Edge cihaz CA sertifika sahibi CA sertifikası tarafından imzalanmış emin olmak için aşağı akış cihaz denetler. Bu işlem, ağ geçidi güvenilir bir kaynaktan gelen onaylamak aşağı akış cihaz sağlar.
 
 Aşağıdaki adımlarda sertifikaları oluşturma ve bunları doğru yerlerde yükleme işleminde size yol.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bir ağ geçidi olarak yapılandırmak için Azure IOT Edge cihazı. Geliştirme makinenizde veya bir sanal makine adımları aşağıdaki işletim sistemleri için bir IOT Edge cihazı olarak kullanabilirsiniz:
+Bir ağ geçidi olarak yapılandırmak için Azure IOT Edge cihazı. IOT Edge yükleme adımları için aşağıdaki işletim sistemleri kullanın:
 * [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
@@ -52,7 +52,7 @@ Herhangi bir makine sertifikalarını oluşturmak için kullanın ve ardından b
 
 ## <a name="generate-certificates-with-windows"></a>Windows ile sertifikalar oluşturma
 
-Adımları Bu bölümde bir Windows cihazında test sertifikalarınızı oluşturmak için kullanın. IOT Edge Cihazınızda kendisini sertifikalarını oluşturmak veya ayrı bir makine kullanmanız ve son sertifikaları tüm desteklenen işletim sistemi çalıştıran tüm IOT Edge cihazına kopyalayın. 
+Adımları Bu bölümde bir Windows cihazında test sertifikalarınızı oluşturmak için kullanın. Windows IOT Edge cihazında sertifikalarını oluşturmak için aşağıdaki adımları kullanabilirsiniz. Veya, Windows geliştirme makinenizde sertifikalarını oluşturmak ve ardından bunları bir IOT Edge cihazına kopyalayın. 
 
 Bu bölümde oluşturulan sertifikaları yalnızca test amaçlarına yöneliktir. 
 
@@ -133,13 +133,13 @@ Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlay�
       New-CACertsCertChain rsa
       ```
 
-2. Aşağıdaki komutla, Edge cihaz CA sertifikasını ve özel anahtar oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
+2. IOT Edge cihaz CA sertifikasını ve özel anahtarı aşağıdaki komutla oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
 
    ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
-3. Sahibi CA sertifikası ara sertifika ve aşağıdaki komutla Edge cihaz CA sertifikasını bir sertifika zinciri oluşturun. 
+3. Sahibi CA sertifikası ara sertifika ve aşağıdaki komutla IOT Edge cihaz CA sertifikasını bir sertifika zinciri oluşturun. 
 
    ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
@@ -193,7 +193,7 @@ Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlay�
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2. Aşağıdaki komutla, Edge cihaz CA sertifikasını ve özel anahtar oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
+2. IOT Edge cihaz CA sertifikasını ve özel anahtarı aşağıdaki komutla oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"
@@ -203,7 +203,7 @@ Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlay�
    * `<WRKDIR>/certs/new-edge-device.*`
    * `<WRKDIR>/private/new-edge-device.key.pem`
 
-3. Adlı bir sertifika zinciri oluşturmanıza **yeni-edge-cihaz-tam-chain.cert.pem** sahip CA sertifikası, ara sertifika ve Edge cihaz CA sertifikası.
+3. Adlı bir sertifika zinciri oluşturmanıza **yeni-edge-cihaz-tam-chain.cert.pem** sahip CA sertifikası, ara sertifika ve IOT Edge cihaz CA sertifikası.
 
    ```bash
    cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
@@ -215,7 +215,7 @@ Bir sertifika zinciri yaptığınız, IOT Edge ağ geçidi cihazında yükleyin 
 
 1. Aşağıdaki dosyaları kopyalayın  *\<WRKDIR >*. Bunları herhangi bir IOT Edge cihazı kaydedin. IOT Edge cihazınız olarak hedef dizine başvuracağınız  *\<CERTDIR >*. 
 
-   Sınır cihazı sertifikaları oluşturursa, bu adımı atlayın ve çalışma dizininin yolunu kullanın.
+   IOT Edge cihazı sertifikaları oluşturursa, bu adımı atlayın ve çalışma dizininin yolunu kullanın.
 
    * Cihaz CA sertifikası-  `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
    * Cihaz CA özel anahtarı- `<WRKDIR>\private\new-edge-device.key.pem`
@@ -228,16 +228,28 @@ Bir sertifika zinciri yaptığınız, IOT Edge ağ geçidi cihazında yükleyin 
 
 3. Ayarlama **sertifika** özellikleri IOT Edge cihazında sertifika ve anahtar dosyaları yerleştirdiğiniz config.yaml dosyanın yolu.
 
-```yaml
-certificates:
-  device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
-  trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
-```
+   * Windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
+      ```
+   
+   * Linux: 
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
+      ```
+
+4. Emin Linux cihazlarda kullanıcı **iotedge** sertifikaları bulunduran dizini için okuma izni. 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Ağ geçidine EdgeHub dağıtma
 
-IOT Edge üzerinde bir cihaz ilk kez yüklediğinizde, yalnızca bir sistem modülü otomatik olarak başlar: Edge Aracısı. Cihazınızı bir ağ geçidi olarak çalışmak her iki sistem modüllerini gerekir. Ağ geçidi cihazınıza önce modüllerin dağıtmadıysanız, ikinci bir sistem modülü, Edge hub'ı başlatmak cihazınız için bir dağıtım oluşturun. Dağıtım Sihirbazı'nda modüllerin ekleme yapmazsanız, ancak her iki sistem modüllerini dağıtacağınız boş görünür. 
+IOT Edge üzerinde bir cihaz ilk kez yüklediğinizde, yalnızca bir sistem modülü otomatik olarak başlar: IOT Edge Aracısı. Cihazınızı bir ağ geçidi olarak çalışmak her iki sistem modüllerini gerekir. Ağ geçidi cihazınıza önce modüllerin dağıtmadıysanız, ikinci bir sistem modülü, IOT Edge hub'ı başlatmak cihazınız için bir dağıtım oluşturun. Dağıtım Sihirbazı'nda modüllerin ekleme yapmazsanız, ancak her iki sistem modüllerini dağıtacağınız boş görünür. 
 
 Komutu ile bir cihaz üzerinde çalışan modüllerine denetleyebilirsiniz `iotedge list`.
 
@@ -265,7 +277,7 @@ Komutu ile bir cihaz üzerinde çalışan modüllerine denetleyebilirsiniz `iote
 
 IOT Hub ile tüm iletişimi üzerinden giden bağlantılar yapıldığı için standart IOT Edge cihazları işleve, herhangi bir gelen bağlantı gerekmez. Ancak, aşağı akış cihazlarından iletileri alamaması gerekir çünkü ağ geçidi cihazları farklıdır.
 
-Bir ağ geçidi senaryo çalışmak en az bir IOT Edge hub'ın desteklenen protokoller aşağı akış cihazlardan gelen trafik için açık olmalıdır. Desteklenen portocols MQTT, AMQP ve HTTPS ' dir.
+Bir ağ geçidi senaryo çalışmak en az bir IOT Edge hub'ın desteklenen protokoller aşağı akış cihazlardan gelen trafik için açık olmalıdır. MQTT, AMQP ve HTTPS Desteklenen protokoller şunlardır.
 
 | Bağlantı noktası | Protokol |
 | ---- | -------- |
@@ -274,7 +286,7 @@ Bir ağ geçidi senaryo çalışmak en az bir IOT Edge hub'ın desteklenen proto
 | 443 | HTTPS <br> MQTT+WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Aşağı Akış cihazlardan yönlendirme iletileri
-IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletiler gibi aşağı akış cihazlardan gönderilen iletiler yönlendirebilirsiniz. Bu verileri buluta göndermeden önce ağ geçidi üzerinde çalışan bir modüldeki analiz gerçekleştirmenize olanak sağlar. 
+IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletiler gibi aşağı akış cihazlardan gönderilen iletiler yönlendirebilirsiniz. Bu özellik tüm verileri buluta göndermeden önce ağ geçidi üzerinde çalışan bir modüldeki analiz gerçekleştirmenize olanak tanır. 
 
 Şu anda, aşağı akış cihazlar tarafından gönderilen iletileri yönlendiren bunları modülleri tarafından gönderilen iletilerden farklılaştırılması tarafından yoludur. Tüm modüller tarafından gönderilen iletiler olarak adlandırılan bir sistem özelliği içeren **connectionModuleId** ancak aşağı akış cihazlar tarafından gönderilen iletileri yapın. Bu sistem özelliği içeren herhangi bir iletiyi hariç tutmak için rota WHERE yan tümcesini kullanabilirsiniz. 
 

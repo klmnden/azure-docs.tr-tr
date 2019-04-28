@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+orgin.date: 02/05/2018
+ms.date: 04/01/2019
+ms.author: v-yiso
+ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098584"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark yapılandırılmış akışı genel bakış
 
@@ -24,9 +25,9 @@ Yapılandırılmış akış uygulamaları HDInsight Spark kümelerinde çalışt
 
 Yapılandırılmış akış sırasında işlemleri seçimi, projeksiyon, toplama, Pencereleme ve akış veri çerçevesi ile başvuru veri çerçevelerini katılma gibi giriş verileri için geçerli bir uzun süre çalışan sorgu oluşturur. Ardından, özel kod (örneğin, SQL veritabanı veya Power BI) kullanarak dosya depolama (Azure depolama Blobları veya Data Lake depolama) veya herhangi bir veri deposu sonuçları gönderir. HDInsight içinde hata ayıklama için oluşturulan verileri görebilirsiniz. Bu nedenle yapılandırılmış akış çıkışı yerel olarak hata ayıklama için konsolu ve bir bellek içi tablo için de sağlar. 
 
-![Stream Spark yapılandırılmış akışını HDInsight ile işleme](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream Spark yapılandırılmış akışını HDInsight ile işleme ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]  
+> [!NOTE]
 > Spark yapılandırılmış akış, Spark Streaming (DStreams) yerini alıyor. Yalnızca Bakım modunda DStreams ancak bundan sonra yapılandırılmış akış geliştirmeleri ve Bakım alır. Yapılandırılmış akış şu anda olarak özellik DStreams kaynakları için eksiksiz değildir ve şu havuzlar kullanıma hazır destekler, bu nedenle, gereksinimlerinize uygun Spark akış işleme seçeneği seçin değerlendirin. 
 
 ## <a name="streams-as-tables"></a>Akışları olarak tabloları

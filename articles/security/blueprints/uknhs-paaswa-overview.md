@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 8af6998c8e9fbfb230c00597600b3aa4f3991f03
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112587"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Azure güvenlik ve uyumluluk planı: UK NHS için PaaS Web uygulaması
 
@@ -51,7 +51,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz d
 - Azure İzleyici
 - Azure Resource Manager
 - Azure Güvenlik Merkezi
-- Azure SQL Database
+- Azure SQL Veritabanı
 - Azure Storage
 - Azure Sanal Ağ
     - Ağ güvenlik grupları

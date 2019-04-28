@@ -2,7 +2,6 @@
 title: Hadoop yığını izleme hata iletilerini - Azure HDInsight
 description: Azure HDInsight, Hadoop için dizin yığın izleme hata iletileri. Hata, sorun giderme bilgilerini görmek için listede bulun.
 keywords: yığın izlemesi, hata iletileri
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 20d13f3df730ff4a81c7304ae1ad7e4158403521
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 0fb884c46525c0d5d14deb1521f086451a969656
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337791"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761146"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Sorun giderme makaleleri HDInsight, Apache Hadoop dizini
 Makalelerde hataları türleri tarafından düzenlenir.

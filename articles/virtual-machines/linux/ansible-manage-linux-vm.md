@@ -1,73 +1,68 @@
 ---
-title: Ansible kullanarak Azure’da Linux sanal makine yönetme
-description: Ansible kullanarak Azure’da Linux sanal makine yönetmeyi öğrenin
-ms.service: virtual-machines-linux
+title: Hızlı Başlangıç - ansible'ı kullanarak azure'da Linux sanal makineleri yönetme | Microsoft Docs
+description: Bu hızlı başlangıçta, ansible'ı kullanarak azure'da Linux sanal makinesi yönetmeyi öğrenin
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 09/27/2018
-ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: cab179980f6093bf259556fd690e55c99a817c79
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188207"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760637"
 ---
-# <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Ansible kullanarak Azure’da Linux sanal makine yönetme
-Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure sanal makinelerinizi diğer kaynaklar gibi yönetebilirsiniz. Bu makalede bir Ansible playbook'unu kullanarak Linux sanal makinesini başlatma ve durdurma adımları gösterilmektedir. 
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Hızlı Başlangıç: Ansible'ı kullanarak azure'da Linux sanal makineleri yönetme
+
+Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede, bir Linux sanal makinesini durdurmak ve başlatmak bir Ansible playbook kullanın. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+## <a name="stop-a-virtual-machine"></a>Sanal makineyi durdurma
 
-## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Ansible'ı kullanarak Azure sanal makinesini serbest bırakma (durdurma)
-Bu bölümde Ansible'ı kullanarak bir Azure sanal makinesini serbest bırakma (durdurma) adımları gösterilmektedir
+Bu bölümde, serbest bırakma (Durdur) bir Azure sanal makine için ansible'ı kullanın.
 
-1.  [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1.  [Cloud Shell](/azure/cloud-shell/overview)'i açın.
+1. [Cloud Shell](/azure/cloud-shell/overview)'i açın.
 
-1.  `azure-vm-stop.yml` adlı bir dosya (playbook'unuzu içerecek) oluşturun ve aşağıda gösterilen şekilde VI düzenleyicisinde açın:
+1. Adlı bir dosya oluşturun `azure-vm-stop.yml`, düzenleyicide açın:
 
     ```azurecli-interactive
-    vi azure-vm-stop.yml
+    code azure-vm-stop.yml
     ```
 
-1.  **I** anahtarını seçerek ekleme moduna geçin.
-
-1.  Aşağıdaki örnek kodu düzenleyiciye yapıştırın:
+1. Aşağıdaki örnek kodu düzenleyiciye yapıştırın:
 
     ```yaml
     - name: Stop Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          allocated: no
+        - name: Stop virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
+            allocated: no
     ```
 
-1.  **Esc** tuşuna basarak ekleme modundan çıkın.
+1. Değiştirin `{{ resource_group_name }}` ve `{{ vm_name }}` yer tutucuları değerleriniz ile.
 
-1.  Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
+1. Dosyayı kaydedin ve düzenleyiciden çıkın.
 
-    ```bash
-    :wq
-    ```
-
-1.  Örnek Ansible playbook'unu çalıştırın.
+1. Kullanarak playbook çalıştırma `ansible-playbook` komutu:
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1.  Çıktı, sanal makinenin başarıyla serbest bırakıldığını (durdurulduğunu) gösteren aşağıdaki örneğe benzer olacaktır:
+1. Playbook'u çalıştırdıktan sonra aşağıdaki sonuçları benzer bir çıktı görürsünüz:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -82,49 +77,44 @@ Bu bölümde Ansible'ı kullanarak bir Azure sanal makinesini serbest bırakma (
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Ansible'ı kullanarak serbest bırakılmış (durdurulmuş) Azure sanal makinesini başlatma
-Bu bölümde Ansible'ı kullanarak serbest bırakılmış (durdurulmuş) bir Azure sanal makinesini başlatma adımları gösterilmektedir
+## <a name="start-a-virtual-machine"></a>Bir sanal makineyi Başlat
 
-1.  [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+Bu bölümde, bir serbest (durduruldu) Azure sanal makineyi başlatmak için ansible'ı kullanın.
 
-1.  [Cloud Shell](/azure/cloud-shell/overview)'i açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1.  `azure-vm-start.yml` adlı bir dosya (playbook'unuzu içerecek) oluşturun ve aşağıda gösterilen şekilde VI düzenleyicisinde açın:
+1. [Cloud Shell](/azure/cloud-shell/overview)'i açın.
+
+1. Adlı bir dosya oluşturun `azure-vm-start.yml`, düzenleyicide açın:
 
     ```azurecli-interactive
-    vi azure-vm-start.yml
+    code azure-vm-start.yml
     ```
 
-1.  **I** anahtarını seçerek ekleme moduna geçin.
-
-1.  Aşağıdaki örnek kodu düzenleyiciye yapıştırın:
+1. Aşağıdaki örnek kodu düzenleyiciye yapıştırın:
 
     ```yaml
     - name: Start Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Start the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
+        - name: Start virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
 
-1.  **Esc** tuşuna basarak ekleme modundan çıkın.
+1. Değiştirin `{{ resource_group_name }}` ve `{{ vm_name }}` yer tutucuları değerleriniz ile.
 
-1.  Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
+1. Dosyayı kaydedin ve düzenleyiciden çıkın.
 
-    ```bash
-    :wq
-    ```
-
-1.  Örnek Ansible playbook'unu çalıştırın.
+1. Kullanarak playbook çalıştırma `ansible-playbook` komutu:
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1.  Çıktı, sanal makinenin başarıyla başlatıldığını gösteren aşağıdaki örneğe benzer olacaktır:
+1. Playbook'u çalıştırdıktan sonra aşağıdaki sonuçları benzer bir çıktı görürsünüz:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -140,5 +130,6 @@ Bu bölümde Ansible'ı kullanarak serbest bırakılmış (durdurulmuş) bir Azu
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"] 
-> [Ansible'ı kullanarak Azure dinamik envanterlerinizi yönetme](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Öğretici: Ansible'ı kullanarak Azure dinamik envanterleri yönetme](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

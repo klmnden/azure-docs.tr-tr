@@ -1,34 +1,52 @@
 ---
-title: Ansible'ı kullanarak Azure App Service web uygulamaları ölçeklendirme
-description: Ansible'ı kullanarak Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile web uygulaması oluşturmayı öğrenin
-ms.service: azure
+title: Öğretici - ansible'ı kullanarak Azure App Service'te ölçeklendirme uygulamaları | Microsoft Docs
+description: Azure uygulama Hizmeti'nde bir uygulamanın ölçeğini öğrenin
 keywords: ansible'ı, azure, devops, bash, playbook, Azure App Service, Web uygulaması, Ölçek, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 213c4e086db8b40fdec26ce9fb3e0be5ad055cbc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792285"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764316"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ansible'ı kullanarak Azure App Service web uygulamaları ölçeklendirme
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (veya yalnızca Web Apps) ana web uygulamaları, REST API'leri ve mobil arka uç. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Öğretici: Ansible'ı kullanarak Azure App Service'te ölçeklendirme uygulamaları
 
-Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede, uygulamanızı Azure App Service'te ölçeklendirme için ansible'ı kullanmayı gösterir.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Mevcut bir App Service planının gerçekleri öğrenin
+> * S2 ile üç çalışanları App Service planına ölçeğini
 
 ## <a name="prerequisites"></a>Önkoşullar
-- **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps** -bir Azure app service web uygulaması zaten yoksa, şunları yapabilirsiniz [Ansible'ı kullanarak Azure web uygulamaları oluşturma](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>App Service'te bir uygulama ölçeğini
-Uygulamanızın ait olduğu App Service planının fiyatlandırma katmanını değiştirerek ölçeği artırabilirsiniz. Bu bölüm, işlemi tanımlayan bir örnek Ansible playbook sunar:
-- Mevcut bir App Service planının gerçekleri öğrenin
-- App service planı S2 üç çalışanları ile güncelleştirin.
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure App Service uygulaması** - bir Azure App Service uygulaması yoksa [ansible'ı kullanarak Azure App Service içinde bir uygulamayı yapılandırma](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Uygulama ölçeklendirme
+
+Ölçeklendirme için iki iş akışı: *ölçeği* ve *ölçeğini*.
+
+**Ölçeği artırma:** Ölçeği artırma işleminin daha fazla kaynak almaya anlamına gelir. Bu kaynaklar CPU, bellek, disk alanı, Vm'leri ve daha fazlasını içerir. Uygulama, uygulamanın ait olduğu App Service planının fiyatlandırma katmanını değiştirerek ölçeği. 
+**Ölçeği genişletme:** Ölçeği genişletmek için uygulamanızı çalıştıran VM örneği sayısını artırmak anlamına gelir. Fiyatlandırma katmanı App Service planınıza bağlı olarak en çok 20 örneklerine ölçeği genişletebilirsiniz. [Otomatik ölçeklendirme](/azure/azure-monitor/platform/autoscale-get-started) örnek sayısı otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre ölçeklendirmenize olanak tanıyor.
+
+Bu bölümdeki playbook kod, işlemi tanımlar:
+
+* Mevcut bir App Service planının gerçekleri öğrenin
+* App service planı S2 üç çalışanları ile güncelleştirin.
+
+Aşağıdaki playbook'u `webapp_scaleup.yml` olarak kaydedin:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Uygulamanızın ait olduğu App Service planının fiyatlandırma katmanını de
       var: facts.appserviceplans[0].sku
 ```
 
-Playbook'u olarak Kaydet *webapp_scaleup.yml*.
+Kullanarak playbook çalıştırma `ansible-playbook` komutu:
 
-Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Playbook'u çalıştırdıktan sonra App service planı başarıyla S2 üç arkadaşlarınızla güncelleştirildiğini aşağıdaki örneğe benzer bir çıktı gösterilmektedir:
-```Output
-PLAY [localhost] **************************************************************
+Playbook'u çalıştırdıktan sonra aşağıdaki sonuçları benzer bir çıktı görürsünüz:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"] 
-> [Azure üzerinde Ansible](https://docs.microsoft.com/azure/ansible/)
+> [Azure üzerinde Ansible](/azure/ansible/)

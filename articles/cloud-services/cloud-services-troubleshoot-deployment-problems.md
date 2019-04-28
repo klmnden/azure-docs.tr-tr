@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106922"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Cloud service dağıtım sorunlarını giderme
 Azure'a bir bulut hizmeti uygulama paketini dağıttığınızda, dağıtımdan hakkında bilgi edinebilirsiniz **özellikleri** bölmesinde Azure portalında. Bulut hizmeti sorunları gidermenize yardımcı olması için bu bölmede ayrıntılarını kullanabilirsiniz ve, bu bilgiler Azure desteği için yeni bir destek isteği açma sağlayabilirsiniz.

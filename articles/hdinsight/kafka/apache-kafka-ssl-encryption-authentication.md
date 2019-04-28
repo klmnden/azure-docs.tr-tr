@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: cd850808f656b211bf1fdbfd2fe7c5799150b030
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+origin.date: 01/15/2019
+ms.date: 04/15/2019
+ms.author: v-yiso
+ms.openlocfilehash: 9d8d5e57d0dd7d7022e65a061360c8450848fb4b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114966"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Güvenli Yuva Katmanı (SSL) şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması kurulumu
 

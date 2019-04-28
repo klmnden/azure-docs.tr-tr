@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007364"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760021"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
-[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](https://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
+Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Bu hızlı başlangıçta, Java EE geliştiricileri için Eclipse IDE'yi kullanarak Java web uygulamasını App Service'e dağıtma işlemi gösterilmektedir.
 
 > [!IMPORTANT]
 > Linux üzerinde Azure App Service ayrıca bir Java web uygulamalarını barındırmak için yerel olarak, yönetilen Tomcat, Java SE ve WildFly tekliflerini kullanarak Linux'ta seçenektir. Linux'ta App Service ile çalışmaya başlama ilgileniyorsanız bkz [hızlı başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma](containers/quickstart-java.md).

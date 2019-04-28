@@ -18,13 +18,13 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125329"
 ---
-# <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
+# <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure Kullanılabilirlik Alanlarıyla SAP iş yükü yapılandırmaları
 [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) Azure sağlayan bir yüksek kullanılabilirlik özelliklerinden biridir. Kullanılabilirlik alanları kullanarak SAP iş yüklerinizi azure'da genel kullanılabilirliğini artırır. Bu özellik zaten bazı durumlarda kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/). Gelecekte daha fazla bölgede kullanılabilir olacaktır.
 
 Bu grafik, SAP yüksek kullanılabilirlik temel mimarisini gösterir:

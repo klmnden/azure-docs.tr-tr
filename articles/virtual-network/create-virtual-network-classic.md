@@ -17,16 +17,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098125"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Birden çok alt ağa sahip bir sanal ağ (Klasik) oluşturmak
 
 > [!IMPORTANT]
-> Azure iki sahip [farklı dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmaya ve kaynaklarla çalışmaya yönelik: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft öneriyor üzerinden en yeni sanal ağlar oluşturma [Resource Manager](quick-create-portal.md) dağıtım modeli.
+> Azure iki sahip [farklı dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve bu kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft öneriyor üzerinden en yeni sanal ağlar oluşturma [Resource Manager](quick-create-portal.md) dağıtım modeli.
 
 Bu öğreticide, genel ve özel ayrı alt ağlara sahip bir temel Azure sanal ağ (Klasik) oluşturmayı öğrenin. Sanal makineler ve bir alt ağdaki bulut Hizmetleri gibi Azure kaynaklarını oluşturabilirsiniz. Sanal ağlar (Klasik) oluşturulan kaynakları birbirleriyle ve bir sanal ağa bağlı başka ağlardaki kaynaklarla iletişim kurabilir.
 

@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118696"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch işleme özellikleri
 
@@ -30,7 +30,7 @@ Bir Windows 2016 görüntüsü ve bir CentOS görüntüsü yok.  İçinde [Azure
 
 Bir örnek havuzu yapılandırma için bkz: [Azure CLI işleme öğretici](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure portalı ve Batch Gezgini, bir havuz oluşturduğunuzda, bir işleme VM görüntüsü seçme için GUI araçları sağlar.  Batch API'sini kullanarak, aşağıdaki özellik değerlerini belirtmeniz [Imagereference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) havuz oluştururken:
 
-| Yayımcı | Sunduğu | Sku | Sürüm |
+| Yayımcı | Sunduğu | Sku | Version |
 |---------|---------|---------|--------|
 | toplu iş | işleme centos73 | işleme | en son |
 | toplu iş | rendering-windows2016 | işleme | en son |
@@ -62,7 +62,7 @@ Bir uygulamayı kullanmak için bir girişimde, ancak uygulama içinde belirtilm
 
 İşleme görevleri için komut satırının oluşturabilmek için işleme uygulama yürütülebilir dosyaları yükleme konumunu belirtilmelidir.  Sistem ortam değişkenlerini gerçek yolları belirtmek zorunda yerine kullanılabilir Azure Market VM görüntülerini üzerinde oluşturulmuştur.  Ek olarak bu ortam değişkenleri olan [standart Batch ortam değişkenlerini](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) her görev için oluşturuldu.
 
-|Uygulama|Uygulama yürütülebilir|Ortam değişkeni|
+|Uygulama|Uygulama yürütülebilir|Ortam Değişkeni|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
@@ -79,7 +79,7 @@ Diğer iş yükleri gibi işleme uygulaması sistem gereksinimleri farklılık g
 Arnold gibi bazı işleme uygulamaları CPU tabanlıdır; V-Ray ve Blender döngüleri gibi diğer CPU ve/veya GPU'ları kullanabilirsiniz.
 Kullanılabilir VM aileleri ve VM boyutları açıklamasını [VM türleri ve boyutları görmek](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
-### <a name="low-priority-vms"></a>Düşük öncelikli VM'ler
+### <a name="low-priority-vms"></a>Düşük öncelikli sanal makineler
 
 Diğer iş yükleri ile gibi düşük öncelikli VM'ler işleme için Batch havuzlarında yararlanılabilir.  Düşük öncelikli VM'ler, normal özel VM'ler ile aynı gerçekleştirin ancak Azure kapasiteden yararlanmak ve büyük bir indirim için kullanılabilir.  Düşük öncelikli VM'ler kullanma zorunluluğunu getirir, bu sanal makineler ayrılacak kullanılamıyor olabilir veya kullanılabilir kapasiteye bağlı olarak herhangi bir zamanda etkisiz hale getirilebilir ' dir. Bu nedenle, düşük öncelikli VM'ler için tüm işleme işlerini uygun olacağı değildir. Görüntüleri büyük olasılıkla daha sonra işlemek için kaç saat sürerse gibi kesintiye ve boşaltılması Vm'leri nedeniyle yeniden başlatılması bu görüntülerin işlenmesi ilgili kabul edilebilir değildir.
 

@@ -1,21 +1,22 @@
 ---
-title: Azure'da CentOS for Ansible çözüm şablonu dağıtma
-description: Ansible çözüm şablonu araçları Azure ile çalışacak şekilde yapılandırılmış yanı sıra, Azure'da barındırılan bir CentOS sanal makineye dağıtmayı öğrenin.
-ms.service: azure
+title: Hızlı Başlangıç - Azure'da CentOS for Ansible çözüm şablonu dağıtma | Microsoft Docs
+description: Bu hızlı başlangıçta, Azure ile çalışacak şekilde yapılandırılmış araçları ile birlikte Azure'da barındırılan bir CentOS sanal makineye Ansible çözüm şablonu dağıtmayı öğrenirsiniz.
 keywords: ansible'ı, azure, devops, çözüm şablonu, sanal makine, azure kaynakları, centos ve red hat için yönetilen kimlikleri
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 01/28/2019
-ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 2d2ab769c2d4c5a594cb57f2fa9dfed599578506
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104225"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764509"
 ---
-# <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Azure'da CentOS for Ansible çözüm şablonu dağıtma
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Hızlı Başlangıç: Azure'da CentOS for Ansible çözüm şablonu dağıtma
+
 Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şekilde yapılandırılmış Araçları Paketi ile birlikte bir CentOS sanal makinede Ansible örneği yapılandırmak için tasarlanmıştır. Araçlar şunları içerir:
 
 - **Azure modülleri Ansible** - [Azure modülleri Ansible](./ansible-matrix.md) oluşturmak ve azure'da altyapınızı yönetmenize olanak sağlayan modülleri dizisi olan. Bu modülleri en son sürümünü varsayılan olarak dağıtılır. Ancak, çözüm şablonu dağıtım işlemi sırasında ortamınız için uygun bir sürüm numarası belirtebilirsiniz.
@@ -23,9 +24,10 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 - **Kimlikler Azure kaynakları için yönetilen** - [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) özellik bulut uygulama kimlik bilgilerinin güvenli tutma sorunu giderir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-- **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-## <a name="deploy-the-ansible-solution-template-from-the-azure-marketplace"></a>Azure Market'ten Ansible çözüm şablonu Dağıt
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## <a name="deploy-the-ansible-solution-template"></a>Ansible çözüm şablonu Dağıt
 
 1. Gözat [Ansible çözüm şablonu Azure Market'te](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -46,7 +48,7 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
    - **Kaynak grubu** - açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** ve yeni bir kaynak grubu için bir ad belirtin. Tanıtım amacıyla, yeni bir kaynak grubu adında `ansiblerg` kullanılır.
    - **Konum** -senaryonuz için uygun olan aşağı açılan listeden konumu seçin.
 
-     ![Azure portal Ansible temel ayarları sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Azure portal Ansible temel ayarları sekmesi](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. **Tamam**’ı seçin.
 
@@ -60,19 +62,19 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
    - **Etki alanı adı etiketi** -genel kullanıma yönelik sanal makine etki alanı adını girin. Ad benzersiz ve karşılayan adlandırma gereksinimlerini olmalıdır. Sanal makine için ad belirtme hakkında daha fazla bilgi için bkz. [Azure kaynakları için adlandırma kuralları](/azure/architecture/best-practices/naming-conventions).
    - **Ansible sürüm** -bir sürüm numarası ya da değer belirtmeniz `latest` en son sürümünü dağıtmak için. Bilgi simgesi seçin **Ansible sürüm** kullanılabilir sürümler hakkında daha fazla bilgi için.
 
-     ![Azure portal Ansible ek ayarlar sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Azure portal Ansible ek ayarlar sekmesi](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. **Tamam**’ı seçin.
 
 1. İçinde **Ansible Tümleştirme ayarlarını** sekmesinde, kimlik doğrulama türünü belirtin. Azure kaynaklarını güvenli hale getirme hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Azure portal Ansible tümleştirme ayarları sekmesinde](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
+    ![Azure portal Ansible tümleştirme ayarları sekmesinde](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. **Tamam**’ı seçin.
 
 1. **Özeti** doğrulama işlemini gösteren ve Ansible dağıtımı için belirtilen ölçütleri listeleme sayfasını görüntüler. Sekmesinin altındaki bir bağlantısını sağlar **şablon ve parametreleri indir** Azure desteklenen diller ve platformlar ile kullanmak için. 
 
-     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. **Tamam**’ı seçin.
 
@@ -80,10 +82,11 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 
 1. Seçin **bildirimleri** Ansible dağıtımını izlemek için portal sayfasının üst simge. Dağıtım tamamlandıktan sonra seçin **kaynak grubuna gidin**. 
 
-     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. Kaynak grubu sayfasındaki Ansible ana bilgisayarınızın IP adresini alın ve ansible'ı kullanarak Azure kaynaklarınızı yönetmek oturum açın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"] 
-> [Ansible kullanarak Azure’da Linux sanal makine oluşturma](/azure/virtual-machines/linux/ansible-create-vm)
+> [Hızlı Başlangıç: Ansible'ı kullanarak Azure'da bir Linux sanal makinesi yapılandırma](/azure/virtual-machines/linux/ansible-create-vm)

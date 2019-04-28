@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361136"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764258"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | **Bölge** | **Daha düşük Gen2 kullanılabilir** | **Otomatik yükseltmeler başlayın** |
 |:--- |:--- |:--- |
 | Avustralya Doğu |Kullanılabilir |1 Haziran 2019 |
-| Avustralya Güneydoğu |15 Nisan 2019 |1 Mayıs 2019 |
+| Avustralya Güneydoğu |26 Nisan 2019 |1 Mayıs 2019 |
 | Güney Brezilya |15 Mayıs 2019 |1 Haziran 2019 |
 | Orta Kanada |Kullanılabilir |1 Haziran 2019 |
 | Doğu Kanada |\* |\* |
@@ -49,16 +49,16 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Almanya Orta |\* |\* |
 | Almanya Orta Batı |1 Eylül 2019|2 Ocak 2020 |
 | Hindistan Orta |Kullanılabilir |1 Haziran 2019 |
-| Hindistan Güney |15 Nisan 2019 |1 Haziran 2019 |
+| Hindistan Güney |26 Nisan 2019 |1 Haziran 2019 |
 | Japonya Doğu |Kullanılabilir |1 Haziran 2019 |
 | Japonya Batı |Kullanılabilir |1 Mayıs 2019 |
-| Kore Orta |15 Nisan 2019 |1 Haziran 2019 |
-| Kore Güney |15 Nisan 2019 |1 Mayıs 2019 |
-| Orta Kuzey ABD |15 Nisan 2019 |1 Mayıs 2019 |
+| Kore Orta |26 Nisan 2019 |1 Haziran 2019 |
+| Kore Güney |26 Nisan 2019 |1 Mayıs 2019 |
+| Orta Kuzey ABD |26 Nisan 2019 |1 Mayıs 2019 |
 | Kuzey Avrupa |Kullanılabilir |1 Haziran 2019 |
 | Orta Güney ABD |Kullanılabilir |1 Haziran 2019 |
 | Güneydoğu Asya |Kullanılabilir |1 Haziran 2019 |
-| Birleşik Krallık Güney |15 Nisan 2019 |1 Haziran 2019 |
+| Birleşik Krallık Güney |26 Nisan 2019 |1 Haziran 2019 |
 | Birleşik Krallık Batı |\*|\* |
 | Batı Orta ABD |2 Eylül 2019 |2 Ocak 2020|
 | Batı Avrupa |Kullanılabilir |1 Haziran 2019 |

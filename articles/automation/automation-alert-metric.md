@@ -9,17 +9,17 @@ ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119903"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Ölçüm uyarıları ile runbook'ları izleme
 
 Bu makalede, runbook'ların tamamlanma durumu temelinde uyarılar oluşturma hakkında bilgi edinin.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 https://portal.azure.com adresinden Azure'da oturum açın
 

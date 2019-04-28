@@ -2,18 +2,18 @@
 title: Azure Depolama Gezgini kullanarak Azure dosya paylaşımlarını yönetme için hızlı başlangıç
 description: Bu hızlı başlangıcı Azure dosyalarını yönetmek için Azure Depolama Gezgini kullanma hakkında bilgi edinmek için kullanın.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452252"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763413"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Hızlı Başlangıç: Oluşturma ve Azure Depolama Gezgini ile Azure dosya paylaşımlarını yönetme
 Bu kılavuzda, Azure Depolama Gezgini'ni kullanarak [Azure dosya paylaşımlarında](storage-files-introduction.md) çalışmanın temelleri gösterilir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 

@@ -5,15 +5,15 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: d9055b0c0decbeca0bb43969af4e854c396c3bb6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506134"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764222"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure depolama BLOB'ları için geçici silme
 Azure Storage şimdi blob nesneler için geçici silme sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
@@ -278,6 +278,9 @@ blockBlob.StartCopy(copySource);
 Verilerinizi yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş bir fırsat varsa, üzerinde geçici silme kapatma öneririz. Geçici silme bir veri koruma stratejisinin bir parçasıdır ve yanlışlıkla veri kaybını önlemeye yardımcı olabilir.
 
 ## <a name="faq"></a>SSS
+**Geçici silmeyi kullanma tüm özel durumlar var mı?**  
+Etkinleştirme geçici silme sık üzerine yazılan veriler için daha yüksek depolama kapasitesi ücretler ve daha yüksek gecikme süresiyle blobları listelerken neden olabilir. Bu, ayrı bir depolama hesabında geçici silme ile devre dışı sık üzerine veri depolayarak azaltabilirsiniz. 
+
 **Geçici silme için hangi depolama türlerini kullanabilirim?**  
 Geçici silme şu anda yalnızca blob (nesne) depolama olarak kullanılabilir.
 

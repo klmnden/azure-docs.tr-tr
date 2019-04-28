@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583ccb6076dae2f33e265b95387bcd35aa9fa4d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547291"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763704"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>İşlem düğümleri Batch kullanımını eşzamanlı olarak en üst düzeye çıkarmak için görevleri Çalıştır 
 
@@ -41,7 +41,7 @@ Standart kullanmak yerine\_1 CPU çekirdeği D1 düğüm, kullanabilir [standart
 ## <a name="enable-parallel-task-execution"></a>Paralel görev yürütmeye etkinleştir
 Paralel görev yürütmeye için işlem düğümleri havuzu düzeyinde yapılandırdığınız. Batch .NET kitaplığı ile ayarlanmış [CloudPool.MaxTasksPerComputeNode] [ maxtasks_net] bir havuz oluşturduğunuzda özelliği. Batch REST API'SİNİN kullanıyorsanız [maxTasksPerNode] [ rest_addpool] havuz oluşturma sırasında istek gövdesindeki öğesi.
 
-Azure Batch düğüm başına en fazla görev en fazla dört kez ayarlamanıza olanak tanır (4 x) düğümünde çekirdek sayısı. Havuz düğümleri ile yapılandırılmışsa, örneğin, "Büyük" (dört çekirdek), ardından boyut `maxTasksPerNode` 16 olarak ayarlanabilir. Her düğümü boyutları için çekirdek sayısı hakkında daha fazla bilgi için bkz: [Cloud Services boyutları](../cloud-services/cloud-services-sizes-specs.md). Hizmet sınırları hakkında daha fazla bilgi için bkz. [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md).
+Azure Batch görevleri (4 x) en fazla düğüm başına ayarlamanıza olanak sağlayan çekirdek düğüm sayısı. Havuz düğümleri ile yapılandırılmışsa, örneğin, "Büyük" (dört çekirdek), ardından boyut `maxTasksPerNode` 16 olarak ayarlanabilir. Ancak, düğüm kaç çekirdek bağımsız olarak, düğüm başına 256 karakterden daha fazla görev sahip olamaz. Her düğümü boyutları için çekirdek sayısı hakkında daha fazla bilgi için bkz: [Cloud Services boyutları](../cloud-services/cloud-services-sizes-specs.md). Hizmet sınırları hakkında daha fazla bilgi için bkz. [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md).
 
 > [!TIP]
 > Hesaba katması mutlaka `maxTasksPerNode` değeri oluşturduğunuzda, bir [otomatik ölçeklendirme formülü] [ enable_autoscaling] havuzunuz için. Örneğin, veren bir formül `$RunningTasks` önemli ölçüde artış düğüm başına görev tarafından etkilenebilir. Bkz: [işlem düğümleri Azure Batch havuzunda otomatik olarak](batch-automatic-scaling.md) daha fazla bilgi için.

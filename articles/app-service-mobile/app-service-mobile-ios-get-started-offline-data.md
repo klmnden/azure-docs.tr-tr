@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112659"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>İOS mobil uygulamalarla çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -159,7 +159,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
 ![MS_TableOperations tablo öznitelikleri][defining-core-data-tableoperations-entity]
 
-| Öznitelik | Type |
+| Öznitelik | Tür |
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
@@ -172,7 +172,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
  ![MS_TableOperationErrors tablo öznitelikleri][defining-core-data-tableoperationerrors-entity]
 
-| Öznitelik | Type |
+| Öznitelik | Tür |
 | --- | --- |
 | id |String |
 | operationId |Integer 64 |
@@ -183,22 +183,22 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 
  ![][defining-core-data-tableconfig-entity]
 
-| Öznitelik | Type |
+| Öznitelik | Tür |
 | --- | --- |
 | id |String |
 | anahtar |String |
 | KeyType |Integer 64 |
 | tablo |String |
-| değer |String |
+| value |String |
 
 ### <a name="data-table"></a>Veri tablosu
 
 **Todoıtem**
 
-| Öznitelik | Type | Not |
+| Öznitelik | Tür | Not |
 | --- | --- | --- |
 | id | Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
-| Tamamlayın | Boole | Yapılacak iş öğesi alanı |
+| Tamamlayın | Boolean | Yapılacak iş öğesi alanı |
 | metin |String |Yapılacak iş öğesi alanı |
 | createdAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
 | updatedAt | Tarih | (isteğe bağlı) Eşlendiği **updatedAt** sistem özelliği |

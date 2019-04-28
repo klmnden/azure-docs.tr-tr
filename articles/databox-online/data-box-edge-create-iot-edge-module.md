@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401723"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759990"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Geliştirme bir C# IOT Edge modülü, veri kutusu edge'de dosyaları taşıma
 
@@ -36,7 +36,7 @@ Veri kutusu Edge cihazınıza dağıtabilir ve IOT Edge modüllerini çalıştı
 2. Dosya olay Oluşturucu yerel paylaşıma yazılan her dosya için bir dosya olayı oluşturur. Bir dosya değiştirildiğinde dosya olaylar da oluşturulur. Dosya olayları, sonra IOT Edge Hub'ına (IOT Edge çalışma zamanı) gönderilir.
 3. IOT Edge Özel Modül dosya için göreli bir yol da içeren bir dosya olay nesnesi oluşturmak için dosya olayını işler. Modül göreli dosya yolu kullanarak mutlak bir yol oluşturur ve dosyayı yerel paylaşımından bulut paylaşıma kopyalar. Modül, ardından dosyayı yerel paylaşımından siler.
 
-![Veri kutusu Edge üzerinde Azure IOT Edge modülü nasıl çalışır?](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Veri kutusu Edge üzerinde Azure IOT Edge modülü nasıl çalışır?](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Dosyayı bulut paylaşımda olduktan sonra Azure depolama hesabınıza otomatik olarak karşıya.
 

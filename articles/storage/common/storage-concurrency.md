@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883850"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766203"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
 ## <a name="overview"></a>Genel Bakış
 Internet tabanlı modern uygulamalar genellikle görüntüleme ve verileri aynı anda güncelleştiren birden çok kullanıcı sahiptir. Bu, uygulama geliştiricilerin öngörülebilir bir deneyim, özellikle birden çok kullanıcının aynı verileri nerede güncelleştirebilirsiniz senaryoları için son kullanıcılara sağlama hakkında dikkatli düşünme gerektirir. Geliştiriciler genellikle göz önünde bulundurun üç ana veri eşzamanlılık strateji vardır:  
 
 1. İyimser eşzamanlılık – bir güncelleştirme, güncelleştirmenin bir parçası olarak verileri uygulama itibaren değişip değişmediğini doğrulayın gerçekleştiren bir uygulama bu verileri en son okuyun. Wiki sayfası görüntüleme iki kullanıcı aynı sayfaya bir güncelleştirme yaparsanız, ardından wiki platform ikinci güncelleştirme ilk güncelleştirme – üzerine yazmaz ve hem de kullanıcıların kendi güncelleştirme başarılı olup olmadığını anlamak emin olmanız gerekir. Bu strateji, web uygulamalarında sık kullanılır.
-2. Kötümser eşzamanlılık – bir güncelleştirme gerçekleştirmek için bir uygulama arayan bir kilidi diğer kullanıcıların kilidi serbest bırakılıncaya kadar veri güncelleştirme engelleyen bir nesne üzerinde olacaktır. Örneğin, burada yalnızca ana güncelleştirme gerçekleştirecek mi Yönetici/bağımlı veri çoğaltma senaryoda ana genellikle özel bir kilit zaman başka hiç kimse güncelleştirebilirsiniz emin olmak için verileri uzun bir süre için tutar.
+2. Kötümser eşzamanlılık – bir güncelleştirme gerçekleştirmek için bir uygulama arayan bir kilidi diğer kullanıcıların kilidi serbest bırakılıncaya kadar veri güncelleştirme engelleyen bir nesne üzerinde olacaktır. Örneğin, burada yalnızca ana güncelleştirmeler gerçekleştirecek bir ana/alt veri çoğaltma senaryosunda ana genellikle özel bir kilit zaman başka hiç kimse güncelleştirebilirsiniz emin olmak için verileri uzun bir süre için tutar.
 3. Son yazıcı WINS – başka bir uygulama uygulama bu yana ilk kez güncelleştirilmiş veriler içeriyor, doğrulamadan devam etmek herhangi bir güncelleştirme işlemi izin veren bir yaklaşım, verileri okuyamadı. Bu strateji (veya bir biçimsel stratejisi eksikliği) genellikle burada veri birden çok kullanıcının aynı verilere erişecek hiçbir olasılığı olan bir şekilde bölümlendiğinde kullanılır. Bu da kısa süreli veri akışlarını burada işlenmekte olan yararlı olabilir.  
 
 Bu makalede, Azure depolama platformu bu eşzamanlılık stratejiler üçü için birinci sınıf destek sağlayarak geliştirmeyi nasıl kolaylaştırdığını genel bir bakış sağlar.  

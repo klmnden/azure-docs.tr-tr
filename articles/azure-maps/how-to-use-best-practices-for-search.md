@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358159"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763897"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanmak için en iyi uygulamalar
 
@@ -132,9 +132,9 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### <a name="predictive-mode-auto-suggest"></a>Tahmine dayalı modu (otomatik öneri)
 
-Kısmi sorgular için daha fazla eşleşme bulmak için `typeHead` parametresi, 'true' olarak ayarlanmalıdır. Sorgu kısmi bir giriş olarak yorumlanır ve arama Tahmine dayalı moduna girer. Aksi takdirde tüm ilgili bilgileri, geçirilen hizmet varsayar.
+Kısmi sorgular için daha fazla eşleşme bulmak için `typeahead` parametresi, 'true' olarak ayarlanmalıdır. Sorgu kısmi bir giriş olarak yorumlanır ve arama Tahmine dayalı moduna girer. Aksi takdirde tüm ilgili bilgileri, geçirilen hizmet varsayar.
 
-Aşağıdaki örnekte sorgu, aşağıdaki adresi hizmet arama "Microso" için sorgulanır ile görebilirsiniz `typehead` parametresini **true**. Yanıt gözlemlerseniz, arama hizmeti sorgu kısmi bir sorgu olarak yorumlanır ve sonuçları için sorgu otomatik önerilen yanıt içerdiğini görebilirsiniz.
+Aşağıdaki örnekte sorgu, aşağıdaki adresi hizmet arama "Microso" için sorgulanır ile görebilirsiniz `typeahead` parametresini **true**. Yanıt gözlemlerseniz, arama hizmeti sorgu kısmi bir sorgu olarak yorumlanır ve sonuçları için sorgu otomatik önerilen yanıt içerdiğini görebilirsiniz.
 
 **Örnek sorgu:**
 

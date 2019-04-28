@@ -1,7 +1,6 @@
 ---
 title: HDInsight - Azure PowerShell ile Apache Pig kullanma
 description: Azure PowerShell kullanarak HDInsight üzerinde Apache Hadoop kümesi için Apache Pig işleri göndermeyi öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: bb00f6ccd22be75a235d9cd6fc174741207a76e0
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 9ad788989273f28f38ee95f8d669fdf17f1fd785
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105045"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>HDInsight ile Apache Pig işleri çalıştırmak için Azure PowerShell'i kullanma
 

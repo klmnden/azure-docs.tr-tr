@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104158"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı üzerinde Azure AD uygulama ara sunucusu dağıtma
 Azure Active Directory (AD) uygulama proxy'si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Azure AD Domain Services ile artık lift-and-shift ile taşıma eski uygulamaları şirket içinde çalışan Azure altyapı hizmetleri için kullanabilirsiniz. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
@@ -49,7 +49,7 @@ Azure AD dizininiz için Azure AD uygulama proxy'sini etkinleştirmek için aşa
     ![Azure AD dizini seçme](./media/app-proxy/app-proxy-enable-start.png)
 3. Tıklayın **uygulama proxy'si**. Bir Azure AD temel veya Azure AD Premium aboneliği yoksa, deneme sürümünü etkinleştir seçeneğine bakın. İki durumlu **uygulama ara sunucusunu etkinleştirme?** için **etkinleştirme** tıklatıp **Kaydet**.
 
-    ![Uygulama Ara sunucusunu etkinleştirme](./media/app-proxy/app-proxy-enable-proxy-blade.png)
+    ![Uygulama Ara Sunucusunu etkinleştirme](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. Bağlayıcı indirmek için tıklayın **bağlayıcı** düğmesi.
 
     ![Bağlayıcıyı indir](./media/app-proxy/app-proxy-enabled-download-connector.png)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994964"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764347"
 ---
 # <a name="api-management-authentication-policies"></a>API Management kimlik doğrulama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -49,13 +49,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeler  
   
-|Name|Açıklama|Gereklidir|  
+|Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |Temel kimlik doğrulaması|Kök öğe.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Name|Açıklama|Gereklidir|Varsayılan|  
+|Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |kullanıcı adı|Temel kimlik bilgisinin kullanıcı adını belirtir.|Evet|Yok|  
 |password|Temel kimlik bilgisinin parolasını belirtir.|Evet|Yok|  
@@ -73,26 +73,32 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ### <a name="policy-statement"></a>İlke bildirimi  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Örnek  
+### <a name="examples"></a>Örnekler  
   
+Bu örnekte istemci sertifikası parmak izi tarafından tanımlanır.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+Bu örnekte istemci sertifikası, kaynak adına göre tanımlanır.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Öğeler  
   
-|Name|Açıklama|Gereklidir|  
+|Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |kimlik doğrulama sertifikası|Kök öğe.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Name|Açıklama|Gereklidir|Varsayılan|  
+|Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|İstemci sertifikası için parmak izi.|Evet|Yok|  
+|thumbprint|İstemci sertifikası için parmak izi.|Ya da `thumbprint` veya `certificate-id` mevcut olması gerekir.|Yok|  
+|Sertifika kimliği|Sertifika kaynak adı.|Ya da `thumbprint` veya `certificate-id` mevcut olması gerekir.|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -118,13 +124,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeler  
   
-|Name|Açıklama|Gereklidir|  
+|Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |kimlik doğrulaması yönetilen kimlik |Kök öğe.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Name|Açıklama|Gereklidir|Varsayılan|  
+|Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |kaynak|dize. Hedef web API'sine (güvenli kaynak) Azure Active Directory Uygulama Kimliği URI'si.|Evet|Yok|  
 |Çıkış belirteci değişken adı|dize. Bir nesne türü olarak belirteç değeri alacak bağlam değişkeninin adı `string`.|Hayır|Yok|  

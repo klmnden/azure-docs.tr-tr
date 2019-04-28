@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight üzerinde Apache Spark kümesi ile Zeppelin not defterlerini kullanma
 description: Azure HDInsight üzerinde Apache Spark kümeleri ile Zeppelin not defterlerini kullanma konusunda adım adım yönergeler.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 18660b41f4413d3ae1cd820cd645ddb540397906
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9fc18b11b24791c1e154d89d757408da4ab20539
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107560"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma
 

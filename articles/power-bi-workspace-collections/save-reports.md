@@ -1,19 +1,22 @@
 ---
 title: Power BI çalışma alanı koleksiyonları'nda raporları kaydetme | Microsoft Docs
 description: Power BI çalışma alanı koleksiyonları içinde raporları kaydetme hakkında bilgi edinin. Bu, başarılı bir şekilde çalışması için uygun izinleri gerektirir.
-services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+services: power-bi-embedded
 author: markingmyname
-ms.author: maghan
+ROBOTS: NOINDEX
+ms.assetid: ''
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-ms.date: 09/20/2017
-ms.openlocfilehash: bc3c9f71900abcbba440db259d92df53a4c7a586
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+origin.date: 09/26/2018
+ms.date: 03/05/2019
+ms.author: v-junlch
+ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103891"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda raporları kaydetme
 
@@ -26,15 +29,15 @@ Power BI çalışma alanı koleksiyonları içinde varolan raporları düzenleyi
 
 Bir raporu kaydetmek için önce belirli bir rapor için bir belirteç doğru kapsamlar ile oluşturmanız gerekir:
 
-* Report.ReadWrite etkinleştirmek için kapsam gereklidir
-* Kaydetme etkinleştirmek için Report.Read ve Workspace.Report.Copy kapsamlar gereklidir
-* Kaydet ve kaydetme Report.ReadWrite ve Workspace.Report.Copy gerektiğinden etkinleştirmek için
+- Report.ReadWrite etkinleştirmek için kapsam gereklidir
+- Kaydetme etkinleştirmek için Report.Read ve Workspace.Report.Copy kapsamlar gereklidir
+- Kaydet ve kaydetme Report.ReadWrite ve Workspace.Report.Copy gerektiğinden etkinleştirmek için
 
 Sırasıyla sağ etkinleştirmek için rapor eklediğinizde ekleme yapılandırması doğru izin sağlamak için ihtiyacınız olan dosya menüsü düğmeleri olarak kaydetme/Kaydet:
 
-* modeller. Permissions.ReadWrite
-* modeller. Permissions.Copy
-* modeller. Permissions.All
+- modeller. Permissions.ReadWrite
+- modeller. Permissions.Copy
+- modeller. Permissions.All
 
 > [!NOTE]
 > Erişim belirtecinizi uygun kapsamları da gerekir. Daha fazla bilgi için [kapsamları](app-token-flow.md#scopes).
@@ -59,7 +62,7 @@ Bu nedenle yalnızca doğru özellikleri ekleme yapılandırmasında geçirin ve
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -74,7 +77,7 @@ Bu nedenle yalnızca doğru özellikleri ekleme yapılandırmasında geçirin ve
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>
+    </script>    
 ```
 
 Artık bir raporu düzenleme modunda uygulamanıza eklenir.
@@ -112,10 +115,10 @@ Ardından sonra yeni rapor gerekir bir *Kaydet*. Yeni rapor yükleme, herhangi b
 
 ```html
 <div id="reportContainer"></div>
-<script>
+<script>  
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -124,7 +127,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>
+</script>    
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.
@@ -138,3 +141,5 @@ var embedConfiguration = {
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](https://community.powerbi.com/)
 
+
+<!-- Update_Description: update metedata properties -->

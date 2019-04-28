@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125568"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -245,11 +245,15 @@ Evet, ancak bu fiziksel makine yalnızca bir VMware VM'sine geri çalışılabil
 
 Kurtarma Hizmetleri Kasası'nda tıklatın **Configuration Servers** içinde **Site Recovery altyapısı** > **Yönet**. Ardından **sunucuları**seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
 
+## <a name="process-server"></a>Process Server
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Çoğaltmayı etkinleştirme sırasında işlem sunucusunu seçin yapılamıyor
 
+9.24 sürümünden geliştirmeleri sağlamak için yapılan [ürün Kılavuzu](vmware-azure-manage-process-server.md#process-server-selection-guidance) ne zaman bir genişleme işlem sunucusu kurma hakkında. Bu işlem sunucu azaltmayı önlemek ve iyi durumda olmayan işlem sunucusu kullanımını önlemek için yapılır.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>İşlem sunucusu doğru sistem durumunu almak için ne yapmalıyım?
 
-
+Site Recovery bileşenlerini yükseltmek [en son sürümleri](service-updates-how-to.md#links-to-currently-supported-update-rollups) (en az 9.24 veya üzeri).
 
 ## <a name="failover-and-failback"></a>Yük devretme ve yeniden çalışma
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>İşlem sunucusu şirket içi yeniden çalışma için kullanabilir miyim?

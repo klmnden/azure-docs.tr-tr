@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 379b8ee4a78cd8b487407e92ae32a7525f428bf0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004593"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763849"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -55,15 +55,17 @@ Atama ve kullanıcılar için sanal masaüstlerinizi bağlanın:
 Windows sanal masaüstü bağlantısı kurma ve kullanıcılarınızın Windows Masaüstü ve uygulamalar için başarıyla bağlanması için gereken birkaç nokta vardır.
 
 Windows sanal masaüstü yalnızca şu anda aşağıdaki iki işletim sistemi destekler:
-- Windows 10 Enterprise çok oturum
-- Windows Server 2016
+
+* Windows 10 Enterprise çok oturum
+* Windows Server 2016
 
 Aşağıdaki işletim sistemleri için destek eklemek için bu nedenle sahip olduğunuzdan emin olun planlıyoruz [uygun lisansları](https://azure.microsoft.com/pricing/details/virtual-desktop/) Masaüstü ve uygulamaları dağıtmayı planladığınız göre kullanıcılarınız için:
 
 |İşletim Sistemi|Gerekli lisans|
 |---|---|
-
-| Windows 10 Enterprise çok oturum veya Windows 10 Enterprise | Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5 | | Windows 7 Enterprise | Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5 | | Windows Server 2012 R2, 2016, 2019 | Yazılım Güvencesine sahip RDS istemci erişim lisansı (CAL) |
+|Windows 10 Enterprise çok oturum veya Windows 10 Enterprise|Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, iş<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Yazılım Güvencesine sahip RDS istemci erişim lisansı (CAL)|
 
 Altyapınızı Windows sanal masaüstü desteklemek için aşağıdakiler gerekir:
 

@@ -2,7 +2,6 @@
 title: HDInsight - Azure üzerinde Spark MLlib ile Machine learning örneği
 description: Spark MLlib Lojistik regresyon aracılığıyla sınıflandırmasını kullanan bir veri kümesini analiz ederek bir makine öğrenimi uygulaması oluşturmak için kullanmayı öğrenin.
 keywords: spark machine Learning, spark machine learning örneği
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097108"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz etmek için Apache Spark MLlib kullanın
 

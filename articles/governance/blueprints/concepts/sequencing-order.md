@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266197"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766346"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure şemaları, dağıtım sırası anlama
 
@@ -41,6 +41,9 @@ Her **kaynak grubu** yapıt dizisi sırayla yapıtlar için bu kaynak grubu içi
 - Kaynak grubu alt **rol ataması** yapıtları yapıt adına göre sıralanmış
 - Kaynak grubu alt **ilke ataması** yapıtları yapıt adına göre sıralanmış
 - Kaynak grubu alt **Azure Resource Manager şablonu** yapıtları yapıt adına göre sıralanmış
+
+> [!NOTE]
+> Kullanım [artifacts()](../reference/blueprint-functions.md#artifacts) başvurulan yapıt örtük bir bağımlılık oluşturur.
 
 ## <a name="customizing-the-sequencing-order"></a>Sıralama sırasını özelleştirme
 

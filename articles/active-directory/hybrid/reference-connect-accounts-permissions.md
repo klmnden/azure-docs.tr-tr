@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096187"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -73,7 +73,7 @@ Bu kimlik bilgileri yalnızca yükleme sırasında kullanılır ve yükleme tama
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>AD DS bağlayıcı hesabı hızlı ayarları için gereken izinler
 AD DS bağlayıcı hesabı Windows Server AD yazma ve okuma için oluşturulan ve hızlı ayarlar ile oluşturduğunuzda aşağıdaki izinlere sahiptir:
 
-| İzin | İçin kullanılan |
+| İzin | Kullanıldığı yerler |
 | --- | --- |
 | <li>Dizin Değişikliklerini Çoğaltma</li><li>Çoğaltma Directory yapılan tüm değişiklikler |Parola Karması eşitleme |
 | Okuma/yazma tüm özellikleri kullanıcı |İçeri aktarma ve Exchange karma |
@@ -146,7 +146,7 @@ Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdak
 >Derleme 1.1.484 ile başlayarak, Azure AD Connect SQL veritabanını yükseltmek için sysadmin izinleri gerektiren bir regresyon hata kullanıma sunuldu.  Bu hata, yapı 1.1.647 düzeltilir.  Bu derleme için yükseltme yapıyorsanız, sysadmin izinleri gerekir.  Dbo izinleri yeterli değil.  Sysadmin izinlerine gerek kalmadan Azure AD Connect'e yükseltmenin denerseniz yükseltme başarısız olur ve Azure AD Connect artık doğru bir şekilde daha sonra çalışmaz.  Microsoft, bunun farkında ve bu sorunu gidermek için çalışmaktadır.
 
 
-| Sorumlu | Gerekli izinler | İçin kullanılan |
+| Sorumlu | Gerekli izinler | Kullanıldığı yerler |
 | --- | --- | --- |
 | Yükleme Sihirbazı çalıştıran kullanıcı |Yerel sunucunun Yöneticisi |İkili dosyaları güncelleştirin. |
 | Yükleme Sihirbazı çalıştıran kullanıcı |ADSyncAdmins üyesi |Eşitleme kuralları ve diğer yapılandırma değişikliklerini yapın. |

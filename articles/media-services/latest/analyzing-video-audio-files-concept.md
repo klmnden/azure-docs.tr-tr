@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352009"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762823"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -33,8 +33,9 @@ Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlanmış bir dizi hazır geçerlidir. Şu anda hazır işleme içerikle tek bir dilde konuşma içeren tek bir ses kaydı destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız algılanan ilk dili seçin ve ile seçilen dile dosyayı süresi boyunca işlem. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Şu anda ilk dil algılandıktan sonra diller arasında dinamik geçiş desteklemiyor. Otomatik dil algılama özelliğini açıkça anlaşılabilir Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
-|**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlanmış bir dizi hazır geçerlidir. Şu anda hazır işleme içerikle tek bir dilde konuşma içeren tek bir ses kaydı destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız algılanan ilk dili seçin ve ile seçilen dile dosyayı süresi boyunca işlem. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Şu anda ilk dil algılandıktan sonra diller arasında dinamik geçiş desteklemiyor. Otomatik dil algılama özelliğini açıkça anlaşılabilir Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Bir video analiz edilirken, mevcut tüm yüzleri algılamak için kullanılması için ayarları açıklar.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

@@ -1,7 +1,6 @@
 ---
 title: 'Öğretici: Apache Storm, Apache Kafka - Azure HDInsight ile veri okuma ve yazma için kullanın'
 description: HDInsight üzerinde Apache Storm ve Apache Kafka kullanarak akış işlem hattı oluşturmayı öğrenin. Bu öğreticide, Kafka'dan veri akışı yapmak için KafkaBolt ve KafkaSpout bileşenlerini kullanırsınız.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: bf62b4f8f8dbfc7df73102bb06e4f16c0fdb806c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097329"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -411,7 +410,7 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Storm kümeler
       | --- | --- |
       | Abonelik | Azure aboneliğiniz |
       | Kaynak grubu | Kaynakları içeren kaynak grubu. |
-      | Konum | İçinde kaynakların oluşturulduğu Azure bölgesi. |
+      | Location | İçinde kaynakların oluşturulduğu Azure bölgesi. |
       | Kafka Kümesi Adı | Kafka kümesinin adı. |
       | Storm Kümesi Adı | Storm kümesinin adı. |
       | Küme Oturum Açma Kullanıcı Adı | Kümeler için yönetici kullanıcı adı. |

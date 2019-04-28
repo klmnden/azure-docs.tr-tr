@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: MT
+ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201270"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760667"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Sorgu performansını en üst düzeye çıkarmak için JSON şekil nasıl 
 
@@ -90,14 +90,14 @@ Aşağıdaki örnekte, yoktur tek bir IOT Hub ileti burada dış dizi boyut değ
 
 Başvuru verileri tablo (anahtar özelliği olan DeviceID):
 
-| deviceId | MessageID | deviceLocation |
+| deviceId | messageId | deviceLocation |
 | --- | --- | --- |
 | FXXX | SATIR\_VERİ | AV |
 | FYYY | SATIR\_VERİ | ABD |
 
 (Sonra düzleştirme) zaman serisi görüşleri olay tablosu:
 
-| deviceId | MessageID | deviceLocation | timestamp | dizi. Akış hızı ft3/sn | dizi. Petrol baskısı PSI altyapısı |
+| deviceId | messageId | deviceLocation | timestamp | dizi. Akış hızı ft3/sn | dizi. Petrol baskısı PSI altyapısı |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | SATIR\_VERİ | AV | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
 | FXXX | SATIR\_VERİ | AV | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
@@ -164,7 +164,7 @@ Başvuru verileri tablo (anahtar özelliği olan DeviceID):
 
 Başvuru verileri: (cihaz kimliği ve series.tagId anahtar özellikleri olan)
 
-| deviceId | series.tagId | MessageID | deviceLocation | type | birim |
+| deviceId | series.tagId | messageId | deviceLocation | type | birim |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | SATIR\_VERİ | AV | Akış hızı | ft3/sn |
 | FXXX | oilPressure | SATIR\_VERİ | AV | Altyapısı Petrol baskısı | psi |
@@ -173,12 +173,12 @@ Başvuru verileri: (cihaz kimliği ve series.tagId anahtar özellikleri olan)
 
 (Sonra düzleştirme) zaman serisi görüşleri olay tablosu:
 
-| deviceId | series.tagId | MessageID | deviceLocation | type | birim | timestamp | Series.Value |
+| deviceId | series.tagId | messageId | deviceLocation | type | birim | timestamp | Series.Value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | SATIR\_VERİ | AV | Akış hızı | ft3/sn | 2018-01-17T01:17:00Z | 1.0172575712203979 |
 | FXXX | oilPressure | SATIR\_VERİ | AV | Altyapısı Petrol baskısı | psi | 2018-01-17T01:17:00Z | 34.7 |
 | FXXX | pumpRate | SATIR\_VERİ | AV | Akış hızı | ft3/sn | 2018-01-17T01:17:00Z | 2.445906400680542 |
-| FXXX | oilPressure | SATIR\_VERİ | AV | Altyapısı Petrol baskısı | PSI | 2018-01-17T01:17:00Z | 49.2 |
+| FXXX | oilPressure | SATIR\_VERİ | AV | Altyapısı Petrol baskısı | Psi | 2018-01-17T01:17:00Z | 49.2 |
 | FYYY | pumpRate | SATIR\_VERİ | ABD | Akış hızı | ft3/sn | 2018-01-17T01:18:00Z | 0.58015072345733643 |
 | FYYY | oilPressure | SATIR\_VERİ | ABD | Altyapısı Petrol baskısı | psi | 2018-01-17T01:18:00Z | 22.2 |
 

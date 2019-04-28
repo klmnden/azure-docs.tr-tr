@@ -2,18 +2,18 @@
 title: C++ ile Azure dosyaları için geliştirme | Microsoft Docs
 description: C++ uygulamaları ve dosya verilerini depolamak için Azure dosyaları'nı kullanma hizmetlerini geliştirmeyi öğrenin.
 services: storage
-author: renashahmsft
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: renashahmsft
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649717"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766399"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++ ile Azure dosyaları için geliştirme
 
@@ -186,7 +186,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 }
 ```
 
-## <a name="upload-a-file"></a>Karşıya dosya yükle
+## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
 
 En azından bir Azure dosya paylaşımı dosyalarının bulunduğu bir kök dizini içerir. Bu bölümde, bir paylaşım kök dizini üzerine yerel depodan bir dosyayı karşıya yüklemeyi öğreneceksiniz.
 
@@ -219,7 +219,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
-## <a name="download-a-file"></a>Dosya indir
+## <a name="download-a-file"></a>Dosya indirme
 
 Dosyaları indirmek için önce bir dosya başvurusu almak ve sonra çağrı **download_to_stream** dosyanın içeriği, ardından yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için yöntemi. Alternatif olarak, **download_to_file** yerel bir dosyaya bir dosyanın içeriğini indirmek için yöntemi. Kullanabileceğiniz **download_text** bir metin dizesi olarak bir dosyanın içeriğini indirmek için yöntemi.
 

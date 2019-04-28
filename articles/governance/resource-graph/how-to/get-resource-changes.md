@@ -1,5 +1,5 @@
 ---
-title: Kaynak değişiklikleri Al
+title: Kaynak değişikliklerini alma
 description: Bir kaynak değiştirildiği bulma işlemini anlama ve değiştirilen özellikler listesini alın.
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014611"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760818"
 ---
-# <a name="get-resource-changes"></a>Kaynak değişiklikleri Al
+# <a name="get-resource-changes"></a>Kaynak değişikliklerini alma
 
 Kaynakları günlük kullanımı, yeniden yapılandırma ve hatta yeniden dağıtım kurs değiştirilir.
 Değişiklik, bir kişi veya otomatik bir işlem tarafından gelebilir. Çoğu değişiklik bilinçli olarak böyle tasarlanmıştır ancak bazen değil. Değişiklik geçmişi son 14 gün ile Azure kaynak Graph yapmanızı sağlar:
 
-- Bir Azure Resource Manager özellikte değişiklik algılandığında bulun.
-- Bu değişiklik olayı bir parçası olarak nelerin değiştiğini özellikleri bakın.
+- Bir Azure Resource Manager özelliğinde ne zaman değişiklik algılandığını öğrenme.
+- Bu değişiklik olayı kapsamında hangi özelliklerin değiştirildiğini görme.
 
 Değişiklik algılama ve ayrıntıları, aşağıdaki örnek senaryolar için değerlidir:
 
@@ -39,7 +39,7 @@ Bu makalede, Kaynak grafiğin SDK'sı aracılığıyla bu bilgileri toplamak gö
 
 ## <a name="find-when-changes-were-detected"></a>Ne zaman değişiklik algılanmadı Bul
 
-Bir kaynakta yapılan değişiklikler görmeye ilk adımı, bir zaman penceresi içinde bu kaynakla ilgili değişiklik olayları bulmaktır. Bu adım aracılığıyla gerçekleştirilir [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) REST uç noktası.
+Bir kaynakta yapılan değişiklikler görmeye ilk adımı, bir zaman penceresi içinde bu kaynakla ilgili değişiklik olayları bulmaktır. Bu adım aracılığıyla gerçekleştirilir **resourceChanges** REST uç noktası.
 
 **ResourceChanges** uç nokta, iki parametre istek gövdesindeki gerektirir:
 
@@ -95,7 +95,7 @@ Bazı zaman noktasında Bu pencerede değişiklik olayı oluştu.
 
 ## <a name="see-what-properties-changed"></a>Özellikleri nelerin değiştiğini görmek
 
-İle **Changeıd** gelen **resourceChanges** uç noktasını [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) REST uç noktasını sonra değişiklik olayı ayrıntılarını almak için kullanılır.
+İle **Changeıd** gelen **resourceChanges** uç noktasını **resourceChangeDetails** REST uç noktasını sonra değişiklik olayı ayrıntılarını almak için kullanılır.
 
 **ResourceChangeDetails** uç nokta, iki parametre istek gövdesindeki gerektirir:
 
@@ -108,7 +108,6 @@ Bazı zaman noktasında Bu pencerede değişiklik olayı oluştu.
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

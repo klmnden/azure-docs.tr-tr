@@ -1,19 +1,18 @@
 ---
 title: Sanal ağ - Azure HDInsight'ı genişletin
 description: HDInsight, diğer bulut kaynaklarını veya, veri merkezinizdeki kaynaklarına bağlanmak için Azure sanal ağ kullanmayı öğrenin
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097346"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -259,7 +258,7 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
 
 1. Her zaman aşağıdaki IP adreslerinden gelen trafiğe izin vermeniz gerekir:
 
-    | Kaynak IP adresi | Hedef bağlantı noktası | Yön |
+    | Kaynak IP adresi | Hedef bağlantı noktası | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Gelen |
     | 23.99.5.239 | 443 | Gelen |
@@ -271,7 +270,7 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     > [!IMPORTANT]  
     > Kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca adım 1'deki dört IP adreslerini kullanır.
 
-    | Ülke | Bölge | İzin verilen kaynak IP adresleri | Hedef bağlantı noktası izin verilen | Yön |
+    | Ülke | Bölge | İzin verilen kaynak IP adresleri | Hedef bağlantı noktası izin verilen | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asya | Doğu Asya | 23.102.235.122</br>52.175.38.134 | 443 | Gelen |
     | &nbsp; | Güneydoğu Asya | 13.76.245.160</br>13.76.136.249 | 443 | Gelen |

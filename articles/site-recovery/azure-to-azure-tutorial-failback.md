@@ -2,19 +2,20 @@
 title: Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için ikincil bir Azure bölgesinde çoğaltılmasını geri Azure Vm'leri başarısız.
 description: Azure Site Recovery hizmeti ile geri Azure Vm'leri başarısız öğrenin.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
-ms.author: raynew
+origin.date: 03/18/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c8ce05e644ad556542314b17151b808586734824
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118188"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında geri Azure Vm'leri başarısız
 
@@ -68,3 +69,6 @@ Vm'leri yeniden koruma altına sonra gerektiği gibi birincil bölgeye geri dön
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Daha fazla bilgi edinin](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) yeniden koruma akışla ilgili.
+
+<!--Update_Description: new articles on azure to azure tutorial failback -->
+<!--ms.date: 04/22/2019-->

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110075"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: NET'i kullanarak nesne depolamada blob oluşturma
 

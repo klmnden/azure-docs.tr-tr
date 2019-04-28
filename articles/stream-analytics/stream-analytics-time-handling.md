@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543296"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760849"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Azure Stream analytics'te zaman işleme anlama
 
@@ -26,7 +26,7 @@ Tartışma daha iyi çerçeve için bazı arka plan kavramları tanımlayalım:
 
 - **İşlem süresi**: Olay işleme sistemi ulaştığında ve gözlemlenen süre. Örneğin, araba ve bilgisayar sistemi Ücretli standına algılayıcı gördüğünde veriyi işlemek için birkaç dakika sürer.
 
-- **Filigran**: Giriş akış işlemciye işaret ne kadar tüm olayları gösteren bir olay zaman işaretçisi olmuştur. Filigranlar olayları almak Temizle ilerleme gösterir sistem sağlar. Belirli bir noktaya akışında ilerleme filigranlar göstermek için akışları gereği, gelen olay verilerini hiçbir zaman, durdurur.
+- **Filigran**: Hangi noktaya kadar olayları bir akış işlemciye ingressed edildiğini gösterir bir olay zaman işaretçisi. Filigranlar olayları almak Temizle ilerleme gösterir sistem sağlar. Belirli bir noktaya akışında ilerleme filigranlar göstermek için akışları gereği, gelen olay verilerini hiçbir zaman, durdurur.
 
    Filigran önemli bir kavramdır. Filigranlar sistem oluşturabilir, tam ve doğru belirlemek için Stream Analytics ve çekilmesini gerekmez tekrarlanabilir sonuçlar sağlar. İşleme, öngörülebilir ve tekrarlanabilir kesin bir şekilde gerçekleştirebilirsiniz. Örneğin, bir sayım bazı hata koşulu işleme için yapmanız gereken, filigranlar güvenli başlangıç ve bitiş noktaları demektir.
 

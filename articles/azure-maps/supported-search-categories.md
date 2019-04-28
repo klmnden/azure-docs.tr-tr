@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437356"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763559"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure haritalar kategoriler desteklenir.
 
@@ -105,7 +105,7 @@ Yaparken bir [kategori arama](https://docs.microsoft.com/rest/api/maps/search/ge
 | ONARIM\_OLANAĞI | Tesis bodyshops, Lastik (Lastik) Hizmetleri, onarım dükkanları, araba cam değiştirme dükkanları, hizmet, satış yüklenmesini araba Donatılar, motosiklet Onar, kamyon onarım hizmeti, genel araba onarım onarın |
 | ARAŞTIRMA\_OLANAĞI | Araştırma özelliği |
 | KONUT\_KONAKLAMA | kullanımdan kaldırma topluluk, karmaşık townhouse, flats/Grup karmaşık, condominium karmaşık, yerleşik Emlak, ikamet Konaklama |
-| RESTORAN | Almanca kreyolu Cajun, Hollanda, ziyafet odaları, bistro, İsrail, Slovakya, Jamaika, vejeteryan, Deniz ürünleri, Vietnam, Malta dili Sichuan, Gaelce, Çince, Japonca, Algerian, Californian, fusion Shandong, salad çubuğunda Savoy İspanyolca, Etiyopya, Tayvanca, simitler, İran, Kanada, Amerikan, Norveççe, Fransızca, Hunan, Polinezya, afghan, yol kenarı, Doğu, İsviçre, erotic, crêperie, Surinamese, Mısır, Macarca, Nepal, Mangal yapacağız, sık erişimli pot, hamburgers, Akdeniz, Latin Amerika, tapas, İngiliz, Meksika, Guangdong, Asya (diğer), standları, sushi, Moğolca, uluslararası mussels, Tay dili, Venezuela, Rumanian, tavuk, A'dan kosher steak house, yogurt/suyu çubuğu, İtalyanca, Korece, Kıbrıs Lehçesi, Boşnakça, Bolivya, Dominik, Belçika, Tunus, İskoçya, İngilizce, Pakistan, Çekçe, Hawaii, Maghrib, Tibet dili, Arabistan, Orta Doğu, Şili, Şangay, Lehçe, Filipin dili, Sudan, Ermenice, Birman dili, Brezilya, İskandinav, Bulgarca, Ruhu Gıda, Kolombiya, Musevi, pizza Sicilian, organik, Yunanca, Bask, Uruguay, cafeterias, Fince, Afrika, Korsika Lehçesi, Suriye, Karayipler, Dongbei, Rusça, maske, fast food, Avustralya, İrlanda, pub Gıda, çıkardığınız fondue, Lübnan, Endonezya dili, Danca, Provençal, teppanyaki, kıta, Hindistan, Mauritius, Batı Peru, Kamboçya bir yiyecek, İsveç, macrobiotic, ICE cream parlor Slavca, Türkçe, Argentinean, Avusturya, exotic, Portekiz, Lüksemburg, Fas, sandwich, Küba, Restoran |
+| RESTORAN | Almanca kreyolu Cajun, Hollanda, ziyafet odaları, bistro, İsrail, Slovakya, Jamaika, vejeteryan, Deniz ürünleri, Vietnam, Malta dili Sichuan, Galce, Çince, Japonca, Algerian, Californian, fusion Shandong, salad çubuğunda Savoy İspanyolca, Etiyopya, Tayvanca, simitler, İran, Kanada, Amerikan, Norveççe, Fransızca, Hunan, Polinezya, afghan, yol kenarı, Asya, İsviçre, erotic, crêperie, Surinamese, Mısır, Macarca, Nepal, Mangal yapacağız, sık erişimli pot, hamburgers, Akdeniz, Latin Amerika, tapas, İngiliz, Meksika, Guangdong, Asya (diğer), standları, sushi, Moğolca, uluslararası mussels, Tay dili, Venezuela, Rumanian, tavuk, A'dan kosher steak house, yogurt/suyu çubuğu, İtalyanca, Korece, Kıbrıs Lehçesi, Boşnakça, Bolivya, Dominik, Belçika, Tunus, İskoçya, İngilizce, Pakistan, Çekçe, Hawaii, Maghrib, Tibet dili, Arabistan, Orta Doğu, Şili, Şangay, Lehçe, Filipin dili, Sudan, Ermenice, Birman dili, Brezilya, İskandinav, Bulgarca, Ruhu Gıda, Kolombiya, Musevi, pizza Sicilian, organik, Yunanca, Bask, Uruguay, cafeterias, Fince, Afrika, Korsika Lehçesi, Suriye, Karayipler, Dongbei, Rusça, maske, fast food, Avustralya, İrlanda, pub Gıda, çıkardığınız fondue, Lübnan, Endonezya dili, Danca, Provençal, teppanyaki, kıta, Hindistan, Mauritius, Batı Peru, Kamboçya bir yiyecek, İsveç, macrobiotic, ICE cream parlor Slavca, Türkçe, Argentinean, Avusturya, exotic, Portekiz, Lüksemburg, Fas, sandwich, Küba, Restoran |
 | RESTORAN\_ALAN | Restoran alanı |
 | REST\_ALAN | REST alanında durdurma Yerleştir |
 | MANZARA\_PANORAMIC\_GÖRÜNTÜLE | İzleme noktası manzara/panoramik görünümü |

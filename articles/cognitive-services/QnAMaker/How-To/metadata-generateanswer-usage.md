@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683625"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765654"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Bir Bilgi Bankası yanıt GenerateAnswer API ve meta verileri alma
 
@@ -67,7 +67,7 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP isteği özelliği|Ad|Type|Amaç|
+|HTTP isteği özelliği|Ad|Tür|Amaç|
 |--|--|--|--|
 |URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
 |URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|string|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
@@ -78,11 +78,12 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 JSON gövdesi birkaç ayar vardır:
 
-|JSON gövdesi özelliği|Gerekli|Type|Amaç|
+|JSON gövdesi özelliği|Gerekli|Tür|Amaç|
 |--|--|--|--|
 |`question`|gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
 |`top`|isteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|
 |`userId`|isteğe bağlı|string|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
+|`scoreThreshold`|isteğe bağlı|integer|Yalnızca bu eşiğin üzerinde güven puanıyla birlikte yanıt döndürülür. Varsayılan değer 0’dır.|
 |`isTest`|isteğe bağlı|boole|Varsa true olarak döndürür sonuçlardan kümesi `testkb` yayımlanan dizin yerine arama dizini.|
 |`strictFilters`|isteğe bağlı|string|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Kullanım `none` yanıtı hiçbir meta veri filtresini olması belirtmek için. |
 
@@ -93,6 +94,7 @@ JSON gövdesi birkaç ayar vardır:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

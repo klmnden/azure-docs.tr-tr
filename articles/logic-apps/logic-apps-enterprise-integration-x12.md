@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842150"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766543"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme için Exchange X12 iletileri
 
@@ -53,11 +53,11 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 4. Seçin **genel bakış**, ardından **sözleşmeleri** Döşe. 
    Anlaşmaları kutucuk yoksa kutucuk önce ekleyin. 
 
-   !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Altında **sözleşmeleri**, seçin **Ekle**.
 
-   !["Ekle" öğesini seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   !["Ekle" öğesini seçin](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Altında **Ekle**, girin bir **adı** sözleşmenize için. 
    Sözleşme türü için **X12**. 
@@ -122,7 +122,7 @@ Her bir işlem türüne (ST1) ve gönderen uygulamaya (GS2) için bir şema seç
 
 | Özellik | Açıklama |
 | --- | --- |
-| Sürüm |Sürümünü X12 seçin |
+| Version |Sürümünü X12 seçin |
 | İşlem Türü (ST01) |İşlem türü seçin |
 | Gönderen Uygulama (GS02) |Gönderen uygulamayı seçin |
 | Şema |Kullanmak istediğiniz şema dosyası seçin. Şemaları tümleştirme hesabınıza eklenir. |
@@ -216,7 +216,7 @@ Artık, anlaşmanız seçili ayarlarınıza uygun giden iletileri işlemek hazı
 
 | Özellik | Açıklama |
 | --- | --- |
-| Sürüm |Sürümünü X12 seçin |
+| Version |Sürümünü X12 seçin |
 | İşlem Türü (ST01) |İşlem türü seçin |
 | ŞEMA |Kullanılacak şemayı seçin. Şemaları tümleştirme hesabınızdaki yer alır. Şema ilk seçerseniz, otomatik olarak sürüm ve işlem yapılandırır türü  |
 

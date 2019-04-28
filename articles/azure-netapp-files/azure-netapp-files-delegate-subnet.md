@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434781"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763301"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files için bir alt ağı temsilci olarak belirleme 
 
@@ -30,7 +30,7 @@ Bir alt ağ Azure NetApp dosyaları devretmeniz gerekir.   Bir birim oluşturdu�
 * Her Azure sanal ağı (Vnet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
 * Bir ağ güvenlik grubu atamak veya hizmet temsilcisi alt ağdaki uç noktası değiştirilemez. Bunun yapılması, alt ağ temsilci başarısız olmasına neden olur.
 * Genel olarak eşlenmiş sanal ağdan bir birime erişimi şu anda desteklenmiyor.
-* Oluşturma [kullanıcı tanımlı özel yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) adresine sahip VM alt ağları Azure için NetApp dosyaları temsilci bir alt ağ ön eki (hedef) desteklenmez ve VM bağlantısı etkiler.
+* Oluşturma [kullanıcı tanımlı özel yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) adresine sahip VM ağlarındaki Azure için NetApp dosyaları temsilci bir alt ağ ön eki (hedef) desteklenmiyor. Bunun yapılması, VM bağlantısı etkiler.
 
 ## <a name="steps"></a>Adımlar 
 1.  Git **sanal ağlar** dikey penceresinden Azure portalı ve Azure NetApp dosyaları için kullanmak istediğiniz sanal ağı seçin.    

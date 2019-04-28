@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122933"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (WebJob Proje)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -28,7 +28,7 @@ Bu makalede, bir Azure blob'u oluşturulduğunda veya güncelleştirildiğinde b
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Bir blob oluşturulduğunda veya bir işlev tetiklemek nasıl
 Bu bölümde, nasıl kullanılacağını gösterir **BlobTrigger** özniteliği.
 
- **Not:** WebJobs SDK için yeni veya değiştirilmiş blobları izlemek için günlük dosyaları tarar. Bu işlem, doğası gereği yavaş, blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil.  BLOB'ları hemen işlemek uygulamanız gerekiyorsa, blob oluşturma ve kullanma, bir kuyruk iletisi oluşturmak için önerilen yöntem olduğu **QueueTrigger** özniteliği yerine **BlobTrigger** blob işleyen işlev üzerindeki öznitelik.
+ **Not:** WebJobs SDK, yeni veya değiştirilmiş bloblar için izlemek için günlük dosyaları tarar. Bu işlem, doğası gereği yavaş, blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil.  BLOB'ları hemen işlemek uygulamanız gerekiyorsa, blob oluşturma ve kullanma, bir kuyruk iletisi oluşturmak için önerilen yöntem olduğu **QueueTrigger** özniteliği yerine **BlobTrigger** blob işleyen işlev üzerindeki öznitelik.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Blob adı uzantısı için tek bir yer tutucu
 Aşağıdaki kod örneği görünen metin BLOB'ları kopyalar *giriş* kapsayıcıya *çıkış* kapsayıcı:
@@ -193,7 +193,7 @@ Xenapp'i WebJobs SDK hiçbir **BlobTrigger** işlevi aynı yeni veya güncelleş
 
 BLOB giriş adlı bir kapsayıcıda depolanan *azure webjobs konakları* AzureWebJobsStorage bağlantı dizesi tarafından belirtilen Azure depolama hesabında. Bir blob giriş bölümünde aşağıdaki bilgiler bulunur:
 
-* Blob için çağrılan işlev ("*{WebJob adı}*. İşlevler. *{İşlev adı}*", örneğin:"WebJob1.Functions.CopyBlob")
+* Blob için çağrılan işlev ("*{WebJob adı}*. İşlevler. *{İşlev adı}*", örneğin: "WebJob1.Functions.CopyBlob")
 * Kapsayıcı adı
 * Blob türü ("BlockBlob" veya "PageBlob")
 * Blob adı
@@ -207,7 +207,7 @@ Bir blobu yeniden işlemeyerek zorlamak istiyorsanız, o blobu için blob giriş
 Bu makalede ele alınan ilgili konular şunlardır:
 
 * Zaman uyumsuz işlevleri
-* Birden çok örneği
+* Birden çok örnek
 * Normal şekilde kapatılmasını
 * WebJobs SDK öznitelikleri bir işlevin gövdesinde kullanın
 * SDK bağlantı dizeleri kod içinde ayarlayabilirsiniz.

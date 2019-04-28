@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005528"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762851"
 ---
 # <a name="api-management-policies"></a>API Management ilkeleri
 Bu bölüm, aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ Bu bölüm, aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve
 -   [Kimlik doğrulama ilkeleri](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Temel kimlik doğrulaması](api-management-authentication-policies.md#Basic) -temel kimlik doğrulaması kullanarak arka uç hizmeti ile kimlik doğrulaması.  
     -   [İstemci sertifikası ile kimlik doğrulaması](api-management-authentication-policies.md#ClientCertificate) -istemci sertifikalarını kullanan bir arka uç hizmeti ile kimlik doğrulaması.  
-    -   [Yönetilen kimliği ile kimlik doğrulaması](api-management-authentication-policies.md#ManagedIdentity) -istemci sertifikalarını kullanan bir arka uç hizmeti ile kimlik doğrulaması.  
+    -   [Yönetilen kimliği ile kimlik doğrulaması](api-management-authentication-policies.md#ManagedIdentity) -kimlik doğrulaması kullanarak bir arka uç hizmeti bir [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Önbelleğe alma ilkeleri](api-management-caching-policies.md#CachingPolicies)  
     -   [Önbellekten alma](api-management-caching-policies.md#GetFromCache) -önbellek gerçekleştirmek aramak ve kullanılabilir olduğunda geçerli önbelleğe alınan yanıt verin.  
     -   [Önbellek için Store](api-management-caching-policies.md#StoreToCache) -belirtilen önbellek denetimi yapılandırmasına yanıtı önbelleğe alır.  

@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116184"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup sunucusu ile çıplak bilgisayardan geri yüklemek ve sistem durumunu yedekleme
 
 Azure Backup sunucusu, sistem durumunu yedeklediğinde ve tam kurtarmayı (BMR) koruma sağlar.
 
-*   **Sistem durumu yedeklemesi**: işletim sistemi dosyalarını yedekler ve böylece bir bilgisayar başlatıldığında ancak sistem dosyalarını ve kayıt kayboluyor kurtarabilirsiniz. Bir sistem durumu yedeklemesi içerir:
-    * Etki alanı üyesi: önyükleme dosyaları, COM + sınıf kaydı veritabanı, kayıt defteri
+*   **Sistem durumu yedeklemesi**: İşletim sistemi dosyalarını yedekler ve böylece bir bilgisayar başlatıldığında ancak sistem dosyalarını ve kayıt defteri kaybolur kurtarabilirsiniz. Bir sistem durumu yedeklemesi içerir:
+    * Etki alanı üyesi: Önyükleme dosyaları, COM + sınıf kaydı veritabanı, kayıt defteri
     * Etki alanı denetleyicisi: Windows Server Active Directory (NTDS), önyükleme dosyaları, COM + sınıf kaydı veritabanı, kayıt defteri, sistem birimi (SYSVOL)
-    * Küme hizmetlerini çalıştıran bilgisayar: küme sunucusu meta verileri
-    * Sertifika Hizmetleri çalıştıran bilgisayarda: sertifika verileri
-* **Tam yedekleme**: kritik birimlerde (dışındaki kullanıcı verileri), işletim sistemi dosyalarını ve tüm verileri yedekler. Tanımına göre bir BMR yedeklemesi, sistem durumu yedeklemesi içerir. Bir bilgisayar başlatılamıyor ve her şeyi koruma sağlar.
+    * Küme hizmetlerini çalıştıran bilgisayar: Küme sunucusu meta verileri
+    * Sertifika Hizmetleri çalıştıran bilgisayarda: Sertifika verileri
+* **Tam yedekleme**: Kritik birimler (dışındaki kullanıcı verileri) üzerinde işletim sistemi dosyalarını ve tüm verileri yedekler. Tanımına göre bir BMR yedeklemesi, sistem durumu yedeklemesi içerir. Bir bilgisayar başlatılamıyor ve her şeyi koruma sağlar.
 
 Aşağıdaki tabloda, yedekleme ve kurtarma özetlenmektedir. Sistem durumu ve BMR ile korunabilecek uygulama sürümleri hakkında ayrıntılı bilgi için bkz: [yaptığı Azure Backup sunucusu yedekleme?](backup-mabs-protection-matrix.md).
 

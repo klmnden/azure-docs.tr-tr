@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495114"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759459"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
@@ -45,6 +45,22 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |SQL analizi|Bilgi için [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Yönetilen örnek için saat dilimi desteği|Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>Nisan 2019
+
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| Yönetilen örnek için ortak uç noktaları | Daha fazla bilgi için [kullanarak Azure SQL veritabanı yönetilen örnek genel uç noktası ile güvenli bir şekilde](sql-database-managed-instance-public-endpoint-securely.md)
+| Yönetilen örnek için saat dilimi desteği | Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği (Önizleme)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
+
+| Belgeleri geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| Yönetilen örnek için ortak uç noktaları | Daha fazla bilgi için [kullanarak Azure SQL veritabanı yönetilen örnek genel uç noktası ile güvenli bir şekilde](sql-database-managed-instance-public-endpoint-securely.md)
+| Yönetilen örnek için saat dilimi desteği | Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği (Önizleme)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Mart 2019
 

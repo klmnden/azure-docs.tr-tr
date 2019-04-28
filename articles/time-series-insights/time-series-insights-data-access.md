@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558532"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759556"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bir ortam için veri erişim izni verme
 
 Bu makalede, iki tür erişim ilkeleri Azure zaman serisi öngörüleri önizlemesi açıklanmaktadır.
 
-## <a name="grant-data-access"></a>Veri erişim izni verme
-
-Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin.
+## <a name="sign-in-to-tsi"></a>TSI için oturum açın
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 1. Time Series Insights ortamınızı bulun. Girin `Time Series` içinde **arama** kutusu. Seçin **zaman serisi ortamı** arama sonuçlarında.
 1. Listeden Zaman Serisi Görüşleri ortamınızı seçin.
+
+## <a name="grant-data-access"></a>Veri erişim izni verme
+
+Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin.
+
 1. Seçin **veri erişimi ilkeleri**ve ardından **+ Ekle**.
 
     ![Veri erişim bir][1]
@@ -55,15 +58,12 @@ Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin
 
     ![Veri erişim beş][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Konuk erişimi bir kullanıcı başka bir Azure Active Directory kiracısı sağlar.
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Başka bir AAD kiracısı Konuk erişimi sağlar
 
 `Guest` Yönetim rolü değil. Bu, başka bir kiracıdaki davet bir hesap için kullanılan bir terimdir. Konuk hesabı kiracının dizine davet sonra aynı erişim denetimi gibi başka bir hesap uygulanmış sahip olabilir. Erişim denetimi (IAM) dikey penceresini kullanarak bir zaman serisi görüşleri ortamına yönetim erişim verebilirsiniz. Ya da veri erişimi ilkeleri dikey penceresi aracılığıyla ortam içindeki verilere erişim izni verebilirsiniz. Azure Active Directory (Azure AD) kiracısı Konuk erişimi hakkında daha fazla bilgi için okuma [ekleme Azure Active Directory B2B işbirliği kullanıcılarını Azure portalında](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşleri ortamına Konuk erişimi vermek için aşağıdaki adımları izleyin.
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-1. Time Series Insights ortamınızı bulun. Girin **zaman serisi** içinde **arama** kutusu. Seçin **zaman serisi ortamı** arama sonuçlarında.
-1. Listeden Zaman Serisi Görüşleri ortamınızı seçin.
 1. Seçin **veri erişimi ilkeleri**ve ardından **+ davet**.
 
     ![Veri erişim altı][6]
@@ -94,7 +94,7 @@ Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşle
 
 1. Onaylayın **veri erişimi ilkeleri** sayfasında, Konuk kullanıcı ve her bir Konuk kullanıcı için rolleri listeler.
 
-    ![Veri-erişim-on][11]
+    ![Data-access-eleven][11]
 
 1. Artık Konuk kullanıcı için bunları davet Azure kiracısında bulunan bir ortama erişmek için adımları izlemeniz gerekir. İlk olarak, bunlar onlara gönderdiğiniz daveti kabul edin. Bu davet, 5. adımda kullandığınız e-posta adresine e-posta ile gönderilir. Seçmeleri **Başlarken** kabul etmek için.
 
@@ -112,12 +112,14 @@ Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşle
 
     ![Veri erişim beş][15]
 
-Kiracınıza Konuk kullanıcı seçtikten sonra bunları erişim sağladığınız zaman serisi görüşleri ortamına görürler. 8. adımda bunları ile sağlanan rol ile ilişkili olan tüm özellikleri artık sahiptirler.
+Kiracınıza Konuk kullanıcı seçtikten sonra bunları erişim sağladığınız zaman serisi görüşleri ortamına görürler. Artık bunları ile sağlanan rol ile ilişkili olan tüm özellikleri sahip oldukları **5. adım**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bilgi [Azure Event Hubs olay kaynağı ekleme](./time-series-insights-how-to-add-an-event-source-eventhub.md) zaman serisi görüşleri ortamınıza.
+
 * Gönderme [olayları için olay kaynağı](./time-series-insights-send-events.md).
+
 * Görünüm [zaman serisi öngörüleri Önizleme Gezgini ortamınızda](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

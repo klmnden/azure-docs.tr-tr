@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116643"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -101,7 +101,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
 |Windows Kayıt Defteri Anahtarı   | Örneğin dosyanın denetleneceği yol: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -114,7 +114,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
 |Yolu Gir     | Dosyayı denetlemek için kullanılacak yol (örneğin, "c:\temp\\\*.txt")<br>"%winDir%\System32\\\*.*" gibi ortam değişkenleri de kullanabilirsiniz         |
@@ -129,7 +129,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 
 |Özellik  |Açıklama  |
 |---------|---------|
-|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Enabled     | Ayarın uygulanmış olup olmadığını belirler        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
 |Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “/etc/*.conf”       |

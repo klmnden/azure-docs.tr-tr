@@ -1,7 +1,6 @@
 ---
 title: İzleme ve Ambari REST API - Azure HDInsight ile Hadoop yönetme
 description: Azure HDInsight Hadoop kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, HDInsight kümeleriyle dahil Ambari REST API'sini kullanmayı öğreneceksiniz.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 37d4c4dbbe623d68edf1de5454d7752a81fc2bd2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d15b61c70f1587cdd1c0d76d2e3eab81294674fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801900"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761136"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 
@@ -38,7 +37,7 @@ Yönetme ve Azure HDInsight, Apache Hadoop kümelerini izleme için Apache Ambar
 
  HDInsight üzerinde Ambari REST API için taban URI `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`burada `CLUSTERNAME` kümenizin adıdır.  Küme adları içinde bir URI'leri **büyük/küçük harfe**.  Küme adı tam etki alanı adı (FQDN) bölümünde (CLUSTERNAME.azurehdinsight.net) URI'ın büyük/küçük harfe duyarsızdır sırasında diğer örnekleri urı'sindeki büyük küçük harfe duyarlıdır.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 HDInsight üzerinde Ambari bağlanma HTTPS gerektirir. Yönetici hesabı adını kullanın (varsayılan değer **yönetici**) ve küme oluşturma sırasında sağladığınız parola.
 

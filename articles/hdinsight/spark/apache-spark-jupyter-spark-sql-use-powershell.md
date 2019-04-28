@@ -1,7 +1,6 @@
 ---
 title: 'Hızlı Başlangıç: Bir Spark kümesi Azure PowerShell kullanarak HDInsight oluşturma'
 description: Bu hızlı başlangıçta, Azure PowerShell kullanılarak nasıl Azure HDInsight’ta Apache Spark kümesi oluşturulacağı ve basit bir Spark SQL sorgusu çalıştırılacağı gösterilmektedir.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: f56595abf354d1124a40729ce93f97ab2acdeeeb
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 41311dce20237a300ae57f21bcc969c91da617b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097284"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak HDInsight Apache Spark kümesi oluşturma
 Oluşturmayı [Apache Spark](https://spark.apache.org/) karşı Spark SQL sorgularının nasıl çalıştırılacağını ve Azure HDInsight kümesinde [Apache Hive](https://hive.apache.org/) tablolar. Apache Spark, bellek içi işleme kullanarak hızlı veri analizi ve küme hesaplama sağlar. HDInsight üzerinde Spark hakkında daha fazla bilgi için bkz: [genel bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md).
@@ -41,7 +40,7 @@ Kaynakları oluşturmak için bir PowerShell betiği kullanırsınız.  Betiği 
 |Parametre|Değer|
 |------|------|
 |Azure kaynak grubu adı | Kaynak grubu için benzersiz bir ad girin.|
-|Konum| Azure bölgesini belirtin (örneğin, 'Orta ABD'). |
+|Location| Azure bölgesini belirtin (örneğin, 'Orta ABD'). |
 |Varsayılan depolama hesabı adı | Depolama hesabına benzersiz bir ad verin. |
 |Küme adı | HDInsight Spark kümesine benzersiz bir ad verin.|
 |Küme oturum açma kimlik bilgileri | Hızlı başlangıcın ilerleyen kısmında küme panosuna bağlanmak için bu hesabı kullanırsınız.|

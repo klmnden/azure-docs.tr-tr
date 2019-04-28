@@ -1,7 +1,6 @@
 ---
 title: HDInsight - Azure üzerinde Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 description: HDInsight üzerinde çalışan Hadoop Hizmetleri tarafından kullanılan bağlantı noktalarının listesi.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715469"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761261"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -78,7 +77,7 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 | Hizmet | Düğümler | Bağlantı noktası | URL yolu | Protokol | 
 | --- | --- | --- | --- | --- |
 | Ambari web kullanıcı Arabirimi | Baş düğümler | 8080 | / | HTTP |
-| Ambari REST API | Baş düğümler | 8080 | / api/v1 | HTTP |
+| Ambari REST API | Baş düğümler | 8080 | /api/v1 | HTTP |
 
 Örnekler:
 
@@ -114,7 +113,7 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Baş düğümler |10001 |Thrift |Hive için (Thrift/JDBC) bağlamak için bir hizmet |
-| Hive meta veri deposu |Baş düğümler |9083 |Thrift |Hive meta veri (Thrift/JDBC) bağlamak için bir hizmet |
+| Hive Meta Veri Deposu |Baş düğümler |9083 |Thrift |Hive meta veri (Thrift/JDBC) bağlamak için bir hizmet |
 
 ### <a name="webhcat-ports"></a>WebHCat bağlantı noktaları
 
@@ -137,7 +136,7 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 | Oozie sunucusu |Baş düğümler |11000 |HTTP |Oozie hizmeti için URL |
 | Oozie sunucusu |Baş düğümler |11001 |HTTP |Oozie Yöneticisi için bağlantı noktası |
 
-### <a name="ambari-metrics"></a>Ambari ölçümleri
+### <a name="ambari-metrics"></a>Ambari Ölçümleri
 
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |

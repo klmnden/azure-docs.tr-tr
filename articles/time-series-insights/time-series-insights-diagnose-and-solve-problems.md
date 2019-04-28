@@ -11,55 +11,54 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36ea2b8d3649fbda5a5cd6cc5f2cd05cdc095902
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555821"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759717"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights ortamınızdaki sorunları tanılayıp
 
 Bu makalede, Azure zaman serisi görüşleri ortamınıza karşılaşabileceğiniz bazı sorunlar açıklanmaktadır. Bu makalede, olası nedenler ve çözümler için çözüm sunar.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-Bu videoda, ortak Time Series Insights müşteri sorunları ve riskleri azaltma kapsar:</br>
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Bu videoda, ortak Time Series Insights müşteri sorunları ve riskleri azaltma kapsar:</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-1-no-data-is-shown"></a>1 sorunu: Hiçbir veri gösterilir
+## <a name="problem-one-no-data-is-shown"></a>Bir sorun: veri gösterilir
 
 Veri içermeyen [Azure Time Series Insights gezgininin](https://insights.timeseries.azure.com) ortak çeşitli nedenlerle oluşabilir:
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Y: nedeni Olay kaynağı verileri JSON biçiminde değil
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Neden y: olay kaynağı verileri JSON biçiminde değil
 
 Azure Time Series Insights, yalnızca JSON verilerini destekler. JSON örnekleri için bkz [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Neden B: Olay kaynağı anahtarı gerekli izni yok
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Bir gerekli izni neden B: olay kaynağı anahtarı eksik
 
 * Azure IOT hub'ında bir IOT hub için anahtar sağlamalıdır **hizmetini bağlama** izinleri. Aşağıdakilerden birini **iothubowner** veya **hizmet** ilkeleri, sahip oldukları her iki çalışır **hizmetini bağlama** izinleri.
 
    ![IOT Hub hizmeti bağlantı izinleri](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-
 * Azure Event Hubs, bir olay hub için anahtar sağlamalıdır **dinleme** izinleri. Aşağıdakilerden birini **okuma** veya **yönetme** ilkeleri, sahip oldukları her iki çalışır **dinleme** izinleri.
 
    ![Olay hub'ı dinleme izinleri](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>C: nedeni Sağlanan tüketici grubu için Time Series Insights özel değildir.
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Neden C: sağlanan tüketici grubu için Time Series Insights özel değil
 
 IOT hub'ı veya bir olay hub'ı kaydettiğinizde, verileri okumak için kullanmak istediğiniz bir tüketici grubu ayarlamak önemlidir. Bu tüketici grubunun *paylaşılamaz*. Tüketici grubu paylaşılıyorsa, temel alınan IOT hub'ı veya olay hub'ı otomatik olarak ve rastgele bir okuyucu keser. Time Series Insights'ın okumak için bir benzersiz bir tüketici grubu sağlayın.
 
-## <a name="problem-2-some-data-is-shown-but-data-is-missing"></a>Sorun 2: Bazı veriler gösterilir, ancak veriler eksik
+## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>İki sorun: bazı veriler gösterilir, ancak veriler eksik
 
 Verileri yalnızca kısmen ve geciken olması için verilerin görüntülendiği, birkaç olasılık düşünmelisiniz.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Y: nedeni Ortamınızın kısıtlanıyor
+### <a name="cause-a-your-environment-is-being-throttled"></a>Neden y: ortamınızın kısıtlanıyor
 
-Veriler içeren bir olay kaynağı oluşturduktan sonra ortam sağlandığında azaltma sık karşılaşılan bir sorundur. Azure IOT Hub ve Azure olay hub'ları yedi güne kadar verileri depolar. Zaman serisi görüşleri her zaman başlatın eski olay ile olay kaynağı (ilk giren ilk çıkar veya *FIFO*). 
+Veriler içeren bir olay kaynağı oluşturduktan sonra ortam sağlandığında azaltma sık karşılaşılan bir sorundur. Azure IOT Hub ve Azure olay hub'ları yedi güne kadar verileri depolar. Zaman serisi görüşleri her zaman başlatın eski olay ile olay kaynağı (ilk giren ilk çıkar veya *FIFO*).
 
-Örneğin, bir S1'e bağlanırken bir olay kaynağı 5 milyona kadar olay varsa, tek birimli zaman serisi görüşleri ortamı, zaman serisi görüşleri yaklaşık 1 milyona kadar olay günlük okur. Time Series Insights beş gün gecikme yaşanıyor gibi görünebilir. Ancak, neler olduğunu ortamı kısıtlanıyor olur. 
+Örneğin, bir S1'e bağlanırken bir olay kaynağı 5 milyona kadar olay varsa, tek birimli zaman serisi görüşleri ortamı, zaman serisi görüşleri yaklaşık 1 milyona kadar olay günlük okur. Time Series Insights beş gün gecikme yaşanıyor gibi görünebilir. Ancak, neler olduğunu ortamı kısıtlanıyor olur.
 
 Eski olayları, olay kaynağınızdaki varsa, iki yoldan biriyle azaltma yaklaşımını:
 
@@ -84,7 +83,7 @@ Mantıksal düzleştirme nasıl çalıştığına ilişkin üst düzey anlamak i
 
 Lag düzeltmek için SKU kapasitesi ortamınızın artırın. Daha fazla bilgi için [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Neden B: Geçmiş verilerin ilk alımı giriş yavaşlatır.
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Neden B: geçmiş verilerin ilk alımı giriş yavaşlatır.
 
 Mevcut bir olay kaynağı bağlarsanız, IOT hub'ı veya olay hub'ı zaten verileri içerdiğini olasıdır. Olay kaynağının ileti Bekletme dönemi başına verileri çekerek ortamı başlatır. Bu varsayılan işleme ve geçersiz kılınamaz. Azaltma görüşebilirsiniz. Azaltma, geçmiş verilerini alır gibi Kaçırdığınız biraz sürebilir.
 
@@ -96,23 +95,25 @@ Lag düzeltmek için:
 
 2. Lag yakalandı, normal giriş oranınız için SKU kapasitesi azalır.
 
-## <a name="problem-3-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>3. sorun: My olay kaynağının zaman damgası özellik adı ayarı çalışmaz
+## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Sorun üç: benim olay kaynağının zaman damgası özellik adı ayarı çalışmaz
 
 Değer ve zaman damgası özellik adı aşağıdaki kurallara uygun emin olun:
+
 * Zaman damgası özellik adı büyük/küçük harfe duyarlıdır.
 * Bir JSON dizesi biçimi olması gerektiği kadar olay kaynağından gelir zaman damgası özellik değerini _yyyy-MM-ddTHH. FFFFFFFK_. Bir örnek **2008-04-12T12:53Z**.
 
 Zaman damgası özellik adı, yakalanan ve Time Series Insights gezginini kullanmak için düzgün bir şekilde çalışıyor olduğundan emin olmak için en kolay yolu. Grafiğini kullanarak Time Series Insights Gezgininde, zaman damgası özellik adı girildikten sonra süreyi seçin. Seçime sağ tıklayın ve ardından **olayları keşfet** seçeneği. 
 
-İlk sütun başlığına, zaman damgası özellik adı olmalıdır. Word'ün yanındaki **zaman damgası**, görmelisiniz **($ts)**. 
+İlk sütun başlığına, zaman damgası özellik adı olmalıdır. Word'ün yanındaki **zaman damgası**, görmelisiniz **($ts)**.
 
 Aşağıdaki değerleri görmemeniz gerekir:
+
 - *(abc)* : Time Series Insights veri değerleri dize olarak okuyor gösterir.
 - *Takvim simgesine*: Time Series Insights veri değeri olarak okuyor gösterir *datetime*.
 - *#*: Time Series Insights bir tamsayı veri değerleri okuma gösterir.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yardım almak için bir konuşma başlatmak [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- Yardım almak için bir konuşma başlatmak [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
 - Yardım içeren destek seçeneklerini için [Azure Destek](https://azure.microsoft.com/support/options/).

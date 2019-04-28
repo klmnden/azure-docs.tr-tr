@@ -3,8 +3,8 @@ title: PowerShell kullanarak azure'da bir Windows VM'ye veri diski ekleme | Micr
 description: Windows PowerShell ile Resource Manager dağıtım modelini kullanarak bir VM için yeni veya var olan veri diski ekleme yapma.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a42fec94a23db82192cf05a47080d982a0857056
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 1abc3fc18de3e9c1751c01c984e15ae44f25d5af
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729051"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766153"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell ile Windows VM'ye veri diski ekleme
 
@@ -32,7 +32,7 @@ Bu makalede, PowerShell kullanarak bir Windows sanal makine için yeni ve var ol
 * Sanal makinenin boyutunu, iliştirebilirsiniz kaç veri diskinin denetler. Daha fazla bilgi için [sanal makine boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Premium SSD kullanmak için ihtiyacınız olacak bir [premium depolama kullanan sanal makine türü](sizes-memory.md), DS serisi veya GS serisi sanal makine gibi.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104995"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>İzleme ve Azure Logic Apps kullanarak Twitter'ı yönetme
 
@@ -70,7 +70,7 @@ Azure Logic Apps ve Twitter Bağlayıcısı ile otomatik görevler oluşturabili
 
 ## <a name="examples"></a>Örnekler
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter tetikleyicisi: yeni bir tweet gönderildiğinde
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter tetikleyici: Yeni bir tweet gönderildiğinde
 
 Tetikleyici yeni bir tweet diyez etiketi, #Seattle gibi algıladığında, bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, bu tweetleri bulunmadığında, Dropbox Bağlayıcısı'nı kullanarak bir Dropbox hesabı gibi depolama ortamlarına tweetleri içeriğe sahip bir dosya ekleyebilirsiniz. 
 
@@ -78,7 +78,7 @@ Tetikleyici yeni bir tweet diyez etiketi, #Seattle gibi algıladığında, bu te
 
 **Kuruluş örnek**: Bu tetikleyici, şirketiniz tweetleri izleyin ve bir SQL veritabanı'na tweetleri içeriği yüklemek için kullanabilirsiniz.
 
-### <a name="twitter-action-post-a-tweet"></a>Eylem twitter: bir tweet gönderin
+### <a name="twitter-action-post-a-tweet"></a>Twitter eylem: Tweet at
 
 Bu eylem bir tweet gönderir, ancak daha önce açıklandığı gibi bir tetikleyici tarafından bulunan bir tweet içeriği tweeti içeren eylem ayarlayabilirsiniz. 
 
