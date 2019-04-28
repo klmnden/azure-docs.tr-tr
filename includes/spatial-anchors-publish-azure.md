@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681379"
 ---
 ### <a name="open-the-publish-wizard"></a>Yayımlama sihirbazını açın
 
@@ -44,7 +44,7 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 | Ayar | Önerilen değer | Açıklama |
 |-|-|-|
 |App Service Planı| MySharingServicePlan | App Service planının adı. |
-| Konum | Batı ABD | Web uygulamasının barındırıldığı veri merkezi. |
+| Location | Batı ABD | Web uygulamasının barındırıldığı veri merkezi. |
 | Boyut | Ücretsiz | [Fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , barındırma özelliklerini belirler. |
 
 **Tamam**’ı seçin.

@@ -5,15 +5,18 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 06/27/2018
-ms.author: glenga
+origin.date: 06/27/2018
+ms.date: 07/24/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: dcebef9dde173f5a26c5abed26a2d20b6d0bd116
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: a5252d64c00a4de4c5d2faf083904a994e67a994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37086390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614026"
 ---
 >[!IMPORTANT]  
-> Aynı işlev uygulaması portal geliştirme ile yerel geliştirme karışık kullanmayın. Oluşturduğunuzda ve yerel bir proje işlevlerden yayımlama korumak veya portalında proje kodunu değiştirmek denemek.
+> Yerel geliştirme portalı geliştirme aynı işlev uygulaması ile karıştırmayın. Oluşturduğunuzda ve yerel bir projeden işlevleri Yayımlama Portalı'nda proje kodu değiştirmek ve bakımı denemek.
+
+<!-- ms.date: 07/24/2018 -->

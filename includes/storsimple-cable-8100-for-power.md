@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482780"
 ---
 #### <a name="to-cable-for-power"></a>Güç kablosu için
 1. Her güç power geçer ve soğutma modülleri (PCMs) kapalı konumda olduğundan emin olun.

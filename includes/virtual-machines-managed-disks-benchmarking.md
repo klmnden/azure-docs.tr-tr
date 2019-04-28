@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679830"
 ---
 *Önbelleği hazırlanıyor*  
 Salt okunur konak önbelleği disk disk sınırdan daha yüksek IOPS sağlayabilir. Öncelikle bu en yüksek okuma performansı ana bilgisayar önbelleğe almak için bu disk önbelleği sıcak gerekir. Bu aracın Kıyaslama CacheReads birimde artıracak okuma IOs gerçekten ulaştığını önbellek ve diskin değil doğrudan sağlar. Önbellek isabet sayısı sonucu tek önbellekten ek IOPS disk etkin.

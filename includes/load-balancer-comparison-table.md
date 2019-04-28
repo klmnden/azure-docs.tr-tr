@@ -9,11 +9,11 @@ ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: 1d3ce900f7354b31e999c12b8e1eb0e23d391fcb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56078655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734532"
 ---
 | | Standart SKU | Temel SKU |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "56078655"
 | [Sistem durumu araştırma davranışını aşağı](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP bağlantıları örneğini araştırma hakkında Canlı kalmasını __ve__ tüm araştırmalar üzerinde. | TCP bağlantıları örneğini araştırma üzerinde etkin kalır. Tüm TCP bağlantılarını tüm sonlandırmak araştırmaları olan aşağı. |
 | Kullanılabilirlik Alanları | Standart SKU, gelen ve giden için bölgesel olarak yedekli ve bölgesel ön uçlar, bölge hatası, bölgeler arası Yük Dengeleme giden akışlar eşlemeleri önceliklidir. | Kullanılamıyor. |
 | Tanılama | Azure İzleyici, bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümler araştırma durumu, bağlantı denemeleri (TCP SYN), giden bağlantı durumu (SNAT başarılı ve başarısız akışlar), etkin veri düzlemi ölçümleri | Azure Log Analytics genel Load Balancer için yalnızca SNAT tükenmesi uyarı, arka uç havuzu durumu sayısı. |
-| HA bağlantı noktaları | İç Yük Dengeleyici | Kullanılamıyor. |
+| HA Bağlantı Noktaları | İç Yük Dengeleyici | Kullanılamıyor. |
 | Varsayılan olarak güvenli | Genel IP, genel yük dengeleyici uç noktaları, uç noktaları olan kapalı olarak gelen akışlar sürece iç Load Balancer izin verilenler listesinde bir ağ güvenlik grubu. | Varsayılan olarak, ağ güvenliği açık grubu isteğe bağlı. |
 | [Giden bağlantılar](../articles/load-balancer/load-balancer-outbound-connections.md) | Giden NAT havuzu tabanlı ile açıkça tanımlayabileceğiniz [giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Yük Dengeleme kuralı çevirme başına birden çok ön uç ile kullanabilirsiniz. Giden bir senaryo _gerekir_ oluşturulabilir sanal makine için kullanılabilirlik kümesi, sanal makine ölçek kümesi giden bağlantı kullanmak için.  Sanal ağ hizmet uç noktalarına giden bağlantı tanımlamadan erişilebilir ve doğru işlenen veri sayılmaz.  Sanal ağ hizmet uç noktaları kullanılabilir değil Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden erişilmesi gereken. Bir sanal makine yalnızca bir iç yük dengeleyici hizmet veren, kullanılabilirlik kümesi veya sanal makine ölçek kümesi, giden bağlantılara varsayılan SNAT aracılığıyla kullanılamaz; kullanma [giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md) yerine. Giden SNAT programlama gelen Yük Dengeleme kuralı protokolü temel aktarım belirli protokolüdür. | Birden çok ön uç mevcut olduğunda rastgele seçilmiş tek ön uç.  İç Load Balancer, bir sanal makine hizmet kullanılabilirlik kümesi veya sanal makine ölçek kümesi, varsayılan SNAT kullanılır. |
 | [Giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Genel IP adresleri veya ortak IP ön ekleri veya her ikisi de kullanarak, bildirim temelli giden NAT yapılandırma yapılandırılabilir giden boşta kalma zaman aşımı (4-120 dakika), özel SNAT bağlantı noktası ayırma | Kullanılamıyor. |

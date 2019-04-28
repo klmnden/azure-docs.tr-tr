@@ -2,33 +2,34 @@
 title: include dosyası
 description: include dosyası
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 3b8049515f753cbcf8ca068c1790f716f02d30b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419620"
 ---
 ### <a name="noconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı yok
 
 #### <a name="to-add-additional-address-prefixes"></a>Başka adres ön ekleri eklemek için:
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** bölümünde **yapılandırma**.
 2. IP adres alanı Ekle *ek adres aralığı Ekle* kutusu.
-3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+3. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
 #### <a name="to-remove-address-prefixes"></a>Adres ön eklerini kaldırmak için:
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
-2. Tıklatın **'...'** kaldırmak istediğiniz önek içeren satırı üzerinde.
-3. Tıklatın **kaldırmak**.
-4. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** bölümünde **yapılandırma**.
+2. Tıklayın **'...'** kaldırmak istediğiniz ön eki içeren satırı üzerinde.
+3. Tıklayın **Kaldır**.
+4. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
 ### <a name="withconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı var
 
@@ -36,29 +37,29 @@ Ağ geçidi bağlantınız varsa ve yerel ağ geçidinizde bulunan IP adresi ön
 
 #### <a name="1-remove-the-connection"></a>1. Bağlantıyı kaldırın.
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.
-2. Tıklatın **...**  her bağlantı için satırda ardından **silmek**.
-3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** bölümünde **bağlantıları**.
+2. Tıklayın **...**  her bağlantı için satıra, ardından **Sil**.
+3. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Adres öneklerini değiştirme.
+#### <a name="2-modify-the-address-prefixes"></a>2. Adres ön eklerini değiştirin.
 
 Başka adres ön ekleri eklemek için:
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** bölümünde **yapılandırma**.
 2. IP adres alanı ekleyin.
-3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+3. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
 Adres ön eklerini kaldırmak için:
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
-2. Tıklatın **...**  kaldırmak istediğiniz önek içeren satırı üzerinde.
-3. Tıklatın **kaldırmak**.
-4. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** bölümünde **yapılandırma**.
+2. Tıklayın **...**  kaldırmak istediğiniz ön eki içeren satırı üzerinde.
+3. Tıklayın **Kaldır**.
+4. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
-#### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
+#### <a name="3-recreate-the-connection"></a>3. Bir bağlantı oluşturabilirsiniz.
 
-1. Sanal ağ geçidi için sanal ağınızı gidin. (Olmayan yerel ağ geçidi.)
-2. Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.
-3. Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.
+1. Sanal ağınıza ait sanal ağ geçidine gidin. (Olmayan yerel ağ geçidi.)
+2. Sanal ağ geçidi, şirket içinde **ayarları** bölümünde **bağlantıları**.
+3. Tıklayın **+ Ekle** açmak için **Bağlantı Ekle** dikey penceresi.
 4. Bağlantınızı yeniden oluşturun.
-5. Tıklatın **Tamam** bağlantı oluşturmak için.
+5. Tıklayın **Tamam** bağlantı oluşturmak için.

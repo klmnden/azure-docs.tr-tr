@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 355fe134939b26c51d6e03368f782845628a6b96
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597592"
 ---
 İstemci uygulaması, bir utterance anlamlı veya uygulama için uygun değilse bilmesi gerekir. **Hiçbiri** amacı, bir utterance istemci uygulaması tarafından yanıtlanmış olamaz belirlemek üzere her bir uygulama oluşturma sürecinin bir parçası olarak eklenir.
 

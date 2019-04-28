@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye
 ms.openlocfilehash: de3cbf4411c2b10c0a5a06c4e220f3a245f5bdc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584594"
 ---
 > [!IMPORTANT]
 > Azure SQL veritabanı Machine Learning Hizmetleri şu anda genel Önizleme aşamasındadır.

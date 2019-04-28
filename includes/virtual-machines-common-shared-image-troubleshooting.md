@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187688"
+ms.locfileid: "60418668"
 ---
 Paylaşılan görüntü galerileri, görüntü tanımları ve görüntü sürümleri ile ilgili işlem yaparken sorunlarla karşılaşıyorsanız başarısız olan komutları hata ayıklama modunda yeniden çalıştırın. Hata ayıklama modu etkin olduğu geçirerek **-hata ayıklama** CLI ile anahtar ve **-hata ayıklama** geçiş PowerShell ile. Hataları gidermek için bu belgede, hata bulunan sonra izleyin.
 

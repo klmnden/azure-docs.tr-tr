@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/13/2018
 ms.author: nitinme
 ms.openlocfilehash: 88ba6d35d87d87324214d58e681de5cb33f13a9f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534086"
 ---
 > [!NOTE] 
 > Yeni konuşma hizmeti ve SDK'sı 15 Ekim 2019 başlayarak artık çalışmayacak Translator konuşma tanıma API'si değiştiriliyor. Konuşma hizmeti için geçiş hakkında daha fazla bilgi için bkz. [Translator konuşma tanıma API'SİNDEN konuşma hizmeti için geçiş](../articles/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api.md).

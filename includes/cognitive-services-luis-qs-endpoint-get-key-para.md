@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: ef8dae8219eaf1a85a5c112705517b992e25a50f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710508"
 ---
 Tahmin uç noktasına erişim bir uç noktası anahtarı ile sağlanır. Bu hızlı başlangıçta LUIS hesabınızla ilişkili ücretsiz başlangıç anahtarını kullanın. 
  

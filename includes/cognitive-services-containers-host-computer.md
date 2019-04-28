@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/22/2019
 ms.openlocfilehash: 2de88c7f490dd2d949274f165013b1a9aa72249b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598890"
 ---
 **Konak** çalışan docker kapsayıcısını x64 tabanlı bir bilgisayar. Bu, bir bilgisayara şirket içinde veya Azure dahil olmak üzere hizmeti barındıran bir docker olabilir:
 

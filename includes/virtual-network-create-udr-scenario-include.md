@@ -2,30 +2,30 @@
 title: include dosyası
 description: include dosyası
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b91ae155761f6357e286f4742d57b97cf96d909a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743383"
 ---
 ## <a name="scenario"></a>Senaryo
 Udr'ler oluşturmak nasıl daha iyi anlamak için bu belge aşağıdaki senaryoyu kullanır:
 
 ![GÖRÜNTÜ AÇIKLAMASI](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-Bu senaryoda, bir UDR için oluşturduğunuz *ön uç alt* ve için başka bir UDR *arka uç alt*aşağıdaki gibi: 
+Bu senaryoda, bir UDR için oluşturduğunuz *ön uç alt ağına* ve başka bir UDR için *arka uç alt ağı*gibi: 
 
-* **Ön uç UDR**. Ön uç UDR uygulanan *ön uç* alt ağı ve bir rota içerir:    
-  * **RouteToBackend**. Bu yol arka uç alt ağına tüm trafiği gönderir **FW1** sanal makine.
-* **Arka uç UDR**. Arka uç UDR uygulanan *arka uç* alt ağı ve bir rota içerir:    
+* **UDR ön uç**. Ön uç UDR uygulanan *ön uç* alt ağ ve bir yol içerir:    
+  * **RouteToBackend**. Bu rota tüm trafiği arka uç alt ağına gönderir **FW1** sanal makine.
+* **UDR arka uç**. Arka uç UDR uygulanan *arka uç* alt ağ ve bir yol içerir:    
   * **RouteToFrontend**. Bu yol ön uç alt ağına tüm trafiği gönderir **FW1** sanal makine.
 
-Bu yollar bileşimi için bir alt ağdan diğerine giden tüm trafiği yönlendirilmesini sağlar **FW1** sanal gereç olarak kullanılan sanal makine. Ayrıca IP için iletmeyi etkinleştirmek gereken **FW1** diğer VM'ler için giden trafiğe aldığınızdan emin olmak için VM.
-
+Bu yolları birleşimi bir alt ağdan diğerine hedefleyen tüm trafiği için yönlendirilmesini sağlar **FW1** sanal makine, bir sanal gereç kullanılır. Ayrıca için NIC'de IP etkinleştirmek gereken **FW1** diğer Vm'lere hedefleyen trafiği aldığınızdan emin olmak için VM.

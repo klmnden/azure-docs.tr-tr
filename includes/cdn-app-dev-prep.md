@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564236"
 ---
 ## <a name="prerequisites"></a>Önkoşullar
 CDN yönetim kodu yazmadan önce Azure Resource Manager ile etkileşim kurmak kod etkinleştirmek için bazı hazırlıkları yapmanız gerekir. Bu hazırlık yapmanız için gereken:
@@ -32,7 +32,7 @@ CDN yönetim kodu yazmadan önce Azure Resource Manager ile etkileşim kurmak ko
     ![Kaynak grubu adlandırma](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Azure AD uygulaması oluşturma ve izinleri
-Azure Active Directory ile uygulama kimlik doğrulamasına iki yaklaşım vardır: bireysel kullanıcılar veya hizmet sorumlusu. Bir hizmet sorumlusu, Windows hizmet hesabında benzerdir.  Belirli bir kullanıcı bir CDN profili ile etkileşim kurmak için izinleri vermek yerine, izinler, bunun yerine hizmet sorumlusuna verilir.  Hizmet sorumluları, otomatik, etkileşimli olmayan işlemler için kullanılır.  Bu öğreticide, bir etkileşimli bir konsol uygulaması yazma olsa da, hizmet sorumlusu yaklaşıma odaklanacağız.
+Azure Active Directory ile uygulama kimlik doğrulamasına iki yaklaşım vardır: Tek tek kullanıcılar veya hizmet sorumlusu. Bir hizmet sorumlusu, Windows hizmet hesabında benzerdir.  Belirli bir kullanıcı bir CDN profili ile etkileşim kurmak için izinleri vermek yerine, izinler, bunun yerine hizmet sorumlusuna verilir.  Hizmet sorumluları, otomatik, etkileşimli olmayan işlemler için kullanılır.  Bu öğreticide, bir etkileşimli bir konsol uygulaması yazma olsa da, hizmet sorumlusu yaklaşıma odaklanacağız.
 
 Bir hizmet sorumlusu oluşturma işlemi, bir Azure Active Directory uygulaması oluşturma gibi birkaç adımdan oluşur.  Oluşturmak için oluşturacağız [bu öğreticiden yararlanın](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

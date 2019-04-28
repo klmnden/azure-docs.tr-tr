@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619775"
 ---
 1. Visual Studio 2017'yi başlatın.
 
-1. Visual Studio'da menü çubuğundan seçin **Araçlar > Araçları edinme** emin olun **.Net Masaüstü geliştirmesinden** iş yükü kullanılabilir. İş yükü yüklü olmadığından, onay kutusunu işaretleyin ve ardından tıklayın **Değiştir** yüklemeyi başlatmak için. Bu, indirmek ve yüklemek için birkaç dakika sürebilir.
+1. Visual Studio'da menü çubuğundan seçin **Araçlar > Araçları edinme** emin olun **.NET Masaüstü geliştirmesinden** iş yükü kullanılabilir. İş yükü yüklü olmadığından, onay kutusunu işaretleyin ve ardından tıklayın **Değiştir** yüklemeyi başlatmak için. Bu, indirmek ve yüklemek için birkaç dakika sürebilir.
 
    Varsa yanındaki onay kutusunu **.NET Masaüstü geliştirmesinden** olduğu belirlenirse, iletişim kutusu artık kapatabilirsiniz.
 

@@ -8,106 +8,106 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541152"
 ---
-* Azure SQL veritabanı kullanıyorsanız, adımları altında [Azure SQL veritabanına bağlanma](#connect-azure-sql-db). 
+* Azure SQL veritabanı kullanıyorsanız, altındaki adımları [Azure SQL veritabanına bağlanma](#connect-azure-sql-db). 
 
-* SQL Server kullanıyorsanız, adımları altında [SQL Server'a Bağlan](#connect-sql-server).
+* SQL Server kullanıyorsanız, altındaki adımları [SQL Server'a Bağlan](#connect-sql-server).
 
 <a name="connect-azure-sql-db"></a>
 
-### <a name="connect-to-azure-sql-database"></a>Azure SQL veritabanına bağlan
+### <a name="connect-to-azure-sql-database"></a>Azure SQL veritabanı'na bağlanma
 
-1. SQL tetikleyici veya eylem için bağlantı bilgilerini istediğinde, şu adımları izleyin:
+1. SQL tetikleyici veya eylemi için bağlantı bilgilerini sorduğunda, şu adımları izleyin:
 
    1. Bağlantınız için bir ad oluşturun.
 
-   2. SQL server'ınızdaki seçin ve ardından, veritabanınızı seçin. 
+   2. SQL server'ınızı seçin ve ardından veritabanınızı seçin. 
 
-      Yalnızca SQL server'ınızdaki seçtikten sonra veritabanı listesi görüntülenir.
+      Yalnızca SQL server'ınızı seçtikten sonra veritabanı listesi görünür.
  
-   3. Sunucunuz için kullanıcı adı ve parola sağlayın.
+   3. Sunucunuz için kullanıcı adınızı ve parolanızı sağlayın.
 
-      Bu bilgiler Azure portalında ya da SQL veritabanı özellikleri'nin altında veya bağlantı dizenizi bulabilirsiniz: 
+      Bu bilgi ya da Azure portalında, SQL veritabanı özellikleri bölümünde veya bağlantı dizenizi bulabilirsiniz: 
       
       "Kullanıcı kimliği = <*kullanıcıadınız*>"
       <br>
       "Parola = <*yourPassword*>"
 
-   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak bu eylemler için çok adımlarını.
+   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak adımları çok eylemleri için çalışır.
 
-   ![Azure SQL veritabanına bağlantı oluşturun](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Azure SQL veritabanı bağlantısı oluşturma](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
    <br>
    Yıldız işareti (*) gerekli değerleri belirtin.
 
    | Özellik | Değer | Ayrıntılar | 
    |----------|-------|---------| 
-   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için ad | 
-   | SQL Sunucusu Adı | <*sql server My*> | SQL Server adı |
-   | SQL Veritabanı Adı | <*sql veritabanı My*>  | SQL veritabanınızın adı | 
+   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için bir ad | 
+   | SQL Sunucusu Adı | <*my-sql-server*> | SQL sunucunuzun adı |
+   | SQL Veritabanı Adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı | 
    | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
-   | Parola | <*sql parolası My*> | Veritabanınıza erişmek için parola | 
+   | Parola | <*my-sql-password*> | Veritabanınıza erişmek için parola | 
    |||| 
 
 2. İşiniz bittiğinde **Oluştur**’u seçin.
 
-3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyici](#add-sql-trigger) veya [ekleme SQL eylem](#add-sql-action).
+3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyicisi](#add-sql-trigger) veya [SQL ekleme eylemi](#add-sql-action).
 
 <a name="connect-sql-server"></a>
 
 ### <a name="connect-to-sql-server"></a>SQL Server'a bağlanma
 
-Ağ geçidiniz seçebilmeniz için önce emin olun, zaten [veri ağ geçidi kurun](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Bağlantınızı oluştururken bu şekilde, ağ geçidi ağ geçitleri listesinde görüntülenir.
+Ağ geçidiniz seçmeden önce emin olun, zaten [veri ağ geçidinizi ayarlamak](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Bağlantınızı oluştururken bu şekilde, ağ geçidi ağ geçitleri listesinde görüntülenir.
 
-1. SQL tetikleyici veya eylem için bağlantı bilgilerini istediğinde, şu adımları izleyin:
+1. SQL tetikleyici veya eylemi için bağlantı bilgilerini sorduğunda, şu adımları izleyin:
 
-   1. Tetikleyici ya da eylemi seçin **Connect şirket içi veri ağ geçidi üzerinden** böylece SQL server seçenekleri görünür.
+   1. Tetikleyici veya eylemi seçin **şirket içi veri ağ geçidi üzerinden Bağlan** SQL server seçenekleri görünür.
 
    2. Bağlantınız için bir ad oluşturun.
 
-   3. SQL server için adresini sağlayın, sonra veritabanınız için bir ad sağlayın.
+   3. İçin SQL server'ınızı adresini sağlayın, sonra veritabanınız için bir ad sağlayın.
    
       Bağlantı dizenizi bu bilgiyi bulabilirsiniz: 
       
-      * "Sunucu = <*yourServerAddress*>"
+      * "Server = <*yourServerAddress*>"
       * "Veritabanı = <*yourDatabaseName*>"
 
-   4. Sunucunuz için kullanıcı adı ve parola sağlayın.
+   4. Sunucunuz için kullanıcı adınızı ve parolanızı sağlayın.
 
       Bağlantı dizenizi bu bilgiyi bulabilirsiniz: 
       
       * "Kullanıcı kimliği = <*kullanıcıadınız*>"
       * "Parola = <*yourPassword*>"
 
-   5. SQL server'ınızdaki Windows veya temel kimlik doğrulaması kullanıyorsa, kimlik doğrulama türünü seçin.
+   5. SQL server, Windows veya temel kimlik doğrulaması kullanıyorsa, kimlik doğrulaması türünü seçin.
 
-   6. Daha önce oluşturduğunuz, şirket içi veri ağ geçidi için bir ad seçin.
+   6. Daha önce oluşturduğunuz şirket içi veri ağ geçidi için bir ad seçin.
    
-      Ağ geçidiniz listede görünmüyorsa, denetleyin, doğru [, ağ geçidi kurun](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+      Ağ geçidiniz listesinde görünüp görünmediğini denetlemek, doğru [geçidinizi ayarlamak](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
 
-   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak bu eylemler için çok adımlarını.
+   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak adımları çok eylemleri için çalışır.
 
-   ![SQL Server bağlantısı oluşturma](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![SQL Server bağlantı oluşturma](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
    <br>
    Yıldız işareti (*) gerekli değerleri belirtin.
 
    | Özellik | Değer | Ayrıntılar | 
    |----------|-------|---------| 
-   | Şirket içi ağ geçidi bağlanma | Bu seçenek önce SQL Server ayarlarını seçin. | | 
-   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için ad | 
-   | SQL Sunucusu Adı | <*sql server My*> | SQL Server adı |
-   | SQL Veritabanı Adı | <*sql veritabanı My*>  | SQL veritabanınızın adı |
+   | Şirket içi ağ geçidi üzerinden Bağlan | Bu seçenek, önce SQL Server ayarlarını seçin. | | 
+   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için bir ad | 
+   | SQL Sunucusu Adı | <*my-sql-server*> | SQL sunucunuzun adı |
+   | SQL Veritabanı Adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı |
    | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
-   | Parola | <*sql parolası My*> | Veritabanınıza erişmek için parola | 
-   | Kimlik Doğrulama Türü | Windows veya Basic | İsteğe bağlı: SQL server tarafından kullanılan kimlik doğrulama türü | 
-   | Ağ geçitleri | <*data gateway My*> | Şirket içi veri ağ geçidiniz için ad | 
+   | Parola | <*my-sql-password*> | Veritabanınıza erişmek için parola | 
+   | Kimlik Doğrulama Türü | Windows veya temel | İsteğe bağlı: SQL server tarafından kullanılan kimlik doğrulama türü | 
+   | Ağ geçitleri | <*data gateway My*> | Şirket içi veri ağ geçidi adı | 
    |||| 
 
 2. İşiniz bittiğinde **Oluştur**’u seçin. 
 
-3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyici](#add-sql-trigger) veya [ekleme SQL eylem](#add-sql-action).
+3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyicisi](#add-sql-trigger) veya [SQL ekleme eylemi](#add-sql-action).

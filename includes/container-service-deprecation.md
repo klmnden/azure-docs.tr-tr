@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430667"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) kullanım dışıdır. Hiçbir yeni özellikler veya işlevsellikler eklenmektedir ACS'ye. Tüm API'ler, portal deneyimi, CLI komutları ve belgelere, kullanım dışı olarak işaretlenir.**

@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 3cc0e521e43f6855397a19fe34fce99da3e20494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408319"
 ---
 İle [Anomali Bulucu API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), zaman serisi verilerini JSON biçiminde API uç noktasına yükleyin ve sonra sonucu API yanıtı okuyun. Zaman serisi verilerini karşıya yükleme, her veri noktası içerir:  
 * Zaman damgası - veri noktası için zaman damgası. Örneğin, bir UTC tarih saat dizesi kullandığı emin olun "2017-08-01T00:00:00Z"

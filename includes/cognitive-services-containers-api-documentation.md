@@ -1,15 +1,16 @@
 ---
 author: diberry
-ms.author: diberry
+ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2019
+origin.date: 03/25/2019
+ms.date: 04/23/2019
 ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598765"
 ---
 ## <a name="validate-container-is-running"></a>Doğrulama kapsayıcı çalışıyor 
 
@@ -22,3 +23,4 @@ Kapsayıcı doğrulamak için birkaç yol çalıştığı vardır:
 |`http://localhost:5000/swagger`|Kapsayıcı uç noktaları için belgeleri tam bir dizi sağlar hem de bir `Try it now` özelliği. Bu özellik, web tabanlı bir HTML formuna ayarlarınızı girdikten ve herhangi bir kod yazmak zorunda kalmadan sorgu yapmanıza olanak tanır. Sorgunun döndürdüğü CURL komutu bir örnek sağlanır sonra HTTP üst bilgilerini gösterme ve gerekli biçim gövde. |
 
 ![Kapsayıcının giriş sayfası](./media/cognitive-services-containers-api-documentation/container-webpage.png)
+

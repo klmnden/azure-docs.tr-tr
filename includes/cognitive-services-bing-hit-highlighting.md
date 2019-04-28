@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527907"
 ---
 Bing, isabet vurgulama, sorgu terimleriyle işaretler destekler (veya diğer, Bing bulursa ilgili koşulları) içinde görünen dizeleri bazı cevaplara ulaştıracaktır. Örneğin, bir Web sayfasının `name`, `displayUrl`, ve `snippet` alanları sorgu terimleriyle işaretleyin.
 
@@ -25,28 +25,28 @@ Varsa `textDecorations` olduğu **true**, Bing, yanıtların görünen dizeleri 
 
 |Unicode|HTML|Açıklama
 |-|-|-
-|U + E000|\<b >|(İsabet vurgulama) sorgu terimine başlangıcını işaretleyen
-|U + E001|\</b >|Sorgu döneminin sonunu işaretler
-|U + E002|\<Ben >|İtalik içerik başlangıcını işaretleyen 
-|U + E003|\</i >|İtalik içerik sonunu işaretleyen
-|U + E004|\<br / >|Bir satır sonunu işaretler
-|U + E005||Bir telefon numarası başlangıcını işaretleyen
-|U + E006||Bir telefon numarası sonunu işaretleyen
-|U + E007||Bir adresi başlangıcını işaretleyen
-|U + E008||Bir adresi sonunu işaretleyen
-|U + E009|\&nbsp;|Bölünemez boşluk işaretler
-|U + E00C|\<strong >|Kalın içerik başlangıcını işaretleyen
+|U+E000|\<b >|(İsabet vurgulama) sorgu terimine başlangıcını işaretleyen
+|U+E001|\</b >|Sorgu döneminin sonunu işaretler
+|U+E002|\<Ben >|İtalik içerik başlangıcını işaretleyen 
+|U+E003|\</i >|İtalik içerik sonunu işaretleyen
+|U+E004|\<br/>|Bir satır sonunu işaretler
+|U+E005||Bir telefon numarası başlangıcını işaretleyen
+|U+E006||Bir telefon numarası sonunu işaretleyen
+|U+E007||Bir adresi başlangıcını işaretleyen
+|U+E008||Bir adresi sonunu işaretleyen
+|U+E009|\&nbsp;|Bölünemez boşluk işaretler
+|U+E00C|\<strong >|Kalın içerik başlangıcını işaretleyen
 |U + E00D|\</ strong >|Kalın içerik sonunu işaretleyen
 |U + E00E||İçerik arka planının çevresindeki, arka plan açık başlangıcını işaretleyen
 |U + E00F||İçerik arka planının çevresindeki, arka plan açık sonunu işaretleyen
-|U + E010||İçerik arka planının çevresindeki, arka plan koyu başlangıcını işaretleyen
-|U + E011||İçerik arka planının çevresindeki, arka plan koyu sonunu işaretleyen
-|U + E012|\<DEL >|Kaldırılmış içerik başlangıcını işaretleyen
-|U + E013|\</ DEL >|Kaldırılmış içerik sonunu işaretleyen
-|U + E016|\<Sub >|Alt simge içerik başlangıcını işaretleyen
-|U + E017|\</ sub >|Alt simge içerik sonunu işaretleyen
-|U + E018|\<sup >|Simge içerik başlangıcını işaretleyen
-|U + E019|\</ sup >|Simge içerik sonunu işaretleyen
+|U+E010||İçerik arka planının çevresindeki, arka plan koyu başlangıcını işaretleyen
+|U+E011||İçerik arka planının çevresindeki, arka plan koyu sonunu işaretleyen
+|U+E012|\<DEL >|Kaldırılmış içerik başlangıcını işaretleyen
+|U+E013|\</ DEL >|Kaldırılmış içerik sonunu işaretleyen
+|U+E016|\<Sub >|Alt simge içerik başlangıcını işaretleyen
+|U+E017|\</ sub >|Alt simge içerik sonunu işaretleyen
+|U+E018|\<sup >|Simge içerik başlangıcını işaretleyen
+|U+E019|\</ sup >|Simge içerik sonunu işaretleyen
 
 Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu terimi için alt simge işaretçileri içeren bir yanıt. `expression` Alanında işaretçileri yalnızca şu durumlarda `textDecoration` olduğu **true**.
 
