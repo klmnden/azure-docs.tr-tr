@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098601"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Hizmet veri yolu varlıkları autoforwarding zincirleme
 
@@ -47,6 +47,10 @@ Autoforwarding, ileti gönderenler alıcılarından ayrıştırmak için de kull
 
 Alice, tatil kendi kişisel kuyruk, yerine, ERP konu kalırsa, dolar. Bir satış temsilcisi herhangi bir iletisi almadı, çünkü bu senaryoda, ERP konuları hiçbiri hiç olmadığı kadar kota ulaşın.
 
+> [!NOTE]
+> Autoforwarding ayarlandığında, hedef AutoDeleteOnIdle değeri otomatik olarak veri türünün maksimum değerine ayarlanır.
+> Bu, olduğundan her zaman bir hedef iletinin iletileceği emin olmak için gerçekleştirilir.
+
 ## <a name="autoforwarding-considerations"></a>Autoforwarding konuları
 
 Hedef varlık, çok fazla ileti toplanır ve kotasını aşıyor veya hedef varlık devre dışı bırakıldı, kaynak varlık iletileri ekler, [eski ileti sırası](service-bus-dead-letter-queues.md) oluncaya kadar hedef (veya varlık alanı yeniden etkin). Bu iletiler, açıkça almak ve bunları edilemeyen kuyruktan işlemek için teslim edilemeyen kuyrukta Canlı devam edin.
@@ -67,7 +71,7 @@ Autoforwarding hakkında ayrıntılı bilgi için aşağıdaki başvuru konular�
 
 Service Bus performans iyileştirmeleri hakkında daha fazla bilgi için bkz: 
 
-* [Service Bus Mesajlaşma kullanarak performans geliştirme en iyi uygulamalar](service-bus-performance-improvements.md)
+* [Service Bus Mesajlaşması kullanarak performans geliştirmek için en iyi yöntemler](service-bus-performance-improvements.md)
 * [Bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo

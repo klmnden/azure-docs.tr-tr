@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109585"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için Apache Cordova istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -165,7 +165,7 @@ pushHandler.on('error', function (error) {
 
 Sunucudan anında iletme bildirimleri göndermek için Notification Hubs SDK'sı kullanın.  Hiçbir zaman doğrudan istemcilerden anında iletme bildirimleri gönderin. Bunun yapılması bir bildirim hub'ları veya PNS karşı hizmet saldırısı reddi tetiklemek için kullanılabilir.  PNS trafiğinizi bu tür saldırıları sonucunda yasaklamak.
 
-## <a name="more-information"></a>Daha fazlasını öğrenin
+## <a name="more-information"></a>Daha fazla bilgi
 
 Ayrıntılı API ayrıntıları bulabilirsiniz bizim [API belgeleri](https://azure.github.io/azure-mobile-apps-js-client/).
 

@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104620"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android uygulamanıza anında iletme bildirimleri ekleme
 
@@ -68,7 +68,7 @@ Bu bölümde, istemci Android uygulamanızı anında iletme bildirimleri işleme
 
 Sonraki adımınız, Google Play Hizmetleri yüklemektir. Firebase Cloud Messaging olan bazı en düşük API düzeyi gereksinimlerini geliştirme ve test amacıyla, hangi **minSdkVersion** özellik bildiriminde uygun olması gerekir.
 
-Eski bir cihazla sınıyorsanız başvurun [Firebase'i Android projenize ekleyin] nasıl düşük, bu değer ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
+Eski bir cihazla sınıyorsanız başvurun [Firebase'i Android projenize ekleyin.] nasıl düşük, bu değer ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Firebase Cloud Messaging projeye Ekle
 
@@ -93,4 +93,4 @@ Bu öğreticiyi tamamladığınıza göre aşağıdaki öğreticilerden birine a
 
 <!-- URLs -->
 [Android hızlı başlangıç]: app-service-mobile-android-get-started.md
-[Firebase'i Android projenize ekleyin]:https://firebase.google.com/docs/android/setup
+[Firebase'i Android projenize ekleyin.]:https://firebase.google.com/docs/android/setup

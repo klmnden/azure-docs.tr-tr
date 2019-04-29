@@ -1,7 +1,6 @@
 ---
 title: Storm - Azure HDInsight ile Event hubs'tan olay işleme
 description: Visual Studio için HDInsight Araçları'nı kullanarak Visual Studio'da oluşturulan bir C# Storm topolojisi ile Azure Event hubs'tan veri işleme hakkında bilgi edinin.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
+ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125213"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)
 

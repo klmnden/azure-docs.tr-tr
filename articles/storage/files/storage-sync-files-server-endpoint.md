@@ -2,18 +2,18 @@
 title: Bir Azure dosya eşitleme sunucusu uç noktası Ekle/Kaldır | Microsoft Docs
 description: Bir Azure dosyaları dağıtımını planlarken dikkate almanız gerekenler öğrenin.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 31bb71f016dd7f9dd37c766ece25caf8f300754b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486454"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766963"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Bir Azure dosya eşitleme sunucusu uç noktası Ekle/Kaldır
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.

@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733557"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Bir Azure VM yedeklemesi üzerinde çalışan SQL Server veritabanları hakkında SSS
 
 Bu makalede, Azure sanal makinelerinde (VM) çalıştıran ve kullanan SQL Server veritabanlarını yedekleme hakkında sık sorulan sorular yanıtlanmaktadır [Azure Backup](backup-overview.md) hizmeti.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Azure yedekleme SQL Server yanı sıra Iaas VM için aynı makinede kullanabilir miyim?
+Evet, aynı VM üzerinde VM yedekleme hem de SQL backup olabilir. Bu durumda, biz dahili olarak günlükleri kesemez değil VM'de yalnızca kopya tam yedekleme tetikleyin.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>Çözümü yeniden deneyin veya yedekleme otomatik olarak düzeltmek?
 
@@ -45,7 +49,8 @@ Evet. Yedekleme İlkesi bir SQL Server örneği üzerindeki etkiyi en aza indirm
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Yaptığınız değişiklikleri kaydedin ve dosyayı kapatın.
-4. SQL Server örneğinde açın **Görev Yöneticisi'ni**. Yeniden **AzureWLBackupCoordinatorSvc** hizmeti.
+4. SQL Server örneğinde açın **Görev Yöneticisi'ni**. Yeniden **AzureWLBackupCoordinatorSvc** hizmeti.<br/> <br/>
+ Bu yöntem, çok fazla kaynak, SQL Server Yedekleme uygulaması kullanıp kullanmadığına yardımcı olurken [kaynak İdarecisi](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) CPU, fiziksel GÇ ve gelen uygulama isteklerini bellek miktarı sınırlarını belirtmek için daha genel bir yoludur kullanın.
 
 > [!NOTE]
 > Yine de devam edin ve herhangi bir zamanda kadar yedeklemelerin UX ile ancak göründükleri varsayalım, 5, yukarıdaki örnekte, bir kayan pencereye işlenebilir.

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: b84990d053d92b9408e119b8aba28c8b9f8b046e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 4d56453eb05e88c3558b66250439d6211e8069fd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122583"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>İOS uygulamasına anında iletme bildirimleri ekleme
 
@@ -27,7 +27,7 @@ ms.locfileid: "42819007"
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide, anında iletme bildirimleri ekleme [iOS hızlı] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
+Bu öğreticide, anında iletme bildirimleri ekleme [iOS hızlı başlangıç] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
 
@@ -66,4 +66,4 @@ Bu öğreticide, anında iletme bildirimleri ekleme [iOS hızlı] anında iletme
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS hızlı]: app-service-mobile-ios-get-started.md
+[iOS hızlı başlangıç]: app-service-mobile-ios-get-started.md

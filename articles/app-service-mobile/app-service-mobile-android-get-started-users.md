@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119782"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -40,7 +40,7 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 3. İçinde **izin verilen dış yönlendirme URL'leri**, girin `appname://easyauth.callback`.  _Appname_ bu dizesinde mobil uygulamanız için URL şeması aşağıdaki gibidir.  Bu, bir protokol (kullanım harf ve yalnızca sayı ve bir harfle) için normal URL belirtimi izlemeniz gerekir.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak kullanmanız gerektiğinden, seçtiğiniz dizenin Not.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
 5. **Kaydet**’e tıklayın.
 

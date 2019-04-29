@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098549"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -161,7 +161,7 @@ Azure AD sunucusu ilkeleri (oturum açma bilgileri) oluşturmak için yeni bir s
 
 Yönetilen örnek dağıtım seçeneği, veritabanı kullanıcısı ve diğer Microsoft hizmetleriyle kimliklerini merkezi olarak yönetmenizi sağlar [Azure Active Directory Tümleştirmesi](sql-database-aad-authentication.md). Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory, veri ve uygulama güvenliğini artırmak için [çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md) (MFA) ve çoklu oturum açma işlemini destekler.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 Yönetilen örnek kimlik doğrulama nasıl kullanıcıların kimliklerini veritabanına bağlanırken kanıtlamak için ifade eder. SQL Veritabanı iki kimlik doğrulaması türünü destekler:  
 
@@ -226,7 +226,7 @@ Yönetilen örnek dağıtım seçeneği Sistem Yöneticisi, SQL veritabanı hizm
 
 Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmadığını belirlemek için kullanabilir ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
 
-|Özellik|Value|Açıklama|
+|Özellik|Değer|Açıklama|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|

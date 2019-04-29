@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: f1dc43b6fea4ebfb47439ec64b573cc471614d98
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31531744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742276"
 ---
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
 > * [Azure CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
@@ -29,4 +29,4 @@ Bir Azure Sanal Makinesine (VM) bağlı bir veya daha fazla ağ arabirimi (NIC) 
 
 Bir sanal makineye bağlanan her NIC ile ilişkili bir veya daha fazla IP yapılandırması vardır. Her yapılandırmaya bir statik veya dinamik özel IP adresi atanır. Her yapılandırmayla ilişkili bir genel IP adresi kaynağı da olabilir. Genel bir IP adresi kaynağına atanmış dinamik veya statik bir genel IP adresi vardır. Azure'daki IP adresleri hakkında daha fazla bilgi edinmek için [Azure’da IP adresleri](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) makalesini okuyun. 
 
-Kaç tane özel IP adresleri için bir sınır için bir NIC atanabilir yok Bir Azure aboneliği kullanılabilir kaç tane genel IP adresleri için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini okuyun.
+Var olan bir NIC'ye kaç özel IP adresleri için bir sınır atanabilir Bir Azure aboneliğinde kullanılabilecek kaç genel IP adresleri için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini okuyun.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122447"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mevcut .NET Azure Mobile Services'ı App Service'a yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
@@ -92,7 +92,7 @@ ConfigOptions options = new ConfigOptions();
 HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 ```
 
-with
+ile
 
 ```csharp
 HttpConfiguration config = new HttpConfiguration();
@@ -122,7 +122,7 @@ app.UseAppServiceAuthentication(config);
 
 Tam kimlik doğrulaması bölümünde ele alınan kimlik doğrulaması ile ilgili ek değişiklikler var.
 
-### <a name="working-with-data"></a>Verilerle çalışma
+### <a name="working-with-data"></a>Verilerle Çalışma
 Mobil Hizmetler'de mobil uygulama adı Entity Framework kurulumunda varsayılan şema adı olarak sunulur.
 
 Şema, uygulamanızın DbContext ayarlamak için kullanmadan önce olarak aşağıdaki başvurulan aynı şemaya sahip olmasını sağlamak için:
@@ -165,7 +165,7 @@ Sistem özellikleri adlarını yapılan değişiklikler, çevrimdışı eşitlem
 | id |Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
 | createdAt |Tarih |(isteğe bağlı) eşlenir createdAt sistem özelliği |
 | updatedAt |Tarih |(isteğe bağlı) eşlenir updatedAt sistem özelliği |
-| version |Dize |(isteğe bağlı) eşlemeleri sürüm çakışmaları algılamak için kullanılan |
+| version |String |(isteğe bağlı) eşlemeleri sürüm çakışmaları algılamak için kullanılan |
 
 #### <a name="querying-system-properties"></a>Sistem özellikleri sorgulama
 Azure mobil Hizmetleri'nde Sistem özellikleri varsayılan olarak, ancak yalnızca sorgu dizesi kullanarak istendiklerinde gönderilmez `__systemProperties`. Buna karşılık, Azure Mobile Apps sistemde özelliklerdir **her zaman seçili** sunucu SDK'sı nesne modelinin bir parçası olduğundan.

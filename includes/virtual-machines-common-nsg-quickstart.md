@@ -2,18 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines-windows
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cynthn
+origin.date: 09/12/2018
+ms.date: 11/12/2018
+ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405392"
 ---
 Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin.
 
@@ -29,12 +30,8 @@ Standart TCP bağlantı noktası 80 üzerinde web isteklerine hizmet vermek içi
 
    - **Kaynak bağlantı noktası aralıkları**: * (tüm kaynak bağlantı noktası izin verir)
 
-   - **Öncelik değeri**: 65,500 ve daha yüksek öncelik tümünü varsayılan gelen kuralı Reddet daha az olan bir değer girin.
+   - **Öncelik değeri**: Daha az 65,500 ve daha yüksek öncelik tümünü varsayılan reddetme gelen kuralı olan bir değer girin.
 
 3. Ağ güvenlik grubu, VM ağ arabirimi ya da alt ağı ile ilişkilendirin.
 
-Bu örnek HTTP trafiğine izin veren basit bir kuralı kullansa da, daha karmaşık ağ yapılandırmaları oluşturmak için ağ güvenlik gruplarını ve kurallarını da kullanabilirsiniz. 
-
-
-
-
+    Bu örnek HTTP trafiğine izin veren basit bir kuralı kullansa da, daha karmaşık ağ yapılandırmaları oluşturmak için ağ güvenlik gruplarını ve kurallarını da kullanabilirsiniz.

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732426"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -451,7 +451,11 @@ Okuma [bu makalede] [ vpn-gateway-create-site-to-site-rm-powershell] Microsoft A
 >
 > Bu kısıtlamalar özellikle uygulama örnekleri ile SAP sistemine DBMS katmanı arasındaki bir SAP sistemine içinde düşük gecikme süresi yüksek performanslı ağ gereksinimi nedeni.
 >
->
+> Özel sistemleri ve bölgeleri planlama, yüksek oranda tümleşik birden çok SAP sistemlerini kullanırken gerçekleşmelidir. Bu sistemler diğer ağ gecikmesini en aza indirmek için mümkün olduğunca Kapat olarak dağıtmak emin olun. Yüksek oranda tümleşik SAP sistemlerini örnekleri şunlardır:
+> * SAP BW; ERP, CRM ya da SRM gibi SAP OLTP sistemlerindeki verileri okuma veya
+> * SAP ve SAP olmayan sistemler arasında bile veya birden çok SPA sistemleri arasında veri çoğaltmak için kullanılan SAP SLT; veya
+> * SAP S/4; bir SAP ERP sisteme bağlı VS.
+
 
 ### <a name="supported-os-and-database-releases"></a>Desteklenen işletim sistemi ve veritabanı yayınlar
 * Azure sanal makine Hizmetleri, bu makalede listelenen için desteklenen Microsoft sunucu Yazılımları: <https://support.microsoft.com/kb/2721672>.
