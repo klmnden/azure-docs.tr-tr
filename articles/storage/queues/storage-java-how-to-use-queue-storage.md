@@ -11,11 +11,11 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: queues
 ms.openlocfilehash: 7c2fbc168c663cc4dc5981071d40540cfc4797ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108957"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java’dan Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -66,7 +66,7 @@ String storageConnectionString =
 
 Aşağıdaki örnekler, depolama bağlantı dizesini almak için bu iki yöntemden birini kullandığınızı varsayar.
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: Kuyruk oluştur
+## <a name="how-to-create-a-queue"></a>Nasıl yapılır: Bir kuyruk oluşturma
 A **CloudQueueClient** nesne kuyruklar için başvuru nesneleri almanıza olanak tanır. Aşağıdaki kod oluşturur bir **CloudQueueClient** nesne. (Not: Oluşturmak için ek yolla **CloudStorageAccount** nesnelerini; daha fazla bilgi için bkz **CloudStorageAccount** içinde [Azure Depolama İstemcisi SDK Başvurusu].)
 
 Kullanma **CloudQueueClient** sıranın kullanmak istediğiniz bir başvuru almak için nesne. Yoksa, kuyruk oluşturabilirsiniz.

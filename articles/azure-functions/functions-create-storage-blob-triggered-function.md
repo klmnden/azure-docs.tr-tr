@@ -13,11 +13,11 @@ ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107213"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob depolama ile tetiklenen bir işlev oluşturma
 

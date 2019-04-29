@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104131"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -73,7 +73,7 @@ Canlı bir olay iki türden biri olabilir: doğrudan ve canlı kodlama. Media Se
 
 Canlı akış ile dinamik paketleme iş akışı aşağıdaki diyagramda gösterilmiştir.
 
-![geçiş](./media/live-streaming/pass-through.svg)
+![doğrudan geçiş](./media/live-streaming/pass-through.svg)
 
 ## <a name="delivery-protocols"></a>Teslim protokollerine
 
@@ -197,6 +197,10 @@ Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyuncula
 
 > [!NOTE]
 > Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
