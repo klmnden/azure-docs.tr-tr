@@ -9,11 +9,11 @@ ms.date: 03/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: de9bc91e438ff694c96966486908c54562e93902
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459866"
 ---
 İş ortakları tarafından sunulan hizmetler hakkında daha fazla bilgi için bu bölümdeki bağlantılar kontrol edebilirsiniz. Aşağıdaki bölümde, dal cihaz iş ortağı listede yoksa bizimle dal cihaz sağlayıcınız vardır. Bunlar bize bir e-posta göndererek iletişime geçebilirsiniz azurevirtualwan@microsoft.com.
 

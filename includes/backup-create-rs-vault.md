@@ -10,11 +10,11 @@ ms.date: 10/18/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850781"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 Kurtarma Hizmetleri kasası, yedeklemeleri ve zaman içinde oluşturulan kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası Ayrıca, korunan sanal makinelerle ilişkili yedekleme ilkeleri içerir.
@@ -41,10 +41,10 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 
     ![Kurtarma Hizmetleri kasasını yapılandırma](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Ad**: kasayı tanımlamak için bir kolay ad girin. Adın Azure aboneliği için benzersiz olmalıdır. En az iki, ancak 50'den fazla karakter içeren bir ad belirtin. Adı bir harf ile başlamalı ve yalnızca harf, rakam ve kısa çizgi oluşur.
-   - **Abonelik**: kullanılacak aboneliği seçin. Yalnızca bir abonelik üyesi değilseniz, bu adı görürsünüz. Hangi aboneliğin emin değilseniz varsayılan (önerilen) aboneliği kullanın. Çalışmanızı birden çok seçenek eksikse veya Okul hesabı birden fazla Azure aboneliği ile ilişkili olduğunda.
-   - **Kaynak grubu**: mevcut bir kaynak grubunu kullanın veya yeni bir tane oluşturun. Aboneliğinizdeki kullanılabilir kaynak grupları listesini görmek için seçin **var olanı kullan**ve sonra aşağı açılan liste kutusundan bir kaynak seçin. Yeni bir kaynak grubu oluşturmak için Seç **Yeni Oluştur** ve adını girin. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
-   - **Konum**: kasa için coğrafi bölgeyi seçin. Sanal makineleri, kasa korumak için bir kasa oluşturmak için **gerekir** sanal makinelerle aynı bölgede olmalıdır.
+   - **Ad**: Kasayı tanımlamak için bir kolay ad girin. Adın Azure aboneliği için benzersiz olmalıdır. En az iki, ancak 50'den fazla karakter içeren bir ad belirtin. Adı bir harf ile başlamalı ve yalnızca harf, rakam ve kısa çizgi oluşur.
+   - **Abonelik**: Kullanılacak aboneliği seçin. Yalnızca bir abonelik üyesi değilseniz, bu adı görürsünüz. Hangi aboneliğin emin değilseniz varsayılan (önerilen) aboneliği kullanın. Çalışmanızı birden çok seçenek eksikse veya Okul hesabı birden fazla Azure aboneliği ile ilişkili olduğunda.
+   - **Kaynak grubu**: Mevcut bir kaynak grubunu kullanın veya yeni bir tane oluşturun. Aboneliğinizdeki kullanılabilir kaynak grupları listesini görmek için seçin **var olanı kullan**ve sonra aşağı açılan liste kutusundan bir kaynak seçin. Yeni bir kaynak grubu oluşturmak için Seç **Yeni Oluştur** ve adını girin. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
+   - **Konum**: Kasa için coğrafi bölgeyi seçin. Sanal makineleri, kasa korumak için bir kasa oluşturmak için **gerekir** sanal makinelerle aynı bölgede olmalıdır.
 
       > [!IMPORTANT]
       > Sanal makinenizin konumunu emin değilseniz, iletişim kutusunu kapatın. Portaldaki sanal makineler listesine gidin. Birçok bölgede sanal makineniz varsa her bölgede bir kurtarma Hizmetleri kasası oluşturun. Kasa için başka bir konuma oluşturmadan önce kasayı ilk konumda oluşturun. Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerek yoktur. Kurtarma Hizmetleri kasası ve Azure Backup hizmeti, otomatik olarak işler.

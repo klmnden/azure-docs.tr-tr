@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542935"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş
 Bu makalede hizmet (Iaas) kaynaklar Klasikten Resource Manager dağıtım modelleri ve ayrıntıları olarak aboneliğinizde sanal ağ'ı kullanarak birlikte bulunan iki dağıtım modellerindeki kaynaklara bağlanma altyapı geçirme siteden siteye ağ geçitleri. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager özelliklerine ve avantajlarına](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -28,10 +28,10 @@ Bu Klasik Iaas kaynaklarının geçişi sırasında desteklenir.
 
 * Virtual Machines
 * Kullanılabilirlik Kümeleri
-* Sanal makineler ile bulut Hizmetleri
+* Bulut Hizmetleri ve Sanal Makineler
 * Depolama Hesapları
 * Sanal Ağlar
-* VPN Gateway’leri
+* VPN Ağ Geçitleri
 * Express route ağ geçidi _(aynı abonelikte bulunan sanal ağ yalnızca)_
 * Ağ Güvenlik Grupları
 * Yönlendirme Tabloları

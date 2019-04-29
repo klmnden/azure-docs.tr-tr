@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482777"
 ---
 #### <a name="to-attach-the-sas-cables"></a>SAS kablolu jbod'lere eklemek için
 1. Birincil ve ebod belirleyin. İki kasaları ilgili kendi arka düzlem bakarak tanımlanabilir. Yönergeler için aşağıdaki resme bakın. 
