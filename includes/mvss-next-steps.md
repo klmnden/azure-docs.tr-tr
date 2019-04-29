@@ -1,15 +1,10 @@
 ---
-author: mayanknayar
-ms.service: virtual-machine-scale-sets
-ms.topic: include
-ms.date: 11/25/2018
-ms.author: manayar
 ms.openlocfilehash: 8b3879d87c7a17aff0a10c81f428a48119c606a6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803355"
 ---
 [Azure Resource Manager belgelerini](../articles/azure-resource-manager/resource-group-template-deploy.md) izleyerek yukarıdaki şablonu dağıtabilirsiniz.
 
@@ -22,3 +17,5 @@ Bu öğretici serisine [en düşük uygun ölçek kümesi şablonu makalesinden]
 [Linux ölçek kümesini konuk tabanlı bir otomatik ölçeklendirmeyle dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
 
 Ölçek kümeleri hakkında daha fazla genel bilgi için [ölçek kümesine genel bakış sayfasına](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) bakın.
+
+<!-- ms.date: 12/20/2018 -->

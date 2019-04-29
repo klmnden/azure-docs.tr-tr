@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 147eb5321853706b59fac7d3d49a761a251987fa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52280012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743295"
 ---
-## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI yükleme
+## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI'yı yükleme
 Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](../articles/cli-install-nodejs.md) ve gerekiyorsa [Azure'da oturum aç](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]

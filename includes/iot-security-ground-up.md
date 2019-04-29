@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626494"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Nesnelerin interneti (IOT) baştan için güvenlik
 
@@ -103,14 +103,14 @@ Nesnelerin interneti nesnelerinizle başlatır; işletmeler için en önemli şe
 
 Her Çözüm Hızlandırıcısı gibi Azure hizmetlerini örneklerini oluşturur:
 
-* [**Azure IOT hub'ı**](https://azure.microsoft.com/services/iot-hub/): Bulut aygıtına bağlayan ağ geçidi. Hub ve işlem çok geniş hacimlerdeki verileri başına bağlantı milyonlarca cihaz başına kimlik doğrulama desteği, çözümünüzün güvenliğini sağlamanıza yardımcı ölçeklendirebilirsiniz.
+* [**Azure IOT hub'ı**](https://azure.microsoft.com/services/iot-hub/): Bulut cihaz için bağlanan ağ geçidi. Hub ve işlem çok geniş hacimlerdeki verileri başına bağlantı milyonlarca cihaz başına kimlik doğrulama desteği, çözümünüzün güvenliğini sağlamanıza yardımcı ölçeklendirebilirsiniz.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): cihazlar için meta verileri yöneten yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizini oluşturulan veritabanı hizmet, öznitelikler, yapılandırma ve güvenlik özellikleri gibi sağlayın. Azure Cosmos DB, yüksek performanslı ve yüksek performanslı işleme, veri ve zengin bir SQL sorgusu arabirimi şemadan dizin sunar.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Meta veri öznitelikleri, yapılandırma ve güvenlik özellikleri gibi sağlamak cihazların yöneten yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizini oluşturulan bir veritabanı hizmeti. Azure Cosmos DB, yüksek performanslı ve yüksek performanslı işleme, veri ve zengin bir SQL sorgusu arabirimi şemadan dizin sunar.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Gerçek zamanlı akış işleme sayesinde hızlı bir şekilde geliştirin ve cihazlar, algılayıcılar, altyapı ve uygulamalardan gerçek zamanlı Öngörüler açığa çıkarmak için düşük maliyetli bir analiz çözümü dağıtmak bulut . Bu tümüyle yönetilen bu hizmet verileri, herhangi bir birim için yine de yüksek aktarım hızı, düşük gecikme süresi ve dayanıklılık elde edin ölçeklendirebilirsiniz.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Gerçek Zamanlı Akış sayesinde hızlı bir şekilde geliştirin ve cihazlar, algılayıcılar, altyapı ve uygulamalardan gerçek zamanlı Öngörüler açığa çıkarmak için düşük maliyetli bir analiz çözümü dağıtmak bulutta işleme. Bu tümüyle yönetilen bu hizmet verileri, herhangi bir birim için yine de yüksek aktarım hızı, düşük gecikme süresi ve dayanıklılık elde edin ölçeklendirebilirsiniz.
 
-* [**Azure uygulama hizmetleri**](https://azure.microsoft.com/services/app-service/): güçlü web uygulamaları ve bağlanan her yerden veri; bulutta veya şirket içi mobil uygulamalar oluşturmak için bir bulut platformu. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Yazılım olarak hizmet (SaaS) ve onlarca bulut tabanlı hizmetler için kullanıma hazır bağlantısı ile Kurumsal uygulamalar ve kurumsal uygulamaları ile tümleştirin. En sevdiğiniz dilde ve IDE'de kodlamaya — .NET, Node.js, PHP, Python veya Java — için web uygulamaları ve API'leri her zamankinden daha hızlı oluşturun.
+* [**Azure uygulama hizmetleri**](https://azure.microsoft.com/services/app-service/): Güçlü web uygulamaları ve her yerden veri bağlanan mobil uygulamaları oluşturmak için bir bulut platformu; bulutta veya şirket içinde. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Yazılım olarak hizmet (SaaS) ve onlarca bulut tabanlı hizmetler için kullanıma hazır bağlantısı ile Kurumsal uygulamalar ve kurumsal uygulamaları ile tümleştirin. En sevdiğiniz dilde ve IDE'de kodlamaya — .NET, Node.js, PHP, Python veya Java — için web uygulamaları ve API'leri her zamankinden daha hızlı oluşturun.
 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service'in Logic Apps özelliği, IOT çözümünüzün var olan satır iş kolu sistemlerinize tümleştirin ve iş akışı işlemlerini otomatikleştirmek yardımcı olur. Logic Apps, geliştiricilerin bir tetikleyiciyle başlatılan ve bir dizi adım yürüten iş akışları tasarlamasına olanak tanır; kurallar ve İş süreçlerinizi ile tümleştirmek için güçlü bağlayıcıları kullanma eylemler. Logic Apps geniş bir SaaS, bulut tabanlı ekosistemine kullanıma hazır bağlantısı sunar ve şirket içi uygulamaları.
 
-* [**Azure Blob Depolama**](https://azure.microsoft.com/services/storage/): cihazlarınızı buluta gönderme veriler için güvenilir, ekonomik bulut depolama.
+* [**Azure Blob Depolama**](https://azure.microsoft.com/services/storage/): Cihazlarınızı buluta gönderdiğiniz verileri için güvenilir, ekonomik bulut depolama.

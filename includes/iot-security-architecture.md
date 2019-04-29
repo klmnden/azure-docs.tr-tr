@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626612"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
@@ -171,13 +171,13 @@ Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktad
 
 **(S) yanıltma**: Bir saldırganın ya da yazılım veya donanım düzeyinde ve sonradan gelen anahtar malzemesi cihazın kimliği altında farklı bir fiziksel veya sanal cihaz sistemiyle gerçekleştirilen erişim bir cihaz şifreleme anahtar malzemesi Al. Uzaktan, herhangi bir TV etkinleştirebilir ve popüler prankster araçları olan denetimler buna iyi bir örnektir.
 
-**(D) hizmet reddi**: Bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
+**(D) hizmet reddi**: Radyo frekansı gönderilerek veya kabloları kesilerek cihazların çalışması veya iletişim kurması engellenebilir. Örneğin elektrik veya ağ bağlantısı kesilen bir güvenlik kamerası veri iletemez.
 
-**(T) oynama**: Bir saldırganın kısmen veya tamamen cihaz üzerinde çalışan yazılımı büyük olasılıkla değiştirilen yazılım anahtar malzemesi veya anahtar malzeme bulunduran şifreleme özellikleri kullanılabilir değilse, cihaz kimliğini kullanmasına izin vererek değiştirebilir gerçekleşiyorsa program. Örneğin, bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
+**(T) oynama**: Saldırganlar cihaz üzerinde çalışan yazılımı kısmen veya tamamen değiştirebilir ve değiştirilen yazılım sayesinde cihazın özgün kimliğinden faydalanarak anahtarlardan veya önemli öğelerin yer aldığı şifreleme bilgilerinden faydalanabilir. Örneğin, bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
 
 **Bilgi İfşası (ı)**: Cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla yetkisiz taraflara veri sızıntı. Örneğin, bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
 
-**(E) ayrıcalık yükseltme**: Belirli bir işlevi gerçekleştiren bir cihaz başka bir şey zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
+**(E) ayrıcalık yükseltme**: Belirli bir işlev için tasarlanmış olan bir cihaz başka bir göreve zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
 
 | **Bileşen** | **Tehdit** | **Risk azaltma** | **Risk** | **Uygulama** |
 | --- | --- | --- | --- | --- |
@@ -192,9 +192,9 @@ Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 
 **Kimlik sahtekarlığı**: Bir saldırganın ya da yazılım veya donanım düzeyinde ve sonradan gelen anahtar malzemesi cihazın kimliği altında farklı bir fiziksel veya sanal cihaz sistemiyle gerçekleştirilen erişim bir cihaz şifreleme anahtar malzemesi Al.
 
-**Hizmet reddi**: Bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
+**Hizmet reddi**: Radyo frekansı gönderilerek veya kabloları kesilerek cihazların çalışması veya iletişim kurması engellenebilir. Örneğin elektrik veya ağ bağlantısı kesilen bir güvenlik kamerası veri iletemez.
 
-**İzinsiz**: Bir saldırganın kısmen veya tamamen cihaz üzerinde çalışan yazılımı büyük olasılıkla değiştirilen yazılım anahtar malzemesi veya anahtar malzeme bulunduran şifreleme özellikleri kullanılabilir değilse, cihaz kimliğini kullanmasına izin vererek değiştirebilir gerçekleşiyorsa program.
+**İzinsiz**: Saldırganlar cihaz üzerinde çalışan yazılımı kısmen veya tamamen değiştirebilir ve değiştirilen yazılım sayesinde cihazın özgün kimliğinden faydalanarak anahtarlardan veya önemli öğelerin yer aldığı şifreleme bilgilerinden faydalanabilir.
 
 **İzinsiz**: Boş bir koridor spektrumun görünen resmi gösteren bir gözetim kamera bu tür bir koridor hello'nun amaçlayan. Duman veya yangın algılayıcı birisi altındaki bir açık tutarak raporlama. Her iki durumda da, cihaz teknik Sistem tamamen güvenilir olabilir, ancak yönetilebilen bilgileri raporlar.
 
@@ -210,7 +210,7 @@ Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 
 **İzinsiz**: Denetim sistemine (dışında bilinen ayar parametreleri) bilinmeyen bir durumda çalışır ve bu nedenle anlaşılabilir veri sağlamak için cihazı yapılandırılması
 
-**Ayrıcalık yükseltme**: Belirli bir işlevi gerçekleştiren bir cihaz başka bir şey zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
+**Ayrıcalık yükseltme**: Belirli bir işlev için tasarlanmış olan bir cihaz başka bir göreve zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
 
 **Hizmet reddi**: Cihaz iletişimi mümkün olduğu bir duruma kapatılabilir.
 

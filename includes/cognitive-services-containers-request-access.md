@@ -1,15 +1,16 @@
 ---
 author: diberry
-ms.author: diberry
+ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
+origin.date: 01/24/2019
+ms.date: 02/21/2019
 ms.openlocfilehash: 11a336bbcf75c6c4de61f1bb681ab6ee7aa05650
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815643"
 ---
 Önce tamamlamanız ve gönderme gerekir [Bilişsel hizmetler görüntü işleme kapsayıcıları istek formunu](https://aka.ms/VisionContainersPreview) kapsayıcıya erişim istemek için. Form, şirketiniz ve kapsayıcı kullanacağınız kullanıcı senaryosu hakkında bilgi ister. Azure Bilişsel hizmetler takım gönderilen sonra özel kapsayıcı kayıt defterine erişim için ölçütleri karşıladığından emin olmak üzere form gözden geçirir.
 
@@ -34,3 +35,5 @@ Bir metin dosyasındaki kimlik bilgilerinizi sağladıktan ise, metin içeriğin
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
 
+
+<!-- ms.date: 02/21/2019 -->

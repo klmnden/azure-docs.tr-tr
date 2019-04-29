@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753463"
 ---
 1. Bölümündeki yönergeleri kullanın [Azure Machine Learning hizmeti çalışma alanı oluşturma](../articles/machine-learning/service/setup-create-workspace.md#portal) Miniconda ortamı oluşturmak için bir çalışma alanı oluşturma ve bir çalışma alanı yapılandırma dosyasını yazma (**aml_config/config.json**) .
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684682"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Yeni bir CDN profili oluşturma
 
@@ -33,7 +33,7 @@ CDN profili, CDN uç noktaları için bir kapsayıcı olup bir fiyatlandırma ka
    
     | Ayar  | Değer |
     | -------- | ----- |
-    | **Ad** | Profil adınız olarak *my-cdn-profile-123* girin. Bu ad küresel olarak benzersiz olmalıdır; zaten kullanılıyorsa farklı bir ad girebilirsiniz. |
+    | **Ad** | Profil adınız olarak *my-cdn-profile-123* girin. Bu ad küresel olarak benzersiz olmalıdır. Daha önceden kullanılmışsa farklı bir ad girebilirsiniz. |
     | **Abonelik** | Açılan listeden bir Azure aboneliği seçin. |
     | **Kaynak grubu** | **Yeni oluştur**’u seçin ve kaynak grubu adınız olarak *my-resource-group-123* girin. Bu adın küresel olarak benzersiz olması gerekir. Ad zaten kullanılıyorsa, farklı bir ad girebilir ya da **Var olanı kullan**'ı seçip açılan listeden **my-resource-group-123**'ü seçebilirsiniz. | 
     | **Kaynak grubu konumu** | Açılan listeden **Orta ABD**’yi seçin. |

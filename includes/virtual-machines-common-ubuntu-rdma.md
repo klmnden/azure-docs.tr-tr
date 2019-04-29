@@ -1,15 +1,10 @@
 ---
-author: cynthn
-ms.service: virtual-machines
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
 ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542356"
 ---
 1. Dapl, rdmacm ibverbs ve mlx4 yükleyin
 
@@ -17,11 +12,10 @@ ms.locfileid: "58124346"
    sudo apt-get update
 
    sudo apt-get install libdapl2 libmlx4-1
-
    ```
 
 2. /Etc/waagent.conf içinde aşağıdaki yapılandırma satırları uncommenting tarafından rdma'yı etkinleştirin. Bu dosyayı düzenlemek için kök erişmeniz gerekir.
-  
+
    ```
    OS.EnableRDMA=y
 
@@ -35,19 +29,20 @@ ms.locfileid: "58124346"
 
    <User or group name> soft    memlock <memory required for your application in KB>
    ```
-  
+
 4. Intel MPI Kitaplığı'nı yükleyin. Her iki [satın alın ve indirme](https://software.intel.com/intel-mpi-library/) Intel ya da indirme kitaplıktan [ücretsiz deneme sürümü](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
    ```bash
    wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
- 
+
    Yalnızca Intel MPI 5.x çalışma zamanları desteklenir.
- 
+
    Yükleme adımları için bkz: [Intel MPI kitaplık Yükleme Kılavuzu](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Ptrace (Intel MPI en son sürümleri için gereklidir) kök olmayan hata ayıklayıcı olmayan işlemler için etkinleştirin.
- 
+
    ```bash
    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
    ```
+   <!--ms.date: 07/30/2018-->
