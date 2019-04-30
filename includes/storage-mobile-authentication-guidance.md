@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122751"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolamaya erişmek için uygulamanızı yapılandırma
 Uygulamanızın depolama hizmetlerine erişmek için kimlik doğrulaması için iki yolu vardır:
 
-* Paylaşılan anahtar: Paylaşılan yalnızca test amacıyla anahtar kullan
-* Paylaşılan erişim imzası (SAS): Üretim uygulamaları kullanım SAS
+* Paylaşılan anahtar: Paylaşılan anahtar yalnızca test amacıyla kullanın.
+* Paylaşılan erişim imzası (SAS): Üretim uygulamaları için SAS kullanın
 
 ### <a name="shared-key"></a>Paylaşılan Anahtar
 Paylaşılan anahtar kimlik doğrulaması, uygulamanızın hesap adınızı ve hesap anahtarını depolama hizmetlerine erişmek için kullanacağı anlamına gelir. Hızlı bir şekilde bu kitaplığının nasıl kullanılacağını gösteren amacıyla, biz de bu Başlarken paylaşılan anahtar kimlik doğrulaması kullanacaklardır.

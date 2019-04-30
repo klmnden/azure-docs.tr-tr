@@ -60,7 +60,7 @@ Aşağıdaki tabloda, Azure Cosmos DB bağlı hizmeti için özel JSON öğeleri
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **DocumentDb** |Evet |
-| bağlantı dizesi |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| connectionString |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. |Evet |
 
 Örnek:
 

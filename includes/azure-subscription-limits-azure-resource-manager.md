@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: d490cab4d437c30fdb211ea27397777afc27e72e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805357"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765849"
 ---
 | Kaynak | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
@@ -29,13 +29,15 @@ ms.locfileid: "59805357"
 | Abonelik başına benzersiz etiket hesaplaması<sup>2</sup> | 10,000 | 10,000 |
 | Abonelik başına [bulut hizmeti](../articles/cloud-services/cloud-services-choose-me.md) sayısı |YOK<sup>3</sup> |YOK<sup>3</sup> |
 | Abonelik başına [benzeşim grubu](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) sayısı |YOK<sup>3</sup> |YOK<sup>3</sup> |
-| [Abonelik düzeyinde dağıtımlar](../articles/azure-resource-manager/deploy-to-subscription.md) konum başına | 800 | 800 |
+| [Abonelik düzeyinde dağıtımlar](../articles/azure-resource-manager/deploy-to-subscription.md) konum başına | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>varsayılan limitler ücretsiz deneme sürümü ve Kullandıkça Öde, gibi teklif kategori türüne ve Dv2, F ve g serisi göre değişir
 
 <sup>2</sup>sınırsız sayıda abonelik başına etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Resource Manager döndürür bir [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags) aboneliği yalnızca gerektiğinde etiket sayısı 10.000 veya daha az. 10.000 aştığında etikete göre bir kaynak yine de bulabilirsiniz.  
 
 <sup>3</sup>bu özellikler artık Azure kaynak grupları ve Resource Manager ile gerekli değildir.
+
+<sup>4</sup>800 dağıtımları sınırına ulaşırsanız, artık gerekmeyen geçmişinden dağıtımları silin. Abonelik düzeyi dağıtımları silmek için kullanın [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) veya [az silineceği](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
 > Sanal makine çekirdeklerinin bölgesel bir toplam limiti vardır. Ayrıca sahip oldukları için bölgesel boyutu serisi, Dv2 ve F. gibi bir sınır Bu sınırlar ayrı ayrı uygulanır. Örneğin, Doğu ABD toplam VM çekirdek limiti 30, A serisi çekirdek limiti 30 ve D serisi çekirdek limiti 30 olan bir abonelik düşünün. Bu aboneliğin 30 adet A1 sanal veya 30 adet D1 sanal makinesi veya ikisinin birleşimini toplamda 30 çekirdeği geçmeyecek dağıtabilirsiniz. Bir birleşim 10 adet A1 sanal ve 20 adet D1 sanal örneğidir.  

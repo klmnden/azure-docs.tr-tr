@@ -83,7 +83,7 @@ Müşteri için SAP Buluttan veri kopyalamak için dataset öğesinin type özel
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **SapCloudForCustomerResource** |Evet |
-| yol | SAP C4C OData varlık yolu belirtin. |Evet |
+| path | SAP C4C OData varlık yolu belirtin. |Evet |
 
 **Örnek:**
 

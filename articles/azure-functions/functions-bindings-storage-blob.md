@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306875"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766180"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -426,7 +426,7 @@ Azure işlevleri depoları giriş adlı bir kapsayıcı içinde blob *azure webj
 * Blob adı
 * ETag (örneğin, bir blob sürüm tanımlayıcısı: "0x8D1DC6E70A277EF")
 
-Bir blobu yeniden işlemeyerek zorlamak için bu blobu için blob giriş Sil *azure webjobs konakları* kapsayıcı el ile.
+Bir blobu yeniden işlemeyerek zorlamak için bu blobu için blob giriş Sil *azure webjobs konakları* kapsayıcı el ile. Yeniden işlemeyerek hemen gerçekleşmeyebilir olmakla zaman sonraki bir noktada gerçekleşmesi için garantili arasındadır.
 
 ## <a name="trigger---poison-blobs"></a>Tetikleyici - zehirli BLOB'ları
 
@@ -450,9 +450,13 @@ JavaScript ve Java işlevleri, belleğe, tüm blob yüklemek ve C# işlevleri ya
 
 ## <a name="trigger---polling"></a>Tetikleme - yoklama
 
-İzlenmekte olan blob kapsayıcı (tüm kapsayıcılar arasında) 10. 000'den fazla BLOB varsa, İşlevler çalışma zamanı taramalar günlük dosyaları için yeni veya değiştirilmiş blobları izleyin. Bu işlem, gecikmelerine neden olabilir. Blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil. Ayrıca, [depolama günlükleri "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olaylar yakalanır garantisi yoktur. Bazı koşullar altında günlükleri eksik olabilir.
+İzlenmekte olan blob kapsayıcı (tüm kapsayıcılar arasında) 10. 000'den fazla BLOB varsa, İşlevler çalışma zamanı taramalar günlük dosyaları için yeni veya değiştirilmiş blobları izleyin. Bu işlem, gecikmelerine neden olabilir. Blob oluşturulduktan sonra bir işleve kadar birkaç dakika veya daha uzun tetiklenir değil.
 
-Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturmayı göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyicisi yerine. Event grid'i başka bir seçenektir; öğreticiye bakın [karşıya yüklenen görüntülerin Event Grid kullanarak otomatikleştirme yeniden boyutlandırma](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Ayrıca, [depolama günlükleri "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olaylar yakalanır garantisi yoktur. Bazı koşullar altında günlükleri eksik olabilir.
+> 
+> Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturmayı göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyicisi yerine. Event grid'i başka bir seçenektir; öğreticiye bakın [karşıya yüklenen görüntülerin Event Grid kullanarak otomatikleştirme yeniden boyutlandırma](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Girdi
 

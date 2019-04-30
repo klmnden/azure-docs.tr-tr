@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 942c165a53ad07c0d359854fc737c195c6f2d50a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850974"
 ---
 * [App Service kimlik doğrulaması / yetkilendirme genel bakış](../articles/app-service/overview-authentication-authorization.md)
 * Mobil uygulamanıza kimlik doğrulaması ekleme: [iOS][ios-get-started-users], [Android][android-get-started-users], [Windows Evrensel] [ windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms] [ xamarin-forms-get-started-users], [Cordova][cordova-get-started-users]  

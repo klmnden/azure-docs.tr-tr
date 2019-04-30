@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5b2aa7fedbc203c50796a0e0c8d9cdb3895ae6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d36d2be59010c47348a8e196b28d87e5b967868e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845699"
 ---
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>1. adım: sanal ağ geçidi gidin
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>1. Adım: Sanal ağ geçidine gidin
 
-1. İçinde [Azure portal](https://portal.azure.com), gitmek **tüm kaynakları**. 
-2. Sanal ağ geçidi sayfasını açmak için silme tıklatıp istediğiniz sanal ağ geçidi gidin.
+1. İçinde [Azure portalında](https://portal.azure.com), gitmek **tüm kaynakları**. 
+2. Sanal ağ geçidi sayfasını açmak için tıklayın ve silmek istediğiniz sanal ağ geçidine gidin.
 
-### <a name="step-2-delete-connections"></a>2. adım: Sil bağlantıları
+### <a name="step-2-delete-connections"></a>2. Adım: Bağlantıları silme
 
-1. Sanal ağ geçidinizin sayfasında, tıklatın **bağlantıları** ağ geçidine tüm bağlantılarını görüntülemek için.
-2. Tıklatın **'...'** bağlantının adını satırındaki seçip **silmek** gelen açılır.
-3. Tıklatın **Evet** bağlantısını silmek istediğinizi onaylamak için. Birden çok bağlantı varsa, her bağlantısını silin.
+1. Sanal ağ geçidinizin sayfasında tıklayın **bağlantıları** tüm ağ geçidi bağlantılarını görüntülemek için.
+2. Tıklayın **'...'** bağlantının adını satırda seçip **Sil** açılır listeden.
+3. Tıklayın **Evet** bağlantıyı silmek istediğinizi onaylayın. Birden çok bağlantı varsa, her bağlantısını silin.
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>3. adım: sanal ağ geçidini Sil
+### <a name="step-3-delete-the-virtual-network-gateway"></a>3. Adım: Sanal ağ geçidini silme
 
-S2S yapılandırmanızı yanı sıra bu sanal ağa bir P2S yapılandırmanız varsa, sanal ağ geçidi siliniyor otomatik olarak uyarmadan tüm P2S istemcilerin bağlantısını keser olduğunu unutmayın.
+S2S yapılandırmasının yanı sıra bu sanal ağa bir P2S yapılandırması varsa, sanal ağ geçidini silme otomatik olarak uyarı olmadan tüm P2S istemcileri kesecek olduğunu unutmayın.
 
-1. Sanal ağ geçidi sayfasında, tıklatın **genel bakış**.
-2. Üzerinde **genel bakış** sayfasında, **silmek** ağ geçidini silmek için.
+1. Sanal ağ geçidi sayfasında tıklayın **genel bakış**.
+2. Üzerinde **genel bakış** sayfasında **Sil** ağ geçidi silinemedi.

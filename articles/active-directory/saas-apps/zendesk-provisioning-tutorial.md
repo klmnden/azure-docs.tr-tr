@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Zendesk yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlama ve sağlamasını Zendesk kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
+description: Otomatik olarak sağlama ve sağlamasını kaldırma Zendesk kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -16,81 +16,77 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf747fb75ea663d2c64038d73f48adb19d9fb804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f559d2c2398998ba590419758de559f21d9b65f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237076"
+ms.locfileid: "62114674"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Zendesk otomatik kullanıcı hazırlama için yapılandırma
 
-Bu öğreticinin amacı, Zendesk ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Zendesk sağlamasını için gerçekleştirilmesi gereken adımlar göstermektir.
+Bu öğreticide, Zendesk ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için otomatik olarak sağlamak ve kullanıcıların ve grupların Zendesk sağlamasını kaldırmak için gerçekleştirme adımları gösterilmektedir.
 
 > [!NOTE]
-> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular hakkında daha fazla bilgi için bkz: [kullanıcı sağlamayı ve Azure Active Directory ile hizmet olarak yazılım-a-(SaaS) uygulamalarına sağlama kaldırmayı otomatikleştirme](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, olduğunu varsayar:
 
-* Azure AD kiracısı
-* Bir Zendesk kiracıyla [Kurumsal](https://www.zendesk.com/product/pricing/) planlayabilir ya da daha iyi etkin
-* Zendesk yönetici izinlerine sahip bir kullanıcı hesabı
+* Azure AD kiracısı.
+* Bir Zendesk kiracıyla [Kurumsal](https://www.zendesk.com/product/pricing/) planlayabilir ya da daha iyi etkin.
+* Zendesk yönetici izinlerine sahip bir kullanıcı hesabı.
 
 > [!NOTE]
-> Azure AD tümleştirmesi sağlama dayanan [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), daha iyi veya Kurumsal plan Zendesk takımlar için kullanılabilir.
+> Azure AD tümleştirmesi sağlama dayanan [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction). Bu API, Zendesk takımlar Kurumsal plan veya üzeri için kullanılabilir.
 
-## <a name="adding-zendesk-from-the-gallery"></a>Zendesk galeri ekleme
+## <a name="add-zendesk-from-the-azure-marketplace"></a>Azure Market'ten Zendesk Ekle
 
-Otomatik kullanıcı hazırlama ile Azure AD için Zendesk yapılandırmadan önce Zendesk Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Otomatik kullanıcı hazırlama ile Azure AD için Zendesk yapılandırmadan önce Zendesk Azure Market'te yönetilen SaaS uygulamalarının listenize ekleyin.
 
-**Azure AD uygulama galerisinden Zendesk eklemek için aşağıdaki adımları gerçekleştirin:**
+Marketten Zendesk eklemek için aşağıdaki adımları izleyin.
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde [Azure portalında](https://portal.azure.com), sol taraftaki gezinti bölmesinde seçin **Azure Active Directory**.
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
+    ![Azure Active Directory simgesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+2. Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst.
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Zendesk**seçin **Zendesk** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Zendesk** seçip **Zendesk** sonucu panelinden. Uygulama eklemek için seçin **Ekle**.
 
     ![Sonuç listesinde Zendesk](common/search-new-app.png)
 
-## <a name="assigning-users-to-zendesk"></a>Zendesk için kullanıcı atama
+## <a name="assign-users-to-zendesk"></a>Zendesk için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya "Azure AD'de bir uygulama için atandı" grupları eşitlenir.
+Azure Active Directory kullanan adlı bir kavram *atamaları* hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcılar veya Azure AD'de bir uygulamaya atanan gruplar eşitlenir.
 
-Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları Zendesk erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek Zendesk için bu kullanıcılara ve/veya grupları atayabilirsiniz:
-
-* [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
+Yapılandırma ve otomatik kullanıcı sağlamayı etkinleştirmek için önce hangi kullanıcıların veya grupların Azure AD'de Zendesk erişmesi karar verin. Bu kullanıcılar veya gruplar için Zendesk atamak için yönergeleri izleyin. [kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Zendesk için kullanıcı atama önemli ipuçları
 
-* Zendesk rolleri otomatik olarak ve dinamik olarak Azure portalı kullanıcı arabirimini bugün doldurulur. Zendesk roller kullanıcılara atamadan önce bir ilk eşitleme Zendesk kiracınızda bulunan en son rollerini almak üzere Zendesk karşı tamamlandığından emin olun.
+* Bugün, Zendesk rolleri Azure portalı kullanıcı arabirimini otomatik olarak ve dinamik olarak doldurulur. Zendesk roller kullanıcılara atamadan önce bir ilk eşitleme, Zendesk kiracınızda bulunan en son rollerini almak üzere Zendesk karşı tamamlandığını emin olun.
 
-* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını ilk otomatik kullanıcı test etmek için Zendesk atanır. Testler başarılı olduktan sonra ek kullanıcılar ve/veya grupları daha sonra atanabilir.
-  
-* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için Zendesk atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
+* Tek bir atamanızı öneririz zendesk'e ilk otomatik kullanıcı sağlama yapılandırmasını test etmek için Azure AD kullanıcısı. Testler başarılı olduktan sonra ek kullanıcılar veya gruplar daha sonra atayabilirsiniz.
 
-* Zendesk için kullanıcı atama, atama iletişim kutusunda (varsa) geçerli bir uygulamaya özgü rolü seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+* Zendesk'te bir kullanıcıya atadığınızda, geçerli herhangi bir uygulamaya özgü rol ataması iletişim kutusunda kullanılabilir olması durumunda seçin. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
-## <a name="configuring-automatic-user-provisioning-to-zendesk"></a>Zendesk için otomatik kullanıcı sağlamayı yapılandırma 
+## <a name="configure-automatic-user-provisioning-to-zendesk"></a>Zendesk için otomatik kullanıcı sağlamayı yapılandırma 
 
-Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bırakmak için sağlama hizmetini Azure AD'yi yapılandırma adımlarında size kılavuzluk eder ve/veya Azure AD'de kullanıcı ve/veya grup atamaları bu zendesk'teki gruplandırır.
+Bu bölümde Azure AD sağlama hizmeti yapılandırma adımlarında size kılavuzluk eder. Oluşturma, güncelleştirme ve kullanıcılar veya gruplar Azure AD'de kullanıcı veya grup atamaları temel alınarak Zendesk, devre dışı bırakmak için kullanın.
 
 > [!TIP]
-> Uygulamayı da seçebilirsiniz SAML tabanlı çoklu oturum açma için Zendesk etkinleştirmek, yönergeleri izleyerek sağlanan [oturum açma Zendesk tek öğretici](zendesk-tutorial.md). Bu iki özellik birbirine tamamlayıcı rağmen otomatik kullanıcı hazırlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> SAML tabanlı çoklu oturum açma için Zendesk etkinleştirebilirsiniz. Bölümündeki yönergeleri [oturum açma Zendesk tek öğretici](zendesk-tutorial.md). Bu iki özellik birbirini tamamlar ancak otomatik kullanıcı hazırlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="to-configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Azure AD'de Zendesk için otomatik kullanıcı hazırlama yapılandırmak için:
+### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Azure AD'de Zendesk için otomatik kullanıcı sağlamayı yapılandırma
 
-1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Zendesk**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. Seçin **kurumsal uygulamalar** > **tüm uygulamaları** > **Zendesk**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
@@ -104,77 +100,77 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 4. Ayarlama **hazırlama modu** için **otomatik**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
+    ![Zendesk sağlama modu](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı**, **gizli belirteç**, ve **etki alanı** , Zendesk'in hesabının. Bu değerleri örnekleri şunlardır:
+5. Altında **yönetici kimlik bilgileri** bölümünde, yönetici kullanıcı adı, gizli belirteç ve etki alanı Zendesk hesabınızın giriş. Bu değerleri örnekleri şunlardır:
 
-   * İçinde **yönetici kullanıcı adı** alan, Zendesk kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
+   * İçinde **yönetici kullanıcı adı** kutusunda, kiracınıza Zendesk yönetici hesabı kullanıcı adı girin. admin@contoso.com bunun bir örneğidir.
 
-   * İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
+   * İçinde **gizli belirteç** kutusunda, adım 6'da açıklandığı gibi gizli belirteç doldurun.
 
-   * İçinde **etki alanı** alan, Zendesk kiracınızın alt etki alanı doldurun.
-     Örnek: Bir kiracı URL'si sahip bir hesap `https://my-tenant.zendesk.com`, kendi alt etki alanı olacaktır **Kiracı my**.
+   * İçinde **etki alanı** kutusunda, Zendesk kiracınızın alt etki alanı doldurun. Örneğin, bir kiracı URL'si olan bir hesap için `https://my-tenant.zendesk.com`, kendi alt etki alanı olan **Kiracı my**.
 
-6. **Gizli belirteç** hesabının bulunduğu için Zendesk **yönetici > API > ayarları**.
-   Emin **belirteç erişimi** ayarlanır **etkin**.
+6. Zendesk hesabınızın gizli belirteç bulunan **yönetici** > **API** > **ayarları**. Emin olun **belirteç erişimi** ayarlanır **etkin**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
+    ![Zendesk yönetici ayarları](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
+    ![Zendesk gizli belirteç](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 
-7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için Zendesk bağlanabilirsiniz. Bağlantı başarısız olursa, Zendesk hesabınızın yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+7. Adım 5'te gösterilen kutuları doldurduktan sonra seçin **Test Bağlantısı** Azure'un emin olmak için AD için Zendesk bağlanabilirsiniz. Bağlantı başarısız olursa, Zendesk hesabınızın yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
+    ![Zendesk Bağlantıyı Sına](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
 
-8. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
+8. İçinde **bildirim e-posta** kutusunda kişinin e-posta adresi girin veya sağlama hata bildirimleri almak için Grup. Seçin **bir hata oluştuğunda e-posta bildirimi gönder** onay kutusu.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
+    ![Zendesk bildirim e-postası](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. **Kaydet**’e tıklayın.
+9. **Kaydet**’i seçin.
 
 10. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları zendesk'e**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
+    ![Zendesk kullanıcı eşitleme](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
 
-11. Zendesk'te için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Zendesk kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
+11. Zendesk'te için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Zendesk kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Değişiklikleri kaydetmek için seçmeniz **Kaydet**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
+    ![Zendesk eşleşen kullanıcı öznitelikleri](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
 
-12. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına ZenDesk**.
+12. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına Zendesk**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
+    ![Zendesk Grup eşitleme](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
 
-13. Zendesk'te için Azure AD'den eşitlenen grup öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri güncelleştirme işlemleri için Zendesk gruplarında eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
+13. Zendesk'te için Azure AD'den eşitlenen grup öznitelikleri gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri güncelleştirme işlemleri için Zendesk gruplarında eşleştirmek için kullanılır. Değişiklikleri kaydetmek için seçmeniz **Kaydet**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
+    ![Zendesk eşleşen grup öznitelikleri](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Kapsam belirleme filtrelerini yapılandırmak için yönergeleri izleyin. [kapsam belirleme filtresi öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Azure AD sağlama hizmeti için Zendesk etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
+15. Azure AD içinde sağlama hizmeti için Zendesk, etkinleştirmek için **ayarları** bölümünde **sağlama durumu** için **üzerinde**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
+    ![Zendesk sağlama durumu](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
 
-16. Kullanıcılara ve/veya istediğiniz grupları Zendesk sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü.
+16. Zendesk sağlamak için kullanıcıları veya istediğiniz grupları tanımlayın. İçinde **ayarları** bölümünde, istediğiniz değerleri seçin **kapsam**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
+    ![Zendesk kapsamı](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
 
-17. Sağlama için hazır olduğunuzda, tıklayın **Kaydet**.
+17. Sağlama için hazır olduğunuzda **Kaydet**.
 
-    ![Zendesk sağlama](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
+    ![Zendesk Kaydet](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
 
-Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Azure AD sağlama hizmeti Zendesk şirket tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
+Bu işlem, tüm kullanıcıların ilk eşitleme başlar veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme daha sonraki eşitlemeler gerçekleştirmek için daha uzun sürer. Azure AD sağlama hizmeti çalıştırdığı sürece, yaklaşık 40 dakikada oluşur. 
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
+Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama etkinliği raporunu için bağlantıları izleyin. Rapor hizmette Zendesk sağlama Azure AD tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz: [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
 
-* Zendesk gruplarının kullanımı, yalnızca aracı rolleri ile kullanıcılar için destekler. Daha fazla bilgi için bkz [Zendesk'ın belgeleri](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Zendesk ile kullanıcılar için gruplarının kullanımı destekleyen **aracı** yalnızca rolleri. Daha fazla bilgi için [Zendesk belgeleri](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
-* Bir kullanıcı ve/veya grup için özel bir rol atandığında, sağlama hizmetini Azure AD'ye otomatik kullanıcı aynı zamanda varsayılan rol atama **aracı**. Yalnızca **aracıları** özel bir rol atanabilir. Daha fazla bilgi için bu başvuru [Zendesk API belgeleri](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
+* Özel bir rol, bir kullanıcı veya gruba atandığında de sağlama hizmeti Azure AD otomatik kullanıcı varsayılan rolü atar **aracı**. Yalnızca aracılar, özel bir rol atanabilir. Daha fazla bilgi için [Zendesk API belgeleri](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Kullanıcı, kurumsal uygulamalar için hesabı hazırlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291696"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759780"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
-Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı etkinleştirin, Azure portalında öznitelik eşlemelerini öznitelik değerlerini denetler.
+Microsoft Azure AD, Salesforce, G Suite ve diğerleri gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı etkinleştirin, Azure portalında öznitelik eşlemelerini öznitelik değerlerini denetler.
 
 Önceden yapılandırılmış bir dizi öznitelikleri ve Azure AD kullanıcı nesneleri ve her SaaS uygulamasının kullanıcı nesneleri arasında öznitelik eşlemelerini yoktur. Bazı uygulamalar diğer kullanıcılar, gruplar gibi birlikte nesne türlerini yönetin.
 
@@ -84,7 +84,7 @@ Bu özellik ile birlikte öznitelik eşlemelerini de aşağıdaki öznitelikleri
 
 ## <a name="editing-group-attribute-mappings"></a>Grup öznitelik eşlemelerini düzenleme
 
-Seçilen sayısını, ServiceNow, Box ve Google Apps gibi uygulamaları Grup nesnelerini ve kullanıcı, nesneyi sağlamasını yapma özelliği destekler. Grup nesneleri, grup özellikleri gibi görünen adları içeren ve grup üyelerinin yanı sıra diğer adlar, e-posta.
+Seçilen sayısını, ServiceNow, Box ve G Suite gibi uygulamaları Grup nesnelerini ve kullanıcı, nesneyi sağlamasını yapma özelliği destekler. Grup nesneleri, grup özellikleri gibi görünen adları içeren ve grup üyelerinin yanı sıra diğer adlar, e-posta.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

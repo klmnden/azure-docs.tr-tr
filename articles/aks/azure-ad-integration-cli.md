@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 86b9609d5141798be40f53aab8b18897484bbef8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467587"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764131"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI kullanarak Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
 Azure Kubernetes Service (AKS), Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, bir Azure AD kimlik doğrulama belirteci kullanarak bir AKS kümesine oturum açabilirsiniz. Küme operatörleri, bir kullanıcının kimlik veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimi (RBAC) olarak da yapılandırabilirsiniz.
 
 Bu makalede gerekli oluşturma işlemi gösterilmektedir Azure AD bileşenleri, ardından AD etkin bir Azure kümesine dağıtma ve AKS kümesinde temel bir RBAC rolü oluşturun. Ayrıca [Azure portalını kullanarak şu adımları tamamlayın][azure-ad-portal].
+
+Bu makalede kullanılan tam örnek betik için bkz: [Azure CLI örnekleri - Azure AD ile tümleştirme AKS][complete-script].
 
 Aşağıdaki sınırlamalar geçerlidir:
 

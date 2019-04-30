@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457934"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766633"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Öğretici: Azure sanal WAN kullanarak siteden siteye bağlantı oluşturma
 
-Bu öğreticide Sanal WAN kullanarak Azure'daki kaynaklarınıza bir IPsec/IKE (IKEv1 ve IKEv2) VPN bağlantısı üzerinden bağlanmayı öğreneceksiniz. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. Sanal WAN hakkında daha fazla bilgi için bkz. [Sanal WAN'a Genel Bakış](virtual-wan-about.md)
+Bu öğreticide Sanal WAN kullanarak Azure'daki kaynaklarınıza bir IPsec/IKE (IKEv1 ve IKEv2) VPN bağlantısı üzerinden bağlanmayı öğreneceksiniz. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. Sanal WAN hakkında daha fazla bilgi için bkz. [Sanal WAN'a Genel Bakış](virtual-wan-about.md).
 
 > [!NOTE]
 > Birden fazla siteniz varsa bu yapılandırmayı oluşturmak için [Sanal WAN iş ortağı](https://aka.ms/virtualwan) kullanmanız gerekir. Ancak ağ bağlantıları ve kendi VPN cihazınızı yapılandırma konularında deneyimliyseniz bu yapılandırmayı kendiniz oluşturabilirsiniz.
@@ -32,6 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Site oluşturma
 > * Hub oluşturma
 > * Bir hub'ı bir siteye bağlama
+> * (, Zaten yoksa) uyumlu bir VNet oluşturma
 > * Bir sanal ağı bir hub'a bağlama
 > * VPN cihazı yapılandırmasını indirme ve uygulama
 > * Sanal WAN'ınızı görüntüleme
@@ -40,21 +41,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Sanal ağ oluşturma
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Sanal WAN oluşturma
+## <a name="openvwan"></a>1. Sanal WAN oluşturma
 
 Bir tarayıcıdan [Azure portalına](https://aka.ms/azurevirtualwanpreviewfeatures) gidin ve Azure hesabınızla oturum açın.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Site oluşturma
+## <a name="site"></a>2. Site oluşturma
 
 Fiziksel konumlarınıza karşılık gelecek sayıda site oluşturabilirsiniz. Örneğin İstanbul'da, Ankara'da ve İzmir'de birer şubeniz varsa üç ayrı site oluşturmanız gerekir. Bu siteler şirket içi VPN cihazı uç noktalarını içerir. Bu noktada siteniz için yalnızca bir özel adres alanı belirtebilirsiniz.
 
@@ -62,21 +57,21 @@ Fiziksel konumlarınıza karşılık gelecek sayıda site oluşturabilirsiniz. �
 2. **VPN siteleri** sayfasında **+Site oluştur**’a tıklayın.
 3. **Site oluştur** sayfasında aşağıdaki alanları doldurun:
 
-   * **Ad**: Şirket içi sitenize vermek istediğiniz addır.
-   * **Genel IP adresi**: Şirket içi sitenizde yer alan VPN cihazının genel IP adresidir.
+   * **Ad** -şirket içi sitenize başvurmak istediğiniz adı.
+   * **Genel IP adresi** -şirket içi sitenizde yer alan VPN cihazının genel IP adresi.
    * **Özel adres alanı**: Şirket içi sitenizde yer alan IP adres alanıdır. Bu adres alanını hedefleyen trafik yerel sitenize yönlendirilir.
    * **Abonelik**: Aboneliği doğrulayın.
    * **Kaynak Grubu**: Kullanmak istediğiniz kaynak grubudur.
-   * **Konum**.
-4. Ek ayarları görüntülemek için **Gelişmiş içeriği göster**'e tıklayın. Etkinleştirmek için **BGP**’yi seçtiğinizde bu işlev Azure'da bu site için oluşturulan tüm bağlantılarda etkinleştirilir. İsterseniz **Cihaz bilgileri** (isteğe bağlı alanlar) alanını da doldurabilirsiniz. Bu alan Azure Ekibinin ortamınızı daha iyi anlamasına ve gelecekte ek iyileştirme olanakları eklemesine veya sorun giderme aşamasında size destek olmasına yardımcı olabilir.
+   * **Konum**
+4. Ek ayarları görüntülemek için **Gelişmiş içeriği göster**'e tıklayın. Seçebileceğiniz **BGP** azure'da bu site için oluşturulan tüm bağlantıları BGP işlevselliğini sağlayan BGP'yi etkinleştirmek için. İsterseniz **Cihaz bilgileri** (isteğe bağlı alanlar) alanını da doldurabilirsiniz. Bunun yapılması Azure ortamınıza ek iyileştirme olasılıklarına dair gelecekte eklemek ya da gidermenize yardımcı olması için daha iyi anlamanıza yardımcı olabilir.
 5. **Onayla**'ya tıklayın.
 6. **Onayla**’ya tıkladıktan sonra durumu VPN siteleri sayfasında görüntüleyin. Site **Hazırlanıyor**’dan **Hazırlandı** durumuna geçecektir.
 
-## <a name="hub"></a>4. Hub oluşturma
+## <a name="hub"></a>3. Hub oluşturma
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. Siteleri hub ile ilişkilendirme
+## <a name="associate"></a>4. Siteleri hub ile ilişkilendirme
 
 Hub'lar genellikle VNet’in bulunduğu bölge ile aynı bölgedeki siteler ile ilişkilendirilmelidir.
 
@@ -85,6 +80,12 @@ Hub'lar genellikle VNet’in bulunduğu bölge ile aynı bölgedeki siteler ile 
 3. Ayrıca burada belirli bir **PSK** ekleyebilir veya varsayılanı kullanabilirsiniz.
 4. **Onayla**'ya tıklayın.
 5. **VPN siteleri** sayfasında bağlantı durumunu görüntüleyebilirsiniz.
+
+## <a name="vnet"></a>5. Sanal ağ oluşturma
+
+VNet zaten yoksa, bir PowerShell veya Azure portalını kullanarak hızlı bir şekilde oluşturabilirsiniz. Sanal ağınız varsa gerekli ölçütleri karşıladığından ve sanal ağ geçidi bulunmadığından emin olun.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Sanal ağınızı bir hub'a bağlama
 
@@ -114,7 +115,7 @@ Bu adımda hub'ınızla bir sanal ağ arasında eşleme bağlantısı oluşturac
 Cihaz yapılandırma dosyasında şirket içi VPN cihazınızı yapılandırırken kullanacağınız ayarlar bulunur. Bu dosyayı görüntülediğinizde aşağıdaki bilgilere dikkat edin:
 
 * **vpnSiteConfiguration -** Bu bölümde sanal WAN'a bağlanan bir site olarak ayarlanmış cihazın ayrıntıları yer alır. Dal cihazının adını ve genel IP adresini içerir.
-* **vpnSiteConnections -** Bu bölümde aşağıdakilerle ilgili bilgiler yer alır:
+* **vpnSiteConnections -** Bu bölüm aşağıdaki ayarları hakkında bilgi sağlar:
 
     * Sanal hub sanal ağının **adres alanı**<br>Örnek:
  
@@ -126,7 +127,7 @@ Cihaz yapılandırma dosyasında şirket içi VPN cihazınızı yapılandırırk
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * vpngateway sanal hub'ının **IP adresleri**. vpngateway, etkin-etkin yapılandırmada 2 tünel içeren bağlantılara sahip olduğundan bu dosyada iki taraftaki IP adreslerinin de listelendiğini göreceksiniz. Bu örnekte her site için "Instance0" ve "Instance1" örneklerini göreceksiniz.<br>Örnek:
+    * vpngateway sanal hub'ının **IP adresleri**. Etkin-etkin yapılandırmada iki tünel oluştuğu vpngateway her bağlantı için bu dosyada listelenen iki IP adresini görürsünüz. Bu örnekte her site için "Instance0" ve "Instance1" örneklerini göreceksiniz.<br>Örnek:
 
         ``` 
         "Instance0":"104.45.18.186"

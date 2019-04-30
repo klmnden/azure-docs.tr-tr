@@ -1,15 +1,16 @@
 ---
-author: rothja
+author: rockboyfor
 ms.service: virtual-machines-sql
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: jroth
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129628"
 ---
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -17,7 +18,7 @@ Azure anahtar kasası tümleştirmeyi etkinleştirdikten sonra SQL sanal makinen
 
 Çeşitli avantajlarından yararlanabilirsiniz şifreleme biçimi vardır:
 
-* [Saydam veri şifrelemesi (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Saydam Veri Şifrelemesi (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Şifrelenmiş yedekleme](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Sütun düzeyinde şifrelemeyi (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
@@ -38,11 +39,9 @@ CREATE CREDENTIAL sysadmin_ekm_cred
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
-
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
 ADD CREDENTIAL sysadmin_ekm_cred;
-
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
 FROM PROVIDER [AzureKeyVault_EKM_Prov]
@@ -50,7 +49,7 @@ WITH PROVIDER_KEY_NAME = 'KeyName_in_KeyVault',  --The key name here requires th
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Saydam veri şifrelemesi (TDE)
+### <a name="transparent-data-encryption-tde"></a>Saydam Veri Şifrelemesi (TDE)
 
 1. TDE için veritabanı altyapısı tarafından kullanılacak bir SQL Server oturumu oluşturun ve ardından kimlik bilgisi ekleyin.
 
@@ -147,3 +146,5 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 Bu şifreleme özelliklerini kullanma hakkında daha fazla bilgi için bkz. [EKM kullanarak SQL Server şifreleme özellikleri ile](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
 Bu makaledeki adımlarda, Azure sanal makinesinde çalışan SQL Server zaten sahip olduğunuzu varsaymaktadır unutmayın. Aksi takdirde bkz [azure'da bir SQL Server sanal makinesi sağlama](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Azure Vm'lerinde SQL Server çalıştıran diğer yönergeler için bkz. [SQL Server Azure sanal makinelerine genel bakış](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!--Update_Description: wording update, update link-->

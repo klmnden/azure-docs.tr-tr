@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3d4634249b0dc2638373383b7a7cea376b98c65a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c8f56897380bc3108cb979d9d15e7dbd0a329064
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614383"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulaması yükseltme
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Artık *ApplicationManifest.xml* dosyası (altında bulunan **VisualObjects** al
 
 Artık, seçerek proje oluşturun. yalnızca **ActorService** proje ve ardından sağ tıklayıp **derleme** Visual Studio'da seçeneği. Seçerseniz **tümünü yeniden derle**, nedeniyle kod değişmiş tüm projelerde sürümleri güncelleştirmeniz gerekir. Sonra şimdi sağ tıklayarak güncelleştirilmiş uygulama paketini ***VisualObjectsApplication***, Service Fabric menüsünü seçip **paket**. Bu eylem, dağıtılabilir bir uygulama paketi oluşturur.  Güncelleştirilmiş uygulamanız dağıtılmaya hazırdır.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3. adım:  Sistem durumu ilkeleri hakkında karar verin ve yükseltme parametreleri
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3. Adım:  Sistem durumu ilkeleri hakkında karar verin ve yükseltme parametreleri
 İle kendinizi alıştırın [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve sistem durumu ölçütü uygulanan iyi bir anlayış edinmek için. Bu kılavuz için hizmet sistem durumu değerlendirme ölçütü Varsayılana Ayarla (ve önerilen) tüm hizmetlerin ve örnek gerektiği anlamına gelir değerleri *sağlıklı* yükseltmeden sonra.  
 
 Bununla birlikte, şimdi artırmak *HealthCheckStableDuration* 180 saniye (Hizmetleri sonraki güncelleştirme etki alanına yükseltmeye devam etmeden önce en az 120 saniye için iyi durumda olacak şekilde).  Ayrıca ayarlayalım *UpgradeDomainTimeout* 1200 saniye olacak şekilde ve *UpgradeTimeout* 3000 saniye olacak şekilde.

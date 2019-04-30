@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338551"
+ms.locfileid: "62098295"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Olağanüstü durum kurtarma yük devretme yordamı
 
@@ -35,34 +35,20 @@ DR sitesine devretmek yaparken dikkate alınması gereken iki durum vardır:
 >[!NOTE]
 >Aşağıdaki adımları DR birimini temsil eder HANA büyük örneği biriminde yürütülmesi gerekir. 
  
-En son çoğaltılan depolama anlık görüntüleri için geri yüklemek için aşağıdaki adımları gerçekleştirin: 
+Son çoğaltılan depolama anlık görüntüleri için geri yüklemek için bölümünde listelenen adımları **'tam DR - azure_hana_dr_failover yük devri'** belgenin [Microsoft azure'da SAP HANA için araçları snapshot ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Kullanmakta olduğunuz HANA büyük örnekleri olağanüstü durum kurtarma birimi HANA üretim dışı örneğini kapatın. Önceden yüklenmiş bir etkinliği olmayan HANA üretim örneği olduğundan budur.
-1. SAP HANA işlem çalışır durumda olduğundan emin olun. Bu denetim için aşağıdaki komutu kullanın: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. Çıktı göstermesi gerekir **hdbdaemon** işlem durdurulmuş bir duruma ve bir çalışan veya başlatılan durumda diğer HANA işlem yok.
-1. DR sitesine HANA büyük örneği biriminde betiği yürütün *azure_hana_dr_failover.pl*. Betik bir SAP HANA geri yüklenmesi için SID istiyor. İstendiğinde, bir veya yalnızca tür tutulur ve çoğaltılmış SAP HANA SID *HANABackupCustomerDetails.txt* DR sitedeki HANA büyük örneği birimdeki dosya. 
+Birden çok SAP HANA örnekleri üzerinde başarısız olmasını istiyorsanız, birkaç kez azure_hana_dr_failover komutu çalıştırmak gerekir. İstendiğinde, SAP HANA, yük devretme ve geri yüklemek istediğiniz SID yazın. 
 
-      Birden çok SAP HANA örnekleri üzerinde başarısız olmasını istiyorsanız, birkaç kez betiği çalıştırmak gerekir. İstendiğinde, SAP HANA, yük devretme ve geri yüklemek istediğiniz SID yazın. Tamamlandığında, komut dosyası bağlama noktaları HANA büyük örneği birimi eklenen birimlerin bir listesini gösterir. Bu liste, geri yüklenen DR birimleri de içerir.
 
-1. Geri yüklenen olağanüstü durum kurtarma birimleri, HANA büyük örneği birimine Linux işletim sistemi komutları olağanüstü durum kurtarma siteniz kullanarak bağlayın. 
-1. Etkin olmayan SAP HANA üretim örneği başlatın.
-1. RPO süresini azaltmak için işlem günlüğü yedekleme günlükleri kopyalamak isterseniz, bu işlem günlüğü yedeklemeleri yeni oluşturulmuş DR/hana/logbackups dizine birleştirmek gerekir. Var olan yedeklerin üzerine yazmayın. En son depolama anlık görüntü çoğaltma ile çoğaltılmamış yeni yedeklemelere kopyalayın.
-1. Ayrıca, DR Azure bölgesinde /hana/shared/PRD birimine çoğaltılan anlık görüntüleri dışında tek dosyaları geri yükleyebilirsiniz. 
-
-Gerçek bir çoğaltma ilişkisi etkilemeden DR yük devretmeyi de test edebilirsiniz. Yük devretme testi gerçekleştirmek için 1 ve 2'de yukarıdaki adımları izleyin ve sonra aşağıdaki adım 3 ile devam edin.
+Gerçek bir çoğaltma ilişkisi etkilemeden DR yük devretmeyi de test edebilirsiniz. Yük devretme testi gerçekleştirmek için adımları izleyin. **'DR yük devretme - azure_hana_test_dr_failover test gerçekleştirmek'** belgenin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Yapmak *değil* üretim işlemler DR sitenin işlemi boyunca oluşturduğunuz örneğinde çalışan **bir yük devretme testi** adım 3'te sunulan komut dosyası. Bu komut hiçbir ilişki birincil siteye sahip birimler bir dizi oluşturur. Sonuç olarak, birincil siteye eşitleme olduğundan *değil* mümkün. 
+>Yapmak *değil* üretim işlemler DR sitenin işlemi boyunca oluşturduğunuz örneğinde çalışan **bir yük devretme testi**. Bu komut azure_hana_test_dr_failover birincil siteye hiçbir ilişki bulunmayan birimleri kümesi oluşturur. Sonuç olarak, birincil siteye eşitleme olduğundan *değil* mümkün. 
 
-Yük devretme testi için adım 3:
+Test etmek için birden çok SAP HANA örnekleri olmasını istiyorsanız, birkaç kez betiği çalıştırmak gerekir. İstendiğinde, yük devretme için test etmek istediğiniz örnek SAP HANA SID'si yazın. 
 
-DR sitesine HANA büyük örneği biriminde betiği yürütün **azure_hana_test_dr_failover.pl**. Bu komut dosyası *değil* DR sitesi ile birincil site arasındaki çoğaltma ilişkisini durduruluyor. Bunun yerine, bu betik, DR depolama birimleri kopyalama olduğu. Kopyalama işlemi başarılı olduktan sonra kopyalanan birimleri en son anlık görüntü durumu için geri ve ardından DR birimine bağlanır. Betik bir SAP HANA geri yüklenmesi için SID istiyor. Türü bir ya da tek SAP HANA SID tutulur ve çoğaltılmış *HANABackupCustomerDetails.txt* DR sitedeki HANA büyük örneği birimdeki dosya. 
-
-Test etmek için birden çok SAP HANA örnekleri olmasını istiyorsanız, birkaç kez betiği çalıştırmak gerekir. İstendiğinde, yük devretme için test etmek istediğiniz örnek SAP HANA SID'si yazın. Tamamlandıktan sonra betiği, bağlama noktaları HANA büyük örneği birimi eklenen birimlerin bir listesini gösterir. Bu liste, kopyalanan DR birimleri de içerir.
-
-4. adıma geçin.
-
-   >[!NOTE]
-   >Saat önce silindi ve daha önceki bir anlık görüntüye ayarlanması için DR birimlere gerekli bazı veriler kurtarması için kurtarma sitesine devretmek gerekiyorsa, bu yordamı uygular. 
+>[!NOTE]
+>Daha önceki bir anlık görüntüye ayarlamak için DR birimleri saat önce silinmiş olan bazı veriler kurtarması ve DR sitesine yük devretme gerekiyorsa, bu yordamı uygular. 
 
 1. Kullanmakta olduğunuz HANA büyük örnekleri olağanüstü durum kurtarma birimi HANA üretim dışı örneğini kapatın. Önceden yüklenmiş bir etkinliği olmayan HANA üretim örneği olduğundan budur.
 1. SAP HANA işlem çalışır durumda olduğundan emin olun. Bu denetim için aşağıdaki komutu kullanın: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. Çıktı göstermesi gerekir **hdbdaemon** işlem durdurulmuş bir duruma ve bir çalışan veya başlatılan durumda diğer HANA işlem yok.
@@ -121,34 +107,8 @@ Bu adımlar dizisi.
 
 ## <a name="monitor-disaster-recovery-replication"></a>Olağanüstü durum kurtarma çoğaltmayı izleme
 
-Betik yürüterek, depolama çoğaltma ilerleme durumunu izleyebilirsiniz `azure_hana_replication_status.pl`. Bu betik, beklendiği gibi olağanüstü durum kurtarma konumunuz çalışan bir birimden çalıştırmanız gerekir. Betik, çoğaltma etkin olup bağımsız olarak çalışır. Betik, her bir HANA büyük örneği birimine kiracınızın olağanüstü durum kurtarma konumunuz olarak çalıştırılabilir. Önyükleme birimi hakkındaki ayrıntıları almak için kullanılamaz.
+Betik yürüterek, depolama çoğaltma ilerleme durumunu izleyebilirsiniz `azure_hana_replication_status`. Bu komut, beklendiği gibi olağanüstü durum kurtarma konumunuz çalışan bir birimden çalıştırmanız gerekir. Komutu, çoğaltma etkin olup bağımsız olarak çalışır. Komutu her HANA büyük örneği birimine kiracınızın olağanüstü durum kurtarma konumunuz olarak çalıştırabilirsiniz. Önyükleme birimi hakkındaki ayrıntıları almak için kullanılamaz. Komut ve çıktısını ayrıntılarını okumak **'DR çoğaltma durumu - azure_hana_replication_status'Get '** belgenin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Bu komutun komut dosyasını çağırın:
-```
-./azure_hana_replication_status.pl
-```
 
-Çıkış, aşağıdaki bölümlerde birime aşağı ayrılır:  
-
-- Bağlantı durumu
-- Geçerli çoğaltma etkinliği
-- Çoğaltılan en son anlık görüntü 
-- En son anlık görüntünün boyutu
-- Anlık görüntü arasındaki geçerli bekleme süresi (son tamamlanan anlık görüntü çoğaltma arasında ve şimdi)
-
-Bağlantı durumu olarak gösterir **etkin** konumları arasındaki bağlantı çalışmıyor veya şu anda devam eden yük devretme olay sürece. Çoğaltma etkinlik verileri şu anda çoğaltılmakta olan veya boşta olup olmadığını ya da diğer etkinlikleri şu anda bağlantısını oluşmasını yöneliktir. Çoğaltılan son anlık görüntünün yalnızca olarak görünmesi gereken `snapmirror…`. Son anlık görüntünün boyutu görüntülenir. Son olarak, gecikme süresi gösterilir. Çoğaltma tamamlandığında zamanlanmış çoğaltma arasında zaman gecikme süresini temsil eder. Çoğaltma başlatıldı olsa bile bir gecikme süresi, ilk çoğaltma, özellikle de veri çoğaltma bir saatten daha büyük olabilir. Bekleme süresi, devam eden çoğaltma tamamlanana kadar artmaya devam eder.
-
-Çıktının bir örneği verilmiştir:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**Sonraki adımlar**
-- Başvuru [izleme ve sorun giderme HANA taraftan](hana-monitor-troubleshoot.md).
+## <a name="next-steps"></a>Sonraki adımlar
+- Başvurmak [izleme ve sorun giderme HANA taraftan](hana-monitor-troubleshoot.md).

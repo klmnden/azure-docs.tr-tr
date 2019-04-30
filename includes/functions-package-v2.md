@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+origin.date: 09/04/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 4d03894ebc43cc4e76b73bd30eb6ef68bf6a71e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61343008"
 ---
 Aşağıdaki tabloda, bu bağlama için destek her geliştirme ortamında nasıl ekleyeceğiniz anlatılmaktadır.
 
@@ -25,3 +26,4 @@ Aşağıdaki tabloda, bu bağlama için destek her geliştirme ortamında nasıl
 |Portal geliştirme| Çıkış bağlaması eklerken yükleyin    |
 
 İşlev uygulaması projenizi yeniden yayımlamak zorunda kalmadan portalında uzantılarının bağlama var olan güncelleştirme hakkında bilgi edinmek için bkz: [uzantılarınızı güncelleştirmek](../articles/azure-functions/install-update-binding-extensions-manual.md).
+

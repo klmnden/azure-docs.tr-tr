@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336805"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760593"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -42,11 +42,11 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>başlangıç</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak [desteklenen diller](./v3-0-languages.md) kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak <a href="./v3-0-languages.md">desteklenen diller</a> kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
   </tr>
   <tr>
     <td>-</td>
-    <td><em>Gerekli parametre</em>.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](./v3-0-languages.md) dahil <code>translation</code> kapsam. Örneğin, <code>to=de</code> Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, <code>to=de&to=it</code> Almanca ve İtalyanca çevrilemedi.</td>
+    <td><em>Gerekli parametre</em>.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır <a href="./v3-0-languages.md">desteklenen diller</a> dahil <code>translation</code> kapsam. Örneğin, <code>to=de</code> Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, <code>to=de&to=it</code> Almanca ve İtalyanca çevrilemedi.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan [özel Translator](../customization.md). Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: <code>general</code>.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan <a href="../customization.md">özel Translator</a>. Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Profanities çevirileri nasıl değerlendirilmesi gerektiğini belirtir. Olası değerler şunlardır: <code>NoAction</code> (varsayılan), <code>Marked</code> veya <code>Deleted</code>. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Profanities çevirileri nasıl değerlendirilmesi gerektiğini belirtir. Olası değerler şunlardır: <code>NoAction</code> (varsayılan), <code>Marked</code> veya <code>Deleted</code>. Küfür değerlendirilecek şekilde anlamak için bkz: <a href="#handle-profanity">küfür işleme</a>.</td>
   </tr>
   <tr>
     <td>ProfanityMarker</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Çevirileri profanities nasıl işaretlenmelidir belirtir. Olası değerler şunlardır: <code>Asterisk</code> (varsayılan) veya <code>Tag</code>. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çevirileri profanities nasıl işaretlenmelidir belirtir. Olası değerler şunlardır: <code>Asterisk</code> (varsayılan) veya <code>Tag</code>. Küfür değerlendirilecek şekilde anlamak için bkz: <a href="#handle-profanity">küfür işleme</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

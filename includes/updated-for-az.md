@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188348"
+ms.locfileid: "62093512"
 ---
 > [!NOTE]
 > Bu makalede, yeni Azure PowerShell Az modülü kullanmak için güncelleştirildi. Hata düzeltmeleri en az kadar uygulanmaya devam edilecektir AzureRM modülünü kullanmaya devam edebilirsiniz aralık 2020.
