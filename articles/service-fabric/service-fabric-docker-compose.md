@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 01/07/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
@@ -167,5 +167,4 @@ Bu model, üst düzeyde esneklik sunar ancak biz de burada türleri bildirim dos
 * Üzerinde okuma [Service Fabric uygulama modeli](service-fabric-application-model.md)
 * [Service Fabric CLI kullanmaya başlama](service-fabric-cli.md)
 
-<!-- Update_Description: new articles on service fabric docker compose -->
-<!--ms.date: 01/14/2019 -->
+<!-- Update_Description: wording update -->
