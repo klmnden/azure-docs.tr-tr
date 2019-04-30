@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322310"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766849"
 ---
 # <a name="live-event-latency-in-media-services"></a>Media Services canlı olay gecikme süresi
 
@@ -27,7 +27,7 @@ Bu makalede, düşük gecikme süresi ayarlamak gösterilmektedir bir [canlı ol
 Yeni **LowLatency** özelliği, ayarladığınız **StreamOptionsFlag** için **LowLatency** üzerinde **Livestream**. Oluştururken [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS kayıttan yürütme için ayarlanmış [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) 1. Akış, çalışır duruma geldikten sonra kullanabileceğiniz [Azure Media Player](https://ampdemo.azureedge.net/) (AMP tanıtım sayfası) ve "Düşük gecikme süresi buluşsal yöntemler profili" kullanmak için kayıttan yürütme seçeneklerini ayarlayın.
 
 > [!NOTE]
-> Şu anda, Azure Media Player LowLatency HeuristicProfile Akış Protokolü DASH veya HLS CMAF ile kayıttan yürütme için tasarlanmıştır. HLS TS ile MacOS ya da iOS aygıtına hedeflediğiniz durumlarda (örneğin, `format=m3u8-aapl` veya `format=m3u8-aapl-v3`), AMP, doğrudan bu durumda, işletim sistemi tarafından sağlanan yerel Yürütücü kullandığı için bu ayarı kullanmamanız gerekir.
+> Şu anda, Azure Media Player LowLatency HeuristicProfile akış CSF ya da CMAF biçimiyle MPEG-DASH Protokolü şeklinde kayıttan yürütme için tasarlanmıştır (örneğin, `format=mdp-time-csf` veya `format=mdp-time-cmaf`). 
 
 Aşağıdaki .NET örnek nasıl ayarlanacağını gösterir **LowLatency** üzerinde **Livestream**:
 

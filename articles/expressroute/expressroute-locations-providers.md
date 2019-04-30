@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2019
 ms.author: pareshmu
-ms.openlocfilehash: 9dfa0c620162ba2f0f1bfa8897dc2f34a226ed93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95b06800b29d021290776025f9693eec8a43e74a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364048"
+ms.locfileid: "62129477"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -96,12 +96,12 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **London2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marsilya** |Interxion | Interxion |
-| **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |
+| **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG telekomünikasyon |
 | **Miami** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
-| **Mumbai** | Tata Communications | Global CloudXchange (GCX), Sify, Tata Communications, Vodafone Idea |
+| **Mumbai** | Tata Communications | Genel CloudXchange (GCX), olmasının Jio, Sify, Tata iletişimleri, |
 | **Mumbai2** | Airtel | Airtel, Sify, Vodafone Idea |
-| **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Zayo |
+| **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport(Galler)** | Next Generation Data | İngiliz Telekom, 3. düzey iletişimleri, yeni nesil veriler |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo |
@@ -111,11 +111,11 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Sao Paulo** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
 | **Seul** | KINX | KINX, LG CNS, Sejong Telecom |
-| **Silikon Vadisi** | Equinix | Aryaka ağlar, AT & T NetBond, İngiliz Telekom CenturyLink buluta bağlayın, Comcast, Coresite, Equinix InterCloud, PacketFabric, 3. düzey iletişimleri, Megaport, Orange, Sprint, Tata iletişimleri, Verizon, Zayo IX ulaşın |
+| **Silikon Vadisi** | Equinix | Aryaka ağlar, AT & T NetBond, İngiliz Telekom CenturyLink buluta bağlayın, Comcast, Coresite, Equinix InterCloud, paket, PacketFabric, 3. düzey iletişimleri, Megaport, Orange, Sprint, Tata iletişimleri, Verizon, Zayo IX ulaşın |
 | **Silikon Valley2** | Coresite | Coresite | 
 | **Singapur** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapur2** | Global Switch | Colt, Epsilon Megaport, genel iletişim SingTel |
-| **Sidney** | Equinix | AARNet, AT&T NetBond, British Telecom, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, Verizon |
+| **Sidney** | Equinix | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
 | **Taipei** | Baş telekomünikasyon | Baş telekomünikasyon |
 | **Tokyo** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
