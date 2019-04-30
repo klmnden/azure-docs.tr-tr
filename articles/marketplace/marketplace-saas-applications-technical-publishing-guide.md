@@ -2,15 +2,8 @@
 title: Azure Market SaaS uygulamaları teknik yayımlama Kılavuzu
 description: Adım adım kılavuz ve SaaS uygulamaları için Azure Marketi yayımlama yayımlama denetim listeleri
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
