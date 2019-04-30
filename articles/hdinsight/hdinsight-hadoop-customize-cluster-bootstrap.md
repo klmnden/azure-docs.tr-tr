@@ -37,7 +37,7 @@ HDInsight kümenizi oluşturulurken yapılandırma dosyası ayarlarının ayarla
 * Hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie-env.xml
+* oozie env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306147"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure ön kapısı hizmetiyle önbelleğe alma
 Belgesinde, ön kapısı önbelleğe almanın etkin yönlendirme kurallarıyla davranışını belirtir.

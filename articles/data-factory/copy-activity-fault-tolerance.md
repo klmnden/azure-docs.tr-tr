@@ -76,7 +76,7 @@ Aşağıdaki örnek, kopyalama etkinliğinde uyumsuz satırları yapılandırmak
 Enableskipıncompatiblerow | Veya kopyalama sırasında uyumsuz satırların atlanmayacağını belirtir. | True<br/>False (varsayılan) | Hayır
 Redirectıncompatiblerowsettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtildi. | &nbsp; | Hayır
 linkedServiceName | Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties) veya [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) Atlanan satır içeren günlüğü depolamak için. | Adı bir `AzureStorage` veya `AzureDataLakeStore` günlük dosyasını depolamak için kullanmak istediğiniz örneğine başvurur bağlantılı hizmet türü. | Hayır
-yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verilerini günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır
+path | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verilerini günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır
 
 ## <a name="monitor-skipped-rows"></a>Atlanan satır izleyin
 Kopyalama etkinliği çalıştırmasının tamamlandıktan sonra kopyalama etkinliği çıkışında Atlanan satır sayısını görebilirsiniz:
