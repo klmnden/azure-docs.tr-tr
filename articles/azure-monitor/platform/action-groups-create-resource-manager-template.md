@@ -9,11 +9,11 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 638dd8efba5e86bb7e8abb78a41196bfac9524df
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709975"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Resource Manager şablonu ile bir eylem grubu oluştur
 Bu makalede nasıl kullanılacağını gösterir bir [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) Eylem grupları yapılandırmak için. Şablonları kullanarak, otomatik olarak belirli uyarı türleri yeniden kullanılabilir Eylem grupları ayarlayabilirsiniz. Bu eylem grupları doğru bütün tarafların bir uyarı tetiklendiğinde bildirim aldığından emin olun.

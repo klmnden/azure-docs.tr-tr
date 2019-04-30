@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494848"
+ms.locfileid: "62101617"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Azure İzleyici kapsayıcılar için ölçümleri etkinleştirmek üzere güncelleştirme
 Kapsayıcılar için Azure İzleyici, Azure Kubernetes Hizmetleri (AKS) küme düğümleri ve pod'ların ölçümleri toplamaya ve bunları Azure İzleyici ölçümleri deposuna yazma desteği kullanıma sunulmuştur. Bu değişiklik, toplama hesaplamalarda (ortalama, sayısı, Max, Min, toplam) performans grafiklerini, Azure portal panolarda performans grafiklerini sabitleme desteği sunarken Gelişmiş dakikliğini sunun ve ölçüm uyarıları desteklemek için tasarlanmıştır.
@@ -35,7 +35,7 @@ Bu yeni özellikleri desteklemek için küme güncelleştirme Azure portalı, Az
 Ya da işlem atar **izleme ölçümleri yayımcı** rol kümenin hizmet sorumlusuna aracısı tarafından toplanan veriler, böylece yayımlanabilir kümeleri kaynağınıza. Ölçümleri yayımcı izleme iznini yalnızca anında iletme ölçümleri kaynağa sahip, bunu herhangi bir durumu değiştirilemiyor, kaynağı güncelleştirmek veya herhangi bir veri okuma. Rolü hakkında daha fazla bilgi için bkz: [izleme ölçümleri yayımcı rolü](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Önkoşullar 
-Başlamadan önce bir üyesi olduğundan emin olun **[sahibi](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** düğüm toplanmasını etkinleştirmek ve özel performans ölçümlerini pod AKS kümesi Kaynak rolü. 
+Başlamadan önce bir üyesi olduğundan emin olun **[sahibi](../../role-based-access-control/built-in-roles.md#owner)** düğüm toplanmasını etkinleştirmek ve özel performans ölçümlerini pod AKS kümesi Kaynak rolü. 
 
 Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.59 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

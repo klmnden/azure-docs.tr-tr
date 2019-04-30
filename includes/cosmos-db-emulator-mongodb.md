@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
 ms.openlocfilehash: 72c6cfc2907c89c01fa7832b651705f10a5dd22e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890877"
 ---
 Alternatif olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan [Azure Cosmos DB’yi ücretsiz olarak deneyebilirsiniz](https://azure.microsoft.com/try/cosmosdb/). Ya da bu öğretici için [Azure Cosmos DB Öykünücüsü](https://docs.microsoft.com/azure/cosmos-db/local-emulator)’nü şu bağlantı dizesiyle kullanabilirsiniz:   
 

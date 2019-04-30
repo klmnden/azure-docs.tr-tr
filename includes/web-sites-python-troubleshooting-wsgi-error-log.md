@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 5169432af65a046465c9d1ced349687d6fdc8bb7
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35394035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61270210"
 ---
 Python uygulamanız başlatılırken bir hatayla karşılaştığında, yalnızca basit bir hata sayfası (örn. döndürülür "Bir iç sunucu hatası oluştuğundan sayfası görüntülenemiyor.").
 

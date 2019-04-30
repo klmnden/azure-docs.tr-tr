@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp dosyalarını ayarlayın ve bir birim oluşturun | Microsoft Docs
+title: Azure NetApp dosyalarını ve bir NFS birimi oluşturma | Microsoft Docs
 description: Hızlı bir şekilde Azure NetApp dosyalarını ayarlayın ve birim oluşturma işlemini açıklamaktadır.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454489"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759835"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files’ı ayarlama ve birim oluşturma 
+# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Azure NetApp dosyalarını ve bir NFS birimini oluşturma 
 
 Bu makalede Azure NetApp dosyaları hızlı bir şekilde ve birim oluşturma gösterilmektedir. 
 
@@ -88,7 +88,7 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
 5. **Tamam** düğmesine tıklayın.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure için NetApp dosyaları bir NFS birimini oluşturma
 
 1. Azure NetApp dosyaları yönetim dikey NetApp hesabınızın **birimleri**.
 
@@ -100,7 +100,6 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
 3. Oluşturma bir birim penceresi, birim için bilgileri sağlayın: 
    1. Girin **myvol1** birim adı. 
-   2. Girin **myfilepath1** birimi için dışarı aktarma yolu oluşturmak için kullanılan dosya yolu.
    3. Kapasite havuzunuzu seçin (**mypool1**).
    4. Kota için varsayılan değeri kullanın. 
    5. Sanal ağı altında **Yeni Oluştur** yeni bir Azure sanal ağı (Vnet) oluşturmak için.  Ardından aşağıdaki bilgileri doldurun:
@@ -116,7 +115,13 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
       ![Sanal ağ penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. **Gözden geçir ve oluştur**’a tıklayın.
+4. Tıklayın **Protokolü**, ardından **NFS** protokol türü için toplu olarak.   
+
+    Girin **myfilepath1** birimi için dışarı aktarma yolu oluşturmak için kullanılan dosya yolu. 
+
+    ![Hızlı Başlangıç için NFS Protokolü belirtin](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. **Gözden geçir ve oluştur**’a tıklayın.
 
     ![Gözden geçirin ve penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 

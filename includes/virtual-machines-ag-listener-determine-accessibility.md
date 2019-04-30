@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097719"
 ---
 Azure'da bir kullanılabilirlik grubu dinleyicisi yapılandırmanın iki yolu olduğunu bilmeniz önemlidir. Yolu, dinleyici oluştururken kullandığınız Azure load balancer'ın türleri farklı. Aşağıdaki tabloda farklar açıklanmaktadır:
 
@@ -25,3 +26,4 @@ Azure'da bir kullanılabilirlik grubu dinleyicisi yapılandırmanın iki yolu ol
 
 Bir ILB yalnızca sanal ağların bölgesel bir kapsamla yapılandırılabilir. Bir benzeşim grubu için yapılandırılmış mevcut sanal ağlarınızı, ILB kullanamazsınız. Daha fazla bilgi için [iç yük dengeleyiciye genel bakış](../articles/load-balancer/load-balancer-internal-overview.md).
 
+<!-- Update_Description: update meta properties -->

@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097702"
 ---
 Bu adımda, yük dengeli uç nokta (daha önce belirtildiği gibi 59999) araştırma bağlantı noktasını açmak için bir güvenlik duvarı kuralı oluşturun ve kullanılabilirlik grubu dinleyicisinin bağlantı noktası açmak için başka bir kural. Kullanılabilirlik grubu çoğaltmalarının içeren sanal makinelere yük dengeli uç nokta oluşturduğundan, yoklama bağlantı noktası ve ilgili vm'lerde dinleyici bağlantı noktasını açmanız gerekir.
 
@@ -29,3 +30,4 @@ Bu adımda, yük dengeli uç nokta (daha önce belirtildiği gibi 59999) araşt�
 
 8. Kullanılabilirlik grubu dinleyicisinin bağlantı noktası (daha önce betiğin $EndpointPort parametresinde belirtildiği şekilde) için önceki adımları yineleyin ve ardından bir uygun kural adı gibi belirtin **her zaman dinleyicisi bağlantı noktası**.
 
+<!-- Update_Description: update meta properties -->

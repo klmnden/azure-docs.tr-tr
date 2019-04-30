@@ -5,15 +5,16 @@ services: functions
 author: nzthiago
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2018
-ms.author: nzthiago
+origin.date: 02/21/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036307"
 ---
 ## <a name="timeout"></a>İşlev uygulaması zaman aşımı süresi 
 
@@ -28,3 +29,4 @@ Bir işlev uygulaması zaman aşımı süresini functionTimeout özelliği taraf
 
 > [!NOTE] 
 > İşlev uygulaması zaman aşımı ayarı bağımsız olarak 230 saniyedir HTTP ile tetiklenen bir işlev bir isteğe cevap vermesi alabileceği en uzun süreyi. Bu nedenle, [boşta kalma zaman aşımı Azure Load Balancer'ın varsayılan](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Daha uzun işleme sürelerine kullanmayı [dayanıklı işlevler zaman uyumsuz desen](../articles/azure-functions/durable/durable-functions-concepts.md#async-http) veya [asıl işi ertele ve anlık bir yanıt döndürür](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).
+

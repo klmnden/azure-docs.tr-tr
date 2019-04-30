@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 2f3a8237fff052779afee718837e2b72fc33d9a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/23/2019
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532159"
+ms.locfileid: "62097768"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
@@ -25,6 +25,10 @@ Bilinen sorunlar ve sınırlamalar online geçişleri PostgreSQL için Azure ver
 ## <a name="online-migration-configuration"></a>Çevrimiçi geçişi yapılandırma
 - PostgreSQL sunucusu kaynağı 9.5.11, 9.6.7 veya 10.3 sürümü çalıştırması gerekir veya üzeri. Daha fazla bilgi için bkz [desteklenen PostgreSQL veritabanı sürümlere](../postgresql/concepts-supported-versions.md).
 - Yalnızca aynı sürüm geçişler desteklenir. Örneğin, 9.6.7 PostgreSQL için Azure veritabanı geçişi PostgreSQL 9.5.11 desteklenmiyor.
+
+    > [!NOTE]
+    > PostgreSQL için sürüm 10, şu anda DMS yalnızca PostgreSQL için Azure veritabanı 10.3 sürümüne geçişini destekler. Daha yeni sürümlerini PostgreSQL desteği, çok yakında planlıyorsanız.
+
 - İçinde mantıksal çoğaltmayı etkinleştirmek için **PostgreSQL postgresql.conf kaynak** dosya için şu parametreleri ayarlayın:
     - **wal_level** mantıksal =
     - **max_replication_slots** = [veritabanı geçiş için en fazla sayısı]; 4 veritabanının geçirmek istiyorsanız, değer 4'e ayarlayın.

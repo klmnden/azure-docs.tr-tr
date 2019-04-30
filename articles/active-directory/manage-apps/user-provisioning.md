@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291212"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759794"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -143,7 +143,7 @@ Sağlama hizmeti başlatıldığında, ilk eşitleme çalıştırmak hiç olmad�
 6. Öznitelik eşlemeleri "başvuru" özniteliği içermiyorsa, hizmet oluşturmak ve başvurulan nesneler bağlamak için hedef sistemde ek güncelleştirmeler yapar. Örneğin, bir kullanıcı bir "Yönetici" özniteliği başka bir kullanıcı hedef sistemde oluşturulan bağlı hedef sistem olabilir.
 7. Başlangıç noktası için sonraki artımlı eşitlemeler sağlayan ilk eşitleme sonunda Filigran kalıcı hale getirin.
 
-Yalnızca kullanıcılar sağlama, ancak grupları ve bunların üyeleri de sağlama ServiceNow, Google Apps ve kutusunu desteği gibi bazı uygulamalar. İçinde grup sağlama etkinse, bu durumlarda [eşlemeleri](customize-application-attributes.md), sağlama hizmeti kullanıcıları ve grupları eşitler ve daha sonra grubu üyeliğini eşitler. 
+Yalnızca kullanıcılar sağlama, ancak grupları ve bunların üyeleri de sağlama ServiceNow, G Suite ve kutusunu desteği gibi bazı uygulamalar. İçinde grup sağlama etkinse, bu durumlarda [eşlemeleri](customize-application-attributes.md), sağlama hizmeti kullanıcıları ve grupları eşitler ve daha sonra grubu üyeliğini eşitler. 
 
 ### <a name="incremental-syncs"></a>Artımlı eşitlemeler
 
@@ -196,7 +196,7 @@ Sağlama iş bir ilk eşitleme veya bir artımlı eşitleme çalıştıran perfo
 
 İçin **artımlı eşitlemeler**, işi zaman bu eşitleme döngüsü algılandı değişikliklerinin sayısına bağlı olarak değişir. 5. 000'den daha az kullanıcı veya grup üyeliği değişiklikleri varsa, bir tek Artımlı eşitleme döngüsü içinde iş tamamlayabilir. 
 
-Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda özetlenmiştir. Bu senaryolarda, Azure AD kaynaklı sistemidir ve hedef sistemde bir SaaS uygulamasıdır. Eşitleme sürelerini ServiceNow, çalışma alanı, Salesforce ve Google Apps, SaaS uygulamaları için eşitleme işlerinin istatistiksel çözümleme türetilmiştir.
+Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda özetlenmiştir. Bu senaryolarda, Azure AD kaynaklı sistemidir ve hedef sistemde bir SaaS uygulamasıdır. Eşitleme sürelerini ServiceNow, çalışma alanı, Salesforce ve G Suite SaaS uygulamaları için eşitleme işlerinin istatistiksel çözümleme türetilmiştir.
 
 
 | Kapsam yapılandırması | Kullanıcılara, gruplara veya kapsamda üyeleri | İlk eşitleme zamanı | Artımlı eşitleme zamanı |

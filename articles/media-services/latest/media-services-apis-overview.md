@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5ae7563892cb4792f5c329b2850d7b88d37c0e7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322372"
+ms.locfileid: "62103923"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -87,6 +87,10 @@ Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 
 Bkz: [filtreleme, sıralama, Azure Media Services varlıklarının sayfalandırma](entities-overview.md)
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
 ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709992"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Klasik dağıtım modeli API'lerini Azure İzleyici emeklilik ölçümleri ve otomatik ölçeklendirme
 

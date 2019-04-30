@@ -2,24 +2,18 @@
 title: Depolama Gezgini ile çalışmaya başlama | Microsoft Docs
 description: Depolama Gezgini ile Azure depolama kaynaklarını yönetme
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459499"
+ms.locfileid: "62128288"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -115,7 +109,9 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 Depolama Gezgini ile bir öykünücüsü kullanarak yerel depolama ile çalışabilirsiniz. Bu yaklaşım, Azure'da dağıtılan bir depolama hesabı olmak zorunda kalmadan Azure Storage ile çalışma benzetimini sağlar.
 
-Yerel depolama öykünücüsünde 1.1.0 sürümü ile başlayarak, tüm platformlarda desteklenir. Depolama Gezgini, kendi varsayılan yerel depolama uç noktaları için dinleme herhangi bir Öykünmüş hizmetine bağlanabilirsiniz.
+Depolama Gezgini 1.1.0 sürümü ile başlayarak, yerel depolama öykünücüsü kullanarak tüm platformlarda destekler. Depolama Gezgini, kendi varsayılan yerel depolama uç noktaları için dinleme herhangi bir Öykünmüş hizmetine bağlanabilirsiniz.
+
+[Azure storage öykünücüsü](storage/common/storage-use-emulator.md) şu anda yalnızca Windows üzerinde çalışır. Bunlar için Linux için bir depolama öykünücüsü dikkate alarak, bir seçenek saklanır, açık kaynak depolama öykünücüsü topluluktur [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Depolama Hizmetleri ve özellikleri için destek, yaygın olarak öykünücü ettiğiniz bağlı olarak değişiklik gösterebilir. Uygulamanızı öykünücü ile çalışmak için istediğinize özellikleri ve Hizmetleri desteklediğinden emin olun.

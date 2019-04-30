@@ -2,14 +2,15 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: wesmc
+origin.date: 11/09/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830293"
 ---
 .NET uygulamaları, önbellek istemcisi uygulamalarının yapılandırmasını basitleştiren bir NuGet paketi kullanarak Visual Studio’da yapılandırılabilecek **StackExchange.Redis** Cache istemcisi kullanabilir. 
 
@@ -20,7 +21,7 @@ ms.locfileid: "53430060"
 
 Visual Studio’da StackExchange.Redis NuGet paketi kullanarak bir istemci uygulamasını yapılandırmak için, **Çözüm Gezgini**’nde sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin. 
 
-![NuGet paketlerini yönetme](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![NuGet paketlerini yönetme](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 Arama metin kutusuna **StackExchange.Redis** ya da **StackExchange.Redis.StrongName** yazın, sonuçlardan istediğiniz sürümü seçin ve **Yükle**’ye tıklayın.
 
@@ -29,7 +30,7 @@ Arama metin kutusuna **StackExchange.Redis** ya da **StackExchange.Redis.StrongN
 >
 >
 
-![StackExchange.Redis NuGet paketi](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![StackExchange.Redis NuGet paketi](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 NuGet paketi indirir ve istemci uygulamanızı Azure Cache Redis StackExchange.Azure önbelleği için Redis istemcisini ile erişmek için gerekli derleme başvurularını ekler.
 
@@ -43,3 +44,5 @@ Ayrıca, **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yönetic
 ```
 Install-Package StackExchange.Redis
 ```
+
+<!-- ms.date: 12/25/2018 -->

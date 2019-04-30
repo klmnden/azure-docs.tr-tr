@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348267"
+ms.locfileid: "62104757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Öğretici: RStudio Connect ile Azure Active Directory Tümleştirmesi
 
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 RStudio bağlantı ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* RStudio Connect çoklu oturum açma abonelik etkin.
+* RStudio bağlanın. Var olan bir [değerlendirme 45 gün ücretsiz.](https://www.rstudio.com/products/connect/)
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -104,22 +104,22 @@ RStudio bağlantı ile Azure AD çoklu oturum açmayı yapılandırmak için aş
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** modunda başlatılan değiştirerek aşağıdaki adımları gerçekleştirin `<example.com>` RStudio sunucunuzla bağlanma Adres ve bağlantı noktası:
 
     ![RStudio bağlanmak etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://connect.<example>.com/__login__/saml`
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<example.com>/__login__/saml`
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://connect.<example>.com/__login__/saml/acs`
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<example.com>/__login__/saml/acs`
 
 5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![RStudio bağlanmak etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://connect.<example>.com/`
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<example.com>/`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [RStudio bağlanmak istemci Destek ekibine](mailto:support@rstudio.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bunlar RStudio Connect sunucusu adresinden belirlenir (`https://example.com` Yukarıdaki örneklerde). İlgili kişi [RStudio bağlanmak Destek ekibine](mailto:support@rstudio.com) sorun varsa. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. RStudio bağlanmak uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. RStudio Connect uygulama bekliyor **NameIdentifier** ile eşleştirilecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
@@ -131,7 +131,36 @@ RStudio bağlantı ile Azure AD çoklu oturum açmayı yapılandırmak için aş
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>RStudio yapılandırma çoklu oturum açma bağlanma
 
-Çoklu oturum açmayı yapılandırma **RStudio bağlanma** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [RStudio bağlanmak Destek ekibine](mailto:support@rstudio.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açma için yapılandırma **RStudio bağlanmak**, kullanmanız gereken **uygulama Federasyon meta verileri URL'sini** ve **sunucu adresi** yukarıda kullanılan. RStudio bağlama yapılandırma dosyasında yer alan yapıldığını `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+Bu örnek bir yapılandırma dosyası.
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Store, **sunucu adresi** içinde `Server.Address` değeri ve **uygulama Federasyon meta verileri URL'sini** içinde `SAML.IdPMetaData` değeri.
+
+Edinebilirsiniz yapılandırma ile ilgili sorun varsa, [RStudio bağlanmak yönetici kılavuzundaki](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) veya e-posta [RStudio Destek ekibine](mailto:support@rstudio.com) Yardım.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61025993"
 ---
 ## <a name="export-an-api-definition"></a>Bir API tanımını dışarı aktarma
 Gelen işleviniz için bir Openapı tanımına sahip [bir işlev için Openapı tanımı oluşturma](../articles/azure-functions/functions-openapi-definition.md). Bu işlem bir sonraki adım, PowerApps ve Microsoft Flow özel bir API kullanabilirsiniz, böylece API tanımını dışa aktarma sağlamaktır.

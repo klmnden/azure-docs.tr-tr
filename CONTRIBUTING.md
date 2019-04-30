@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: a1a57cbcd9284489e00bf36b25baf7e04fbea9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55adc512447160b409af0002a72ec2473409d796
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306811"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759498"
 ---
 # <a name="contributing-to-microsoft-azure-documentation"></a>Microsoft Azure belgelerine katkıda bulunan
-
-> 5-9 Mart 2019 tarihleri arasında MicrosoftDocs/azure-docs deposunun geçerli Markdown altyapısından [Markdig](https://github.com/lunet-io/markdig) Markdown altyapısına geçişi yapılacak. Geçişi tamamlamak amacıyla bu süre boyunca genel çekme isteklerinin birleştirilmesini askıya alma özelliği kapatılacak.
 
 Microsoft Azure belgelerine katkıda bulunmak üzere zaman ayırdığınız için teşekkür ederiz.
 

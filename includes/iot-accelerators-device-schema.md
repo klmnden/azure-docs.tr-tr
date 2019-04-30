@@ -9,11 +9,11 @@ ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446135"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Cihaz modeli şemasını bölümleri
 
@@ -141,8 +141,8 @@ Aşağıdaki örnek 10 saniyede bir JSON telemetri iletisi gönderen `floor`, `v
 
 * JSON'ı kullanarak seri durumdan çıkarılmış nesne-
 * İkili - base64 kullanarak seri hale getirilmiş
-* Metin
-* Boole
+* Text
+* Boolean
 * Tamsayı
 * Double
 * DateTime

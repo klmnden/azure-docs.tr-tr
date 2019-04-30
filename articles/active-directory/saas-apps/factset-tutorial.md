@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278932"
+ms.locfileid: "62098499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Öğretici: FactSet ile Azure Active Directory Tümleştirme
 
@@ -105,12 +105,12 @@ Azure AD çoklu oturum açma ile FactSet yapılandırmak için aşağıdaki adı
 
     ![FactSet etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://login.factset.com`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [FactSet istemci Destek ekibine](mailto:support@factset.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. Bu değerleri almak için FactSet hesap temsilcinize başvurun. Kim FactSet temsilcinize olduğunu bilmiyorsanız, üzerinde Yardım bulabilirsiniz [FactSet destek numaraları sayfasını](https://www.factset.com/support-numbers). Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -128,7 +128,7 @@ Azure AD çoklu oturum açma ile FactSet yapılandırmak için aşağıdaki adı
 
 ### <a name="configure-factset-single-sign-on"></a>FactSet tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **FactSet** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [FactSet Destek ekibine](mailto:support@factset.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **FactSet** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve Azure Portalı'ndan uygun kopyalanan URL'leri FactSet destek kişiler için başvurun ile. Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -183,7 +183,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için FactSet erişim vererek 
 
 ### <a name="create-factset-test-user"></a>FactSet test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon FactSet içinde adlı bir kullanıcı oluşturun. Çalışmak [FactSet Destek ekibine](mailto:support@factset.com) FactSet platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon FactSet içinde adlı bir kullanıcı oluşturun. FactSet platform kullanıcıları eklemek için FactSet hesabı destek temsilcileri çalışın. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

@@ -15,186 +15,185 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 55d8ec8f0f767aef27266aa8ea9ddcc40b7da6ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339041"
+ms.locfileid: "62736302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Öğretici: TigerText güvenli Messenger ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile TigerText güvenli Messenger tümleştirme konusunda bilgi edinin.
+
 Azure AD ile TigerText güvenli Messenger tümleştirme ile aşağıdaki avantajları sağlar:
 
 * TigerText Messenger güvenli erişimi, Azure AD'de kontrol edebilirsiniz.
-* Azure AD hesaplarına otomatik olarak TigerText güvenli Messenger (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Kullanıcılarınızın TigerText güvenli Messenger (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmanız etkinleştirebilirsiniz.
+* Hesaplarınızı tek bir merkezi konumda yönetebilir: Azure portalı.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi TigerText güvenli Messenger ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik TigerText Messenger güvenli çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+* Çoklu oturum etkin açma TigerText güvenli Messenger abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin ve TigerText güvenli Messenger Azure AD ile tümleştirme yapılandırın.
 
-* TigerText güvenli Messenger destekler **SP** tarafından başlatılan
+TigerText güvenli Messenger SP tarafından başlatılan çoklu oturum açma (SSO) destekler.
 
-## <a name="adding-tigertext-secure-messenger-from-the-gallery"></a>Galeriden TigerText güvenli Messenger ekleme
+## <a name="add-tigertext-secure-messenger-from-the-azure-marketplace"></a>Azure Market'ten TigerText güvenli Messenger Ekle
 
-Azure AD'de TigerText güvenli Messenger'ın tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden TigerText güvenli Messenger eklemeniz gerekir.
+Azure AD'de TigerText güvenli Messenger'ın tümleştirmesini yapılandırmak için Azure Marketi'nden yönetilen SaaS uygulamaları listenize TigerText güvenli Messenger eklemeniz gerekir:
 
-**Galeriden TigerText güvenli Messenger eklemek için aşağıdaki adımları gerçekleştirin:**
+1. [Azure Portal](https://portal.azure.com?azure-portal=true) oturum açın.
+1. Sol bölmede **Azure Active Directory**’yi seçin.
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+    ![Azure Active Directory seçeneği](common/select-azuread.png)
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
+1. Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+1. Yeni bir uygulama eklemek için seçin **+ yeni uygulama** bölmenin üstünde.
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Yeni uygulama seçeneği](common/add-new-app.png)
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+1. Arama kutusuna **TigerText güvenli Messenger**. Arama sonuçlarında seçin **TigerText güvenli Messenger**ve ardından **Ekle** uygulama eklemek için.
 
-4. Arama kutusuna **TigerText güvenli Messenger**seçin **TigerText güvenli Messenger** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
-
-     ![Sonuç listesinde TigerText güvenli Messenger](common/search-new-app.png)
+    ![Sonuç listesinde TigerText güvenli Messenger](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TigerText güvenli Messenger adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı TigerText güvenli Messenger arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TigerText güvenli Messenger adlı bir test kullanıcı tabanlı test **Britta Simon**. Tek iş için oturum açma için güvenli TigerText Messenger'ın bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma TigerText güvenli Messenger ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[TigerText güvenli Messenger çoklu oturum açmayı yapılandırma](#configure-tigertext-secure-messenger-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[TigerText güvenli Messenger test kullanıcısı oluşturma](#create-tigertext-secure-messenger-test-user)**  - TigerText güvenli Messenger kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
+1. **[TigerText Messenger güvenli çoklu oturum açmayı yapılandırma](#configure-tigertext-secure-messenger-single-sign-on)**  üzerinde uygulama tarafından çoklu oturum açma ayarları yapılandırmak için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. **[TigerText güvenli Messenger test kullanıcısı oluşturma](#create-a-tigertext-secure-messenger-test-user)**  kullanıcı yani kullanan Azure AD kullanıcı için bağlantılı adlandırılmış Britta Simon TigerText güvenli Messenger adlı Britta Simon.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma TigerText güvenli Messenger ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma TigerText güvenli Messenger ile yapılandırmak için aşağıdaki adımları uygulayın:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **TigerText güvenli Messenger** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
+    ![Çoklu oturum açma seçeneği yapılandırın](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** bölmesinde seçin **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
     ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** bölmesinde **Düzenle** (açmak için kalem simgesi) **temel SAML yapılandırma** bölmesi.
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **temel SAML yapılandırma** bölmesinde, aşağıdaki adımları uygulayın:
 
-    ![TigerText güvenli Messenger etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![Oturum açma bilgileri tek bir güvenli TigerText Messenger etki alanı ve URL'ler](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://home.tigertext.com`
+    1. İçinde **oturum açma URL'si** kutusunda, bir URL girin:
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
+       `https://home.tigertext.com`
+
+    1. İçinde **tanımlayıcı (varlık kimliği)** kutusuna şu biçimi kullanarak bir URL yazın:
+
+       `https://saml-lb.tigertext.me/v1/organization/<instance ID>`
 
     > [!NOTE]
-    > Tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [TigerText güvenli Messenger istemci Destek ekibine](mailto:prosupport@tigertext.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > **Tanımlayıcı (varlık kimliği)** gerçek değeri değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. Değer almak için iletişime geçin [TigerText güvenli Messenger Destek ekibine](mailto:prosupport@tigertext.com). Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölmesinde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesinde, **SAML imzalama sertifikası** bölümünden **indirme** indirmek için **Federasyon meta veri XML**  seçeneklerle ve bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](common/metadataxml.png)
+    ![Federasyon meta verileri XML yükleme seçeneği](common/metadataxml.png)
 
-6. Üzerinde **TigerText güvenli Messenger kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. İçinde **TigerText güvenli Messenger kümesi** bölümünde, URL veya gereken URL'leri kopyalayın:
+
+   * **Oturum açma URL'si**
+   * **Azure AD tanımlayıcısı**
+   * **Oturum kapatma URL'si**
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+### <a name="configure-tigertext-secure-messenger-single-sign-on"></a>TigerText Messenger güvenli çoklu oturum açmayı yapılandırın
 
-    b. Azure AD Tanımlayıcısı
+Çoklu oturum açma TigerText güvenli Messenger tarafında yapılandırmak için indirilen Federasyon meta verileri XML göndermek gereken ve Azure portalında URL'leri uygun kopyalanmış [TigerText güvenli Messenger Destek ekibine](mailto:prosupport@tigertext.com). TigerText güvenli Messenger takım SAML SSO bağlantının her iki kenarı da düzgün ayarlandığından emin olun.
 
-    c. Oturum Kapatma URL'si
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="configure-tigertext-secure-messenger-single-sign-on"></a>TigerText güvenli Messenger çoklu oturum açmayı yapılandırın
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
 
-Çoklu oturum açmayı yapılandırma **TigerText güvenli Messenger** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [TigerText Messenger Destek ekibine güvenli](mailto:prosupport@tigertext.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**   > **kullanıcılar** > **tüm kullanıcılar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+    ![Kullanıcılar ve "Tüm kullanıcılar" seçenekleri](common/users.png)
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+1. Ekranın üst kısmında seçin **+ yeni kullanıcı**.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+    ![Yeni kullanıcı seçeneği](common/new-user.png)
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+1. İçinde **kullanıcı** bölmesinde, aşağıdaki adımları uygulayın:
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+    ![Kullanıcı bölmesi](common/user-properties.png)
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
-
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
-
-    ![Kullanıcı iletişim kutusu](common/user-properties.png)
-
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
+    1. İçinde **kullanıcı adı** kutusuna **BrittaSimon\@\<yourcompanydomain >.\< Uzantı >**. Örneğin, **BrittaSimon\@contoso.com**.
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma TigerText Messenger güvenli erişim vererek kullanmak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **TigerText güvenli Messenger**.
+1. Azure portalında **kurumsal uygulamalar** > **tüm uygulamaları** > **TigerText güvenli Messenger**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **TigerText güvenli Messenger**.
+1. Uygulamalar listesinde **TigerText güvenli Messenger**.
 
-    ![Uygulamalar listesinde TigerText Messenger güvenli bağlantı](common/all-applications.png)
+    ![Uygulamalar listesinde TigerText güvenli Messenger](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Sol bölmede altında **Yönet**seçin **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    !["Kullanıcılar ve Gruplar" seçeneği](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+1. Seçin **+ Ekle kullanıcı**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** bölmesi.
 
     ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **kullanıcılar ve gruplar** bölmesinde **Britta Simon** içinde **kullanıcılar** listeleyin ve ardından **seçin** bölmesinin alt kısmındaki.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+1. SAML onaylaması rol değerinde ardından içinde beklediğiniz varsa **rolü Seç** bölmesinde, listeden bir kullanıcı için uygun rolü seçin. Bölmesinin en altında seçin **seçin**.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+1. İçinde **atama Ekle** bölmesinde **atama**.
 
-### <a name="create-tigertext-secure-messenger-test-user"></a>TigerText güvenli Messenger test kullanıcısı oluşturma
+### <a name="create-a-tigertext-secure-messenger-test-user"></a>TigerText güvenli Messenger test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon TigerText güvenli Messenger'da adlı bir kullanıcı oluşturun. Çalışmak [TigerText güvenli Messenger Destek ekibine](mailto:prosupport@tigertext.com) TigerText güvenli Messenger platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon TigerText güvenli Messenger'da adlı bir kullanıcı oluşturun. Çalışmak [TigerText güvenli Messenger Destek ekibine](mailto:prosupport@tigertext.com) Britta Simon TigerText Messenger güvenli bir kullanıcı olarak eklenecek. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, uygulamalarım portalını kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Erişim panelinde TigerText güvenli Messenger kutucuğa tıkladığınızda, otomatik olarak TigerText güvenli SSO'yu ayarlama Messenger'da oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Seçtiğinizde, **TigerText güvenli Messenger** uygulamalarım portalında, otomatik olarak kendisi için ayarladığınız çoklu oturum açmayı TigerText güvenli Messenger aboneliğe oturum. Uygulamalarım portal hakkında daha fazla bilgi için bkz. [erişim ve kullanım uygulamaları uygulamalarım portalında](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [İçin Azure Active Directory ile SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

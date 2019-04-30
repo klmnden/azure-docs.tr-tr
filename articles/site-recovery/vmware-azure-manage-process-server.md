@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318627"
+ms.locfileid: "62732494"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 
@@ -68,6 +68,19 @@ Bu seçenek ile bir işlem sunucusu altında korunan tüm iş yükü farklı bir
 2. Altında işinin ilerleme durumunu izlemek **kurtarma Hizmetleri kasası** > **izleme** > **Site Recovery işleri**.
 3. Bu işlem sonrası başarılı olarak tamamlanmasına yansıtacak şekilde değişir 15 dakika sürer veya [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) etkisini hemen.
 
+## <a name="process-server-selection-guidance"></a>İşlem Sunucusu Seçimi Kılavuzu
+
+İşlem sunucusu kullanım sınırlarını yaklaşıyorsa azure Site Recovery otomatik olarak tanımlar. Sunucu işlemleri, Ölçek genişletme ayarlamak için yönergeler sağlanır.
+
+|Sağlık Durumu  |Açıklama  | Kaynak kullanılabilirliği  | Öneri|
+|---------|---------|---------|---------|
+| Sağlıklı (yeşil)    |   İşlem sunucusu bağlı ve iyi durumda      |CPU ve bellek kullanımı % 80 aşağısına dışında; Boş alan kullanılabilirlik % 30'luk kümesidir.| Bu işlem sunucusu, ek sunucular korumak için kullanılabilir. Yeni iş yükü içinde olduğundan emin olun [işlem sunucusu sınırları tanımlanmış](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Uyarı (turuncu)    |   İşlem sunucusu bağlı, ancak belirli kaynaklar hakkında en üst düzeye ulaşmak üzeresiniz  |   CPU ve bellek kullanımı % 80-95 arasında %:; % 25-30 arasındaki % boş alan kullanılabilirlik kümesidir       | İşlem sunucusu kullanımını yakın eşik değerleri var. Yeni sunucular için aynı işlem sunucusu ekleme için eşik değerleri geçmeden olmasına neden olur ve var olan korumalı öğelerin etkileyebilir. Sürümüne güncelleştirmeleri önerilir [bir genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#before-you-start) yeni çoğaltmalar için.
+|Uyarı (turuncu)   |   İşlem sunucusu bağlı, ancak veri son 30 dakika içinde Azure'a karşıya değildi  |   Eşik sınırları içinde kaynak kullanımı:       | Sorun giderme [verileri karşıya yükleme hataları](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) yeni iş yüklerini eklemeden önce **veya** [bir genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#before-you-start) yeni çoğaltmalar için.
+|Kritik (kırmızı)    |     İşlem sunucusu bağlantısı kesildi  |  Eşik sınırları içinde kaynak kullanımı:      | Sorun giderme [işlem sunucusu bağlantı sorunları](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) veya [bir genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#before-you-start) yeni çoğaltmalar için.
+|Kritik (kırmızı)    |     Kaynak kullanımı sınırlarını eşiği geçtiği |  CPU ve bellek kullanımı, %95:; % 25'ten az boş alan kullanılabilirlik kümesidir.   | Yeni iş yükleri için aynı işlem sunucusu ekleme, kaynak eşik sınırları karşılandığından emin olarak devre dışı bırakıldı. Bu nedenle, [bir genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#before-you-start) yeni çoğaltmalar için.
+Kritik (kırmızı)    |     Veriler son 45 dakika Azure'dan Azure'a karşıya değildi. |  Eşik sınırları içinde kaynak kullanımı:      | Sorun giderme [verileri karşıya yükleme hataları](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) yeni iş yükleri için aynı işlem sunucusu eklemeden önce veya [bir genişleme işlem Sunucusu Kurulumu](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>İşlem sunucusu yeniden kaydettirin
 
 Şirket içinde çalışan bir işlem sunucusu yeniden kaydettirin veya Azure'da, yapılandırma sunucusu ile aşağıdakileri yapmanız gerekirse:
@@ -109,7 +122,6 @@ Ayarları kaydettikten sonra aşağıdakileri yapın:
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Bir işlem sunucusunu Kaldır
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Virüsten koruma yazılımının bir tek başına işlem sunucusu veya ana hedef
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site kurtarma
 - İşlem sunucusu yükleme dizininde, örneğin: C:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
-
