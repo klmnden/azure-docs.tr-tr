@@ -2,15 +2,16 @@
 title: Azure Data Lake depolama Gen2 Spark performansı ayarlama yönergeleri | Microsoft Docs
 description: Azure Data Lake depolama Gen2 Spark performansı ayarlama yönergeleri
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: bfd6e715e907925a1ba3db3b60c0d3eccb637930
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61481998"
