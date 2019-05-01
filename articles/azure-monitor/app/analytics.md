@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691971"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574269"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analiz
 Analytics, güçlü arama ve sorgulama aracı [Application Insights](app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir.
@@ -38,7 +38,7 @@ Application Insights analiz doğrudan Log Analytics çalışma alanındaki veri 
 
 ## <a name="query-data-in-analytics"></a>Analytics'te sorgu verileri
 Tipik bir sorgu bir dizi tarafından izlenen bir tablo adı ile başlayan *işleçleri* ayırarak `|`.
-Örneğin, şimdi kaç isteklerini uygulamamız sırasında son 3 saat farklı ülkelerden alınan bulun:
+Örneğin, kaç farklı ülkelerden/bölgelerden son 3 saat alınan uygulamamızı istekleri kullanıma Şimdi Bul:
 ```AIQL
 requests
 | where timestamp > ago(3h)

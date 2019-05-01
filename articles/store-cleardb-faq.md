@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929459"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574184"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -49,7 +49,7 @@ Varsayılan veritabanı $3.50 olan Titan seçenektir. Maliyet veritabanı oluşt
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Kendi Azure sanal makinesine MySQL çalıştırıyorum. Veritabanım için Azure web uygulamamı bağlanabilir miyim?
 Evet. Azure VM, web uygulamanız için uzaktan erişim verdiği sürece, web uygulamanızı veritabanına bağlanabilirsiniz. Daha fazla bilgi için [bir sanal makineye MySQL yükleme](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>İçinde ClearDB Premium MySQL kümeleri desteklenen ülkeler misiniz?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>İçinde ClearDB Premium MySQL kümeleri desteklenen ülkeler/bölgeler misiniz?
 ClearDB Premium MySQL kümeleri, Hindistan, Avustralya, Brezilya Güney ve Çin hariç olmak üzere dünya çapındaki tüm Azure bölgelerinde kullanılabilir.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB premium küme çözümü ile bir veritabanı oluşturmadan önce yeni bir küme oluşturabilir miyim?
@@ -68,7 +68,7 @@ Temel veya daha yüksek bir fiyatlandırma katmanı, Web Apps için kullanın. �
 İçinde [Azure portalında](https://portal.azure.com), ClearDB bir paylaşılan barındırma veritabanını ölçeklendirebilirsiniz. Bu okuma [makale](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) daha fazla bilgi için. Şu anda Azure portalında ClearDB Premium kümeler için yükseltme desteklemiyoruz.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>ClearDB Veritabanım Azure portalında göremiyorum?
-Klasik modelde bir ClearDB veritabanı oluşturduysanız, veritabanınızdaki görmek mümkün olmayacaktır [Azure portalı](https://portal.azure.com). Var olan hiçbir geçici bu senaryo için.
+Klasik modelde bir ClearDB veritabanı oluşturduysanız, veritabanınızdaki görmek mümkün olmayacaktır [Azure portalında](https://portal.azure.com). Var olan hiçbir geçici bu senaryo için.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Veritabanım kapalı olduğunda Kime desteği başvurmam gerekir?
 İlgili kişi [ClearDB Destek](https://www.cleardb.com/developers/help/support) herhangi bir veritabanının ilgili sorunlar için. Azure abonelik bilgilerinizi sağlamaya hazır olun.

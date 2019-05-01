@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880375"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574113"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 
@@ -52,14 +52,16 @@ Seçin **kaynak denetimi türü**, tıklayın **doğrulaması**. Bir tarayıcı 
 |Depo     | Depo veya projenin adı. İlk 200 depoları döndürülür. Bir depo için arama yapmak için ad alanını yazın ve **arama github'da**.|
 |Şube     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamaz.          |
 |Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks </br>*Belirtilen klasör yalnızca runbook'lar eşitlenir. Özyineleme desteklenmez.*        |
-|Auto Sync     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
+|Auto Sync<sup>1</sup>     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
 |Publish Runbook     | Varsa kümesine **üzerinde**sonra bunlar otomatik olarak yayımlanacağı kaynak denetiminden runbook'lar eşitlenir.         |
 |Açıklama     | Ek ayrıntılar sağlamak için bir metin alanı        |
+
+<sup>1</sup> Azure depoları ile kaynak denetimi tümleştirmesini yapılandırırken Otomatik eşitlemeyi etkinleştirmek için bir proje yöneticisi olmanız gerekir.
 
 ![Kaynak denetimi özeti](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Kaynak denetimi yapılandırma sırasında doğru hesabıyla oturum emin olun. Bir şüpheli varsa, tarayıcınızda yeni bir sekme açın ve visualstudio.com veya github.com Oturumu Kapat ve bağlantı kaynak denetimine yeniden deneyin.
+> Kaynak denetimi deponuza için oturum açma bilgilerinizi Azure portalına yönelik oturum açma bilgilerinizi farklı olabilir. Kaynak denetimi yapılandırırken, kaynak denetim deposu için doğru hesapla oturum kaydedilir emin olun. Bir şüpheli varsa, tarayıcınızda yeni bir sekme açın ve visualstudio.com veya github.com Oturumu Kapat ve bağlantı kaynak denetimine yeniden deneyin.
 
 ## <a name="configure-source-control---powershell"></a>Kaynak denetimi - PowerShell yapılandırma
 

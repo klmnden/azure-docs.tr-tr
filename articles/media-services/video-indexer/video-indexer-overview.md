@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559889"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574134"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer nedir?
 
@@ -37,7 +37,7 @@ Azure Video Indexer; Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Y
 
 ## <a name="audio-insights"></a>Ses öngörüleri
 
-- **Otomatik dil algılama**: Baskın konuşulan dili otomatik olarak tanımlar. Desteklenen diller: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Rusça ve Portekizce (Brezilya). Dil algılanamadığında İngilizce seçeneği kullanılır.
+- **Otomatik dil algılama**: Baskın konuşulan dili otomatik olarak tanımlar. Dil algılandığında, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Rusça ve Brezilya Portekizcesi olacak İngilizce için geri dönüş desteklenen diller şunlardır.
 - **Ses tanıma**: 12 dillerde metni konuşmaya dönüştürür ve uzantıları sağlar. Desteklenen diller şunlardır: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Arapça, Rusça, Portekizce (Brezilya), Hintçe ve Kore dili.
 - **Kapalı Açıklamalı Altyazı**: Kapalı Açıklamalı Altyazı üç formatta oluşturur: VTT, TTML, SRT.
 - **İki işleme kanal**: Otomatik algılar, döküm ve tek bir zaman çizelgesinde birleştirmeler ayırın.
@@ -47,7 +47,7 @@ Azure Video Indexer; Azure Media Analytics, Azure Search, Bilişsel Hizmetler (Y
 - **Konuşmacı istatistikleri**: Konuşmacılar konuşma oranları için istatistikler sağlar.
 - **Metinsel içerik denetleme**: Açık metin, ses transkripti algılar.
 - **Ses efektleri**: Sessizlik el Islıklar ve konuşma gibi ses efekti tanımlar.
-- **Duygu algılama**: Konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duyguları tanımlar. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.
+- **Duygu algılama**: (Neler söylediklerini) konuşma tanıma ve ses tonaliteyi (nasıl onu söylediklerini) bağlı olarak duyguları tanımlar.  Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.
 - **Çeviri**: Ses transkripti 54 farklı dillere çevirileri oluşturur.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Ses ve video öngörüleri (çoklu kanalı)

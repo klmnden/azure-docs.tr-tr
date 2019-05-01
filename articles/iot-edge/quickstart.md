@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 8b446e3cfd3efc7d6f4c125747630cd3241fa804
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226955"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573946"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
 
@@ -226,34 +226,21 @@ Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Cod
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Aksi halde, oluşturduğunuz Azure kaynaklarını silebilir ve IoT Edge çalışma zamanını cihazınızdan kaldırabilirsiniz.
-
-### <a name="delete-azure-resources"></a>Azure kaynaklarını silme
+IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Aksi takdirde, ücret ödememek için oluşturduğunuz Azure kaynaklarını silebilirsiniz.
 
 Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. Çifte denetim var. emin olmak için kaynak grubunun içeriğini kullanıcının tutmak istediğiniz bir şey. Tüm bir grubu silmek istemiyorsanız, bunun yerine bu kaynakları tek tek silebilirsiniz.
 
 **IoTEdgeResources** grubunu kaldırın.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını kaldırma
-
-Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
-
-IoT Edge çalışma zamanını kaldırın. IOT Edge yeniden yüklenmesine planlıyorsanız dışlamayı `-DeleteConfig` ve `-DeleteMobyDataRoot` parametreleri böylece yeni ayarladığınız aynı yapılandırmaya sahip yeniden yükleyebilirsiniz.
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta, bir IOT Edge cihazı oluşturdunuz ve Azure IOT Edge bulut arabirimi cihaza kodu dağıtmak için kullanılır. Artık ortamı hakkında ham veri üreten bir test cihazınız var.
 
-Azure IoT Edge'in bu verileri Edge'de iş içgörüsüne dönüştürmenize nasıl yardımcı olabileceğini öğrenmek için diğer öğreticilere devam etmeye hazırsınız.
+Sonraki adım, IOT Edge çalıştıran iş mantığınızı modüllerinizi oluştururken başlayabilmeniz için yerel geliştirme ortamınızı ayarlama sağlamaktır. 
 
 > [!div class="nextstepaction"]
-> [Bir Azure İşlevi kullanarak sensör verilerini filtreleme](tutorial-deploy-function.md)
+> [IOT Edge modülleri Windows cihazlar için geliştirmeye başlayın](tutorial-develop-for-windows.md)

@@ -1,21 +1,19 @@
 ---
 title: SSL şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması kurulumu
 description: Kafka istemcileri ile Kafka aracılarına de sızmasını Kafka aracıları arasındaki iletişim için SSL şifrelemesi ayarlayın. Kurulum SSL istemci kimlik doğrulaması.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 01/15/2019
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.date: 01/15/2019
+ms.author: hrasheed
 ms.openlocfilehash: 9d8d5e57d0dd7d7022e65a061360c8450848fb4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114966"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682912"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Güvenli Yuva Katmanı (SSL) şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması kurulumu
 

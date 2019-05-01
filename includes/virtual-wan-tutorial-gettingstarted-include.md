@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8a07136e78984f76355ade68dbeb926974513b0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a5563d0bab76d11af895165a28fc0544864cfcd1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460142"
 ---
 **Geniş alan ağları (WAN’lar)** sayfasında oluşturduğunuz WAN'ı seçin. Sol menüden **Başlarken** sayfasını seçin. Bu sayfa, sanal WAN kaynaklarınızı hangi sırayla oluşturmanız gerektiğini gösterir. İşlevsel bir WAN oluşturmak için 1-4 arası adımları tamamlamanız gerekir. Birbirlerine bağlı olmadıkları için site ve hub’ları istediğiniz sırada oluşturabilirsiniz. Ancak ilişkilendirmeden önce hem sitelerinizin hem de hub’larınızın oluşturulmuş olması gerekir.
 

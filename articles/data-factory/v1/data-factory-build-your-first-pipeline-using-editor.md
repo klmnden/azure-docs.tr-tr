@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60568507"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573829"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk data factory'nizi derleme
 > [!div class="op_single_selector"]
@@ -209,16 +209,16 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
     ```
     Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmiştir.
 
-   | Özellik | Açıklama |
-   |:--- |:--- |
-   | type |Veriler blob depolamada yer aldığından, type özelliği **AzureBlob** olarak ayarlanır. |
-   | linkedServiceName |Daha önce oluşturduğunuz AzureStorageLinkedService hizmetine başvurur. |
-   | folderPath | Blob kapsayıcısını ve giriş bloblarını içeren klasörü belirtir. | 
-   | fileName |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm folderPath dosyaları seçilir. Bu öğreticide yalnızca input.log dosyası işlenir. |
-   | type |Günlük dosyaları metin biçiminde olduğundan **TextFormat** seçeneğini kullanın. |
-   | columnDelimiter |Günlük dosyalarındaki sütunlar virgül karakteri (`,`) ile ayrılır. |
-   | frequency/interval |Sıklığın **Month**, aralığın **1** olarak ayarlanmış olması, girdi dilimlerinin aylık olarak kullanılabileceği anlamına gelir. |
-   | external | Bu özellik, giriş verileri bu işlem hattı tarafından oluşturulmadıysa **true** olarak ayarlanır. Bu öğreticide, input.log dosyası bu işlem hattı tarafından oluşturulmadığından, özelliği **true** olarak ayarlayacağız. |
+   | Özellik | Altında iç içe geçmiş | Açıklama |
+   |:--- |:--- |:--- |
+   | type | properties |Veriler blob depolamada yer aldığından, type özelliği **AzureBlob** olarak ayarlanır. |
+   | linkedServiceName | biçim |Daha önce oluşturduğunuz AzureStorageLinkedService hizmetine başvurur. |
+   | folderPath | typeProperties | Blob kapsayıcısını ve giriş bloblarını içeren klasörü belirtir. | 
+   | fileName | typeProperties |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm folderPath dosyaları seçilir. Bu öğreticide yalnızca input.log dosyası işlenir. |
+   | type | biçim |Günlük dosyaları metin biçiminde olduğundan **TextFormat** seçeneğini kullanın. |
+   | columnDelimiter | biçim |Günlük dosyalarındaki sütunlar virgül karakteri (`,`) ile ayrılır. |
+   | frequency/interval | availability |Sıklığın **Month**, aralığın **1** olarak ayarlanmış olması, girdi dilimlerinin aylık olarak kullanılabileceği anlamına gelir. |
+   | external | properties | Bu özellik, giriş verileri bu işlem hattı tarafından oluşturulmadıysa **true** olarak ayarlanır. Bu öğreticide, input.log dosyası bu işlem hattı tarafından oluşturulmadığından, özelliği **true** olarak ayarlayacağız. |
 
     Bu JSON özellikleri hakkında daha fazla bilgi için bkz. [Azure Blob bağlayıcısı](data-factory-azure-blob-connector.md#dataset-properties).
 

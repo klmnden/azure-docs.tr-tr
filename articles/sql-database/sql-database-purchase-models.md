@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360179"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574099"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Sanal çekirdek ve DTU satın alma modeli arasında seçim yapma
 
 Azure SQL veritabanı, performans ve maliyet ihtiyaçlarınıza uygun veritabanı altyapısı tam olarak yönetilen PaaS kolayca satın almanızı sağlar. Azure SQL veritabanı dağıtım modeline bağlı olarak gereksinimlerinize uyan bir satın alma modeli seçebilirsiniz:
-
-- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) (önerilen) depolama kapasitesi miktarda seçin ve iş yükünüz için gereken işlem olanak sağlar.
-- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) seçebileceğiniz ortak iş yükleri için dengeli işlem ve depolama paketleri paket.
 
 Farklı satın alma modelleri, Azure SQL veritabanı dağıtım modellerinde kullanılabilir:
 
 - [Tek veritabanı](sql-database-single-databases-manage.md) ve [elastik havuz](sql-database-elastic-pool.md) dağıtım seçenekleri [Azure SQL veritabanı](sql-database-technical-overview.md) hem teklif [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 - [Yönetilen örnek](sql-database-managed-instance.md) yalnızca Azure SQL veritabanı'nda dağıtım seçeneği sunar [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> [Hiper ölçekli hizmet Katmanı (Önizleme)](sql-database-service-tier-hyperscale.md) satın alma modeli sanal çekirdek kullanarak yalnızca tek veritabanları için genel önizlemeye sunulmuştur.
 
-Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
+Aşağıdaki tablo ve grafik karşılaştırın ve sanal çekirdek ve DTU satın alma modeli.
 
 |**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
@@ -46,7 +41,10 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 ## <a name="compute-costs"></a>İşlem maliyetleri
 
-İşlem maliyet, uygulama için sağlanan toplam işlem kapasitesini yansıtır. İş kritik hizmet katmanında, biz otomatik olarak en az 3 çoğaltma ayırın. Bu ek işlem kaynakları ayrılması yansıtacak şekilde yaklaşık 2.7 x daha yüksek iş kritik hizmet katmanındaki genel amaçlı hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli fiyatına değeridir. Aynı nedenden dolayı GB başına daha yüksek depolama fiyatı iş kritik hizmet katmanındaki SSD depolama, düşük gecikme süresi ve yüksek g/ç yansıtır. Her iki durumda da bir standart depolama sınıfı kullandığımızdan aynı zamanda, yedekleme depolama maliyeti, bu iki hizmet katmanları arasında farklı değildir.
+### <a name="provisioned-compute-costs"></a>Sağlanan işlem maliyetleri
+
+Sağlanan işlem katmanında işlem maliyeti uygulaması için sağlanan toplam işlem kapasitesini yansıtır.  İş kritik hizmet katmanında, biz otomatik olarak en az 3 çoğaltma ayırın. Bu ek işlem kaynakları ayrılması yansıtacak şekilde yaklaşık 2.7 x daha yüksek iş kritik hizmet katmanındaki genel amaçlı hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli fiyatına değeridir. Aynı nedenden dolayı GB başına daha yüksek depolama fiyatı iş kritik hizmet katmanındaki SSD depolama, düşük gecikme süresi ve yüksek g/ç yansıtır. Her iki durumda da bir standart depolama sınıfı kullandığımızdan aynı zamanda, yedekleme depolama maliyeti, bu iki hizmet katmanları arasında farklı değildir.
+
 
 ## <a name="storage-costs"></a>Depolama maliyetleri
 
@@ -110,7 +108,7 @@ Bir mevcut şirket içi veya kullanabileceğiniz SQL Server sanal makine iş yü
 
 Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için uygundur. Belirli bir veritabanı için bu düzen bir düşük kullanımı ortalama nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir. SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Daha fazla bilgi için bkz. [ne zaman elastik bir havuz kullanılması gerekir?](sql-database-elastic-pool.md)
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS) satın alma modeli
+## <a name="purchase-models-frequently-asked-questions-faq"></a>Satın alma modelleri: sık sorulan sorular (SSS)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU tabanlı bir veritabanından sanal çekirdek tabanlı hizmet katmanı için dönüştürmek için uygulamamı çevrimdışı duruma getirmem gerekiyor mu
 
