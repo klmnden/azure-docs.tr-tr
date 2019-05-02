@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761497"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573628"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Örneğin, bir IOT senaryosu içinde (Bu genellikle değişmez) algılayıcıları hakkındaki meta verileri içinde başvuru verilerini depolamak ve gerçek zamanlı IOT veri akışları ile katılın. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. 
@@ -49,7 +49,7 @@ Ardından, başvuru verilerini değiştirmek için beklenmiyor, statik başvuru 
 
 Başvuru veri yavaş değişen bir veri kümesi ise, {date} kullanan giriş yapılandırmada bir yol deseni belirterek data etkin başvuru yenilemek için'ı destekler ve {substitution belirteçleri zaman}. Stream Analytics bu yol deseni temel alınarak güncelleştirilmiş başvuru veri tanımlarını alır. Örneğin, bir desen `sample/{date}/{time}/products.csv` bir tarih biçimi ile **"YYYY-AA-GG"** ve bir saat biçimini **"Ss dd"** güncelleştirilmiş blob seçmek için Stream Analytics bildirir `sample/2015-04-16/17-30/products.csv` saat 17:30:00 16 Nisan üzerinde , 2015 UTC saat dilimi.
 
-Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aralıklarla otomatik olarak tarar.
+Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aralıklarla otomatik olarak tarar. Kısa bir gecikme ile (örneğin, 10:30:30) zaman damgası 10:30:00 ile bir blob yüklenirse, bu blob başvuran Stream Analytics işinde kısa bir gecikme fark edeceksiniz. Bu senaryolara önlemek için bu blobu hedef geçerlilik süresinden daha önce karşıya yüklemek için önerilir (10: Bu örnekte 30:00) Stream Analytics işi bulmak ve bellekte yüklemek ve işlemleri gerçekleştirmek için yeterli zaman izin vermek için. 
 
 > [!NOTE]
 > Şu anda yalnızca blob adı, kodlanmış zaman makine saatini ilerler, Stream Analytics işleri için blob yenileme arayın. Örneğin, iş arar `sample/2015-04-16/17-30/products.csv` 17:30:00 16 Nisan 2015 UTC daha olası ancak daha önce Hayır bölge Zaman hemen sonra. Götürür *hiçbir zaman* bulunması sonuncu daha önce kodlanmış bir zaman blob'u arayın.

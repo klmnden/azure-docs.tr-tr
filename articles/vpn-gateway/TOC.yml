@@ -176,6 +176,12 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Örnek: Cisco ASA cihazı (IKEv2/BGP yok)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: İzleme ve uyarılar
+      items:
+        - name: Ölçümlere dayalı uyarılar ayarlama
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+        - name: Tanılama günlüğüne dayalı uyarılar ayarlama
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Sorun giderme
       href: vpn-gateway-troubleshoot.md
       items:

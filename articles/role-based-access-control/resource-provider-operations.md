@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 13db0406681f676f47a3764cf2a59c4dbf251715
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344640"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729191"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -38,6 +38,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.AAD/domainServices/oucontainer/read | OU kapsayıcıları okuyun |
 > | Eylem | Microsoft.AAD/domainServices/oucontainer/write | Yapısal birim kapsayıcısına yazma |
 > | Eylem | Microsoft.AAD/domainServices/read | Etki Alanı Hizmetleri okuyun |
+> | Eylem | Microsoft.AAD/domainServices/ReplicaSets/delete | Küme Site Sil |
+> | Eylem | Microsoft.AAD/domainServices/ReplicaSets/read | Küme Site okuma |
+> | Eylem | Microsoft.AAD/domainServices/ReplicaSets/write | Küme Site yazma |
 > | Eylem | Microsoft.AAD/domainServices/write | Etki alanı hizmeti yazma |
 > | Eylem | Microsoft.AAD/locations/operationresults/read |  |
 > | Eylem | Microsoft.AAD/Operations/read |  |
@@ -100,9 +103,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Müşteri olayları desteklemek için DevOps tarafından kullanılan kullanılabilir bölgelerin bir listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/badpassword/read | Active Directory Federasyon Hizmeti içindeki tüm kullanıcılar için hatalı parola denemesi listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | BLOB SAS URİ'si durumu içeren alır ve belirli bir kiracının günde IPADDRESS başına UserID başına yeni sıraya alınan rapor işi sıklığı, hatalı kullanıcı adı/parola için nihai sonucu çalışır. |
-> | Eylem | Microsoft.ADHybridHealthService/reports/blobUris/read | Son 7 güne ait tüm riskli IP raporu URI alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | DevOps listesini alır kiracılar tarafından onaylanan. Genellikle, müşteri desteği için kullanılır. |
-> | Eylem | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | Riskli IP raporu oluşturur ve ona işaret eden bir URI döndürür. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/isdevops/read | Kiracı DevOps onaylı olup olmadığını belirten bir değer alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Seçili dev ops Kiracı için userid(objectid) güncelleştirir. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Seçili dağıtım belirli kiracısı için alır. |
@@ -125,7 +126,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Ekleme veya bir hizmet için izleme yapılandırmalarının güncelleştirir. |
 > | Eylem | Microsoft.ADHybridHealthService/services/premiumcheck/read | Bu API, bir premium kiracının tüm eklenen hizmet listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/read | Kiracıda hizmet örnekleri okur. |
+> | Eylem | Microsoft.ADHybridHealthService/services/reports/blobUris/read | Son 7 güne ait tüm riskli IP raporu URI alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/reports/details/read | Hatalı parola hataları son 7 güne ait olan ilk 50 kullanıcı raporu alır |
+> | Eylem | Microsoft.ADHybridHealthService/services/reports/generateBlobUri/action | Riskli IP raporu oluşturur ve ona işaret eden bir URI döndürür. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/action | Bir sunucu örneği hizmeti oluşturur. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/alerts/read | Uyarılar için bir sunucu okur. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/credentials/read | Sunucu kaydı sırasında bu API, yeni sunucular ekleme için kimlik bilgilerini almak için çağrılır. |
@@ -213,163 +216,169 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ApiManagement/operations/read | Tüm kullanılabilir API işlemlerini Microsoft.ApiManagement kaynak için okuma |
 > | Eylem | Microsoft.ApiManagement/register/action | Microsoft.ApiManagement kaynak sağlayıcısı için aboneliği kaydedin |
 > | Eylem | Microsoft.ApiManagement/reports/read | Süreler, coğrafi, geliştiriciler, ürünler, API'ler, işlemler, abonelik ve byRequest tarafından toplanan raporları alın. |
-> | Eylem | Microsoft.ApiManagement/service/apis/delete | Mevcut API Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/delete | Mevcut tanılama Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/read | Tanılama veya daha fazla ayrıntı edinmek Tanılama'nın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/write | Yeni tanılama eklemek veya mevcut tanılama ayrıntılarını güncelleştirme |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Eki var kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/read | Sorun ekler veya API Management alır sorunu eki ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/write | API sorunu ek ekleyin |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/delete | Var olan açıklamayı kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/read | Açıklama ayrıntıları alır yorum veya API Management alır sorunu sorunu |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/write | API sorun açıklaması ekleyin |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/delete | Sorun mevcut kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/read | API Management'ı alır ya da API sorun ayrıntıları ile ilgili sorunlar Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/issues/write | API sorunu ekleyin veya API sorunu güncelleştir |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/delete | Mevcut API işlemi'ni Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/delete | API işlemi İlkeleri'nden ilke yapılandırmasını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/read | İlkeleri API işlemi için API işlemi veya alma ilkesi yapılandırma ayrıntılarını alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/write | API işlemi için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/delete | İlke Yapılandırması işlemden kaldırma |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/read | İşlem için ilke yapılandırma ayrıntılarını alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/write | İşlem için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/read | Mevcut API işlemleri listesini alın veya API işleminin ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/delete | Varolan bir etiketi mevcut işlemi ile ilişkisini sil |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/read | İşlem veya da etiketi Al ayrıntıları ile ilişkili etiketleri alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/write | Mevcut etiketi mevcut işlemi ile ilişkilendirme |
-> | Eylem | Microsoft.ApiManagement/service/apis/operations/write | Yeni API işlemi oluşturma veya güncelleştirme mevcut API işlemi |
-> | Eylem | Microsoft.ApiManagement/service/apis/operationsByTags/read | İşlem/etiketi ilişkilendirmeleri listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/policies/delete | API İlkeleri'nden ilke yapılandırmasını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/policies/read | İlkeleri API'si için API veya alma ilkesi yapılandırma ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/policies/write | API için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/apis/policy/delete | API ilkesi yapılandırmasını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/policy/read | API için ilke yapılandırma ayrıntılarını alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/policy/write | API için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/apis/products/read | API parçası olan tüm ürünler |
-> | Eylem | Microsoft.ApiManagement/service/apis/read | Tüm kayıtlı API'ler veya Get ayrıntılarını API'ın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/apis/releases/delete | API veya kaldırma API sürümünün tüm sürümleri kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/releases/read | Yayınları API sürümü için bir API veya Get ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/releases/write | Yeni API sürüm oluşturma veya güncelleştirme mevcut API sürümü |
+> | Eylem | Microsoft.ApiManagement/service/apis/delete | API Management hizmet örneği, belirtilen API siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/delete | Belirtilen tanılama API'den siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/read | Bir API'nin tüm tanılama listeler. veya kendi tanımlayıcısı tarafından belirtilen bir API için tanılama ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/diagnostics/write | Bir API için yeni bir tanılama oluşturur veya mevcut olanı güncelleştirir. veya bir API için tanılama ayrıntılarını kendi tanımlayıcısı tarafından belirtilen güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Belirtilen açıklama bir sorundan siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/read | Listeleri sorunu için tüm ekleri belirtilen API ile ilişkili. veya kendi tanımlayıcısı tarafından belirtilen bir API için ek sorunun ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/attachments/write | Bir API sorunu için yeni bir ek oluşturur veya mevcut olanı güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/delete | Belirtilen açıklama bir sorundan siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/read | Listeleri sorunu için tüm yorumları belirtilen API ile ilişkili. veya kendi tanımlayıcısı tarafından belirtilen bir API için sorunun ayrıntılarını açıklama alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/comments/write | Bir API sorunu için yeni bir yorum oluşturur veya mevcut olanı güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/delete | Belirtilen sorun API'den siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/read | Belirtilen API ile ilişkili tüm sorunları listeler. veya kendi tanımlayıcısı tarafından belirtilen bir API için sorunun ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/issues/write | Yeni bir sorun için bir API oluşturur veya mevcut olanı güncelleştirir. veya mevcut bir sorun için bir API güncelleştirmeler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/delete | Belirtilen işlem API'sindeki siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/delete | API işlemi ilke yapılandırmasını siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/read | API işlem düzeyinde ilke yapılandırması listesini alın. ya da ilke yapılandırması API işlem düzeyinde alın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policies/write | Oluşturur veya güncelleştirir API işlem düzeyi ilke yapılandırması. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/delete | İşlem düzeyinde ilke yapılandırmasını Sil |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/read | İşlem düzeyinde ilke yapılandırmasını al |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/policy/write | İlke yapılandırması oluşturma işlemi sırasında düzeyi |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/read | Belirtilen API işlemlerinde koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen API işleminin ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/delete | İşlem etiketi çıkarın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/read | İşlemle ilişkilendirilen tüm etiketleri listeler. ya da işlemle ilişkili etiket alın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/tags/write | İşlem için etiket atayın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operations/write | API'de yeni bir işlem oluşturur veya mevcut olanı güncelleştirir. veya API işleminin ayrıntılarını kendi tanımlayıcısı tarafından belirtilen güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/apis/operationsByTags/read | Etiketler ile ilişkilendirilmiş işlemler koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/policies/delete | API ilkesi yapılandırmasını siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/policies/read | İlke yapılandırması bir API düzeyinde alın. ya da ilke yapılandırması bir API düzeyinde alın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/policies/write | Oluşturur veya API ilkesi yapılandırmasını güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/apis/policy/delete | API düzeyinde ilke yapılandırmasını Sil |
+> | Eylem | Microsoft.ApiManagement/service/apis/policy/read | API düzeyinde ilke yapılandırmasını al |
+> | Eylem | Microsoft.ApiManagement/service/apis/policy/write | İlke Yapılandırması API düzey oluşturma |
+> | Eylem | Microsoft.ApiManagement/service/apis/products/read | API parçası olan tüm ürünleri listeler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/read | API Management hizmet örneği, tüm API'ları listeler. veya kendi tanımlayıcısı tarafından belirtilen API ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/apis/releases/delete | Tüm API sürümlerini kaldırır veya belirtilen API sürümünde siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/releases/read | Tüm API sürümlerini listeler.<br>API düzeltmesi geçerli yaparken bir API sürümü oluşturulur.<br>Sürümleri önceki düzeltmelerini geri almak için de kullanılır.<br>Sonuçları, disk belleği ve $top ve $skip parametreleri tarafından kısıtlı olabilir.<br>veya yayın ayrıntıları bir API'nin döndürür. |
+> | Eylem | Microsoft.ApiManagement/service/apis/releases/write | API için yeni bir yayın oluşturur. veya ayrıntıları API sürümünün kendi tanımlayıcısı tarafından belirtilen güncelleştirmeleri. |
 > | Eylem | Microsoft.ApiManagement/service/apis/revisions/delete | Bir API'nin tüm düzeltmeleri kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/revisions/read | API'ye ait düzeltmeler Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/schemas/delete | Şema mevcut kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/schemas/document/read | Şema açıklayan belge Al |
-> | Eylem | Microsoft.ApiManagement/service/apis/schemas/document/write | Güncelleştirmeyi açıklayan bir şema belgesi |
-> | Eylem | Microsoft.ApiManagement/service/apis/schemas/read | Belirli bir API için tüm şemaları alır veya API tarafından kullanılan şemalar alır |
-> | Eylem | Microsoft.ApiManagement/service/apis/schemas/write | API'sı tarafından kullanılan şemalar ayarlar |
-> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Etiket açıklaması API'den Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/read | Etiketleri açıklamaları API veya da etiketi alın açıklama kapsamında API kapsamında alın. |
-> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Kapsamdaki API Oluştur/Değiştir etiketi açıklaması |
-> | Eylem | Microsoft.ApiManagement/service/apis/tags/delete | Var olan API/etiketi ilişkilendirmesini Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apis/tags/read | API/etiketi ilişkilendirme API veya Get ayrıntılarını için tüm API/etiketi ilişkilendirmesini alma |
-> | Eylem | Microsoft.ApiManagement/service/apis/tags/write | Yeni API/etiketi ilişkilendirme ekleyin |
-> | Eylem | Microsoft.ApiManagement/service/apis/write | Yeni API oluşturun veya var olan API ayrıntılarını güncelleştirme |
-> | Eylem | Microsoft.ApiManagement/service/apisByTags/read | API/etiketi ilişkilendirmeleri listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/delete | Mevcut VersionSet Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/read | Sürüm grubu varlıklar veya bir VersionSet ayrıntılarını alır bir listesini alın |
+> | Eylem | Microsoft.ApiManagement/service/apis/revisions/read | Bir API'nin tüm değişiklikleri listeler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/schemas/delete | API şeması yapılandırmasını siler. |
+> | Eylem | Microsoft.ApiManagement/service/apis/schemas/read | Şema yapılandırma API düzeyinde alın. veya şema yapılandırma API düzeyinde alın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/schemas/write | Oluşturur veya şema yapılandırma API'si için güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | API için açıklama etiketi silin. |
+> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/read | API kapsamdaki tüm etiketleri açıklamalarını listeler. Swagger benzer model - tagDescription API düzeyinde tanımlanır ancak etiketi işlemleri atanabilir veya Al API'si kapsamında etiket açıklaması |
+> | Eylem | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Kapsam etiketi açıklamasında API oluşturun/güncelleştirin. |
+> | Eylem | Microsoft.ApiManagement/service/apis/tags/delete | Etiket API'sinden çıkarın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/tags/read | API ile ilişkili tüm etiketleri listeler. ya da API ile ilişkili etiket alın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/tags/write | API için etiket atayın. |
+> | Eylem | Microsoft.ApiManagement/service/apis/write | Yeni oluşturur veya var olan belirtilen API API Management hizmet örneğinin güncelleştirir. veya belirtilen API güncelleştirmelerini API Management hizmet örneği. |
+> | Eylem | Microsoft.ApiManagement/service/apisByTags/read | Etiketler ile ilişkili API'ler koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/delete | Özel API sürümünü ayarlama siler. |
+> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/read | Koleksiyonda belirtilen hizmet örneği API sürümü kümeleri listelenir. veya kendi tanımlayıcısı tarafından belirtilen API sürümü kümesinin ayrıntılarını alır. |
 > | Eylem | Microsoft.ApiManagement/service/apiVersionSets/versions/read | Sürüm varlıkların listesini al |
-> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/write | Yeni VersionSet oluşturun veya var olan VersionSet ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/apiVersionSets/write | Oluşturur veya bir API sürümünü Ayarla güncelleştirir. veya kendi tanımlayıcısı tarafından belirtilen API VersionSet ayrıntılarını güncelleştirmeleri. |
 > | Eylem | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Güncelleştirilmiş ağ ayarlarını seçmek için sanal ağda çalışan Microsoft.ApiManagement kaynakları güncelleştirir. |
-> | Eylem | Microsoft.ApiManagement/service/authorizationServers/delete | Mevcut yetkilendirme sunucusu Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/authorizationServers/read | Yetkilendirme sunucularının listesini almak veya yetkilendirme sunucusu ayrıntılarını alma |
-> | Eylem | Microsoft.ApiManagement/service/authorizationServers/write | Yeni bir yetkilendirme sunucusu ya da mevcut bir yetkilendirme sunucusunun Güncelleştirme ayrıntıları oluşturma |
-> | Eylem | Microsoft.ApiManagement/service/backends/delete | Mevcut arka uç Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/backends/read | Arka uçları listesini alın veya arka uç ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/backends/reconnect/action | Yeniden bağlanma isteği oluştur |
-> | Eylem | Microsoft.ApiManagement/service/backends/write | Yeni bir arka uç eklemenizi veya mevcut arka uç ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/authorizationServers/delete | Belirli yetkilendirme sunucusu örneği siler. |
+> | Eylem | Microsoft.ApiManagement/service/authorizationServers/read | Bir hizmet örneği içinde tanımlanan yetkilendirme sunucularını koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen yetkilendirme sunucusunun ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/authorizationServers/write | Yeni yetkilendirme sunucusu oluşturur veya mevcut bir yetkilendirme sunucusu güncelleştirir. veya kendi tanımlayıcısı tarafından belirtilen yetkilendirme sunucusunun ayrıntılarını güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/backends/delete | Belirtilen arka uç siler. |
+> | Eylem | Microsoft.ApiManagement/service/backends/read | Belirtilen hizmet örneği arka uçları koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen arka uç ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/backends/reconnect/action | Belirtilen zaman aşımından sonra yeni bir arka uç bağlantı oluşturmak için APIM proxy bildirir. 2 dakikalık zaman aşımı, zaman aşımı değeri belirtilmişse kullanılır. |
+> | Eylem | Microsoft.ApiManagement/service/backends/write | Oluşturur veya bir arka uç güncelleştirir. veya var olan bir arka uç güncelleştirir. |
 > | Eylem | Microsoft.ApiManagement/service/backup/action | Belirtilen kapsayıcıya bir kullanıcı için yedekleme API Management hizmeti sağlanan depolama hesabı |
-> | Eylem | Microsoft.ApiManagement/service/certificates/delete | Var olan bir sertifikayı Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/certificates/read | Sertifikaları'nın listesini alın veya sertifika ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/certificates/write | Yeni sertifika Ekle |
+> | Eylem | Microsoft.ApiManagement/service/caches/delete | Belirli önbelleğini siler. |
+> | Eylem | Microsoft.ApiManagement/service/caches/read | Belirtilen hizmet örneği, tüm dış önbellekleri koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen önbellek ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/caches/write | Oluşturur veya bir dış API Yönetimi örneğini kullanılacak önbelleği güncelleştirir. veya kendi tanımlayıcısı tarafından belirtilen önbellek ayrıntılarını güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/certificates/delete | Belirli bir sertifika siler. |
+> | Eylem | Microsoft.ApiManagement/service/certificates/read | Belirtilen hizmet örneği tüm sertifikaları koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen sertifika ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/certificates/write | Oluşturur veya arka ucu ile kimlik doğrulaması için kullanılan sertifikanın güncelleştirir. |
 > | Eylem | Microsoft.ApiManagement/service/contentTypes/contentItems/delete | Kaldırır, içerik öğesi belirtildi. |
 > | Eylem | Microsoft.ApiManagement/service/contentTypes/contentItems/read | İçerik öğeleri veya içerik öğesi ayrıntılarını döndürür listesini döndürür |
 > | Eylem | Microsoft.ApiManagement/service/contentTypes/contentItems/write | Yeni bir içerik öğesi oluşturur veya belirtilen içerik öğesini güncelleştirir |
 > | Eylem | Microsoft.ApiManagement/service/contentTypes/read | İçerik türleri listesini döndürür |
 > | Eylem | Microsoft.ApiManagement/service/delete | API Management hizmet örneği silme |
-> | Eylem | Microsoft.ApiManagement/service/diagnostics/delete | Mevcut tanılama Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/diagnostics/read | Tanılama veya daha fazla ayrıntı edinmek Tanılama'nın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/diagnostics/write | Yeni tanılama eklemek veya mevcut tanılama ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/diagnostics/delete | Belirtilen tanılama siler. |
+> | Eylem | Microsoft.ApiManagement/service/diagnostics/read | API Management hizmet örneği, tüm tanılama listeler. veya kendi tanımlayıcısı tarafından belirtilen tanılama ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/diagnostics/write | Yeni bir tanılama oluşturur veya mevcut olanı güncelleştirir. veya güncelleştirmeleri onun tanımlayıcısı tarafından belirtilen tanılama ayrıntıları. |
 > | Eylem | Microsoft.ApiManagement/service/getssotoken/action | Kullanılabilir alır SSO belirteci API yönetim hizmeti eski portalında yönetici olarak oturum açmak için |
-> | Eylem | Microsoft.ApiManagement/service/groups/delete | Varolan bir grubu Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/groups/read | Bir grubu ayrıntılarını alır ya da grupları'nın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/groups/users/delete | Varolan bir gruptan mevcut kullanıcıyı Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/groups/users/read | Grubu kullanıcıları'nın listesini alın |
+> | Eylem | Microsoft.ApiManagement/service/groups/delete | API Management hizmet örneği, belirli bir grubu siler. |
+> | Eylem | Microsoft.ApiManagement/service/groups/read | Bir hizmet örneği içinde tanımlanan grupları koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen grubunun ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/groups/users/delete | Mevcut kullanıcı mevcut grubundan kaldırın. |
+> | Eylem | Microsoft.ApiManagement/service/groups/users/read | Bir grup ile ilişkili kullanıcı varlık koleksiyonunu listeler. |
 > | Eylem | Microsoft.ApiManagement/service/groups/users/write | Varolan kullanıcı için varolan bir grubu Ekle |
-> | Eylem | Microsoft.ApiManagement/service/groups/write | Yeni grup oluşturun veya var olan grubu ayrıntılarını güncelleştirme |
-> | Eylem | Microsoft.ApiManagement/service/identityProviders/delete | Mevcut kimlik sağlayıcısını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/identityProviders/read | Kimlik sağlayıcıları ya da daha fazla ayrıntı edinmek kimlik sağlayıcısının'ın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/identityProviders/write | Mevcut bir kimlik sağlayıcısının yeni bir kimlik sağlayıcısı veya güncelleştirmenin ayrıntıları oluşturma |
+> | Eylem | Microsoft.ApiManagement/service/groups/write | Oluşturur veya bir grubu güncelleştirir. veya kendi tanımlayıcısı tarafından belirtilen grubunun ayrıntılarını güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/identityProviders/delete | Belirtilen kimlik sağlayıcısı yapılandırması siler. |
+> | Eylem | Microsoft.ApiManagement/service/identityProviders/read | Belirtilen hizmet örneği yapılandırılmış kimlik sağlayıcısı koleksiyonu listeler. veya alır, kimlik sağlayıcı yapılandırma ayrıntılarını belirtilen hizmet örneğinde yapılandırılmamış. |
+> | Eylem | Microsoft.ApiManagement/service/identityProviders/write | Oluşturur veya Identityprovider yapılandırmasını güncelleştirir. veya var olan Identityprovider yapılandırmasını güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/issues/read | Belirtilen hizmet örneği sorunları koleksiyonu listeler. veya API Management alır sorun ayrıntıları |
 > | Eylem | Microsoft.ApiManagement/service/locations/networkstatus/read | Ağ erişim durumu hakkında hizmetin bağımlı olduğu kaynakları, konumu alır. |
-> | Eylem | Microsoft.ApiManagement/service/loggers/delete | Mevcut bir Günlükçü Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/loggers/read | Günlükçü ayrıntılarını alın veya günlükçüleri listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/loggers/write | Yeni Günlükçü eklemek veya mevcut bir Günlükçü ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/loggers/delete | Belirtilen Günlükçü siler. |
+> | Eylem | Microsoft.ApiManagement/service/loggers/read | Belirtilen hizmet örneğindeki günlükçüleri koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen Günlükçü ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/loggers/write | Oluşturur veya bir Günlükçü güncelleştirir. veya mevcut bir Günlükçü güncelleştirir. |
 > | Eylem | Microsoft.ApiManagement/service/managedeployments/action | SKU/birimlerini, API Management hizmetinin bölgesel dağıtımlara ekleme/kaldırma değiştirme |
 > | Eylem | Microsoft.ApiManagement/service/networkstatus/read | Ağ erişim durumu hakkında hizmetin bağımlı olduğu kaynakları alır. |
 > | Eylem | Microsoft.ApiManagement/service/notifications/action | Belirli bir kullanıcıya bildirim gönderir |
-> | Eylem | Microsoft.ApiManagement/service/notifications/read | Tüm API Management yayımcı bildirimleri veya alma API Management yayımcı bildirim ayrıntılarını alır. |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | Var olan e-posta ile bildirim ilişkili kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/read | API Management yayımcı bildirimi ile ilişkili e-posta alıcılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/write | Yeni bildirim e-posta alıcısı oluşturma |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | Kullanıcı için bildirim alıcılarını ilişkili kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Alıcı bildirim ile ilişkilendirilmiş kullanıcılar |
-> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/write | Kullanıcı için bildirim alıcıları ekleyin |
-> | Eylem | Microsoft.ApiManagement/service/notifications/write | Oluşturma veya güncelleştirme API Management yayımcı bildirimi |
-> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/delete | Mevcut Openıd Connect sağlayıcısı Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/read | Openıd Connect sağlayıcısının veya Openıd Connect sağlayıcısı Get ayrıntılarını listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/write | Mevcut bir Openıd Connect sağlayıcısı, yeni bir Openıd Connect sağlayıcısı veya Güncelleştirme ayrıntıları oluşturma |
+> | Eylem | Microsoft.ApiManagement/service/notifications/read | Bir hizmet örneği içinde tanımlanan özellikler koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen bildirim ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | E-posta bildirimi listesinden kaldırır. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Alır, bildirim alıcı e-postalarının listesi bir bildirime nasıl abone. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientEmails/write | E-posta adresine bildirim için alıcı listesine ekler. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | API Management Kullanıcı bildirim listesinden kaldırır. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Alır, bildirim alıcısı kullanıcı listesini bildirime abone. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/recipientUsers/write | API Yönetimi Kullanıcı bildirim için alıcı listesine ekler. |
+> | Eylem | Microsoft.ApiManagement/service/notifications/write | Oluşturma veya güncelleştirme API Management yayımcı bildirim. |
+> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/delete | Özel Openıd Connect sağlayıcısı API Management hizmet örneği siler. |
+> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/read | Tüm Openıd Connect sağlayıcısının listeler. veya belirli Openıd Connect sağlayıcısı alır. |
+> | Eylem | Microsoft.ApiManagement/service/openidConnectProviders/write | Oluşturur veya Openıd Connect sağlayıcısı güncelleştirir. veya güncelleştirmeleri belirli Openıd Connect sağlayıcısı. |
 > | Eylem | Microsoft.ApiManagement/service/operationresults/read | Uzun süre çalışan işlemin geçerli durumunu alır |
-> | Eylem | Microsoft.ApiManagement/service/policies/delete | Kiracı İlkeleri'nden ilke yapılandırmasını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/policies/read | İlkeleri Kiracısı için Kiracı veya alma ilkesi yapılandırma ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/policies/write | Kiracı için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/policySnippets/read | Tüm ilke kod parçacığı Al |
-> | Eylem | Microsoft.ApiManagement/service/portalsettings/read | Portalı veya Get Portal Ayarları'nda oturum açın veya portalı için temsilci seçme ayarlarını almak için oturum ayarlarını alın |
-> | Eylem | Microsoft.ApiManagement/service/portalsettings/write | Kaydol ayarları veya ayarları güncelleştirme kaydolun veya güncelleştirme oturum ayarları veya güncelleştirme oturum ayarları veya güncelleştirme temsilci seçme ayarları veya güncelleştirme temsilci seçme ayarlarını güncelleştirme |
-> | Eylem | Microsoft.ApiManagement/service/products/apis/delete | Mevcut API mevcut ürün Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/products/apis/read | Varolan bir ürüne eklendi API'ın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/products/apis/write | Mevcut API mevcut ürüne ekleme |
-> | Eylem | Microsoft.ApiManagement/service/products/delete | Mevcut ürünü kaldırın |
-> | Eylem | Microsoft.ApiManagement/service/products/groups/delete | Mevcut bir ürüne sahip varolan bir geliştirici grubu ilişkisini sil |
-> | Eylem | Microsoft.ApiManagement/service/products/groups/read | Ürün ile ilişkili Geliştirici grupları'nın listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/products/groups/write | Varolan bir geliştirici grubu ile mevcut ürün ilişkilendirin |
-> | Eylem | Microsoft.ApiManagement/service/products/policies/delete | İlke Yapılandırması ürün İlkeleri'nden kaldırın. |
-> | Eylem | Microsoft.ApiManagement/service/products/policies/read | İlkeleri ürün için ürün veya alma ilkesi yapılandırma ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/products/policies/write | Ürün için ilke yapılandırma ayrıntılarını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/products/policy/delete | Mevcut ürün ilke yapılandırmasını Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/products/policy/read | Mevcut ürün ilke yapılandırmasını al |
-> | Eylem | Microsoft.ApiManagement/service/products/policy/write | Var olan bir ürün için ilke yapılandırmasını ayarlayın |
-> | Eylem | Microsoft.ApiManagement/service/products/read | Ürünlerin listesini alın veya ürün ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/products/subscriptions/read | Ürün Aboneliklerin listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/products/tags/delete | Varolan bir etiketi mevcut ürün ile ilişkisini sil |
-> | Eylem | Microsoft.ApiManagement/service/products/tags/read | Ürün veya da etiketi Al ayrıntıları ile ilişkili etiketleri alın |
-> | Eylem | Microsoft.ApiManagement/service/products/tags/write | Mevcut etiketi mevcut ürün ile ilişkilendirme |
-> | Eylem | Microsoft.ApiManagement/service/products/write | Yeni ürün oluşturabilir veya mevcut ürün ayrıntılarını güncelleştirme |
-> | Eylem | Microsoft.ApiManagement/service/productsByTags/read | Ürün/etiketi ilişkilendirmeleri listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/properties/delete | Özelliği varolan kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/properties/read | Belirtilen özellik ayrıntılarını alır veya tüm özelliklerin listesini alır |
-> | Eylem | Microsoft.ApiManagement/service/properties/write | Yeni bir özellik oluşturur veya belirtilen özelliğin değerini güncelleştirir |
+> | Eylem | Microsoft.ApiManagement/service/policies/delete | API yönetim Hizmeti'nin genel ilke yapılandırmasını siler. |
+> | Eylem | Microsoft.ApiManagement/service/policies/read | API Management hizmeti tüm genel ilke tanımlarını listeler. veya, API Management hizmetinin genel ilke tanımı Al. |
+> | Eylem | Microsoft.ApiManagement/service/policies/write | Oluşturur veya API Management hizmetinin genel ilke yapılandırmasını güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/policy/delete | Kiracı düzeyinde ilke yapılandırmasını Sil |
+> | Eylem | Microsoft.ApiManagement/service/policy/read | Kiracı düzeyinde ilke yapılandırmasını al |
+> | Eylem | Microsoft.ApiManagement/service/policy/write | İlke Yapılandırması Kiracı düzeyi oluşturma |
+> | Eylem | Microsoft.ApiManagement/service/policySnippets/read | Tüm ilke kod parçacığı listeler. |
+> | Eylem | Microsoft.ApiManagement/service/portalsettings/read | Portalı veya Get oturum Portal ayarlarını yedekleme veya portalı için temsilci seçme ayarlarını almak için oturum ayarlarında alın. |
+> | Eylem | Microsoft.ApiManagement/service/portalsettings/write | Oturum açma ayarlarını güncelleştirin. veya oluşturma veya güncelleştirme oturum açma ayarları. ya da güncelleştirme Kaydol ayarları veya ayarları güncelleştirme kaydolun veya güncelleştirme temsilci ayarları. veya oluşturma veya güncelleştirme temsilci seçme ayarları. |
+> | Eylem | Microsoft.ApiManagement/service/products/apis/delete | Belirtilen API belirtilen ürün siler. |
+> | Eylem | Microsoft.ApiManagement/service/products/apis/read | Listeleri bir API koleksiyonudur bir ürünle ilişkilendirilmiş. |
+> | Eylem | Microsoft.ApiManagement/service/products/apis/write | Bir API için belirtilen ürün ekler. |
+> | Eylem | Microsoft.ApiManagement/service/products/delete | Ürün silin. |
+> | Eylem | Microsoft.ApiManagement/service/products/groups/delete | Belirtilen grup ve ürün arasındaki ilişkiyi siler. |
+> | Eylem | Microsoft.ApiManagement/service/products/groups/read | Belirtilen ürün ile ilişkili Geliştirici grupları koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/products/groups/write | Belirtilen ürün ile belirtilen bir geliştirici grubu arasındaki ilişkiyi ekler. |
+> | Eylem | Microsoft.ApiManagement/service/products/policies/delete | Ürün ilkesi yapılandırmasını siler. |
+> | Eylem | Microsoft.ApiManagement/service/products/policies/read | İlke Yapılandırması ürün düzeyinde alın. ya da ilke yapılandırması ürün düzeyinde alın. |
+> | Eylem | Microsoft.ApiManagement/service/products/policies/write | Oluşturur veya ilke yapılandırması ürün için güncelleştirir. |
+> | Eylem | Microsoft.ApiManagement/service/products/policy/delete | İlke Yapılandırması ürün düzeyinde Sil |
+> | Eylem | Microsoft.ApiManagement/service/products/policy/read | İlke Yapılandırması ürün düzeyinde Al |
+> | Eylem | Microsoft.ApiManagement/service/products/policy/write | İlke Yapılandırması ürün ile ilgili olarak düzeyi oluşturma |
+> | Eylem | Microsoft.ApiManagement/service/products/read | Belirtilen hizmet örneği ürünlerde koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen ürün ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/products/subscriptions/read | Belirtilen ürün aboneliklere koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/products/tags/delete | Etiket ürünün çıkarın. |
+> | Eylem | Microsoft.ApiManagement/service/products/tags/read | Ürün ile ilişkili tüm etiketleri listeler. veya ürünle ilişkilendirilmiş etiketi Al. |
+> | Eylem | Microsoft.ApiManagement/service/products/tags/write | Ürüne etiket atayın. |
+> | Eylem | Microsoft.ApiManagement/service/products/write | Oluşturur veya bir ürün güncelleştirir. veya mevcut ürün ayrıntıları güncelleştirilemiyor. |
+> | Eylem | Microsoft.ApiManagement/service/productsByTags/read | Etiketler ile ilişkili ürünleri koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/properties/delete | Belirli bir özelliği, API Management hizmet örneği siler. |
+> | Eylem | Microsoft.ApiManagement/service/properties/read | Bir hizmet örneği içinde tanımlanan özellikler koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen özellik ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/properties/write | Oluşturur veya bir özelliğini güncelleştirir. veya belirli bir özelliğini güncelleştirir. |
 > | Eylem | Microsoft.ApiManagement/service/quotas/periods/read | Dönem için kota sayaç değeri Al |
 > | Eylem | Microsoft.ApiManagement/service/quotas/periods/write | Geçerli sayaç değeri, kota ayarlama |
 > | Eylem | Microsoft.ApiManagement/service/quotas/read | İçin kota değerlerini alma |
 > | Eylem | Microsoft.ApiManagement/service/quotas/write | Geçerli sayaç değeri, kota ayarlama |
 > | Eylem | Microsoft.ApiManagement/service/read | Bir API Management hizmet örneği için meta veriler okuma |
+> | Eylem | Microsoft.ApiManagement/service/regions/read | Hizmet bulunduğu tüm azure bölgelerinde listeler. |
 > | Eylem | Microsoft.ApiManagement/service/reports/read | Dönemleri ya da coğrafi bölge veya Get rapor geliştiriciler tarafından toplanan göre toplanır Get rapor göre toplanır rapor alın.<br>ya da ürün tarafından toplanan rapor alın.<br>ya da API'ler veya Get rapor işlemleri veya abonelik tarafından toplanan Get rapor göre toplanır göre toplanır rapor alın.<br>ya da raporlama verilerini istekleri Al |
 > | Eylem | Microsoft.ApiManagement/service/restore/action | API Management hizmeti bir kullanıcı tarafından sağlanan depolama hesabı belirtilen kapsayıcıda geri yükleme |
-> | Eylem | Microsoft.ApiManagement/service/subscriptions/delete | Aboneliği silin. Bu işlem aboneliğini silmek için kullanılabilir |
-> | Eylem | Microsoft.ApiManagement/service/subscriptions/read | Ürün aboneliği ayrıntılarını alın veya ürün Aboneliklerin listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | Abonelik birincil anahtarı yeniden oluştur |
-> | Eylem | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | Abonelik ikincil anahtarı yeniden oluştur |
-> | Eylem | Microsoft.ApiManagement/service/subscriptions/write | Mevcut bir kullanıcının mevcut bir ürüne abone veya mevcut Abonelik Ayrıntıları güncelleştirilemiyor. Bu işlem, aboneliğinizi yenilemek için kullanılabilir |
-> | Eylem | Microsoft.ApiManagement/service/tagResources/read | İlişkilendirilmiş kaynakları olan etiketlerin listesini alma |
-> | Eylem | Microsoft.ApiManagement/service/tags/delete | Mevcut Etiketi Kaldır |
-> | Eylem | Microsoft.ApiManagement/service/tags/read | Etiketler listesini alın veya etiket ayrıntılarını Al |
-> | Eylem | Microsoft.ApiManagement/service/tags/write | Yeni etiket ekleme veya var olan etiket ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/subscriptions/delete | Belirtilen abonelik siler. |
+> | Eylem | Microsoft.ApiManagement/service/subscriptions/read | API Management hizmet örneği, tüm abonelikleri listeler. ya da belirtilen abonelik varlığı alır. |
+> | Eylem | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | API Management hizmet örneği, mevcut abonelik birincil anahtarı yeniden oluşturur. |
+> | Eylem | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | API Management hizmet örneği, mevcut abonelik ikincil anahtarı yeniden oluşturur. |
+> | Eylem | Microsoft.ApiManagement/service/subscriptions/write | Oluşturur veya abonelik belirtilen kullanıcının belirtilen ürün için güncelleştirir. veya kendi tanımlayıcısı tarafından belirtilen abonelik ayrıntılarını güncelleştirmeleri. |
+> | Eylem | Microsoft.ApiManagement/service/tagResources/read | Etiketler ile ilişkili bir kaynak koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/tags/delete | API Management hizmet örneği, belirli bir etiketi siler. |
+> | Eylem | Microsoft.ApiManagement/service/tags/read | Bir hizmet örneği içinde tanımlanan etiketler koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen etiket ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/tags/write | Bir etiketi oluşturur. veya kendi tanımlayıcısı tarafından belirtilen etiket ayrıntılarını güncelleştirmeleri. |
 > | Eylem | Microsoft.ApiManagement/service/templates/delete | Varsayılan API Management e-posta şablonu Sıfırla |
 > | Eylem | Microsoft.ApiManagement/service/templates/read | Tüm e-posta şablonları veya API Management alır e-posta şablonu ayrıntılarını alır. |
 > | Eylem | Microsoft.ApiManagement/service/templates/write | API Management e-posta şablonu ya da API Management güncelleştirmeleri e-posta şablonu oluştur veya güncelleştir |
 > | Eylem | Microsoft.ApiManagement/service/tenant/delete | Kiracı ilkesi yapılandırmasını Kaldır |
 > | Eylem | Microsoft.ApiManagement/service/tenant/deploy/action | Yapılandırmasına veritabanındaki belirtilen git dalı değişiklikleri uygulamak için bir dağıtım görevini çalıştırır. |
 > | Eylem | Microsoft.ApiManagement/service/tenant/operationResults/read | İşlem sonuçlarını listesini alın veya belirli bir işlemin sonucunu Al |
-> | Eylem | Microsoft.ApiManagement/service/tenant/read | İlke Yapılandırması Get Kiracı ve Kiracı için erişim bilgileri ayrıntılarını Al |
+> | Eylem | Microsoft.ApiManagement/service/tenant/read | API Management hizmetinin genel ilke tanımı Al veya Get Kiracı erişim bilgileri ayrıntıları |
 > | Eylem | Microsoft.ApiManagement/service/tenant/regeneratePrimaryKey/action | Birincil erişim anahtarını yeniden oluştur |
 > | Eylem | Microsoft.ApiManagement/service/tenant/regenerateSecondaryKey/action | İkincil erişim anahtarını yeniden oluştur |
 > | Eylem | Microsoft.ApiManagement/service/tenant/save/action | İşleme için belirtilmiş olan dalı depoda bulunan yapılandırma anlık görüntü oluşturur |
@@ -379,21 +388,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ApiManagement/service/updatecertificate/action | Bir API Management hizmeti için SSL sertifikasını karşıya yükle |
 > | Eylem | Microsoft.ApiManagement/service/updatehostname/action | Kurulum, güncelleştirmeniz ya da bir API Management hizmeti için özel etki alanı adlarını Kaldır |
 > | Eylem | Microsoft.ApiManagement/service/users/action | Yeni bir kullanıcı kaydı |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/attachments/delete | Bir eki kaldıran |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/attachments/read | Uygulama ekler veya alır ek alır |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/attachments/write | Ek uygulama ekleyin |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/delete | Var olan uygulama kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/read | Tüm kullanıcı uygulamaları veya uygulama ayrıntıları alır API Management listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/users/applications/write | API Yönetimi'ni veya güncelleştirmeleri uygulama ayrıntıları uygulamaya kaydeder |
 > | Eylem | Microsoft.ApiManagement/service/users/confirmations/send/action | Onay gönderir |
-> | Eylem | Microsoft.ApiManagement/service/users/delete | Kullanıcı hesabını kaldır |
-> | Eylem | Microsoft.ApiManagement/service/users/generateSsoUrl/action | SSO URL oluşturun. URL, Yönetici portalına erişmek için kullanılabilir |
-> | Eylem | Microsoft.ApiManagement/service/users/groups/read | Kullanıcı grupları listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/users/keys/read | Kullanıcı anahtarları listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/users/read | Kayıtlı kullanıcıların bir listesini alın veya bir kullanıcı hesabı ayrıntılarını alın |
-> | Eylem | Microsoft.ApiManagement/service/users/subscriptions/read | Kullanıcı Aboneliklerin listesini alın |
-> | Eylem | Microsoft.ApiManagement/service/users/token/action | Bir kullanıcı için belirteç erişim belirteci alma |
-> | Eylem | Microsoft.ApiManagement/service/users/write | Yeni bir kullanıcı veya mevcut bir kullanıcının hesap ayrıntılarını güncelleştirme |
+> | Eylem | Microsoft.ApiManagement/service/users/delete | Belirli bir kullanıcıyı siler. |
+> | Eylem | Microsoft.ApiManagement/service/users/generateSsoUrl/action | Belirli bir kullanıcı Geliştirici portalına imzalamak için bir kimlik doğrulama belirteci içeren bir yeniden yönlendirme URL'sini alır. |
+> | Eylem | Microsoft.ApiManagement/service/users/groups/read | Tüm kullanıcı gruplarını listeler. |
+> | Eylem | Microsoft.ApiManagement/service/users/identities/read | Tüm kullanıcı kimlikleri listesi. |
+> | Eylem | Microsoft.ApiManagement/service/users/keys/read | Kullanıcıyla ilişkili anahtarları alma |
+> | Eylem | Microsoft.ApiManagement/service/users/read | Belirtilen hizmet örneği, kayıtlı kullanıcı koleksiyonu listeler. veya kendi tanımlayıcısı tarafından belirtilen kullanıcı ayrıntılarını alır. |
+> | Eylem | Microsoft.ApiManagement/service/users/subscriptions/read | Belirtilen kullanıcının abonelikleri koleksiyonu listeler. |
+> | Eylem | Microsoft.ApiManagement/service/users/token/action | Paylaşılan erişim yetkilendirme için kullanıcı belirteci alır. |
+> | Eylem | Microsoft.ApiManagement/service/users/write | Oluşturur veya bir kullanıcı güncelleştirir. veya güncelleştirmeleri onun tanımlayıcısı tarafından belirtilen kullanıcının ayrıntıları. |
 > | Eylem | Microsoft.ApiManagement/service/write | Yeni bir API Management hizmeti örneği oluşturma |
 > | Eylem | Microsoft.ApiManagement/unregister/action | Kaydını Microsoft.ApiManagement kaynak sağlayıcısı için aboneliği |
 
@@ -718,11 +722,13 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
 > | Eylem | Microsoft.Capacity/appliedreservations/read | Tüm ayırmaları okuyun |
+> | Eylem | Microsoft.Capacity/calculateexchange/action | Yeni satın alma fiyatı ve exchange miktarını hesaplar ve ilke hataları döndürür. |
 > | Eylem | Microsoft.Capacity/calculateprice/action | Tüm rezervasyon fiyat hesaplayın |
 > | Eylem | Microsoft.Capacity/catalogs/read | Rezervasyonun oku Kataloğu |
 > | Eylem | Microsoft.Capacity/checkoffers/action | Herhangi bir abonelik teklif denetleyin |
 > | Eylem | Microsoft.Capacity/checkscopes/action | Herhangi bir abonelik denetleyin |
 > | Eylem | Microsoft.Capacity/commercialreservationorders/read | Rezervasyon sıraları herhangi bir Kiracıda oluşturulan Al |
+> | Eylem | Microsoft.Capacity/exchange/action | Tüm rezervasyon değişimi |
 > | Eylem | Microsoft.Capacity/operations/read | Herhangi bir işlemi okuyun |
 > | Eylem | Microsoft.Capacity/register/action | Kapasite kaynak sağlayıcısını kaydeder ve kapasite kaynaklarının oluşturulmasını sağlar. |
 > | Eylem | Microsoft.Capacity/reservationorders/action | Tüm rezervasyon güncelleştir |
@@ -1448,15 +1454,24 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
+> | Eylem | Microsoft.CostManagement/cloudConnectors/delete | Belirtilen cloudConnector silin. |
+> | Eylem | Microsoft.CostManagement/cloudConnectors/read | Kimliği doğrulanmış kullanıcı için cloudConnectors listeleyin. |
+> | Eylem | Microsoft.CostManagement/cloudConnectors/write | Veya belirtilen cloudConnector güncelleştirilemiyor. |
 > | Eylem | Microsoft.CostManagement/dimensions/read | Bir kapsam tarafından desteklenen tüm boyutları listeler. |
 > | Eylem | Microsoft.CostManagement/exports/action | Belirtilen dışarı aktarma çalıştırın. |
 > | Eylem | Microsoft.CostManagement/exports/delete | Belirtilen dışarı aktarma silin. |
 > | Eylem | Microsoft.CostManagement/exports/read | Dışarı aktarmaları kapsama göre listeler. |
+> | Eylem | Microsoft.CostManagement/exports/run/action | Dışarı aktarmalar çalıştırın. |
 > | Eylem | Microsoft.CostManagement/exports/write | Veya belirtilen dışarı aktarma güncelleştirilemiyor. |
+> | Eylem | Microsoft.CostManagement/externalBillingAccounts/externalSubscriptions/read | Kimliği doğrulanmış kullanıcı için bir externalBillingAccount içinde externalSubscriptions listeleyin. |
+> | Eylem | Microsoft.CostManagement/externalBillingAccounts/read | Kimliği doğrulanmış kullanıcı için externalBillingAccounts listeleyin. |
+> | Eylem | Microsoft.CostManagement/externalSubscriptions/read | Kimliği doğrulanmış kullanıcı için externalSubscriptions listeleyin. |
+> | Eylem | Microsoft.CostManagement/externalSubscriptions/write | ExternalSubscription ilişkili yönetim grubu güncelleştir |
 > | Eylem | Microsoft.CostManagement/query/action | Kullanım verileri bir kapsama göre sorgulayın. |
 > | Eylem | Microsoft.CostManagement/query/read | Kullanım verileri bir kapsama göre sorgulayın. |
 > | Eylem | Microsoft.CostManagement/reports/action | Kullanım verileri bir kapsama göre zamanlamayı raporlar. |
 > | Eylem | Microsoft.CostManagement/reports/read | Kullanım verileri bir kapsama göre zamanlamayı raporlar. |
+> | Eylem | Microsoft.CostManagement/tenants/register/action | Kapsam için bir kiracı tarafından Microsoft.CostManagement eylemi kaydedin. |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
@@ -1587,6 +1602,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Uyarıları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Uyarıları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | Bant genişliği zamanlamaları siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Bant genişliği zamanlamaları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Bant genişliği zamanlamaları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Oluşturur veya bant genişliği zamanlamaları güncelleştirir |
@@ -1597,8 +1613,10 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Güncelleştirmeleri cihaza yükle |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | İşleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Cihazın ağ ayarlarını alır veya listeler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | İşlem durumunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Siparişler siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Siparişleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Siparişleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Oluşturur veya güncelleştirir siparişleri |
@@ -1606,27 +1624,33 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Veri kutusu uç cihazlarına alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Veri kutusu uç cihazlarına alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Rolleri siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Rolleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Rolleri alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Oluşturur veya güncelleştirir rolleri |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Güncelleştirmeleri tara |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Güvenlik ayarlarını güncelleştir |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Paylaşımları siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Paylaşımları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Paylaşımları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Paylaşım meta verilerini buluttan gelen verilerle yenileyin |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Oluşturur veya güncelleştirir paylaşımları |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Depolama hesabı kimlik bilgilerini siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Depolama hesabı kimlik bilgilerini alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Depolama hesabı kimlik bilgilerini alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Oluşturur veya depolama hesabı kimlik bilgilerini güncelleştirir |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Tetikleyiciler siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Tetikleyiciler alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Tetikleyiciler alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Oluşturur veya güncelleştirir Tetikleyiciler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Güncelleştirme özeti alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Cihaz kaydı için sertifikayı karşıya yükleyin |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Paylaşımı kullanıcıları siler |
+> | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | İşlem sonucunu alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Paylaşımı kullanıcıları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Paylaşımı kullanıcıları alır veya listeler |
 > | Eylem | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | Oluşturur veya güncelleştirir Paylaşımı kullanıcıları |
@@ -1651,13 +1675,12 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.DataCatalog/catalogs/delete | Katalog siler. |
-> | Eylem | Microsoft.DataCatalog/catalogs/read | Katalog ya da abonelik veya kaynak grubu altında katalogları için özellikleri alır. |
-> | Eylem | Microsoft.DataCatalog/catalogs/write | Kataloğu oluşturur veya etiketleri ve Katalog özelliklerini güncelleştirir. |
-> | Eylem | Microsoft.DataCatalog/checkNameAvailability/action | Kiracı için katalog ad kullanılabilirliğini denetler. |
-> | Eylem | Microsoft.DataCatalog/operations/read | Microsoft.DataCatalog kaynak sağlayıcısındaki kullanılabilir işlemleri listele. |
-> | Eylem | Microsoft.DataCatalog/register/action | Aboneliği Microsoft.DataCatalog kaynak sağlayıcısına kaydeder. |
-> | Eylem | Microsoft.DataCatalog/unregister/action | Microsoft.DataCatalog kaynak sağlayıcısından alınan abonelik kaydını siler. |
+> | Eylem | Microsoft.DataCatalog/datacatalogs/delete | Veri Kataloğu kaynak sağlayıcısı için DataCatalog kaynağını silin. |
+> | Eylem | Microsoft.DataCatalog/datacatalogs/read | Veri Kataloğu kaynak sağlayıcısı için DataCatalog kaynağı oku. |
+> | Eylem | Microsoft.DataCatalog/datacatalogs/write | Veri Kataloğu kaynak sağlayıcısı için DataCatalog kaynak yazın. |
+> | Eylem | Microsoft.DataCatalog/operations/read | Veri Kataloğu kaynak sağlayıcısındaki kullanılabilir tüm işlemlerin okur. |
+> | Eylem | Microsoft.DataCatalog/register/action | Veri Kataloğu kaynak sağlayıcısı için aboneliği kaydedin |
+> | Eylem | Microsoft.DataCatalog/unregister/action | Veri Kataloğu kaynak sağlayıcısı için abonelik kaydını sil |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1873,26 +1896,40 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
+> | Eylem | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | MariaDB sunucu işlemi sonuçlarını döndürür |
+> | Eylem | Microsoft.DBforMariaDB/locations/operationResults/read | Dönüş ResourceGroup MariaDB sunucu işlemi sonuçlarını alan |
+> | Eylem | Microsoft.DBforMariaDB/locations/operationResults/read | MariaDB sunucu işlemi sonuçlarını döndürür |
 > | Eylem | Microsoft.DBforMariaDB/locations/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforMariaDB/locations/securityAlertPoliciesOperationResults/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforMariaDB/operations/read | MariaDB işlemlerin listesini döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforMariaDB/register/action | MariaDB kaynak sağlayıcısını kaydetme |
 > | Eylem | Microsoft.DBforMariaDB/servers/configurations/read | Belirtilen yapılandırma özelliklerini alır ya da bir sunucu için yapılandırmaları listesini döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/servers/configurations/write | Belirtilen yapılandırma değerini güncelleştirin |
+> | Eylem | Microsoft.DBforMariaDB/servers/databases/delete | Mevcut bir MariaDB veritabanı siler. |
+> | Eylem | Microsoft.DBforMariaDB/servers/databases/read | Belirtilen veritabanı için MariaDB veritabanı veya özelliklerini alır listesini döndürür. |
+> | Eylem | Microsoft.DBforMariaDB/servers/databases/write | Belirtilen parametrelerle bir MariaDB veritabanı oluşturur veya için belirtilen veritabanı özelliklerini güncelleştirir. |
 > | Eylem | Microsoft.DBforMariaDB/servers/delete | Mevcut bir sunucu siler. |
 > | Eylem | Microsoft.DBforMariaDB/servers/firewallRules/delete | Mevcut bir güvenlik duvarı kuralını siler. |
 > | Eylem | Microsoft.DBforMariaDB/servers/firewallRules/read | Güvenlik Duvarı listesini bir sunucu için kuralları veya özellikleri için belirtilen güvenlik duvarı kuralı alır döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/servers/firewallRules/write | Belirtilen parametreleri ya da mevcut bir kuralı güncelleştirme güvenlik duvarı kuralı oluşturur. |
+> | Eylem | Microsoft.DBforMariaDB/servers/logFiles/read | MariaDB LogFiles listesini döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
 > | Eylem | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | MariaDB sunucuları için kullanılabilir günlükleri alır |
 > | Eylem | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | Dönüş türleri veritabanları için kullanılabilir ölçümleri |
+> | Eylem | Microsoft.DBforMariaDB/servers/queryTexts/action | Metinleri sorgularının listesini döndürür |
 > | Eylem | Microsoft.DBforMariaDB/servers/read | Sunucuları veya belirtilen sunucunun özelliklerini alır listesini döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/servers/recoverableServers/read | Kurtarılabilir MariaDB sunucu bilgileri |
 > | Eylem | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | Belirli bir sunucuda yapılandırılmış sunucu tehdit algılama ilkesi ayrıntılarını alma |
 > | Eylem | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | Verilen bir sunucu için sunucu tehdit algılama ilkesini değiştirme |
+> | Eylem | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | En sık kullanılan sorgular için sorgu istatistikleri listesini döndürür. |
 > | Eylem | Microsoft.DBforMariaDB/servers/updateConfigurations/action | Belirtilen sunucu için yapılandırmaları güncelleştirme |
 > | Eylem | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Mevcut bir sanal ağ kuralı siler |
 > | Eylem | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | Dönüş listesi, sanal ağ kuralları veya belirtilen sanal ağ kuralı için özellikleri alır. |
 > | Eylem | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | Bir sanal ağ kuralı belirtilen parametrelerle oluşturur veya özellikleri veya etiketleri belirtilen sanal ağ kuralı için güncelleştirin. |
+> | Eylem | Microsoft.DBforMariaDB/servers/waitStatistics/read | Bir örneği için bekleme İstatistiği |
 > | Eylem | Microsoft.DBforMariaDB/servers/write | Belirtilen parametrelerle bir sunucu oluşturur veya özellikleri veya etiketleri belirtilen sunucu için güncelleştirin. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -1900,14 +1937,25 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
+> | Eylem | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | MySQL sunucu işlemi sonuçlarını döndürür |
+> | Eylem | Microsoft.DBforMySQL/locations/operationResults/read | MySQL sunucu işlemi sonuçlarını dönüş ResourceGroup tabanlı |
+> | Eylem | Microsoft.DBforMySQL/locations/operationResults/read | MySQL sunucu işlemi sonuçlarını döndürür |
 > | Eylem | Microsoft.DBforMySQL/locations/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforMySQL/locations/securityAlertPoliciesAzureAsyncOperation/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforMySQL/operations/read | MySQL işlemlerin listesini döndürür. |
 > | Eylem | Microsoft.DBforMySQL/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforMySQL/register/action | MySQL kaynak sağlayıcısını kaydetme |
 > | Eylem | Microsoft.DBforMySQL/servers/configurations/read | Belirtilen yapılandırma özelliklerini alır ya da bir sunucu için yapılandırmaları listesini döndürür. |
 > | Eylem | Microsoft.DBforMySQL/servers/configurations/write | Belirtilen yapılandırma değerini güncelleştirin |
+> | Eylem | Microsoft.DBforMySQL/servers/databases/delete | Mevcut bir MySQL veritabanını siler. |
+> | Eylem | Microsoft.DBforMySQL/servers/databases/read | Belirtilen veritabanı için MySQL veritabanları veya özelliklerini alır listesini döndürür. |
+> | Eylem | Microsoft.DBforMySQL/servers/databases/write | Belirtilen parametrelerle bir MySQL veritabanı oluşturur veya için belirtilen veritabanı özelliklerini güncelleştirir. |
 > | Eylem | Microsoft.DBforMySQL/servers/delete | Mevcut bir sunucu siler. |
 > | Eylem | Microsoft.DBforMySQL/servers/firewallRules/delete | Mevcut bir güvenlik duvarı kuralını siler. |
 > | Eylem | Microsoft.DBforMySQL/servers/firewallRules/read | Güvenlik Duvarı listesini bir sunucu için kuralları veya özellikleri için belirtilen güvenlik duvarı kuralı alır döndürür. |
 > | Eylem | Microsoft.DBforMySQL/servers/firewallRules/write | Belirtilen parametreleri ya da mevcut bir kuralı güncelleştirme güvenlik duvarı kuralı oluşturur. |
+> | Eylem | Microsoft.DBforMySQL/servers/logFiles/read | PostgreSQL LogFiles listesini döndürür. |
 > | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
 > | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | MySQL sunucuları için kullanılabilir günlükleri alır |
@@ -1922,6 +1970,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Mevcut bir sanal ağ kuralı siler |
 > | Eylem | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Dönüş listesi, sanal ağ kuralları veya belirtilen sanal ağ kuralı için özellikleri alır. |
 > | Eylem | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Bir sanal ağ kuralı belirtilen parametrelerle oluşturur veya özellikleri veya etiketleri belirtilen sanal ağ kuralı için güncelleştirin. |
+> | Eylem | Microsoft.DBforMySQL/servers/waitStatistics/read | Bir örneği için bekleme İstatistiği |
 > | Eylem | Microsoft.DBforMySQL/servers/write | Belirtilen parametrelerle bir sunucu oluşturur veya özellikleri veya etiketleri belirtilen sunucu için güncelleştirin. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -1929,17 +1978,28 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
+> | Eylem | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | PostgreSQL sunucu işlemi sonuçlarını döndürür |
+> | Eylem | Microsoft.DBforPostgreSQL/locations/operationResults/read | Dönüş ResourceGroup PostgreSQL sunucusu işlemi sonuçlarını alan |
+> | Eylem | Microsoft.DBforPostgreSQL/locations/operationResults/read | PostgreSQL sunucu işlemi sonuçlarını döndürür |
 > | Eylem | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | Sunucu tehdit algılama işleminin sonucunu listesini döndürür. |
+> | Eylem | Microsoft.DBforPostgreSQL/operations/read | PostgreSQL işlemlerin listesini döndürür. |
 > | Eylem | Microsoft.DBforPostgreSQL/performanceTiers/read | Performans katmanları kullanılabilir listesini döndürür. |
+> | Eylem | Microsoft.DBforPostgreSQL/register/action | PostgreSQL kaynak sağlayıcısını kaydetme |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/advisors/read | Danışmanlar listesini döndürür |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Önerilen Eylemler listesini döndürür |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Önerilerde |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/configurations/read | Belirtilen yapılandırma özelliklerini alır ya da bir sunucu için yapılandırmaları listesini döndürür. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/configurations/write | Belirtilen yapılandırma değerini güncelleştirin |
+> | Eylem | Microsoft.DBforPostgreSQL/servers/databases/delete | Mevcut bir PostgreSQL veritabanı siler. |
+> | Eylem | Microsoft.DBforPostgreSQL/servers/databases/read | Belirtilen veritabanı için PostgreSQL veritabanları veya özelliklerini alır listesini döndürür. |
+> | Eylem | Microsoft.DBforPostgreSQL/servers/databases/write | Bir PostgreSQL veritabanı belirtilen parametrelerle oluşturur veya için belirtilen veritabanı özelliklerini güncelleştirir. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/delete | Mevcut bir sunucu siler. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/firewallRules/delete | Mevcut bir güvenlik duvarı kuralını siler. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/firewallRules/read | Güvenlik Duvarı listesini bir sunucu için kuralları veya özellikleri için belirtilen güvenlik duvarı kuralı alır döndürür. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/firewallRules/write | Belirtilen parametreleri ya da mevcut bir kuralı güncelleştirme güvenlik duvarı kuralı oluşturur. |
+> | Eylem | Microsoft.DBforPostgreSQL/servers/logFiles/read | PostgreSQL LogFiles listesini döndürür. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Postgres sunucuları için kullanılabilir günlükleri alır |
@@ -1957,6 +2017,10 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Bir sanal ağ kuralı belirtilen parametrelerle oluşturur veya özellikleri veya etiketleri belirtilen sanal ağ kuralı için güncelleştirin. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | Bir örneği için bekleme İstatistiği |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/write | Belirtilen parametrelerle bir sunucu oluşturur veya özellikleri veya etiketleri belirtilen sunucu için güncelleştirin. |
+> | Eylem | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
+> | Eylem | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Postgres sunucuları için kullanılabilir günlükleri alır |
+> | Eylem | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Dönüş türleri veritabanları için kullanılabilir ölçümleri |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -2055,6 +2119,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Azure geliştirme alanları denetleyicinin altyapısı için liste bağlantısı ayrıntıları |
 > | Eylem | Microsoft.DevSpaces/controllers/read | Okuma Azure geliştirme alanları Denetleyicisi Özellikleri |
 > | Eylem | Microsoft.DevSpaces/controllers/write | Oluşturma veya güncelleştirme Azure geliştirme alanları Denetleyicisi Özellikleri |
+> | Eylem | Microsoft.DevSpaces/locations/operationresults/read | Zaman uyumsuz bir işlemin durumunu oku |
 > | Eylem | Microsoft.DevSpaces/register/action | Bir abonelikle Microsoft geliştirme alanları kaynak sağlayıcısını kaydetme |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
@@ -2105,6 +2170,12 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DevTestLab/labs/serviceRunners/delete | Hizmet çalıştırıcıların silin. |
 > | Eylem | Microsoft.DevTestLab/labs/serviceRunners/read | Hizmet çalıştırıcıların okuyun. |
 > | Eylem | Microsoft.DevTestLab/labs/serviceRunners/write | Ekleyin veya hizmet çalıştırıcıların değiştirin. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/delete | Paylaşılan galeriler silin. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/read | Paylaşılan galeriler okuyun. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/delete | Paylaşılan görüntüleri silin. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/read | Paylaşılan görüntülerini okuyun. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/write | Ekleyin veya paylaşılan görüntülerini değiştirin. |
+> | Eylem | Microsoft.DevTestLab/labs/sharedGalleries/write | Ekleyin veya paylaşılan galeriler değiştirin. |
 > | Eylem | Microsoft.DevTestLab/labs/users/delete | Kullanıcı profillerini silin. |
 > | Eylem | Microsoft.DevTestLab/labs/users/disks/Attach/action | Ekleme ve sanal makineye disk kirasını oluşturun. |
 > | Eylem | Microsoft.DevTestLab/labs/users/disks/delete | Diskleri silin. |
@@ -2170,6 +2241,41 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
 > | Eylem | Microsoft.DocumentDB/databaseAccountNames/read | Ad kullanılabilirliğini denetler. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | Bir koleksiyonu silin. Yalnızca API türleri için geçerlidir: 'mongodb'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | Bir koleksiyonu okunamıyor veya tüm koleksiyonları listeler. Yalnızca API türleri için geçerlidir: 'mongodb'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/read | Bir koleksiyon işleme hacmini okuyun. Yalnızca API türleri için geçerlidir: 'mongodb'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/write | Bir koleksiyon işleme hacmini güncelleştirin. Yalnızca API türleri için geçerlidir: 'mongodb'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | Veya bir koleksiyon güncelleştirilemiyor. Yalnızca API türleri için geçerlidir: 'mongodb'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | Bir kapsayıcı silin. Yalnızca API türleri için geçerlidir: 'sql'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | Bir kapsayıcı okuma veya tüm kapsayıcıları listesi. Yalnızca API türleri için geçerlidir: 'sql'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/read | Kapsayıcının aktarım hızını okuyun. Yalnızca API türleri için geçerlidir: 'sql'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/write | Kapsayıcının aktarım hızını güncelleştirin. Yalnızca API türleri için geçerlidir: 'sql'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | Veya bir kapsayıcı güncelleştirilemiyor. Yalnızca API türleri için geçerlidir: 'sql'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | Bir veritabanını silin. Yalnızca API türleri için geçerlidir: 'sql', 'mongodb', 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | Graf silme. Yalnızca API türleri için geçerlidir: 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | Bir grafiği okumak veya tüm grafikler listesi. Yalnızca API türleri için geçerlidir: 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/read | Grafik işleme okuyun. Yalnızca API türleri için geçerlidir: 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/write | Grafik işleme güncelleştirin. Yalnızca API türleri için geçerlidir: 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | Veya bir grafik güncelleştirilemiyor. Yalnızca API türleri için geçerlidir: 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | Bir veritabanını okumak veya tüm veritabanlarını listeleyin. Yalnızca API türleri için geçerlidir: 'sql', 'mongodb', 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/read | Veritabanı aktarım hızını okuyun. Yalnızca API türleri için geçerlidir: 'sql', 'mongodb', 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/write | Veritabanı aktarım hızını güncelleştirin. Yalnızca API türleri için geçerlidir: 'sql', 'mongodb', 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | Bir veritabanı oluşturun. Yalnızca API türleri için geçerlidir: 'sql', 'mongodb', 'gremlin'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | Bir anahtar alanı silin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Bir anahtar alanı okunamıyor veya tüm keyspaces listesi. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | Bir anahtar alanı aktarım hızı okuyun. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | Bir anahtar alanı aktarım hızı güncelleştirin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Bir tablo silin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Salt okunur bir tablo veya tüm tabloları listeleyin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | Bir tablo aktarım hızı okuyun. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | Bir tablo aktarım hızı güncelleştirin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Oluşturun veya bir tabloyu güncelleştirin. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Bir anahtar alanı oluşturun. Yalnızca API türleri için geçerlidir: 'cassandra'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Bir tablo silin. Yalnızca API türleri için geçerlidir: 'table'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Salt okunur bir tablo veya tüm tabloları listeleyin. Yalnızca API türleri için geçerlidir: 'table'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | Bir tablo aktarım hızı okuyun. Yalnızca API türleri için geçerlidir: 'table'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | Bir tablo aktarım hızı güncelleştirin. Yalnızca API türleri için geçerlidir: 'table'. |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | Oluşturun veya bir tabloyu güncelleştirin. Yalnızca API türleri için geçerlidir: 'table'. |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/backup/action | Yedeklemeyi yapılandırmak için bir istek gönderin |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | Bir veritabanı hesabı, kaynak grubunu değiştir |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | Toplama, ölçüm tanımlarını okur. |
@@ -2653,6 +2759,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Ölçüm tanımlarını oku |
 > | Eylem | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Ölçüm tanımlarını oku |
 > | Eylem | Microsoft.Insights/MetricDefinitions/Read | Ölçüm tanımlarını oku |
+> | Eylem | Microsoft.Insights/Metricnamespaces/Read | Okuma ölçüm ad alanları |
 > | Eylem | Microsoft.Insights/Metrics/Action | Ölçüm Eylemi |
 > | Eylem | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Ölçümleri okuma |
 > | Eylem | Microsoft.Insights/Metrics/providers/Metrics/Read | Ölçümleri okuma |
@@ -2689,6 +2796,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
+> | Eylem | Microsoft.IoTCentral/appTemplates/action | Tüm kullanılabilir uygulama şablonları Azure IOT Central alır |
 > | Eylem | Microsoft.IoTCentral/checkNameAvailability/action | IOT Central uygulamasına adı kullanılabilir olup olmadığını denetler |
 > | Eylem | Microsoft.IoTCentral/checkSubdomainAvailability/action | Bir IOT Central uygulamasına alt etki alanının kullanılabilir olup olmadığını denetler |
 > | Eylem | Microsoft.IoTCentral/IoTApps/delete | IOT Central uygulamaları siler |
@@ -3602,6 +3710,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/locations/checkDnsNameAvailability/read | DNS etiketi belirtilen konumda kullanılabilir olup olmadığını denetler |
 > | Eylem | Microsoft.Network/locations/operationResults/read | Bir zaman uyumsuz POST ya da silme işlemi işleminin sonucunu alır |
 > | Eylem | Microsoft.Network/locations/operations/read | Zaman uyumsuz bir işlemin durumunu temsil eden bir işlem kaynağı alır |
+> | Eylem | Microsoft.Network/locations/serviceTags/read | Hizmet etiketleri alın |
 > | Eylem | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Sanal makine boyutları alır desteklenir |
 > | Eylem | Microsoft.Network/locations/usages/read | Kaynakları kullanım ölçümleri alır |
 > | Eylem | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Kullanılabilir sanal ağ uç noktası hizmetlerin bir listesini alır |
@@ -3911,7 +4020,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.OperationalInsights/linkTargets/read | Bir Azure aboneliği ile ilişkili olmayan mevcut hesapları listeler. Bu Azure aboneliğinin bir çalışma alanına bağlamak için bu işlem çalışma alanı Oluştur işleminin Müşteri Kimliği özelliğinde döndürülen müşteri kimliğini kullanın. |
 > | Eylem | Microsoft.operationalinsights/Operations/Read | Tüm kullanılabilir Operationalınsights Rest API işlemleri listeler. |
+> | Eylem | Microsoft.operationalinsights/Register/Action | Rergisters abonelik. |
 > | Eylem | Microsoft.OperationalInsights/register/action | Bir kaynak sağlayıcısına bir abonelik kaydedin. |
+> | Eylem | microsoft.operationalinsights/unregister/action | Abonelik kaydını siler. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/analytics/query/action | Yeni altyapıyı kullanarak arama yapın. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Arama şeması V2 alın. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/api/query/action | Yeni altyapıyı kullanarak arama yapın. |
@@ -3963,6 +4074,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | ContainerLog tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | ContainerNodeInventory tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | ContainerServiceLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | DatabricksAccounts tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | DatabricksClusters tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | DatabricksDBFS tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | DatabricksJobs tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | DatabricksNotebook tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | DatabricksSecrets tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | DatabricksSQLPermissions tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | DatabricksSSH tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | DatabricksTables tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | DatabricksWorkspace tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | DeviceAppCrash tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | DeviceAppLaunch tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | DeviceCalendar tablosundan veri oku |
@@ -3993,6 +4114,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | HuntingBookmark tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | InboundConnection tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | InsightsMetrics tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | IntuneAuditLogs tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | IntuneOperationalLogs tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | KubeEvents tablodaki verileri okuma |
@@ -4010,6 +4132,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | MADeploymentPlan tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevice/read | MADevice tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | MADeviceNotEnrolled tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | MADeviceNRT tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | MADevicePnPHealth tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues tablosundan veri oku |
@@ -4035,7 +4158,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | MAOfficeDeploymentStatusNRT tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | MAOfficeMacroErrorNRT tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | MAOfficeMacroGlobalHealth tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | MAOfficeMacroHealth tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness tablosundan veri oku |
@@ -4048,6 +4173,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | MAWindowsCurrencyAssessment tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | MAWindowsDeploymentStatusNRT tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | NetworkMonitoring tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | OfficeActivity tablosundan veri oku |
@@ -4162,6 +4288,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
 > | Eylem | Microsoft.PolicyInsights/asyncOperationResults/read | Zaman uyumsuz işlem sonucunu alır. |
+> | Eylem | Microsoft.PolicyInsights/operations/read | Microsoft.policyınsights ad alanı işlemlerinde alır desteklenir |
 > | Eylem | Microsoft.PolicyInsights/policyEvents/queryResults/action | İlke olayları hakkındaki bilgileri sorgulayın. |
 > | Eylem | Microsoft.PolicyInsights/policyEvents/queryResults/read | İlke olayları hakkındaki bilgileri sorgulayın. |
 > | Eylem | Microsoft.PolicyInsights/policyStates/queryResults/action | İlke durumları hakkındaki bilgileri sorgulayın. |
@@ -4466,6 +4593,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
 > | Eylem | Microsoft.Resources/deployments/read | Dağıtımları alır veya listeler. |
 > | Eylem | Microsoft.Resources/deployments/validate/action | Bir dağıtımı doğrular. |
+> | Eylem | Microsoft.Resources/deployments/whatIf/action | Şablon dağıtımı değişikliklerini tahmin eder. |
 > | Eylem | Microsoft.Resources/deployments/write | Bir dağıtımı oluşturur veya güncelleştirir. |
 > | Eylem | Microsoft.Resources/links/delete | Bir kaynak bağlantısını siler. |
 > | Eylem | Microsoft.Resources/links/read | Kaynak bağlantılarını alır veya listeler. |
@@ -5060,6 +5188,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Sql/servers/keys/read | Dönüş sunucusu listesini anahtarları veya belirtilen sunucu anahtarı için özellikleri alır. |
 > | Eylem | Microsoft.Sql/servers/keys/write | Belirtilen parametrelerle bir anahtar oluşturur veya özellikleri veya etiketleri belirtilen sunucu anahtarı için güncelleştirin. |
 > | Eylem | Microsoft.Sql/servers/operationResults/read | İlerleme-sunucu işlemleri alır |
+> | Eylem | Microsoft.Sql/servers/privateEndpointConnections/delete | Var olan bir özel uç noktası bağlantısını siler |
+> | Eylem | Microsoft.Sql/servers/privateEndpointConnections/read | Özel uç nokta bağlantı listesinde döndürür veya belirtilen özel uç nokta bağlantı için özellikleri alır. |
 > | Eylem | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Dönüş türleri sunucuları için kullanılabilir ölçümleri |
 > | Eylem | Microsoft.Sql/servers/read | Sunucuları veya belirtilen sunucunun özelliklerini alır listesini döndürür. |
 > | Eylem | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Verilen bir sunucu için önerilen esnek veritabanı havuzlarına ilişkin ölçümleri alma |
@@ -5106,7 +5236,6 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Otomatik anlık görüntüyü silme sonucunu döndürür |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Bir hesapta filtreyle eşleşen blobların listesini döndürür |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Blob komutunun sonucunu döndürür |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Blob etiketleri okuma sonucunu döndürür |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Blob etiketleri yazmanın sonucunu döndürür |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |

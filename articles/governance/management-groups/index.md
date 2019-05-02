@@ -4,15 +4,15 @@ description: Yönetim grupları, izinlerinin nasıl çalıştığı ve bu grupla
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699398"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722491"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure yönetim gruplarıyla düzenleme
 
@@ -47,9 +47,8 @@ Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu
 
 ### <a name="important-facts-about-the-root-management-group"></a>Kök yönetim grubu hakkında önemli bilgiler
 
-- Kök yönetim grubunun adı ve kimliği varsayılan olarak verilir. Görünen ad, Azure portalında farklı görünecek şekilde herhangi bir zamanda güncelleştirilebilir. [Adı değiştirmek için](manage.md#change-the-name-of-a-management-group) hesabınızın kök yönetim grubunun Sahip veya Katkıda Bulunan rolüne atanması gerekir.
-  - Ad "Kiracı kök grubu" olacaktır.
-  - Kimlik Azure Active Directory Kimliği olacaktır.
+- Varsayılan olarak kök yönetim grubunun görünen adı, **Kiracı kök grubu**’dur. Kimlik, Azure Active Directory Kimliği’dir.
+- Görünen adı değiştirmek için hesabınızın, kök yönetim grubunun Sahip veya Katkıda Bulunan rolüne atanması gerekir. Adı değiştirme adımları için bkz. [Yönetim grubunun adını değiştirme](manage.md#change-the-name-of-a-management-group).
 - Diğer yönetim gruplarının aksine kök yönetim grubu taşınamaz veya silinemez.  
 - Tüm abonelikler ve yönetim grupları, dizinin içindeki bir kök yönetim grubu altında birleşir.
   - Dizindeki tüm kaynaklar, genel yönetim için kök yönetim grubu altında birleşir.

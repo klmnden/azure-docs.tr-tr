@@ -292,6 +292,12 @@
           href: '/powershell/module/az.policyinsights#policy_insights'
         - name: Konuk Yapılandırması
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+    - name: .NET için Azure SDK
+      items:
+        - name: Atamalar
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+        - name: İlke Tanımları
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
     - name: REST
       items:
         - name: Olaylar

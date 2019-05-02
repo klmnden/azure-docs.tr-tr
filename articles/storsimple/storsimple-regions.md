@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60628899"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943605"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple'ınızı için kullanılabildiği bölgeler
 
@@ -32,7 +32,7 @@ Bir Azure bölgesini seçmek çok önemlidir ve bölge seçimi veri yerleşikli�
 StorSimple çözümü için, tercih ettiğiniz bölgede özellikle aşağıdaki etkenlere göre belirlenir:
 
 - StorSimple cihaz Yöneticisi hizmeti kullanılabildiği bölgeler.
-- StorSimple fiziksel, Bulut veya sanal aygıt kullanılabildiği ülkelerin.
+- StorSimple fiziksel, Bulut veya sanal aygıt kullanılabilir olduğu ülkeleri.
 - Burada, StorSimple verileri depolayan depolama hesapları en iyi performans için klasöründe bulunmalıdır bölgeleri.
 
 Bu öğreticide StorSimple cihaz Yöneticisi hizmeti, şirket içi fiziksel ve bulut cihazlar için bölge kullanılabilirliği açıklanmaktadır. Bu makalede yer alan bilgileri, StorSimple 8000 ve 1200 Serisi cihazlar için geçerlidir.
@@ -61,36 +61,36 @@ Ardından bir StorSimple Cloud Appliance'ı kullanıyorsanız, hizmeti ve ilişk
 
 ## <a name="availability-of-storsimple-device"></a>StorSimple cihaz kullanılabilirliği
 
-Modeline bağlı olarak, StorSimple cihazları farklı coğrafyalara ve ülkelerde kullanılabilir.
+Modeline bağlı olarak, StorSimple cihazları farklı coğrafyalara veya ülkeler/bölgeler kullanılabilir olabilir.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>StorSimple fiziksel cihazının (model 8100/8600)
 
-Cihaz StorSimple 8100 veya 8600 fiziksel cihaz kullanıyorsanız, aşağıdaki ülkelerde kullanılabilir.
+Cihaz, StorSimple 8100 veya 8600 fiziksel cihaz kullanıyorsanız, aşağıdaki ülkelerde/bölgelerde kullanılabilir.
 
-| #  | Ülke        | #  | Ülke     | #  | Ülke      | #  | Ülke              |
-|----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Avustralya      | 16 | Hong Kong Çin ÖİB| 31 | Yeni Zelanda  | 46 | Güney Afrika         |
-| 2  | Avusturya        | 17 | Macaristan     | 32 | Nijerya      | 47 | Güney Kore          |
-| 3  | Bahreyn        | 18 | İzlanda     | 33 | Norveç       | 48 | İspanya                |
-| 4  | Belçika        | 19 | Hindistan       | 34 | Peru         | 49 | Sri Lanka            |
-| 5  | Brezilya         | 20 | Endonezya   | 35 | Filipinler  | 50 | İsveç               |
-| 6  | Kanada         | 21 | İrlanda     | 36 | Polonya       | 51 | İsviçre          |
-| 7  | Şili          | 22 | İsrail      | 37 | Portekiz     | 52 | Tayvan               |
-| 8  | Kolombiya       | 23 | İtalya       | 38 | Porto Riko  | 53 | Tayland             |
-| 9  | Çek Cumhuriyeti | 24 | Japonya       | 39 | Katar        | 54 | Türkiye               |
-| 10 | Danimarka        | 25 | Kenya       | 40 | Romanya      | 55 | Ukrayna              |
-| 11 | Mısır          | 26 | Kuveyt      | 41 | Rusya       | 56 | Birleşik Arap Emirlikleri |
-| 12 | Finlandiya        | 27 | Makao ÖİB   | 42 | Suudi Arabistan | 57 | Birleşik Krallık       |
-| 13 | Fransa         | 28 | Malezya    | 43 | Singapur    | 58 | Amerika Birleşik Devletleri        |
-| 14 | Almanya        | 29 | Meksika      | 44 | Slovakya     | 59 | Vietnam              |
-| 15 | Yunanistan         | 30 | Hollanda | 45 | Slovenya     | 60 | Hırvatistan              |
+| #  | Ülke/Bölge        | #  | Ülke/Bölge     | #  | Ülke/Bölge      | #  | Ülke/Bölge             |
+|----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
+| 1  | Avustralya             | 16 | Hong Kong Çin ÖİB      | 31 | Yeni Zelanda         | 46 | Güney Afrika               |
+| 2  | Avusturya               | 17 | Macaristan            | 32 | Nijerya             | 47 | Güney Kore                |
+| 3  | Bahreyn               | 18 | İzlanda            | 33 | Norveç              | 48 | İspanya                      |
+| 4  | Belçika               | 19 | Hindistan              | 34 | Peru                | 49 | Sri Lanka                  |
+| 5  | Brezilya                | 20 | Endonezya          | 35 | Filipinler         | 50 | İsveç                     |
+| 6  | Kanada                | 21 | İrlanda            | 36 | Polonya              | 51 | İsviçre                |
+| 7  | Şili                 | 22 | İsrail             | 37 | Portekiz            | 52 | Tayvan                     |
+| 8  | Kolombiya              | 23 | İtalya              | 38 | Porto Riko         | 53 | Tayland                   |
+| 9  | Çek Cumhuriyeti        | 24 | Japonya              | 39 | Katar               | 54 | Türkiye                     |
+| 10 | Danimarka               | 25 | Kenya              | 40 | Romanya             | 55 | Ukrayna                    |
+| 11 | Mısır                 | 26 | Kuveyt             | 41 | Rusya              | 56 | Birleşik Arap Emirlikleri       |
+| 12 | Finlandiya               | 27 | Makao ÖİB          | 42 | Suudi Arabistan        | 57 | Birleşik Krallık             |
+| 13 | Fransa                | 28 | Malezya           | 43 | Singapur           | 58 | Amerika Birleşik Devletleri              |
+| 14 | Almanya               | 29 | Meksika             | 44 | Slovakya            | 59 | Vietnam                    |
+| 15 | Yunanistan                | 30 | Hollanda        | 45 | Slovenya            | 60 | Hırvatistan                    |
 
-Daha fazla ülkede eklendikçe bu listede değişiklik. Depolama dizisi koşulları ekte coğrafyaları en güncel listesi için Git [ürün koşulları](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Daha fazla ülkeler/bölgeler eklendikçe bu listede değişiklik. Depolama dizisi koşulları ekte coğrafyaları en güncel listesi için Git [ürün koşulları](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft, fiziksel donanım gönderin ve yukarıdaki listede coğrafyalar için StorSimple için donanım yedek parça değişimi sağlayın.
 
 > [!IMPORTANT]
-> StorSimple fiziksel cihazı StorSimple desteklenmediği bir bölgeye yerleştirmeyin. Microsoft, ülkelere StorSimple desteklenmediği herhangi bir yedek parçaları sevk etmek mümkün olmayacaktır.
+> StorSimple fiziksel cihazı StorSimple desteklenmediği bir bölgeye yerleştirmeyin. Microsoft StorSimple desteklenmediği ülkeler/bölgeler için bir yedek parçaları sevk etmek mümkün olmayacaktır.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple bulut Gereci (8010/8020 modeller)
 

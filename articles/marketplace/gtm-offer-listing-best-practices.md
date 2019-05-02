@@ -2,26 +2,19 @@
 title: Go-To-Market Hizmetleri - teklif listesi en iyi uygulamalar | Azure
 description: Go-To-Market Hizmetleri - bu bölümde bir teklif için liste en iyi uygulamalar açıklanmaktadır.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863942"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937980"
 ---
-# <a name="offer-listing-best-practices"></a>En iyi uygulamalar listesi sunma
+# <a name="offer-listing-best-practices"></a>En iyi teklif listeleme deneyimleri
 
 Bu bölümdeki tablolarda, oluşturma ve Marketi tekliflerini ilgi çekici önerileri sağlar. Yazma ve kendi pazarlama malzemelerinize yapılandırmak için Git [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). 
 
@@ -35,7 +28,7 @@ Bu bölümdeki tablolarda, oluşturma ve Marketi tekliflerini ilgi çekici öner
 | StoreFront ayarı | En iyi yöntem |
 |:--- |:--- |  
 | Sektörler: AppSource uygulamaları ve danışmanlık hizmetleri yalnızca | Sektöre özgü ihtiyaçları teklifinizi adresleri değişirse sektörler seçin: <ul><li> Teklif açıklamanızı sektöre özgü özellikleri kullanıma çağırın.</li> </ul> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve belirtilen [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). |
-| Kategoriler | Teklifinizle en iyi hizalamak kategorileri seçin:<br> <ul> <li> Müşteriler bunları ilgili uygulamalar için aranacak kullandığından kategorileri dikkatlice seçin. </li> <li> Nasıl teklifinizi kategoriye özgü ihtiyaçları teklif açıklamasında destekleyip çağırdığınızdan emin olun. </li> </ul> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve belirtilen [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). |
+| Categories | Teklifinizle en iyi hizalamak kategorileri seçin:<br> <ul> <li> Müşteriler bunları ilgili uygulamalar için aranacak kullandığından kategorileri dikkatlice seçin. </li> <li> Nasıl teklifinizi kategoriye özgü ihtiyaçları teklif açıklamasında destekleyip çağırdığınızdan emin olun. </li> </ul> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve belirtilen [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). |
 | Uygulamanızı çalışır (3 ile en fazla) ürünleri: AppSource uygulamaları | Ek ürünler ve çözümünüzü genişletir veya kullanan teknolojileri listeleyin. Örneğin, Azure IOT Hub veya Azure Machine Learning. |
 | Arama anahtar sözcükleri (en fazla 3) | Arama anahtar sözcükleri ararken teklifinizi iş bulmalarına yardımcı olabilir <ul> <li> Azure Market'te </li> <li> Appsource'ta </li> <li> arama motorları kullanma </li> </ul> Listenizi bu aramalarda görünür şunları yapmanız gerekir: <ul> <li> Teklifiniz için en çok üç arama anahtar sözcükleri belirleyin; </li> <li> Arama anahtar sözcükleri teklif Özet ve açıklama ekleyebilirsiniz; </li> <li> Burada arama anahtar sözcükleri listeler. </li> </ul> |
 

@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889871"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730257"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Azure IOT açık Platform iletişim (OPC) cihaz yönetimi nedir?
+# <a name="what-is-opc-twin"></a>OPC İkizi nedir?
 
 Bulut ve Fabrika ağ bağlanmak için Azure IOT Edge ve IOT Hub'ı kullanan mikro OPC İkizi oluşur. OPC İkizi bulma, kayıt ve REST API'ler aracılığıyla endüstriyel cihazlara uzaktan denetimi sağlar. OPC İkizi bir OPC birleşik mimari (OPC UA) SDK'sı dilden programlama ve sunucusuz bir iş akışında bulunan gerektirmez. Bu makalede, çeşitli OPC İkizi kullanım örnekleri açıklanmaktadır.
 

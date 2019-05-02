@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621439"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728043"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 
@@ -321,10 +321,6 @@ Bu sürüm, varsayılan Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAu
 * Şu anda bir SSL bağlantısı üzerinden RTMP canlı akış içe olamaz.
 * İçeriğinizi teslim etmek istediğiniz akış uç noktası 10 Eylül 2014'ten sonra yalnızca oluşturulduysa, SSL üzerinden akışını yapabilirsiniz. URL "streaming.mediaservices.windows.net" (yeni biçimde) varsa, akış URL'leri 10 Eylül 2014'ten sonra oluşturulan akış uç noktalarını dayanır. "Origin.mediaservices.windows.net" (eski biçimde) içeren akış URL'leri SSL desteklemez. URL'NİZİN biçimi eski olduğundan ve SSL üzerinden akışla aktarmak istiyorsanız [yeni bir akış uç noktası oluşturma](media-services-portal-manage-streaming-endpoints.md). SSL üzerinden içeriğinizin akışını sağlamak için yeni akış uç noktasına göre URL'leri kullanın.
 
-## <a id="october_changes_14"></a>Ekim 2014 sürümü
-### <a id="new_encoder_release"></a>Medya Hizmetleri Kodlayıcı sürüm
- Medya Hizmetleri Azure Medya Kodlayıcısı'nın yeni sürümüne Duyuruldu. En son Medya Kodlayıcısı ile yalnızca için ücret ödersiniz GB çıktı. Aksi takdirde, yeni Kodlayıcı önceki Kodlayıcısı ile uyumlu bir özelliktir. Daha fazla bilgi için [Media Services fiyatlandırma ayrıntıları].
-
 ### <a id="oct_sdk"></a>Media Services .NET SDK'sı
 .NET uzantıları için Media Services SDK'sı sürüm 2.0.0.3 sunulmuştur.
 
@@ -396,14 +392,6 @@ Media Services .NET SDK'sı sürüm 3.0.0.5 sunulmuştur. Aşağıdaki güncelle
   * Web özel durumlar (örneğin, bir Access Control Service belirteç isteği sırasında) aldığınızda, önemli hataları daha hızlı artık başarısız.
 
 Daha fazla bilgi için [.NET için Media Services SDK'sı mantığı yeniden deneyin].
-
-## <a id="april_changes_14"></a>Nisan 2014 Kodlayıcı sürüm
-### <a name="april_14_enocer_changes"></a>Medya Hizmetleri Kodlayıcı güncelleştirmeleri
-* Çim vadisi EDIUS doğrusal Düzenleyicisi'ni kullanarak yazılan AVI dosyalarında almak için destek eklendi. Bu işlemde Çim vadisi HQ/HQX codec kullanarak video hafifçe sıkıştırılır. Daha fazla bilgi için [Çim vadisi EDIUS bulut üzerinden akış 7 duyurdu].
-*  Medya Hizmetleri Kodlayıcı tarafından üretilen dosyaları için adlandırma kuralı belirtmek için destek eklendi. Daha fazla bilgi için [denetim medya Hizmetleri Kodlayıcı çıktı dosyası adları](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Video ve/veya ses katmanları için destek eklendi. Daha fazla bilgi için [yer paylaşımları oluşturma](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Birden fazla video segmentlerini birleştirmek için destek eklendi. Daha fazla bilgi için [kullanabileceğimizi video segmentlerini](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* Bir hatanın nerede ses kodlanan MP4 MPEG-1 Ses Katmanı 3 (MP3 olarak da bilinir) ile kodlama dönüştürme için ilgili düzeltildi.
 
 ## <a id="jan_feb_changes_14"></a>Ocak/Şubat 2014 sürümleri
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK'sı 3.0.0.1 ve 3.0.0.2 3.0.0.3
@@ -556,7 +544,7 @@ Aşağıdaki işlevler Kasım SDK sürümünde yeni:
 <!--- URLs. --->
 [Azure Media Services MSDN Forumu]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API'si başvurusu]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services fiyatlandırma ayrıntıları]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Giriş meta verileri]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Çıkış meta verileri]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ Aşağıdaki işlevler Kasım SDK sürümünde yeni:
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [.NET için Media Services SDK'sı mantığı yeniden deneyin]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Çim vadisi EDIUS bulut üzerinden akış 7 duyurdu]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

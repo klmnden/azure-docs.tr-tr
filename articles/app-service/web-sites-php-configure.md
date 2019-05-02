@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105442"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730628"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service'te PHP yapılandırma
 
@@ -35,15 +35,11 @@ PHP 7.0 ve PHP 7.2 sürümleri de kullanılabilir, ancak varsayılan olarak etki
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Uygulamanıza Gözat [Azure portalında](https://portal.azure.com) tıklayın **ayarları** düğmesi.
+1. Uygulamanıza Gözat [Azure portalında](https://portal.azure.com) kaydırın **yapılandırma** sayfası.
 
-    ![Uygulama Ayarları][settings-button]
-2. Gelen **ayarları** dikey penceresinde **uygulama ayarları** ve en yeni PHP sürümünü seçin.
+2. Gelen **yapılandırma**seçin **genel ayarlar** ve en yeni PHP sürümünü seçin.
 
-    ![Uygulama Ayarları][application-settings]
-3. Tıklayın **Kaydet** üst kısmındaki düğmeye **uygulama ayarları** dikey penceresi.
-
-    ![Yapılandırma ayarlarını Kaydet][save-button]
+3. Tıklayın **Kaydet** üst kısmındaki düğmeye **genel ayarlar** dikey penceresi.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Kullanmaya alternatif olarak bir `.user.ini` kullanabileceğiniz dosyası [ini_s
 ### <a name="configure-via-app-setting"></a>Uygulama ayarı aracılığıyla yapılandırma
 
 1. Ekleme bir `bin` kök dizinine dizin.
-1. PUT `.dll` dosyalar uzantısı `bin` dizin (örneğin, `php_xdebug.dll`). Uzantılar, PHP, olan VC9 ve iş parçacığı güvenli olmayan (nts) uyumlu varsayılan sürümü ile uyumlu olduğundan emin olun.
-2. Uygulamanızı dağıtın.
-3. Uygulamanızı Azure portalında için bulun ve tıklayın **ayarları** düğmesi.
-
-    ![Uygulama Ayarları][settings-button]
-4. Gelen **ayarları** dikey penceresinde **uygulama ayarları** kaydırın **uygulama ayarları** bölümü.
-5. İçinde **uygulama ayarları** bölümünde, oluşturun bir **php_extensıons** anahtarı. Bu anahtarın değeri, Web sitesinin kök göreli bir yol olabilir: **bin\your ext dosya**.
-
-    ![Uygulama Ayarları'nda uzantısını etkinleştirme][php-extensions]
-6. Tıklayın **Kaydet** üst kısmındaki düğmeye **uygulama ayarları** dikey penceresi.
-
-    ![Yapılandırma ayarlarını Kaydet][save-button]
+2. PUT `.dll` dosyalar uzantısı `bin` dizin (örneğin, `php_xdebug.dll`). Uzantılar, PHP, olan VC9 ve iş parçacığı güvenli olmayan (nts) uyumlu varsayılan sürümü ile uyumlu olduğundan emin olun.
+3. Uygulamanızı dağıtın.
+4. Uygulamanızı Azure portalında için bulun ve tıklayın **yapılandırma** aşağıda bulunan **ayarları** bölümü.
+5. Gelen **yapılandırma** dikey penceresinde **uygulama ayarları**.
+6. İçinde **uygulama ayarları** bölümünde, tıklayarak **+ yeni uygulama ayarı** oluşturup bir **php_extensıons** anahtarı. Bu anahtarın değeri, Web sitesinin kök göreli bir yol olabilir: **bin\your ext dosya**.
+7. Tıklayın **güncelleştirme** düğmesinin altındaki'e tıklayın **Kaydet** yukarıda **uygulama ayarları** sekmesi.
 
 Zend uzantıları, kullanarak de desteklenir bir **PHP_ZENDEXTENSIONS** anahtarı. Birden çok uzantıyı etkinleştirmek için virgülle ayrılmış listesini içeren `.dll` dosyaları uygulama ayarı değeri.
 
@@ -154,15 +144,11 @@ Varsayılan PHP çalışma zamanı yerine App Service, PHP komut yürütmek içi
 3. İsteğe bağlı olarak, PHP çalışma zamanı uzantılarını ekleyin ve bunları etkinleştirmek `php.ini` dosya.
 4. Ekleme bir `bin` kök dizini ve put PHP çalışma zamanınızı da içeren dizine dizin (örneğin, `bin\php`).
 5. Uygulamanızı dağıtın.
-6. Uygulamanızı Azure portalında için bulun ve tıklayın **ayarları** düğmesi.
-
-    ![Uygulama Ayarları][settings-button]
-7. Gelen **ayarları** dikey penceresinde **uygulama ayarları** kaydırın **işleyici eşlemeleri** bölümü. Ekleme `*.php` uzantı alan ve yola ekleyin `php-cgi.exe` yürütülebilir. PHP çalışma zamanınızın koyarsanız `bin` uygulamanızın kök dizininde yoludur `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![İşleyici eşlemeleri işleyici belirtin][handler-mappings]
-8. Tıklayın **Kaydet** üst kısmındaki düğmeye **uygulama ayarları** dikey penceresi.
-
-    ![Yapılandırma ayarlarını Kaydet][save-button]
+6. Uygulamanızı Azure portalında için bulun ve tıklayın **yapılandırma** dikey penceresi.
+8. Gelen **yapılandırma** dikey penceresinde **yolu eşlemeleri**. 
+9. Tıklayın **+ yeni işleyici** ve ekleme `*.php` uzantı alan ve yola ekleyin `php-cgi.exe` içinde yürütülebilir **betik işleyici**. PHP çalışma zamanınızın koyarsanız `bin` uygulamanızın kök dizininde yoludur `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Alt kısmında tıklayın **güncelleştirme** işleyici eşlemesi ekleme işlemini sonlandırmak için.
+11. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
 
 <a name="composer" />
 

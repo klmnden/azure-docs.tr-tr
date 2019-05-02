@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581046"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866354"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing yerel iş arama API'si v7 başvurusu
 
-Yerel iş arama API'si, Restoran, otel veya diğer yerel işletmeler içeren sonuçları almak için Bing arama sorgusu gönderir. Basamak için sorgu yerel iş veya bir kategoriyi (örneğin, Yakınımdaki restoranlar) adını belirtebilirsiniz. Varlık sonuçları kişileri, yerleri veya nesneleri kapsar. Bu bağlamda yerdir iş varlıkları, durumları, ülke, vb.  
+Yerel iş arama API'si, Restoran, otel veya diğer yerel işletmeler içeren sonuçları almak için Bing arama sorgusu gönderir. Basamak için sorgu yerel iş veya bir kategoriyi (örneğin, Yakınımdaki restoranlar) adını belirtebilirsiniz. Varlık sonuçları kişileri, yerleri veya nesneleri kapsar. Bu bağlamda yerdir iş varlıkları, durumları, ülkeler/bölgeler vb.  
 
 Bu bölümde, yanıt nesneleri ve sorgu parametreleri ve arama sonuçları etkiler üstbilgileri hakkında teknik ayrıntılar sağlar. İsteğinde bulunmak nasıl gösteren örnekler için bkz: [yerel iş arama C# hızlı](quickstarts/local-quickstart.md) veya [yerel iş arama Java Hızlı Başlangıç](quickstarts/local-search-java-quickstart.md). 
   

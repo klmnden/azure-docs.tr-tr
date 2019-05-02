@@ -472,7 +472,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `SourceDirectory` öğesi.
 
 | Öznitelik | Tür | Açıklama |  
 | --------- | ---- | ----------- |  
-|yol|string|Gereklidir. Azure sanal makinesine içerikleri kopyalanacak yerel bir dizine göreli veya mutlak yolu. Ortam değişkenlerini dizin yolunda genişletme desteklenir.|  
+|path|string|Gereklidir. Azure sanal makinesine içerikleri kopyalanacak yerel bir dizine göreli veya mutlak yolu. Ortam değişkenlerini dizin yolunda genişletme desteklenir.|  
   
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Bulut hizmeti (Klasik) tanım Şeması](schema-csdef-file.md)

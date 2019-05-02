@@ -2,7 +2,6 @@
 title: Apache Hive ve HiveQL - Azure HDInsight nedir
 description: Apache Hive, Apache Hadoop için bir veri ambarı sistem olduğu. Hive kullanarak HiveQL, depolanan verileri sorgulayabilir, Transact-SQL'e benzer. Bu belgede, Azure HDInsight ile Hive ve HiveQL kullanmayı öğrenin.
 keywords: hiveql yığını, hadoop hiveql nedir, nasıl hive kullanma, hive, hive nedir öğrenme
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715635"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 

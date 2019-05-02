@@ -1,70 +1,64 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ca77662e7756d74f8f939e78af626b7f2da2a3c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792727"
 documentType: LandingData
 title: Azure üzerinde Ansible belgeleri
 metadata:
-  title: Azure üzerinde Ansible belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar
-  description: Bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatik hale getirmek için Ansible'ın nasıl kullanılacağını öğrenin.
+  title: 'Azure üzerinde Ansible belgeleri - Öğreticiler, örnekler, başvuru ve kaynaklar'
+  description: 'Bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatik hale getirmek için Ansible''ın nasıl kullanılacağını öğrenin.'
   ms.service: azure
-  keywords: ansible, azure, devops, öğreticiler, örnekler, başvuru
+  keywords: 'ansible, azure, devops, öğreticiler, örnekler, başvuru'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 08/27/2018
+  ms.date: 04/22/2019
 abstract:
-  description: Bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatik hale getirmek için <a href="https://www.ansible.com">Ansible</a>'ı kullanın.
+  description: 'Bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını otomatik hale getirmek için <a href="https://www.ansible.com">Ansible</a>''ı kullanın.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: Ansible uygulamasını yükleyin ve Azure'da Linux sanal makinelerini oluşturmak ve yönetmek için kullanın.
-  - type: list
-    style: icon48
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - image:
-        src: /azure/media/index/azure_dev-9.svg
-      text: Ansible'ı yükleme
-      href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-    - image:
-        src: /azure/media/index/VirtualMachine.svg
-      text: Linux VM oluşturma
-      href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-    - image:
-        src: /azure/media/index/VirtualMachine.svg
-      text: Linux VM yönetme
-      href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: Ansible kullanarak Azure işlem, ağ ve depolama altyapısı oluşturmayı ve yönetmeyi öğrenin.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Ansible uygulamasını yükleyin ve Azure'da Linux sanal makinelerini oluşturmak ve yönetmek için kullanın.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/azure_dev-9.svg
+            text: Ansible'ı yükleme
+            href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          - image:
+              src: /azure/media/index/VirtualMachine.svg
+            text: Linux VM yapılandırma
+            href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          - image:
+              src: /azure/media/index/VirtualMachine.svg
+            text: Linux VM yönetme
+            href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Sanal ağ, genel IP adresi ve sanal ağ arabirim kartı da dahil olmak üzere bir Linux sanal makinesi oluşturun.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Azure Cloud Shell'de Bash ile Ansible'ı çalıştırın.</a>
-    - html: <a href="./ansible-manage-azure-dynamic-inventories">Azure kaynaklarınızın dinamik bir envanterini oluşturun ve yönetin.</a>
-    - html: <a href="./ansible-create-configure-vmss">Azure’da sanal makine ölçek kümeleri oluşturun ve yönetin.</a>
-    - html: <a href="./ansible-deploy-app-vmss">Azure’da sanal makine ölçek kümelerine uygulama dağıtın.</a>
-    - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service kümeleri oluşturun ve yönetin.</a>
-    - html: <a href="./ansible-create-configure-application-gateway">Bir Azure uygulama ağ geçidi ile web trafiğini yönetin.</a>
-    - html: <a href="./ansible-auto-scale-vmss">Ansible'ı kullanarak Azure'da sanal makine ölçek kümesini otomatik olarak ölçeklendirin.</a>
-    - html: <a href="./ansible-scale-azure-web-apps">Ansible'ı kullanarak Azure App Service web uygulamalarını ölçeklendirin.</a>
-    - html: <a href="./ansible-create-configure-route-table">Ansible'ı kullanarak Azure yol tablosunu oluşturun, değiştirin veya silin.</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Ansible kullanarak Azure işlem, ağ ve depolama altyapısı oluşturmayı ve yönetmeyi öğrenin.'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Sanal ağ, genel IP adresi ve sanal ağ arabirim kartı da dahil olmak üzere bir Linux sanal makinesi oluşturun.</a>'
+          - html: <a href="./ansible-run-playbook-in-cloudshell">Azure Cloud Shell'de Bash ile Ansible'ı çalıştırın.</a>
+          - html: <a href="./ansible-manage-azure-dynamic-inventories">Azure kaynaklarınızın dinamik bir envanterini oluşturun ve yönetin.</a>
+          - html: <a href="./ansible-create-configure-vmss">Azure’da sanal makine ölçek kümeleri oluşturun ve yönetin.</a>
+          - html: <a href="./ansible-deploy-app-vmss">Azure’da sanal makine ölçek kümelerine uygulama dağıtın.</a>
+          - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service kümeleri oluşturun ve yönetin.</a>
+          - html: <a href="./ansible-create-configure-application-gateway">Bir Azure uygulama ağ geçidi ile web trafiğini yönetin.</a>
+          - html: <a href="./ansible-auto-scale-vmss">Ansible kullanarak Azure’da sanal makine ölçek kümesini otomatik olarak ölçeklendirin.</a>
+          - html: <a href="./ansible-scale-azure-web-apps">Ansible'ı kullanarak Azure App Service web uygulamalarını ölçeklendirin.</a>
+          - html: '<a href="./ansible-create-configure-route-table">Ansible''ı kullanarak Azure yol tablosunu oluşturun, değiştirin veya silin.</a>'
+  - title: Başvuru
     items:
-    - title: Playbook rolleri
-      html: <p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>
-    - title: Sürümler ve özellikler
-      html: <p><a href="./ansible-matrix.md">Modüller ve roller için özellik tablosu</a></p>
-    - title: Araçlar
-      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Ansible için Visual Studio Code uzantısı</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Playbook rolleri
+            html: '<p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>'
+          - title: Sürümler ve özellikler
+            html: <p><a href="./ansible-matrix.md">Modüller ve roller için özellik tablosu</a></p>
+          - title: Araçlar
+            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Ansible için Visual Studio Code uzantısı</a></p>'

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775889"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922809"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -66,7 +66,7 @@ Log Analytics aracısını istediğinizde kullanılmalıdır:
 
 * [Azure Otomasyonu, güncelleştirme yönetimi](../../automation/automation-update-management.md) işletim sistemi güncelleştirmeleri.
 * [Azure Otomasyonu Desired State Configuration](../../automation/automation-dsc-overview.md) tutarlı yapılandırma durumunu korumak üzere.
-* İzleme yapılandırma değişiklikleriyle [Azure Otomasyon, değişiklik izleme ve stok](../../automation/automation-change-tracking.md).
+* İzleme yapılandırma değişiklikleriyle [Azure Otomasyon, değişiklik izleme ve stok](../../automation/change-tracking.md).
 * Azure Hizmetleri gibi [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/), hangi yerel olarak depolamak verilerini doğrudan Log Analytics'te.  
 
 ## <a name="dependency-agent"></a>Bağımlılık aracısı

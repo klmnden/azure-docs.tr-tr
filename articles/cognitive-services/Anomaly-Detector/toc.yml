@@ -32,6 +32,8 @@
       items:
         - name: .NET
           href: 'https://aka.ms/anomaly-detector-dotnet-ref'
+        - name: Başlayın
+          href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
 - name: Kaynaklar
   items:
     - name: Fiyatlandırma

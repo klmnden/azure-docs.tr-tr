@@ -5,6 +5,7 @@
     - name: Redis için Azure Önbelleği hakkında
       href: cache-overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: ASP.NET uygulaması oluşturma
       href: cache-web-app-howto.md

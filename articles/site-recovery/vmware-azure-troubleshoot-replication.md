@@ -7,211 +7,63 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: mayg
-ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565079"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924820"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
-Azure Site Recovery kullanarak VMware sanal makineleri veya fiziksel sunucuları koruduğunuzda, belirli bir hata iletisi görebilirsiniz. Bu makalede, şirket içi VMware Vm'leri ve fiziksel sunucuları Azure'a kullanarak çoğaltma yaptığınızda çalıştırdığınızca bazı yaygın sorunlar [Site Recovery](site-recovery-overview.md).
+Bu makalede bazı yaygın sorunlar ve şirket içi VMware Vm'leri ve fiziksel sunucuları azure'a çoğalttığınızda, çalıştırdığınızca belirli hataları [Site Recovery](site-recovery-overview.md).
 
-## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Çoğaltma sorunlarını önlemek için işlem sunucusunun sistem durumunu izleme
+## <a name="step-1-monitor-process-server-health"></a>1. Adım: İşlem sunucusu durumunu izleme
 
-İlişkili kaynak makineleriniz için çoğaltmanın ilerlediğini emin olmak için portal üzerindeki işlem sunucusu (PS) durumunu izlemek için önerilir. Kasada Yönet gidin > Site Recovery altyapısı > yapılandırma sunucuları. Yapılandırma sunucusu dikey penceresinde, ilişkili bölümünde işlem sunucusunu tıklayın. Kendi sistem durumu istatistikleriyle işlem sunucu dikey penceresi açılır. CPU kullanımı, bellek kullanımı, çoğaltma, sertifika sona erme tarihi ve kullanılabilir boş alanı gerekli PS hizmetlerinin durumunu izleyebilirsiniz. Tüm istatistiklerin durum yeşil olmalıdır. 
+Site Recovery kullanan [işlem sunucusu](vmware-physical-azure-config-process-server-overview.md#process-server) alabilir ve çoğaltılan verileri En İyileştir ve Azure'a gönderin.
 
-**Bellek ve CPU kullanımı % 70'in altında olan ve % 25 yukarıdaki alanı boş önerilen**. Boş alan Azure'a yüklemeden önce kaynak makinelerden çoğaltma verilerini depolamak için kullanılan işlem sunucusu önbellek diski alanı ifade eder. %20 değerinden azaltır, çoğaltma için tüm ilişkili kaynak makinelerden kısıtlanır. İzleyin [kapasite Kılavuzu](./site-recovery-plan-capacity-vmware.md#capacity-considerations) kaynak makinelerden çoğaltma için gerekli yapılandırmayı öğrenin.
+Portalında, bağlı olan ve işlem sunucusu ile ilişkili kaynak makinelerden için düzgün çalışmasını ve çoğaltma İlerliyor emin olmak için işlem sunucularının durumunu izlemek öneririz.
 
-PS makinede şu hizmetlerin çalıştığından emin olun. Veya çalışmadığından herhangi bir hizmeti yeniden başlatın.
+- [Hakkında bilgi edinin](vmware-physical-azure-monitor-process-server.md) işlem sunucularını izleme.
+- [En iyi uygulamaları inceleme](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
+- [Sorun giderme](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) işlem sunucu durumu.
 
-**Yerleşik bir işlem sunucusu**
+## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>2. Adım: Bağlantı ve çoğaltma sorunlarını giderme
 
-* Dosya
-* ProcessServerMonitor
-* cxprocessserver
-* Inmage Pushınstall
-* Günlük karşıya yükleme hizmeti (LogUpload)
-* Inmage Scout uygulama hizmeti
-* Microsoft Azure kurtarma Hizmetleri Aracısı (obengine)
-* Inmage Scout VX Aracısı - Sentinel/Outpost (svagents)
-* tmansvc
-* World Wide Web Yayımlama Hizmeti (W3SVC)
-* MySQL
-* Microsoft Azure Site Recovery hizmeti (dra)
+İlk ve devam eden çoğaltma hatalarını genellikle işlem sunucusu ile Azure arasında veya kaynak sunucu ile işlem sunucusu arasında bağlantı sorunları nedeniyle oluşup. 
 
-**Genişleme işlem sunucusu**
+Bu sorunları çözmek için [bağlantı ve çoğaltma sorunlarını giderme](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
-* Dosya
-* ProcessServerMonitor
-* cxprocessserver
-* Inmage Pushınstall
-* Günlük karşıya yükleme hizmeti (LogUpload)
-* Inmage Scout uygulama hizmeti
-* Microsoft Azure kurtarma Hizmetleri Aracısı (obengine)
-* Inmage Scout VX Aracısı - Sentinel/Outpost (svagents)
-* tmansvc
 
-**Azure'da yeniden çalışma için işlem sunucusu**
 
-* Dosya
-* ProcessServerMonitor
-* cxprocessserver
-* Inmage Pushınstall
-* Günlük karşıya yükleme hizmeti (LogUpload)
 
-Tüm hizmetlerin StartType ayarlandığından emin olun **otomatik veya Otomatik (Gecikmeli Başlatma)**. Microsoft Azure kurtarma Hizmetleri Aracısı (obengine) hizmet olarak yukarıda kendi StartType sahip olması gerekmez.
-
-## <a name="replication-issues"></a>Çoğaltma sorunları
-
-İlk ve devam eden çoğaltma hatalarını genellikle işlem sunucusu ile Azure arasında veya kaynak sunucu ile işlem sunucusu arasında bağlantı sorunları nedeniyle oluşup. Çoğu durumda, aşağıdaki bölümlerde yer alan adımları tamamlayarak bu sorunları giderebilirsiniz.
-
->[!Note]
->Emin olun:
->1. Korumalı öğe için tarih saat eşitleme sistemidir.
->2. Hiçbir virüsten koruma yazılımı, Azure Site Recovery engelliyor. Bilgi [daha fazla](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) üzerinde Azure Site Recovery için gereken klasör dışlamaları.
-
-### <a name="check-the-source-machine-for-connectivity-issues"></a>Kaynak makine için bağlantı sorunlarını kontrol edin
-
-Kaynak makine denetleyebilirsiniz aşağıdaki listeyi gösterir yolları.
-
-*  Kaynak sunucuda komut satırında aşağıdaki komutu çalıştırarak HTTPS bağlantı noktası üzerinden işlem sunucusu ping Telnet kullanın. HTTPS bağlantı noktası 9443, çoğaltma trafiğini gönderip için işlem sunucusu tarafından kullanılan varsayılan değerdir. Kayıt zamanında Bu bağlantı noktasını değiştirebilirsiniz. Aşağıdaki komut, sorunları o blok güvenlik duvarı bağlantı noktası ve ağ bağlantısı sorunları için denetler.
-
-
-   `telnet <process server IP address> <port>`
-
-
-   > [!NOTE]
-   > Telnet bağlantısını test etmek için kullanın. Kullanmayın `ping`. Telnet yüklü değilse, listelenen adımları tamamlamak [Telnet istemcisi yükleme](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
-
-   Telnet PS bağlantı noktasına başarıyla bağlanabilmek için ise, boş bir ekran görülebilir.
-
-   İşlem sunucusuna bağlanamıyorsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin verin. Örneğin, bir çevre ağına ağınız varsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin vermeniz gereken veya denetimli alt ağ. Ardından, sorunun nerede oluştuğunu görmek için kontrol edin.
-
-*  Telnet başarılı ise ve henüz kaynak makine PS erişilebilir olmadığını bildiriyor. kaynak makinedeki web tarayıcısı açın ve adres https://<PS_IP>:<PS_Data_Port>/ erişilebilir olup olmadığını denetleyin.
-
-    HTTPS sertifika hatası bu adresi ulaşmaktan bekleniyor. Sertifika hatası yok sayılıyor ve devam etmeden 400 – Hatalı istek, sunucu başka bir deyişle, tarayıcının isteği yanıt veremez ve sunucuya standart HTTPS bağlantı da ve iyi çalışıp çalışmadığını bitmelidir.
-
-    Bu başarısız olursa, tarayıcı hata iletisinde ayrıntıları rehberlik sağlar. İçin örneğin Ara sunucu kimlik doğrulaması yanlışsa, proxy sunucusu 407 – Proxy kimlik doğrulaması gerekli birlikte gerekli eylemleri hata iletisi döndürür. 
-
-*  Kaynak VM ağına ilgili hataları aşağıdaki günlükleri karşıya yükleme hataları kontrol edin:
-
-       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
-
-### <a name="check-the-process-server-for-connectivity-issues"></a>İşlem sunucusu için bağlantı sorunlarını kontrol edin
-
-İşlem sunucusu denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
-
-> [!NOTE]
-> NAT IP üzerinde yapılandırılmamış olması ve işlem sunucusu statik bir IPv4 adresi olmalıdır.
-
-* **Kaynak makine ve işlem sunucusu arasındaki bağlantıyı denetleyin**
-* Telnet kaynak makineden mümkün olan ve henüz PS kaynak sunucudan erişilebilir değil durumunda, kaynak VM üzerinde cxpsclient aracını çalıştırarak cxprocessserver kaynak VM ile uçtan uca bağlantıyı denetleyin:
-
-      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
-
-   PS karşılık gelen hatalar hakkında ayrıntılı bilgi için aşağıdaki dizinde oluşturulan günlüklerini kontrol edin:
-
-      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-      and
-      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-* PS gelen hiçbir sinyal yok durumda PS üzerinde aşağıdaki günlüklere bakın Bu tarafından tanımlanan **hata kodu 806** portalında.
-
-      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-      and
-      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
-
-* **İşlem sunucusu etkin bir şekilde veri Azure'a gönderme olup olmadığını denetleyin**.
-
-  1. İşlem sunucusu, Görev Yöneticisi'ni (Ctrl + Shift + Esc tuşlarına basın) açın.
-  2. Seçin **performans** sekmesine tıklayın ve ardından **açık Kaynak İzleyicisi** bağlantı. 
-  3. Üzerinde **Kaynak İzleyicisi** sayfasında **ağ** sekmesi. Altında **ağ etkinliği işlemlerle**, kontrol olup olmadığını **cbengine.exe** etkin bir şekilde büyük miktarlarda veri gönderiyor.
-
-       ![Ağ etkinliği ile işlem birimlerini gösteren ekran görüntüsü](./media/vmware-azure-troubleshoot-replication/cbengine.png)
-
-  Büyük bir veri hacmi cbengine.exe gönderme değil, aşağıdaki bölümlerde yer alan adımları tamamlayın.
-
-* **İşlem sunucusu Azure Blob depolama alanına bağlanıp bağlanamadığınızı denetleyin**.
-
-  Seçin **cbengine.exe**. Altında **TCP bağlantılarını**, Azure blogunda depolama URL'si işlem sunucusundan bağlantı olup olmadığını denetleyin.
-
-  ![Cbengine.exe ve Azure Blob Depolama URL'si arasındaki bağlantıları gösteren ekran görüntüsü](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
-
-  İşlem sunucusundan bağlantı Denetim Masası ' nda Azure blogunda depolama URL'sine yoksa seçin **Hizmetleri**. Aşağıdaki hizmetlerin çalışır durumda olup olmadığını denetleyin:
-
-  *  cxprocessserver
-  *  Inmage Scout VX Aracısı-Sentinel/Outpost
-  *  Microsoft Azure Kurtarma Hizmetleri Aracısı
-  *  Microsoft Azure Site Recovery Hizmeti
-  *  tmansvc
-
-  Veya çalışmadığından herhangi bir hizmeti yeniden başlatın. Sorunun nerede oluştuğunu görmek için kontrol edin.
-
-* **İşlem sunucusu bağlantı noktası 443'ü kullanarak Azure genel IP adresine bağlanıp bağlanamadığınızı denetleyin**.
-
-  %ProgramFiles%\Microsoft Azure kurtarma Hizmetleri Agent\Temp, en son CBEngineCurr.errlog dosyasını açın. Dosyada arayın **443** veya dizesi için **başarısız bağlantı denemesi**.
-
-  ![Hata gösteren ekran görüntüsü Temp klasörü günlüğe kaydeder.](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
-
-  Sorunları gösteriliyorsa işlem sunucusu, komut satırında (IP adresi, önceki görüntüde maskelenir), Azure genel IP adresine ping atmayı Telnet kullanın. Azure genel IP adresi, bağlantı noktası 443'ü kullanarak, bir CBEngineCurr.currLog dosyasında bulabilirsiniz:
-
-  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
-
-  Bağlanamıyorsanız, erişim sorununu sonraki adımda açıklandığı gibi güvenlik duvarı veya proxy ayarları nedeniyle olup olmadığını denetleyin.
-
-* **IP adresi tabanlı güvenlik duvarı işlem sunucusu üzerindeki erişimi engeller olup olmadığını denetleyin**.
-
-  Sunucuda IP adresi tabanlı güvenlik duvarı kurallarını kullanırsanız, tam listesini indirin [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Güvenlik Duvarı yapılandırmanızda Güvenlik Duvarı'nın azure'a (ve varsayılan HTTPS bağlantı noktası, 443) iletişimine izin verdiğinden emin olmak için IP adresi aralıklarını ekleyin. (Erişim denetimi ve kimlik yönetimi için kullanılır) Azure Batı ABD bölgesinde ve aboneliğinizin Azure bölgesi için IP adresi aralıklarına izin verin.
-
-* **İşlem sunucusu üzerindeki URL tabanlı bir güvenlik duvarı erişimi engelliyor olup olmadığını denetleyin**.
-
-  Sunucuda bir URL tabanlı güvenlik duvarı kuralı kullanırsanız, güvenlik duvarı yapılandırması için aşağıdaki tabloda listelenen URL'leri ekleyin:
-
-[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
-
-*  **İşlem sunucusu üzerindeki ara sunucu ayarları erişimi engellemek olup olmadığını denetleyin**.
-
-   Bir ara sunucu kullanıyorsanız, proxy sunucusu adı DNS sunucusu tarafından çözümlenir emin olun. Yapılandırma sunucusunu ayarladıktan sağladığınız değeri denetleyin, kayıt defteri anahtarına gidin **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
-
-   Ardından, veri göndermek için aynı ayarları Azure Site Recovery aracısı tarafından kullanıldığından emin olun: 
-      
-   1. Arama **Microsoft Azure yedekleme**. 
-   2. Açık **Microsoft Azure Backup**ve ardından **eylem** > **özelliklerini değiştirme**. 
-   3. Üzerinde **Proxy Yapılandırması** sekmesinde proxy adresi görmeniz gerekir. Proxy adresi kayıt defteri ayarlarında gösterilen proxy adresi ile aynı olmalıdır. Aksi durumda, aynı adrese değiştirin.
-
-*  **İşlem sunucusu üzerindeki bant genişliğini kısıtlama kısıtlı olup olmadığını denetleyin**.
-
-   Bant genişliğini artırın ve ardından Sorun oluşmaya devam edip etmediğini denetleyin.
-
-
-## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Kaynak makine Azure Portalı'nda listelenmez
+## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>3. Adım: Çoğaltma için kullanılamayan kaynak makineler sorunlarını giderme
 
 Site RECOVERY'yi kullanarak çoğaltmayı etkinleştirmek için kaynak makine seçmeye çalıştığınızda, makine aşağıdaki nedenlerden biri için kullanılabilir olmayabilir:
 
-* **Aynı içeren iki sanal makine örnek UUİD'si**: VCenter altında iki sanal makine aynı örneğini UUID varsa, Azure portalında ilk sanal makine yapılandırma sunucusu tarafından bulunan gösterilir. Bu sorunu çözmek için iki sanal makine aynı örneğini UUID sahip olun. Bu senaryo, burada VM yedekleme etkin hale gelir ve bulma Kayıtlarımız günlüğe örneklerinde görülen yaygındır. Başvurmak [Azure Site Recovery Azure'a VMware: Yinelenen veya eski girdilerin temizlenmesini nasıl](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) çözümlenecek.
+* **Aynı içeren iki sanal makine örnek UUİD'si**: VCenter altında iki sanal makine aynı örneğini UUID varsa, Azure portalında ilk sanal makine yapılandırma sunucusu tarafından bulunan gösterilir. Bu sorunu çözmek için iki sanal makine aynı örneğini UUID sahip olun. Bu senaryo, burada VM yedekleme etkin hale gelir ve bulma Kayıtlarımız günlüğe örneklerinde yaygın olarak görülür. Başvurmak [Azure Site Recovery Azure'a VMware: Yinelenen veya eski girdilerin temizlenmesini nasıl](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) çözümlenecek.
 * **Yanlış vCenter kullanıcı kimlik bilgilerini**: OVF şablonu veya birleşik Kurulumu kullanarak yapılandırma sunucusunu ayarladıktan ayarladığınızda, doğru vCenter kimlik bilgilerini emin olun. Kurulum sırasında eklenen kimlik bilgilerini doğrulamak için bkz: [otomatik bulma için kimlik bilgilerini değiştirme](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
 * **vCenter ayrıcalıklar yetersiz**: VCenter erişmek için sağlanan izinler gerekli izinlere sahip değilseniz, sanal makineleri keşfetmek için hatası gerçekleşebilir. İçinde açıklanan izinleri olun [otomatik bulma için bir hesap hazırlama](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) vCenter kullanıcı hesabına eklenir.
 * **Azure Site Recovery yönetim sunucuları**: Sanal Makine Yönetim sunucusu bir veya daha fazla aşağıdaki rollerin - altında kullanılıyorsa, yapılandırma sunucusu /scale-out işlem sunucusu / ana hedef sunucusu, sonra da sanal makineyi portaldan seçme mümkün olmayacaktır. Yönetim sunucuları yinelenemez.
 * **Zaten korumalı/başarısız üzerinden Azure Site Recovery Hizmetleri aracılığıyla**: Sanal makine zaten korumalı veya Site Recovery yük devretti, sanal makineyi Portalı'nda koruma için işaretleyin kullanılamaz. Portalda aradığınız sanal makineyi başka bir kullanıcı tarafından veya farklı bir abonelikte zaten korunmuyor emin olun.
-* **bağlı vCenter**: VCenter bağlı durumda olup olmadığını denetleyin. Doğrulamak için kurtarma Hizmetleri Kasası'na gidin > Site Recovery altyapısı > yapılandırma sunucuları >'a tıklayın, ilgili yapılandırma sunucusunda > hakkınız ilişkili sunucular ilgili ayrıntıları içeren bir dikey pencere açar. VCenter bağlı olup olmadığını denetleyin. "Bağlanmadı" durumda değilse, sorunu çözün ve ardından [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) portalında. Bundan sonra sanal makine portalda listelenir.
+* **bağlı vCenter**: VCenter bağlı durumda olup olmadığını denetleyin. Doğrulamak için kurtarma Hizmetleri Kasası'na gidin > Site Recovery altyapısı > yapılandırma sunucuları >'a tıklayın, ilgili yapılandırma sunucusunda > hakkınız ilişkili sunucular ilgili ayrıntıları içeren bir dikey pencere açar. VCenter bağlı olup olmadığını denetleyin. "Bağlanmadı" bir durumda ise, sorunu çözün ve ardından [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) portalında. Bundan sonra sanal makine portalda listelenir.
 * **ESXi güç kapalı**: Altında sanal makinenin bulunduğu ESXi ana bilgisayar ise, kapalı sonra sanal makine listede bulunmayan veya Azure portalında seçilebilir olmayacak. ESXi konağı Aç [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) portalında. Bundan sonra sanal makine portalda listelenir.
 * **Yeniden başlatma bekleniyor**: Sanal makine üzerinde bekleyen bir yeniden başlatma yoksa, daha sonra Azure portalında makine seçmek mümkün olmayacaktır. Yeniden başlatma bekleniyor etkinliklerini tamamlamak için olun [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Bundan sonra sanal makine portalda listelenir.
 * **Nebyl nalezen IP**: Sanal makine ile ilişkili geçerli bir IP adresi yoksa, daha sonra Azure portalında makine seçmek mümkün olmayacaktır. Sanal makine için geçerli bir IP adresi atamak için olun [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Bundan sonra sanal makine portalda listelenir.
 
-## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Korumalı sanal makineleri dışarı portalda gri
+### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Korunan sanal makinelerin portalda gri sorunlarını giderme
 
 Sistemdeki yinelenen girişler varsa altında Site Recovery çoğaltılan sanal makineler, Azure portalında mevcut değildir. Eski girişleri silmek ve sorunu çözmek öğrenmek için bkz [Azure Site Recovery VMware-Azure: Yinelenen veya eski girdilerin temizlenmesini nasıl](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
-## <a name="common-errors-and-recommended-steps-for-resolution"></a>Çözümleme için yaygın hatalar ve önerilen adımlar
+## <a name="common-errors-and-solutions"></a>Genel hatalar ve çözümleri
 
-### <a name="initial-replication-issues-error-78169"></a>[Hata 78169] ilk çoğaltma sorunları
+### <a name="initial-replication-issues-error-78169"></a>İlk çoğaltma sorunlarını [Hata 78169]
 
 Bir yukarıdaki olduğunu sağlama üzerinde hiçbir bağlantı, bant genişliği veya zaman ilgili sorunları eşitleyebilir, emin olun:
 
 - Hiçbir virüsten koruma yazılımı, Azure Site Recovery engelliyor. Bilgi [daha fazla](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) üzerinde Azure Site Recovery için gereken klasör dışlamaları.
 
-### <a name="application-consistency-recovery-point-missing-error-78144"></a>Uygulamayla tutarlılık kurtarma noktası [Hata 78144] eksik
+### <a name="missing-app-consistent-recovery-points-error-78144"></a>Uygulamayla tutarlı kurtarma noktaları [Hata 78144] eksik
 
  Bu, Birim Gölge Kopyası Hizmeti (VSS) ile ilgili sorunlar nedeniyle gerçekleşir. Bunu çözmek için: 
  
@@ -226,7 +78,7 @@ Bir yukarıdaki olduğunu sağlama üzerinde hiçbir bağlantı, bant genişliğ
         - Azure Site Recovery VSS sağlayıcısı
         - VDS hizmeti
 
-### <a name="high-churn-on-source-machine-error-78188"></a>[Hata 78188] kaynak makinedeki yüksek değişim sıklığı
+### <a name="source-machines-with-high-churn-error-78188"></a>Kaynak makine ile yüksek değişim sıklığı [Hata 78188]
 
 Olası nedenler:
 - Listelenen sanal makine disklerinin veri değişim hızı (yazılan bayt/sn) birden fazla [Azure Site Recovery tarafından desteklenen sınırları](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) çoğaltma hedefi depolama hesabı türü.
@@ -235,9 +87,9 @@ Olası nedenler:
 Bu sorunu çözmek için:
 - Hedef depolama hesabı türü (standart veya Premium) kaynakta değişim sıklığı oranı gereksinime uygun şekilde sağlandığından emin olun.
 - Gözlemlenen değişim sıklığı geçici ise, bekleyen veriler karşıya flow'unu yakalayın ve kurtarma noktaları oluşturmak için birkaç saat bekleyin.
-- Sorun devam ederse ASR kullanın [dağıtım Planlayıcısı](site-recovery-deployment-planner.md#overview) çoğaltma planlamanıza yardımcı olacak.
+- Sorun devam ederse, Site Recovery kullanın [dağıtım Planlayıcısı](site-recovery-deployment-planner.md#overview) çoğaltma planlamanıza yardımcı olacak.
 
-### <a name="no-heartbeat-from-source-machine-error-78174"></a>[Hata 78174] kaynak makineden hiçbir sinyal alınmadı
+### <a name="source-machines-with-no-heartbeat-error-78174"></a>Sinyal yok [Hata 78174] ile kaynak makineler
 
 Azure Site Recovery Mobility Aracısı kaynak makinede yapılandırma sunucusu (CS) ile iletişim halinde ortaya çıkar.
 
@@ -252,7 +104,7 @@ Bu sorunu çözmek için kaynak VM yapılandırma sunucusuna ağ bağlantısı d
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
     
-### <a name="no-heartbeat-from-process-server-error-806"></a>[Hata 806] işlem sunucusundan sinyal alınmadı
+### <a name="process-server-with-no-heartbeat-error-806"></a>İşlem sunucusu ile hiçbir sinyal [Hata 806]
 Var olması durumunda sinyal alınmadı işlem sunucusu'nden (PS) kontrol edin:
 1. PS VM hazır ve çalışır durumda
 2. PS hata ayrıntıları için aşağıdaki oturum açmasına denetleyin:
@@ -261,7 +113,7 @@ Var olması durumunda sinyal alınmadı işlem sunucusu'nden (PS) kontrol edin:
        and
        C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-### <a name="no-heartbeat-from-master-target-error-78022"></a>[Hata 78022] ana hedefin sinyal yok
+### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Ana hedef sunucu ile hiçbir sinyal [Hata 78022]
 
 Azure Site Recovery Mobility Aracısı ana Hedef'te'yapılandırma sunucusu ile iletişim halinde ortaya çıkar.
 
@@ -274,24 +126,7 @@ Sorunu çözmek için hizmet durumunu doğrulamak için aşağıdaki adımları 
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
-### <a name="process-server-is-not-reachable-from-the-source-machine-error-78186"></a>[Hata 78186] kaynak makineden işlem sunucusuna erişilemiyor
 
-Bu hata değil ele oluşturulmasını değil uygulama ve kilitlenme tutarlı noktalara yol açar. Sorunu çözümlemek için izlediği aşağıda bağlantı sorunlarını giderme:
-1. Emin [PS hizmetlerinin çalıştığını](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
-2. [Kaynak makine bağlantı sorunları inceleyin](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
-3. [İşlem sunucusu bağlantısı sorunları inceleyin](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) ve için sağlanan yönergeleri izleyin:
-    - Kaynağı ile bağlantı denetleniyor
-    - Güvenlik Duvarı ve proxy sorunları
-
-### <a name="data-upload-blocked-from-source-machine-to-process-server-error-78028"></a>Veri yükleme kaynak makineden işlem sunucusuna [Hata 78028] engellendi
-
-Bu hata değil ele oluşturulmasını değil uygulama ve kilitlenme tutarlı noktalara yol açar. Sorunu çözümlemek için izlediği aşağıda bağlantı sorunlarını giderme:
-
-1. Emin [PS hizmetlerinin çalıştığını](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
-2. [Kaynak makine bağlantı sorunları inceleyin](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
-3. [İşlem sunucusu bağlantısı sorunları inceleyin](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) ve için sağlanan yönergeleri izleyin:
-    - Kaynağı ile bağlantı denetleniyor
-    - Güvenlik Duvarı ve proxy sorunları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

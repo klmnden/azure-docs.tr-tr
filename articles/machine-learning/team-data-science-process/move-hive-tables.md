@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522512"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681943"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -47,7 +47,7 @@ Hive sorgularını kullanarak gönderilebilir:
 2. [Hive Düzenleyicisi ile Hive sorguları göndermek](#hive-editor)
 3. [Azure PowerShell komutları ile Hive sorguları göndermek](#ps)
 
-Hive sorguları SQL benzeri. SQL ile hakkında bilginiz varsa, bulabilirsiniz [Hive SQL kullanıcılar sayfasını hile](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) yararlıdır.
+Hive sorguları SQL benzeri. SQL ile hakkında bilginiz varsa, bulabilirsiniz [Hive SQL kullanıcılar sayfasını hile](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) yararlıdır.
 
 Bir Hive sorgusu gönderirken ekranda veya baş düğümü üzerindeki yerel bir dosyaya veya bir Azure blob'a oluşmasından Hive sorguları çıkışının hedef de denetleyebilirsiniz.
 

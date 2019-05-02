@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458778"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925830"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification hubs'ı bırakılan bildirimler tanılayın
 
@@ -123,7 +123,7 @@ Bildirim hub'larındaki bırakılan bildirimler kök nedeni tanılamak için yol
 
 #### <a name="push-notification-service-developer-portal"></a>Anında iletme bildirimi hizmeti Geliştirici Portalı ####
 
-(APNs, FCM, Windows bildirim hizmeti vb.) ilgili anında iletme bildirimi Hizmet Geliştirici Portalı'nda kimlik bilgilerini doğrulayın. Daha fazla bilgi için [Öğreticisi: Azure Notification Hubs'ı kullanarak, Evrensel Windows platformu uygulamaları için bildirimleri gönderecek](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+(APNs, FCM, Windows bildirim hizmeti vb.) ilgili anında iletme bildirimi Hizmet Geliştirici Portalı'nda kimlik bilgilerini doğrulayın. Daha fazla bilgi için [Öğreticisi: Azure Notification Hubs'ı kullanarak, Evrensel Windows platformu uygulamaları için bildirimleri gönderecek](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Azure portal ####
 
@@ -180,7 +180,7 @@ Ayrıca, Visual Studio'dan test bildirimleri gönderebilirsiniz.
 
 Visual Studio Sunucu Gezgini ile Notification hubs'ı kullanma hakkında daha fazla bilgi için şu makalelere bakın:
 
-* [Cihaz kayıtları için bildirim hub'ları görüntüleme](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Cihaz kayıtları için bildirim hub'ları görüntüleme](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Yakından bakış: Visual Studio 2013 güncelleştirme 2 RC ve Azure SDK 2.3]
 * [Visual Studio 2013 güncelleştirme 3 ve Azure SDK 2.4 sürümünü Duyurusu]
 
@@ -261,7 +261,7 @@ Portalda, bildirim hub'ınıza tüm etkinlik hızlı bir genel bakış alabilirs
 
 #### <a name="programmatic-access"></a>Programlı erişim ####
 
-Programlı erişim hakkında daha fazla bilgi için bkz: [programlı erişim](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Programlı erişim hakkında daha fazla bilgi için bkz: [programlı erişim](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Telemetri ile ilgili çeşitli özellikler verme ister ve kayıtları ve API'leri aracılığıyla erişim telemetri alma yalnızca standart hizmet katmanında kullanılabilir. Bu özellikleri ücretsiz veya temel hizmet katmanı kullanmayı denerseniz, SDK'sı kullanıyorsanız, bir özel durum iletisi alırsınız. REST API'lerini doğrudan özellikleri kullanırsanız, bir HTTP 403 (Yasak) hata iletisi alırsınız.

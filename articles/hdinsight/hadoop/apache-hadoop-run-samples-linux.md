@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 04/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fd2d27533d725102a4c334f1e8a1abed6cd78cc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121903"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706672"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Dahil HDInsight MapReduce örneklerini çalıştırma
 
@@ -24,12 +24,9 @@ HDInsight üzerinde Apache Hadoop ile sunulan MapReduce örneklerini çalıştı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir HDInsight kümesi**: Bkz: [Linux'ta HDInsight, Apache Hive, Apache Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md)
+* HDInsight üzerinde Apache Hadoop kümesi. Bkz: [Linux'ta HDInsight kullanmaya başlama](./apache-hadoop-linux-tutorial-get-started.md).
 
-    > [!IMPORTANT]  
-    > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* **Bir SSH istemcisi**: Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>MapReduce örnekleri
 
@@ -64,7 +61,11 @@ HDInsight üzerinde Apache Hadoop ile sunulan MapReduce örneklerini çalıştı
 
 ## <a name="run-the-wordcount-example"></a>Wordcount örneği çalıştırma
 
-1. SSH kullanarak HDInsight için bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH kullanarak HDInsight için bağlanın. Değiştirin `CLUSTER` kümenizin adını ve ardından aşağıdaki komutu girin:
+
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.net
+    ```
 
 2. Gelen `username@#######:~$` isteminde, örneklerini listelemek için aşağıdaki komutu kullanın:
 
@@ -86,7 +87,7 @@ HDInsight üzerinde Apache Hadoop ile sunulan MapReduce örneklerini çalıştı
 
     Bu ileti, çeşitli giriş yollarından kaynak belgeler sağlayabilirsiniz gösterir. ' % S'çıkış (sayısı kaynak belgelerde bir kelimelerin) depolandığı son yoludur.
 
-4. Not defterleri, Leonardo Da kümenizle örnek veri olarak sağlanan Vinci, tüm sözcükleri saymak için aşağıdakileri kullanın:
+4. Not defterleri, Leonardo da kümenizle örnek veri olarak sağlanan Vinci, tüm sözcükleri saymak için aşağıdakileri kullanın:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -162,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 Bu komut tarafından döndürülen değer benzer **3.14159155000000000000**. Başvurular için ilk 10 ondalık pi'nin 3.1415926535 yerlerdir.
 
-## <a name="10-gb-greysort-example"></a>10 GB Greysort örneği
+## <a name="10-gb-graysort-example"></a>10 GB GraySort örneği
 
 GraySort Kıyaslama sıralama ' dir. Ölçüm, büyük miktarlarda veri, genellikle en az bir 100 TB sıralama sırasında elde sıralama (TB/dakika) hızıdır.
 
-Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Arun Murthy Owen O'Malley ile geliştirilen MapReduce uygulamalar kullanır. Bu uygulamaların yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı, 2009 kazandı. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](https://sortbenchmark.org/) site.
+Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Arun Murthy Owen O'Malley ile geliştirilen MapReduce uygulamalar kullanır. Bu uygulamaların yıllık genel amaçlı ("Daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı, 2009 kazandı. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [sıralama Kıyaslama](https://sortbenchmark.org/) site.
 
 Bu örnek, üç adet MapReduce programlarını kullanır:
 
@@ -211,7 +212,3 @@ Bu makalede, Linux tabanlı HDInsight kümeleriyle dahil örneklerini çalışt�
 * [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
 * [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 * [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
-
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-introduction]:apache-hadoop-introduction.md
-

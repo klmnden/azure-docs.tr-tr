@@ -1,18 +1,17 @@
 ---
 title: Azure HDInsight sorun giderme kılavuzları
 description: Apache Hadoop iş yüklerinizi, Azure HDInsight'ı kullanarak sorun giderme. Adım adım belgeler HDInsight Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS ve Apache Storm ile sık karşılaşılan sorunları çözmek için nasıl kullanılacağını gösterir.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 5ffd1cb0c71c4948e522d44231242e33889c6409
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: f7ac4b7434c56d356fa7e88de39e819a112ae234
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442455"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723379"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak sorun giderme
 

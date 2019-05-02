@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022117"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875932"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -41,6 +41,9 @@ Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
 ### <a name="v2"></a>Sürüm 2.x
 
 Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). .NET Core yüklemelisiniz 2.x SDK.
+
+> [!IMPORTANT]
+> Uzantı paketleri projenin host.json dosyasındaki etkinleştirdiğinizde, .NET Core'u yükleme gerekmez 2.x SDK. Daha fazla bilgi için [Azure işlevleri çekirdek araçları ve uzantı paketleri ile yerel geliştirme ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Uzantı paketleri, temel Araçlar 2.6.1071 sürümünü veya sonraki bir sürümünü gerektirir.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ func host start
 | **`--script-root --prefix`** | Çalıştırın veya dağıtılmış bir işlev uygulaması, kök yolunu belirtmek için kullanılır. Bu, bir alt klasöre proje dosyalarını oluşturmak derlenen projeler için kullanılır. Örneğin, bir C# sınıf kitaplığı projesi, host.json, local.settings.json ve function.json dosyaları oluşturduğunuzda oluşturulur bir *kök* bir yola sahip alt ister `MyProject/bin/Debug/netstandard2.0`. Bu durumda, ön eki olarak ayarlamak `--script-root MyProject/bin/Debug/netstandard2.0`. Azure'da çalışan işlev uygulamasını kök budur. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
+| **`--enableAuth`** | Ardışık Düzen işleme tam kimlik doğrulamasını etkinleştirin.|
 
 Bir C# sınıf kitaplığı projesi için (.csproj) eklemeniz gerekir `--build` kitaplığı .dll uzantısını oluşturmak için seçeneği.
 

@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS uygulama teklif teknik yapılandırması | Microsoft Docs
+title: Azure SaaS uygulama teklif teknik yapılandırması | Azure Market
 description: Azure Marketi'nde SaaS uygulaması teklif için teknik bilgileri yapılandırın.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 46dcf4aeb7ddb67028eb23dde9236f2b7709f86d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594319"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941722"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS uygulaması teknik bilgileri sekmesi
 
@@ -27,9 +20,11 @@ Teknik bilgi sekmesi teknik yapılandırma formu sağlar. Oluşturmakta olduğun
 
 ![Teknik yapılandırma formu](./media/saas-techinfo-techconfig.png)
 
+
 ## <a name="technical-configuration-form"></a>Teknik yapılandırma formu
 
 Bu formu 2 alan vardır: Ürün ve eylem çağrısı.
+
 
 ### <a name="product-field"></a>Ürün alanı
 
@@ -37,6 +32,7 @@ Bir SaaS uygulaması hem de aşağıdaki vitrinler sağlayabilirsiniz:
 - Seçerek bir iş kullanıcısı için **listeleme** seçeneği.
 - Seçerek bir BT yöneticisi kullanıcının **Microsoft satış**.
 SaaS uygulama türünü hedeflediğiniz platformun karar vermenize yardımcı olmak için okuma [vitrin seçimi anlamak](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#understand-storefront-selection).
+
 
 #### <a name="sell-through-microsoft"></a>Microsoft satış yapın
 Bu deneyim oluşturmak için şu bilgilere yapılandırmanız gerekir:
@@ -46,16 +42,17 @@ Bu deneyim oluşturmak için şu bilgilere yapılandırmanız gerekir:
 
   ![Microsoft formu satış yapın](./media/saas-techinfo-sellthrough-ms.png)
 
-Aşağıdaki tabloda, Microsoft aracılığıyla satış için gerekli alanları açıklar.
+Gerekli alanlar için aşağıdaki tabloda açıklanmaktadır **Microsoft satış**.  Gerekli alanlar yıldız (*) indicted.
 
 |  **Alan adı**   |  **Açıklama**  |
 |  ---------------  |  ---------------  |
-|    Önizleme abonelik kimlikleri               |    Genel olarak kullanılabilir hale gelmeden önce önizleme aşamasında teklifinizi sınamak için kullanılan tüm Azure abonelik tanımlayıcıları içerir.               |
-|     Başlarken yönergeleri              |   SaaS uygulamanızı bağlama yardımcı olmak için müşterilerinizle paylaşmak için yönergeleri izleyin. Temel HTML etiketleri izin verilir, örneğin: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;vb.                |
-|    Giriş sayfası URL'si  |   Müşterilerinizin aldıktan sonra Azure Portalı'ndan gelen yönlendirerek, site URL'si. Bu URL, aynı zamanda Microsoft ticaret kolaylaştırmak için API bağlantı alma uç noktası olacaktır.                |
-|  Bağlantı Web kancası    |  Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası sağlayın isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır. Daha fazla bilgi için <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki</a>                |
-|  Azure AD Kiracı kimliği ve uygulama kimliği      |   Azure portalı içinde bizim ikisi arasında bağlantı doğrulayabilmemiz için bir Active Directory uygulaması oluşturma zorunlu kılarız bir kimliği doğrulanmış iletişim hizmetleridir. Bu alanlar için bir AD uygulaması oluşturma ve karşılık gelen Kiracı kimliğini yapıştırın ve uygulama kimliği gereklidir. Uygulama kimliği, Publisherıd için ilişkili olduğunu unutmayın. Bu nedenle, tüm teklifleri olduğu gibi emin aynı uygulama kimliği olun.             |
-
+|  **Önizleme abonelik kimlikleri\***   |  Genel olarak kullanılabilir hale gelmeden önce önizleme aşamasında teklifinizi sınamak için kullanılan tüm Azure abonelik tanımlayıcıları içerir.  |
+|  **AAD/MSA hesapları Önizleme\***   |  Önizleme için erişim izni verilen virgülle ayırarak Azure AD/MSA hesapları. |
+|  **Başlarken yönergeleri** |  SaaS uygulamanızı bağlama yardımcı olmak için müşterilerinizle paylaşmak için yönergeleri izleyin. Temel HTML etiketleri izin verilir, örneğin: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;vb.    |
+|  **Giriş sayfası URL'si\***           |  Müşterilerinizin aldıktan sonra Azure Portalı'ndan gelen yönlendirerek, site URL'si. Bu URL, aynı zamanda Microsoft ticaret kolaylaştırmak için API bağlantı alma uç noktası olacaktır.   |
+| **Bağlantı Web kancası\***            |  Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası sağlayın isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır. Daha fazla bilgi için <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki</a>    |
+|  **Azure AD Kiracı kimliği\***  ve **uygulama kimliği\***      |   Azure portalı içinde bizim ikisi arasında bağlantı doğrulayabilmemiz için bir Active Directory uygulaması oluşturma zorunlu kılarız bir kimliği doğrulanmış iletişim hizmetleridir. Bu alanlar için bir AD uygulaması oluşturma ve karşılık gelen Kiracı kimliğini yapıştırın ve uygulama kimliği gereklidir. Uygulama kimliği, Publisherıd için ilişkili olduğunu unutmayın. Bu nedenle, tüm teklifleri olduğu gibi emin aynı uygulama kimliği olun.   |
+|   |   |
 
 Son olarak, seçerseniz **Microsoft satış**, adlı başka bir yeni teklif sekmesi **planları**. 
 

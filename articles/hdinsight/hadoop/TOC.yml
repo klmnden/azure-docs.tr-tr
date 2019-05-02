@@ -136,8 +136,6 @@
         - name: Boş kenar düğümlerini kullanma
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Python akış programları geliştirme
-          href: apache-hadoop-streaming-python.md
         - name: JSON belgelerini işleme ve çözümleme
           href: using-json-in-hive.md
         - name: 'Kullanıcı tanımlı C# işlevlerini kullanma'

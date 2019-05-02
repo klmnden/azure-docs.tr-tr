@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291424"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918547"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -128,7 +128,7 @@ Azure AD ile uyumluluğu sağlamak için SCIM'yi endpoint uygularken aşağıdak
      - `and`
 * Belirli bir düzeltme eki SCIM yapısal öğelere büyük küçük harfe duyarlı bir eşleşme gerektirmeyen `op` tanımlandığı gibi işlem değerleri https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD olarak 'Durdur' değerini yayan `Add`, `Replace`, ve `Remove`.
 * Microsoft Azure AD, bir rastgele kullanıcı ve Grup uç noktası ve kimlik bilgilerinin geçerli olduğundan emin olmak için getirilecek istekleri sağlar. Bir parçası olarak yapılır **Test Bağlantısı** içindeki akış [Azure portalında](https://portal.azure.com). 
-* Uygulama üzerinde eşleşen bir öznitelik olarak kaynaklar üzerinde sorgulanabilir özniteliği ayarlanmalıdır [Azure portalında](https://portal.azure.com). Daha fazla bilgi için [kullanıcı sağlama öznitelik eşlemelerini özelleştirme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* Uygulama üzerinde eşleşen bir öznitelik olarak kaynaklar üzerinde sorgulanabilir özniteliği ayarlanmalıdır [Azure portalında](https://portal.azure.com). Daha fazla bilgi için [kullanıcı sağlama öznitelik eşlemelerini özelleştirme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>Kullanıcı hazırlama ve sağlamayı
 Aşağıdaki çizimde gösterildiği Azure Active Directory SCIM hizmete bir kullanıcının, uygulamanızın kimlik deposu içinde yaşam döngüsünü yönetirken gönderdiği iletileri.  

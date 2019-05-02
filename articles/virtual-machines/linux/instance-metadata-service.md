@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c3e2102b5794fb3770b1c77e241320fa7d2222c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc333cc1a46d6d7e72faeeb8a4e59a70cc0f27ed
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925542"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
 Azure örnek meta veri hizmeti yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneklerini çalıştırma hakkında bilgi sağlar.
-Bu SKU, ağ yapılandırması ve yaklaşan Bakımı olayları gibi bilgileri içerir. Hangi tür bilgileri kullanılabilir daha fazla bilgi için bkz: [meta veri kategorileri](#instance-metadata-data-categories).
+Bu SKU, ağ yapılandırması ve yaklaşan Bakımı olayları gibi bilgileri içerir. Hangi tür bilgileri kullanılabilir daha fazla bilgi için bkz: [API meta verileri](#metadata-apis).
 
-Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturulan Iaas Vm'leri için erişilebilir olan [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir olan [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 İyi bilinen yönlendirilemeyen IP adresinde uç noktası kullanılabilir (`169.254.169.254`), erişilebilir yalnızca VM içinden.
 
 > [!IMPORTANT]
-> Bu hizmet **sunuldu** Azure bölgeleri içinde.  Düzenli olarak, sanal makine örnekleri hakkında yeni bilgiler kullanıma sunmak için güncelleştirmeleri alır. Bu sayfa güncel yansıtır [veri kategorileri](#instance-metadata-data-categories) kullanılabilir.
+> Bu hizmet **sunuldu** tüm Azure bölgelerinde.  Düzenli olarak, sanal makine örnekleri hakkında yeni bilgiler kullanıma sunmak için güncelleştirmeleri alır. Bu sayfa güncel yansıtır [API meta verileri](#metadata-apis) kullanılabilir.
 
 ## <a name="service-availability"></a>Hizmet kullanılabilirliği
 
@@ -39,12 +39,16 @@ Hizmet genel kullanıma sunulan Azure bölgelerinde kullanılabilir. Tüm API s�
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Çin](https://www.azure.cn/)                                                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Çin](https://www.azure.cn/)                                                     | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Genel Batı Orta ABD](https://azure.microsoft.com/regions/)                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
 Bu tablo, hizmet güncelleştirmeleri vardır ve ne zaman veya yeni desteklenen sürümler kullanılabilir güncelleştirilir.
+
+> [!NOTE]
+> 2019-02-01, şu anda kullanıma ve başka bölgelerde kısa bir süre sonra kullanıma sunulacaktır. 
 
 Örnek meta veri hizmeti deneyebilmesi için bir VM oluşturma [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) veya [Azure portalında](https://portal.azure.com) yukarıdaki bölgelerde ve aşağıdaki örneklerde izleyin.
 
@@ -96,6 +100,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Tüm örnek meta veri sorguları büyük/küçük harfe duyarlıdır.
 
 ### <a name="data-output"></a>Veri çıkışı
+
 Varsayılan olarak, örnek meta veri hizmeti verileri JSON biçiminde döndürür (`Content-Type: application/json`). Ancak, farklı bir API veri farklı biçimlerde istenmesi halinde döndürür.
 Aşağıdaki tablo, diğer veri biçimlerini API'leri destekleyebilir bir başvurudur.
 
@@ -266,6 +271,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 Aracılığıyla veya `Invoke-RestMethod` cmdlet:
 
 ```powershell
+
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
@@ -330,42 +336,61 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="instance-metadata-data-categories"></a>Örnek meta veri kategorileri
+## <a name="metadata-apis"></a>Meta veri API'leri
 
-Aşağıdaki veri kategorileri, örnek meta veri hizmeti kullanılabilir:
+#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Aşağıdaki API meta veri uç noktası aracılığıyla kullanılabilir:
+
+Veriler | Açıklama | Kullanıma sunulan sürümü
+-----|-------------|-----------------------
+TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
+identity | Azure kaynakları için yönetilen kimlikleri. Bkz: [erişim belirteci alma](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+örnek | Bkz: [API örneği](#instance-api) | 2017-04-02
+scheduledevents | Bkz: [zamanlanmış olaylar](scheduled-events.md) | 2017-08-01
+
+#### <a name="instance-api"></a>Örnek API
+##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Aşağıdaki işlem kategorisinden örneği API aracılığıyla kullanılabilir:
+
+> [!NOTE]
+> Meta veri uç noktası Aşağıdaki kategorilerde örnek/işlem erişilir.
 
 Veriler | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 azEnvironment | Azure ortamı burada VM çalışıyor | 2018-10-01
+customData | Bkz: [özel veri](#custom-data) | 2019-02-01
 location | Azure bölgesi VM çalışıyor | 2017-04-02
 ad | VM adı | 2017-04-02
 Teklif | VM görüntüsü için bilgi sağlar. Bu değer, yalnızca Azure görüntü Galerisi'nden dağıtılan görüntülerin bulunur. | 2017-04-02
-Yayımcı | VM görüntü yayımcısı | 2017-04-02
-sku | Belirli SKU için VM görüntüsü | 2017-04-02
-version | VM görüntüsü sürümü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
-platformUpdateDomain |  [Güncelleme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
-platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
-vmId | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM için | 2017-04-02
-vmSize | [VM boyutu](sizes.md) | 2017-04-02
-subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
-etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
-resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
 planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) bir VM için bir Azure Market görüntüsü adı, ürün ve yayımcı içerir | 2018-04-02
+platformUpdateDomain |  [Güncelleme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
+platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
 publicKeys | [Ortak anahtarlar koleksiyonunu](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) VM ve yolları atanan | 2018-04-02
+Yayımcı | VM görüntü yayımcısı | 2017-04-02
+resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
+sku | Belirli SKU için VM görüntüsü | 2017-04-02
+subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
+etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
+version | VM görüntüsü sürümü | 2017-04-02
+vmId | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM için | 2017-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
+vmSize | [VM boyutu](sizes.md) | 2017-04-02
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01
+
+##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Aşağıdaki ağ kategorileri örneği API aracılığıyla kullanılabilir:
+
+> [!NOTE]
+> Meta veri uç noktası Aşağıdaki kategorilerde ağ/örnek/arabirimi üzerinden erişilir.
+
+Veriler | Açıklama | Kullanıma sunulan sürümü
+-----|-------------|-----------------------
 ipv4/privateIpAddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
 ipv4/publicIpAddress | Sanal makinenin genel IPv4 adresi | 2017-04-02
 alt ağ/adresi | VM alt ağ adresi | 2017-04-02
 alt ağ/ön eki | Alt ağ ön eki, örnek 24 | 2017-04-02
 ipv6/ipAddress | Sanal makinenin yerel IPv6 adresi | 2017-04-02
 macAddress | VM mac adresi | 2017-04-02
-scheduledevents | Bkz: [zamanlanmış olaylar](scheduled-events.md) | 2017-08-01
-identity | Azure kaynakları için yönetilen kimlikleri. Bkz: [erişim belirteci alma](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
 
 ## <a name="attested-data"></a>TPM'de veri
 
@@ -373,11 +398,10 @@ TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
 
 ### <a name="example-attested-data"></a>Örnek veri TPM'de
 
- > [!NOTE]
+> [!NOTE]
 > Tüm API yanıtları JSON dizelerdir. Aşağıdaki örnek yanıtlar okunabilirlik açısından pretty yazdırılır.
 
  **İstek**
-
 
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
@@ -388,6 +412,7 @@ API Sürüm zorunlu bir alan ve TPM'de verileri desteklenen sürümü 2018-10-01
 Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenmesi için kullanılabilir ve sağlanmazsa encoded yanıtı dize geçerli UTC zaman damgası döndürülür.
 
  **Yanıt**
+
 > [!NOTE]
 > Yanıt, bir JSON dizesi. Aşağıdaki örnek yanıt okunabilirlik açısından pretty yazdırılır.
 
@@ -397,7 +422,7 @@ Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenm
 }
 ```
 
- > İmza blobudur bir [pkcs7](https://aka.ms/pkcs7) belge sürümü imzalı. Oluşturma ve süre sonu belgenin ve görüntü ile ilgili plan bilgileri için VM ayrıntılarını Vmıd nonce, zaman damgası gibi imzalanması için kullanılan sertifika içeriyor. Plan bilgileri için Azure Market yerde görüntüleri yalnızca doldurulur. Sertifika gelen yanıt ayıklanır ve yanıt geçerli olduğunu ve Azure'dan gelen olduğunu doğrulamak için kullanılır.
+> İmza blobudur bir [pkcs7](https://aka.ms/pkcs7) belge sürümü imzalı. Oluşturma ve süre sonu belgenin ve görüntü ile ilgili plan bilgileri için VM ayrıntılarını Vmıd nonce, zaman damgası gibi imzalanması için kullanılan sertifika içeriyor. Plan bilgileri için Azure Market yerde görüntüleri yalnızca doldurulur. Sertifika gelen yanıt ayıklanır ve yanıt geçerli olduğunu ve Azure'dan gelen olduğunu doğrulamak için kullanılır.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>TPM'de meta verileri içinde Windows sanal makinesi alınıyor
 
@@ -430,6 +455,7 @@ Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenm
 ```
 
 > İmza blobudur bir [pkcs7](https://aka.ms/pkcs7) belge sürümü imzalı. Oluşturma ve süre sonu belgenin ve görüntü ile ilgili plan bilgileri için VM ayrıntılarını Vmıd nonce, zaman damgası gibi imzalanması için kullanılan sertifika içeriyor. Plan bilgileri için Azure Market yerde görüntüleri yalnızca doldurulur. Sertifika gelen yanıt ayıklanır ve yanıt geçerli olduğunu ve Azure'dan gelen olduğunu doğrulamak için kullanılır.
+
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 
@@ -505,18 +531,18 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/). Bazı durumlarda, bazı çalışma zamanı kararlar almak için Azure ortamı gerekir. Aşağıdaki örnek, bu davranışı nasıl elde edebileceğiniz gösterir.
 
 **İstek**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Yanıt**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 
 ### <a name="getting-the-tags-for-the-vm"></a>VM için etiketler alınıyor
 
-Etiketleri bir taksonomi mantıksal olarak düzenlemek için Azure vm'lere atadığınız. Aşağıdaki isteği'ni kullanarak bir sanal makineye atanan etiketleri alınabilir.
+Etiketleri bir taksonomi mantıksal olarak düzenlemek için Azure VM için uygulanmış. Aşağıdaki isteği'ni kullanarak bir sanal makineye atanan etiketleri alınabilir.
 
 **İstek**
 
@@ -535,12 +561,12 @@ Department:IT;Environment:Test;Role:WebRole
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>VM'nin Azure'da çalıştırıldığını doğrulama
 
- Market satıcı, yazılım'ın yalnızca Azure'da çalıştırılmak üzere lisanslanır sağlamak istiyorsunuz. Birisi VHD'yi kopyalayan, şirket içi, ardından bunlar algılandığı için bir yol olmalıdır. Örnek meta veri hizmeti tarafından çağırma, Market satıcılar yalnızca azure'dan yanıt garanti eden imzalı veri alabilirsiniz.
+Market satıcı, yazılım'ın yalnızca Azure'da çalıştırılmak üzere lisanslanır sağlamak istiyorsunuz. Birisi VHD'yi kopyalayan, şirket içi, ardından bunların olan algılama özelliğine sahip olmalıdır. Örnek meta veri hizmeti tarafından çağırma, Market satıcılar yalnızca azure'dan yanıt garanti eden imzalı veri alabilirsiniz.
 
- > [!NOTE]
+> [!NOTE]
 > Jq yüklü olmasını gerektirir.
 
- **İstek**
+**İstek**
 
  ```bash
   # Get the signature
@@ -613,6 +639,7 @@ openssl x509 -noout -issuer -in intermediate.pem
 # Verify the certificate chain
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server Yük devretme
 
 Belirli senaryolar, örnek meta veri hizmeti Yük Devretme Kümelemesi ile sorgulanırken bir yolu yönlendirme tablosuna eklemek gereklidir.
@@ -656,6 +683,27 @@ Network Destination        Netmask          Gateway       Interface  Metric
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
+
+### <a name="custom-data"></a>Özel Veriler
+Örnek meta veri hizmeti VM'nin özel veri erişim olanağı sağlar. İkili verileri 64 KB'den az olmalıdır ve VM'ye base64 olarak kodlanmış biçimde sağlanır. Özel veriler içeren bir VM oluşturma hakkında daha fazla ayrıntı için bkz. [CustomData ile bir sanal makine dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+#### <a name="retrieving-custom-data-in-virtual-machine"></a>Sanal makinede özel veri alma
+Örnek meta veri hizmeti özel verileri base64 olarak kodlanmış biçimde VM sağlar. Aşağıdaki örnek, base64 kodlamalı dizenin kodunu çözer.
+
+> [!NOTE]
+> Bu örnekte özel verileri okuyan, "Süper gizli verilerimi." bir ASCII dizesi olarak yorumlanır.
+
+**İstek**
+
+```bash
+curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+```
+
+**Yanıt**
+
+```text
+My super secret data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM içindeki farklı dilleri kullanarak meta verileri hizmete çağrı yapma örnekleri
