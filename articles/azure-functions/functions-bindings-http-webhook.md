@@ -561,10 +561,10 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 | **type** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
 | **direction** | yok| Gerekli - kümesine olmalıdır `in`. |
-| **Adı** | yok| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. |
+| **name** | yok| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. |
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetkilendirme düzeyi aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;Hiçbir API anahtarı gereklidir.</li><li><code>function</code>&mdash;İşleve özgü API anahtarı gereklidir. Belirtilmezse varsayılan değer budur.</li><li><code>admin</code>&mdash;Ana anahtarı gereklidir.</li></ul> Daha fazla bilgi için konudaki [yetkilendirme anahtarları](#authorization-keys). |
-| **Yöntemleri** |**Yöntemleri** | Bir dizi işlev yanıt vereceği HTTP yöntemleri. Belirtilmemişse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
-| **yol** | **yol** | İstek, işlevinizin yanıt URL'lerini denetleme için rota şablonu tanımlar. Varsayılan değer sağlanmazsa `<functionname>`. Daha fazla bilgi için [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
+| **methods** |**Yöntemleri** | Bir dizi işlev yanıt vereceği HTTP yöntemleri. Belirtilmemişse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
+| **route** | **yol** | İstek, işlevinizin yanıt URL'lerini denetleme için rota şablonu tanımlar. Varsayılan değer sağlanmazsa `<functionname>`. Daha fazla bilgi için [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Yalnızca sürüm 1.x çalışma zamanı için desteklenmiyor._<br/><br/>HTTP tetikleyicisi olarak davranacak şekilde yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcının alıcı. Ayarlamamanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı bir Web kancası uç noktası olmadan belirli bir sağlayıcı için mantığı. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri kısıtlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin devamındaki GitHub Web kancaları bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack Web kancaları](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancaları ile özelliği. Daha fazla bilgi için bu makalenin devamındaki Slack Web kancaları bölümüne bakın.</li></ul>|
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
@@ -804,7 +804,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|
 | **type** |Ayarlanmalıdır `http`. |
 | **direction** | Ayarlanmalıdır `out`. |
-|**Adı** | İşlev kodu bir yanıt için kullanılan bir değişken adı veya `$return` dönüş değeri kullanılacak. |
+|**name** | İşlev kodu bir yanıt için kullanılan bir değişken adı veya `$return` dönüş değeri kullanılacak. |
 
 ## <a name="output---usage"></a>Çıkış - kullanım
 
