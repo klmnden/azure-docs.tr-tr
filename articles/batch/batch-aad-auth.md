@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722431"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922436"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -68,7 +68,7 @@ Azure AD kimlik doğrulaması kullanarak ilk adımı, uygulamanızı bir Azure A
 
 Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD uygulama kimliği sağlar (olarak da adlandırılan bir *istemci kimliği*), uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullanın. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 
-Batch uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) konusundaki [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
+Batch uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-register-app.md) konusundaki [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
 
 Uygulamanızı kaydettikten sonra uygulama kimliği görürsünüz:
 

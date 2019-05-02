@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455856"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918437"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için bir içerik yönetim gereksinimlerini belirleme
 İşletmeniz için içerik yönetimi gereksinimlerini anlamaya kararınız üzerinde kullanmak için hangi karma kimlik çözümü doğrudan etkileyebilir. Birden çok cihaz ve kullanıcıların kendi cihazlarını getirmesine yeteneğini işyerinde ile ([KCG](https://aka.ms/byodcg)), şirketin kendi verilerini korumanız gerekir ancak bu aynı zamanda kullanıcı gizliliğini korumanız gerekir. Bir kullanıcı kendi cihazını olduğunda, genellikle, bunlar da, kullandıkları uygulama göre değişen birden çok kimlik bilgilerini olabilir. Kurumsal kimlik bilgilerini kullanarak oluşturulan ilkeleri ve kişisel kimlik bilgilerini kullanarak hangi içerik oluşturuldu ayırt etmek önemlidir. Kimlik çözümünüz bulut ile etkileşimde bulunmayı sırasında son kullanıcı için sorunsuz bir deneyim sağlamak için hizmetler kendi gizliliklerini sağlamak ve veri sızıntısına karşı koruma artırın. 
 
 Kimlik çözümünüzü farklı teknik denetimler tarafından içerik yönetimi, aşağıdaki çizimde gösterildiği gibi sağlamak için kullanmalarını kullanılabilir:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![Güvenlik denetimleri](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Kimlik Yönetimi sisteminizde yararlanarak güvenlik denetimleri**
 

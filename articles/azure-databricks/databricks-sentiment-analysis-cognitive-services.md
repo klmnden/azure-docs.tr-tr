@@ -1,20 +1,20 @@
 ---
 title: 'Öğretici: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi'
-description: Gerçek zamanlıya yakın şekilde akış verileri ile ilgili yaklaşım analizi çalıştırmak için Event Hubs ve Bilişsel Hizmetler API’si ile Azure Databricks’i kullanmayı öğrenin.
+description: Akış neredeyse gerçek zamanlı verileri üzerinde yaklaşım analizi çalıştırmak için Event Hubs ve Bilişsel hizmetler API'si ile Azure Databricks kullanmayı öğrenin.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a4762f78b16b7798ff746770f1ea69ccebd30130
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786330"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919022"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi
 
@@ -55,9 +55,9 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığı
 
 [Azure Event Hubs ad alanı ve olay hub’ı oluşturma](../event-hubs/event-hubs-create.md) başlıklı makaledeki adımları tamamlayarak bu gereksinimleri karşılayabilirsiniz.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
@@ -154,7 +154,7 @@ Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerin
 
 ## <a name="get-a-cognitive-services-access-key"></a>Bilişsel Hizmetler erişim anahtarını alma
 
-Bu öğreticide kullandığınız [Microsoft Bilişsel hizmetler metin analizi API](../cognitive-services/text-analytics/overview.md) neredeyse gerçek zamanlı tweet akışı ile ilgili yaklaşım analizi çalıştırmak için. API'leri kullanmadan önce Azure'da bir Microsoft Bilişsel Hizmetler hesabı oluşturma ve metin analizi API'lerini kullanmak için bir erişim anahtarı almanız gerekir.
+Bu öğreticide kullandığınız [Azure Bilişsel hizmetler metin analizi API](../cognitive-services/text-analytics/overview.md) neredeyse gerçek zamanlı tweet akışı ile ilgili yaklaşım analizi çalıştırmak için. API'leri kullanmadan önce Azure'da bir Azure Bilişsel Hizmetler hesabı oluşturma ve metin analizi API'lerini kullanmak için bir erişim anahtarı almanız gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {

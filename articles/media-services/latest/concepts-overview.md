@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services kavramları - Azure | Microsoft Docs
-description: Bu konu Azure Media Services kavramları hakkında kısa bir genel bakışını veren ve ayrıntılı bilgi için bağlantılar sağlar.
+title: Azure Media Services terimler ve kavramlar - Azure | Microsoft Docs
+description: Bu konu Azure Media Services terimleri ve kavramları kısa bir genel bakışını veren ve daha fazla ayrıntı için bağlantılar sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103871"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867072"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
-Bu konu Azure Media Services kavramları hakkında kısa bir genel bakış sağlar ve Media Services v3 kavramlarda ve işlevlerde ayrıntılı açıklaması ile makalelere bağlantılar sağlar. Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.
+Bu konu Azure Media Services terimleri ve kavramları kısa bir genel bakış sağlar. Makalede, Media Services v3 kavramlarda ve işlevlerde ayrıntılı açıklamasını içeren makaleler için bağlantılar da sağlanmıştır. 
+
+Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.
 
 > [!NOTE]
 > Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
+## <a name="terminology"></a>Terminoloji
+
+Bu bölümde, bazı ortak sektör terimleri Media Services v3 API'sine nasıl eşleştiği gösterilir.
+
+### <a name="live-event"></a>Canlı Etkinlik
+
+A **canlı olay** almak, biçim dönüştürme (isteğe bağlı olarak) ve paketleme, video, ses ve gerçek zamanlı meta verileri Canlı akışlar için bir işlem hattını temsil eder.
+
+Media Services v2 API'lerinden geçişini gerçekleştiren müşteriler için **canlı olay** değiştirir **kanal** v2'de varlık. Daha fazla bilgi için [v2'den v3 geçirme](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Akış uç noktası (paketleme ve kaynak)
+
+A **akış uç noktası** yaygın akış medya protokolleri (HLS birini kullanarak doğrudan bir istemci oynatıcı uygulaması için canlı ve isteğe bağlı içerik teslim eden bir dinamik (tam zamanında) paketleme ve kaynak hizmetini temsil eder veya DASH). Ayrıca, **akış uç noktası** sektör lideri benzeri DRM dinamik (tam zamanında) şifreleme sağlar.
+
+Sektör akış ortamda, bu hizmet yaygın olarak adlandırılır bir **Paketleyici** veya **kaynak**.  Bu özellik için sektördeki diğer genel koşulları JITP (Just-de-zaman-Paketleyici) ya da JITE (Just--zaman-şifrelemesi) içerir. 
+ 
 ## <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
 
 Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturun ve içine dijital dosyalar karşıya yüklemek gereken **varlıklar**.
@@ -52,7 +70,7 @@ Video ve ses dosyalarını analiz etmek için de oluşturmak için ihtiyacınız
 
 ## <a name="packaging-delivery-protection"></a>Paketleme, teslim, koruma
 
-İçeriğinizi kodlanmış sonra avantajlarından yararlanabilirsiniz **dinamik paketleme**. **Akış uç noktası** istemci oyuncular medya içeriği teslim etmek için kullanılan Media Services dinamik paketleme hizmetidir. Oluşturmak zorunda videoları çıktı varlığı kayıttan yürütme için istemcilere kullanabilmek için bir **akış Bulucu** ve daha sonra akış URL'lerini oluşturabilirsiniz. 
+İçeriğinizi kodlanmış sonra avantajlarından yararlanabilirsiniz **dinamik paketleme**. Medya Hizmetleri'nde bir **akış uç noktası**  /kaynağı, istemci oyuncular medya içeriği teslim etmek için kullanılan dinamik paketleme hizmetidir. Oluşturmak zorunda videoları çıktı varlığı kayıttan yürütme için istemcilere kullanabilmek için bir **akış Bulucu** ve daha sonra akış URL'lerini oluşturabilirsiniz. 
 
 Oluştururken **akış Bulucu**, varlığın adı ek olarak belirtmeniz gerekir. **akış ilke**. **İlkeleri akış** , akış protokollerine tanımlamanıza olanak sağlar ve için şifreleme seçenekleri (varsa), **akış bulucuları**.
 

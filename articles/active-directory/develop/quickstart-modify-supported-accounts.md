@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a4d4293eeea06e30189e0bccce488a8f44b199
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299541"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918823"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Hızlı Başlangıç: Bir uygulama (Önizleme) tarafından desteklenen hesaplarını değiştirme
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Hızlı Başlangıç: Bir uygulama tarafından desteklenen hesaplarını değiştirme
 
 Bir uygulamayı Microsoft kimlik platformunda kaydederken uygulamaya yalnızca kuruluşunuzdaki kullanıcılar tarafından erişim sağlanmasını isteyebilirsiniz. Alternatif olarak, uygulamanızın dış kuruluşlardaki kullanıcılar tarafından veya dış kuruluşlardaki kullanıcılar ve bir kuruluşun parçası olmayan kullanıcılar (kişisel hesaplar) tarafından da erişilebilir olmasını isteyebilirsiniz.
 

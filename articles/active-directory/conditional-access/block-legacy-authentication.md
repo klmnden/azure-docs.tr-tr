@@ -18,12 +18,12 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355174"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917399"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
@@ -142,4 +142,4 @@ Diğer istemciler koşulunu kullanarak eski bir kimlik doğrulama engellerseniz,
 
 - Koşullu erişim ilkelerini yapılandırma ile henüz bilmiyorsanız bkz [Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](app-based-mfa.md) örneği.
 
-- Modern kimlik doğrulaması desteği hakkında daha fazla bilgi için bkz. [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulama çalışıyor](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- Modern kimlik doğrulaması desteği hakkında daha fazla bilgi için bkz. [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulama çalışıyor](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

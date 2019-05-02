@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922388"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Hızlı Başlangıç: Bir Azure CDN profili ve uç nokta Resource Manager şablonu kullanarak oluşturma
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 Bu adımda, kaynakları dağıtan bir şablon dosyası oluşturun.
 
-Bu örnek bir genel Web sitesi hızlandırma senaryoyu adım kılavuzluk eder, ancak yapılandırılabilir diğer birçok ayarı vardır. Bu ayarlar Azure Resource Manager şablon Başvurusu'nda kullanılabilir. Lütfen başvuruları için bkz. [CDN profili](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) ve [CDN profili bitiş noktasına](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Bu örnek bir genel Web sitesi hızlandırma senaryoyu adım kılavuzluk eder, ancak yapılandırılabilir diğer birçok ayarı vardır. Bu ayarlar Azure Resource Manager şablon Başvurusu'nda kullanılabilir. Lütfen başvuruları için bkz. [CDN profili](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) ve [CDN profili bitiş noktasına](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Microsoft CDN içerik türü listesinin değiştirmeyi desteklemediğini aklınızda bulundurun.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Başvurular
 
-* CDN profili - [Azure Resource Manager şablon başvurusu](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN uç noktası - [Azure Resource Manager şablon başvurusu belgeleri](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN profili - [Azure Resource Manager şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN uç noktası - [Azure Resource Manager şablon başvurusu belgeleri](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

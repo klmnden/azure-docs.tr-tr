@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653781"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875939"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP uç noktasından veri kopyalama
 
@@ -160,11 +160,55 @@ Kullanırsanız **Certthumbprınt** yerel bilgisayarın kişisel depoda kimlik d
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bu bölümde, HTTP veri kümesini destekleyen özelliklerin bir listesini sağlar. 
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. 
 
-Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [veri kümeleri ve bağlı hizmetler](concepts-datasets-linked-services.md). 
+- İçin **Parquet ve sınırlandırılmış metin biçimi**, başvurmak [Parquet ve sınırlandırılmış metin biçimi veri kümesi](#parquet-and-delimited-text-format-dataset) bölümü.
+- Diğer biçimlerden için **ORC/Avro/JSON/ikili biçimi**, başvurmak [diğer biçim veri kümesi](#other-format-dataset) bölümü.
 
-HTTP veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **HttpFile**. Aşağıdaki özellikler desteklenir:
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet ve sınırlandırılmış metin biçimi veri kümesi
+
+HTTP veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**, başvurmak [Parquet biçimi](format-parquet.md) ve [sınırlandırılmış metin biçimi](format-delimited-text.md) makale biçimi tabanlı veri kümesinde ve desteklenir Ayarlar. Aşağıdaki özellikler HTTP altında desteklenir `location` biçimi tabanlı bir veri kümesi ayarlarında:
+
+| Özellik    | Açıklama                                                  | Gerekli |
+| ----------- | ------------------------------------------------------------ | -------- |
+| type        | Type özelliği altında `location` kümesinde ayarlanmalıdır **HttpServerLocation**. | Evet      |
+| relativeUrl | Verileri içeren kaynak için göreli bir URL.       | Hayır       |
+
+> [!NOTE]
+> Desteklenen HTTP isteği yükü boyutu yaklaşık 500 KB'dir. Web uç noktanıza geçirmek istediğiniz yükü boyutu 500 KB boyutundan büyükse, yükü daha küçük öbekler halinde toplu işleme göz önünde bulundurun.
+
+> [!NOTE]
+> **HttpFile** sonraki bölümde bahsedilen Parquet/metin biçimine sahip tür veri kümesi olarak desteklenen hala-kopyalama/arama etkinliği için geriye dönük uyumluluk içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+
+**Örnek:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Diğer biçim veri kümesi
+
+HTTP veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -226,7 +270,69 @@ Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri 
 
 ### <a name="http-as-source"></a>HTTP kaynağı olarak
 
-HTTP veri kopyalamak için ayarlanmış **kaynak türünü** için kopyalama etkinliğindeki **HttpSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
+- Kopyalama için **Parquet ve sınırlandırılmış metin biçimi**, başvurmak [Parquet ve sınırlandırılmış metin biçimi kaynak](#parquet-and-delimited-text-format-source) bölümü.
+- Kopyalama gibi diğer biçimlerinden **ORC/Avro/JSON/ikili biçimi**, başvurmak [başka bir biçim kaynağı](#other-format-source) bölümü.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet ve sınırlandırılmış metin biçimi kaynağı
+
+HTTP veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**, başvurmak [Parquet biçimi](format-parquet.md) ve [sınırlandırılmış metin biçimi](format-delimited-text.md) makale biçimi tabanlı kopyalama etkinliği kaynağı ve desteklenen ayarlar. Aşağıdaki özellikler HTTP altında desteklenir `storeSettings` biçimi tabanlı kopyalama kaynak ayarları:
+
+| Özellik                 | Açıklama                                                  | Gerekli |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | Type özelliği altında `storeSettings` ayarlanmalıdır **HttpReadSetting**. | Evet      |
+| requestMethod            | HTTP yöntemi. <br>İzin verilen değerler **alma** (varsayılan) ve **Post**. | Hayır       |
+| addtionalHeaders         | Ek HTTP isteği üstbilgileri.                             | Hayır       |
+| Includesearchresults: true              | HTTP isteğinin gövdesi.                               | Hayır       |
+| RequestTimeout           | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Bu değer, yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olur. Varsayılan değer **00:01:40**. | Hayır       |
+| MaxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır       |
+
+> [!NOTE]
+> Parquet ve sınırlandırılmış metin biçimi **HttpSource** sonraki bölümde bahsedilen türü kopyalama etkinliği kaynağı olarak desteklenen hala-için geriye dönük uyumluluk içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+
+**Örnek:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Başka bir biçim kaynağı
+
+HTTP veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özellikler kopyalama etkinliğinde desteklenen **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |

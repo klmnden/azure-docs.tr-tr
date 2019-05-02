@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020398"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922937"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -111,7 +111,7 @@ public class Function {
 
 Karşıdan yükleme ve kullanma [Azul Zulu Enterprise Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK'den [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. Azure işlevleri, işlev uygulamalarınızı buluta dağıtırken Azul Java 8 JDK çalışma zamanı kullanır.
 
-[Azure Destek](https://azure.microsoft.com/en-us/support/) JDK ve işlev ile ilgili sorunlar için uygulamalar, kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
+[Azure Destek](https://azure.microsoft.com/support/) JDK ve işlev ile ilgili sorunlar için uygulamalar, kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Üçüncü taraf kitaplıklar 
 

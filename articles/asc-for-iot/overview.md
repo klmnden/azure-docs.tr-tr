@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253585d71ab2704efa0b3e4a06456e1d505b46ad
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232803"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919666"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>IOT için Azure Güvenlik Merkezi ile tanışın
 
@@ -33,7 +33,7 @@ Güvenlik yönetimini birleştirin ve hibrit bulut iş yükleri ve Azure IOT ç�
 
 ## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Gelişen siber saldırılara karşı IOT ve hibrit bulut iş yüklerinizi koruyun
 
-Nesnelerin interneti Dünyamızı hızlıca dönüştürüyor. Analiziyle öngörüleri bağlı cihazlar ve arka uç sistemine özelliği sayesinde güçlü uygulamalar ve hizmetler kurumunuzun işletimsel eşi görülmemiş düzeylerini ve iş elde etmek için bu Öngörüler artık dönüştürebilirsiniz performans. Ancak, yeni cihazları milyarlarca internet'e bağlı ve günlük yaşamımızın ve bizim işletmeler; tümleşik kendi güvenlik stratejileri yeterince hızlı bu yeni saldırı yüzeylerini kapsayacak şekilde evrim Geçiren emin olmak güvenlik işlemleri takımlarınızın gerekir. Diğer herhangi bir sistem gibi IOT çözümünüzün güvenliğini sağlama, uygulamanızın her aşamasında koruması gerekir. 
+Nesnelerin interneti Dünyamızı hızlıca dönüştürüyor. Bağlı cihaz ve arka uç sistemine açığa çıkarmak için özelliği sayesinde güçlü uygulamalar ve hizmetler kurumunuzun işletimsel eşi görülmemiş düzeylerini ve iş performansı elde etmek için bu Öngörüler dönüştürebilirsiniz. Ancak, yeni cihazları milyarlarca internet'e bağlı ve günlük yaşamımızın ve bizim işletmeler; tümleşik kendi güvenlik stratejileri yeterince hızlı bu yeni saldırı yüzeylerini kapsayacak şekilde evrim Geçiren emin olmak güvenlik işlemleri takımlarınızın gerekir. Diğer herhangi bir sistem gibi IOT çözümünüzün güvenliğini sağlama, uygulamanızın her aşamasında koruması gerekir. 
 
 IOT için Azure Güvenlik Merkezi (ASC) karma iş yükü koruması edge üzerinde çalışan iş yüklerini şirket içinde ve azure'da genelinde birleşik bir görünürlük ve denetim, Uyarlamalı tehdit önleme ve akıllı tehdit algılama ve yanıt sunarak basitleştirir diğer bulut. 
 

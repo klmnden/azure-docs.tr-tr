@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: bf33860b111900fed850158d6b80d5a9d4404893
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93cc20c303d6c8ba0592651064790d83919b2948
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879813"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916653"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -135,7 +135,7 @@ Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](http
 
 ## <a name="sample-response"></a>Örnek yanıt
 
-Bu ülke kısaltması Bul [dillerin listesini](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Bu ülke kısaltması Bul [dillerin listesini](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 

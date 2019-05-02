@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411198"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917292"
 ---
 # <a name="application-types-in-v10"></a>V1.0 uygulama türleri
 
@@ -63,7 +63,7 @@ Azure AD kimlik outsources herhangi bir uygulama bir dizinde kayıtlı olması g
   * **Anahtar** -bir uygulama kimliği ile birlikte kimlik doğrulaması yapılırken Azure AD ile bir web API'sini çağırmak için gönderilen anahtarı.
 * Azure AD uygulama dizin verilerinize, kuruluşunuzdaki diğer uygulamaların erişmek üzere gerekli izinlere sahip olduğundan emin olmak gerekir.
 
-Daha fazla bilgi için edinmek için nasıl [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
+Daha fazla bilgi için edinmek için nasıl [bir uygulamayı kaydetme](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Tek kiracılı ve çok kiracılı uygulamalar
 

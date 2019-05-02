@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371827"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919162"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınızı ayarlama
 
@@ -108,7 +108,7 @@ Azure Active Directory kiracısı, Microsoft Müşteri sözleşmesi imzalanırke
 
 Yeni hesabınıza yalnızca Microsoft Müşteri sözleşmesi imzalanırken seçilen Kiracı kullanıcıları destekler. Kurumsal sözleşmeniz üzerinde yönetici iznine sahip kullanıcılar Kiracı parçası ise bunlar Kurulum sırasında yeni faturalandırma hesaba erişim kazanırsınız. Kiracı parçası değillerse, davet sürece yeni bir fatura hesabınıza erişmek mümkün olmayacaktır.
 
-Kullanıcıları davet ederken, kiracınıza Konuk kullanıcı olarak eklenir ve fatura hesap erişin. Kullanıcıları davet etmek için Konuk erişimi Kiracı için açık olması gerekir. Daha fazla bilgi için [Konuk erişimi Azure Active Directory'de](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Konuk erişimine kapatılırsa, açmak kiracınızın genel yönetici ile iletişime geçin. <!-- Todo - How can they find their global administrator -->
+Kullanıcıları davet ederken, kiracınıza Konuk kullanıcı olarak eklenir ve fatura hesap erişin. Kullanıcıları davet etmek için Konuk erişimi Kiracı için açık olması gerekir. Daha fazla bilgi için [Konuk erişimi Azure Active Directory'de](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Konuk erişimine kapatılırsa, açmak kiracınızın genel yönetici ile iletişime geçin. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Yerine yeni faturalandırma hesabıyla özelliklerini görüntüleyin
 

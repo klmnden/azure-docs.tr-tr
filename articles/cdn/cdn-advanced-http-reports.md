@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216161"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867029"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Gelişmiş HTTP raporları, Azure CDN ile kullanım istatistikleri analiz edin
 ## <a name="overview"></a>Genel Bakış
@@ -42,30 +42,30 @@ Bu belgede, Microsoft Azure CDN'de Gelişmiş HTTP raporlama açıklanmaktadır.
 ## <a name="geography-reports-map-based"></a>Coğrafya raporları (harita tabanlı)
 Kendisinden içeriğinizi istenen bölgeleri göstermek için bir harita yararlanan beş raporu vardır. Bu, dünya haritası, Amerika Birleşik Devletleri harita, Kanada harita, Avrupa Harita ve Asya Pasifik harita raporlardır.
 
-Her harita tabanlı rapor bu bölgede coğrafi varlıklar (yani, ülke, eyalet ve bölgeler) kaynaklanan isabet yüzdesi göre sıralar. Ayrıca, bir harita kendisinden içeriğinizi istenen konumları görselleştirmenize yardımcı olmak için sağlanır. İsteğe bağlı bu bölgede deneyimli sayısına göre her bir bölgeye renk kodlaması tarafından Bunu yapmak kullanabilirsiniz. Koyu bölgelerle içeriğiniz için isteğe bağlı üst düzey gösterirken, içerik için daha düşük talep daha hafif gölgeli bölgeleri gösterir.
+Her harita tabanlı bir raporu coğrafi varlıkları sıralar (yani, ülkeler/bölgeler, bir harita kendisinden içeriğinizi istenen konumları görselleştirmenize yardımcı olmak için sağlanır. İsteğe bağlı bu bölgede deneyimli sayısına göre her bir bölgeye renk kodlaması tarafından Bunu yapmak kullanabilirsiniz. Koyu bölgelerle içeriğiniz için isteğe bağlı üst düzey gösterirken, içerik için daha düşük talep daha hafif gölgeli bölgeleri gösterir.
 
-Haritanın altında doğrudan her bölge için trafiği ve bant genişliği ayrıntılı bilgi sağlanmaktadır. Bu, isabetleri, isabetli okuma sayısının yüzdesi, toplam veri miktarı toplam sayısını görüntülemek için (gigabayt) aktardınız ve her bölge için verilerin yüzde aktarılan sağlar. Bir açıklama her bu ölçümleri görüntüleyin. Bir bölgede (yani, ülke, eyalet veya bölge) geldiğinizde, son olarak, ad ve bölgede gerçekleşen isabet yüzdesi araç ipucu olarak görüntülenir.
+Haritanın altında doğrudan her bölge için trafiği ve bant genişliği ayrıntılı bilgi sağlanmaktadır. Bu, isabetleri, isabetli okuma sayısının yüzdesi, toplam veri miktarı toplam sayısını görüntülemek için (gigabayt) aktardınız ve her bölge için verilerin yüzde aktarılan sağlar. Bir açıklama her bu ölçümleri görüntüleyin. Son olarak, ad ve bölgede gerçekleşen isabet yüzdesi (yani, ülke/bölge, eyalet veya bölge), bir bölgede geldiğinizde araç ipucu olarak görüntülenir.
 
 Kısa bir açıklama her coğrafi harita tabanlı rapor türü için aşağıda verilmiştir.
 
 | Rapor adı | Açıklama |
 | --- | --- |
-| Dünya Haritası |Bu rapor, CDN içeriğini dünya çapında talep görüntülemenize olanak sağlar. Her bir ülkede bu bölgesinden kaynaklanan isabet yüzdesi göstermek için dünya Haritası üzerinde renk kodludur. |
+| Dünya Haritası |Bu rapor, CDN içeriğini dünya çapında talep görüntülemenize olanak sağlar. Her bir ülke/bölge, bölgesinden kaynaklanan isabet yüzdesi göstermek için dünya Haritası üzerinde renk kodludur. |
 | Amerika Birleşik Devletleri eşleme |Bu rapor, Amerika Birleşik Devletleri'nde CDN içeriği için isteğe bağlı görüntülemek sağlar. Her bir durum söz konusu bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritada renk kodlu. |
 | Kanada eşleme |Bu rapor, CDN içeriğini talep Kanada'da görüntülemenize olanak sağlar. Her bölge, bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritada renk kodlu. |
-| Avrupa eşleme |Bu rapor, CDN içeriğini talep Avrupa'da görüntülemenize olanak sağlar. Bu bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritadaki her bir ülkede renk kodlu. |
-| Asya Pasifik eşleme |Bu rapor, CDN içeriğini talep Asya'da görüntülemenize olanak sağlar. Bu bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritadaki her bir ülkede renk kodlu. |
+| Avrupa eşleme |Bu rapor, CDN içeriğini talep Avrupa'da görüntülemenize olanak sağlar. Her bir ülke/bölge söz konusu bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritada renk kodlu. |
+| Asya Pasifik eşleme |Bu rapor, CDN içeriğini talep Asya'da görüntülemenize olanak sağlar. Her bir ülke/bölge söz konusu bölgesinden kaynaklanan isabet yüzdesi belirtmek için bu haritada renk kodlu. |
 
 ## <a name="geography-reports-bar-charts"></a>Coğrafya raporları (çubuk grafikler)
-Üst Şehir ve ülke üst olan Coğrafya göre istatistiksel bilgi sağlayan iki ek raporlar vardır. Bu raporlar Şehir ve ülkeye, sırasıyla, bu bölgelerden kaynaklanan isabet sayısına göre sırala. Bu tür bir rapor oluşturma sırasında bir çubuk grafik ilk 10 şehir veya belirli bir platform içerik istenen ülkeler gösterir. Bu çubuk grafik, içerik istekleri en yüksek sayısını oluşturmak bölgeleri hızlı bir şekilde değerlendirmek sağlar.
+Üst Şehir ve ülke üst olan Coğrafya göre istatistiksel bilgi sağlayan iki ek raporlar vardır. Bu raporlar Şehir ve ülkeler/bölgeler, sırasıyla bu ülkelerden/bölgelerden kaynaklanan isabet sayısına göre sırala. Bu tür bir rapor oluşturma sırasında bir çubuk grafik, ilk 10 şehir veya belirli bir platform içerik istenen ülkeler/bölgeler gösterir. Bu çubuk grafik, içerik istekleri en yüksek sayısını oluşturmak bölgeleri hızlı bir şekilde değerlendirmek sağlar.
 
 Graf (y ekseni) sol tarafında belirtilen bölgede kaç oluştu gösterir. Doğrudan aşağıdaki grafikte (x ekseni), her biri en çok 10 bölgeler için bir etiket bulabilirsiniz.
 
 ### <a name="using-the-bar-charts"></a>Çubuk grafikleri kullanma
 * Üzerine gelin, araç ipucu olarak adı ve bölgede gerçekleşen toplam sayısı görüntülenir.
-* Araç İpucu üst şehirler rapor için bir şehir adı, bölge ve ülke kısaltması tanımlar.
-* Şehir veya bölge (yani, eyalet/il) bir isteğin kaynaklandığı belirlenemedi, bilinmeyen olduğunu gösterir. Ülke bilinmeyen ve ardından iki soru işareti (yani??) ise görüntülenir.
-* Bir rapor "Avrupa" veya "Asya/Pasifik bölgesi." için ölçüler içerebilir Bu öğeler bu bölgelerdeki tüm IP adresleri hakkında istatistiksel bilgiler sağlamak için tasarlanmamıştır. Bunun yerine, yalnızca Avrupa veya Asya/Pasifik yerine bir belirli şehir veya ülkede yayıldığını IP adresleri kaynaklanan istekler için geçerlidir.
+* Araç İpucu üst şehirler rapor için bir şehir adı, bölge ve ülke/bölge kısaltması tanımlar.
+* Şehir veya bölge (yani, eyalet/il) bir isteğin kaynaklandığı belirlenemedi, bilinmeyen olduğunu gösterir. Ülke/bölge bilinmeyen ve ardından iki soru işareti (yani??) olması durumunda görüntülenir.
+* Bir rapor "Avrupa" veya "Asya/Pasifik bölgesi." için ölçüler içerebilir Bu öğeler bu bölgelerdeki tüm IP adresleri hakkında istatistiksel bilgiler sağlamak için tasarlanmamıştır. Bunun yerine, yalnızca Avrupa veya Asya/Pasifik yerine belirli bir şehir veya ülke/bölge için yayıldığını IP adresleri kaynaklanan istekler için geçerlidir.
 
 Çubuk grafik oluşturmak için kullanılan verileri altında görüntülenebilir. Burada aktarılan toplam sayısı isabetleri, isabetli okuma sayısının yüzdesi, veri miktarı (gigabayt) ve üst 250 bölgeler için verilerin yüzde aktarılan bulacaksınız. Bir açıklama her bu ölçümleri görüntüleyin.
 
@@ -74,7 +74,7 @@ Aşağıdaki raporlar her iki tür için kısa bir açıklaması sağlanır.
 | Rapor adı | Açıklama |
 | --- | --- |
 | Üst şehirler |Bu rapor, bu bölgede şehirlere göre kaynaklanan isabet sayısı sıralar. |
-| En gelişmiş ülkelerden |Bu rapor, bu bölgede ülkeler kaynaklanan isabet sayısı göre sıralar. |
+| En gelişmiş ülkelerden |Bu rapor, ülkelerde/bölgelerde bu ülkede/bölgede kaynaklanan isabet sayısı göre sıralar. |
 
 ## <a name="daily-summary"></a>Günlük Özet
 Günlük özet raporu isabetler ve belirli bir platform günlük olarak aktarılan verilerin toplam sayısı görüntülemenize olanak sağlar. Bu bilgiler hızlı bir şekilde CDN etkinlik desenlerini ayrım için kullanılabilir. Örneğin, bu raporu hangi günlerinde daha deneyimli veya beklenen trafik küçüktür algılamanıza yardımcı olabilir.

@@ -1,6 +1,6 @@
 ---
-title: Azure altyapı kullanılabilirlik
-description: Bu makalede, müşterilerin veri en yüksek kullanılabilirlik sağlamak için yedeklilik düzeyini anlatılmaktadır.
+title: Azure altyapı kullanılabilirliği - Azure güvenliği
+description: Bu makalede, Microsoft Azure altyapısının güvenliğini sağlamak ve müşterilerin en yüksek kullanılabilirliğini sağlamak için yaptığı hakkında bilgi sağlar.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587207"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872614"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure altyapı kullanılabilirlik
-Azure, kapsamlı yedeklilik sanallaştırma teknolojisi ile elde edilen temel güçlü kullanılabilirlik sağlar. Azure, müşterilerin veri en yüksek kullanılabilirlik sağlamak için artıklığı çok sayıda düzeyleri sağlar.
+Bu makalede, Microsoft Azure altyapısının güvenliğini sağlamak ve müşterilerin en yüksek kullanılabilirliğini sağlamak için yaptığı hakkında bilgi sağlar. Azure, kapsamlı yedeklilik sanallaştırma teknolojisi ile elde edilen temel güçlü kullanılabilirlik sağlar.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Geçici kesinti ve doğal felaket
 Microsoft bulut altyapısı ve işlemleri takım tasarlar yapılar çalışır ve bulut altyapısının güvenliğini artırır. Bu takım, yüksek kullanılabilirlik ve güvenilirlik, yüksek verimlilik ve ölçeklenebilirlik akıllı Azure altyapısı iletmektir sağlar. Takım, daha güvenli, özel ve güvenilir bir bulut sağlar.

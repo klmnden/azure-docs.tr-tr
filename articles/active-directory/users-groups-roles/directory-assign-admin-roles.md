@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472405"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920491"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -58,6 +58,18 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   * Grup üyeliği yönetebilen güvenlik grubu ve Office 365 grubu sahipler. Bu gruplar, gizli veya özel bilgiler veya Azure AD'de önemli yapılandırma ve diğer yerlerde erişim izni verebilir.
   * Yöneticiler diğer hizmetleri Azure AD dışında Exchange Online, Office güvenlik ve uyumluluk Merkezi'nde ve İnsan Kaynakları sistemler ister.
   * Yönetici olmayan kullanıcılar, Yöneticiler, yasal Konseyi ve gizli veya özel bilgiler erişebilirsiniz İnsan Kaynakları çalışanları gibi.
+
+* **[B2C kullanıcı Akışı Yöneticisi](#b2c-user-flow-administrator)**: Bu role sahip kullanıcılar oluşturabilir ve B2C kullanıcı akışları ("yerleşik" ilkeleri olarak da bilinir) Azure portalında yönetebilirsiniz. Oluşturma veya düzenleme kullanıcı akışları, bu kullanıcılar kullanıcı deneyimini html/CSS/javascript içeriğini değiştirme, kullanıcı akışı başına MFA Gereksinimler değiştikçe, belirtecinde talep değiştirebilir ve kiracıdaki tüm ilkeler için oturumu ayarlarını. Öte yandan, bu rolü kullanıcı verilerini gözden geçirmek için bu özelliği içermez, veya Kiracı şemasında bulunan öznitelikler değişiklik. Kimlik deneyimi çerçevesi için değişiklikleri (özel olarak da bilinir) ilkeleri, ayrıca bu rol kapsamı dışındadır.
+
+* **[B2C kullanıcı akışı özniteliği Yöneticisi](#b2c-user-flow-attribute-administrator)**: Bu role sahip kullanıcılar, ekleyebilir veya özel öznitelikler kiracıdaki tüm kullanıcı akışları kullanımına silebilirsiniz. Bu nedenle, bu role sahip kullanıcılar değiştirebilir veya yeni öğeler için son kullanıcı şeması ekleyin ve tüm kullanıcı akışları davranışını etkiler ve dolaylı olarak hangi verilerin son kullanıcılarının sorular ve sonuçta uygulamaları talep olarak gönderilen neden. Bu rol, kullanıcı akışları düzenleyemezsiniz.
+
+* **[B2C IEF anahtar kümesi yönetici](#b2c-ief-keyset-administrator)**:    Kullanıcı oluşturma ve ilke anahtarları yönetmek ve belirteç şifreleme için gizli dizileri belirteci imzalar ve şifreleme/şifre çözme talep. Varolan anahtar kapsayıcıları için yeni anahtarları ekleyerek bu sınırlı yönetici yapabilirsiniz rollover gizli dizileri mevcut uygulamaları etkilemeden gerektiğinde. Bu kullanıcı, gizli bilgileri ve sona erme tarihlerinin, oluşturulduktan sonra bile tam içeriğini görebilir.
+    
+  <b>Önemli:</b> bu hassas bir roldür. Anahtar kümesi Yönetici rolü dikkatli bir şekilde denetlenen ve üretim öncesi ve üretim sırasında dikkatli atanan gerekir.
+
+* **[B2C IEF İlke Yöneticisi](#b2c-ief-policy-administrator)**: Bu roldeki kullanıcılar oluşturma, okuma, güncelleştirme ve tüm özel Azure AD B2C ilkeleri silin ve bu nedenle ilgili Azure AD B2C kiracısında kimlik deneyimi çerçevesi üzerinde tam denetime sahip seçeneğine sahipsiniz. İlkeleri düzenleyerek, bu kullanıcı dış kimlik sağlayıcısı ile doğrudan Federasyon kurmak, directory şemasını değiştirme, kullanıcıya yönelik tüm içerik (HTML, CSS, JavaScript) değiştirmek için bir kimlik doğrulamasını tamamlamak için yeni kullanıcı oluşturma, Gönder Gereksinimler değiştikçe kullanıcı verilerini dış sistemlerle geçişleri tam ve parolalar ve telefon numaraları gibi hassas alanları dahil olmak üzere tüm kullanıcı bilgilerini düzenleyin. Buna karşılık, bu rolü şifreleme anahtarlarını değiştirmek veya kiracıdaki Federasyon için kullanılan gizli dizileri düzenleyin.
+
+  <b>Önemli:</b> B2 IEF İlke Yöneticisi üretimde kiracılar için çok kısıtlı bir kapsamla atanan son derece hassas bir roldür. Etkinlikler bu kullanıcı tarafından yakından, üretimde kiracılar için özellikle denetlenmesi.
 
 * **[Faturalama Yöneticisi](#billing-administrator)**: Satın alma gerçekleştirir, abonelikleri yönetir, destek biletlerini yönetir ve hizmet sistem durumunu izler.
 
@@ -110,6 +122,9 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Exchange Hizmet Yöneticisi" olarak tanımlanır. "Exchange Yöneticisi" olarak [Azure portalında](https://portal.azure.com). "Exchange Online Yönetici" olarak [Exchange yönetici merkezini](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Dış kimlik sağlayıcısı yönetici](#external-identity-provider-administrator)**: Bu yönetici, Azure Active Directory kiracıları ve Dış kimlik sağlayıcısı arasında federasyon yönetir. Bu rol ile kullanıcılar yeni kimlik sağlayıcıları eklemek ve tüm kullanılabilir ayarları (örneğin kimlik doğrulaması yolu, anahtar kapsayıcıları atanan hizmet kimliği) yapılandırın. Bu kullanıcı, Kiracı kimlik doğrulama dış kimlik sağlayıcılardan gelen güven etkinleştirebilirsiniz. Son kullanıcı deneyimi elde edilen etkisi Kiracı türüne bağlıdır:
+  * Çalışanlar ve iş ortakları için Azure Active Directory kiracıları: Federasyon (örneğin ile Gmail) eklenmesi, henüz alınma tarihinden itibaren tüm Konuk davet hemen etkiler. Bkz: [B2B Konuk kullanıcılar için bir kimlik sağlayıcısı olarak ekleyerek Google](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C kiracıları: Kimlik sağlayıcısı (diğer adıyla yerleşik ilke) kullanıcı akışı bir seçenek olarak eklenene kadar (örneğin Facebook veya başka bir Azure Active Directory ile) bir Federasyon eklenmesini son kullanıcı akışları hemen etkilemez. Bkz: [bir Microsoft hesabı kimlik sağlayıcısı olarak yapılandırma](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) örneği. Kullanıcı akışları değiştirmek için "B2C kullanıcı akışı Yönetici" sınırlı rolü gereklidir.
 
 * **[Genel yönetici / şirket Yöneticisi](#company-administrator)**: Bu role sahip kullanıcılar gibi Microsoft 365 Güvenlik Merkezi, Azure Active Directory kimlikleri kullanmak hizmetlerinin yanı sıra Azure Active Directory, tüm yönetim özelliklerine erişim sahibi Microsoft 365 Uyumluluk Merkezi, Exchange Online, SharePoint Online ve Skype Kurumsal çevrimiçi. Azure Active Directory kiracısı için kaydolan kişi genel yönetici olur. Yalnızca genel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel Yöneticiler, herhangi bir kullanıcı ve diğer tüm yöneticilerin parolasını sıfırlayabilirsiniz.
 
@@ -314,6 +329,34 @@ Görüntüleyebilir, ayarlayabilir ve herhangi bir yönetici olmayan kullanıcı
 | Microsoft.Office365.webPortal/allEntities/Basic/Read | microsoft.office365.webPortal içindeki tüm kaynaklarda temel özellikleri okuyun. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+
+### <a name="b2c-user-flow-administrator"></a>B2C kullanıcı Akışı Yöneticisi
+Oluşturabilir ve kullanıcı Akışları'nın tüm özelliklerini yönetebilir.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.B2C/userFlows/allTasks | Okuma ve Azure Active Directory B2C'de kullanıcı akışları yapılandırın. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C kullanıcı akışı özniteliği Yöneticisi
+Oluşturun ve tüm kullanıcı akışları için kullanılabilir özniteliği şema yönetin.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.B2C/userAttributes/allTasks | Okuma ve Azure Active Directory B2C'de kullanıcı öznitelikleri yapılandırabilirsiniz. |
+
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF anahtar kümesi yönetici
+Federasyon ve şifreleme, kimlik deneyimi çerçevesi için gizli dizilerini yönetin.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.B2C/trustFramework/keySets/allTasks | Okuma ve Azure Active Directory B2C'de anahtar kümesi yapılandırın. |
+
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF İlke Yöneticisi
+Oluşturun ve kimlik deneyimi çerçevesi güven framework ilkelerini yönetin.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.B2C/trustFramework/Policies/allTasks | Okuma ve Azure Active Directory B2C'de özel ilkeler yapılandırın. |
 
 ### <a name="billing-administrator"></a>Faturalama Yöneticisi
 Ödeme bilgilerini güncelleştirme gibi sık kullanılan faturalandırma görevlerini gerçekleştirebilir.
@@ -675,6 +718,13 @@ Exchange ürününün tüm özelliklerini yönetebilir.
 | Microsoft.Office365.Exchange/allEntities/allTasks | Exchange Online'ın tüm özelliklerini yönetin. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+
+### <a name="external-identity-provider-administrator"></a>Dış kimlik sağlayıcı Yöneticisi
+Kimlik sağlayıcıları kullanmak için doğrudan federasyona yapılandırın.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.B2C/identityProviders/allTasks | Okuma ve Azure Active Directory B2C'de kimlik sağlayıcılarını yapılandırma. |
 
 ### <a name="guest-inviter"></a>Konuk Davet Eden
 'Üyeler konuk davet edebilir' ayarından bağımsız olarak konuk kullanıcı davet edebilir.

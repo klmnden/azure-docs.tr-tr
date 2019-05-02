@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013269"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708595"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Oluşturma ve Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) basit R betikleri çalıştırma
 
@@ -102,9 +102,9 @@ Bu saklı yordam için giriş içerir:
 
 | | |
 |-|-|
-|*@language* | Bu durumda, R çağırmak için dil uzantısını tanımlar |
-|*@script* | R çalışma için geçirilen komut tanımlar. Tüm R betiğinizi bu bağımsız değişken Unicode metin alınmalıdır. Metin türünde bir değişkene ekleyebilirsiniz **nvarchar** ve ardından değişkeni çağırın |
-|*@input_data_1* | bir veri çerçevesi olarak SQL Server için veri döndüren ve R çalışma zamanının geçirilen sorgu tarafından döndürülen veriler |
+| @language | Bu durumda, R çağırmak için dil uzantısını tanımlar |
+| @script | R çalışma için geçirilen komut tanımlar. Tüm R betiğinizi bu bağımsız değişken Unicode metin alınmalıdır. Metin türünde bir değişkene ekleyebilirsiniz **nvarchar** ve ardından değişkeni çağırın |
+| @input_data_1 | bir veri çerçevesi olarak SQL Server için veri döndüren ve R çalışma zamanının geçirilen sorgu tarafından döndürülen veriler |
 |SONUÇ KÜMELERİ | yan tümcesi, SQL Server, "Hello World" sütun adı eklemek için döndürülen veriler tablonun şemasını tanımlar **int** veri türü için |
 
 Komutu aşağıdaki metni çıkardığından:
@@ -146,7 +146,7 @@ Yalnızca bir giriş veri kümesi parametre olarak iletilebilir ve yalnızca bir
 
     **Sonuçlar**
 
-    ![RTestData tablosunun içeriği](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![RTestData tablosunun içeriği](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
 1. Aşağıdaki R betiği çalıştırın. Tablo kullanarak veri alan `SELECT` deyimi, R çalışma geçirir ve verileri bir veri çerçevesi olarak döndürür. `WITH RESULT SETS` Yan tümcesi, döndürülen veriler tablonun şeması sütun adı ekleyerek SQL veritabanı için tanımlar *NewColName*.
 
@@ -159,7 +159,7 @@ Yalnızca bir giriş veri kümesi parametre olarak iletilebilir ve yalnızca bir
 
     **Sonuçlar**
 
-    ![Tablodan veri döndüren R betiğinin çıktısı](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![Tablodan veri döndüren R betiğinin çıktısı](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. Artık giriş ve çıkış değişkenlerinin adları değiştirelim. Varsayılan giriş ve çıkış değişken adlarının **Inputdataset** ve **OutputDataSet**, bu komut adlarını değiştirdiğinde **SQL_in** ve **SQL_out**:
 
@@ -193,7 +193,7 @@ Yalnızca bir giriş veri kümesi parametre olarak iletilebilir ve yalnızca bir
 
     **Sonuçlar**
 
-    ![Giriş olarak @script kullanarak sonuçları sorgulama](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![Giriş olarak @script kullanarak sonuçları sorgulama](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>R sürümünü denetleme
 
@@ -251,7 +251,7 @@ WITH result sets((
 
 **Sonuçlar**
 
-![R içindeki yüklü paketler](./media/sql-database-connect-query-r/r-installed-packages.png)
+![R içindeki yüklü paketler](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -260,10 +260,8 @@ SQL veritabanı'nda R kullanarak makine öğrenme modeli oluşturmak için bu h�
 > [!div class="nextstepaction"]
 > [Oluşturma ve r ile Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) ile Tahmine dayalı bir model eğitip](sql-database-quickstart-r-train-score-model.md)
 
-Machine Learning hizmetleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın. Bu makaleler bazıları için SQL Server olsa da, ilgili bilgilerin çoğunu da Machine Learning Hizmetleri (R ile) Azure SQL veritabanı için geçerlidir.
+R (Önizleme) ile Azure SQL veritabanı Machine Learning hizmetleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
 
-- [Azure SQL veritabanı Machine Learning Hizmetleri (R ile)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Öğretici: SQL Server'da R kullanarak veritabanında analizini öğrenin](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Öğretici: SQL Server verileri ile RevoScaleR R işlevlerini kullanma](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL veritabanı Machine Learning Hizmetleri ile R (Önizleme)](sql-database-machine-learning-services-overview.md)
+- [Machine Learning Hizmetleri (Önizleme) kullanarak Azure SQL veritabanı içinde Gelişmiş R işlevler yazma](sql-database-machine-learning-services-functions.md)
+- [R ve SQL Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) verileri ile çalışma](sql-database-machine-learning-services-data-issues.md)

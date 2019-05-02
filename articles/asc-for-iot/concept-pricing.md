@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919727"
 ---
 # <a name="pricing-and-associated-costs"></a>Fiyatlandırma ve ilişkili maliyetler
 
@@ -40,7 +40,7 @@ Fiyatlandırma modeli iki oluşan IOT için ASC bölümleri ve bir IOT hub'ı bi
   >[!Note]
   > Güvenlik iletilerinin kotası tüketim IOT Hub'ında da neden olur.
 
-Daha fazla bilgi için [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Daha fazla bilgi için [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>İlişkili maliyetleri
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, ilişkili maliyetlerin bir özetini ve her seçeneğin etk
 |     | Kullanım | Açıklama |
 | --- | --- | --- |
 | **IOT hub'ı kota tüketim** |  |
-| [Cihaz dışarı](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) işi (ikizi dışarı aktarma) | Günde bir kez | Devre dışı _ikizi meta veri koleksiyonu_ |
+| [Cihaz dışarı](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) işi (ikizi dışarı aktarma) | Günde bir kez | Devre dışı _ikizi meta veri koleksiyonu_ |
 | **Log Analytics depolama** |  |
 | Cihaz öneri ve uyarılar| Güvenlik önerisi ve hizmet tarafından oluşturulan uyarılar | İsteğe bağlı değil |
 | Ham güvenlik verileri| IOT cihazları, güvenlik aracıların topladığı ham güvenlik verileri | Devre dışı _ham aygıt güvenlik olaylarını depolayın_ |

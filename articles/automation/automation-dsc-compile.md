@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074198"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919795"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Otomasyonu durumu yapılandırması DSC yapılandırmaları derleme
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Kısmi yapılandırma
 
-Azure Otomasyonu durum yapılandırması kullanımını destekleyen [kısmi yapılandırmalar](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Azure Otomasyonu durum yapılandırması kullanımını destekleyen [kısmi yapılandırmalar](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
 Bu senaryoda, DSC yapılandırmalarını birden çok bağımsız olarak yönetmek üzere yapılandırılmış ve Azure Otomasyonu gelen retreieved her yapılandırmadır.
 Ancak, yalnızca bir yapılandırma bir düğüm başına Otomasyon hesabı atanabilir.
 Başka bir deyişle, bir düğümü için iki yapılandırması kullanıyorsanız iki Otomasyon hesabı gerektirir.
-Takımlar nasıl çalışabileceğini hakkında daha fazla bilgi için işbirliği içinde sunucuları yönetmek için birlikte yapılandırmayı kod olarak kullanarak bkz [anlama DSC'ın bir CI/CD işlem hattı rolünde](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
+Takımlar nasıl çalışabileceğini hakkında daha fazla bilgi için işbirliği içinde sunucuları yönetmek için birlikte yapılandırmayı kod olarak kullanarak bkz [anlama DSC'ın bir CI/CD işlem hattı rolünde](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Düğüm yapılandırmaları alma
 

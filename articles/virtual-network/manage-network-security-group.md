@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Oluşturma, değiştirme veya bir ağ güvenlik grubunu silmek öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
-ms.author: jdial
-ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.author: kumud
+ms.openlocfilehash: 9fc73c40d4d3241afefd67b1c4f084765b0be934
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821943"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710199"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -197,7 +197,7 @@ Uygulama güvenlik grubu, sıfır veya daha fazla ağ arabirimlerini içerir. Da
     | Ad           | Ad, kaynak grubu içinde benzersiz olmalıdır.        |
     | Abonelik   | Aboneliğinizi seçin.                               |
     | Kaynak grubu | Mevcut bir kaynak grubunu seçin veya yeni bir tane oluşturun. |
-    | Konum       | Konum seçin                                       |
+    | Location       | Konum seçin                                       |
 
 **Komutları**
 

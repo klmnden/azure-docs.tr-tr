@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sogup
 ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62733882"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726433"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 

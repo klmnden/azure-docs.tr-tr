@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764258"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729289"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -33,8 +33,8 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | **Bölge** | **Daha düşük Gen2 kullanılabilir** | **Otomatik yükseltmeler başlayın** |
 |:--- |:--- |:--- |
 | Avustralya Doğu |Kullanılabilir |1 Haziran 2019 |
-| Avustralya Güneydoğu |26 Nisan 2019 |1 Mayıs 2019 |
-| Güney Brezilya |15 Mayıs 2019 |1 Haziran 2019 |
+| Avustralya Güneydoğu |Kullanılabilir |1 Mayıs 2019 |
+| Güney Brezilya |Kullanılabilir |1 Haziran 2019 |
 | Orta Kanada |Kullanılabilir |1 Haziran 2019 |
 | Doğu Kanada |\* |\* |
 | Orta ABD |Kullanılabilir |1 Haziran 2019 |
@@ -49,20 +49,20 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Almanya Orta |\* |\* |
 | Almanya Orta Batı |1 Eylül 2019|2 Ocak 2020 |
 | Hindistan Orta |Kullanılabilir |1 Haziran 2019 |
-| Hindistan Güney |26 Nisan 2019 |1 Haziran 2019 |
+| Hindistan Güney |Kullanılabilir |1 Haziran 2019 |
 | Japonya Doğu |Kullanılabilir |1 Haziran 2019 |
 | Japonya Batı |Kullanılabilir |1 Mayıs 2019 |
-| Kore Orta |26 Nisan 2019 |1 Haziran 2019 |
-| Kore Güney |26 Nisan 2019 |1 Mayıs 2019 |
-| Orta Kuzey ABD |26 Nisan 2019 |1 Mayıs 2019 |
+| Kore Orta |Kullanılabilir |1 Haziran 2019 |
+| Kore Güney |Kullanılabilir |1 Mayıs 2019 |
+| Orta Kuzey ABD |Kullanılabilir |1 Mayıs 2019 |
 | Kuzey Avrupa |Kullanılabilir |1 Haziran 2019 |
 | Orta Güney ABD |Kullanılabilir |1 Haziran 2019 |
 | Güneydoğu Asya |Kullanılabilir |1 Haziran 2019 |
-| Birleşik Krallık Güney |26 Nisan 2019 |1 Haziran 2019 |
+| Birleşik Krallık Güney |Kullanılabilir, 2019 |1 Haziran 2019 |
 | Birleşik Krallık Batı |\*|\* |
 | Batı Orta ABD |2 Eylül 2019 |2 Ocak 2020|
 | Batı Avrupa |Kullanılabilir |1 Haziran 2019 |
-| Batı ABD |15 Nisan 2019 |1 Haziran 2019 |
+| Batı ABD |Kullanılabilir |1 Haziran 2019 |
 | Batı ABD 2 |Kullanılabilir |1 Haziran 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Otomatik yükseltme işlemi

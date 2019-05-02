@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805352"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733751"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -40,7 +40,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 > [!NOTE]
 > Size yakın zamanda tüm varsayılan sınır en fazla limitlerini artırdık. Üst sınır sütun yok ise, kaynak sınırları ayarlanabilir sahip değil. Geçmişte destek artırılana limitler sahipti ve güncelleştirilmiş sınırları aşağıdaki tablolarda görmüyorsanız [ücretsiz bir çevrimiçi müşteri destek isteği açın](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Kaynak | Varsayılan limit | 
+| Kaynak | Varsayılan sınır/üst sınır | 
 | --- | --- |
 | Sanal ağlar |1000 |
 | Sanal ağ başına alt ağ sayısı |3.000 |

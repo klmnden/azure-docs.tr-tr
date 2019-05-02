@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922017"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720476"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile kullanılmak üzere depolama seçeneklerini karşılaştırma
 
@@ -31,8 +31,12 @@ HDInsight'ın farklı sürümleriyle desteklenen Azure depolama hizmetleri aşa�
 |Azure Data Lake Storage Gen2| Genel amaçlı V2 | Hiyerarşik (dosya sistemi) | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
 |Azure Storage| Genel amaçlı V2 | Object | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
 |Azure Storage| Genel amaçlı V1 | Object | Blob | Standart | Yok | Tümü | Tümü |
-|Azure Storage| Blob Depolama | Object | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
+|Azure Storage| BLOB Depolama ** | Object | Blok Blobu | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
 |Azure Data Lake Storage Gen1| Yok | Hiyerarşik (dosya sistemi) | Yok | Yok | Yok | Yalnızca 3.6 | HBase dışında tümü |
+
+** HDInsight kümeleri için yalnızca ikincil depolama hesapları BlobStorage türünde olabilir.
+
+Azure depolama hesabı türleri hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md)
 
 Azure depolama erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Birincil ve isteğe bağlı ikincil depolama hizmetleri farklı birleşimlerini 
 
 | HDInsight Sürümü | Birincil Depolama | İkincil depolama | Desteklenen |
 |---|---|---|---|
-| 3.6 & 4.0 | Standard Blob | Standard Blob | Evet |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | Hayır |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Evet |
+| 3.6 & 4.0 | Genel amaçlı V1, genel amaçlı V2 | Genel amaçlı V1, genel amaçlı V2 BlobStorage (blok Blobları) | Evet |
+| 3.6 & 4.0 | Genel amaçlı V1, genel amaçlı V2 | Data Lake Storage Gen2 | Hayır |
+| 3.6 & 4.0 | Genel amaçlı V1, genel amaçlı V2 | Data Lake Storage Gen1 | Evet |
 | 3.6 & 4.0 | Data Lake depolama 2. nesil * | Data Lake Storage Gen2 | Evet |
-| 3.6 & 4.0 | Data Lake depolama 2. nesil * | Standard Blob | Evet |
+| 3.6 & 4.0 | Data Lake depolama 2. nesil * | Genel amaçlı V1, genel amaçlı V2 BlobStorage (blok Blobları) | Evet |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Hayır |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Evet |
-| 3.6 | Data Lake Storage Gen1 | Standard Blob | Evet |
+| 3.6 | Data Lake Storage Gen1 | Genel amaçlı V1, genel amaçlı V2 BlobStorage (blok Blobları) | Evet |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Hayır |
 | 4.0 | Data Lake Storage Gen1 | Herhangi biri | Hayır |
 

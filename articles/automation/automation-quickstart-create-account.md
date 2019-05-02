@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89f32499d02978294398aae7be21f63b5d6aa028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738443"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919824"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 
@@ -37,7 +37,7 @@ https://portal.azure.com adresinden Azure'da oturum açın
     ![Otomasyon hesabınız hakkındaki bilgileri sayfaya girin](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Otomasyon Hesabı dağıtabileceğiniz konumların güncel listesi için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
+    > Otomasyon Hesabı dağıtabileceğiniz konumların güncel listesi için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
 1. Dağıtım tamamlandığında, tıklayın **tüm hizmetleri**seçin **Otomasyon hesapları** ve oluşturduğunuz Otomasyon hesabını seçin.
 

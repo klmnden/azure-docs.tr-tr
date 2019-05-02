@@ -1,5 +1,5 @@
 ---
-title: Bir uygulamayı web API'lerini kullanıma sunacak şekilde yapılandırma (Önizleme) | Azure
+title: Web API'leri - Microsoft kimlik platformu kullanıma sunmak için uygulama yapılandırma
 description: Yeni bir izni/kapsamı ve rolü kullanıma sunmak ve uygulamayı istemci uygulamaları için kullanılabilir hale getirmek üzere bir uygulamayı yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0b31aebfe431aca43dc763c2f168f123889b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443679"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918887"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) kullanıma sunmak için uygulama yapılandırma
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Hızlı Başlangıç: Web API'leri kullanıma sunmak için uygulama yapılandırma
 
 Bir web API'si geliştirip [izinleri/kapsamları](developer-glossary.md#scopes) ve [rolleri](developer-glossary.md#roles) kullanıma sunarak istemci uygulamaları tarafından kullanılmasını sağlayabilirsiniz. Doğru şekilde yapılandırılmış olan bir web API'sini kullanıma sunmak için yapılması gereken işlemler Graph API ve Office 365 API'leri gibi diğer Microsoft web API'leri için yapılması gerekenlerle aynıdır.
 

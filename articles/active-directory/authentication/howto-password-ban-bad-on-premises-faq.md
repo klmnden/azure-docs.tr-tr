@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358166"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917654"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -42,7 +42,7 @@ Parola kullanıcı yeni bir parola eski parola bilgisine sahip oldukları kanıt
 
 Yönetici bir hesap parolası ile yeni bir parola, örneğin Active Directory Kullanıcıları ve Bilgisayarları yönetim aracını kullanarak değiştirir (bazen bir parola sıfırlama olarak adlandırılır) bir parola ayarlama andır. Bu işlem bir yüksek düzeydeki ayrıcalıkla (genellikle etki alanı yöneticisi) gerektirir ve genellikle işlemi yapan kişi eski parola bilgilere sahip değildir. Yardım Masası senaryoları genellikle bunu örneği için bir kullanıcı parolasını unutmuş Yardım. Ayrıca, yeni bir kullanıcı hesabı için bir parola ile ilk kez oluşturulduğunda olayları parola ayarlama görürsünüz.
 
-Parola doğrulama ilkesinin bir parola değişikliği veya yapıldığını bağımsız olarak aynı şekilde davranır. Azure AD parola koruması DC Aracı hizmeti bir parola değişikliği olmadığını bildirmek için farklı olayları günlüğe kaydetmez veya set işlemi yapılmadı.  Bkz: [izleme ve günlüğe kaydetme Azure AD parola koruması](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Parola doğrulama ilkesinin bir parola değişikliği veya yapıldığını bağımsız olarak aynı şekilde davranır. Azure AD parola koruması DC Aracı hizmeti bir parola değişikliği olmadığını bildirmek için farklı olayları günlüğe kaydetmez veya set işlemi yapılmadı.  Bkz: [izleme ve günlüğe kaydetme Azure AD parola koruması](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **S: Azure AD parola koruması parola-filtre tabanlı diğer ürünleri ile yan yana yüklenecek destekleniyor mu?**
 
