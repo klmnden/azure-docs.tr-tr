@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453179"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916285"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -97,9 +97,9 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 | Özel Günlükler                  | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | Syslog                       | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | Application Insights         | Log Analytics ve Application Insights, aynı veri altyapısı paylaşmak göre bu çözümü kullanım dışıdır.  |
-| Windows Dosya İzleme        | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/automation-change-tracking.md) Ayrıntılar için. |
-| Windows Kayıt Defteri İzleme        | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/automation-change-tracking.md) Ayrıntılar için. |
-| Linux Dosya İzleme          | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/automation-change-tracking.md) Ayrıntılar için. |
+| Windows Dosya İzleme        | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/change-tracking.md) Ayrıntılar için. |
+| Windows Kayıt Defteri İzleme        | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/change-tracking.md) Ayrıntılar için. |
+| Linux Dosya İzleme          | **Değişiklik izleme** Azure automation'da menüsü. Bkz: [değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle](../../automation/change-tracking.md) Ayrıntılar için. |
 
 ### <a name="solutions"></a>Çözümler
 Çözümleri yönetme **çözümleri** çalışma alanı için menü. 

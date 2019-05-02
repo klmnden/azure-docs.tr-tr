@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074611"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919982"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -62,8 +62,8 @@ Altında **kayıt**, girin [PowerShell DSC Local Configuration Manager değerler
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-Azure sanal makinelerine dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu durumu yapılandırmasına eklenmedi. Bkz: [sunucusu yönetilen Desired State Configuration hizmeti tarafından](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) örnek şablonu için ekleme yapan Azure Otomasyon durum yapılandırması mevcut bir VM'ye.
-Örnek şablonu bir sanal makine ölçek kümesi yönetiyorsanız bkz [VM ölçek kümesi yapılandırması Azure Otomasyonu tarafından yönetilen](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Azure sanal makinelerine dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu durumu yapılandırmasına eklenmedi. Bkz: [sunucusu yönetilen Desired State Configuration hizmeti tarafından](https://azure.microsoft.com/resources/templates/101-automation-configuration/) örnek şablonu için ekleme yapan Azure Otomasyon durum yapılandırması mevcut bir VM'ye.
+Örnek şablonu bir sanal makine ölçek kümesi yönetiyorsanız bkz [VM ölçek kümesi yapılandırması Azure Otomasyonu tarafından yönetilen](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ Azure sanal makinelerine dağıtılabilir ve Azure Resource Manager şablonları
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Sanal makineler, Azure abonelikleri genelinde kaydediliyor
 
 Diğer Azure aboneliklerinden gelen sanal makineleri kaydetmek için en iyi yolu, bir Azure Resource Manager dağıtım şablonu DSC uzantı kullanmaktır.
-Örnekler verilmiştir [Desired State Configuration uzantısı Azure Resource Manager şablonları ile](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Örnekler verilmiştir [Desired State Configuration uzantısı Azure Resource Manager şablonları ile](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Şablon parametreleri olarak kullanmak üzere kayıt URL'si ve kayıt anahtarını bulmak için aşağıdakilere bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure sanal makineler (Klasik)

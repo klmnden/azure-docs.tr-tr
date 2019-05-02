@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483391"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710873"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -96,10 +96,10 @@ Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifi
 
 Boş oturum açma iletişim kutuları genellikle AD FS tarafından Depolama Gezgini isteyen Elektron tarafından desteklenmeyen bir yeniden yönlendirme gerçekleştirmek için neden olur. Bu sorunu çözmek için oturum açmak için cihaz kod akış kullanmayı deneyebilirsiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
 
-1. "Preview için Git", "Cihaz kodunu oturum açma kullan" ->.
+1. Menü: Önizleme -> "Cihaz kodunu oturum açma kullan".
 2. Bağlan iletişim kutusu (ya da sol dikey çubuk Tak simgesine ya da hesabı panosunda "hesabı ekle" aracılığıyla) açın.
 3. Oturum açmak için istediğiniz hangi ortamı seçin.
-4. "Oturum açma" düğmesine tıklayın.
+4. "Oturum Aç" düğmesine tıklayın.
 5. Sonraki panelinde yönergeleri izleyin.
 
 Kendiniz varsayılan tarayıcınızı farklı bir hesap zaten imzalı olduğu için kullanmak istediğiniz hesaba imzalama sorun bulursanız, şunları da yapabilirsiniz:

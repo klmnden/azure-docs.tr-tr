@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: e27b52c96f524f25aab18f45cf72c43884b7640d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b4f2ec779c37f78b371c27df80c354eccb41e7a
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227190"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869425"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Sürüm 3](../latest/dynamic-packaging-overview.md)
 > * [Sürüm 2](media-services-dynamic-packaging-overview.md)
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services, birçok medya kaynak dosya biçimleri akış biçimlerinde, medya teslim etmek için kullanılabilir ve içerik koruma için istemci teknolojileri çeşitli biçimlendirir (örneğin, iOS, XBOX, Silverlight, Windows 8). Bu istemciler farklı protokollere anlamak, örneğin HTTP canlı akışı (HLS) V4 biçiminde iOS gerektirir ve kesintisiz akış, Silverlight ve Xbox gerektirir. Uyarlamalı bit hızlı (Çoklu bit hızı) bir dizi varsa MP4 veya MPEG DASH, HLS veya kesintisiz akış anlamak istemcilerinin sunmak istediğiniz Uyarlamalı bit hızlı kesintisiz akış dosyaları kümesi (ISO temel medya 14496-12) dosyaları, medya avantajlarından sürecektir Dinamik paketleme Hizmetleri.
 

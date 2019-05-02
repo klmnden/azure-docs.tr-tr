@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544121"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922534"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Hızlı Başlangıç: Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın veC# 
 
@@ -35,7 +35,7 @@ Zaman serisi verilerinizdeki anormallikleri algılamak için Anomali algılayıc
         1. Sağ tıklayın **çözüm Yöneticisi**
         2. Tıklayın **NuGet paketlerini Yönet...**
         3. Arama `Newtonsoft.Json` paketini ve yükleme
-- Linux/MacOS kullanıyorsanız, bu uygulama olması çalıştırırsa kullanarak [Mono](http://www.mono-project.com/).
+- Linux/MacOS kullanıyorsanız, bu uygulama olması çalıştırırsa kullanarak [Mono](https://www.mono-project.com/).
 
 - Bir JSON dosyası içeren zaman serisi verilerini işaret eder. Bu Hızlı Başlangıç için örnek veri çubuğunda bulunabilir [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

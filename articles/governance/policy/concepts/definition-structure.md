@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311650"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716758"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -66,7 +66,7 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı yönelik öğ
 }
 ```
 
-Tüm Azure ilkesi örnekleri altındadır [ilkesi örnekleri](../samples/index.md).
+Tüm Azure ilkesi örnekleri altındadır [Azure ilkesi örnekleri](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
   - `description`: Hangi parametre açıklaması için kullanılır. Örnekler, kabul edilebilir değerler sağlamak için kullanılabilir.
   - `displayName`: Parametre için Portalı'nda gösterilen kolay adı.
   - `strongType`: (İsteğe bağlı) Portal üzerinden ilke tanımlarının atamasını yaparken kullanılır. Bağlam kullanan listesini sağlar. Daha fazla bilgi için [strongType](#strongtype).
+  - `assignPermissions`: (İsteğe bağlı) Yap _true_ Azure portalında rol ataması sırasında ilke ataması oluşturmak için. Atama kapsamı dışında izin atamak istediğiniz durumlarda bu özellik yararlıdır. Bir rol ataması rol tanımında, ilke (veya rol tanımı girişim ilkelerinde tümünde başına) yoktur. Parametre değeri, geçerli bir kaynak veya kapsamında olması gerekir.
 - `defaultValue`: (İsteğe bağlı) Hiçbir değer sağlanmışsa atamadaki parametresinin değerini ayarlar. Atanan var olan bir ilke tanımı güncelleştirilirken gereklidir.
 - `allowedValues`: (İsteğe bağlı) Atama sırasında parametre kabul eden bir değer dizisi sağlar.
 
@@ -148,6 +149,7 @@ Bu örnek başvuran **allowedLocations** içinde devremenin parametre [parametre
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Düzeltilmiş ilke kuralı ile `if()` denetler **adı** alınmaya çalışılır
 
 ### <a name="effect"></a>Etki
 
-İlke etkisi aşağıdaki türlerini destekler:
+Azure İlkesi etkisi aşağıdaki türlerini destekler:
 
 - **Reddetme**: istek başarısız olur ve etkinlik günlüğüne bir olay oluşturur
 - **Denetim**: etkinlik günlüğünde uyarı olayı oluşturur, ancak istek başarısız değil
@@ -410,7 +412,7 @@ Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 }
 ```
 
-Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tüm ayrıntılar için bkz. [anlama ilke etkileri](effects.md).
+Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tüm ayrıntılar için bkz. [anlama Azure İlkesi etkileri](effects.md).
 
 ### <a name="policy-functions"></a>İlke işlevleri
 
@@ -593,9 +595,9 @@ Aşağıdaki örnek iki etiketi işlemeye yönelik bir girişim oluşturma işle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [ilke etkilerini anlama](effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumluluk verilerini al](../how-to/getting-compliance-data.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [İlkenin etkilerini anlama](effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](../how-to/remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

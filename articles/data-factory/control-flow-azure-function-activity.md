@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576387"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727041"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data factory'de bir Azure işlev etkinliği
 
@@ -28,7 +28,7 @@ Bir sekiz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 ## <a name="azure-function-linked-service"></a>Azure bağlantılı işlev hizmeti
 
-Geçerli bir Azure işlev dönüş türü olan `JObject`. (Aklınızda [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) olduğu *değil* bir `JObject`.) Herhangi bir başka tür dönüş `JObject` başarısız olur ve genel kullanıcı hatası oluşturuyor *hata arama uç noktası*.
+Geçerli bir Azure işlev dönüş türü olan `JObject`. (Aklınızda [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) olduğu *değil* bir `JObject`.) Herhangi bir başka tür dönüş `JObject` başarısız olur ve kullanıcı hatası oluşturuyor *yanıt içeriği değil geçerli JObject*.
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
@@ -52,11 +52,18 @@ Geçerli bir Azure işlev dönüş türü olan `JObject`. (Aklınızda [JArray](
 
 İstek yükü şemayı [istek yükü şeması](control-flow-web-activity.md#request-payload-schema) bölümü.
 
-## <a name="more-info"></a>Daha fazla bilgi
+## <a name="routing-and-queries"></a>Yönlendirme ve sorguları
 
-Azure işlev etkinliği destekleyen **yönlendirme**. Örneğin, uygulamanız aşağıdaki yönlendirme - kullanıyorsa `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - sonra `functionName` olduğu `functionName/{value}`, istenen sağlamak parametreleştirebilirsiniz `functionName` zamanında.
+Azure işlev etkinliği destekleyen **yönlendirme**. Örneğin, Azure işlevinizi uç nokta varsa `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, ardından `functionName` Azure işlevi etkinliğinde kullanmaktır `<functionName>/<value>`. İstenen sağlamak için bu işlevi parametreleştirebilirsiniz `functionName` zamanında.
 
-Azure işlev etkinliği de destekler **sorguları**. Bir sorgunun parçası olarak sahip `functionName` - Örneğin, `HttpTriggerCSharp2?name=hello` - burada `function name` olduğu `HttpTriggerCSharp2`.
+Azure işlev etkinliği de destekler **sorguları**. Bir sorgunun parçası olarak dahil olmak zorundadır `functionName`. Örneğin, işlev adını olduğunda `HttpTriggerCSharp` ve dahil etmek istediğiniz sorgu `name=hello`, sonra da oluşturulabilir `functionName` Azure işlevi etkinlik `HttpTriggerCSharp?name=hello`. Bu işlev için değerin çalışma zamanında belirlenebilir parametreli olabilir.
+
+## <a name="timeout-and-long-running-functions"></a>Zaman aşımı ve uzun süre çalışan işlevleri
+
+Azure işlevleri zaman aşımına açmamasından 230 saniye sonra `functionTimeout` ayarlarında yapılandırdığınız ayar. Daha fazla bilgi için [bu makaleye](../azure-functions/functions-versions.md#timeout) bakın. Bu davranışa geçici bir çözüm için bir zaman uyumsuz desen izleyin veya dayanıklı işlevler kullanın. Dayanıklı İşlevler, kendi uygulamak zorunda kalmamanız için bunlar kendi durumu izleme mekanizması sağlar avantajdır.
+
+Dayanıklı işlevler hakkında daha fazla bilgi [bu makalede](../azure-functions/durable/durable-functions-overview.md). Dayanıklı gibi farklı bir URI ile bir yanıt döndürür işlevi çağırmak için bir Azure işlevi faaliyet ayarlayabilirsiniz [Bu örnek](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Çünkü `statusQueryGetUri` işlevi sırasında HTTP durum 202 çalıştığından, bir Web etkinliği kullanarak işlev durumunu yoklamak döndürür. Bir Web etkinliği ile yalnızca ayarlama `url` alan kümesine `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Dayanıklı işlevi tamamlandığında, bu işlevin çıktısı Web etkinliğinin çıkış olacaktır.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

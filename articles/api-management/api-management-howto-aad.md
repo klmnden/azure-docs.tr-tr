@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529427"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723634"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
@@ -79,12 +79,12 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
 
 Değişiklikler kaydedildikten sonra kullanıcılar belirtilen Azure AD'de örneği Geliştirici portalında içindeki adımları izleyerek oturum [ve geliştirici portalında bir Azure AD hesabı kullanarak oturum açın](#log_in_to_dev_portal).
 
-
 ## <a name="add-an-external-azure-ad-group"></a>Bir dış ekleme Azure AD grubu
 
 Bir Azure AD örneğinde kullanıcılar için erişimi etkinleştirdikten sonra API Yönetimi'nde Azure AD grupları ekleyebilirsiniz. Ardından, istenen ürünleri grubunda geliştiricilerinin ilişkilendirmesini daha kolay yönetebilirsiniz.
 
-Bir dış yapılandırmak için Azure AD grubu yapılandırmalısınız Azure AD örneği üzerinde **kimlikleri** önceki bölümdeki yordamı izleyerek sekmesi. 
+ > [!IMPORTANT]
+ > Bir dış eklemek için Azure AD grubu yapılandırmalısınız Azure AD örneği üzerinde **kimlikleri** önceki bölümdeki yordamı izleyerek sekmesi. Ayrıca, uygulama erişim için Azure AD Graph API ile verilmelidir `Directory.Read.All` izni. 
 
 Eklediğiniz dış Azure AD grupları gelen **grupları** sekmesi, API Management örneğinizin.
 

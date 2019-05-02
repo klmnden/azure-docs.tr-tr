@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737331"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736973"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
@@ -299,7 +299,7 @@ Varsayılan olarak, işletim sistemi diskleri etkin okuma/yazma önbelleği sahi
 1. Yapılandırma "None" premium depolama disklerini günlük dosyalarını barındıran önbellek.  
    a.  Günlük dosyaları, öncelikli olarak yazma yoğunluklu operations sahiptir. Bu nedenle, bunlar salt okunur önbellekten yarar görmez.
 
-### <a name="optimize-performance-on-linux-vms"></a>Linux vm'lerinde performansını iyileştirme
+## <a name="optimize-performance-on-linux-vms"></a>Linux vm'lerinde performansını iyileştirme
 
 Tüm premium SSD veya ayarlamak önbellek ultra disklerle **salt okunur** veya **hiçbiri**, dosya sistemi bağladığınızda "engelleri" devre dışı bırakmanız gerekir. Premium depolama disklerini yazma işlemleri için bu önbellek ayarlarını dayanıklı olduğundan bu senaryoda engelleri gerekmez. Yazma isteği başarıyla tamamlandığında, kalıcı depoya veri yazıldı. "Engelleri" devre dışı bırakmak için aşağıdaki yöntemlerden birini kullanın. Dosya sistemi için bir tane seçin:
   
@@ -313,7 +313,7 @@ Aşağıdaki Linux dağıtımları için premium SSD doğrulandı. Daha iyi perf
 
 Bazı sürümleri, Azure için en son Linux Integration Services (LIS), v4.0, gerektirir. İndirmek ve bir dağıtım yüklemek için aşağıdaki tabloda listelenen bağlantı izleyin. Biz doğrulama tamamlandı olarak listeye görüntüleri ekleriz. Bizim doğrulamaları, performans için her görüntü değiştiğini gösterir. Performans, iş yükü özelliklerine ve görüntü ayarlarınızı bağlıdır. Farklı görüntüleri farklı türde iş yükleri için ayarlanmıştır.
 
-| Dağıtım | Sürüm | Desteklenen bir çekirdek | Ayrıntılar |
+| Dağıtım | Version | Desteklenen bir çekirdek | Ayrıntılar |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -328,7 +328,7 @@ Bazı sürümleri, Azure için en son Linux Integration Services (LIS), v4.0, ge
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS LIS sürücüleri
+### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS LIS sürücüleri
 
 OpenLogic CentOS sanal makineleri çalıştırıyorsanız, en son sürücüleri yüklemek için aşağıdaki komutu çalıştırın:
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364510"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917417"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için IOT Hub ileti yönlendirme kullanın
 
@@ -119,7 +119,7 @@ CİHAZDAN buluta telemetri iletilerini yerleşik uç noktalarını kullanarak y�
 
 Uç nokta ilgili ölçümleri size gönderilen iletiler ve hub'a durumunu genel bakış sağlayacak ve çeşitli yönlendirme IOT hub'ı sağlar. Sorunların kök nedenini belirlemek için birden çok Ölçüm bilgilerini birleştirebilirsiniz. Örneğin, ölçümünü kullanın **yönlendirme: telemetri iletilerini bırakılan** veya **d2c.telemetry.egress.dropped** yolların herhangi birine sorgular ile eşleşmedi, bırakılan ileti sayısını belirlemek için ve geri dönüş rota devre dışı bırakıldı. [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT Hub'ınız için varsayılan olarak etkin olan tüm ölçümleri listeler.
 
-REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) almak için [sistem durumu](iot-hub-devguide-endpoints.md#custom-endpoints) uç nokta. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) tanımlamak ve uç nokta sistem durumu ölü ya da sistem durumu kötü olduğunda, hatalarını ayıklamanıza yönlendirme ileti gecikmesi için ilgili. Örneğin, uç nokta türü Event Hubs izleyebilirsiniz **d2c.endpoints.latency.eventHubs**. IOT Hub durumu sonunda tutarlı bir duruma olduğunda sağlıksız bir uç nokta durumunu iyi durumda olacak şekilde güncelleştirilir.
+REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) almak için [sistem durumu](iot-hub-devguide-endpoints.md#custom-endpoints) uç nokta. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) tanımlamak ve uç nokta sistem durumu ölü ya da sistem durumu kötü olduğunda, hatalarını ayıklamanıza yönlendirme ileti gecikmesi için ilgili. Örneğin, uç nokta türü Event Hubs izleyebilirsiniz **d2c.endpoints.latency.eventHubs**. IOT Hub durumu sonunda tutarlı bir duruma olduğunda sağlıksız bir uç nokta durumunu iyi durumda olacak şekilde güncelleştirilir.
 
 Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](../iot-hub/iot-hub-monitor-resource-health.md), örneğin IOT Hub tarafından algılanan gibi yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan parçaları hataları olabilir ne zaman bir uç nokta etkin değil. Bu tanılama günlüklerini Azure İzleyici günlüklerine, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
 

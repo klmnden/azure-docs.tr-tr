@@ -1,25 +1,18 @@
 ---
-title: Bir Azure uygulaması teklif SKU'ları yapılandırma | Microsoft Docs
+title: Bir Azure uygulaması teklif SKU'ları yapılandırma | Azure Market
 description: Azure SKU'ları yapılandırma yönetilen uygulama ve bir Azure çözümü şablonu.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745119"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943436"
 ---
 # <a name="azure-application-skus-tab"></a>Azure uygulama SKU'ları sekmesi
 
@@ -44,22 +37,25 @@ Yeni bir SKU'ya oluşturmak için aşağıdaki adımları kullanın:
 
 ### <a name="sku-details-for-a-solution-template"></a>Bir çözüm şablonu için SKU ayrıntıları
 
-Aşağıdaki SKU ayarları sağlayın:
+Sonraki ekran yakalama için çözüm şablonu SKU Ayrıntıları formunu gösterir.
 
-- **Başlık** -SKU için bir başlık. Bu konu başlığı, bu öğe için galerisinde görüntülenir.
-- **Özet** - bir Özet açıklaması sku'sunun kısa. (En fazla 100 karakterdir.)
-- **Açıklama** - ayrıntılı SKU açıklaması.
-- **SKU türü** -bu değerleri içeren bir açılan listedeki: "Çözüm şablonu" ve "Yönetilen uygulama". Bu senaryo için seçin **çözüm şablonu**.
-- **Bulut kullanılabilirlik** -SKU konumu. Varsayılan değer **genel Azure**.
-Genel Azure - bu sanal makine Marketi tümleştirmesine sahip tüm genel Azure bölgelerinde müşterilere dağıtılabilir olacaktır.
-- **Azure kamu Bulutu** -bu sanal makine Azure kamu Bulutundaki dağıtılır. Yayımlama için önce [Azure kamu](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft, test ve ortamında beklendiği gibi çalışır, doğrulama önerir. Hazırlama ve test etmek için istek bir [deneme hesabı](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).
+![Çözüm şablonu için SKU ayrıntı formu](./media/azureapp-sku-details-solutiontemplate.png)
 
-  >[!NOTE] 
-  >Microsoft Azure kamu, ABD Federal, eyalet, yerel veya Kabile ve iş ortakları bu kuruluşlara hizmet vermek uygun müşteriler için denetimli erişimi olan bir devlet kurumu-topluluk bulutudur.
+Aşağıdaki SKU değerleri sağlayın.  Bir yıldız işareti ile eklenmiş alanlar gereklidir.
 
-- **Bu, özel bir SKU mi?** – Evet bu SKU yalnızca müşterilerin grubunu seçmek için kullanılabilir olup olmadığını belirleyin.
+|    Alan         |       Açıklama                                                            |
+|  ---------       |     ---------------                                                          |
+|  **Başlık\***     | SKU için bir başlık. Bu konu başlığı, bu öğe için galerisinde görüntülenir.   |
+| **Özeti\***    | SKU'ların kısa bir Özet açıklaması. (En fazla 100 karakterdir.)  |
+| **Açıklaması\*** | SKU, ayrıntılı bir açıklaması. Temel HTML desteklenir.                 | 
+| **SKU türü\***   | Azure uygulama çözümü, select türü ***çözüm şablonu** bu senaryo için. |
+| **Bulut kullanılabilirlik\*** | SKU konumu. Varsayılan değer **genel Azure**.  <b/>   **Genel Azure** -uygulama Market tümleştirmesine sahip tüm genel Azure bölgelerinde müşterilere dağıtılabilir olacaktır.  <b/>   **Azure kamu Bulutu** -uygulama Azure kamu Bulutundaki dağıtılacak. Yayımlama için önce [Azure kamu](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft, yayımcılar test etmek ve bu ortamda beklendiği gibi çalışır, doğrulama önerir. Hazırlama ve test etmek için istek bir [deneme hesabı](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
+| **Bu, özel bir SKU mi?\*** | Seçin **Evet** varsa bu SKU yalnızca müşterilerin grubunu seçmek için kullanılabilir. |
+|   |   |
 
-    ![Çözüm şablonu için SKU ayrıntı formu](./media/azureapp-sku-details-solutiontemplate.png)
+  > [!NOTE] 
+  > Microsoft Azure kamu, ABD Federal, eyalet, yerel veya Kabile ve iş ortakları bu kuruluşlara hizmet vermek uygun müşteriler için denetimli erişimi olan bir devlet kurumu-topluluk bulutudur.
+
 
 ### <a name="sku-details-for-managed-application"></a>Yönetilen uygulama için SKU ayrıntıları
 
@@ -67,51 +63,45 @@ Sonraki ekran görüntüsü yakalamayı yönetilen bir uygulama için SKU Ayrın
 
    ![Yönetilen uygulama için SKU ayrıntı formu](./media/azureapp-sku-details-managedapplication.png)
 
-Aşağıdaki SKU ayarları yapılandırın:
+Aşağıdaki SKU ayarlarını yapılandırın. Bir yıldız işareti ile eklenmiş alanlar gereklidir.
 
-- **Başlık** -SKU için bir başlık. Bu konu başlığı, bu öğe için galerisinde görüntülenir.
-- **Özet** - bir Özet açıklaması sku'sunun kısa. (En fazla 100 karakterdir.)
-- **Açıklama** - ayrıntılı SKU açıklaması.
-- **SKU türü** -bu değerleri içeren bir açılan listedeki: "Çözüm şablonu" ve "Yönetilen uygulama". Bu senaryo için seçin **yönetilen uygulamayı**.
-- **Bulut kullanılabilirlik** -SKU konumu. Varsayılan değer **genel Azure**.
-- **Genel Azure** -bu sanal makine Marketi tümleştirmesine sahip tüm genel Azure bölgelerinde müşterilere dağıtılabilir.
-- **Azure kamu Bulutu** -bu sanal makine Azure kamu Bulutundaki dağıtılır. Yayımlama için önce [Azure kamu](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft, test ve ortamında beklendiği gibi çalışır, doğrulama önerir. Hazırlama ve test etmek için istek bir [deneme hesabı](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).
+|    Alan         |       Açıklama                                                            |
+|  ---------       |     ---------------                                                          |
+|  **Başlık\***     | SKU için bir başlık. Bu konu başlığı, bu öğe için galerisinde görüntülenir.   |
+| **Özeti\***    | SKU'ların kısa bir Özet açıklaması. (En fazla 100 karakterdir.)  |
+| **Açıklaması\*** | SKU, ayrıntılı bir açıklaması. Temel HTML desteklenir.                 | 
+| **SKU türü\***   | Azure uygulama çözümü, select türü ***yönetilen uygulamayı** bu senaryo için. 
+| **Bulut kullanılabilirlik\*** | SKU konumu. Varsayılan değer **genel Azure**.  <b/>   **Genel Azure** -uygulama Market tümleştirmesine sahip tüm genel Azure bölgelerinde müşterilere dağıtılabilir olacaktır.  <b/>   **Azure kamu Bulutu** -uygulama Azure kamu Bulutundaki dağıtılacak. Yayımlama için önce [Azure kamu](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft, yayımcılar test etmek ve bu ortamda beklendiği gibi çalışır, doğrulama önerir. Hazırlama ve test etmek için istek bir [deneme hesabı](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure kamu, ABD Federal, eyalet, yerel veya Kabile ve iş ortakları bu kuruluşlara hizmet vermek uygun müşteriler için denetimli erişimi olan bir devlet kurumu-topluluk bulutudur. |
+| **Bu, özel bir SKU mi?\*** | Seçin **Evet** varsa bu SKU yalnızca müşterilerin grubunu seçmek için kullanılabilir. |
+| **Ülke/bölge kullanılabilirliği\*** | Kullanım **bölgeleri seçin** kullanılabilir ülkeler/bölgeler listesini görüntülemek için. Her bir ülke/bölge denetleyin ve ardından **Tamam** , çekme kaydetmek için.  <b/>   ![Ülke ve bölge kullanılabilirliği listesi](./media/azure-app-select-country-region.png)  |
+| **Eski fiyatlandırma\*** | SKU'da ABD Doları / ay fiyatı. Fiyatlar, yerel para birimi kullanılarak yapılandırma sonrasında geçerli döviz kurları ayarlanır. Sonuç olarak bu ayarlar sahip olduğundan bu doğrulayın. Ayarlayın ya da ülke/bölge fiyat tek tek görüntülemek için lütfen fiyatlandırma elektronik tabloya dışarı aktarma ve özel fiyatlandırma ile içeri aktarma.  İçeri/dışarı aktarma fiyatlandırma veri etkinleştirmek için fiyatlandırma değişiklikleri kaydetmeniz gerekir.  |
+| **Basitleştirilmiş bir para birimi fiyatlandırması\*** | SKU'da ABD Doları / ay fiyatı. Bu, eski fiyatlandırma ile aynı olmalıdır. Daha fazla bilgi için [Basitleştirilmiş para birimi fiyatlandırma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
+|  |  |
 
-  >[!NOTE] 
-  >Microsoft Azure kamu, ABD Federal, eyalet, yerel veya Kabile ve iş ortakları bu kuruluşlara hizmet vermek uygun müşteriler için denetimli erişimi olan bir devlet kurumu-topluluk bulutudur.
-
-- **Bu, özel bir SKU mi?** – Evet bu SKU yalnızca müşterilerin grubunu seçmek için kullanılabilir olup olmadığını belirleyin.
-- **Ülke/bölge kullanılabilirliği** – kullanım **bölgeleri seçin** kullanılabilir ülkeler/bölgeler listesini görüntülemek için. Her bir ülke/bölge denetleyin ve ardından **Tamam** , çekme kaydetmek için. 
-
-   ![Ülke ve bölge kullanılabilirliği listesi](./media/azure-app-select-country-region.png)
-
-- **Eski fiyatlandırma** – SKU'da ABD Doları / ay fiyatı girin. Fiyatlar, yerel para birimi kullanılarak yapılandırma sonrasında geçerli döviz kurları ayarlanır. Sonuç olarak bu ayarlar sahip olduğundan bu doğrulayın. Ayarlayın ya da ülke/bölge fiyat tek tek görüntülemek için lütfen fiyatlandırma elektronik tabloya dışarı aktarma ve özel fiyatlandırma ile içeri aktarma.
-
-  >[!NOTE]
-  >İçeri/dışarı aktarma fiyatlandırma veri etkinleştirmek için fiyatlandırma değişiklikleri kaydedin.
-
-- **Basitleştirilmiş para birimi fiyatlandırma** -SKU'da ABD Doları / ay fiyatı girin. Bu, eski fiyatlandırma ile aynı olmalıdır. Daha fazla bilgi için [Basitleştirilmiş para birimi fiyatlandırma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Paket ayrıntılarını, çözüm şablonu
 
-Aşağıdaki Paket ayrıntılarını sağlayın:
+   ![Paket ayrıntılarını, çözüm şablonu](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
-- **Sürüm** -karşıya yükleyeceğiniz paketin sürümü. Sürüm etiketleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
-- **Paket dosyası (.zip)** -bu paketi bir .zip dosyası kaydedilen aşağıdaki dosyaları içerir.
+Şu bilgileri sağlayın **Paket ayrıntılarını** değerleri.  Bir yıldız işareti ile eklenmiş alanlar gereklidir.
+
+- **Sürüm\***  -karşıya yükleyeceğiniz paketin sürümü. Sürüm etiketleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
+- **Paket dosyası (.zip)\***  -bu paketi bir .zip dosyası kaydedilen aşağıdaki dosyaları içerir.
   - MainTemplate.json - çözüm/uygulamayı dağıtmak ve çözüm için tanımlanan kaynakları oluşturmak için kullanılan dağıtım şablonu dosyası. Daha fazla bilgi için [dağıtım şablonu dosyalarını yazmak nasıl](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
   - createUIDefinition.json - bu dosya, bu çözüm/uygulama sağlamak için kullanıcı arabirimi oluşturmak için Azure portal tarafından kullanılır. Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
   >[!IMPORTANT] 
   >Bu paket, herhangi bir iç içe geçmiş şablonlar veya bu uygulama sağlamak için gereken komut dosyaları içermelidir. MainTemplate.json dosyası ve createUIDefinition.json dosyası kök klasöründe olması gerekir.
 
-   ![Paket ayrıntılarını, çözüm şablonu](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 ### <a name="package-details-for-managed-application"></a>Yönetilen uygulama için Paket Ayrıntıları
 
-Aşağıdaki Paket ayrıntılarını sağlayın:
+   ![Yönetilen uygulama için Paket Ayrıntıları](./media/azureapp-sku-pkgdetails-managedapplication.png)
 
-- **Sürüm** -karşıya yükleyeceğiniz paketin sürümü. Sürüm etiketleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
-- **Paket dosyası (.zip)** -bu paketi bir .zip dosyası kaydedilen aşağıdaki dosyaları içerir.
+Aşağıdaki Paket ayrıntılarını sağlayın.  Bir yıldız işareti ile eklenmiş alanlar gereklidir.
+
+- **Sürüm\***  -karşıya yükleyeceğiniz paketin sürümü. Sürüm etiketleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
+- **Paket dosyası (.zip)\***  -bu paketi bir .zip dosyası kaydedilen aşağıdaki dosyaları içerir.
   - applianceMainTemplate.json - çözüm/uygulamayı dağıtmak ve bu kaynakları oluşturmak için kullanılan dağıtım şablonu dosyası tanımlanır. Daha fazla bilgi için [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
   - applianceCreateUIDefinition.json - bu dosya, bu çözüm/uygulama sağlamak için kullanıcı arabirimi oluşturmak için Azure portal tarafından kullanılır. Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json - yalnızca Microsoft.Solution/appliances kaynağı içeren şablon dosyası. Daha fazla bilgi için [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
@@ -123,24 +113,23 @@ Bu kaynağın aşağıdaki anahtar özelliklerini not edin:
   >[!IMPORTANT] 
   >Bu paket, herhangi bir iç içe geçmiş şablonlar veya bu uygulama sağlamak için gereken komut dosyaları içermelidir. Bu dosyaları kök klasöründe olması gerekir:  MainTemplate.json applianceMainTemplate.json ve applianceCreateUIDefinition.json.
 
-- **Kiracı kimliği** -kuruluşunuzun Azure Active Directory Kiracı kimliği.
-- **JIT erişim etkinleştirilsin mi?** – Select **Evet** bu teklifi kullanarak müşteri dağıtımları için tam zamanında yönetim erişimi etkinleştirmek için.
+- **Kiracı kimliği\***  -kuruluşunuzun Azure Active Directory Kiracı kimliği.
+- **JIT erişim etkinleştirilsin mi? \***  – Select **Evet** Just-ın-Time etkinleştirmek için bu teklifi kullanarak müşteri dağıtımları için yönetim erişim.
 
   >[!NOTE] 
   >JIT etkinleştirirseniz, JIT erişimini desteklemek üzere CreateUiDefinition.json dosyasını güncelleştirmeniz gerekir.
 
-   ![Yönetilen uygulama için Paket Ayrıntıları](./media/azureapp-sku-pkgdetails-managedapplication.png)
-
 Yönetilen bir uygulama için yetkilendirme ve ilke ayarları yapılandırmanız gerekir.
+
 
 #### <a name="authorization"></a>Yetkilendirme
 
 Azure Active Directory tanıtıcısı kullanıcı, Grup veya yönetilen kaynak grubuna izin vermek istediğiniz uygulamaya ekleyin. İzin verilen rol tanımı kimliği tarafından belirtilir Sahibi, katkıda bulunan veya herhangi bir özel rol olabilir.
 
+
 #### <a name="policy-settings"></a>İlke ayarları
 
 Yönetilen uygulama ile uyumlu ilkelerini ekleyin. Azure kaynak ilkeleri hakkında daha fazla bilgi için bkz: [Azure İlkesi nedir?](../../../governance/policy/overview.md)
-
 
    ![Yönetilen bir uygulama için yetkilendirme ve ilke ayarları](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
@@ -163,6 +152,7 @@ Yönetilen uygulama ile uyumlu ilkelerini ekleyin. Azure kaynak ilkeleri hakkın
 
 4. İçin **ilke SKU**, ücretsiz veya standart SKU türü ilke olarak seçin. Standart SKU denetim ilkeleri için gereklidir.
 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Market sekmesi](./cpp-marketplace-tab.md)
+Daha fazla teklifinizi tanımlamak ve Pazarlama Varlıkları tedarik [Marketi sekmesinden](./cpp-marketplace-tab.md). 

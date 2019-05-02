@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851162"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919960"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -136,7 +136,7 @@ Tam kayıt defteri URL'si sağlamak da dahil olmak üzere `http://` veya `https:
 
 **Birden fazla bağlantı noktası özel kapsayıcı Görüntümü kullanıma sunabilirsiniz?**
 
-Şu anda birden fazla bağlantı noktası gösterme desteklemiyoruz.
+Birden fazla bağlantı noktası gösterme desteklemiyoruz.
 
 **Ben, kendi depolama getirebilir miyim?**
 
@@ -154,11 +154,11 @@ Otomatik olarak bağlantı noktası algılama sahibiz. Çağrılan ayarı bir uy
 
 Hayır, platform paylaşılan ön uçlar, HTTPS sonlandırma işler.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Çok kapsayıcılı Docker ile oluşturma ve Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Çok kapsayıcılı Docker ile oluşturma
 
 **Azure Container Registry (ACR), çok kapsayıcılı ile kullanmak için nasıl yapılandırabilirim?**
 
-ACR çok kapsayıcılı ile kullanmak için **tüm kapsayıcı görüntülerini** aynı ACR kayıt defteri sunucu üzerinde barındırılması gerekir. Aynı kayıt defteri sunucuda oldukları sonra uygulama ayarları oluşturma ve ardından ACR görüntü adını içerecek şekilde Docker Compose veya Kubernetes yapılandırma dosyasını güncelleştirmeniz gerekir.
+ACR çok kapsayıcılı ile kullanmak için **tüm kapsayıcı görüntülerini** aynı ACR kayıt defteri sunucu üzerinde barındırılması gerekir. Aynı kayıt defteri sunucuda oldukları sonra uygulama ayarları oluşturma ve ardından ACR görüntü adını içerecek şekilde Docker Compose yapılandırma dosyasını güncelleştirmek gerekir.
 
 Aşağıdaki uygulama ayarları oluşturma:
 

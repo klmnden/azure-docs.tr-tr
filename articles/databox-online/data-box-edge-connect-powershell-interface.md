@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791584"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717490"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell aracılığıyla bir Azure veri kutusu Edge cihazı yönetme
 
@@ -24,7 +24,6 @@ Bu makalede PowerShell arabirimini kullanarak bunu görevlere odaklanır.
 Bu makalede, aşağıdaki yordamları içerir:
 
 - PowerShell arabirimine bağlanma
-- Bir destek oturumu başlatın
 - Destek paketi oluşturma
 - Sertifikayı karşıya yükleme
 - Cihaz sıfırlama
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Sertifikalar hakkında daha fazla bilgi için Git [Azure IOT Edge sertifikaları](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) veya [sertifikaları üzerinde bir ağ geçidi yükleme](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Cihaz bilgilerini görüntüle
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Bilgi işlem rolü Cihazınızda yapılandırılmışsa, ayrıca PowerShell arab
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>Uzak oturumu Çık
+
+Uzak PowerShell oturumu çıkmak için PowerShell penceresini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

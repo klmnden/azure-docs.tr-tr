@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466384"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725643"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -53,10 +53,27 @@ Kured kullanma hakkında daha fazla bilgi için bkz. [AKS düğümleri için gü
 
 Her bir AKS dağıtımı iki kaynak grubu içinde barındırıyor:
 
-- İlk kaynak grubu tarafından oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içeriyor. Gibi otomatik olarak oluşturur, dağıtım sırasında ikinci bir AKS kaynak sağlayıcısı *MC_myResourceGroup_myAKSCluster_eastus*.
+- İlk kaynak grubu tarafından oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içeriyor. Gibi otomatik olarak oluşturur, dağıtım sırasında ikinci bir AKS kaynak sağlayıcısı *MC_myResourceGroup_myAKSCluster_eastus*. Bu ikinci bir kaynak grubu adını nasıl belirtebilirsiniz hakkında daha fazla bilgi için sonraki bölüme bakın.
 - Bu ikinci bir kaynak grubu, gibi *MC_myResourceGroup_myAKSCluster_eastus*, kümeyle ilişkili altyapı kaynaklarını içerir. Bu kaynaklar, Kubernetes düğüm Vm'leri, sanal ağ ve depolama alanı içerir. Bu ayrı kaynak grubu, kaynak temizleme işlemi basitleştirmek için oluşturulur.
 
 Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturma, bunları otomatik olarak oluşturulan kaynak grubunda koyun.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Ben AKS altyapı kaynak grubu için kendi ad verebilir misiniz?
+
+Evet. Varsayılan olarak, AKS kaynak sağlayıcısı otomatik olarak ikincil bir kaynak grubu dağıtımı sırasında gibi oluşturur *MC_myResourceGroup_myAKSCluster_eastus*. Şirket ilkesi ile uyum sağlamak için bu yönetilen kümesi için kendi ad sağlayabilirsiniz (*MC_*) kaynak grubu.
+
+Kendi kaynak grubu adı belirtmek için yükleme [aks önizlemesini] [ aks-preview-cli] Azure CLI uzantısı sürüm *0.3.2* veya üzeri. Kullanarak bir AKS kümesi oluştururken [az aks oluşturma] [ az-aks-create] komutu, kullanın *--düğümü-resource-group* parametre ve kaynak grubu için bir ad belirtin. Varsa, [bir Azure Resource Manager şablonu kullanma] [ aks-rm-template] bir AKS kümesi dağıtmak için kaynak grubu adını kullanarak tanımlayabilirsiniz *nodeResourceGroup* özelliği.
+
+* Bu kaynak grubu, kendi aboneliğinizdeki Azure kaynak sağlayıcısı tarafından otomatik olarak oluşturulur.
+* Küme oluşturulduğunda, yalnızca bir özel kaynak grubu adı belirtebilirsiniz.
+
+Aşağıdaki senaryolar desteklenmez:
+
+* Mevcut bir kaynak grubu için belirtemezsiniz *MC_* grubu.
+* Farklı bir abonelik için belirtemezsiniz *MC_* kaynak grubu.
+* Değiştiremezsiniz *MC_* Küme oluşturulduktan sonra kaynak grubu adı.
+* Yönetilen kaynaklar için adları belirtemezsiniz *MC_* kaynak grubu.
+* Değiştiremez veya içinde yönetilen kaynak etiketleri silme *MC_* kaynak grubu (sonraki bölümde ek bilgi bakın).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Etiketleri ve diğer özellikleri AKS kaynakları MC_ * kaynak grubunda değişiklik yapabilirsiniz?
 
@@ -100,6 +117,9 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düz
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düz
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

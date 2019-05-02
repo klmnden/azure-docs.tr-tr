@@ -2,31 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: 914c006daf49e22ebec870a549bfdbc63f882647
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148020"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867358"
 ---
-## <a name="test"></a>İşlevi test etme
+## <a name="test"></a>Azure'da işlevi test etme
 
-Dağıtılan işlevi bir Mac veya Linux bilgisayarının veya Windows üzerinde Powershell kullanarak test etmek için cURL kullanın. `<app_name>` yer tutucusunu işlev uygulamanızın adıyla değiştirerek aşağıdaki cURL komutunu yürütün. `&name=<yourname>` sorgu dizesini URL’ye ekleyin.
-
-```powershell
-Invoke-WebRequest -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>"
-```
+Dağıtılan işlevi test etmek için cURL kullanın. Kullanarak önceki adımda kopyaladığınız URL'ye sorgu dizesi ekleme `&name=<yourname>` aşağıdaki örnekteki gibi bir URL:
 
 ```bash
-curl https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-```  
+curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
+```
 
-![Tarayıcıda gösterilen işlev yanıtı.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png)  
+![Azure'da işlevi çağırmak için cURL kullanarak.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-Öğeniz yoksa `cURL`veya `Invoke-WebRequest` kullanılabilir komut satırınızda web tarayıcınızın adres aynı URL'yi girin. Burada da `<app_name>` yer tutucusunu işlev uygulamanızın adıyla değiştirin ve `&name=<yourname>` sorgu dizesini URL’ye ekleyip isteği yürütün.
+Ayrıca, web tarayıcınızın adres için kopyalanan URL'yi yapıştırabilirsiniz. Yeniden sorgu dizesini URL'ye `&name=<yourname>` isteği yürütmeden önce URL'si.
 
-    https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-   
-![Tarayıcıda gösterilen işlev yanıtı.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![İşlev çağrısı için bir web tarayıcısı kullanma.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

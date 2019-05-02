@@ -1,10 +1,10 @@
 ---
-title: Azure güvenlik yönetimi ve izlemeye genel bakış | Microsoft Docs
+title: Yönetim ve güvenlik özellikleri - Microsoft Azure izleme | Microsoft Docs
 description: Bu makalede, Azure yönetiminde yardımcı sağlayan güvenlik özellikleri ve Hizmetleri genel bakış ve Azure bulut Hizmetleri ve sanal makinelerin izlenmesini sağlar.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597913"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872079"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure güvenlik yönetimi ve izlemeye genel bakış
+Bu makalede, Azure yönetiminde yardımcı sağlayan güvenlik özellikleri ve Hizmetleri genel bakış ve Azure bulut Hizmetleri ve sanal makinelerin izlenmesini sağlar.
 
-Azure yönetim ve Azure bulut Hizmetleri ve sanal makineleri (VM'ler) izlenmesini yardımcı olmak amacıyla güvenlik mekanizmaları sağlar. Bu makalede, bu temel güvenlik özellikleri ve Hizmetleri hakkında genel bir bakış sağlar. Daha fazla bilgi için ayrıntıları veren makalelerine bağlantılar sağlanır.
+## <a name="shared-responsibility"></a>Paylaşılan sorumluluk
 
 Microsoft bulut hizmetlerinizi güvenliği, bir iş ortaklığı ve siz ve Microsoft arasında paylaşılan bir sorumluluğu vardır. Microsoft Azure platformundan ve onun veri merkezlerinin fiziksel güvenlik için sorumlu (kilitli rozet giriş kapılar, sınırlar ve koruyucuları gibi güvenlik korumaları kullanarak). Azure müşterilerine güvenlik, gizlilik ve uyumluluk gereksinimlerini karşılayan yazılım katmanında bulut güvenlik güçlü düzeyleri sağlar.
 
@@ -64,7 +65,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure multi-Factor Authentication, birden fazla doğrulama yöntemi kullanılmasını gerektiren kimlik doğrulama yöntemidir. Kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekler. 
+Azure multi-Factor Authentication, birden fazla doğrulama yöntemi kullanılmasını gerektiren kimlik doğrulama yöntemidir. Kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekler.
 
 Çok faktörlü kimlik doğrulaması erişimi korumaya yardımcı olur ve uygulamalarınıza karşılarken basit bir oturum açma işlemi. Doğrulama seçenekleri (telefon araması, SMS mesajı veya mobil uygulama bildirimi ya da doğrulama kodu) ve üçüncü taraf OATH belirteçleri bir aralık aracılığıyla güçlü kimlik doğrulama sağlar.
 
@@ -80,7 +81,7 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
 
 * Herhangi bir ağdan herhangi bir (IP VP) ağ.
 * Noktadan noktaya Ethernet ağı.
-* Bir sanal çapraz bağlantısından bir ortak konum tesisinde bağlantı sağlayıcısı üzerinden. 
+* Bir sanal çapraz bağlantısından bir ortak konum tesisinde bağlantı sağlayıcısı üzerinden.
 
 ExpressRoute bağlantıları ortak internet üzerinden kurulmaz. Bunlar daha fazla güvenilirlik, daha yüksek hız, daha düşük gecikme süreleri ve daha yüksek güvenlik tipik internet üzerinden sunabilir.
 
@@ -99,7 +100,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Bazen kullanıcılar Azure kaynaklarına veya diğer SaaS uygulamalarına ayrıcalıklı işlemleri gerçekleştirmek gerekebilir. Bu, genellikle kuruluşların kalıcı ayrıcalıklı erişimi Azure Active Directory (Azure AD) vermediğiniz anlamına gelir. 
+Bazen kullanıcılar Azure kaynaklarına veya diğer SaaS uygulamalarına ayrıcalıklı işlemleri gerçekleştirmek gerekebilir. Bu, genellikle kuruluşların kalıcı ayrıcalıklı erişimi Azure Active Directory (Azure AD) vermediğiniz anlamına gelir.
 
 Kuruluşlar, yeteri kadar ayrıcalıklı erişim ile bu kullanıcıların ne yaptıklarını izleyemez bulutta barındırılan kaynakları için artan bir güvenlik riski olmasıdır. Ayrıca, ayrıcalıklı erişime sahip bir hesap tehlikede olursa, bir İhlale yol açmak üzere bir kuruluşun genel bulut güvenliği etkileyebilir. Azure AD Privileged Identity Management ayrıcalıkların tehditlere maruz kalabileceği süreyi azaltarak ve artan kullanım görünürlük tarafından bu riski gidermeye yardımcı olur.  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph, Microsoft ürünleri ve Hizmetleri gerçek zamanlı 
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

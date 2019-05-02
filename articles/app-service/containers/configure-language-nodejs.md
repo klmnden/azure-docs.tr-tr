@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850255"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919776"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Bir Linux Node.js uygulamasını Azure App Service için yapılandırma
 
@@ -55,7 +55,7 @@ Bu ayarı kullanmak için çalışma zamanında ve Kudu otomatik paket geri yük
 
 ## <a name="configure-nodejs-server"></a>Node.js sunucusunu yapılandırma
 
-Node.js kapsayıcılar ile gelir [PM2](http://pm2.keymetrics.io/), üretim işlem yöneticisi. Uygulamanızı PM2, veya NPM veya özel bir komut başlatmak için yapılandırabilirsiniz.
+Node.js kapsayıcılar ile gelir [PM2](https://pm2.keymetrics.io/), üretim işlem yöneticisi. Uygulamanızı PM2, veya NPM veya özel bir komut başlatmak için yapılandırabilirsiniz.
 
 - [Özel bir komut çalıştırın](#run-custom-command)
 - [Npm start çalıştırın](#run-npm-start)
@@ -99,12 +99,12 @@ Sık kullanılan Node.js dosyalardan biri projenizde bulunduğunda kapsayıcı u
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Aşağıdakilerden birini [PM2 dosyaları](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* ve *ecosystem.config.js*
+- Aşağıdakilerden birini [PM2 dosyaları](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* ve *ecosystem.config.js*
 
 Özel başlangıç dosyası aşağıdaki uzantılar da yapılandırabilirsiniz:
 
 - A *.js* dosyası
-- A [PM2 dosya](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) uzantılı *.json*, *. config.js*, *.yaml*, veya *.yml*
+- A [PM2 dosya](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) uzantılı *.json*, *. config.js*, *.yaml*, veya *.yml*
 
 Özel başlangıç dosyası eklemek için aşağıdaki komutu çalıştırın [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 App Service'te [SSL sonlandırma](https://wikipedia.org/wiki/TLS_termination_proxy) tüm HTTPS isteklerini, şifrelenmemiş HTTP istekleri olarak uygulamanızı ulaşmak için Ağ Yük Dengeleyiciler, olur. Uygulama mantığı ihtiyaçlarınızı veya değil, kullanıcı isteklerini şifreli olup olmadığı denetlenecek incelemek, `X-Forwarded-Proto` başlığı.
 
-Popüler web çerçeveleri erişmenizi `X-Forwarded-*` bilgileri, standart uygulama deseni. İçinde [Express](https://expressjs.com/), kullanabileceğiniz [güven proxy'leri](http://expressjs.com/guide/behind-proxies.html). Örneğin:
+Popüler web çerçeveleri erişmenizi `X-Forwarded-*` bilgileri, standart uygulama deseni. İçinde [Express](https://expressjs.com/), kullanabileceğiniz [güven proxy'leri](https://expressjs.com/guide/behind-proxies.html). Örneğin:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ Node.js uygulamanız App Service'te farklı davranır ya da hatalı aşağıdaki
     - Yapılandırmanıza bağlı olarak, *package.json*, farklı paketleri üretim modu için yüklü (`dependencies` karşılaştırması `devDependencies`).
     - Bazı web çerçeveleri, statik dosyalar farklı üretim modunda dağıtabilirsiniz.
     - Bazı web çerçeveleri, üretim modunda çalışırken özel başlatma komut dosyaları kullanabilirsiniz.
-- Uygulamanızı App Service'te geliştirme modunda çalıştırın. Örneğin, [MEAN.js](http://meanjs.org/), çalışma zamanı tarafından geliştirme modunda için uygulamanızı ayarlayın [ayarı `NODE_ENV` uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Uygulamanızı App Service'te geliştirme modunda çalıştırın. Örneğin, [MEAN.js](https://meanjs.org/), çalışma zamanı tarafından geliştirme modunda için uygulamanızı ayarlayın [ayarı `NODE_ENV` uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699836"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876842"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Kurtarma Hizmetleri kasası Azure abonelik ve kaynak grupları arasında taşıma
 
@@ -21,7 +21,7 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 
 ## <a name="supported-region"></a>Desteklenen bir bölge
 
-Kaynak taşıma kurtarma Hizmetleri kasası desteklenen için Avustralya Doğu, Avustralya Güney Doğu, Kanada Orta, Kanada Doğu, Güneydoğu Asya, Doğu Asya, Orta ABD, Kuzey Orta ABD, Doğu ABD, Doğu ABD 2, Güney Orta Batı Orta ABD, ABD, Orta Batı ABD 2, Batı ABD Orta Hindistan, Güney Hindistan, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Kuzey Avrupa, Batı Avrupa, Güney Afrika Kuzey, Güney Afrika Batı, UK Güney, UK Batı, BAE Orta ve BAE Kuzey.
+Kaynak taşıma kurtarma Hizmetleri kasası desteklenen için Avustralya Doğu, Avustralya Güney Doğu, Kanada Orta, Kanada Doğu, Güneydoğu Asya, Doğu Asya, Orta ABD, Kuzey Orta ABD, Doğu ABD, Doğu ABD 2, Güney Orta Batı Orta ABD, ABD, Orta Batı ABD 2, Batı ABD Orta Hindistan, Güney Hindistan, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Kuzey Avrupa, Batı Avrupa, Güney Afrika Kuzey, Güney Afrika Batı, UK Güney ve UK Batı.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Taşıma kurtarma Hizmetleri kasası için Önkoşullar
 

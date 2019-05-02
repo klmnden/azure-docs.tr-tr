@@ -1,7 +1,6 @@
 ---
 title: HDInsight üzerinde Apache Hadoop ile MapReduce
 description: HDInsight kümelerinde Apache Hadoop MapReduce işleri çalıştırmayı öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521209"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707956"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop MapReduce kullanma
 
@@ -53,11 +52,9 @@ Hadoop ile HDInsight akış kullanma örnekleri için aşağıdaki belgelere bak
 
 * [C# MapReduce işlerini geliştirme](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Python MapReduce işlerini geliştirme](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Örnek veri
 
-HDInsight sağlar içinde depolanan çeşitli örnek veri kümeleri, `/example/data` ve `/HdiSamples` dizin. Bu dizinler, kümenin varsayılan depolama içindedir. Bu belgede, kullandığımız `/example/data/gutenberg/davinci.txt` dosya. Bu dosya Leonardo Da Vinci, not defterlerini içerir.
+HDInsight sağlar içinde depolanan çeşitli örnek veri kümeleri, `/example/data` ve `/HdiSamples` dizin. Bu dizinler, kümenin varsayılan depolama içindedir. Bu belgede, kullandığımız `/example/data/gutenberg/davinci.txt` dosya. Bu dosya Leonardo da Vinci, not defterlerini içerir.
 
 ## <a id="job"></a>Örnek MapReduce
 
@@ -141,8 +138,6 @@ Kendi MapReduce uygulamaları yazmak yönergeler için aşağıdaki belgelere ba
 
 * [HDInsight için Java MapReduce uygulamalar geliştirin](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [HDInsight için Python MapReduce uygulamalar geliştirin](apache-hadoop-streaming-python.md)
-
 ## <a id="run"></a>MapReduce çalıştırma
 
 HDInsight, çeşitli yöntemlerle HiveQL işleri çalıştırabilirsiniz. Hangi yöntemin size uygun olduğuna karar vermek için aşağıdaki tabloyu kullanın ve ardından bir kılavuz için bağlantıyı izleyin.
@@ -158,8 +153,6 @@ HDInsight, çeşitli yöntemlerle HiveQL işleri çalıştırabilirsiniz. Hangi 
 HDInsight verilerle çalışma hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
 * [HDInsight için Java MapReduce programları geliştirme](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Python için HDInsight akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md)
 
 * [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
 

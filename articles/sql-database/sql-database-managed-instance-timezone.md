@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı yönetilen örneği saat dilimi | "Microsoft Docs
-description: Azure SQL veritabanı yönetilen örneği, saat dilimi özellikleri hakkında bilgi edinin
+title: Azure SQL veritabanı yönetilen örneği saat dilimlerini | "Microsoft Docs
+description: Azure SQL veritabanı yönetilen örneği ' saat dilimi özellikleri hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -10,19 +10,19 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487412"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866941"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Azure SQL veritabanı yönetilen örneği (Önizleme) saat diliminde
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Saat dilimlerinde Azure SQL veritabanı yönetilen örneği (Önizleme)
 
-Eşgüdümlü Evrensel Saat (UTC) kullanarak veri katmanını bulut çözümleri için önerilen bir uygulama olsa da, Azure SQL veritabanı yönetilen örneği, tarih ve saat değerleri depolamak ve çağrı tarih mevcut uygulamaların gereksinimlerini karşılamak için saat dilimi seçeneği sunar ve belirli bir saat dilimi örtük bir bağlamla saat işlevleri.
+Eşgüdümlü Evrensel Saat (UTC), veri katmanı bulut çözümleri için önerilen saat dilimi olur. Azure SQL veritabanı yönetilen örneği, tarih ve saat değerlerini depolar ve belirli bir saat dilimi örtük bir bağlamı ile tarih ve saat işlevlerini çağıran uygulamalara ihtiyaçlarını karşılamak için saat dilimlerini seçeneği de sunar.
 
-T-SQL işlevleri ister [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) veya CLR kod örneğinde düzeyinde ayarlanan saat dilimini gözlemleyin. SQL Aracısı işleri de zamanlama örneğinin saat dilimine göre izleyin.
+T-SQL işlevleri ister [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) veya CLR kod örneğinde düzeyinde ayarlanan saat dilimini gözlemleyin. SQL Server Aracısı işlerini de zamanlamaları örneğinin saat dilimine göre izleyin.
 
   >[!NOTE]
   > Yönetilen örnek, saat dilimi ayarını destekler, Azure SQL veritabanı'nın yalnızca bir dağıtım seçeneğidir. Diğer dağıtım seçenekleri, her zaman UTC izleyin.
@@ -30,22 +30,22 @@ Kullanım [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zo
 
 ## <a name="supported-time-zones"></a>Desteklenen saat dilimleri
 
-Yönetilen örnek temel işletim sistemi desteklenen saat dilimlerini birtakım devralınır ve bunu düzenli olarak yeni saat dilimi tanımları almak ve varolanları değişiklikleri yansıtmak için güncelleştiriliyor.
+Yönetilen örnek temel işletim sistemi desteklenen saat dilimlerini birtakım devralınır. Ayrıca, yeni saat dilimi tanımlarını alın ve mevcut değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir. 
 
 Desteklenen saat dilimlerini adlarıyla bir liste aracılığıyla kullanıma [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) sistem görünümü.
 
-## <a name="setting-time-zone"></a>Saat dilimini ayarlama
+## <a name="set-a-time-zone"></a>Bir saat dilimini ayarlayın
 
-Yönetilen örnek, bir saat dilimi örnek oluşturma sırasında ayarlanabilir. Varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) ' dir.
+Yönetilen örnek, bir saat dilimi örnek oluşturma sırasında ayarlanabilir. Varsayılan saat dilimi UTC alınır.
 
   >[!NOTE]
   > Mevcut bir yönetilen örnek saat dilimini değiştirilemez.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Azure portalı üzerinden bir saat dilimi ayarlama
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Azure portalı üzerinden saat dilimini ayarlayın
 
-Parametreler için yeni örnek girerken, desteklenen saat dilimlerini listesinden bir saat dilimi seçin:
+Parametreler için yeni bir örnek girdiğinizde, bir saat dilimi desteklenen saat dilimlerini listesinden seçin. 
   
-![Örnek oluşturma sırasında saat dilimi ayarlama](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Örnek oluşturma sırasında bir saat dilimi ayarlama](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
 
@@ -66,11 +66,11 @@ Saat dilimi kimliği özelliğini belirtin, [Resource Manager şablonu](https://
 
 ```
 
-Saat dilimi kimliği özelliği için desteklenen değerler listesi bu makalenin sonunda bulunur.
+Saat dilimi kimliği özelliği için desteklenen değerler listesi bu makalenin sonunda ' dir.
 
 Belirtilmezse, saat dilimi UTC değerine ayarlanır.
 
-## <a name="checking-the-time-zone-of-instance"></a>Örneğinin saat dilimini denetleniyor
+## <a name="check-the-time-zone-of-an-instance"></a>Örneğinin saat dilimini denetleyin
 
 [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) işlevi örneğinin saat dilimini görünen adını döndürür.
 
@@ -78,24 +78,23 @@ Belirtilmezse, saat dilimi UTC değerine ayarlanır.
 
 ### <a name="restore-and-import"></a>Geri yükleme ve içeri aktarma
 
-Yedekleme dosyası geri yükleme ya da veri yönetilen örnek için bir örnek veya bir sunucu ile farklı bir saat dilimi ayarlarını alma. Ancak, dikkatli ve uygulama davranışı ve sorguları ve raporları, sonuçlarını analiz etmek için yalnızca iki SQL Server örneği ile farklı bir saat dilimi ayarlarını arasında veri aktarımı yaparken gibi emin olun.
+Bir yedekleme dosyası geri yükleme ya da veri bir yönetilen örnek için bir örnek veya bir sunucu ile farklı bir saat dilimi ayarlarını alma. Dikkatli seçtiğinizden emin olun. Farklı bir saat dilimi ayarlarını sahip iki SQL Server örnekleri arasında veri aktarımı gibi uygulama davranışını ve sorguları ve raporları, sonuçlarını çözümleyin.
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
-Belirli bir noktaya geri yükleme gerçekleştirilirken için geri yükleme süresini belirsizlik nedeniyle Yaz Saati ve olası değişikliklerini önlemek için UTC saati olarak yorumlanır.
+Belirli bir noktaya geri yükleme işlemi gerçekleştirdiğinizde, geri yüklemek için zaman UTC saati yorumlanır. Bu ayarın belirsizlik nedeniyle Yaz Saati ve olası değişikliklerin önler.
 
 ### <a name="auto-failover-groups"></a>Otomatik yük devretme grupları
 
-Yük devretme birincil ve ikincil örneği arasında aynı saat diliminde kullanarak Grup zorunlu değildir ancak önemle tavsiye edilir.
-  >[!IMPORTANT]
-  > Farklı bir saat dilimi olması için geçerli senaryoları varken coğrafi-ikincil örneği yalnızca okuma ölçek için kullanılan, ikincil örneğine el ile veya otomatik yük devretme durumunda, özgün kendi saat dilimiyle koruyacağını lütfen unutmayın.
+Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat diliminde kullanarak zorunlu değildir, ancak kullanmanızı kesinlikle öneririz.
+
+  >[!WARNING]
+  > Aynı saat diliminde bir yük devretme grubunda birincil ve ikincil örneği kullanmanızı öneririz. Nadir bazı senaryolar nedeniyle, birincil ve ikincil örnekler aynı saat diliminde tutma zorlanmaz. El ile veya otomatik yük devretme durumunda, özgün kendi saat dilimiyle ikincil örneği koruyacağını anlamak önemlidir.
 
 ## <a name="limitations"></a>Sınırlamalar
 
 - Mevcut yönetilen örnek saat dilimini değiştirilemez.
-- Gelen SQL Aracısı işleri dış işlem örneği saat dilimini Gözlemleme.
-- Yönetilen örnek yerel [yeni AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) PowerShell cmdlet'i değil destek geçirme saat dilimi parametresi henüz. İle kullanımı PowerShell sarmalayıcı [Resource Manager şablonu](https://aka.ms/sql-mi-create-arm-posh) yerine.
-- CLI komutunu [az sql mı oluşturmak](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) saat dilimi parametresi henüz desteklemiyor.
+- SQL Server Aracısı işlerini dış işlem örneğinin saat dilimini mümkün değildir.
 
 ## <a name="list-of-supported-time-zones"></a>Desteklenen zaman bölgelerinin listesi
 
@@ -240,7 +239,7 @@ Yük devretme birincil ve ikincil örneği arasında aynı saat diliminde kullan
 | Samoa Standart Saati | (UTC+13:00) Samoa |
 | Line Adaları Standart Saati | (UTC+14:00) Kiritimati Adası |
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz. 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258369"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918947"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Yedekleme ve PowerShell ile Azure dosyaları geri yükleme
 
@@ -317,7 +317,7 @@ BackupManagementType : AzureStorage
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Azure dosya paylaşımını başka bir konuma geri yükleme
 
-Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) seçilen kurtarma noktasına geri yüklemek için. Alternatif konumu belirlemek için şu parametreleri belirtin: 
+Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) seçilen kurtarma noktasına geri yüklemek için. Alternatif konumu belirlemek için şu parametreleri belirtin: 
 
 - **TargetStorageAccountName**: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
 - **TargetFileShareName**: Hedef depolama içindeki dosya paylaşımları, yedeklenen içeriğin geri için hesap.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Bir Azure dosya alternatif bir konuma geri yükleme
 
-Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) seçilen kurtarma noktasına geri yüklemek için. Alternatif konumu tanımlamak ve geri yüklemek istediğiniz dosyayı benzersiz olarak tanımlanabilmesi için bu parametreleri belirtin.
+Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) seçilen kurtarma noktasına geri yüklemek için. Alternatif konumu tanımlamak ve geri yüklemek istediğiniz dosyayı benzersiz olarak tanımlanabilmesi için bu parametreleri belirtin.
 
 * **TargetStorageAccountName**: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
 * **TargetFileShareName**: Hedef depolama içindeki dosya paylaşımları, yedeklenen içeriğin geri için hesap.

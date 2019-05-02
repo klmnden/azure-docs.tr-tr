@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812821"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867714"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Utterance metinle amaç ve varlıkları veri ayıklamak
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
@@ -441,7 +441,7 @@ Varlığın kullanırsanız, hiçbiri dahil olmak üzere tüm hedefleri arasınd
 
 ### <a name="names-of-places"></a>Basamak adları
 
-Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Önceden oluşturulmuş varlık **[geographyV2](luis-reference-prebuilt-geographyv2.md)** konum bilgileri ayıklamak için.
+Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülkeler/bölgeler gibi bilinen. Önceden oluşturulmuş varlık **[geographyV2](luis-reference-prebuilt-geographyv2.md)** konum bilgileri ayıklamak için.
 
 ### <a name="new-and-emerging-names"></a>Yeni ve geliştirilmekte olan adları
 

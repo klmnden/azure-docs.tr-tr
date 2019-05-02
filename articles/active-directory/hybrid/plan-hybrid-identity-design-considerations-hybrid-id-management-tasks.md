@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455648"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918491"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Karma kimlik yaşam döngüsü planlaması
 Kimlik, Kurumsal mobilite ve uygulama erişim stratejinizin girişiminin temellerinden biridir. Mobil cihaz veya SaaS uygulaması için imzalama olsun, kimlik bilgilerinizi her şeyi erişmesini önemlidir. En yüksek düzeyde otomatik hale getirme ve kaynaklar sağlama işleminin merkezileştirerek içeren birleştirme ve kimlik depolarınızı arasında eşitleme bir kimlik yönetimi çözümü kapsar. Kimlik çözümü, şirket içi ve bulut arasında bir merkezi kimlik olabilir ve Kimlik Federasyonu çeşit merkezi kimlik doğrulamaya korumak ve güvenli bir şekilde paylaşın ve dış kullanıcıların ve işletmelerin işbirliği yapmak için de gerekir. İşletim sistemlerini ve uygulamaları kişilere arasında veya bir kuruluşla ilişkili kaynaklar. Kuruluş yapısı sağlama ilkelerini ve yordamlarını uyum sağlayacak şekilde değiştirilebilir.
@@ -32,7 +32,7 @@ Verimli olmasını sağlamak için Self Servis deneyimleri sunarak kullanıcıla
 ## <a name="determine-hybrid-identity-management-tasks"></a>Karma kimlik yönetimi görevleri belirleme
 Kuruluşunuzdaki yönetim görevleri dağıtma doğruluk ve yönetim verimliliğini artırır ve bir kuruluşun iş yükü dengesi artırır. Güçlü kimlik yönetimi sistemi tanımlayan özetleri aşağıda verilmiştir.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![kimlik yönetimi konuları](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Karma kimlik yönetimi görevleri tanımlamak için karma kimlik benimseyen bir kuruluşun temel özelliklerinden bazıları anlamanız gerekir. Kimlik kaynakları için kullanılan geçerli depoları anlamak önemlidir. Bu temel öğeleri bilerek tarafından temel gereksinimleri vardır ve daha iyi bir tasarım kararı kimlik çözümünüz için neden daha ayrıntılı soru gerekecektir dayanır.  
 
@@ -61,7 +61,7 @@ Bu gereksinimleri tanımlarken, en az emin aşağıdaki soruları yanıtlanır
 ## <a name="synchronization-management"></a>Eşitleme Yönetimi
 Tüm kimlik sağlayıcıları getirin ve saklamak için bir kimlik Yöneticisi'nin hedeflerinden eşitlendi. Eşitlenen verileri tutmak bir yetkili ana kimlik sağlayıcısını temel. Eşitlenmiş yönetim modeliyle bir karma kimlik senaryosunda bir şirket içi sunucusundaki tüm kullanıcı ve cihaz kimliklerini yönetme ve hesapları ve isteğe bağlı, buluta parolaları eşitleyin. Kullanıcı, bulutta yaradıkları ve oturum açma işleminde, parola kimlik çözümü tarafından doğrulanmış olarak aynı şirket içi parolayı girer. Bu model, bir dizin eşitleme aracı kullanır.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) Doğru tasarıma, karma kimlik çözümü eşitlenmesini sağlamak aşağıdaki soruları yanıtlanır: • karma kimlik çözümü için kullanılabilir eşitleme çözümleri nelerdir?
+![Dizin eşitleme](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) uygun tasarıma, karma kimlik çözümü eşitlenmesini sağlamak aşağıdaki soruları yanıtlanır: • karma kimlik çözümü için kullanılabilir eşitleme çözümleri nelerdir?
 • Çoklu oturum açma özellikleri nelerdir?
 • B2B ve B2C arasında Kimlik Federasyonu için seçenekleri nelerdir?
 

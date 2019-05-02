@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369463"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867129"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Öğretici: Gerçek zamanlı olayları Azure Event Hubs için gönderilen veri anomaliler görselleştirin
 
-Azure Event Hubs ile Azure Stream Analytics'i kullanarak gelen verileri denetleyebilir, anomalileri ayırabilir ve Power BI'da görselleştirebilirsiniz. Bir olay hub'ına sürekli olarak gerçek zamanlı veriler göndererek saniyede milyonlarca olay ekleyen binlerce cihaza sahip olduğunuzu düşünelim. Bu kadar fazla verideki anomalileri veya hataları nasıl denetleyebilirsiniz? Örneğin cihazlar kredi kartı işlemlerini gönderiyorsa ve 5 saniyelik bir zaman aralığında birden fazla ülkeden birden fazla işlem gönderilmesi durumunu yakalamanız gerekiyorsa ne yaparsınız? Bu durum birisi kredi kartı bilgilerini çalıp dünyanın farklı yerlerinden aynı anda alışveriş yapmak için kullandığında ortaya çıkabilir. 
+Azure Event Hubs ile Azure Stream Analytics'i kullanarak gelen verileri denetleyebilir, anomalileri ayırabilir ve Power BI'da görselleştirebilirsiniz. Bir olay hub'ına sürekli olarak gerçek zamanlı veriler göndererek saniyede milyonlarca olay ekleyen binlerce cihaza sahip olduğunuzu düşünelim. Bu kadar fazla verideki anomalileri veya hataları nasıl denetleyebilirsiniz? Örneğin, kredi kartı işlemleri gönderen ne aygıtların ve 5 saniyelik zaman aralığı içinde birden fazla ülkede/bölgede birden çok işlem sahip herhangi bir yerde yakalamak gerekiyor? Bu durum birisi kredi kartı bilgilerini çalıp dünyanın farklı yerlerinden aynı anda alışveriş yapmak için kullandığında ortaya çıkabilir. 
 
 Bu öğreticide bu örneğin simülasyonunu yapacaksınız. Kredi kartı işlemleri oluşturup bunları bir olay hub'ına gönderen bir uygulama çalıştıracaksınız. Ardından Azure Stream Analytics ile veri akışını gerçek zamanlı olarak okuyacak, burada geçerli işlemlerle geçersiz işlemleri ayıracak ve Power BI'ı kullanarak geçersiz olarak etiketlenmiş olan işlemlerin görsel olarak tanımlanmasını sağlayacaksınız.
 

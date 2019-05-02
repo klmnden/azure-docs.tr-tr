@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da56c9664ce533709676ded677add4a2391dce03
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736607"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865859"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Bir etki alanındaki Azure ön kapı için coğrafi filtreleme nedir?
 
-Azure Front Door Hizmeti, varsayılan olarak kullanıcı isteklerine, isteğin geldiği konumdan bağımsız olarak yanıt verir. Ancak bazı durumlarda, web uygulamalarınıza erişimi ülkeye göre kısıtlamak isteyebilirsiniz. Web uygulaması Güvenlik Duvarı (WAF) hizmeti ön Kapıda izin vermek veya belirtilen ülkelerinden erişimi engellemek için belirli yolu uç noktanız için özel erişim kuralları kullanarak bir ilkesi tanımlamanızı sağlar. 
+Azure Front Door Hizmeti, varsayılan olarak kullanıcı isteklerine, isteğin geldiği konumdan bağımsız olarak yanıt verir. Ancak, bazı durumlarda, ülke/bölge tarafından web uygulamalarınız için erişimi kısıtlamak isteyebilirsiniz. Web uygulaması Güvenlik Duvarı (WAF) hizmeti ön Kapıda izin vermek veya belirtilen ülkeler/bölgelerden gelen erişimi engellemek için belirli yolu uç noktanız için özel erişim kuralları kullanarak bir ilkesi tanımlamanızı sağlar. 
 
 Bir WAF İlkesi, genellikle bir özel kural kümesi içerir. Bir kural eşleşme koşullarından, bir eylemden ve bir öncelikten oluşur. Eşleşme koşulunda bir eşleşme değişkeni, işleç ve eşleşme değeri tanımlarsınız.  Coğrafi filtreleme kuralı için eşleşme değişkeni REMOTE_ADDR, işleç GeoMatch, değer ise söz konusu ülkenin iki harfli kodudur. Yola göre bir coğrafi filtreleme kuralı oluşturmak için bir GeoMatch koşulunu ve bir REQUEST_URI dizesi eşleşme koşulunu birleştirebilirsiniz.
 
@@ -72,7 +72,7 @@ Ya da bir coğrafi filtreleme İlkesi, ön kapısı yapılandırabilirsiniz [Azu
 | CO | Kolombiya|
 | CR | Kosta Rika|
 | CU | Küba|
-| CV | Kabo Verde|
+| CV | Cabo Verde|
 | CY | Kıbrıs|
 | CZ | Çek Cumhuriyeti|
 | DE | Almanya|

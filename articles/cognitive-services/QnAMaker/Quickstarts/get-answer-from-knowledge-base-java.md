@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60920170"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916901"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Java ile Bilgi Bankası'tan bir soru sorulara yanıtlar alın
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, program aracılığıyla yayımlanan bir soru-cevap O
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Geliştirme Seti, Standart Sürüm)
-* Bu örnek, Apache kullanır [HTTP istemcisi](http://hc.apache.org/httpcomponents-client-ga/) HTTP Components'tan. Projenize aşağıdaki Apache HTTP istemcisi kitaplıkları ekleme yapmanız gerekir: 
+* Bu örnek, Apache kullanır [HTTP istemcisi](https://hc.apache.org/httpcomponents-client-ga/) HTTP Components'tan. Projenize aşağıdaki Apache HTTP istemcisi kitaplıkları ekleme yapmanız gerekir: 
     * httpclient 4.5.3.jar
     * httpcore 4.4.6.jar
     * Commons günlük 1.2.jar

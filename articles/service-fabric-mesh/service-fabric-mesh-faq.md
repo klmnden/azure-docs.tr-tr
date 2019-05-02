@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728584"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 
@@ -77,7 +77,9 @@ Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulayabi
 
 Kaynak grubunu silmek için kullanın `az group delete <nameOfResourceGroup>` komutu.
 
-## <a name="supported-container-os-images"></a>Desteklenen kapsayıcı işletim sistemi görüntüleri
+## <a name="deployments"></a>Dağıtımlar
+
+### <a name="what-container-images-are-supported"></a>Hangi kapsayıcı görüntülerinin destekleniyor mu?
 
 Windows Fall Creators Update (1709 sürümü) makinesinde geliştiriyorsanız, yalnızca Windows sürüm 1709 docker görüntülerini kullanabilirsiniz.
 
@@ -90,6 +92,10 @@ Aşağıdaki kapsayıcı işletim sistemi görüntüleri, hizmetleri dağıtmak 
     - Windows Server sürümü 1803
 - Linux
     - Hiçbir bilinen sınırlamalar
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Hangi tür uygulama miyim dağıtabilir miyim? 
+
+Uygulama kaynağı (kotaları hakkında daha fazla bilgi için yukarıya bakın) kısıtlamalara uyan kapsayıcıları çalışır yerleştirildiği herhangi bir şey dağıtabilirsiniz. Belirlersek kafes geçersiz iş yüklerini çalıştırmak için kullandığınız ya da (yani araştırma) sistemi ayrıcalıkların, ardından dağıtımları ve engelleme listesi hizmette çalışmasını aboneliğinizi sonlandırmak için hakkımızı saklı tutarız. Belirli bir iş yükü çalıştırma herhangi bir sorunuz varsa lütfen bize ulaşın. 
 
 ## <a name="developer-experience-issues"></a>Geliştirici deneyimi sorunları
 

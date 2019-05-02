@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471983"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920164"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -86,7 +86,7 @@ Grup silme işlemi, 30 gün içinde seçerek geri yüklenebilir **grubu geri yü
 Grubun, geri belgeleri, SharePoint siteleri veya diğer kalıcı nesneler içeriyorsa, tam olarak grubu ve içeriğini geri yüklemek için 24 saat sürebilir.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Office 365 grubu sona erme tarihi alma
-Erişim kullanıcı grubu ayrıntıları sona erme tarihini ve son yenilenen tarihi dahil olmak üzere görüntüleyebileceğiniz panele ek olarak, bir Office 365 grubu sona erme tarihini, Microsoft Graph REST API Beta'dan alınabilir. Microsoft Graph Beta expirationDateTime grubu özelliği etkinleştirildi. Bir GET isteğiyle alınabilir. Daha fazla ayrıntı için lütfen başvurmak [Bu örnek](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+Erişim kullanıcı grubu ayrıntıları sona erme tarihini ve son yenilenen tarihi dahil olmak üzere görüntüleyebileceğiniz panele ek olarak, bir Office 365 grubu sona erme tarihini, Microsoft Graph REST API Beta'dan alınabilir. Microsoft Graph Beta expirationDateTime grubu özelliği etkinleştirildi. Bir GET isteğiyle alınabilir. Daha fazla ayrıntı için lütfen başvurmak [Bu örnek](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Erişim paneli grup üyeliklerini yönetmek için "Erişim Paneli'nde gruplara erişimi kısıtlama" Azure Active Directory grupları genel ayarını "Hayır" ayarlanması gerekir.
@@ -101,10 +101,10 @@ Bekletme İlkesi, güvenlik ve uyumluluk Merkezi'nde yoluyla yapılandırılır.
 ## <a name="powershell-examples"></a>PowerShell örnekleri
 Kiracınızda Office 365 grupları için sona erme ayarları yapılandırmak için PowerShell cmdlet'lerini nasıl kullanabileceğinizi örnekleri şunlardır:
 
-1. PowerShell v2.0 Önizleme Modülü (2.0.0.137) yükleyin ve PowerShell komut isteminde oturum açın:
+1. PowerShell v2.0 modülünü yükleyin ve PowerShell komut isteminde oturum açın:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. New-AzureADMSGroupLifecyclePolicy sona erme ayarları yapılandırın:  Bu cmdlet ile 365 gün kiracıdaki tüm Office 365 grupları için yaşam süresi ayarlar. Yenileme bildirimleri için Office 365 grupları sahipleri gönderilecek olmadan 'emailaddress@contoso.com'
   

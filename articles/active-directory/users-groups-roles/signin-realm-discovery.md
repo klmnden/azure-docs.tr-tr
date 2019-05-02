@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468947"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920510"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory oturum açma sayfaları için giriş bölgesi bulma
 
@@ -49,7 +49,7 @@ Bu iş ek bir avantaj geliştirilmiş hatadır Mesajlaşma. Yalnızca Azure Acti
     ![iyi bir kullanıcı adıyla parola yanlış yazılan](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Bu özellik eski etki alanı düzeyinde ana bölge Federasyon zorlamak için bulma bağlı olan Federasyon etki alanları üzerinde bir etkisi olabilir. Ne zaman Federasyon etki alanı desteği eklenecektir hakkında güncelleştirmeler almak için bkz: [giriş bölgesi bulmayı Microsoft 365 Hizmetleri için oturum açma sırasında](https://azure.microsoft.com/en-us/updates/signin-hrd/). Sırada, bazı kuruluşlar, etki alanı adlarını yönlendirir çünkü kullanıcılar şu anda kuruluşun etki alanı uç noktası için Azure Active Directory'de mevcut değil, ancak uygun etki alanı adını içeren bir kullanıcı adıyla oturum etkinleştirmelerini eğitim. Yeni oturum açma davranışı Bu izin vermez. Kullanıcı adını düzeltmek için kullanıcı bilgilendirilir ve Azure Active Directory'de mevcut olmayan bir kullanıcı adı oturum açmaya izin verilmez.
+> Bu özellik eski etki alanı düzeyinde ana bölge Federasyon zorlamak için bulma bağlı olan Federasyon etki alanları üzerinde bir etkisi olabilir. Ne zaman Federasyon etki alanı desteği eklenecektir hakkında güncelleştirmeler almak için bkz: [giriş bölgesi bulmayı Microsoft 365 Hizmetleri için oturum açma sırasında](https://azure.microsoft.com/updates/signin-hrd/). Sırada, bazı kuruluşlar, etki alanı adlarını yönlendirir çünkü kullanıcılar şu anda kuruluşun etki alanı uç noktası için Azure Active Directory'de mevcut değil, ancak uygun etki alanı adını içeren bir kullanıcı adıyla oturum etkinleştirmelerini eğitim. Yeni oturum açma davranışı Bu izin vermez. Kullanıcı adını düzeltmek için kullanıcı bilgilendirilir ve Azure Active Directory'de mevcut olmayan bir kullanıcı adı oturum açmaya izin verilmez.
 >
 > Eski davranışı bağımlı uygulamalar varsa, siz veya Kurumunuz için kuruluş yöneticileri çalışan oturum açma ve kimlik doğrulaması belgeleri güncelleştirmek ve Azure Active Directory kullanıcı adı oturum açmak için kullanılacak çalışanların eğitmek için önemlidir.
   

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896271"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712423"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure'da Windows veri bilimi sanal makinesi sağlama
 
@@ -116,7 +116,7 @@ Machine Learning Server Developer edition VM üzerinde yüklü olmadığından, 
 
 Machine Learning sunucusu, çeşitli büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi görevlerini destekler. Analytics tam aralığını destekler: Keşif, analiz, Görselleştirme ve modelleme. Kullanarak ve açık kaynak R ve Python, R ve Python betikleri ve işlevler ile Machine Learning sunucusu uyumludur. Kurumsal ölçekte verileri çözümlemek için CRAN, pip ve Conda paketleri ile de uyumludur.
 
-Machine Learning sunucusu ekleme paralel ve öbeklenmiş veri işleme tarafından açık kaynaklı R'nin bellek içi sınırlamaları ele alır. Bu analiz daha ne ana belleğe sığamayacak kadar büyük veri çubuğunda çalıştırabileceğiniz anlamına gelir. Visual Studio Community, VM'de dahil edilir. Bunu R araçları Visual Studio ve Python araçları için tam IDE R veya Python ile çalışmaya yönelik sağlayan Visual Studio (PTVS) uzantıları için vardır. Ayrıca, diğer Ide'leri ister bildirimde [RStudio](http://www.rstudio.com) ve [PyCharm Community edition](https://www.jetbrains.com/pycharm/) VM üzerinde.
+Machine Learning sunucusu ekleme paralel ve öbeklenmiş veri işleme tarafından açık kaynaklı R'nin bellek içi sınırlamaları ele alır. Bu analiz daha ne ana belleğe sığamayacak kadar büyük veri çubuğunda çalıştırabileceğiniz anlamına gelir. Visual Studio Community, VM'de dahil edilir. Bunu R araçları Visual Studio ve Python araçları için tam IDE R veya Python ile çalışmaya yönelik sağlayan Visual Studio (PTVS) uzantıları için vardır. Ayrıca, diğer Ide'leri ister bildirimde [RStudio](https://www.rstudio.com) ve [PyCharm Community edition](https://www.jetbrains.com/pycharm/) VM üzerinde.
 
 ### <a name="python"></a>Python
 

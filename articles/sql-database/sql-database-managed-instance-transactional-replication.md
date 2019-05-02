@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313689"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917021"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
@@ -79,7 +79,7 @@ Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-
   > - Eski bir sürümü kullanılarak çoğaltma yapılandırmaya çalışmadan sonuçlanabilir hata numarası (işlem abone. bağlanamadı) MSSQL_REPL20084 ve MSSQ_REPL40532 (sunucu açamıyor \<adı > oturum açma tarafından istenen. Oturum açma başarısız.)
   > - Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve [SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Örnek veritabanları ve şirket içi sistemler için Supportabilty Matrisi
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Örnek veritabanları ve şirket içi sistemler için desteklenebilirlik Matrisi
   Çoğaltma desteklenebilirliği matris örneği için veritabanları aynı olup şirket içi SQL Server için. 
   
   | **Yayımcı**   | **Dağıtıcı** | **Abone** |
@@ -140,7 +140,7 @@ Bu yapılandırmada, Azure SQL veritabanı (tek bir havuzda ve veritabanı örne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. [İşlem çoğaltma için bir yönetilen örnek yapılandırma](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [İşlem çoğaltma için bir yönetilen örnek yapılandırma](replication-with-sql-database-managed-instance.md). 
 1. [Yayın oluşturma](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Gönderme temelli bir abonelik oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin `N'azuresqldbdns.database.windows.net` ve hedef veritabanı olarak Azure SQL veritabanı adı (örneğin **Adventureworks**. )
 

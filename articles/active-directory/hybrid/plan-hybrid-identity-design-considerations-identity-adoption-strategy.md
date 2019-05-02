@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381998"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919097"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, karma kimlik çözümü içinde bahsedilen iş gereksinimlerini karşılamak için karma kimlik benimseme stratejinizi tanımlayın:
@@ -37,7 +37,7 @@ Kuruluşların iş belirleme ilk görev adres olması gerekir.  Bu çok geniş o
 ## <a name="define-an-integration-strategy"></a>Bir tümleştirme stratejisini tanımlayın
 Microsoft bulut kimlikleri, eşitlenen kimlikler ve Federasyon kimlikleri olan üç ana tümleştirme senaryolarına sahiptir.  Bu tümleştirme stratejiler birini benimsenmesi planlamanız gerekir.  Seçtiğiniz strateji değişebilir ve en uygun maliyetli nedir ve kararların bir seçme içinde bulunabilir, ne tür bir kullanıcı deneyimi sunmak, mevcut bir altyapınız var istiyorsunuz.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Tümleştirme senaryoları](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 Yukarıdaki şekilde tanımlanan tüm senaryolar şunlardır:
 
@@ -111,14 +111,14 @@ Yıllar içinde birden çok eşitleme araçları vardı ve çeşitli senaryolar 
 ### <a name="supported-topologies"></a>Desteklenen topolojiler
 Bir eşitleme stratejiyi tanımlarken, kullanılan topoloji belirlenmesi gerekir. Adımda belirlenen bilgilere bağlı olarak 2 hangi topolojiyi kullanmak için uygun olduğunu belirleyebilirsiniz. Tek orman, tek Azure AD topoloji yaygın olarak kullanılır ve tek bir Active Directory ormanı ve tek bir Azure AD örneğinde oluşur.  Bu senaryolardan Çoğunluk kullanılacak geçiyor ve beklenen topolojisi aşağıdaki çizimde gösterildiği gibi Azure AD Connect Express yüklemesi kullanarak andır.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) Tek orman, Şekil 5'te gösterildiği gibi birden çok ormanı daha küçük ve büyük ölçekli kuruluşlar için yaygın senaryodur.
+![Desteklenen topolojiler](./media/plan-hybrid-identity-design-considerations/single-forest.png) tek orman senaryo olduğu birden çok ormanı daha küçük ve büyük ölçekli kuruluşlar için yaygın Şekil 5'te gösterildiği gibi.
 
 > [!NOTE]
 > Eşitleme şirket içi ve Azure AD Connect ile Azure AD topolojiler hakkında daha fazla bilgi için makaleyi okuyun [Azure AD Connect için topolojiler](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![çok ormanlı topolojisi](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Çok ormanlı senaryosu
 
@@ -140,7 +140,7 @@ Bu durum, çok ormanlı tek ise Azure AD topoloji, aşağıdaki öğeleri doğru
 
 Yukarıdaki doğru değildir ve birden fazla etkin hesap ya da birden fazla posta kutusu varsa Azure AD Connect, bir tane seçin ve diğer yoksay.  Posta kutularını ancak başka bir hesap bağladıysanız bu hesapları Azure AD'ye aktarılmaz ve bu kullanıcı herhangi bir gruba üye olmamasını.  Bu, nasıl DirSync ile daha önce olduğu ve bu çok ormanlı senaryolar kasıtlı daha iyi destek, öğesinden farklıdır. Çok ormanlı senaryo aşağıdaki çizimde gösterilmektedir.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Birden çok Azure AD kiracıları](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Çok ormanlı birden çok Azure AD senaryosu**
 
@@ -148,7 +148,7 @@ Bir kuruluş için Azure AD'de yalnızca tek bir dizin sağlamak için önerilir
 
 Bu, olası ve aşağıdaki çizimde gösterildiği gibi birden çok Azure AD dizini için şirket içi Active Directory örneğini bir bağlanmak için desteklenen olur:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![tek orman filtreleme](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Tek ormanlı filtreleme senaryosu**
 

@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096187"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919176"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Azure AD Connect için kullanılan hesaplar
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![hesaplarına genel bakış](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect, şirket içi veya Windows Server Active Directory Azure Active Directory bilgileriyle eşitlemek için 3 hesaplarını kullanır.  Bu hesaplar şunlardır:
 
@@ -111,10 +111,10 @@ Hızlı Yükleme Sihirbazı sayfaları, toplanan, kimlik bilgilerini bir özeti 
 | Eşitleme Hizmetleri, hizmet hesabı seçeneğini yükleyin |AD veya yerel kullanıcı hesabı kimlik bilgileri |Yükleme Sihirbazı tarafından verilen kullanıcı izinleri |Yönetici hesabınız belirtiyorsa, bu hesap için eşitleme hizmeti hizmet hesabı olarak kullanılır. |
 | Azure AD'ye Bağlanma |Azure AD directory kimlik bilgileri |Azure AD'de genel yönetici rolü |<li>Azure AD dizini eşitleme etkinleştiriliyor.</li>  <li>Devam eden eşitleme işlemleri için Azure AD'de kullanılan Azure AD Bağlayıcısı hesabı oluşturma.</li> |
 | Dizinlerinizi bağlama |Şirket içi Active Directory kimlik bilgileri Azure AD'ye bağlı her bir orman için |İzinler hangi özellikleri etkinleştirmek ve AD DS bağlayıcı hesabı oluştur bulunabilir bağlıdır. |Bu hesap, okumak ve dizin eşitleme sırasında yazmak için kullanılır. |
-| AD FS Sunucuları |Listedeki her sunucu için Sihirbazı çalıştıran kullanıcı oturum açma kimlik bilgilerini bağlanmak yetersiz olduğunda sihirbaz kimlik bilgilerini toplar. |Etki alanı yöneticisi |Yükleme ve AD FS sunucusu rolü yapılandırması. |
-| Web uygulaması Ara sunucusu |Listedeki her sunucu için Sihirbazı çalıştıran kullanıcı oturum açma kimlik bilgilerini bağlanmak yetersiz olduğunda sihirbaz kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve WAP sunucusu rolü yapılandırması. |
+| AD FS Sunucuları |Listedeki her sunucu için Sihirbazı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak yetersiz olduğunda Sihirbazı kimlik bilgilerini toplar. |Etki alanı yöneticisi |Yükleme ve AD FS sunucusu rolü yapılandırması. |
+| Web uygulaması Ara sunucusu |Listedeki her sunucu için Sihirbazı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak yetersiz olduğunda Sihirbazı kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve WAP sunucusu rolü yapılandırması. |
 | Ara sunucu güveni kimlik bilgileri |Federasyon Hizmeti'ne güvenen kimlik bilgilerini (proxy FS güven sertifikadan kaydetmek için kullandığı kimlik bilgileri |AD FS sunucusunun yerel yönetici olan etki alanı hesabı |İlk kayıt FS WAP güven sertifikası. |
-| "Bir etki alanı kullanıcı hesabı seçeneğini kullan" AD FS hizmet hesabı sayfası |AD kullanıcı hesabı kimlik bilgileri |Etki alanı kullanıcısı |Kimlik bilgileri sağlanan AD kullanıcı hesabı, AD FS hizmeti oturum açma hesabı olarak kullanılır. |
+| "Bir etki alanı kullanıcı hesabı seçeneğini kullan" AD FS hizmet hesabı sayfası |AD kullanıcı hesabı kimlik bilgileri |Etki alanı kullanıcısı |Kimlik bilgileri sağlanan Azure AD kullanıcı hesabı AD FS hizmeti oturum açma hesabı kullanılır. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>AD DS bağlayıcı hesabı oluşturma
 
@@ -239,6 +239,11 @@ Hesabın süresinin sona kadar karmaşık bir parola oluşturulur. Özel bir rol
 Azure AD'de eşitleme hizmeti hesabı 20 bir sınırlama yoktur. Azure AD'niz içinde var olan Azure AD hizmet hesabını listesini almak için aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Kullanılmayan Azure AD'ye kaldırmak için hizmet hesapları, aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Yukarıdaki PowerShell komutları kullanmadan önce yüklemeniz gerekir [graf modülü için Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) ve Azure AD kullanarak Örneğinize bağlanmak [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Nasıl yöneteceğinizi veya Azure AD Bağlayıcısı hesap parolası sıfırlama hakkında daha fazla bilgi için bkz: [Azure AD Connect hesabını yönetme](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>İlgili belgeler
 Varsa, ilgili belgeleri okuyun değil [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md), aşağıdaki tabloda ilgili konulara bağlantılar sağlar.

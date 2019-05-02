@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702422"
 ---
 # <a name="how-an-application-gateway-works"></a>Bir uygulama ağ geçidi nasıl çalışır?
 
@@ -26,7 +26,7 @@ Bu makalede, nasıl bir uygulama ağ geçidi gelen istekleri kabul eder ve bunla
 
 2. Azure DNS, uygulama ağ geçidi ön uç IP adresi olduğu istemci IP adresini döndürür.
 
-3. Uygulama ağ geçidi, bir veya daha fazla dinleyicileri gelen trafiği kabul eder. Dinleyici bağlantı isteklerini denetleyen bir mantıksal bir varlıktır. Fronted IP adresi, protokol ve istemcilerinden gelen bağlantıları uygulama ağ geçidi için bağlantı noktası numarası ile yapılandırılır.
+3. Uygulama ağ geçidi, bir veya daha fazla dinleyicileri gelen trafiği kabul eder. Dinleyici bağlantı isteklerini denetleyen bir mantıksal bir varlıktır. Ön uç IP adresi, protokol ve istemcilerinden gelen bağlantıları uygulama ağ geçidi için bağlantı noktası numarası ile yapılandırılır.
 
 4. Bir web uygulaması Güvenlik Duvarı (WAF) kullanılıyorsa, uygulama ağ geçidi istek üst bilgileri ve gövdesini varsa, WAF kurallarına karşı denetler. Bu eylem geçerli istek veya bir güvenlik tehdidi isteği olup olmadığını belirler. İstek geçerliyse, arka uca yönlendirilir. İstek geçerli değilse bir güvenlik tehdidi olarak engellenir.
 

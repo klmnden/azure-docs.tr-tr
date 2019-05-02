@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 494284d32b48b810143f8c483278b2efbfb0dbc2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280511"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Öğretici: MyWorkDrive ile Azure Active Directory Tümleştirme
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD Tümleştirmesi ile MyWorkDrive yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * MyWorkDrive çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -66,7 +66,7 @@ Azure AD'de MyWorkDrive'nın tümleştirmesini yapılandırmak için MyWorkDrive
 
 4. Arama kutusuna **MyWorkDrive**seçin **MyWorkDrive** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde MyWorkDrive](common/search-new-app.png)
+    ![Sonuç listesinde MyWorkDrive](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -123,11 +123,11 @@ Azure AD çoklu oturum açma ile MyWorkDrive yapılandırmak için aşağıdaki 
 
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
 ### <a name="configure-myworkdrive-single-sign-on"></a>MyWorkDrive tek oturum açmayı yapılandırın
 
-1. Bir başka web tarayıcı penceresinde MyWorkDrive bir güvenlik yöneticisi olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde MyWorkDrive için bir güvenlik yöneticisi olarak oturum açın.
 
 2. MyWorkDrive sunucuda yönetim paneli tıklayarak **Kurumsal** ve aşağıdaki adımları gerçekleştirin:
 
@@ -141,10 +141,10 @@ Azure AD çoklu oturum açma ile MyWorkDrive yapılandırmak için aşağıdaki 
 
     d. **Kaydet**’e tıklayın
 
-    >[!NOTE]
-    >Ek bilgileri İnceleme için [MyWorkDrive Azure AD'ye destek makalesi](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+    > [!NOTE]
+    > Ek bilgileri İnceleme için [MyWorkDrive Azure AD'ye destek makalesi](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -162,8 +162,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü `brittasimon\@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com.
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -199,7 +198,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için MyWorkDrive erişim vere
 
 Bu bölümde, Britta Simon MyWorkDrive adlı bir kullanıcı oluşturun. Çalışmak [MyWorkDrive Destek ekibine](mailto:support@myworkdrive.com) MyWorkDrive platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -212,4 +211,3 @@ Erişim paneli MyWorkDrive kutucuğa tıkladığınızda, size otomatik olarak S
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

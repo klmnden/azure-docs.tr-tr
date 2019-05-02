@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412357"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723293"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
 
@@ -152,7 +152,7 @@ Uygulamanız SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özell
 
 8. Güncelleştirme **öznitelikleri** rol talep özelleştirilmiş bir eşleme tablosunu.
 
-9. İçinde **kullanıcı öznitelikleri ve talepler** bölümünü **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin.
+9. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
     | Öznitelik adı | Öznitelik değeri |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Uygulamanız SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özell
     >[!NOTE]
     >Rol talep değeri null ise, ardından Azure AD bu değer belirtece göndermez ve tasarım göre bu varsayılandır.
 
-    a. Tıklayın **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+    a. tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri ve talepler** iletişim.
 
       !["Öznitelik Ekle" düğmesi](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Seçin **eklemek agentconfigutil** açmak için **yönetmek, kullanıcı talepleri** bölmesi.
+    b. İçinde **yönetmek, kullanıcı talepleri** iletişim kutusunda, tıklayarak SAML belirteci öznitelik Ekle **Ekle yeni talep**.
 
       !["Öznitelik Ekle" düğmesi](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

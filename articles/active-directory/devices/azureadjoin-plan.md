@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354528"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918827"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
@@ -135,7 +135,11 @@ Azure AD'ye katılım:
 
 ### <a name="management-platform"></a>Yönetim platformu
 
-Cihaz Yönetimi Azure AD'ye katılmış cihazlar için temel bir MDM platformu Intune gibi) ve MDM CSP'ler. Windows 10 ile uyumlu tüm MDM çözümlerinde çalışır bir yerleşik MDM Aracısı var.
+Cihaz Yönetimi Azure AD'ye katılmış cihazlar için Intune ve MDM CSP'ler gibi bir MDM platformu temel alır. Windows 10 ile uyumlu tüm MDM çözümlerinde çalışır bir yerleşik MDM Aracısı var.
+
+> [!NOTE]
+> Grup ilkeleri, şirket içi Active Directory'ye bağlı değil olarak Azure AD'ye katılmış cihazlar desteklenmez. Azure AD'ye katılmış cihazların yönetimini yalnızca MDM mümkündür
+
 
 Yönetme Azure AD'ye katılmış cihazlar için iki yaklaşım vardır:
 
@@ -143,7 +147,6 @@ Yönetme Azure AD'ye katılmış cihazlar için iki yaklaşım vardır:
 
 - **Ortak yönetim** -bir cihaz bir MDM sağlayıcısına ve SCCM tarafından yönetilir. Bu yaklaşımda, SCCM aracının belirli yönlerini yönetmek için bir MDM ile yönetilen cihaza yüklenir.
 
-Azure AD'ye katılmış cihazların şirket içi Active Directory'ye bağlı değil, Grup İlkesi desteklenmez.
 
 
 Grup ilkeleri kullanıyorsanız, MDM İlkesi eşlik kullanarak değerlendirmek [MDM geçiş analiz Aracı (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

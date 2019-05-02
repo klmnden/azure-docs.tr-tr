@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513704"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712823"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
 
@@ -23,8 +23,6 @@ ms.locfileid: "60513704"
 > Bu metot kullanımdan kaldırılmıştır. Translator metin çevirisi API'si, V3.0 içinde kullanılabilir değil.
 > 
 > İşbirliğine dayalı çevirileri Framework (CTF), daha önce Translator Text API, V2.0 için kullanılabilir, 1 Şubat 2018'den itibaren kullanım dışı bırakıldı. AddTranslation ve AddTranslationArray işlevleri izin düzeltmeleri işbirliğine dayalı çeviri çerçevesi aracılığıyla etkinleştirin. 31 Ocak 2018'den sonra bu iki işlevler yeni cümle gönderimler kabul etmedi ve kullanıcıların bir hata iletisi alırsınız. Bu işlevler, kullanımdan kaldırılmıştır ve değiştirilmeyecek.
-> 
-> Benzer bir işlevsellik terminoloji ve stil özel çeviri sistemiyle oluşturmanıza olanak sağlayan Translator Hub API, kullanılabilir ve Translator metin çevirisi API'si kategori kimliği kullanarak çağırabilirsiniz. Translator Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator API Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 Raporlama işbirliğine dayalı Translation Framework (CTF) API istatistikleri ve gerçek içerik CTF deposunda döndürür. Bu API GetTranslations() yönteminden farklıdır çünkü bu:
 * Çevrilen içeriğin ve alt toplam sayısı yalnızca hesabınızdan (AppID veya Azure Market hesabı) döndürür.

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511502"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916615"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
 
@@ -47,7 +47,7 @@ Bing görsel arama sonuçları, sınırlayıcı kutular bölgeler için görünt
 
 Bing görsel arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK hizmeti için kullanabilirsiniz.
 
-1. Oluşturma bir [Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing arama API'lerine erişmek için. Azure aboneliğiniz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
+1. Oluşturma bir [Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing arama API'lerine erişmek için. Azure aboneliğiniz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
 2. Geçerli bir arama sorgusuyla API'sine bir istek gönderin.
 3. Döndürülen JSON iletisini ayrıştırarak API yanıtını işleyin.
 

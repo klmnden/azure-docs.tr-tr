@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372043"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875705"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Bilgi bankanızı etkileşimli soru-cevap Oluşturucu test edin
 
@@ -24,8 +24,8 @@ Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu 
 
 ## <a name="test-answer-matching"></a>Test yanıt eşleştirme
 
-1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
-2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
+1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
+2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
 
     ![Erişim Test paneli](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu 
 
 ## <a name="clear-test-panel"></a>Açık test paneli
 
-Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan** Test panelinin sol üst köşesinde.
+Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan** Test panelinin sol üst köşesinde.
 
 ## <a name="close-test-panel"></a>Kapat test paneli
 
-Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası içerikleri, Test panel açıkken düzenleyemezsiniz.
+Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası içerikleri, Test panel açıkken düzenleyemezsiniz.
 
 ## <a name="inspect-score"></a>Puan inceleyin
 
 İnceleyin panelinde test sonucunun ayrıntılarını inceleyin.
 
-1.  Test slayt çıkış panelini Aç seçin **inceleyin** bu yanıtı hakkında daha fazla bilgi.
+1.  Test slayt çıkış panelini Aç seçin **inceleyin** bu yanıtı hakkında daha fazla bilgi.
 
     ![Yanıtları](../media/qnamaker-how-to-test-kb/inspect.png)
 

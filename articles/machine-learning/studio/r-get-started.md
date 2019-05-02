@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875524"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726553"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>R programlama dili Azure Machine Learning Studio'da kullanmaya başlama
 
@@ -1320,7 +1320,7 @@ Başlamanıza yardımcı olabilecek R bir çok kitap mevcuttur. Birkaç faydalı
 * **R programlama resim: Bir tur, istatistiksel yazılım tasarımı** Norman Matloff tarafından r programlama mükemmel bir giriş niteliğindedir  
 * **R Kılavuzu** Paul Teetor tarafından r kullanarak bir sorun ve çözümü yaklaşım sağlar.  
 * **R uygulamada** Robert Kabacoff tarafından başka bir kullanışlı tanıtım defteridir. Yardımcısı [hızlı R Web sitesi](https://www.statmethods.net/) faydalı bir kaynaktır.
-* **R Inferno** Patrick Burns ile r'de programlamada karşılaşılan zor ve zor konular sayısı ile ilgilenen yayımladım yanıtlamaya yönelik esprili defteridir Ücretsiz kitap kullanılabilir [R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** Patrick Burns ile r'de programlamada karşılaşılan zor ve zor konular sayısı ile ilgilenen yayımladım yanıtlamaya yönelik esprili defteridir Ücretsiz kitap kullanılabilir [R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * R ile Gelişmiş konular hakkında ayrıntılı bir inceleme istediğiniz kitabın göz varsa **Gelişmiş R** Hadley Wickham tarafından. Bu kitap'ın çevrimiçi sürümünü ücretsiz kullanılabilir [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
 R zaman serisi paketleri kataloğunu bulunabilir [CRAN görev görünümü: Zaman serisi analiz](https://cran.r-project.org/web/views/TimeSeries.html). Paketleri serisi nesnesi hakkında bilgi için belirli bir zaman, paketin belgelerine başvurmanız gerekir.

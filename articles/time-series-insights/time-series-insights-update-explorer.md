@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109772"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723457"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Önizleme gezginde verileri Görselleştirme
 
@@ -216,10 +216,11 @@ Gösterebilir ve aşağıdaki görüntüde gösterildiği gibi görünür simges
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki makalelere bakın:
-* [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md)
-* [Veri modelleme](./time-series-insights-update-tsm.md)
-* [Tanılama ve sorun giderme](./time-series-insights-update-how-to-troubleshoot.md)
+- Hakkında bilgi edinin [depolama ve giriş](./time-series-insights-update-storage-ingress.md) Azure zaman serisi öngörüleri önizlemede.
+
+- Zaman serisi öngörüleri Önizleme belgeyi okumaya [veri modelleme](./time-series-insights-update-tsm.md).
+
+- Bilgi [tanılayın ve sorunlarını gidermeyi](./time-series-insights-update-how-to-troubleshoot.md) Time Series Insights örneğinizin.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

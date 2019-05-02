@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616839"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918962"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -38,7 +38,6 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Avrupa |Kuzey Avrupa |Batı Avrupa |
 | Fransa |Fransa Orta|Fransa Güney|
 | Almanya |Almanya Orta |Almanya Kuzeydoğu |
-| Almanya |Almanya Kuzey | Almanya Orta Batı
 | Hindistan |Orta Hindistan |Güney Hindistan |
 | Hindistan |Batı Hindistan |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
@@ -47,13 +46,8 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Kuzey Amerika |Doğu ABD 2 |Orta ABD |
 | Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
 | Kuzey Amerika |Batı ABD 2 |Batı Orta ABD 
-| Kuzey Amerika |Batı ABD 3 |Doğu ABD
-| Norveç |Norveç Doğu |Norveç Batı
 | Güney Afrika | Güney Afrika Kuzey | Güney Afrika Batı
-| İsveç |İsveç Orta |İsveç Güney
-| İsviçre | İsviçre Kuzey | İsviçre Batı
 | UK |Birleşik Krallık Batı |Birleşik Krallık Güney |
-| UK |UK Kuzey |UK Güney 2
 | Birleşik Arap Emirlikleri | BAE Kuzey | BAE Orta
 | ABD Savunma Bakanlığı |US DoD Doğu |US DoD Orta |
 | ABD Devleti |ABD Devleti Arizona |ABD Devleti Texas |

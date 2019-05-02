@@ -4,164 +4,178 @@ description: Azure Active Directory ve Spotinst arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/25/2018
+ms.topic: tutorial
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3f0d42562b1c927fe0f87ddc87b5e097022d2be2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542092"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Öğretici: Spotinst ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Spotinst tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Spotinst tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Spotinst erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için Spotinst (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Spotinst erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Spotinst için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Spotinst yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Spotinst çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* Abonelik Spotinst çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Spotinst ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Spotinst destekler **SP ve IDP** tarafından başlatılan
 
 ## <a name="adding-spotinst-from-the-gallery"></a>Galeriden Spotinst ekleme
+
 Azure AD'de Spotinst tümleştirmesini yapılandırmak için Spotinst Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Spotinst eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **Spotinst**seçin **Spotinst** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuç listesinde Spotinst](./media/spotinst-tutorial/tutorial_spotinst_addfromgallery.png)
+    ![Sonuç listesinde Spotinst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Spotinst sınayın.
-
-Tek iş için oturum açma için Azure AD ne Spotinst karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Spotinst ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Spotinst adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Spotinst ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Spotinst ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Spotinst test kullanıcısı oluşturma](#create-a-spotinst-test-user)**  - kullanıcı Azure AD gösterimini bağlı Spotinst Britta simon'un bir karşılığı vardır.
+2. **[Spotinst çoklu oturum açmayı yapılandırma](#configure-spotinst-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[Spotinst test kullanıcısı oluşturma](#create-spotinst-test-user)**  - kullanıcı Azure AD gösterimini bağlı Spotinst Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Spotinst uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Spotinst yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Spotinst yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Spotinst** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Spotinst** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/spotinst-tutorial/tutorial_spotinst_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-3. Üzerinde **Spotinst etki alanı ve URL'ler** bölümünde, IDP tarafından başlatılan modunda uygulama yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Spotinst etki alanı ve URL'ler tek oturum açma bilgileri](./media/spotinst-tutorial/tutorial_spotinst_url1.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. Denetleme **Gelişmiş URL ayarlarını göster**.
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+
+    ![Spotinst etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-preintegrated-relay.png)
+
+    a. Denetleme **ek URL'lerini ayarlayın**.
 
     b. İçinde **geçiş durumu** metin kutusuna bir değer girin: `<ID>`
 
-    c. Uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://console.spotinst.com`
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+
+    ![Spotinst etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın:  `https://console.spotinst.com`
 
     > [!NOTE]
     > Geçiş durumu değeri gerçek değil. Geçiş durumu değeri, öğreticinin ilerleyen bölümlerinde açıklanan gerçek geçiş durumu değeri ile güncelleştirir.
 
-4. Spotinst uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran için bir örnek gösterilmektedir.
+6. Spotinst uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
+    ![image](common/edit-attribute.png)
 
-5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Öznitelik Adı | Öznitelik Değeri |
-    | ---------------| --------------- |
+    | Ad | Kaynak özniteliği|
+    | -----| --------------- |
     | Email | User.Mail |
     | FirstName | User.givenName |
     | LastName | User.surname |
-    
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/spotinst-tutorial/tutorial_attribute_04.png)
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/spotinst-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Bırakın **Namespace** boş.
 
-    d. Bırakın **Namespace** boş.
+    d. Kaynağı olarak **özniteliği**.
 
-    e. Tıklayın **Tamam**
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-6. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    f. Tıklayın **Tamam**
 
-    ![Sertifika indirme bağlantısı](./media/spotinst-tutorial/tutorial_spotinst_certificate.png) 
+    g. **Kaydet**’e tıklayın.
 
-7. Tıklayın **Kaydet** düğmesi.
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/spotinst-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-8. Bir başka web tarayıcı penceresinde Spotinst bir güvenlik yöneticisi olarak oturum açın.
+9. Üzerinde **Spotinst kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-9. Tıklayarak **kullanıcı simgesi** tıklayın ve ekranın üst sağ tarafında **ayarları**.
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-spotinst-single-sign-on"></a>Spotinst tek oturum açmayı yapılandırın
+
+1. Farklı bir web tarayıcı penceresinde Spotinst için bir güvenlik yöneticisi olarak oturum açın.
+
+2. Tıklayarak **kullanıcı simgesi** tıklayın ve ekranın üst sağ tarafında **ayarları**.
 
     ![Spotinst ayarları](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
-10. Tıklayarak **güvenlik** üstte sekmesini seçip **kimlik sağlayıcıları** ve aşağıdaki adımları gerçekleştirin:
+3. Tıklayarak **güvenlik** üstte sekmesini seçip **kimlik sağlayıcıları** ve aşağıdaki adımları gerçekleştirin:
 
     ![Spotinst güvenlik](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-    a. Kopyalama **geçiş durumu** yapıştırın ve değer Örneğiniz için **geçiş durumu** metin kutusunda **Spotinst etki alanı ve URL'ler** bölümü Azure portalı.
+    a. Kopyalama **geçiş durumu** yapıştırın ve değer Örneğiniz için **geçiş durumu** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
 
     b. Tıklayın **Gözat** Azure portalından indirdiğiniz meta veri xml dosyasını karşıya yüklemek için
 
@@ -171,41 +185,59 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/spotinst-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/spotinst-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/spotinst-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/spotinst-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="create-a-spotinst-test-user"></a>Spotinst test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Spotinst erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Spotinst**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Spotinst**.
+
+    ![Uygulamalar listesinde Spotinst bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-spotinst-test-user"></a>Spotinst test kullanıcısı oluşturma
 
 Bu bölümün amacı Spotinst Britta Simon adlı bir kullanıcı oluşturmaktır.
 
-1. Uygulamada yapılandırdıysanız **SP** intiated modu, aşağıdaki adımları gerçekleştirin:
+1. Uygulamada yapılandırdıysanız **SP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
-   a. Bir başka web tarayıcı penceresinde Spotinst bir güvenlik yöneticisi olarak oturum açın.
+   a. Farklı bir web tarayıcı penceresinde Spotinst için bir güvenlik yöneticisi olarak oturum açın.
 
    b. Tıklayarak **kullanıcı simgesi** tıklayın ve ekranın üst sağ tarafında **ayarları**.
 
@@ -221,67 +253,23 @@ Bu bölümün amacı Spotinst Britta Simon adlı bir kullanıcı oluşturmaktır
 
     * İçinde **tam adı** metin gibi kullanıcının tam adını girin **BrittaSimon**.
 
-    * İçinde **e-posta** metin gibi kullanıcı e-posta adresini girin **brittasimon\@contoso.com**.
+    * İçinde **e-posta** metin gibi kullanıcı e-posta adresini girin `brittasimon\@contoso.com`.
 
     * Kuruluşa özgü ayrıntılar için **kuruluş rolü, hesabı rolü ve hesapları**.
 
-2. Uygulamada yapılandırdıysanız **IDP** intiated modu, burada, bu bölümde, hiçbir eylem öğesini. Spotinst tam zamanında sağlama, varsayılan olarak etkin olan destekler. Yeni bir kullanıcı, henüz yoksa Spotinst erişme denemesi sırasında oluşturulur.
+2. Uygulamada yapılandırdıysanız **IDP** başlatılan modu, burada, bu bölümde, hiçbir eylem öğesini. Spotinst tam zamanında sağlama, varsayılan olarak etkin olan destekler. Yeni bir kullanıcı, henüz yoksa Spotinst erişme denemesi sırasında oluşturulur.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, Azure çoklu oturum açma kullanmak için Spotinst erişim vererek Britta Simon etkinleştirin.
-
-![Kullanıcı rolü atayın][200] 
-
-**Britta Simon Spotinst için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-2. Uygulamalar listesinde **Spotinst**.
-
-    ![Uygulamalar listesinde Spotinst bağlantı](./media/spotinst-tutorial/tutorial_spotinst_app.png)  
-
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi][203]
-
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Spotinst kutucuğa tıkladığınızda, otomatik olarak Spotinst uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Spotinst kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Spotinst için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/spotinst-tutorial/tutorial_general_01.png
-[2]: ./media/spotinst-tutorial/tutorial_general_02.png
-[3]: ./media/spotinst-tutorial/tutorial_general_03.png
-[4]: ./media/spotinst-tutorial/tutorial_general_04.png
-
-[100]: ./media/spotinst-tutorial/tutorial_general_100.png
-
-[200]: ./media/spotinst-tutorial/tutorial_general_200.png
-[201]: ./media/spotinst-tutorial/tutorial_general_201.png
-[202]: ./media/spotinst-tutorial/tutorial_general_202.png
-[203]: ./media/spotinst-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

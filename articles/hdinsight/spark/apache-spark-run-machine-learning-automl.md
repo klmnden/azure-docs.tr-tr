@@ -1,36 +1,36 @@
 ---
 title: Azure Machine Learning iş yükleri, Azure HDInsight, Apache Spark üzerinde otomatik makine öğrenimi (AutoML) çalıştırın.
 description: Azure Machine Learning iş yükleri, Azure HDInsight, Apache Spark üzerinde otomatik makine öğrenimi (AutoML) çalıştırmayı öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 896cae9b7fc43765e340ba3b92351e04b5512efd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762560"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917050"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Azure Machine Learning iş yükleri, Azure HDInsight, Apache Spark üzerinde otomatik makine öğrenimi (AutoML) çalıştırın.
 
-Azure Machine Learning derleme, test etme ve verilerinizde Tahmine dayalı analiz çözümleri dağıtmak için kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Azure Machine Learning modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web Hizmetleri olarak yayımlar. Otomatik machine learning (AutoML), yüksek kaliteli makine öğrenimi modellerini akıllı otomasyonla ve iyileştirme'yi kullanarak oluşturma yardımcı olur. AutoML doğru algoritması ve hiper parametreler belirli sorun türleri için kullanılacak karar verir.
+Azure Machine Learning basitleştirir ve yapı, eğitim ve makine öğrenimi modelleri dağıtımını hızlandırır. Otomatik makine öğrenimi (AutoML), tanımlanan target özelliği olan eğitim verileriyle başlayacağız ve algoritmaları ve otomatik olarak en iyi modeli için eğitim puanları temel alarak verilerinizi seçmek için özellik seçimleri birleşimlerini yinelemek. HDInsight ile yüzlerce düğüm kümeleri sağlama olanağı sunar. Bir HDInsight kümesinde Spark üzerinde çalıştırılan AutoML eğitim işleri genişleme biçimde çalıştırın ve paralel olarak birden fazla eğitim işleri çalıştırmak için işlem kapasitesi bu düğümlere kullanmasına olanak tanır. Bu işlem, diğer büyük veri iş yüklerini ile paylaşırken AutoML denemeleri çalıştırmak kullanıcıların sağlar.
+ 
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Azure Machine Learning bir HDInsight kümesine yükleme
 
-> [!Note]
-> Azure ML çalışma alanı aşağıdaki bölgelerde kullanılabilir: eastus2 ve westcentralus eastus. HDInsight kümesi, ayrıca bu bölgelerden birinde oluşturulmalıdır.
-
-Azure Machine Learning ve otomatik makine öğrenimi genel öğreticiler için bkz. [Öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma](../../machine-learning/studio/create-experiment.md) ve [Öğreticisi: Otomatik makine öğrenimi, regresyon modeli derler](../../machine-learning/service/tutorial-auto-train-models.md).
-Betik eylemi - çalıştırın, Azure HDInsight kümesinde AzureML yüklenecek [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - baş düğümü ve bir HDInsight 3.6 Spark 2.3.0 kümesinin (önerilen) çalışan düğümü üzerinde. Bu betik eylemi Azure portalı üzerinden ya da var olan bir kümede veya küme oluşturma işlemi, bir parçası olarak çalıştırılabilir.
-
-Betik eylemleri hakkında daha fazla bilgi için okuma [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemlerini kullanarak](../hdinsight-hadoop-customize-cluster-linux.md). Azure Machine Learning paketleri ve bağımlılıklarını yükleme yanı sıra komut dosyası ayrıca örnek bir Jupyter not defteri indirir (yoluna `HdiNotebooks/PySpark` varsayılan depolama). Bu Jupyter not defteri sınıflandırıcı basit sınıflandırma sorunu için öğrenme otomatik bir makine nasıl kullanacağınızı gösterir.
+Genel otomatik machine learning öğreticileri için bkz. [Öğreticisi: Otomatik makine öğrenimi, regresyon modeli derler](../../machine-learning/service/tutorial-auto-train-models.md).
+Tüm yeni HDInsight Spark kümelerinde AzureML AutoML SDK'sı ile önceden yüklenmiş olarak gelir. HDInsight üzerinde AutoML ile bu oluşturabileceğinize dair [örnek Jupyter not defteri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Bu Jupyter not defteri sınıflandırıcı basit sınıflandırma sorunu için öğrenme otomatik bir makine nasıl kullanacağınızı gösterir.
 
 > [!Note]
 > Azure Machine Learning paketleri Python3 conda ortamına yüklenir. PySpark3 çekirdek kullanarak yüklü Jupyter not defteri çalıştırmanız gerekir.
+
+Alternatif olarak, Zeppelin not defterlerini AutoML de kullanmak için de kullanabilirsiniz.
+
+> [!Note]
+> Zeppelin sahip bir [bilinen sorun](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) burada PySpark3 değil çekme doğru Python sürümünü. Lütfen belgelenmiş geçici çözümünü kullan.
 
 ## <a name="authentication-for-workspace"></a>Çalışma alanı için kimlik doğrulaması
 
@@ -42,8 +42,8 @@ Aşağıdaki kod parçacığını kullanarak bir kimlik doğrulama belirteci olu
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
                 tenant_id = '<Azure Tenant ID>',
-                username = '<Azure AD Application ID>',
-                password = '<Azure AD Application Key>'
+                service_principal_id = '<Azure AD Application ID>',
+                service_principal_password = '<Azure AD Application Key>'
                 )
 ```
 Aşağıdaki kod parçacığını kullanarak bir kimlik doğrulama belirteci oluşturur. bir **Azure AD kullanıcı**.
@@ -69,9 +69,10 @@ Veri deposu, ayrıca tek seferlik bir kayıt kullanarak çalışma alanı ile ka
 
 ## <a name="experiment-submission"></a>Denemeyi gönderme
 
-Otomatik machine learning yapılandırmasında, özellik `spark_context` dağıtılmış modu çalıştırmak bir paket için ayarlanması gerekir. Özellik `concurrent_iterations`, Spark uygulaması Yürütücü çekirdek daha düşük bir sayı olan en fazla paralel olarak yürütülen yineleme sayısını ayarlanmalıdır.
+İçinde [otomatik machine learning yapılandırma](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), özellik `spark_context` dağıtılmış modu çalıştırmak bir paket için ayarlanması gerekir. Özellik `concurrent_iterations`, Spark uygulaması Yürütücü çekirdek daha düşük bir sayı olan en fazla paralel olarak yürütülen yineleme sayısını ayarlanmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Otomatik makine öğrenimi arkasında motivasyon hakkında daha fazla bilgi için bkz. [machine learning Microsoft'un kullanarak adım yayın model otomatik!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/).
+* Otomatik makine öğrenimi arkasında motivasyon hakkında daha fazla bilgi için bkz. [machine learning Microsoft'un kullanarak adım yayın model otomatik!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* Azure ML otomatik ML özelliklerini kullanarak daha fazla ayrıntı için bkz: [yeni Azure Machine Learning hizmetindeki makine öğrenimi özelliklerinden otomatik](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [Microsoft Research AutoML projeden](https://www.microsoft.com/research/project/automl/)

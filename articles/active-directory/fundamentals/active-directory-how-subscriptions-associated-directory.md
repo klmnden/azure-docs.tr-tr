@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248739"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918406"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınız için Azure aboneliği ekleme veya ilişkilendirme
 
@@ -31,7 +31,7 @@ Tüm kullanıcılarınızın sahip tek bir *giriş* kimlik doğrulaması için d
 > [!Important]
 > Farklı bir dizin rolleri kullanarak atanmış kullanıcılar için bir abonelik ilişkilendirdiğinizde [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/role-assignments-portal.md) erişimlerini kaybedeceklerdir. Klasik abonelik yöneticileri (Hizmet Yöneticisi ve ortak Yöneticiler) da erişimi kaybedersiniz.
 > 
-> Ayrıca, Azure Kubernetes Service (AKS) kümenizi farklı bir aboneliğe taşınmasını ya da yeni bir kiracı için küme sahip olan abonelik taşıma işlevselliği kayıp rol atamaları ve hizmet sorumluları hakları nedeniyle kümenin neden olur. AKS hakkında daha fazla bilgi için bkz: [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Ayrıca, Azure Kubernetes Service (AKS) kümenizi farklı bir aboneliğe taşınmasını ya da yeni bir kiracı için küme sahip olan abonelik taşıma işlevselliği kayıp rol atamaları ve hizmet sorumluları hakları nedeniyle kümenin neden olur. AKS hakkında daha fazla bilgi için bkz: [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

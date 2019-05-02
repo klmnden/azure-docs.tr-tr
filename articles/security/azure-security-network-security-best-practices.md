@@ -1,9 +1,8 @@
 ---
-title: Azure ağ güvenliği için en iyi uygulamalar | Microsoft Docs
+title: Ağ güvenliği - Microsoft Azure için en iyi uygulamalar
 description: Bu makalede Azure özellikleri yerleşik güvenlik ağ kullanmaya yönelik en iyi yöntemler kümesi sağlar.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610953"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872553"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure ağ güvenliği için en iyi uygulamalar
-Bağlanabileceğiniz [Azure sanal makineleri (VM'ler)](https://azure.microsoft.com/services/virtual-machines/) ve bunları yerleştirerek tarafından diğer ağ bağlantılı cihazlar için cihazları [Azure sanal ağları](https://azure.microsoft.com/documentation/services/virtual-network/). Diğer bir deyişle, ağ bağlantısı etkin cihazlar arasında TCP tabanlı iletişime izin vermek için bir sanal ağ, sanal ağ arabirim kartları bağlanabilirsiniz. Azure sanal ağına bağlı sanal makineleri aynı sanal ağ, farklı sanal ağlar, internet veya kendi şirket içi ağlar cihazlara bağlanabilir.
-
 Bu makalede, Azure ağ güvenliği için en iyi uygulamalar topluluğu açıklanmaktadır. Bu en iyi Azure ağı ile deneyimimizi türetilmiştir ve müşteri deneyimleri bulunun.
 
 En iyi her uygulama için bu makalede açıklanmıştır:
@@ -35,8 +32,6 @@ En iyi her uygulama için bu makalede açıklanmıştır:
 * Nasıl en iyi etkinleştirmek bilgi edinebilirsiniz
 
 Bu makalenin yazıldığı sırada oldukları gibi bu Azure ağ güvenliği için en iyi uygulamalar makalesi bir fikir birliğine varılmış fikrim, Azure platformu özellikleri ve özellik kümeleri üzerinde temel alır. Fikirlerini ve teknolojileri zamanla değişir ve bu makalede, bu değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
-
-Aşağıdaki bölümlerde, ağ güvenliği için en iyi uygulamalar açıklanmaktadır.
 
 ## <a name="logically-segment-subnets"></a>Mantıksal kesim alt ağlar
 Azure sanal ağları, şirket içi ağınızda LAN benzerdir. Bir Azure sanal ağı arkasında tüm Azure sanal makineleri yerleştirmek tek bir özel IP adresi alanı tabanlı ağ oluşturma olur. Sınıf A (10.0.0.0/8), sınıf B (172.16.0.0/12) özel IP adresi alanları kullanılabilir olduğunu ve aralıkları sınıfı C (192.168.0.0/16).

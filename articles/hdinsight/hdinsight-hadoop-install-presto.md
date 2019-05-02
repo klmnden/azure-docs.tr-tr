@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight Linux kümeleri üzerinde presto yükleme
 description: Betik eylemlerini kullanarak Linux tabanlı HDInsight Hadoop kümelerinde presto ve Airpal yüklemeyi öğrenin.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258352"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704806"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Yükleme ve Hadoop tabanlı HDInsight kümelerinde Presto kullanma
 
@@ -26,7 +25,7 @@ HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de s
 > Bu makaledeki adımlarda Linux kullanan bir HDInsight 3.5 Hadoop kümesi gerektirir. Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürümleri](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Presto nedir?
-[Presto](https://prestodb.io/overview.html) bir hızlı dağıtılmış SQL sorgu alt için büyük veri yapısıdır. Presto, petabaytlarca verinin etkileşimli sorgulama için uygundur. Presto ve nasıl çalıştıkları bileşenler hakkında daha fazla bilgi için bkz. [Presto kavramları](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
+[Presto](https://prestosql.io) bir hızlı dağıtılmış SQL sorgu alt için büyük veri yapısıdır. Presto, petabaytlarca verinin etkileşimli sorgulama için uygundur. Presto ve nasıl çalıştıkları bileşenler hakkında daha fazla bilgi için bkz. [Presto kavramları](https://prestosql.io/docs/current/overview/concepts.html).
 
 > [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir. Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
@@ -86,9 +85,9 @@ Presto bir HDInsight kümesinde çalışmak için aşağıdaki adımları uygula
    
     `select count (*) from hivesampletable;`
    
-    Varsayılan olarak, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) ve [TPCH](https://prestodb.io/docs/current/connector/tpch.html) bağlayıcılar Presto için zaten yapılandırılmış. Hive Bağlayıcısı'nı varsayılan Hive yükleme kullanmak için yapılandırılır. Hive tüm tablolardan otomatik olarak Presto içinde görülebilir.
+    Varsayılan olarak, [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) ve [TPCH](https://prestosql.io/docs/current/connector/tpch.html) bağlayıcılar Presto için zaten yapılandırılmış. Hive Bağlayıcısı'nı varsayılan Hive yükleme kullanmak için yapılandırılır. Hive tüm tablolardan otomatik olarak Presto içinde görülebilir.
 
-    Daha fazla bilgi için [Presto belgeleri](https://prestodb.io/docs/current/index.html).
+    Daha fazla bilgi için [Presto belgeleri](https://prestosql.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Presto ile Airpal kullanın
 
@@ -151,7 +150,7 @@ Yüklemeyi özelleştirmek için aşağıdaki adımları uygulayın:
    
     Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Yapılandırma değişiklik dosyasında `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Presto yapılandırma hakkında daha fazla bilgi için bkz. [YARN tabanlı kümeler için Presto yapılandırma seçenekleri](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+2. Yapılandırma değişiklik dosyasında `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Presto yapılandırma hakkında daha fazla bilgi için bkz. [YARN tabanlı kümeler için Presto yapılandırma seçenekleri](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html).
 
 3. Durdur ve Presto geçerli çalışan örneğini Kaldır:
 

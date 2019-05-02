@@ -3,18 +3,18 @@ title: Azure IoT Central nedir? | Microsoft Docs
 description: Azure IOT Central, oluşturmak ve özel IOT çözümünüzü yönetmek için kullanabileceğiniz bir uçtan uca SaaS çözümüdür. Bu makalede Azure IoT Central’ın özelliklerine genel bir bakış sunulmaktadır.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 04/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84fa7aa006a6bc5365527dbf8043797617543590
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183280"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704531"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,16 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central nedir?
 
-Azure IoT Central, fiziksel ve dijital dünyaları bağlayan ürünler oluşturmayı kolaylaştıran, tam yönetilen bir IoT Hizmet Olarak Yazılım çözümüdür. Aşağıdakileri yaparak bağlı ürününüzün vizyonunu hayata geçirebilirsiniz:
+Azure IOT Central, fiziksel ve dijital dünyaları bağlanan ürünler oluşturmak kolaylaştıran tam olarak yönetilen bir IOT hizmet olarak yazılım çözümüdür. Aşağıdakileri yaparak bağlı ürününüzün vizyonunu hayata geçirebilirsiniz:
 
 - Müşterileriniz için daha iyi ürün ve deneyimleri etkinleştirmek amacıyla bağlı cihazlardan yeni içgörüler edinme.
 - Kuruluşunuz için yeni iş fırsatları oluşturma.
 
-Tipik bir IoT projesine kıyasla Azure IoT Central, aşağıdakileri yaparak bir IoT çözümünü yönetme zahmetini ortadan kaldırır:
+Azure IOT Central, normal bir IOT projesinin karşılaştırıldığında:
 
-- Yönetim yükünü azaltma.
-- İşletme maliyetlerini ve ek yükleri azaltma.
-- Aşağıdakilerden yararlanırken uygulamanızı özelleştirmeyi kolaylaştırma:
+- Yönetim yükünü azaltır.
+- İşletimsel maliyetleri ve ek yüklerini azaltır.
+- Özelleştirme ile çalışırken, uygulamanızı daha kolay hale getirir:
   - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) ve [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) gibi sektör lideri teknolojiler.
   - Uçtan uca şifreleme gibi kurumsal düzeyde güvenlik özellikleri.
 
@@ -42,7 +42,7 @@ Aşağıdaki video Azure IoT Central’a genel bir bakış sunar:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-Bu makalenin geri kalanında Azure IoT Central hakkında aşağıdaki bilgiler verilmektedir:
+Bu makalede, Azure IOT Central için özetlenmektedir:
 
 - Bir projeyle ilişkili tipik kişilikler.
 - Uygulamanızı oluşturma.
@@ -51,7 +51,7 @@ Bu makalenin geri kalanında Azure IoT Central hakkında aşağıdaki bilgiler v
 
 ## <a name="personas"></a>Kişilikler
 
-Azure IoT Central belgeleri, bir Azure IoT Central uygulaması ile etkileşimde bulunan dört tipik kişiliğe başvurur:
+Azure IOT Central belgeleri, Azure IOT Central uygulamayla etkileşime geçen dört kişilik ifade eder:
 
 - _Oluşturucu_, uygulamaya bağlanan cihaz türlerini tanımlamaktan ve uygulamayı operatör için özelleştirmekten sorumludur.
 - _Operatör_, uygulamaya bağlı cihazları yönetir.
@@ -65,12 +65,12 @@ Oluşturucu olarak Azure IoT Central’ı, kuruluşunuz için özel, bulutta bar
 - Cihazlarınızdan telemetri alan ve bu cihazları yönetmenizi sağlayan bulut tabanlı bir uygulama.
 - Bulut tabanlı uygulamanıza bağlı özel kod çalıştıran birden fazla cihaz.
 
-Yeni bir Azure IoT Central uygulamasını hızlıca dağıtabilir ve sonra tarayıcınızdan size özel gereksinimlere göre kişiselleştirebilirsiniz. Azure IoT Central oluşturucusu olarak, uygulamanıza bağlanan cihazlar için bir _cihaz şablonu_ oluşturmak üzere web tabanlı araçları kullanabilirsiniz. Cihaz şablonu bir cihaz modelinin şemasıdır. Aynı cihaz şablonundan oluşturulan tüm cihazlar şablonu ortak olarak kullanır. Cihaz şablonu, bir cihaz türünün aşağıdaki gibi özellik ve davranışlarını tanımlar:
+Yeni bir Azure IOT Central uygulamasına hızla dağıtın ve ardından tarayıcınızda belirli gereksinimlerinizi özelleştirin. Bir oluşturucu web tabanlı araçlar oluşturmak için kullandığınız bir _cihaz şablonu_ uygulamanıza bağlanan cihazlar için. Bir cihaz şablonu gibi özellikleri ve cihaz türünü davranışını tanımlayan bir şema olarak:
 
-- Gönderdiği telemetri.
+- Telemetri gönderir.
 - Bir operatörün değiştirebileceği iş özellikleri.
 - Bir cihaz tarafından ayarlanan ve uygulamada salt okunur özellikte olan cihaz özellikleri.
-- Uygulamanın yanıt verdiği eşikler.
+- Eşikleri için uygulama yanıt verir.
 - Cihazın davranışını belirleyen ayarlar.
 
 Cihaz şablonlarınızı ve uygulamanızı Azure IoT Central’ın sizin için oluşturduğu sanal verilerle hemen test edebilirsiniz.
@@ -83,7 +83,7 @@ Oluşturucu olarak, Azure IoT Central uygulamanızın kullanıcı arabirimini uy
 
 ## <a name="connect-your-devices"></a>Cihazlarınızı bağlama
 
-Oluşturucunun uygulamaya bağlanabilen cihaz türlerini tanımlamasından sonra, cihaz geliştiricisi cihazlar üzerinde çalıştırılacak kodu oluşturur. Cihaz geliştiricisi olarak, cihaz kodunuzu oluşturmak için Microsoft'un açık kaynak [Azure IoT SDK’larını](https://github.com/Azure/azure-iot-sdks) kullanırsınız. Bu SDK’lar, Azure IoT Central uygulamanıza cihazlarınızı bağlama gereksinimlerinizi karşılamak üzere geniş dil, platform ve protokol desteği sunar. SDK’lar Azure IoT Central’a bağlı cihaz üzerinde aşağıdaki görevleri gerçekleştirmenize yardımcı olur:
+Oluşturucunun uygulamaya bağlanabilen cihaz türlerini tanımlamasından sonra, cihaz geliştiricisi cihazlar üzerinde çalıştırılacak kodu oluşturur. Cihaz geliştiricisi olarak, cihaz kodunuzu oluşturmak için Microsoft'un açık kaynak [Azure IoT SDK’larını](https://github.com/Azure/azure-iot-sdks) kullanırsınız. Bu SDK’lar, Azure IoT Central uygulamanıza cihazlarınızı bağlama gereksinimlerinizi karşılamak üzere geniş dil, platform ve protokol desteği sunar. SDK'ları aşağıdaki cihaz özelliklerini uygulamanıza yardımcı olur:
 
 - Güvenli bir bağlantı oluşturma.
 - Telemetri gönderme.
@@ -96,15 +96,15 @@ Daha fazla bilgi için, [Azure IoT SDK’larını kullanmanın avantajları ve k
 
 Azure IoT Central uygulamaları tamamen Microsoft tarafından barındırılır, böylece uygulamalarınızı yönetmenin idari ek yükü azalır.
 
-Bir operatör olarak, Azure IoT Central uygulamanızı kullanarak Azure IoT Central çözümünüzdeki cihazları yönetebilirsiniz. Operatörler aşağıdaki gibi görevleri gerçekleştirebilir:
+Bir operatör olarak, Azure IoT Central uygulamanızı kullanarak Azure IoT Central çözümünüzdeki cihazları yönetebilirsiniz. İşleçler gibi görevleri yapın:
 
 - Uygulamaya bağlı cihazları izleme.
 - Cihazlarla ilgili sorunları giderme ve düzeltme.
 - Yeni cihazlar hazırlama.
 
-Oluşturucu, cihaz şablonu düzeyindeki akış verileri üzerinde çalışan özel kurallar ve eylemler tanımlayabilir. Operatör ise uygulama içindeki görevleri denetlemek ve otomatik hale getirmek için cihaz düzeyinde bu kuralları etkinleştirebilir ya da devre dışı bırakabilir.
+Bir oluşturucu özel kurallar ve bağlı cihazlardan akış verileri üzerinde çalışan eylemlerin tanımlayabilirsiniz. Operatör ise uygulama içindeki görevleri denetlemek ve otomatik hale getirmek için cihaz düzeyinde bu kuralları etkinleştirebilir ya da devre dışı bırakabilir.
 
-Yöneticiler, [kullanıcı rolleri ve izinleri](howto-administer.md) ile uygulamanıza erişimi yönetebilir.
+Yöneticiler, uygulamanıza erişimi Yönet [kullanıcı rolleri ve izinleri](howto-administer.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

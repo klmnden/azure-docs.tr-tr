@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 40aa032654d81c947e2c31e9d93954ee050f78a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849957"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920034"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux üzerinde App Service'te Azure Depolama'dan içerik sunma
 
-Bu kılavuzu kullanarak Linux üzerinde App Service'te statik içerik sunmak gösterilmektedir [Azure depolama](/azure/storage/common/storage-introduction). Güvenli içerik, içerik taşıma, birden fazla uygulama ve birden çok aktarma yöntemlere erişim avantajına sahip olur. Bu kılavuzda, özel depolama yapılandırarak Azure depolama üzerinde içerik sunma konusunda bilgi edinin.
+Bu kılavuzu kullanarak Linux üzerinde App Service'te statik içerik sunmak gösterilmektedir [Azure depolama](/azure/storage/common/storage-introduction). Güvenli içerik, içerik taşıma, birden fazla uygulama ve birden çok aktarma yöntemlere erişim avantajına sahip olur. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -67,7 +67,20 @@ Bir depolama hesabına bağlanması için istediğiniz herhangi bir dizin için 
 Bir depolama kapsayıcısı bir web uygulamasına bağlandığında, aşağıdaki komutu çalıştırarak bunu doğrulayabilirsiniz:
 
 ```azurecli
-az webapp config storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+```
+
+## <a name="use-custom-storage-in-docker-compose"></a>Docker Compose özel depolama kullanma
+
+Azure depolama ile çok kapsayıcılı uygulamaları özel kimliğini kullanarak bağlanabilir. Özel kimlik adı görüntülemek için çalıştırın [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+
+İçinde *docker-compose.yml* dosya, harita `volumes` seçeneğini `custom-id`. Örneğin:
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

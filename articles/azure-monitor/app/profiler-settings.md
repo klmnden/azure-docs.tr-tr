@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228244"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922979"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
 
@@ -41,7 +41,7 @@ Azure App Service ortamınızı nasıl yapılandırıldığına bağlı olarak, 
 ## <a id="profileondemand"></a> Profiler el ile tetikleme
 
 ### <a name="minimum-requirements"></a>En düşük gereksinimleri 
-Profil Oluşturucu oturumu el ile tetiklemek bir kullanıcı için en azından "rolleri için Application Insights bileşen üzerinde yazma erişimi" duyarlar. Çoğu durumda, bu otomatik olarak erişin ve herhangi bir ek çalışma gerekir. İlgili sorunlar yaşıyorsanız, "Application Insights bileşeni Katılımcısı" rolünü eklemek için abonelik kapsamında rolü olacaktır. [Rol erişim denetimini Azure izleme ile ilgili daha fazla bilgi bkz](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Profil Oluşturucu oturumu el ile tetiklemek bir kullanıcı için en azından "rolleri için Application Insights bileşen üzerinde yazma erişimi" duyarlar. Çoğu durumda, bu otomatik olarak erişin ve herhangi bir ek çalışma gerekir. İlgili sorunlar yaşıyorsanız, "Application Insights bileşeni Katılımcısı" rolünü eklemek için abonelik kapsamında rolü olacaktır. [Rol erişim denetimini Azure izleme ile ilgili daha fazla bilgi bkz](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Profiler tek bir tıklamayla el ile tetikleyebilirsiniz. Web performans testini çalıştırdığınız varsayalım. Web uygulamanızı yük altında nasıl performans gösterdiğini anlamak için izlemeleri gerekir. Yük testi çalıştırırken bildiğiniz izlemeleri olduğunda yakalandığını denetime sahip olmak, çok önemlidir. Ancak, rastgele bir örnekleme aralığı eksik.
 

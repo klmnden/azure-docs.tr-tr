@@ -5,57 +5,118 @@ services: data-factory
 documentationcenter: ''
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615635"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875812"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Kopyalama etkinliğinde şema eşleme
+
 Bu makalede Azure Data Factory kopyalama etkinliği, şema eşleme ve veri türü eşlemesi veri kaynağı verilerden nasıl yaptığını açıklar, veri kopyalama yürütün.
 
-## <a name="column-mapping"></a>Sütun eşleme
+## <a name="schema-mapping"></a>Şema eşleme
 
-Sütun eşlemesi şeklinde tablosal veri arasında veri kopyalama işlemi sırasında uygulanır. Varsayılan olarak, kopyalama etkinliği **sütun adlarına göre havuz için kaynak verileri eşleme**sürece [açık sütun eşlemesi](#explicit-column-mapping) yapılandırılır. Kopyalama etkinliği daha açık belirtmek gerekirse:
+Sütun eşlemesi, havuz kaynaktan veri kopyalama işlemi sırasında uygulanır. Varsayılan olarak, kopyalama etkinliği **sütun adlarına göre havuz için kaynak verileri eşleme**. Belirtebileceğiniz [açık eşleme](#explicit-mapping) sütun eşlemesi gereksinimlerinize göre özelleştirmek için. Kopyalama etkinliği daha açık belirtmek gerekirse:
 
 1. Veri kaynağından okumak ve kaynağı şemasını belirleme
-
-    * Veri deposu/dosya biçimi, örneğin, veritabanları/dosya meta veri (Avro/ORC/Parquet/metin üst bilgisiyle), önceden tanımlı bir şema ile veri kaynakları için sorgu sonucunu veya dosya meta verilerinden kaynak şema ayıklanır.
-    * Örneğin, Azure tablo/Cosmos DB, esnek şema ile veri kaynakları için kaynak şema sorgu sonuç algılanır. Veri kümesinde "yapı" yapılandırarak üzerine yazabilirsiniz.
-    * Üst bilgi içermeyen metin dosyası için varsayılan sütun adları deseni "Prop_0", "Prop_1" oluşturulan... Veri kümesinde "yapı" yapılandırarak üzerine yazabilirsiniz.
-    * Dynamics kaynağı için veri kümesi "yapı" bölümünde şema bilgileri sağlamanız gerekir.
-
-2. Açık sütun eşleme, belirtilmişse uygulayın.
-
+2. Ada göre sütunları eşlemek için varsayılan sütun eşlemesi'ı kullanın veya açık sütun eşlemesi belirtilmişse uygulayın.
 3. Havuz veri yazma
 
-    * Önceden tanımlı bir şema ile veri depoları için sütunları aynı ada sahip veri yazılır.
-    * Sabit olmayan veri depoları ve dosya biçimleri için sütun adları/meta veri kaynağı şemasını temel alan oluşturulur.
+### <a name="explicit-mapping"></a>Açık bir eşleme
 
-### <a name="explicit-column-mapping"></a>Açık sütun eşleme
+Belirtebileceğiniz sütunları kopyalama etkinliği eşlemek için -> `translator`  ->  `mappings` özelliği. Aşağıdaki örnek, verileri Azure SQL veritabanı'na sınırlandırılmış metin kopyalamak için bir işlem hattındaki kopyalama etkinliği tanımlar.
 
-Belirtebileceğiniz **Bunun amacı** içinde **typeProperties** bölümünü açık sütun eşleme için kopyalama etkinliği. Bu senaryoda, "yapı" bölümü, girdi ve çıktı veri kümeleri için gereklidir. Sütun eşleme destekler **eşleme tüm veya kaynak veri kümesindeki tüm sütunları havuz veri kümesi "yapı" içinde "yapısına" sütun alt kümesi**. Bir özel durumu hata koşulları şunlardır:
+```json
+{
+    "name": "CopyActivity",
+    "type": "Copy",
+    "inputs": [{
+        "referenceName": "DelimitedTextInput",
+        "type": "DatasetReference"
+    }],
+    "outputs": [{
+        "referenceName": "AzureSqlOutput",
+        "type": "DatasetReference"
+    }],
+    "typeProperties": {
+        "source": { "type": "DelimitedTextSource" },
+        "sink": { "type": "SqlSink" },
+        "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+                {
+                    "source": {
+                        "name": "UserId",
+                        "type": "Guid"
+                    },
+                    "sink": {
+                        "name": "MyUserId"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Name",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyName"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Group",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyGroup"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+Aşağıdaki özellikler altında desteklenen `translator`  ->  `mappings` Nesne -> `source` ve `sink`:
+
+| Özellik | Açıklama                                                  | Gerekli |
+| -------- | ------------------------------------------------------------ | -------- |
+| ad     | Kaynak veya havuz sütunun adı.                           | Evet      |
+| Sıra  | Sütun dizini. 1 ile başlayın. <br>Uygula ve sınırlandırılmış metin üst bilgi satırı olmadan kullanarak gereklidir. | Hayır       |
+| path     | Ayıklanacak veya eşleme her bir alan için JSON yolu ifadesini. Hiyerarşik veriler için MongoDB/REST örn uygulayın.<br>Kök nesne altındaki alanlar için root $ ile JSON yolunu başlatır; tarafından seçilen dizinin içindeki alanlar için `collectionReference` özelliği, JSON yolu dizi öğeden başlar. | Hayır       |
+| type     | Veri Fabrikası geçici sütunun veri türünü kaynak veya havuz. | Hayır       |
+| Kültür  | Kaynak veya havuz sütun kültür. <br>Türü olduğunda geçerli `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır       |
+| biçim   | Biçim türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır       |
+
+Aşağıdaki özellikler altında desteklenen `translator`  ->  `mappings` nesneyle yanı sıra `source` ve `sink`:
+
+| Özellik            | Açıklama                                                  | Gerekli |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| collectionReference | Yalnızca hiyerarşik veri örn MongoDB/REST kaynağı olduğunda desteklenir.<br>Yineleme ve veri nesneleri ayıklamak istiyorsanız **bir dizi alanındaki** nesne başına daha fazla satır arası uygulamak için o dizinin JSON yolunu belirtmek için dönüştürme ve aynı deseni. | Hayır       |
+
+### <a name="alternative-column-mapping"></a>Alternatif sütun eşleme
+
+Kopyalama belirtebilirsiniz etkinlik -> `translator`  ->  `columnMappings` şeklinde tablosal verileri arasında eşleme için. Bu durumda, "yapı" bölümü, girdi ve çıktı veri kümeleri için gereklidir. Sütun eşleme destekler **eşleme tüm veya kaynak veri kümesindeki tüm sütunları havuz veri kümesi "yapı" içinde "yapısına" sütun alt kümesi**. Bir özel durumu hata koşulları şunlardır:
 
 * Sorgu sonucu giriş veri kümesi "yapı" bölümünde belirtilen bir sütun adı yok. kaynak veri deposu.
 * Havuz veri deposu (ile önceden tanımlı bir şeması varsa) çıkış veri kümesi "yapı" bölümünde belirtilen bir sütun adı yok.
 * Daha az sütun veya daha fazla sütun "eşlemesinde belirtilen yapısını" havuz veri kümesi.
 * Yinelenen eşleme.
 
-#### <a name="explicit-column-mapping-example"></a>Açık sütun eşleme örneği
-
-Bu örnekte, Giriş tablosunda bir yapıya sahiptir ve bir şirket içi SQL veritabanındaki bir tabloda işaret.
+Aşağıdaki örnekte, giriş veri kümesi bir yapıya sahiptir ve bir tabloya bir şirket içi Oracle veritabanına işaret eder.
 
 ```json
 {
-    "name": "SqlServerInput",
+    "name": "OracleDataset",
     "properties": {
         "structure":
          [
@@ -63,9 +124,9 @@ Bu örnekte, Giriş tablosunda bir yapıya sahiptir ve bir şirket içi SQL veri
             { "name": "Name"},
             { "name": "Group"}
          ],
-        "type": "SqlServerTable",
+        "type": "OracleTable",
         "linkedServiceName": {
-            "referenceName": "SqlServerLinkedService",
+            "referenceName": "OracleLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -75,11 +136,11 @@ Bu örnekte, Giriş tablosunda bir yapıya sahiptir ve bir şirket içi SQL veri
 }
 ```
 
-Bu örnekte, çıktı tablosu bir yapıya sahiptir ve Azure SQL veritabanı tablosuna işaret.
+Bu örnekte, çıktı veri kümesi bir yapıya sahiptir ve Salesfoce tablosuna işaret.
 
 ```json
 {
-    "name": "AzureSqlOutput",
+    "name": "SalesforceDataset",
     "properties": {
         "structure":
         [
@@ -87,9 +148,9 @@ Bu örnekte, çıktı tablosu bir yapıya sahiptir ve Azure SQL veritabanı tabl
             { "name": "MyName" },
             { "name": "MyGroup"}
         ],
-        "type": "AzureSqlTable",
+        "type": "SalesforceObject",
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "SalesforceLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -99,7 +160,7 @@ Bu örnekte, çıktı tablosu bir yapıya sahiptir ve Azure SQL veritabanı tabl
 }
 ```
 
-Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Kaynak havuzu sütuna eşlenmiş sütunlarından (**Bunun amacı**) kullanarak **translator** özelliği.
+Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Sütunları kullanarak havuz sütuna eşlenmiş kaynağından **translator** -> **Bunun amacı** özelliği.
 
 ```json
 {
@@ -107,23 +168,23 @@ Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Kaynak ha
     "type": "Copy",
     "inputs": [
         {
-            "referenceName": "SqlServerInput",
+            "referenceName": "OracleDataset",
             "type": "DatasetReference"
         }
     ],
     "outputs": [
         {
-            "referenceName": "AzureSqlOutput",
+            "referenceName": "SalesforceDataset",
             "type": "DatasetReference"
         }
     ],
     "typeProperties":    {
-        "source": { "type": "SqlSource" },
-        "sink": { "type": "SqlSink" },
+        "source": { "type": "OracleSource" },
+        "sink": { "type": "SalesforceSink" },
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -136,23 +197,19 @@ Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Kaynak ha
 
 Söz dizimini kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` sütun eşlemesi belirtmek için hala olarak desteklenmektedir-olduğu.
 
-**Sütun eşlemesi akış:**
+### <a name="alternative-schema-mapping"></a>Alternatif bir şema eşleme
 
-![Sütun eşleme akış](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
-
-## <a name="schema-mapping"></a>Şema eşleme
-
-Şema eşleme hiyerarşik biçimli verileri ve tablo şeklinde verileri, örneğin metin dosyası için MongoDB/REST Kopyala ve SQL bir kopyasından Azure Cosmos DB'nin MongoDB API'si için arasında veri kopyalama işlemi sırasında uygulanır. Kopyalama etkinliği aşağıdaki özellikler desteklenir `translator` bölümü:
+Kopyalama belirtebilirsiniz etkinlik -> `translator`  ->  `schemaMapping` hiyerarşik biçimli verileri ve tablo şeklinde verileri arasında eşleme için örneğin MongoDB/geri KALANINDAN metin dosyası ve Azure Cosmos DB API Oracle Kopyala MongoDB için kopyalayın. Kopyalama etkinliği aşağıdaki özellikler desteklenir `translator` bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği Çeviricisi öğesinin type özelliği ayarlanmalıdır: **TabularTranslator** | Evet |
-| schemaMapping | Eşleme ilişki temsil eden anahtar-değer çiftleri koleksiyonu **yan havuz için kaynak taraftan**.<br/>- **Anahtar:** kaynak temsil eder. İçin **tablo kaynağı**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik kaynak**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin.<br/>- **Değer:** havuz temsil eder. İçin **tablo havuz**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik havuz**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin. <br/> Kök nesne altındaki alanlar için hiyerarşik veriler söz konusu olduğunda JSON yolu root $ ile başlar; tarafından seçilen dizinin içindeki alanlar için `collectionReference` özelliği, JSON yolu dizi öğeden başlar.  | Evet |
+| schemaMapping | Eşleme ilişki temsil eden anahtar-değer çiftleri koleksiyonu **yan havuz için kaynak taraftan**.<br/>- **Anahtar:** kaynak temsil eder. İçin **tablo kaynağı**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik kaynak**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin.<br>- **Değer:** havuz temsil eder. İçin **tablo havuz**, tanımlanan veri kümesi yapısı için; sütun adı belirtin **hiyerarşik havuz**, ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini belirtin. <br>Kök nesne altındaki alanlar için hiyerarşik veriler söz konusu olduğunda JSON yolu root $ ile başlar; tarafından seçilen dizinin içindeki alanlar için `collectionReference` özelliği, JSON yolu dizi öğeden başlar.  | Evet |
 | collectionReference | Yineleme ve veri nesneleri ayıklamak istiyorsanız **bir dizi alanındaki** nesne başına daha fazla satır arası uygulamak için o dizinin JSON yolunu belirtmek için dönüştürme ve aynı deseni. Bu özellik yalnızca hiyerarşik veri kaynağı olduğunda desteklenir. | Hayır |
 
-**Örnek: SQL Mongodb'den kopyalayın:**
+**Örnek: Oracle'dan Mongodb'den kopyalayın:**
 
-Örneğin, aşağıdaki içerikle MongoDB belge varsa: 
+Örneğin, aşağıdaki içerikle MongoDB belge varsa:
 
 ```json
 {
@@ -191,21 +248,21 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde dizi içindeki verileri d�
 
 ```json
 {
-    "name": "CopyFromMongoDBToSqlAzure",
+    "name": "CopyFromMongoDBToOracle",
     "type": "Copy",
     "typeProperties": {
         "source": {
             "type": "MongoDbV2Source"
         },
         "sink": {
-            "type": "SqlSink"
+            "type": "OracleSink"
         },
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -226,7 +283,7 @@ Her bir bağlayıcı konuda "Veri eşleme türü" bölümündeki geçiş türü 
 
 ### <a name="supported-data-types"></a>Desteklenen veri türleri
 
-Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini yapılandırırken değerleri belirtebilirsiniz [dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) yapılandırma:
+Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini yapılandırırken değerleri belirtebilirsiniz [dataset yapısını](concepts-datasets-linked-services.md#dataset-structure-or-schema) yapılandırma:
 
 * Byte[]
 * Boolean
@@ -242,31 +299,7 @@ Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini y
 * String
 * Timespan
 
-### <a name="explicit-data-type-conversion"></a>Açık veri türü dönüşümü
-
-Aynı sütunda farklı kaynak ve havuz sahip olduğunda sabit şema ile Örneğin, SQL Server/Oracle, veri kopyalama veri depolarıyla çalışırken açık tür dönüştürme kaynak tarafı içinde bildirilmesi gerekir:
-
-* Dosya kaynağı için örneğin, CSV/Avro tür dönüştürme kaynak yapısı (kaynak tarafında sütun adı ve havuz yan türü) tam sütun listesiyle aracılığıyla bildirilmesi
-* İlişkisel bir kaynak için (örneğin, SQL/Oracle), tür dönüştürme açık tür dönüştürme sorgu deyimi tarafından elde.
-
-## <a name="when-to-specify-dataset-structure"></a>Veri kümesi "yapısı" belirtmek ne zaman
-
-İçinde senaryoları, "yapı" veri kümesindeki gereklidir:
-
-* Uygulama [açık veri türü dönüştürme](#explicit-data-type-conversion) (girdi veri kümesi) kopyalama sırasında dosya kaynakları için
-* Uygulama [açık sütun eşlemesi](#explicit-column-mapping) (her ikisi de girdi ve çıktı veri kümesi) kopyalama sırasında
-* Dynamics 365/CRM kaynağından kopyalama (giriş veri kümesi)
-* Kaynak JSON dosyası olmadığında içi içe nesne olarak Cosmos DB'ye kopyalama (çıkış veri kümesi)
-
-Senaryolarda, veri kümesi "yapı" önerilen:
-
-* (Giriş veri kümesi) üst bilgisi olmayan metin dosyasından kopyalama. Açık sütun eşlemesi yapılandırmasını kaydetmek için karşılık gelen havuz sütunları içeren, hizalama metin dosyası sütun adlarını belirtebilirsiniz.
-* Veri kopyalama ile esnek şemaya, örneğin, Azure tablo/Cosmos DB (girdi veri kümesi) depolar, etkinlik üzerinden let kopyalama yerine kopyalanan beklenen verileri (sütun) garanti etmek için üst satır her bir etkinlik çalıştırması sırasında dayalı şema çıkarsa.
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir kopyalama etkinliği makalelere bakın:
 
 - [Kopyalama etkinliği'ne genel bakış](copy-activity-overview.md)
-- [Kopyalama etkinliği hataya dayanıklılık](copy-activity-fault-tolerance.md)
-- [Kopyalama etkinliği performansı](copy-activity-performance.md)

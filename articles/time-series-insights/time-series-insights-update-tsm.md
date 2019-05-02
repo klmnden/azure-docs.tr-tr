@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507833"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714069"
 ---
 # <a name="time-series-model"></a>Zaman Serisi Modeli
 
@@ -203,9 +203,9 @@ Zaman serisi modeli ayarları hakkında daha fazla bilgi için bkz. [başvuru be
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md).
+- Bkz: [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md).
 
-Yeni bkz [zaman serisi modeli](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+- Yeni bkz [zaman serisi modeli](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

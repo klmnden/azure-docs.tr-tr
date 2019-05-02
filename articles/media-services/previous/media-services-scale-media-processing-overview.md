@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817342"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707403"
 ---
 # <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme 
 Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
@@ -33,9 +33,9 @@ Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken bir 
 
 |RU türü|Senaryo|Örnek sonuçlarını [video 7 dk 1080 p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman.|Çoklu bit hızı SD çözümleme MP4 dosyasını kullanarak "H264 Çoklu bit hızı SD 16 x 9" için kodlama, 10 dakika sürer.|
-| **S2**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım.|"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 8 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 16,8 birkaç dakika sürer.|
-| **S3**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi.|"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 4 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 8 dakika sürer.|
+| **S1**|Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman.|Tekli bit hızı SD çözümleme MP4 dosyasını "H264 Çoklu bit hızı SD 16 x 9" kullanarak kodlama yaklaşık 7 dakika sürer.|
+| **S2**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım.|"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 6 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" yaklaşık 12 dakika sürer hazır.|
+| **S3**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi.|"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 3 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" yaklaşık 8 dakika sürer hazır.|
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 > [!IMPORTANT]

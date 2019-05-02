@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537709"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922256"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>İzleme, oluşturma ve SSH ve Azure Logic Apps kullanarak SFTP dosyaları yönetme
 
@@ -32,7 +32,7 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 ## <a name="limits"></a>Limits
 
-* SFTP-SSH eylemleri okuma veya yazma dosyaları *1 GB veya daha küçük* olarak veri yönetimi tarafından *50 MB parça*, değil 1 GB parça.
+* SFTP-SSH eylemleri okuma veya yazma dosyaları *1 GB veya daha küçük* olarak veri yönetimi tarafından *15 MB parçaları*, değil 1 GB parça.
 
 * Dosyalar için *1 GB'tan daha büyük*, Eylemler kullanabileceğiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, SFTP-SSH Tetikleyicileri Öbekleme desteklemez.
 
@@ -44,7 +44,7 @@ Daha fazla fark için gözden [karşılaştırma SFTP-SSH ve SFTP](#comparison) 
 
 SFTP-SSH Bağlayıcısı ve SFTP-SSH bağlayıcı yeteneklere sahip olduğu SFTP Bağlayıcısı arasındaki diğer temel farklılıklar şunlardır:
 
-* Kullanan <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> .NET destekleyen bir açık kaynak güvenli Kabuk (SSH) kitaplığı olan bir kitaplık.
+* Kullanan [SSH.NET kitaplığı](https://github.com/sshnet/SSH.NET), .NET destekleyen bir açık kaynak güvenli Kabuk (SSH) kitaplığı olduğu.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ SFTP-SSH Bağlayıcısı ve SFTP-SSH bağlayıcı yeteneklere sahip olduğu SFTP
   > * **Şifreleme algoritmalarını**: DES EDE3 CBC, DES-EDE3-CFB DES CBC, AES-128-CBC, AES 192 CBC ve AES 256 CBC
   > * **Parmak izi**: MD5
 
-* Eylemler okuma veya yazma dosyaları *1 GB'a kadar* parçaları SFTP Bağlayıcısı, ancak işler veri 50 MB parça, 1 GB değil karşılaştırıldığında. 1 GB'den büyük olan dosyalar için Eylemler de kullanabilirsiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, SFTP-SSH Tetikleyicileri Öbekleme desteklemez.
+* Eylemler okuma veya yazma dosyaları *1 GB'a kadar* SFTP Bağlayıcısı, ancak değil 1 GB 15 MB parçalarını işler veri parçaları karşılaştırılan. 1 GB'den büyük olan dosyalar için Eylemler de kullanabilirsiniz [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, SFTP-SSH Tetikleyicileri Öbekleme desteklemez.
 
 * Sağlar **klasör oluştur** eylem, SFTP sunucusundaki belirtilen yolda bir klasör oluşturur.
 
@@ -136,7 +136,7 @@ SFTP dosya sistemi yoklama ve son yoklamadan bu yana değiştirilmiş her dosya 
 
 Tetikleyici yeni bir dosya bulduğunda tetikleyici, yeni dosya eksiksiz ve kısmen yazılmış olup olmadığını denetler. Örneğin, dosya sunucusu tetikleyici iade ederken bir dosya değişiklikleri sürüyor olabilir. Kısmen yazılı bir dosya döndürme önlemek için zaman damgası, son değişiklikler var, ancak bu dosyayı hemen döndürmüyor dosyası için tetikleyici notlar. Tetikleyici, yalnızca sunucu yeniden yoklanırken dosyayı döndürür. Bazı durumlarda, bu davranışı, iki kez tetikleyicinin kadar yoklama aralığı bir gecikmeye neden olabilir. 
 
-Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
 * Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
 
@@ -152,7 +152,7 @@ Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetik
 
 **Kuruluş örnek**: Bu tetikleyici, bir müşteri siparişleri temsil eden yeni dosyalar için SFTP klasörü izlemek için kullanabilirsiniz. Ardından bir SFTP eylemi gibi kullanabilir **dosya içeriğini Al** daha ayrıntılı işleme için sipariş içeriklerini almak ve o sırada bir sipariş veritabanında depolayın.
 
-Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
 * Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
 
@@ -164,7 +164,7 @@ Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz
 
 Bu işlem bir SFTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte ve dosyanın içeriğini karşılaması gereken bir koşul tetikleyici ekleyebilirsiniz. Koşul true ise, içeriği alır eylemi çalıştırabilirsiniz. 
 
-Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
 * Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696792"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868620"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
@@ -29,7 +29,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
   Kod | Dil | [Akustik uyarlama](how-to-customize-acoustic-models.md) | [Dil uyarlama](how-to-customize-language-model.md) | [Söyleniş uyarlama](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
- CA-ES | Katalanca (İspanya) | Hayır | Hayır | Hayır
+ CA-ES | Katalanca | Hayır | Hayır | Hayır
  v-DK | Danca (Danimarka) | Hayır | Hayır | Hayır
  de-DE | Almanca (Almanya) | Evet | Evet | Hayır
  tr-AU | İngilizce (Avustralya) | Hayır | Evet | Evet
@@ -98,7 +98,7 @@ Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme
 ar EG\* | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
 ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"
 BG-BG | Bulgarca | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)"
-CA-ES | Katalanca (İspanya) | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
+CA-ES | Katalanca | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
 cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)"
 v-DK | Danca | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)"
 de-AT | Almanca (Avusturya) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)"

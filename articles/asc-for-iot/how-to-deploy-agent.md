@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c0a5e04b91d79b99935b52fd7f24752fb5d1b115
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358412"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919632"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seçin ve bir IOT Cihazınızı güvenlik aracısında dağıtma
 
@@ -49,7 +49,7 @@ C tabanlı güvenlik aracı olan daha küçük bellek Ayak izi ve daha az kullan
 | Açık kaynak | Altında kullanılabilir [MIT lisansı](https://en.wikipedia.org/wiki/MIT_License) içinde [Github](https://aka.ms/iot-security-github-cs) | Altında kullanılabilir [MIT lisansı](https://en.wikipedia.org/wiki/MIT_License) içinde [Github](https://aka.ms/iot-security-github-c) |
 | Bir geliştirme dilini    | C | C# |
 | Desteklenen Windows platformları? | Hayır | Evet |
-| Windows önkoşulları | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
+| Windows önkoşulları | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Desteklenen Linux platformlarından? | Evet, x64 ve x86 | Evet, yalnızca x64 |
 | Linux önkoşulları | libunwind8, libcurl3, UUID çalışma zamanı, auditd, audispd eklentileri | libunwind8, libcurl3, UUID çalışma zamanı, auditd, audispd eklentileri, sudo, netstat, iptables |
 | Disk Ayak izi | 10.5 MB | 90MB |

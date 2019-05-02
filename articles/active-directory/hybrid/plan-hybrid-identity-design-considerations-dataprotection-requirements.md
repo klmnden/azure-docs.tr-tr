@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454900"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918786"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Aracılığıyla güçlü kimlik çözümü veri güvenliği iyileştirmeyi planlama
 Verilerini korumanın ilk adımı, bu verilere kimlerin erişebileceğini belirlemektir. Ayrıca, kimlik doğrulama ve yetkilendirme özellikleri sağlamak için sisteminizi ile tümleştirebileceğiniz bir kimlik çözümü olması gerekir. Kimlik doğrulama ve Yetkilendirme genellikle birbiriyle karıştırılabilecek ve rollerine yanlış. Gerçekte, aşağıdaki çizimde gösterildiği gibi farklı, bunlar:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![mobil cihaz yaşam döngüsü](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Mobil cihaz Yönetimi yaşam döngüsünün aşamaları**
 
@@ -44,7 +44,7 @@ Mobility yaşı, çoğu şirketin ortak bir hedefe sahip: üretkenliği artırma
 Ancak, sektörden bağımsız olarak doğrulanan ve incelediniz gereken bazı güvenlik unsur vardır.
 
 ## <a name="data-protection-paths"></a>Veri koruma yolları
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Veri koruma yolları](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Veri koruma yolları**
 

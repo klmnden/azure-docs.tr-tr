@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61336833"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875746"
 ---
 # <a name="paper-entity"></a>Kağıt varlık
 
@@ -26,7 +26,7 @@ Ad    |Açıklama                                        |Tür       | İşlemle
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                                          |Int64      |Eşittir
 Za      |Kağıt başlığı                                        |String     |Eşittir<br/>StartsWith
-L       |Kağıt dil kodu ayırarak "\@@@"            |String     |Eşittir
+L       |Kağıt dil kodu ayırarak "\@\@\@"          |String     |Eşittir
 E       |Kağıt yıl                                         |Int32      |Eşittir<br/>IsBetween
 D       |İnceleme Tarihi                                         |Tarih       |Eşittir<br/>IsBetween
 BİLGİ      |Alıntı sayısı                                     |Int32      |yok  

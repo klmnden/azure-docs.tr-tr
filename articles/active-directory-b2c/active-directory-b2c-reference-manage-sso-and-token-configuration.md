@@ -3,20 +3,19 @@ title: SSO ve Azure Active Directory B2C'de özel ilkeleri kullanarak belirteci 
 description: SSO ve Azure Active Directory B2C'de özel ilkeleri kullanarak belirteci özelleştirme yönetme hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317182"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703389"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>SSO ve Azure Active Directory B2C'de özel ilkeleri kullanarak belirteci özelleştirme yönetme
 
@@ -24,7 +23,11 @@ Bu makale, belirteç, oturum ve yapılandırmaları çoklu oturum açma (SSO) ku
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Belirteç ömürleri ve talep yapılandırma
 
-Üzerinde belirteç ömrünü ayarlarını değiştirmek için eklediğiniz bir [ClaimsProviders](claimsproviders.md) etkisi ilkeyi bağlı olan taraf dosyasındaki öğesi.  **ClaimsProviders** öğesi alt öğesi olan [TrustFrameworkPolicy](trustframeworkpolicy.md) öğesi. İçinde belirteç ömrünü etkiler bilgiyi gerekecektir. XML şu örnekteki gibi görünür:
+Üzerinde belirteç ömrünü ayarlarını değiştirmek için eklediğiniz bir [ClaimsProviders](claimsproviders.md) etkisi ilkeyi bağlı olan taraf dosyasındaki öğesi.  **ClaimsProviders** öğesi alt öğesi olan [TrustFrameworkPolicy](trustframeworkpolicy.md) öğesi. 
+
+BasePolicy öğesi ve bağlı olan taraf dosyanın RelyingParty öğesi arasında ClaimsProviders öğesi ekleyin.
+
+İçinde belirteç ömrünü etkiler bilgiyi gerekecektir. XML şu örnekteki gibi görünür:
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ Aşağıdaki değerler, önceki örnekte yapılandırılır:
 - **Çoklu oturum açma (SSO)** -çoklu oturum açma ile yapılandırılmış **SingleSignOn**. Geçerli değerler `Tenant`, `Application`, `Policy`, ve `Suppressed`. 
 - **Web uygulaması oturumunun ömrü (dakika)** - web uygulaması oturumunun ömrü ile ayarlanır **SessionExpiryInSeconds** öğesi. Varsayılan değer 86400 (1440 dakika) saniyedir.
 - **Web uygulaması oturumu zaman aşımı** - web uygulaması oturumu zaman aşımı ile ayarlanır **Ssosession** öğesi. Geçerli değerler `Absolute` ve `Rolling`.
-

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853312"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920423"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Bir Linux PHP uygulamasını Azure App Service için yapılandırma
 
@@ -141,7 +141,7 @@ Popüler web çerçeveleri erişmenizi `X-Forwarded-*` bilgileri, standart uygul
 
 ## <a name="customize-phpini-settings"></a>PHP.ini ayarlarını özelleştirme
 
-PHP yüklemenizi değişiklikler yapmanız gerekirse, herhangi birini değiştirebilirsiniz [php.ini yönergeleri](http://www.php.net/manual/ini.list.php) aşağıdaki adımları izleyerek.
+PHP yüklemenizi değişiklikler yapmanız gerekirse, herhangi birini değiştirebilirsiniz [php.ini yönergeleri](https://www.php.net/manual/ini.list.php) aşağıdaki adımları izleyerek.
 
 > [!NOTE]
 > PHP sürümünü ve geçerli görmek için en iyi yolu *php.ini* yapılandırmadır çağrılacak [phpinfo()](https://php.net/manual/function.phpinfo.php) uygulamanızda.
@@ -149,7 +149,7 @@ PHP yüklemenizi değişiklikler yapmanız gerekirse, herhangi birini değiştir
 
 ### <a name="customize-non-phpinisystem-directives"></a>PHP_INI_SYSTEM olmayan yönergeleri özelleştirme
 
-PHP_INI_USER PHP_INI_PERDIR ve PHP_INI_ALL yönergeleri özelleştirmek için (bkz [php.ini yönergeleri](http://www.php.net/manual/ini.list.php)), ekleme bir *.htaccess* uygulamanızın kök dizinine dosya.
+PHP_INI_USER PHP_INI_PERDIR ve PHP_INI_ALL yönergeleri özelleştirmek için (bkz [php.ini yönergeleri](https://www.php.net/manual/ini.list.php)), ekleme bir *.htaccess* uygulamanızın kök dizinine dosya.
 
 İçinde *.htaccess* kullanma yönergelerini ekleyin `php_value <directive-name> <value>` söz dizimi. Örneğin:
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 Uygulamanızı değişikliklerle yeniden dağıtın ve yeniden başlatın. Kudu ile dağıtma varsa (örneğin, [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), dağıtımdan sonra otomatik olarak yeniden başlatılır.
 
-Kullanmaya alternatif olarak *.htaccess*, kullanabileceğiniz [ini_set()](http://www.php.net/manual/function.ini-set.php) uygulamanızda bu PHP_INI_SYSTEM olmayan yönergeleri özelleştirebilirsiniz.
+Kullanmaya alternatif olarak *.htaccess*, kullanabileceğiniz [ini_set()](https://www.php.net/manual/function.ini-set.php) uygulamanızda bu PHP_INI_SYSTEM olmayan yönergeleri özelleştirebilirsiniz.
 
 ### <a name="customize-phpinisystem-directives"></a>PHP_INI_SYSTEM yönergeleri özelleştirme
 
-PHP_INI_SYSTEM yönergeleri özelleştirmek için (bkz [php.ini yönergeleri](http://www.php.net/manual/ini.list.php)), kullanamazsınız *.htaccess* yaklaşım. App Service kullanarak ayrı bir mekanizma sağlar `PHP_INI_SCAN_DIR` uygulama ayarı.
+PHP_INI_SYSTEM yönergeleri özelleştirmek için (bkz [php.ini yönergeleri](https://www.php.net/manual/ini.list.php)), kullanamazsınız *.htaccess* yaklaşım. App Service kullanarak ayrı bir mekanizma sağlar `PHP_INI_SCAN_DIR` uygulama ayarı.
 
 İlk olarak, aşağıdaki komutu çalıştırın [Cloud Shell](https://shell.azure.com) çağrılan ayarlama uygulama ekleme `PHP_INI_SCAN_DIR`:
 
@@ -237,7 +237,7 @@ Değişikliklerin etkili olması için uygulamayı yeniden başlatın.
     - Yapılandırmanıza bağlı olarak, *composer.json*, farklı paketleri üretim modu için yüklü (`require` karşılaştırması `require-dev`).
     - Bazı web çerçeveleri, statik dosyalar farklı üretim modunda dağıtabilirsiniz.
     - Bazı web çerçeveleri, üretim modunda çalışırken özel başlatma komut dosyaları kullanabilirsiniz.
-- Uygulamanızı App Service'te hata ayıklama modunda çalıştırın. Örneğin, [Laravel](http://meanjs.org/), uygulamanız tarafından üretimde hata ayıklama iletilerinin de çıkışını almak yapılandırabileceğiniz [ayarı `APP_DEBUG` uygulama ayarının `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Uygulamanızı App Service'te hata ayıklama modunda çalıştırın. Örneğin, [Laravel](https://meanjs.org/), uygulamanız tarafından üretimde hata ayıklama iletilerinin de çıkışını almak yapılandırabileceğiniz [ayarı `APP_DEBUG` uygulama ayarının `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="robots933456"></a>robots933456
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405469"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868254"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -50,7 +50,7 @@ A. Data Box için 10 gün boyunca nominal bir ücret tahsil edilir. Azure portal
 A. Data Box toplamda 100 TB, kullanılabilir alan olarak ise 80 TB kapasiteye sahiptir. En fazla 80 TB Data Box ile veri aktarımı yapabilirsiniz. Daha fazla veri aktarmak için daha fazla cihaz sipariş etmeniz gerekir.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>S. Data Box'ın bulunduğum bölgede kullanılabilir durumda olup olmadığını nasıl kontrol edebilirim? 
-A.  Data Box'ın kullanılabilir durumda olduğu ülkeler hakkında bilgi almak için [bölge kullanılabilirliği](data-box-overview.md#region-availability) sayfasını inceleyin.  
+A.  Hangi ülkeler/bölgeler üzerinde Data Box kullanılabilir daha fazla bilgi için Git [bölge kullanılabilirliği](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>S. Data Box ile hangi bölgelerde veri depolayabilirim?
 A. Data Box ABD, Batı Avrupa, Kuzey Avrupa, Fransa ve Birleşik Krallık'taki tüm bölgelerde kullanılabilir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-overview.md#region-availability).

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761412"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728818"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -157,7 +157,7 @@ Bu hata azds.exe yüklü değil veya doğru bir şekilde yapılandırıldığın
 
 ### <a name="try"></a>Deneyin:
 
-1. Azds.exe için konum %ProgramFiles%/Microsoft SDKs\Azure\Azure geliştirme alanları CLI (Önizleme) denetleyin. Yoktur, bu konuma PATH ortam değişkenine ekleyin.
+1. Azds.exe için konum %ProgramFiles%/Microsoft SDKs\Azure\Azure geliştirme alanları CLI denetleyin. Yoktur, bu konuma PATH ortam değişkenine ekleyin.
 2. Azds.exe yüklü değilse aşağıdaki komutu çalıştırın:
 
     ```cmd
@@ -292,6 +292,16 @@ Helm istemci artık kümede çalışan Tiller pod konuşabilirsiniz değilse bu 
 
 ### <a name="try"></a>Deneyin:
 Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu çözer.
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Hata: yayın azds -\<tanımlayıcı\>-\<spacename\>-\<servicename\> başarısız oldu: Hizmetler'in\<servicename\>' zaten var "veya" erişim reddedildi için çekme \<servicename\>, depo yok veya 'docker login' gerektirebilir "
+
+### <a name="reason"></a>Neden
+Doğrudan Helm komutlarını çalıştırarak karıştırmak bu hatalar oluşabilir (gibi `helm install`, `helm upgrade`, veya `helm delete`) geliştirme alanları komutlarla (gibi `azds up` ve `azds down`) aynı geliştirme alanı içinde. Geliştirme alanları aynı geliştirme alanında çalışan kendi Tiller örneğiyle çakışıyor kendi Tiller örneği olduğundan, bunlar oluşur.
+
+### <a name="try"></a>Deneyin:
+Helm komutları hem aynı AKS kümesi geliştirme alanları komutları kullanmak uygundur, ancak geliştirme alanları özellikli her ad alanı birini veya diğerini kullanmanız gerekir.
+
+Örneğin, bir Helm komutu bir üst geliştirme alanında tüm uygulamanızı çalıştırmak için kullandığınız varsayalım. Alt, üst kapalı geliştirme alanları oluşturma, geliştirme alanları alt içinde tek tek hizmetlerini çalıştırmak için geliştirme alanları kullanın ve hizmetlerin birlikte test. Değişikliklerinizi iade etmeye hazır olduğunuzda, güncelleştirilmiş kodu üst geliştirme alanına dağıtmak için bir Helm komutunu kullanın. Kullanmayın `azds up` başlangıçta Helm kullanarak hizmeti ile çakışacak güncelleştirilmiş hizmet üst geliştirme alanı çalıştırılamıyor.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Bir geliştirme alanında çalışan diğer pod'ları ile Azure geliştirme alanları proxy etkileyebilir
 

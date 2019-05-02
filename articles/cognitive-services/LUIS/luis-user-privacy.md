@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a82452f4b41aee9c4ea6f269d92fbc91a5697d16
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895165"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916949"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Language Understanding (LUIS) Bilişsel hizmetler, müşteri verilerini silebilir ve dışarı aktarma
 
@@ -58,7 +58,7 @@ Etkinleştirmek için [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utt
 * [Avustralya](#australia)
 * [Amerika Birleşik Devletleri](#united-states)
 
-LUIS (aşağıda açıklanmıştır) etkin olarak öğrenmeye verileri hariç olmak üzere aşağıdaki [bölgesel hizmetler için veri depolama uygulamaları](http://azuredatacentermap.azurewebsites.net/). 
+LUIS (aşağıda açıklanmıştır) etkin olarak öğrenmeye verileri hariç olmak üzere aşağıdaki [bölgesel hizmetler için veri depolama uygulamaları](https://azuredatacentermap.azurewebsites.net/). 
 
 ### <a name="europe"></a>Avrupa
 

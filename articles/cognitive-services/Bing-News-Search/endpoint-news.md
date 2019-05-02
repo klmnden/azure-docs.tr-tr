@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a3badf7772c6be6509608fbdb305dc3bc225acc0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4a1ba7536f0e899ef845bbac54b551125d35fb7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880005"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868548"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Bing haber arama API'si uç noktaları
 
@@ -31,7 +31,7 @@ Bing haber arama API'si kullanarak arama sonuçlarını haberleri almak için g�
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Bir arama sorgusuna göre haber öğelerini döndürür. Arama sorgusu boş ise, API üst haber makalelerini farklı kategorileri döndürür. Arama teriminizi kodlama ve ona ekleme URL bir sorgu`q=""` parametresi. Kullanılabilirlik için bkz: [desteklenen ülkeler ve pazarlara](language-support.md#supported-markets-for-news-search-endpoint).
+Bir arama sorgusuna göre haber öğelerini döndürür. Arama sorgusu boş ise, API üst haber makalelerini farklı kategorileri döndürür. Arama teriminizi kodlama ve ona ekleme URL bir sorgu`q=""` parametresi. Kullanılabilirlik için bkz: [desteklenen ülkeler/bölgeler ile pazarlar](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>Kategoriye göre üst haber öğeleri
 
@@ -39,7 +39,7 @@ Bir arama sorgusuna göre haber öğelerini döndürür. Arama sorgusu boş ise,
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Kategoriye göre üst haber öğelerini döndürür. Özellikle en uygun işletme, spor veya eğlence makaleleri kullanarak isteyebilir `category=business`, `category=sports`, veya `category=entertainment`.  `category` Parametresi yalnızca kullanılabilir ile `/news` URL'si. Kategori belirleme için bazı biçimsel gereksinimi yoktur; başvurmak `category` içinde [sorgu parametresi](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) belgeleri. Arama teriminizi kodlama ve ona ekleme URL bir sorgu`q=""` parametresi. Kullanılabilirlik için bkz: [desteklenen ülkeler ve pazarlara](language-support.md#supported-markets-for-news-endpoint).
+Kategoriye göre üst haber öğelerini döndürür. Özellikle en uygun işletme, spor veya eğlence makaleleri kullanarak isteyebilir `category=business`, `category=sports`, veya `category=entertainment`.  `category` Parametresi yalnızca kullanılabilir ile `/news` URL'si. Kategori belirleme için bazı biçimsel gereksinimi yoktur; başvurmak `category` içinde [sorgu parametresi](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) belgeleri. Arama teriminizi kodlama ve ona ekleme URL bir sorgu`q=""` parametresi. Kullanılabilirlik için bkz: [desteklenen ülkeler/bölgeler ile pazarlar](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Popüler haber konularında 
 
@@ -47,7 +47,7 @@ Kategoriye göre üst haber öğelerini döndürür. Özellikle en uygun işletm
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Şu anda sosyal ağlarda Öne çıkanlar haber konularında döndürür. Zaman `/trendingtopics` seçeneği dahildir, Bing arama yoksayar diğer çeşitli parametreleri gibi `freshness` ve `?q=""`. Kullanılabilirlik için bkz: [desteklenen ülkeler ve pazarlara](language-support.md#supported-markets-for-news-trending-endpoint).
+Şu anda sosyal ağlarda Öne çıkanlar haber konularında döndürür. Zaman `/trendingtopics` seçeneği dahildir, Bing arama yoksayar diğer çeşitli parametreleri gibi `freshness` ve `?q=""`. Kullanılabilirlik için bkz: [desteklenen ülkeler/bölgeler ile pazarlar](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

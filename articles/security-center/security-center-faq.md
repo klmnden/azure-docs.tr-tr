@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909629"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917645"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -77,7 +77,7 @@ Windows veya Linux Iaas sanal makineleri, uygun:
 
 - Microsoft Monitoring Agent uzantısı VM'de yüklü değil.
 - VM'nin çalışır durumda olduğundan.
-- Windows veya Linux [Azure sanal makine Aracısı](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) yüklenir.
+- Windows veya Linux [Azure sanal makine Aracısı](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) yüklenir.
 - VM, web uygulaması güvenlik duvarı veya yeni nesil güvenlik duvarı gibi bir gereç olarak kullanılmaz.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Ben, Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanlarını silebilir miyim?

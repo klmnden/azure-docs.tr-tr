@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782012"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916373"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
@@ -38,7 +38,7 @@ System Center Operations Manager 2012 R2 veya sonraki bir bilgisayar izliyorsan�
 
 Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört Log Analytics çalışma alanlarını, rapor edebilirsiniz.  
 
-Linux ve Windows için aracı yalnızca Azure İzleyicisi'ne bağlamak için değil, ayrıca karma Runbook çalışanı rolü ve diğer hizmetler gibi barındırmak için Azure Otomasyonu desteklediği [değişiklik izleme](../../automation/automation-change-tracking.md) ve [güncelleştirmeyönetimi](../../automation/automation-update-management.md). Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz. [Azure Otomasyon karma Runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md).  
+Linux ve Windows için aracı yalnızca Azure İzleyicisi'ne bağlamak için değil, ayrıca karma Runbook çalışanı rolü ve diğer hizmetler gibi barındırmak için Azure Otomasyonu desteklediği [değişiklik izleme](../../automation/change-tracking.md) ve [güncelleştirmeyönetimi](../../automation/automation-update-management.md). Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz. [Azure Otomasyon karma Runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
 Aşağıdaki Windows işletim sistemi sürümleri Windows aracısı için resmi olarak desteklenir:

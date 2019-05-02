@@ -1,18 +1,37 @@
-
-
+---
+title: include dosyası
+description: include dosyası
+services: functions
+author: ggailey777
+manager: jeconnoc
+ms.service: functions
+ms.topic: include
+ms.date: 04/16/2019
+ms.author: glenga
+ms.custom: include file
+ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744679"
+---
 ## <a name="publish-the-project-to-azure"></a>Projeyi Azure'da yayımlama
 
-Visual Studio Code, işlevler projenizi doğrudan Azure’da dağıtmanıza olanak sağlar. Süreç kapsamında, Azure abonelik bir işlev uygulaması ve ilgili kaynakları oluşturursunuz. İşlev uygulaması, işlevlerinize ilişkin bir yürütme bağlamı sağlar. Proje, Azure aboneliğinizdeki yeni işlev uygulamasında paketlenir ve dağıtılır. 
+Visual Studio Code, işlevler projenizi doğrudan Azure’da dağıtmanıza olanak sağlar. Süreç kapsamında, Azure abonelik bir işlev uygulaması ve ilgili kaynakları oluşturursunuz. İşlev uygulaması, işlevlerinize ilişkin bir yürütme bağlamı sağlar. Proje, Azure aboneliğinizdeki yeni işlev uygulamasında paketlenir ve dağıtılır.
 
-Bu makalede, yeni bir işlev uygulaması oluşturduğunuz varsayılır. Varolan bir işlev uygulamasına yayımladığınızda Azure’daki uygulamanın içeriğinin üzerine yazılır.
+Bu makalede, yeni bir işlev uygulaması oluşturduğunuz varsayılır. 
 
-1. **Azure: İşlevler** alanında İşlev Uygulamasına Dağıt simgesini seçin.
+> [!IMPORTANT]
+> Varolan bir işlev uygulamasına yayımladığınızda Azure’daki uygulamanın içeriğinin üzerine yazılır.
+
+1. İçinde **Azure: İşlevleri** alan, işlev uygulaması simgesine Dağıt'ı seçin.
 
     ![İşlev uygulaması ayarları](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
-1. Geçerli çalışma alanınız olan proje klasörünü seçin.
+1. Değil oturum açma, siz istenirse **Azure'da oturum aç**. Ayrıca **ücretsiz bir Azure hesabı oluşturun**. Tarayıcıdan sonra başarılı oturum açma, Visual Studio Code için geri dönün. 
 
-1. Birden fazla aboneliğiniz varsa işlev uygulamanızı barındırmak istediğiniz seçeneği belirleyin ve sonra **+ Yeni İşlev Uygulaması Oluştur**’u seçin.
+1. Birden fazla aboneliğiniz varsa **bir abonelik seçin** seçin işlev uygulaması için **+ oluştur yeni işlev uygulamanızı Azure'a**.
 
 1. İşlev uygulamanızı tanımlayan bir genelde benzersiz olan bir ad yazın ve Enter tuşuna basın. İşlev uygulaması adına ilişkin geçerli karakterler `a-z`, `0-9` ve `-` işaretidir.
 
@@ -22,18 +41,15 @@ Bu makalede, yeni bir işlev uygulaması oluşturduğunuz varsayılır. Varolan 
 
 1. Ayrıca, kendinize veya işlevlerinizin erişeceği diğer hizmetlere yakın bir [bölgede](https://azure.microsoft.com/regions/) yer alan bir konum seçin.
 
-    İşlev uygulamasının oluşturulması, konumunuzu seçtikten sonra başlar. İşlev uygulamanız oluşturulduktan sonra bir bildirim görüntülenir ve dağıtım paketi uygulanır.
+    Aşağıdaki Azure kaynakları, Enter tuşuna bastığınızda, aboneliğinizde oluşturulur:
 
-1. Oluşturduğunuz Azure kaynakları dahil olmak üzere oluşturma ve dağıtma sonuçlarını görüntülemek üzere bildirimlerde **Çıktıyı Görüntüle**’yi seçin.
+    * **[Kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md)**: Tüm oluşturulan Azure kaynaklarını içerir. Ad, işlev uygulamanızın adı üzerinde temel alır.
+    * **[Depolama hesabı](../articles/storage/common/storage-quickstart-create-account.md)**: İşlev uygulamanızın adı alan benzersiz bir ada sahip bir standart depolama hesabı oluşturulur.
+    * **[Barındırma planı](../articles/azure-functions/functions-scale.md)**: Tüketim planı, Batı ABD bölgesinde, sunucusuz bir işlev uygulamanızı barındırmak için oluşturulur.
+    * **İşlev uygulaması**: Projenizi dağıtılır ve bu yeni işlev uygulamasında çalıştırır.
 
-    ![İşlev uygulaması oluşturma çıktısı](./media/functions-publish-project-vscode/function-create-notifications.png)
+    İşlev uygulamanız oluşturulduktan sonra bir bildirim görüntülenir ve dağıtım paketi uygulanır. Seçin **görünümü çıkış** oluşturduğunuz Azure kaynaklarını oluşturma ve dağıtım sonuçlarını görüntülemek için bu bildirimi dahil olmak üzere.
 
-1. Azure’daki yeni işlev uygulamasının URL’sini not edin. Bunu, proje Azure’da yayımlandıktan sonra işlevinizi test etmek için kullanırsınız.
+1. Geri **Azure: İşlevleri** alanında, aboneliğiniz kapsamındaki yeni işlev uygulaması'nı genişletin. Genişletin **işlevleri**, sağ **HttpTrigger**ve ardından **işlev URL'sini kopyalama**.
 
-    ![İşlev uygulaması oluşturma çıktısı](./media/functions-publish-project-vscode/function-create-output.png)
-
-1. **Azure: İşlevler** alanında, yeni işlev uygulamasının aboneliğinizin altında görüntülendiğini görürsünüz. Bu düğümü genişlettiğinizde işlev uygulamasındaki işlevlerle birlikte uygulama ayarları ve işlev proxy’lerini görürsünüz.
-
-    ![İşlev uygulaması ayarları](./media/functions-publish-project-vscode/function-app-project-settings.png)
-
-    İşlev uygulaması düğümünde, Azure’daki işlev uygulamasına yönelik çeşitli yönetim ve yapılandırma görevlerini gerçekleştirmek için Ctrl tuşuna basarak tıklayın (sağ tıklama). Ayrıca işlev uygulamasını Azure portalında görüntülemeyi seçebilirsiniz.
+    ![Yeni HTTP tetikleyici işlevi URL'sini Kopyala](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

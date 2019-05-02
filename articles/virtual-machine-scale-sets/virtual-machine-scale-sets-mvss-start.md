@@ -1,10 +1,10 @@
 ---
 title: Sanal makine ölçek kümesi şablonları hakkında bilgi edinin | Microsoft Docs
-description: Sanal makine ölçek kümeleri için en düşük uygun ölçek kümesi şablon oluşturmayı öğrenin
+description: Sanal makine ölçek kümeleri için basit bir ölçek kümesi şablon oluşturmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805572"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868919"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Sanal makine ölçek kümesi şablonları hakkında bilgi edinin
-[Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisinde, en düşük uygun ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryolara uygun olarak bu şablonu nasıl değiştireceğiniz gösterilmektedir. Tüm örnekler buradan gelen [GitHub deposu](https://github.com/gatneil/mvss). 
+[Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisinde, basit bir ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryolara uygun olarak bu şablonu nasıl değiştireceğiniz gösterilmektedir. Tüm örnekler buradan gelen [GitHub deposu](https://github.com/gatneil/mvss).
 
 Bu şablon, basit olması amaçlanmıştır. Ölçeğin daha ayrıntılı örnekler için şablonlar, bakın [Azure hızlı başlangıç şablonları GitHub deposunda](https://github.com/Azure/azure-quickstart-templates) ve arama dizesini içeren klasörlere `vmss`.
 
 Şablonları oluşturma konusunda bilginiz varsa, bu şablonu nasıl değiştireceğiniz görmek için "Sonraki adımlar" bölümüne atlayabilirsiniz.
-
-## <a name="review-the-template"></a>Şablonu gözden geçirin
-
-En düşük uygun ölçek kümesi şablonunun gözden geçirmek için GitHub'ı kullanın [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-Bu öğreticide, fark inceleyelim (`git diff master minimum-viable-scale-set`) en düşük uygun ölçek oluşturmak için şablon parça parça ayarlayın.
 
 ## <a name="define-schema-and-contentversion"></a>Define $schema and contentVersion
 Öncelikle, tanımlamanız `$schema` ve `contentVersion` şablondaki. `$schema` Öğe şablonu dil sürümünü tanımlar ve Visual Studio söz dizimi vurgulama ve benzer doğrulama özellikleri için kullanılır. `contentVersion` Öğesi, Azure tarafından kullanılmaz. Bunun yerine, şablon sürümünü izlemenize yardımcı olur.
@@ -43,6 +37,7 @@ Bu öğreticide, fark inceleyelim (`git diff master minimum-viable-scale-set`) e
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Parametreleri tanımlayın
 Ardından, iki parametre tanımlama `adminUsername` ve `adminPassword`. Parametreleri, dağıtım sırasında belirttiğiniz değerlerdir. `adminUsername` Parametresi, yalnızca bir `string` türü, ancak `adminPassword` olduğundan bu tür bir gizli dizi, verin `securestring`. Daha sonra bu parametreleri ile ölçek kümesi yapılandırması geçirilir.
 
@@ -70,13 +65,13 @@ Sonraki şablon kaynakları bölümünde bulunur. Burada, hangi gerçekten dağ�
    "resources": [
 ```
 
-Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), adı `myVnet`ve apiVersion `2016-03-30`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure Resource Manager şablon başvurusu](/azure/templates/).)
+Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), adı `myVnet`ve apiVersion `2018-11-01`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure Resource Manager şablon başvurusu](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Konumu belirtin
@@ -117,7 +112,7 @@ Bu durumda, var. yalnızca bir öğe listesinde, önceki örnekte sanal ağ Herh
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Bu durumda, var. yalnızca bir öğe listesinde, önceki örnekte sanal ağ Herh
 ```
 
 ### <a name="choose-type-of-updates"></a>Güncelleştirmelerin türünü seçin
-Ayrıca ölçek, Ölçek kümesindeki güncelleştirmelerin nasıl ele alınacağını bilmek ister. Şu anda iki seçenek vardır `Manual` ve `Automatic`. İkisi arasındaki farklar hakkında daha fazla bilgi için belgelere bakın [bir ölçek kümesi yükseltme](./virtual-machine-scale-sets-upgrade-scale-set.md).
+Ayrıca ölçek, Ölçek kümesindeki güncelleştirmelerin nasıl ele alınacağını bilmek ister. Şu anda üç seçenek vardır `Manual`, `Rolling` ve `Automatic`. İkisi arasındaki farklar hakkında daha fazla bilgi için belgelere bakın [bir ölçek kümesi yükseltme](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

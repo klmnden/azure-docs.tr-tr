@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518432"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724410"
 ---
 # <a name="manage-your-application-preferences"></a>Uygulama tercihlerinizi yönetin
 
@@ -36,4 +36,4 @@ Koyu tema hem de açık tema için destek sunuyoruz. Açık tema varsayılan ols
 Azure IOT Central profilinizde yönetmek öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [Uygulama panonuza yapılandırın](howto-configure-homepage.md)
+> [İki durumlu canlı sohbet](howto-show-hide-chat.md)

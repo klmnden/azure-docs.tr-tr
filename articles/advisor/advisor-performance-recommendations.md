@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 6cca6692da37714c76f5241ed14e24c967b00563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467706"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920439"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Danışmanı ile Azure uygulamalarını'nın performansını artırma
 
@@ -88,11 +88,11 @@ Yavaş sorgu performansı iş yükünüz için çok yüksek CPU kullanımını u
 Yetersiz önbellek isabet oranını daha yavaş sorgu performansı ve daha yüksek IOPS neden olabilir. Bu bir hatalı sorgu planı ya da bir bellek kullanımı yoğun iş yükü nedeniyle olabilir. Sorgu planı düzelttikten veya [belleğin artırılması](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) PostgreSQL veritabanı sunucusu, Azure MySQL veritabanı sunucusu veya Azure MariaDB için Azure veritabanı sunucusu veritabanı iş yükünüzü yürütülmesi en iyi duruma yardımcı olur. Azure Danışmanı, bu yüksek arabellek havuzu veri değişim sıklığı nedeniyle etkilenen sunucuları belirler ve sorgu planı düzeltme daha yüksek bir SKU ile daha fazla bellek taşımak ya da daha yüksek IOPS almak için depolama boyutunu artırma önerir.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Okuma açısından yoğun kaynak gerektiren iş yükleri için okuma ölçeği genişletmek için Azure MySQL veya PostgreSQL okuma çoğaltması Azure'ı kullanın
-Azure Danışmanı, okuma ve yazma sunucudaki son yedi okuma açısından yoğun iş yükleri tanımlamak için gün içindeki oranı gibi iş yükü tabanlı buluşsal yararlanır. Kaynak PostgreSQL için Azure veritabanı veya çok yüksek okuma/yazma oranı ile kaynak MySQL için Azure veritabanı sorgu performansı yavaş baştaki CPU ve/veya bellek çakışması neden olabilir. Ekleme bir [çoğaltma](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) okuma birincil sunucudaki CPU ve/veya bellek kısıtlamaları önleme çoğaltma sunucusuna ölçeği genişletmeyi de yardımcı olur. Danışman sunucular gibi yüksek okuma açısından yoğun iş yükleri ile tanımlar ve eklemenizi öneririz bir [çoğaltma okuma](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) okuma iş yükleri yük boşaltması için.
+Azure Danışmanı, okuma ve yazma sunucudaki son yedi okuma açısından yoğun iş yükleri tanımlamak için gün içindeki oranı gibi iş yükü tabanlı buluşsal yararlanır. Kaynak PostgreSQL için Azure veritabanı veya çok yüksek okuma/yazma oranı ile kaynak MySQL için Azure veritabanı sorgu performansı yavaş baştaki CPU ve/veya bellek çakışması neden olabilir. Ekleme bir [çoğaltma](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) okuma birincil sunucudaki CPU ve/veya bellek kısıtlamaları önleme çoğaltma sunucusuna ölçeği genişletmeyi de yardımcı olur. Danışman sunucular gibi yüksek okuma açısından yoğun iş yükleri ile tanımlar ve eklemenizi öneririz bir [çoğaltma okuma](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) okuma iş yükleri yük boşaltması için.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Azure MySQL, PostgreSQL Azure veya Azure MariaDB sunucunuzun bağlantı kısıtlamaları önlemek için daha yüksek bir SKU için ölçeği
-Her yeni bağlantı veritabanı sunucunuza bazı bellek kaplar. Sunucunuza bağlantılar nedeniyle başarısız oluyorsa veritabanı sunucusunun performansı düşürür bir [üst sınırı](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) bellekte. Azure Danışmanı ile birçok bağlantı hataları çalıştıran sunucuları tanımlamak ve hesaplamayı ölçeklendirme veya bellek için iyileştirilmiş, daha fazla işlem çekirdeği başına SKU'ları, kullanarak sunucunuza daha fazla bellek sağlamak için sunucunuzun bağlantı sınırları öneririz.
+Her yeni bağlantı veritabanı sunucunuza bazı bellek kaplar. Sunucunuza bağlantılar nedeniyle başarısız oluyorsa veritabanı sunucusunun performansı düşürür bir [üst sınırı](https://docs.microsoft.com/azure/postgresql/concepts-limits) bellekte. Azure Danışmanı ile birçok bağlantı hataları çalıştıran sunucuları tanımlamak ve hesaplamayı ölçeklendirme veya bellek için iyileştirilmiş, daha fazla işlem çekirdeği başına SKU'ları, kullanarak sunucunuza daha fazla bellek sağlamak için sunucunuzun bağlantı sınırları öneririz.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 

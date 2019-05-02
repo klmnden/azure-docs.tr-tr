@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0eaa5f24be85eab96f11e0c3915a3f60d79a0551
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704497"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
 
@@ -92,7 +92,7 @@ Bu sorular depolama planlama ve ortamları işleme için anahtar vardır. Bunlar
 * Sayısal
 * Kategorik
 * Dizeler
-* İkili
+* binary
 
 ### <a name="how-is-your-data-formatted"></a>Verilerinizi nasıl biçimlendirildiğini?
 
@@ -150,7 +150,7 @@ Diller, geliştirme ortamları ve araçları için birçok seçenek vardır. Ger
 * [Microsoft Azure Powershell](/powershell/azure/overview) -komut dosyası dili Azure kaynaklarınızı yönetmek için kullanılan bir komut dosyası dili
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
-* [RStudio](http://www.rstudio.com)
+* [RStudio](https://www.rstudio.com)
 * [Visual Studio için Python Araçları](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Jupyter Not Defterleri](https://jupyter.org/)

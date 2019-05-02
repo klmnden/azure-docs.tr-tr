@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350377"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918846"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect veritabanını SQL Server Express'ten SQL Server'a taşıma 
 
@@ -25,7 +25,7 @@ Bu belge, Azure AD Connect veritabanını yerel SQL Server Express'ten uzaktaki 
 ## <a name="about-this-scenario"></a>Bu senaryo hakkında
 Aşağıda bu senaryo hakkında bazı kısa bilgilere yer verilmiştir.  Bu senaryoda Azure AD Connect sürümü (1.1.819.0) tek bir Windows Server 2016 etki alanı denetleyicisine yüklenmiştir.  Veritabanı için yerleşik SQL Server 2012 Express Edition'ı kullanmaktadır.  Veritabanı bir SQL Server 2017 sunucusuna taşınacaktır.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![Senaryo mimarisi](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Azure AD Connect veritabanını taşıma
 Azure AD Connect veritabanını uzak SQL Server'a taşımak için aşağıdaki adımları takip edin.
@@ -37,7 +37,7 @@ Azure AD Connect veritabanını uzak SQL Server'a taşımak için aşağıdaki a
 5. Uzak SQL sunucusunda SQL Server Management Studio'yu açın.
 6. Veritabanları bölümüne sağ tıklayıp Ekle'yi seçin.
 7. **Veritabanı Ekle** ekranında **Ekle**'ye tıklayıp ADSync.mdf dosyasını gösterin.  **Tamam** düğmesine tıklayın.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![Veritabanı ekleme](media/how-to-connect-install-move-db/move2.png)
 
 8. Veritabanı eklendikten sonra Azure AD Connect sunucusuna gidip Azure AD Connect'i yükleyin.
 9. MSI yüklemesi tamamlandıktan sonra Azure AD Connect sihirbazı Hızlı mod kurulumu açılır. Çıkış simgesine tıklayarak ekranı kapatın.

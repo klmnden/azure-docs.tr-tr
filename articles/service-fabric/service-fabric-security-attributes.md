@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719410"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Azure Service Fabric için genel güvenlik öznitelikleri
 
@@ -27,7 +27,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azur
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet | Müşteri, küme ve sanal makine ölçek kümesi yerleşik kümesi üstlenir. Sanal makine ölçek kümesinde Azure disk şifrelemesi etkin hale getirilebilir. |
-| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet |  |
+| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>VNet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet |  |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Evet | Müşteri, küme ve sanal makine ölçek kümesi yerleşik kümesi üstlenir. Sanal makine ölçek kümesinde Azure disk şifrelemesi etkin hale getirilebilir. |
 | Sütun düzeyinde şifrelemeyi (Azure Data Services)| Yok |  |
 | Şifrelenmiş API çağrıları| Evet | Service Fabric API çağrıları, Azure Resource Manager üzerinden yapılır. Geçerli bir JSON web token (JWT) gereklidir. |
@@ -37,7 +37,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azur
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Hizmet uç noktası desteği| Evet |  |
-| vNET ekleme desteği| Evet |  |
+| VNet ekleme desteği| Evet |  |
 | Ağ yalıtımı ve saldırısından desteği| Evet | Ağ güvenlik grupları (NSG) kullanarak. |
 | Zorlamalı tünel oluşturma desteği| Evet | Azure ağı, zorlamalı tünel sağlar. |
 

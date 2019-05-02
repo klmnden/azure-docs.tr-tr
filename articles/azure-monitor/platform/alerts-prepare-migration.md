@@ -1,30 +1,30 @@
 ---
 title: Logic apps ve runbook'ları güncelleştirerek Azure İzleyici Klasik uyarılar geçiş için hazırlama
-description: Web kancası, mantıksal uygulamanızı ve gönüllü geçişe hazırlamak için runbook'ları değiştirme hakkında bilgi edinin.
+description: Web kancaları, logic apps ve gönüllü geçişe hazırlamak için runbook'ları değiştirme hakkında bilgi edinin.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346890"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727491"
 ---
-# <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>Mantıksal uygulamalarınızı hazırlamak ve klasik uyarı kuralları geçiş için books çalıştırın
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Logic apps ve runbook'ları Klasik uyarı kuralları bir geçiş için hazırlama
 
-Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Temmuz 2019 ' kullanımdan. Geçiş Aracı, geçiş gönüllü olarak tetiklemek için Azure portalında kullanılabilir ve klasik uyarı kuralları kullanan müşteriler için kullanıma sunuluyor.
+Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Temmuz 2019 ' kullanımdan. Geçiş Aracı, Azure portalında Klasik uyarı kuralları kullanan ve kendilerini geçişini isteyen müşteriler için kullanılabilir.
 
-Yeni uyarı kuralları için uyarı kurallarınızı Klasik gönüllü olarak geçirmeyi seçerseniz, farkında olmanız gereken iki sistem arasındaki bazı farklar vardır. Bu makalede, iki sistem arasındaki değişikliğe hazırlanmak nasıl farkları aracılığıyla size yol gösterir.
+Yeni uyarı kuralları için uyarı kurallarınızı Klasik gönüllü olarak geçirmeyi seçerseniz, iki sistem arasındaki bazı farklar olduğunu unutmayın. Bu makalede bu farklılıklar ve değişikliğe hazırlanmak nasıl açıklanmaktadır.
 
 ## <a name="api-changes"></a>API değişiklikleri
 
-API'ler Klasik uyarı kuralları oluşturma/yönetmek için kullanılan (`microsoft.insights/alertrules`) yeni ölçüm uyarıları oluşturma/yönetmek için kullanılan API'lerinden farklı (`microsoft.insights/metricalerts`). Program aracılığıyla oluşturma/Klasik uyarı kuralları bugün yönetiyorsanız, dağıtım betiklerinizi yeni API'leri ile çalışacak şekilde güncelleştirin.
+Oluşturma ve klasik uyarı kurallarını yönet API'leri (`microsoft.insights/alertrules`), yeni ölçüm uyarıları oluşturma ve yönetme API'lerinden farklı (`microsoft.insights/metricalerts`). Program aracılığıyla oluşturma ve bugün Klasik uyarı kuralları yönetin, dağıtım betiklerinizi yeni API'leri ile çalışacak şekilde güncelleştirin.
 
-Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabirimleri başvuru sağlar.
+Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabirimleri başvurusu vardır:
 
 |         |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
@@ -35,53 +35,56 @@ Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabiri
 
 ## <a name="notification-payload-changes"></a>Bildirim yükü değişiklikleri
 
-Bildirim yükü biçimi arasında biraz daha farklı olmasına [Klasik uyarı kuralları](alerts-webhooks.md) ve [yeni ölçüm uyarıları](alerts-metric-near-real-time.md#payload-schema). Herhangi bir Web kancası, mantıksal uygulama'iniz varsa veya Klasik uyarı kuralları tarafından tetiklenen runbook eylemleri, yeni ölçüm uyarıları yükü biçimini kabul etmek için bu bildirim uç noktalarını güncelleştirmek gerekir.
+Bildirim yükü biçimi arasında biraz daha farklı olmasına [Klasik uyarı kuralları](alerts-webhooks.md) ve [yeni ölçüm uyarıları](alerts-metric-near-real-time.md#payload-schema). Herhangi bir Web kancası, mantıksal uygulama veya Klasik uyarı kuralları tarafından tetiklenen runbook'u eylemler varsa, yeni ölçüm uyarıları yükü biçimini kabul etmek için bu bildirim uç noktalarını güncelleştirmeniz gerekir.
 
-Aşağıdaki tabloda, klasik bir uyarı kuralı Web kancası yükü ve yeni ölçüm uyarı Web kancası yükü arasındaki alanları eşleyin için kullanabilirsiniz.
+Klasik biçimi Web kancası yükü alanları yeni biçime eşlemek için aşağıdaki tabloyu kullanın:
 
 |  |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
-|Uyarının etkin veya çözümlenen     | durum       | Data.Status |
-|Uyarı hakkında bağlamsal bilgiler     | Bağlam        | Data.Context        |
-|Hangi uyarının etkin veya çözümlenmiş bir zaman damgası      | Context.Timestamp       | Data.Context.Timestamp        |
-| Uyarı kuralı kimliği | Context.id | Data.Context.id |
-| Uyarı kuralı adı | Context.Name | Data.Context.Name |
-| Uyarı kuralı açıklaması | Context.Description | Data.Context.Description |
-| Uyarı kuralı koşulu | Context.condition | Data.Context.condition|
-| Ölçüm adı | context.condition.metricName| data.context.condition.allOf[0].metricName|
-| Zaman toplama (nasıl ölçüm değerlendirme pencere üzerinde toplanır)|data.context.condition.timeAggregation|data.context.condition.timeAggregation|
-| Değerlendirme süresi | context.condition.windowSize | data.context.condition.windowSize|
-| (Nasıl toplanan bir ölçüm değeri eşik karşı karşılaştırılır) işleci | Context.Condition.operator | Data.Context.Condition.operator|
-| Eşik | Context.Condition.Threshold| data.context.condition.allOf[0].threshold|
-| Ölçüm değeri | context.condition.metricValue | data.context.condition.allOf[0].metricValue|
-| Abonelik Kimliği | context.subscriptionId | data.context.subscriptionId|
-| Etkilenen kaynak kaynak grubu | context.resourceGroup | data.context.resourceGroup|
-| Etkilenen kaynak adı | context.resourceName | data.context.resourceName |
-| Etkilenen kaynak türü | context.resourceType | data.context.resourceType |
-|  Etkilenen kaynak kaynak kimliği | context.resourceId | data.context.resourceId |
-| Portal kaynak Özet sayfasında doğrudan bağlantı | context.portalLink | data.context.portalLink|
-| Web kancası veya mantıksal uygulama için geçirilecek özel yük alanları | properties |Data.Properties |
+|Uyarının etkin veya çözümlenen?    | **Durumu**       | **data.status** |
+|Uyarı hakkında bağlamsal bilgiler     | **Bağlam**        | **Data.Context**        |
+|Zaman damgası, uyarının etkin veya çözümlendi     | **Context.Timestamp**       | **Data.Context.Timestamp**        |
+| Uyarı kuralı kimliği | **Context.id** | **Data.Context.id** |
+| Uyarı kuralı adı | **Context.Name** | **Data.Context.Name** |
+| Uyarı kuralı açıklaması | **Context.Description** | **Data.Context.Description** |
+| Uyarı kuralı koşulu | **Context.condition** | **Data.Context.condition** |
+| Ölçüm adı | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Zaman toplama (nasıl ölçüm değerlendirme pencere üzerinde toplanır)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Değerlendirme süresi | **context.condition.windowSize** | **data.context.condition.windowSize** |
+| (Nasıl toplanan bir ölçüm değeri eşik karşı karşılaştırılır) işleci | **Context.Condition.operator** | **Data.Context.Condition.operator** |
+| Eşik | **Context.Condition.Threshold** | **data.context.condition.allOf[0].threshold** |
+| Ölçüm değeri | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| Abonelik Kimliği | **context.subscriptionId** | **data.context.subscriptionId** |
+| Etkilenen kaynak kaynak grubu | **context.resourceGroup** | **data.context.resourceGroup** |
+| Etkilenen kaynak adı | **context.resourceName** | **data.context.resourceName** |
+| Etkilenen kaynak türü | **context.resourceType** | **data.context.resourceType** |
+| Etkilenen kaynak kaynak kimliği | **context.resourceId** | **data.context.resourceId** |
+| Portal kaynak Özet sayfasında doğrudan bağlantı | **context.portalLink** | **data.context.portalLink** |
+| Web kancası veya mantıksal uygulamaya geçirilecek özel yük alanları | **Özellikleri** | **Data.Properties** |
 
-Gördüğünüz gibi her iki yüklerini benzerdir. Aşağıdaki bölümde, örnek logic apps hakkında ayrıntılı bilgi ve yeni uyarılar için bildirim yükü ayrıştırmak için örnek bir runbook sahiptir.
+Gördüğünüz gibi yüklerini benzerdir. Aşağıdaki bölümde sunar:
 
-## <a name="using-a-logic-app-that-receives-a-metric-alert-notification"></a>Ölçüm uyarı bildirim aldığı bir mantıksal uygulama kullanma
+- Mantıksal uygulamalar'yeni biçime ile çalışacak şekilde değiştirme hakkında ayrıntılar.
+- Yeni uyarılar için bildirim yükü ayrıştırmak için bir runbook örneği.
 
-Logic apps ile klasik uyarıları kullanıyorsanız, mantıksal uygulamanız yeni ölçüm uyarıları yükü ayrıştırılamıyor değiştirmek gerekir.
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Bir ölçüm uyarı bildirim almak için bir mantıksal uygulama değiştirme
+
+Logic apps ile klasik uyarıları kullanıyorsanız, yeni ölçüm uyarıları yükü ayrıştırmak için mantıksal uygulama kodunuzu değiştirmeniz gerekir. Şu adımları uygulayın:
 
 1. Yeni bir mantıksal uygulama oluşturun.
 
-2. "Azure İzleyici – ölçümleri uyarı işleyicisi" şablonu kullanın. Bu şablonda bir **HTTP isteği** içindeki uygun şemayı tanımlanan tetikleyici
+1. "Azure İzleyici – ölçümleri uyarı işleyicisi" şablonu kullanın. Bu şablonda bir **HTTP isteği** içindeki uygun şemayı tanımlanan tetikleyici.
 
     ![mantıksal uygulama şablonunu](media/alerts-migration/logic-app-template.png "ölçüm uyarı şablonu")
 
-3. İşlem mantığınızı barındırmak için bir eylem ekleme.
+1. İşlem mantığınızı barındırmak için bir eylem ekleme.
 
-## <a name="using-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Ölçüm uyarı bildirim aldığı bir Otomasyon runbook'u kullanma
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Ölçüm uyarı bildirim aldığı bir Otomasyon runbook'unu kullanın
 
-Aşağıdaki örnek, hem Klasik ölçüm uyarı kuralları hem de yeni ölçüm uyarı kuralları için yüklerini ayrıştırabilen runbook'unuzda kullanılabilecek PowerShell kodu sağlar.
+Aşağıdaki örnek, bir runbook'ta kullanmak için PowerShell kodu sağlar. Bu kod yüklerini hem Klasik ölçüm uyarı kuralları hem de yeni ölçüm uyarı kuralları için ayrıştırabilirsiniz.
 
-```PS
-## Sample PowerShell code to be used in a runbook to handle parsing of both classic and new metric alerts
+```PowerShell
+## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
 
 [OutputType("PSAzureOperationResponse")]
 
@@ -98,38 +101,38 @@ if ($WebhookData)
     # Get the data object from WebhookData.
     $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-    # Identify if the alert triggering the runbook is a classic metric alert or a new metric alert (depends on the payload schema).
+    # Determine whether the alert triggering the runbook is a classic metric alert or a new metric alert (depends on the payload schema).
     $schemaId = $WebhookBody.schemaId
     Write-Verbose "schemaId: $schemaId" -Verbose
     if ($schemaId -eq "AzureMonitorMetricAlert") {
 
-        # This is the new Metric Alert schema
+        # This is the new metric alert schema.
         $AlertContext = [object] ($WebhookBody.data).context
         $status = ($WebhookBody.data).status
 
-        # Parse fields related to alert rule condition
+        # Parse fields related to alert rule condition.
         $metricName = $AlertContext.condition.allOf[0].metricName
         $metricValue = $AlertContext.condition.allOf[0].metricValue
         $threshold = $AlertContext.condition.allOf[0].threshold
         $timeAggregation = $AlertContext.condition.allOf[0].timeAggregation
     }
     elseif ($schemaId -eq $null) {
-        # This is the classic Metric Alert schema
+        # This is the classic metric alert schema.
         $AlertContext = [object] $WebhookBody.context
         $status = $WebhookBody.status
 
-        # Parse fields related to alert rule condition
+        # Parse fields related to alert rule condition.
         $metricName = $AlertContext.condition.metricName
         $metricValue = $AlertContext.condition.metricValue
         $threshold = $AlertContext.condition.threshold
         $timeAggregation = $AlertContext.condition.timeAggregation
     }
     else {
-        # The schema is not either a classic metric alert or a new metric alert
+        # The schema is neither a classic metric alert nor a new metric alert.
         Write-Error "The alert data schema - $schemaId - is not supported."
     }
 
-    #parse fields related to resource affected
+    # Parse fields related to resource affected.
     $ResourceName = $AlertContext.resourceName
     $ResourceType = $AlertContext.resourceType
     $ResourceGroupName = $AlertContext.resourceGroupName
@@ -145,11 +148,11 @@ else {
 
 ```
 
-Bir VM içinde bir uyarı tetiklendiğinde durduran bir runbook'un tam bir örnek görmek [Azure Otomasyonu belgeleri](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Bir sanal makine bir uyarı tetiklendiğinde durduran bir runbook'un tam bir örnek için bkz. [Azure Otomasyonu belgeleri](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
 ## <a name="partner-integration-via-webhooks"></a>Web kancaları aracılığıyla iş ortağı tümleştirmesi
 
-Çoğu [Klasik uyarılar ile Birleşen İş Ortaklarımızın](https://docs.microsoft.com/azure/azure-monitor/platform/partners) kendi tümleştirmeler aracılığıyla yeni ölçüm uyarılarının zaten desteklemektedir. Zaten yeni ölçüm uyarılarla çalışma bilinen tümleştirmeler aşağıda listelenmiştir.
+Çoğu [Klasik uyarılar ile Birleşen İş Ortaklarımızın](https://docs.microsoft.com/azure/azure-monitor/platform/partners) kendi tümleştirmeler aracılığıyla yeni ölçüm uyarılarının zaten desteklemektedir. Zaten yeni ölçüm uyarılarla çalışma bilinen tümleştirmeleri şunlardır:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

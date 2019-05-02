@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461264"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916828"
 ---
 # <a name="what-is-speech-to-text"></a>Konuşmayı metne nedir?
 
-Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne dönüştürme, etkinleştirir, uygulamalar, Araçlar veya cihazları kullanabilen bir metne ses akışları gerçek zamanlı döküm, görüntüleyin ve komut giriş olarak üzerinde işlem gerçekleştir. Bu hizmet Microsoft Cortana ve Office ürünleri için kullanan ve metin okuma ve çeviri ile sorunsuz çalışır aynı tanıma teknolojisini tarafından desteklenmektedir.  Konuşmayı metne diller tam bir listesi için bkz. [desteklenen diller](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne dönüştürme, etkinleştirir, uygulamalar, Araçlar veya cihazları kullanabilen bir metne ses akışları gerçek zamanlı döküm, görüntüleyin ve komut giriş olarak üzerinde işlem gerçekleştir. Bu hizmet Microsoft Cortana ve Office ürünleri için kullanan ve metin okuma ve çeviri ile sorunsuz çalışır aynı tanıma teknolojisini tarafından desteklenmektedir.  Konuşmayı metne diller tam bir listesi için bkz. [desteklenen diller](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Varsayılan olarak, konuşma metin hizmetini Evrensel dil modelini kullanır. Bu model, Microsoft'a ait verileri kullanarak eğitim ve olduğu buluta dağıtılabilir. İçin en iyi damıtarak konuşma bağlamında kullanılabilen ve dikte senaryoları. Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. 
 

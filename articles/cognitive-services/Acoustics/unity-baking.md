@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388423"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916994"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Proje akustik Unity hazırlama Öğreticisi
 Bu öğreticide, Unity projesi akustik ile saklanacağı akustik açıklanmaktadır.
 
 Yazılım gereksinimleri:
-* [Unity 2018.2 +](http://unity3d.com) Windows için
+* [Unity 2018.2 +](https://unity3d.com) Windows için
 * [Unity projeniz içindeki proje akustik eklentisi tümleşik](unity-integration.md) veya [proje akustik Unity örnek içerik](unity-quickstart.md)
 * İsteğe bağlı: Bir [Azure Batch hesabı](create-azure-account.md) bakes hızlandırmak için kullanarak bulut bilgi işlem
 

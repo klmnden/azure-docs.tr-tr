@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381668"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918422"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -89,7 +89,7 @@ Hangi kaynak kimin erişmekte olduğunu anlamak için içerik yönetiminin önem
 ## <a name="define-access-control-options"></a>Erişim denetimi seçeneklerini tanımlayın
 Kimlik doğrulama, yetkilendirme ve erişim denetimi özellikleri Azure AD'de kullanılabilir yararlanarak kullanıcıların olanak tanıyan merkezi kimlik deposu kullanmak, şirketinizin etkinleştirebilirsiniz ve iş ortaklarının tek kullanın (SSO) aşağıdaki şekilde gösterildiği gibi oturum:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![Merkezi Yönetim](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Merkezi Yönetim'i ve tam olarak diğer dizinleri ile tümleştirme
 
@@ -115,7 +115,7 @@ Azure AD desteğini kullanarak mobil iş uygulamaları, çalışanların mobil u
 
 Kullanıcının Azure AD kullanarak kimliği doğrulandıktan sonra kullanıcının erişim düzeyini değerlendirmek önemlidir. Bir kaynak üzerinde kullanıcının erişim düzeyini farklılık gösterebilir. Azure AD, bazı kaynaklara erişimi denetleyerek bir ek güvenlik katmanı ekleyebilirsiniz, ancak göz önünde bulundurun kaynak Ayrıca kendi erişim denetim listesi ayrı ayrı bir dosya sunucusunda bulunan dosyalar için erişim denetimi gibi olduğunu. Karma bir senaryoda sahip olduğunuz erişim denetimi düzeyini aşağıdaki şekilde özetlenmiştir:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Erişim denetimi](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Şekil X gösterdi diyagramdaki her etkileşim, Azure AD tarafından kapsanan bir erişim denetimi senaryoyu temsil eder. Aşağıda, her senaryonun açıklaması vardır:
 

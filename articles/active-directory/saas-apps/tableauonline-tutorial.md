@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617316"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Öğretici: Tableau Online ile Azure Active Directory Tümleştirmesi
 
@@ -188,7 +188,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon\@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -229,7 +229,7 @@ Bu bölümde, Britta Simon Tableau Online'da adlı bir kullanıcı oluşturun.
   
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Seçin **(SAML) kimlik doğrulaması için kullanıcı ekleme**. İçinde **Enter e-posta adreslerini** metin kutusu ekleme britta.simon@contoso.com
+2. Seçin **(SAML) kimlik doğrulaması için kullanıcı ekleme**. İçinde **Enter e-posta adreslerini** metin kutusu ekleme britta.simon\@contoso.com
   
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 

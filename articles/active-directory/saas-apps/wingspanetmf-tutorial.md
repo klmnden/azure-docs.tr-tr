@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280766"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Öğretici: Wingspan eTMF ile Azure Active Directory Tümleştirme
 
@@ -112,7 +112,7 @@ Azure AD çoklu oturum açma ile Wingspan eTMF yapılandırmak için aşağıdak
     c. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Wingspan eTMF istemci Destek ekibine](http://www.wingspan.com/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Wingspan eTMF istemci Destek ekibine](https://www.wingspan.com/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -130,7 +130,7 @@ Azure AD çoklu oturum açma ile Wingspan eTMF yapılandırmak için aşağıdak
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Wingspan eTMF çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Wingspan eTMF** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Wingspan eTMF destek ekibi ](http://www.wingspan.com/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Wingspan eTMF** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Wingspan eTMF destek ekibi ](https://www.wingspan.com/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -184,7 +184,7 @@ Bu bölümde, Azure çoklu oturum açma Wingspan eTMF erişim vererek kullanmak 
 
 ### <a name="create-wingspan-etmf-test-user"></a>Wingspan eTMF test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Wingspan eTMF içinde adlı bir kullanıcı oluşturun. Çalışmak [Wingspan eTMF Destek ekibine](http://www.wingspan.com/contact-us/) Wingspan eTMF platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Wingspan eTMF içinde adlı bir kullanıcı oluşturun. Çalışmak [Wingspan eTMF Destek ekibine](https://www.wingspan.com/contact-us/) Wingspan eTMF platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

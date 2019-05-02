@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245573"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918487"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -25,7 +25,7 @@ PowerShell modülü adlı [ADSyncConfig.psm1](reference-connect-adsyncconfig.md)
 ## <a name="overview"></a>Genel Bakış 
 Aşağıdaki PowerShell cmdlet'lerini, Azure AD Connect'e bağlanan etkinleştirmek için seçtiğiniz her bir özellik için AD DS bağlayıcı hesabının, Kurulum Active Directory izinlerini kullanılabilir. Ormanınıza bağlanmak için bir özel etki alanı hesabı kullanarak Azure AD Connect'i yüklemek istediğiniz her sorunları önlemek için Active Directory izinlerini önceden hazırlamanız. Bu ADSyncConfig modülü, Azure AD Connect dağıtıldıktan sonra izinlerini yapılandırmak için de kullanılabilir.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![ad ds hesabı genel bakış](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 İzinleri engellemedikçe bu ADSyncConfig modülü kullanın gerekmez. Bu nedenle Azure AD Connect Express yüklemesi için otomatik olarak oluşturulan bir hesap (MSOL_nnnnnnnnnn) Active Directory'de tüm gerekli izinlerle oluşturulur Azure AD ile eşitlemek istediğiniz belirli Active Directory nesneleri veya kuruluş birimleri üzerinde devralma. 
  

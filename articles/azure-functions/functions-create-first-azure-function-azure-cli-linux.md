@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f79fbc46104eb886a758802aff79a46feb4f5a3b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125652"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866626"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Core Tools ve Azure CLI'yi kullanarak Linux’ta barındırılan ilk işlevinizi oluşturma (önizleme)
 
@@ -30,7 +30,7 @@ Aşağıdaki adımlar Mac, Windows veya Linux bilgisayarlarda desteklenir. Bu ma
 
 Bu örneği çalıştırmadan önce aşağıdakilere sahip olmanız gerekir:
 
-+ [Azure Core Tools sürüm 2.x](functions-run-local.md#v2) yükleme.
+- Yükleme [Azure işlevleri çekirdek Araçları](./functions-run-local.md#v2) 2.6.666 sürüm veya üstü.
 
 + [Azure CLI]( /cli/azure/install-azure-cli)’yi yükleyin. Bu makale, Azure CLI 2.0 veya sonraki bir sürümü gerektirir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. [Azure Cloud Shell](https://shell.azure.com/bash)’i de kullanabilirsiniz.
 
@@ -67,9 +67,11 @@ Yeni `MyFunctionProj` proje klasörüne gitmek için aşağıdaki komutu kullan�
 cd MyFunctionProj
 ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+## <a name="reference-bindings"></a>Başvuru bağlamaları
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 

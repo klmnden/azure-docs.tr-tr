@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487881"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728151"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
@@ -63,13 +63,13 @@ Kabul edilen değerler, Time Series Insights gezgininin **kısa süre** menüsü
 
 `timeSeriesDefinitions=<collection of term objects>` parametresi Time Series Insights görünümünün dönemlerini belirtir; burada:
 
-- "name":"<string>"
+- "name": "\<dizesi >"
   - *Dönem* adı.
-- "splitBy":"<string>"
+- "splitBy": "\<dizesi >"
   - *Bölme ölçütü* sütunun adı.
-- "measureName":"<string>"
+- "measureName": "\<dizesi >"
   - *Ölçü* sütununun adı.
-- "predicate":"<string>"
+- "koşul": "\<dizesi >"
   - Sunucu tarafı filtrelemesi için *where* yan tümcesi.
 - "useSum":"true"
   - Bu, ölçümünüz için toplam kullanmayı belirten isteğe bağlı bir parametredir.  Ölçümde “Olaylar” seçiliyse, sayımın varsayılan olarak seçileceğini unutmayın.  “Olaylar” seçili değilse, ortalama varsayılan olarak seçilir.  
@@ -121,4 +121,5 @@ Tam görünüm (grafik dahil) şöyle olurdu:
 ![Grafik görünümü](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[C# kullanarak verileri sorgulama](time-series-insights-query-data-csharp.md)
+
+- Bilgi edinmek için nasıl [sorgu kullanarak verileri C# ](time-series-insights-query-data-csharp.md).

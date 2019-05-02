@@ -1,6 +1,6 @@
 ---
-title: Azure CDN içeriğini ülkeye göre kısıtlama | Microsoft Docs
-description: Coğrafi filtreleme özelliğini kullanarak, Azure CDN içeriğini ülkeye göre erişimi kısıtlama hakkında bilgi edinin.
+title: Ülke/bölgeye göre Azure CDN içeriğini kısıtla | Microsoft Docs
+description: Azure CDN içeriğinizi ülke/bölge tarafından coğrafi filtreleme özelliğini kullanarak erişimi kısıtlama hakkında bilgi edinin.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324648"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869578"
 ---
-# <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN içeriğini ülkeye göre kısıtlama
+# <a name="restrict-azure-cdn-content-by-countryregion"></a>Ülke/bölgeye göre Azure CDN içeriğini kısıtla
 
 ## <a name="overview"></a>Genel Bakış
-Kullanıcı varsayılan olarak, içeriği istediğinde, içerik isteği yapan kullanıcının konumunu bağımsız olarak sunulur. Ancak, bazı durumlarda, içeriğinize ülkeye göre erişimi kısıtlamak isteyebilirsiniz. İle *coğrafi filtreleme* özelliği oluşturabileceğiniz kuralları belirli yollarda izin vermek veya seçilen ülkelerde içeriği engellemek için CDN uç noktanız.
+Kullanıcı varsayılan olarak, içeriği istediğinde, içerik isteği yapan kullanıcının konumunu bağımsız olarak sunulur. Ancak, bazı durumlarda, ülke/bölge tarafından içeriğinize erişimi kısıtlamak isteyebilirsiniz. İle *coğrafi filtreleme* özelliği oluşturabileceğiniz kuralları belirli yollarda izin vermeyi veya engellemeyi içeriği seçilen ülkelerde/bölgelerde CDN uç noktanız.
 
 > [!IMPORTANT]
 > **Azure CDN standart Microsoft gelen** profilleri yol tabanlı coğrafi filtreleme desteklemez.
@@ -54,18 +54,18 @@ Tüm dosyaları ile bir ileri eğik çizgi (/) veya dizin yolları belirterek be
 
 Gelen **eylem** listesinden **izin** veya **blok**: 
 
-- **İzin**: Yalnızca belirtilen ülke kullanıcılardan özyinelemeli yolundan istenen varlıklara erişmesine izin verilir.
+- **İzin**: Yalnızca belirtilen ülkeler/bölgeler kullanıcılardan özyinelemeli yolundan istenen varlıklara erişmesine izin verilir.
 
-- **Blok**: Belirtilen ülke kullanıcılardan özyinelemeli yolundan istenen varlıklara erişimi reddedilir. Ardından bu konumda için diğer ülke filtreleme seçeneği yapılandırıldıysa, diğer tüm kullanıcıların erişimine izin verilir.
+- **Blok**: Belirtilen ülkeler/bölgeler kullanıcılardan özyinelemeli yolundan istenen varlıklara erişimi reddedilir. Ardından bu konumda için diğer ülke/bölge filtreleme seçeneği yapılandırıldıysa, diğer tüm kullanıcıların erişimine izin verilir.
 
 Yolun engelleme gibi bir coğrafi filtreleme kuralı */fotoğraflar/Strasbourg/* aşağıdaki dosyalar filtrelenir:     
 *http:\//\<uç noktası >.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http:\//\<uç noktası >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
-### <a name="define-the-countries"></a>Ülkelerin tanımlayın
-Gelen **ülke kodları** listesinde, engellemek veya yol için izin vermek istediğiniz olduğu ülkeleri seçin. 
+### <a name="define-the-countriesregions"></a>Ülkeler/bölgeler tanımlayın
+Gelen **ülke kodları** listesinde, engellemek veya yol için izin vermek istediğiniz ülke/bölge seçin. 
 
-Ülkelerin seçerek tamamladıktan sonra seçin **Kaydet** yeni coğrafi filtreleme kuralını etkinleştirmek için. 
+Ülkeler/bölgeler seçerek tamamladıktan sonra seçin **Kaydet** yeni coğrafi filtreleme kuralını etkinleştirmek için. 
 
 ![Coğrafi filtreleme kuralları](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
@@ -89,14 +89,14 @@ Kural silmek için listeden seçin **coğrafi filtreleme** sayfasında ve ardın
 
     **Adım iki:** sayfası görüntülenir. 
 
-5. Listeden bir veya daha fazla ülke seçin ve ardından **son** Kuralı etkinleştirmek için. 
+5. Listeden bir veya daha fazla ülke/bölge seçin ve ardından **son** Kuralı etkinleştirmek için. 
     
     Yeni Kural tabloda görüntülenir **ülke filtrelemesi** sayfası.
 
     ![Coğrafi filtreleme kuralları](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
-Ülke filtreleme kurallar tablodaki yanındaki bir kuralı silmek için Sil simgesine veya değiştirmek için Düzenle simgesine seçin.
+Ülke/bölge filtreleme kuralları tablosunda yanındaki bir kuralı silmek için Sil simgesine veya değiştirmek için Düzenle simgesini seçin.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Coğrafi filtreleme yapılandırma değişiklikleri hemen etkili olmaz:
@@ -108,7 +108,7 @@ Kural silmek için listeden seçin **coğrafi filtreleme** sayfasında ve ardın
 
 * Göreli yol ile ilişkili coğrafi filtreleme yol yinelemeli olarak uygulandığından bir yapılandırmadır.
 
-* Yalnızca bir kural aynı göreli yol uygulanabilir. Diğer bir deyişle, aynı göreli yolunu işaret eden birden fazla ülke filtre oluşturulamıyor. Ancak, bir klasör ülke filtreleri özyinelemeli olduğundan, birden fazla ülke filtre olabilir. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
+* Yalnızca bir kural aynı göreli yol uygulanabilir. Diğer bir deyişle, aynı göreli yolunu işaret eden birden fazla ülke/bölge filtre oluşturulamıyor. Ancak, ülke/bölge filtreleri özyinelemeli olduğundan, birden fazla ülke/bölge filtresi bir klasör olabilir. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke/bölge filtresi atanabilir.
 
-* Coğrafi filtreleme özelliği ülke kodları ülkelerin içinden bir isteği izin verilen veya engellenen için güvenli bir dizin tanımlamak için kullanır. Aynı ülke kodları çoğunu Akamai ve Verizon'dan profillerini desteklese de, bazı farklar vardır. Daha fazla bilgi için [Azure CDN ülke kodları](/previous-versions/azure/mt761717(v=azure.100)). 
+* Coğrafi filtreleme özelliği, bir isteği izin verilen veya engellenen için güvenli bir dizin ülkeler/bölgeler tanımlamak için ülke kodları kullanır. Aynı ülke kodları çoğunu Akamai ve Verizon'dan profillerini desteklese de, bazı farklar vardır. Daha fazla bilgi için [Azure CDN ülke kodları](/previous-versions/azure/mt761717(v=azure.100)). 
 

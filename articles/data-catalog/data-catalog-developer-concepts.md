@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002684"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727401"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure veri Kataloğu Geliştirici kavramları
 Microsoft **Azure veri Kataloğu** kitle kaynak veri kaynağı meta verilerini ve veri kaynağı bulma için özellikler sağlayan bir tam olarak yönetilen bir bulut hizmetidir. Geliştiriciler, hizmet, REST API'leri aracılığıyla kullanabilir. Hizmette uygulanan kavramları anlamak, başarılı bir şekilde tümleştirmek geliştiricilere yönelik önemli **Azure veri Kataloğu**.
@@ -174,9 +174,9 @@ Genel türleri özelliklerini türleri kullanılabilir, ancak öğeleri değildi
 
 <tr><td>Veri</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protokol</td><td>string</td><td>Gereklidir. Veri kaynağı ile iletişim kurmak için kullanılan bir protokolü açıklar. Örneğin: SQl Server, Oracle, vb. "oracle" için "tds". Başvurmak <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">veri kaynağı başvurusu belirtiminin - DSL yapısı</a> şu anda desteklenen protokollerin listesi için.</td></tr>
-<tr><td></td><td>adres</td><td>Sözlük<string, object></td><td>Gereklidir. Başvurulan veri kaynağını tanımlamak için kullanılan protokole özel veri kümesi adresidir. Belirli bir protokol için kapsamlı adresi anlamına gelir Protokolü farkında olmadan anlamsız verilerdir.</td></tr>
+<tr><td></td><td>adres</td><td>Sözlük&lt;dize, nesne&gt;</td><td>Gereklidir. Başvurulan veri kaynağını tanımlamak için kullanılan protokole özel veri kümesi adresidir. Belirli bir protokol için kapsamlı adresi anlamına gelir Protokolü farkında olmadan anlamsız verilerdir.</td></tr>
 <tr><td></td><td>kimlik doğrulaması</td><td>string</td><td>İsteğe bağlı. Veri kaynağı ile iletişim kurmak için kullanılan kimlik doğrulama düzeni. Örneğin: windows, oauth vb.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Sözlük<string, object></td><td>İsteğe bağlı. Bir veri kaynağına bağlanma hakkında ek bilgiler.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Sözlük&lt;dize, nesne&gt;</td><td>İsteğe bağlı. Bir veri kaynağına bağlanma hakkında ek bilgiler.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Arka uç, AAD karşı sağlanan özellikler herhangi bir doğrulama yayımlama sırasında gerçekleştirmez.</td></tr>
 <tr><td></td><td>UPN</td><td>string</td><td>Kullanıcının benzersiz e-posta adresi. ObjectID sağlanmazsa, veya "lastRegisteredBy" özelliği, aksi halde isteğe bağlı bağlamında belirtilmesi gerekir.</td></tr>

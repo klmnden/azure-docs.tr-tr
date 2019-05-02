@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849991"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919961"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Özel görüntü, çok kapsayıcılı veya yerleşik platform görüntüsü?
 
 [Linux üzerinde App Service'te](app-service-linux-intro.md) Web'de yayımlanan uygulamanızı edinmenin üç farklı yollar sunar:
 
 - **Özel görüntü dağıtımı**: "Uygulamanızı tüm dosyaları ve çalıştırılmaya hazır paket bağımlılıkları içeren bir Docker görüntüsü docker kapsayıcılarında çalıştırın".
-- **Çok kapsayıcılı dağıtım**: "Uygulamanızı bir Docker Compose veya Kubernetes yapılandırma dosyası kullanarak birden çok kapsayıcıya docker kapsayıcılarında çalıştırın".
+- **Çok kapsayıcılı dağıtım**: "Uygulamanızı bir Docker Compose yapılandırma dosyası kullanarak birden çok kapsayıcıya docker kapsayıcılarında çalıştırın".
 - **Yerleşik platform görüntüsü ile uygulama dağıtımı**: Ortak web uygulaması çalışma zamanları ve bağımlılıkları, düğüm ve PHP gibi yerleşik platform görüntülerimizi içerir. Herhangi birini kullanan [Azure App Service dağıtım yöntemleri](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) uygulamanız için web uygulamanızın depolama dağıtmak ve çalıştırmak için bir yerleşik platform görüntüsü'i kullanın.
 
 ## <a name="which-method-is-right-for-your-app"></a>Uygulamanız için hangi yöntemi hangisi? 
@@ -43,3 +43,20 @@ Dikkate alınması gereken temel unsurlar şunlardır:
 - **Disk okuma/yazma gereksinimleri**: Tüm web uygulamaları, web içeriği için bir depolama birimi ayrılır. Azure Depolama tarafından desteklenen, bu birimin takılı `/home` uygulamanın dosya sistemi içinde. Kapsayıcı dosya sistemi dosyaları, farklı bir uygulamanın tüm ölçek örneklerde içerik birimdeki dosyalar erişilebilir olur ve değişiklikler uygulama yeniden başlatmaları arasındaki açık kalır. Ancak, içerik biriminin disk gecikmesi yüksektir ve yerel kapsayıcı dosya sistemi ve erişim gecikme değerinden daha fazla değişken platformu yükseltmeleri, Planlanmamış kapalı kalma süresi ve ağ bağlantısı sorunları etkilenebilir. İçerik dosyaları için ağır salt okunur erişim gerektiren uygulamaları, görüntü dosya sistemi yerine içerik birim üzerindeki dosyaları yerleştirir özel görüntü dağıtımından faydalanabilir.
 - **Kaynak kullanımı derleme**: Kaynağından bir uygulama dağıtıldığında, dağıtım betikleri Kudu kullandığı aynı App Service planı işlem ve depolama kaynakları çalışan uygulamayı çalıştırın. Daha fazla kaynak ya da istenen saatten büyük uygulama dağıtımları tüketebilir. Özellikle, bu tür bir etkinlik için optimize edilmemiş uygulama içerik birim yoğun disk etkinlik birçok dağıtım iş akışları oluşturun. Özel bir görüntü, uygulamanızın dosyaları ve bağımlılıkları tümünün tek bir pakette ak dosya aktarımlarının veya dağıtım eylemleri gerek kalmaz Azure'a sunar.
 - **Hızlı yineleme için gereksinim**: Bir uygulama dockerizing ek derleme adımları gerektirir. Değişikliklerin etkili olması için yeni görüntünüzü bir depoyla her bir güncelleştirme göndermeniz gerekir. Bu güncelleştirmeler, ardından Azure ortamı alınır. Yerleşik kapsayıcılardan birini uygulamanızın gereksinimlerini karşılıyorsa, daha hızlı bir geliştirme iş akışı kaynağından dağıtma sunabilir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Özel kapsayıcı:
+* [Özel kapsayıcı çalıştırma](quickstart-docker-go.md)
+
+Çok kapsayıcılı:
+* [Çok kapsayıcılı uygulama oluşturma](quickstart-multi-container.md)
+
+Aşağıdaki makaleler, yerleşik platform görüntüsü ile Linux'ta App Service kullanmaya alın:
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

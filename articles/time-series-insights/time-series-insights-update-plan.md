@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0472f53d11ec4c990fcf6face633444fe66ba937
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077005"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702341"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama
 
@@ -90,9 +90,7 @@ Time Series Insights Azure bölgesi düzeyinde fazlalıkları kullanan bir yüks
 İş sürekliliği ve olağanüstü durum kurtarma (BCDR) için azure'da yerleşik özellikleri hakkında daha fazla bilgi için bkz: [Azure iş sürekliliği teknik rehberlik](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). Yüksek kullanılabilirlik ve olağanüstü durum kurtarma sağlamak Azure uygulamaları için stratejileri hakkında Mimari Kılavuzu için üzerinde incelemeye bakın. [olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-> 
->  Time Series Insights yerleşik BCDR sahip değil.
-> Varsayılan olarak, Azure depolama, Azure IOT Hub ve Azure Event Hubs, yerleşik kurtarma sahip.
+> Time Series Insights yerleşik BCDR sahip değil. Varsayılan olarak, Azure depolama, Azure IOT Hub ve Azure Event Hubs, yerleşik kurtarma sahip.
 
 Daha fazla bilgi edinin:
 
@@ -115,7 +113,6 @@ BCDR gerekiyorsa, bir kurtarma stratejisine yine de uygulayabilirsiniz. İkinci 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin:
+- Daha fazla bilgi edinin [depolama ve giriş](./time-series-insights-update-storage-ingress.md) zaman serisi öngörüleri önizlemede.
 
-- [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md)
-- [Veri modelleme](./time-series-insights-update-tsm.md)
+- Hakkında bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md) zaman serisi öngörüleri önizlemede.

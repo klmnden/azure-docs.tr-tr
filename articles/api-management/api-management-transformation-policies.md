@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946618"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920537"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -215,7 +215,7 @@ or
 ```
 
 > [!NOTE]
-> Arka uç varlık yönetimi yönetilebilir [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Arka uç varlık yönetimi yönetilebilir [API](https://docs.microsoft.com/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Örnek
 
@@ -270,7 +270,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |temel url|Yeni arka uç hizmeti temel URL'si.|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
-|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı. (Arka uç varlıkları aracılığıyla yönetilir [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
+|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı. (Arka uç varlıkları aracılığıyla yönetilir [API](https://docs.microsoft.com/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
 |SF bölüm anahtarı|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Ad çözümleme hizmeti belirli bir bölümünden çözmek için kullanılır.|Hayır|Yok|
 |SF çoğaltma türü|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Denetimler bir bölüm için birincil veya ikincil çoğaltma isteği tamamlamalıdır. |Hayır|Yok|
 |SF çözümleme durumu|Yalnızca arka uç Service Fabric hizmeti olduğunda geçerlidir. Service Fabric arka uç çağrısı ile yeni çözüm yinelenmesi varsa tanımlama koşulu.|Hayır|Yok|

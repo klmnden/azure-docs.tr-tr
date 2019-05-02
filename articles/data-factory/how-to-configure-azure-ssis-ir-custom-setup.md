@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711561"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -82,7 +82,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
       ![Blob kapsayıcısı oluşturma](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Yeni kapsayıcıyı seçin ve özel kurulum komut dosyanızı ve ilişkili dosyalarını karşıya yükleyin. Karşıya yüklediğiniz emin `main.cmd` en üst düzeyde kapsayıcınızın herhangi bir klasörü içinde değil. Ayrıca olun kapsayıcınızı yalnızca gerekli özel kurulum dosyaları içerir, böylece bunları Azure-SSIS IR daha sonra indirme uzun olmaz.
+   1. Yeni kapsayıcıyı seçin ve özel kurulum komut dosyanızı ve ilişkili dosyalarını karşıya yükleyin. Karşıya yüklediğiniz emin `main.cmd` en üst düzeyde kapsayıcınızın herhangi bir klasörü içinde değil. Ayrıca olun kapsayıcınızı yalnızca gerekli özel kurulum dosyaları içerir, böylece bunları Azure-SSIS IR daha sonra indirme uzun olmaz. Özel Kurulum için en uzun süresi şu anda bu, kapsayıcıyı tüm dosyaları indirmek ve bunları Azure-SSIS IR'yi üzerinde yüklemek için zaman içerir ve zaman aşımına uğramadan önce 45 dakika ayarlandıysa Daha uzun bir süre gerekiyorsa, Lütfen bir destek bileti yükseltin.
 
       ![Dosyaları blob kapsayıcısına yükleyin.](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

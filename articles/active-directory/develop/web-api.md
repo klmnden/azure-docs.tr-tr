@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249953"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918710"
 ---
 # <a name="web-api"></a>Web API
 
@@ -69,7 +69,7 @@ Web API senaryoları için Web uygulaması için kod örneklere bakın. Ve sık�
 
 ## <a name="app-registration"></a>Uygulama kaydı
 
-Bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetmek için bkz: [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
+Bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetmek için bkz: [bir uygulamayı kaydetme](quickstart-register-app.md).
 
 * -Uygulama kimliği ve yetkilendirilmiş kullanıcının kimliğinin servis talepleri, web uygulaması ve web API'si hem tek bir kiracının aynı dizinde Azure AD'de kayıtlı olması gerekir. Web API'si, bir web uygulamasının kaynaklarına erişimi sınırlamak için kullanılan bir izin kümesi kullanıma sunmak için yapılandırılabilir. Web uygulaması bir yetkilendirilmiş kullanıcının kimlik türü kullanılıyorsa, istenen izinlere seçmesi gerekir **diğer uygulamalara izinler** Azure Portalı'nda açılan menüsü. Uygulama kimlik türü kullanılıyorsa bu adım gerekli değildir.
 * Çok kiracılı-ilk olarak, web uygulaması, işlev olmasını gerektiren izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde kuruluşları için kullanılabilir hale getirir uygulamaya izin verilirse bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar, yalnızca kuruluşunuzdaki herhangi bir kullanıcı onay verebildiği kullanıcı düzeyi izinleri gerektirir. Diğer uygulamalar, kuruluşunuzdaki bir kullanıcı onay veremez yönetici düzeyi izinlerini gerektirir. Dizin Yöneticisi yalnızca bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici onay verdiğinde, web uygulaması ve web API'si hem de onların dizinde kaydedilir.

@@ -2,25 +2,24 @@
 title: Contoso perakende Azure SQL veri ambarı'na veri yükleme | Microsoft Docs
 description: İki tablo Contoso perakende verileri Azure SQL Data Warehouse'a yüklemek için PolyBase ve T-SQL komutlarını kullanın.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ckarst
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/17/2018
-ms.date: 10/15/2018
-ms.author: v-jay
+ms.subservice: implement
+ms.date: 04/17/2018
+ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5cf4ac0e0950e7b6ab6345476501931a9cb46b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 33a5f9eebeb68981a9ccd13bb24834f5a9eabd85
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474020"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875672"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL veri ambarı contoso perakende veri yükleme
 
-İki tablo Contoso perakende verileri Azure SQL Data Warehouse'a yüklemek için PolyBase ve T-SQL komutlarını kullanın. Veri kümesini yüklemek için örneği çalıştırmak [tam Contoso perakende veri ambarı yükleme](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) depodan Microsoft SQL Server örnekleri.
+Bu öğreticide, iki tablo Contoso perakende verileri Azure SQL Data Warehouse'a yüklemek için PolyBase ve T-SQL komutlarını kullanmayı öğrenin. 
 
 Bu öğreticide şunları yapacaksınız:
 
@@ -29,7 +28,7 @@ Bu öğreticide şunları yapacaksınız:
 3. Yükleme tamamlandıktan sonra iyileştirmeler gerçekleştirin.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu öğreticide çalıştırmak için bir SQL Data Warehouse veritabanınız zaten bir Azure hesabı gerekir. Bu zaten yoksa, bkz. [SQL veri ambarı oluşturma][Create a SQL Data Warehouse].
+Bu öğreticide çalıştırmak için SQL veri ambarı zaten bir Azure hesabı gerekir. Sağlanan bir veri ambarına sahip değilseniz, bkz. [SQL veri ambarı oluşturma ve sunucu düzeyinde güvenlik duvarı kuralı ayarlayın][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Veri kaynağını yapılandırma
 PolyBase, dış veri özniteliklerini ve konumunu tanımlamak için T-SQL dış nesneleri kullanır. Dış nesne tanımları SQL veri ambarı'nda depolanır. Verilerin harici olarak depolanır.
@@ -67,12 +66,10 @@ WITH
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.chinacloudapi.cn',
+    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
 );
 ```
-
-2. adıma atlayın.
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Dış veri kaynağı oluşturma
 Bunu kullanın [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] veri veri türü ve konumu depolamak için komutu. 
@@ -82,7 +79,7 @@ CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
 WITH 
 (  
     TYPE = Hadoop 
-,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.chinacloudapi.cn/'
+,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.windows.net/'
 ); 
 ```
 
@@ -92,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Veri biçimi yapılandırma
-Veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. Bu çalıştırma [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komutu. Contoso sıkıştırılmamış verilerdir ve kanal ayrılmış.
+Veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. SSMS'de, aşağıdakini çalıştırarak [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komutu. Contoso sıkıştırılmamış verilerdir ve kanal ayrılmış.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -107,7 +104,7 @@ WITH
 ``` 
 
 ## <a name="3-create-the-external-tables"></a>3. Dış tablolar oluşturma
-Belirttiğiniz veri kaynağı ve dosya biçimini, dış tablolar oluşturmak hazır olursunuz. 
+Belirttiğiniz veri kaynağı ve dosya biçimini, dış tablolar oluşturmak hazırsınız. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Veriler için bir şema oluşturun.
 Veritabanınızda Contoso verileri depolamak için bir yer oluşturmak için bir şema oluşturun.
@@ -118,12 +115,11 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Harici tabloları oluşturun.
-DimProduct ve FactOnlineSales dış tablolar oluşturmak için bu betiği çalıştırın. Biz burada yapmakta olduğunuz tüm sütun adlarını ve veri türlerini tanımlama ve Azure blob depolama dosyalarının biçimi ve konumu bağlama. Tanımı SQL veri ambarı'nda depolanır ve yine de Azure depolama Blobu'ndaki verilerdir.
+DimProduct ve FactOnlineSales dış tablolar oluşturmak için aşağıdaki betiği çalıştırın. Burada yaptığınız tüm sütun adlarını ve veri türlerini tanımlama ve Azure blob depolama dosyalarının biçimi ve konumu bağlama. Tanımı SQL veri ambarı'nda depolanır ve yine de Azure depolama Blobu'ndaki verilerdir.
 
 **Konumu** parametre Azure depolama blobu kök klasöründe bir klasördür. Farklı bir klasöre her tablodur.
 
 ```sql
-
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
@@ -206,7 +202,7 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. Verileri yükleme
-Dış verilere erişmek için farklı yollar vardır.  Dış tablo doğrudan buradan veri sorgulamak, yeni veritabanı tablolarına veri yükleme veya var olan veritabanı tabloları için dış veri ekleyin.  
+Dış verilere erişmek için farklı yolu vardır.  Dış tablolara doğrudan buradan veri sorgulamak, verileri veri ambarına yeni tablolara yüklemek veya var olan veri ambarı tabloları dış veri ekleyin.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Yeni bir şema oluşturun
 CTAS, veri içeren yeni bir tablo oluşturur.  İlk olarak, contoso veriler için bir şema oluşturun.
@@ -217,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Yeni tablolarına veri yükleme
-Azure blob depolamadan veri yükleme ve veritabanınızın içinde bir tablodaki kaydetmek için kullanın [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. CTAS yükleyerek, az önce oluşturduğunuz kesin türü belirtilmiş dış tablolar yararlanır. Verileri yeni tablolara yüklemek için kullanın [CTAS] [ CTAS] her tablo ifadesi. 
+Verileri Azure blob depolamadan veri ambarı tablosuna yüklemek için kullanmak [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. CTAS yükleyerek oluşturduğunuz kesin türü belirtilmiş dış tabloları kullanır. Verileri yeni tablolara yüklemek için kullanın [CTAS] [ CTAS] her tablo ifadesi. 
  
 CTAS, yeni bir tablo oluşturur ve bir select deyiminin sonuçları ile doldurur. CTAS bir select deyiminin sonuçları aynı sütunlara ve veri türleri için yeni tablo tanımlar. Bir dış tablodan tüm sütunları seçerseniz, yeni bir tablo veri türleri, dış tablo ve sütunları çoğaltmasını olacaktır.
 
@@ -268,7 +264,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Columnstore sıkıştırması en iyi duruma getirme
-Varsayılan olarak, SQL veri ambarı tablosu kümelenmiş columnstore dizini depolar. Yükleme tamamlandıktan sonra bazı veri satırları columnstore sıkıştırılmasının değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz. [columnstore dizinlerini Yönet][manage columnstore indexes].
+Varsayılan olarak, SQL veri ambarı tablosu kümelenmiş columnstore dizini depolar. Yükleme tamamlandıktan sonra bazı veri satırları columnstore sıkıştırılmasının değil.  Neden bu durum ortaya çıkabilir farklı neden vardır. Daha fazla bilgi için bkz. [columnstore dizinlerini Yönet][manage columnstore indexes].
 
 Sorgu performansı ve yük sonra columnstore sıkıştırması iyileştirmek için tüm satırları sıkıştırma columnstore dizinini zorlamak için tabloyu yeniden oluşturun. 
 
@@ -283,7 +279,7 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinlerini Yönet] [ manage columnstore indexes] makalesi.
 
 ## <a name="6-optimize-statistics"></a>6. İstatistikleri en iyi duruma getirme
-Hemen sonra bir yükleme tek sütunlu istatistikler oluşturmak idealdir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm İstatistikler yeniden uzun sürebilir. Bazı sütunlar sorgu koşullarda yapmayacağınız biliyorsanız, bu sütunlar üzerinde oluşturmayı istatistikleri atlayabilirsiniz.
+Hemen sonra bir yükleme tek sütunlu istatistikler oluşturmak idealdir. Bazı sütunlar sorgu koşullarda olacak olmayan biliyorsanız, bu sütunlar üzerinde oluşturmayı istatistikleri atlayabilirsiniz. Her sütunda tek sütunlu İstatistikler oluşturursanız, tüm İstatistikler yeniden uzun sürebilir. 
 
 Tek sütunlu istatistikler her tablonun her sütunu oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.
 
@@ -334,7 +330,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>Kilidi başarı!
 Azure SQL veri ambarı'na genel verileri başarıyla yüklediniz. Harika bir iş çıkardınız!
 
-Artık aşağıdaki gibi sorgulardan tabloları sorgulama başlayabilirsiniz:
+Artık verilerinizi araştırmak için tabloları sorgulama başlayabilirsiniz. Marka başına toplam satış öğrenmek için aşağıdaki sorguyu çalıştırın:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -345,7 +341,9 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tam Contoso perakende veri ambarı verileri yüklemek için betik geliştirme ile ilgili daha fazla ipucu için bkz [SQL veri ambarı geliştirmeye genel bakış][SQL Data Warehouse development overview].
+Veri kümesini yüklemek için örneği çalıştırmak [tam Contoso perakende veri ambarı yükleme](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) depodan Microsoft SQL Server örnekleri.
+
+Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı’nda geliştirmeye genel bakış][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -366,7 +364,5 @@ Tam Contoso perakende veri ambarı verileri yüklemek için betik geliştirme il
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-
-<!--Update_Description: wording update -->

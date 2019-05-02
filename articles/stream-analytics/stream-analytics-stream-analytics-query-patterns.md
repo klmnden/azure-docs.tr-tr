@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001732"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711437"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -418,9 +418,9 @@ GROUP BY
 
 **Giriş**:  
 
-| Kullanıcı | Özellik | Olay (Event) | Zaman |
+| Kullanıcı | Özellik | Olay | Zaman |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Başlangıç |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |Başlatma |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |Bitiş |2015-01-01T00:00:08.0000000Z |
 
 **Çıkış**:  
@@ -493,7 +493,7 @@ GROUP BY
 
 **Giriş**:
 
-| t | değer |
+| t | value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -537,7 +537,7 @@ GROUP BY
 
 **Giriş**:
 
-| zaman | deviceId | sensorName | değer |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -605,7 +605,7 @@ WHERE
 **Açıklama**: İlk sorgu `max_power_during_last_3_mins`, kullandığı [hareketli penceresi](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) son 3 dakika içinde power algılayıcı her cihaz için en büyük değeri bulunacak. İkinci sorgu, güç değeri en son penceresinde ilgili için geçerli olay bulmak için ilk sorgu için birleştirilir. ' İ tıklatın ve ardından, koşullar karşılandığında sağlanan, cihaz için bir uyarı üretilir.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Sorgu örnek: Cihaz saat eğriltme (alt akışları) bağımsız işlem olayları
-**Açıklama**: Geç gelen olaylar veya sıralamaya olay üreticilerinden arasında saat farklarından kaynaklanan, saat arasında bölümler veya ağ gecikmesi Eğer. Aşağıdaki örnekte, arkasında TollID 1 cihaz saati TollID 2 on saniyedir ve arkasındaki TollID 1 cihaz saati TollID 3 beş saniyedir. 
+**Açıklama**: Geç gelen olaylar veya sıralamaya olay üreticilerinden arasında saat farklarından kaynaklanan, saat arasında bölümler veya ağ gecikmesi Eğer. Aşağıdaki örnekte, arkasında TollID 1 cihaz saati TollID 2 beş saniyedir ve arkasındaki TollID 1 cihaz saati TollID 3 on saniyedir. 
 
 
 **Giriş**:

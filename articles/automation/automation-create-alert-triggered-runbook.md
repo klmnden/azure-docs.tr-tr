@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61073869"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920027"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u tetiklemek için bir uyarı kullanın
 
@@ -22,18 +22,22 @@ Kullanabileceğiniz [Azure İzleyici](../azure-monitor/overview.md?toc=%2fazure%
 
 ## <a name="alert-types"></a>Uyarı türleri
 
-Otomasyon runbook'ları ile üç uyarı türlerini kullanabilirsiniz:
-* Klasik ölçüm uyarıları
+Otomasyon runbook'ları ile dört uyarı türlerini kullanabilirsiniz:
+
+* Yaygın uyarılar
 * Etkinlik günlüğü uyarıları
 * Gerçek zamanlı ölçüm uyarıları
+
+> [!NOTE]
+> Ortak uyarı şema için uyarı bildirimleri Azure tüketim deneyimi bugün standart hale getirir. Tarihsel olarak, üç uyarı türlerini azure'da bugün (ölçümü, günlük ve etkinlik günlüğü) kendi e-posta şablonları, Web kancası şemaları vb. kalmışlardır. Daha fazla bilgi için bkz: [ortak uyarı şeması](../azure-monitor/platform/alerts-common-schema.md)
 
 Uyarı runbook çağırdığında, gerçek bir Web kancası HTTP POST isteği çağrısıdır. POST isteğinin gövdesi biçiminin JSON nesnesini uyarıyla ilgili yararlı özellikleri içerir. Aşağıdaki tabloda, her uyarı türü için yükü şema bağlantıları listeler:
 
 |Uyarı  |Açıklama|Yükü şeması  |
 |---------|---------|---------|
-|[Klasik ölçüm Uyarısı](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Herhangi bir platform düzeyi ölçümü belirli bir koşulu karşıladığında bir bildirim gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90** son 5 dakika.| [Sınıf ölçüm uyarı yükü şeması](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[Ortak uyarı](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Bugün azure'da uyarı bildirimleri tüketim deneyimi standartlaştırır ortak uyarı şeması.|[Ortak uyarı yükü şeması](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
 |[Etkinlik günlüğü Uyarısı](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure etkinlik günlüğü her yeni olay belirli koşullar eşleştiğinde bir bildirim gönderir. Örneğin, bir `Delete VM` işlemi oluşuyor **myProductionResourceGroup** veya yeni bir Azure hizmet durumu olay ile bir **etkin** durumu görüntülenir.| [Etkinlik günlüğü uyarısı yükü şeması](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Gerçek zamanlı ölçüm Uyarısı](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Bir veya daha fazla platform düzeyi ölçümleri belirtilen koşulları karşıladığında bir bildirim daha hızlı ölçüm uyarıları gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90**ve değeri **ağ içinde** büyüktür **500 MB** için geçmiş 5 dakika.| [Gerçek zamanlı ölçüm uyarı yükü şeması](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Gerçek zamanlı ölçüm Uyarısı](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Bir veya daha fazla platform düzeyi ölçümleri belirtilen koşulları karşıladığında bir bildirim daha hızlı ölçüm uyarıları gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90**ve değeri **ağ içinde** büyüktür **500 MB** için geçmiş 5 dakika.| [Gerçek zamanlı ölçüm uyarı yükü şeması](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Her uyarı türü tarafından sağlanan veri farklı olduğundan, her uyarı türünün farklı şekilde ele alınır. Sonraki bölümde, farklı uyarı türleri işlemek için bir runbook'un nasıl oluşturulacağını öğrenin.
 
@@ -50,96 +54,78 @@ Runbook kullanan **AzureRunAsConnection** [Run As hesabı](automation-create-run
 Adlı bir runbook oluşturmak için bu örneği kullanmak **Stop-AzureVmInResponsetoVMAlert**. PowerShell betiğini değiştirebilir ve birçok farklı kaynaklar ile kullanın.
 
 1. Azure Otomasyon hesabınıza gidin.
-1. Altında **süreç OTOMASYONU**seçin **runbook'ları**.
-1. Runbook'ların listenin en üstünde seçin **runbook Ekle**. 
-1. **Runbook ekle** sayfasında **Hızlı Oluştur**'u seçin.
-1. Runbook adı olarak **Stop-AzureVmInResponsetoVMAlert**. Runbook türü için **PowerShell**. Ardından **Oluştur**’u seçin.  
-1. Aşağıdaki PowerShell örneği içine kopyalayın **Düzenle** bölmesi. 
+2. Altında **süreç otomasyonu**seçin **runbook'ları**.
+3. Runbook'ların listenin en üstünde seçin **+ bir runbook Oluştur**.
+4. Üzerinde **Runbook Ekle** want **Stop-AzureVmInResponsetoVMAlert** runbook adı. Runbook türü için **PowerShell**. Ardından **Oluştur**’u seçin.  
+5. Aşağıdaki PowerShell örneği içine kopyalayın **Düzenle** sayfası.
 
     ```powershell-interactive
-    <#
-    .SYNOPSIS
-    This runbook stops a resource management VM in response to an Azure alert trigger.
-
-    .DESCRIPTION
-    This runbook stops a resource management VM in response to an Azure alert trigger.
-    The input is alert data that has the information required to identify which VM to stop.
-    
-    DEPENDENCIES
-    - The runbook must be called from an Azure alert via a webhook.
-    
-    REQUIRED AUTOMATION ASSETS
-    - An Automation connection asset called "AzureRunAsConnection" that is of type AzureRunAsConnection.
-    - An Automation certificate asset called "AzureRunAsCertificate".
-
-    .PARAMETER WebhookData
-    Optional. (The user doesn't need to enter anything, but the service always passes an object.)
-    This is the data that's sent in the webhook that's triggered from the alert.
-
-    .NOTES
-    AUTHOR: Azure Automation Team
-    LASTEDIT: 2017-11-22
-    #>
-
-    [OutputType("PSAzureOperationResponse")]
-
-    param
-    (
-        [Parameter (Mandatory=$false)]
-        [object] $WebhookData
-    )
-
-    $ErrorActionPreference = "stop"
-
     if ($WebhookData)
     {
-        # Get the data object from WebhookData.
+        # Get the data object from WebhookData
         $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-        # Get the info needed to identify the VM (depends on the payload schema).
+        # Get the info needed to identify the VM (depends on the payload schema)
         $schemaId = $WebhookBody.schemaId
         Write-Verbose "schemaId: $schemaId" -Verbose
-        if ($schemaId -eq "AzureMonitorMetricAlert") {
+        if ($schemaId -eq "azureMonitorCommonAlertSchema") {
+            # This is the common Metric Alert schema (released March 2019)
+            $Essentials = [object] ($WebhookBody.data).essentials
+            # Get the first target only as this script doesn't handle multiple
+            $alertTargetIdArray = (($Essentials.alertTargetIds)[0]).Split("/")
+            $SubId = ($alertTargetIdArray)[2]
+            $ResourceGroupName = ($alertTargetIdArray)[4]
+            $ResourceType = ($alertTargetIdArray)[6] + "/" + ($alertTargetIdArray)[7]
+            $ResourceName = ($alertTargetIdArray)[-1]
+            $status = $Essentials.monitorCondition
+        }
+        elseif ($schemaId -eq "AzureMonitorMetricAlert") {
             # This is the near-real-time Metric Alert schema
             $AlertContext = [object] ($WebhookBody.data).context
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = $AlertContext.resourceName
             $status = ($WebhookBody.data).status
         }
         elseif ($schemaId -eq "Microsoft.Insights/activityLogs") {
             # This is the Activity Log Alert schema
             $AlertContext = [object] (($WebhookBody.data).context).activityLog
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = (($AlertContext.resourceId).Split("/"))[-1]
             $status = ($WebhookBody.data).status
         }
         elseif ($schemaId -eq $null) {
             # This is the original Metric Alert schema
             $AlertContext = [object] $WebhookBody.context
+            $SubId = $AlertContext.subscriptionId
+            $ResourceGroupName = $AlertContext.resourceGroupName
+            $ResourceType = $AlertContext.resourceType
             $ResourceName = $AlertContext.resourceName
             $status = $WebhookBody.status
         }
         else {
-            # The schema isn't supported.
+            # Schema not supported
             Write-Error "The alert data schema - $schemaId - is not supported."
         }
 
         Write-Verbose "status: $status" -Verbose
-        if ($status -eq "Activated")
+        if (($status -eq "Activated") -or ($status -eq "Fired"))
         {
-            $ResourceType = $AlertContext.resourceType
-            $ResourceGroupName = $AlertContext.resourceGroupName
-            $SubId = $AlertContext.subscriptionId
             Write-Verbose "resourceType: $ResourceType" -Verbose
             Write-Verbose "resourceName: $ResourceName" -Verbose
             Write-Verbose "resourceGroupName: $ResourceGroupName" -Verbose
             Write-Verbose "subscriptionId: $SubId" -Verbose
 
-            # Use this only if this is a resource management VM.
+            # Determine code path depending on the resourceType
             if ($ResourceType -eq "Microsoft.Compute/virtualMachines")
             {
-                # This is the VM.
-                Write-Verbose "This is a resource management VM." -Verbose
+                # This is an Resource Manager VM
+                Write-Verbose "This is an Resource Manager VM." -Verbose
 
-                # Authenticate to Azure by using the service principal and certificate. Then, set the subscription.
+                # Authenticate to Azure with service principal and certificate and set subscription
                 Write-Verbose "Authenticating to Azure with service principal and certificate" -Verbose
                 $ConnectionAssetName = "AzureRunAsConnection"
                 Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
@@ -149,22 +135,22 @@ Adlı bir runbook oluşturmak için bu örneği kullanmak **Stop-AzureVmInRespon
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
                 Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
-                # Stop the VM.
+                # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
                 Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
-                # ResourceType isn't supported.
+                # ResourceType not supported
                 Write-Error "$ResourceType is not a supported resource type for this runbook."
             }
         }
         else {
-            # The alert status was not 'Activated', so no action taken.
+            # The alert status was not 'Activated' or 'Fired' so no action taken
             Write-Verbose ("No action taken. Alert status: " + $status) -Verbose
         }
     }
@@ -173,58 +159,31 @@ Adlı bir runbook oluşturmak için bu örneği kullanmak **Stop-AzureVmInRespon
         Write-Error "This runbook is meant to be started from an Azure alert webhook only."
     }
     ```
-1. Seçin **Yayımla** kaydedin ve runbook'u yayımlayamadı.
 
-## <a name="create-an-action-group"></a>Bir eylem grubu oluştur
+6. Seçin **Yayımla** kaydedin ve runbook'u yayımlayamadı.
 
-Bir eylem grubu, bir uyarı tarafından tetiklenen eylemler koleksiyonudur. Runbook'ları ile Eylem grupları kullanabileceğiniz birçok eylemi biridir.
+## <a name="create-the-alert"></a>Uyarı Oluştur
 
-1. Azure portalında **İzleyici** > **ayarları** > **Eylem grupları**.
-1. Seçin **eylem grubu Ekle**ve ardından gerekli bilgileri girin:  
-    1. İçinde **eylem grubu adı** kutusunda, bir ad girin.
-    1. İçinde **kısa ad** kutusunda, bir ad girin. Bu eylem grubu kullanarak bildirimleri gönderilirken kısa adı bir tam eylem grubu adı yerine kullanılır.
-    1. **Abonelik** kutusu, geçerli aboneliğiniz ile otomatik olarak doldurulur. Bu eylem grubu kaydedildiği aboneliktir.
-    1. Eylem grubu kaydedildiği kaynak grubunu seçin.
+Uyarıları, uyarı tarafından tetiklenen eylemler koleksiyonlarıdır eylem gruplarını kullanın. Runbook'ları ile Eylem grupları kullanabileceğiniz birçok eylemi biridir.
 
-Bu örnekte, iki eylem oluştur: bir runbook eylemi ve bildirim eylemi.
-
-### <a name="runbook-action"></a>Runbook eylemini
-
-Bir runbook eylemi içinde eylem grubunu oluşturmak için:
-
-1. Altında **eylemleri**, için **eylem adı**, eylem için bir ad girin. İçin **eylem türü**seçin **Otomasyon Runbook'u**.
-1. Altında **ayrıntıları**seçin **Ayrıntıları Düzenle**.  
-1. Üzerinde **Runbook yapılandırma** sayfasındaki **Runbook kaynağı**seçin **kullanıcı**.  
+1. Otomasyon hesabınızı seçin **uyarılar** altında **izleme**.
+1. Seçin **+ yeni uyarı kuralı**.
+1. Tıklayın **seçin** altında **kaynak**. Üzerinde **bir kaynak seçin** sayfasında, VM'nize kapatıp uyarı seçin ve tıklayın **Bitti**.
+1. Tıklayın **koşul Ekle** altında **koşul**. Örneğin, kullanmak istediğiniz sinyal seçin **CPU yüzdesi** tıklatıp **Bitti**.
+1. Üzerinde **sinyal mantığını yapılandırma** girin, **eşik değeri** altında **uyarı mantığı**, tıklatıp **Bitti**.
+1. Altında **Eylem grupları**seçin **Yeni Oluştur**.
+1. Üzerinde **eylem grubu Ekle** sayfasında, eylem grubunuz bir ad ve kısa bir ad verin.
+1. Eylemi bir ad verin. Eylem türü için **Otomasyon Runbook'u**.
+1. Seçin **Ayrıntıları Düzenle**. Üzerinde **Runbook yapılandırma** sayfasındaki **Runbook kaynağı**seçin **kullanıcı**.  
 1. Seçin, **abonelik** ve **Otomasyon hesabı**ve ardından **Stop-AzureVmInResponsetoVMAlert** runbook.  
-1. İşlemi tamamladığınızda, seçin **Tamam**.
-
-### <a name="notification-action"></a>Bildirim eylemi
-
-Bildirim eylemi içinde eylem grubunu oluşturmak için:
-
-1. Altında **eylemleri**, için **eylem adı**, eylem için bir ad girin. İçin **eylem türü**seçin **e-posta**.  
-1. Altında **ayrıntıları** seçin, **Ayrıntıları Düzenle**.  
-1. Üzerinde **e-posta** sayfasında, bildirim için kullanmak ve ardından e-posta adresi girin **Tamam**. Bir eylemi olarak runbook'u ek olarak bir e-posta adresi ekleme yararlıdır. Runbook'u başlattığımızda size bildirilir.  
-
-    Eylem grubu, şu resimdeki gibi görünmelidir:
-
-   ![Eylem grubu Sayfası Ekle](./media/automation-create-alert-triggered-runbook/add-action-group.png)
+1. Seçin **Evet** için **ortak uyarı şema etkinleştirme**.
 1. Eylem grubunu oluşturmak için Seç **Tamam**.
 
-Bu eylem grubuna kullanabileceğiniz [etkinlik günlüğü uyarıları](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) ve [neredeyse gerçek zamanlı uyarılar](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) oluşturduğunuz.
+    ![Eylem grubu Sayfası Ekle](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-## <a name="classic-alert"></a>Klasik bir uyarı
+    Bu eylem grubuna kullanabileceğiniz [etkinlik günlüğü uyarıları](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) ve [neredeyse gerçek zamanlı uyarılar](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) oluşturduğunuz.
 
-Klasik uyarılar ölçümlere göre ve Eylem grupları kullanmayın. Ancak, klasik bir uyarıya dayanan bir runbook eylemi ayarlayabilirsiniz. 
-
-Klasik bir uyarı oluşturmak için:
-
-1. **Ölçüm uyarısı ekle**’yi seçin.
-1. Ölçüm uyarınızı ad **myVMCPUAlert**. Uyarının kısa bir açıklama girin.
-1. Ölçüm Uyarı koşulu için seçin **büyüktür**. İçin **eşiği** değeri, select **10**. İçin **süresi** değeri, select **son beş dakikadan**.
-1. Altında **harekete**seçin **bu uyarıdan runbook Çalıştır**.
-1. Üzerinde **Runbook yapılandırma** sayfası için **Runbook kaynağı**seçin **kullanıcı**. Otomasyon hesabınızı seçin ve ardından **Stop-AzureVmInResponsetoVMAlert** runbook. **Tamam**’ı seçin.
-1. Uyarı kuralını kaydetmek için seçmeniz **Tamam**.
+1. Altında **uyarı ayrıntıları**, bir uyarı kuralı adı ve açıklama ekleyin ve tıklayın **uyarı kuralı oluştur**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -232,4 +191,3 @@ Klasik bir uyarı oluşturmak için:
 * Bir runbook başlatmak için çeşitli yollar hakkında daha fazla ayrıntı için bkz: [runbook başlatma](automation-starting-a-runbook.md).
 * Bir etkinlik günlüğü uyarısı oluşturmayı öğrenmek için bkz: [etkinlik günlüğü uyarıları oluşturma](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Neredeyse gerçek zamanlı bir uyarı oluşturma hakkında bilgi edinmek için [Azure portalında bir uyarı kuralı oluşturma](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-

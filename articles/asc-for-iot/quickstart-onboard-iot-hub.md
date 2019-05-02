@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0236050ffcf7ad1d18ff3a8a763d0469d91eeeb5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505436"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919913"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Hızlı Başlangıç: IOT hub hizmetini etkinleştirme
 
@@ -39,6 +39,7 @@ Bu makalede, IOT Hub'ınızın IOT Önizleme hizmeti için Azure Güvenlik Merke
   - İki tür bilgi varsayılan olarak, IOT için Log Analytics çalışma alanınızda ASC tarafından varsayılan olarak depolanır; **güvenlik uyarıları** ve **önerileri**. 
   - Bir ek bilgi türü depolama alanı eklemek seçebileceğiniz **ham olaylar**. Bu depolama Not **ham olaylar** Log Analytics'e ek depolama maliyetlerini taşır. 
 - IOT hub'ı (standart katmana veya üzeri)
+- Tümüne uyan [hizmet prerequities](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>IOT Hub'ınızın IOT için ASC etkinleştir 
 
@@ -50,8 +51,7 @@ IOT Hub'ınıza güvenliği etkinleştirmek için aşağıdakileri yapın:
 4. Log Analytics çalışma alanı bilgilerinizi sağlayın. 
    - Depolama kullanmayı **ham olaylar** bırakarak tarafından depolama varsayılan bilgi türlerini yanı sıra **ham olay** geçiş **üzerinde**. 
    - Etkinleştirme kullanmayı **ikizi koleksiyon** bırakarak tarafından **ikizi koleksiyon** geçiş **üzerinde**. 
-5. **Tamam** düğmesine tıklayın. 
-6. **Kaydet**’e tıklayın. 
+5. **Kaydet**’e tıklayın. 
 
 Tebrikler! IOT hub'ınızdaki IOT ASC etkinleştirme tamamladınız. 
 

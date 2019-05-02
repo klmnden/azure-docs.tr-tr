@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361034"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873420"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -37,7 +37,7 @@ Ağ İlkesi ve erişim Hizmetleri'ni (NPS) kuruluşlar yeteneği aşağıdakiler
 
 Genellikle, kuruluş ve VPN ilkeleri yönetimini merkezileştirin kolaylaştırmak için NPS (RADIUS) kullanır. Ancak, çoğu kuruluş ayrıca NPS RD Masaüstü Bağlantısı Yetkilendirme İlkeleri (RD Cap'leri) yönetimini merkezden gerçekleştirin ve kolaylaştırmak için kullanır.
 
-Kuruluşlar, NPS güvenliğini ve yüksek düzeyde uyumluluk sağlamak için Azure MFA ile de tümleştirebilirsiniz. Bu kullanıcılar oturum açmak için Uzak Masaüstü Ağ geçidi için iki aşamalı doğrulama oluşturmanızı sağlar. Kullanıcıların erişim verilmesi için kendi denetimde kullanıcının sahip olduğu bilgilerle birlikte, kullanıcı adı/parola bileşimini sağlamanız gerekir. Bu bilgileri güvenilir ve kolayca yinelenen, bir cep telefonu numarası, telefona numarası, uygulamayı bir mobil cihaz ve benzeri gibi. Desteklenen kimlik doğrulama yöntemleri hakkında daha fazla bilgi için, bkz [kullanıcılarınızın kimlik doğrulama yöntemlerini kullanma belirleme](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+Kuruluşlar, NPS güvenliğini ve yüksek düzeyde uyumluluk sağlamak için Azure MFA ile de tümleştirebilirsiniz. Bu kullanıcılar oturum açmak için Uzak Masaüstü Ağ geçidi için iki aşamalı doğrulama oluşturmanızı sağlar. Kullanıcıların erişim verilmesi için kendi denetimde kullanıcının sahip olduğu bilgilerle birlikte, kullanıcı adı/parola bileşimini sağlamanız gerekir. Bu bilgileri güvenilir ve kolayca yinelenen, bir cep telefonu numarası, telefona numarası, uygulamayı bir mobil cihaz ve benzeri gibi. RDG şu anda telefon çağrısı ve Microsoft authenticator uygulaması yöntemlerinden anında iletme bildirimleri için 2fa'yı destekler. Desteklenen kimlik doğrulama yöntemleri hakkında daha fazla bilgi için, bkz [kullanıcılarınızın kimlik doğrulama yöntemlerini kullanma belirleme](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 Azure için NPS uzantısı kullanıma açılmadan önce yapılandırın ve ayrı bir MFA sunucusu şirket içi ortamda içindeaçıklandığıgibikorumaktümleşikNPSveAzuremfa'yıortamlarıiçinikiaşamalıdoğrulamayıuygulamaayarlarınışahsenyapmasınıistedinizmüşterilervardı.[ Uzak Masaüstü Ağ geçidi ve Azure multi-Factor Authentication sunucusu RADIUS kullanan](howto-mfaserver-nps-rdg.md).
 

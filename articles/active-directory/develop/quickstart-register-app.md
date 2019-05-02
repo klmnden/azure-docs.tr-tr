@@ -1,5 +1,5 @@
 ---
-title: Microsoft kimlik platformu ile uygulama kaydetme (Önizleme) | Azure
+title: Microsoft kimlik platformu ile - Microsoft kimlik platformu bir uygulamayı kaydetme
 description: Microsoft kimlik platformu ile uygulama eklemeyi ve kaydetmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299609"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918743"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik Platformu (Önizleme) bir uygulamayı kaydetme
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Hızlı Başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme
 
 Kurumsal geliştiriciler ve hizmet olarak yazılım (SaaS) sağlayıcıları, hizmetleri için güvenli oturum açma ve yetkilendirme imkanı sunmak için Microsoft kimlik platformu ile tümleştirilebilen ticari bulut hizmetleri veya iş kolu uygulamaları geliştirebilir.
 
-Bu hızlı başlangıçta, uygulamanızı Microsoft kimlik platformuyla tümleştirilebilmesi için Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanarak uygulama ekleme ve kaydetme işlemleri gösterilir. Yeni uygulama kaydı deneyimi geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için bkz: [bu blog gönderisini](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
+Bu hızlı başlangıçta ekleme ve bir uygulama kullanarak kaydolmanız gösterilmektedir **uygulama kayıtları** uygulamanızı Microsoft kimlik platformu ile tümleştirilebilir, böylece Azure portalında karşılaşırsınız. Yeni uygulama kaydı deneyimi geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için bkz: [bu blog gönderisini](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="prerequisite"></a>Önkoşul
 

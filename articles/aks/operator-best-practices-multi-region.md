@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464595"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920458"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>İş sürekliliği ve olağanüstü durum kurtarma Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -33,7 +33,7 @@ Azure Kubernetes Service (AKS) kümeleri yönetme gibi uygulama çalışma süre
 
 Bir AKS kümesi, tek bir bölgeye dağıtılır. Kendiniz bölge arızasına karşı korumak için farklı bölgeler arasında birden çok AKS kümesi uygulamanıza dağıtın. Hangi bölgeler, AKS kümesi dağıtmayı planlarken aşağıdaki maddeler geçerlidir:
 
-* [AKS bölge kullanılabilirliği](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [AKS bölge kullanılabilirliği](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Kullanıcılarınıza yakın bir bölge seçin. AKS, yeni bölgelere sürekli genişliyor.
 * [Azure eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Bulunduğunuz coğrafi bölge için birbirleri ile eşleştirilmiş iki bölgeleri seçin. Bu bölgeler platformu güncelleştirmeleri koordine etmek ve kurtarma çalışmalarınızı öncelik gerektiğinde.
@@ -62,7 +62,7 @@ Bu uç noktaları ayarlama ve yönlendirmeyi, bkz. adımları için [Traffic Man
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>7. Katman Azure ön kapısı ile uygulama yönlendirme
 
-Azure Traffic Manager DNS (Katman 3), Şekil trafiği kullanır. [(Şu anda önizlemede) Azure ön kapısı](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (katman 7) yönlendirme seçeneği sunar. SSL sonlandırma, özel etki alanı, Web uygulaması güvenlik duvarı, URL yeniden yazma ve oturum benzeşimi ön kapısı ek özellikleri içerir.
+Azure Traffic Manager DNS (Katman 3), Şekil trafiği kullanır. [Azure ön kapısı](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (katman 7) yönlendirme seçeneği sunar. SSL sonlandırma, özel etki alanı, Web uygulaması güvenlik duvarı, URL yeniden yazma ve oturum benzeşimi ön kapısı ek özellikleri içerir.
 
 Hangi çözümünün en uygun olduğunu anlamak için uygulama trafiğinizi gereksinimlerini gözden geçirin.
 

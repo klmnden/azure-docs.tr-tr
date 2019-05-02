@@ -13,25 +13,27 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d2f16b2c4133e40c7f77390e83504397c47980
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61243359"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868152"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Bir Media Services varlığa mevcut blobları kopyalama
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 Bu makale kullanarak yeni bir Azure Media Services (AMS) varlık içinde bir depolama hesabından BLOB kopyalama [Azure Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+
+Medya hizmet API'lerini kullanarak olmadan Media Services tarafından oluşturulan blob kapsayıcı içeriğini değiştirme denememeniz gerekir.
 
 Genişletme yöntemleri ile çalışır:
 
 - Normal varlıklar.
 - Canlı arşiv varlıklar (FragBlob biçimi).
 - Kaynak ve hedef varlıklar farklı Media Services hesapları için (hatta. farklı veri merkezleri arasında) ait. Ancak bunu yaptığınızda yansıtılır olabilir. Fiyatlandırma hakkında daha fazla bilgi için bkz. [veri aktarımları](https://azure.microsoft.com/pricing/#header-11).
-
-> [!NOTE]
-> Medya hizmet API'lerini kullanarak olmadan Media Services tarafından oluşturulan blob kapsayıcı içeriğini değiştirme denememeniz gerekir.
-> 
 
 Makalede, iki kod örneği gösterilmektedir:
 

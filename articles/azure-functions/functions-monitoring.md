@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406850"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922975"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
 [Azure işlevleri](functions-overview.md) ile yerleşik tümleştirme sunan [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) işlevleri izlemek için. Bu makalede, Azure işlevleri'nin sistem tarafından oluşturulan günlük dosyalarını Application Insights'a gönderme yapılandırma gösterilmektedir.
 
-Günlüğü, performans ve hata veri topladığı için Application ınsights'ı kullanmanızı öneririz. Otomatik olarak performans anomalileri algılar ve işlevlerinizin nasıl kullanıldığını anlamanıza ve sorunları tanılamanıza yardımcı olması için güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. Bu gibi durumlarda, Application Insights bile yerel bir işlev uygulaması projesi geliştirme sırasında kullanabilirsiniz. Daha fazla bilgi için [Application Insights nedir?](../azure-monitor/app/app-insights-overview.md)
+Günlüğü, performans ve hata veri topladığı için Application ınsights'ı kullanmanızı öneririz. Otomatik olarak performans anomalileri algılar ve işlevlerinizin nasıl kullanıldığını anlamanıza ve sorunları tanılamanıza yardımcı olması için güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. Bu gibi durumlarda, Application Insights bile yerel bir işlev uygulaması projesi geliştirme sırasında kullanabilirsiniz. Daha fazla bilgi için [Application Insights nedir?](../azure-monitor/app/app-insights-overview.md).
 
 Azure işlevleri ile gerekli Application Insights Araçları'nı yerleşik olarak ihtiyacınız olan işlev uygulamanızı bir Application Insights kaynağına bağlamak için bir geçerli bir izleme anahtarı.
 
@@ -626,7 +626,7 @@ Bu akış günlüğü uygulamanızı bağlanır ve uygulama günlüklerini pence
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Akış günlüklerini kullanarak etkinleştirebilirsiniz [Azure komut satırı arabirimi (CLI)](/cli/azure/install-azure-cli). Azure CLI için aşağıdaki komutları kullanın oturum açmak, aboneliği ve günlük dosyalarını akışla aktarma'yı seçin:
+Akış günlüklerini kullanarak etkinleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli). Aşağıdaki komutları kullanın oturum açmak, aboneliği ve günlük dosyalarını akışla aktarma'yı seçin:
 
 ```azurecli
 az login

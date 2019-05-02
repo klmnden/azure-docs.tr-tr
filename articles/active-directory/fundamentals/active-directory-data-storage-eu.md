@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249727"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875633"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Kimlik Azure Active Directory'de Avrupalı müşteriler için veri depolama
-Azure Active Directory (Azure AD), kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarına güvenli hale zeka tabanlı erişim ilkeleri oluşturmak için yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
+Kimlik verileri Azure AD tarafından Office 365 ve Azure gibi bir Microsoft Online hizmetine abone olurken, kuruluşunuz tarafından sağlanan adresini temel alarak bir coğrafi konumda depolanır. Kimlik verilerinizi depolandığı hakkında daha fazla bilgi için kullandığınız [bulunan verileriniz nerede?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft Trust Center bölümünü.
 
-Çoğu Azure AD ile ilgili Avrupa kimlik verilerini Avrupa veri merkezlerinde kalarak, normal için gereken bazı işletimsel, hizmete özgü veriler vardır, ABD'de depolanır ve herhangi bir kişisel veri içermeyen Azure AD'ye işlemi.
+Avrupa'daki bir adresi sağlanan müşteriler, Azure AD kimlik verilerini Avrupa veri merkezleri içinde en tutar. Bu belge, Avrupa dışında Azure AD Hizmetleri tarafından depolanan tüm verileri hakkında bilgiler sağlar.
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Avrupalı müşteriler için Avrupa veri merkezleri dışında depolanan veriler
-
-Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik verileri Avrupa veri merkezlerinde kalır. Avrupa veri merkezlerinde depolanır ve aynı zamanda Amerika Birleşik Devletleri veri merkezleri için çoğaltılan azure AD veri içerir:
-
-- **Microsoft Azure Multi-Factor Authentication (MFA) ve Azure AD self servis parola sıfırlama (SSPR)**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi factor authentication (MFA)
     
-    MFA, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak aşağıdakiler dahil olmak üzere MFA hizmetine özgü bazı veriler ABD'de depolanır:
+- Telefon aramaları kullanarak tüm iki öğeli kimlik doğrulama veya SMS ABD veri merkezleri aracılığıyla kaynaklanan ve ayrıca genel sağlayıcıları tarafından yönlendirilir.
+- Anında iletme bildirimleri uygulama kaynaklanan BİZDEN veri merkezleri için Microsoft Authenticator'ı kullanarak. Ayrıca, cihaz satıcısı belirli hizmetleri play ve hizmetlerin Avrupa dışında belki de gelebilir.
+- OATH kodları her zaman ABD'de doğrulanır. 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C'yi (Azure AD B2C)
+
+Azure AD B2C ilkesi yapılandırma verileri ve anahtar kapsayıcılarının ABD veri merkezlerinde depolanır. Bu, tüm kullanıcı kişisel verilerini içermez. İlke yapılandırmaları hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Yerleşik ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) makalesi.
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - MFA veya SSPR kullanmanız halinde iki öğeli kimlik doğrulama ve ilgili kişisel veriler ABD'de depolanabilir.
+Azure AD B2B depoları davet kullanma ile bağlantı ve URL bilgileri ABD veri merkezinde yönlendirme. Ayrıca, B2B davetleri aboneliğini iptal kullanıcıların e-posta adresi depolanır ABD veri merkezleri içinde.
 
-        - Telefon araması veya SMS ile gerçekleştirilen iki öğeli kimlik doğrulama işlemlerinin tamamı ABD'li operatörler tarafından gerçekleştirilebilir.
-    
-        - Microsoft Authenticator uygulamasını kullanan anında iletme bildirimleri için üreticinin bildirim hizmetinden (Apple veya Google) bildirim gönderilmesi gerekir ve bu da Avrupa dışından gerçekleştirilebilir.
-    
-        - OATH kodları her zaman ABD'de doğrulanır. 
-    
-    - Kimlik doğrulaması türünden bağımsız olarak bazı MFA ve SSPR günlükleri 30 gün boyunca ABD'de depolanır.
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory etki alanı Hizmetleri (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+Azure AD DS, kullanıcı verilerini müşterinin seçtiği Azure Sanal Ağı ile aynı konumda depolar. Ağınız Avrupa dışındaysa veriler Avrupa dışında çoğaltılır ve depolanır.
 
-    Azure AD B2C, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak işlem günlükleri (kişisel veriler kaldırılmış halde) hizmete erişen kişinin bulunduğu konumda kalır. Örneğin bir B2C kullanıcısı hizmete ABD'den erişirse işlem günlükleri ABD'de kalır. Ayrıca kişisel veri içermeyen tüm ilke yapılandırma verileri yalnızca ABD'de depolanır. İlke yapılandırmaları hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Yerleşik ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) makalesi.
+## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure AD B2B, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak B2B, kişisel olmayan meta verileri ABD veri merkezlerindeki tablolarda depolar. Bu tabloda redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl ve InviterAppId gibi alanlar bulunur.
+Hizmetler ve Azure AD ile tümleştirilen uygulamalar kimlik verilerini erişiminiz. Her bir hizmet ve bu belirli hizmet ve uygulama tarafından kimlik veriler nasıl işlenir ve şirketinizin veri depolama gereksinimlerini karşıladıkları belirlemek için kullandığınız uygulama değerlendirin.
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    Azure AD DS, kullanıcı verilerini müşterinin seçtiği Azure Sanal Ağı ile aynı konumda depolar. Ağınız Avrupa dışındaysa veriler Avrupa dışında çoğaltılır ve depolanır.
-
-- **Azure AD ile tümleştirilen hizmetler ve uygulamalar**
-
-    Azure AD ile tümleştirilen hizmetler ve uygulamalar, kimlik verilerine erişebilir. Her bir hizmeti ve uygulamayı ayrı ayrı değerlendirerek ilgili hizmet veya uygulama tarafından kimlik verilerinin işlenme şeklini ve şirketinizin veri depolama gereksinimlerine uygun olup olmadığını belirleyebilirsiniz.
-
-    Microsoft hizmetlerinin verileri depoladığı konumlar hakkında daha fazla bilgi için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
+Microsoft hizmetlerinin verileri depoladığı konumlar hakkında daha fazla bilgi için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Özellikler ve İşlevler yukarıda açıklanan ilgili daha fazla bilgi için şu makalelere bakın:

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306565"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919695"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -54,7 +54,9 @@ Raporları dayanarak bilgisayarınızın ne kaynağı üzerinde nasıl güncel �
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz. Olarak sınıflandırılmış güncelleştirmeler *isteğe bağlı* Windows bilgisayarlar için dağıtım kapsamına dahil değildir. Yalnızca gerekli güncelleştirmeleri dağıtım kapsamına dahildir.
 
-Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../azure-monitor/platform/computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları dayanır. Onayla ve güncelleştirmeleri yüklenebilir süreyi ayarlamak için bir zamanlama de belirtirsiniz. Bu süre, bakım penceresi adı verilir. Bakım penceresinin on dakikada bir yeniden başlatma gereklidir ve uygun bir yeniden başlatma seçeneğini seçtiyseniz yeniden başlatmaları için ayrılmıştır. Düzeltme eki uygulama, beklenenden daha uzun sürer ve bakım penceresinde on dakikadan az ise, yeniden başlatma gerçekleşmez.
+Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../azure-monitor/platform/computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları temelinde veya [Azure sorgu](#azure-machines) Azure Vm'leri belirtilen ölçütlere göre dinamik olarak seçer. Bu grupları farklıdır [kapsam yapılandırması](../azure-monitor/insights/solution-targeting.md), yalnızca hangi makineleri çözüm sağlayan yönetim paketlerini almak belirlemek için kullanılır. 
+
+Onayla ve güncelleştirmeleri yüklenebilir süreyi ayarlamak için bir zamanlama de belirtirsiniz. Bu süre, bakım penceresi adı verilir. Bakım penceresinin on dakikada bir yeniden başlatma gereklidir ve uygun bir yeniden başlatma seçeneğini seçtiyseniz yeniden başlatmaları için ayrılmıştır. Düzeltme eki uygulama, beklenenden daha uzun sürer ve bakım penceresinde on dakikadan az ise, yeniden başlatma gerçekleşmez.
 
 Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook'ları görüntüleyemezsiniz ve runbook'lar herhangi bir yapılandırma gerekmez. Güncelleştirme dağıtımı oluşturulduğunda, güncelleştirme dağıtımına dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook'unu başlatan bir zamanlama oluşturur. Ana runbook, gerekli güncelleştirmelerin yükleneceği her aracıda bir alt runbook başlatır.
 
@@ -76,6 +78,9 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesi gösterilir
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Ubuntu 14.04 LTS, 16.04 LTS ve 18.04 (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
+
+> [!NOTE]
+> Azure sanal makine ölçek kümeleri, güncelleştirme yönetimi ile yönetilebilir. Güncelleştirme yönetimi, kendileri ve temel görüntüyü örneklerinde çalışır. Tüm VM örnekleri aynı anda güncelleştirmeyi dair bir artımlı şekilde güncelleştirmelerini zamanlama gerekecektir.
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 

@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489631"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922456"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
@@ -40,6 +40,10 @@ Azure App Services, barındırılan uygulamalar için uygulama izlemeyi etkinle�
 > Aracı tabanlı izleme hem el ile SDK Araçları tabanlıysa yalnızca el ile izleme ayarları kullanılacaktır algılandı. Bu yinelenen veri önlemek içindir gönderen. Bu kullanıma hakkında daha fazla bilgi edinmek için [sorun giderme bölümüne](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) aşağıda.
 
 ## <a name="enable-agent-based-monitoring-net"></a>Aracı tabanlı izleme .NET etkinleştir
+
+> [!NOTE]
+> APPINSIGHTS_JAVASCRIPT_ENABLED ve urlCompression bileşimi desteklenmiyor. Daha fazla bilgi için bkz: açıklamada [sorun giderme bölümüne](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Application Insights'ı seçin** uygulama hizmetiniz için Azure Denetim Masası'nda.
 
@@ -352,6 +356,15 @@ Aşağıdaki tabloda bu değerlerin anlamları daha ayrıntılı bir açıklama 
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Bu değer uzantısı başvuruları algılandığını gösterir `Microsoft.AspNet.TelemetryCorrelation` uygulamasının ve geri alma. | Başvuruyu kaldırın.
 |`AppContainsDiagnosticSourceAssembly**:true`|Bu değer uzantısı başvuruları algılandığını gösterir `System.Diagnostics.DiagnosticSource` uygulamasının ve geri alma.| Başvuruyu kaldırın.
 |`IKeyExists:false`|İzleme anahtarı uygulama ayarı mevcut değil, bu değeri gösterir `APPINSIGHTS_INSTRUMENTATIONKEY`. Olası nedenler: Değerleri, yanlışlıkla kaldırılmış olabilir, Otomasyon betiği, vb. değerleri ayarlamak unuttum. | App Service uygulama ayarlarında ayarı bulunduğundan emin olun.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED ve urlCompression desteklenmiyor
+
+APPINSIGHTS_JAVASCRIPT_ENABLED kullanırsanız = gibi hatalar alabilirsiniz doğru durumlarda burada kodlanmış içeriği: 
+
+- 500 URL yeniden yazma hatası
+- 500.53 HTTP yanıtının içeriğini kodlanmış ('gzip') olduğunda URL yeniden yazma modülü hata iletisi giden yeniden yazma kuralları uygulanamaz. 
+
+Bu APPINSIGHTS_JAVASCRIPT_ENABLED uygulama ayarı nedeniyle doğru ve içerik kodlamasını, aynı anda mevcut olması için ayarlanıyor. Bu senaryonun henüz desteklenmiyor. Geçici çözüm, uygulama ayarlarınızı APPINSIGHTS_JAVASCRIPT_ENABLED kaldırmaktır. Ne yazık ki bu tarayıcı/istemci-tarafı JavaScript izleme yine de gerekliyse, el ile SDK başvuruları için Web sayfalarınızı gerektiği anlamına gelir. Lütfen izleyin [yönergeleri](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) JavaScript SDK'sı ile el ile izleme için.
 
 Application Insights Aracısı/uzantı en son bilgiler için kullanıma [sürüm notları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

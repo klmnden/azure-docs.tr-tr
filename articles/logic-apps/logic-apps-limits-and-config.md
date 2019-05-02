@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916806"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -179,45 +179,18 @@ Web API'leri oluşturabileceğiniz özel bağlayıcılar için sınırlar aşağ
 
 Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağıda verilmiştir. Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Ücretsiz katmanı*
+> [!NOTE] 
+> Ücretsiz katmanı, yalnızca keşif senaryolarda, üretim senaryolarında kullanın. Bu katman, aktarım hızı ve kullanımını kısıtlayan ve hiçbir hizmet düzeyi sözleşmesi (SLA) sahiptir.
 
-Ücretsiz katmanı, yalnızca keşif senaryolarda, üretim senaryolarında kullanın. Bu katman, aktarım hızı ve kullanımını kısıtlayan ve hiçbir hizmet düzeyi sözleşmesi (SLA) sahiptir.
-
-| Yapay Nesne | Sınır | Notlar |
-|----------|-------|-------|
-| Derlemeler | 10 | |
-| Toplu iş yapılandırmaları | 5 |
-| Sertifikalar | 25 | |
-| EDI ticari sözleşmeleri | 10 | |
-| EDI ticari iş ortakları | 25 | |
-| Haritalar | 25 | |
-| Şemalar | 25 |
-||||
-
-*Temel katman*
-
-| Yapay Nesne | Sınır | Notlar |
-|----------|-------|-------|
-| Derlemeler | 25 | |
-| Toplu iş yapılandırmaları | 1 | |
-| Sertifikalar | 2 | |
-| EDI ticari sözleşmeleri | 1 | |
-| EDI ticari iş ortakları | 2 | |
-| Haritalar | 500 | |
-| Şemalar | 500 |
-||||
-
-*Standart katman*
-
-| Yapay Nesne | Sınır | Notlar |
-|----------|-------|-------|
-| Derlemeler | 50 | |
-| Toplu iş yapılandırmaları | 50 |
-| Sertifikalar | 500 | |
-| EDI ticari sözleşmeleri | 500 | |
-| EDI ticari iş ortakları | 500 | |
-| Haritalar | 1000 | |
-| Şemalar | 1000 |
+| Yapay Nesne | Ücretsiz | Temel | Standart |
+|----------|------|-------|----------|
+| EDI ticari sözleşmeleri | 10 | 1 | 500 |
+| EDI ticari iş ortakları | 25 | 2 | 500 |
+| Haritalar | 25 | 500 | 1000 |
+| Şemalar | 25 | 500 | 1000 |
+| Derlemeler | 10 | 25 | 50 |
+| Sertifikalar | 25 | 2 | 500 |
+| Toplu iş yapılandırmaları | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -304,7 +277,7 @@ Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesapların
 | Güney Hindistan | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Güneydoğu Asya | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Batı Orta ABD | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Batı Avrupa | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Batı Avrupa | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Batı Hindistan | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Batı ABD | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Batı ABD 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

@@ -7,22 +7,20 @@ keywords: hadoop yüksek kullanılabilirlik
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 596b53d468a7dfc719c16dc6e6339492381d7f41
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763802"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704932"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Kullanılabilirliği ve güvenilirliği HDInsight Apache Hadoop kümelerini
 
 HDInsight kümeleri, kullanılabilirlik ve Apache Hadoop Hizmetleri ve çalışan işleri güvenilirliğini artırmak için iki baş düğümü sağlar.
 
 Hadoop Hizmetleri ve veri kümesindeki birden çok düğüm arasında çoğaltarak yüksek kullanılabilirlik ve güvenilirlik elde eder. Ancak standardı dağıtımlarla hadoop genellikle yalnızca tek bir baş düğüm gerekir. Herhangi bir kesinti tek bir baş düğüm, küme çalışmayı durdurmasına neden olabilir. HDInsight, Hadoop'ın kullanılabilirliği ve güvenilirliği iyileştirmek için iki baş sağlar.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Kullanılabilirlik ve güvenilirlik düğümleri
 
@@ -104,7 +102,7 @@ Baş düğümler üzerinde çalışan hizmetler durumunu denetlemek için Ambari
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-Ambari Web kullanıcı arabirimini görülebilir https://CLUSTERNAME.azurehdinsight.net. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcısı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve kümeyi oluştururken girdiğiniz parola paroladır.
+Ambari Web kullanıcı arabirimini görülebilir `https://CLUSTERNAME.azurehdinsight.net`. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcısı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve kümeyi oluştururken girdiğiniz parola paroladır.
 
 Ambari sayfada geldiğinde, yüklü hizmetlerin sayfanın sol tarafında listelenir.
 
@@ -247,27 +245,25 @@ Ambari Web kullanıcı arabirimini (örneğin, YARN için) günlüklerini görü
 
 ## <a name="how-to-configure-the-node-size"></a>Düğüm boyutunu yapılandırma
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Bir düğümün boyutu yalnızca küme oluşturma sırasında seçilir. HDInsight üzerinde farklı VM boyutlarının listesini bulabilirsiniz [HDInsight fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure Klasik CLI][azure-cli]:
+Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell modülü Az][azure-powershell], ve [Azure CLI][azure-cli]:
 
 * **Azure portalında**: Bir küme oluştururken, küme tarafından kullanılan düğümlerin boyutu ayarlayabileceğiniz:
 
     ![Düğüm boyutu seçimi ile küme oluşturma Sihirbazı'nı görüntüsü](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure Klasik CLI**: Kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
+* **Azure CLI**: Kullanırken [az hdınsight oluşturma](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headnode-size`, `--workernode-size`, ve `--zookeepernode-size` parametreleri.
 
-* **Azure PowerShell**: Kullanırken `New-AzHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
+* **Azure PowerShell**: Kullanırken [yeni AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu belgede belirtilen noktalar hakkında daha fazla bilgi için aşağıdaki bağlantıları kullanın.
 
 * [Apache Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure Klasik CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
-* [için Notification Hubs .NET API](/powershell/azure/overview)
+* [Azure CLI'yi yükleme ve yapılandırma](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure PowerShell modülünün Az yüklenmesi ve yapılandırılması](/powershell/azure/overview)
 * [Apache Ambari kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Linux tabanlı HDInsight kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md)
 

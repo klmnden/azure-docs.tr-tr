@@ -14,24 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61235279"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867095"
 ---
 # <a name="monitor-job-progress-using-net"></a>Proje .NET kullanarak ilerlemeyi izleme 
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 İşleri çalıştırmak, genellikle iş ilerleme durumunu izlemek için bir yol gerektirir. (Bu konuda açıklandığı gibi) StateChanged olay işleyicisi tanımlama veya medya Hizmetleri iş bildirimlerini izlemek için Azure kuyruk depolama kullanarak ilerleme durumunu kontrol edebilirsiniz (açıklandığı [bu](media-services-dotnet-check-job-progress-with-queues.md) konuda).
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>İşin ilerleme durumunu izlemek için StateChanged olay işleyicisini tanımlama
+
 Aşağıdaki kod örneği StateChanged olay işleyicisini tanımlar. Bu olay işleyicisi, işin ilerleme durumunu izler ve durumuna bağlı olarak güncel durumu sağlar. Kod ayrıca LogJobStop yöntemi tanımlar. Bu yardımcı yöntemi, hata ayrıntılarını günlüğe kaydeder.
 
 ```csharp

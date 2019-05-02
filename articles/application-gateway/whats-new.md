@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/1/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: f686c8ac53db2d128cf5bb20f252c547348e5ac7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360908"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947118"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway yenilikler nelerdir?
 
@@ -27,16 +27,14 @@ Azure Application Gateway, sürekli olarak güncelleştirilir. İle en son geli�
 
 |Özellik  |Açıklama  |Eklenme tarihi  |
 |---------|---------|---------|
+|Otomatik ölçeklendirme, bölge artıklığı, statik VIP destek GA |V2 SKU bölge artıklığı hangi destekleyen otomatik ölçeklendirme, performans, statik VIP'ler, Key Vault geliştirmek için genel kullanılabilirlik üstbilgi yeniden yazın. Bkz: [Application Gateway otomatik ölçeklendirme belgeleri](application-gateway-autoscaling-zone-redundant.md). |Nisan 2019 |
+|Anahtar kasası tümleştirme |Application Gateway artık etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için anahtar kasası ile tümleştirme (genel önizlemede) destekler. Bkz: [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md). |Nisan 2019 |
 |Üst bilgi CRUD/yeniden yazma işlemleri     |HTTP üst bilgileri artık yazabilirsiniz. Bkz: [Öğreticisi: Application gateway oluşturma ve HTTP üst bilgilerini yeniden](tutorial-http-header-rewrite-powershell.md) daha fazla bilgi için.|Aralık 2018|
 |WAF yapılandırmasını ve dışlama listesi     |WAF'nizi yapılandırmak ve hatalı pozitif sonuçları azaltmak için daha fazla seçenek ekledik. Bkz: [Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri](application-gateway-waf-configuration.md) daha fazla bilgi için.|Aralık 2018|
-|Otomatik ölçeklendirme, bölge artıklığı, statik VIP önizlemesi     |V2 SKU ile otomatik ölçeklendirme, Gelişmiş performans ve diğer birçok gelişme vardır. Bkz: [Azure Application Gateway nedir?](overview.md#autoscaling-public-preview) daha fazla bilgi için.|Eylül 2018|
+|Otomatik ölçeklendirme, bölge artıklığı, statik VIP desteği      |V2 SKU ile otomatik ölçeklendirme, Gelişmiş performans ve diğer birçok gelişme vardır. Bkz: [Azure Application Gateway nedir?](overview.md) daha fazla bilgi için.|Eylül 2018|
 |Bağlantı boşaltma     |Bağlantı boşaltma düzgün bir şekilde, arka uç havuzlarını üyeleri kaldırmanızı sağlar. Daha fazla bilgi için [bağlantı boşaltma](overview.md#connection-draining).|Eylül 2018|
 |Özel hata sayfaları     |Özel hata sayfalarıyla sitelerinizi geri kalanını biçimi içinde bir hata sayfası oluşturabilirsiniz. Bunu etkinleştirmek için bkz: [uygulama ağ geçidi Oluştur özel hata sayfaları](custom-error.md).|Eylül 2018|
 |Ölçümleri geliştirmeleri     |Gelişmiş ölçümler ile uygulama ağ geçidinizin durumunu daha iyi bir görünümünü elde edebilirsiniz. Ölçümleri, uygulama ağ geçidi üzerinde etkinleştirmek için bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md).|Haziran 2018|
-
-## <a name="known-issues"></a>Bilinen sorunlar
-
-- [V2 SKU'de bilinen sorunlar](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

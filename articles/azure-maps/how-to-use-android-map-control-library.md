@@ -1,24 +1,24 @@
 ---
-title: Android harita denetiminin içinde Azure haritalar kullanma | Microsoft Docs
+title: Azure haritalar Android harita denetimi ile çalışmaya başlama | Microsoft Docs
 description: Azure haritalar Android harita denetimi.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770388"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869819"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sını kullanma
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sı ile çalışmaya başlama
 
-Azure haritalar Android SDK'sı, Android için vektör harita kitaplığıdır. Bu makalede Azure haritalar Android SDK'sını yükleme, bir harita yükleme ve harita üzerinde bir PIN yerleştirme işlemleri size kılavuzluk eder.
+Azure haritalar Android SDK'sı, Android için vektör harita kitaplığıdır. Bu makalede Azure haritalar Android SDK'sını yükleme ve bir harita yükleme işlemleri size yol gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -55,7 +55,7 @@ Android Studio bilgisayarınızı sanal bir Android cihazında ayarlamanıza ola
 
 Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yüklemektir. SDK yüklemek için aşağıdaki adımları tamamlayın:
 
-1. Aşağıdaki kodu ekleyin **tüm projeleri**, **depoları** engellenmesi, **build.gradle** dosya.
+1. En üst düzey açın **build.gradle** dosyasını açıp aşağıdaki kodu ekleyin **tüm projeleri**, **depoları** bölüm engelle:
 
     ```
     maven {
@@ -64,8 +64,10 @@ Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yük
     ```
 
 2. Güncelleştirme, **app/build.gradle** ve aşağıdaki kodu ekleyin:
+    
+    1. Emin olun, projenizin **minSdkVersion** API 21 veya üzeri.
 
-    1. Android bloğuna aşağıdaki kodu ekleyin:
+    2. Aşağıdaki kod Android bölümüne ekleyin:
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yük
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Bağımlılıkları engellemeniz güncelleştirin ve aşağıdaki kodu ekleyin:
+    3. Bağımlılıklar bloğuna güncelleştirmek ve en son Azure haritalar Android SDK için yeni bir uygulama bağımlılık satır ekleyin:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. Aşağıdaki XML ekleyerek izinleri ayarlama, **AndroidManifest.xml** dosyası:
+    > [!Note]
+    > Azure haritalar Android SDK'sı düzenli olarak yüklenmekte olan gelişmiş ve yükseltildi. Gördüğünüz [Android harita denetimi ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) belgeleri, en son Azure haritalar uygulama sürüm numarasını almak için. Ayrıca, "0 her zaman en son sürüme işaret edecek şekilde +", "0,2-" sürüm numarasını ayarlayabilirsiniz.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. Düzen **res** > **Düzen** > **activity_main.xml** bu XML gibi görünür:
+3. Düzen **res** > **Düzen** > **activity_main.xml** aşağıdakiyle değiştirin:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yük
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. Düzen **MainActivity.java** harita görünümü etkinlik sınıfı oluşturmak için. Dosyayı düzenledikten sonra bu sınıf gibi görünmesi gerekir:
+4. İçinde **MainActivity.java** dosya gerekir:
+    
+    * Azure haritalar SDK'sı için içeri aktarmaları ekleyin
+    * Azure haritalar kimlik bilgilerinizi ayarlayın
+    * Harita denetimi örneği alma **onCreate** yöntemi
 
+    Kimlik bilgilerinizi her görünüm eklemek zorunda kalmamanız için AzureMaps sınıfında genel setSubscriptionKey veya setAadProperties yöntemleri kullanarak kimlik doğrulama bilgilerini ayarlama, kolaylaştırır. Harita denetiminin doğrudan içeren etkinliğinden çağrılmalıdır Android OpenGL ömrü yönetmek için kendi yaşam döngüsü yöntemleri içerir. Uygulamanızın doğru bir şekilde harita denetimin yaşam döngüsü yöntemleri çağırmak sırada içeren harita denetiminin etkinliğinde aşağıdaki yaşam döngüsü yöntemleri geçersiz kılın ve ilgili Harita denetimi yöntemi çağırın. 
+
+    Düzen **MainActivity.java** aşağıdaki gibi:
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ Azure haritalar Android SDK'sı uygulamanızı oluşturduktan sonraki adım yük
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ Aşağıdaki grafik (veya bir Mac üzerinde denetim + R tuşuna basın), uygulam
 
 Android Studio, uygulamayı oluşturmak için birkaç saniye sürer. Derleme tamamlandıktan sonra benzetilmiş Android cihazda uygulamanızı test edebilirsiniz. Bunun gibi bir eşleme görmeniz gerekir:
 
-![Android eşleme](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>Haritayı bir işaretleyici Ekle
+![Android eşleme](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-Haritanıza bir işaret eklemek için Ekle `mapView.getMapAsync()` işlevi `MainActivity.java`. En son `MainActivity.java` kod şu şekilde görünmelidir:
+## <a name="next-steps"></a>Sonraki adımlar
 
-```java
-package com.example.myapplication;
+Haritanıza öğe eklemek için bkz:
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [Bir Android eşlemesi için bir simge katmanı Ekle](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [Bir Android eşlemesine şekiller ekleme](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Android Maps değişiklik eşleme stilleri](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-Uygulamanızı yeniden çalıştırın. Burada gösterildiği gibi harita üzerinde işaretçiyi görmeniz gerekir:
-
-![Android harita raptiyesini](./media/how-to-use-android-map-control-library/android-map-pin.png)

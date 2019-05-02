@@ -4,7 +4,7 @@ description: Özel bir görüntü için mevcut bir Azure sanal makine ölçek k�
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: manayar
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108386"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869108"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Özel bir görüntü için bir Azure ölçek kümesi şablonu Ekle
 
-Bu makalede nasıl değiştirileceğini gösterir [en düşük uygun ölçek kümesi şablonunu](./virtual-machine-scale-sets-mvss-start.md) özel görüntüden dağıtılacak.
+Bu makalede nasıl değiştirileceğini gösterir [temel ölçek kümesi şablonunu](virtual-machine-scale-sets-mvss-start.md) özel görüntüden dağıtılacak.
 
 ## <a name="change-the-template-definition"></a>Şablon tanımı değiştirme
-
-En düşük uygun ölçek kümesi şablonunun görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve özel bir görüntüden dağıtma ölçek kümesi için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) parça parça:
+İçinde bir [önceki makalede](virtual-machine-scale-sets-mvss-start.md) temel ölçek kümesi şablonunun oluşturduğumuz. Şimdi daha önceki bu şablonu kullanın eder ve bir ölçek kümesi özel bir görüntüden dağıtan bir şablon oluşturmak için değiştirin.  
 
 ### <a name="creating-a-managed-disk-image"></a>Bir yönetilen disk görüntüsü oluşturma
 
@@ -59,7 +57,7 @@ Ardından, bir kaynak türü ekleyin `Microsoft.Compute/images`, yönetilen disk
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +82,7 @@ Kaynak ölçek kümesi, ekleme bir `dependsOn` ölçek kümesi bu görüntüden 
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -119,5 +117,3 @@ Bu örnekte kullanın `resourceId` aynı şablonda oluşturulan görüntünün k
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

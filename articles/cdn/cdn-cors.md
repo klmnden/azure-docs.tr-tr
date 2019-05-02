@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679885"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876213"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Azure CDN'yi CORS ile kullanma
 ## <a name="what-is-cors"></a>CORS nedir?
@@ -30,9 +30,9 @@ CORS istekleri, iki tür vardır *basit istekler* ve *karmaşık istekler.*
 
 ### <a name="for-simple-requests"></a>Basit istekleri için:
 
-1. Tarayıcı ek bir CORS isteği gönderen **kaynak** HTTP isteği üstbilgisi. Bileşimi tanımlanır ana sayfada sunulandan kaynak bu üst bilgi değeri *Protokolü* *etki* ve *bağlantı noktası.*  Bir sayfadan olduğunda https://www.contoso.com aşağıdaki istek üst bilgisi fabrikam.com kaynağı, bir kullanıcının verilere erişmek için deneme fabrikam.com olarak gönderilmesi:
+1. Tarayıcı ek bir CORS isteği gönderen **kaynak** HTTP isteği üstbilgisi. Bileşimi tanımlanır ana sayfada sunulandan kaynak bu üst bilgi değeri *Protokolü* *etki* ve *bağlantı noktası.*  Bir sayfa zaman https'den\:/ / www.contoso.com çalışır fabrikam.com kaynağı kullanıcının verilere erişmek, aşağıdaki istek üstbilgisi fabrikam.com olarak gönderilecek:
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. Sunucu aşağıdakilerden herhangi biri ile yanıt verebilir:
 

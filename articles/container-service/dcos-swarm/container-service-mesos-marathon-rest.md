@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511574"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916692"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(KULLANIM DIŞI) Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
 
@@ -32,7 +32,7 @@ Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapı
 ## <a name="access-the-dcos-apis"></a>DC/OS API'lere erişim
 Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'lerine http erişebilirsiniz:\//localhost:local-bağlantı noktası. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları bir URI'leri ulaşılabilir http ile başlayan: \/ /localhost/marathon/v2 /. 
 
-Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](http://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
+Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](https://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>DC/OS’den ve Marathon’dan bilgi toplama
 DC/OS kümesine kapsayıcıları dağıtmadan önce adları ve DC/OS aracılarının durumunu gibi DC/OS kümesi hakkında bazı bilgiler toplayın. Bunu yapmak için, DC/OS REST API’sinin `master/slaves` uç noktasını sorgulayın.  Her şey yolunda giderse, sorgu DC/OS aracıları ve her biri için çeşitli özellikler listesini döndürür.

@@ -2,17 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+origin.date: 06/04/2018
+ms.date: 12/24/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 244d6be318662be794cac58aaa8350b433b6cb37
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 43e381bd26dadbea5ef5bfb002e51465e180a097
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859059"
 ---
-Ağ geçidi alt ağına 0.0.0.0/0 hedefi olan bir rota içeren bir yol tablosu ilişkilendirmeyin. Bunun yapılması, ağ geçidi düzgün çalışmasını engeller.
+Bir yönlendirme ağ geçidi alt ağına 0.0.0.0/0 hedefi olan içeren bir yol tablosu ilişkilendirmeyin. Bunun yapılması, ağ geçidi düzgün çalışmasını engeller.

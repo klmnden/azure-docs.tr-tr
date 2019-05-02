@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250068"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918452"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft kimlik platformu ve Openıd Connect Protokolü
 
@@ -32,7 +32,7 @@ Openıd Connect, güvenli bir şekilde bir web uygulaması için bir kullanıcı
 > [!NOTE]
 > Microsoft kimlik platformu uç nokta, tüm Azure Active Directory (Azure AD) senaryolarını ve özelliklerini desteklemez. Microsoft kimlik platformu uç noktasını kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [Microsoft Identity platform sınırlamaları](active-directory-v2-limitations.md).
 
-[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokol yapabileceğiniz böylece tek bir OAuth kullanarak oturum açmayı. Openıd Connect kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak istemci izin veren bir güvenlik belirteci olduğu. Kimlik belirteci, ayrıca kullanıcının temel profil bilgilerini alır. Openıd Connect OAuth 2.0 genişlettiğinden, uygulamaları güvenli bir şekilde edinebilir *erişim belirteçlerini*, tarafından güvenliği sağlanan kaynaklara erişmek için kullanılabilecek bir [yetkilendirme sunucusu](active-directory-v2-protocols.md#the-basics). Microsoft kimlik platformu uç noktası için Web API'leri gibi güvenli kaynaklara erişim belirteçlerini vermek için Azure AD ile kayıtlı bir üçüncü taraf uygulamaları da sağlar. Uygulama erişim belirteçlerini vermek için ayarlama hakkında daha fazla bilgi için bkz: [Microsoft kimlik platformu uç noktası ile bir uygulamayı kaydetme](quickstart-v2-register-an-app.md). Derliyorsanız Openıd Connect kullanmanızı öneririz bir [web uygulaması](v2-app-types.md#web-apps) bir sunucuda barındırılan ve tarayıcı yoluyla erişilir.
+[Openıd Connect](https://openid.net/specs/openid-connect-core-1_0.html) OAuth 2.0 genişletir *yetkilendirme* protokolü olarak kullanılmak üzere bir *kimlik doğrulaması* protokol yapabileceğiniz böylece tek bir OAuth kullanarak oturum açmayı. Openıd Connect kavramını sunar bir *kimlik belirteci*, kullanıcının kimliğini doğrulamak istemci izin veren bir güvenlik belirteci olduğu. Kimlik belirteci, ayrıca kullanıcının temel profil bilgilerini alır. Openıd Connect OAuth 2.0 genişlettiğinden, uygulamaları güvenli bir şekilde edinebilir *erişim belirteçlerini*, tarafından güvenliği sağlanan kaynaklara erişmek için kullanılabilecek bir [yetkilendirme sunucusu](active-directory-v2-protocols.md#the-basics). Microsoft kimlik platformu uç noktası için Web API'leri gibi güvenli kaynaklara erişim belirteçlerini vermek için Azure AD ile kayıtlı bir üçüncü taraf uygulamaları da sağlar. Uygulama erişim belirteçlerini vermek için ayarlama hakkında daha fazla bilgi için bkz: [Microsoft kimlik platformu uç noktası ile bir uygulamayı kaydetme](quickstart-register-app.md). Derliyorsanız Openıd Connect kullanmanızı öneririz bir [web uygulaması](v2-app-types.md#web-apps) bir sunucuda barındırılan ve tarayıcı yoluyla erişilir.
 
 ## <a name="protocol-diagram-sign-in"></a>Protokol diyagramı: oturum açma
 

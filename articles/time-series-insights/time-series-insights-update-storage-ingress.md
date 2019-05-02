@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725728"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş
 
@@ -193,9 +193,9 @@ Zaman serisi öngörüleri Önizleme 6 Mega bayt / saniye (Mbps) ortam başına 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Okuma [Azure Time Series Insights, depolama ve giriş Önizleme](./time-series-insights-update-storage-ingress.md).
+- Okuma [Azure Time Series Insights, depolama ve giriş Önizleme](./time-series-insights-update-storage-ingress.md).
 
-Yeni hakkında okuyun [veri modelleme](./time-series-insights-update-tsm.md).
+- Yeni hakkında okuyun [veri modelleme](./time-series-insights-update-tsm.md).
 
 <!-- Images -->
 [1]: media/v2-update-storage-ingress/storage-architecture.png

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222261"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869470"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET kullanarak şirket içi kodlayıcılarla canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
@@ -28,13 +28,17 @@ ms.locfileid: "61222261"
 > 
 > 
 
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
+
 Bu öğreticide, Azure Media Services .NET SDK kullanarak oluşturma adımları açıklanmaktadır bir **kanal** doğrudan teslimat için yapılandırılmış. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı.
-* Bir Media Services hesabı.    Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
 * Geliştirme ortamınızı ayarlayın. Daha fazla bilgi için [ortamınızı ayarlama](media-services-set-up-computer.md).
 * Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](https://www.telestream.net/wirecast/overview.htm).
 
@@ -48,6 +52,7 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 ## <a name="example"></a>Örnek
+
 Aşağıdaki kod örneği, aşağıdaki görevleri elde etmek gösterilmektedir:
 
 * Media Services’e bağlanmak
@@ -60,9 +65,6 @@ Aşağıdaki kod örneği, aşağıdaki görevleri elde etmek gösterilmektedir:
 * Oluşturma ve bir StreamingEndpoint başlatma
 * Akış uç noktası güncellenemedi
 * Kapatma kaynakları
-
->[!IMPORTANT]
->İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
     
 >[!NOTE]
 >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.

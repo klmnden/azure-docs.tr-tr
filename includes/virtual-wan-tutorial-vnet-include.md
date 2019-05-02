@@ -5,26 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 660bbf50e1a8ae73bd7bbe1f7c42691ed62d276a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552988"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744674"
 ---
-Sanal ağınız yoksa PowerShell kullanarak hızlıca bir tane oluşturabilirsiniz. Azure portalı kullanarak da sanal ağ oluşturabilirsiniz.
+Hızla bir VNet oluşturmak için "Try It" Bu makalede bir PowerShell konsolu açın tıklayabilirsiniz. Değerleri ayarlayın ve ardından komutları kopyalayıp konsol penceresine yapıştırabilirsiniz. Yeni Az modül ve AzureRM uyumluluğu hakkında daha fazla bilgi için bkz: [Karşınızda yeni Azure PowerShell Az modül](/powershell/azure/new-azureps-module-az). Az Modül yükleme yönergeleri için bkz. [Azure PowerShell yükleme](/powershell/azure/install-az-ps).
 
-* Oluşturduğunuz sanal ağın adres alanının bağlanmak istediğiniz diğer sanal ağların adres aralıklarıyla veya şirket içi ağ adres alanlarıyla çakışmadığından emin olun. 
-* Sanal ağınız varsa gerekli ölçütleri karşıladığından ve sanal ağ geçidi bulunmadığından emin olun.
-
-Bu makaledeki "Deneyin" düğmesine tıklayıp PowerShell konsolu açarak sanal ağınızı kolayca oluşturabilirsiniz. Değerleri ayarlayın ve ardından komutları kopyalayıp konsol penceresine yapıştırabilirsiniz.
+Oluşturduğunuz sanal ağın adres alanının bağlanmak istediğiniz diğer sanal ağların adres aralıklarıyla veya şirket içi ağ adres alanlarıyla çakışmadığından emin olun.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-PowerShell komutlarını ayarlayın ve ardından bir kaynak grubu oluşturun.
+Kullanmak istediğiniz bir kaynak grubu zaten yoksa, yeni bir tane oluşturun. Kullanmak istediğiniz kaynak grubu adı yansıtacak şekilde PowerShell komutlarını ayarlayın ve ardından aşağıdaki cmdlet'i çalıştırın:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
@@ -32,7 +29,7 @@ New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 
 ### <a name="create-a-vnet"></a>Sanal ağ oluşturma
 
-PowerShell komutlarını ayarlayarak ortamınızla uyumlu bir sanal ağ oluşturun.
+Ortamınız için uyumlu olan bir VNet oluşturmak için PowerShell komutlarını ayarlayın.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"

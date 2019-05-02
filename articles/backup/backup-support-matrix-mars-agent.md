@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894402"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922997"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
 
@@ -24,14 +24,14 @@ Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi maki
 Azure Backup, verileri şirket içi makinelerin ve Azure sanal makinelerini bir yedekleme Azure kurtarma Hizmetleri kasasına yedeklemek için MARS Aracısı kullanır. MARS Aracısı yapabilirsiniz:
 - Böylece bunlar doğrudan Azure yedekleme kurtarma Hizmetleri kasası için yedekleme, şirket içi Windows makinelerde çalıştırın.
 - Windows sanal makinelerinde çalıştırın, böylece bunlar doğrudan bir kasasına yedekleyebilirsiniz.
-- Microsoft Azure Backup sunucusu (MABS) veya bir System Center Data Protection Manager (DPM) sunucusunda çalıştırın. Bu senaryoda, makine ve iş yüklerini MABS veya DPM sunucusuna yedekleme. MARS Aracısı, bu sunucuyu daha sonra azure'da bir kasaya yedekler. 
+- Microsoft Azure Backup sunucusu (MABS) veya bir System Center Data Protection Manager (DPM) sunucusunda çalıştırın. Bu senaryoda, makine ve iş yüklerini MABS veya DPM sunucusuna yedekleme. MARS Aracısı, bu sunucuyu daha sonra azure'da bir kasaya yedekler.
 
 Yedekleme seçeneklerinizin, aracının yüklü olduğu bağlıdır. Daha fazla bilgi için [MARS agent'ı kullanarak Azure Backup mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). MABS ve DPM yedekleme mimarisi hakkında daha fazla bilgi için bkz: [DPM veya MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Ayrıca bkz: [gereksinimleri](backup-support-matrix-mabs-dpm.md) yedekleme mimarisi.
 
 **Yükleme** | **Ayrıntılar**
 --- | ---
 En yeni MARS Aracısı'nı indirme | Kasadan, aracının en son sürümünü indirebilirsiniz veya [doğrudan indirin](https://aka.ms/azurebackup_agent).
-Doğrudan bir makineye yükleyin | MARS Aracısı doğrudan şirket içi Windows server veya herhangi birini çalıştıran bir Windows VM'de yükleyebilirsiniz [desteklenen işletim sistemleri](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Doğrudan bir makineye yükleyin | MARS Aracısı doğrudan şirket içi Windows server veya herhangi birini çalıştıran bir Windows VM'de yükleyebilirsiniz [desteklenen işletim sistemleri](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Bir yedekleme sunucusuna yükleyin | Azure'a yedeklemek için DPM veya MABS ayarlamak, indirin ve MARS aracısının sunucuya yükleyin. Aracıyı yükleyebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) yedek sunucu destek matrisi içinde.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Verileri yedeklemek için MARS Aracısı'nı kullandığınızda aracı verileri
 
 **Önbellek** | **Ayrıntılar**
 --- | ---
-Boyut |  Önbellek klasörü boş alanı, yedekleme verilerinizi toplam boyutunu en az yüzde 5-10 olması gerekir. 
-Konum | Önbellek klasörü, yedeklenen makine üzerinde yerel olarak depolanmalıdır ve çevrimiçi olmalıdır. Önbellek klasörü, bir ağ paylaşımına, çıkarılabilir medya veya çevrimdışı bir birim olmamalıdır. 
+Boyut |  Önbellek klasörü boş alanı, yedekleme verilerinizi toplam boyutunu en az yüzde 5-10 olması gerekir.
+Location | Önbellek klasörü, yedeklenen makine üzerinde yerel olarak depolanmalıdır ve çevrimiçi olmalıdır. Önbellek klasörü, bir ağ paylaşımına, çıkarılabilir medya veya çevrimdışı bir birim olmamalıdır.
 Klasör | Önbellek klasörü, yinelenenleri kaldırılan bir birimde veya, sıkıştırılmış, seyrek olan veya bir yeniden ayrıştırma noktası olan bir klasörde şifrelenmelidir.
 Konum değişiklikleri | Yedekleme Altyapısı durdurarak önbellek konumunu değiştirebilirsiniz (`net stop bengine`) ve önbellek klasörü için yeni bir sürücüye kopyalanması. (Yeni sürücü yeterli boş alan olduğundan emin olun.) Ardından altında iki kayıt defteri girdisini güncelleştirin **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** ve **Config/CloudBackupProvider/ScratchLocation**) yeni konuma ve yeniden başlatma altyapısı.
 
@@ -103,9 +103,9 @@ Windows 7   | 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Yedekleme için desteklenen dosya türleri
 
-**Tür** | **Destek** 
---- | --- 
-Şifreli   | Destekleniyor. 
+**Tür** | **Destek**
+--- | ---
+Şifreli   | Destekleniyor.
 Sıkıştırılmış | Destekleniyor.
 Seyrek | Destekleniyor.
 Sıkıştırılmış ve aralıklı | Destekleniyor.
@@ -114,7 +114,7 @@ Yeniden ayrıştırma noktası   | Desteklenmiyor. Atlandı.
 Şifrelenmiş ve aralıklı |  Desteklenmiyor. Atlandı.
 Sıkıştırılmış akış   | Desteklenmiyor. Atlandı.
 Aralıklı akış   | Desteklenmiyor. Atlandı.
-OneDrive (eşitlenmiş dosyaları seyrek akışlarıdır)  | Desteklenmiyor. 
+OneDrive (eşitlenmiş dosyaları seyrek akışlarıdır)  | Desteklenmiyor.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Desteklenen sürücüler veya yedekleme birimleri
 

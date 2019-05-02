@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464500"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726617"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Kimlik doğrulama ve yetkilendirme Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -108,7 +108,8 @@ Aşağıdaki örnekte, bir geliştirici, Azure SQL Server örneğine erişim ist
 1. Bir geliştirici, bir pod NMI sunucu üzerinden bir erişim belirteci isteklerini yönetilen bir kimlikle dağıtır.
 1. Belirteç pod'u döndürdü ve bir Azure SQL Server örneğine erişmek için kullanılır.
 
-Yönetilen pod kimlikler AKS açık kaynak bir projedir ve Azure teknik destek birimi tarafından desteklenmiyor. Görüş ve hata topluluğumuza toplamak için sağlanır. Proje, üretim kullanımı için önerilmez.
+> [!NOTE]
+> Yönetilen pod kimlikler, açık kaynak bir projedir ve Azure teknik destek birimi tarafından desteklenmiyor.
 
 Pod kimlikleri kullanmak için bkz: [Kubernetes uygulamaları için Azure Active Directory kimlikleri][aad-pod-identity].
 

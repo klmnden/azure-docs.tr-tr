@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821301"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914917"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -69,7 +69,7 @@ Not: Veri hazırlığı Python SDK'sını yükleme artık `numpy` ve `pandas` pa
 + **Yeni Özellikler**
   + Azure Machine Learning SDK'sı artık Python 3.7 destekler.
   + Azure Machine Learning DNN Estimators artık yerleşik çoklu sürüm desteği sağlar. Örneğin, `TensorFlow`  estimator artık kabul eden bir `framework_version` parametresi ve kullanıcıları '1.10' veya '1.12' sürümünü belirtebilirsiniz. Geçerli SDK sürümünüzü tarafından desteklenen sürümlerinin listesi için çağrı `get_supported_versions()` istenen framework sınıfında (örneğin `TensorFlow.get_supported_versions()`).
-  En son SDK'sı sürümü tarafından desteklenen sürümlerinin bir listesi için bkz. [DNN Estimator belgeleri](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  En son SDK'sı sürümü tarafından desteklenen sürümlerinin bir listesi için bkz. [DNN Estimator belgeleri](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning veri hazırlama SDK v1.1.1
 
@@ -143,13 +143,13 @@ Not: Veri hazırlığı Python SDK'sını yükleme artık `numpy` ve `pandas` pa
 
 + **Yeni Özellikler**
 
-  + Azure Machine Learning, popüler DNN çerçevesini bağlayıcı artık birinci sınıf destek sağlar. Kullanarak [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) sınıfı kullanıcılar kolayca eğitin ve bağlayıcı Modellerinizi dağıtın.
+  + Azure Machine Learning, popüler DNN çerçevesini bağlayıcı artık birinci sınıf destek sağlar. Kullanarak [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) sınıfı kullanıcılar kolayca eğitin ve bağlayıcı Modellerinizi dağıtın.
     + Bilgi nasıl [dağıtılmış eğitimi ChainerMN ile çalıştırın.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Bilgi edinmek için nasıl [HyperDrive kullanarak bağlayıcı ile hiper parametre ayarı çalıştırın](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning işlem hatlarını özelliği tetikleyici işlem hattı çalıştırmasını veri deposu değişikliklerine göre eklendi. İşlem hattı [zamanlama not defteri](https://aka.ms/pl-schedule) bu özelliği göstermek için güncelleştirilir.
 
 + **Hata düzeltmeleri ve geliştirmeleri**
-  + Azure Machine Learning işlem hatlarını destek source_directory_data_store özelliği (örneğin, bir blob depolama) istenen bir veri deposu olarak ayarlanması için üzerinde ekledik [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) için sağlanan [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Varsayılan olarak, adımları çok sayıda eşzamanlı olarak çalıştırıldığında azaltma sorunları içine çalışabilir yedekleme veri deposu olarak Azure dosya depolama adımları kullanın.
+  + Azure Machine Learning işlem hatlarını destek source_directory_data_store özelliği (örneğin, bir blob depolama) istenen bir veri deposu olarak ayarlanması için üzerinde ekledik [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) için sağlanan [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Varsayılan olarak, adımları çok sayıda eşzamanlı olarak çalıştırıldığında azaltma sorunları içine çalışabilir yedekleme veri deposu olarak Azure dosya depolama adımları kullanın.
 
 ### <a name="azure-portal"></a>Azure portal
 

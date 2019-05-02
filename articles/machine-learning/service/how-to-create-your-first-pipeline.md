@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819877"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914886"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>Sonuçları görüntüleme
 
 Tüm işlem hatlarınızı ve çalıştırma ayrıntıları listesine bakın:
@@ -368,6 +369,25 @@ Tüm işlem hatlarınızı ve çalıştırma ayrıntıları listesine bakın:
  ![machine learning işlem hatlarını listesi](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Çalıştırma sonuçları görmek için belirli bir işlem hattını seçin.
+
+## <a name="caching--reuse"></a>Önbelleğe alma ve yeniden kullanma  
+
+En iyi duruma getirmek ve işlem hatlarınızı davranışını özelleştirmek için önbelleğe alma etrafında birkaç şeyi yapmak ve yeniden kullanabilirsiniz. Örneğin, şunlar için seçim yapabilirsiniz:
++ **Çıkış adımdan varsayılan kullanılmasını devre dışı kapatma** ayarlayarak `allow_reuse=False` sırasında [adım tanımı](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Betik karma genişletmek**, mutlak bir yol veya başka dosya ve dizinleri kullanma kaynak_dizin göreli yolları da eklemek için `hash_paths=['<file or directory']` 
++ **Çıkış anahtarınızın yeniden oluşturulması çalıştırmada tüm adımlar için zorlama** ile `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+Varsayılan olarak adımı yeniden kullanımı etkindir ve ana komut dosyası yalnızca karma. Bunu, belirli bir adım için komut dosyası aynı kalırsa (`script_name`, giriş ve parametreleri), bir önceki adımdan çıktısı yeniden, proje için işlem gönderilmeyen ve sonuçları önceki çalıştırmaya bunun yerine bir sonraki adıma hemen kullanılabilir .  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kullanım [github'da bu Jupyter not defterlerini](https://aka.ms/aml-pipeline-readme) machine learning işlem hatlarını daha fazla araştırmak için.

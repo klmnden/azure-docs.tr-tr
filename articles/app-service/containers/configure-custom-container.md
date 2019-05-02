@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853329"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919732"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service için özel bir Linux kapsayıcısını yapılandırın
 
@@ -109,7 +109,6 @@ SSH, kapsayıcı ile istemci arasında güvenli iletişime olanak tanır. SSH'yi
 - [Docker Compose kalıcı depolama kullanma](#use-persistent-storage-in-docker-compose)
 - [Önizleme sınırlamaları](#preview-limitations)
 - [Docker Compose seçenekleri](#docker-compose-options)
-- [Kubernetes yapılandırma seçenekleri](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Docker Compose kalıcı depolama kullanma
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Docker Compose özel depolama kullanma
-
-Azure depolama (Azure dosyaları veya Azure Blob) ile çok kapsayıcılı uygulamaları özel kimliğini kullanarak bağlanabilir. Özel kimlik adı görüntülemek için çalıştırın [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-İçinde *docker-compose.yml* dosya, harita `volumes` seçeneğini `custom-id`. Örneğin:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Önizleme sınırlamaları
@@ -179,22 +165,6 @@ Aşağıdaki listelerde, desteklenen ve desteklenmeyen Docker Compose yapıland�
 
 > [!NOTE]
 > Açıkça çağrılan diğer seçenekler, genel Önizleme aşamasında göz ardı edilir.
-
-### <a name="kubernetes-configuration-options"></a>Kubernetes yapılandırma seçenekleri
-
-Kubernetes için aşağıdaki yapılandırma seçeneklerini destekler:
-
-- args
-- command
-- containers
-- image
-- ad
-- ports
-- spec
-
-> [!NOTE]
-> Açıkça çekilerek diğer seçenekler, genel Önizleme sürümünde desteklenmez.
->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

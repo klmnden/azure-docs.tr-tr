@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778385"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919080"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -78,7 +78,7 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
 
 E-posta eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makale
 
-**ITSM** -ITSM eylemleri sayısı sınırlı sınırlı sayıda bir eylem grubu içinde olabilir. ITSM eylemi bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -ITSM eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. ITSM eylemi bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../../azure-monitor/platform/itsmc-overview.md).
 
 **Mantıksal uygulama** -mantıksal uygulama eylemleri sınırlı sayıda bir eylem grubu içinde olabilir.
 
@@ -105,15 +105,12 @@ Kaynak IP adresi aralıkları
  - 51.5.148.86
  - 51.5.149.19
 
-Önerilir, bu IP adreslerine yapılan değişiklikler hakkında güncelleştirmeler almak için [eylem grupları hizmeti hakkında bilgi veren bildirimleri için izleyen bir hizmet durumu Uyarısı,. yapılandırma
-
+Bu IP adresleri değişiklikler hakkındaki güncelleştirmeleri almak için Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izleyen bir hizmet durumu uyarısı yapılandırma öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar ##
-
 * Daha fazla bilgi edinin [SMS uyarısı davranışı](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Geçirmesine bir [etkinlik günlüğü uyarısı Web kancası şeması anlama](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Daha fazla bilgi edinin [ITSM Bağlayıcısı](../../azure-monitor/platform/itsmc-overview.md)
 * Daha fazla bilgi edinin [hız sınırlaması](../../azure-monitor/platform/alerts-rate-limiting.md) Uyarılardaki.
 * Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md)ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

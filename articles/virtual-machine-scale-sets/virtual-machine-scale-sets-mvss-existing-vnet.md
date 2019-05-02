@@ -13,25 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.author: manayar
+ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108036"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868948"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonunuzda bir sanal ağınız için başvuru ekleyin
 
-Bu makalede nasıl değiştirileceğini gösterir [en düşük uygun ölçek kümesi şablonunu](./virtual-machine-scale-sets-mvss-start.md) içine yeni bir tane oluşturmak yerine var olan bir sanal ağı dağıtmak için.
+Bu makalede nasıl değiştirileceğini gösterir [temel ölçek kümesi şablonunu](virtual-machine-scale-sets-mvss-start.md) içine yeni bir tane oluşturmak yerine var olan bir sanal ağı dağıtmak için.
 
 ## <a name="change-the-template-definition"></a>Şablon tanımı değiştirme
 
-En düşük uygun ölçek kümesi şablonunun görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve ölçek kümesini mevcut bir sanal ağa dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) parça parça:
+İçinde bir [önceki makalede](virtual-machine-scale-sets-mvss-start.md) temel ölçek kümesi şablonunun oluşturduğumuz. Şimdi daha önceki bu şablonu kullanın eder ve bir ölçek kümesi mevcut bir sanal ağa dağıtan bir şablon oluşturmak için değiştirin. 
 
-İlk olarak, ekleme bir `subnetId` parametresi. Bu dize, içine sanal makineleri dağıtmak için önceden oluşturulmuş alt ağı belirlerken ölçek sağlayan ölçek kümesi yapılandırması uygulamasına geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Örneğin, Ölçek kümesi dağıtmaktır ada sahip mevcut bir sanal ağına ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, Subnetıd olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+İlk olarak, ekleme bir `subnetId` parametresi. Bu dize, içine sanal makineleri dağıtmak için önceden oluşturulmuş alt ağı belirlerken ölçek sağlayan ölçek kümesi yapılandırması uygulamasına geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+
+Örneğin, Ölçek kümesi dağıtmaktır ada sahip mevcut bir sanal ağına ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, Subnetıd olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -53,7 +54,7 @@ Ardından, sanal ağ kaynak grubundan silme `resources` dizi var olan bir sanal 
 -      "type": "Microsoft.Network/virtualNetworks",
 -      "name": "myVnet",
 -      "location": "[resourceGroup().location]",
--      "apiVersion": "2016-12-01",
+-      "apiVersion": "2018-11-01",
 -      "properties": {
 -        "addressSpace": {
 -          "addressPrefixes": [
@@ -79,7 +80,7 @@ Ardından, sanal ağ kaynak grubundan silme `resources` dizi var olan bir sanal 
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
 -      "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 -      ],
@@ -88,7 +89,7 @@ Ardından, sanal ağ kaynak grubundan silme `resources` dizi var olan bir sanal 
          "capacity": 2
 ```
 
-Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` aynı dağıtımdaki sanal ağ Kimliğini almak için hangi şablon en düşük uygun ölçek kümesi yapar).
+Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` aynı dağıtımdaki sanal ağ Kimliğini almak için hangi şablonu temel uygun ölçek kümesi yapar).
 
 ```diff
                        "name": "myIpConfig",
@@ -107,5 +108,3 @@ Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (k
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

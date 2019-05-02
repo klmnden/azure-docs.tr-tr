@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717952"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Deneysel içeriğe duyarlı kodlama Önayarı
 
-İçerik teslimi için hazırlamak amacıyla [bit hızı Uyarlamalı akış](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video Çoklu bit hızlarında-(düşük, yüksek) kodlanması gerekiyor. Kalite, normal performansında sağlamak amacıyla hızı azaltıldığı kadar görüntü çözünürlüğünü aynıdır. Sabit kodlama önayarlarımız bazıları gibi görebileceğiniz gibi bu sonuçları bir sözde kodlama Merdiveni içinde – çözünürlüklerine ve bit hızlarına dönüştürme, bir tablonun [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+İçerik teslimi için hazırlamak amacıyla [bit hızı Uyarlamalı akış](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video Çoklu bit hızlarında-(düşük, yüksek) kodlanması gerekiyor. Kalite, normal performansında sağlamak amacıyla hızı azaltıldığı kadar görüntü çözünürlüğünü aynıdır. Bu, bir sözde kodlama Merdiveni içinde – çözünürlüklerine ve bit hızlarına dönüştürme tablosu sonuçlanır; Media Services bkz [yerleşik kodlama Önayarları](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Genel Bakış
 

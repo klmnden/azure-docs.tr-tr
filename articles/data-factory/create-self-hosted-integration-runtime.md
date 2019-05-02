@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565560"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728097"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -40,7 +40,7 @@ Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR y
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Şirket içinde barındırılan IR kullanma konuları
 
 - Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. Tek şirket içinde barındırılan tümleştirme çalışma zamanı, aynı Azure Active Directory kiracısı içinde başka bir data factory ile paylaşılabilir. Daha fazla bilgi için [şirket içinde barındırılan tümleştirme çalışma zamanı paylaşımı](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Tek bir makinede yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneği olabilir. Şirket içi veri kaynaklarına erişmesi gereken iki veri fabrikaları varsa, şirket içinde barındırılan tümleştirme çalışma zamanının iki şirket içi bilgisayarlardan her veri fabrikaları üzerinde yüklemeyi veya kullanmayı gerekir [şirket içinde barındırılan IR paylaşımı özelliğini](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)başka bir Data Factory ile şirket içinde barındırılan tümleştirme çalışma zamanı paylaşmak için.  
+- Tek bir makinede yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneği olabilir. Kullanın ya da şirket içi veri kaynaklarına erişmesi gereken iki veri fabrikaları varsa [şirket içinde barındırılan IR paylaşımı özelliğini](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) şirket içinde barındırılan tümleştirme çalışma zamanı paylaşmak ya da ikisini de şirket içinde barındırılan tümleştirme çalışma zamanını yükleme Böylece, şirket içi bilgisayarlar, her bir veri fabrikası için bir tane.  
 - Şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile aynı makinede olması gerekmez. Ancak, şirket içinde barındırılan tümleştirme çalışma zamanı sahip daha yakın veri kaynağına veri kaynağına bağlanmak şirket içinde barındırılan tümleştirme çalışma zamanı için süreyi azaltır. Şirket içinde barındırılan tümleştirme çalışma zamanı olandan farklı bir makinede ana şirket içi veri kaynağına yüklemenizi öneririz. Şirket içinde barındırılan tümleştirme çalışma zamanı ve veri kaynağını farklı makinelerde olduğunda, şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile kaynaklar için rekabet edemez.
 - Aynı şirket içi veri kaynağına bağlanan farklı makinelerde birden çok şirket içinde barındırılan tümleştirme çalışma zamanları olabilir. Örneğin, iki veri fabrikaları hizmet iki şirket içinde barındırılan tümleştirme çalışma zamanları olabilir, ancak aynı şirket içi veri kaynağı ile veri fabrikaları hem kayıtlı.
 - Ayrı şirket içinde barındırılan tümleştirme çalışma zamanı, bir Power BI senaryo sunmak için bilgisayarınızda yüklü bir ağ geçidi zaten varsa, Azure Data Factory için başka bir makineye yükleyin.

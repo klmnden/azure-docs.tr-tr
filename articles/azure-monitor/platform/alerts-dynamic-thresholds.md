@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775823"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876206"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure İzleyici (genel Önizleme) içinde dinamik eşikler ile ölçüm uyarıları
 
@@ -42,16 +42,16 @@ Dinamik Eşik sürekli olarak ölçüm serisi verilerinin öğrenir ve bir dizi 
 Eşikleri, bu eşikleri bir sapma bir anomali ölçüm davranış gösterir şekilde seçilir.
 
 > [!NOTE]
-> Dönemsel deseni algılama, saat, gün veya hafta aralığı için ayarlanır. Diğer desenleri bihourly desen gibi başka bir deyişle veya semiweekly algılanmadı.
+> Dönemsel deseni algılama, saat, gün veya hafta aralığını ayarlanır. Diğer desenleri bihourly desen gibi başka bir deyişle veya semiweekly algılanmadı.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Dinamik eşikler ortalama ayarında 'Duyarlılık' nedir?
 
 Uyarı eşiği duyarlılık denetleyen bir uyarı tetiklenmesi için gerekli ölçüm davranışını sapma miktarını üst düzey bir kavramdır.
 Bu seçenek, ölçüm statik eşik gibi etki alanı bilgileri gerektirmez. Şu seçenekleri kullanabilirsiniz:
 
-- Yüksek – eşikleri sıkı ve ölçüm serisi desenini yakın olacaktır. Uyarı kuralı üzerinde daha fazla elde edilen en küçük sapma tetiklenir.
+- Yüksek – eşikleri sıkı ve ölçüm serisi desenini yakın olacaktır. Daha fazla elde edilen en küçük sapma üzerinde bir uyarı kuralı tetiklenir.
 - Orta – daha sıkı ve daha dengeli eşik değerinden daha az uyarı ile Yüksek duyarlılık (varsayılan).
-- Düşük – eşikleri daha fazla mesafe ölçüm serisi desen ile gevşek olacaktır. Uyarı kuralı, yalnızca şirket içinde daha az uyarı sonuçlanan büyük sapma tetikler.
+- Düşük – eşikleri daha fazla mesafe ölçüm serisi desen ile gevşek olacaktır. Bir uyarı kuralı, yalnızca şirket içinde daha az uyarı sonuçlanan büyük sapmalar tetikler.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Dinamik Eşik 'Operator' ayarı seçenekleri nelerdir?
 
@@ -83,7 +83,7 @@ E-posta veya SMS mesajı ya da tarayıcı Azure portalında görüntüleyin uyar
 Uyarı görünümü görüntüler:
 
 - Ölçüm ayrıntıları anda dinamik eşikler uyarı tetiklenir.
-- Uyarı zamandaki o noktada kullanılan dinamik eşikler içeren tetikleyici olduğu dönemin bir grafik.
+- Bir grafiği içeren dinamik zamandaki o noktada kullanılan eşikleri, uyarı tetiklendi süresi.
 - Geri bildirim uyarı dinamik eşikler ve Uyarıları gelecekteki algılamalar geliştirebileceğimiz görüntüleme deneyimi sağlayabilme kabiliyeti.
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Yavaş davranışı, bir uyarı ölçüm tetikleyicisi değişecek mi?
@@ -92,7 +92,7 @@ Olmayabilir. Dinamik eşikler önemli sapmaları algılama yerine yavaş sorunla
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Ne kadar veri Önizleme ve ardından eşikleri hesaplamak için kullanılır?
 
-Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görüntülenen eşikleri hesaplanır saatlik veya günlük dönemsel desenleri (10 gün olarak) hesaplamak için yeterince geçmiş verileri alan. Bir uyarı kuralı oluşturulduktan sonra öğe dinamik eşikler eşikleri daha doğru hale getirmek için kullanılabilir ve sürekli olarak öğreneceksiniz gereken tüm geçmiş verileri ve yeni verileri temel alan yatkın kullanır. Bu hesaplama grafiği haftalık desenleri de görüntüler sonra anlamına gelir.
+Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görüntülenen eşikleri saatlik veya günlük dönemsel desenleri (10 gün olarak) hesaplamak için yeterli geçmiş veri hesaplanır. Bir uyarı kuralı oluşturulduktan sonra dinamik eşikler mevcuttur ve sürekli olarak öğrenin ve eşikleri daha doğru hale getirmek için yeni verilere dayalı olarak uyum tüm gerekli geçmiş verilerinizi kullanır. Bu, sonra bu hesaplama, grafik de haftalık desenleri görüntüleyeceği anlamına gelir.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Uyarı tetiklemek için ne kadar veri gerekiyor?
 

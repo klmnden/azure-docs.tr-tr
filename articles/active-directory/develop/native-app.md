@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 12/29/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443917"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918608"
 ---
 # <a name="native-apps"></a>Yerel uygulamalar
 
@@ -52,10 +52,10 @@ Web API senaryoları için yerel uygulama için kod örneklere bakın. Ve sıkç
 
 ## <a name="app-registration"></a>Uygulama kaydı
 
-Bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetmek için bkz: [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
+Bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetmek için bkz: [bir uygulamayı kaydetme](quickstart-register-app.md).
 
-- Tek Kiracı - hem yerel bir uygulama ve web API'si aynı dizinde Azure AD'de kayıtlı olmalıdır. Web API'si, yerel uygulamanın kaynaklarına erişimi sınırlamak için kullanılan bir izin kümesi kullanıma sunmak için yapılandırılabilir. İstemci uygulama, Azure portalında "İzinleri için diğer uygulamaları" açılan menüsünden istenen izinleri seçer.
-- Çok kiracılı - ilk olarak, yerel uygulama her zaman sadece bir geliştirici veya yayımcının dizinde kayıtlı. İkinci olarak, yerel uygulama işlevsel olmasını gerektiren izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde kuruluşları için kullanılabilir hale getirir uygulamaya izin verilirse bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar, yalnızca kuruluşunuzdaki herhangi bir kullanıcı onay verebildiği kullanıcı düzeyi izinleri gerektirir. Diğer uygulamalar, kuruluşunuzdaki bir kullanıcı onay veremez yönetici düzeyi izinlerini gerektirir. Dizin Yöneticisi yalnızca bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici onay verdiğinde, yalnızca web API'si, dizinde kayıtlı. 
+* Tek Kiracı - hem yerel bir uygulama ve web API'si aynı dizinde Azure AD'de kayıtlı olmalıdır. Web API'si, yerel uygulamanın kaynaklarına erişimi sınırlamak için kullanılan bir izin kümesi kullanıma sunmak için yapılandırılabilir. İstemci uygulama, Azure portalında "İzinleri için diğer uygulamaları" açılan menüsünden istenen izinleri seçer.
+* Çok kiracılı - ilk olarak, yerel uygulama her zaman sadece bir geliştirici veya yayımcının dizinde kayıtlı. İkinci olarak, yerel uygulama işlevsel olmasını gerektiren izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde kuruluşları için kullanılabilir hale getirir uygulamaya izin verilirse bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar, yalnızca kuruluşunuzdaki herhangi bir kullanıcı onay verebildiği kullanıcı düzeyi izinleri gerektirir. Diğer uygulamalar, kuruluşunuzdaki bir kullanıcı onay veremez yönetici düzeyi izinlerini gerektirir. Dizin Yöneticisi yalnızca bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici onay verdiğinde, yalnızca web API'si, dizinde kayıtlı. 
 
 ## <a name="token-expiration"></a>Belirteç süre sonu
 
@@ -65,5 +65,3 @@ Yerel uygulama, JWT erişim belirteci almak için yetkilendirme kodunu kullandı
 
 - Diğer hakkında daha fazla bilgi [uygulama türleri ve senaryolar](app-types.md)
 - Azure AD hakkında bilgi edinin [kimlik doğrulaması temelleri](authentication-scenarios.md)
-
-<!-- Update_Description: link update -->

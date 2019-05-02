@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741691"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922877"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Configuration Manager'a bağlanmak için Azure İzleyici
 System Center Configuration Manager ortamınızı Azure İzleyici eşitleme cihaz koleksiyonu verilere ve Azure İzleyici ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -67,7 +67,7 @@ Log Analytics bağlantısı eklemek için Configuration Manager ortamınızı ol
    
 2. Üzerinde **genel** aşağıdaki eylemleri yaptığınız her öğenin ayrıntılarını sahip ve ardından seçin ve onaylayın **sonraki**.
 
-   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../../active-directory/develop/quickstart-register-app.md).
    2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtarı oluşturdunuz.  
    3. Azure portalında Azure İzleyici'de Log Analytics çalışma alanına erişmek için izne sahip kayıtlı web uygulaması sağladık.  
       ![Log Analytics Sihirbazı genel sayfası bağlantısı](./media/collect-sccm/sccm-console-general01.png)

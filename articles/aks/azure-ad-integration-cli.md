@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764131"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920176"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI kullanarak Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -80,7 +80,6 @@ Azure AD aşağıdaki eylemleri gerçekleştirmek için izinler gerekiyor:
 
 * Dizin verilerini okuma
 * Oturum açma ve kullanıcı profilini okuma
-* Dizin verilerini okuma
 
 Kullanarak bu izinleri [az ad app izni ekleme] [ az-ad-app-permission-add] komutu:
 

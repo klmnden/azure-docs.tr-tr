@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733758"
 ---
 #### <a name="process-automation"></a>Süreç otomasyonu
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012510"
 | Korumalı alan izin verilen ağ yuva sayısı<sup>1</sup> |1000 |Yalnızca Azure sanal için geçerlidir.|
 | Runbook izin verilen en uzun çalışma<sup>1</sup> |3 saat |Yalnızca Azure sanal için geçerlidir.|
 | Otomasyon hesapları bir abonelikte en fazla sayısı |Sınırsız ||
+| Karma çalışan grupları Otomasyon hesabı başına en fazla sayısı|4,000||
 |Tek bir karma Runbook çalışanı üzerinde çalıştırılabilir eşzamanlı iş sayısı|50 ||
 | En fazla runbook işi parametre boyutu   | 512 kilobitlik||
 | En fazla runbook parametreleri   | 50|50 parametresi sınıra ulaştıysanız, JSON veya XML dize için bir parametre geçirin ve runbook ayrıştırılamadı.|
