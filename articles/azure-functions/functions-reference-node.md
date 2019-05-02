@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032442"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697833"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır. Adını `function.json`ait üst dizinidir her zaman, işlevin adı.
 
-Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
 

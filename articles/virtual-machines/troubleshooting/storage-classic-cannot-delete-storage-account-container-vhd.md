@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864346"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926239"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Klasik depolama kaynağı silme hatalarını giderme
 Bu makalede, Azure Klasik depolama hesabı, kapsayıcı veya *.vhd sayfa blob dosyası silinmeye çalışılırken şu hatalar biri meydana geldiğinde sorun giderme kılavuzu verilmiştir. 
@@ -37,7 +37,7 @@ Azure diskleri hakkında daha fazla bilgi bulunabilir [burada](../../virtual-mac
 3. Disklerin kira bozuk hale geldikten sonra sayfa BLOB silinebilir. Tüm "Disk" kaynak bunları mevcut silindikten sonra bir depolama hesabı veya kapsayıcı silinebilir.
 
 >[!NOTE] 
->Kullanıcı VM ancak VHD silerse, depolama ücretleri sayfa blob *.vhd dosyada tahakkuk etmeye devam eder. Depolama hesabı, onay türü ayarlarına uygun olarak ücret olacaktır [fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/storage/) daha fazla ayrıntı için. Kullanıcı artık vhd'sinin kullanmaya çalışırsa, BT/bunları gelecekteki ücretlerden kaçınmak için silin. 
+>Kullanıcı VM ancak VHD silerse, depolama ücretleri sayfa blob *.vhd dosyada tahakkuk etmeye devam eder. Depolama hesabı, onay türü ayarlarına uygun olarak ücret olacaktır [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/) daha fazla ayrıntı için. Kullanıcı artık vhd'sinin kullanmaya çalışırsa, BT/bunları gelecekteki ücretlerden kaçınmak için silin. 
 
 ## <a name="unable-to-delete-storage-account"></a>Depolama hesabı silinemedi 
 

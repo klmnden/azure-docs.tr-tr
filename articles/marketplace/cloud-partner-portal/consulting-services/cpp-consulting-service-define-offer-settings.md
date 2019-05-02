@@ -1,25 +1,18 @@
 ---
-title: Azure ve Dynamics 365 danışmanlık hizmet teklifinin - tanımlama teklif ayarları | Microsoft Docs
-description: Kılavuzu tanımlamak için bir Azure veya Dynamics 365 danışmanlık hizmet teklifinin bulut iş ortağı Portalı'nda ayarlarında sunar.
+title: Teklif ayarları danışmanlık bir hizmet teklifi için tanımlama | Azure Market
+description: Teklif ayarları bir Azure veya Dynamics 365 danışmanlık hizmet teklifinin bulut iş ortağı Portalı'nda Azure Market tanımlayın.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942782"
 ---
 # <a name="offer-settings-tab"></a>Teklif ayarları sekmesi
 
@@ -27,7 +20,8 @@ ms.locfileid: "60749673"
 
 ![Yeni danışmanlık hizmet teklifi oluştur - Ayarlar sekmesinde sunar](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>Teklif Kimliği
+
+### <a name="offer-id"></a>Teklif kimliği *
 
 Bu tanımlayıcı, ilk teklif gönderdiğiniz oluşturduğunuzda benzersiz bir addır. Yalnızca küçük harf alfasayısal karakterler, kısa çizgi veya alt çizgi oluşmalıdır. **Teklif kimliği** URL'SİNDE görünür ve arama motoru sonuçlarına etkiler. Bir örnek *yourcompanyname_exampleservice*.
 
@@ -36,11 +30,13 @@ Bu tanımlayıcı, ilk teklif gönderdiğiniz oluşturduğunuzda benzersiz bir a
 >[!Note]
 >Bir teklif Canlı olduktan sonra tanımlayıcısını güncelleştirilemiyor.
 
-### <a name="publisher-id"></a>Yayımcı kimliği
+
+### <a name="publisher-id"></a>Yayımcı kimliği *
 
 Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum sonra **yayımcı kimliği** açılan menüde gösterilir.
 
-### <a name="name"></a>Ad
+
+### <a name="name"></a>Ad*
 
 Bu dize, AppSource ya da Azure Marketi'nde teklif adını görüntüler. **Adı** kutusu 50 karakterle sınırlıdır. Gözden Geçiren ekleme süresi ve Teklif türü için teklif adınızı, başlığı düzenlemek gerekebilir.
 

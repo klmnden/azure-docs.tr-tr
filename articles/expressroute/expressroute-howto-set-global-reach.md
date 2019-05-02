@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364780"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572745"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach’i yapılandırma
 
@@ -39,7 +39,7 @@ Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 1. Yapılandırmayı başlatmak için Azure hesabınızda oturum açın ve kullanmak istediğiniz aboneliği seçin.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Kullanmak istediğiniz ExpressRoute bağlantı hatlarını belirleyin. Desteklenen ülkeler yerleşime ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute bağlantı hatları arasında ExpressRoute Global erişim etkinleştirebilirsiniz. 
+2. Kullanmak istediğiniz ExpressRoute bağlantı hatlarını belirleyin. Desteklenen ülkeler/bölgeler yerleşime ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute bağlantı hatları arasında ExpressRoute Global erişim etkinleştirebilirsiniz. 
 
    * Her iki bağlantı hatları, aboneliğin sahibi, aşağıdaki bölümlerde yapılandırması çalıştırmak için her iki bağlantı hattı seçebilirsiniz.
    * İki bağlantı hatlarının farklı Azure aboneliklerinde ise bir Azure aboneliği onayı gerekir. Diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtar geçirin.

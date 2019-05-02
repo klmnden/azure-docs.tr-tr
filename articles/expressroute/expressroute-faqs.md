@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367906"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924665"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -43,7 +43,7 @@ Hayır. Bir VPN bağlantısı herhangi bir hızına hizmet sağlayıcınızdan s
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Belirli bir bant bir ExpressRoute bağlantı hattı için ödeme yapmam, yüksek hız kadar gerekirse geçmenize olanak zorundayım?
 
-Evet. ExpressRoute bağlantı hatları, hiçbir ek ücret ödenmeden iki kereye kadar bant genişliği sınırını veri bloğu için izin verecek şekilde yapılandırılır. Bu özellik destekleyip desteklemediğini görmek için hizmet sağlayıcınıza başvurun.
+Evet. ExpressRoute bağlantı hatları, hiçbir ek ücret ödenmeden iki kereye kadar bant genişliği sınırını veri bloğu için izin verecek şekilde yapılandırılır. Bu özellik destekleyip desteklemediğini görmek için hizmet sağlayıcınıza başvurun. Bu, sürekli bir süre için değildir ve garanti edilmez. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Aynı özel ağ bağlantısı ile sanal ağ ve diğer Azure hizmetleriyle aynı anda kullanabilir miyim?
 
@@ -119,11 +119,11 @@ Evet. Her ExpressRoute bağlantı hattı çapraz bağlantıları yüksek kullan�
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Yedeklilik özel eşleme nasıl uygulanır?
 
-Eşleme farklı konumlardaki birden çok ExpressRoute bağlantı hatları, tek bir bağlantı hattı kullanılamaz durumda yüksek kullanılabilirlik sağlamak için aynı sanal ağa bağlanabilir. Daha sonra [daha yüksek ağırlıkları atayın](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) belirli bir bağlantı hattı favor için yerel bağlantı'tercih et. Müşterilerin tek hata noktalarından kaçınmak için en az iki ExpressRoute bağlantı hatları Kurulum önemle tavsiye edilir. 
+Eşleme farklı konumlardaki birden çok ExpressRoute bağlantı hatları, tek bir bağlantı hattı kullanılamaz durumda yüksek kullanılabilirlik sağlamak için aynı sanal ağa bağlanabilir. Daha sonra [daha yüksek ağırlıkları atayın](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) belirli bir bağlantı hattı favor için yerel bağlantı'tercih et. Müşterilerin tek hata noktalarından kaçınmak için en az iki ExpressRoute bağlantı hatları Kurulum önemle tavsiye edilir. 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Yedeklilik Microsoft eşlemesi üzerinde nasıl uygulanır?
 
-Müşteriler, Microsoft Azure depolama veya Azure SQL yanı sıra, Microsoft Office 365'i farklı eşlemesi içinde birden çok bağlantı hattına uygulamak için eşleme kullanan müşteriler gibi Azure kamu hizmetlerine erişmek için eşleme kullanırken kesinlikle önerilir faiure tek noktalarından kaçınmak için konumları. Müşteriler ya da her iki devreler aynı önek bildirmek ve kullanmak [AS yolu eklenmesini](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) veya şirket içi yolu belirlemek için farklı öneklerini.
+Müşteriler, Microsoft Azure depolama veya Azure SQL yanı sıra, Microsoft Office 365'i farklı eşlemesi içinde birden çok bağlantı hattına uygulamak için eşleme kullanan müşteriler gibi Azure kamu hizmetlerine erişmek için eşleme kullanırken kesinlikle önerilir faiure tek noktalarından kaçınmak için konumları. Müşteriler ya da her iki devreler aynı önek bildirmek ve kullanmak [AS yolu eklenmesini](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) veya şirket içi yolu belirlemek için farklı öneklerini.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Expressroute'a bağlanan bir sanal ağ üzerinde yüksek kullanılabilirlik nasıl emin olabilirim?
 

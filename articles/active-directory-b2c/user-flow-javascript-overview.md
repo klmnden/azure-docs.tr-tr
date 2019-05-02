@@ -1,42 +1,46 @@
 ---
-title: JavaScript ve sayfa sözleşme sürümleri için Azure Active Directory B2C kullanıcı akışlarında | Microsoft Docs
-description: JavaScript'i etkinleştirin ve Azure Active Directory B2C kullanıcı akışı özelleştirmek için sayfa sözleşme sürümlerini kullanma hakkında bilgi edinin.
+title: JavaScript ve sayfa sözleşme sürümler - Azure Active Directory B2C | Microsoft Docs
+description: JavaScript'i etkinleştirin ve Azure Active Directory B2C'de sayfa sözleşme sürümlerini kullanma hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 91b4b621fc3dcedb52f88372fbfac222a744dbd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360257"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570634"
 ---
-# <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Kullanıcı akışı JavaScript ve sayfa sözleşme sürümlerini kullanma hakkında
+# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C sürümlerinde sözleşme, JavaScript ve sayfa
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C, paket içeriği için kullanıcı arabirimi öğeleri, kullanıcı Akışları'nda, HTML, CSS ve JavaScript içeren bir dizi sağlar. Etkinleştirmek istiyorsanız [JavaScript](javascript-samples.md) istemci tarafı kod, kullanıcı akışları, sizin alma, JavaScript üzerinde öğeleri sabittir emin olmak istersiniz. Aksi takdirde, herhangi bir değişiklik beklenmeyen davranışı, kullanıcı akışı sayfaları neden olabilir. Bu sorunları önlemek için bir kullanıcı akışı için bir sayfa sözleşme kullanımını zorunlu kılmak ve bir sayfa sözleşme sürümü belirtin. Bunun yapılması emin olmanızı Javascript'inizi bağlı içerik tanımlarını sabittir. JavaScript için bir kullanıcı akışı etkinleştirmek düşünmüyorsanız bile, kullanıcı akışı sayfalarınız için bir sayfa sözleşme sürümü belirtebilirsiniz.
+Azure AD B2C kullanıcı akışları ve özel ilkeler, kullanıcı arabirimi öğeleri için HTML, CSS ve JavaScript içeren paket İçerik kümesi sağlar. Uygulamalarınız için JavaScript'i etkinleştirmek için bir öğeye ekleyin, [özel ilke](active-directory-b2c-overview-custom.md) veya portalı kullanıcı Akışları'nda etkinleştirmek, bir sayfa sözleşme seçin ve kullanmak [b2clogin.com](b2clogin.md) isteklerinizdeki.
 
-> [!NOTE]
-> Kullanıcı akışları için JavaScript anlatılmaktadır, ancak Ayrıca JavaScript kullanın ve kullanırken sayfa sözleşme sürümlerini seçin [özel ilkeler](page-contract.md).
+Etkinleştirmek istiyorsanız [JavaScript](javascript-samples.md) istemci tarafı kod, istemeniz emin olmak için sizin alma, JavaScript üzerinde öğeleri sabittir. Aksi takdirde, herhangi bir değişiklik kullanıcı sayfalarınızda beklenmeyen davranışlara neden olabilir. Bu sorunları önlemek için bir sayfa sözleşme kullanımını zorunlu kılmak ve bir sayfa sözleşme sürümü belirtin. Bunun yapılması sağlar, JavaScript tabanlı içerik tanımlarını sabittir. JavaScript etkinleştirmek düşünmüyorsanız bile, bir sayfa sözleşme sürümü sayfalarınız için belirtebilirsiniz.
 
-## <a name="enable-javascript"></a>JavaScript'i etkinleştir
+## <a name="user-flows"></a>Kullanıcı akışları
 
 Kullanıcı akışı özellikleri, JavaScript, ayrıca bir sayfa sözleşme kullanımını zorunlu kılar etkinleştirebilirsiniz. Ardından, sonraki bölümde açıklandığı gibi sayfa sözleşme sürümü ayarlayabilirsiniz.
 
-![JavaScript ayarını etkinleştirin](media/user-flow-javascript-overview/javascript-settings.PNG)
-
-## <a name="specify-a-page-contract-version"></a>Bir sayfa sözleşme sürümü belirtin
+![JavaScript ayarını etkinleştirin](media/user-flow-javascript-overview/javascript-settings.png)
 
 Kullanıcı akışınızın özelliklerinde JavaScript'i etkinleştirin olsun veya olmasın, kullanıcı akışı sayfalarınız için bir sayfa sözleşme sürümü belirtebilirsiniz. Kullanıcı akışı açın ve seçin **sayfa düzenleri**. Altında **Düzen adı**, bir kullanıcı Akış sayfası seçip **sayfa sözleşme sürümü**.
 
-![JavaScript ayarını etkinleştirin](media/user-flow-javascript-overview/page-contract-version.PNG)
+![JavaScript ayarını etkinleştirin](media/user-flow-javascript-overview/page-contract-version.png)
+
+## <a name="custom-policies"></a>Özel ilkeler
+
+Özel ilkeleri JavaScript'i etkinleştirmek için eklediğiniz **ScriptExecution** öğesine **RelyingParty** özel ilke dosyanızdaki öğesi. Daha fazla bilgi için [JavaScript örnekleri kullanılmak üzere Azure Active Directory B2C](javascript-samples.md).
+
+Özel ilkelerinizi JavaScript'i etkinleştirin olsun veya olmasın, bir sayfa sözleşme sürümü sayfalarınız için belirtebilirsiniz. Bir sayfa sözleşme belirtme hakkında daha fazla bilgi için bkz. [özel ilkeleri kullanarak, Azure Active Directory B2C, bir sayfa sözleşme seçin](page-contract.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bkz: [JavaScript örnekleri kullanılmak üzere Azure Active Directory B2C](javascript-samples.md).

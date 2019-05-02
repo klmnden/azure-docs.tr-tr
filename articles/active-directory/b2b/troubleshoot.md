@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412429"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917360"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
 Azure Active Directory (Azure AD) B2B işbirliği ile karşılaşılan sorunlara yönelik bazı çözümler aşağıda verilmiştir.
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Bir dış kullanıcının ekledik ancak bunların benim Genel Adres Defteri'nde veya kişi seçici görmez
 
 Burada dış kullanıcılar listede doldurulmaz durumlarda, nesne çoğaltmak için birkaç dakika sürebilir.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B Konuk kullanıcı SharePoint Online/OneDrive Kişi Seçici gösterilmiyor 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B Konuk kullanıcı SharePoint Online/OneDrive Kişi Seçici gösterilmiyor
+
 SharePoint Online (SPO) Kişi Seçici var olan konuk kullanıcılar için arama özelliğini eski davranışı eşleştirmek için varsayılan olarak kapalı'dır.
 
 'ShowPeoplePickerSuggestionsForGuestUsers' ayarı Kiracı ve site koleksiyonu düzeyinde kullanarak bu özelliği etkinleştirebilirsiniz. Üyelerinin dizindeki tüm mevcut Konuk kullanıcıları aramak Set-SPOTenant ve Set-SPOSite cmdlet'lerini kullanarak özelliğini ayarlayabilirsiniz. Değişiklikler Kiracı kapsamında zaten sağlanan SPO site etkilemez.
@@ -79,10 +78,20 @@ Gizlilik yasalarıyla uyum sağlamak için Apı'lerimizi özel iletiler posta i�
 
 Bu senaryo sizin için önemli ise, API davet e-postamıza gösterme ve tercih ettiğiniz e-posta mekanizması gönderin. Bu şekilde da gizlilik yasalarına uyumlu gönderdiğiniz herhangi bir e-emin olmak için kuruluşunuzun yasal Konseyi başvurun.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Bir Azure kaynağı için oturum açmayı denediğinizde bir "AADSTS65005" hatasını alıyorsunuz.
+
+Bir Konuk hesabı olan bir kullanıcı oturum açamaz ve şu iletiyi alıyor:
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+Kullanıcının bir Azure kullanıcı hesabı sahiptir ve durdurulmuş veya yönetilmeyen bir viral Kiracı. Ayrıca, vardır Hayır genel veya Kiracı Yöneticiler şirket.
+
+Bu sorunu çözmek için üzerinde terk edilmiş Kiracı atmanız gerekir. Başvurmak [Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Ayrıca, ad alanı denetimi sizdedir doğrudan kanıt sağlamak için söz konusu etki alanı soneki için internet'e yönelik DNS erişmeniz gerekir. Kiracı, yönetilen bir duruma döndürüldükten sonra lütfen müşteri ile kullanıcıların bırakarak olmadığını tartışmak ve doğrulanmış etki alanı adı, kuruluş için en iyi seçenektir.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-ın-time veya "viral" Kiracı ile Konuk kullanıcı parolalarını sıfırlama alamıyor
 
 (Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), just-in-time (JIT) veya viral Kiracı kimliği kiracısı ise, Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [B2B işbirliği için destek alma](get-support.md)
+[B2B işbirliği için destek alma](get-support.md)

@@ -3,8 +3,8 @@ title: Azure ağ arabirimi için IP adreslerini yapılandırın | Microsoft Docs
 description: Ekleme, değiştirme ve bir ağ arabirimi için özel ve genel IP adreslerini kaldırın öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888075"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719712"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -54,7 +54,7 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
    |Ayar|Gerekli mi?|Ayrıntılar|
    |---|---|---|
    |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
-   |Type|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
+   |Tür|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
    |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için bir sonraki kullanılabilir adresi atar. [**Statik**](#static): Ağ arabiriminin dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
    |Genel IP adresi|Hayır|**Devre dışı:** Genel IP adresine kaynak IP yapılandırması için şu anda ilişkilidir. **Etkin:** Var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
 6. İkincil özel IP adresleri yönergeleri izleyerek sanal makine işletim sistemini el ile eklemeniz [birden çok IP adresi sanal makine işletim sistemlerine atayın](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adresleri eklemeden önce özel konular için IP adresi. Herhangi bir genel IP adresleri, sanal makine işletim sistemine eklemeyin.

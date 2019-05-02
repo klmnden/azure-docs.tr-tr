@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311038"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707143"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
@@ -41,6 +41,48 @@ Geleneksel bir kuyruk veya konuda tek ileti aracısı tarafından işlenmesini v
 Kullanılarak bölümlenmiş varlıklar, sıralama sağlanmaz. Bir bölüm kullanılamıyor durumunda durumunda, yine de göndermek ve diğer bölümlerden ileti alma.
 
  Bölümlenen varlıklar artık desteklenmemektedir [Premium SKU](service-bus-premium-messaging.md). 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Güvenlik Duvarı'nı açmak hangi bağlantı noktalarını gerekiyor? 
+Azure Service Bus ile aşağıdaki protokolleri, ileti göndermek ve almak için kullanabilirsiniz:
+
+- Gelişmiş ileti sıraya alma Protokolü (AMQP)
+- Service Bus Mesajlaşma Protokolü (SBMP)
+- HTTP
+
+Azure Event Hubs ile iletişim kurmak için bu protokolleri kullanmak için açmanız giden bağlantı noktaları için aşağıdaki tabloya bakın. 
+
+| Protokol | Bağlantı Noktaları | Ayrıntılar | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 ve 5672 | Bkz: [AMQP protokol Kılavuzu](service-bus-amqp-protocol-guide.md) | 
+| SBMP | için 9350 9354 | Bkz: [bağlantı modu](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Hangi IP adreslerini beyaz listeye gerekiyor mu?
+Bağlantılarınız için doğru IP adreslerini beyaz listeye bulmak için aşağıdaki adımları izleyin:
+
+1. Bir komut isteminden aşağıdaki komutu çalıştırın: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Not alın, döndürülen IP adresine `Non-authoritative answer`. Bu IP adresi statiktir. Değiştirmeniz gerekir yalnızca zaman içinde ad farklı bir kümeye açın geri noktasıdır.
+
+Ad alanınız için bölge artıklığı kullanırsanız birkaç ek adımları gerçekleştirmeniz gerekir: 
+
+1. İlk olarak, nslookup ad alanı üzerinde çalıştırın.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Not alın adında **yetkili olmayan yanıt** bölümünde, aşağıdaki biçimlerden biri: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Her biri ile sonekleri s1, s2 ve s3 üç kullanılabilirlik alanında çalışan tüm üç örnek IP adreslerini almak için nslookup Çalıştır 
+
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure Service Bus en iyi yöntemlerden bazıları nelerdir?

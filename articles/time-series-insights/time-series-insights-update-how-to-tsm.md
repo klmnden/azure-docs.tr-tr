@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716955"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure zaman serisi öngörüleri önizlemesinde modelleme verileri
 
@@ -132,7 +132,9 @@ Hiyerarşi seçip **Sil**. Örnek hiyerarşi ile ilişkili ise bu silinir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Zaman serisi modelleri hakkında daha fazla bilgi için okuma [veri modelleme](./time-series-insights-update-tsm.md).
+
 - Önizleme hakkında daha fazla bilgi edinmek için [Azure zaman serisi öngörüleri önizlemesi gezginde verileri görselleştirme](./time-series-insights-update-explorer.md).
+
 - Desteklenen JSON şekilleri hakkında bilgi edinmek için [desteklenen JSON şekilleri](./time-series-insights-send-events.md#json).
 
 <!-- Images -->

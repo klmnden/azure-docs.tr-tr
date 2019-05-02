@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/19/2018
+ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2c4eef702ed204141ea038773eedc5bdb20169a4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 59ba66fb013a4ea6aebd40164ca252447876053d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805279"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929465"
 ---
 **Azure yerel sertifika doğrulaması**
 
-**Dağıtım modeli/yöntemi** | **Azure Portal** | **PowerShell** |
+**Dağıtım modeli/yöntemi** | **Azure portal** | **PowerShell** |
 |---|---|---|
-| Resource Manager | [Makale](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Makale](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
-| Klasik | [Makale](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Destekleniyor |
+| Resource Manager | [Öğretici](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Öğretici](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+| Klasik | [Öğretici](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Desteklenen |
 
 **RADIUS kimlik doğrulaması**
 
-**Dağıtım modeli/yöntemi** | **Azure Portal** | **PowerShell** |
+**Dağıtım modeli/yöntemi** | **Azure portal** | **PowerShell** |
 |---|---|---|
-| Resource Manager | Destekleniyor | [Makale](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
+| Resource Manager | Desteklenen | [Öğretici](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
 | Klasik | Desteklenmiyor | Desteklenmiyor |

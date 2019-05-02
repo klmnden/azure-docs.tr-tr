@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: df7bb39120dfe4c45a4749065f77649bc51d0356
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122158"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700664"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel'i Power Query kullanarak Apache Hadoop'a bağlama
 Temel özelliklerinden biri, Microsoft büyük veri çözümü, Azure HDInsight, Apache Hadoop kümelerini Microsoft iş zekası (BI) bileşenleriyle tümleştirmedir. Excel için Excel eklentisi, Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabına bağlanma olanağı buna birincil bir örnektir. Bu makalede, ayarlama ve HDInsight ile yönetilen Hadoop kümesi ile ilişkili verileri sorgulamak için Power Query kullanma konusunda yol göstermektedir.

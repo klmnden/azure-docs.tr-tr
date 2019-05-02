@@ -1,25 +1,18 @@
 ---
-title: Bir Azure kapsayıcı görüntüsü için Market ayarları | Microsoft Docs
+title: Bir Azure kapsayıcı görüntüsü için Market ayarları | Azure Market
 description: Bir Azure kapsayıcı Market ayarlarını yapılandırın.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472977"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942644"
 ---
 # <a name="container-marketplace-tab"></a>Kapsayıcı Market sekmesi
 
@@ -31,16 +24,18 @@ Bu bölümde, Azure Market teklifi hakkında genel bilgileri girin.  Gerekli ala
 
 ![Market'teki bilgileri](./media/containers-marketplace-tab.png)
 
-Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
+Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar. Gerekli alanlar yıldız (*) indicted.
 
-|  **Alan**                |     **Açıklama**                                                          |
+|    Alan                  |       Açıklama                                                            |
 |  ---------                |     ---------------                                                          |
-| **Başlık**                 | Teklif başlığı. Market'te dikkat çekecek şekilde gösterilir.  En fazla 50 karakterdir. |
-| **Özet**               | Teklifin kısa özeti. En fazla 100 karakterdir. |
-| **Uzun özeti**          | Bu teklif artık özeti (aynı olabilir ancak **Özet**).  En fazla uzunluk 256 karakterdir. |
-| **Açıklama**           | Teklif açıklaması.  En fazla 3000 karakterdir, basit HTML biçimlendirmeyi destekler.
+| **Başlık\***                 | Teklif başlığı. Market'te dikkat çekecek şekilde gösterilir.  En fazla 50 karakterdir. |
+| **Özeti\***               | Teklifin kısa özeti. En fazla 100 karakterdir. |
+| **Uzun özeti\***          | Bu teklif artık özeti (aynı olabilir ancak **Özet**).  En fazla uzunluk 256 karakterdir. |
+| **Açıklaması\***           | Teklif açıklaması.  En fazla 3000 karakterdir, basit HTML biçimlendirmeyi destekler.
 | **Pazarlama tanımlayıcısı**  | Genellikle, kuruluş ve çözüm adını içeren bu teklif için ilişkilendirmek için benzersiz bir URL. En fazla 50 karakterdir.   |
-| **Önizleme abonelik kimlikleri** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
+| **Önizleme abonelik kimlikleri\*** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
+|  |  |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

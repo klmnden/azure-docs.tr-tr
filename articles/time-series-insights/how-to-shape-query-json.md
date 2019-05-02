@@ -10,11 +10,11 @@ ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760667"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712764"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Sorgu performansını en üst düzeye çıkarmak için JSON şekil nasıl 
 
@@ -200,4 +200,4 @@ Başvuru verileri: (cihaz kimliği ve series.tagId anahtar özellikleri olan)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yönergeleri uygulamaya koymak için bkz: [Azure Time Series Insights sorgu söz dizimi](/rest/api/time-series-insights/ga-query-syntax) TSI veri erişimi REST API'si için sorgu söz dizimi hakkında daha fazla bilgi edinmek için.
+- Bu yönergeleri uygulamaya koymak için bkz: [Azure Time Series Insights sorgu söz dizimi](/rest/api/time-series-insights/ga-query-syntax) TSI veri erişimi REST API'si için sorgu söz dizimi hakkında daha fazla bilgi edinmek için.

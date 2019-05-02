@@ -3,17 +3,17 @@ title: Kaynak kilitlenmesi anlama
 description: Bir şema atamasını yaparken kaynakları korumak için kilitleme seçenekleri hakkında bilgi edinin.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719764"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
 
@@ -53,6 +53,13 @@ Değiştirmek veya atama tarafından korunan bir kaynağa silmek gerekli hale ge
 Bir RBAC [atamaları Reddet](../../../role-based-access-control/deny-assignments.md) reddetme eylemi uygulanan yapıt kaynaklarına blueprint ataması sırasında atama seçtiyseniz **salt okunur** veya **silmeyin** seçeneği. Reddetme eylemi şema atamasını yönetilen kimlik eklenir ve yalnızca yapıt kaynakları aynı yönetilen kimlik tarafından kaldırılabilir. Bu güvenlik önlemi kilitleme mekanizması uygular ve şemaları dışında şema kilidi kaldırılıyor engeller.
 
 ![Blueprint kaynak grubu atamasını Reddet](../media/resource-locking/blueprint-deny-assignment.png)
+
+[Atama özelliklerini Reddet](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) her modu aşağıdaki gibidir:
+
+|Mod |Permissions.Actions |Permissions.NotActions |İlkeleri [i]. Türü |ExcludePrincipals [i]. Kimliği | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Salt Okunur |**\*** |**\*/ Okuma** |SystemDefined (Herkes) |Blueprint ataması ve içinde kullanıcı tanımlı **excludedPrincipals** |Kaynak grubu - _true_; Kaynak - _false_ |
+|Silmeyin |**\*/ DELETE** | |SystemDefined (Herkes) |Blueprint ataması ve içinde kullanıcı tanımlı **excludedPrincipals** |Kaynak grubu - _true_; Kaynak - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager rol atama ayrıntıları 30 dakikaya kadar önbelleğe alır. Sonuç olarak, eylemin şema kaynaklar üzerinde hemen tam etkili olmayabilir atamaları Reddet reddet. Bu süre boyunca, şema kilitleri tarafından korunacak amaçlanan bir kaynağı silmek mümkün olabilir.

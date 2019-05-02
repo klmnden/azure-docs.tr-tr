@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759435"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722981"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
 Bağlayıcılar hızlı erişim Azure Logic Apps'ten olayları, veri ve eylemleri için diğer uygulamaları, hizmetleri, sistemleri, protokoller ve platformlar arasında sağlar. Logic apps bağlayıcıları kullanarak, özellikleri oluşturan ve zaten sahip verilerle görevleri gerçekleştirmek Bulut ve şirket içi uygulamalarınız için genişletin.
 
-Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Sayfaları altında başvurusu gibi sınırları, tetikleyiciler ve Eylemler Bağlayıcısı'nı gözden geçirin, bağlayıcılar ve bağlayıcıların başvuru bilgileri tam listesini bulmak için [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). Ayrıca, daha fazla bilgi edinin [tetikleyiciler ve Eylemler](#triggers-actions).
+Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Bağlayıcılar ve bağlayıcıların başvuru bilgileri, sınırları, tetikleyiciler ve Eylemler gibi tam listesini bulmak için bağlayıcı başvuru sayfaları'nın altında gözden [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). Ayrıca, daha fazla bilgi edinin [tetikleyiciler ve Eylemler](#triggers-actions).
 
 > [!NOTE]
 > Bir hizmet ya da bağlayıcı yok API ile tümleştirmek için doğrudan bir protokol gibi HTTP üzerinden hizmet çağrısı veya oluşturma bir [özel bağlayıcı](#custom).
@@ -29,27 +29,32 @@ Bağlayıcılar, yerleşik tetikleyiciler ve Eylemler veya yönetilen bağlayıc
 
 * [**Yerleşik olanları**](#built-ins): Bu yerleşik Eylemler ve Tetikleyiciler "Azure Logic Apps ve Yardım özel zamanlamalara göre çalıştırın, diğer uç noktalar ile iletişim kurmak, alabilir ve isteklere yanıt ve Azure işlevleri, Azure API Apps (Web uygulamaları), kendi API çağrısı, mantıksal uygulamalar oluşturmak için yerel" Yönetilen ve yayımlanan ile Azure API Management ve istekleri alabilecek iç içe mantıksal uygulamalar. Ayrıca yerleşik kullanabileceğiniz yardımcı eylemleri düzenlemek ve mantıksal uygulamanızın iş akışı denetim ve ayrıca verileri ile çalışma.
 
-* **Yönetilen Bağlayıcılar**: Bu bağlayıcılar, dağıtılan ve Microsoft tarafından yönetilen, tetikleyiciler ve Eylemler diğer hizmetleri ve sistemleri gibi Office 365, Azure Blob Depolama, SQL Server, Salesforce ve daha fazla erişim sağlar. Bazı bağlayıcılar için önce Azure Logic Apps tarafından yönetilen bir bağlantı oluşturmanız gerekir. Yönetilen bağlayıcılar, bu gruplar halinde düzenlenmiştir:
+* **Yönetilen Bağlayıcılar**: Bu bağlayıcılar, dağıtılan ve Microsoft tarafından yönetilen, tetikleyiciler ve Eylemler cloud services, şirket içi sistemler veya her ikisi de Office 365, Azure Blob Depolama, SQL Server, Dynamics, Salesforce, SharePoint ve daha fazlası dahil olmak üzere erişim sağlar. Bazı bağlayıcılar, özellikle işletmeler arası (B2B) iletişimi senaryoları desteklemek ve gerektiren bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) mantıksal uygulamanıza bağlı. Bazı bağlayıcılar kullanmadan önce ilk Azure Logic Apps tarafından yönetilen bağlantıları oluşturmanız gerekebilir. 
+
+  Örneğin, Microsoft BizTalk Server kullanıyorsanız, logic apps için bağlanabilir ve kullanarak, BizTalk Server ile iletişim [BizTalk Server şirket içi Bağlayıcısı](#on-premises-connectors). 
+  Genişletme veya kullanarak, logic apps BizTalk benzeri işlemleri gerçekleştirmesi [tümleştirme hesabı bağlayıcıları](#integration-account-connectors).
+
+  Bağlayıcılar, standart veya Kurumsal sınıflandırılır. 
+  [Kurumsal Bağlayıcılar](#enterprise-connectors) Kurumsal sistemlere SAP, IBM MQ ve IBM 3270 gibi ek ücret karşılığında erişim sağlar. Bir bağlayıcı Standard veya Enterprise olup olmadığını belirlemek için her bağlayıcı'nın altında başvuru sayfası teknik ayrıntılara bakın [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). 
+  
+  Bazı bağlayıcılar birden çok kategori çapraz olsa da bu kategorileri kullanarak bağlayıcılar da tanımlayabilirsiniz. 
+  Örneğin, SAP, Kurumsal bağlayıcı ve bir şirket içi Bağlayıcısı şöyledir:
 
   |   |   |
   |---|---|
-  | [**Yönetilen API bağlayıcıları**](#managed-api-connectors) | Azure Blob Depolama, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online ve çok daha fazlası gibi hizmetleri kullanan mantıksal uygulamalar oluşturun. | 
-  | [**Şirket içi bağlayıcılar**](#on-premises-connectors) | Yükleme ve kurma sonra [şirket içi veri ağ geçidi][gateway-doc], logic apps erişiminizi şirket içi SQL Server, SharePoint Server, Oracle DB, dosya paylaşımları ve diğerleri gibi sistemleri bu bağlayıcılar Yardım. | 
-  | [**Tümleştirme hesabı bağlayıcıları**](#integration-account-connectors) | Oluştururken ve bu bağlayıcılar dönüştürme bir tümleştirme hesabı için ödeme yaparsınız ve XML doğrulama, kodlamak ve düz dosyaları kodlayıp kod çözebilirsiniz, ve işletmeler arası işlem kullanılabilir (B2B) AS2, EDIFACT ve X12 protokolleri iletileri. | 
-  | [**Kurumsal bağlayıcılar**](#enterprise-connectors) | SAP ve IBM MQ gibi Kurumsal sistemlere ek ücret karşılığında erişim sağlar. |
-  ||| 
-
-  Örneğin, Microsoft BizTalk Server kullanıyorsanız, logic apps için bağlanabilir ve kullanarak, BizTalk Server ile iletişim [BizTalk Server Bağlayıcısı](#on-premises-connectors). 
-  Genişletme veya kullanarak, logic apps BizTalk benzeri işlemleri gerçekleştirmesi [tümleştirme hesabı bağlayıcıları](#integration-account-connectors). 
+  | [**Yönetilen API bağlayıcıları**](#managed-api-connectors) | Azure Blob Depolama, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online ve çok daha fazlası gibi hizmetleri kullanan mantıksal uygulamalar oluşturun. |
+  | [**Şirket içi bağlayıcılar**](#on-premises-connectors) | Yükleme ve kurma sonra [şirket içi veri ağ geçidi][gateway-doc], logic apps erişiminizi şirket içi SQL Server, SharePoint Server, Oracle DB, dosya paylaşımları ve diğerleri gibi sistemleri bu bağlayıcılar Yardım. |
+  | [**Tümleştirme hesabı bağlayıcıları**](#integration-account-connectors) | Oluştururken ve bu bağlayıcılar dönüştürme bir tümleştirme hesabı için ödeme yaparsınız ve XML doğrulama, kodlamak ve düz dosyaları kodlayıp kod çözebilirsiniz, ve işletmeler arası işlem kullanılabilir (B2B) AS2, EDIFACT ve X12 protokolleri iletileri. |
+  |||
 
 > [!NOTE]
-> Bağlayıcılar ve Eylemler ve Swagger açıklaması tarafından tanımlanan, hiçbir tetikleyici artı herhangi bir sınırlama gibi her bir bağlayıcının başvuru bilgileri tam listesi için tam listesi altında bulabilirsiniz [bağlayıcılara genel bakış](/connectors/). Fiyatlandırma bilgileri için bkz: [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
+> Bir Openapı tarafından tanımlanan bağlayıcılar ve Eylemler ve hiçbir tetikleyici gibi her bir bağlayıcının başvuru bilgileri tam listesi için (önceki adıyla Swagger) açıklama yanı sıra, herhangi bir sınırlama altında tam listesini bulabilirsiniz [bağlayıcılara genel bakış ](/connectors/). Fiyatlandırma bilgileri için bkz: [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>Yerleşik olanları
 
-Logic Apps yerleşik Tetikleyiciler sağlar ve zamanlama tabanlı iş akışları oluşturmak için diğer uygulamaları ve Hizmetleri, denetim akışı, logic apps ile iletişim kurmak ve yönetmek veya verileri işlemek logic apps eylemleri yardımcı. 
+Logic Apps yerleşik Tetikleyiciler sağlar ve zamanlama tabanlı iş akışları oluşturmak için diğer uygulamaları ve Hizmetleri, denetim akışı, logic apps ile iletişim kurmak ve yönetmek veya verileri işlemek logic apps eylemleri yardımcı.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -128,10 +133,10 @@ Bağlayıcılar oluştururken ve ödeme logic apps ile işletmeden işletmeye (B
 
 Logic apps, Kurumsal sistemleri, SAP ve IBM MQ gibi erişebilirsiniz:
 
-|   |   | 
-|---|---| 
-| [![API simgesi][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API simgesi][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API simgesi][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API simgesi][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API simgesi][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -158,7 +163,7 @@ Her bağlayıcı'nın tetikleyiciler ve Eylemler kendi özelliklerini yapıland�
 
 Bağlantı oluşturma OAuth kullanan bağlayıcıları için Office 365, Salesforce veya erişim belirtecinizin burada şifrelenir ve güvenli bir şekilde Azure bir gizli dizi deposu içinde depolanan GitHub gibi hizmete imzalama anlamına gelir. FTP ve SQL gibi diğer bağlayıcıları sunucu adresi, kullanıcı adı ve parola gibi yapılandırma ayrıntılarını içeren bir bağlantı gerektirir. Bu bağlantı yapılandırma ayrıntılarını da şifrelenir ve güvenli bir şekilde depolanır. 
 
-Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya sistem için erişebilirsiniz. Office 365 ve Dynamics gibi Azure Active Directory (AD) OAuth bağlantıları kullanan Hizmetleri için erişim belirteçleri Azure Logic Apps süresiz olarak yeniler. Diğer hizmetler ne kadar süreyle Azure Logic Apps bir belirteç yenileme olmadan kullanarak sınırları sokabilirsiniz. Genel olarak, bazı eylemler parolanızı değiştirme gibi tüm erişim belirteçlerini geçersiz kılar.
+Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya sistem için erişebilirsiniz. Office 365 ve Dynamics gibi Azure Active Directory (AD) OAuth bağlantıları kullanan Hizmetleri için erişim belirteçleri Azure Logic Apps süresiz olarak yeniler. Diğer hizmetleri Azure Logic Apps bir belirteç yenileme olmadan ne kadar süreyle kullanabileceğiniz sınırları olabilir. Genel olarak, bazı eylemler parolanızı değiştirme gibi tüm erişim belirteçlerini geçersiz kılar.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya si
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Verilerinizle çalışabilmek için GoogleDrive’a bağlanın"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Google e-tablolarınızı değiştirebilmesi bağlanma"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Görevlerinizi yönetebilmek için Google Görevler’e bağlanın"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM ana bilgisayarları üzerinde 3270 uygulamalara bağlanma"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Bulutta veya şirket içinde IBM DB2’ye bağlanın. Bir satırı güncelleştirin, bir tabloyu alın ve diğer işlemleri yapın"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Bulutta veya şirket içinde Informix’e bağlanın. Bir satırı okuyun, tabloları listeleyin ve daha fazlasını yapın"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "IBM MQ şirket içi ya da ileti göndermek ve almak için Azure"
@@ -328,6 +334,7 @@ Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya si
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

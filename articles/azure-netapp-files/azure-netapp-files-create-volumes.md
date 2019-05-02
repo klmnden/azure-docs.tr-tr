@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764369"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719428"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
@@ -44,7 +44,7 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
     * **Birim adı**      
         Oluşturmakta olduğunuz birim için ad belirtin.   
 
-        Ad, kaynak grubu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır.  Herhangi bir alfasayısal karakter kullanabilirsiniz.
+        Birim adı her kapasitesi havuzu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır. Herhangi bir alfasayısal karakter kullanabilirsiniz.
 
     * **Kapasitesi havuzu**  
         Birimin oluşturulması için istediğiniz kapasitesi havuzu belirtin.
@@ -72,7 +72,9 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
 4. Tıklayın **Protokolü**, ardından **NFS** protokol türü için toplu olarak.   
     * Belirtin **dosya yolu** yeni birim dışarı aktarma yolu oluşturmak için kullanılır. Dışarı aktarma yolu, birimi bağlamak ve birime erişmek için kullanılır.
 
-        Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır.  
+        Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır. 
+
+        Dosya yolu, her abonelik ve her bölge içinde benzersiz olmalıdır. 
 
     * İsteğe bağlı olarak, [NFS birimini için verme ilkesi yapılandırma](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
 Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Active Directory bağlantıları oluşturmanız gerekir. 
 
 ### <a name="create-an-active-directory-connection"></a>Bir Active Directory bağlantısı oluşturun
+
+1. Aşağıdaki requiements karşıladığından emin olun: 
+
+    * Kullandığınız Yönetici hesap kuruluş birimi (OU) yolun, belirttiğiniz makine hesapları oluşturma olanağına olması gerekir.
+    * Gerekli bağlantı noktaları geçerli bir Windows Active Directory (AD) sunucusunda açık olmalıdır.  
+        Gerekli bağlantı noktaları aşağıdaki gibidir: 
+
+        |     Hizmet           |     Bağlantı noktası     |     Protokol     |
+        |-----------------------|--------------|------------------|
+        |    AD Web Hizmetleri    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    Yok       |    Yankı Yanıtı    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS adı       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    Güvenli LDAP        |    636       |    TCP           |
+        |    Güvenli LDAP        |    3269      |    TCP           |
+        |    W32time            |    123       |    UDP           |
+
 
 1. NetApp hesabınızdan tıklayın **Active Directory bağlantıları**, ardından **katılın**.  
 
@@ -134,12 +163,7 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
     * **Birim adı**      
         Oluşturmakta olduğunuz birim için ad belirtin.   
 
-        Ad, kaynak grubu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır.  Herhangi bir alfasayısal karakter kullanabilirsiniz.
-
-    * **Dosya yolu**  
-        Yeni birimin dışarı aktarma yolunu oluşturmak için kullanılacak dosya yolunu belirtin. Dışarı aktarma yolu, birimi bağlamak ve birime erişmek için kullanılır.   
-     
-        Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır.  
+        Birim adı her kapasitesi havuzu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır. Herhangi bir alfasayısal karakter kullanabilirsiniz.
 
     * **Kapasitesi havuzu**  
         Birimin oluşturulması için istediğiniz kapasitesi havuzu belirtin.

@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481989"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866541"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -110,7 +109,7 @@ Neyse ki, bu sorunları tamamen önlemek mümkündür. Metin izni veya lisans ku
 |-|-|
 |[CMU kutup gövde](http://festvox.org/cmu_arctic/)|Yaklaşık 1100 cümleler çıkış, telif hakkı works konuşma sentezi projelerinde kullanılmak üzere özel olarak seçilir. Harika bir başlangıç noktası.|
 |Artık çalışır<br>Telif hakkı altında|Genellikle works önce 1923 yayımladı. İngilizce, [proje Gutenberg](https://www.gutenberg.org/) on binlerce gibi çalışır sunar. Yeni çalışır, dil için modern İngilizce yakın olarak odaklanmak isteyebilirsiniz.|
-|Kamu&nbsp;çalışır|Kamu diğer ülkelerde telif hakkı talep ancak ABD hükümeti tarafından oluşturulan çalışır Amerika Birleşik Devletleri'nde telif hakkı vardır değil.|
+|Kamu&nbsp;çalışır|Kamu diğer ülkelerde/bölgelerde telif hakkı talep ancak ABD hükümeti tarafından oluşturulan çalışır Amerika Birleşik Devletleri'nde telif hakkı vardır değil.|
 |Genel etki alanı|Hangi telif hakkı açıkça elverişlilik veya Works ortak etki alanı için ayrılmış. Telif Hakkı tamamen bazı ayları mümkün olmayabilir.|
 |Permissively lisanslı çalışır|Creative Commons veya GNU ücretsiz belgeleri lisans (GFDL) gibi bir lisans altında dağıtılan çalışır. Wikipedia GFDL kullanır. Bazı lisans ancak bir özel sesli modeli oluşturulmasını etkileyebilecek lisanslı içerik performansının kısıtlamaları dayatır şekilde okuyun lisans dikkatli bir şekilde.|
 

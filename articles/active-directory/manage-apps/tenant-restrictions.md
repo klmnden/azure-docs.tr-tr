@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291254"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707180"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Kiracı kısıtlamaları SaaS bulut uygulamalarına erişimi yönetmek için kullanın
 
@@ -42,7 +42,7 @@ Genel çözümü aşağıdaki bileşenlerden oluşur:
 
 3. **İstemci yazılımını**: Proxy altyapı trafiği yakalayabilirsiniz. böylece Kiracı kısıtlamalarını desteklemek amacıyla, istemci yazılımını belirteçlerini doğrudan Azure AD'den istemeniz gerekir. Modern kimlik doğrulaması (gibi OAuth 2.0) kullanan Office istemcileri gibi tarayıcı tabanlı bir Office 365 uygulamaları, şu anda Kiracı kısıtlamaları destekler.
 
-4. **Modern kimlik doğrulaması**: Bulut Hizmetleri, Kiracı kısıtlamaları kullanın ve verilmeyen tüm kiracılar için erişimi engellemek için modern kimlik doğrulaması kullanmanız gerekir. Office 365 bulut Hizmetleri, modern kimlik doğrulama protokolleri, varsayılan olarak kullanmak üzere yapılandırmanız gerekir. Office 365 modern kimlik doğrulaması desteğini en son bilgiler için okuma [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **Modern kimlik doğrulaması**: Bulut Hizmetleri, Kiracı kısıtlamaları kullanın ve verilmeyen tüm kiracılar için erişimi engellemek için modern kimlik doğrulaması kullanmanız gerekir. Office 365 bulut Hizmetleri, modern kimlik doğrulama protokolleri, varsayılan olarak kullanmak üzere yapılandırmanız gerekir. Office 365 modern kimlik doğrulaması desteğini en son bilgiler için okuma [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Aşağıdaki diyagram, üst düzey trafik akışını gösterir. Kiracı kısıtlamaları yalnızca trafiği Azure AD'ye, Office 365 cloud services için SSL denetimi gerektirir. Azure ad kimlik doğrulaması için trafik hacmi genellikle çok daha düşük trafik hacmi Exchange Online ve SharePoint Online gibi SaaS uygulamalarında olduğu için Bu ayrım önemlidir.
 
@@ -128,7 +128,7 @@ Office 365 uygulamaları, Kiracı kısıtlamaları tam olarak desteklemek için 
 1. İstemci, modern kimlik doğrulamasını destekler.
 2. Modern kimlik doğrulaması, bulut hizmeti için varsayılan kimlik doğrulama protokolü olarak etkinleştirilir.
 
-Başvurmak [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) hangi Office istemcileri şu anda modern kimlik doğrulaması desteği en yeni bilgileri. Bu sayfa ayrıca modern kimlik doğrulaması belirli Exchange Online ve Skype Kurumsal çevrimiçi kiracılar için etkinleştirme yönergeleri için bağlantıları içerir. SharePoint Online zaten Modern kimlik doğrulaması varsayılan olarak etkinleştirir.
+Başvurmak [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) hangi Office istemcileri şu anda modern kimlik doğrulaması desteği en yeni bilgileri. Bu sayfa ayrıca modern kimlik doğrulaması belirli Exchange Online ve Skype Kurumsal çevrimiçi kiracılar için etkinleştirme yönergeleri için bağlantıları içerir. SharePoint Online zaten Modern kimlik doğrulaması varsayılan olarak etkinleştirir.
 
 Office 365 tarayıcı tabanlı uygulamaları (Office portalı, Yammer, SharePoint siteleri, Outlook Web ve daha fazlası) şu anda, Kiracı kısıtlamaları destekler. Büyük istemciler (Outlook, Skype kurumsal iş, Word, Excel, PowerPoint ve daha fazla), modern kimlik doğrulaması kullanırken yalnızca Kiracı kısıtlamaları zorunlu kılabilir.  
 
@@ -185,5 +185,5 @@ Belirli Ayrıntılar için proxy sunucusu belgelerinize bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Hakkında bilgi edinin [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Gözden geçirme [Office 365 URL'leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

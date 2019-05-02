@@ -11,27 +11,29 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61376112"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573504"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Bilgi Bankası'na Chit sohbet Ekle
 
 Botunuz için Sohbet chit ekleyerek daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici kolaylaştırır. Soru-cevap Oluşturucu chit sohbet özelliği üst chit-sohbet, önceden doldurulmuş bir dizi, Bilgi Bankası (KB) kolayca eklemenize olanak sağlar. Bu botunuzun ait kişilik için bir başlangıç noktası olabilir ve bu saat ve bunları sıfırdan yazmak maliyeti kaydedecek.  
 
-Bu veri kümesi içinde üç kişilikler - Professional, arkadaş Comic sesini chit sohbet yaklaşık 100 senaryoları sahiptir. Botunuzun ait ses en çok benzeyen bir kişi seçin. Kullanıcı sorgusu verildiğinde, soru-cevap Oluşturucu en yakın bilinen chit sohbet soru-cevap ile eşleştirmeye çalışır. 
+Bu veri kümesi, Professional, kolay ve Witty gibi çoklu kişilikler sesini chit sohbet yaklaşık 100 senaryoları sahiptir. Botunuzun ait ses en çok benzeyen bir kişi seçin. Kullanıcı sorgusu verildiğinde, soru-cevap Oluşturucu en yakın bilinen chit sohbet soru-cevap ile eşleştirmeye çalışır.  
 
-Farklı inancı bazı örnekler:
+Farklı inancı bazı örnekleri aşağıda verilmiştir. İnancı ayrıntılarıyla birlikte tüm kişilik veri kümelerini görebilirsiniz [burada](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Kullanıcı sorgusu|Professional|Arkadaş|Comic|
+|Kullanıcı sorgusu|Profesyonel|Kolay|Şakacısın|
 |--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
+
 
 
 > [!NOTE]

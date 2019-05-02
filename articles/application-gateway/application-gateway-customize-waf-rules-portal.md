@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720387"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Azure portalı üzerinden Web uygulaması güvenlik duvarı kurallarını özelleştirme
 
@@ -33,11 +33,14 @@ Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamal
 
 ## <a name="search-for-rules-to-disable"></a>Arama kuralları devre dışı bırakmak için
 
-**Web uygulaması güvenlik duvarı ayarları** dikey penceresi aracılığıyla metin arama kurallarını filtreleme özelliği sağlar. Sonucu, yalnızca kural gruplarının ve aradığınız metni içeren kuralları gösterir.
+**Web uygulaması güvenlik duvarı ayarları** sayfası aracılığıyla metin arama kurallarını filtreleme özelliği sağlar. Sonucu, yalnızca kural gruplarının ve aradığınız metni içeren kuralları gösterir.
 
 ![Arama kuralları][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Kural gruplarının ve kuralların devre dışı bırak
+
+> [!IMPORTANT]
+> Herhangi bir kural gruplarını veya kuralları devre dışı bırakılırken dikkatli olun. Bunun için daha yüksek güvenlik riskleri ortaya çıkarabilir.
 
 Kuralları devre dışı bırakmak, tüm kural grubu ya da bir veya daha fazla kural grubu altında belirli kuralları devre dışı bırakabilirsiniz. 
 
@@ -51,7 +54,9 @@ Kuralları devre dışı bırakmak, tüm kural grubu ya da bir veya daha fazla k
 
 ## <a name="mandatory-rules"></a>Zorunlu kuralları
 
-Aşağıdaki listede, WAF önleme modundayken (özel durumlar olarak oturum açmış algılama modunda) istekte engellemek neden koşulları içerir. Bu yapılandırılmış veya devreden çıkarılamaz:
+Aşağıdaki liste, istek önleme modunda engellemek WAF neden koşulları içerir. Algılama modunda, özel durumlar olarak oturum açmadıysanız.
+
+Bu yapılandırılmış veya devreden çıkarılamaz:
 
 * Gövde İnceleme açık sürece devre dışı (XML, JSON, form verileri) istek gövdesi ayrıştırılamadı. hata engellenme, istekte sonuçlanır.
 * İstek gövdesi (dosya ile) veri uzunluğu yapılandırılan sınırdan daha büyük:

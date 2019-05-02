@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049736"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926392"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -96,7 +96,7 @@ Bağlantı başarılı olursa şu çıktıyı görmeniz gerekir:
 ### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
 #### <a name="solution-1---use-azure-file-sync"></a>Çözüm 1 - kullanımı Azure dosya eşitleme
-Azure dosya eşitleme dönüştürür şirket içi Windows Server'ınızın Azure dosya paylaşımınızın hızlı bir önbelleğine. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Azure dosya eşitleme, bağlantı noktası 443 üzerinden çalışır ve böylece geçici bir çözüm olarak Azure dosyaları bağlantı noktası 445'in engellenen istemcilerden erişmek için kullanılabilir. [Azure dosya eşitleme ayarlamayı öğrenin](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+Azure dosya eşitleme dönüştürür şirket içi Windows Server'ınızın Azure dosya paylaşımınızın hızlı bir önbelleğine. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Azure dosya eşitleme, bağlantı noktası 443 üzerinden çalışır ve böylece geçici bir çözüm olarak Azure dosyaları bağlantı noktası 445'in engellenen istemcilerden erişmek için kullanılabilir. [Azure dosya eşitleme ayarlamayı öğrenin](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>2 - kullanım VPN çözümü
 Bir VPN belirli depolama hesabınıza ayarlayarak, trafik olarak güvenli bir tünel aracılığıyla internet üzerinden geçer. İzleyin [VPN ayarlamaya ilişkin yönergeler](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
@@ -106,7 +106,7 @@ Bir VPN belirli depolama hesabınıza ayarlayarak, trafik olarak güvenli bir t�
 İş ile BT departmanına ya da bağlantı noktası 445'in giden açmak için ISS [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>4 - çözüm tabanlı REST API kullanma araçları gibi Depolama Gezgini/Powershell
-Azure dosyaları SMB yanı sıra REST da destekler. REST erişim bağlantı noktası 443 (standart tcp) üzerinde çalışır. Zengin UI deneyimi sağlayan REST API kullanılarak yazılan çeşitli araçları vardır. [Depolama Gezgini](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) , bunlardan biridir. [İndirme ve yükleme, Depolama Gezgini](https://azure.microsoft.com/en-us/features/storage-explorer/) ve Azure dosyaları tarafından desteklenen dosya paylaşımına bağlanın. Ayrıca [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) , ayrıca kullanıcı REST API.
+Azure dosyaları SMB yanı sıra REST da destekler. REST erişim bağlantı noktası 443 (standart tcp) üzerinde çalışır. Zengin UI deneyimi sağlayan REST API kullanılarak yazılan çeşitli araçları vardır. [Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) , bunlardan biridir. [İndirme ve yükleme, Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) ve Azure dosyaları tarafından desteklenen dosya paylaşımına bağlanın. Ayrıca [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , ayrıca kullanıcı REST API.
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2. neden: NTLMv1 etkin

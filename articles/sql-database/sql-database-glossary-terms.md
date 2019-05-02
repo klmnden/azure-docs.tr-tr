@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341651"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573374"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL veritabanı terimler sözlüğü
 
@@ -39,6 +39,7 @@ Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi b
 ||Genel amaçlı veritabanı|Bir veritabanı içinde oluşturulan veya genel amaçlı sanal çekirdek tabanlı satın alma modeli hizmet katmanına taşınan|
 ||Hiper ölçekli veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli hiper ölçekli hizmet katmanına taşınan|
 ||İş kritik veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli iş kritik hizmet katmanına taşınan|
+||Sağlanan veritabanı|Sağlanan işlem katmanında yapılandırılmış bir veritabanı|
 |[Satın alma modelleri ve kaynakları](sql-database-purchase-models.md)|DTU tabanlı satın alma modeli|[DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)|
 ||Sanal çekirdek tabanlı satın alma modeli|[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)|
 ||Sanal Çekirdek|Konuk işletim sistemi hiper yönetici tarafından sağlanan bir çekirdek.|

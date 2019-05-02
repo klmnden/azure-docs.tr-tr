@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282585"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702993"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
@@ -46,13 +46,13 @@ Aşağıdaki tabloda tipik güvenilirlik için belirli bir puan ilişkili göste
 |0|Yanıt alınmadı için hiç eşleşme.|"Hizmet maliyeti"|
 
 ## <a name="choose-a-score-threshold"></a>Bir puan eşiği seçin
-Yukarıdaki tabloda, çoğu KB'leri üzerinde beklenen puanları gösterilmektedir. Her KB farklı olduğunu ve farklı türde bir sözcük olduğundan, ancak amaçlar ve hedefler-test etme ve eşiği seçin öneririz. Bu sizin için en uygun. Varsayılan ve çoğu KB'leri için çalışmalıdır önerilen eşiği **50**.
+Yukarıdaki tabloda, çoğu KB'leri üzerinde beklenen puanları gösterilmektedir. Her KB farklı olduğunu ve farklı türde bir sözcük olduğundan, ancak amaçlar ve hedefler-test etme ve eşiği seçin öneririz. Bu sizin için en uygun. Böylece tüm olası yanıt döndürülür varsayılan Eşik 0 olarak ayarlanır. Çoğu KB'leri için çalışmalıdır önerilen eşiğin **50**.
 
 Eşiğine seçerken, doğruluk ve kapsamı arasındaki dengeyi göz önünde bulundurun ve gereksinimlerinize göre eşiğine ince ayar.
 
 - Varsa **doğruluğu** (veya duyarlık) senaryonuz için daha önemlidir ve ardından, eşiğini yükseltin. Bu şekilde bir yanıt döndürür her zaman büyük/küçük harf ve yanıt kullanıcılar aradığınız olması olası çok daha fazlasını bir kişiye olacaktır. Bu durumda, daha fazla yanıtlanmamış soruları bırakarak yukarı bitiş. *Örneğin:* eşiği yaparsanız **70**, "nedir kaydedin ve eğitme?" bazı belirsiz örnekler beğenilerin kaçırabilirsiniz.
 
-- Varsa **kapsamı** (veya geri çağırma) daha önemli olduğu ve yalnızca kısmi bir ilişkisi için kullanıcının soru - olsa bile kadar fazla soruyu mümkün olduğunca ardından alt olarak eşiği yanıt istiyorsanız. Bu gösterir, burada yanıt kullanıcının gerçek sorgu yanıt vermezse, ancak bazı diğer biraz ilgili yanıt verir daha fazla durumda olabilir. *Örneğin:* eşiği yaparsanız **30**gibi yukarıdaki örnek ile yanıtlama çok ilgili yanıt verebilir, ister sorgular için "olduğu düzenleyebilirim BB'mi?"
+- Varsa **kapsamı** (veya geri çağırma) daha önemli olduğu ve yalnızca kısmi bir ilişkisi için kullanıcının soru - olsa bile kadar fazla soruyu mümkün olduğunca ardından alt olarak eşiği yanıt istiyorsanız. Bu gösterir, burada yanıt kullanıcının gerçek sorgu yanıt vermezse, ancak bazı diğer biraz ilgili yanıt verir daha fazla durumda olabilir. *Örneğin:* eşiği yaparsanız **30**, ister sorgular için yanıt verebilir "Nerede miyim düzenleyebilir BB'mi?"
 
 > [!NOTE]
 > Soru-cevap Oluşturucu daha yeni sürümlerini Puanlama mantığı için geliştirmeler içerir ve eşiğine etkileyebilir. İstediğiniz zaman hizmet güncelleştirmesi, test edin ve gerekiyorsa eşik ince emin olun. Soru-cevap hizmet sürümü denetleyebilirsiniz [burada](https://www.qnamaker.ai/UserSettings)ve son gelişmeleri öğrenin [burada](../How-To/troubleshooting-runtime.md).

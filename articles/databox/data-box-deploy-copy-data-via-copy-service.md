@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Veri kopyalama hizmeti aracılığıyla Microsoft Azure Data Box cihazınıza veri kopyalama | Microsoft Docs'
+title: Azure Data Box cihazına veri kopyalama hizmeti aracılığıyla veri kopyalamak için öğretici | Microsoft Docs
 description: Bu öğreticide, Azure Data Box cihazınıza veri kopyalama hizmeti aracılığıyla veri kopyalama hakkında bilgi edinin
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727914"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925312"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Öğretici: Veri kopyası hizmeti (Önizleme) Azure Data Box veri kopyalamak için kullanın
 

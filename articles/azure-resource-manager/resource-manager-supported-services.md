@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389714"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702697"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure kaynak sağlayıcıları ve türleri
 
@@ -31,6 +31,8 @@ Kaynakları dağıtılırken sık kaynak sağlayıcıları ve türleri hakkında
 * Bir kaynak türü için geçerli API sürümleri görüntüle
 
 Bu adımları Azure portalı, Azure PowerShell veya Azure CLI aracılığıyla yapabilirsiniz.
+
+Kaynak sağlayıcıları için Azure Hizmetleri eşleyen bir listesi için bkz [Azure Hizmetleri için kaynak sağlayıcıları](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -291,5 +293,5 @@ West US
 
 * Resource Manager şablonları oluşturma hakkında bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md). 
 * Kaynak sağlayıcısı Şablon Şemaları görüntülemek için bkz: [şablon başvurusu](/azure/templates/).
-* Kaynakları dağıtma hakkında bilgi edinmek için [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
+* Kaynak sağlayıcıları için Azure Hizmetleri eşleyen bir listesi için bkz [Azure Hizmetleri için kaynak sağlayıcıları](azure-services-resource-providers.md).
 * Bir kaynak sağlayıcısı işlemleri görüntülemek için bkz: [Azure REST API'si](/rest/api/).

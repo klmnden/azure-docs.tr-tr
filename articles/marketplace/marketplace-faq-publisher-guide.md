@@ -1,25 +1,18 @@
 ---
-title: Market hakkında SSS | Azure
+title: Azure Market SSS
 description: Yaygın Microsoft Azure Marketi sorularının yanıtları
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709391"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938646"
 ---
 # <a name="marketplace-faqs"></a>Market hakkında SSS
 
@@ -92,9 +85,9 @@ Bağımlılıklar Azure Marketi teklifleri için otomatik olarak yönetilmez. Ç
 
 Yayımcı, CSP kanal aracılığıyla kullanılabilir olması teklif yapılandırdıysa, satıcınız aracılığıyla kullanıma sunulacaktır.
 
-**Uygulamaları ve Hizmetleri Azure Marketi üzerinden satılan/sağlanan satın aldığınız için hangi ülkeler destekleniyor mu?**
+**Uygulamaları ve Hizmetleri Azure Marketi üzerinden satılan/sağlanan satın aldığınız için hangi ülkeler/bölgeler desteklenir?**
 
-Azure Market, Microsoft Azure müşterileri listelenen ülkelerde kullanılabilir [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Market, Microsoft Azure müşterileri listelenen ülkelerde/bölgelerde kullanılabilir [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
 **Hangi para birimleri, Azure Marketi tarafından destekleniyor mu?**
 
@@ -134,7 +127,7 @@ Azure aboneliği, yayımcının çözümü bağımsız yazılım satıcıları (
 
 *Aylık ücret:* Ücretler fiyatlandırılır veya (Başlangıç aboneliği Bu plan için başlangıç tarihi) teklife abonelik için sabit bir aylık ücret faturalandırılır. Aylık ücret, ay ortasındaki iptallere veya kullanılmayan hizmetlere göre eşit olarak dağıtılabilir.
 
-Teklife özgü fiyatlandırma ayrıntıları hakkında çözüm Ayrıntıları sayfasında bulunabilir [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/) veya içinde [Microsoft Azure yönetim portalında](https://portal.azure.com/).
+Teklife özgü fiyatlandırma ayrıntıları hakkında çözüm Ayrıntıları sayfasında bulunabilir [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/) veya içinde [Microsoft Azure yönetim portalında](https://portal.azure.com/).
 
 >[!Note]
 > Aylık Ücretler haricinde, Azure kullanım ücretleri, aksi belirtilmediği sürece tüm fiyatlandırma modelleri için geçerlidir.
@@ -381,7 +374,7 @@ Teklif tamamladıktan sonra bir müşteri adayı hedef ayarını listenin düzg�
 
 **Azure Marketi kullanarak satış yapabilir yayımcılar hangi ülkelerde/bölgelerde misiniz?**
 
-Şu ülkelerde bulunan yayımcılar şu anda Azure Marketi'nde satış: Afganistan, Arnavutluk, Cezayir, Angola, Antigua ve Barbuda, Arjantin, Ermenistan, Avustralya, Avusturya, Azerbaycan, Bahreyn, Bangladeş, Belarus, Belçika, Benin, Bolivya, Bosna-Hersek, Botsvana, Brezilya, Bulgaristan, Burkina Faso, Burundi, Kamboçya, Kamerun, Kanada, Orta Afrika Cumhuriyeti, Çad, Şili, Kolombiya, Komorolar, Kongo, Kongo Cumhuriyeti (KDC), Kosta Rika, Fildişi Sahili, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominika, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Eritre, Estonya, Etiyopya, Fiji Adaları, Finlandiya, Fransa, Gürcistan, Almanya, Gana, Yunanistan, Guatemala, Gine, Haiti, Honduras, Hong Kong ÖİB, Macaristan, İzlanda, Hindistan, Endonezya, Irak, İrlanda, İsrail, İtalya, Jamaika, Japonya, Ürdün, Kazakistan, Kenya, Kore (Güney), Kuveyt, Laos, Letonya, Lübnan, Liberya, Liechtenstein, Litvanya, Lüksemburg, Madagaskar, Malavi, Malezya, Mali, Malta, Mauritius, Meksika, Monako, Moğolistan, Karadağ, Fas, Mozambik, Nepal, Hollanda, Yeni Zelanda, Nikaragua, Nijer, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Katar, Romanya, Rusya, Ruanda, Suudi Arabistan, Senegal, Sırbistan, Sierra Leone, Singapur, Slovakya, Slovenya, Somali, Güney Afrika, İspanya, Sri Lanka, İsveç, İsviçre, Tacikistan, Tanzanya, Tayland, Timor-Leste, Togo, Tonga, Trinidad ve Tobago, Tunus, Türkiye, Türkmenistan, Uganda, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Özbekistan, Venezuela, Vietnam, Zambiya ve Zimbabve.
+Aşağıdaki ülkelerde/bölgelerde bulunan yayımcılar şu anda Azure Marketi'nde satışını yapabilirsiniz: Afganistan, Arnavutluk, Cezayir, Angola, Antigua ve Barbuda, Arjantin, Ermenistan, Avustralya, Avusturya, Azerbaycan, Bahreyn, Bangladeş, Belarus, Belçika, Benin, Bolivya, Bosna-Hersek, Botsvana, Brezilya, Bulgaristan, Burkina Faso, Burundi, Kamboçya, Kamerun, Kanada, Orta Afrika Cumhuriyeti, Çad, Şili, Kolombiya, Komorolar, Kongo, Kongo Cumhuriyeti (KDC), Kosta Rika, Fildişi Sahili, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominika, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Eritre, Estonya, Etiyopya, Fiji Adaları, Finlandiya, Fransa, Gürcistan, Almanya, Gana, Yunanistan, Guatemala, Gine, Haiti, Honduras, Hong Kong ÖİB, Macaristan, İzlanda, Hindistan, Endonezya, Irak, İrlanda, İsrail, İtalya, Jamaika, Japonya, Ürdün, Kazakistan, Kenya, Kore (Güney), Kuveyt, Laos, Letonya, Lübnan, Liberya, Liechtenstein, Litvanya, Lüksemburg, Madagaskar, Malavi, Malezya, Mali, Malta, Mauritius, Meksika, Monako, Moğolistan, Karadağ, Fas, Mozambik, Nepal, Hollanda, Yeni Zelanda, Nikaragua, Nijer, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Katar, Romanya, Rusya, Ruanda, Suudi Arabistan, Senegal, Sırbistan, Sierra Leone, Singapur, Slovakya, Slovenya, Somali, Güney Afrika, İspanya, Sri Lanka, İsveç, İsviçre, Tacikistan, Tanzanya, Tayland, Timor-Leste, Togo, Tonga, Trinidad ve Tobago, Tunus, Türkiye, Türkmenistan, Uganda, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Özbekistan, Venezuela, Vietnam, Zambiya ve Zimbabve.
 
 **Azure Marketi'nden nasıl listesini silinsin mi?**
 
@@ -486,19 +479,19 @@ Bağımlılıklar Azure Marketi teklifleri için otomatik olarak yönetilmez. Ku
 
 **Kimler uygulamaları ve Hizmetleri Azure Marketi üzerinden satılan/sağlanan satın alabilir?**
 
-Azure Marketi, aşağıdaki ülkelerde bulunan Microsoft Azure müşterileri tarafından kullanılabilir:
+Azure marketi, Microsoft Azure müşterileri aşağıdaki ülkelerde/bölgelerde kullanılabilir:
 
 Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan , Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya Kuzey, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
 
-**Farklı ülkelerde satış etkinleştirmek için benim coğrafi kullanılabilirlik nasıl tanımlarım?**
+**Farklı ülkelerde/bölgelerde satış etkinleştirmek için benim coğrafi kullanılabilirlik nasıl tanımlarım?**
 
-1.  Bulut iş ortağı Portalı'nda yeni ülkede eklemek istediğiniz SKU'yu gidin.  "SKU Ayrıntıları" içinde "Ülke/bölge kullanılabilirliği için" gidin ve "Bölgelerde."
+1.  Bulut iş ortağı Portalı'nda yeni ülkeler/bölgeler eklemek istediğiniz SKU'yu gidin.  "SKU Ayrıntıları" içinde "Ülke/bölge kullanılabilirliği için" gidin ve "Bölgelerde."
 
     ![Bölgeleri seçin](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  Bir liste ile satış için kullanılabilir tüm ülkeler açılır.  Bu SKU, kullanılabilir hale getirmek istediğiniz her bir ülkede yanındaki onay kutusuna tıklayın. "Tamam" düğmesini tıklatın.
+1.  Tüm kullanılabilir için satış yapılan ülkeleri içeren bir liste açılır.  Bu SKU, kullanılabilir hale getirmek istediğiniz her ülke/bölge yanındaki onay kutusuna tıklayın. "Tamam" düğmesini tıklatın.
 
-    ![Ülke listesi seçin](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Ülke/bölge listeden seçin](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
 1.  Son olarak Canlı teklifinizi uygulanacak değişiklikler için "Yayımla" tıklayın  
 
@@ -509,11 +502,11 @@ Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, 
 
 **Nasıl bir yayımcı, mevcut bir teklif için coğrafi kullanılabilirlik değiştirebilir miyim?**
 
-Yayımcı, var olan bir teklif düzenleme, yeni olduğu ülkeleri seçin ve fiyatlandırma ayarlamak için elektronik tabloyu karşıdan yükleme/yükleme işlevini kullanın.
+Yayımcı, mevcut bir teklif düzenleme, yeni ülke/bölge seçin ve fiyatlandırma ayarlamak için elektronik tabloyu karşıdan yükleme/yükleme işlevini kullanın.
 
-**Hangi ülkede müşteriler Azure Marketi teklifleri satın alabilir?**
+**Hangi ülkelerde/bölgelerde müşteriler Azure Marketi teklifleri satın alabilir?**
 
-Azure Market satın alma yapan 141 coğrafyalar müşterinin fatura adresini tarafından tanımlandığı şekilde destekler. Bkz: [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy) ülkelerin listesi için.
+Azure Market satın alma yapan 141 coğrafyalar müşterinin fatura adresini tarafından tanımlandığı şekilde destekler. Bkz: [katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy) ülkeler/bölgeler listesi.
 
 **Hangi para birimleri, Azure Marketi tarafından destekleniyor mu?**
 
@@ -545,7 +538,7 @@ Fiyatlandırma, ürün türü ve yayımcı belirtimlerine göre değişiklik gö
 
 * **Aylık ücret**: Aylık ücret veya bir abonelik için sabit bir aylık ücret, belirli bir planı başlangıcından teklifi için faturalandırılır. Aylık ücret, ay ortasındaki iptallere veya kullanılmayan hizmetlere göre eşit olarak dağıtılabilir.
 
-Fiyatlandırma ayrıntıları bulunabilir çözüm Ayrıntıları sayfasında [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/), veya Microsoft Azure yönetim portalında.
+Fiyatlandırma ayrıntıları bulunabilir çözüm Ayrıntıları sayfasında [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/), veya Microsoft Azure yönetim portalında.
 
 >[!Note]
 >Aylık Ücretler haricinde, Azure kullanım ücretleri, aksi belirtilmediği sürece tüm fiyatlandırma modelleri için geçerlidir.

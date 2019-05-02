@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 7f9397ee21f74fe6a776881940e5721264216b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386134"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684683"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric düğüm türleri ve sanal makine ölçek kümeleri
-[Sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets) Azure hesaplama kaynağı olan. Ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullanabilirsiniz. Bir Azure Service Fabric kümesinde tanımladığınız her düğüm türü ayrı bir ölçeği artırma ayarlar.  Her bir sanal makine ölçek üzerinde yüklü olan Service Fabric çalışma zamanı ayarlayın. Bağımsız olarak her düğüm türünün ölçeği artırın veya azaltın, her küme düğümünde çalışan işletim sistemi SKU'su değiştirme farklı bağlantı noktası kümeleri açık olan ve farklı kapasite ölçümleri kullanın.
+[Sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets) Azure hesaplama kaynağı olan. Ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullanabilirsiniz. Bir Azure Service Fabric kümesinde tanımladığınız her düğüm türü ayrı bir ölçeği artırma ayarlar.  Service Fabric çalışma zamanı her bir sanal makine ölçek kümesindeki sanal makine Microsoft.Azure.ServiceFabric uzantısı tarafından yüklenmiş. Bağımsız olarak her düğüm türünün ölçeği artırın veya azaltın, her küme düğümünde çalışan işletim sistemi SKU'su değiştirme farklı bağlantı noktası kümeleri açık olan ve farklı kapasite ölçümleri kullanın.
 
 Aşağıdaki şekil, ön uç ve arka uç adlı iki düğüm türleri olan bir küme gösterir. Her düğüm türünün beş düğüm vardır.
 
@@ -38,6 +38,56 @@ Azure portalında kümenizin dağıtılan ya da örnek Azure Resource Manager ş
 
 ![Kaynaklar][Resources]
 
+## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric sanal makine uzantısı
+Service Fabric sanal makine uzantısı, Azure sanal makineler için Service Fabric bootstrap ve düğüm güvenliği yapılandırmak için kullanılır.
+
+Service Fabric sanal makine uzantısı bir parçacığı aşağıda verilmiştir:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "1.1"
+     }
+   },
+```
+
+Özellik açıklamaları aşağıda verilmiştir:
+
+| **Ad** | **İzin verilen değerler** | ** --- ** | **Kılavuz veya kısa açıklama** |
+| --- | --- | --- | --- |
+| ad | string | --- | uzantı için benzersiz ad |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Tanımlayan işletim sistemi Service Fabric olduğu için önyükleniyor |
+| aynı autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
+| Yayımcı | Microsoft.Azure.ServiceFabric | --- | Service Fabric uzantısı Yayımcı adı |
+| clusterEndpont | string | --- | Yönetim uç noktasına URI:Port |
+| nodeTypeRef | string | --- | nodeType adı |
+| durabilitylevel değeri | Bronz, silver, Altın, platinum | --- | değişmez Azure altyapı duraklatmak için izin verilen süre |
+| enableParallelJobs | TRUE veya false | --- | İşlem VM kaldırın ve paralel olarak aynı ölçek VM yeniden başlatma gibi ParallelJobs etkinleştir |
+| nicPrefixOverride | string | --- | Alt ağ ön eki "10.0.0.0/24" gibi |
+| commonNames | string[] | --- | Yaygın olarak kullanılan adları yüklü küme sertifikaları |
+| x509StoreName | string | --- | Yüklü bir küme sertifikası bulunduğu Store adı |
+| typeHandlerVersion | 1.1 | --- | Uzantı sürümü. Uzantı Klasik sürümü 1.0, 1.1 olarak yükseltmek için önerilir |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: ["istediğiniz yerde dağıtın" özelliği ve Azure tarafından yönetilen kümeleri ile karşılaştırma genel bakış](service-fabric-deploy-anywhere.md).

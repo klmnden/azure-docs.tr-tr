@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769847"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575339"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -63,7 +63,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="bearing"></a> **Pul**: Yatay yöndeki bir diğer nokta ile ilgili bir noktanın. Bu, Açı 0-360 derece yönünde derece kuzeyden göreli olarak ifade edilir. 
 
-<a name="boundary"></a> **Sınır**: Bir satır veya ülke, bölgeleri ve özellikler gibi bitişik siyasi varlıkları ayırarak Çokgen. Bir sınırı veya rivers, dağlarında yürüyüş ya da duvar gibi fiziksel özelliklerini uymayabilecek bir satırdır.
+<a name="boundary"></a> **Sınır**: Bir satır veya Çokgen ülkeler/bölgeler, bölgeleri ve özellikler gibi bitişik siyasi varlıkları ayrılması. Bir sınırı veya rivers, dağlarında yürüyüş ya da duvar gibi fiziksel özelliklerini uymayabilecek bir satırdır.
 
 <a name="bounds"></a> **Sınırları**: Bkz: [Bounding kutusu](#bounding-box).
 
@@ -91,13 +91,13 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="coordinate-system"></a> **Koordinat sistemi**: İki veya üç boyutta alanında noktalarının konumlarını tanımlamak için kullanılan bir başvuru çerçevesi.
 
-<a name="country-code"></a> **Ülke kodu**: ISO standardına göre bir ülke için benzersiz bir tanımlayıcı. ISO2 ISO3 temsil eden üç karakterli (örneğin, ABD) kod ülke (örneğin, ABD), iki karakterli kodudur.
+<a name="country-code"></a> **Ülke kodu**: ISO standardına göre bir ülke/bölge için benzersiz bir tanımlayıcı. ISO2 ISO3 temsil eden üç karakterli (örneğin, ABD) kod ülke (örneğin, ABD), iki karakterli kodudur.
 
-<a name="country-subdivision"></a> **Ülke alt**: Birinci düzey alt genellikle bir eyalet veya il bilinen, bir ülke.
+<a name="country-subdivision"></a> **Ülke alt**: Bir ülke/genellikle bir eyalet veya il bilinen bölge, birinci düzey bölümlemesini.
 
-<a name="country-secondary-subdivision"></a> **Ülke ikincil alt**: Genellikle bir ilçe bilinen bir ülke, ikinci düzey bölümlemesini.
+<a name="country-secondary-subdivision"></a> **Ülke ikincil alt**: Bir ülke/genellikle bir ilçe bilinen bölge, ikinci düzey bölümlemesini.
 
-<a name="country-tertiary-subdivision"></a> **Ülke üçüncül alt**: Ülke, genellikle bir adlandırılmış alana bir anlatan gibi üçüncü düzey bölümlemesini.
+<a name="country-tertiary-subdivision"></a> **Ülke üçüncül alt**: Bir ülke/bölge, genellikle bir adlandırılmış alana bir anlatan gibi üçüncü düzey bölümlemesini.
 
 <a name="cross-street"></a> **Çapraz Sokak**: İki veya daha fazla sokaklar kesiştiği bir nokta.
 
@@ -283,7 +283,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="post-code"></a> **Posta kodu**: Bkz: [postalcode](#postal-code).
 
-<a name="postal-code"></a> **Posta kodu**: Bir dizi harf veya sayı veya her ikisi de posta teslimini basitleştirmek için coğrafi bölgeler bölgelere ayırmak için bir ülke posta hizmeti tarafından kullanılan belirli bir biçimde.
+<a name="postal-code"></a> **Posta kodu**: Bir dizi harf veya sayı veya her ikisi de posta teslimini basitleştirmek için coğrafi bölgeler bölgelere ayırmak için bir ülke/bölge posta hizmeti tarafından kullanılan belirli bir biçimde.
 
 <a name="prime-meridian"></a> **Asal meridyen**: 0 derece boylam temsil eden boylam satırı. Genellikle, boylam değerleri 180 derece kadar westerly yönde dolaşırken azaltmak ve easterly yönde için -180 dolaşırken artırmak-derece. 
 
@@ -351,11 +351,11 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="terrain"></a> **Arazi**: Land sandy Arazi veya mountainous Arazi gibi belirli bir özelliği olan bir alanı.
 
-<a name="thematic-maps"></a> **Tematik haritalar**: Bir tema hakkında bir coğrafi bölge yansıtacak şekilde yapılan basit bir harita bir tematik haritasıdır. Bu tür bir eşleme için yaygın bir senaryo, yönetim bölgeleri gibi bazı veriler ölçüme göre ülkeler renk sağlamaktır.
+<a name="thematic-maps"></a> **Tematik haritalar**: Bir tema hakkında bir coğrafi bölge yansıtacak şekilde yapılan basit bir harita bir tematik haritasıdır. Bu tür bir eşleme için yaygın bir senaryo, bazı veri ölçüme göre ülkeler/bölgeler gibi yönetim bölgeleri renk sağlamaktır.
 
 <a name="tile-layer"></a> **Döşeme katmanı**: Sürekli bir katmana harita kutucukları (dikdörtgen bölümlere) birleştirerek görüntülenen bir katman. Her iki tarama döşemeleri resim kutucukları veya kutucukları vektör. Izgara döşeme katmanları genellikle önceden işlenmiş ve sunucudaki bir görüntü olarak depolanır. Bu, depolama alanı çok fazla sürebilir. Vektör döşeme katmanları, istemci uygulamasının içinden hareket halindeyken işlenir, bu nedenle sunucu tarafı depolama gereksinimleri daha küçüktür.
 
-<a name="time-zone"></a> **Saat dilimi**: Yasal, ticari ve sosyal amaçları için Tekdüzen bir Standart Saati uygulamasını gözlediğini dünya bölgesi. Saat dilimlerini ülke ve onların alt bölümleri sınırları izleyin eğilimindedir.
+<a name="time-zone"></a> **Saat dilimi**: Yasal, ticari ve sosyal amaçları için Tekdüzen bir Standart Saati uygulamasını gözlediğini dünya bölgesi. Saat dilimlerini ülkeler/bölgeler ve onların alt bölümleri sınırları izleyin eğilimindedir.
 
 <a name="transaction"></a> **İşlem**: Azure haritalar kullanan bir işlem tabanlı lisanslama modeli burada;
 
@@ -398,5 +398,5 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="zip-code"></a> **Posta kodu**: Bkz: [postalcode](#postal-code).
 
-<a name="Zoom level"></a> **Yakınlaştırma düzeyi**: Harita ne kadarının görünür olduğunu ve ayrıntı düzeyini belirtir. Tüm bir düzey 0 uzaklaştırılacağını, tam dünya haritası genellikle görünüm olacaktır, ancak sınırlı ayrıntıları ülke adları ve kenarlıklar gibi yanı ve Okyanus adları gösterilir. İçinde daha yakın düzeyi 17 uzaklaştırılacağını, harita birkaç Şehir blokları ayrıntılı yol bilgilerini ile bir alanı görüntüler. Daha fazla bilgi için [yakınlaştırma düzeyleri ve döşeme Kılavuzu](zoom-levels-and-tile-grid.md) belgeleri.
+<a name="Zoom level"></a> **Yakınlaştırma düzeyi**: Harita ne kadarının görünür olduğunu ve ayrıntı düzeyini belirtir. Tüm bir düzey 0 uzaklaştırılacağını, tam dünya haritası genellikle görünüm olacaktır, ancak sınırlı ayrıntıları ülke/bölge adları ve kenarlıklar gibi yanı ve Okyanus adları gösterilir. İçinde daha yakın düzeyi 17 uzaklaştırılacağını, harita birkaç Şehir blokları ayrıntılı yol bilgilerini ile bir alanı görüntüler. Daha fazla bilgi için [yakınlaştırma düzeyleri ve döşeme Kılavuzu](zoom-levels-and-tile-grid.md) belgeleri.
 

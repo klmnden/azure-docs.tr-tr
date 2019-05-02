@@ -1,6 +1,6 @@
 ---
 title: Öğretici - Azure IOT Edge cihaza Azure Stream Analytics işi dağıtma | Microsoft Docs
-description: Bu öğreticide Azure Stream Analytics’i bir IoT Edge cihazına modül olarak dağıtacaksınız.
+description: Bu öğreticide, bir modül bir IOT Edge cihazı olarak Azure Stream Analytics'i dağıtma
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096292"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575866"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Öğretici: Azure Stream Analytics IOT Edge modülü dağıtma
 
@@ -44,7 +44,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+* Bir Azure sanal makinesi için hızlı başlangıç adımları izleyerek bir IOT Edge cihazı kullanabilirsiniz [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md).
 
 Bulut kaynakları:
 
@@ -233,11 +233,9 @@ Makine sıcaklığını kademeli olarak 30 saniye boyunca 70 dereceye ulaşana k
 
 Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz. Aynı IoT Edge cihazını test cihazı olarak kullanmaya devam edebilirsiniz. 
 
-Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
+Aksi takdirde, yerel yapılandırmaları ve ücretleri önlemek için bu makalede kullanılan Azure kaynaklarını silebilirsiniz. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

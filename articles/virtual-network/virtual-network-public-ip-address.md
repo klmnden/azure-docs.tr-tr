@@ -3,8 +3,8 @@ title: Oluşturma, değiştirme veya bir Azure genel IP adresini silmek | Micros
 description: Oluşturma, değiştirme veya bir genel IP adresini silmek öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: jdial
-ms.openlocfilehash: 2e6f3ce0c01674913dcb1f1980264d205eb4fcd3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: e1e82d7f7b6b8bf9bfef56b569db2db097b914ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652790"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728740"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya bir genel IP adresini Sil
 
@@ -63,14 +63,14 @@ Genel IP adreslerinin nominal bir ücreti vardır. Fiyatlandırmayı görüntül
    |IP adresi ataması (işaretlediyseniz görünür **bir IPv6 (ya da IPv4) adresi oluşturma** onay kutusu)|Evet, seçerseniz **bir IPv6 oluşturma** (veya IPv4) onay kutusu.|Onay kutusunu diyorsa **IPv4 adresi oluştur**, bir atama yöntemini seçebilirsiniz. Onay kutusunu diyorsa **IPv6 adresi oluştur**, olmalıdır, bir atama yöntemi seçilemiyor **dinamik**.|
    |Abonelik|Evet|Aynı bulunmalıdır [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) için genel IP adresini ilişkilendirmek istediğiniz kaynağı olarak.|
    |Kaynak grubu|Evet|Aynı veya farklı bir arada var [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) için genel IP adresini ilişkilendirmek istediğiniz kaynağı olarak.|
-   |Konum|Evet|Aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions), bölge genel IP'nin ilişkilendirmek istediğiniz kaynağı olarak adresi de denir.|
+   |Location|Evet|Aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions), bölge genel IP'nin ilişkilendirmek istediğiniz kaynağı olarak adresi de denir.|
    |Kullanılabilirlik bölgesi| Hayır | Bu ayar, yalnızca desteklenen bir konum seçtiğinizde görünür. Desteklenen konumların bir listesi için bkz. [kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Seçtiyseniz **temel** SKU, *hiçbiri* sizin için otomatik olarak seçilir. Belirli bir bölgenin garanti tercih ederseniz, belirli bir bölgenin seçebilirsiniz. Her iki seçenek bölgesel olarak yedekli değildir. Seçtiyseniz **standart** SKU: Bölgesel olarak yedekli sizin için otomatik olarak seçilir ve veri yolunuz bölge hatasına dayanıklı hale getirir. Bölge hatalarına karşı dayanıklı değil, belirli bir bölgenin sağlamak isterseniz belirli bir bölgenin seçebilirsiniz.
 
 **Komutları**
 
 Portal iki genel IP adresi kaynağı (bir IPv4 ve bir IPv6) oluşturma seçeneğini sağlıyor olsa da aşağıdaki CLI ve PowerShell komutları için bir IP sürümü veya başka bir adres ile bir kaynak oluşturun. İki ortak IP adresi kaynaklarına, her IP sürümü için bir tane istiyorsanız farklı adlar ve genel IP adresi kaynakları sürümlerinin belirten iki kez komutunu çalıştırmanız gerekir.
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
@@ -89,7 +89,7 @@ Portal iki genel IP adresi kaynağı (bir IPv4 ve bir IPv6) oluşturma seçeneğ
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ genel IP listesi](/cli/azure/network/public-ip#az-network-public-ip-list) listesi genel IP adreslerine [az ağ public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) ayarları; göstermek için [az ağ public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) güncelleştirmek için; [az ağ public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) silmek için|
 |PowerShell|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) ; ayarlarını güncelleştirmek için [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) silmek için|

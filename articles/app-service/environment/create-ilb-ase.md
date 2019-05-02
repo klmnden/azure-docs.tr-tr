@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765065"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573560"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -56,7 +56,7 @@ ILB ASE’yi kullanırken bazı işlemleri yapamazsınız:
 
 ILB ASE oluşturmak için:
 
-1. Azure portalında **kaynak Oluştur** > **Web** > **App Service ortamı**.
+1. Azure portalda **Kaynak oluştur** > **Web** > **App Service Ortamı**’nı seçin.
 
 2. Aboneliğinizi seçin.
 
@@ -66,7 +66,7 @@ ILB ASE oluşturmak için:
 
 5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
 
-6. Seçin **sanal ağ/konum** > **sanal ağ yapılandırması**. **VIP Türü**’nü **İç** olarak ayarlayın.
+6. **Sanal Ağ/Konum** > **Sanal Ağ Yapılandırması**’nı seçin. **VIP Türü**’nü **İç** olarak ayarlayın.
 
 7. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
 
@@ -96,14 +96,14 @@ ILB ASE oluşturmak için:
 
 **İç**’i seçtikten sonra ASE’nize daha fazla IP adresi ekleyemezsiniz. Bunun yerine, ASE’nin etki alanını sağlamanız gerekir. Dış VIP kullanılan bir ASE'de, ASE’nin adı bu ASE’de oluşturulan uygulamaların etki alanında kullanılır.
 
-**VIP Türü**’nü **İç** olarak ayarlarsanız, ASE adınız ASE etki alanında kullanılmaz. Etki alanını açıkça belirtin. Etki alanınız varsa *contoso.corp.net* ve ASE adlı bir uygulama oluşturduğunuzda *timereporting*, bu uygulamanın URL'si timereporting.contoso.corp.NET şeklinde olur.
+**VIP Türü**’nü **İç** olarak ayarlarsanız, ASE adınız ASE etki alanında kullanılmaz. Etki alanını açıkça belirtin. Etki alanınız *contoso.corp.net* ise ve bu ASE’de *timereporting* adlı bir uygulama oluşturursanız, bu uygulamanın URL’si timereporting.contoso.corp.net şeklinde olur.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>ILB ASE'de uygulama oluşturma ##
 
 ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturma işlemiyle aynıdır.
 
-1. Azure portalında **kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
+1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web Uygulaması** seçeneğini belirleyin.
 
 1. Uygulamanın adını girin.
 
@@ -117,7 +117,7 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 1. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
 
-1. **Oluştur**’u seçin. Uygulamanızın Panonuzda görünmesini istiyorsanız belirleyin **panoya Sabitle** onay kutusu.
+1. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
 
     ![App Service planı oluşturma][2]
 
@@ -127,7 +127,7 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 Bir ILB ASE, ILB olmayan ASE’den biraz farklıdır. Daha önce belirtildiği gibi, kendi DNS’inizi yönetmeniz gerekir. Ayrıca, HTTPS bağlantıları için kendi sertifikanızı sağlamanız gerekir.
 
-ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gösterilir. Yeni bir öğe görünür **ayarı** adlı menüsü **ILB sertifikası**. ASE, ILB ASE etki alanını belirtmeyen bir sertifika ile oluşturulur. ASE’yi bu sertifika ile kullanırsanız, tarayıcınız sertifikanın geçersiz olduğunu söyler. Bu sertifika HTTPS’yi test etmeyi kolaylaştırır, ancak ILB ASE etki alanınıza bağlı kendi sertifikanızı karşıya yüklemeniz gerekir. Bu adım, sertifikanızın otomatik olarak imzalanmış veya bir sertifika yetkilisinden alınmış olmasına bakılmaksızın gereklidir.
+ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gösterilir. **Ayarlar** menüsünde **ILB Sertifikası** adlı yeni bir öğe görünür. ASE, ILB ASE etki alanını belirtmeyen bir sertifika ile oluşturulur. ASE’yi bu sertifika ile kullanırsanız, tarayıcınız sertifikanın geçersiz olduğunu söyler. Bu sertifika HTTPS’yi test etmeyi kolaylaştırır, ancak ILB ASE etki alanınıza bağlı kendi sertifikanızı karşıya yüklemeniz gerekir. Bu adım, sertifikanızın otomatik olarak imzalanmış veya bir sertifika yetkilisinden alınmış olmasına bakılmaksızın gereklidir.
 
 ![ILB ASE etki alanı adı][3]
 
@@ -154,7 +154,7 @@ Bu PowerShell komutlarının oluşturduğu sertifika, tarayıcınızın güven z
 
 Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
-1. ASE oluşturulduktan sonra ASE kullanıcı arabirimine gidin. **ASE** > **Ayarlar** > **ILB Sertifikası**’nı seçin.
+1. ASE oluşturulduktan sonra ASE kullanıcı arabirimine gidin. **ASE** > **Ayarlar** > **ILB Sertifikası**’nı seçin.
 
 1. ILB sertifikasını ayarlamak için sertifika .pfx dosyasını seçin ve parolayı girin. Bu adımın işlenmesi biraz sürebilir. Karşıya yükleme işleminin devam ettiğini belirten bir ileti görüntülenir.
 

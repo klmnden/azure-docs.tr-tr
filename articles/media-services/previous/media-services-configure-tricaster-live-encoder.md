@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991994"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720793"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>NewTek TriCaster Kodlayıcı tek bit hızlı canlı akış göndermektir.  
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57991994"
 >
 >
 
-Bu makalede nasıl yapılacağı gösterilmektedir [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) AMS tekli bit hızı akışına kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Bu makalede nasıl yapılacağı gösterilmektedir [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) AMS tekli bit hızı akışına kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
 Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetilecek gösterilmektedir. Bu araç yalnızca Windows bilgisayarda çalışır. Mac veya Linux bilgisayarda ise oluşturmak için Azure portalını kullanma [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 

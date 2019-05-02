@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097417"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570490"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
@@ -164,16 +164,6 @@ HDInsight 3.5 kümeleri ve varsayılan olarak, yukarıdaki erişim örnek veri d
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Livy işleri bir küme içinde bir Azure sanal ağı için gönderme
 
 Bir Azure sanal ağ içindeki bir HDInsight Spark kümesine bağlanıyorsanız, küme üzerinde Livy için doğrudan bağlantı kurabilir. Böyle bir durumda, Livy uç nokta URL'si şudur `http://<IP address of the headnode>:8998/batches`. Burada, **8998** Livy çalıştığı küme baş düğüme bağlantı noktasıdır. Genel olmayan bağlantı noktalarında hizmetlerine erişme hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](../hdinsight-hadoop-port-settings-for-services.md).
-
-## <a name="troubleshooting"></a>Sorun giderme
-
-Uzak iş gönderme için Spark kümeleri için Livy kullanırken karşılaşabileceğiniz bazı sorunlar aşağıda verilmiştir.
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Ek depolama biriminden bir dış jar kullanılması desteklenmiyor
-
-**Sorun:** Livy Spark işinizi kümeyle ilişkili ek depolama hesabından bir dış jar başvuruyorsa, işi başarısız oluyor.
-
-**Çözüm:** Kullanmak istediğiniz jar HDInsight kümeyle ilişkilendirilmiş varsayılan depolama alanı kullanılabilir olduğundan emin olun.
 
 
 

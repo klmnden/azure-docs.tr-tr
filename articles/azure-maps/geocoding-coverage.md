@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575409"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
@@ -44,7 +44,6 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Kanada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kayman Adaları                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Şili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| $Clipperton Adası                                   |                 |                |              |      ✓     |                    |
 | Kolombiya                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosta Rika                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Küba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -98,12 +97,12 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Britanya Hint Okyanusu Toprakları                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kamboçya                                            |                 |                |              |      ✓     |          ✓         |
-| Çin                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Çin                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas Adası                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cocos (Keeling) Adaları                             |                 |                |              |      ✓     |          ✓         |
 | Komorolar                                             |                 |                |              |      ✓     |          ✓         |
 | Cook Adaları                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji                                                |                  |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | Fransız Polinezyası                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Adası ve McDonald Adaları                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong Çin ÖİB                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

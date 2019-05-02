@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430124"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939886"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -176,7 +176,7 @@ Aşağıdaki seçenekler, resimde gösterildiği gibi seçin:
 
     ![Depolama hesabına, Log Analytics çalışma alanı ve trafik analizi etkinleştirme seçimi](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Trafik analizi için etkinleştirmek istediğiniz diğer tüm Nsg'ler için önceki adımı yineleyin. Akış günlükleri verilerini çalışma alanına gönderilir, böylece yerel kanunlarınız ve düzenlemelerinizle ülkenizde veri depolama çalışma alanının bulunduğu bölgede izin emin olun.
+Trafik analizi için etkinleştirmek istediğiniz diğer tüm Nsg'ler için önceki adımı yineleyin. Akış günlükleri verilerini çalışma alanına gönderilir, böylece yerel kanunlarınız ve düzenlemelerinizle ülke/bölge içinde veri depolama çalışma alanının bulunduğu bölgede izin emin olun.
 
 Trafik analizi kullanarak da yapılandırabilirsiniz [kümesi AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell'in PowerShell cmdlet'i. Çalıştırma `Get-Module -ListAvailable Az` yüklü sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps).
 
@@ -270,13 +270,13 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
 
     ![Pano gösterildiği trafik dağılımı](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- Coğrafi harita veri merkezleri gibi parametreleri seçimi için üst Şerit gösterir (Hayır/dağıtıldı-dağıtım/etkin/etkin/trafik analizi Etkin/trafik analizi etkin değil) ve etkin Benign/kötü amaçlı trafik katkısında bulunan ülkeler Dağıtım:
+- Coğrafi harita veri merkezleri gibi parametreleri seçimi için üst Şerit gösterir (Hayır/dağıtıldı-dağıtım/etkin/etkin/trafik analizi Etkin/trafik analizi etkin değil) ve etkin Benign/kötü amaçlı trafik katkısında bulunan ülkeler/bölgeler Dağıtım:
 
     ![Etkin dağıtım vitrini coğrafi harita görünümü](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- Coğrafi harita ülkeler ve kıtadaki kendisine mavi (zararsız trafik) ve kırmızı (kötü amaçlı trafiği) satırları renkli iletişim kurulurken bir veri merkezine trafik dağılımı gösterir:
+- Coğrafi harita, bir veri merkezine ülkeler/bölgeler ve kendisine mavi (zararsız trafik) ve kırmızı (kötü amaçlı trafiği) satırları renkli iletişim kıtadaki trafik dağılımı gösterir:
 
-    ![Trafik dağılımı ülkeler ve kıtadaki vitrini coğrafi harita görünümü](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Trafik dağılımı ülkeler/bölgeler ve kıtadaki vitrini coğrafi harita görünümü](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Ayrıntılar için günlük araması'nda trafik dağılımı akış](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

@@ -3,8 +3,8 @@ title: Görüntüleme göreli gecikme Azure bölgelerine belirli konumlardan | M
 description: Göreli gecikme Internet sağlayıcıları arasında Azure bölgelerine belirli konumlardan görüntülemeyi öğrenin.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792427"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939868"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Görünüm belirli konumlar üzerinden Azure bölgeleri için göreli gecikme
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Önceki komutta bölgede Ağ İzleyicisi alınırken, belirtilen bölge ile aynı olması gerekmez. Önceki komutun yalnızca, mevcut bir Ağ İzleyicisi belirtmesini gerektirir. Ağ İzleyicisi, herhangi bir bölgede olabilir. İçin değerler belirtirseniz `-Country` ve `-State`, geçerli olması gerekir. Değerleri büyük/küçük harf duyarlıdır. Veriler, sınırlı sayıda ülke, eyalet ve şehir için kullanılabilir. Komutları çalıştırmak [görüntülemek kullanılabilir ülke, eyalet, şehir ve sağlayıcıları](#view-available) kullanılabilir ülke, şehir ve durumları önceki komutuyla birlikte kullanılacak bir listesini görüntülemek için. 
+> Önceki komutta bölgede Ağ İzleyicisi alınırken, belirtilen bölge ile aynı olması gerekmez. Önceki komutun yalnızca, mevcut bir Ağ İzleyicisi belirtmesini gerektirir. Ağ İzleyicisi, herhangi bir bölgede olabilir. İçin değerler belirtirseniz `-Country` ve `-State`, geçerli olması gerekir. Değerleri büyük/küçük harf duyarlıdır. Veriler, sınırlı sayıda ülkeler/bölgeler, eyalet ve şehir için kullanılabilir. Komutları çalıştırmak [görüntülemek kullanılabildiği ülkeler/bölgeler, eyalet, şehir ve sağlayıcıları](#view-available) kullanılabildiği ülkeler/bölgeler, şehir ve durumları önceki komutuyla birlikte kullanılacak bir listesini görüntülemek için. 
 
 > [!WARNING]
 > Bir tarih için son 30 gün içinde belirtmelisiniz `-StartTime` ve `-EndTime`. Önceki bir tarihi belirterek döndürülen içinde hiç veri neden olur.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Farklı olarak tek bir konum belirttiğinizde, bir konum belirtin veya "Batı ABD 2", "Batı ABD", gibi birden çok konumlarını belirtin yoksa, bir Internet hizmet sağlayıcısı komutu çalıştırırken belirtmeniz gerekir. 
 
-## <a name="view-available"></a>Kullanılabilir ülke, eyalet, şehir ve sağlayıcıları görüntüleyin
+## <a name="view-available"></a>Görünüm kullanılabildiği ülkeler/bölgeler, eyalet, şehir ve sağlayıcıları
 
-Veriler, belirli Internet hizmet sağlayıcıları, ülke, eyalet ve şehir için kullanılabilir. Tüm kullanılabilir Internet hizmet sağlayıcıları, ülke, eyalet ve, verileri görüntüleyebilirsiniz, şehirlere listesini görüntülemek için aşağıdaki komutu girin:
+Veriler, belirli Internet hizmet sağlayıcıları, ülkeler/bölgeler, durumları ve şehir için kullanılabilir. Tüm kullanılabilir Internet listesini görüntülemek için hizmet sağlayıcıları, ülkeler/bölgeler, durumları ve şehirler, verileri görüntüleyebilirsiniz, aşağıdaki komutu girin:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Veriler, yalnızca ülke, eyalet ve şehir önceki komutu tarafından döndürülen için kullanılabilir. Önceki komutta var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Belirtilen örnek *NetworkWatcher_eastus* adlı bir kaynak grubundaki Ağ İzleyicisi *NetworkWatcherRG*, ancak herhangi bir mevcut Ağ İzleyicisi belirtebilirsiniz. Var olan bir Ağ İzleyicisi yoksa, oluşturun, görevleri tamamlama tarafından [Ağ İzleyicisi oluşturma](#create-a-network-watcher). 
+Verileri yalnızca Ülkeler/bölgeler, eyalet ve şehir önceki komutu tarafından döndürülen için kullanılabilir. Önceki komutta var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Belirtilen örnek *NetworkWatcher_eastus* adlı bir kaynak grubundaki Ağ İzleyicisi *NetworkWatcherRG*, ancak herhangi bir mevcut Ağ İzleyicisi belirtebilirsiniz. Var olan bir Ağ İzleyicisi yoksa, oluşturun, görevleri tamamlama tarafından [Ağ İzleyicisi oluşturma](#create-a-network-watcher). 
 
 Önceki komutu çalıştırdıktan sonra için geçerli değerleri belirtilerek döndürülen çıkışı filtreleyebilirsiniz **Ülke**, **durumu**, ve **Şehir**, isterseniz.  Örneğin, Amerika Birleşik Devletleri'nde Seattle, Washington'da kullanılabilir Internet hizmet sağlayıcıları listesini görüntülemek için aşağıdaki komutu girin:
 

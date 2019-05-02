@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415863"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694758"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory için Azure AD parola koruması zorlama
 

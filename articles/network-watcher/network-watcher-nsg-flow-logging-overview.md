@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684558"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925423"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için akış günlüğü giriş
 
@@ -91,7 +91,7 @@ Aşağıdaki metni, bir akış günlüğü örneğidir. Gördüğünüz gibi ön
 
 **NSG akış günlüğü üzerinde tüm Nsg'ler bir kaynağa bağlı etkinleştirme**: Azure'da oturum akış NSG kaynağı olarak yapılandırılır. Bir akış yalnızca bir NSG kuralı ilişkilendirilir. Birden fazla Nsg burada kullanıldığı senaryolarda, NSG akış günlüğü üzerinde tüm Nsg'ler etkin olduğunu olan öneririz tüm trafiği kaydedildiğinden emin olmak için kaynak alt ağ veya ağ arabirimi uygulanır. Bkz: [trafik nasıl değerlendirilir](../virtual-network/security-overview.md#how-traffic-is-evaluated) ağ güvenlik grupları hakkında daha fazla bilgi için. 
 
-**Akış günlüğü maliyetleri**: NSG akış günlüğü, üretilen günlükleri hacmine göre faturalandırılır. Yüksek trafik hacmi büyük akış günlük birimi ve ilişkili maliyetleri neden olabilir. NSG akış günlüğü fiyatlandırması, temel alınan depolama maliyetlerini içermez. NSG akış günlüğü ile elde tutma ilkesi özelliği kullanarak, depolama işlemleri yüksek hacimli ve ilişkili maliyetleri neden olabilir. Elde tutma ilkesi özelliği gerekmiyorsa, bu değeri 0 olarak ayarlayın öneririz. Bkz: [Ağ İzleyicisi fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) ve [Azure depolama fiyatlandırması](https://azure.microsoft.com/en-us/pricing/details/storage/) ek ayrıntılar için.
+**Akış günlüğü maliyetleri**: NSG akış günlüğü, üretilen günlükleri hacmine göre faturalandırılır. Yüksek trafik hacmi büyük akış günlük birimi ve ilişkili maliyetleri neden olabilir. NSG akış günlüğü fiyatlandırması, temel alınan depolama maliyetlerini içermez. NSG akış günlüğü ile elde tutma ilkesi özelliği kullanarak, depolama işlemleri yüksek hacimli ve ilişkili maliyetleri neden olabilir. Elde tutma ilkesi özelliği gerekmiyorsa, bu değeri 0 olarak ayarlayın öneririz. Bkz: [Ağ İzleyicisi fiyatlandırma](https://azure.microsoft.com/pricing/details/network-watcher/) ve [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) ek ayrıntılar için.
 
 **Akışları genel IP'ler olmayan VM'ler için İnternet'ten IP'ler oturum gelen**: Örnek düzeyi genel IP olarak NIC ile ilişkili bir genel IP adresi aracılığıyla atanan bir genel IP adresi yok ya da bir temel yük dengeleyici arka uç havuzu, kullanım parçası olan Vm'leri [SNAT varsayılan](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) ve tarafından atanan bir IP adresi Giden bağlantıyı kolaylaştırmak için azure'ı tıklatın. Sonuç olarak, akışları için akış günlüğü girişleri görebilirsiniz akışı SNAT için atanan bağlantı noktası aralığını bağlantı noktasına yönlendirilir, internet'ten IP adresleri. Azure VM bu akışlar izin vermez ancak denemesi kaydedilir ve Ağ İzleyicisi'nin NSG akış günlüğü tasarım gereği görüntülenir. İstenmeyen gelen internet trafiğini NSG ile açıkça engellenmesi önerilir.
 

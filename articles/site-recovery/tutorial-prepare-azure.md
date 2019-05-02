@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617423"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691764"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="before-you-start"></a>Başlamadan önce
 
 - Mimarisini İnceleme [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), ve [fiziksel sunucu](physical-azure-architecture.md) olağanüstü durum kurtarma.
-- Sık sorulan sorular için okuma [VMware](vmware-azure-common-questions.md) ve Hyper-V(hyper-v-azure-common-questions.md)
+- Sık sorulan sorular için okuma [VMware](vmware-azure-common-questions.md) ve [Hyper-V](hyper-v-azure-common-questions.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun. İçin oturum açın [Azure portalında](https://portal.azure.com).
 

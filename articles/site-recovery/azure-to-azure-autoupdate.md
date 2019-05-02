@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792937"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925707"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
 
@@ -31,9 +31,10 @@ Güncelleştirmelerini yönetmek için Site Recovery kullandığınızda, genel 
 Günlük olarak saat 12: 00'da çoğaltılan sanal makinenin coğrafi saat dilimindeki varsayılan runbook zamanlaması yinelenir. Otomasyon hesabı aracılığıyla runbook zamanlaması da değiştirebilirsiniz.
 
 > [!NOTE]
+> Güncelleştirme paketi 35 ile başlayarak, güncelleştirmeleri için kullanılacak mevcut bir Otomasyon hesabı seçebilirsiniz. Bu güncelleştirmeden önce Site Recovery varsayılan olarak bu hesabı oluşturuldu. Bu seçenek, bir sanal makine için çoğaltmayı etkinleştirdiğinizde, kullanılabilir. Ayarı değiştirirseniz, aynı kasaya korunan tüm Azure Vm'leri için geçerli olur.
+ 
 > Otomatik Güncelleştirmeler'i açarak değil, Azure sanal makineleriniz yeniden başlatılması veya devam eden çoğaltma etkilemez.
 
-> [!NOTE]
 > Faturalama Otomasyon hesabında iş bir ay içinde kullanılan iş çalışma zamanı dakika sayısını temel alır. Varsayılan olarak, bir Otomasyon hesabı için ücretsiz birim olarak 500 dakika dahildir. İş yürütme için bir dakika her gün hakkında birkaç saniye sürer ve ücretsiz birimler ele alınmıştır.
 
 | Dahil edilen ücretsiz birimler (her ay) | Fiyat |
@@ -63,7 +64,7 @@ Başlangıç ya da bir sanal makine için çoğaltmayı etkinleştirdiğinizde [
 
 
 > [!Note]
-> Her iki seçenek, güncelleştirmeleri yönetmek için kullanılan Otomasyon hesabının bildirir. Bu özellik bir kasaya ilk kez kullanıyorsanız, yeni bir Otomasyon hesabı oluşturulur. Tüm sonraki etkinleştir çoğaltmalar aynı kasaya daha önce oluşturulmuş bir kullanın.
+> Her iki seçenek, güncelleştirmeleri yönetmek için kullanılan Otomasyon hesabının bildirir. Bu özellik bir kasaya ilk kez kullanıyorsanız, varsayılan olarak yeni bir Otomasyon hesabı oluşturulur. Alternatif olarak, ayar özelleştirebilir ve mevcut bir Otomasyon hesabı seçin. Tüm sonraki etkinleştir çoğaltmalar aynı kasaya daha önce oluşturulmuş bir kullanın.
 
 Bir özel Otomasyon hesabı için aşağıdaki betiği kullanın:
 

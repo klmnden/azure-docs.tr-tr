@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203787"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683047"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
@@ -28,6 +28,8 @@ Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir.
 ASP.NET Core, bir uygulama tarafından belirtilen bir veya daha fazla veri kaynaklarından alınan ayarları kullanarak, bir anahtar-değer tabanlı tek bir yapılandırma nesnesi oluşturur. Bu veri kaynakları olarak bilinen *yapılandırma sağlayıcıları*. İstemci uygulama Yapılandırması'nın .NET Core, bu nedenle bir sağlayıcı uygulanan olduğundan hizmet başka bir veri kaynağı gibi görünür.
 
 Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
+
+![Yerel hızlı uygulama başlatma](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -118,15 +120,12 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki kodla değiştirin:
+6. Açık *Index.cshtml* görünümlerde > giriş dizini ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
     </html>
     ```
 
-7. Görünümlerde _Layout.cshtml açın > Dizin paylaşılan ve içeriğini aşağıdaki kodla değiştirin:
+7. Açık *_Layout.cshtml* görünümlerde > paylaşılan dizin ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
         dotnet run
 
 3. Bir tarayıcı penceresi açın ve gidin `http://localhost:5000`, yerel olarak barındırılan web uygulamasının varsayılan URL'si olduğu.
-
-    ![Yerel hızlı uygulama başlatma](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

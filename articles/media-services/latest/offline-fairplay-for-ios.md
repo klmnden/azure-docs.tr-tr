@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60996634"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937512"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>İOS için çevrimdışı FairPlay Streaming 
 
@@ -36,8 +36,8 @@ Dijital Hak Yönetimi (DRM) / Gelişmiş Şifreleme Standardı (AES) şifreleme 
 Çeşitli akış protokolleri üzerinden çevrimiçi akış içeriği koruma yanı sıra korumalı içerik Çevrimdışı mod da bir sıklıkla istediği özelliğidir. Çevrimdışı modu desteği aşağıdaki senaryolar için gereklidir:
 
 * İnternet bağlantısı yolculuğu sırasında gibi kullanılabilir olmadığı durumlarda kayıttan yürütme.
-* Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülkenin kenarlık izin vermeyebilir. Çevrimdışı yükleme, kullanıcıların ülke dışında seyahat ederken içerik izlemek istiyorsanız gereklidir.
-* Bazı ülkelerde Internet kullanılabilirliği ve/veya bant genişliği, hala sınırlıdır. Kullanıcılar, içeriği tatmin edici bir görüntüleme deneyimi için yeterince yüksek bir çözünürlük izleme yapabilmek için önce indirmek seçebilirsiniz. Bu durumda, sorun genellikle ağ kullanılabilirliğini ancak sınırlı ağ bant genişliği değildir. Üzerinden-üst düzey (OTT) / çevrimiçi video Platformu (OVP) sağlayıcıları, çevrimdışı moda destek isteyin.
+* Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülke/bölgenin kenarlık izin vermeyebilir. Çevrimdışı yükleme, kullanıcıların ülke/bölge dışında seyahat ederken içerik izlemek istiyorsanız gereklidir.
+* Bazı ülkeler/bölgeler içinde Internet kullanılabilirliği ve/veya bant genişliği, hala sınırlıdır. Kullanıcılar, içeriği tatmin edici bir görüntüleme deneyimi için yeterince yüksek bir çözünürlük izleme yapabilmek için önce indirmek seçebilirsiniz. Bu durumda, sorun genellikle ağ kullanılabilirliğini ancak sınırlı ağ bant genişliği değildir. Üzerinden-üst düzey (OTT) / çevrimiçi video Platformu (OVP) sağlayıcıları, çevrimdışı moda destek isteyin.
 
 Bu makalede, iOS 10 veya üstünü çalıştıran cihazları hedefleyen FairPlay Streaming (FPS) çevrimdışı modda destek kapsar. Bu özellik için Apple gibi diğer platformlarda, watchOS, tvOS ve Safari macOS üzerinde desteklenmiyor.
 

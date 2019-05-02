@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906165"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875600"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi (Önizleme) SQL bilgi koruması ilkesinde özelleştirme
  
@@ -41,12 +41,11 @@ Information Protection etiketleri ve varsayılan olarak kullanılan bilgi türle
 ## <a name="customize-the-information-protection-policy"></a>Bilgi koruma ilkesini özelleştirme
 Kiracınızda Azure Information protection ilkesinin özelleştirmek için ihtiyacınız [kiracının kök yönetim grubunda yönetim ayrıcalıkları](security-center-management-groups.md). 
  
-1. Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
-2. Seçin **hiyerarşik görünümü (Önizleme)** ve ardından altındaki **Kiracı kök grubu**, tıklayın **ayarlarını Düzenle**.
- 
+1. Ana menü, Güvenlik Merkezi **kaynak güvenlik SAĞLIĞI** Git **veri ve depolama** tıklayın **SQL bilgi koruması** düğmesi.
+
    ![Information protection ilkesini yapılandırma](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Altında **ilke bileşenleri**, tıklayın **Information protection**. İçinde **bilgi Koruması ayarlarını** sayfasında etiketleri geçerli kümesini görüntüleyebilirsiniz. Hassasiyet düzeyini verilerinizi kategorilere ayırmak için kullanılan ana sınıflandırma öznitelikleri şunlardır. Buradan, yapılandırabileceğiniz **Information protection etiketlerini** ve **bilgi türleri** Kiracı. 
+2. İçinde **SQL bilgi koruması** sayfasında etiketleri geçerli kümesini görüntüleyebilirsiniz. Hassasiyet düzeyini verilerinizi kategorilere ayırmak için kullanılan ana sınıflandırma öznitelikleri şunlardır. Buradan, yapılandırabileceğiniz **Information protection etiketlerini** ve **bilgi türleri** Kiracı. 
  
 ### <a name="customizing-labels"></a>Etiketleri özelleştirme
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578614"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943914"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Derin azure'da sanal makine öğrenme vm'si sağlama 
 
@@ -35,10 +35,11 @@ Bir örneği, ayrıntılı öğrenme sanal makinesi oluşturmak için adımlar �
 ).
 2. Seçin **Oluştur** düğmesi Sihirbazı'na alınması için alt kısımdaki.![ oluşturma dlvm](./media/dlvm-provision-wizard.PNG)
 3. DLVM oluşturmak için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adımı** bu şekilde sağ tarafındaki numaralandırılır. Bu adımların her biri yapılandırmak için gerekli girişleri şunlardır:
-   
+
+   <a name="basics"></a>   
    1. **Temel Bilgiler**
       
-      1. **Ad**: Oluşturmakta olduğunuz veri bilimi sunucunuzun adıdır.
+      1. **Ad**: Oluşturmakta olduğunuz veri bilimi sunucusunun adı.
       2. **Derin öğrenme VM için işletim sistemi türü seçin**: Windows veya Linux (için Windows 2016 ve Ubuntu Linux temel DSVM) seçin
       2. **Kullanıcı adı**: Yönetici hesabı oturum açma kimliği.
       3. **Parola**: Yönetici hesabı parolası.
@@ -46,13 +47,14 @@ Bir örneği, ayrıntılı öğrenme sanal makinesi oluşturmak için adımlar �
       5. **Kaynak grubu**: Yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
       6. **Konum**: En uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. 
       
-> [!NOTE]
-> DLVM tüm NC ve ND serisi GPU sanal makine örneğini destekler. DLVM sağlanırken GPU'ları olan Azure'da konumlardan birini seçmeniz gerekir. Denetleme [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfa için kullanılabilir konumların ve Ara **NC serisi**, **NCv2 serisi**, **NCv3 serisi** , veya **ND serisi** altında **işlem**. 
+      > [!NOTE]
+      > DLVM tüm NC ve ND serisi GPU sanal makine örneğini destekler. DLVM sağlanırken GPU'ları olan Azure'da konumlardan birini seçmeniz gerekir. Denetleme [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfa için kullanılabilir konumların ve Ara **NC serisi**, **NCv2 serisi**, **NCv3 serisi** , veya **ND serisi** altında **işlem**. 
 
-1. **Ayarları**: NC serisi (NC NCv2, NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **Ayarları**: NC serisi (NC NCv2, NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
-1. **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
+   1. **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
+
+   1. **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 > [!NOTE]
 > Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
@@ -66,7 +68,7 @@ VM oluşturulduktan sonra Uzak Masaüstü uygulamasına önceki yapılandırdı�
 
 ### <a name="linux-edition"></a>Linux sürümü
 
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Gibi bir SSH istemcisi aracı indirebileceğiniz aWindows istemcide [Putty](https://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan [ **Temelleri** ](#basics) bölümünde metin kabuk arabirimi için adım 3. Azure Vm'leri için SSH bağlantıları hakkında daha fazla bilgi için bkz. [yükleyin ve azure'da bir Linux VM'ye bağlanmak için Uzak Masaüstü yapılandırma](/azure/virtual-machines/linux/use-remote-desktop). Bir Windows istemcisinde gibi bir SSH istemcisi aracı indirebilirsiniz [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin. 
 
 > [!NOTE]
 > Bizim testimizde iletme X11 daha iyi X2Go istemci gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.

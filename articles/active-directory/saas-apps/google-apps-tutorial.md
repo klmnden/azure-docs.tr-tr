@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277514"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -239,11 +239,11 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     a. Seçin **üçüncü taraf kimlik sağlayıcısı ile Kurulum SSO**.
 
-    b. İçinde **oturum açma sayfası URL'si** alan G Suite'te, değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
+    b. İçinde **oturum açma sayfası URL'si** alan G Suite'te, değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    c. İçinde **sayfa oturum kapatma URL'si** alan G Suite'te, değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
+    c. İçinde **sayfa oturum kapatma URL'si** alan G Suite'te, değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    d. İçinde **değiştirme parola URL'si** alan G Suite'te, değerini yapıştırın **değiştirme parola URL'si** , Azure Portalı'ndan kopyaladığınız.
+    d. İçinde **değiştirme parola URL'si** alan G Suite'te, değerini yapıştırın **değiştirme parola URL'si** , Azure Portalı'ndan kopyaladığınız.
 
     e. G Suite'teki için **doğrulama sertifikası**, Azure portalından indirdiğiniz sertifikasını karşıya yükleyin.
 

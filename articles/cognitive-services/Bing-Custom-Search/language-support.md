@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127574"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867824"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing özel arama API'si için dil ve bölge desteği
 
@@ -27,7 +27,7 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 
 `Accept-Language` Üstbilgi ve `setLang` sorgu parametresi karşılıklı olarak birbirini dışlar — her ikisini birden belirtmeyin. Ayrıntılar için bkz [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countries"></a>Ülkeler
+## <a name="countriesregions"></a>Ülkeler/Bölgeler
 
 |Ülke/bölge|Kod|
 |-------|----|

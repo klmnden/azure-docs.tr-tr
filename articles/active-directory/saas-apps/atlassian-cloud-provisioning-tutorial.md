@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270311"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692230"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Öğretici: Atlassian bulut için otomatik kullanıcı hazırlama yapılandırın
 
@@ -37,7 +37,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki önkoşulları zaten sahip oldu
 
 * Azure AD kiracısı
 * [Atlassian bulut Kiracı](https://www.atlassian.com/licensing/cloud)
-* Yönetici izinlerine sahip bir kullanıcı hesabı Atlassian bulutta.
+* Atlassian bulut yönetici izinlerine sahip bir kullanıcı hesabı.
 
 > [!NOTE]
 > Azure AD tümleştirmesi sağlama dayanan **Atlassian bulut SCIM API**, Atlassian Bulutu takımlara kullanılabildiği.

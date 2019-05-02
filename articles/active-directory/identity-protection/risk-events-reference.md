@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294217"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709602"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory kimlik koruması, risk olayları başvurusu
 
@@ -80,10 +80,16 @@ Bu risk olayı türünü etkin bir bot sunucusuyla iletişim kurmak için biline
 
 ## <a name="unfamiliar-sign-in-properties"></a>Bilinmeyen oturum açma özellikleri
 
-**Algılama türü:** Gerçek zamanlı  
-**Eski adı:** Alışılmadık konumlardan oturum açma işlemleri
+**Algılama türü:** Gerçek zamanlı **eski ad:** Alışılmadık konumlardan oturum açma işlemleri
 
 Bu risk olayı türünü oturum açma geçmişini göz önünde bulundurur (IP, enlem / boylam ve ASN) anormal oturum açma için aranacak. Sistem, bir kullanıcı tarafından kullanılan önceki konumları hakkında bilgi depolar ve bu "tanıdık" konumlar göz önünde bulundurur. Risk olayı bilinen konumları listesinde olmayan bir konumdan oturum açma meydana geldiğinde tetiklenir. Yeni oluşturulan kullanıcılar "öğrenme modunda", bir süre için kullanıcının davranışını algoritmalarınızı öğrenmenin yanı sıra hangi alışılmadık oturum açma özelliklerinde risk olaylarını devre dışı olması. Öğrenme modu süresi dinamiktir ve bağlıdır üzerinde ne kadar süre sürer algoritması kullanıcının oturum açma düzenleri hakkında yeterli bilgi toplayın. En düşük süre beş gündür. Bir kullanıcı modu uzun bir süre etkin olmayıp öğrenme moduna geri dönebilirsiniz. Tanıdık cihazlardan ve coğrafi olarak bilinen bir konuma yakın olan konumlardan oturum açma işlemleri de yoksayar. 
 
 Ayrıca bu algılama için temel kimlik doğrulaması (veya eski protokolleri) çalıştırıyoruz. Bu protokollerin istemci kimliği gibi modern özellikleri olmadığı için hatalı pozitif sonuçları azaltmak için sınırlı telemetri yoktur. Müşterilerimize modern kimlik doğrulaması için taşımanız önerilir.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Azure AD tehdit bilgileri
+
+**Algılama türü:** Çevrimdışı <br>
+**Eski adı:** Bu algılama (kullanıcılar, Risk olayları riskli) eski Azure AD kimlik koruması raporlarında 'Sızdırılan kimlik bilgilerine sahip kullanıcılar' olarak gösterilir.
+
+Bu risk olayı türünü, belirtilen kullanıcı için sıra dışı veya Microsoft'un iç ve dış tehdit zekası kaynaklarını temel bilinen saldırı düzenleriyle tutarlı kullanıcı etkinliğini gösterir.

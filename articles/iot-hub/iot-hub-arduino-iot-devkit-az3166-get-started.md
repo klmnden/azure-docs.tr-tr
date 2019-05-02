@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 7a2cb110d5be74e23e8e782fc02873786e8813e9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149725"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924641"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -79,7 +79,9 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > Çalıştırılırken bir hata alırsanız `device-identity`, yükleme [Azure CLI için Azure IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) daha fazla ayrıntı için.
+  
 1. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.

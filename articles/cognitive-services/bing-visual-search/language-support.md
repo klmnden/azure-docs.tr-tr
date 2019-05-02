@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511338"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866240"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing görsel arama API'sine dil ve bölge desteği
 
@@ -34,7 +34,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 > - Tarif, alışveriş ve sayfalar dahil ınsights yalnızca en-US pazarında kullanılabilir.
 
 
-## <a name="countries"></a>Ülkeler
+## <a name="countriesregions"></a>Ülkeler/Bölgeler
 
 |Ülke/bölge|Kod|
 |-------|----|

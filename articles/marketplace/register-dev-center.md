@@ -2,24 +2,18 @@
 title: Geliştirme Merkezi'ne kaydolun | Azure
 description: Nasıl yapılır Developer Center'da (Dev Merkezi) kaydı.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735808"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937591"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne Kaydolma  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -34,7 +28,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
     ![Ülke/bölge için kutusuyla hesap bilgileri](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık birinden onaylı olduğunu doğrulayın *satış yapan* ülkeler. Konum kısıtlama, ödeme ve vergi nedenlerle gereklidir. 
+    >Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık birinden onaylı olduğunu doğrulayın *satış yapan* ülkeler/bölgeler. Konum kısıtlama, ödeme ve vergi nedenlerle gereklidir. 
     >*   Daha fazla bilgi için ziyaret edin sayfasında bulunan Azure Marketi katılım ilkeleri [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  İçin *hesap türü*seçin `Company` radyo düğmesi.  

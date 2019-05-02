@@ -2,24 +2,17 @@
 title: Azure Market ve AppSource Danışmanlık Hizmetleri
 description: Bu makalede, Azure Marketi'nde yeni danışmanlık hizmet teklifleri yayımlama gereksinimleri ve uygunluk ölçütlerini açıklanır.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121140"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938303"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure Market ve AppSource Microsoft iş ortakları, iş hedefleri ve Hizmetleri ile bağlantı müşterilerin Azure kullanımını genişleten ve desteklemek için hedef sağlar. 
@@ -48,7 +41,7 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 > [!TIP]
 > İçin Azure Marketi vitrini yayımlamak için "Azure" bulut iş ortağı Portalı'nda "Birincil Product" açılan menüsünden seçim yaparak bu seçim yapın. Appsource'ta yayımlama için bu seçimi "Dynamics 365" seçerek yapacağınız "Power BI" veya "Power Apps'ten" "Birincil Product" açılan menüsünün bulut iş ortağı Portalı'nda.
 
-## <a name="eligible-partners-and-supported-countries"></a>Uygun iş ortaklarına ve desteklenen ülkeler
+## <a name="eligible-partners-and-supported-countriesregions"></a>Uygun iş ortaklarına ve desteklenen ülkeler/bölgeler
 
 İş ortakları için gerekli bir **silver veya gold uzmanlığına sahip** servisine ilgili alanda. 
 
@@ -74,9 +67,9 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 <b> Daha fazla bilgi için [aracılığıyla Microsoft iş ortağı ağı uzmanlıklar](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler için gönderebilirsiniz.**
+**SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler/bölgeler için gönderebilirsiniz.**
 
-|Uygun ülkeler |   |   |   |
+|Uygun ülkeler/bölgeler |   |   |   |
 |---------|----------|----------|----------|
 |Avustralya |Fransa  |     Meksika          |İspanya       |
 |Belçika   |Almanya |     Hollanda     |İsveç       |
@@ -84,7 +77,7 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 |Danimarka   |İtalya   |     Norveç          |Amerika Birleşik Devletleri |
 |Finlandiya   |Japonya   |     Polonya          
 
-Danışmanlık Hizmetleri Lansman belirli coğrafi bölgede çalışmaya başlayacaktır. İlk kez başlatıldığında şu kadar olur: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık ve Avustralya. Diğer ülkeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
+Danışmanlık Hizmetleri Lansman belirli coğrafi bölgede çalışmaya başlayacaktır. İlk kez başlatıldığında şu kadar olur: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık ve Avustralya. Diğer ülkeler/bölgeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Danışmanlık Hizmetleri Azure Market ve AppSource için nasıl kaydı
 Başlayın [kaydetme](https://azuremarketplace.microsoft.com/sell/signup) şirket bilgilerinizi Market'te. Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
@@ -124,7 +117,7 @@ Danışmanlık hizmeti teklifinizi Azure Market ve AppSource üzerinde listeleme
 3. **Gönderme**: Yönergeleri listelenen gerekli bilgileri sağlayın. Tüm içeriği ve Destek malzeme İngilizce olarak gönderilmesi gerekir. 
 4. **Gözden geçirme**: Pazarlama ve editoryal ekibimiz, Gönderiminizi gözden geçirir ve okunabilirliği, dil bilgisi ve verimliliğini iyileştirir. 
 5. **Hazırlama**: Gönderiminizi gözden geçirmeniz için hazırdır. 
-6. **Yayımlama**: Siz ve Microsoft hazırlanmış bir içerik ile karşılandığında listenizi Market'te çalışmaya hazırdır. Teklifinizin, belirtilen ülke listenizi go-live tarihini bağlıdır. Seçilen ülke için katalog zaten Azure Market veya Appsource'ta dinamik ise, listenizi birkaç saat içinde görünür. Aksi takdirde, katalog etkin hale gelir gelmez listesi görünür.
+6. **Yayımlama**: Siz ve Microsoft hazırlanmış bir içerik ile karşılandığında listenizi Market'te çalışmaya hazırdır. Teklifinizin, belirtilen ülke/bölge, liste için go-live tarihi bağlıdır. Katalog, seçilen ülke/bölge için zaten Azure Market veya Appsource'ta dinamik ise, listenizi birkaç saat içinde görünür. Aksi takdirde, katalog etkin hale gelir gelmez listesi görünür.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Teklif listeleri ve içerik inceleme ölçütleri
 Teklifleri (birden fazla listeleyebilirsiniz) aşağıdaki beş hizmet türlerinden biri olmalıdır: 

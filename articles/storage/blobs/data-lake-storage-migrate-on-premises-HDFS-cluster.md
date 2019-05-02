@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708694"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939247"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure depolama için bir şirket içi HDFS Mağazası'ndan veri taşımak için Azure Data Box'ı kullanın
 
@@ -70,14 +70,32 @@ Data Box'ınızı için REST API'leri, Blob/nesne depolama aracılığıyla veri
     ```
     DNS için başka bir mekanizma kullanıyorsanız, Data Box uç çözümlenebildiğinden emin olmalısınız.
     
-3. Bir kabuk değişkeni `azjars` işaret edecek şekilde `hadoop-azure` ve `microsoft-windowsazure-storage-sdk` jar dosyaları. Bu dosyalar Hadoop yükleme dizininde (Bu komutu kullanarak bu dosyaları mevcut olup olmadığını kontrol edebilirsiniz `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` burada `<hadoop_install_dir>` Hadoop yüklediğiniz dizindir) tam yolları kullan. 
+4. Bir kabuk değişkeni `azjars` işaret edecek şekilde `hadoop-azure` ve `microsoft-windowsazure-storage-sdk` jar dosyaları. Bu dosyalar Hadoop yükleme dizininde (Bu komutu kullanarak bu dosyaları mevcut olup olmadığını kontrol edebilirsiniz `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` burada `<hadoop_install_dir>` Hadoop yüklediğiniz dizindir) tam yolları kullan. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Verileri Hadoop HDFS veri kutusu Blob depolama alanına kopyalayın.
+5. Veri kopyalama için kullanmak istediğiniz depolama kapsayıcısı oluşturun. Ayrıca, bu komut bir parçası olarak bir hedef klasör belirtmeniz gerekir. Bu noktada bu bir işlevsiz bir hedef klasör olabilir.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. Kapsayıcı ve klasöre oluşturulduğundan emin olmak için bir liste komutunu çalıştırın.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. Verileri Hadoop HDFS, daha önce oluşturduğunuz kapsayıcıya veri kutusu Blob depolama alanına kopyalayın. İçine kopyaladığınız klasörü bulunmazsa komutu otomatik olarak oluşturur.
 
     ```
     # hadoop distcp \

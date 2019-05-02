@@ -1,25 +1,19 @@
 ---
-title: Azure uygulamaları çözüm şablonu teklifi yayımlama Kılavuzu
+title: Azure uygulamaları çözüm şablonu teklifi yayımlama Kılavuzu'nu | Azure Market
 description: Bu makalede, bir çözüm şablonu Azure Market'te yayımlamak için gereksinimleri anlatılmaktadır.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765508"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937742"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure uygulamaları için: Çözüm şablonu teklifi yayımlama Kılavuzu
 

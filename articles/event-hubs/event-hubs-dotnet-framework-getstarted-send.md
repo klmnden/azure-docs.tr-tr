@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 097605a81e263ba558c616bd9f0d1ac38092f86e
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738371"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692928"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Olayları göndermek veya .NET Framework kullanarak Azure Event Hubs'tan gelen olayları alma
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).

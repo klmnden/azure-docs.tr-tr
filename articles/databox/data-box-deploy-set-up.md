@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box’ı ayarlama| Microsoft Docs
+title: Azure Data Box ' ayarlamak için öğretici | Microsoft Docs
 description: Azure Data Box’ınız için kabloları bağlamayı ve bağlanmayı öğrenin
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2da6bf971cc966e27fac46546bfd4e3dcac6d12f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123306"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926179"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Kablo ve Azure Data Box için bağlanın
 
@@ -40,7 +40,7 @@ Başlamadan önce aşağıdakilerden emin olun:
     - Yüksek hızlı ağa bağlısınız. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı yoksa, 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir. 
 6. Data Box’ı yerleştirebileceğiniz düz bir yüzeye erişiminiz olmalıdır. Cihazı standart bir rafa yerleştirmek istiyorsanız, veri merkezi rafınızda bir 7U yuvası olmalıdır. Cihazı düz veya dik şekilde rafa yerleştirebilirsiniz.
 7. Data Box'ınızı ana bilgisayara bağlamak için aşağıdaki kabloları temin ettiniz.
-    - Bir veya daha fazla 10 GbE SFP + siyah Bakır Twinax veya (ağ arabirimleri ile veri 1, 2 veri kullanın) SFP + fiber optik kablolarını. Bu arabirimiyle uyumlu olan kabloları çalışması gerekir böylece veri kutusu Mellanox ConnectX®-3 Pro tr çift bağlantı noktası 10GBASE T bağdaştırıcıları PCI Express 3.0 ağ arabirimi sahiptir. Örneğin, bir CISCO SFP H10GB CU3M 10GBASE CU TWINMAX SFP + 3 M kablo inhouse sınama amacıyla kullanılmıştır. Daha fazla bilgi için [desteklenen kablolar ve Mellanox anahtarları listesi](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - Bir veya daha fazla 10 GbE SFP + siyah Bakır Twinax veya (ağ arabirimleri ile veri 1, 2 veri kullanın) SFP + fiber optik kablolarını. Bu arabirimiyle uyumlu olan kabloları çalışması gerekir böylece veri kutusu Mellanox ConnectX®-3 Pro tr çift bağlantı noktası 10GBASE T bağdaştırıcıları PCI Express 3.0 ağ arabirimi sahiptir. Örneğin, bir CISCO SFP H10GB CU3M 10GBASE CU TWINMAX SFP + 3 M kablo, şirket içi sınama amacıyla kullanılmıştır. Daha fazla bilgi için [desteklenen kablolar ve Mellanox anahtarları listesi](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Bir RJ-45 CAT 6 ağ kablosu (MGMT ağ arabirimi ile kullanın)
     - Bir RJ-45 CAT 6A VEYA bir RJ-45 CAT 6 ağ kablosu (sırasıyla 10 Gb/sn veya 1 Gb/sn olarak yapılandırılmış DATA 3 ağ arabirimi ile birlikte kullanın)
 

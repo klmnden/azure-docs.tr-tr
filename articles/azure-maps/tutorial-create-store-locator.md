@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574406"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -71,7 +71,7 @@ Tel Çerçeve oldukça basit bir uygulama gösterir. Uygulama, bir arama kutusu,
 
 ## <a name="create-the-store-location-dataset"></a>Depolama konumu veri kümesi oluşturma
 
-Depolama Bulucu uygulaması ekibiyiz önce biz haritada görüntülemek istiyoruz depolarının bir veri kümesi oluşturmanız gerekir. Bu öğreticide, bir kurgusal Contoso kahve adlı kafeterya için bir veri kümesi kullanıyoruz. Bu basit deposu Bulucu için veri kümesi, bir Excel çalışma kitabında yönetilir. Veri kümesini içeren Contoso kahve kahve Dükkanı konumları arasında dokuz farklı ülkede yayılan 10,213: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık, Fransa, Almanya, İtalya, Hollanda, Danimarka ve İspanya. Verileri şuna benzer bir ekran görüntüsü aşağıda verilmiştir:
+Depolama Bulucu uygulaması ekibiyiz önce biz haritada görüntülemek istiyoruz depolarının bir veri kümesi oluşturmanız gerekir. Bu öğreticide, bir kurgusal Contoso kahve adlı kafeterya için bir veri kümesi kullanıyoruz. Bu basit deposu Bulucu için veri kümesi, bir Excel çalışma kitabında yönetilir. Veri kümesini içeren Contoso kahve kahve Dükkanı konumlarına yayılan dokuz ülkede/bölgede 10,213: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık, Fransa, Almanya, İtalya, Hollanda, Danimarka ve İspanya. Verileri şuna benzer bir ekran görüntüsü aşağıda verilmiştir:
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
 
 1. Kodu *index.js*. Aşağıdaki kod Haritası'nı başlatır, ekler bir [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) sayfa işlemi tamamlanana kadar bekler yüklemeyi bağlayan eşleme yüklenmesini izlemek için olayları ve arama ve konum My düğmesi güçlendirir.
 
-   Kullanıcının sorgu karşı bir belirsiz arama, kullanıcı, arama düğmesini seçtiğinde veya kullanıcı arama kutusuna bir konuma girdikten sonra ENTER'a bastığında başlatılır. Geçirmek için Ülke ISO 2 değerlerinin bir dizideki `countrySet` Bu ülkeler arama sonuçlarını sınırlamak için seçeneği. Aranacak ülkeleri sınırlama, döndürülen sonuçları doğruluğunu artırmak yardımcı olur. 
+   Kullanıcının sorgu karşı bir belirsiz arama, kullanıcı, arama düğmesini seçtiğinde veya kullanıcı arama kutusuna bir konuma girdikten sonra ENTER'a bastığında başlatılır. Geçirmek için Ülke ISO 2 değerlerinin bir dizideki `countrySet` arama sonuçlarını Bu ülkeler/bölgeler sınırlamak için seçeneği. Aranacak ülkeler/bölgeler sınırlama, döndürülen sonuçları doğruluğunu artırmak yardımcı olur. 
   
    Arama tamamlandığında ilk sonucu alın ve bu alan üzerinde eşleme kamera ayarlayın. Kullanıcının, My konumu düğmeyi seçtiğinde, kullanıcının konumunu alma ve eşleme konumları merkezi tarayıcı yerleşik HTML5 coğrafi konum API kullanın.  
 

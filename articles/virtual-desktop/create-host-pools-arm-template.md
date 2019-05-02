@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b1c7d1fe561ebc11f88644a5bf2fd8bda1c9a6c6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870566"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924986"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager şablonuyla ana bilgisayar havuzu oluşturma
 
@@ -77,4 +77,4 @@ Kullanıcının UPN kullanıcının kimliğini Azure Active Directory'de eşleş
 Bu adımları tamamladıktan sonra Masaüstü uygulama grubuna eklenen kullanıcılar Windows sanal masaüstüne desteklenen Uzak Masaüstü istemcileri ile oturum açın ve bir kaynağı için bir oturum Masaüstü bakın.
 
 >[!IMPORTANT]
->Güvenliğini sağlamaya yardımcı olmak için azure'da Windows sanal masaüstü ortamınızı Vm'lerinizde gelen bağlantı noktası 3389 açmayın öneririz. Windows sanal masaüstü açık bir konak havuzun Vm'leri erişmek kullanıcılar için 3389 numaralı gelen bağlantı noktası gerektirmez. Sorun giderme amacıyla 3389 numaralı bağlantı noktası açmanız gerekiyorsa, kullanmanızı öneririz [tam zamanında VM erişimi](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Güvenliğini sağlamaya yardımcı olmak için azure'da Windows sanal masaüstü ortamınızı Vm'lerinizde gelen bağlantı noktası 3389 açmayın öneririz. Windows sanal masaüstü açık bir konak havuzun Vm'leri erişmek kullanıcılar için 3389 numaralı gelen bağlantı noktası gerektirmez. Sorun giderme amacıyla 3389 numaralı bağlantı noktası açmanız gerekiyorsa, kullanmanızı öneririz [tam zamanında VM erişimi](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

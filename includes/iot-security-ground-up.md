@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626494"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951577"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Nesnelerin interneti (IOT) baştan için güvenlik
 
@@ -33,7 +33,7 @@ Güvenlik, gizlilik, saydamlık ve uyumluluk sorunları verildiğinde, doğru IO
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Baştan güvenli bir altyapı
 
-[Microsoft Cloud](https://azure.microsoft.com) altyapısını bir milyardan fazla müşteriler 127 ülkede destekler. Kurumsal Yazılım oluşturma ve dünyanın en büyük çevrimiçi hizmetlerinden bazılarını çalıştırma konusundaki onlarca yıllık deneyimi Microsoft'un çizme, Microsoft Cloud daha yüksek düzeyde Gelişmiş güvenlik, gizlilik, uyumluluk ve tehdit önleme uygulamalarını da sağlar Çoğu müşteri, kendi olabileceğimizden çok.
+[Microsoft Cloud](https://azure.microsoft.com) altyapısını 127 ülkelerde/bölgelerde bir milyardan fazla müşteriler destekler. Kurumsal Yazılım oluşturma ve dünyanın en büyük çevrimiçi hizmetlerinden bazılarını çalıştırma konusundaki onlarca yıllık deneyimi Microsoft'un çizme, Microsoft Cloud daha yüksek düzeyde Gelişmiş güvenlik, gizlilik, uyumluluk ve tehdit önleme uygulamalarını da sağlar Çoğu müşteri, kendi olabileceğimizden çok.
 
 [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) tüm yazılım yaşam döngüsüne güvenlik gereksinimleri ekler bir zorunlu şirket çapında geliştirme süreci sağlar. Çalışma etkinliklerinin aynı güvenlik uygulamaları düzeyini izlediğinden emin olmak için Microsoft'un çalışma güvenliği güvencesi (OSA) sürecinde özenli güvenlik yönergeleri SDL kullanır. Microsoft, üçüncü taraf denetim firmaları, uyumluluk yükümlülükler karşıladığından ve Microsoft Microsoft dijital Suçlar birimi dahil olmak üzere mükemmellik merkezleri oluşturmak geniş güvenlik çalışmaları ilgilenir. devam eden bir doğrulama ile de çalışır, Microsoft Güvenlik Yanıt Merkezi ve Microsoft kötü amaçlı yazılımdan koruma Merkezi.
 

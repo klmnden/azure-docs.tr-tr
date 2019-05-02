@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Bağlantı sorunlarını giderme | Microsoft Docs'
+title: 'Azure AD Connect: Azure AD sorunlarını giderme bağlantı sorunları | Microsoft Docs'
 description: Azure AD connect'teki bağlantı sorunlarını gidermek nasıl açıklar.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386695"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572789"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
+# <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD bağlantısı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Yükleme Sihirbazı'nda bağlantı sorunlarını giderme

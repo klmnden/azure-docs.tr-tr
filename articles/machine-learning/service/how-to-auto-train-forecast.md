@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820030"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697853"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Gelecekteki değerleri tahmini bir model eğitim, tüm hedeflenen Ufkunuzu için Öngörüler çalıştırırken eğitim kullanılan özellikler kullanılabilir emin olun. Örneğin, bir talep tahmin oluştururken, bir özellik için geçerli hisse senedi fiyatı da dahil olmak üzere yüksek düzeyde eğitim doğruluğunu artırabilir. Ancak, uzun bir horizon ile tahmini yapmak istiyorsanız, gelecekteki zaman serisi noktalarına karşılık gelen gelecekteki stok değerleri doğru şekilde tahmin mümkün olmayabilir ve model doğruluğundan düşebilir.
 
-## <a name="configure-experiment"></a>Deneme yapılandırma
+## <a name="configure-and-run-experiment"></a>Denemeyi çalıştırma ve yapılandırma
 
 Otomatik makine öğrenimi, görevler tahmin için zaman serisi verileri ön işleme ve tahmini adımlarını kullanır. Aşağıdaki önceden işleme adımları yürütülecek:
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Oluşturmaya çalışırken bir kaynağı doğrulama yordam otomatik machine learning uygulayan şekilde çapraz doğrulama (MS) yordamı için zaman serisi verileri kurallı K Katlama çapraz doğrulama stratejisinin temel istatistiksel varsayımların ihlal edebilirsiniz Zaman serisi verileri çapraz doğrulama hatları. Bu yordamı kullanmak için belirtin `n_cross_validations` parametresinde `AutoMLConfig` nesne. Doğrulama ve kendi doğrulama ayarlar ile kullanımı devre dışı bırakabilir `X_valid` ve `y_valid` parametreleri.
 
+### <a name="view-feature-engineering-summary"></a>Özellik Mühendisliği özetini görüntüle
+
+Otomatik machine learning'de zaman serisi görev türleri için işlem mühendislik özellik ayrıntılarını görüntüleyebilirsiniz. Aşağıdaki kod, aşağıdaki öznitelikleri yanı sıra her bir ham özellik gösterir:
+
+* İşlenmemiş özellik adı
+* Bu ham özelliği biçimlendirilmiş mühendislik uygulanan özellikler
+* Türü algılandı
+* Özellik olup bırakıldı
+* Raw özelliği için özellik dönüşümler listesi
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>En iyi modeli ile tahmin
 
 Sınama veri kümesi için değerleri tahmin etmek için en iyi modeli yineleme kullanın.
@@ -133,6 +147,16 @@ Sınama veri kümesi için değerleri tahmin etmek için en iyi modeli yineleme 
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Alternatif olarak, `forecast()` yerine işlev `predict()`, tahminler ne zaman başlaması gerektiğini, belirtimleri sağlayacaktır. Aşağıdaki örnekte, önce tüm değerleri değiştirin `y_pred` ile `NaN`. Kullanırken normalde olduğu gibi tahmin kaynağı eğitim verilerini sonunda bu durumda olacaktır `predict()`. Ancak, yalnızca ikinci yarısında yüklediyse `y_pred` ile `NaN`, işlev sayısal değerler ilk yarısında değiştirilmemiş ancak tahmin bırakacaksa `NaN` ikinci yarısında hiç değerleri. İşlev hizalanmış özellikleri ve tahmin edilen değerler döndürür.
+
+Ayrıca `forecast_destination` parametresinde `forecast()` değerleri belirtilen bir tarih gönderinizi tahmin etmek için işlevi.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 RMSE Hesapla (kök ortalama karesi alınmış hata) arasında `y_test` gerçek değerler ve tahmin edilen değerler `y_pred`.

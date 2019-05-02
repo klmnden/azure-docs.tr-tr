@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286699"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682123"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure İzleyici'de Azure AD etkinlik günlükleri
 
@@ -72,14 +72,24 @@ Azure AD lisansınız varsa, depolama hesabı ve olay hub'ı kurulumu için bir 
 
 Her denetim günlüğü olayı yaklaşık 2 KB veri depolama alanı kullanır. 100.000 kullanıcıdan oluşan ve her gün yaklaşık 1,5 milyon olay gerçekleşecek bir kiracıda günlük yaklaşık 3 GB veri depolama alanına ihtiyaç duyulur. Yazma işlemleri yaklaşık beş dakikalık toplu işlemler halinde gerçekleştiğinden, ayda yaklaşık 9000 yazma işlemi olmasını bekleyebilirsiniz. 
 
-Aşağıdaki tabloda, Batı ABD bölgesindeki bir genel amaçlı sürüm 2 depolama hesabında en az bir yıl saklama için kiracının boyutuna bağlı olarak yaklaşık bir maliyet hesabı verilmiştir. Uygulamanızın veri hacmine göre daha doğru bir yaklaşık değer elde etmek için [Azure depolama fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/details/storage/blobs/) kullanın. Tablo, yalnızca işleme/depolama maliyeti ve değil abonelik maliyetini içerir. 
+
+Aşağıdaki tabloda, Batı ABD bölgesindeki bir genel amaçlı sürüm 2 depolama hesabında en az bir yıl saklama için kiracının boyutuna bağlı olarak yaklaşık bir maliyet hesabı verilmiştir. Uygulamanızın veri hacmine göre daha doğru bir yaklaşık değer elde etmek için [Azure depolama fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/details/storage/blobs/) kullanın.
 
 
-| Günlük kategorisi       | Kullanıcı sayısı | Günlük olay sayısı | Her ay (30 gün) olayları | ABD doları (est) cinsinden aylık maliyet |
-| ---                | ---             | ---            | ---                        | ---                          | 
-| Denetim ve oturum açma işlemleri | 100.000         | 16,500,000     | 495,000,000                | $1093                        |
-| Denetim              | 100.000         | 1,500,000      | 45,000,000                 | $246.66                      |
-| Oturum açma işlemleri           | 100.000         | 15,000,000     | 450,000,000                | $847.28                      |
+| Günlük kategorisi | Kullanıcı sayısı | Günlük olay sayısı | Aylık veri hacmi (tahmini) | Aylık maliyet (tahmini) | Yıllık maliyet (tahmini) |
+|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
+| Denetim | 100.000 | 1,5&nbsp;milyon | 90 GB | $1,93 | $23,12 |
+| Denetim | 1000 | 15.000 | 900 MB | $0,02 | $0,24 |
+| Oturum açma işlemleri | 1000 | 34.800 | 4 GB | $0,13 | $1,56 |
+| Oturum açma işlemleri | 100.000 | 15&nbsp;milyon | 1,7 TB | $35,41 | $424,92 |
+ 
+
+
+
+
+
+
+
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Etkinlik günlükleri için olay hub'ı iletileri

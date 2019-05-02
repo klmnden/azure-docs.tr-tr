@@ -10,25 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: eed630038169deb9a161d320ff1521bfade2b113
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44adbce14b9f22315cb78540b46120e664938990
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534005"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876672"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri ya da bir dosya sisteminden kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Geçerli sürüm](connector-file-system.md)
 
-Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve dosya sistemi veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+Bu makalede, dosya sistemi ve veri kopyalamak nasıl özetlenmektedir. Azure Data Factory hakkında bilgi edinmek için [giriş makalesi](introduction.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Dosya sisteminden tüm desteklenen havuz veri deposuna veri kopyalamak ya da dosya sistemine herhangi bir desteklenen kaynak veri deposundan veri kopyalayın. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Bu dosya sistemi bağlayıcısını, aşağıdaki etkinlikler için desteklenir:
+
+- [Kopyalama etkinliği](copy-activity-overview.md) ile [desteklenen kaynak/havuz Matrisi](copy-activity-overview.md)
+- [Arama etkinliği](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Özellikle, bu dosya sistemi bağlayıcısını destekler:
 
@@ -93,9 +97,53 @@ Dosya sistemi bağlantılı hizmeti için aşağıdaki özellikleri destekler:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, dosya sistemi veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. 
 
-Verileri Azure BLOB'dan/dosya sistemi kopyalamak için dataset öğesinin type özelliği ayarlamak **FileShare**. Aşağıdaki özellikler desteklenir:
+- İçin **Parquet ve sınırlandırılmış metin biçimi**, başvurmak [Parquet ve sınırlandırılmış metin biçimi veri kümesi](#parquet-and-delimited-text-format-dataset) bölümü.
+- Diğer biçimlerden için **ORC/Avro/JSON/ikili biçimi**, başvurmak [diğer biçim veri kümesi](#other-format-dataset) bölümü.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet ve sınırlandırılmış metin biçimi veri kümesi
+
+Dosya sistemi ve veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**, başvurmak [Parquet biçimi](format-parquet.md) ve [sınırlandırılmış metin biçimi](format-delimited-text.md) makale biçimi tabanlı bir veri kümesini ve desteklenen ayarlar. Aşağıdaki özellikler altında dosya sistemi için desteklenen `location` biçimi tabanlı bir veri kümesi ayarlarında:
+
+| Özellik   | Açıklama                                                  | Gerekli |
+| ---------- | ------------------------------------------------------------ | -------- |
+| type       | Type özelliği altında `location` kümesinde ayarlanmalıdır **FileServerLocation**. | Evet      |
+| folderPath | Klasör yolu. Joker karakter filtresi klasörüne kullanmak istiyorsanız, bu ayar atlayın ve etkinliği kaynak ayarları belirtin. | Hayır       |
+| fileName   | Verilen folderPath altında dosya adı. Joker karakter filtresi dosyalarını kullanmak istiyorsanız, bu ayar atlayın ve etkinliği kaynak ayarları belirtin. | Hayır       |
+
+> [!NOTE]
+> **Dosya paylaşımını** sonraki bölümde bahsedilen Parquet/metin biçimine sahip tür veri kümesi olarak hala desteklenmektedir-için geriye dönük uyumluluk, ancak arama/kopyalama/GetMetadata etkinliği eşleme veri akışı ile çalışmaz. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+
+**Örnek:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<File system linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "FileServerLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Diğer biçim veri kümesi
+
+Dosya sistemi ve veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -149,12 +197,76 @@ Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi i
 
 ### <a name="file-system-as-source"></a>Dosya sistemi kaynak olarak
 
-Dosya sisteminden veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **FileSystemSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
+- Kopyalama için **Parquet ve sınırlandırılmış metin biçimi**, başvurmak [Parquet ve sınırlandırılmış metin biçimi kaynak](#parquet-and-delimited-text-format-source) bölümü.
+- Kopyalama gibi diğer biçimlerinden **ORC/Avro/JSON/ikili biçimi**, başvurmak [başka bir biçim kaynağı](#other-format-source) bölümü.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet ve sınırlandırılmış metin biçimi kaynağı
+
+Dosya sisteminde veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**, başvurmak [Parquet biçimi](format-parquet.md) ve [sınırlandırılmış metin biçimi](format-delimited-text.md) biçimi tabanlı kopyalama etkinliği kaynak makale ve desteklenen ayarlar. Aşağıdaki özellikler altında dosya sistemi için desteklenen `storeSettings` biçimi tabanlı kopyalama kaynak ayarları:
+
+| Özellik                 | Açıklama                                                  | Gerekli                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| type                     | Type özelliği altında `storeSettings` ayarlanmalıdır **FileServerReadSetting**. | Evet                                           |
+| özyinelemeli                | Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. Özyinelemeli true ve havuz için ayarlandığında bir dosya tabanlı depolama, bir boş klasör veya alt klasör olduğunu unutmayın kopyalanır değil veya havuz oluşturulur. İzin verilen değerler **true** (varsayılan) ve **false**. | Hayır                                            |
+| wildcardFolderPath       | Kaynak klasörleri filtrelemek için joker karakter içeren klasör yolu. <br>Joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter); kullanma `^` joker karakter veya içinde bu kaçış karakteri, gerçek bir klasör adı varsa, kaçış için. <br>Daha fazla örneklere bakın [klasör ve dosya filtreleme örnekler](#folder-and-file-filter-examples). | Hayır                                            |
+| wildcardFileName         | Joker karakter filtresi kaynak dosyalarının belirli folderPath/wildcardFolderPath altında içeren dosya adı. <br>Joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter); kullanma `^` joker karakter veya içinde bu kaçış karakteri, gerçek bir klasör adı varsa, kaçış için.  Daha fazla örneklere bakın [klasör ve dosya filtreleme örnekler](#folder-and-file-filter-examples). | Yanıt Evet ise `fileName` kümesinde belirtilmedi |
+| modifiedDatetimeStart    | Dosya Filtresi özniteliğine dayanarak: Son değiştirme. Kendi son değiştirilme zamanı zaman aralığı içinde olduğunda dosyaları seçilir `modifiedDatetimeStart` ve `modifiedDatetimeEnd`. Zaman biçimi UTC saat diliminde uygulanan "2018-12-01T05:00:00Z". <br> Özellikler, hiçbir dosya öznitelik filtresi, veri kümesine uygulanacak anlamına NULL olabilir.  Zaman `modifiedDatetimeStart` datetime değerine sahip ancak `modifiedDatetimeEnd` NULL olduğu için daha büyük olan son değiştirilen özniteliği dosyaları geldiğini veya tarih saat değeri ile eşit seçilir.  Zaman `modifiedDatetimeEnd` datetime değerine sahip ancak `modifiedDatetimeStart` NULL ise, son değiştirilen özniteliği, tarih saat değeri seçilir daha az dosya anlamına gelir. | Hayır                                            |
+| modifiedDatetimeEnd      | Yukarıdakiyle aynı.                                               | Hayır                                            |
+| MaxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır                                            |
+
+> [!NOTE]
+> Parquet ve sınırlandırılmış metin biçimi **FileSystemSource** sonraki bölümde bahsedilen türü kopyalama etkinliği kaynağı olarak desteklenen hala-için geriye dönük uyumluluk içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+
+**Örnek:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromFileSystem",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "FileServerReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Başka bir biçim kaynağı
+
+Dosya sisteminde veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özellikler kopyalama etkinliğinde desteklenen **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **FileSystemSource** |Evet |
 | özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanan/oluşturulmuş olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
+| MaxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır |
 
 **Örnek:**
 
@@ -190,12 +302,66 @@ Dosya sisteminden veri kopyalamak için kopyalama etkinliği için kaynak türü
 
 ### <a name="file-system-as-sink"></a>Havuz olarak dosya sistemi
 
-Dosya sistemi veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın. **FileSystemSink**. Aşağıdaki özellikler desteklenir **havuz** bölümü:
+- Kopyalama için **Parquet ve sınırlandırılmış metin biçimi**, başvurmak [Parquet ve sınırlandırılmış metin biçimi havuz](#parquet-and-delimited-text-format-sink) bölümü.
+- Kopyalama gibi diğer biçimlere **ORC/Avro/JSON/ikili biçimi**, başvurmak [diğer biçim havuz](#other-format-sink) bölümü.
+
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet ve sınırlandırılmış metin biçimi havuz
+
+Dosya sisteminde veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**, başvurmak [Parquet biçimi](format-parquet.md) ve [sınırlandırılmış metin biçimi](format-delimited-text.md) biçimi tabanlı kopyalama etkinliği havuz makale ve desteklenen ayarlar. Aşağıdaki özellikler altında dosya sistemi için desteklenen `storeSettings` biçimi tabanlı kopyalama havuz ayarları:
+
+| Özellik                 | Açıklama                                                  | Gerekli |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | Type özelliği altında `storeSettings` ayarlanmalıdır **FileServerWriteSetting**. | Evet      |
+| copyBehavior             | Kaynak dosyaları bir dosya tabanlı veri deposundan olduğunda kopyalama davranışını tanımlar.<br/><br/>İzin verilen değerler şunlardır:<br/><b>-(Varsayılan) PreserveHierarchy</b>: Hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><b>-FlattenHierarchy</b>: Tüm dosyaları kaynak klasörden hedef klasörü içinde ilk düzeyi var. Hedef dosyalar otomatik olarak oluşturulan adlarına sahip. <br/><b>-MergeFiles</b>: Tüm dosyaları kaynak klasörden bir dosya birleştirir. Dosya adı belirtilirse, birleştirilmiş dosya adı belirtilen adıdır. Aksi takdirde, bir otomatik olarak oluşturulan dosya adı değil. | Hayır       |
+| MaxConcurrentConnections | Eşzamanlı olarak veri deposuna bağlanmak için bağlantı sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır       |
+
+> [!NOTE]
+> Parquet ve sınırlandırılmış metin biçimi **FileSystemSink** sonraki bölümde bahsedilen türü kopyalama etkinliği havuz olarak desteklenen hala-için geriye dönük uyumluluk içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+
+**Örnek:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToFileSystem",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "FileServerWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Diğer biçim havuz
+
+Dosya sisteminde veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özellikler desteklenir **havuz** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır: **FileSystemSink** |Evet |
 | copyBehavior | Kaynak dosyaları dosya tabanlı veri deposundan olduğunda kopyalama davranışını tanımlar.<br/><br/>İzin verilen değerler şunlardır:<br/><b>-(Varsayılan) PreserveHierarchy</b>: hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><b>-FlattenHierarchy</b>: kaynak klasördeki tüm dosyaları ilk hedef klasörün içinde düzeyindedir. Hedef dosyalar otomatik adına sahip. <br/><b>-MergeFiles</b>: tüm dosyaları kaynak klasörden bir dosya birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilmezse, belirtilen adı olur; Aksi takdirde, otomatik olarak oluşturulan dosya adı olacaktır. | Hayır |
+| MaxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır |
 
 **Örnek:**
 

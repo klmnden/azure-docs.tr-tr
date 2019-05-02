@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929469"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş
 Bu makalede hizmet (Iaas) kaynaklar Klasikten Resource Manager dağıtım modelleri ve ayrıntıları olarak aboneliğinizde sanal ağ'ı kullanarak birlikte bulunan iki dağıtım modellerindeki kaynaklara bağlanma altyapı geçirme siteden siteye ağ geçitleri. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager özelliklerine ve avantajlarına](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -74,7 +74,20 @@ Depolama hesabınızda herhangi bir ilişkili diskler veya sanal makinelerinizde
 
 > [!NOTE]
 > Resource Manager dağıtım modeli Klasik görüntü ve diskleri kavramı yoktur. Ne zaman görüntüleri geçirilen, Klasik depolama hesabıdır ve diskleri bir Resource Manager yığınında görünür değildir ancak yedekleme VHD'leri depolama hesabında kalır.
->
+
+Aşağıdaki ekran görüntüleri, Azure portalını kullanarak bir Azure Resource Manager depolama hesabı için bir Klasik depolama hesabını yükseltme işlemini gösterir:
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Depolama hesabınıza gidin.
+3. İçinde **ayarları** bölümünde **ARM geçiş**.
+4. Tıklayarak **doğrulama** geçiş uygulanabilirliğini belirlemek için.
+5. Doğrulama başarılı olursa tıklayarak **hazırlama** geçirilen depolama hesabı oluşturmak için.
+6. Tür **Evet** geçişi onaylamak ve **işleme** geçişini tamamlamak için.
+
+    ![Depolama hesabı doğrula](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Depolama hesabı hazırlama](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Depolama hesabı geçiş Sonlandır](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Geçiş eklenmemiş kaynakları
 Depolama hesapları ile ilişkilendirilmiş diskleri ya da sanal makinelerinizdeki veriler bağımsız olarak geçirilebilir.

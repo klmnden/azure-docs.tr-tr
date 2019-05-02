@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337757"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914938"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -121,9 +121,9 @@ Devam eden var olan bir yedekleme işi olduğundan son yedekleme işi başarıs�
 3. Kasa Panosu menüsünde tıklatın **yedekleme işleri** tüm yedekleme işleri görüntüler.
 
     * Bir yedekleme işi devam ediyorsa, yedekleme işini iptal edin veya tamamlamak için bekleyin.
-        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Farklı bir kasadaki yedekleme yapılandırdıysanız, ardından eski kasaya çalışan hiçbir yedekleme işleri emin olun. Varsa, ardından yedekleme işini iptal edin.
-        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Yedekleme işlemini yeniden deneyin.
 
 Zamanlanmış yedekleme işlemi ile sonraki yedekleme yapılandırması çakışan uzun sürüyorsa incelediniz [en iyi](backup-azure-vms-introduction.md#best-practices), [yedekleme performansı](backup-azure-vms-introduction.md#backup-performance) ve [göz önünde bulundurarak geri yükleme ](backup-azure-vms-introduction.md#backup-and-restore-considerations).

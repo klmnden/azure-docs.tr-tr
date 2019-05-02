@@ -2,17 +2,17 @@
 title: Azure uygulama ağ geçidi yapılandırmasına genel bakış
 description: Bu makalede Azure Application Gateway bileşenlerini yapılandırma
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998915"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946818"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -71,7 +71,7 @@ Bu senaryo için uygulama ağ geçidi alt ağda Nsg kullanın. Bu öncelik sıra
 
 Uçtan uca istek/yanıt iletişim alter yoksa sürece v1 SKU için uygulama ağ geçidi alt ağı üzerinde kullanıcı tanımlı yollar (Udr) desteklenir. Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz. Ancak, paket İnceleme sonra hedeflenen hedefine ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, hatalı bir durum araştırması veya trafik yönlendirme davranışı neden olabilir. Bu öğrenilen rotalar veya Azure ExpressRoute veya VPN ağ geçitlerini sanal ağ tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
 
-Uygulama ağ geçidi alt ağı üzerinde Udr'ler v2 SKU için desteklenmiyor. Daha fazla bilgi için [otomatik ölçeklendirme ve Application Gateway için bölge yedeklilik](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Uygulama ağ geçidi alt ağı üzerinde Udr'ler v2 SKU için desteklenmiyor. Daha fazla bilgi için [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Udr'ler kullanarak uygulama ağ geçidi alt ağı üzerinde neden olan sistem durumu [arka uç sistem durumu görünümü](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) "Bilinmiyor" olarak görüntülenecek Nesil uygulama ağ geçidi günlükleri ve ölçümleri başarısız olmasına neden olur. Arka uç sistem durumu, günlükleri ve ölçümleri görüntüleyebilmek, Udr uygulama ağ geçidi alt ağda kullanmayın öneririz.
@@ -84,7 +84,7 @@ Bir genel IP, internet'e açık olmayan bir iç uç nokta için gerekli değildi
 
 Genel IP adresi yalnızca 1 veya 1 özel IP adresi desteklenir. Uygulama ağ geçidi oluşturduğunuzda, ön uç IP'sini seçin.
 
-- Bir genel IP için yeni bir ortak IP adresi oluşturabilir veya application gateway ile aynı konumda var olan bir genel IP kullanın. Yeni bir genel IP, seçtiğiniz IP adresi türü (statik veya dinamik) oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [dinamik genel IP adresi ve statik](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Bir genel IP için yeni bir ortak IP adresi oluşturabilir veya application gateway ile aynı konumda var olan bir genel IP kullanın. Yeni bir genel IP, seçtiğiniz IP adresi türü (statik veya dinamik) oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [dinamik genel IP adresi ve statik](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Özel bir IP için uygulama ağ geçidinin oluşturulduğu alt ağdan özel bir IP adresi belirtebilirsiniz. Belirtmezseniz, rastgele bir IP adresi alt ağından otomatik olarak seçilir. Daha fazla bilgi için [bir iç yük dengeleyiciyle bir uygulama ağ geçidi oluşturma](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 

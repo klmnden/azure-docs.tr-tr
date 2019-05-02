@@ -3,19 +3,19 @@ title: RESTful hizmetlerinizi Azure Active Directory B2C'de HTTP temel kimlik do
 description: Azure AD B2C'yi özel, REST API talep alışverişlerine HTTP temel kimlik doğrulaması kullanarak güvenli hale getirin.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 07865b2120aa91381d3711688e1a5c8e3187fab3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793396"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694658"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak, RESTful Hizmetleri güvenli hale getirme
 

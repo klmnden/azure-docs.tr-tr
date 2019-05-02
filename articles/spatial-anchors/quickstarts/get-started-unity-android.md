@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç - Azure uzamsal Çıpasıyla Unity Android uygulaması oluşturma | Microsoft Docs
+title: Hızlı Başlangıç - Azure uzamsal Çıpasıyla bir Unity Android uygulaması oluşturma | Microsoft Docs
 description: Bu hızlı başlangıçta, bir Android uygulaması uzamsal bağlayıcılarını kullanarak Unity ile oluşturmayı öğrenin.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 001042a5499b492db151853172e999cf7a3c5f88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342521"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687830"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android Unity uygulama oluşturma
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla bir Unity Android uygulaması oluşturma
 
-Bu hızlı başlangıçta Android Unity kullanarak uygulama oluşturma konusunu kapsar [Azure uzamsal bağlayıcılarını](../overview.md). Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir ARCore Android uygulaması oluşturmuş olacaksınız.
+Bu hızlı başlangıçta kullanarak bir Unity Android uygulaması oluşturmak nasıl etkinleştireceğinizi de açıklar [Azure uzamsal bağlayıcılarını](../overview.md). Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir ARCore Android uygulaması oluşturmuş olacaksınız.
 
 Şunları öğrenirsiniz:
 

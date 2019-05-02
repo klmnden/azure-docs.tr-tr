@@ -1,25 +1,18 @@
 ---
-title: Azure IOT Edge modülü teklif oluşturma | Microsoft Docs
+title: Azure IOT Edge modülü teklif oluşturma | Azure Market
 description: Yeni bir IOT Edge modülü markette yayımlama yapma.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 98eb537a5c064cd22b995ae214c8d61db7a8b6b5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911535"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942490"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Bulut iş ortağı portalı ile yeni bir IOT Edge modülü teklif oluşturma
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box ile yönetilen disklere kopyalayın ve Vhd'lerden verileri içeri aktarma | Microsoft Docs
+title: Öğretici için vhd'lerden veri kopyalamak için yönetilen diskler ile Azure Data Box | Microsoft Docs
 description: Veri Vhd'lerden şirket içi VM iş yüklerini Azure Data Box için kopyalama hakkında bilgi edinin
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3284821e0ec65a76b29d5195315136639304e411
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463255"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925470"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Öğretici: Yönetilen diskler azure'da kullanım Data Box'ı olarak verileri içeri aktarmak için
 

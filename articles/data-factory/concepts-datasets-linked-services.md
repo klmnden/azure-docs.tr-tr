@@ -1,25 +1,25 @@
 ---
-title: Veri kümeleri ve bağlı hizmetler Azure Data factory'de | Microsoft Docs
-description: Veri kümeleri ve bağlı hizmetler Data factory'de hakkında bilgi edinin. Bağlı hizmetler data factory'de işlem/veri depoları bağlar. Veri kümeleri, girdi/çıktı verilerini temsil eder.
+title: Azure Data factory'deki veri kümelerini | Microsoft Docs
+description: Data factory'deki veri kümelerini hakkında bilgi edinin. Veri kümeleri, girdi/çıktı verilerini temsil eder.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262040"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866461"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler
+# <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-create-datasets.md)
 > * [Geçerli sürüm](concepts-datasets-linked-services.md)
@@ -29,11 +29,9 @@ Bu makale, JSON biçiminde nasıl tanımlandığına hangi veri kümelerinin old
 Data Factory kullanmaya yeni başladıysanız bkz [Azure Data Factory'ye giriş](introduction.md) genel bakış.
 
 ## <a name="overview"></a>Genel Bakış
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. A **işlem hattı** mantıksal bir gruplandırmasıdır **etkinlikleri** birlikte gerçekleştiren bir görev. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, verileri bir şirket içi SQL Server'dan Azure Blob depolama alanına kopyalamak için kopyalama etkinliğini kullanabilirsiniz. Ardından, verileri işlemek için çıkış verileri üretmek üzere Blob depolama alanından gönderilmiş olan bir Azure HDInsight kümesinde bir Hive betiği çalıştıran bir Hive etkinliği kullanabilirsiniz. Son olarak, çıktı verilerini Azure SQL veri ambarı'na çözümleri oluşturulur hangi iş zekası raporlama en üstünde (BI) kopyalamak için ikinci bir kopyalama etkinliği kullanabilirsiniz. İşlem hatları ve etkinlikler hakkında daha fazla bilgi için bkz: [işlem hatları ve etkinlikler](concepts-pipelines-activities.md) Azure Data factory'de.
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. A **işlem hattı** mantıksal bir gruplandırmasıdır **etkinlikleri** birlikte gerçekleştiren bir görev. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Artık, bir **veri kümesi** yalnızca işaret eden veya kullanmak istediğiniz verilere başvuran verilerin adlandırılmış bir görünümüdür olduğundan, **etkinlikleri** girdi ve çıktı olarak. Veri kümeleri tablolar, dosyalar, klasörler ve belgeler gibi farklı veri depolarındaki verileri tanımlar. Örneğin Azure Blob veri kümesi, etkinliğin verileri okuması için gereken blob kapsayıcısını ve Blob depolama klasörünü belirtir.
 
-Artık, bir **veri kümesi** yalnızca işaret eden veya kullanmak istediğiniz verilere başvuran verilerin adlandırılmış bir görünümüdür olduğundan, **etkinlikleri** girdi ve çıktı olarak. Veri kümeleri tablolar, dosyalar, klasörler ve belgeler gibi farklı veri depolarındaki verileri tanımlar. Örneğin Azure Blob veri kümesi, etkinliğin verileri okuması için gereken blob kapsayıcısını ve Blob depolama klasörünü belirtir.
-
-Bir veri kümesi oluşturmadan önce oluşturmanız gerekir bir **bağlı hizmet** data factory'de veri deponuza bağlamak için. Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Bunu, bu şekilde düşünün; veri kümesi bağlı veri depolarındaki veri yapısını temsil eder ve bağlı hizmet, veri kaynağına bağlantı tanımlar. Örneğin, bir Azure depolama bir depolama hesabını veri fabrikasına bağlı hizmeti. Bir Azure Blob veri kümesi blob kapsayıcıyı ve işlenecek giriş bloblarını içeren Azure depolama hesap dahilindeki klasörü temsil eder.
+Bir veri kümesi oluşturmadan önce oluşturmanız gerekir bir [ **bağlı hizmet** ](concepts-linked-services.md) data factory'de veri deponuza bağlamak için. Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Bunu, bu şekilde düşünün; veri kümesi bağlı veri depolarındaki veri yapısını temsil eder ve bağlı hizmet, veri kaynağına bağlantı tanımlar. Örneğin, bir Azure depolama bir depolama hesabını veri fabrikasına bağlı hizmeti. Bir Azure Blob veri kümesi blob kapsayıcıyı ve işlenecek giriş bloblarını içeren Azure depolama hesap dahilindeki klasörü temsil eder.
 
 Örnek senaryo aşağıda verilmiştir. Verileri Blob depolama alanından SQL veritabanına kopyalamak için iki bağlı hizmet oluşturursunuz: Azure depolama ve Azure SQL veritabanı. Ardından, iki veri kümesi oluşturursunuz: (Azure depolama bağlı hizmetini ifade eder) azure Blob veri kümesi ve Azure SQL tablosu veri kümesi (Bu, Azure SQL veritabanı bağlı hizmetini ifade eder). Azure depolama ve Azure SQL veritabanı bağlı hizmeti, Data Factory, Azure depolama ve Azure SQL veritabanı, sırasıyla bağlanmak için çalışma zamanında kullandığı bağlantı dizeleri içerir. Azure Blob veri kümesi blob kapsayıcısı ve Blob Depolama alanınızda giriş bloblarını içeren blob klasörü belirtir. Azure SQL tablosu veri kümesi, verilerin kopyalanacağı olduğu SQL veritabanınızda SQL tablosunu belirtir.
 
@@ -41,58 +39,9 @@ Aşağıdaki diyagramda, Data Factory'de işlem hattı, etkinlik, veri kümesi v
 
 ![İşlem hattı, etkinlik, veri kümesi, bağlı hizmetler arasındaki ilişki](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>JSON bağlantılı hizmeti
-Bağlı hizmet, Data Factory JSON biçiminde şu şekilde tanımlanır:
-
-```json
-{
-    "name": "<Name of the linked service>",
-    "properties": {
-        "type": "<Type of the linked service>",
-        "typeProperties": {
-              "<data store or compute-specific type properties>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
-
-Özellik | Açıklama | Gerekli |
--------- | ----------- | -------- |
-ad | Bağlı hizmetin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Bağlı hizmet türü. Örneğin: (Veri deposu) AzureStorage veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
-typeProperties | Tür özellikleri için her veri deposunun farklı veya işlem. <br/><br/> Türler ve tür özellikleri için desteklenen veri deposuna, bkz: [veri kümesi türü](#dataset-type) bu makaledeki tablo. Bir veri deposuna belirli tür özellikleri hakkında bilgi edinmek için veri deposu Bağlayıcısı makalesi gidin. <br/><br/> Desteklenen işlem türleri ve tür özellikleri için bkz. [işlem bağlı Hizmetleri](compute-linked-services.md). | Evet |
-connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır
-
-## <a name="linked-service-example"></a>Bağlı hizmet örneği
-Aşağıdaki bağlı hizmet bir Azure depolama bağlı hizmetidir. Türü için bir AzureStorage ayarlandığına dikkat edin. Tür özellikleri Azure depolama bağlı hizmeti için bir bağlantı dizesi içerir. Data Factory hizmetinin çalışma zamanında veri deposuna bağlanmak için bu bağlantı dizesini kullanır.
-
-```json
-{
-    "name": "AzureStorageLinkedService",
-    "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
 
 ## <a name="dataset-json"></a>Dataset JSON
-Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
+Bir veri kümesinde Data Factory aşağıdaki JSON biçiminde tanımlanır:
 
 ```json
 {
@@ -115,7 +64,6 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
         }
     }
 }
-
 ```
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
@@ -123,8 +71,54 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 -------- | ----------- | -------- |
 ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
 type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
-yapısı | Şema kümesi. Ayrıntılar için bkz [Dataset yapısını](#dataset-structure). | Hayır |
+yapısı | Şema kümesi. Ayrıntılar için bkz [veri kümesi şemasını](#dataset-structure-or-schema). | Hayır |
 typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
+
+### <a name="data-flow-compatible-dataset"></a>Veri akışı uyumlu veri kümesi
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
+Bkz: [desteklenen veri türleri](#dataset-type) olan veri kümesi türlerinin bir listesi için [veri akışı](concepts-data-flow-overview.md) uyumlu. Veri akışı için uyumlu olan veri kümeleri, dönüştürmeleri için ayrıntılı veri kümesi tanımları gerektirir. Bu nedenle, JSON tanımı biraz farklıdır. Yerine bir _yapısı_ veri akışı uyumlu olan veri kümeleri özelliğe sahip bir _şema_ özelliği.
+
+Veri kümeleri, veri akışı kaynak ve havuz dönüşümlerini kullanılır. Veri kümeleri temel veri şemaları tanımlayın. Verilerinizi hiçbir şema varsa, kaynak ve havuz için şema değişikliklerini kullanabilirsiniz. Şema kümesindeki şekli ve fiziksel veri türünü temsil eder.
+
+Veri kümesi şema tanımlayarak ilişkili bağlı hizmetinden ilgili veri türleri, veri biçimleri, dosya konumu ve bağlantı bilgilerini alırsınız. Meta veri kümelerinden kaynak dönüşümünüzü kaynağı olarak görünür *projeksiyon*. Projeksiyonun kaynak dönüşümü, veri akışı veri tanımlanmış adları ve türleri ile temsil eder.
+
+Bir veri akışı veri kümesi şemasını içeri aktardığınızda seçin **şema içeri aktarma** düğmesine tıklayın ve kaynak veya yerel bir dosyadan içeri aktarmak seçin. Çoğu durumda, doğrudan kaynaktan Şemayı içeri aktaracağız. Ancak, bir yerel şema dosyası (Parquet dosya veya üst bilgi içeren CSV) zaten varsa, bu dosyada şema temel Data Factory'nin yönlendirebilir.
+
+
+```json
+{
+    "name": "<name of dataset>",
+    "properties": {
+        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "linkedServiceName": {
+                "referenceName": "<name of linked service>",
+                "type": "LinkedServiceReference",
+        },
+        "schema": [
+            {
+                "name": "<Name of the column>",
+                "type": "<Name of the type>"
+            }
+        ],
+        "typeProperties": {
+            "<type specific property>": "<value>",
+            "<type specific property 2>": "<value 2>",
+        }
+    }
+}
+```
+
+Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
+
+Özellik | Açıklama | Gerekli |
+-------- | ----------- | -------- |
+ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
+type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
+Şema | Şema kümesi. Ayrıntılar için bkz [uyumlu veri kümeleri veri akışı](#dataset-type). | Hayır |
+typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
+
 
 ## <a name="dataset-example"></a>Veri kümesi örneği
 Aşağıdaki örnekte, bir SQL veritabanı'nda MyTable adlı bir tablo veri kümesini temsil eder.
@@ -155,7 +149,7 @@ Aşağıdaki noktalara dikkat edin:
 ## <a name="dataset-type"></a>Veri kümesi türü
 Farklı türlerde veri kümeleri, kullandığınız veri deposuna bağlı olarak vardır. Data Factory tarafından desteklenen veri depolarının listesi için aşağıdaki tabloya bakın. Bir veri deposunu bağlı hizmet ve bu veri deposu için bir veri kümesi oluşturma hakkında bilgi edinmek için tıklayın.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
 
 Önceki bölümdeki örnekte, veri kümesi türü kümesine **AzureSqlTable**. Benzer şekilde, bir Azure Blob veri kümesi için veri kümesi türü ayarlanacağını **AzureBlob**aşağıdaki JSON'da gösterildiği gibi:
 
@@ -180,8 +174,9 @@ Farklı türlerde veri kümeleri, kullandığınız veri deposuna bağlı olarak
     }
 }
 ```
-## <a name="dataset-structure"></a>Veri kümesi yapısı
-**Yapısı** bölümüne, isteğe bağlıdır. Bu veri kümesi şemasını içeren bir koleksiyon adları ve sütunların veri türlerini tarafından tanımlar. Türleri dönüştürme ve kaynaktan hedef sütunlara eşlemek için kullanılan tür bilgileri sağlamak için yapı bölümünü kullanın.
+
+## <a name="dataset-structure-or-schema"></a>DataSet yapısını veya şema
+**Yapısı** bölüm veya **şema** bölüm DataSet (veri akışı uyumlu), isteğe bağlıdır. Bu veri kümesi şemasını içeren bir koleksiyon adları ve sütunların veri türlerini tarafından tanımlar. Türleri dönüştürme ve kaynaktan hedef sütunlara eşlemek için kullanılan tür bilgileri sağlamak için yapı bölümünü kullanın.
 
 Her sütunda yapısı aşağıdaki özellikleri içerir:
 
@@ -230,4 +225,4 @@ Bu araçlar ve SDK'lar birini kullanarak işlem hatlarını ve veri kümeleri ol
 - [Hızlı başlangıç: .NET kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
 - [Hızlı Başlangıç: PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md)
 - [Hızlı Başlangıç: REST API kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-rest-api.md)
-- Hızlı Başlangıç: Azure portalını kullanarak veri fabrikası oluşturma
+- [Hızlı Başlangıç: Azure portalını kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-portal.md)

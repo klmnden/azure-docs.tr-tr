@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217583"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867902"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services'i kullanarak canlı akış genel bakış
 
 > [!NOTE]
-> Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım akışı destek alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) alma protokolleri.
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -44,7 +44,12 @@ Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bile�
 
 **Microsoft Azure Media Services** (AMS) canlı akış içeriğinizi alma, kodlama, önizleme, depolama ve teslim etme olanağı sağlar.
 
-İçeriğinizi müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video sunmaktır. Bunu başarmak için gerçek zamanlı kodlayıcılar kullanarak akışınızı Çoklu bit hızlı (bit hızı Uyarlamalı) video akışına kodlayın kullanın.  Farklı cihazlarda akış yapmayı halletmek için Media Services [dinamik paketlemesini](media-services-dynamic-packaging-overview.md) kullanarak akışınızı dinamik olarak yeniden farklı protokollere paketleyin. Media Services teslim aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akış (HLS), kesintisiz akış, MPEG DASH.
+Media Services ile avantajlarından yararlanabilirsiniz [dinamik paketleme](media-services-dynamic-packaging-overview.md), MPEG DASH, HLS, Canlı akışlarınız yayın olanak tanıyan ve kesintisiz akış biçimleri gelen akış hizmetine gönderilen katkı. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Bu protokollerin birinde akışınız sunmak için web veya mobil uygulamaları Azure Media Player kullanabilirsiniz.
+
+> [!NOTE]
+> Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım akışı destek alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) alma protokolleri.
+
+## <a name="streaming-endpoints-channels-programs"></a>Akış uç noktaları, Kanallar, programlar
 
 Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktaları**; alma biçimlendirme, DVR, güvenlik, ölçeklenebilirlik ve yedeklilik dahil olmak üzere tüm canlı akış işlevlerini idare eder.
 

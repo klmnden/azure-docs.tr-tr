@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 7c31801156ee321fe93d73de41fc68179835261a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831121"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946738"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell kullanarak Key Vault sertifikaları ile SSL sonlandırma yapılandırın
 
@@ -21,9 +21,6 @@ ms.locfileid: "60831121"
 Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
 
 Bu makalede anahtar kasası için SSL sonlandırma sertifikalarını uygulama ağ geçidi ile tümleştirmek için bir Azure PowerShell Betiği gösterilmektedir.
-
-> [!IMPORTANT]
-> Uygulama ağ geçidi Key Vault tümleştirmesi şu anda genel Önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

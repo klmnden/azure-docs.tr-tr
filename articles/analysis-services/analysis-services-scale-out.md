@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766818"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939664"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -39,13 +39,13 @@ Yalnızca, bir ilk kez genişleme sunucusu, bir otomatik eşitleme gerçekleşti
 
 Sonraki bir ölçeklendirme işlemi gerçekleştirirken, örneğin, iki beş, sorgu havuzundaki çoğaltmalar sayısını artırmak yeni çoğaltmaları dosyaları blob depolama alanında ikinci kümesini verilerle hydrated. Eşitleme yoktur. Daha sonra gerçekleştirmeyi olsaydı ölçeği genişletme, sorgu havuzu yeni yinelemede olacaktır sonra eşitleme yedekli hidrasyonu iki kez - hydrated. Sonraki bir ölçeklendirme işlemi gerçekleştirirken, göz önünde bulundurmanız önemlidir:
 
-* Bir eşitleme gerçekleştirmeniz *ölçeklendirme işleminden önce* eklenen çoğaltmaların yedek hidrasyonu önlemek için.
+* Bir eşitleme gerçekleştirmeniz *ölçeklendirme işleminden önce* eklenen çoğaltmaların yedek hidrasyonu önlemek için. Eşzamanlı bir eşitleme ve ölçek genişletme işlemleri aynı anda çalışan izin verilmez.
 
 * Her iki işlem otomatikleştirirken *ve* ölçek genişletme işlemleri önemlidir ilk olarak birincil sunucuda, veri işleme sonra bir eşitleme gerçekleştirin ve sonra genişleme işlemi gerçekleştirin. Bu sıra QPU ve bellek kaynakları üzerinde en az etki sağlar.
 
 * Eşitleme bile sorgu havuzundaki hiçbir çoğaltması olduğunda izin verilir. Sıfırdan yeni verilerle bir veya daha fazla çoğaltma birincil sunucudaki bir işleme işlemi ölçeği genişletmeyi, sorgu havuzundaki hiçbir çoğaltması ile ilk eşitleme gerçekleştirin ve sonra ölçek genişletme. Ölçeği genişletme önce eşitleme, yeni eklenen çoğaltmaların yedek hidrasyonu önler.
 
-* Bir model veritabanı birincil sunucudan silinirken, otomatik olarak sorgu havuzundaki çoğaltmaların silinebilir değil. Bir eşitleme işlemi kullanarak gerçekleştirmeniz gerektiğini [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) bu veritabanı için dosya/sn yinelemenin paylaşılan blob depolama konumundan kaldırır ve ardından modeli siler PowerShell komutu Sorgu havuzundaki çoğaltmalarındaki veritabanı.
+* Bir model veritabanı birincil sunucudan silinirken, otomatik olarak sorgu havuzundaki çoğaltmaların silinebilir değil. Bir eşitleme işlemi kullanarak gerçekleştirmeniz gerektiğini [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) bu veritabanı için dosya/sn yinelemenin paylaşılan blob depolama konumundan kaldırır ve ardından modeli siler PowerShell komutu Sorgu havuzundaki çoğaltmalarındaki veritabanı. Bir model veritabanı sorgu havuzundaki çoğaltmalar ancak birincil sunucu olup olmadığını belirlemek için olun **işleme sunucu havuzu sorgulamasını ayrı** ayardır için **Evet**. SSMS kullanarak birincil sunucunuza bağlanmak kullanmasını `:rw` niteleyicisi veritabanı bulunup bulunmadığına bakın. Ardından sorgu havuzundaki çoğaltmalar olmadan bağlanarak bağlanın `:rw` aynı veritabanını da olup olmadığını görmek için niteleyicisi. Sorgu havuzundaki çoğaltmalar ancak birincil sunucu veritabanı zaten varsa, bir eşitleme işlemini çalıştırın.   
 
 * Birincil sunucuda bir veritabanını yeniden adlandırma, veritabanı için tüm çoğaltmaları doğru eşitlendiğinden emin olmak için gereken ek bir adım yoktur. Yeniden adlandırdıktan sonra eşitleme kullanarak gerçekleştirin. [eşitleme AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) komut belirtme `-Database` parametresi eski bir veritabanı adı. Bu eşitleme, eski adıyla dosya ve veritabanı tüm çoğaltmaları kaldırır. Ardından başka bir eşitleme belirtme gerçekleştirin `-Database` yeni veritabanı adı ile parametre. İkinci eşitleme, yeni adlandırılmış veritabanı dosyaları ikinci kümesine kopyalar ve tüm çoğaltmaları hydrates. Portalda Eşitle modeli komutunu kullanarak bu eşitleme gerçekleştirilemiyor.
 
@@ -58,6 +58,8 @@ Hem işlem hem de sorgu işlemleri için en yüksek performans için işlem sunu
 Sunucunuz gerekli için ölçek genişletme belirlemek için Azure portalında sunucunuzu ölçümleri kullanarak izleyin. Çıkış, QPU düzenli olarak yükselir, Modellerinizi karşı sorgu sayısı, planınız için QPU sınırını aştığından anlamına gelir. Sorgu iş parçacığı havuzu kuyruğundaki sorgusu sayısı üzerinden kullanılabilir QPU aştığında sorgu havuzu iş kuyruğu uzunluğu ölçüm da artırır. 
 
 İzlemek için başka bir iyi ölçüm ServerResourceType göre ortalama QPU ' dir. Bu ölçüm, sorgu havuzu birincil sunucusu için ortalama QPU karşılaştırır. 
+
+![Sorgu ölçeği genişletme ölçümleri](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>QPU ServerResourceType tarafından yapılandırmak için
 1. Ölçümleri çizgi grafiğine tıklayın **ölçüm Ekle**. 
@@ -146,6 +148,8 @@ Azure işlev uygulamaları ve ÇYN, SSMS, SSDT ve PowerShell bağlantı dizeleri
 **Sorun:** Kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
 
 **Çözüm:** Seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan `:rw`) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için olmalıdır en az iki sunucu sorgu havuzundaki bir eşitleme yaparken. Her sunucu, tek tek diğer çevrimiçi kalırken eşitlenir. İşleme sunucusunu sorgu havuzu işleme sırasında yok. isterseniz, işleme için havuzundan kaldırın ve ardından havuza geri işleme tamamlandıktan sonra ancak eşitleme öncesindeki ekleyin seçebilirsiniz. Eşitleme durumunu izlemek için bellek ve QPU ölçümlerini kullanın.
+
+
 
 ## <a name="related-information"></a>İlgili bilgiler
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290066"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939850"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir cephe filtresi oluşturma 
 
@@ -35,7 +35,7 @@ Yeni çok yönlü gezinme ve isterseniz daha ayrıntılı bilgi? Bkz: [Azure Ara
 
 ## <a name="choose-fields"></a>Alanları seçin
 
-Modelleri koleksiyonları yanı sıra tek değer alanlar hesaplanır. En çok yönlü gezinme çalışma alanlarına sahip düşük önem düzeyi: çok az sayıda, arama topluluğunuza (örneğin, renkleri, ülke veya marka adları listesi) belgelerde boyunca yineleyin farklı değerleri. 
+Modelleri koleksiyonları yanı sıra tek değer alanlar hesaplanır. En çok yönlü gezinme çalışma alanlarına sahip düşük önem düzeyi: çok az sayıda, arama topluluğunuza (örneğin, renkleri, ülkeler/bölgeler veya marka adları listesi) belgelerde boyunca yineleyin farklı değerleri. 
 
 Model oluşturma aşağıdaki öznitelikleri TRUE olarak ayarlayarak dizini oluştururken bir alanı alanlı temelinde etkin: `filterable`, `facetable`. Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768493"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719815"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mavi ekran hata, bir Azure sanal makinesi önyükleme yaparken gösterir.
 Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) önyüklediğinizde karşılaşabileceğiniz mavi ekran hataları açıklanır. Bu, bir destek bileti için veri toplamanıza yardımcı olması için adımları sağlar. 
@@ -56,7 +56,7 @@ Bu sorunu çözmek için kilitlenme döküm dosyası toplayın ve bilgi döküm 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Döküm dosyasını bulun ve bir destek bileti gönderin
 
 1. Kurtarma sanal makinesinde windows klasörü ekli işletim sistemi diski gidin. Ekli işletim sistemi diski için atanan sürücü harfini F ise F:\Windows için gitmeniz gerekiyor.
-2. TH memory.dmp dosyasını bulun ve ardından [bir destek bileti gönderin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) döküm dosyası. 
+2. Memory.dmp dosyasını bulun ve ardından [bir destek bileti gönderin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) döküm dosyası. 
 
 Döküm dosyasını bulamazsanız, döküm günlük ve seri konsol etkinleştirmek için sonraki adımına geçmek.
 

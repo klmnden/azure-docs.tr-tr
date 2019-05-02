@@ -1,5 +1,5 @@
 ---
-title: Bir uygulamayı web API'lerine erişecek şekilde yapılandırma (Önizleme) | Azure
+title: Web API'leri - Microsoft kimlik platformu erişmek için bir uygulama yapılandırma
 description: Microsoft kimlik platformuyla kaydedilen uygulamaları yeniden yönlendirme URI’leri, kimlik bilgileri veya web API’lerine erişmek için izinleri içerecek şekilde yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e5adafc251735fd25b819921514bf6d1d3c3955
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443604"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918873"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) erişmek için bir istemci uygulaması yapılandırma
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Hızlı Başlangıç: Bir istemci uygulamasını web API'lerine erişecek şekilde yapılandırma
 
 Bir web/gizli istemci uygulamasının kimlik doğrulaması gerektiren bir yetkilendirme akışına dahil olabilmesi (ve erişim belirteci alabilmesi) için güvenli kimlik bilgileri kullanması gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulaması yöntemi istemci kimliği ve gizli anahtar kullanımıdır.
 
@@ -61,7 +61,7 @@ Uygulamayı yapılandırmadan önce, aşağıdaki adımları izleyin:
 1. Yapılandırmak istediğiniz uygulamayı bulun ve seçin. Uygulamayı seçtiğinizde, uygulamanın **Genel Bakış** veya ana kayıt sayfasını görürsünüz.
 1. Uygulamanızı web API'lerine erişmek üzere yapılandırmak için adımları izleyin: 
     * [Uygulamanıza yeniden yönlendirme URI’leri ekleme](#add-redirect-uris-to-your-application)
-    * [Web uygulamanıza kimlik bilgileri ekleme](#add-credentials-to-your-web-application)
+    * [Web uygulamanız için kimlik bilgilerini ekleyin](#add-credentials-to-your-web-application)
     * [Web API’lerine erişim izinleri ekleme](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>Uygulamanıza yeniden yönlendirme URI’leri ekleme

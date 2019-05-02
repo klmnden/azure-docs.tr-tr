@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308657"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716102"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
@@ -83,14 +83,14 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 |Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 | İletiler (Önizleme) | Bir sıradaki/konudaki iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
 | ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
+| Eski lettered iletileri (Önizleme) | Bir sıradaki/konudaki iletilerin eski lettered sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/>Boyut: EntityName |
+| Zamanlanmış iletileri (Önizleme) | Bir sıradaki/konudaki zamanlanmış iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama  <br/> Boyut: EntityName |
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümü
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Kaynak kullanım ölçümleri
 
@@ -115,7 +115,7 @@ Azure Service Bus, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlar
 1. Üzerinde **ölçümleri** sekmesinde **Service Bus Namespace** sayfasında **uyarılarını yapılandırma**. 
 
     ![Ölçümleri sayfasında - uyarılar menüsünde yapılandırma](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Seçin **hedefi seçme**, ve aşağıdaki işlemleri yapmak **bir kaynak seçin** sayfası: 
+2. Seçin **hedefi seçme** seçenek ve aşağıdaki işlemleri yapmak **bir kaynak seçin** sayfası: 
     1. Seçin **Service Bus ad alanları** için **kaynak türüne göre filtre** alan. 
     2. Aboneliğinizi seçin **aboneliğe göre filtrele** alan.
     3. Seçin **service bus ad alanı** listeden. 

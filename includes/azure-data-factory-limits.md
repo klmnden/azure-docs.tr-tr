@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553831"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733781"
 ---
 Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Aboneliğiniz için en sınırları artırmak için desteğe başvurun.
 
@@ -26,7 +26,7 @@ Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini k
 | Bir abonelik altında toplam CPU çekirdeği için Azure-SSIS tümleştirme çalışma zamanları | 256 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Tüm işlem hatları fabrikasında arasında paylaşılan bir veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Kapsayıcılar için iç etkinliklerini içeren işlem hattı başına en fazla etkinlikleri | 40 | 40 |
-| Bir tek şirket içinde barındırılan tümleştirme çalışma zamanı karşı oluşturulabilir bağlı tümleştirme çalışma zamanları sayısı | 20 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Bir tek şirket içinde barındırılan tümleştirme çalışma zamanı karşı oluşturulabilir bağlı tümleştirme çalışma zamanları sayısı | 100 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
 | ForEach öğeleri | 100.000 | 100.000 |
 | ForEach paralelliği | 20 | 50 |

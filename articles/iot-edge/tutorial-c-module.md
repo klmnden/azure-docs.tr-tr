@@ -1,22 +1,24 @@
 ---
-title: Öğretici, Azure IOT Edge - özel C modülü oluşturma | Microsoft Docs
-description: Bu öğreticide C koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilir
+title: Öğretici geliştirme C modülü Linux - Azure IOT Edge | Microsoft Docs
+description: Bu öğretici, C kodu ile bir IOT Edge modülü oluşturun ve IOT Edge çalıştıran bir Linux cihazına dağıtmak nasıl gösterir
 services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/04/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5f6b6473a3cbe078ae2357e1f908788e54af25d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612114"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573437"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir C IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
+# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Öğretici: Linux cihazlar için bir C IOT Edge modülü geliştirme
+
+Visual Studio Code, C kodu geliştirmek ve Azure IOT Edge çalıştıran bir Linux cihazına dağıtmak için kullanın. 
 
 İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide, algılayıcı verilerini filtreleyen bir IoT Edge modülü oluşturma ve dağıtma işlemlerinin adımları açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -26,63 +28,40 @@ ms.locfileid: "60612114"
 > * Modüle IoT Edge cihazınıza dağıtma
 > * Oluşturulan verileri görüntüleme
 
-
 Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından oluşturulan sıcaklık verilerini filtreler. İletileri yalnızca sıcaklık belirtilen bir eşiğin üzerindeyse yukarı yönde gönderir. Bu tür bir analiz, buluta iletilen ve bulutta depolanan veri miktarını azaltmak için yararlıdır.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="solution-scope"></a>Çözüm kapsamı
+
+Bu öğreticide bir modülde nasıl geliştirilebileceğini gösterir **C** kullanarak **Visual Studio Code**ve dağıtmak nasıl bir **Linux cihaz**. Windows cihazlar için modülleri geliştiriyorsanız, Git [Windows cihazlar için bir C IOT Edge modülü geliştirme](tutorial-c-module-windows.md) yerine.
+
+Geliştirme ve Linux için C modülleri dağıtma seçeneklerinizi anlamak için aşağıdaki tabloyu kullanın: 
+
+| C | Visual Studio Code | Visual Studio 2017 | 
+| - | ------------------ | ------------------ |
+| **Linux AMD64** | ![Linux AMD64 C modülleri için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![VS 2017 Linux AMD64 üzerinde C modüller için kullanın](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![Linux ARM32 üzerinde C modüller için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![VS 2017 Linux ARM32 üzerinde C modüller için kullanın](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bir Azure IoT Edge cihazı:
-
-* Bir Azure sanal makinesi için hızlı başlangıç adımları izleyerek bir IOT Edge cihazı kullanabilirsiniz [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md). 
-
-   >[!TIP]
-   >Bu öğreticide, Linux kapsayıcıları kullanarak bir C modülü geliştirme için Visual Studio Code kullanır. C için Windows kapsayıcıları geliştirmek istiyorsanız, Visual Studio 2017'kullanmanız gerekir. Daha fazla bilgi için [kullanım Visual Studio 2017 geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için](how-to-visual-studio-develop-module.md).
-
-Bulut kaynakları:
+Bu öğreticiye başlamadan önce Linux kapsayıcı geliştirme için geliştirme ortamınızı ayarlamak için önceki öğreticide çalıştınız: [IOT Edge modülleri Linux cihazlar için geliştirme](tutorial-develop-for-linux.md). Bu öğreticiyi izleyerek, aşağıdaki önkoşulların yerinde olmalıdır: 
 
 * Azure'da ücretsiz veya standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md).
+* A [Azure IOT Edge çalıştıran Linux cihaz](quickstart-linux.md)
+* Kapsayıcı kayıt defteri gibi [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) ile yapılandırılmış [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) Linux kapsayıcıları çalıştırmak üzere yapılandırılmış.
 
-Geliştirme kaynakları:
+C dilinde bir IOT Edge modülü geliştirme için geliştirme makinenizde aşağıdaki ek önkoşulları yükleyin: 
 
-* [Visual Studio Code](https://code.visualstudio.com/).
 * Visual Studio Code için [C/C++ uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Visual Studio Code için.
-* [Docker CE](https://docs.docker.com/install/).
 
-## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
+## <a name="create-a-module-project"></a>Bir modülü projesi oluşturma
 
-Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT araçları kullanmak bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.
+Aşağıdaki adımlar, Visual Studio Code ve Azure IOT araçları uzantısını kullanarak, C için IOT Edge modülü projesinde oluşturur. Oluşturulan proje şablonu oluşturduktan sonra böylece modül bildirilen özelliklerine göre iletileri filtreler yeni kod ekleyin. 
 
-Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır.
-
-Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için aşağıdaki adımları izleyin:
-
-1. [Azure portalında](https://portal.azure.com), **Kaynak oluştur** > **Kapsayıcılar** > **Container Registry**'yi seçin.
-
-2. Kapsayıcı kayıt defterinizi oluşturmak için aşağıdaki değerleri girin:
-
-   | Alan | Değer |
-   | ----- | ----- |
-   | Kayıt defteri adı | Benzersiz bir ad girin. |
-   | Abonelik | Açılan listeden bir abonelik seçin. |
-   | Kaynak grubu | IoT Edge hızlı başlangıçlarında ve öğreticilerinde oluşturduğunuz tüm test kaynakları için aynı kaynak grubunu kullanmanızı öneririz. Örneğin, **IoTEdgeResources**. |
-   | Konum | Size yakın bir konum seçin. |
-   | Yönetici kullanıcı | **Etkinleştir**'i seçin. |
-   | SKU | **Temel**'i seçin. |
-
-5. **Oluştur**’u seçin.
-
-6. Kapsayıcı kayıt defteriniz oluşturulduktan sonra, bu kayıt defterine gidin ve **Erişim anahtarları**'nı seçin.
-
-7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız.
-
-## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
-Aşağıdaki adımlar, bir IOT Edge modülü projesi oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Visual Studio Code ve Azure IOT araçları çekirdek gösterir.
-
-### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
 Kendi yazacağınız kodla özelleştirebileceğiniz bir C çözüm şablonu oluşturun.
 
@@ -102,14 +81,6 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C çözüm şablonu olu
  
    ![Docker görüntü deposunu sağlama](./media/tutorial-c-module/repository.png)
 
-VS Code penceresinin beş düzey bileşenleri ile IOT Edge çözüm çalışma yükler. **Modülleri** modülünüzde C kodunu ve dockerfile'ları, modül olarak bir kapsayıcı görüntüsü oluşturmak için klasör içerir. **\.env** dosyasında kapsayıcı kayıt defterinizin kimlik bilgileri yer alır. **deployment.template.json** dosyasında IoT Edge çalışma zamanının modülleri cihazlara dağıtmak için kullandığı bilgiler bulunur. Ve **deployment.debug.template.json** kapsayıcıları dosyanın modülleri hata ayıklama sürümü. Bu öğreticide **\.vscode** klasörünü veya **\.gitignore** dosyasını düzenlemeyeceksiniz.
-
-Çözümünüzü oluştururken kapsayıcı kayıt defteri belirtmediyseniz ve varsayılan localhost:5000 değerini kabul ettiyseniz \.env dosyanız olmaz.
-
-<!--
-   ![C solution workspace](./media/tutorial-c-module/workspace.png)
--->
-
 ### <a name="add-your-registry-credentials"></a>Kayıt defteri kimlik bilgilerinizi ekleme
 
 Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu bilgileri IoT Edge çalışma zamanı ile paylaşır. Çalışma zamanı, özel görüntülerinizi IoT Edge cihazına çekmek için bu kimlik bilgilerine ihtiyaç duyar.
@@ -118,9 +89,17 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 2. Alanları Azure kapsayıcı kayıt defterinizden kopyaladığınız **kullanıcı adı** ve **parola** değerleriyle güncelleştirin.
 3. Bu dosyayı kaydedin.
 
+### <a name="select-your-target-architecture"></a>Hedef Mimarinizi seçin
+
+Şu anda, Visual Studio Code, C modülleri Linux AMD64 ve Linux ARM32v7 cihazlar için geliştirebilirsiniz. Kapsayıcı oluşturulur ve her bir mimari türü için farklı çalıştır olduğundan, her bir çözüm ile hedeflediğiniz hangi mimari seçmeniz gerekir. Linux AMD64 varsayılandır. 
+
+1. Komut paletini açın ve arama **Azure IOT Edge: Varsayılan hedef Platform için Edge çözümü ayarlayın**, veya pencerenin alt kısmındaki kenar çubuğu kısayol simgesini seçin. 
+
+2. Komut paletini hedef mimari seçeneklerini listeden seçin. Bu öğreticide, bir Ubuntu sanal makinesi varsayılan tutacak şekilde IOT Edge cihazı kullandığımız **amd64**. 
+
 ### <a name="update-the-module-with-custom-code"></a>Modülü özel kodla güncelleştirme
 
-Kodu C modülünüzde bildirilen makine sıcaklık güvenli bir eşiği aştı olup olmadığını denetlemek izin ekleyin. Sıcaklık çok yüksekse, modül IOT Hub'ına verileri göndermeden önce bir uyarı parametresi iletiye ekler. 
+Varsayılan modülü kodu, bir giriş kuyruğundaki iletileri alır ve bunları boyunca bir çıkış kuyruğuna aktarır. Böylece IOT Hub'ına iletmeden önce modülün uçta iletileri işleyen ek biraz kod ekleyelim. Modül güncelleştirin, böylece her ileti sıcaklık verileri analiz eder ve yalnızca sıcaklık belirli bir eşiği aşarsa, IOT Hub'ına ileti gönderir. 
 
 1. Bu senaryoda sensörden alınan veriler JSON biçimindedir. JSON biçimindeki iletileri filtreleme amacıyla C için bir JSON kitaplığını içeri aktarın. Bu öğreticide Parson kullanılmıştır.
 
@@ -151,41 +130,28 @@ Kodu C modülünüzde bildirilen makine sıcaklık güvenli bir eşiği aştı o
     static double temperatureThreshold = 25;
     ```
 
-1. `CreateMessageInstance` işlevinin tamamını aşağıdaki kodla değiştirin. Bu işlev geri çağırma için bir bağlam ayırır.
+1. Bulma `CreateMessageInstance` main.c işlevi. İç if-else deyimi birkaç satırlık bir işlevsellik ekleyen aşağıdaki kodla değiştirin: 
 
-    ```c
-    static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
-    {
-        MESSAGE_INSTANCE* messageInstance = (MESSAGE_INSTANCE*)malloc(sizeof(MESSAGE_INSTANCE));
-        if (NULL == messageInstance)
-        {
-            printf("Failed allocating 'MESSAGE_INSTANCE' for pipelined message\r\n");
-        }
-        else
-        {
-            memset(messageInstance, 0, sizeof(*messageInstance));
+   ```c
+   if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
+   {
+       free(messageInstance);
+       messageInstance = NULL;
+   }
+   else
+   {
+       messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+       MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
+       if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+       {
+          printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+       }
+   }
+   ```
 
-            if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
-            {
-                free(messageInstance);
-                messageInstance = NULL;
-            }
-            else
-            {
-                messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
-                MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
-                if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
-                {
-                    printf("ERROR: Map_AddOrUpdate Failed!\r\n");
-                }
-            }
-        }
+   Else deyimi kod yeni satırlarını yeni bir özellik olarak bir uyarı iletisi etiketler ileti ekleyin. Bu kod tüm iletileri uyarıları olarak etiketler, çünkü bunlar yüksek Sıcaklıkların raporu, yalnızca IOT Hub'ına iletileri gönderir işlevselliği ekleyeceğiz. 
 
-        return messageInstance;
-    }
-    ```
-
-1. `InputQueue1Callback` işlevinin tamamını aşağıdaki kodla değiştirin. Bu işlev gerçek bir mesajlaşma filtresi uygular.
+1. `InputQueue1Callback` işlevinin tamamını aşağıdaki kodla değiştirin. Bu işlev gerçek bir mesajlaşma filtresi uygular. Bir ileti alındığında, bildirilen sıcaklık eşiği aşıyor olup olmadığını denetler. Evet ise, daha sonra çıktı sırasındaki üzerinden ileti iletir. Aksi durumda, iletiyi yok sayıyor. 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -205,6 +171,7 @@ Kodu C modülünüzde bildirilen makine sıcaklık güvenli bir eşiği aştı o
         printf("Received Message [%zu]\r\n Data: [%s]\r\n",
                 messagesReceivedByInput1Queue, messageBody);
 
+        // Check if the message reports temperatures higher than the threshold
         JSON_Value *root_value = json_parse_string(messageBody);
         JSON_Object *root_object = json_value_get_object(root_value);
         double temperature;
@@ -265,7 +232,7 @@ Kodu C modülünüzde bildirilen makine sıcaklık güvenli bir eşiği aştı o
     }
     ```
 
-1. `SetupCallbacksForModule` işlevini aşağıdaki kodla değiştirin.
+1. Bulma `SetupCallbacksForModule` işlevi. İşlev ekleyen aşağıdaki kodla değiştirin. bir **else if** deyimini modül ikizi güncelleştirilip güncelleştirilmediğini kontrol edin.
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -293,76 +260,53 @@ Kodu C modülünüzde bildirilen makine sıcaklık güvenli bir eşiği aştı o
 
 1. Main.c dosyayı kaydedin.
 
-1. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya, bu durumda dağıtmak için hangi modülü IOT Edge Aracısı söyler **tempSensor** ve **CModule**ve bunlar arasında iletileri yönlendirme hakkında IOT Edge hub'ı söyler. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
-
-   1. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **CModule** görüntünün Linux amd64 sürümünü ayarlayın. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** , IOT Edge cihazınızın mimari ise. 
-
-      ![Modül görüntü platform güncelleştirmesi](./media/tutorial-c-module/image-platform.png)
-
-   2. Şablonda doğru modül adının bulunduğunu ve IoT Edge çözümünü oluştururken değiştirdiğiniz varsayılan **SampleModule** adının kullanılmadığından emin olun.
-
-   3. **RegistryCredentials** bölümü depolar, Docker kayıt defteri kimlik bilgilerini böylece modül görüntünüzü IOT Edge Aracısı çekebilirsiniz. Gerçek kullanıcı adı ve parola çiftleri, git tarafından yoksayılan .env dosyasında depolanır. Henüz yapmadıysanız, kimlik bilgilerinizi .env dosyaya ekleyin.  
-
-   4. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek istiyorsanız bkz [modülleri dağıtma ve IOT Edge'de rotaları oluşturmak hakkında bilgi edinin](module-composition.md).
+1. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. 
 
 1. Dağıtım bildirimine CModule modül ikizini ekleyin. Aşağıdaki JSON içeriğini `moduleContent` bölümünün en altına, `$edgeHub` modül ikizinin arkasına ekleyin:
 
    ```json
-       "CModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
+   "CModule": {
+       "properties.desired":{
+           "TemperatureThreshold":25
        }
+   }
    ```
 
    ![Dağıtım şablonuna CModule ikizi ekleme](./media/tutorial-c-module/module-twin.png)
 
 1. **deployment.template.json** dosyasını kaydedin.
 
-## <a name="build-and-push-your-solution"></a>Oluşturun ve çözümünüzü gönderin
+## <a name="build-and-push-your-module"></a>Oluşturun ve modülünüzde gönderin
 
 Önceki bölümde, IOT Edge çözümünü oluşturan ve iletileri kabul edilebilir sınırlar içinde bildirilen makine sıcaklık olduğu filtre CModule kod eklenir. Şimdi çözümü kapsayıcı görüntüsü olarak derlemeniz ve kapsayıcı kayıt defterine göndermeniz gerekiyor.
 
-1. **Görünüm** > **Terminal**'i seçerek VS Code tümleşik terminalini açın.
+1. VS Code terminal seçerek açın **görünümü** > **Terminal**.
 
-1. Visual Studio Code tümleşik terminaline aşağıdaki komutu girerek Docker’da oturum açın. Modül görüntünüzü kayıt defterine gönderebilmek için Azure Container Registry kimlik bilgilerinizle oturum açmanız gerekir.
+1. Terminalde aşağıdaki komutu girerek Docker'da oturum açın. Kullanıcı adı, parola ve oturum açma sunucusu, Azure container registry'den oturum açın. Bu değerleri alabilirsiniz **erişim anahtarları** Azure portalında kayıt defterinizin bölümü.
      
-   ```csh/sh
+   ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Birinci bölümde Azure Container Registry'den kopyaladığınız kullanıcı adını, parolayı ve oturum açma sunucusunu kullanın. Veya Azure portalındaki kaydınızın **Erişim anahtarları** bölümünden tekrar alın.
+
+   Kullanılmasını öneren bir güvenlik uyarısı alabilirsiniz `--password-stdin`. Bu en iyi uygulama, üretim senaryoları için önerilir, bu öğreticinin kapsamı dışında olan. Daha fazla bilgi için [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) başvuru.
 
 2. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build and Push IoT Edge solution** (IoT Edge Çözümü Oluştur ve Gönder) öğesini seçin.
 
-Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde yeni bir **config** klasöründe bir `deployment.json` dosyası oluşturur. deployment.json dosyası için gerekli bilgiler güncelleştirdiğiniz şablon dosyasından, kapsayıcı kayıt defterinizi depolamak için kullandığınız .env dosyasından ve CModule klasöründeki module.json dosyasından alınır.
+   Derleme ve gönderme komut üç işlemi başlatır. İlk olarak, adlı bir çözüm içinde yeni bir klasör oluşturur **config** , tam bir dağıtım bildirimi, yerleşik dağıtım şablonu bilgilerinin kullanıma ve diğer çözüm dosyalarını içerir. İkinci olarak, çalıştığında `docker build` uygun dockerfile, hedef mimari için temel kapsayıcı görüntüsünü oluşturmak için. Ardından, çalışan `docker push` kapsayıcı kayıt defterinize görüntü deposuna gönderin.
 
-Ardından Visual Studio Code, tümleşik terminalde `docker build` ve `docker push` komutlarını çalıştırır. Bu iki komut kodunuzu derler, `CModule.dll` ile kapsayıcı oluşturur ve bunu çözümü başlatırken belirttiğiniz kapsayıcı kayıt defterine gönderir.
+## <a name="deploy-modules-to-device"></a>Modüller cihazına dağıtma
 
-VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini görebilirsiniz. Görüntü adresi `module.json` dosyasından **\<depo\>:\<sürüm\>-\<platform\>** biçiminde derlenir. Bu öğretici için **myregistry.azurecr.io/cmodule:0.0.1-amd64** şeklinde olmalıdır.
+IOT Edge cihazınıza modülü projeyi dağıtmak için Visual Studio kod Gezgini ve Azure IOT araçları uzantısını kullanın. Senaryonuz için hazırlanmış bir dağıtım bildirimi zaten **deployment.json** config klasöründeki dosya. Tek yapmanız gereken dağıtımı almak üzere bir cihaz seçmek.
 
->[!TIP]
->Oluşturun ve gönderin, modül çalışılırken bir hata alırsanız aşağıdaki denetimleri yapın:
->* Docker kapsayıcı kayıt defterinizin kimlik bilgilerini kullanarak Visual Studio code'da oturum? Bu kimlik bilgilerini Azure portalında oturum açmak için kullandığınız yapılandırılanlardan farklı.
->* Kapsayıcı deponuza doğru mu? Açık **modülleri** > **cmodule** > **module.json** ve bulma **depo** alan. Görüntü deposu gibi görünmelidir  **\<registryname\>.azurecr.io/cmodule**. 
->* Geliştirme makinenizde çalışan kapsayıcılar aynı türde oluşturuyorsunuz? Visual Studio Code için Linux amd64 kapsayıcıları varsayar. Geliştirme makinenizde çalışan Linux arm32v7 kapsayıcılar, kapsayıcı platformunuzun eşleştirmek için VS Code penceresinin alt kısmındaki mavi durum çubuğu platformunda güncelleştirin. C modülleri Windows kapsayıcıları olarak oluşturulamıyor. 
+IOT Edge Cihazınızı ve çalışıyor olduğundan emin olun. 
 
-## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
+1. Visual Studio Code Gezgini'nde **Azure IOT Hub cihazları** IOT cihazlarınızın listesini görmek için bölümü.
 
-IoT Edge cihazınızı ayarlamak için kullandığınız hızlı başlangıç makalesinde Azure portalı kullanarak bir modül dağıttınız. Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını (eski adıyla Azure IOT Toolkit uzantısını) kullanarak modülleri da dağıtabilirsiniz. Senaryonuz için hazırlanmış bir dağıtım bildirimi dosyasına (**deployment.json**) zaten sahipsiniz. Tek yapmanız gereken dağıtımı almak üzere bir cihaz seçmek.
+2. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device** (Tek bir cihaz için dağıtım oluştur) öğesini seçin.
 
-1. VS Code komut paletini içinde çalıştırma **Azure IOT Hub: IOT hub'ını seçin**.
+3. **config** klasöründeki **deployment.json** dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın. deployment.template.json dosyasını kullanmayın.
 
-2. Yapılandırmak istediğiniz IoT Edge cihazını barındıran aboneliği ve IoT hub'ını seçin.
-
-3. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin.
-
-4. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device** (Tek bir cihaz için dağıtım oluştur) öğesini seçin.
-
-   ![Tek bir cihaz için dağıtım oluşturma](./media/tutorial-c-module/create-deployment.png)
-
-5. **config** klasöründeki **deployment.json** dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın. deployment.template.json dosyasını kullanmayın.
-
-6. Yenile düğmesine tıklayın. Yeni **CModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir.
+4. Yenile düğmesine tıklayın. Yeni **CModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir.
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
@@ -370,33 +314,44 @@ Dağıtım bildirimini IoT Edge cihazınıza uyguladıktan sonra cihazdaki IoT E
 
 IoT Edge cihazınızın durumunu görüntülemek için Visual Studio Code gezgininin **Azure IoT Hub Cihazları** bölümünü kullanabilirsiniz. Dağıtılan ve çalışan modüllerin listesini görmek için cihazınızın ayrıntılarını genişletin.
 
-IOT Edge cihazında kendisi, komutunu kullanarak dağıtım modüllerinizi durumunu görebilirsiniz `iotedge list`. Dört modül görmeniz gerekir: İki IoT Edge çalışma zamanı modülü, tempSensor ve bu öğreticide oluşturduğunuz özel modül. Tüm modüllerin başlatılması birkaç dakika sürebilir. Bu nedenle tümünü görmüyorsanız komutu yeniden çalıştırın.
+1. Visual Studio Code Gezgininde, IOT Edge cihazınızın adına sağ tıklayıp **izleme D2C iletileri Başlat**.
 
-Modüller tarafından oluşturulan iletileri görüntülemek için `iotedge logs <module name>` komutunu kullanın.
+2. IOT hub'da gelen iletileri görüntüleyin. IOT Edge cihazı, yeni dağıtım almak ve tüm modülleri başlatmak olduğundan bunu ulaşması iletileri için biraz zaman alabilir. Daha sonra iletileri göndermeden önce 25 derece makine sıcaklık ulaşana kadar biz CModule koda yapılan değişiklikleri bekleyin. İleti türü de ekler **uyarı** sıcaklık eşiğe ulaşan tüm iletileri. 
 
-Visual Studio Code'u kullanarak IoT hub'ınıza ulaşan iletileri görüntüleyebilirsiniz.
+   ![IOT hub'da gelen iletileri görüntüleme](./media/tutorial-c-module/view-d2c-message.png)
 
-1. IoT hub'a gelen verileri izlemek için **...** simgesine tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
-2. Belirli bir cihazın D2C iletilerini izlemek için listeden cihaza sağ tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
-3. Verileri izlemeyi durdurmak için komutu çalıştırmak **Azure IOT Hub: D2C iletisini İzlemeyi Durdur** komut paleti içinde.
-4. Modül ikizini görüntülemek veya güncelleştirmek için listeden modüle sağ tıklayıp **Edit module twin** (Modül ikizini düzenle) öğesini seçin. Modül ikizini güncelleştirmek için ikiz JSON dosyasını kaydedip düzenleyici alanına sağ tıklayın ve **Update Module Twin** (Modül İkizini Güncelleştir) öğesini seçin.
-5. Docker günlüklerini görüntülemek isterseniz VS Code için [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) uygulamasını yükleyebilir ve çalışan modüllerinizi Docker gezgininde yerel olarak bulabilirsiniz. Tümleşik terminalde görüntülemek için bağlam menüsünde **Show Logs** (Günlükleri Göster) öğesine tıklayın.
+## <a name="edit-the-module-twin"></a>Modül ikizi Düzenle
+
+Biz CModule modül ikizi dağıtım bildiriminde sıcaklık eşik 25 derecede ayarlamak için kullanılır. Modül ikizi modülü kodunu güncelleştirmek zorunda kalmadan işlevlerini değiştirmek için kullanabilirsiniz.
+
+1. Visual Studio Code'da altında çalışan modülleri görmek için IOT Edge cihaz ayrıntıları genişletin. 
+
+2. Sağ **CModule** seçip **düzenleme modül ikizi**. 
+
+3. Bulma **TemperatureThreshold** istenen özellikleri. Değeri 5 10 derece son bildirilen sıcaklık daha yüksek derece için yeni bir sıcaklık değiştirin. 
+
+4. Modül ikizi dosyayı kaydedin.
+
+5. Modül ikizi düzenleme bölmesinde ve seçme içinde herhangi bir yeri sağ **güncelleştirme modül ikizi**. 
+
+5. CİHAZDAN buluta gelen iletileri izleyin. Yeni sıcaklık eşiği ulaşılana kadar Durdur iletileri görmeniz gerekir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz. Aynı IoT Edge cihazını test cihazı olarak kullanmaya devam edebilirsiniz.
 
-Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz.
+Aksi takdirde, yerel yapılandırmaları ve ücretleri önlemek için bu makalede kullanılan Azure kaynaklarını silebilirsiniz.
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide IoT Edge cihazınız tarafından üretilen ham verileri filtrelemek için kod içeren bir IoT Edge modülü oluşturdunuz. Kendi modüllerinizi oluşturmaya hazır olduğunuzda [Visual Studio Code için Azure IoT Edge ile bir C modülü geliştirme](how-to-develop-c-module.md) hakkında daha fazla bilgi edinebilirsiniz. Azure IoT Edge'in verileri iş içgörüsüne çevirmenize yardımcı olabilecek diğer yollar hakkında bilgi edinmek için bir sonraki öğreticiye geçebilirsiniz.
+Bu öğreticide IoT Edge cihazınız tarafından üretilen ham verileri filtrelemek için kod içeren bir IoT Edge modülü oluşturdunuz. Kendi modüllerinizi derlemek için hazır olduğunuzda, daha fazla bilgi edinebilirsiniz [kendi IOT Edge modülleri geliştirmek](module-development.md) veya nasıl [modülleri Visual Studio Code ile geliştirme](how-to-vs-code-develop-module.md). Azure IOT Edge, uçta verilerini işlemek ve çözümlemek için Azure bulut Hizmetleri dağıtmayı nasıl yardımcı olabileceğini öğrenmek için sonraki öğreticiler açın devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [SQL Server veritabanları ile uç cihazlarda veri depolama](tutorial-store-data-sql-server.md)
+> [İşlevleri](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [makine öğrenimi](tutorial-deploy-machine-learning.md)
+> [özel görüntü işleme hizmeti](tutorial-deploy-custom-vision.md)
 

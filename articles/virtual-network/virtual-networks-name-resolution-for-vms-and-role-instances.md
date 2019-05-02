@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640472"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925246"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -96,7 +96,7 @@ Bir dizi farklı DNS önbelleğe alma (dnsmasq gibi) kullanılabilir paketler va
   * Dnsmasq hizmetle başlar `systemctl start dnsmasq.service`. 
   * Düzen **/etc/sysconfig/network/config**, değiştirip *NETCONFIG_DNS_FORWARDER = ""* için *dnsmasq*.
   * Resolv.conf ile güncelleştirme `netconfig update`, önbellek yerel DNS Çözümleyicisi ayarlanacak.
-* **OpenLogic (NetworkManager kullanır)**:
+* **CentOS (NetworkManager kullanır)**:
   * Dnsmasq paketi yükleme `sudo yum install dnsmasq`.
   * Dnsmasq hizmetiyle etkinleştirme `systemctl enable dnsmasq.service`.
   * Dnsmasq hizmetle başlar `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Resolv.conf dosyasını genellikle otomatik olarak oluşturuldu ve düzenlenmeme
 * **SUSE** (netconf kullanılır):
   1. Ekleme *timeout:1 girişimi: 5* için **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parametresinde **/etc/sysconfig/network/config**.
   2. Çalıştırma `netconfig update` güncelleştirilecek.
-* **OpenLogic** (uses NetworkManager):
+* **CentOS** (NetworkManager kullanılır):
   1. Ekleme *Yankı "timeout:1 girişimi: 5 Seçenekleri"* için **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. İle güncelleştirme `service network restart`.
 

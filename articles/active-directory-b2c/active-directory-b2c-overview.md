@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317369"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701366"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C nedir?
 
-Azure Active Directory (Azure AD) B2C Kimlik Yönetimi hizmetidir. Bu hizmetin özelleştirmek ve denetlemek nasıl kullanıcıların güvenli bir şekilde, web ve Masaüstü, mobil veya tek sayfa uygulamaları etkileşim sağlar. Azure AD B2C kullanarak, kullanıcılar kaydolabilir, oturum açın, parolaları sıfırlama ve profilleri düzenleme. Azure AD B2C, bir form Openıd Connect ve OAuth 2.0 protokolünü uygular. Bu protokollerin uygulanması önemli anahtarı güvenlik belirteçleri ve kaynaklarına güvenli erişim sağlamaya olanak tanıyan, talepleri ' dir.
+Azure Active Directory (Azure AD) B2C, işletmeden tüketiciye Kimlik Yönetimi hizmetidir. Bu hizmetin özelleştirmek ve denetlemek nasıl kullanıcıların güvenli bir şekilde, web ve Masaüstü, mobil veya tek sayfa uygulamaları etkileşim sağlar. Azure AD B2C kullanarak, kullanıcılar kaydolabilir, oturum açın, parolaları sıfırlama ve profilleri düzenleme. Azure AD B2C, bir form Openıd Connect ve OAuth 2.0 protokolünü uygular. Bu protokollerin uygulanması önemli anahtarı güvenlik belirteçleri ve kaynaklarına güvenli erişim sağlamaya olanak tanıyan, talepleri ' dir.
 
 A *kullanıcı yolculuğu* kullanıcı ve uygulamanızı Azure AD B2C ile nasıl etkileşime davranışını denetleyen bir ilke belirten isteğidir. Azure AD B2C'de kullanıcı yolculuklarından tanımlamak için kullanabileceğiniz iki yolu. 
 

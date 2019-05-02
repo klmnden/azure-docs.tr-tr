@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d12226daa7353c01ee462ea31c5cbf011ba28409
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025193"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726077"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Önizleme - oluşturma ve Azure portalında sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -22,6 +22,30 @@ Azure Kubernetes Service (AKS) kümesini iş yüklerini hızla dağıtmak için 
 > AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
 >
 > Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Sanal düğümler ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. Bu iletişim sağlamak için bir sanal ağ alt ağı oluşturulur ve temsilci izinleri atanır. Yalnızca iş ile AKS küme kullanılarak oluşturulan sanal düğümü *Gelişmiş* ağ. Varsayılan olarak, AKS kümeleri ile oluşturulan *temel* ağ. Bu makalede, bir sanal ağ oluşturup alt ağları ve ağ Gelişmiş kullanan bir AKS kümesi dağıtma işlemini göstermektedir.
+
+ACI daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi] [ az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* sağlayıcısı olarak raporlamalıdır *kayıtlı*aşağıdaki örnek çıktıda gösterildiği gibi:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, aşağıdaki örnekte gösterildiği gibi sağlayıcıyı [az provider register] [az sağlayıcısını kaydetme] kullanarak kaydedin:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
@@ -55,9 +79,12 @@ Azure portalının sol üst köşesinde bulunan **Create a resource** (Kaynak ol
 
 - *PROJE AYRINTILARINI*: Bir Azure aboneliği seçin sonra seçin veya bir Azure kaynak grubu gibi oluşturma *myResourceGroup*. **Kubernetes kümesi adı** alanına *myAKSCluster* gibi bir ad girin.
 - *KÜME AYRINTILARI*: Bölge, Kubernetes sürümü ve DNS adı ön eki için AKS kümesi seçin.
-- *ÖLÇEK*: AKS düğümleri için VM boyutunu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
-    - Kümeye dağıtılacak düğüm sayısını seçin. Bu makale için ayarlanmış **düğüm sayısı** için *1*. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
-    - Altında **sanal düğümler**seçin *etkin*.
+- *BİRİNCİL DÜĞÜM HAVUZU*: AKS düğümleri için VM boyutunu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
+     - Kümeye dağıtılacak düğüm sayısını seçin. Bu makale için ayarlanmış **düğüm sayısı** için *1*. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
+
+Tıklayın **sonraki: Ölçek**.
+
+Üzerinde **ölçek** sayfasında *etkin* altında **sanal düğümler**.
 
 ![AKS kümesi oluşturma ve sanal düğümü etkinleştir](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -215,3 +242,4 @@ Sanal düğümler AKS ölçeklendirme bir çözümde bir bileşenidir. Ölçekle
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+[az-provider-list]: /cli/azure/provider#az-provider-list

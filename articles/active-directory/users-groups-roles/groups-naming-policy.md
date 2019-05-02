@@ -10,33 +10,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/22/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471357"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690249"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Azure Active Directory'de Office 365 grupları için bir adlandırma ilkesini zorlama
 
 Oluşturduğunuz veya düzenlediğiniz kullanıcılarınız tarafından Office 365 grupları için tutarlı adlandırma kuralları zorlamak için ilke Azure Active Directory (Azure AD) kiracılarınız için bir adlandırma ayarlayın. Örneğin, bir grup üyeliği, coğrafi bölgeyi işlevi iletişim kurmak için adlandırma ilkesi kullanabilir veya grup oluşturan. Kullanıcının adres defterinde grupları kategorilere ayırmaya yardımcı olacak adlandırma İlkesi'ni de kullanabilirsiniz. Belirli sözcükleri grubu adları ve diğer adları kullanılmasını engellemek için ilke kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Office 365 grupları adlandırma ilkesi kullanarak bir veya daha fazla Office 365 gruplarının üyesi olan her benzersiz kullanıcının Azure AD temel EDU lisansları veya Azure Active Directory Premium P1 lisansı gerektirir.
+> Sahip ancak mutlaka bir Azure Active Directory Premium P1 lisansı veya bir veya daha fazla Office 365 gruplarının üyesi olan her bir benzersiz kullanıcı için Azure AD temel EDU lisansı atamak için Office 365 grupları Azure AD adlandırma ilkesi kullanarak gerektirir.
 
-Adlandırma ilkesi oluşturma ve düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planner) iş yüklerinde oluşturulan grupların uygulanır. Grup adı ve grup diğer adı için uygulanır. Azure AD'de, adlandırma ilkesi ayarlayın ve varolan bir Exchange Grup adlandırma ilkesi varsa, Azure AD adlandırma ilkesi uygulanır.
+Adlandırma ilkesi oluşturma ve düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planner) iş yüklerinde oluşturulan grupların uygulanır. Grup adı ve grup diğer adı için uygulanır. Adlandırma ilkesini Azure AD, Azure AD'de, adlandırma ilkesi ayarlayın ve varolan bir Exchange Grup adlandırma ilkesi varsa, kuruluşunuzda zorunlu tutulur.
 
 ## <a name="naming-policy-features"></a>Adlandırma ilkesi özellikleri
-Office 365 grupları için adlandırma ilkesi iki farklı şekillerde uygulayabilir:
 
--   **Önek sonek adlandırma ilkesi** ön eklerin veya soneklerin sonra otomatik olarak gruplarınızı üzerinde bir adlandırma kuralı uygulamak için eklenen tanımlayabilirsiniz (örneğin, grup adı olarak "GRP\_JAPONYA\_grubunuza\_ Mühendisliğe"GRP\_JAPONYA\_ öneki ve \_mühendislik soneki olan). 
+Gruplar için adlandırma ilkesi iki farklı şekillerde uygulayabilir:
 
--   **Özel engellenen sözcük** kullanıcılar (örneğin "CEO, bordro, ik") tarafından oluşturulan grupları engellenmesi, kuruluşunuz için engellenen sözcük belirli bir dizi karşıya yükleyebilirsiniz.
+- **Önek sonek adlandırma ilkesi** ön eklerin veya soneklerin sonra otomatik olarak gruplarınızı üzerinde bir adlandırma kuralı uygulamak için eklenen tanımlayabilirsiniz (örneğin, grup adı olarak "GRP\_JAPONYA\_grubunuza\_ Mühendisliğe"GRP\_JAPONYA\_ öneki ve \_mühendislik soneki olan). 
+
+- **Özel engellenen sözcük** kullanıcılar (örneğin "CEO, bordro, ik") tarafından oluşturulan grupları engellenmesi, kuruluşunuz için engellenen sözcük belirli bir dizi karşıya yükleyebilirsiniz.
 
 ### <a name="prefix-suffix-naming-policy"></a>Önek sonek adlandırma ilkesi
 
@@ -75,48 +76,74 @@ Seçili yöneticileri bu ilkeleri, tüm Grup iş yükleri ve uç noktaları, bö
 - Kullanıcı yöneticisi
 - Dizin yazıcıları
 
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Azure portalını (Önizleme) kullanarak bir kiracı için adlandırma ilkesinin grubu yapılandırma
+
+1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanıcı yönetici hesabıyla.
+1. Seçin **grupları**, ardından **adlandırma ilkesinin** adlandırma ilkesi sayfasını açın.
+
+    ![Yönetim merkezinde adlandırma ilkesi sayfasını açın](./media/groups-naming-policy/policy-preview.png)
+
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Görüntülemek veya önek sonek adlandırma ilkesini Düzenle
+
+1. Üzerinde **adlandırma ilkesinin** sayfasında **Grup adlandırma ilkesi**.
+1. Görüntüleyebilir veya geçerli bir önek veya sonek ilkeleri tek tek öznitelikler veya adlandırma ilkesinin bir parçası uygulamak istediğiniz dizeleri seçerek adlandırma düzenleyin.
+1. Bir önek veya sonek listeden kaldırmak için önek veya sonek seçin ve sonra seçin **Sil**. Aynı anda birden çok öğe silinebilir.
+1. Yürürlüğe seçerek gitmek yeni ilke için yaptığınız değişiklikleri kaydetmek **Kaydet**.
+
+### <a name="view-or-edit-the-custom-blocked-words"></a>Görüntüleyin ya da özel engellenen sözcük düzenleyin
+
+1. Üzerinde **adlandırma ilkesinin** sayfasında **engellenen sözcük**.
+
+    ![Düzenle ve adlandırma ilkesi için engellenen sözcük listesi karşıya yükleyin](./media/groups-naming-policy/blockedwords-preview.png)
+
+1. Görüntülemek veya seçerek özel engellenen sözcük geçerli listesini düzenleyin **indirme**.
+1. Yeni özel engellenen sözcüklerin listesi dosyası simgesini seçerek karşıya yükleyin.
+1. Yürürlüğe seçerek gitmek yeni ilke için yaptığınız değişiklikleri kaydetmek **Kaydet**.
+
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Bir adlandırma ilkesini yapılandırmak için PowerShell cmdlet'leri yükleme
 
-PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için Azure Active Directory PowerShell Modülünün eski sürümlerini kaldırın ve [Graph için Azure Active Directory PowerShell - Genel Önizleme Sürümünü 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) yükleyin. 
+PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için Azure Active Directory PowerShell Modülünün eski sürümlerini kaldırın ve [Graph için Azure Active Directory PowerShell - Genel Önizleme Sürümünü 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) yükleyin.
 
 1. Windows PowerShell uygulamasını yönetici olarak açın.
 2. Eski AzureADPreview sürümlerini kaldırın.
   
-   ```
+   ```powershell
    Uninstall-Module AzureADPreview
    ```
+
 3. En son AzureADPreview sürümünü yükleyin.
   
-   ```
+   ```powershell
    Install-Module AzureADPreview
    ```
-   Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna basın. Yeni modülün yüklenmesi birkaç dakika sürebilir.
+
+   Güvenilmeyen bir depoya erişme hakkında istenirse, girin **Y**. Yeni modülün yüklenmesi birkaç dakika sürebilir.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Azure AD PowerShell kullanarak bir kiracı için adlandırma ilkesinin grubu yapılandırma
 
 1. Bilgisayarınızda bir Windows PowerShell penceresi açın. Yükseltilmiş ayrıcalıklar olmadan açabilirsiniz.
 
-2. Ortamı cmdlet'leri çalıştırmaya hazır hale getirmek için aşağıdaki komutları çalıştırın.
+1. Ortamı cmdlet'leri çalıştırmaya hazır hale getirmek için aşağıdaki komutları çalıştırın.
   
-   ```
+   ```powershell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
    Açılan **Hesabınızda oturum açın** ekranında hizmetinizle bağlantı kurmak için yönetici hesabınızın adını ve parolasını girin **Oturum aç**'ı seçin.
 
-3. Bu kiracının grup ayarlarını oluşturmak için [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md) adımlarını izleyin.
+1. Bu kiracının grup ayarlarını oluşturmak için [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md) adımlarını izleyin.
 
 ### <a name="view-the-current-settings"></a>Geçerli ayarları görüntüleyebilir
 
 1. Geçerli ayarları görüntülemek için geçerli adlandırma ilkesi getirin.
   
-   ```
+   ```powershell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
-2. Geçerli grup ayarlarını görüntüleyin.
+1. Geçerli grup ayarlarını görüntüleyin.
   
-   ```
+   ```powershell
    $Setting.Values
    ```
   
@@ -124,38 +151,38 @@ PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için 
 
 1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
   
-   ```
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
-2. Sınırlamak istediğiniz özel engellenen sözcükleri belirleyin. Aşağıdaki örnekte kendi özel sözcüklerinizi ekleme adımları gösterilmektedir.
+1. Sınırlamak istediğiniz özel engellenen sözcükleri belirleyin. Aşağıdaki örnekte kendi özel sözcüklerinizi ekleme adımları gösterilmektedir.
   
-   ```
+   ```powershell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-3. Yeni ilkenin etkili olması için aşağıdaki örnekte gösterilen şekilde ayarları kaydedin.
+1. Aşağıdaki örnekte olduğu gibi yürürlüğe gitmek için yeni ilke için ayarları kaydedin.
   
-   ```
+   ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 İşte bu kadar. Adlandırma ilkenizi ve engellenen kelimeleriniz eklendi.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Özel engellenen sözcüklerin listesi içeri veya dışarı aktarma
+## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>Azure AD PowerShell kullanarak özel engellenen sözcüklerin listesi içeri veya dışarı aktarma
 
 Daha fazla bilgi için bkz [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md).
 
 Birden çok engellenen sözcük dışarı aktarmak için bir PowerShell Betiği örneği aşağıda verilmiştir:
 
-```
+```powershell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Birden çok engellenen sözcük içeri aktarmak için PowerShell Betiği bir örnek aşağıda verilmiştir:
 
-```
+```powershell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -171,31 +198,37 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Adlandırma ilkesini Kaldır
 
+### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Azure portalını (Önizleme) kullanarak bir adlandırma ilkesini Kaldır
+
+1. Üzerinde **adlandırma ilkesinin** sayfasında **silme ilkesi**.
+1. Silme işlemini onayladıktan sonra adlandırma ilkesi, tüm ön eki soneki dahil olmak üzere kaldırılır adlandırma ilkesi ve özel engellenen sözcük.
+
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Azure AD Powershell kullanarak bir adlandırma ilkesini Kaldır
+
 1. Grup adı önek ve sonek Azure AD PowerShell'de boş.
   
-   ```
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
-2. Özel engellenen sözcük boş. 
+1. Özel engellenen sözcük boş.
   
-   ```
+   ```powershell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
-3. Ayarları kaydedin.
+1. Ayarları kaydedin.
   
-   ```
+   ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 uygulamalarında adlandırma ilkesi deneyimleri
 
-Bir kullanıcı grubu bir Office 365 uygulama oluşturduğunda, Azure AD'de bir grup adlandırma ilkesi ayarladıktan sonra görürler: 
+Bir kullanıcı grubu bir Office 365 uygulama oluşturduğunda, Azure AD'de bir grup adlandırma ilkesi ayarladıktan sonra görürler:
 
-* Grup adı, kullanıcı türleri olan en kısa sürede Önizleme adlandırma ilkenizle (önek ve sonek) göre adı A
-* Kullanıcı, engellenen bir sözcük girerse, bunlar engellenen sözcük kaldırabilmeniz için bir hata iletisi görürler.
+- Grup adı, kullanıcı türleri olan en kısa sürede Önizleme adlandırma ilkenizle (önek ve sonek) göre adı A
+- Kullanıcı, engellenen bir sözcük girerse, bunlar engellenen sözcük kaldırabilmeniz için bir hata iletisi görürler.
 
 İş yükü | Uyumluluk
 ----------- | -------------------------------
@@ -221,11 +254,12 @@ Exchange yönetici merkezini | Exchange yönetici merkezini adlandırma ilkesi i
 Microsoft 365 Yönetim Merkezi | Microsoft 365 Yönetim merkezini adlandırma ilkesi ile uyumludur. Ne zaman bir kullanıcı oluşturur veya düzenlemeleri grup adlarını adlandırma ilkesi otomatik olarak uygulanır ve bunlar özel engellenen sözcük girdiğinizde kullanıcılar uygun hataları alırsınız. Microsoft 365 Yönetim Merkezi önizlemesi adlandırma ilkesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hataları dönmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu makaleler, Azure AD grupları hakkında ek bilgi sağlar.
 
-* [Var olan grupları görme](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Office 365 gruplarının süre sonu ilkesi](groups-lifecycle.md)
-* [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyelerini yönetme](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)
+- [Var olan grupları görme](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Office 365 gruplarının süre sonu ilkesi](groups-lifecycle.md)
+- [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Bir grubun üyelerini yönetme](../fundamentals/active-directory-groups-members-azure-portal.md)
+- [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)

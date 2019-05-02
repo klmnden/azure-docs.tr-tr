@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771859"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725045"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Machine Learning Hizmetleri (Önizleme) Azure SQL veritabanında SQL Server arasındaki temel farklılıklar
 
@@ -61,6 +61,6 @@ Bellek kullanımı üzerinde ne kadar bağımlı R betikleriniz ve paralel sorgu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics) genel bilgi için belgelere bakın
-- Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda kullanmayı öğrenmek için bkz: [Hızlı Başlangıç Kılavuzu](sql-database-connect-query-r.md).
-- Daha fazla bilgi edinin [SQL Server R dili öğreticiler](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- Bkz: genel bakış [R (Önizleme) ile Azure SQL veritabanı Machine Learning Hizmetleri](sql-database-machine-learning-services-overview.md).
+- R sorguyu Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) kullanmayı öğrenin için bkz: [Hızlı Başlangıç Kılavuzu](sql-database-connect-query-r.md).
+- Bazı basit R betikleriyle çalışmaya başlamak için bkz. [oluşturma ve Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) içinde basit R betikleri çalıştırma](sql-database-quickstart-r-create-script.md).

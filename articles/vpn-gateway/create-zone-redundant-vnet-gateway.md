@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: cherylmc
-ms.openlocfilehash: f2b459ccfd7e3f513b9b6526864321ce247ae7aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 209c4deec2863de21362ab69a7f1d372921ac147
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405877"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575551"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure kullanılabilirlik alanları bölgesel olarak yedekli sanal ağ geçidi oluşturma
 

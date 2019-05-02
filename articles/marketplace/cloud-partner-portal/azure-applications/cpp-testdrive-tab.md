@@ -1,25 +1,18 @@
 ---
-title: Azure uygulama teklif test sürüşü | Microsoft Docs
+title: Azure uygulama teklif test sürüşü | Azure Market
 description: Azure Marketi'nde teklif Azure uygulaması için test sürüşü yapılandırma
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744745"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942860"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Azure uygulamaları Test Sürüşü sekmesi
 
@@ -58,23 +51,25 @@ Sonraki ekran görüntüsü yakalamayı tüm Test Sürüşü formları gösteril
 
 ![Bir test sürüşüne yapılandırın](./media/managed-app-configure-testdrive.png)
 
-Aşağıdaki tabloda, yönetilen uygulamanız için test sürüşü kurmak için gereken alanları açıklar.
+Aşağıdaki tabloda, yönetilen uygulamanız için test sürüşü kurmak için gereken alanları açıklar.  Bir yıldız işareti ile eklenmiş alanlar gereklidir.
 
-|    **Alan**       |  **Açıklama**  |
+|      Alan         |  Açıklama      |
 |  ---------------   |  ---------------  |
-|      Açıklama              |   Test Sürüşünüz yapılabilir açıklanmaktadır. Bu açıklama Biçimlendirilecek temel HTML etiketlerini kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;ve bölüm başlıkları.                |
-|    Kullanıcı el kitabı                |     Müşterilerin Test Sürüşü deneyimi boyunca size yol için kullanabileceğiniz bir kullanıcı el ile yükleyin. Bu belgede bir .pdf dosyası olmalıdır.              |
-|         Test (isteğe bağlı) sürücü tanıtım videosu           |       Test Sürüşünüz video bir kılavuz sağlar. Bir müşteri, bunlar bir test sürüşü önce bu videoyu izleyebilirsiniz. YouTube veya Vimeo video URL'sini sağlayın. Seçerseniz **+ Video ekleme**, aşağıdaki bilgileri sağlamanız istenir:<ul><li>Ad</li><li>URL'si</li><li>Küçük resim (PNG biçiminde, 533 x 324 piksel)</li></ul>            |
-|       Örnekler             |        Kaç tane istediğiniz yapılandırmak, hangi bölgelerin ve ne kadar hızlı müşterilerin Test Sürüşü alabilirsiniz. Daha fazla bilgi için [Test Sürüşü yayımlama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
-|       Test sürücü süresi (saat)             |       Saat sayısı için bir tamsayı girin. İzin verilen aralık 1 ile 999 arasında biçimindedir.            |
-|        Test sürücü ARM şablonu            |        Uygulamanız için Azure Resource Manager şablonlarınızı içeren bir sıkıştırılmış (.zip) dosyasını karşıya yükleyin. Daha fazla bilgi için [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
-|        Erişim bilgileri            |         Test Sürüşü müşteri aldıktan sonra erişim bilgileri sağlayın. Örneğin, test sürüşü erişim ve bilgi oturum için bir URL. . Bu açıklama Biçimlendirilecek temel HTML etiketlerini kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;ve bölüm başlıkları.          |
-|       Erişim abonelik kimliği             |       Bu Azure hizmetlerini ve Azure portalına erişim verir. Burada kullanım raporlama ve Hizmetleri faturalandırılır aboneliktir. Test Sürüşleri yalnızca bir abonelik oluşturmak için zaten ayrı bir Azure aboneliğiniz yoksa.             |
-|          Azure AD Kiracı kimliği          |        Azure Active Directory'de mevcut bir kiracı sağlayın veya bu test sürüşü için bir kiracı oluşturabilirsiniz.           |
-|         Azure AD uygulama kimliği           |       Oluşturun ve yeni bir uygulama kaydedin. Microsoft bu uygulamayı Test Sürüşü örneğinizin işlemleri için kullanır.            |
-|          Azure AD uygulama anahtarı          |         Uygulama için bir kimlik doğrulama anahtarı oluşturun ve bu alanına yapıştırın.          |
+| **Açıklaması\***  |  Test Sürüşünüz yapılabilir açıklanmaktadır. Bu açıklama Biçimlendirilecek temel HTML etiketlerini kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;ve bölüm başlıkları.                |
+| **Kullanıcı el kitabı\***  |  Müşterilerin Test Sürüşü deneyimi boyunca size yol için kullanabileceğiniz bir kullanıcı el ile yükleyin. Bu belgede bir .pdf dosyası olmalıdır.    |
+| **Test sürücü tanıtım videosu** |  Test Sürüşünüz bir isteğe bağlı video Kılavuzu. Bir müşteri, bunlar bir test sürüşü önce bu videoyu izleyebilirsiniz. YouTube veya Vimeo video URL'sini sağlayın. Seçerseniz **+ Video ekleme**, aşağıdaki bilgileri sağlamanız istenir:<ul><li>Ad</li><li>URL'si</li><li>Küçük resim (PNG biçiminde, 533 x 324 piksel)</li></ul>  |
+| **Örnekleri\***      | Kaç tane istediğiniz yapılandırmak, hangi bölgelerin ve ne kadar hızlı müşterilerin Test Sürüşü alabilirsiniz. Daha fazla bilgi için [Test Sürüşü yayımlama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+| **Test sürücü süresi (saat)\*** | Saat sayısı için bir tamsayı girin. İzin verilen aralık 1 ile 999 arasında biçimindedir. |
+| **Test sürücü ARM şablonu\***     | Uygulamanız için Azure Resource Manager şablonlarınızı içeren bir sıkıştırılmış (.zip) dosyasını karşıya yükleyin. Daha fazla bilgi için [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
+| **Erişim bilgileri\***          | Test Sürüşü müşteri aldıktan sonra erişim bilgileri sağlayın. Örneğin, test sürüşü erişim ve bilgi oturum için bir URL. . Bu açıklama Biçimlendirilecek temel HTML etiketlerini kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;ve bölüm başlıkları. |
+| **Azure abonelik kimliği\***       | Bu Azure hizmetlerini ve Azure portalına erişim verir. Burada kullanım raporlama ve Hizmetleri faturalandırılır aboneliktir. Test Sürüşleri yalnızca bir abonelik oluşturmak için zaten ayrı bir Azure aboneliğiniz yoksa.  |
+| **Azure AD Kiracı kimliği\***          | Azure Active Directory'de mevcut bir kiracı sağlayın veya bu test sürüşü için bir kiracı oluşturabilirsiniz.  |
+| **Azure AD uygulama kimliği\***             | Oluşturun ve yeni bir uygulama kaydedin. Microsoft bu uygulamayı Test Sürüşü örneğinizin işlemleri için kullanır.  |
+| **Azure AD uygulama anahtarı\***            | Uygulama için bir kimlik doğrulama anahtarı oluşturun ve bu alanına yapıştırın.   |
+|  |  |
 
 Tüm gerekli bilgileri sağladıktan sonra seçin **Kaydet** test sürüşü ayarlama işlemini sonlandırmak için.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

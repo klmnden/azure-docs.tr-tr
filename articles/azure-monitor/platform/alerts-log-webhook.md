@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515535"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681812"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
 
+> [!NOTE]
+> Ayrıca [ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs), Genişletilebilir tek bir avantajı sağlar ve birleşik uyarı yük boyunca tüm uyarı Hizmetleri Azure İzleyici'de, Web kancası tümleştirmeleri için. [Ortak uyarı şema tanımları hakkında bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437693"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575608"
 ---
 # <a name="azure-functions-networking-options"></a>Azure işlevleri ağ seçenekleri
 
@@ -31,15 +31,14 @@ Barındırma modelleri kullanılabilir ağ yalıtımı farklı düzeyleri vardı
 
 ## <a name="matrix-of-networking-features"></a>Matris ağ özellikleri
 
-|                |[Tüketim planı](functions-scale.md#consumption-plan)|⚠ [Premium planı](functions-scale.md#premium-plan-public-preview)|[App Service planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
+|                |[Tüketim planı](functions-scale.md#consumption-plan)|[Premium planı (Önizleme)](functions-scale.md#premium-plan-public-preview)|[App Service planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Gelen IP kısıtlamaları](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Giden IP kısıtlamaları](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Sanal ağ tümleştirmesi](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[(Azure ExpressRoute ve hizmet uç noktaları) sanal ağ tümleştirmesi Önizleme](#preview-version-of-virtual-network-integration)|❌No|⚠Evet|⚠Evet|✅Yes|
+|[Sanal ağ tümleştirmesi Önizleme (Azure ExpressRoute ve hizmet uç noktalarına giden)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[Karma Bağlantılar](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[Özel site erişimi](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ Bu önizleme özelliğini üretim kullanımı için değildir.
+|[Özel site erişimi](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Gelen IP kısıtlamaları
 
@@ -49,6 +48,10 @@ IP kısıtlamaları, izin verilen/uygulamanıza erişim izni verilmeyen IP adres
 > Azure portal Düzenleyicisi'ni kullanmak için portal, çalışan bir işlev uygulaması doğrudan erişebilir olması gerekir. Ayrıca, portala erişmek için kullanmakta olduğunuz cihaz kendi IP izin verilenler listesinde olmalıdır. Yerinde ağ kısıtlamaları ile herhangi bir özellik üzerinde erişmeye devam edebilirsiniz **Platform özellikleri** sekmesi.
 
 Daha fazla bilgi için bkz. [Azure App Service statik erişim kısıtlamalarını](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Giden IP kısıtlamaları
+
+Giden IP kısıtlamaları, yalnızca bir App Service ortamı için dağıtılan işlevler için kullanılabilir. App Service ortamınızı dağıtıldığı sanal ağı için giden kısıtlamalar yapılandırabilirsiniz.
 
 ## <a name="virtual-network-integration"></a>Sanal ağ tümleştirmesi
 
@@ -88,7 +91,10 @@ Daha fazla bilgi için bkz. [karma bağlantılar için App Service belgeleri](..
 
 ## <a name="private-site-access"></a>Özel site erişimi
 
-Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir App Service ortamı ile kullanılabilir. Daha fazla bilgi için [oluşturma ve kullanma bir App Service ortamı ile iç yük dengeleyici](../app-service/environment/create-ilb-ase.md).
+Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. 
+* Özel site erişimi, Premium ve App Service içinde kullanılabilir olduğunda planlama **hizmet uç noktaları** yapılandırılır. Daha fazla bilgi için [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Hizmet uç noktaları ile işlevinizi hala İnternet'e giden tam erişim bile yapılandırılmış VNET Tümleştirmesi ile olduğunu aklınızda bulundurun.
+* Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir App Service ortamı ile kullanılabilir. Daha fazla bilgi için [oluşturma ve kullanma bir App Service ortamı ile iç yük dengeleyici](../app-service/environment/create-ilb-ase.md).
 
 Diğer barındırma Seçenekleri'nde sanal ağ kaynaklarına erişmek için birçok yolu vardır. Ancak, bir App Service ortamı için bir sanal ağ üzerinden gerçekleşmesi bir işlev tetikler izin vermek için tek yoludur.
 

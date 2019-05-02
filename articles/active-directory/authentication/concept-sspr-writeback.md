@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415013"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694825"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -85,9 +85,6 @@ Federe veya parola karma sıfırlama veya buluttaki parolalarını değiştirme 
    * Active Directory Bağlayıcısı nesnesinden MV bağlantısını eşitleme kuralı olmalıdır `Microsoft.InfromADUserAccountEnabled.xxx` bağlantısına.
    
    Çağrı buluttan geldiğinde, eşitleme altyapısı kullanan **cloudAnchor** Azure Active Directory Bağlayıcı alanı nesne aramak için özniteliği. Ardından bağlantıyı MV nesnesine geri izler ve sonra bağlantı geri Active Directory nesnesi için izler. Eşitleme altyapısı aynı kullanıcı birden çok Active Directory nesnelerini (çok ormanlı) olabileceğinden kullanır `Microsoft.InfromADUserAccountEnabled.xxx` doğru olanı seçmek için bağlantı.
-
-   > [!Note]
-   > Sonucunda bu mantık, için parola geri yazma, Azure AD Connect çalışmak için birincil etki alanı denetleyicisi (PDC) öykünücüsü ile iletişim kurabildiğini olması gerekir. Bu el ile etkinleştirmeniz gerekirse, Azure AD Connect için PDC öykünücüsü bağlanabilirsiniz. Sağ **özellikleri** Active Directory eşitleme bağlayıcısının ardından **dizin bölümlerini Yapılandır**. Buradan arayın **etki alanı denetleyicisi bağlantı ayarları** bölümünde ve kutucuğu seçin **yalnızca tercih edilen etki alanı denetleyicileri kullanmak**. Tercih edilen etki alanı denetleyicisi PDC öykünücüsü değilse bile Azure AD Connect parola geri yazma için PDC'ye bağlanma girişiminde bulunur.
 
 1. Kullanıcı hesabı bulunduğunda, doğrudan uygun Active Directory ormanında parolayı sıfırlamak için bir deneme yapılır.
 1. Parola ayarlama işlemi başarılı olursa, kullanıcının parolasını değiştirdiğinden bildirilir.

@@ -1,28 +1,19 @@
 ---
 title: Akış Azure HDInsight Spark
 description: HDInsight Spark kümelerinde Spark akış uygulamaları kullanma
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/11/2019
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098227"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712003"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Akış Apache Spark'a genel bakış
 
@@ -42,7 +33,7 @@ Tek bir olay ile Başlat, bağlı bir thermostat okurken bir sıcaklık varsayal
 
 Adlı bir kullanıcı tanımlı zaman çerçevesi içinde toplanan olayları her RDD temsil *toplu iş aralığı*. Her toplu iş aralığı sona erdiğinde gibi bu aralığın tüm verileri içeren yeni bir RDD oluşturulur. Rdd sürekli kümesi bir DStream toplanır. Örneğin, uzun bir ikinci toplu iş aralığı ise, DStream toplu, saniyede alınan tüm veriler içeren ikinci her içeren bir RDD yayar. DStream işlerken sıcaklık olay bu toplu birinde görünür. Uygulama Spark akışı, olayları içeren toplu işler ve sonuçta her RDD içinde depolanan veriler üzerinde çalışır.
 
-![Örnek DStream sıcaklık olayları ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Örnek DStream sıcaklık olayları](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Uygulama Spark akışı yapısı
 
@@ -62,7 +53,8 @@ Mantıksal uygulama tanımı dört adım vardır:
 Bu tanımı statiktir ve uygulamayı çalıştırana kadar hiçbir veriler işlenir.
 
 #### <a name="create-a-streamingcontext"></a>Bir StreamingContext oluşturma
-Bir StreamingContext kümenize işaret zamanda sparkcontext öğesini oluşturun. Bir StreamingContext oluştururken, toplu işin boyutunu saniye cinsinden, örneğin belirtin:
+
+Bir StreamingContext kümenize işaret zamanda sparkcontext öğesini oluşturun. Bir StreamingContext oluştururken, toplu işin boyutunu saniye cinsinden, örneğin belirtin:  
 
 ```
 import org.apache.spark._
@@ -98,6 +90,7 @@ wordCounts.print()
 ```
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
+
 Akış uygulama başlatma ve sonlandırma sinyal alınana kadar çalıştırın.
 
 ```
@@ -112,44 +105,44 @@ Aşağıdaki örnek uygulama içinde çalıştırabilmeniz için kendi içinde b
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-        /** Start the thread that simulates receiving data */
-        def onStart() {
-            new Thread("Dummy Source") { override def run() { receive() } }.start()
-        }
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
+    }
 
-        def onStop() {  }
+    def onStop() {  }
 
-        /** Periodically generate a random number from 0 to 9, and the timestamp */
-        private def receive() {
-            var counter = 0  
-            while(!isStopped()) {
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
             store(Iterator((counter, System.currentTimeMillis)))
             counter += 1
             Thread.sleep(5000)
-            }
         }
     }
+}
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
 
-    // Process RDDs in the batch
-    stream.foreachRDD { rdd =>
+// Process RDDs in the batch
+stream.foreachRDD { rdd =>
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-            .registerTempTable("demo_numbers")
-    } 
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+        .registerTempTable("demo_numbers")
+} 
 
-    // Start the stream processing
-    ssc.start()
+// Start the stream processing
+ssc.start()
 ```
 
 Yukarıdaki uygulamayı başlatmadan sonra yaklaşık 30 saniye bekleyin.  Ardından, örneğin bu SQL sorgusunu kullanarak düzenli aralıklarla toplu işinde var olan değerleri geçerli kümesini görmek için veri çerçevesi sorgulayabilirsiniz:

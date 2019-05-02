@@ -4,227 +4,200 @@ description: Azure Active Directory ve Cerner Orta arasında çoklu oturum açma
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: tutorial
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097fb045db1afe65a84a2a96dc202c57e8a449e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3595a946d930ca83b5d2f1f3d82b775bf8eb4855
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Cerner Orta
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Cerner Orta tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Cerner Orta tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Cerner merkezi erişimi, Azure AD'de denetleyebilirsiniz
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) Cerner merkezi siteden açma, kullanıcılarınızın etkinleştirebilirsiniz
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Cerner merkezi erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Cerner Orta için oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi Cerner Central ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Onaylanan bir Cerner Merkezi sistem hesabı
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* Abonelik Cerner Orta çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Cerner Orta ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Cerner Orta destekler **IDP** tarafından başlatılan
+* Cerner Orta destekler [ **otomatik** kullanıcı sağlama](cernercentral-provisioning-tutorial.md)
 
 ## <a name="adding-cerner-central-from-the-gallery"></a>Galeriden Cerner Orta ekleme
+
 Azure AD'de Cerner Orta tümleştirmesini yapılandırmak için Cerner Orta Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Cerner Orta eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim kutusunun en üstünde düğme.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-1. Arama kutusuna **Cerner orta**.
+4. Arama kutusuna **Cerner orta**seçin **Cerner orta** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/tutorial_cernercentral_search.png)
+    ![Sonuç listesinde Cerner Orta](common/search-new-app.png)
 
-1. Sonuçlar panelinde seçin **Cerner orta**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırmanız ve Cerner Merkezi ile Azure AD çoklu oturum açmayı test "Britta Simon." adlı bir test kullanıcı tabanlı
-
-Tek iş için oturum açma için Azure AD ne Cerner Orta karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Cerner Orta arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırmanız ve Cerner Merkezi ile Azure AD çoklu oturum açmayı test adlı bir test kullanıcı tabanlı **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı Cerner Orta arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Cerner Central ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Cerner Orta test kullanıcısı oluşturma](#creating-a-cerner-central-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cerner Orta Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Cerner Merkezi Çoklu oturum açmayı yapılandırma](#configure-cerner-central-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Cerner Orta test kullanıcısı oluşturma](#create-cerner-central-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cerner Orta Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Cerner Orta uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Cerner Central ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Cerner Central ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Cerner orta** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Cerner orta** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-1. Üzerinde **Cerner merkezi etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cernercentral-tutorial/tutorial_cernercentral_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **tanımlayıcı** metin aşağıdaki desenleri kullanarak değeri yazın:
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Cerner merkezi etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL kullanarak aşağıdaki düzenler:
-    
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Cerner Orta Destek ekibine](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Cerner merkezi istemci Destek ekibine](mailto:SISupport@cbre.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cernercentral-tutorial/tutorial_metadataurl.png)
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+### <a name="configure-cerner-central-single-sign-on"></a>Cerner Orta çoklu oturum açmayı yapılandırın
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cernercentral-tutorial/tutorial_general_400.png)
+Çoklu oturum açmayı yapılandırma **Cerner orta** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Cerner Orta Destek ekibine](mailto:SISupport@cbre.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-1. Çoklu oturum açmayı yapılandırma **Cerner orta** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Cerner merkezi desteği](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Bunlar, tümleştirme tamamlamak için uygulama tarafından SSO yapılandırın.
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/create_aaduser_02.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle**.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/create_aaduser_03.png) 
-
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/cernercentral-tutorial/create_aaduser_04.png) 
-
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** Britta simon'un.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="creating-a-cerner-central-test-user"></a>Cerner Orta test kullanıcısı oluşturma
-
-**Cerner orta** uygulama herhangi bir Federasyon kimlik sağlayıcısından gelen kimlik doğrulamasına izin verir. Bir kullanıcı için uygulama giriş sayfası oturum açamaz, birleştirilen ve herhangi bir el ile sağlama için gerek vardır. Daha fazla ayrıntı bulabilirsiniz [burada](cernercentral-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Cerner Merkezi erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Cerner orta**.
 
-**Britta Simon Cerner merkezi siteden atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Cerner orta**.
 
-    ![Kullanıcı Ata][201]
+    ![Uygulamalar listesinde Cerner Orta bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **Cerner orta**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cernercentral-tutorial/tutorial_cernercentral_app.png)
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı Ata][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-cerner-central-test-user"></a>Cerner Orta test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+**Cerner orta** uygulama herhangi bir Federasyon kimlik sağlayıcısından gelen kimlik doğrulamasına izin verir. Bir kullanıcı için uygulama giriş sayfası oturum açabilir, birleştirilen ve herhangi bir el ile sağlama için gerek vardır. Daha fazla ayrıntı bulabilirsiniz [burada](cernercentral-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Cerner Orta kutucuğa tıkladığınızda, otomatik olarak Cerner merkezi uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim paneli Cerner Orta kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Cerner Orta için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [Kullanıcı sağlamayı yapılandırma](cernercentral-provisioning-tutorial.md)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/cernercentral-tutorial/tutorial_general_01.png
-[2]: ./media/cernercentral-tutorial/tutorial_general_02.png
-[3]: ./media/cernercentral-tutorial/tutorial_general_03.png
-[4]: ./media/cernercentral-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/cernercentral-tutorial/tutorial_general_100.png
-
-[200]: ./media/cernercentral-tutorial/tutorial_general_200.png
-[201]: ./media/cernercentral-tutorial/tutorial_general_201.png
-[202]: ./media/cernercentral-tutorial/tutorial_general_202.png
-[203]: ./media/cernercentral-tutorial/tutorial_general_203.png
+- [Kullanıcı sağlamayı yapılandırma](cernercentral-provisioning-tutorial.md)

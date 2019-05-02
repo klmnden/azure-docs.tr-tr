@@ -1,41 +1,33 @@
 ---
-title: Azure uygulama ağ geçidi hatalı ağ geçidi (502) hatalarında sorun giderme | Microsoft Docs
+title: Azure uygulama ağ geçidi hatalı ağ geçidi (502) hatalarında sorun giderme
 description: Uygulama ağ geçidi 502 hatalarında sorun giderme hakkında bilgi edinin
 services: application-gateway
-documentationcenter: na
-author: amitsriva
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 4/25/2019
 ms.author: amsriva
-ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997800"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697156"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway'de hatalı ağ geçidi hatalarını giderme
 
-Application gateway kullanırken alınan hatalı ağ geçidi (502) hatalarında sorun giderme hakkında bilgi edinin.
+Azure Application Gateway kullanırken alınan hatalı ağ geçidi (502) hatalarında sorun giderme hakkında bilgi edinin.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir uygulama ağ geçidi yapılandırdıktan sonra kullanıcının karşılaşabileceği hatalardan biri olan "sunucu hatası: 502 - Web sunucusu bir ağ geçidi veya proxy sunucu olarak çalışırken geçersiz yanıt aldı" hatasıyla karşılaşırsanız. Bu hata, aşağıdaki ana nedenlerden ötürü oluşabilir:
+Bir uygulama ağ geçidi yapılandırdıktan sonra görebileceğiniz hatalar biri olan "sunucu hatası: 502 - Web sunucusu bir ağ geçidi veya proxy sunucu olarak çalışırken geçersiz yanıt aldı" hatasıyla karşılaşırsanız. Bu hata, aşağıdaki ana nedenlerle oluşabilir:
 
 * NSG, UDR veya özel DNS arka uç havuzu üyelerine erişimi engelliyor.
-* Arka uç sanal makineleri veya sanal makine ölçek kümesi örnekleri varsayılan sistem durumu araştırmasına yanıt vermiyor.
+* Arka uç sanal makineleri veya sanal makine ölçek kümesi örnekleri varsayılan sistem durumu araştırmasına yanıt değil.
 * Özel sistem durumu araştırmaları geçersiz veya hatalı yapılandırması.
-* Azure uygulama ağ geçidinin [arka uç havuzu yapılandırılmış ya da boş değil](#empty-backendaddresspool).
+* Azure uygulama ağ geçidinin [arka uç havuzu, yapılandırılmış veya boş değilse](#empty-backendaddresspool).
 * Vm'leri veya durumlarda hiçbiri [sağlıklı sanal makine ölçek kümesi](#unhealthy-instances-in-backendaddresspool).
 * [İsteği zaman aşımı veya bağlantı sorunları](#request-time-out) kullanıcı istekleriyle.
 
@@ -43,22 +35,27 @@ Bir uygulama ağ geçidi yapılandırdıktan sonra kullanıcının karşılaşab
 
 ### <a name="cause"></a>Nedeni
 
-NSG, UDR veya özel DNS varlığını nedeniyle arka uç için erişim engellendi, Application Gateway örneğinden arka uç havuzuna erişmek mümkün olmayacaktır ve 502 hatalara neden araştırması hatalarına neden. NSG/UDR uygulama VM'ler dağıtıldığı mevcut uygulama ağ geçidi alt ağı veya alt olabileceğini unutmayın. Benzer şekilde sanal ağda özel DNS varlığını de FQDN arka uç havuzu üyeleri için kullanılıyorsa ve VNET için doğru kullanıcı tarafından yapılandırılmış DNS sunucusu tarafından çözülmemişse sorunlar neden olabilir.
+Arka uç erişimi bir NSG, UDR veya özel DNS nedeniyle engellenirse, uygulama ağ geçidi örnekleri arka uç havuzuna erişemiyor. Bu araştırma hatası, 502 hatalarla sonuçlanır neden olur.
+
+Uygulama Vm'leri dağıtıldığı NSG/UDR uygulama ağ geçidi alt ağı veya alt ağın mevcut olabilir.
+
+Benzer şekilde, sanal ağda özel DNS varlığını sorunları da neden olabilirdi. Arka uç havuzu üyeleri için kullanılan bir FQDN doğru kullanıcı tarafından yapılandırılmış DNS sunucusu tarafından VNet için çözebilir değil.
 
 ### <a name="solution"></a>Çözüm
 
 Aşağıdaki adımları izleyerek giderek NSG, UDR ve DNS yapılandırmasını doğrula:
-* Uygulama ağ geçidi alt ağı ile ilişkili Nsg'ler denetleyin. Arka uca iletişimi engellenmediğinden emin olun.
-* Uygulama ağ geçidi alt ağı ile ilişkili UDR denetleyin. UDR uzağa arka uç alt ağı trafiği yönlendiren değil olun - ağ sanal Gereçleri veya uygulama ağ geçidi alt ağı ExpressRoute/VPN aracılığıyla tanıtılan varsayılan yollar için yönlendirme için örneğin denetleyin.
 
-```powershell
+* Nsg'ler, uygulama ağ geçidi alt ağı ile ilişkili denetleyin. Arka uca iletişimi engellenmemesini sağlamaya.
+* UDR uygulama ağ geçidi alt ağı ile ilişkili denetleyin. UDR uzağa arka uç alt ağı trafiği yönlendiren olmadığından emin olun. Örneğin, ağ sanal Gereçleri veya uygulama ağ geçidi alt ağı ExpressRoute/VPN aracılığıyla tanıtılan varsayılan yollar için yönlendirme için denetleyin.
+
+```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
 Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Etkin NSG ve arka uç VM'den yol denetleyin
 
-```powershell
+```azurepowershell
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
 Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
@@ -73,13 +70,17 @@ DhcpOptions            : {
                            ]
                          }
 ```
-Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa olduğundan emin olun.
+Varsa, DNS sunucusunun doğru arka uç havuzu ÜYESİNİN çözümleyebileceğinden emin olun.
 
 ## <a name="problems-with-default-health-probe"></a>Varsayılan durum araştırması ile ilgili sorunlar
 
 ### <a name="cause"></a>Nedeni
 
-502 hataları, sık sık göstergeleri varsayılan durum araştırması arka uç sanal makine ulaşabildiğinden değil de olabilir. Application Gateway örneği sağlandığında varsayılan durum araştırması için her BackendAddressPool Backendhttpsetting'de özelliklerini kullanarak otomatik olarak yapılandırır. Bu araştırma ayarlamak için kullanıcı müdahalesi gerekir. Özellikle, bir Yük Dengeleme kuralı yapılandırıldığında, ilişkilendirme Backendhttpsetting'de ve BackendAddressPool arasında yapılır. Varsayılan araştırma her bu ilişkilendirmeleri için yapılandırılır ve Application Gateway düzenli sistem durumu denetimi bağlantı BackendAddressPool Backendhttpsetting'de öğesinde belirtilen bağlantı noktasındaki her bir örneği başlatır. Aşağıdaki tabloda, varsayılan sistem durumu araştırma URL'siyle ilişkili değerleri listelenmektedir.
+502 hataları da sık göstergeleri varsayılan durum araştırması arka uç sanal makine erişilemiyor olabilir.
+
+Uygulama ağ geçidi örneğini sağlandığında varsayılan durum araştırması için her BackendAddressPool Backendhttpsetting'de özelliklerini kullanarak otomatik olarak yapılandırır. Bu araştırma ayarlamak için kullanıcı müdahalesi gerekir. Özellikle, bir Yük Dengeleme kuralı yapılandırıldığında, ilişkilendirme bir Backendhttpsetting'de ve bir BackendAddressPool arasında yapılır. Varsayılan araştırma her bu ilişkilendirmeleri için yapılandırılır ve uygulama ağ geçidi Backendhttpsetting'de öğesinde belirtilen bağlantı noktasında BackendAddressPool düzenli sistem durumu denetimi bağlantı her örneği başlatır. 
+
+Aşağıdaki tabloda, varsayılan sistem durumu araştırma URL'siyle ilişkili değerleri listeler:
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
@@ -92,16 +93,18 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 
 * Varsayılan site yapılandırılır ve 127.0.0.1 dinliyor emin olun.
 * 80 dışında bir bağlantı noktası Backendhttpsetting'de belirtiyorsa, varsayılan site Bu bağlantı noktasını dinlemek üzere yapılandırılması gerekir.
-* Çağrı `http://127.0.0.1:port` 200 bir HTTP sonuç kodunu döndürmelidir. Bu 30 sn zaman aşımı süresi içinde yönlendirileceksiniz.
-* Yapılandırılan bağlantı noktası açık olduğunu ve hiçbir güvenlik duvarı kuralları veya yapılandırılmış bağlantı noktasında gelen veya giden trafiği engellemeye Azure ağ güvenlik grupları olduğundan emin olun.
-* Azure Klasik sanal makineleri veya Bulut hizmeti FQDN veya genel IP ile kullanılıyorsa, karşılık gelen emin [uç nokta](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) açılır.
-* VM'nin Azure Resource Manager aracılığıyla yapılandırılır ve Application Gateway dağıtıldığı, VNet dışından [ağ güvenlik grubu](../virtual-network/security-overview.md) istediğiniz bağlantı noktasını erişimine izin verecek şekilde yapılandırılması gerekir.
+* Çağrı `http://127.0.0.1:port` 200 bir HTTP sonuç kodunu döndürmelidir. Bu 30 saniyelik zaman aşımı süresi içinde yönlendirileceksiniz.
+* Yapılandırılmış bağlantı noktasının açık olduğunu ve hiçbir güvenlik duvarı kuralları veya yapılandırılmış bağlantı noktasında gelen veya giden trafiği engellemeye Azure ağ güvenlik grupları olduğundan emin olun.
+* Azure Klasik sanal makineleri veya Bulut hizmeti bir FQDN veya bir genel IP ile kullanılıyorsa, karşılık gelen emin [uç nokta](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) açılır.
+* VM'nin Azure Resource Manager aracılığıyla yapılandırılır ve uygulama ağ geçidi dağıtıldığı, VNet dışından bir [ağ güvenlik grubu](../virtual-network/security-overview.md) istediğiniz bağlantı noktasını erişimine izin verecek şekilde yapılandırılması gerekir.
 
 ## <a name="problems-with-custom-health-probe"></a>Özel durum araştırması ile ilgili sorunlar
 
 ### <a name="cause"></a>Nedeni
 
-Özel sistem durumu araştırmaları, varsayılan davranışı yoklaması için daha fazla esneklik sağlar. Özel araştırmalar kullanırken, kullanıcılar araştırma aralığı, URL ve test etmek için yolu ve arka uç havuzu örnek sağlıksız olarak işaretleme önce kabul etmek için kaç başarısız yanıtları yapılandırabilir. Aşağıdaki ek özellikler eklenir.
+Özel sistem durumu araştırmaları, varsayılan davranışı yoklaması için daha fazla esneklik sağlar. Özel araştırmalar kullandığınızda, araştırma aralığı, URL, test etmek için yolun ve arka uç havuzu örnek sağlıksız olarak işaretleme önce kabul etmek için kaç başarısız yanıtları yapılandırabilirsiniz.
+
+Aşağıdaki ek özellikler eklenir:
 
 | Araştırma özelliği | Açıklama |
 | --- | --- |
@@ -118,7 +121,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 Özel durum yoklaması önceki tabloda olarak doğru şekilde yapılandırıldığını doğrulayın. Önceki sorun giderme adımları yanı sıra, ayrıca aşağıdakilerden emin olun:
 
 * Araştırma olarak başına doğru belirtildiğinden emin olun [Kılavuzu](application-gateway-create-probe-ps.md).
-* Application Gateway için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı olarak belirtilmelidir `127.0.0.1`, içinde özel araştırma aksi şekilde yapılandırılmadıkça.
+* Uygulama ağ geçidi için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı olarak belirtilmelidir `127.0.0.1`, içinde özel araştırma aksi şekilde yapılandırılmadıkça.
 * Http:// çağrısı emin\<konak\>:\<bağlantı noktası\>\<yolu\> 200 bir HTTP sonuç kodunu döndürür.
 * Aralığını, zaman aşımı ve UnhealtyThreshold kabul edilebilir aralıkta olduğundan emin olun.
 * Bir HTTPS kullanarak araştırma, arka uç sunucusunda kendisi bir geri dönüş sertifikası yapılandırarak arka uç sunucusuna SNI gerektirmeyen emin olun.
@@ -127,13 +130,13 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 
 ### <a name="cause"></a>Nedeni
 
-Bir kullanıcı isteği alındığında, uygulama ağ geçidi isteği için yapılandırılan kuralları uygular ve bir arka uç havuzu örneğine yönlendirir. Arka uç örnek yanıttan saati, yapılandırılabilir bir aralıkta bekler. Varsayılan olarak, bu aralığıdır **30 saniye**. Application Gateway, bu aralıkta arka uç uygulamasından bir yanıt almazsa, kullanıcı isteği 502 bir hata görebilirsiniz.
+Bir kullanıcı isteği alındığında, uygulama ağ geçidi isteği için yapılandırılan kuralları uygular ve bir arka uç havuzu örneğine yönlendirir. Arka uç örnek yanıttan saati, yapılandırılabilir bir aralıkta bekler. Varsayılan olarak, bu aralığıdır **20** saniye. Uygulama ağ geçidi, bu aralıkta arka uç uygulamasından bir yanıt almazsa, kullanıcı isteği bir 502 hatasını alır.
 
 ### <a name="solution"></a>Çözüm
 
-Uygulama ağ geçidi aracılığıyla farklı havuzlar için uygulanabilir Backendhttpsetting'de, bu ayarı yapılandırmak kullanıcıların sağlar. Farklı arka uç havuzları farklı Backendhttpsetting'de ve bu nedenle farklı istek zaman aşımı yapılandırılmış olabilir.
+Uygulama ağ geçidi, bu ayar için farklı havuzlar uygulanabilir Backendhttpsetting'de aracılığıyla yapılandırmanıza olanak sağlar. Farklı arka uç havuzları farklı Backendhttpsetting'de ve yapılandırılmış farklı istek zaman aşımı olabilir.
 
-```powershell
+```azurepowershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
@@ -141,17 +144,17 @@ Uygulama ağ geçidi aracılığıyla farklı havuzlar için uygulanabilir Backe
 
 ### <a name="cause"></a>Nedeni
 
-Uygulama ağ geçidi Vm'leri ya da sanal makine ölçek kümesi arka uç adres havuzundaki yapılandırılmış, herhangi bir müşteri istek yönlendirme yapamazsınız ve hatalı ağ geçidi hata oluşturur.
+Uygulama ağ geçidi Vm'leri ya da sanal makine ölçek kümesi varsa arka uç adres havuzundaki yapılandırılmış, herhangi bir müşteri istek yönlendirme yapamazsınız ve hatalı ağ geçidi hata gönderir.
 
 ### <a name="solution"></a>Çözüm
 
 Arka uç adres havuzundaki boş olmadığından emin olun. Bu, PowerShell, CLI veya Portalı aracılığıyla yapılabilir.
 
-```powershell
+```azurepowershell
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-Yukarıdaki cmdlet çıktısından, boş olmayan arka uç adres havuzu içermelidir. Aşağıda, bir örnek Burada, hangi döndürülen iki havuz arka uç sanal makineleri için FQDN veya IP adresleriyle yapılandırılmış. BackendAddressPool sağlama durumu 'başarılı' olması gerekir.
+Yukarıdaki cmdlet çıktısından, boş olmayan arka uç adres havuzu içermelidir. Aşağıdaki örnek, bir FQDN veya arka uç sanal makineleri için bir IP adresi ile yapılandırılmış iki havuz döndürülen gösterir. BackendAddressPool sağlama durumu 'başarılı' olması gerekir.
 
 BackendAddressPoolsText:
 
@@ -183,11 +186,11 @@ BackendAddressPoolsText:
 
 ### <a name="cause"></a>Nedeni
 
-Ardından Application Gateway BackendAddressPool öğesinin tüm örneklerini sağlam olmaması ise kullanıcının istek için tüm arka uç bulunmaz. Arka uç örneklerinin sağlıklı olduğunu ancak dağıtılan uygulamayı gerekli izniniz yok, bu durum olabilir.
+BackendAddressPool öğesinin tüm örneklerini sağlam olmaması ise uygulama ağ geçidi rota Kullanıcı isteği için bir arka uç sahip değil. Arka uç örneklerinin sağlıklı olduğunu ancak dağıtılan gerekli uygulama yoksa bu durum da olabilir.
 
 ### <a name="solution"></a>Çözüm
 
-Örnekleri sağlıklı olduğunu ve uygulama düzgün yapılandırıldığından emin olun. Arka uç örneklerinin aynı vnet'teki başka bir VM'den bir pinge yanıt verebilir durumda olup olmadığını denetleyin. Bir genel uç noktası ile yapılandırdıysanız, web uygulaması bir tarayıcı isteğini tutulabilmesi olduğundan emin olun.
+Örnekleri sağlıklı olduğunu ve uygulama düzgün yapılandırıldığından emin olun. Arka uç örneklerinin aynı vnet'teki başka bir VM'den bir pinge yanıt vermezse denetleyin. Bir genel uç noktası ile yapılandırdıysanız, web uygulaması bir tarayıcı isteğini tutulabilmesi emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

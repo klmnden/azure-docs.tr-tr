@@ -1,25 +1,18 @@
 ---
-title: Azure uygulama gözden geçirme geri bildirimi - Azure Marketi'nde işleme | Microsoft Docs
+title: Azure uygulama İnceleme geri işleme | Azure Market
 description: Azure DevOps için Azure Marketi teklifleri için Azure uygulama İnceleme geri işlemek için nasıl kullanılacağını açıklar.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.author: pbutlerm
-ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942952"
 ---
 # <a name="handling-review-feedback"></a>Gözden geçirme geri bildirimini işleme
 

@@ -3,17 +3,17 @@ title: Azure IOT Central uygulamanızı Raspberry Pi'yi bağlayın (C#) | Micros
 description: Bir cihaz geliştirici olarak, Azure IOT Central kullanarak uygulama için bir Raspberry Pi bağlanma C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/05/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a7b2d15884f7a1cb8b6e72937b0f1e3b6cb8ca9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714426"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -354,10 +354,10 @@ Geçiş ayarları
 
 ### <a name="properties"></a>Özellikler
 
-| Type            | Görünen ad | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Text            | Location     | location   | Yok       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

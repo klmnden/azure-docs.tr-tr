@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Oluşturma, değiştirme veya bir yol tablosu silme öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
-ms.openlocfilehash: c9846f78e05d598844d12819cef3e948caf2704d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: 1f20cc7ded40d6eccf000a9ddcd52fb407ba470d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889707"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682660"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir rota tablosunu sil
 
@@ -218,7 +218,7 @@ Bir sanal makineye bağlı her ağ arabirimi için geçerli rotalar oluşturduğ
 
 Sonraki atlama türü arasında bir sanal makine ve başka bir Azure kaynak, bir şirket içi kaynağa ya da Internet üzerindeki bir kaynağa IP adresini saptayabilirsiniz. Belirleme Azure'nın yönlendirme yönlendirme sorunları giderirken yararlıdır. Bu görevi tamamlamak için var olan bir Ağ İzleyicisi olması gerekir. Var olan bir Ağ İzleyicisi yoksa, oluşturmak adımları tamamlayarak [Ağ İzleyicisi örneği oluşturma](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Portalın üst kısmındaki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde onu seçin.
 2. Seçin **sonraki atlama** altında **Ağ Tanılama Araçları**.
 3. Seçin, **abonelik** ve **kaynak grubu** gelen yönlendirme doğrulamak istediğiniz kaynak sanal makinenin.
 4. Seçin **sanal makine**, **ağ arabirimi** sanal makineye bağlı ve **kaynak IP adresi** doğrulamak istediğiniz ağ arabirimine atanan gelen yönlendirme.

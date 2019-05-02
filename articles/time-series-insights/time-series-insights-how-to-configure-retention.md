@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d88bf309d2afeb4e6fdd09ff1317bec3fec2fe75
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556059"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695844"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Zaman serisi Öngörülerinde saklama yapılandırma
 Bu makalede nasıl yapılandırılacağını açıklar **veri saklama zamanı** ve **depolama sınırı aştı davranışı** Azure zaman serisi görüşleri'nde.
@@ -46,4 +46,5 @@ Bu ayarları daha iyi anlamak ayrıntılı bilgi için gözden [anlama bekletme 
 7. Seçin **Kaydet** değişiklikleri yapılandırmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için gözden [anlama bekletme zaman serisi görüşleri'nde](time-series-insights-concepts-retention.md).
+
+- Daha fazla bilgi için gözden [anlama bekletme zaman serisi görüşleri'nde](time-series-insights-concepts-retention.md).

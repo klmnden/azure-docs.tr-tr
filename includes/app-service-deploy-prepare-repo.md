@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765712"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951579"
 ---
 ## <a name="prepare-your-repository"></a>Deponuzu hazırlama
 
@@ -29,7 +29,7 @@ Azure App Service Kudu derleme sunucusundan otomatik derlemeler almak için depo
 | Python (yalnızca Windows) | _\*.PY_, _requirements.txt_, veya _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, veya  _iisstart.htm_ |
 | WebJobs | _\<job_name > / çalıştırın. \<uzantısı >_ altında _uygulama\_veri/iş/continuous_ (için sürekli WebJobs) veya _uygulama\_veri/iş/triggered_ (tetiklenen için Web işleri). Daha fazla bilgi için [Kudu Web işleri belgeleri](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| İşlevler | Bkz: [Azure işlevleri için sürekli dağıtım](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
+| İşlevler | Bkz: [Azure işlevleri için sürekli dağıtım](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |
 
 Dağıtımınızı özelleştirmek için dahil bir _.deployment_ depo köküne dosya. Daha fazla bilgi için [dağıtımlarını özelleştirme](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) ve [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 

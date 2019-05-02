@@ -1,23 +1,23 @@
 ---
-title: AzCopy v10 kullanarak verileri Azure Depolama'ya taşıma veya kopyalama (Önizleme) | Microsoft Docs
-description: AzCopy v10 kullanın ya da blob, veri gölü ve dosya içeriği veri taşınacak veya kopyalanacak (Önizleme) komut satırı yardımcı programı. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
+title: Kopyalayın veya v10 AzCopy kullanarak Azure Depolama'ya veri taşıma | Microsoft Docs
+description: Taşımak veya için veya blob, veri gölü ve dosya içeriği veri kopyalamak için AzCopy komut satırı yardımcı programını kullanın. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278437"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723174"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>AzCopy v10 ile veri aktarımı (Önizleme)
+# <a name="transfer-data-with-azcopy-v10"></a>AzCopy v10 ile veri aktarma
 
-AzCopy v10 olduğu için veya Microsoft Azure Blob ve dosya depolama alanından verileri kopyalamak için komut satırı yardımcı programını (Önizleme). AzCopy v10 yeniden tasarlanan bir komut satırı arabirimi sağlar ve yeni mimari için güvenilir veri aktarır. Azcopy komutunu kullanarak bir dosya sistemi ve depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.
+AzCopy ya da Microsoft Azure Blob ve dosya depolama alanından verileri kopyalamak için komut satırı yardımcı programıdır. AzCopy yeniden tasarlanan bir komut satırı arabirimi sağlar ve yeni mimari için güvenilir veri aktarır. Azcopy komutunu kullanarak bir dosya sistemi ve depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.
 
 ## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10 yenilikler
 
@@ -33,28 +33,24 @@ AzCopy v10 olduğu için veya Microsoft Azure Blob ve dosya depolama alanından 
 
 ## <a name="download-and-install-azcopy"></a>AzCopy yükleyip
 
-### <a name="latest-preview-version-v10"></a>En son önizleme sürümünü (v10)
+### <a name="latest-production-version-v10"></a>En güncel üretim sürümüne (v10)
 
-En güncel AzCopy önizleme sürümünü indirin:
+En güncel AzCopy sürümünü indirin:
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>En güncel üretim sürümüne (v8.1)
-
-İndirme [için AzCopy Windows son üretim sürümüne](https://aka.ms/downloadazcopy).
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>Tablo depolama hizmetini (v7.3) destekleyen AzCopy
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>Tablo depolama hizmetini (v7.3) destekleyen en son AzCopy
 
 İndirme [/Microsoft Azure tablo depolama hizmetinin veri deposundan veri kopyalamayı destekleyen AzCopy v7.3](https://aka.ms/downloadazcopynet).
 
 ## <a name="post-installation-steps"></a>Yükleme sonrası adımlar
 
-AzCopy v10 yükleme gerektirmez. Tercih edilen komut satırı uygulamanızı açın ve klasöre göz atın burada `azcopy.exe` bulunur. Gerekli olursa, sistem yolunuzda kullanım kolaylığı için AzCopy klasör konumunu ekleyebilirsiniz.
+AzCopy yükleme gerektirmez. Tercih edilen komut satırı uygulamanızı açın ve klasöre göz atın burada `azcopy.exe` bulunur. Gerekli olursa, sistem yolunuzda kullanım kolaylığı için AzCopy klasör konumunu ekleyebilirsiniz.
 
 ## <a name="authentication-options"></a>Kimlik doğrulaması seçenekleri
 
-Azure depolama ile kimlik doğrulaması yapılırken, AzCopy v10 aşağıdaki seçeneklerini destekler:
+AzCopy, Azure depolama ile kimlik doğrulaması yapılırken aşağıdaki seçeneklerini destekler:
 - **Azure Active Directory** (desteklenen **Blob ve Data Lake depolama Gen2 Hizmetleri**). Kullanım ```.\azcopy login``` Azure Active Directory ile oturum açmanız.  Kullanıcının olmalıdır ["Depolama Blob verileri katkıda bulunan" rolü atanmış](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory kimlik doğrulaması ile Blob depolama alanına yazılacak. Azure kaynakları için yönetilen kimlikleri aracılığıyla kimlik doğrulaması için `azcopy login --identity`.
 - **Paylaşılan erişim imzası belirteçlerinin [desteklenen Blob ve Dosya Hizmetleri için]**. Paylaşılan erişim imzası (SAS) belirteci kullanmak için komut satırında blob yolu ekleyin. Azure portalı ile SAS belirteçleri oluşturabilirsiniz [Depolama Gezgini](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), veya tercih ettiğiniz diğer araçlar. Daha fazla bilgi için [örnekler](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
@@ -198,7 +194,7 @@ Ayrıca, bir blob kapsayıcısına bir yerel dosya sistemi aşağı eşitleyebil
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Bu komut, üzerinde son değiştirilen zaman damgaları göre hedef kaynağa artımlı olarak eşitler. AzCopy v10 ekleyin ya da kaynak dosya silme, aynı hedef yapar. Silme işleminden önce AzCopy onaylamanızı ister.
+Bu komut, üzerinde son değiştirilen zaman damgaları göre hedef kaynağa artımlı olarak eşitler. Ekleyin ya da kaynak dosya silme, AzCopy ve hedef aynı yapın. Silme işleminden önce AzCopy onaylamanızı ister.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Amazon Web Services (AWS) S3'ten veri kopyalama
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>Sorun giderme
 
-AzCopy v10 günlük dosyaları ve her proje için plan dosyaları oluşturur. Araştırmak ve olası sorunları gidermek için günlükleri'ni kullanabilirsiniz. Günlükleri (UPLOADFAILED COPYFAILED ve DOWNLOADFAILED), hata durumunu içerecek tam yolunu ve hatanın nedenini. İş günlüklerini ve planı dosyalarını % USERPROFILE bulunur\\Windows ya da $HOME .azcopy klasörü\\Mac ve Linux'ta .azcopy klasör.
+AzCopy günlük dosyaları ve her proje için plan dosyaları oluşturur. Araştırmak ve olası sorunları gidermek için günlükleri'ni kullanabilirsiniz. Günlükleri (UPLOADFAILED COPYFAILED ve DOWNLOADFAILED), hata durumunu içerecek tam yolunu ve hatanın nedenini. İş günlüklerini ve planı dosyalarını % USERPROFILE bulunur\\Windows ya da $HOME .azcopy klasörü\\Mac ve Linux'ta .azcopy klasör.
 
 > [!IMPORTANT]
 > Microsoft Support (veya herhangi bir üçüncü taraf ilgili sorun giderme), bir isteği gönderirken çalıştırmak istediğiniz komutun sonuç kısaltılmıştır sürümü paylaşabilir. Bu, SAS yanlışlıkla herkesle paylaşılmaz sağlar. Günlük dosyasının başında sonuç kısaltılmıştır sürümü bulabilirsiniz.

@@ -1,23 +1,22 @@
 ---
 title: Azure Site Recovery ile Azure bölgeleri arasında Azure Vm'leri olağanüstü durum kurtarma için destek matrisi | Microsoft Docs
-description: Desteklenen işletim sistemleri ve yapılandırmalar Azure sanal makineleri (VM'ler), Azure Site Recovery çoğaltması için bir bölgeden diğerine için olağanüstü durum kurtarma (DR) gereksinimlerini özetler.
-services: site-recovery
+description: Önkoşullar ve Destek olağanüstü durum kurtarma için Azure vm'leri bir bölgeden diğerine Azure Site Recovery ile özetler
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502120"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926585"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
 
-Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölgesinden diğerine ile olağanüstü durum kurtarma kullanarak dağıttığınızda desteklenen yapılandırmalar ve bileşenleri özetlenir [Azure Site Recovery](site-recovery-overview.md) hizmeti.
+Bu makalede Azure Vm'leri olağanüstü durum kurtarma bir Azure bölgesinden ayarladığınızda başka kullanarak desteği ve önkoşullar özetlenmektedir [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
 
 ## <a name="deployment-method-support"></a>Dağıtım yöntemi desteği
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | SP1 çalıştıran veya üzeri
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS Server | [Desteklenen bir çekirdek sürümleri](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS Server | [Desteklenen bir çekirdek sürümü](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu sunucuları bulut Vm'leri yapılandırmak için parola tabanlı kimlik doğrulaması ve oturum açma ve cloud-init'i paket kullanarak parola tabanlı oturum açma (cloudinit yapılandırması) bağlı olarak yük devretme devre dışı bırakılmış olabilir. Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin desteği parolasını sıfırlayarak > sorun giderme > Ayarlar menüsünden (devredilen VM'nin Azure portalında.
+Ubuntu 16.04 LTS Server | [Desteklenen bir çekirdek sürümü](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Parola tabanlı kimlik doğrulaması ve oturum açma kullanarak Ubuntu sunucuları ve bulut Vm'leri yapılandırmak için cloud-init'i paket parola tabanlı oturum açmayı (cloudinit yapılandırması) bağlı olarak yük devretme devre dışı bırakılmış olabilir. Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin desteği parolasını sıfırlayarak > sorun giderme > Ayarlar menüsünden (devredilen VM'nin Azure portalında.
 Debian 7 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Desteklenen çekirdek sürümleri)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Desteklenen çekirdek sürümleri)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Makineler SP4 ' SP3'ü çoğaltmak yükseltme desteklenmiyor. Çoğaltılmış bir makineden yükseltildiyse, çoğaltmayı devre dışı bırakın ve yükseltmeden sonra çoğaltmayı yeniden etkinleştirmeniz gerekir.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalışıyor.
@@ -148,7 +147,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.21 | SP1 3.12.49-11-default 3
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
 Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
-Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure sanal makine için çoğaltmayı etkinleştirmek, bir kullanılabilirlik kümesinde kaynak bölge ayarlarını göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
+Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure VM için çoğaltmayı etkinleştirin, bir kullanılabilirlik kümesinde kaynak bölge ayarlara göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
 Kullanılabilirlik alanları | Desteklenen |
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
 VM ölçek kümeleri | Desteklenmiyor |
@@ -191,7 +190,8 @@ Depolama alanları | Desteklenen |
 (SSE) bekleyen şifreleme | Desteklenen | SSE, depolama hesapları varsayılan ayardır.   
 Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etkin [şifrelemesi ile Azure AD uygulaması](https://aka.ms/ade-aad-app) desteklenir |
 Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
-Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
+Sık erişimli Ekle | Desteklenen | Eklediğiniz çoğaltılmış bir Azure VM'ye veri diski için çoğaltma etkinleştirme, yönetilen diskleri kullanan sanal makineler için desteklenir.
+Sık erişimli diski kaldırın | Desteklenmiyor | VM veri diski kaldırmak, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
 Diski hariç tutma | destekler. Kullanmalısınız [Powershell](azure-to-azure-exclude-disks.md) yapılandırmak için. |  Geçici diskler, varsayılan olarak dışlanır.
 Doğrudan Erişimli Depolama Alanları  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 Genişleme dosya sunucusu  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
@@ -241,7 +241,7 @@ Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |
 Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
-Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)    
+Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site Recovery trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)  
 Sanal Ağ Hizmet Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
 Hızlandırılmış ağ iletişimi | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).

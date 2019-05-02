@@ -1,30 +1,23 @@
 ---
-title: Azure IOT Edge modülü için Market açıklama | Microsoft Docs
+title: Azure IOT Edge modülü için Market açıklama | Azure Market
 description: IOT Edge modülü Market açıklaması oluşturun.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913335"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942424"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IOT Edge modülü Market sekmesi
 
-
 **Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **Genel Bakış**, **Yapıtları pazarlama**, **sağlama Yönetim**, ve **yasal**.
+
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -32,22 +25,25 @@ Bu bölümde, Azure Market teklifi hakkında genel bilgileri girin.  Gerekli ala
 
 ![Genel Bakış bölümünde IOT Edge modülleri için yeni teklifi formdaki Market sekmesi](./media/iot-edge-module-marketplace-tab-overview.png)
 
-Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
+Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar. Gerekli alanlar yıldız (*) indicted.
 
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Başlık**                 | Teklif başlığı. Market'te dikkat çekecek şekilde gösterilir.  En fazla 50 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
-| **Özet**               | Teklifin kısa özeti. En fazla 100 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
-| **Uzun özeti**          | Bu teklif artık özeti (aynı olabilir ancak **Özet**).  En fazla 256 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
-| **Açıklama**           | Teklif açıklaması.  En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler.<br/> Bunu içermelidir bir *en düşük donanım gereksinimlerini* altındaki paragraf. Örneğin: <br/> <p><u>En düşük donanım gereksinimleri:</u> Linux x64 ve arm32 işletim sistemi, 1 GB RAM, 500 Mb depolama alanı</p>
-| **Pazarlama tanımlayıcısı**  | Bu teklif için ilişkilendirmek için benzersiz bir URL, kuruluşunuz ve çözüm adı, en fazla uzunluğu 50 karakterden genellikle içerir.  Örneğin: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Başlık\***                 | Teklif başlığı. Market'te dikkat çekecek şekilde gösterilir.  En fazla 50 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
+| **Özeti\***               | Teklifin kısa özeti. En fazla 100 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
+| **Uzun özeti\***          | Bu teklif artık özeti (aynı olabilir ancak **Özet**).  En fazla 256 karakter uzunluğunda. <!--ADD PICTURE IN ACTION-->|
+| **Açıklaması\***           | Teklif açıklaması.  En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler.<br/> Bunu içermelidir bir *en düşük donanım gereksinimlerini* altındaki paragraf. Örneğin: <br/> <p><u>En düşük donanım gereksinimleri:</u> Linux x64 ve arm32 işletim sistemi, 1 GB RAM, 500 Mb depolama alanı</p>
+| **Pazarlama tanımlayıcısı\***  | Bu teklif için ilişkilendirmek için benzersiz bir URL, kuruluşunuz ve çözüm adı, en fazla uzunluğu 50 karakterden genellikle içerir.  Örneğin: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Önizleme abonelik kimlikleri** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
 | **Faydalı bağlantılar**          | İş ve teknik teklif kategorilerini çoklu seçim ile ilişkili en iyi olabilir.  En fazla 10 izin verilir. En az bir belgelerinize bir bağlantı ve uyumlu IOT Edge cihazları eklediğinizden emin olun [Azure IOT cihaz Kataloğu](https://catalog.azureiotsolutions.com/). |
-| **Önerilen kategorileri** | En fazla beş kategorilerini seçin. Bunlar, Ürün Ayrıntıları sayfasında gösterilir. Göz atma sayfalarında, tüm IOT Edge modülleri altında gösterilen *nesnelerin interneti \> IOT Edge Modülü* kategorisi.|
+| **Önerilen kategorileri\*** | En fazla beş kategorilerini seçin. Bunlar, Ürün Ayrıntıları sayfasında gösterilir. Göz atma sayfalarında, tüm IOT Edge modülleri altında gösterilen *nesnelerin interneti \> IOT Edge Modülü* kategorisi.|
+|  |  |
+
 
 ### <a name="offer-example"></a>Teklif örneği
 
  Aşağıdaki örneklerde gösterildiği nasıl teklif **başlık**, **özeti**, **açıklama**, **logoları**, ve **ekrangörüntüleri** alanları farklı görünümlerde gösterilir.
+
  
 #### <a name="on-the-azure-marketplace-website"></a>Azure Marketi Web sitesinde:
 
@@ -58,6 +54,7 @@ Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
 - Teklif Ayrıntıları ararken:
 
     ![Ürün Ayrıntıları ve Web sitesinde ararken IOT Edge modülü nasıl gösterilir](./media/iot-edge-module-ampdotcom-pdp.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>Azure Portalı Web sitesindeki:
 
@@ -88,18 +85,19 @@ Bu bölüm aşağıdaki alt bölümleri içerir: **Logo**, **ekran**, ve **video
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logo*  | Bkz., logolar, nasıl ve nerede kullanılacak görmek için önceki ekrana yakalar.  |
-| **Küçük**                 | 40 x 40 piksel PNG biçimi                                                     |
-| **Orta**                | 90 x 90 piksel PNG biçimi                                                     |
-| **Büyük**                 | 115 x 115 piksel PNG biçimi                                                  |
-| **Geniş**                  | 255 x 115 piksel PNG biçimi                                                   |
+| **Küçük\***                 | 40 x 40 piksel PNG biçimi                                                     |
+| **Orta\***                | 90 x 90 piksel PNG biçimi                                                     |
+| **Büyük\***                 | 115 x 115 piksel PNG biçimi                                                  |
+| **Geniş\***                  | 255 x 115 piksel PNG biçimi                                                   |
 | **Hero**                  | 815 x 290 piksel PNG biçimi.  İsteğe bağlı, ancak bir kez karşıya yüklenen hero simge silinemiyor. |
 | *Ekran görüntüleri*  | Ekran görüntüleri, Ürün Ayrıntıları sayfasında görüntülenir. Bunlar, görsel olarak, IOT Edge modülü yaptığı ve nasıl çalıştığı iletişim kurmak için iyi bir yoldur. Mimari diyagramları gösterebilir veya büyük/küçük harf çizimler örneği için kullanın. İsteğe bağlı, ancak en fazla beş ekran görüntüleri başına SKU. |
 | **Ad**                  | Adı veya başlığı. En fazla 100 karakter uzunluğunda.                             |
-| **Görüntü**                 | Ekran yakalama görüntüsünü, 533 x 324 piksel PNG biçimi                                         |
+| **Görüntü**                 | Ekran yakalama görüntüsünü, 533 x 324 piksel PNG biçimi                               |
 | *Videolar*  | Videolar, Ürün Ayrıntıları sayfasında görüntülenir. Bunlar, görsel olarak, IOT Edge modülü yaptığı ve nasıl çalıştığı iletişim kurmak için iyi bir yoldur. |
-| **Ad**                  | Adı veya başlığı. En fazla 100 karakter uzunluğunda.                              |
+| **Ad**                  | Adı veya başlığı. En fazla 100 karakter uzunluğunda.                             |
 | **Bağlantı**                  | YouTube veya Vimeo barındırılan video URL'si                                        |
-| **Küçük resim**             | 533 x 324 piksel PNG biçimi                                                           |
+| **Küçük resim**             | 533 x 324 piksel PNG biçimi                                                     |
+|  |  |
 
 
 ### <a name="logo-guidelines"></a>Logo yönergeleri
@@ -114,6 +112,7 @@ Bulut iş ortağı portalına karşıya logo yönergeleri izlemelidir:
 *  Arka plan gradyan logonuzu kullanmayın.
 *  Metin yerleştirmekten kaçının — bile, şirketiniz veya marka adı — logosu üzerinde. Logonuzu Görünüm ve yapısını "Düz" olmalıdır ve gradyanları kaçınmalıdır.
 *  Logo genişletme.
+
 
 #### <a name="hero-logo"></a>Kahraman logosu
 
@@ -158,16 +157,18 @@ Teklifinizi başarıyla yayımladıktan sonra müşteri adayı bağlantı doğru
 3. amp.com the pricing tab
 4. amp.com the tile -->
 
+
 ## <a name="legal"></a>Yasal Bilgiler
 
 Bu bölümde, her teklif için gerekli olan iki yasal belgeler sağlamanıza olanak tanır: Gizlilik İlkesi ve kullanım koşulları.
 
-|  **Alan**                |     **Açıklama**                                                          |
-|  ---------                |     ---------------                                                          |
-| **Gizlilik İlkesi URL'si**    | Gizlilik ilkeniz URL'si                                            |
-| **Kullanım koşulları**          | Satır içi olarak kullanım koşullarını basit HTML veya deftere nakledilen kullanım koşullarınızın Bağla       |
+|  **Alan**                    |     **Açıklama**                                                          |
+|  ---------                    |     ---------------                                                          |
+| **Gizlilik İlkesi URL'si\***      | Gizlilik ilkeniz URL'si                                            |
+| **Standart Constract kullanın\***  | Standart Microsoft anlaşması şablonu kullanılıp kullanılmayacağını belirtir.  Daha fazla bilgi için [standart sözleşme](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Kullanım koşulları\***            | *Kullanım koşullarını* satır içi olarak basit HTML veya bağlantı gönderilen koşullarınıza kullanımı sayfası     |
+|  |  |
 
-<br/>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

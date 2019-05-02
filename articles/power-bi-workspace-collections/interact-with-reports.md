@@ -1,22 +1,19 @@
 ---
 title: JavaScript API’sini kullanarak raporlarla etkileşim kurma | Microsoft Belgeleri
 description: Power BI JavaScript API’si, Power BI raporlarını uygulamalarınıza kolaylıkla eklemenizi sağlar.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
-origin.date: 09/26/2018
-ms.date: 03/05/2019
-ms.author: v-junlch
+ms.date: 09/20/2017
 ms.openlocfilehash: 252296af8b2065ae22bed8b421d4d00718b78287
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110472"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705520"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
 
@@ -27,11 +24,11 @@ Power BI JavaScript API’si, Power BI raporlarını uygulamalarınıza kolaylı
 
 Uygulamanızın bir parçası olarak barındırılacak Power BI raporunu uygulamaya iframe kullanarak ekleyin. Aşağıdaki görüntüde görebileceğiniz gibi bu iframe uygulamanızla rapor arasında sınır işlevi görür:
 
-![Javascript API'si içermeyen Power BI Çalışma Alanı Koleksiyonu iframe'i](./media/interact-with-reports/iframe-without-javacript.png)
+![Javascript API'si içermeyen Power BI Çalışma Alanı Koleksiyonu iframe'i](media/interact-with-reports/iframe-without-javacript.png)
 
 iframe katıştırma işlemini çok daha kolaylaştırır, ancak JavaScript API’si olmadan rapor ve uygulamanız birbiriyle etkileşim kuramaz. Bu etkileşimin kurulamaması raporun uygulamanızın bir parçası değilmiş gibi görünmesine neden olabilir. Rapor ve uygulama aşağıdaki görüntüde olduğu gibi çift yönlü bir iletişim kurmalıdır:
 
-![Javascript API'si içeren Power BI Çalışma Alanı Koleksiyonu iframe'i](./media/interact-with-reports/iframe-with-javascript.png)
+![Javascript API'si içeren Power BI Çalışma Alanı Koleksiyonu iframe'i](media/interact-with-reports/iframe-with-javascript.png)
 
 Power BI JavaScript API’si iframe sınırından güvenli bir şekilde geçebilecek bir kod yazmanızı sağlar. Bunun yapılması uygulamanızın bir raporda program aracılığıyla eylem gerçekleştirmesini ve kullanıcıların rapor içinde gerçekleştirdiği eylemlerdeki olayları dinlemesini sağlar.
 
@@ -39,17 +36,17 @@ Power BI JavaScript API’si iframe sınırından güvenli bir şekilde geçebil
 
 JavaScript API’si ile raporları yönetebilir, bir rapordaki sayfalarda gezinebilir, raporu filtreleyebilir ve katıştırma olaylarını gerçekleştirebilirsiniz. Aşağıdaki diyagramda API’nin yapısı gösterilmektedir.
 
-![Power BI JavaScript API’si diyagramı](./media/interact-with-reports/javascript-api-diagram.png)
+![Power BI JavaScript API’si diyagramı](media/interact-with-reports/javascript-api-diagram.png)
 
 ### <a name="manage-reports"></a>Raporları yönetme
 Javascript API’si rapor ve sayfa düzeyindeki davranışı yönetmenizi sağlar:
 
-- Belirli bir Power BI Raporunu uygulamanıza güvenli bir şekilde katıştırma - [katıştırma demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario1) deneyin
-  - Erişim belirteci ayarlama
-- Raporu yapılandırma
-  - Filtre bölmesini ve sayfa gezinti bölmesini etkinleştirme ve devre dışı bırakma - [ayar güncelleştirme demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario6) deneyin
-  - Sayfalar ve filtreler için varsayılanları ayarlama - [varsayılanları ayarlama demosunu](https://azure-samples.github.io/powerbi-angular-client/#/scenario5) deneyin
-- Tam ekran moduna giriş ve çıkış
+* Belirli bir Power BI Raporunu uygulamanıza güvenli bir şekilde katıştırma - [katıştırma demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario1) deneyin
+  * Erişim belirteci ayarlama
+* Raporu yapılandırma
+  * Filtre bölmesini ve sayfa gezinti bölmesini etkinleştirme ve devre dışı bırakma - [ayar güncelleştirme demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario6) deneyin
+  * Sayfalar ve filtreler için varsayılanları ayarlama - [varsayılanları ayarlama demosunu](https://azure-samples.github.io/powerbi-angular-client/#/scenario5) deneyin
+* Tam ekran moduna giriş ve çıkış
 
 [Bir raporu ekleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
@@ -79,19 +76,19 @@ const basicFilter: pbi.models.IBasicFilter = {
 #### <a name="advanced-filters"></a>Gelişmiş filtreler
 Gelişmiş filtreler AND veya OR mantıksal işlecini kullanır ve her biri kendi işlecine ve değerine sahip bir ya da iki koşulu kabul eder. Desteklenen koşullar şunlardır:
 
-- None
-- LessThan
-- LessThanOrEqual
-- GreaterThan
-- GreaterThanOrEqual
-- Contains
-- DoesNotContain
-- StartsWith
-- DoesNotStartWith
-- Is
-- IsNot
-- IsBlank
-- IsNotBlank
+* None
+* LessThan
+* LessThanOrEqual
+* GreaterThan
+* GreaterThanOrEqual
+* Contains
+* DoesNotContain
+* StartsWith
+* DoesNotStartWith
+* Is
+* IsNot
+* IsBlank
+* IsNotBlank
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
@@ -120,12 +117,12 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 iframe’e bilgi göndermeye ek olarak uygulamanız iframe’den gelen aşağıdaki olaylara ilişkin bilgi de alabilir:
 
-- Embed
-  - loaded
-  - error
-- Reports
-  - pageChanged
-  - dataSelected (yakında)
+* Embed
+  * loaded
+  * error
+* Reports
+  * pageChanged
+  * dataSelected (yakında)
 
 [Olayları işleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
@@ -133,8 +130,6 @@ iframe’e bilgi göndermeye ek olarak uygulamanız iframe’den gelen aşağıd
 
 Power BI JavaScript API’si hakkında daha fazla bilgi için aşağıdaki bağlantılara göz atın:
 
-- [JavaScript API’si Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-- [Nesne modeli başvurusu](https://microsoft.github.io/powerbi-models/modules/_models_.html)
-- [Canlı tanıtım](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-
-<!-- Update_Description: update metedata properties -->
+* [JavaScript API’si Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+* [Nesne modeli başvurusu](https://microsoft.github.io/powerbi-models/modules/_models_.html)
+* [Canlı tanıtım](https://microsoft.github.io/PowerBI-JavaScript/demo/)

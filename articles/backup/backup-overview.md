@@ -1,20 +1,19 @@
 ---
 title: Azure Backup nedir?
-description: Azure Backup hizmeti ve iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize parçası olarak dağıtma hakkında genel bir bakış sağlar.
-services: backup
+description: Azure Backup hizmeti ve iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize nasıl katkı sağlayan bir genel bakış sağlar.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254692"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714289"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -31,11 +30,7 @@ Azure Backup şu önemli avantajlara sahiptir:
 - **Sınırsız veri aktarımı alma**: Azure yedekleme, gelen veya giden veri aktarımı ve aktarılan veriler için ücret miktarını sınırlamaz.
     - Giden veriler, geri yükleme işlemi sırasında bir Kurtarma Hizmetleri kasasından aktarılan verileri tanımlar.
     - Büyük miktarda veriyi içeri aktarmak için Azure içeri/dışarı aktarma hizmetini kullanarak çevrimdışı ilk yedekleme yapıyorsanız, gelen verilerle ilişkili bir maliyeti yoktur.  [Daha fazla bilgi edinin](backup-azure-backup-import-export.md).
-- **Verileri güvenli tutmak**:
-    - Şirket içi, Taşınmakta olan veriler AES256 kullanılarak şirket içi makinede şifrelenir. İletilen veriler, depolama ve yedekleme HTTPS tarafından korunur. İSCSI protokolü, yedekleme ve kullanıcı makine arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanalı korumak için kullanılır.
-    - Şirket içi için Azure yedekleme, azure'daki şifreli yedekleme sağladığınız parolayı kullanarak bekleyen verilerdir. Hiçbir zaman aktarılan veya Azure'da depolanan anahtar ve parola. Verileri geri yüklemeniz gerekirse, şifreleme parolası veya anahtarı yalnızca sizde olur.
-    - Azure Vm'leri için veriler şifrelenir sıfırlama sırasında depolama hizmeti şifrelemesi (SSE) kullanma. Yedekleme verileri depolamadan önce otomatik olarak şifreler. Azure depolama, almadan önce verilerin şifresini çözer.
-    - Backup, Azure Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş VM'ler de destekler. [Daha fazla bilgi edinin](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Verileri güvenli tutmak**: Azure Backup, veri aktarım ve bekleme sırasında güvenliğini sağlamak için çözümler sağlar.
 - **Uygulamayla tutarlı yedekler almak**: Bir uygulamayla tutarlı yedekleme, kurtarma noktası yedek kopyayı geri yüklemek için tüm gerekli verileri içeren anlamına gelir. Azure Backup, verileri geri yüklerken ek düzeltmelere gerek kalmaması için uygulamayla tutarlı yedeklemeler yapılmasını sağlar. Uygulamayla tutarlı verilerin geri yüklenmesi, geri yükleme süresini azaltarak hizmetlerinizin kısa süre içinde çalışır hale gelmesini sağlar.
 - **Kısa ve uzun süreli saklanması**: Kısa vadede ve uzun veri saklama için kurtarma Hizmetleri kasalarını kullanabilirsiniz. Azure, bir Kurtarma Hizmetleri kasasında verileri saklama süresini kısıtlamaz. Dilediğiniz sürece için tutabilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. [Daha fazla bilgi edinin](backup-introduction-to-azure-backup.md#backup-and-retention)bu sınırın yedekleme gereksinimlerinizi nasıl etkileyeceği hakkında.
 - **Otomatik depolama yönetimi** - Karma ortamlar genelde heterojen depolamaya (bazıları şirket içi, bazıları ise bulutta olan) ihtiyaç duyar. Azure Backup çözümünde, şirket içi depolama cihazlarının kullanımıyla ilişkili maliyetler yoktur. Azure yedekleme, otomatik olarak ayırır ve yedekleme depolama yönetir ve böylece yalnızca kullandığınız depolama alanı için ödeme yaparsınız-,-kullandıkça modeli kullanır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup) fiyatlandırma hakkında daha fazla.
@@ -99,21 +94,27 @@ Daha fazla bilgi edinin [nasıl yedekleme works](backup-architecture.md#architec
 **Senaryo** | **Aracı**
 --- | ---
 **Azure VM'lerini yedekleme** | Gerekli aracı yok. İlk Azure VM yedeklemesi çalıştırdığınızda Azure VM yedekleme için azure VM uzantısı yüklenir.<br/><br/> Windows ve Linux desteği için destek.
-**Şirket içi Windows makinelerini yedekleme** | İndirme, yükleme ve MARS aracısının doğrudan makinede çalıştırın.
-**MARS Aracısı ile Azure Vm'leri yedekleme** | İndirin, yükleyin ve MARS aracısının doğrudan makinede çalıştırın. MARS aracısının yedekleme uzantıyla birlikte çalıştırabilirsiniz.
+**Şirket içi Windows makinelerini yedekleme** | İndirin, yükleyin ve MARS aracısının doğrudan makinede çalıştırın.
+**MARS Aracısı ile Azure Vm'lerini yedekleme** | İndirin, yükleyin ve MARS aracısının doğrudan makinede çalıştırın. MARS aracısının yedekleme uzantıyla birlikte çalıştırabilirsiniz.
 **DPM/MABS için şirket içi makinelerin ve Azure sanal makinelerini yedekleme** | DPM veya MABS koruma aracısını korumak istediğiniz makinelerde çalıştırır. MARS aracısının DPM sunucusu/Azure'a yedeklemek için MABS çalışır.
 
 ## <a name="which-backup-agent-should-i-use"></a>Hangi yedekleme aracısı kullanmam gerekir?
 
 **Backup** | **Çözüm** | **Sınırlama**
 --- | --- | ---
-**Tüm bir Azure VM'yi yedekleme istiyorum** | VM için yedeklemeyi etkinleştirin. Backup uzantısı Windows veya Linux Azure VM üzerinde otomatik olarak yapılandırılır. | Tüm VM yedeklenir <br/><br/> Windows VM'ler için uygulamayla tutarlı yedeklemedir. Linux için yedekleme dosyası tutarlıdır. Linux VM'ler için uygulama durumunu algılayan gerekiyorsa bu özel betiklerle yapılandırmanız gerekir.
+**Tüm bir Azure VM'yi yedekleme istiyorum** | VM için yedeklemeyi etkinleştirin. Backup uzantısı Windows veya Linux Azure VM üzerinde otomatik olarak yapılandırılır. | Tüm VM yedeklenir <br/><br/> Windows VM'ler için uygulamayla tutarlı yedeklemedir. Linux için yedekleme dosyası tutarlıdır. Linux VM'ler için uygulama durumunu algılayan ihtiyacınız varsa, bu özel betiklerle yapılandırmanız gerekir.
 **Azure VM'de belirli dosyaları/klasörleri yedeklemek üzere istiyorum** | MARS Aracısı VM üzerinde dağıtın.
 **Şirket içi Windows makineleri doğrudan istiyorum** | MARS Aracısı makinesine yükleyin. | Dosyaları, klasörleri ve sistem durumu yedekleme Azure'a yedekleyebilirsiniz. Uygulama durumunu algılayan yedeklemelerini değildir.
-**Doğrudan şirket içi Linux makinelerini yedekleme istiyorum** | DPM veya MABS Azure'a yedeklemek için dağıtmanız gerekebilir. | Linux ana yedeklemesi desteklenmiyor, Hyper-V veya VMWare üzerinde barındırılan yalnızca yedekleme Linux Konuk makine olabilir.
+**Doğrudan şirket içi Linux makinelerini yedekleme istiyorum** | DPM veya MABS Azure'a yedeklemek için dağıtmanız gerekebilir. | Linux ana yedeklemesi desteklenmiyor; yalnızca Hyper-V veya VMWare üzerinde barındırılan Linux Konuk makine yedekleyebilirsiniz.
 **Şirket içinde çalışan uygulamaların yedeğini istiyorum** | Uygulama durumunu algılayan yedekleme için DPM veya MABS makineler korunmalıdır.
 **Ayrıntılı ve esnek yedekleme ve kurtarma ayarlarını Azure Vm'leri için istiyorum** | Yedekleme Zamanlama ek esneklik ve dosya, klasör, birimler, uygulamalar ve sistem durumu geri yükleme ve koruma için tam esneklik için Azure'da çalışan MABS/DPM ile Azure sanal makinelerini koruyun.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Azure Backup ile şifreleme nasıl çalışır?
+
+**Şifreleme** | **Şirket içi yedekleme** | **Azure VM'lerini yedekleme** | **Azure Vm'lerinde SQL yedekleme**
+--- | --- | --- | ---
+Bekleme sırasında şifreleme<br/> (Burada kalıcı ve depolanan verileri şifreleme) | Müşteri tarafından belirtilen parola verileri şifrelemek için kullanılır. | Azure [depolama hizmeti şifrelemesi (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) kasasında depolanan verileri şifrelemek için kullanılır.<br/><br/> Yedekleme verileri depolamadan önce otomatik olarak şifreler. Azure depolama, almadan önce verilerin şifresini çözer. Müşteri tarafından yönetilen anahtarlar için SSE kullanımı şu anda desteklenmiyor.<br/><br/> Kullanan sanal makinelerini yedekleyebilirsiniz [Azure disk şifrelemesi (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) işletim sistemi ve veri disklerini şifrelemek için. Azure Backup, BEK ile şifrelenmiş VM'ler destekler-yalnızca ve her iki BEK ve [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Gözden geçirme [sınırlamaları](backup-azure-vms-encryption.md#encryption-support). | Azure Backup sunucusu ile veya SQL Server veritabanlarını yedekleme destekler [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) etkin. Backup, Azure tarafından yönetilen anahtarlar veya müşteri tarafından yönetilen anahtarlar (BYOK) ile TDE destekler.<br/><br/> Yedekleme, Yedekleme işleminin parçası olarak herhangi bir SQL şifreleme gerçekleştirmez.
+Aktarım sırasında şifreleme<br/> (Bir konumdan diğerine taşınmasını verilerin şifrelenmesi) | Veriler AES256 kullanılarak ve azure'daki kasasına HTTPS üzerinden gönderilen şifrelenir. | Azure içinde verileri Azure depolama ve kasa arasındaki HTTPS tarafından korunur. Bu veriler, Azure omurga ağında kalır.<br/><br/> Dosya Kurtarma için iSCSI kasası ve Azure VM arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanal korur. | Azure içinde verileri Azure depolama ve kasa arasındaki HTTPS tarafından korunur.<br/><br/> Dosya Kurtarma SQL için uygun değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

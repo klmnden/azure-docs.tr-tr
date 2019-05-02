@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure veri kutusu Edge cihaz erişimi, güç ve bağlantı modunu | Microsoft Docs
+title: Azure veri kutusu Edge cihaz erişimi, güç ve bağlantı modunu | Microsoft Docs
 description: Erişim, güç ve bağlantı modu için yardımcı olur, Azure'a veri aktarımı Azure veri kutusu sınır cihazı yönetme işlemi açıklanır
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757352"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924359"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure veri kutusu Edge için erişim, güç ve bağlantı modunu yönetin
 

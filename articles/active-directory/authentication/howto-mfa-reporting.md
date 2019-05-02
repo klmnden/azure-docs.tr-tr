@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358812"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688683"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 
@@ -122,7 +122,9 @@ MFA hakkındaki oturum açma etkinliği raporları aşağıdaki bilgilere erişm
 - Oturum denetimleri
 - Sonuç
 
-## <a name="powershell-reporting"></a>PowerShell raporlama
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>MFA için kaydolduğunu kullanıcıların raporlama PowerShell
+
+İlk olarak, sahip olduğunuzdan emin olun. [MSOnline V1 PowerShell modülünü](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) yüklü.
 
 Aşağıdaki PowerShell kullanarak MFA için kaydolduğunu kullanıcıları belirleyin.
 

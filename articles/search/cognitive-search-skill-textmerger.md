@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126931"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919138"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel beceri
 
@@ -78,7 +78,7 @@ Bu örnek olduğunu varsayarak önceki giriş çıkış gösterir *insertPreTag*
 
 Metin birleştirme kullanmaya yönelik yaygın bir senaryo görüntüleri (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için içerik bir belgenin bir alandır. 
 
-Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden ayıklamak için kullanmaktadır. Ardından, oluşturur bir *merged_text* hem özgün hem de her görüntü OCRed metni içeren alan. OCR yetenek hakkında daha fazla bilgi [burada](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden ayıklamak için kullanmaktadır. Ardından, oluşturur bir *merged_text* hem özgün hem de her görüntü OCRed metni içeren alan. OCR yetenek hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {

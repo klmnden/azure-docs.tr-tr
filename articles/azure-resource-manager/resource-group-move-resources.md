@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239171"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698483"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -222,6 +222,22 @@ Bir Web uygulaması taşınırken _abonelikler arasında_, aşağıdaki sınırl
 - Kaynak grubundaki tüm App Service kaynakların birlikte taşınması gerekir.
 - App Service kaynaklarını, bunlar ilk olarak oluşturulduğu kaynak grubunun yalnızca taşınabilir. Bir App Service kaynak artık özgün kaynak grubunda değilse, bunu geri özgün kaynak grubunda ilk taşınmalıdır ve ardından abonelikler arasında taşınabilir.
 
+Özgün kaynak grubunu hatırlamıyorsanız tanılama bulabilirsiniz. Web uygulamanızı seçin **tanılayın ve sorunlarını çözmek**. Ardından, **yapılandırma ve Yönetim**.
+
+![Tanılama seçin](./media/resource-group-move-resources/select-diagnostics.png)
+
+Seçin **geçiş seçenekleri**.
+
+![Geçiş seçenekleri seçin](./media/resource-group-move-resources/select-migration.png)
+
+Web uygulaması taşımak için önerilen adımlar seçeneğini belirleyin.
+
+![Önerilen adımları seçin](./media/resource-group-move-resources/recommended-steps.png)
+
+Kaynakları taşımadan önce gerçekleştirilecek önerilen eylemler görürsünüz. Web uygulaması için orijinal kaynak grubu bilgileri içerir.
+
+![Öneriler](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>App Service sertifikası sınırlamaları
 
 App Service sertifikanız bir yeni kaynak grubuna veya aboneliğe taşıyabilirsiniz. App Service sertifikanız bir web uygulaması ile ilişkili ise, yeni bir abonelik için kaynakları taşımadan önce bazı adımları atmanız gerekir. Özel sertifika ve SSL bağlaması kaynakları taşımadan önce web uygulamasını silin. App Service sertifikası için silinmesi gereken değil yalnızca web App'te özel sertifika.
@@ -251,7 +267,7 @@ Kaynakları yeni bir aboneliğe taşınmasını, aşağıdaki kısıtlamalar uyg
 * Hedef aboneliği diğer Klasik kaynaklar olmaması gerekir.
 * Taşıma, yalnızca klasik taşıma için ayrı bir REST API aracılığıyla istenebilir. Klasik kaynakları için yeni bir abonelik taşırken standart Resource Manager'a taşıma komutlar çalışmaz.
 
-Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için özel REST işlemlerini kullanın. REST kullanmak için aşağıdaki adımları gerçekleştirin:
+Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için özel REST işlemlerini kullanın. REST kullanmak için aşağıdaki adımları uygulayın:
 
 1. Kaynak abonelik bir çapraz abonelik taşıma katılabilir, kontrol edin. Aşağıdaki işlemi kullanın:
 

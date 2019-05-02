@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111808"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574361"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL veritabanı hizmet katmanları
 
@@ -63,5 +63,5 @@ Veritabanı Yedeklemeleri için depolama noktası zaman geri yükleme (PITR içi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı genel amaçlı ve iş kritik hizmet katmanları için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için genel amaçlı ve iş kritik hizmet katmanlarında kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı genel amaçlı ve iş kritik hizmet katmanları için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md)
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için genel amaçlı ve iş kritik hizmet katmanlarında kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md).

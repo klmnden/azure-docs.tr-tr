@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749334"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689873"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -87,6 +87,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
 | [EventGrid EventSubscription katkıda bulunan](#eventgrid-eventsubscription-contributor) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
 | [EventGrid EventSubscription okuyucusu](#eventgrid-eventsubscription-reader) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
+| [HDInsight küme işleci](#hdinsight-cluster-operator) | Okuma ve HDInsight küme yapılandırmaları değiştirmenizi sağlar. |
 | [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 | [Akıllı sistemler hesap Katılımcısı](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Key Vault katkıda bulunanı](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
@@ -121,6 +122,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Uzamsal bağlayıcılarını hesap sahibi](#spatial-anchors-account-owner) | Silme de dahil olmak üzere hesabınızdaki uzamsal sabit noktaları yönetmenize olanak sağlar |
 | [Uzamsal bağlayıcılarını hesabı okuyucusu](#spatial-anchors-account-reader) | Hesabınızdaki uzamsal sabit noktaları bulup bunların özelliklerini okumanıza olanak sağlar |
 | [SQL DB Katılımcısı](#sql-db-contributor) | SQL veritabanları, ancak onlara yönelik erişimi yönetmenize olanak tanır. Ayrıca, güvenlikle ilgili ilkelerini veya üst SQL sunucularını yönetemezsiniz. |
+| [SQL yönetilen örneği katkıda bulunan](#sql-managed-instance-contributor) | SQL yönetilen örneğini yönetmek ve gerekli sağlar, ağ, ancak kişilere erişim veremez. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetmenizi sağlar ancak onlara erişimi yönetme izni vermez. |
 | [SQL Server Katılımcısı](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetmenizi sağlar ancak güvenlikle ilgili ilkelerini yönetmenize izin vermez. |
 | [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
@@ -327,7 +329,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Kullanıcı anahtarları listesini alın |
+> | Microsoft.ApiManagement/service/users/keys/read | Kullanıcıyla ilişkili anahtarları alma |
 > | **DataActions** |  |
 > | *Yok* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Kullanıcı anahtarları listesini alın |
+> | Microsoft.ApiManagement/service/users/keys/read | Kullanıcıyla ilişkili anahtarları alma |
 > | **DataActions** |  |
 > | *Yok* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
+## <a name="hdinsight-cluster-operator"></a>HDInsight küme işleci
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Okuma ve HDInsight küme yapılandırmaları değiştirmenizi sağlar. |
+> | **Kimlik** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Eylemler** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | HDInsight kümesi için ağ geçidi ayarlarını alma |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | HDInsight kümesi için ağ geçidi ayarlarını güncelleştirme |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
+> | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight Etki Alanı Hizmetleri Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Kimlik** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Eylemler** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Belirtilen depolama hesabı için Hesap SAS belirtecini döndürür. |
 > | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | **NotActions** |  |
 > | *Yok* |  |
@@ -2228,6 +2253,34 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL yönetilen örneği katkıda bulunan
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | SQL yönetilen örneğini yönetmek ve gerekli sağlar, ağ, ancak kişilere erişim veremez. |
+> | **Kimlik** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Eylemler** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
+> | Microsoft.Insights/metrics/read | Ölçümleri okuma |
+> | Microsoft.Insights/metricDefinitions/read | Ölçüm tanımlarını oku |
+> | **NotActions** |  |
+> | *Yok* |  |
 > | **DataActions** |  |
 > | *Yok* |  |
 > | **NotDataActions** |  |

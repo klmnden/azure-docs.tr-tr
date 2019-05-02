@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure sanal makine önkoşulları | Microsoft Docs
+title: Microsoft Azure sanal makine önkoşulları | Azure Market
 description: VM teklifi Azure Marketinde yayımlama için gereken önkoşulları listesi.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844049"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938076"
 ---
 # <a name="virtual-machine-prerequisites"></a>Sanal makine önkoşulları
 
@@ -49,7 +42,7 @@ Yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksiniml
     > Oturum açmanız aynı Microsoft Developer Center kayıt hesabı kullanmalısınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
     > Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Bireysel hizmetlerin veya teklifler için belirli olmamalıdır.
     
-- Şirketinizin (veya yan kuruluşunun), bir satış-yapan-Azure Marketi tarafından desteklenen ülkede bulunmalıdır.  Bu ülkeler güncel bir listesi için bkz. [Microsoft Azure Marketi katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Şirketinizin (veya yan kuruluşunun), bir satış gelen-ülke/Azure Marketi tarafından desteklenen bölgeler içinde bulunmalıdır.  Bu ülkeler/bölgeler güncel bir listesi için bkz. [Microsoft Azure Marketi katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - Ürününüzün Azure Marketi tarafından desteklenen faturalandırma modelleri ile uyumlu bir şekilde lisanslanmalıdır.  Daha fazla bilgi için [faturalandırma seçenekleri Azure Marketi'nde](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - Teknik Destek kullanılabilir müşterilere ticari açıdan makul bir şekilde yapmaktan sorumlu olursunuz. Bu destek, ücretsiz, ücretli veya topluluk yaklaşım olabilir.
 - Yazılımınızı ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu olursunuz.

@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116788"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574295"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
 Azure Kubernetes Service (AKS), Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, Azure Active Directory kimlik doğrulama belirtecinizi kullanarak bir AKS kümesi oturum açabilirsiniz. Ayrıca, küme yöneticileri bir kullanıcının kimlik veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz.
 
-Bu makalede, AKS ve Azure AD için önkoşulları dağıtma ve Azure AD etkin kümesi dağıtma ve AKS kümesinde temel bir RBAC rolü oluşturmak nasıl gösterir.
+Bu makalede, AKS ve Azure AD için önkoşulları dağıtma ve Azure AD etkin kümesi dağıtma ve Azure portalını kullanarak bir AKS kümesinde temel bir RBAC rolü oluşturmak nasıl gösterir. Ayrıca [Azure CLI kullanarak aşağıdaki adımları tamamlayın][azure-ad-cli].
 
 Aşağıdaki sınırlamalar geçerlidir:
 
@@ -46,7 +46,7 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
 2. Seçin **bildirim** ve düzenleme `groupMembershipClaims` değerini `"All"`.
 
-   Güncelleştirme tamamlandıktan sonra kaydedin.
+   **Kaydet** tamamlandıktan sonra güncelleştirmeleri.
 
    ![Tüm grup üyeliği güncelleştir](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
    ![Uygulama graph izinleri ayarlayın](media/aad-integration/read-directory.png)
 
-6. Altında **TEMSİLCİLİ izinler**, bir onay yanına **oturum açın ve kullanıcı profilini okuma** ve **dizin verilerini okuma**. Bir kez yapılan güncelleştirmeler kaydedin.
+6. Altında **TEMSİLCİLİ izinler**, bir onay yanına **oturum açın ve kullanıcı profilini okuma** ve **dizin verilerini okuma**. Seçin **seçin** güncelleştirmeleri kaydetmek için.
 
    ![Uygulama graph izinleri ayarlayın](media/aad-integration/delegated-permissions.png)
 
-   **Done** (Bitti) öğesini seçin.
+   Ardından, **Bitti**.
 
 7. Seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur
 
@@ -96,11 +96,13 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
    ![Uygulama izinlerini yapılandırma](media/aad-integration/select-api.png)
 
-3. ' A tıklayın ve uygulamanın yanında bir onay işareti koyun **seçin**.
+    Sunucu uygulamanızı seçin ve ardından **seçin**.
+
+3. Yeniden *API erişimi Ekle* penceresinde seçin **izinleri seçin**. Lütfen altında bir onay işareti *temsilci izinleri* uygulamanıza erişim için ardından **seçin**.
 
    ![AKS AAD sunucu uygulaması uç noktası seçin](media/aad-integration/select-server-app.png)
 
-   Seçin **bitti**
+   Yeniden *API erişimi Ekle* penceresinde **Bitti**.
 
 4. API sunucunuz listeden seçin ve sonra **izinler**:
 
@@ -259,3 +261,4 @@ Kimlik ve kaynak denetimi ile ilgili en iyi yöntemler için bkz. [en iyi uygula
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

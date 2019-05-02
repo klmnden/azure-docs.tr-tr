@@ -1,23 +1,23 @@
 ---
-title: Azure Data Box portalı yönetici kılavuzu | Microsoft Docs
+title: Azure Data Box, Azure portal aracılığıyla yönetme | Microsoft Docs
 description: Azure portalı kullanarak Azure Data Box'ınızı nasıl yönetebileceğiniz açıklanmaktadır.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128745"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919199"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Azure portalı kullanarak Data Box’ınızı yönetme
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Azure Data Box'ınızı yönetmek için Azure portalını kullanma
 
-Bu makalede Data Box ile gerçekleştirilebilen bazı karmaşık iş akışları ve yönetim görevleri anlatılmaktadır. Data Box’ı Azure portal veya yerel web kullanıcı arabirimiyle yönetebilirsiniz. 
+Bu makalede Azure Data Box üzerinde gerçekleştirilebilen yönetim görevleri ve karmaşık iş akışları bazılarını açıklar. Data Box’ı Azure portal veya yerel web kullanıcı arabirimiyle yönetebilirsiniz.
 
 Bu makale, Azure portalı kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır. Azure portalı kullanarak siparişleri yönetebilir, Data Box’ı yönetebilir ve siparişin durumunu tamamlanana kadar takip edebilirsiniz.
 

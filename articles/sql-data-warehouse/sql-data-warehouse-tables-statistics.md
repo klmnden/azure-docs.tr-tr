@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474955"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937265"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL Data warehouse'da tablo istatistikleri
 
@@ -71,7 +71,7 @@ Table_name görüntülemek için istatistikleri içeren bir tablo adıdır. Bu, 
 
 ## <a name="updating-statistics"></a>İstatistikleri güncelleştirmeyi
 
-Yeni tarihleri eklendikçe istatistikleri Tarih sütunlarını her gün güncelleştirmek için bir en iyi yöntemidir. Her zaman yeni satır, veri ambarı'na yüklenen, yeni yükleme veya işlem tarihleri eklenir. Bu veri dağıtım değiştirmek ve istatistikleri güncel olun. Değer dağılımı genellikle değişmediğinden buna karşılık, bir Müşteri tablosunda Ülke sütun istatistikleri hiçbir zaman güncelleştirilmesi gerekebilir. Dağıtım müşteriler arasında sabit olduğu varsayıldığında, yeni satırlar için tablo değişim ekleme veri dağıtım değişmesini değil. Ancak, veri ambarınız bir ülkede yalnızca içerir ve yeni bir ülkeden verilerinizi getirin, birden fazla ülkede depolanmakta olan verileri výsledek sonra ülke sütun istatistikleri güncelleştirmeniz gerekir.
+Yeni tarihleri eklendikçe istatistikleri Tarih sütunlarını her gün güncelleştirmek için bir en iyi yöntemidir. Her zaman yeni satır, veri ambarı'na yüklenen, yeni yükleme veya işlem tarihleri eklenir. Bu veri dağıtım değiştirmek ve istatistikleri güncel olun. Değer dağılımı genellikle değişmediğinden buna karşılık, bir Müşteri tablosunda bir ülke/bölge sütun istatistikleri hiçbir zaman güncelleştirilmesi gerekebilir. Dağıtım müşteriler arasında sabit olduğu varsayıldığında, yeni satırlar için tablo değişim ekleme veri dağıtım değişmesini değil. Ülke/bölge sütununda istatistiklerin güncelleştirilmesi gerekir ancak, veri ambarınız bir ülke/bölge yalnızca içerir ve yeni bir ülke/bölgeden veri getirin, birden çok ülkeler/bölgeler depolanmakta olan verileri olmasıyla sonuçlanır.
 
 İstatistikleri güncelleştirmeyi öneriler şunlardır:
 

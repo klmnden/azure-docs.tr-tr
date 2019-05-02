@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998490"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717449"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -77,6 +77,7 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [IoT Hub’ı](#iot-hub-limits)
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
+* [Yük Dengeleyici](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobil hizmetler](#mobile-services-limits)
@@ -84,6 +85,7 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [Ağ](#networking-limits)
 * [Ağ İzleyicisi](#network-watcher-limits)
 * [Notification Hubs](#notification-hubs-limits)
+* [Genel IP adresi](#publicip-address)
 * [Kaynak grubu](#resource-group-limits)
 * [Rol tabanlı erişim denetimi](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -137,10 +139,10 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Ağ limitleri
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
-
-#### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### <a name="expressroute-limits"></a>ExpressRoute sınırları
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Uygulama ağ geçidi sınırlar
 

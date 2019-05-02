@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637055"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572605"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure işlevleri'nde ağ hakkında sık sorulan sorular
 
@@ -28,11 +28,14 @@ Bir App Service ortamında bir işlev dağıtımı şu anda işleviniz için bir
 Çeşitli şekillerde Internet erişimi kısıtlayabilirsiniz:
 
 * [IP kısıtlamaları](../app-service/app-service-ip-restrictions.md): Gelen trafik için işlev uygulamanızın IP aralığına göre kısıtlayın.
+    * IP kısıtlamaları altında ayrıca yapılandırabilirsiniz [hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md), işlevinizi yalnızca belirli bir sanal ağdan gelen trafiği kabul edecek şekilde kısıtlayın.
 * Tüm HTTP Tetikleyicileri kaldırılması. Bazı uygulamalar için yalnızca HTTP Tetikleyicileri önlemek ve işlevinizi tetikleyecek şekilde başka bir olay kaynağı kullanmak için yeterlidir.
 
 Azure portal Düzenleyicisi çalışan işlevinize doğrudan erişimi gerektiğini aklınızda bulundurun. Herhangi bir kod değişikliği Azure portalı üzerinden kendi IP beyaz listeye sağlamak için portalın göz atmak için kullanmakta olduğunuz cihaz gerektirir. Ancak, platform Özellikleri sekmesi altındaki her şeyi yerinde ağ kısıtlamaları ile kullanmaya devam edebilirsiniz.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Bir sanal ağa işlevi uygulamamı nasıl kısıtlarım?
+
+Kısıtlayabileceksiniz **gelen** kullanarak bir sanal ağ için bir işlev uygulaması için trafiği [hizmet uç noktaları](./functions-networking-options.md#private-site-access). Bu yapılandırma İnternet'e giden çağrıları yapmak işlev uygulamasını yine de sağlar.
 
 Bir işlev aracılığıyla bir sanal ağ tüm trafik akışları gibi tamamen kısıtlamak için tek yolu, yük dengeli bir App Service ortamı kullanmaktır. Bu seçenek, bir sanal ağ içindeki özel bir altyapı sitenizde dağıtır ve tüm tetikleyiciler ve trafiği sanal ağ üzerinden gönderir. 
 
@@ -48,8 +51,11 @@ Sanal ağ Tümleştirmesi'ni kullanarak bir sanal ağ içindeki kaynaklarla çal
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Bir kaynağı bir sanal ağdaki bir işlevden nasıl tetiklenebilir mi?
 
-Bir sanal ağdaki bir kaynaktan bir işlev, işlev uygulamanızı bir App Service ortamı için yalnızca dağıtarak tetikleyebilirsiniz. Bir App Service ortamını kullanma hakkında daha fazla bilgi için bkz [oluşturma ve kullanma bir App Service ortamı ile iç yük dengeleyici](../app-service/environment/create-ilb-ase.md).
+HTTP Tetikleyicileri kullanarak bir sanal ağ çağrılmasına izin vermek için [hizmet uç noktaları](./functions-networking-options.md#private-site-access). 
 
+İşlev uygulamanız için bir App Service ortamı dağıtarak, bir sanal ağdaki bir kaynaktan bir işlev de tetikleyebilirsiniz. Bir App Service ortamını kullanma hakkında daha fazla bilgi için bkz [oluşturma ve kullanma bir App Service ortamı ile iç yük dengeleyici](../app-service/environment/create-ilb-ase.md).
+
+Premium ve App Service planı HTTP Tetikleyicileri destekler bir sanal ağ, ancak yalnızca bir App Service ortamı, bir sanal ağ üzerinden tüm diğer işlevi tetikleyici türleri destekler.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>İşlev uygulamamı bir sanal ağdaki nasıl dağıtabilir miyim?
 

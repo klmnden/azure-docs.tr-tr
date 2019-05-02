@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535329"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869524"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -69,9 +69,6 @@ Aşağıdaki özellikler Dynamics bağlı hizmeti için desteklenir.
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Kaynak bağlı Hayır kaynağı için Evet havuz için hizmet bir tümleştirme çalışma zamanı yok |
 
->[!IMPORTANT]
->Dynamics veri kopyalama, kopyalama yürütmek için varsayılan Azure Integration Runtime kullanılamaz. Kaynağınıza bağlı diğer bir deyişle, hizmet bir belirtilen bir tümleştirme çalışma zamanı açıkça yok [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Dynamics örneğinizin yakın bir konum. Dynamics örneğinizin başvuruda bulunduğu Bul [Dynamics 365 için bölge listesi](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Aşağıdaki örnekte olduğu gibi Dynamics bağlantılı hizmetteki ilişkilendirin.
-
 >[!NOTE]
 >Dynamics CRM/365 Online örneğinizi tanımlamak için isteğe bağlı kuruluş "adı" özelliği kullanmak için kullanılan Dynamics Bağlayıcısı. Çalışmaya devam eder, ancak bunun yerine bulma örneği için daha iyi performans elde etmek için yeni "serviceUri" özelliği belirtmek için önerilir.
 
@@ -117,9 +114,6 @@ Aşağıdaki özellikler Dynamics bağlı hizmeti için desteklenir.
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme - daha fazla bilgi için kopyalama etkinliği izin [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Kaynak, havuz için Evet Hayır |
 
->[!IMPORTANT]
->Dynamics açıkça veri kopyalamak için [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Dynamics örneğinizin yakın konum. Aşağıdaki örnekte olduğu gibi bağlantılı hizmetteki ilişkilendirin.
-
 **Örnek: Dynamics ile şirket içi IFD IFD kimlik doğrulaması kullanma**
 
 ```json
@@ -160,8 +154,8 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | entityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
 
 > [!IMPORTANT]
->- Dynamics verileri kopyaladığınızda, "yapı" bölümünde isteğe bağlıdır, ancak bir belirleyici kopyalama sonuç emin olmak için Dynamics kümesindeki recommanded ' dir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
->- Şema ADF Infer UI yazma şeması alınırken üst satırları Dynamics sorgu sonuç yok değerleri büyük/küçük harf sütunlarla atlanacak yapısı oluşturma başlatmak için yeniden örnekleyerek. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin.
+>- Dynamics verileri kopyaladığınızda, isteğe bağlıdır, ancak bir belirleyici kopyalama sonuç emin olmak için Dynamics kümesindeki yüksek oranda recommanded "yapı" bölümü. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure-or-schema) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- Şema ADF Infer UI yazma şeması alınırken üst satırları Dynamics sorgu sonuç yok değerleri büyük/küçük harf sütunlarla atlanacak yapısı oluşturma başlatmak için yeniden örnekleyerek. Aynı davranışı, açık yapı tanımı yok ise yürütme kopyalamak için geçerlidir. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin.
 >- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde isteğe bağlıdır. Hangi sütunların kopyalayın kaynak veri şema tarafından belirlenir. Kaynağınız bir üst bilgi içermeyen bir CSV dosyası ise giriş veri kümesi "yapı" sütun adı ve veri türü ile belirtin. Bunlar sırayla CSV dosyasındaki tek tek alanları eşleyin.
 
 **Örnek:**
@@ -330,7 +324,7 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

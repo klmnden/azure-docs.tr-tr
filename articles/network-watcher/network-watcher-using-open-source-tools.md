@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680564"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936017"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Açık kaynak araçlar kullanarak sanal makinelerinizi gelen ve giden ağ trafiği desenlerini Görselleştirme
 
@@ -76,9 +76,9 @@ CapAnalysis paket yakalama, farklı bir bakış açısı sağlayan her analiz g�
 
 1. Coğrafi haritayı
 
-    Bu bölme her bir ülke için gelen trafiğin hacmini ölçeklendirme renklerle ile ağ trafiğinizin bir harita görünümünü sağlar. Bu, ülkede ıp'lerden alınan veri oranı gibi ek akış istatistiklerini görüntülemek için vurgulanan ülkeler seçebilirsiniz.
+    Bu bölme her ülke/bölgeden trafik hacmi ölçeklendirme renklerle ile ağ trafiğinizin bir harita görünümünü sağlar. Gönderilen ve bu ülke/bölge içinde Ip'lerden alınan veriler oranı gibi ek akış istatistiklerini görüntülemek için vurgulanan ülkeler/bölgeler seçebilirsiniz.
 
-    ![coğrafi haritayı][8]
+    ![Coğrafi haritayı][8]
 
 1. Filtreler
 

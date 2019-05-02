@@ -3,19 +3,18 @@ title: Azure Data Factory fiyatlandırma örnekleri anlama | Microsoft Docs
 description: Bu makalede açıklanır ve Azure Data Factory fiyatlandırma modeli ile ilgili ayrıntılı örnekler gösterilmektedir.
 documentationcenter: ''
 author: shlo
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787482"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935747"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Data Factory fiyatlandırma örnekleri anlama
 
@@ -122,6 +121,45 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
   - Veri taşıma etkinlikleri = $0.166 (Prorated yürütme süresi 10 dakika. Azure tümleştirme çalışma zamanı üzerinde 0,25 dolar/saat)
   - İşlem hattı, etkinlik = $0.00003 (Prorated yürütme süresi 1 dakika için. Azure tümleştirme çalışma zamanı üzerinde $ 0,002/saat)
   - Dış işlem hattı etkinliği = $0.000041 (Prorated yürütme süresi 10 dakika. Azure tümleştirme çalışma zamanı üzerinde 0.00025$ / saat)
+
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Eşleme veri akışı hata ayıklama için normal bir workday kullanma
+
+Bir veri mühendisi tasarlama, oluşturma ve her gün eşleme veri akışları test etme için sorumlu olursunuz. Sabah saatlerinde ADF kullanıcı Arabiriminde oturum açıp veri akışları için hata ayıklama modunu etkinleştirin. Hata ayıklama oturumları için varsayılan TTL değeri 60 dakikadır. Hata ayıklama oturumunuzu her zaman geçerli olsun için 10 saat, gün boyunca çalışır. Bu nedenle, gün için ücret şöyle olacaktır:
+
+**10 (saat) x 8 (çekirdek) x 0.112 $ $8.96 =**
+
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Bir veri akışı eşleme ile blob deposu verileri dönüştürün
+
+Bu senaryoda, Blob Store ADF eşleme veri akışları saatlik bir zamanlamaya göre görsel olarak verileri dönüştürmek istersiniz.
+
+Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hattı oluşturmak gerekir:
+
+1. Bir veri akışı etkinliği dönüştürme mantığını ile.
+
+2. Azure depolama üzerinde verileri için girdi veri kümesi.
+
+3. Bir çıkış veri kümesi için Azure depolama üzerinde verileri.
+
+4. İşlem hattı her saat için bir zamanlama tetikleyicisi.
+
+| **İşlemler** | **Türler ve birimler** |
+| --- | --- |
+| Bağlı hizmet oluşturma | 2 okuma/yazma varlık  |
+| Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
+| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| İşlem hattına sahip | 1 okuma/yazma varlık |
+| İşlem hattı çalıştırma | 2 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalıştırması için 1 için 1) |
+| Veri akışı varsayımlar: yürütme süresi 10 dakika + 10 dakikalık TTL = | 10 \* TTL 10 ile genel işlem, 8 çekirdek |
+| İşlem hattı varsayım İzleyici: Yalnızca 1 oluştu çalıştırın | 2 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 1) yeniden denenir. |
+
+**Toplam senaryo fiyatlandırma: $0.3011**
+
+- Data Factory işlem = **0,0001 $**
+  - Okuma/yazma = 10\*00001 0,0001 $ = [1 R/W $ 0,50/50000 = 0,00001 =]
+  - İzleme 2 =\*000005 $0,00001 = [1 izleme $ 0,25/50000 = 0.000005 =]
+- İşlem hattı düzenlemesi &amp; yürütme = **$0.301**
+  - Etkinlik çalıştırmalarını = 001\*2 = 0,002 [çalışma 1 = $1/1000 0,001 =]
+  - Veri akış etkinlikleri $0.299 Prorated = 20 dakika için (yürütme süresi 10 dakika + 10 dakika TTL). 8 çekirdek genel 0.112 $/ saat Azure tümleştirme çalışma zamanı üzerinde işlem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

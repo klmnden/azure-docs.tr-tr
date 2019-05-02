@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f8bbbe00cc47cb947b65e50b96628c40b5cea5f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fccf7bb5abafe75017a8df91f1f88a98238c74b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591233"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704202"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services örnekleri
 
@@ -44,5 +44,5 @@ Azure portalında bir Analysis Services sunucunuz varsa, hızla ve kolayca bir �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Adventure Works Öğreticisi](tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works Öğreticisi](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Azure şirket içi veri ağ geçidi](analysis-services-gateway.md)  

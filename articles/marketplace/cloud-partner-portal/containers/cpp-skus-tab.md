@@ -1,25 +1,18 @@
 ---
-title: Bir Azure kapsayıcı görüntüsü için SKU'ları | Microsoft Docs
+title: Bir Azure kapsayıcı görüntüsü için SKU'ları | Azure Market
 description: Bir Azure kapsayıcı için SKU'ları yapılandırın.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472863"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942924"
 ---
 # <a name="container-skus-tab"></a>Kapsayıcı SKU'ları sekmesi
 
@@ -38,11 +31,13 @@ Yeni bir teklif oluşturma başlattığınızda, bir teklifle ilgili SKU'ları y
     -   SKU meta verileri
     -   Kapsayıcı meta verileri
 
+
 ### <a name="sku-metadata"></a>SKU meta verileri
 
 SKU kapsayıcı listeleme için mağaza görüntüleme bilgileri içerir.
 
 ![SKU meta verileri](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>Kapsayıcı meta verileri
 
@@ -50,29 +45,31 @@ Kapsayıcı meta verileri, görüntü deposu ayrıntılarının içinde Azure Co
 
 ![Kapsayıcı meta verileri](./media/containers-image-repository.png)
     
-**Görüntü deposu ayrıntıları** önceki ekranda yakalama aşağıdaki alanları içerir:
+**Görüntü deposu ayrıntıları** önceki ekranda yakalama aşağıdaki alanları içerir.  Gerekli alanlar yıldız (*) indicted.
 
--   **Abonelik kimliği** -ACR olduğu mevcut Azure abonelik kimliği.
--   **Kaynak grubu adı** -ACR kaynak grubu adı.
--   **Kayıt defteri adı** -ACR adı.
--   **Depo adı** -depo adı. Bu değer, bu ad ayarlandıktan sonra değiştirilemez. Hesabınızdaki diğer hizmetlerle çakışma olmasını önlemek için benzersiz bir ad kullanın.
--   **Kullanıcı adı** -ACR görüntü ile ilişkili kullanıcı adını (yönetici kullanıcı adı).
--   **Parola** -ACR görüntüsüyle ilişkili parola.
+-   **Abonelik kimliği\***  -ACR olduğu mevcut Azure abonelik kimliği.
+-   **Kaynak grubu adı\***  -ACR kaynak grubu adı.
+-   **Kayıt defteri adı\***  -ACR adı.
+-   **Depo adı\***  -depo adı. Bu değer, bu ad ayarlandıktan sonra değiştirilemez. Hesabınızdaki diğer hizmetlerle çakışma olmasını önlemek için benzersiz bir ad kullanın.
+-   **Kullanıcı adı\***  -ACR görüntü ile ilişkili kullanıcı adını (yönetici kullanıcı adı).
+-   **Parola\***  -ACR görüntüsüyle ilişkili parola.
 
     >[!NOTE]
     >Kullanıcı adı ve parola iş ortakları yayımlama işleminde belirtilen ACR erişiminiz olduğundan emin olmak için gereklidir.
+
 
 ### <a name="image-version"></a>Görüntü Sürümü
 
 Bir kapsayıcı görüntüsü yayımlama sırasında bir veya daha fazla görüntü etiketleri sağlayabilir ve SHA özetleyen.
 
-**Görüntü etiket veya Özet**
+**Görüntü etiketi\* veya Özet**
  
 - Bu etiket veya Özet içermelidir bir `latest` etiketi ve sürüm etiketi (örneğin, başlayarak `xx.xx.xx-` burada xx, bir sayı). Olmaları gerektiği [bildirim etiketleri](https://github.com/estesp/manifest-tool) birden çok platformu hedefleyecek şekilde. Biz bunları yüklemek için bir bildirim etiketi tarafından başvurulan tüm etiketleri de eklenmelidir. 
 - Kapsayıcı etiketleri kullanarak çeşitli sürümlerini ekleyebilirsiniz. Tüm etiketleri bildirim (dışında `latest`) ile başlamalıdır `X.Y-` veya `X.Y.Z-` X, Y, Z tamsayılar olduğu. <br/> Örneğin, bir `latest` etiketi noktalarına `1.0.1-linux-x64`, `1.0.1-linux-arm32`, ve `1.0.1-windows-arm32`, bu etiketler burada eklenmesi gerekir.
 
 >[!NOTE]
 >Eklemeyi unutmayın bir **test etiketi** görüntünüzü test sırasında görüntünün tanımlayabilmeniz için.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

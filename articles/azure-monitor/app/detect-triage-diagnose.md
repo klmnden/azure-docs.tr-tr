@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 24523a7b244b6dee0e240291b7187e38d82a2e08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795341"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572906"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -182,7 +182,7 @@ Tanılama hata ayıklama ile pek aynı değildir. Kodu izlemeye başlamadan önc
 
 ![Bağımlılık hatası ve bağımlılıklara yapılan çağrıların süresi grafikleri](./media/detect-triage-diagnose/11-dependencies.png)
 
-Bazı yavaş bağımlılık sorunları coğrafi konum sorunlarıdır. Fabrikam Bank, Azure sanal makinelerini kullanmaktadır ve Web sunucuları ile hesap sunucularının yanlışlıkla farklı ülkelerde konumlandırıldığı keşfedilir. Bunlardan biri geçirildiğinde çarpıcı bir iyileşme yaşanmıştır.
+Bazı yavaş bağımlılık sorunları coğrafi konum sorunlarıdır. Fabrikam Bank, Azure sanal makinelerini kullanmaktadır ve bunlar yanlışlıkla, web sunucuları ile hesap sunucularının farklı ülkelerde/bölgelerde bulunan, bulunan. Bunlardan biri geçirildiğinde çarpıcı bir iyileşme yaşanmıştır.
 
 **Biz ne yaptık?** Sorun bağımlılıkta değil görünüyorsa ve hiçbir zaman da olmadıysa büyük olasılıkla buna son zamanlarda yapılan bir değişiklik neden olmuştur. Ölçüm ve olay grafikleri tarafından sağlanan geçmiş perspektif, tüm ani değişiklikleri dağıtımlarla ilişkilendirmeyi kolaylaştırır. Bu durum, sorunun aranacağı yeri daraltır. Uygulama kodundaki hangi satırların performansı yavaşlattığını belirlemek için Application Insights Profiler’ı etkinleştirin. Lütfen [Application Insights ile canlı Azure Web uygulamalarının profilini oluşturma](./../../azure-monitor/app/profiler.md) sayfasına bakın. Profiler etkinleştirildikten sonra, aşağıdakine benzer bir izleme görürsünüz. Bu örnekte, soruna *GetStorageTableData* yönteminin neden olduğu kolayca görülebilir.  
 

@@ -10,95 +10,111 @@ ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 12/03/2018
-ms.openlocfilehash: de5e853db6c6a0e98dea9251cc07b526288574e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: 604603a145ab360af18ce74748707da9f5f93427
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805259"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726401"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Hızlı Başlangıç: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı keşfedin
 
-Bu hızlı başlangıçta ücretsiz bir tanıtım ortamında Azure zaman serisi Insight önizlemesi Gezgini'ni kullanma gösterilmektedir. Zaman serisi öngörüleri Önizleme gezgininin temel özelliklerini'de büyük hacimli geçmiş endüstriyel IOT verilerini ve, turu görselleştirmek için web tarayıcınızı kullanmayı öğrenin.
+Bu hızlı başlangıçta, Azure zaman serisi öngörüleri önizlemesi ile çalışmaya başlamanızı sağlar. Ücretsiz tanıtım, zaman serisi öngörüleri Önizleme sürümüne eklenmiştir temel özelliklerini anlatan bir tura.
 
-Time Series Insights, hizmet (PaaS) teklifi olarak uçtan uca bir platform sağlar. Alma, işlem, depolama ve improvised veri keşfi için yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veriler sorgu. Ayrıca, operasyonel analiz sağlar. Time Series Insights benzersiz ihtiyaçlarını endüstriyel IOT dağıtımları için uyarlanmış fark yaratan bir tekliftir.
+Önizleme tanıtım ortamı bir senaryo iki Rüzgar türbinin grupları işleyen, Contoso şirketi, her 10 turbines içerir. Her türbinin, Azure IOT Hub'ına rapor verilerini dakikada 20 algılayıcılara sahiptir. Sensör hava koşulları, dikey aralığı hakkında bilgi toplamak ve yaw konumu. Ayrıca, oluşturucu performans gearbox davranışı ve güvenliği izler.
 
-Tanıtım ortamı bir elektrik nesil şirket, Contoso gösterir. Ortamında Time Series Insights Contoso verileri eyleme dönüştürülebilir içgörüler keşfedin ve kısa kök neden analizi gerçekleştirmek için kullanın. Contoso iki Rüzgar türbinin grupları, her 10 turbines ile çalışır. Her türbinin, Azure IOT Hub'ına rapor verilerini dakikada 20 algılayıcılara sahiptir. Sensör hava koşulları, dikey aralığı hakkında bilgi toplamak ve konumu, oluşturucu performans, gearbox davranışı ve güvenliği izleyiciler yaw.
-
-Zaman serisi öngörüleri önizlemesi, şu anda 40 GB olan Contoso büyüyen veri kümesinden son iki yıl çözümlemek için kullanın. Daha iyi anlamanıza ve kritik hatalar hem de yavaş hareket eden bakım sorunları tahmin etmenize yardımcı olabilir.
-
-Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
+ Contoso verileri eyleme dönüştürülebilir Öngörüler elde etmek zaman serisi görüşleri kullanmayı öğreneceksiniz. Ayrıca, daha iyi tahmin kritik hataları ve bakım gerçekleştirmek için bir kısa kök neden analizi gerçekleştirin.
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Bir tanıtım ortamında Time Series Insights gezginini keşfedin
 
-1. Tarayıcınızda, Git [Contoso Rüzgar grup ortamında](https://insights.timeseries.azure.com/preview/samples).  
+Zaman serisi öngörüleri Önizleme Gezgini geçmiş verileri gösteren ve kök neden analizi. Kullanmaya başlamak için:
 
-1. İstenirse, Time Series Insights gezgininin Azure hesabı kimlik bilgilerinizle oturum açın.
+1. Oluşturma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) bir oluşturulmadıysa durumunda.
 
-### <a name="demo-step-1"></a>Adım 1'in Tanıtımı
+1. Gidin [Contoso Rüzgar grubu tanıtım](https://insights.timeseries.azure.com/preview/samples) ortam.  
 
-1. Rüzgar türbinin bir göz atalım **W7** içinde **Contoso tesis 1**.  
+1. İstenirse, Azure hesabı kimlik bilgilerinizi kullanarak Time Series Insights Gezgininde oturum açın.
 
-    * **Eylem**: Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)**, ekleme **Contoso tesis 1** > **W7** > **Oluşturucu sistem**   >  **GeneratorSpeed** sensör ve sonra görünen elde edilen değerleri.
+## <a name="work-with-historical-data"></a>Geçmiş verileri ile çalışma
 
-       ![Hızlı bir başlangıç][1]
+1. Konum Rüzgar türbinin **W7** içinde **Contoso tesis 1**.  
 
-1. Kısa bir süre önce Contoso yangın Rüzgar türbinin içinde bulunan **W7**. Şimdi burada ayrıntılara girin. Ateş uyarı algılayıcı sırasında yangın etkinleştirildi görebiliriz.
+    * Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)**.
+    * Seçin **Contoso tesis 1** > **W7** > **Oluşturucu sistem** > **GeneratorSpeed** algılayıcı. Sonra sonuç değerlerini gözden geçirin.
 
-    * **Eylem**: Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)** ve ekleme **güvenlik sistemi** > **FireAlert** algılayıcı.
+      [![Hızlı bir başlangıç](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-      ![İki Hızlı Başlangıç][2]
+1. Kısa bir süre önce Contoso yangın Rüzgar türbinin içinde bulunan **W7**. Ateş yakındaki nedeni neydi hakkındaki düşünceleri son derece değişir. Daha yakından incelemesi sırasında yangın uyarı algılayıcı sırasında yangın etkinleştirildi bakın.
 
-1. Başka ne oluştuğu yangın sırada olduğunu görelim. Petrol baskısı ve sorunu önlemek için çok geç yangın hemen önce ancak o zaman tarafından civarında etkin uyarılar.
+    * Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)**.
+    * Seçin **güvenlik sistemi** > **FireAlert** algılayıcı.
 
-    * **Eylem**: Ekleme **aralık sistem** > **HydraulicOilPressure** sensör ve **aralık sistem** > **ActiveWarning**algılayıcı.
+      [![İki Hızlı Başlangıç](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-      ![Üç Hızlı Başlangıç][3]
+1. Ateş neler olduğunu anlamak için zamana yakın diğer olayları gözden geçirin. Petrol baskısı ve hemen önce yangın civarında etkin uyarılar.
 
-1. Biz uzaklaştırabilir, Ateş için öncesinde işaretleri vardı görebiliriz. Her iki algılayıcılar fluctuated. Bu nedenle, önce bu sorunu oluştu?
+    * Seçin **aralık sistem** > **HydraulicOilPressure** algılayıcı.
+    * Seçin **aralık sistem** > **ActiveWarning** algılayıcı.
 
-    * **Eylem**: Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)**.
+      [![Üç Hızlı Başlangıç](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-      ![Dört hızlı başlangıç][4]
+1. Etkin uyarı sensörlerden ve Petrol baskısı hemen önce yangın civarında. Diğer işaretleri mevcut yangın için öncesinde görmek için görüntülenen zaman serisi genişletin. Her iki sensörlerden kalıcı ve içimiz rahat bir desen gösteren zaman içinde tutarlı bir şekilde fluctuated.
 
-1. Tüm iki yıla ilişkin verileri inceleyeceğiz, önceki bir güvenlik olayı aynı işaretiyle görebiliriz. Bu verilerle Biz bu gibi sorunları yakalamak için sistemleri bir erken oluşturabilirsiniz.
+    * Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)**.
 
-    * **Eylem**: Görüntüleme aralığı için güncelleştirme **1/1/16 31/12/17 '** (tüm veriler).
+      [![Dört hızlı başlangıç](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-       ![Hızlı Başlangıç 5][5]
+1. Geçmiş, iki yıl inceleme, aynı algılayıcı dalgalanmaları ile başka bir Ateş olay ortaya çıkarır.
 
-### <a name="demo-step-2"></a>Tanıtım 2. adım
+    * Görüntüleme aralığı için güncelleştirme **1/1/16 31/12/17 '** (tüm veriler).
 
-1. Diğer sorunları, daha hafif ve tanılamak daha zor. Time Series Insights bize zor sorunları izlemenize yardımcı olmak için yol çeşitli sağlar. Üzerinde bir uyarı algılayıcı kesinti burada görebiliriz **W6** üzerinde **6/25**. Ancak, gerçekte neler olduğunu?
+      [![Hızlı Başlangıç 5](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-    * **Eylem**: Geçerli sensörlerden kaldırmak için görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)** ve ardından eklemek **Contoso tesis 1** > **W6**  >  **Güvenlik sistemi** > **VoltageActuatorSwitchWarning** algılayıcı.
+Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmiş verilerimizi gizli uzun vadeli ve sorunlu bir eğilim keşfettiniz. Bu yeni Öngörüler ile biz açıklayabilir:
 
-       ![Hızlı Başlangıç altı][6]
+> [!div class="checklist"]
+> * Gerçekte oluşan
+> * Sorunu düzeltin
+> * Üstün uyarı bildirim sistemlerini yere yerleştirin.
 
-1. Uyarı Oluşturucu tarafından çıkış olan voltaj ile bir sorun olduğunu gösterir. Ancak, bunun nedeni nedir? Genel power Oluşturucu görünüyor ince ayrıntılı bir aralıkta çıktı. Ancak, verileri toplayarak kesin bir bırakma görebiliriz.
+## <a name="root-cause-analysis"></a>Kök neden analizi
 
-    * **Eylem**: Kaldırma **VoltageActuatorSwitchWarning** algılayıcısı ekleme **Oluşturucu sistem** > **ActivePower** sensör ve güncelleştirme aralığının**3B**.
+1. Bazı senaryolarda veri Zarif ipuçları ortaya çıkarmak için Gelişmiş bir analiz gerektirir. Yeldeğirmeni seçin **W6** tarihinde **6/25**
 
-       ![Hızlı Başlangıç yedi][7]
+    * Görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)**
+    * Ardından **Contoso tesis 1** > **W6** > **güvenlik sistemi** > **VoltageActuatorSwitchWarning**  algılayıcı.
 
-1. Veri kümesinde biz forward giderseniz, bu sorun geçici değilse görebiliriz. Bunu devam ediyor.
+      [![Hızlı Başlangıç altı](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-    * **Eylem**: Sağa zaman aralığını genişletin.
+1. Uyarı Oluşturucu tarafından çıkış olan voltaj ile bir sorun olduğunu gösterir. Toplam güç çıkışı oluşturucunun içinde normal parametreler bizim geçerli aralık verilen işletim. Başka bir desen bizim aralığı arttırılarak, dolayısıyla: kesin bir bırakma yoktur.
 
-       ![Sekiz hızlı başlangıç][8]
+    * Kaldırma **VoltageActuatorSwitchWarning** algılayıcı.
+    * Seçin **Oluşturucu sistem** > **ActivePower** algılayıcı.
+    * Güncelleştirme aralığı için **3B**.
 
-1. Şimdi daha fazla ayrıntıya. Voltaj aşaması görüntülemek için diğer algılayıcı veri noktası ekleyebiliriz. Ancak tüm veri noktaları karşılaştırılabilir bakın. Şimdi, gerçek değerleri görmek için bir işaretçi bırakın. 3. Aşama çıktıyla bir sorun var gibi görünüyor.
+      [![Hızlı Başlangıç yedi](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-    * **Eylem**: Ekleme **Oluşturucu sistem** > **GridVoltagePhase1**, **GridVoltagePhase2**, ve **GridVoltagePhase3** algılayıcılar. Son görünen alanın veri noktasına bir işaret bırakın.
+1. Zaman aralığının genişletilmesi tarafından sorun olup olmadığını durdurulmuş veya yanıt olup devam belirleyebiliriz.
 
-       ![Sekiz hızlı başlangıç][8]
+    * Zaman aralığı 60 gün için genişletin.
 
-1. 3. Aşama teslim tüm üç veri noktaları aynı ölçekte görüntülerseniz daha belirgin olarak görünür. Bu noktada, uyarı neden iyi bir müşteri adayı ile bakım ekibimiz sorunu başvurmak hazırız.  
+      [![Sekiz hızlı başlangıç](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
-    * **Eylem**: Ekranı kaplama aynı grafik ölçeğini tüm algılayıcılar için güncelleştirin.
+1. Diğer algılayıcı veri noktası üst bağlam sağlamak için eklenebilir. Daha fazla algılayıcılar biz görüntüleyebilirsiniz, soruna ilişkin bileşen olur. Şimdi, gerçek değerleri görmek için bir işaretçi bırakın. 
 
-       ![Dokuz hızlı başlangıç][9]
+    * Seçin **Oluşturucu sistem** > **GridVoltagePhase1**, **GridVoltagePhase2**, ve **GridVoltagePhase3** algılayıcılar .
+    * Son görünen alanın veri noktasına bir işaret bırakın.
+
+      [![Dokuz hızlı başlangıç](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+
+    Üç voltaj algılayıcıları karşılaştırılabilir ve normal parametreleri içinde çalışıyor. Gibi görünüyor **GridVoltagePhase3** algılayıcı sorunlu olduğunu.
+
+1. Eklenen son derece bağlamsal veriler ile 3. Aşama teslim sorunlu daha görünür. Artık uyarı neden iyi bir müşteri adayı ile bakım ekibimiz sorunu başvurmak hazırız.  
+
+    * Tüm yardımcı görüntülenecek güncelleştirme **Oluşturucu sistem** algılayıcılar aynı grafik ölçek.
+
+       [![Hızlı Başlangıç on](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -106,14 +122,3 @@ Kendi zaman serisi öngörüleri Önizleme ortamı oluşturmak hazır duruma gel
 
 > [!div class="nextstepaction"]
 > [Zaman serisi öngörüleri Önizleme ortamınızı planlama](time-series-insights-update-plan.md)
-
-<!-- Images -->
-[1]: media/v2-update-quickstart/quickstart-one.png
-[2]: media/v2-update-quickstart/quickstart-two.png
-[3]: media/v2-update-quickstart/quickstart-three.png
-[4]: media/v2-update-quickstart/quickstart-four.png
-[5]: media/v2-update-quickstart/quickstart-five.png
-[6]: media/v2-update-quickstart/quickstart-six.png
-[7]: media/v2-update-quickstart/quickstart-seven.png
-[8]: media/v2-update-quickstart/quickstart-eight.png
-[9]: media/v2-update-quickstart/quickstart-nine.png

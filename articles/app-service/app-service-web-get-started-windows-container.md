@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852980"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919754"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme)
 
@@ -178,7 +178,7 @@ Yeniden [Kapsayıcı uygulamasına göz atın](#browse-to-the-container-app). We
 
 Uygulamanızı çalıştırmak için farklı bir özel Docker görüntüsü kullanabilirsiniz. Ancak istediğiniz çerçeve için doğru [üst görüntüyü](https://docs.docker.com/develop/develop-images/baseimages/) seçmeniz gerekir: 
 
-- .NET Framework uygulamalarını dağıtmak için Windows Server Core 2019 üzerinde temel alan bir üst görüntü kullanmak [uzun süreli bakım kanalı (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) bırakın. 
+- .NET Framework uygulamalarını dağıtmak için Windows Server Core 2019 üzerinde temel alan bir üst görüntü kullanmak [uzun süreli bakım kanalı (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) bırakın. 
 - .NET Core uygulamaları dağıtmak için Windows Server Nano 1809 alan bir üst görüntü kullanmak [yarı yıllık bakım kanalı (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) bırakın. 
 
 Uygulama başlatılırken üst görüntünün indirilmesi zaman alabilir. Ancak Azure App Service önbelleğinde bulunan aşağıdaki üst görüntülerden birini kullanarak başlangıç süresini kısaltabilirsiniz:

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827451"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873157"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure veri Gezgini'nde zaman serisi analizi
 
@@ -260,3 +260,8 @@ demo_many_series1
 İki dakikadan az ADX yakın 20.000 zaman serisi analiz ve okuma sayısı aniden iptal edilen iki olağan dışı zaman serisi algılandı.
 
 ADX hızlı performans ile birlikte bu Gelişmiş Özellikler, zaman serisi analiz için benzersiz ve güçlü bir çözüm sağlar.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Hakkında bilgi edinin [zaman serisi anomali algılama ve tahmin](/azure/data-explorer/anomaly-detection) Azure veri Gezgini'nde.
+* Hakkında bilgi edinin [makine öğrenimi özellikleri](/azure/data-explorer/machine-learning-clustering) Azure veri Gezgini'nde.

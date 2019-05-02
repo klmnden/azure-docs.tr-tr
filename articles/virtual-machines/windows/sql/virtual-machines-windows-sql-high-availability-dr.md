@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478410"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924471"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -59,7 +59,7 @@ Kullanılabilirlik grupları, veritabanı yansıtmaya veya Yedekleme kullanarak 
 | Teknoloji | Örnek mimariler |
 | --- | --- |
 | **Kullanılabilirlik grupları** |Kullanılabilirlik çoğaltması, olağanüstü durum kurtarma için birden çok veri merkezinde Azure sanal makinelerinde çalışan. Bu bölgeler arası çözüm tam site arızasına karşı korur. <br/> ![Kullanılabilirlik grupları](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Bir bölge içinde tüm çoğaltmalar aynı bulut hizmeti ve aynı sanal ağ içinde olmalıdır. Her bölgeye ayrı bir sanal ağ olduğundan, bu çözümleri VNet sanal ağ bağlantısı gerektirir. Daha fazla bilgi için [Azure portalını kullanarak VNet-VNet bağlantı yapılandırma](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Ayrıntılı yönergeler için bkz. [farklı bölgelerdeki Azure sanal Makineler'de SQL Server kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Veritabanı yansıtma** |Asıl ve yansıtma ve olağanüstü durum kurtarma için farklı veri merkezlerinde çalıştıran sunucular. Bir active directory etki alanı birden çok veri merkezinde yayılamaz sunucu sertifikaları kullanarak dağıtmanız gerekir.<br/>![Veritabanı yansıtma](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Veritabanı yansıtma** |Asıl ve yansıtma ve olağanüstü durum kurtarma için farklı veri merkezlerinde çalıştıran sunucular. Sunucu sertifikaları kullanarak dağıtmanız gerekir. <br/>![Veritabanı yansıtma](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Yedekleme ve geri yükleme ile Azure Blob Depolama hizmeti** |Olağanüstü durum kurtarma için farklı bir veri merkezinde blob depolama için doğrudan üretim veritabanları yedeklendi.<br/>![Yedekleme ve Geri Yükleme](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Daha fazla bilgi için [yedekleme ve Azure sanal Makineler'de SQL Server için geri yükleme](virtual-machines-windows-sql-backup-recovery.md). |
 | **Çoğaltma ve Azure Site Recovery ile azure'a yük devretme SQL Server** |Üretim SQL Server'ın bir Azure veri merkezi doğrudan Azure depolama, olağanüstü durum kurtarma için farklı Azure veri merkezine çoğaltılır.<br/>![Azure Site Recovery kullanarak çoğaltma](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Daha fazla bilgi için [korumak SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak SQL Server](../../../site-recovery/site-recovery-sql.md). |
 

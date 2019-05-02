@@ -1,6 +1,6 @@
 ---
-title: Azure özellikleri, şirket içi ve fiziksel güvenlik | Microsoft Docs
-description: Bu makalede, Azure Veri merkezlerindeki fiziksel altyapı, güvenlik ve uyumluluk teklifleri de dahil olmak üzere, anlatılmaktadır.
+title: Azure veri merkezleri - Microsoft Azure'nın fiziksel güvenlik | Microsoft Docs
+description: Bu makalede, Microsoft Azure Veri merkezlerindeki fiziksel altyapı, güvenlik ve uyumluluk teklifleri de dahil olmak üzere, güvenliğini sağlamak için yaptığı anlatılmaktadır.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586799"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939841"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure özellikleri, şirket içi ve fiziksel güvenlik
+Bu makalede, Azure altyapısının güvenliğini sağlamak için Microsoft ne yaptığını açıklar.
+
+## <a name="datacenter-infrastructure"></a>Veri Merkezi altyapı
 Azure oluşan bir [Global olarak dağıtılmış veri merkezi altyapı](https://azure.microsoft.com/global-infrastructure/), Çevrimiçi Hizmetler binlerce destekleyen ve dünya çapında 100'den fazla yüksek güvenlikli tesisten kapsayıcı.
 
-Altyapı, veri yerleşimini korur ve müşterilere kapsamlı uyumluluk ve dayanıklılık seçenekleri sunarak dünyanın dört bir yanındaki kullanıcılara yaklaştırılması uygulama getirmek için tasarlanmıştır. Azure 52 bölgeleri dünya çapında sahiptir ve 140 ülkede kullanıma sunulmuştur.
+Altyapı, veri yerleşimini korur ve müşterilere kapsamlı uyumluluk ve dayanıklılık seçenekleri sunarak dünyanın dört bir yanındaki kullanıcılara yaklaştırılması uygulama getirmek için tasarlanmıştır. Azure bölgeleri 52 dünya çapında sahiptir ve 140 ülkede/bölgede kullanılabilir.
 
 Bir bölge çok büyük ve esnek bir ağ birbirine veri merkezleri kümesidir. Ağ, içerik dağıtımı, Yük Dengeleme, yedeklilik ve şifreleme varsayılan olarak içerir. Diğer tüm bulut sağlayıcılarından daha fazla küresel bölgeye sahip Azure, uygulamaları dağıtmak için esnekliği yerden erişilebilmesini sağlar.
 
@@ -67,9 +70,9 @@ Microsoft, en iyi yöntem yordamları ve wiping bir çözüm kullanır [NIST 800
 Bir sistemin uç yaşam, Microsoft Operasyon personeli sıkı veri işleme ve verilerinizi içeren donanım güvenilmeyen taraflara kullanılabilir hale getirilmediğinden emin olmak için donanım elden yordamları izleyin. Bunu destekleyen sabit sürücüler için güvenli silme yaklaşımı kullanıyoruz. Silinemez sabit sürücüler, sürücü yok eder ve kurtarma bilgilerinin mümkün olmayan işler yıkım işlemini kullanırız. Bu yok etme işlemi disintegrate, içinse, pulverize veya incinerate olabilir. Varlık türüne göre elden çeşit belirleriz. Biz kayıtları yok etme korur. Tüm Azure Hizmetleri, onaylanan medya depolama ve elden Yönetimi hizmetlerini kullanın.
 
 ## <a name="compliance"></a>Uyumluluk
-Biz, tasarlayın ve çok sayıda uluslararası ve sektöre özgü uyumluluk standardını da ISO 27001, HIPAA, FedRAMP, SOC 1 ve SOC 2 gibi karşılamak için Azure altyapısını yönetme. Biz de Avustralya IRAP, UK G-Cloud ve Singapur MTCS gibi ülkelere özgü standartların, karşılayın. İngiliz Standartları Enstitüsü tarafından yapılan bu gibi sıkı üçüncü taraf denetimleri Bu standartlar kıldığı katı güvenlik denetimlerine kıldığı doğrulayın.
+Biz, tasarlayın ve çok sayıda uluslararası ve sektöre özgü uyumluluk standardını da ISO 27001, HIPAA, FedRAMP, SOC 1 ve SOC 2 gibi karşılamak için Azure altyapısını yönetme. Biz de Avustralya IRAP, UK G-Cloud ve Singapur MTCS gibi ülkeye veya bölgeye özel standartları karşılar. İngiliz Standartları Enstitüsü tarafından yapılan bu gibi sıkı üçüncü taraf denetimleri Bu standartlar kıldığı katı güvenlik denetimlerine kıldığı doğrulayın.
 
-Azure için uyar uyumluluk standartlarını tam bir listesi için bkz. [uyumluluk teklifi](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+Azure için uyar uyumluluk standartlarını tam bir listesi için bkz. [uyumluluk teklifi](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Microsoft Azure altyapısının güvenliğini sağlamak için yaptığı hakkında daha fazla bilgi için bkz:

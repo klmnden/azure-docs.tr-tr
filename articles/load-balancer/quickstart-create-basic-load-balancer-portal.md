@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507968"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727587"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir temel yük dengeleyici oluşturma
 
@@ -235,21 +235,27 @@ Internet Information Services (IIS), yük dengeleyicinin test edilmesi için san
    
    VM masaüstüne yeni bir pencerede açılır. 
    
-**Bir VM'de IIS yüklemek için:**
+**IIS yüklemek için**
 
-1. Varsa **Sunucu Yöneticisi'ni** zaten sunucu masaüstünde açın, Gözat değil **Windows Yönetim Araçları** > **Sunucu Yöneticisi**.
-   
-1. İçinde **Sunucu Yöneticisi'ni**seçin **rol ve Özellik Ekle**.
-   
-   ![Sunucu Yöneticisi rolü ekleme](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. İçinde **rol ve Özellik Ekle Sihirbazı**:
-   1. **Yükleme türünü seçin** sayfasında **Rol tabanlı veya özellik tabanlı yükleme**’yi seçin.
-   1. Üzerinde **hedef sunucuyu seçin** sayfasında **MyVM1**.
-   1. **Sunucu rolü seçin** sayfasında **Web Sunucusu (IIS)** seçeneğini belirleyin. 
-   1. Gerekli Araçları'nı yüklemek için komut isteminde, seçin **Özellik Ekle**. 
-   1. Varsayılanları kabul edin ve seçin **yükleme**. 
-   1. Özellikleri bittiğinde yüklemeden, seçin **Kapat**. 
+1. Seçin **tüm hizmetleri** sol taraftaki menüde **tüm kaynakları**ve ardından kaynak listesinden **myVM1** bulunan  *myResourceGroupSLB* kaynak grubu.
+2. Sanal makineye yönelik RDP için **Genel Bakış** sayfasında **Bağlan**’ı seçin.
+5. VM oluşturma işlemleri sırasında belirlediğiniz kimlik bilgilerini kullanarak VM'de oturum açın. *myVM1* adlı sanal makinede uzak masaüstü oturumu başlatılır.
+6. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Windows PowerShell** bölümüne gidin.
+7. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, varsayılan iisstart.htm dosyasını kaldırın ve ardından VM’nin adını gösteren yeni bir iisstart.htm dosyasını ekleyin:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. *myVM1* ile RDP oturumunu kapatın.
+7. IIS’yi ve *myVM2*’deki güncelleştirilmiş iisstart.htm dosyasını yüklemek için 1 ile 6 arasındaki adımları tekrarlayın.
    
 1. Sanal makine için adımları yineleyin **MyVM2**, dışındaki hedef sunucuda ayarlanmış **MyVM2**.
 
@@ -257,9 +263,9 @@ Internet Information Services (IIS), yük dengeleyicinin test edilmesi için san
 
 Bir tarayıcı açın ve yük dengeleyicinin genel IP adresi tarayıcının adres çubuğuna yapıştırın. IIS web sunucusunun varsayılan sayfası, tarayıcıda görüntülenmesi gerekir.
 
-![IIS web sunucusu](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS Web sunucusu](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
+Yük dengeleyicinin trafiği, uygulamanızı çalıştıran her iki VM’ye de dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık ihtiyacınız kalmadığında Yük Dengeleyiciyi ve tüm ilgili kaynakları silmek için açık **MyResourceGroupLB** kaynak grubu ve select **kaynak grubunu Sil**.

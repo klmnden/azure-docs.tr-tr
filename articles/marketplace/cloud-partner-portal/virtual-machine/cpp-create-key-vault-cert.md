@@ -1,25 +1,18 @@
 ---
-title: Bir Azure Key Vault sertifikası oluşturun | Microsoft Docs
+title: Bir Azure Key Vault sertifikası oluşturun | Azure Market
 description: Azure ile dağıtılan bir VHD'den VM kaydedileceği açıklanmaktadır.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: 5163aa0a9195aa712fa333667b3f7ccf227469be
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045705"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938398"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Azure anahtar kasası için sertifikaları oluşturma
 

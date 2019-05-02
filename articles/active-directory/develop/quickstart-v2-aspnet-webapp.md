@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298912"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708207"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -75,6 +75,7 @@ Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active
 1. Zip dosyasını kök klasöre yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) açın
 1. Çözümü Visual Studio’da açın (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Visual Studio sürümüne bağlı olarak projeye sağ tıklamanız gerekebilir `AppModelv2-WebApp-OpenIDConnect-DotNet` ve **geri NuGet paketleri**
+1. Paket Yöneticisi konsolunu açın (Görüntüle -> diğer Windows Paket Yöneticisi konsolu ->) ve çalıştırma `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. **Web.config** dosyasını düzenleyip `ClientId` ve `Tenant` parametrelerini şu şekilde değiştirin:
 
     ```xml

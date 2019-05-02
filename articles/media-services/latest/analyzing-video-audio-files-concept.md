@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762823"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689366"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -35,7 +35,7 @@ Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlanmış bir dizi hazır geçerlidir. Şu anda hazır işleme içerikle tek bir dilde konuşma içeren tek bir ses kaydı destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız algılanan ilk dili seçin ve ile seçilen dile dosyayı süresi boyunca işlem. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Şu anda ilk dil algılandıktan sonra diller arasında dinamik geçiş desteklemiyor. Otomatik dil algılama özelliğini açıkça anlaşılabilir Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Bir video analiz edilirken, mevcut tüm yüzleri algılamak için kullanılması için ayarları açıklar.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Videoda, mevcut tüm yüzleri algılama|Bir video analiz edilirken, mevcut tüm yüzleri algılamak için kullanılması için ayarları açıklar.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

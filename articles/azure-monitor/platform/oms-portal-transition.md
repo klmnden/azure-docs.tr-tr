@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62102026"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876019"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
 > [!NOTE]
 > Bu makale Azure genel bulutunda ve tersi belirtilmedikçe dışında kamu bulutu için geçerlidir.
 
-Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerin tümü, artık Azure portalında bir parçasıdır. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın!
+**Azure genel bulutunda için OMS portalı resmi olarak kullanımdan kaldırılmıştır. OMS portalında Azure Azure ABD kamu bulutu için resmi olarak 15 Mayıs 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
 
-**OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacak** Azure ABD kamu Bulutu, OMS portalı ve Azure ticari bulutundaki için **resmi olarak 30 Mart 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
+Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerin tümü, artık Azure portalında bir parçasıdır. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın!
 
 ## <a name="what-is-changing"></a>Değişen nedir? 
 Aşağıdaki değişiklikler OMS portalına kullanımdan kaldırma ile bildirilir. Her biri bu değişiklikler aşağıdaki bölümlerde daha ayrıntılı olarak açıklanmıştır.
@@ -76,10 +76,7 @@ Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsı
 
 ### <a name="alert-extension"></a>Uyarı uzantısı  
 
-> [!NOTE]
-> Uyarıları artık tam olarak Azure portalında genel bulut için genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir. Azure portalında uyarıları uzantısını Azure kamu bulutunda Şubat 2019 üzerinde başlayacaktır.
-
-Uyarılar olmuştur [Azure portalında Genişletilmiş](alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
+Uyarılar olmuştur [Azure portalında Genişletilmiş](alerts-extend.md) varolan uyarılar OMS portalında listelenmeye devam eder ancak bunları yalnızca Azure portalında yönetebilirsiniz. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
 
 ### <a name="alert-management-solution"></a>Uyarı yönetimi çözümü
 Önceki bir duyuru değişiklik olarak [uyarı yönetimi çözümü](alert-management-solution.md) Azure portalında tam olarak desteklenir ve kullanılabilir olmaya devam edecektir. Azure Market'te çözüm yüklemeye devam edebilirsiniz.

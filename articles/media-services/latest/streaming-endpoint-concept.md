@@ -1,6 +1,6 @@
 ---
-title: Akış uç noktaları Azure Media Services | Microsoft Docs
-description: Bu makalede, akış uç noktaları nelerdir ve Azure Media Services tarafından nasıl kullanıldıkları bir açıklama sağlar.
+title: Akış uç noktaları (kaynak) Azure Media Services | Microsoft Docs
+description: Azure Media Services'de akış uç noktası (kaynak) dinamik paketleme ve içeriği doğrudan bir istemci Yürütücü uygulamasına veya daha fazla dağıtım bir içerik teslim ağı'için (CDN) teslim eden akış hizmetini temsil eder.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125432"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867606"
 ---
-# <a name="streaming-endpoints"></a>Akış Uç Noktaları
+# <a name="streaming-endpoints-origin"></a>Akış uç noktaları (kaynak)
 
-Microsoft Azure Media Services (AMS) içinde [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği bir istemci Yürütücü uygulamaya doğrudan teslim eden ya da daha fazla için bir içerik teslim ağı (CDN) bir akış hizmetini temsil eder Dağıtım. Çıkış akışından bir **akış uç noktası** hizmet canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. 
+Microsoft Azure Media Services, bir [akış uç noktası](https://docs.microsoft.com/rest/api/media/streamingendpoints) birini kullanarak doğrudan bir istemci oynatıcı uygulaması için canlı ve isteğe bağlı içerik teslim eden bir dinamik (tam zamanında) paketleme ve kaynak hizmetini temsil eder yaygın akış medya protokolleri (HLS veya DASH). Ayrıca, **akış uç noktası** sektör lideri benzeri DRM dinamik (tam zamanında) şifreleme sağlar.
+
+Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir (bkz [kotaları ve sınırlamaları](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Video akışını başlatmak için başlatmanız **akış uç noktası** video akışı yapmak istediğiniz. 
@@ -35,33 +37,37 @@ Tüm ek uç noktalar için: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 ## <a name="types"></a>Türler  
 
-İki **Akış Uç Noktası** türü vardır: **Standart** ve **Premium**. Türü ölçek birimi sayısına göre tanımlanır (`scaleUnits`) akış uç noktası için ayırın. 
+İki **Akış Uç Noktası** türü vardır: **Standart** (Önizleme) ve **Premium**. Türü ölçek birimi sayısına göre tanımlanır (`scaleUnits`) akış uç noktası için ayırın. 
 
 Türler aşağıdaki tabloda açıklanmıştır:  
 
 |Tür|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
-|**Standart Akış Uç Noktası** (önerilen)|0|Varsayılan akış uç noktası olan bir **standart** yazın, ancak Premium türüne değiştirilebilir.<br/> Standart türü, neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türde giden bant genişliği otomatik olarak ölçeklendirilir. Bu tür bir akış uç noktası hizmetin performansını en fazla 600 MB / sn'dir. CDN'de önbelleğe video parçasının, akış uç noktası bant genişliği kullanmaz.<br/>Media Services, gereksinimleri çok yüksek olan müşteriler için kapasitenin en geniş internet kitlelerine göre ölçeklendirilmesini sağlayan **Premium** akış uç noktalarını sunar. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
-|**Premium Akış Uç Noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
- 
-## <a name="comparing-streaming-types"></a>Akış türlerini karşılaştırma
+|**Standart**|0|Varsayılan akış uç noktası olan bir **standart** yazın, Premium türüne ayarlayarak değiştirilebilir `scaleUnits`.|
+|**Premium**|>0|**Premium** akış uç noktalarını Gelişmiş iş yükleri için adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits` (akış birimi). `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. **Premium** türü kullandığınızda etkinleştirilen her birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
 
-### <a name="features"></a>Özellikler
+> [!NOTE]
+> İnternet geniş kitlelere içerik sağlamak isteyen müşteriler için akış uç noktasında CDN'yi etkinleştirmenizi öneririz.
+
+SLA bilgileri için bkz. [fiyatlandırma ve SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Akış türlerini karşılaştırma
 
 Özellik|Standart|Premium
 ---|---|---
-Ücretsiz ilk 15 gün| Evet |Hayır
-Aktarım hızı |Azure CDN olmadığında en fazla 600 MB/sn. CDN ile ölçeklendirilir.|Akış birimi (SU) başına 200 MB/sn. CDN ile ölçeklendirilir.
+İlk 15 gün ücretsiz <sup>1</sup>| Evet |Hayır
+Aktarım hızı |600 MB/sn için ve CDN kullanıldığında bir çok daha yüksek maliyetli performans sağlayabilir.|Akış birimi (SU) başına 200 MB/sn. CDN kullanıldığında bir çok daha yüksek maliyetli performans sağlayabilir.
 CDN|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.|Azure CDN, üçüncü taraf CDN veya hiçbir CDN.
 Faturalama saatlere eşit olarak dağıtılır| Günlük|Günlük
 Dinamik şifreleme|Evet|Evet
 Dinamik paketleme|Evet|Evet
-Ölçek|Otomatik yönelik hedeflenen aktarım hızını ölçeklendirir.|Ek akış birimleri
-IP filtrelemeyi/G20/özel konak <sup>1</sup>|Evet|Evet
+Ölçek|Otomatik yönelik hedeflenen aktarım hızını ölçeklendirir.|Ek SUs
+IP filtrelemeyi/G20/özel konak <sup>2</sup>|Evet|Evet
 Aşamalı indirme|Evet|Evet
-Önerilen kullanım |Büyük bir çoğunluğu senaryoları akış önerilir.|Profesyonel kullanımı.<br/>Düşünüyorsanız standart ötesinde gereksinimlerine sahip olabilir. Bizimle iletişime geçin (amsstreaming@microsoft.com) görüntüleyiciler 50. 000'den daha büyük bir eş zamanlı hedef kitlesi boyutunu bekliyorsanız.
+Önerilen kullanım |Büyük bir çoğunluğu senaryoları akış önerilir.|Profesyonel kullanımı.
 
-<sup>1</sup> CDN uç noktasında etkinleştirilmediğinde yalnızca doğrudan akış uç kullanılır.
+<sup>1</sup> ücretsiz deneme sürümünü yalnızca yeni oluşturulan media services hesapları ve varsayılan akış uç noktası için geçerlidir.<br/>
+<sup>2</sup> CDN uç noktasında etkinleştirilmediğinde yalnızca doğrudan akış uç kullanılır.<br/>
 
 ## <a name="properties"></a>Özellikler 
 

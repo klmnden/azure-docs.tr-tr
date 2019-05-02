@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308576"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947139"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Öğretici: Web uygulaması erişimi geliştiren bir uygulama ağ geçidi oluşturma
 
 Web uygulama erişimi geliştirme ile ilgili bir BT yöneticisi iseniz, uygulama ağ geçidinizin bağlı olarak müşteri ölçeklendirme için en iyi duruma getirebilirsiniz talep ve birden fazla kullanılabilirlik yayabilirsiniz. Bu öğreticide bunu Azure Application Gateway özelliklerini yapılandırmanıza yardımcı olur: otomatik ölçeklendirme, yedeklilik bölge ve ayrılmış VIP (statik IP). Sorunu çözmek için Azure PowerShell cmdlet'leri ve Azure Resource Manager dağıtım modeli kullanacaksınız.
-
-> [!IMPORTANT] 
-> Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

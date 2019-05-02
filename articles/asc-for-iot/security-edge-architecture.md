@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505419"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919907"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IOT Edge güvenlik modülü
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505419"
 > IOT için Azure Güvenlik Merkezi şu anda genel Önizleme aşamasındadır.
 > Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim worklo§1ads için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IOT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) yönetmek ve iş akışlarını uçta gerçekleştirmek için güçlü özellikler sunar.
+[Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) yönetmek ve iş akışlarını uçta gerçekleştirmek için güçlü özellikler sunar.
 IOT Edge, IOT ortamlarda oynadığı anahtar bölümü yapmak, özellikle çekici kötü amaçlı aktörler için.
 
 IOT güvenlik modülü için Azure Güvenlik Merkezi (ASC), cihazları, IOT Edge için kapsamlı güvenlik çözümü sağlar.
@@ -44,7 +44,7 @@ ASC IOT güvenlik modülü IOT Edge için aşağıdaki özellikleri sunar:
 
 - IOT Edge dağıtımı analizini bildirimleri.
 
-- Üzerinden gönderilen iletilere ham güvenlik olaylarını toplar [IOT Edge hub'ı](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Üzerinden gönderilen iletilere ham güvenlik olaylarını toplar [IOT Edge hub'ı](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Güvenlik modül ikizi aracılığıyla yapılandırmasını kaldırın.
 

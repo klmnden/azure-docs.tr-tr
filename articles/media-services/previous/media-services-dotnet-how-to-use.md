@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 47db5ba826b94422672dd46b191556da43b70b02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465006"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724108"
 ---
 # <a name="media-services-development-with-net"></a>.NET ile Media Services Geliştirme 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Bu makalede, .NET ile Media Services uygulama geliştirmeye başlamanın anlatılmaktadır.
 

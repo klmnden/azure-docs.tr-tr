@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457609"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916840"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -28,7 +28,7 @@ Bu makalede, geliştirme PC ve konuşma cihaz geliştirme seti konuşma cihaz SD
 
 Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan yazılım ve bilgi toplayın:
 
-* Alma bir [ROOBO geliştirme Seti'nden](http://ddk.roobo.com/). Setleri, doğrusal veya döngüsel mikrofon dizi yapılandırmalarla kullanılabilir. Gereksinimleriniz için doğru yapılandırmayı seçin.
+* Alma bir [ROOBO geliştirme Seti'nden](https://ddk.roobo.com/). Setleri, doğrusal veya döngüsel mikrofon dizi yapılandırmalarla kullanılabilir. Gereksinimleriniz için doğru yapılandırmayı seçin.
 
     |Geliştirme Seti yapılandırma|Konuşmacı konumu|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Konuşma hizmetlerini kullanırken sertifika hataları alırsanız, cihazınız 
 
 ### <a name="audio"></a>Ses
 
-ROOBO bellek Flash tüm ses yakalayan bir araç sağlar. Ses sorunları gidermenize yardımcı olabilir. Aracı sürümü her Geliştirme Seti yapılandırması için sağlanır. Üzerinde [ROOBO site](http://ddk.roobo.com/)Cihazınızı seçin ve ardından **ROOBO Araçları** sayfanın alt kısmındaki bağlantı.
+ROOBO bellek Flash tüm ses yakalayan bir araç sağlar. Ses sorunları gidermenize yardımcı olabilir. Aracı sürümü her Geliştirme Seti yapılandırması için sağlanır. Üzerinde [ROOBO site](https://ddk.roobo.com/)Cihazınızı seçin ve ardından **ROOBO Araçları** sayfanın alt kısmındaki bağlantı.

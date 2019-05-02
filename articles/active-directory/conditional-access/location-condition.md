@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917672"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -50,16 +50,13 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 - **IP aralıklarını** -bir veya daha fazla IPv4 adres aralıklarını CIDR biçiminde. Bir IPv6 adres aralığı belirtilmesi desteklenmiyor.
 
    > [!NOTE]
-   > IPv6 adresi rangess şu anda bir adlandırılmış locationThis measn IPv6 aralıkları bir koşullu erişim ilkesinden dışarıda bırakılamaz eklenemez.
+   > IPv6 adresi rangess şu anda adlandırılmış bir konumda yer alamaz. Bu measn IPv6 aralıkları bir koşullu erişim ilkesinden dışarıda bırakılamaz.
 
 - **Güvenilen konum olarak işaretle** -güvenilen bir konum belirtmek adlandırılmış bir konum için ayarlayabileceğiniz bir bayrak. Genellikle, güvenilen konumları BT departmanınız tarafından denetlenen ağ alanlardır. Koşullu erişim yanı sıra güvenilen adlandırılmış konumlar ayrıca Azure kimlik koruması ve Azure AD güvenlik raporları tarafından azaltmak için kullanılan [hatalı pozitif sonuçları](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Ülkeler/bölgeler** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar.
 - **Bilinmeyen alanları dahil et** -bazı IP adreslerini belirli bir ülkeye eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
 
-Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Konumlara göre aşağıdaki sınırlamaları yapılandırabilirsiniz:
-
-- Bir adlı 1200 IP aralıklarına sahip konum.
-- Her birine atanan bir IP aralığı 90 adlı konumlarıyla en fazla.
+Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 lamed konumlarını yapılandırabilirsiniz, her kadar 12000 IP aralıkları ile yapılandırılmış.
 
 Koşullu erişim ilkesi, IPv4 ve IPv6 trafiği için geçerlidir. Şu anda adlandırılmış konumlar yapılandırılması için IPv6 aralıkları izin vermez. Bu sınırlama aşağıdaki durumlarda neden olur:
 

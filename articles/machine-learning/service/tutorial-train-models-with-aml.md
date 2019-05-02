@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361600"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723212"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
@@ -315,18 +315,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Betiğin verileri nasıl aldığına ve modelleri nasıl kaydettiğine dikkat edin:
 
-+ Eğitim betiği, veri içeren dizine bulmak için bir bağımsız değişken okur. Daha sonra işi gönderdiğinizde, bu bağımsız değişken için veri deposu üzerine: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
++ Eğitim betiği, veri içeren dizine bulmak için bir bağımsız değişken okur. Daha sonra işi gönderdiğinizde, bu bağımsız değişken için veri deposuna işaret edersiniz: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Eğitim betiğini modelinizi adlı bir dizine kaydeder. **çıkarır**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Bu dizine yazılan her şey otomatik olarak çalışma alanınıza yüklenir. Öğreticinin ilerleyen bölümlerinde bu dizinden modelinizi erişin.
-Veri kümesini doğru yüklemek için eğitim betiğinden `utils.py` dosyasına başvurulur. Uzak Kaynak eğitim betiği birlikte erişilebilir olacak şekilde bu betiği komut dosyası klasörüne kopyalayın.
++ Eğitim betiğini modelinizi adlı bir dizine kaydeder. **çıkarır**. Bu dizine yazılan her şey otomatik olarak çalışma alanınıza yüklenir. Öğreticinin ilerleyen bölümlerinde bu dizinden modelinizi erişin. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ Eğitim betik dosyası gerektirir `utils.py` veri kümesini doğru şekilde yüklenemedi. Aşağıdaki kod kopyaları `utils.py` içine `script_folder` böylece dosyayı uzak kaynak eğitim betiği birlikte erişilebilir.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>Tahmin aracı oluşturma

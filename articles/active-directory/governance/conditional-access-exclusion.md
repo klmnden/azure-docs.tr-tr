@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351597"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571360"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
 
@@ -38,7 +38,7 @@ Başka bir örnek olarak, kullanabileceğinize [adlandırılmış Konumlar](../c
 
 ![Adlandırılmış konumlar](./media/conditional-access-exclusion/named-locations.png)
 
-Ancak, bazı durumlarda, kullanıcılar engellenen bu ülkelerden oturum açmak için meşru bir neden olabilir. Örneğin, kullanıcıların iş veya kişisel nedenlerle seyahat. Bu örnekte, bu ülkelerde engellemek için koşullu erişim ilkesi ilkesinden dışlanır kullanıcılar için bir özel bulut güvenlik grubu olabilir. Seyahat ederken erişmesi gereken kullanıcılar kendilerine grubunu kullanarak konusunda ekleyebilirsiniz [Azure AD Self Servis Grup Yönetimi](../users-groups-roles/groups-self-service-management.md).
+Ancak, bazı durumlarda, kullanıcılar engellenen bu ülkelerden/bölgelerden oturum açmak için meşru bir neden olabilir. Örneğin, kullanıcıların iş veya kişisel nedenlerle seyahat. Bu örnekte, bu ülkeler/bölgeler engellemek için koşullu erişim ilkesi ilkesinden dışlanır kullanıcılar için bir özel bulut güvenlik grubu olabilir. Seyahat ederken erişmesi gereken kullanıcılar kendilerine grubunu kullanarak konusunda ekleyebilirsiniz [Azure AD Self Servis Grup Yönetimi](../users-groups-roles/groups-self-service-management.md).
 
 Koşullu erişim ilkesi olan başka bir örnek olabilir, [blokları eski kimlik doğrulaması, kullanıcılarınızın büyük çoğunluğu için](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft, kiracınıza güvenliğinizi artırmak için eski protokolleri kullanımını engeller kesinlikle önerir. Ancak, kesinlikle eski kimlik doğrulama yöntemleri aracılığıyla Office 2010 kaynaklarınıza erişmek için kullanması gereken bazı kullanıcılar varsa veya IMAP/SMTP/POP tabanlı istemciler, ardından, bu kullanıcılar eski kimlik doğrulama yöntemleri engelleyen ilkeden hariç tutabilirsiniz.
 
@@ -97,9 +97,9 @@ Artık bu hariç tutma grubu kullanan bir koşullu erişim ilkesi oluşturabilir
 
 Şimdi bir özel koşullu erişim ilkelerini yönetmek için erişim gözden geçirmeleri burada kullanabileceğiniz iki örnek kapsar.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Örnek 1: Engellenen ülkelerden erişen kullanıcılar için erişim gözden geçirmesi
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Örnek 1: Engellenen ülkeler/bölgeler üzerinden erişen kullanıcılar için erişim gözden geçirmesi
 
-Belirli ülkelerde erişimi engeller bir koşullu erişim ilkesine sahip varsayalım. Bu, bir grup ilkesinden dışlandı içerir. Grubun üyeleri, burada gözden geçirilmemiş bir önerilen erişim gözden geçirmesi aşağıdadır.
+Bazı ülkeler/bölgeler üzerinden erişimi engeller bir koşullu erişim ilkesine sahip varsayalım. Bu, bir grup ilkesinden dışlandı içerir. Grubun üyeleri, burada gözden geçirilmemiş bir önerilen erişim gözden geçirmesi aşağıdadır.
 
 > [!NOTE]
 > Bir genel yönetici veya Kullanıcı Yöneticisi rolü, erişim gözden geçirmeleri oluşturmak için gereklidir.
@@ -110,9 +110,9 @@ Belirli ülkelerde erişimi engeller bir koşullu erişim ilkesine sahip varsaya
 
 3. Bu grubun tüm üyelerinin gözden geçirme kapsamındaki olacaktır.
 
-4. Her bir kullanıcı kendi kendine onaylamasını bunlar yine de bu engellenen ülkelerden erişiminin olması gerekir, bu nedenle bunlar yine de grubunun bir üyesi olmanız gerekir gerekecektir.
+4. Her bir kullanıcı kendi kendine onaylamasını bunlar yine de bu engellenen ülkeler/bölgelerden gelen erişiminin olması gerekir, bu nedenle bunlar yine de grubunun bir üyesi olmanız gerekir gerekecektir.
 
-5. Kullanıcı için gözden geçirme isteğine yanıt vermezse, bunlar otomatik olarak gruptan kaldırılacak ve bu nedenle, kiracının bu ülkelere seyahat ederken erişemez.
+5. Kullanıcı için gözden geçirme isteğine yanıt vermezse, bunlar otomatik olarak gruptan kaldırılacak ve bu nedenle, kiracının Bu ülkeler/bölgeler için seyahat ederken erişemez.
 
 6. Kullanıcıların erişim gözden geçirmesi tamamlanmasından ve başlangıç hakkında bildirim almak, e-posta bildirimlerini etkinleştirin.
 

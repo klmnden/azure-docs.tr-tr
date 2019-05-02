@@ -1,7 +1,6 @@
 ---
 title: Özel MapReduce programlarını - Azure HDInsight çalıştırma
 description: Ne zaman ve nasıl HDInsight içinde özel MapReduce programlarını çalıştırma.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433874"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713096"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Özel MapReduce programlarını çalıştırma
 
@@ -38,7 +37,6 @@ Kod Haritası ve azaltmak oluşur olarak uygulanan iki ayrı işlevlerin **harit
 Özel map/azaltmak bileşenler genellikle Java dilinde yazılır. Hadoop gibi diğer dillerde geliştirilen kullanılacak bileşenler de sağlayan bir akış arabirimi sağlayan C#, F#, Visual Basic, Python ve JavaScript.
 
 * Özel Java MapReduce programları geliştirme hakkında kılavuz için bkz. [geliştirme Java MapReduce programları HDInsight üzerinde Hadoop için](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
-* Python kullanarak bir örnek için bkz: [Python HDInsight için akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md).
 
 Kendi eşleme oluşturmayı göz önünde bulundurun ve aşağıdaki koşulları için altına düşürün:
 
@@ -76,6 +74,5 @@ En yaygın MapReduce programlarını Java dilinde yazılmış ve bir jar dosyas�
 
 * [Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Python için HDInsight akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md)
 * [Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma](../spark/apache-spark-eclipse-tool-plugin.md)
 * [Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)](python-udf-hdinsight.md)

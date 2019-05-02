@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç - Azure uzamsal Çıpasıyla iOS Unity uygulaması oluşturma | Microsoft Docs
+title: Hızlı Başlangıç - Azure uzamsal Çıpasıyla bir Unity iOS uygulaması oluşturma | Microsoft Docs
 description: Bu hızlı başlangıçta, bir iOS uygulamasını uzamsal bağlayıcılarını kullanarak Unity ile oluşturmayı öğrenin.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41189d4945ef22f8a587a51717b7dd6f40ac39ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235164"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690541"
 ---
-# <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla iOS Unity uygulaması oluşturma
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla bir Unity iOS uygulaması oluşturma
 
-Bu hızlı başlangıçta iOS Unity kullanarak uygulama oluşturma konusunu kapsar [Azure uzamsal bağlayıcılarını](../overview.md). Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulan ARKit iOS uygulamasına sahip olacaksınız.
+Bu hızlı başlangıçta bir Unity iOS uygulamasını kullanarak oluşturmak nasıl etkinleştireceğinizi de açıklar [Azure uzamsal bağlayıcılarını](../overview.md). Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanarak karma gerçeklik deneyimleri oluşturmanıza olanak tanıyan platformlar arası Geliştirici hizmetidir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulan ARKit iOS uygulamasına sahip olacaksınız.
 
 Şunları öğrenirsiniz:
 

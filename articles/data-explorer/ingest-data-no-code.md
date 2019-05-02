@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759886"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872593"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -380,7 +380,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
     |---|---|---|
     | **Tablo** | *DiagnosticLogsRawRecords* | Oluşturduğunuz tabloyu *TestDatabase* veritabanı. |
     | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
-    | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *TestDatabase* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords* tablo.|
+    | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *TestDatabase* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRawRecords* tablo.|
     | | |
 
 1. **Oluştur**’u seçin.  

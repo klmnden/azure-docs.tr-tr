@@ -1,22 +1,22 @@
 ---
-title: "Sık sorulan sorular: Azure Site Recovery ile azure'dan Azure'a olağanüstü durum kurtarma | Microsoft Docs"
-description: Azure Site Recovery kullanarak başka bir Azure bölgesine olağanüstü durum kurtarma Azure VM oluşturduğunuzda bu makalede, sık sorulan sorular özetler.
+title: Azure'dan Azure'a Azure Site Recovery ile olağanüstü durum kurtarma hakkında sık sorulan sorular
+description: Bu makalede, Azure Vm'leri Azure Site Recovery kullanarak başka bir Azure bölgesine olağanüstü durum kurtarma hakkında sık sorulan sorular yanıtlanmaktadır.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790887"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925665"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Sık sorulan sorular: Azure'dan Azure'a olağanüstü durum kurtarma
 
-Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recovery kullanarak başka bir Azure bölgesine dağıtma hakkında sık sorulan soruların yanıtlarını sağlar. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Bu makalede kullanarak Azure Vm'leri başka bir Azure bölgesine olağanüstü durum kurtarma hakkında sık sorulan sorulara yanıtlar sağlayan [Site Recovery](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>Genel
@@ -28,15 +28,15 @@ Azure Site Recovery ile korunan her örnek, ilk 31 gün boyunca ücretsiz olarak
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
 Evet, Azure Site Recovery korunan bir örnek için ilk 31 gün boyunca ücretsiz olsa da Azure Depolama, depolama işlemleri ve veri aktarımı için ücretlendirilmeye devam edebilirsiniz. Korunan bir sanal makine için de Azure işlem ücretleri alınabilir. Fiyatlandırma hakkında tam bilgi almak [burada](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Site Recovery, Azure Vm'lerinde yapılandırmak için en iyi uygulamalar nelerdir?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma için en iyi nerede bulabilirim? 
 1. [Azure'dan Azure'a mimarisini anlama](azure-to-azure-architecture.md)
 2. [Desteklenen ve desteklenmeyen yapılandırmalarını gözden geçirin](azure-to-azure-support-matrix.md)
 3. [Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın](azure-to-azure-how-to-enable-replication.md)
 4. [Yük devretme testi çalıştırma](azure-to-azure-tutorial-dr-drill.md)
 5. [Yük devretme ve birincil bölgeye geri döndürme](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Kapasite hedef bölgede Azure Vm'leri için nasıl sağlanır?
-Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Kapasite, hedef bölgede nasıl sağlanır?
+Site Recovery ekibi yeterli altyapı kapasiteyi planlamak için Azure kapasitesine yönetim ekibi ile çalışır ve yük devretme başlatıldığında için Site Recovery tarafından korunan VM'ler sağlamaya yardımcı olmak için başarıyla dağıtılan hedef bölgede olacaktır.
 
 ## <a name="replication"></a>Çoğaltma
 
@@ -54,6 +54,16 @@ Evet, [bölgeye sabitlenmiş Vm'lerini çoğaltma](https://azure.microsoft.com/b
 
 Evet, PowerShell kullanarak koruma süresi diskleri dışlayabilirsiniz. Daha fazla bilgi için [makale](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Çoğaltılan VM'ler için yeni bir disk ekleyin ve miyim makinelere yönelik çoğaltmayı etkinleştirir?
+
+Evet, bu yönetilen disklerle Azure Vm'leri için desteklenir. Çoğaltma için etkin bir Azure VM için yeni bir disk eklediğinizde, VM için çoğaltma durumu VM'deki diskler bir veya daha fazla koruma için kullanılabilir olduğunu belirten bir not ile bir uyarı gösterir. Eklenen diskler için çoğaltmayı etkinleştirebilirsiniz.
+- Eklenen diskleri için korumayı etkinleştirin, uyarı ilk çoğaltmadan sonra kaybolur.
+- Diske ait çoğaltma etkinleştirmemeyi seçerseniz, uyarıyı Kapat seçeneğini belirleyebilirsiniz.
+- Çoğaltma noktaları olan bir disk ekleyin ve çoğaltmayı etkinleştirebilirsiniz VM yük devretme, kurtarma için kullanılabilir olan diskler gösterir. Örneğin, bir sanal makine tek bir diske sahiptir ve yeni bir tane ekleyin, disk eklemeden önce oluşturulan çoğaltma noktaları "2 disk 1" çoğaltma noktası içerdiğini gösterir.
+
+Site Recovery "Sık erişimli çoğaltılmış bir VM'den bir diski Kaldır" desteklememektedir. Sanal makine diskini kaldırırsanız, devre dışı bırakın ve ardından sanal makine için çoğaltmayı yeniden etkinleştirmeniz gerekir.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
 Azure Vm'lerini başka bir Azure bölgesine çoğaltma yapıyorsanız sürekli çoğaltma olur. Daha fazla bilgi için [Azure'dan Azure'a çoğaltma mimarisi](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
@@ -69,7 +79,7 @@ Hayır, Site Recovery, Internet bağlantısı gerektirmez. Ancak, Site Recovery 
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Ayrı bir kaynak grubu ayrı katmanlara yönelik olan uygulama çoğaltabilirim?
 Evet, uygulama çoğaltma ve olağanüstü durum kurtarma yapılandırması ayrı bir kaynak grubunda çok tutun.
-Örneğin, bir uygulama ile varsa her uygulama, db ve ayrı bir kaynak grubundaki web katmanlarını ardından tıklayarak [çoğaltma sihirbazını](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice tüm katmanlarda korumak için. ASR, üç farklı bir kaynak grubunda bu üç katmanda çoğaltır.
+Örneğin, bir uygulama ile varsa her uygulama, db ve ayrı bir kaynak grubundaki web katmanlarını ardından tıklayarak [çoğaltma sihirbazını](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice tüm katmanlarda korumak için. Site Recovery, üç farklı kaynak gruplarında bu üç katmanda çoğaltır.
 
 ## <a name="replication-policy"></a>Çoğaltma ilkesi
 
@@ -147,8 +157,8 @@ CPU bakımından yoğun olduğundan, çoklu VM tutarlılığını etkinleştirme
 
 ## <a name="failover"></a>Yük devretme
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Kapasite hedef bölgede Azure Vm'leri için nasıl sağlanır?
-Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Nasıl kapasite Azure Vm'leri için hedef bölgede sağlanmıştır?
+Site Recovery ekibi yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, yük devretme başlatıldığında, olağanüstü durum kurtarma için etkinleştirilmiş olan VM'ler sağlamaya yardımcı olmak için başarıyla hedef bölgede dağıtılır.
 
 ### <a name="is-failover-automatic"></a>Yük devretme işlemi otomatik midir?
 
@@ -156,15 +166,19 @@ Yük devretme işlemi otomatik değildir. Yük devretmeleri tek bir tıklamayla 
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Yük devretme sonrasında genel IP adresi tutabilir miyim?
 
-Genel IP adresi bir üretim uygulamasının *yük devretmede tutulamıyor*. Yük devretme işleminin bir parçası hedef bölgede kullanılabilir olan bir Azure genel IP kaynağı atanması gerektiğinden getirdiği iş yükleri. Bir kurtarma planı otomatik hale getirmek ya da bu adımı el ile yapın. Bir kurtarma planı kullanarak genel bir IP adresi atamak için bkz: [yük devretme sonrasında genel IP adreslerini ayarlama](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+Üretim uygulamasının genel IP adresi, yük devretme sonrasında tutulamıyor.
+- Yük devretme işleminin bir parçası hedef bölgede kullanılabilir olan bir Azure genel IP kaynağı atanması gerektiğinden getirdiği iş yükleri.
+- El ile yapılması veya bir kurtarma planı otomatikleştirin.
+- Bilgi edinmek için nasıl [yük devretme sonrasında genel IP adreslerini ayarlama](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>Yük devretme sırasında özel bir IP adresi tutabilir miyim?
-Evet, özel bir IP adresi tutabilirsiniz. Azure Vm'leri için DR etkinleştirdiğinizde, varsayılan olarak, Site Recovery hedef kaynaklar kaynak kaynak ayarları temel alarak oluşturur. Statik IP adresleriyle yapılandırılmış Azure Vm'leri için Site Recovery kullanımda değilse hedef sanal makine, aynı IP adresi sağlamak çalışır. Özel IP adresini farklı koşullar altında koruma için bkz: [korumak IP adresleriyle yük devretme sırasında](site-recovery-retain-ip-azure-vm-failover.md).
+Evet, özel bir IP adresi tutabilirsiniz. Azure Vm'leri için olağanüstü durum kurtarma etkinleştirdiğinizde, varsayılan olarak, Site Recovery hedef kaynaklar kaynak kaynak ayarları temel alarak oluşturur. -Statik IP adresleriyle yapılandırılmış Azure Vm'leri için Site Recovery kullanımda değilse hedef sanal makine, aynı IP adresi sağlamak çalışır.
+Hakkında bilgi edinin [yük devretme sırasında IP adreslerini koruma](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Yük devretmeden sonra sunucunun VM kaynağı olarak aynı IP adresine sahip değil. Neden bunu yeni bir IP adresi atanır?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Yük devretmeden sonra neden sunucunun yeni bir IP adresi atanmış?
 
 Site Recovery, yük devretme sırasında IP adresi sağlamak çalışır. Başka bir sanal makine bu adrese sürüyorsa, Site Recovery sonraki kullanılabilir IP adresi hedef olarak ayarlar.
-Adresleme Site Recovery nasıl işlediğini tam açıklama için bkz. [ağ eşlemesini ve sanal ağlar için IP adresini ayarlama](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Daha fazla bilgi edinin [ağ eşlemesini ve sanal ağlar için IP adresini ayarlama](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Hangi **en son (en düşük RPO)** kurtarma noktaları?
 **En son (en düşük RPO)** seçeneği ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm verileri işler. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip olduktan sonra VM oluşturulduğundan, bu seçenek en düşük kurtarma noktası hedefi (RPO) sağlar.
@@ -175,10 +189,10 @@ Evet. Bu seçeneğe sahip diğer seçenekleri karşılaştırıldığında daha 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Ne yaptığını **en son işlenen** kurtarma seçeneği işaret ortalama?
 **Son işlenme** seçeneği başarısız en son kurtarma planındaki tüm sanal makineler üzerinde işlenen, Site kurtarma noktası. En son kurtarma için belirli bir VM'ye noktası olarak görmek için **en son kurtarma noktaları** VM ayarları. Bu seçenek, işlenmemiş verileri işlemeye zaman harcanmadığından düşük bir RTO sağlar.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>İki Azure bölgeleri arasında çoğaltma yapıyorsam, my birincil bölgeye beklenmeyen bir kesinti oluşursa ne olur?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>My birincil bölgeye beklenmeyen bir kesinti oluşursa ne olur?
 Kesinti bir yük devretme tetikleyebilirsiniz. Site Recovery, yük devretme gerçekleştirmek için birincil bölgeden bağlantı gerek yoktur.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Sanal makine yük devretme bir RTO nedir?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>VM yük devretme bir RTO nedir?
 Site Recovery sahip bir [2 saat RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Ancak, çoğu zaman, Site Recovery başarısız yükü Devredilmiş sanal makineleri dakikalar içinde. RTO hesaplayabilirsiniz saati gösteren yük devretme için işleri giderek VM'yi getirmek için işlem. RTO için kurtarma planında, bölüme bakın.
 
 ## <a name="recovery-plans"></a>Kurtarma planları
@@ -214,25 +228,27 @@ Hayır. Olduğunda, [yük devretme](https://docs.microsoft.com/azure/site-recove
 Bu, durumunuza bağlıdır. Örneğin, VM Kaynak bölgesi varsa, kaynak ve hedef disk arasında yalnızca değişiklikleri eşitlenir. Site Recovery, diskleri karşılaştırarak differentials hesaplar ve ardından verileri aktarır. Bu işlem genellikle birkaç saat sürer. Yeniden koruma sırasında neler olduğu hakkında daha fazla bilgi için bkz. [birincil bölgeye yeniden koruma başarısız Azure Vm'leri üzerinde]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Ne kadar zaman mevcut yeniden çalışma için sınav zamanı?
-Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer.
+Yeniden koruma sonra yeniden çalışma için süreyi genellikle birincil bölgeden ikincil bölgeye yük devretme için gerekli süreyi benzer.
 
 ## <a name="capacity"></a>Kapasite
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Nasıl kapasite Azure Vm'leri için hedef bölgede sağlanmıştır?
-Azure Site Recovery (ASR) takım yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, Vm'leri için olağanüstü durum tarafından ASR korumalı emin olmak için girişiminde kurtarma başarıyla olağanüstü durum kurtarma (DR) bölgede dağıtılacağı, ASR yük devretme işlemlerini ne zaman başlatılır.
+Site Recovery ekibi yeterli altyapı kapasiteyi planlamak üzere Azure kapasitesine yönetim ekibi ile çalışır, yük devretme başlatıldığında, olağanüstü durum kurtarma için etkinleştirilmiş olan VM'ler sağlamaya yardımcı olmak için başarıyla hedef bölgede dağıtılır.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery, ayrılmış örnekleri ile çalışır mı?
-Evet, satın [rezerve örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR bölge ve ASR yük devretme işlemlerini bunları kullanır. </br> Müşteriler, ek yapılandırma gereklidir.
+Evet, satın [rezerve örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/) olağanüstü durum kurtarma bölgesindeki ve Site Recovery yük devretme işlemlerini bunları kullanacaksınız. </br> Ek bir yapılandırma gerekmez.
 
 
 ## <a name="security"></a>Güvenlik
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Çoğaltılan veriler Site Recovery hizmetine gönderilir mi?
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve sanal makinelerinizde çalışan ne hakkında herhangi bir bilgi yoktur. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 Site Recovery, ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery çoğaltma işlemini şifreleyebilir mi?
-Evet, hem şifreleme-aktarım sırasında ve [azure'da şifreleme](https://docs.microsoft.com/azure/storage/storage-service-encryption) desteklenir.
+Evet, hem şifreleme-aktarım sırasında ve [durağan azure'da şifreleme](https://docs.microsoft.com/azure/storage/storage-service-encryption) desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Gözden geçirme](azure-to-azure-support-matrix.md) gereksinimlerini destekler.
 * [Ayarlanan](azure-to-azure-tutorial-enable-replication.md) Azure'dan Azure'a çoğaltma.
+- Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043213"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925497"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -153,7 +153,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 * [Python 2.7 yükleme](https://www.python.org/downloads/release/python-2716/)
 
-* [Cassandra CLI/CQLSH yükleyin](http://cassandra.apache.org/download/)
+* [Cassandra CLI/CQLSH yükleyin](https://cassandra.apache.org/download/)
 
 * Normal komut istemi penceresinde aşağıdaki komutları çalıştırın:
 
@@ -181,7 +181,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 Öykünücü ile bir yönetici komut isteminden başlatmak "/ EnableGremlinEndpoint". Alternatif olarak da ortam değişkeni ayarlayabilirsiniz `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Apache-tinkerpop-gremlin-konsol-3.3.4 yükleyin](http://tinkerpop.apache.org/downloads.html)
+* [Apache-tinkerpop-gremlin-konsol-3.3.4 yükleyin](https://tinkerpop.apache.org/downloads.html)
 
 * Öykünücü'nın veri Gezgini'nde bir veritabanı "db1" ve "coll1"; bir koleksiyon oluşturma Bölüm anahtarı seçin "/ name"
 

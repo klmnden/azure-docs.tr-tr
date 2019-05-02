@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711137"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925766"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server SAP uygulamaları için Azure NetApp dosya çubuğunda Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -29,9 +29,9 @@ ms.locfileid: "60711137"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/
-[anf-avail-matrix]:https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register
+[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
+[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -58,7 +58,7 @@ ms.locfileid: "60711137"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Bu makalede sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemini yüklemek nasıl kullanarak [Azure NetApp dosyaları (genel önizlemede)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Bu makalede sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemini yüklemek nasıl kullanarak [Azure NetApp dosyaları (genel önizlemede)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 Örnek yapılandırma, yükleme komutlarını vs., ASCS örneğini sayıdır 00, 01, birincil uygulama örneğini (Pa'ları) Ağıranlar örnek numarasını 02 ve 03 uygulama örneğini (AAS) şeklindedir. SAP sistemi kimliği QAS kullanılır. 
 
 Bu makalede, Azure NetApp dosyaları ile SAP NetWeaver uygulaması için yüksek kullanılabilirlik elde etmek açıklanmaktadır. Veritabanı katmanı, bu makalede ayrıntılı kapsamında değildir.
@@ -92,12 +92,12 @@ Bu makalede, Azure NetApp dosyaları ile SAP NetWeaver uygulaması için yüksek
 Yüksek availability(HA) SAP Netweaver merkezi Hizmetleri için paylaşılan depolama gerektirir.
 SUSE Linux üzerinde elde etmek için şu ana kadar yüksek oranda kullanılabilir ayrı NFS küme oluşturmak gerekli. 
 
-Artık SAP Netweaver HA dağıtılan Azure NetApp dosya paylaşılan depolamayı kullanarak elde etmek mümkündür. Azure NetApp dosyaları için paylaşılan depolama ihtiyacını ortadan kaldırır. kullanarak ek [NFS küme](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker SAP Netweaver merkezi services(ASCS/SCS) yüksek kullanılabilirlik için hala gereklidir.
+Artık SAP Netweaver HA dağıtılan Azure NetApp dosya paylaşılan depolamayı kullanarak elde etmek mümkündür. Azure NetApp dosyaları için paylaşılan depolama ihtiyacını ortadan kaldırır. kullanarak ek [NFS küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker SAP Netweaver merkezi services(ASCS/SCS) yüksek kullanılabilirlik için hala gereklidir.
 
 
 ![SAP NetWeaver-yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA veritabanı sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure'da bir [yük dengeleyici](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) sanal bir IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırılmasını gösterir SCS ve Ağıranlar yük dengeleyici.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA veritabanı sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure'da bir [yük dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) sanal bir IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırılmasını gösterir SCS ve Ağıranlar yük dengeleyici.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -138,17 +138,17 @@ SAP NetWeaver taşıma ve profil dizin için paylaşılan depolama gerektirir.  
 
 ### <a name="deploy-azure-netapp-files-resources"></a>NetApp dosya Azure kaynaklarını dağıtma  
 
-Zaten dağıttıysanız, adımlarda varsayılır [Azure sanal ağı](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). NetApp dosya Azure kaynakları ve Azure NetApp dosyaları kaynakları burada bağlanır sanal makinelerin aynı Azure sanal ağında dağıtılmalıdır aklınızda bulundurun.  
+Zaten dağıttıysanız, adımlarda varsayılır [Azure sanal ağı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). NetApp dosya Azure kaynakları ve Azure NetApp dosyaları kaynakları burada bağlanır sanal makinelerin aynı Azure sanal ağında dağıtılmalıdır aklınızda bulundurun.  
 
-1. Bunu, zaten yapmadıysanız, isteği [Azure NetApp önizlemede kaydetme](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Bunu, zaten yapmadıysanız, isteği [Azure NetApp önizlemede kaydetme](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
-2. Aşağıdaki seçili Azure bölgesinde, NetApp hesabı oluşturma [NetApp hesap oluşturmaya ilişkin yönergeler](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
-3. Aşağıdaki Azure NetApp dosyaları kapasitesi havuzu oluşturmak [Azure NetApp dosyaları kapasitesi havuzu oluşturmak yönergeler](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+2. Aşağıdaki seçili Azure bölgesinde, NetApp hesabı oluşturma [NetApp hesap oluşturmaya ilişkin yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+3. Aşağıdaki Azure NetApp dosyaları kapasitesi havuzu oluşturmak [Azure NetApp dosyaları kapasitesi havuzu oluşturmak yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 Bu makalede sunulan SAP Netweaver mimari, tek Azure NetApp dosyaları kapasitesi havuzu, Premium SKU kullanır. SAP Netweaver uygulaması iş yükü azure'da Azure NetApp dosya Premium SKU öneririz.  
 
-4. Bölümünde anlatıldığı gibi bir alt ağ Azure NetApp dosyaları için temsilci [yönergeleri temsilci bir alt ağ Azure NetApp dosyaları](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+4. Bölümünde anlatıldığı gibi bir alt ağ Azure NetApp dosyaları için temsilci [yönergeleri temsilci bir alt ağ Azure NetApp dosyaları](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Aşağıdaki Azure NetApp dosyaları birimleri dağıtma [Azure NetApp dosyaları için bir birim oluşturmak için yönergeler](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Belirtilen Azure NetApp dosyaları birimlerin dağıtma [alt](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). NetApp dosya Azure kaynakları ve Azure Vm'leri aynı Azure sanal ağında olmalıdır aklınızda bulundurun. Örneğin sapmnt<b>QAS</b>, usrsap<b>QAS</b>, vs. birim adları ve sapmnt<b>qas</b>, usrsap<b>qas</b>, vs. için Azure filepaths olan NetApp dosya birimler.  
+5. Aşağıdaki Azure NetApp dosyaları birimleri dağıtma [Azure NetApp dosyaları için bir birim oluşturmak için yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Belirtilen Azure NetApp dosyaları birimlerin dağıtma [alt](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). NetApp dosya Azure kaynakları ve Azure Vm'leri aynı Azure sanal ağında olmalıdır aklınızda bulundurun. Örneğin sapmnt<b>QAS</b>, usrsap<b>QAS</b>, vs. birim adları ve sapmnt<b>qas</b>, usrsap<b>qas</b>, vs. için Azure filepaths olan NetApp dosya birimler.  
 
    1. Birim sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. Birim usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -158,7 +158,7 @@ Bu makalede sunulan SAP Netweaver mimari, tek Azure NetApp dosyaları kapasitesi
    6. Birim usrsap<b>QAS</b>Pa'ları (nfs://10.1.0.5/usrsap<b>qas</b>pa'lar)
    7. Birim usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    
-Bu örnekte, Azure NetApp dosyaları nasıl kullanılabileceğini göstermek için Azure NetApp dosyaları tüm SAP Netweaver dosya sistemleri için kullanılır. NFS bağlanması gerekmez SAP dosya sistemleri gibi da dağıtılabilir [Azure disk depolama](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . Bu örnekte <b>a-e</b> Azure NetApp dosya olmalıdır ve <b>f-g</b> (diğer bir deyişle, / usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS </b>/D<b>03</b>) Azure disk depolama alanı olarak dağıtılabilir. 
+Bu örnekte, Azure NetApp dosyaları nasıl kullanılabileceğini göstermek için Azure NetApp dosyaları tüm SAP Netweaver dosya sistemleri için kullanılır. NFS bağlanması gerekmez SAP dosya sistemleri gibi da dağıtılabilir [Azure disk depolama](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . Bu örnekte <b>a-e</b> Azure NetApp dosya olmalıdır ve <b>f-g</b> (diğer bir deyişle, / usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS </b>/D<b>03</b>) Azure disk depolama alanı olarak dağıtılabilir. 
 
 ### <a name="important-considerations"></a>Önemli noktalar
 
@@ -166,10 +166,10 @@ SAP Netweaver SUSE yüksek kullanılabilirlik mimarisi için Azure NetApp dosyal
 
 - 4 TiB kapasite alt sınırı havuzudur. Kapasitesi havuzu boyutu 4 TiB'ın katları şeklinde olmalıdır.
 - En küçük birimdir 100 GiB
-- Azure NetApp dosyaları ve burada Azure NetApp dosyaları birimleri bağlanır, tüm sanal makineler, aynı Azure sanal ağı veya olmalıdır [sanal ağlar eşlenmiş](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) aynı bölgede. VNET eşlemesi aynı bölgedeki üzerinden Azure NetApp dosya erişim artık desteklenmektedir. Genel eşleme üzerinden azure NetApp erişim henüz desteklenmiyor.
+- Azure NetApp dosyaları ve burada Azure NetApp dosyaları birimleri bağlanır, tüm sanal makineler, aynı Azure sanal ağı veya olmalıdır [sanal ağlar eşlenmiş](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) aynı bölgede. VNET eşlemesi aynı bölgedeki üzerinden Azure NetApp dosya erişim artık desteklenmektedir. Genel eşleme üzerinden azure NetApp erişim henüz desteklenmiyor.
 - Seçilen sanal ağ, Azure için NetApp dosyaları temsilcisi, bir alt ağ olması gerekir.
 - Azure NetApp dosyaları şu anda yalnızca NFSv3 destekler 
-- Azure NetApp dosyaları sunar [ilkeyi dışarı](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): izin verilen istemciler (okuma ve yazma, salt okunur, vs.) erişim türü denetleyebilirsiniz. 
+- Azure NetApp dosyaları sunar [ilkeyi dışarı](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): izin verilen istemciler (okuma ve yazma, salt okunur, vs.) erişim türü denetleyebilirsiniz. 
 - Azure NetApp dosyaları özelliği henüz bölge farkında değildir. Şu anda Azure NetApp dosyaları özelliği, bir Azure bölgesindeki tüm kullanılabilirlik alanlarında dağıtılan değil. Bazı Azure bölgelerinde olası gecikme etkileri farkında olun. 
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Linux Vm'leri, Azure Portalı aracılığıyla el ile dağıtma
@@ -243,7 +243,7 @@ Bu örnekte, kaynakları el ile aracılığıyla dağıtılan [Azure portalında
          * 33 bağlantı noktaları için "d" altında yukarıdaki adımları yineleyin**01**, 5**01**13, 5**01**14, 5**01**16 ve ASCS Ağıranlar TCP
 
 > [!IMPORTANT]
-> Azure vm'lerinde Azure yük dengeleyicinin arkasına yerleştirilen TCP zaman damgaları etkinleştirmeyin. TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları başarısız olmasına neden olur. Parametre kümesi **net.ipv4.tcp_timestamps** için **0**. Ayrıntılar için bkz. [yük dengeleyici sistem durumu araştırmalarının](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Azure vm'lerinde Azure yük dengeleyicinin arkasına yerleştirilen TCP zaman damgaları etkinleştirmeyin. TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları başarısız olmasına neden olur. Parametre kümesi **net.ipv4.tcp_timestamps** için **0**. Ayrıntılar için bkz. [yük dengeleyici sistem durumu araştırmalarının](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker kümesi oluşturma
 

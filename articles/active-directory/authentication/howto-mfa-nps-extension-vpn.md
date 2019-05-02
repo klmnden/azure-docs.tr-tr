@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361956"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570649"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -76,7 +76,7 @@ Azure için NPS uzantısı NPS ile tümleştirildiğinde, başarılı kimlik do�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu bölümde MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce tamamlanması gereken önkoşulları açıklanmaktadır. Başlamadan önce aşağıdaki önkoşulların yerinde olmalıdır:
+Bu bölümde MFA VPN ile tümleştirmeden önce tamamlanması gereken önkoşulları açıklanmaktadır. Başlamadan önce aşağıdaki önkoşulların yerinde olmalıdır:
 
 * VPN altyapısı
 * Ağ İlkesi ve Erişim Hizmetleri rolü
@@ -338,7 +338,7 @@ NPS uzantısı yapılandırma işleminin bir parçası olarak, yönetici kimlik 
 
 ### <a name="install-the-nps-extension"></a>NPS uzantısını yükleme
 
-NPS uzantısı, Ağ İlkesi ve Erişim Hizmetleri rolü yüklü olan bir sunucuyu ve Bu işlevlerden tasarımınızı RADIUS sunucusu olarak yüklenmelidir. Yapmak *değil* NPS uzantısı Uzak Masaüstü sunucunuza yükleyin.
+NPS uzantısı, Ağ İlkesi ve Erişim Hizmetleri rolü yüklü olan bir sunucuyu ve Bu işlevlerden tasarımınızı RADIUS sunucusu olarak yüklenmelidir. Yapmak *değil* NPS uzantısı VPN sunucunuza yükleyin.
 
 1. NPS uzantısını [Microsoft Download Center](https://aka.ms/npsmfa).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564943"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939633"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk de sorunlarını giderme
 
@@ -54,12 +54,12 @@ Kopyalama günlüğünün yoluna gitmek için Data Box siparişinizle ilişkilen
 Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanın. Etkinlik günlükleri ile aşağıdakileri belirleyebilirsiniz:
 
 - Aboneliğinizdeki kaynaklarda gerçekleştirilen işlem.
-- İşlemi başlatandır. 
+- İşlemi başlatandır.
 - İşlemin ne zaman oluştuğu.
 - İşlemin durumu.
 - İşlemi araştırmanıza yardımcı olabilecek diğer özelliklerin değerleri.
 
-Etkinlik günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE gibi) içerir, ancak okuma işlemlerini (GET gibi) içermez. 
+Etkinlik günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE gibi) içerir, ancak okuma işlemlerini (GET gibi) içermez.
 
 Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden eski olmamak şartıyla istediğiniz tarih aralığını sorgulayabilirsiniz. Yerleşik Insights sorgularını kullanarak da filtreleme yapabilirsiniz. Örneğin hataya tıklayıp belirli alt hataları seçerek kök nedeni anlayabilirsiniz.
 
@@ -79,7 +79,7 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden 
 
 |Hata iletisi/Uyarılar  |Öneriler |
 |---------|---------|
-|[Bilgi] m: birimi için BitLocker parolası alınıyor <br>[Hata] m: birimi için BitLocker anahtarı alınırken özel durum oluştu<br> Sıra hiçbir öğe içermiyor.|Bu hata hedef Data Box Disk çevrimdışı olduğunda gösterilir. <br> Diskleri çevrimiçi duruma getirmek için `diskmgmt.msc` aracını kullanın.|
+|[Bilgisi] Birimi için BitLocker parolasını alınıyor: m <br>[Hata] BitLocker anahtarı için birim m: alınırken özel durum yakalandı<br> Sıra hiçbir öğe içermiyor.|Bu hata hedef Data Box Disk çevrimdışı olduğunda gösterilir. <br> Diskleri çevrimiçi duruma getirmek için `diskmgmt.msc` aracını kullanın.|
 |[Hata] Özel durum: WMI işlemi başarısız oldu:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=Girilen kurtarma parolası biçimi geçersiz. <br>BitLocker kurtarma parolaları 48 hanelidir. <br>Kurtarma parolasının doğru biçimde olduğunu doğrulayıp yeniden deneyin.|Data Box Disk kilit açma aracını kullanarak disklerin kilidini açın ve komutu yeniden deneyin. Daha fazla bilgi için bkz. <li> [Windows istemcileri için Data Box Disk kilidini açma](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Linux istemcileri için Data Box Disk kilidini açma](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Hata] Özel durum: Hedef sürücüde DriveManifest.xml dosya var. <br> Bu durum hedef sürücünün farklı bir günlük dosyasıyla hazırlanmış olabileceğini gösterir. <br>Aynı sürücüye daha fazla veri eklemek için önceki günlük dosyasını kullanın. Var olan verileri silmek ve hedef sürücüyü yeni bir içeri aktarma işi için kullanmak istiyorsanız sürücüdeki DriveManifest.xml dosyasını silin. Bu komutu yeni bir günlük dosyasıyla yeniden çalıştırın.| Bu hata aynı sürücü kümesini birden fazla içeri aktarma oturumunda kullanmaya çalıştığınızda ortaya çıkar. <br> Bir sürücü kümesini yalnızca bir bölme ve kopyalama oturumu için kullanın.|
 |[Hata] Özel durum: CopySessionId ImportData-Eylül-test-1, bir önceki kopyalama oturumu ifade eder ve yeni bir kopya oturumu için kullanılamayacak.|Bu hata yeni bir işe önceden başarıyla tamamlanan bir işin adının verilmeye çalışılması durumunda bildirilir.<br> Yeni işiniz için benzersiz bir ad atayın.|
@@ -96,7 +96,7 @@ Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için ve
 
 Bu, bir şekilde çoğaltamaması dosya sistemi nedeniyle olabilir. 
 
-Bir sürücü okuma-yazma olarak kaldırmadan veri kutusu disk ile çalışmaz. Bu senaryo dislocker tarafından şifresi sürücülerle desteklenir. Aşağıdaki komutu kullanarak cihaz başarıyla yeniden: 
+Bir sürücü okuma-yazma olarak kaldırmadan veri kutusu disk ile çalışmaz. Bu senaryo dislocker tarafından şifresi sürücülerle desteklenir. Aşağıdaki komutu kullanarak cihaz başarıyla yeniden:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Başarılı kaldırmadan rağmen verilerin kalıcı olmaz.
 
 **Çözümleme**
 
-Yukarıdaki hatasını görürseniz, aşağıdaki çözümlerden birini deneyebilirsiniz:
+Linux sisteminizde aşağıdaki adımları uygulayın:
 
-- Yükleme [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (kullanılabilir `ntfsprogs` paket) ve ilgili bölümü karşı çalıştırabilirsiniz.
+1. Yükleme `ntfsprogs` ntfsfix yardımcı program için paket.
+2. Sürücünün kilidini araç tarafından sağlanan bağlama noktaları çıkarın. Bağlama noktaları sayısı sürücüleri için farklılık gösterir.
 
-- Windows sistemine erişimi varsa
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Sürücü Windows sistemine yükleyin.
-    - Yönetici ayrıcalıklarıyla bir komut istemi açın. Çalıştırma `chkdsk` birimde.
-    - Güvenli bir şekilde birimi kaldırın ve yeniden deneyin.
+3. Çalıştırma `ntfsfix` karşılık gelen yolda. Vurgulanan sayıda adım 2 ' aynı olmalıdır.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Bağlama soruna neden olabilecek hazırda meta verilerini kaldırmak için aşağıdaki komutu çalıştırın.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Temiz bir çıkarma işlemi yapın.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Temiz bir kilit açma yapın ve bağlama.
+7. Bağlama noktası, bir dosya yazarak test edin.
+8. Çıkarın ve dosya kalıcılığına doğrulamak için yeniden bağlayın.
+9. Veri kopyalama işlemiyle devam edin.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Sorun: Kopyalamadan sonra kalıcı değil verilerle hata
  

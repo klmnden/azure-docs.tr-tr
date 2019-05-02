@@ -3,7 +3,7 @@ title: Birden çok IP adresi için bir Azure sanal makineler - PowerShell | Micr
 description: PowerShell kullanarak bir sanal makineye birden çok IP adresi atama hakkında bilgi edinin. | Kaynak Yöneticisi
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: jdial;annahar
-ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: kumud;annahar
+ms.openlocfilehash: ee6a2d36d88d9a80ba7e64819344f6cca56e47cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522993"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730411"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineler için birden çok IP adresi atama
 

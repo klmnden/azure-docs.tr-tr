@@ -1,27 +1,19 @@
 ---
 title: Java kullanıcı tanımlı işlev (UDF Apache Hive, HDInsight - Azure)
 description: Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnek, bir küçük metin dizesi tablosunu UDF dönüştürür.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 03/21/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
+ms.date: 03/21/2019
+ms.author: hrasheed
 ms.openlocfilehash: 24c2e8b9600b3d622d3d6b42b3bc3615a87ff853
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122039"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686622"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
@@ -201,13 +193,13 @@ Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması du
 2. Kullanım `scp` komut dosyası, aşağıdaki komutu girerek HDInsight kümesine kopyalamak için:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
 3. Aşağıdaki komutu girerek SSH kullanarak kümeye bağlanın:
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.cn
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
 4. Açık SSH oturumundan, HDInsight depolama alanına jar dosyasını kopyalayın.

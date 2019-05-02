@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818407"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943960"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -30,7 +30,7 @@ Bu öğreticide, telefon araması verileri temel alan gerçek zamanlı sahtekarl
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Senaryo: Telekomünikasyon ve SIM gerçek zamanlı sahtekarlık algılama
 
-Telekomünikasyon şirketi, büyük miktarlarda veri gelen çağrıları için vardır. Şirket, müşterilere bildirmek veya belirli bir sayıya için hizmet kapatın, gerçek zamanlı olarak sahte çağrıları algılamak istiyor. SIM sahtekarlık bir tür aynı kimlik yaklaşık aynı zamanda ancak farklı coğrafi konumlarda bulunan birden fazla çağrı içerir. Bu tür bir sahtekarlık algılamaya gelen telefon kayıtlarını inceleyebilir ve belirli kalıpları aramak şirketin gerekir; bu durumda, farklı ülkelerde aynı zamanda yapılan çağrılar için. Bu kategoriye giren herhangi bir telefon kayıt sonraki analiz için depolama yazılır.
+Telekomünikasyon şirketi, büyük miktarlarda veri gelen çağrıları için vardır. Şirket, müşterilere bildirmek veya belirli bir sayıya için hizmet kapatın, gerçek zamanlı olarak sahte çağrıları algılamak istiyor. SIM sahtekarlık bir tür aynı kimlik yaklaşık aynı zamanda ancak farklı coğrafi konumlarda bulunan birden fazla çağrı içerir. Bu tür bir sahtekarlık algılamaya gelen telefon kayıtlarını inceleyebilir ve belirli kalıpları aramak şirketin gerekir; bu durumda, yaklaşık aynı zamanda farklı ülkelerde/bölgelerde yapılan çağrılar için. Bu kategoriye giren herhangi bir telefon kayıt sonraki analiz için depolama yazılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -150,7 +150,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 |**Kayıt**|**Tanım**|
 |----------|--------------|
 |`CallrecTime`|Arama başlangıç zamanı için zaman damgası. |
-|`SwitchNum`|Aramayı bağlamak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar kaynak ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizelerdir. |
+|`SwitchNum`|Aramayı bağlamak için kullanılan telefon anahtarı. Bu örnekte, ülke/bölge kaynağı (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri anahtarlar şunlardır. |
 |`CallingNum`|Arayanın telefon numarası. |
 |`CallingIMSI`|Uluslararası Mobil Abone Kimliği (IMSI). Bu, arayanın benzersiz tanımlayıcısıdır. |
 |`CalledNum`|Arama alıcısının telefon numarası. |
@@ -276,7 +276,7 @@ Her olay arşivlemek istiyorsanız, tüm alanları olay yükü okumak için doğ
 
 Bölge başına gelen çağrıların sayısını hesaplamak istediğinizi varsayalım. Sayımı gibi toplama işlevleri gerçekleştirmek istediğiniz zaman akış verileri, (veri akışı etkili bir şekilde sonsuz olduğundan) akış zamana bağlı birimler halinde bölmek gerekir. Bir akış analizi kullanarak bunu [pencere işlevi](stream-analytics-window-functions.md). Bir birim olarak bu pencere içindeki verileri ardından çalışabilirsiniz.
 
-Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows istediğiniz — her pencere gruplandırmak veri toplama ve ayrık bir kümesi gerekir. Bu tür bir pencerede şeklinde adlandırılan bir *atlayan pencere*. Atlayan pencere içinde göre gruplandırılmış gelen çağrıların sayısını alabilirsiniz `SwitchNum`, aramanın nerede ülke temsil eder. 
+Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows istediğiniz — her pencere gruplandırmak veri toplama ve ayrık bir kümesi gerekir. Bu tür bir pencerede şeklinde adlandırılan bir *atlayan pencere*. Atlayan pencere içinde göre gruplandırılmış gelen çağrıların sayısını alabilirsiniz `SwitchNum`, ülke/bölge aramanın nerede temsil eder. 
 
 1. Kod Düzenleyicisi'nde sorguyu aşağıdaki gibi değiştirin:
 
@@ -292,7 +292,7 @@ Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows is
 
     Projeksiyon içerir `System.Timestamp`, her pencere sonu için bir zaman damgasını döndürür. 
 
-    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) işlevi `GROUP BY` yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Ülkeye göre bir sayısı çağrıları için her 5 saniyede değerinde erişmenizi sağlayacak şekilde bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
+    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) işlevi `GROUP BY` yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Bu nedenle bir sayısı ülke/bölge tarafından çağrıları için her 5 saniyede değerinde karşılaşırsınız Bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
 
 2. Tıklayın **Test** yeniden. Sonuçlarda dikkat zaman damgaları altında **WindowEnd** 5 saniyelik artışlarla olan.
 
@@ -302,7 +302,7 @@ Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows is
 
 Bu örnekte, birbirinden en fazla 5 saniye içinde farklı konumlarda ancak aynı kullanıcı kaynaklı çağrıları olması için sahte kullanımını göz önünde bulundurun. Örneğin, bir kullanıcı mantıksal olarak aynı anda hem ABD’den hem de Avustralya’dan arama yapamaz. 
 
-Bu durumda kontrol etmek için akış verilerini kendi kendine birleşme kendisine göre stream'e katılmaya kullanabileceğiniz `CallRecTime` değeri. Çağrısının ardından bakabilirsiniz kayıtları `CallingIMSI` değerini (kaynak numara) aynı olduğu ancak `SwitchNum` değeri (kaynak ülke) aynı değil.
+Bu durumda kontrol etmek için akış verilerini kendi kendine birleşme kendisine göre stream'e katılmaya kullanabileceğiniz `CallRecTime` değeri. Çağrısının ardından bakabilirsiniz kayıtları `CallingIMSI` değerini (kaynak numara) aynı olduğu ancak `SwitchNum` değeri (ülke/bölge kaynağı) aynı değil.
 
 Akış verileriyle bir JOIN kullandığınızda, birleştirme eşleşen satırları ne kadar ayrılabildiğine ilişkin bazı sınırlar sürede ayrılabilir sağlamanız gerekir. (Daha önce belirtildiği gibi akış verileri etkili bir şekilde sınırsızdır.) İlişki için zaman sınırları içinde belirtilen `ON` JOIN yan tümcesi kullanarak `DATEDIFF` işlevi. Bu durumda, birleştirme, bir, arama verilerinin 5 saniyelik aralığına bağlıdır.
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947077"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway hakkında sık sorulan sorular
 
@@ -119,7 +119,7 @@ Traffic Manager, farklı veri merkezlerindeki birden fazla uygulama ağ geçidi 
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway, otomatik ölçeklendirme destekliyor mu?
 
-Evet, uygulama ağ geçidi v2 SKU otomatik ölçeklendirmeyi destekler. Daha fazla bilgi için [otomatik ölçeklendirme ve bölgesel olarak yedekli (genel Önizleme) Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Evet, uygulama ağ geçidi v2 SKU otomatik ölçeklendirmeyi destekler. Daha fazla bilgi için [otomatik ölçeklendirme ve bölgesel olarak yedekli Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Yoksa el ile ölçeği artırma veya ölçeği azaltma neden kapalı kalma süresi?
 
@@ -267,7 +267,7 @@ Application Gateway, en fazla 10 kimlik doğrulama sertifikalarını destekler. 
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway, yerel olarak Azure Key Vault ile tümleşik çalışıyor mu?
 
-Hayır.
+Evet, uygulama ağ geçidi v2 SKU Key Vault destekler. Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>HTTPS dinleyicileri .com ve .net siteleri için nasıl yapılandırabilirim? 
 

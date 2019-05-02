@@ -3,16 +3,16 @@ title: Uyumsuzluk nedenlerini belirleme
 description: Uyumlu olmayan bir kaynak olduğunda, çok sayıda olası nedeni vardır. Uyumsuzluk neyin neden olduğunu bulmak öğrenin.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499362"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868691"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
@@ -105,9 +105,107 @@ Matris her olası eşler _neden_ sorumlu için [koşul](../concepts/definition-s
 |Geçerli değer, büyük/küçük harfe duyarlı olmayan bir şekilde hedef değerle eşleşmemelidir. |notMatchInsensitively veya **değil** matchInsensitively |
 |İlke tanımındaki etki ayrıntılarıyla eşleşen ilgili kaynak yok. |Bir kaynak türünün tanımlanan **then.details.type** ve ilgili tanımlanan kaynağa **varsa** ilke kuralı bölümü yok. |
 
-## <a name="change-history-preview"></a>Değişiklik geçmişi (Önizleme)
+## <a name="compliance-details-for-guest-configuration"></a>Konuk yapılandırması için Uyumluluk ayrıntıları
 
-Yeni bir parçası olarak **genel Önizleme**, son 14 gün, değişiklik geçmişini destekleyen tüm Azure kaynakları için kullanılabilir [tamamlama modu silme](../../../azure-resource-manager/complete-mode-deletion.md). Değişiklik geçmişi sağlar ayrıntılar hakkında bir değişiklik algıladığında ve _visual fark_ her değişiklik için. Resource Manager özelliklerini eklendiğinde, kaldırılmış veya değiştirilmiş bir değişiklik algılama tetiklenir.
+İçin _denetim_ ilkelerinde _Konuk yapılandırma_ kategori, sanal makine içinde değerlendirilen birden çok ayarları olabilir ve her bir ayar ayrıntılarını görüntülemek ihtiyacınız olacak. Örneğin, yüklü uygulamalar ve atama durumu listesi için Denetim ise _uyumlu_, belirli uygulamaları eksik olduğunu bilmeniz gerekir.
+
+Ayrıca VM doğrudan oturum açmak için erişimi olmayabilir ancak VM neden olduğunu bildirmek gereken _uyumlu_. Örneğin, VM'ler doğru etki alanına ve geçerli etki alanı üyeliği raporlama ayrıntıları dahil denetim.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
+
+1. Üzerinde **genel bakış** veya **Uyumluluk** sayfasında, Konuk yapılandırma ilke tanımını içeren herhangi bir girişim için bir ilke ataması bu _uyumlu_.
+
+1. Seçin bir _denetim_ girişim ilkesinde o _uyumlu_.
+
+   ![Denetim tanımı ayrıntılarını görüntüle](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. Üzerinde **kaynak Uyumluluk** sekmesinde, aşağıdaki bilgileri sağlanır:
+
+   - **Ad** -Konuk yapılandırma atamalarını adı.
+   - **Üst kaynak** -sanal makinede bir _uyumlu_ seçili Konuk yapılandırma atamasını durumunda.
+   - **Kaynak türü** - _guestConfigurationAssignments_ tam adı.
+   - **Son Değerlendirme** - Konuk Yapılandırma hizmeti, Azure İlkesi hedef sanal makinenin durumu hakkında bildirimde en son ne zaman.
+
+   ![Uyumluluk ayrıntılarını görüntüleyin.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Konuk yapılandırma atama adı seçin **adı** açmak için sütun **kaynak Uyumluluk** sayfası.
+
+1. Seçin **görünümü kaynak** açmak için sayfanın üstünde düğme **Konuk atama** sayfası.
+
+**Konuk atama** sayfası, tüm kullanılabilir uyumluluk ayrıntılarını görüntüler. Her satır Görünümü'nde sanal makinenin içinde gerçekleştirilen değerlendirme temsil eder. İçinde **neden** sütun, Konuk atamanın neden olduğunu tanımlayan bir ifade _uyumlu_ gösterilir. Örneğin, Vm'leri bir etki alanına katılması, Denetim **neden** sütun, geçerli etki alanı üyeliği de dahil olmak üzere metin görüntüler.
+
+![Uyumluluk ayrıntılarını görüntüleyin.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Azure powershell'den uyumluluk ayrıntıları da görüntüleyebilirsiniz. İlk olarak, Konuk yapılandırma Modülü yüklü olduğundan emin olun.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+Aşağıdaki komutu kullanarak bir VM için tüm Konuk atamalarını geçerli durumunu görüntüleyebilirsiniz:
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Yalnızca görüntülemek için _neden_ VM neden olduğunu açıklayan tümcecik _uyumlu olmayan_, yalnızca neden alt özelliği döndürür.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+Ayrıca, sanal makine için kapsamda Konuk atamaları için Uyumluluk geçmişi çıkış sağlayabilir. Bu komutun çıktısı, sanal makine için her rapor ayrıntılarını içerir.
+
+> [!NOTE]
+> Çıktı, büyük miktarda veri döndürebilir. Çıktı bir değişkende depolamak için önerilir.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+Bu görünüm basitleştirmek için **ShowChanged** parametresi. Bu komutun çıktısı, yalnızca uyumluluk durumu değişikliği izleyen raporlar içerir.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Değişiklik geçmişi (Önizleme)
+
+Yeni bir parçası olarak **genel Önizleme**, değişiklik geçmişini son 14 günün destekleyen tüm Azure kaynakları için kullanılabilir [tamamlama modu silme](../../../azure-resource-manager/complete-mode-deletion.md). Değişiklik geçmişi sağlar ayrıntılar hakkında bir değişiklik algıladığında ve _visual fark_ her değişiklik için. Resource Manager özelliklerini eklendiğinde, kaldırılmış veya değiştirilmiş bir değişiklik algılama tetiklenir.
 
 1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
 
@@ -129,10 +227,10 @@ Değişiklik geçmişi verilerini sağlayan [Azure kaynak Graph](../../resource-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](../concepts/definition-structure.md)
-- Gözden geçirme [ilke etkilerini anlama](../concepts/effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumluluk verilerini al](getting-compliance-data.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [İlke tanım yapısını](../concepts/definition-structure.md) gözden geçirin.
+- [İlkenin etkilerini anlama](../concepts/effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumluluk verilerini alma](getting-compliance-data.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

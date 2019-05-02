@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126605"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692142"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight ile etkileşimli Sorgu'yu kullanma
 Etkileşimli sorgu (Hive, Apache LLAP olarak da adlandırılan veya [düşük gecikme süresi analitik işleme](https://cwiki.apache.org/confluence/display/Hive/LLAP)) olan Azure HDInsight [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, Apache Hive sorguları daha hızlı ve daha etkileşimli getiren destekler.

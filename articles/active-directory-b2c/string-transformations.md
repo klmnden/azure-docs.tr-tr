@@ -3,19 +3,19 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için dize t
 description: Dize dönüşüm örnekleri kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113036"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707469"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -125,7 +125,7 @@ Bu talep dönüştürmeyi herhangi bir dize düşürmek için ClaimType veya bü
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | değer | string | Ayarlanacak dize |
+| InputParameter | value | string | Ayarlanacak dize |
 | outputClaim | createdClaim | string | Giriş parametresinde belirtilen değerle sonra bu dönüşüm talep üreten ClaimType çağrılmış. |
 
 Bu dönüşüm talep kullanımı bir dize ClaimType değeri ayarlayın.

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125568"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925511"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -93,8 +93,8 @@ Her sanal makinede çoğaltmak için birkaç yöntem kullanarak istediğiniz yü
 
 Site Recovery, şirket içi VMware Vm'leri ve fiziksel sunucuları azure'da yönetilen disklere çoğaltır.
 - Site Recovery işlem sunucusu, hedef bölgedeki önbellek depolama hesabına çoğaltma günlükleri yazar.
-- Bu günlükler, yönetilen diskler üzerindeki kurtarma noktaları oluşturmak için kullanılır.
-- Yük devretme işlemi gerçekleştiğinde, seçtiğiniz kurtarma noktası hedefi yönetilen disk oluşturmak için kullanılır.
+- Bu günlükler Azure'da kurtarma noktaları oluşturmak için kullanılan yönetilen asrseeddisk öneki olan diskler.
+- Yük devretme işlemi gerçekleştiğinde, seçtiğiniz kurtarma noktası hedefi yeni bir yönetilen disk oluşturmak için kullanılır. Bu yönetilen disk, azure'daki sanal makineye eklenir.
 - Daha önce (Mart 2019 önce) bir depolama hesabına çoğaltılan sanal makineler etkilenmez.
 
 
@@ -111,7 +111,7 @@ PowerShell veya REST API (sürümü 2018-01-10 ya da 2016-08-10) kullanarak bir 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Yönetilen disk türü, makine korunduktan sonra değiştirebilir miyim?
 
-Evet, kolayca kullanabilirsiniz [yönetilen disk türünü değiştirme](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Türü değiştirmeden önce yönetilen Disk kaynağı Azure portalında giderek disk için SAS URL'sini iptal emin olun. Genel Bakış dikey penceresinden bir sürekli dışarı aktarma iptal edin. Disk türü, SAS URL'sini iptal sonra birkaç dakika içinde değiştirin. Ancak, yönetilen disk türünü değiştirirseniz, yeni kurtarma noktaları, Azure Site Recovery tarafından oluşturulacak bekleyin. Yeni kurtarma noktaları, herhangi bir yük devretme testi veya ileriye dönük bir yük devretme için kullanın.
+Evet, kolayca kullanabilirsiniz [yönetilen disk türünü değiştirme](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) sürekli çoğaltma için. Türü değiştirmeden önce SAS URL'si yok yönetilen disk üzerinde oluşturulur emin olun. Azure portalında yönetilen Disk kaynağı gidin ve bir SAS URL'si başlık genel bakış dikey penceresinde olup olmadığını denetleyin. Varsa, sürekli dışarı aktarma iptal etmek için tıklayın. Bunu yaptıktan sonra birkaç dakika içinde disk türünü değiştirin. Ancak, yönetilen disk türünü değiştirirseniz, yeni kurtarma noktaları, Azure Site Recovery tarafından oluşturulacak bekleyin. Yeni kurtarma noktaları, herhangi bir yük devretme testi veya ileriye dönük bir yük devretme için kullanın.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Yönetilmeyen diskler için yönetilen diskleri çoğaltmadan geçiş yapabilir miyim?
 
@@ -133,6 +133,10 @@ Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Çevrimdışı ilk çoğaltma yapabilirim?
 Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>Asrseeddisk nedir?
+Her kaynak disk için azure'da yönetilen diske veriler çoğaltılır. Bu diski asrseeddisk önekine sahiptir. Bunu, kaynak disk ve tüm kurtarma noktası anlık görüntüleri kopyasını depolar.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutabilir miyim?
 Evet, diskleri dışarıda tutabilirsiniz.
@@ -249,7 +253,7 @@ Kurtarma Hizmetleri Kasası'nda tıklatın **Configuration Servers** içinde **S
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>Çoğaltmayı etkinleştirme sırasında işlem sunucusunu seçin yapılamıyor
 
-9.24 sürümünden geliştirmeleri sağlamak için yapılan [ürün Kılavuzu](vmware-azure-manage-process-server.md#process-server-selection-guidance) ne zaman bir genişleme işlem sunucusu kurma hakkında. Bu işlem sunucu azaltmayı önlemek ve iyi durumda olmayan işlem sunucusu kullanımını önlemek için yapılır.
+9.24 sürümünden geliştirmeleri sağlamak için yapılan [işlem sunucu uyarılarını](vmware-physical-azure-monitor-process-server.md#process-server-alerts) ne zaman bir genişleme işlem sunucusu kurma hakkında. Bu işlem sunucu azaltmayı önlemek ve iyi durumda olmayan işlem sunucusu kullanımını önlemek için yapılır.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>İşlem sunucusu doğru sistem durumunu almak için ne yapmalıyım?
 

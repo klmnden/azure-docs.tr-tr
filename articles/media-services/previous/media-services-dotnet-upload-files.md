@@ -14,33 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4098d55a0b7505b2178c95d612c078a427adc9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464224"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869485"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET kullanarak bir Media Services hesabına dosya yükleme 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
-> * [Portal](media-services-portal-upload-files.md)
-> 
-> 
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). **Varlık** varlığı video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler.) içerebilir  Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur.
 
 Varlık içindeki dosyalara **Varlık Dosyaları** adı verilir. **AssetFile** örneği ve gerçek medya dosyası olan iki farklı bir nesne. Medya dosyası gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
 
-> [!NOTE]
-> Aşağıdaki maddeler geçerlidir:
-> 
-> * Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
-> * Adının uzunluğu 260 karakterden uzun olmamalıdır.
-> * Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
-> * Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
-> 
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+Aşağıdaki maddeler geçerlidir:
+ 
+ * Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
+* Adının uzunluğu 260 karakterden uzun olmamalıdır.
+* Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
+* Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 Varlıklar oluşturduğunuzda, aşağıdaki şifreleme seçenekleri belirtebilirsiniz:
 
@@ -61,6 +58,7 @@ Varlığınıza ile şifrelenmiş belirtirseniz bir **StorageEncrypted** seçene
 Bu makalede, Media Services varlığa dosyaları karşıya yüklemek için Media Services .NET SDK uzantıları yanı sıra, Media Services .NET SDK'sını kullanma gösterilmektedir.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Media Services .NET SDK ile tek bir dosyayı karşıya yükleyin
+
 Aşağıdaki kod, tek bir dosyayı karşıya yüklemek için .NET kullanır. AccessPolicy Bulucu oluşturulur ve karşıya yükleme işlevi tarafından yok. 
 
 ```csharp

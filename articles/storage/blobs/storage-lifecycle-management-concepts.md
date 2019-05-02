@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392475"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938562"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -36,13 +36,13 @@ Yaşam döngüsü yönetim ilkesi hem genel amaçlı v2 ile kullanılabilir (GPv
 
 Yaşam döngüsü yönetimi özelliği ücretsizdir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Silme işlemi ücretsizdir. Fiyatlandırma hakkında daha fazla bilgi için bkz. [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Bölgesel Kullanılabilirlik 
+## <a name="regional-availability"></a>Bölgesel kullanılabilirlik 
 Yaşam döngüsü yönetimi özelliği tüm genel Azure bölgelerinde kullanılabilir. 
 
 
 ## <a name="add-or-remove-a-policy"></a>Bir ilke ekleyip 
 
-Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI'yı [REST API'leri](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), veya bir istemci aracı. Bu makalede, portal ve PowerShell yöntemlerini kullanarak ilkesini yönetmek gösterilmektedir.  
+Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI'yı [REST API'leri](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), veya bir istemci aracı. Bu makalede, portal ve PowerShell yöntemlerini kullanarak ilkesini yönetmek gösterilmektedir.  
 
 > [!NOTE]
 > Depolama hesabınız için güvenlik duvarı kuralları etkinleştirirseniz, yaşam döngüsü yönetimi istekleri engellenebilir. Bu istekler, özel durumlar sağlayarak engelini kaldırabilirsiniz. Gerekli atlama şunlardır: `Logging,  Metrics,  AzureServices`. Daha fazla bilgi için bkz: özel durumlar [güvenlik duvarları ve sanal ağları yapılandırma](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Yaşam Döngüsü Yönetimi İlkesi ile ARM şablonu
 
+Tanımlayabilir ve yaşam döngüsü yönetimi, ARM şablonları kullanarak Azure çözüm dağıtımının bir parçası olarak dağıtın. İzleme, RA-GRS GPv2 depolama hesabına bir yaşam döngüsü yönetimi ilkesi ile dağıtmak için bir örnek şablonudur. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>İlke
 
@@ -305,8 +345,8 @@ Değiştirilebilir ve yaşam süresi boyunca düzenli olarak erişilen veriler i
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>SSS - Eylemler neden hemen çalıştırılmaz, yeni bir ilke oluşturduğum? 
-
+## <a name="faq"></a>SSS 
+**Eylemler neden hemen çalıştırılmaz, yeni bir ilke oluşturduğum?**  
 Platform yaşam döngüsü ilkesi günde bir kez çalışır. Bir ilkeyi yapılandırdıktan sonra ilk kez çalıştırmak için bazı eylemler (örneğin, katmanlama ve silme) için 24 saate kadar sürebilir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280974"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Öğretici: Datahug ile Azure Active Directory Tümleştirme
 
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma ile Datahug yapılandırmak için aşağıdaki adı
     İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://apps.datahug.com/`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Datahug istemci Destek ekibine](http://datahug.com/about/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Datahug istemci Destek ekibine](https://datahug.com/about/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. Üzerinde **Kurulum çoklu oturum açma SAML ile** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -146,7 +146,7 @@ Azure AD çoklu oturum açma ile Datahug yapılandırmak için aşağıdaki adı
 
 ### <a name="configure-datahug-single-sign-on"></a>Datahug tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Datahug** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Datahug Destek ekibine](http://datahug.com/about/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Datahug** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Datahug Destek ekibine](https://datahug.com/about/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

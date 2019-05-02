@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468372"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951443"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
@@ -43,7 +43,7 @@ Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fa
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> 30 Nisan 2019 üzerinde eski Microsoft Translator hub'ı kullanımdan kaldırılacaktır. [Önemli geçiş bilgilerini ve tarihleri görüntüleme](https://www.microsoft.com/translator/business/hub/).  
+> 17 Mayıs 2019 üzerinde eski Microsoft Translator hub'ı kullanımdan kaldırılacaktır. [Önemli geçiş bilgilerini ve tarihleri görüntüleme](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Özel Translator Hub karşılaştırması
 
@@ -60,8 +60,6 @@ Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fa
 
 > [!NOTE]
 > 1 Şubat 2018'den itibaren AddTranslation() ve AddTranslationArray() artık Translator Text API V2.0 ile kullanılabilir. Bu yöntemleri başarısız olur ve hiçbir şey yazılır. Translator metin API'si V3.0 bu yöntemleri desteklemez.
-> 
-> Translator Hub API'SİNDE benzer işlevselliği kullanılabilir. Bkz: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60638085"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939532"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10 için akış çevrimdışı PlayReady  
 
@@ -39,9 +39,9 @@ Azure Media Services, çevrimdışı yükleme/oynatma DRM koruması desteği. Bu
 
 Özellikle çevrimdışı modda kayıttan yürütme, bu bölümde bazı arka plan verir neden:
 
-* Bazı ülkelerde Internet kullanılabilirliği ve/veya bant genişliği, hala sınırlıdır. Kullanıcılar indirmeniz tatmin edici bir görüntüleme deneyimi için yeterince yüksek çözünürlükte içerik izleyebilirler tercih edebilirsiniz. Bu durumda, daha sık, ağ kullanılabilirliği bir sorun değildir, bunun yerine sınırlı ağ bant genişliği. OTT/OVP sağlayıcıları için çevrimdışı modu desteği seçmenizi istiyoruz.
+* Bazı ülkeler/bölgeler içinde Internet kullanılabilirliği ve/veya bant genişliği, hala sınırlıdır. Kullanıcılar indirmeniz tatmin edici bir görüntüleme deneyimi için yeterince yüksek çözünürlükte içerik izleyebilirler tercih edebilirsiniz. Bu durumda, daha sık, ağ kullanılabilirliği bir sorun değildir, bunun yerine sınırlı ağ bant genişliği. OTT/OVP sağlayıcıları için çevrimdışı modu desteği seçmenizi istiyoruz.
 * Netflix 2016 Q3 hissedarlar konferansında duyurulmuş gibi içerik indirme bir "önemlisi istenen" özelliğidir ve Netflix CEO Reed Hastings tarafından "biz için açık olan" dedi.
-* Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülkenin kenarlık izin verme. Bir kullanıcının kuruluşunun seyahat gerekir ve içerik izlemek ister, çevrimdışı yükleme gereklidir.
+* Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülke/bölgenin kenarlık izin verme. Bir kullanıcının kuruluşunun seyahat gerekir ve içerik izlemek ister, çevrimdışı yükleme gereklidir.
  
 Çevrimdışı modda uygulama yüz sınama aşağıda verilmiştir:
 

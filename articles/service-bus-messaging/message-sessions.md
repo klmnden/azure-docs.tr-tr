@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403783"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569800"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
@@ -79,8 +79,7 @@ Oturum durumu, o tüzel kişilik depolama kota hesaplamanıza dahil abonelik say
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Tam bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) Service Bus'tan oturum tabanlı ileti alma ve gönderme, sıraya .NET Standard kitaplığı kullanarak.
-- [Bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) oturumu algılayan iletileri işlemek üzere .NET Framework istemci kullanan. 
+- Bkz: [Microsoft.Azure.ServiceBus örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) veya [Microsoft.ServiceBus.Messaging örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) oturumu algılayan iletileri işlemek için .NET Framework istemci kullanan bir örnek. 
 
 Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 

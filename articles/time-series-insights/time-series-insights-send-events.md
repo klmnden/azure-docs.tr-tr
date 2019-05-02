@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557028"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683973"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Bir olay hub'ı kullanarak zaman serisi görüşleri ortamına olayları gönderme
 
@@ -210,8 +210,7 @@ Basit bir JSON nesnesi:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Ortamınızı Time Series Insights Gezgininde görüntüle](https://insights.timeseries.azure.com)
+- [Ortamınızı görüntülemek](https://insights.timeseries.azure.com) Time Series Insights Gezgininde.
 
 <!-- Images -->
 [1]: media/send-events/updated.png

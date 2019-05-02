@@ -2,18 +2,19 @@
 title: "Öğretici: Azure Databricks Spark'ı kullanarak Azure Data Lake depolama Gen2'ye veri erişim | Microsoft Docs"
 description: Bu öğreticide, Spark, Azure Data Lake depolama Gen2'ye depolama hesabınız verilere erişmek için Azure Databricks kümesinde sorguları çalıştırma işlemi gösterilmektedir.
 services: storage
-author: dineshmurthy
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: dineshm
-ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61482729"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939170"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 

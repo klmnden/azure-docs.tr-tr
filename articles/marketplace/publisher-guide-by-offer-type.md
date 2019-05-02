@@ -1,25 +1,19 @@
 ---
-title: Yayımlama belirleme seçeneği Azure Marketi'nde | Azure
+title: Yayımlama belirleme seçeneği Azure Marketi'nde | Azure Market
 description: Bu makalede, uygulamalarını Azure Market'te yayımlama işlemini anlama çalışılırken yayımlama gereksinimleri iş ortakları ve uygunluk ölçütlerini açıklanır.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: 9dd5b3232184170a59b82d5cafdc1a4cdcb4c172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733802"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937659"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Teklif türüne göre yayımlama kılavuzu
 

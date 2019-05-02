@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111962"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937215"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
 
 Çevrimiçi akış içeriği korumaya ek olarak, abonelik ve internet'e bağlı olmadıkları sırada çalışır kiralama Hizmetleri teklif indirilebilir içeriği medya içerik. Telefonunuzu üzerine içerik indirmek ihtiyacınız olabilecek veya tablet çıkış, uçak modu, kayıttan yürütme için ağdan bağlantısı kesilebilir. İçerik indirmek isteyebileceğiniz ek senaryolar:
 
-- Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülkenin kenarlık izin verme. Bir kullanıcının kuruluşunun seyahat ederken, içeriği izlemek isterse, çevrimdışı yükleme gereklidir.
-- Bazı ülkelerde Internet kullanılabilirliği ve/veya bant genişliği sınırlıdır. Kullanıcılar, tatmin edici bir görüntüleme deneyimi için yeterince yüksek çözünürlükte izleyebilirler üzere içerik indirmesi tercih edebilirsiniz.
+- Bazı içerik sağlayıcıları DRM lisans teslimat ötesinde bir ülke/bölgenin kenarlık izin verme. Bir kullanıcının kuruluşunun seyahat ederken, içeriği izlemek isterse, çevrimdışı yükleme gereklidir.
+- Bazı ülkeler/bölgeler içinde Internet kullanılabilirliği ve/veya bant genişliği sınırlıdır. Kullanıcılar, tatmin edici bir görüntüleme deneyimi için yeterince yüksek çözünürlükte izleyebilirler üzere içerik indirmesi tercih edebilirsiniz.
 
 Bu makalede, Android cihazlar tarafından Widevine korumalı DASH içerik için çevrimdışı modda kayıttan yürütme uygulamak anlatılmaktadır. Çevrimdışı DRM sağlar, abonelik, kiralama ve satın alma sağlamak içeriğinizi kolayca onlarla internet'ten kesildiğinde içerik almak, müşterilerin bu hizmetleri için model.
 

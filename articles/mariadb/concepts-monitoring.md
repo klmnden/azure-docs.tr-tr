@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332822"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925907"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -41,7 +41,7 @@ Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
-Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
+Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler de Azure İzleyici günlüklerini, olay hub'ları ve depolama hesabı Azure tanılama günlükleri kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

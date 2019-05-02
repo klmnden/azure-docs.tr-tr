@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537658"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569640"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Komut satırı varsayılan komut satırı işlemi geçersiz kılmak için bir kapsayıcı örneği ayarlayın
 
@@ -24,7 +24,15 @@ ms.locfileid: "60537658"
 
 * Varsayılan olarak, komut satırını belirtir. bir *tek bir kabuk başlatır işlem* kapsayıcısında. Örneğin, komut satırında Python betiğini veya yürütülebilir dosya çalıştırabilirsiniz. 
 
-* Birden çok komut yürütmek için komut satırınızda kapsayıcı işletim sisteminde bir kabuk ortamını ayarlayarak başlar (örnekler: `bin/sh`, `/bin/bash`, `cmd`). Birden çok komutları sırayla çalıştırmak için birleştirmek için kabuk kuralları takip edin.
+* Birden çok komut yürütmek için komut satırınızda kapsayıcı işletim sisteminin desteklenen bir kabuk ortamını ayarlayarak başlar. Örnekler:
+
+  |İşletim sistemi  |Varsayılan kabuğunu  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Birden çok komutları sırayla çalıştırmak için birleştirmek için kabuk kuralları takip edin.
 
 * Kapsayıcı yapılandırmasına bağlı olarak, komut satırı yürütülebilirini tam yolunu ya da bağımsız değişkenler ayarlamanız gerekebilir.
 

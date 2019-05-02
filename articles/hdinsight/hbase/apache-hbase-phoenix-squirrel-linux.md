@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123170"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722693"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight kümelerinde Linux tabanlı Apache HBase ile Apache Phoenix kullanma
 Nasıl kullanacağınızı öğrenin [Apache Phoenix](https://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).

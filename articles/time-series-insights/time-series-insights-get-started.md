@@ -11,32 +11,34 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5e2bbbbadfcf23d30c230c30ed66f6bbe931a76
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075961"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688821"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal’da yeni Zaman Serisi Görüşleri ortamı oluşturma
+
 Bu makalede, Azure portalını kullanarak yeni bir zaman serisi görüşleri ortamı oluşturmayı açıklar.
 
 Time Series Insights, Azure IOT hub ve Event hubs'ı dakikalar içinde akan verileri sorgulama ve görselleştirme kullanmaya başlamak saniye cinsinden sorgu büyük miktarda zaman serisi verileri için etkinleştirme sağlar.  Nesnelerin interneti (IOT) ölçeği için tasarlanmış ve terabaytlarca veri işleyebilir.
 
 ## <a name="steps-to-create-the-environment"></a>Ortam oluşturma adımları
+
 Bir ortam oluşturmak için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Seçin **+ yeni** düğmesi.
+1. Seçin **+ yeni** düğmesi.
 
-3. Seçin **nesnelerin interneti** kategorisi ve select **Time Series Insights**.
+1. Seçin **nesnelerin interneti** kategorisi ve select **Time Series Insights**.
 
    ![Zaman Serisi Görüşleri oluşturma ortam](media/time-series-insights-get-started/1-new-tsi.png)
 
-4. Üzerinde **Time Series Insights** sayfasında **Oluştur**.
+1. Üzerinde **Time Series Insights** sayfasında **Oluştur**.
 
-5. Gerekli parametreleri doldurun. Aşağıdaki tabloda her bir parametre açıklanmıştır:
+1. Gerekli parametreleri doldurun. Aşağıdaki tabloda her bir parametre açıklanmıştır:
    
    ![Zaman Serisi Görüşleri oluşturma kaynak grubu](media/time-series-insights-get-started/2-create-tsi.png)
    
@@ -45,24 +47,28 @@ Bir ortam oluşturmak için aşağıdaki adımları izleyin:
    Ortam adı | Benzersiz bir ad | Bu ad ortamında temsil eder [zaman serisi Gezgininde](https://insights.timeseries.azure.com)
    Abonelik | Aboneliğiniz | Birden fazla aboneliğiniz varsa, tercihen olay kaynağınızı içeren aboneliği seçin. Zaman Serisi Görüşleri aynı abonelikteki mevcut Azure IoT Hub ve Event Hub kaynaklarını otomatik olarak algılayabilir.
    Kaynak grubu | Yeni oluşturun veya var olanı kullan | Kaynak grubu, birlikte kullanılan Azure kaynakları koleksiyonudur. Örneğin, olay hub'ı veya IOT hub'ı içeren tek bir mevcut kaynak grubunu seçebilirsiniz. Veya bu kaynak için diğer kaynakları ilişkili değilse, yeni bir duruma getirebilirsiniz.
-   Konum | Olay kaynağınızı en yakın | Tercihen, olay kaynağı verilerinizi içeren önlemek için çaba içinde aynı veri merkezi konumuyla bölgeler arası ve bölgeler arası bant genişliği maliyetlerini ve veri bölgesinin dışında taşırken gecikme ek seçin.
+   Location | Olay kaynağınızı en yakın | Tercihen, olay kaynağı verilerinizi içeren önlemek için çaba içinde aynı veri merkezi konumuyla bölgeler arası ve bölgeler arası bant genişliği maliyetlerini ve veri bölgesinin dışında taşırken gecikme ek seçin.
    Fiyatlandırma katmanı | S1 | Gerekli aktarım hızını seçin. Düşük maliyetler ve başlangıç kapasitesi, S1'i seçin.
    Kapasite | 1 | Giriş oranı, depolama kapasitesi ve seçilen SKU ile ilişkili maliyeti çarpan uygulandığı kapasitesidir.  Oluşturduktan sonra ortam kapasitesini değiştirebilirsiniz. En düşük maliyetleri için kapasitesi 1'i seçin. 
   
-6. Denetleme **panoya Sabitle** en iyi şekilde kolayca, zaman serisi ortamı gelecekte de erişmek için.
+1. Denetleme **panoya Sabitle** en iyi şekilde kolayca, zaman serisi ortamı gelecekte de erişmek için.
 
    ![Zaman Serisi Görüşleri oluşturma panoya sabitleme](media/time-series-insights-get-started/3-pin-create.png)
 
-7. Seçin **Oluştur** sağlama işlemini başlatın. Bu işlem birkaç dakika sürebilir.
+1. Seçin **Oluştur** sağlama işlemini başlatın. Bu işlem birkaç dakika sürebilir.
 
-8. Dağıtım işlemini izlemek için **bildirimleri** sembol (zil simgesi).
+1. Dağıtım işlemini izlemek için **bildirimleri** sembol (zil simgesi).
 
    ![Bildirimleri izleme](media/time-series-insights-get-started/4-notifications.png)
 
 Dağıtım başarılı olduktan sonra seçebileceğiniz **kaynağa Git** diğer özellikleri yapılandırmak için veri erişimi ilkeleri ile güvenlik ayarlayın, olay kaynakları ve diğer eylemler ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Veri erişim ilkelerini tanımlama](time-series-insights-data-access.md) ortamınızın güvenliğini sağlamak için.
-* [Event Hub olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md) Azure zaman serisi görüşleri ortamınıza. 
+
+* [Event Hub olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md) Azure zaman serisi görüşleri ortamınıza.
+
 * [Olayları gönderme](time-series-insights-send-events.md) olay kaynağına.
+
 * Ortamınızı görüntüleyebilirsiniz [Time Series Insights gezgininin](https://insights.timeseries.azure.com).

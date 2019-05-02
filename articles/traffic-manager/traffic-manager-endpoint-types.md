@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188722"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916652"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 Microsoft Azure Traffic Manager, farklı veri merkezlerinde çalışan uygulama dağıtımları için ağ trafiğini nasıl dağıtıldığını denetlemenize olanak sağlar. Trafik Yöneticisi'nde ' de her uygulama dağıtımı 'endpoint' olarak yapılandırın. Traffic Manager DNS isteği aldığında, DNS yanıtında döndürmek için kullanılabilir uç nokta seçer. Traffic manager, geçerli uç nokta durumu ve trafik yönlendirme yöntemi seçimi alır. Daha fazla bilgi için [Traffic Manager nasıl çalışır](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Bazı durumlarda, dış uç noktalar Azure Hizmetleri başvurmak yararlı olur (
 
 Web Apps, Traffic Manager'da uç noktalar olarak yapılandırırken bazı ek hususlar geçerlidir:
 
-1. Yalnızca 'Standart' SKU veya üzeri Web Apps, Traffic Manager ile kullanım için uygundur. Daha düşük bir SKU'ya sahip Web App ekleme girişimleri başarısız olur. Mevcut bir Web App'in SKU eski sürüme düşürme, Traffic artık bu Web App'e trafik gönderen Manager'da sonuçlanır. Desteklenen planları hakkında daha fazla bilgi için bkz [App Service planları](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Yalnızca 'Standart' SKU veya üzeri Web Apps, Traffic Manager ile kullanım için uygundur. Daha düşük bir SKU'ya sahip Web App ekleme girişimleri başarısız olur. Mevcut bir Web App'in SKU eski sürüme düşürme, Traffic artık bu Web App'e trafik gönderen Manager'da sonuçlanır. Desteklenen planları hakkında daha fazla bilgi için bkz [App Service planları](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. Bir uç nokta bir HTTP isteği aldığında, istekteki 'host' üst bilgisi belirlemek için hangi Web uygulaması isteğin karşılanması kullanır. Barındırma üst bilgisi, örneğin 'contosoapp.azurewebsites.net' isteği başlatmak için kullanılan DNS adını içerir. Farklı bir DNS adı ile Web uygulamanızı kullanmak için DNS adını uygulama için bir özel etki alanı adı olarak kaydedilmesi gerekir. Bir Web uygulaması uç noktası Azure uç noktası eklerken, Traffic Manager profili DNS adı uygulama için otomatik olarak kaydedilir. Bu kayıt, uç nokta silindiğinde otomatik olarak kaldırılır.
 3. Her bir Traffic Manager profili, her bir Azure bölgesinden en fazla bir Web uygulaması uç nokta olabilir. Bu kısıtlama için geçici olarak çözmek için bir Web uygulaması bir dış uç noktası olarak yapılandırabilirsiniz. Daha fazla bilgi için [SSS](traffic-manager-faqs.md#traffic-manager-endpoints).
 

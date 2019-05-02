@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp dosyalarını ve bir NFS birimi oluşturma | Microsoft Docs
-description: Hızlı bir şekilde Azure NetApp dosyalarını ayarlayın ve birim oluşturma işlemini açıklamaktadır.
+title: Hızlı Başlangıç - Azure NetApp dosyaları yedekleme ve bir NFS birimi oluşturun | Microsoft Docs
+description: Hızlı Başlangıç - hızlı bir şekilde Azure NetApp dosyalarını ayarlayın ve birim oluşturmak nasıl açıklar.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759835"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702870"
 ---
-# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Azure NetApp dosyalarını ve bir NFS birimini oluşturma 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Hızlı Başlangıç: Azure NetApp dosyalarını ve bir NFS birimini oluşturma 
 
 Bu makalede Azure NetApp dosyaları hızlı bir şekilde ve birim oluşturma gösterilmektedir. 
+
+Bu hızlı başlangıçta, aşağıdaki öğeleri ayarlar:
+
+- Azure NetApp dosya ve NetApp kaynak Sağlayıcısı kaydı
+- NetApp hesabı
+- Kapasitesi havuzu
+- Azure NetApp dosyaları için bir NFS birimi
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce 
 
@@ -33,7 +42,7 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
 1. Azure portalında, sağ üst köşesinde Azure Cloud Shell simgesine tıklayın.
 
-      ![Azure Cloud Shell simgesi](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Azure Cloud Shell simgesi](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Azure NetApp dosyaları için Güvenilenler listesinde aboneliği belirtin:
     
@@ -130,7 +139,31 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
     ![Oluşturulan birim](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+İşiniz bittiğinde ve isterseniz, kaynak grubunu silebilirsiniz. Bir kaynak grubu silme işlemi geri alınamaz bir eylemdir.  
+
+> [!IMPORTANT]
+> Kaynak grupları içindeki tüm kaynaklar kalıcı olarak silinir ve geri alınamaz. 
+
+1. Azure portalında arama kutusuna **Azure NetApp dosyaları** seçip **Azure NetApp dosyaları** görünen listeden.
+
+2. Abonelikler listesinde, silmek istediğiniz kaynak grubunu (myRG1) tıklayın. 
+
+    ![Kaynak gruplarına gidin](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. Kaynak grubu sayfasındaki tıklayın **kaynak grubunu Sil**.
+
+    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    Bir pencere açılır ve kaynak grubuyla birlikte silinecek kaynaklar hakkında bir uyarı görüntüler.
+
+4. Kaynak grubunu ve tüm kaynaklarla birlikte kalıcı olarak silmek ve ardından istediğinizi onaylamak için kaynak grubu (myRG1) adını **Sil**.
+
+    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-* [NetApp dosyaları Azure depolama hiyerarşisini anlama](azure-netapp-files-understand-storage-hierarchy.md)
-* [Azure NetApp dosyaları aracılığıyla birimleri yönetme](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Azure NetApp dosyaları aracılığıyla birimleri yönetme](azure-netapp-files-manage-volumes.md)  

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614356"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866495"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -50,6 +50,18 @@ Tanıdık kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https:
 Azure kaynakları, doğrudan Azure portalında veya Azure PowerShell cmdlet'leri aracılığıyla yapılan ya da yapılan tüm değişiklikler Azure sürücüde yansıtılır.  Çalıştırabileceğiniz `dir -Force` kaynaklarınızı yenilenemedi.
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Exchange Online yönetme
+
+Cloud shell'de PowerShell, Exchange Online modülünün özel bir yapıyı içerir.  Çalıştırma `Connect-EXOPSSession` , Exchange cmdlet'lerini alma.
+
+![](media/features-powershell/exchangeonline.png)
+
+ `Get-Command -Module tmp_*` öğesini çalıştırın
+> [!NOTE]
+> Modül adı ile başlamalıdır `tmp_`, aynı ön ekine sahip modülleri yüklediyseniz, içerdikleri cmdlet'ler de gösterilir. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Açık kaynak araçları ile kapsamlı tümleştirme
 

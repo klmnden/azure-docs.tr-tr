@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61388119"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572716"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
 Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz. 
 
-Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. 
+Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. Application Insights Visual Studio kullanıma alma bu yapılandırma hakkında bilgi edinmek için [makale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -94,28 +94,6 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 4. Geri dönüp **genel bakış** sayfasında ve KPI panoları inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
 
    ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/dotnetcore-quick-start/7kpidashboards.png)
-
-   **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
 
 5. Sol tıklayın üzerinde **ölçümleri**. Sistem durumunu ve kaynak kullanımını araştırmak için ölçüm Gezgini'ni kullanın. **Yeni grafik ekle**’ye tıklayarak ek özel görünümler oluşturabilir veya **Düzenle**’yi seçerek mevcut grafik türlerini, yüksekliğini, renk paletini, gruplandırmaları ve ölçümleri değiştirebilirsiniz. Örneğin, ortalama tarayıcı sayfa yükleme süresi "Tarayıcı sayfa yükleme süresi" seçerek ölçümleri açılır ve "Ortalama" günlüklerden tutun gösteren bir grafik yapabilirsiniz. Azure ölçüm Gezgini ziyaret hakkında daha fazla bilgi edinmek için [Azure ölçüm Gezgini ile çalışmaya başlama](../../azure-monitor/platform/metrics-getting-started.md).
 

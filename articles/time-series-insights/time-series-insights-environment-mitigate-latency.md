@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556756"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685160"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
+
 Ortamınızın yapılandırmasını gelen veri miktarı aşarsa, gecikme süresi veya Azure zaman serisi Öngörülerinde azaltma karşılaşabilirsiniz.
 
 Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz.
@@ -31,7 +32,7 @@ Gecikme süresi ve ne zaman azaltma deneyimi büyük olasılıkla:
 - Olay kaynağı (zaman serisi öngörüleri edinmek için gerekir) bir gecikme bunun sonucunda, büyük miktarlarda geçmiş olaylar gönderin.
 - Telemetri, daha büyük olay boyutu elde başvuru verileriyle birleştirin.  Azaltma açısından, paket boyutu 32 KB'lık bir ingressed veri paketi 32 olayları olarak kabul edilir, her 1 KB boyutlu. 32 KB izin verilen en uzun olay boyutudur; 32 KB'den büyük veri paketleri kesilir.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri giriş davranışı ve onun için nasıl kapsar.</br>
 
@@ -61,7 +62,6 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
 |**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
 
-
 ![Gecikme süresi](media/environment-mitigate-latency/latency.png)
 
 Aşarak, bir değer görürsünüz *giriş alınan ileti zaman gecikmesini*, TSI arkasında kaç saniye gerçekleşen süresi iletidir size bildiren İsabetleri (appx dizin oluşturma zamanı dışında. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı Lag* arkasında, ileti sayısını belirlemek sağlayan bir değer de sahip olmalıdır.  Yakalanan için en kolay yolu, fark üstesinden olanak sağlayacak bir boyuta ortamınızın kapasite artırmaktır.  
@@ -74,11 +74,14 @@ Sağlanan üç adet S1 birimi (veya 2100 olay başına dakika alma kapasitesi) v
 
 Kaynaklarınızın azaltılıp şüpheleniyorsanız, ayrıca, karşılaştırabilirsiniz, **giriş alınan iletilerin** ile olay kaynağı iletileri egressed.  Olay hub'ıyla giriş sayısından büyükse, **giriş alınan iletilerin**, zaman serisi görüşleri, büyük olasılıkla aşarak.
 
-## <a name="improving-performance"></a>Performansı iyileştirme 
+## <a name="improving-performance"></a>Performansı iyileştirme
+
 Azaltma veya karşılaşılan gecikme süresini azaltmak için bunu düzeltmek için en iyi yolu ortamınızın kapasite artırmaktır. 
 
 Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz. Ortamınız için kapasite ekleme hakkında daha fazla bilgi için bkz. [ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Ek sorun giderme adımları için [tanılama ve zaman serisi görüşleri ortamınıza problemleri çözmenize](time-series-insights-diagnose-and-solve-problems.md).
+
 - Ek Yardım için üzerinde bir konuşma Başlat [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Ayrıca [Azure Destek](https://azure.microsoft.com/support/options/) yardımlı destek seçenekleri için.

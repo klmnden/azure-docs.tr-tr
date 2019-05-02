@@ -2,24 +2,17 @@
 title: Go-To-Market Hizmetleri - markette öne çıkan nasıl | Azure
 description: Go-To-Market Hizmetleri - bu bölümde anlatılmaktadır Azure Market'te öne çıkan bir listesini alma
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: bda94e648891ad5c4de810195e874a5774d6b498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736355"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938169"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Azure Market ve AppSource ile öne çıkan etme
 

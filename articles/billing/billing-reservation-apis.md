@@ -1,24 +1,22 @@
 ---
 title: Otomasyon Azure ayırma için API'leri | Microsoft Docs
 description: Program aracılığıyla ayırma bilgilerini almak için kullanabileceğiniz Azure API'ler hakkında bilgi.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371215"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702614"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Otomasyon Azure ayırma için API'leri
 
@@ -32,7 +30,38 @@ Tüketim API kullanım ayrıntılarını kullanarak, kaynak kullanımınızı an
 
 ## <a name="buy-a-reservation"></a>Ayırma satın alma
 
-Şu anda bir ayırma program aracılığıyla satın aldığınız olamaz. Rezervasyon satın almak için aşağıdaki makalelere bakın:
+Azure ayırmaları ve yazılım planlarını program aracılığıyla REST API'lerini kullanarak satın alabilirsiniz. Daha fazla bilgi için bkz. [rezervasyon siparişi - satın alma API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+REST API kullanarak satın almak için bir örnek İstek şu şekildedir:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+İstek gövdesi:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+Ayrıca, Azure portalında bir rezervasyon satın alabilirsiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 Hizmet planları:
 - [Sanal makine](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

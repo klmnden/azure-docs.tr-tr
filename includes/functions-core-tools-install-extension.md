@@ -2,33 +2,48 @@
 title: include dosyası
 description: include dosyası
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044518"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733262"
 ---
-İşlevleri yerel olarak geliştirme yaptığınızda, Azure işlevleri çekirdek araçları Terminal veya komut satırından kullanarak gereksinim duyduğunuz uzantıların yükleyebilirsiniz.
+Uzantı paketleri olun ayarı aracılığıyla kullanılabilen Azure işlevleri ekibi tarafından yayımlanan tüm bağlamaları *host.json* dosya. Yerel geliştirme için en son sürümüne sahip olun [Azure işlevleri çekirdek Araçları](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
-Güncelleştirdikten sonra *function.json* dosyasını proje klasöründe aşağıdaki komutu çalıştırın, işlevinizi gereken tüm bağlamaları içerecek şekilde.
+Uzantı paketleri kullanmak için güncelleştirme *host.json* eklemek için şu girdiyi dosyaya `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-Komut okur *function.json* ihtiyacınız paketler görmek için bir dosya yükler ve uzantıları projesi oluşturur. Geçerli sürümde yeni bağlamalar ekler, ancak var olan bağlamaları güncelleştirmez. Kullanım `--force` yenilerini yüklerken mevcut bağlamaları en son sürüme güncelleştirmek için seçeneği.
+- `id` Özelliği, Microsoft Azure işlevleri uzantı paketleri için ad alanı başvurur.
+- `version` Paket sürümü başvuruyor.
 
-Bir paketin belirli bir sürümünü yüklemek istediğiniz veya düzenlemeden önce paketleri yüklemek isterseniz *function.json* dosya, kullanın `func extensions install` aşağıdaki örnekte gösterildiği gibi paket adı ile komutu:
+Paket sürümleri artırma paketler paket değiştirir. Ana sürüm değişiklikleri yalnızca paketteki paketleri bir ana sürüm taşıdığınızda gerçekleşir. `version` Özelliği kullanan [sürüm aralıklarını belirtmek için aralığı gösterimi](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). İşlevler çalışma zamanı, her zaman aralığı veya sürüm aralığı tarafından tanımlanan en fazla izin verilen sürüm seçer.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+Uzantı paketleri projenizde başvuru sonra tüm varsayılan bağlamaları işlevleriniz için kullanılabilir. Kullanılabilir bağlamaları [uzantı paketini](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) şunlardır:
 
-Değiştirin `<target_version>` belirli bir paket sürümü ile gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org).
+|Paket  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

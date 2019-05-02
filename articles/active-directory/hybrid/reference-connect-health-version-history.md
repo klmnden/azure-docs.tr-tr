@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e70850ba9e5984e36643f1b9ecc9db29eec149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386916"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572817"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect Health güncelleştirir. Bu makalede sürümleri ve yayımlanan özellikler listelenmektedir.  
@@ -31,18 +31,23 @@ Azure Active Directory ekibi, düzenli olarak yeni özellikler ve işlevler ile 
 
 Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleşiktir. Daha fazla bilgi edinin [Azure AD Connect sürüm geçmişi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) , özellikle ilgili düşüncelerinizi için oy [Connect Health User Voice kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="april-2019"></a>Nisan 2019
+**Aracı güncelleştirmesi:** 
+* AD FS (sürüm 3.1.46.0) için Azure AD Connect Health Aracısı 
+   1. Yinelenen SPN denetleyin uyarı işlem ADFS için düzeltme
+
 ## <a name="march-2019"></a>Mart 2019
 **Aracı güncelleştirmesi:** 
-* (Sürüm 3.1.41.0) AD DS için Azure AD Connect Health Aracısı 
-* .NET sürüm koleksiyonu.
-* Belirli kategorileri eksik olduğunda performans sayacı koleksiyonu geliştirme.
-* Birden çok İzleme Aracısı örneği UNICODE önleme üzerinde hata düzeltmesi.
+* (Sürüm 3.1.41.0) AD DS için Azure AD Connect Health Aracısı  
+   1. .NET sürüm koleksiyonu
+   2. Belirli kategorileri eksik olduğunda performans sayacı toplama geliştirme
+   3. Birden çok İzleme Aracısı örneği UNICODE önleme üzerinde hata düzeltmesi
 
 * AD FS (sürüm 3.1.41.0) için Azure AD Connect Health Aracısı 
-* Tümleştirme ve AD FS test betikleri ADFSToolBox kullanarak yükseltin.
-* .NET sürüm koleksiyonu.
-* Belirli kategorileri eksik olduğunda performans sayacı koleksiyonu geliştirme.
-* Birden çok İzleme Aracısı örneği UNICODE önleme üzerinde hata düzeltmesi.
+   1. Tümleştirme ve AD FS test betikleri ADFSToolBox kullanarak yükseltme
+   2. .NET sürüm koleksiyonunuzu uygulayabilirsiniz
+   3. Belirli kategorileri eksik olduğunda performans sayacı toplama geliştirme
+   4. Birden çok İzleme Aracısı örneği UNICODE önleme üzerinde hata düzeltmesi
 
 
 ## <a name="november-2018"></a>Kasım 2018
@@ -51,15 +56,15 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 
 **Aracı güncelleştirmesi:** 
 * (Sürüm 3.1.24.0) AD DS için Azure AD Connect Health Aracısı 
-* Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
-* Genel katalog uyarı gürültüsünü azaltmak
-* Sistem Durumu Aracısı kayıt hata düzeltmeleri
+   1. Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
+   2. Genel katalog uyarı gürültüsünü azaltmak
+   3. Sistem Durumu Aracısı kayıt hata düzeltmeleri
 
-* AD FS (sürüm 3.1.24.0) için Azure AD Connect Health Aracısı
-* Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
-* Yerelleştirilmiş işletim sistemi ADFSRequestToken Test desteği
-* Tanılama Aracısı EventHandler kilitleme sorunu çözüldü
-* Sistem Durumu Aracısı kayıt hata düzeltmeleri
+* AD FS (sürüm 3.1.24.0) için Azure AD Connect Health Aracısı  
+   1. Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
+   2. Yerelleştirilmiş işletim sistemi ADFSRequestToken Test desteği
+   3. Tanılama Aracısı EventHandler kilitleme sorunu çözüldü
+   4. Sistem Durumu Aracısı kayıt hata düzeltmeleri
 
 ## <a name="august-2018"></a>Ağustos 2018 
 *  Azure AD Connect sürümü 1.1.880.0 yayımlanan eşitleme (sürüm 3.1.7.0) için Azure AD Connect Health Aracısı    

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5e7e365a73c9ba9cfd91d4f93759e7af55a0ad48
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30929334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859120"
 ---
-Aşağıdaki tabloda PolicyBased ve RouteBased VPN ağ geçitleri için gereksinimleri listelenmiştir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır. Klasik modeli PolicyBased VPN ağ geçitleri statik ağ geçitleri ile aynıdır ve rota tabanlı ağ geçitleri dinamik ağ geçitleri ile aynıdır.
+Aşağıdaki tabloda PolicyBased ve RouteBased VPN ağ geçitleri için gereksinimler listelenmektedir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır. Klasik modeli için PolicyBased VPN ağ geçitleri statik ağ geçitleri ile aynıdır ve rota tabanlı ağ geçitleri dinamik ağ geçitleri ile aynıdır.
 
-|  | **PolicyBased temel VPN ağ geçidi** | **RouteBased temel VPN ağ geçidi** | **RouteBased standart VPN ağ geçidi** | **RouteBased yüksek performanslı VPN Gateway** |
+|  | **PolicyBased temel VPN Gateway** | **Temel RouteBased VPN ağ geçidi** | **Standart RouteBased VPN ağ geçidi** | **RouteBased ve yüksek performanslı VPN Gateway** |
 | --- | --- | --- | --- | --- |
 | **Siteden siteye bağlantı (S2S)** |PolicyBased VPN yapılandırması |RouteBased VPN yapılandırması |RouteBased VPN yapılandırması |RouteBased VPN yapılandırması |
 | **Noktadan Siteye bağlantı (P2S**) |Desteklenmiyor |Destekleniyor (S2S ile birlikte var olabilir) |Destekleniyor (S2S ile birlikte var olabilir) |Destekleniyor (S2S ile birlikte var olabilir) |
 | **Kimlik doğrulama yöntemi** |Önceden paylaşılan anahtar |S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar |S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar |S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar |
-| **S2S bağlantısı sayısı** |1 |10 |10 |30 |
-| **P2S bağlantısı sayısı** |Desteklenmiyor |128 |128 |128 |
+| **S2S bağlantılarının maksimum sayısı** |1 |10 |10 |30 |
+| **P2S bağlantı sayısı üst sınırı** |Desteklenmiyor |128 |128 |128 |
 | **Etkin yönlendirme desteği (BGP)** (*) |Desteklenmiyor |Desteklenmiyor |Desteklenen |Desteklenen |
 
-  (*) BGP Klasik dağıtım modeli için desteklenmiyor.
+  (*) BGP, Klasik dağıtım modeli için desteklenmez.

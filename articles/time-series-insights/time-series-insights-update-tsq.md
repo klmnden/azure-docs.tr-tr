@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555430"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722164"
 ---
 # <a name="data-querying"></a>Veri sorgulama
 
@@ -75,11 +75,11 @@ Aşağıdaki zaman serisi sorgu API'leri kullanılabilir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin:
+- Daha fazla bilgi edinin [depolama ve giriş](./time-series-insights-update-storage-ingress.md) Azure zaman serisi öngörüleri önizlemede.
 
-- [Azure zaman serisi öngörüleri Önizleme depolama ve giriş](./time-series-insights-update-storage-ingress.md)
-- [Veri modelleme](./time-series-insights-update-tsm.md)
-- [Zaman serisi kimliği seçerken en iyi uygulamalar](./time-series-insights-update-how-to-id.md)
+- Zaman serisi öngörüleri Önizleme okuma [veri modelleme](./time-series-insights-update-tsm.md) makalesi.
+
+- Bulma [en iyi uygulamalar bir zaman serisi kimliği seçerken](./time-series-insights-update-how-to-id.md).
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

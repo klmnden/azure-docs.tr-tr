@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565420"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872911"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -66,7 +66,7 @@ Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure ger
 Makine iş yükü | Site Recovery tüm iş yükleri (örneğin, Active Directory, SQL server vb.) çoğaltılmasını destekler desteklenen bir makinede çalışıyor. [Daha fazla bilgi edinin](https://aka.ms/asr_workload).
 Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. </br></br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> Windows 2016 Nano sunucu desteklenmiyor.
 Linux işletim sistemi mimarisi | Yalnızca 64 bit sistem desteklenir. 32-bit sistem desteklenmiyor
-Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>CentOS: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>Ubuntu 14.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [(çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 7.5 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>CentOS: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>Ubuntu 14.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürümü 3, 4 ve 5 (UEK3, UEK4, UEK5) çalıştıran 7.6 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
 
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
@@ -117,8 +117,9 @@ HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
 Cihaz/bağlama noktası adlandırma kuralı | Cihaz adı veya bağlama noktası adı benzersiz olmalıdır. Hiçbir iki cihazları/bağlama noktaları büyük/küçük harfe duyarlı adlara sahip olduğundan emin olun. </br> Örnek: Aynı sanal makineye iki cihazını adlandırma *cihaz1* ve *cihaz1* izin verilmiyor.
 Dizinler | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Aşağıdaki dizinleri (varsa ayrı bölümler/dosya-sistemleri ayarlanmış) tüm kaynak sunucuyla aynı işletim sistemi diskinde olmalıdır: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br>2. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/> Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) ve sonraki sürümlerde, kısıtlama geçerli değildir. birden fazla disklerde LVM birimdeki makinesiyse desteklenmiyor.
 Önyükleme dizini | Bir sanal makinede birden fazla önyükleme diski desteklenmiyor <br/><br/> Önyükleme diski olmadan bir makine korunamaz.
-
-Boş alanı gereksinimleri | 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki XFSv5 250 MB | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Varsa `ftype` XFSv5 özellikleri kullanımda olan 1 olarak ayarlanmışsa.
+Boş alan gereksinimleri| 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki 250 MB
+XFSv5 | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Varsa `ftype` XFSv5 özellikleri kullanımda olan 1 olarak ayarlanmışsa.
+BTRFS |9.22 sürümünden BTRFS, aşağıdaki senaryolar dışında desteklenir</br>BTRFS dosya sistemi alt birimi koruma etkinleştirildikten sonra değiştirilirse, BTRFS desteklenmiyor. </br>BTRFS dosya sistemi birden çok disk yayılmışsa BTRFS desteklenmiyor.</br>RAID BTRFS dosya sistemi destekliyorsa, BTRFS desteklenmiyor.
 
 ## <a name="vmdisk-management"></a>VM/Disk Yönetimi
 

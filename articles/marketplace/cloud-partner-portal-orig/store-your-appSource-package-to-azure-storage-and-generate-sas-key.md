@@ -1,25 +1,18 @@
 ---
-title: Azure depolama için AppSource paketinizi Store ve SAS anahtarıyla bir URL oluşturun | Microsoft Docs
+title: Azure depolama için AppSource paketinizi Store ve SAS anahtarıyla bir URL oluşturun
 description: Karşıya yükleme ve AppSource paket güvenliğini sağlamak için gerekli adımlar ayrıntılı olarak açıklanmaktadır.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ad0e6eaae5c0fad74ea484827e0f8d535cfbf579
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: ac77767aee2dcde33f4266e1d2d09c49dcf5f8a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60750081"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943293"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Azure depolama için AppSource paketinizi Store ve SAS anahtarıyla bir URL oluşturun
 =============================================================================

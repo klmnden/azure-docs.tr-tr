@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837443"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704874"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Vmware'den Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -53,6 +53,7 @@ Aşağıdaki tablo ve grafik Vmware'den azure'a olağanüstü durum kurtarma iç
     - Yapılandırma sunucusu Azure çoğaltması HTTPS 443 giden bağlantı noktası üzerinden düzenler.
     - Vm'leri, gelen çoğaltma verilerini HTTPS 9443 numaralı bağlantı noktasında (yapılandırma sunucusu makinesinde çalışan) işlem sunucusuna gönderir. Bu bağlantı noktası değiştirilebilir.
     - İşlem sunucusu çoğaltma verilerini alıp, en iyi duruma getirir ve şifreler ve Azure depolamaya bağlantı noktası 443 üzerinden giden gönderir.
+5. Çoğaltma verilerinin bir önbellek depolama hesabına azure'da ilk land kaydeder. Bu günlükler işlenir ve verileri Azure yönetilen diski (asr çekirdek diski olarak adlandırılır) depolanır. Bu diskteki kurtarma noktaları oluşturulur.
 
 
 

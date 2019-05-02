@@ -1,5 +1,5 @@
 ---
-title: JavaScript örnekleri kullanılmak üzere Azure Active Directory B2C | Microsoft Docs
+title: JavaScript örnekleri - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de JavaScript kullanma hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
@@ -7,25 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 972c8ec1b67161a3998a1b165072f584db2f7fbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397099"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570533"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'yi kullanmak için JavaScript örnekleri
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory (Azure AD) B2C uygulamalarınızın, kendi JavaScript istemci tarafı kod ekleyebilirsiniz. Bu makalede, nasıl değiştirebileceğiniz açıklanır, [kullanıcı akışı](user-flow-javascript-overview.md) veya [özel ilke](active-directory-b2c-overview-custom.md) betiğin yürütülmesini sağlamak.
+Azure Active Directory (Azure AD) B2C uygulamalarınızın, kendi JavaScript istemci tarafı kod ekleyebilirsiniz. Uygulamalarınız için JavaScript'i etkinleştirmek için bir öğeye ekleyin, [özel ilke](active-directory-b2c-overview-custom.md)seçin bir [sayfa sözleşme](page-contract.md)ve [b2clogin.com](b2clogin.md) isteklerinizdeki. Bu makalede, özel ilkeniz betik yürütmesini etkinleştirme nasıl değiştirebileceğiniz açıklanır.
+
+> [!NOTE]
+> Kullanıcı akışları için JavaScript etkinleştirmek istiyorsanız, bkz. [sözleşme JavaScript ve sayfa, Azure Active Directory B2C sürümlerinde](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Seçin bir [sayfa sözleşme](page-contract.md) uygulamanızın kullanıcı arabirimi öğeleri için. JavaScript kullanmak istiyorsanız, bir sayfa sözleşme sürümü tüm içerik tanımları için kullanıcı akışı veya özel İlkesi tanımlamanız gerekir.
+Uygulamanızın kullanıcı arabirimi öğeleri için bir sayfa Sözleşmesi'ni seçin. JavaScript kullanmak istiyorsanız, özel ilkeniz tüm içerik tanımları için bir sayfa sözleşme sürümü tanımlamak gerekir.
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution öğe ekleyin
 
@@ -140,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-Kod içinde `termsOfUseUrl` kullanım anlaşma koşullarınıza bağlantı. Dizininiz için adlı yeni bir kullanıcı özniteliği oluşturma **termsOfUse** ve ardından **termsOfUse** kullanıcı akışınız için bir kullanıcı özniteliği olarak.
+Kod içinde `termsOfUseUrl` kullanım anlaşma koşullarınıza bağlantı. Dizininiz için adlı yeni bir kullanıcı özniteliği oluşturma **termsOfUse** ve ardından **termsOfUse** kullanıcı özniteliği olarak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

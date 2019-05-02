@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç - Azure uzamsal Çıpasıyla HoloLens Unity uygulama oluşturma | Microsoft Docs
+title: Hızlı Başlangıç - bir Unity oluşturma HoloLens uygulamasıyla Azure uzamsal bağlayıcılarını | Microsoft Docs
 description: Bu hızlı başlangıçta, uzamsal bağlayıcılarını kullanarak Unity ile bir HoloLens uygulamaların nasıl oluşturulduğunu öğrenin.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240611"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704131"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcıları kullanan HoloLens Unity uygulaması oluşturma
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcıları kullanan bir Unity HoloLens uygulaması oluşturma
 
-Bu hızlı başlangıçta, kullanan HoloLens Unity uygulaması oluşturacak [Azure uzamsal bağlayıcılarını](../overview.md). Uzamsal yer işaretleri, konumlarına cihazlar arasında zaman içinde kalıcı nesneler ile karma gerçeklik deneyimleri oluşturmanıza olanak tanır platformlar arası Geliştirici hizmettir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir HoloLens uygulaması oluşturmuş olacaksınız.
+Bu hızlı başlangıçta, kullanan bir Unity HoloLens uygulaması oluşturacak [Azure uzamsal bağlayıcılarını](../overview.md). Uzamsal yer işaretleri, konumlarına cihazlar arasında zaman içinde kalıcı nesneler ile karma gerçeklik deneyimleri oluşturmanıza olanak tanır platformlar arası Geliştirici hizmettir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir HoloLens uygulaması oluşturmuş olacaksınız.
 
 Şunları öğrenirsiniz:
 

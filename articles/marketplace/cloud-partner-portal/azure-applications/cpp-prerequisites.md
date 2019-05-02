@@ -1,25 +1,18 @@
 ---
-title: Azure uygulama teklif önkoşulları | Microsoft Docs
+title: Azure uygulama teklif önkoşulları | Azure Market
 description: Azure uygulaması yayımlama önkoşulları Azure Marketi'nde teklif.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744933"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942890"
 ---
 # <a name="azure-application-prerequisites"></a>Azure uygulama önkoşulları
 
@@ -36,7 +29,7 @@ Teknik gereksinimler, aşağıdaki öğeleri ekleyin:
 * Azure hızlı başlangıç şablonları.<br> Daha fazla bilgi için bkz.
 
   * [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/documentation/templates/). Daha fazlasını gerçekleştirmek için topluluk tarafından sağlanan kaynaklarla Azure Resource Manager üzerinden Azure kaynaklarını dağıtın. Azure Resource Manager, uygulamalarınızı bildirim temelli bir şablon aracılığıyla sağlamanıza olanak tanır. Tek bir şablonda birden çok hizmeti bağımlılıklarıyla birlikte dağıtabilirsiniz. Uygulama yaşam döngüsünün her aşamasında uygulamanızı tekrar tekrar dağıtmak için aynı şablonu kullanırsınız.
-  * [GitHub: Azure Resource Manager hızlı başlangıç şablonları](https://github.com/azure/azure-quickstart-templates). Bu depo, topluluk tarafından katkıda bulunulan tüm şu anda kullanılabilir Azure Resource Manager şablonlarını içerir. Aranabilir şablon dizin konumunda tutulur https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Azure Resource Manager hızlı başlangıç şablonları](https://github.com/azure/azure-quickstart-templates). Bu depo, topluluk tarafından katkıda bulunulan tüm şu anda kullanılabilir Azure Resource Manager şablonlarını içerir. Aranabilir şablon dizin konumunda tutulur https://azure.microsoft.com/documentation/templates/.
 * UI tanımı oluşturma<br>
 Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Bu makalede createUiDefinition.json dosyasının temel kavramlar tanıtılmaktadır. Azure portalı, yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için bu dosyayı kullanır.
 
@@ -50,7 +43,7 @@ Aşağıdaki yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine i�
 >[!NOTE]
 >Bulut iş ortağı portalında oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmanız gerekir. Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Bu hesap, bireysel hizmetlerin veya teklifler için belirli olmamalıdır.
 
-* Şirketinizin (veya yan kuruluşunun), bir satış gelen-Azure Marketi tarafından desteklenen ülkesi olmalıdır. Bu ülkeler güncel bir listesi için bkz. [Microsoft Azure Marketi katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Şirketinizin (veya yan kuruluşunun), bir satış gelen-ülke/Azure Marketi tarafından desteklenen bölgeler olmalıdır. Bu ülkeler/bölgeler güncel bir listesi için bkz. [Microsoft Azure Marketi katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Ürününüzün Azure Marketi tarafından desteklenen faturalandırma modelleri ile uyumlu bir şekilde lisanslanmalıdır. Daha fazla bilgi için [faturalandırma seçenekleriyle](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) Azure Marketi'nde.
 * Teknik Destek kullanılabilir müşterilere ticari açıdan makul bir şekilde yapmaktan sorumlu olursunuz. Bu destek, ücretsiz, ücretli veya topluluk yaklaşım olabilir.
 * Yazılımınızı ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu.

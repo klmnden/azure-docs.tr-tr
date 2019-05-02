@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300153"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713347"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Nasıl yapılır: Azure AD uygulamanız için isteğe bağlı bir talep sağla
 
@@ -57,7 +57,7 @@ Standart talep listesi için bkz. [erişim belirteci](access-tokens.md) ve [id_t
 | `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
 | `home_oid`                 | Konuk kullanıcılar için kullanıcının giriş kiracısında kullanıcının nesne kimliği.| JWT        |           | |
-| `sid`                      | Oturum başına kullanıcı oturumu kapatma için kullanılan oturum kimliği. | JWT        |           |         |
+| `sid`                      | Oturum başına kullanıcı oturumu kapatma için kullanılan oturum kimliği. | JWT        |  Kişisel ve Azure AD hesapları.   |         |
 | `platf`                    | Cihaz platformu    | JWT        |           | Cihaz türü doğrulayabilirsiniz yönetilen cihazlar için kısıtlı.|
 | `verified_primary_email`   | Kullanıcının PrimaryAuthoritativeEmail kaynağı      | JWT        |           |         |
 | `verified_secondary_email` | Kullanıcının SecondaryAuthoritativeEmail kaynağı   | JWT        |           |        |
@@ -91,7 +91,6 @@ Bu talepler her zaman v1.0 Azure AD belirteçleri dahil, ancak v2.0 belirteçler
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" | MSA ve AAD desteklenen   |
 | `given_name`  | Ad                      | İlk sağlar veya "kullanıcı adını, kullanıcı nesnesindeki kümesi olarak verilen".<br>"given_name": "Ferdi"                   | MSA ve AAD desteklenen  |
 | `upn`         | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
-| `sid`         | Oturum Kimliği                      | Kimlik doğrulama oturumunun MSA ile izleme için kullanılan GUID oturum tanımlayıcısı. | Yalnızca MSA.  Azure AD hesapları için dahil edilmez. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler

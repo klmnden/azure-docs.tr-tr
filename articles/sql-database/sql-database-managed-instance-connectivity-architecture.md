@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006140"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686284"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı yönetilen örneği için bağlantı mimarisi
 
@@ -80,7 +80,7 @@ Microsoft, yönetim uç noktasını kullanarak yönetilen örnek yönetir. Bu u�
 Zaman bağlantıları içinde yönetilen örnek (yedeklemeler ve Denetim günlükleri'te olduğu gibi ile) Başlat, trafiği görünür yönetim uç noktanın genel IP adresi başlatmak için. Güvenlik duvarı kurallarını yalnızca yönetilen örneğin IP adreslerine izin verecek şekilde ayarlayarak bir yönetilen örneğinden kamu hizmetleri için erişimi sınırlayabilirsiniz. Daha fazla bilgi için [yönetilen örneğin yerleşik güvenlik duvarı doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Yönetilen örneğin bölgesi içinde olduğundan Azure hizmetlerine giden Traffice iyileştirilmiştir ve ilgili olmayan NATed manged örnek yönetim uç noktası ortak IP adresi için neden. IP tabanlı güvenlik duvarı kuralları, en yaygın olarak depolama için kullanmak istiyorsanız bu nedenle hizmet yönetilen örneğinden farklı bir bölgede olması gerekir.
+> Yönetilen örneğin bölgesi içinde olduğundan Azure hizmetlerine giden trafiği en iyi duruma getirilmiş ve bu nedenle, örnek yönetim uç noktası ortak IP adresi NATed için değil yönetilen. IP tabanlı güvenlik duvarı kuralları, en yaygın olarak depolama için kullanmak istiyorsanız bu nedenle hizmet yönetilen örneğinden farklı bir bölgede olması gerekir.
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
 
@@ -97,7 +97,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları
 
-| Name       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
+| Ad       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 |mi_subnet   |Herhangi biri                         |Herhangi biri     |MI ALT AĞ        |MI ALT AĞ  |İzin Ver |
@@ -105,7 +105,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="mandatory-outbound-security-rules"></a>Zorunlu giden güvenlik kuralları
 
-| Name       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
+| Ad       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
 |------------|--------------|--------|-----------------|-----------|------|
 |yönetim  |80, 443, 12000|TCP     |MI ALT AĞ        |AzureCloud |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |MI ALT AĞ        |MI ALT AĞ  |İzin Ver |
@@ -122,7 +122,7 @@ Yönetilen örnek sanal ağ içinde ayrılmış bir alt ağ içinde dağıtın. 
 
 ### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
 
-|Name|Adres ön eki|Sonraki atlama|
+|Ad|Adres ön eki|Sonraki atlama|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI ALT AĞ|Sanal ağ|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

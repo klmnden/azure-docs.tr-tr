@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833922"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706107"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için sertifika TDE korunan veritabanını geçirme
 
@@ -31,7 +31,7 @@ Tarafından korunan bir veritabanını geçirirken [saydam veri şifrelemesi](ht
 Tam yönetilen hizmet kullanılarak hem TDE korumalı veritabanının hem de ilgili sertifikanın sorunsuz geçişini sağlamaya yönelik alternatif bir seçenek için bkz. [Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi veritabanınızı Yönetilen Örneğe geçirme](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Azure SQL veritabanı yönetilen örneği için saydam veri şifrelemesi, hizmet tarafından yönetilen modda çalışır. Geçirilen sertifika yalnızca TDE korumalı veritabanını geri yüklemek için kullanılır. Geri yükleme işlemi yapıldıktan hemen sonra, geçirilen sertifika farklı, sistem tarafından yönetilen bir sertifikayla değiştirilir.
+> Geçirilen sertifika yalnızca TDE korumalı veritabanını geri yüklemek için kullanılır. En kısa sürede geri yükleme yapıldıktan sonra geçişi yapılan sertifika farklı bir koruyucu ile yerini hizmetle yönetilen sertifika veya asimetrik anahtar anahtar kasasından örneğinde ayarladığınız saydam veri şifrelemesi türüne bağlı olarak.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

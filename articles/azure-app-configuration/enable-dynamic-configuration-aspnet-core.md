@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b8a466234489e65458b0136619076154fa4c9f37
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688904"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Öğretici: ASP.NET Core uygulaması dinamik yapılandırması kullan
 
-ASP.NET Core, çeşitli kaynaklardan yapılandırma verilerini okuyan bir takılabilir yapılandırma sistemi vardır. Bu değişiklikler hareket halindeyken yeniden başlatmak bir uygulama neden olmadan işleyebilir. ASP.NET Core, bağlama türü kesin belirlenmiş .NET sınıfları yapılandırma ayarlarını destekler. Bunları kodunuza çeşitli kullanarak eklediği `IOptions<T>` desenleri. Özellikle bunlardan birini desenleri `IOptionsSnapshot<T>`otomatik olarak uygulamanın yapılandırması, temel alınan veriler değiştiğinde yeniden yükler. 
+ASP.NET Core, çeşitli kaynaklardan yapılandırma verilerini okuyan bir takılabilir yapılandırma sistemi vardır. Bu değişiklikler hareket halindeyken yeniden başlatmak bir uygulama neden olmadan işleyebilir. ASP.NET Core, bağlama türü kesin belirlenmiş .NET sınıfları yapılandırma ayarlarını destekler. Bunları kodunuza çeşitli kullanarak eklediği `IOptions<T>` desenleri. Özellikle bunlardan birini desenleri `IOptionsSnapshot<T>`otomatik olarak uygulamanın yapılandırması, temel alınan veriler değiştiğinde yeniden yükler.
 
 Ekleme `IOptionsSnapshot<T>` denetleyicilere uygulamanızda Azure uygulama yapılandırmasında depolanan en son yapılandırma erişin. Ayrıca, sürekli olarak izlemek ve bir uygulama yapılandırma deposundaki herhangi bir değişiklik almak için uygulama yapılandırma ASP.NET Core istemci kitaplığı da ayarlayabilirsiniz. Düzenli aralıklarla yoklama aralığını tanımlarsınız.
 
 Bu öğretici, kodunuzda dinamik yapılandırma güncelleştirmeleri nasıl uygulayacağınıza dair gösterir. Bu hızlı başlangıçlar, sunulan web uygulaması oluşturur. Devam etmeden önce [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) ilk.
 
-Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını kullanılabilir mükemmel bir seçenektir.
+Bu öğreticideki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını kullanılabilir mükemmel bir seçenektir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -39,13 +39,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
+Bu öğreticiyi uygulamak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Uygulama yapılandırma verileri yeniden yükleyin
 
-1. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` ekleyerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
+1. Açık *Program.cs*ve güncelleştirme `CreateWebHostBuilder` ekleyerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,7 +64,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
     İkinci parametre `.Watch` yöntemidir yoklama aralığı için ASP.NET istemci kitaplığı bir uygulama yapılandırma deposu sorgular. İstemci Kitaplığı herhangi bir değişiklik oluşup olmadığını görmek için belirli yapılandırma ayarı denetler.
 
-2. Tanımlar ve yeni bir uygulayan bir Staticcontenthosting.Web dosyası ekleyin `Settings` sınıfı.
+2. Ekleme bir *Staticcontenthosting.Web* tanımlayan ve uygulayan yeni bir dosya `Settings` sınıfı.
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +79,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
     }
     ```
 
-3. Startup.cs dosyasını açın ve güncelleştirme `ConfigureServices` yapılandırma verilerini bağlamak için yöntemi `Settings` sınıfı.
+3. Açık *Startup.cs*ve güncelleştirme `ConfigureServices` yapılandırma verilerini bağlamak için yöntemi `Settings` sınıfı.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 ## <a name="use-the-latest-configuration-data"></a>En son yapılandırma verilerini kullanma
 
-1. HomeController.cs denetleyicileri dizininde açın. Güncelleştirme `HomeController` almak için sınıf `Settings` bağımlılık ekleme ve oluşturma kendi değerlerini kullanın.
+1. Açık *HomeController.cs* denetleyicileri dizinindeki bir başvuru ekleyin `Microsoft.Extensions.Options` paket.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. Güncelleştirme `HomeController` almak için sınıf `Settings` bağımlılık ekleme ve oluşturma kendi değerlerini kullanın.
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
     }
     ```
 
-2. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki betikle değiştirin:
+3. Açık *Index.cshtml* görünümlerde > giriş dizini ve içeriğini aşağıdaki betikle değiştirin:
 
     ```html
     <!DOCTYPE html>
@@ -164,7 +170,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
     | Anahtar | Değer |
     |---|---|
-    | TestAppSettings:BackgroundColor | Mavi |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | LightGray |
     | TestAppSettings:Message | Azure uygulama yapılandırması - verilerden canlı güncelleştirmeler ile artık! |
 

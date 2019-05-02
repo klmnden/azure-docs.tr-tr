@@ -1,25 +1,18 @@
 ---
-title: Teklif için bir Power BI uygulaması StoreFront ayrıntıları - Azure Marketi | Microsoft Docs
+title: Teklif için bir Power BI uygulaması StoreFront ayrıntıları | Azure Market
 description: Power BI uygulaması teklif için mağaza ayrıntıları alanları için Microsoft AppSource Marketplace yapılandırın.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726238"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942636"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Power BI uygulamasını mağaza Ayrıntılar sekmesi
 
@@ -32,13 +25,13 @@ ms.locfileid: "60726238"
 
 ![Teklif Ayrıntıları bölümünü mağaza Ayrıntılar sekmesi](./media/offer-details-section.png)
 
-Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
+Aşağıdaki tabloda, bu alanlar hakkında daha fazla bilgi sağlar. Gerekli alanlar yıldız (*) indicted.  
 
 |   Alan               |   Açıklama                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Teklif özeti**     | En fazla 100 karakter kullanarak uygulama kısa amacı.                             |
-| **Teklif açıklaması** | 3.000 karakterleri kullanarak bir uygulama açıklaması. Bu alan, basit HTML biçimlendirmeyi destekler. |
-|                       |                                                                                         |
+| **Teklif özeti\***     | En fazla 100 karakter kullanarak uygulama kısa amacı.                             |
+| **Teklif açıklaması\*** | 3.000 karakterleri kullanarak bir uygulama açıklaması. Bu alan, basit HTML biçimlendirmeyi destekler. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Liste ayrıntıları bölümü
@@ -47,13 +40,13 @@ Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
 
 ![Mağaza Ayrıntılar sekmesi ayrıntıları bölümünü listeleme](./media/listing-details-section.png)
 
-Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın.  Gerekli alanlar yıldız (*) indicted.
  
 |   Alan                                  |   Açıklama                                                        |
 | --------------                           | ---------------------                                                |
 | **Sektörler**                           | Burada uygulamanızın gereksinimlerine sektör seçin. Uygulamanızı birden çok sektörler için ile ilişkili ise bu alanı boş bırakın.      |
-| **Kategorileri**                           | Uygulamanıza ilişkili en fazla üç kategorilerini seçin.     |
-| **Uygulamanız için Yardım bağlantısına**               | Uygulamanız için çevrimiçi Yardım sağlayan bir sayfa için bir URL sağlayın.           |
+| **Kategorileri\***                           | Uygulamanıza ilişkili en fazla üç kategorilerini seçin.     |
+| **Uygulamanız için Yardım bağlantısına\***               | Uygulamanız için çevrimiçi Yardım sağlayan bir sayfa için bir URL sağlayın.           |
 | **Ürünleri uygulamanızı (en fazla 3) ile çalışır.** | Seçin **yeni** artı bir metin alanı oluşturmak için. Uygulamanızı çalışır bir ürün adı alanına girin. En fazla üç ürün listesi.       |
 | **Arama anahtar sözcükleri (en fazla 3)**              | Kullanıcılar büyük olasılıkla aramak için uygulamanızı appsource'ta için kullanacağı en fazla üç anahtar sözcükleri girin. Örneğin, "E-postayla gönderme Uygulamam" uygulama çağrılırsa, anahtar olabilir **e-postaları**, **posta**, ve **posta uygulaması**. |
 |  |  |
@@ -65,13 +58,13 @@ Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
 
 ![Pazarlama Yapıtları bölümünü mağaza Ayrıntılar sekmesi](./media/marketing-artifacts-section.png)
 
-Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
+Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın. Gerekli alanlar yıldız (*) indicted.
  
 |    Alan                             |    Açıklama                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logo*                              |                                                                   |
-| **Teklif logo (png biçiminde, 48 x 48)**   | Genel uygulama veya uygulama arama sonuçları görüntülenecek logoyu karşıya yükleyin. AppSource destekleyen bir çözüm olan 48 x 48 PNG biçimi yalnızca piksel.  |
-| **Teklif logo (png biçiminde, 216 x 216)** | Uygulama Ayrıntıları sayfası üzerinde görüntülenecek logoyu karşıya yükleyin.  AppSource destekleyen bir çözümlenmesini 216 x 216 ile PNG biçimi yalnızca piksel.  |
+| **Teklif logo (png biçiminde, 48 x 48)\***   | Genel uygulama veya uygulama arama sonuçları görüntülenecek logoyu karşıya yükleyin. AppSource destekleyen bir çözüm olan 48 x 48 PNG biçimi yalnızca piksel.  |
+| **Teklif logo (png biçiminde, 216 x 216)\*** | Uygulama Ayrıntıları sayfası üzerinde görüntülenecek logoyu karşıya yükleyin.  AppSource destekleyen bir çözümlenmesini 216 x 216 ile PNG biçimi yalnızca piksel.  |
 | *Videolar*                             |                                                                   |
 | **Ad**                             | Uygulamanızın adı veya başlığı girin.                                          |
 | **URL**                              | YouTube veya Vimeo üzerinde barındırılan bir videoyu URL'sini girin.                              |
@@ -79,7 +72,7 @@ Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
 | *Belgeleri*                          | AppSource üzerinde görüntülenmesi için en fazla üç belgelere ekleme **daha fazla bilgi edinin** başlığı.  |
 | **Ad**                             | Adını veya destekleyen bir belgenin başlığını girin.                              |
 | **Dosya**                             | Bir PDF dosyası yükleyin.                             |
-| *Ekran görüntüleri*                        | En fazla beş ekran görüntüleri ekleyin.                        |
+| *Ekran görüntüleri\**                      | En fazla beş ekran görüntüleri ekleyin.                        |
 | **Ad**                             | Bir ad veya ekran başlığını girin.                                       |
 | **Görüntü**                            | Bir PNG ekran görüntüsü yükleyin. Çözünürlüğünü 1280 x 720 piksel olmalıdır.  | 
 |   |   |
@@ -100,8 +93,8 @@ Bu bölümde alanları tamamlamak için aşağıdaki tabloyu kullanın:
 
 |   Alan                |   Açıklama                           |
 |------------------------|--------------------------------------   |
-| **Gizlilik İlkesi URL'si** | Gizlilik ilkeniz için URL       |
-| **Kullanım koşulları**       | Kullanım ilkeniz, basit bir HTML veya düz metin biçimlendirilmiş     |
+| **Gizlilik İlkesi URL'si\*** | Gizlilik ilkeniz için URL       |
+| **Kullanım koşulları\***       | Kullanım ilkeniz, basit bir HTML veya düz metin biçimlendirilmiş     |
 |  |  |
 
 

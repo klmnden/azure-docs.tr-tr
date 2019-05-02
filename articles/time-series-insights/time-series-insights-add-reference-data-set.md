@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
 ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764450"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708855"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure portalını kullanarak zaman serisi görüşleri ortamınıza başvuru veri kümesi oluşturma
 
@@ -97,5 +97,7 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
     Tamamlanan bir karşıya yükleme ve iletisini görüntüler sayfa onaylar **başarıyla veri kümesi'ni karşıya**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Başvuru verilerini programlamayla yönetin](time-series-insights-manage-reference-data-csharp.md).
+
 * Tam API başvurusu için [Başvuru Verileri API'si](/rest/api/time-series-insights/ga-reference-data-api) belgesine bakın.

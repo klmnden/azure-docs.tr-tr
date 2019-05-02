@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364223"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869974"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI kullanarak ExpressRoute Global erişim yapılandırma
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Yapılandırma için ExpressRoute devreleri tanımlayın
 
-Desteklenen ülkeler yerleşime ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute devreniz arasında ExpressRoute Global erişim etkinleştirebilirsiniz. Her iki bağlantı hatları, aboneliğin sahibi, yapılandırması, bu makalenin sonraki bölümlerinde açıklandığı gibi çalıştırmak için her iki bağlantı hattı seçebilirsiniz. İki bağlantı hatlarının farklı Azure aboneliklerinde ise yetkilendirme bir Azure aboneliğine sahip olmanız gerekir ve diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtarıyla geçmesi gerekir.
+Desteklenen ülke/bölgelerde bulunan ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute devreniz arasında ExpressRoute Global erişim etkinleştirebilirsiniz. Her iki bağlantı hatları, aboneliğin sahibi, yapılandırması, bu makalenin sonraki bölümlerinde açıklandığı gibi çalıştırmak için her iki bağlantı hattı seçebilirsiniz. İki bağlantı hatlarının farklı Azure aboneliklerinde ise yetkilendirme bir Azure aboneliğine sahip olmanız gerekir ve diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtarıyla geçmesi gerekir.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Şirket içi ağlarınızı arasındaki bağlantıyı etkinleştir
 

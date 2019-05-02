@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447612"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713805"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps ile HTTP veya HTTPS uç noktalarına çağrı
 
-Azure Logic Apps ve Köprü Metni Aktarım Protokolü (HTTP) Bağlayıcısı ile mantıksal uygulamalar oluşturarak herhangi bir HTTP veya HTTPS uç noktasıyla iletişim iş akışlarını otomatik hale getirebilirsiniz. Örneğin, Web siteniz için hizmet uç noktası izleyebilirsiniz. Aşağı doğru giden, Web sitesi gibi bu uç noktada bir olay meydana geldiğinde olay mantıksal uygulamanızın iş akışı tetikler ve belirtilen eylemleri çalıştırır. 
+Azure Logic Apps ve Köprü Metni Aktarım Protokolü (HTTP) Bağlayıcısı ile mantıksal uygulamalar oluşturarak herhangi bir HTTP veya HTTPS uç noktasıyla iletişim iş akışlarını otomatik hale getirebilirsiniz. Örneğin, Web siteniz için hizmet uç noktası izleyebilirsiniz. Aşağı doğru giden, Web sitesi gibi bu uç noktada bir olay meydana geldiğinde olay mantıksal uygulamanızın iş akışı tetikler ve belirtilen eylemleri çalıştırır.
 
 HTTP tetikleyicisi ilk adım olarak, iş akışı içinde denetlemek için kullanabileceğiniz veya *yoklama* düzenli bir uç nokta. Her denetimi, bir çağrı tetikleyici gönderir veya *isteği* uç noktası. Uç noktanın yanıt, mantıksal uygulamanızın iş akışı çalıştırır olup olmadığını belirler. Tetikleyici, mantıksal uygulama eylemleri yanıta herhangi bir içerik geçirir. 
 
-HTTP eylem istediğiniz zaman uç noktasını çağırmak için akışınızda herhangi bir adım olarak kullanabilirsiniz. Uç noktanın yanıt kalan iş akışının eylemlerini çalışma şeklini belirler.
+HTTP eylem istediğiniz zaman uç noktasını çağırmak için akışınızda herhangi bir adım olarak kullanabilirsiniz. Uç noktanın yanıt kalan iş akışının eylemlerini çalışma şeklini belirler. 
+
+Hedef uç noktanın yeteneği, temel Aktarım Katmanı Güvenliği (TLS) sürüm 1.0, 1.1 ve 1.2 Bu bağlayıcıyı destekler. Logic Apps, olası en yüksek desteklenen sürümünü kullanarak üzerinden uç noktası ile görüşür. Uç nokta 1.2 destekliyorsa, bu nedenle, örneğin, bağlayıcı 1.2 ilk kullanır. Aksi halde, sonraki en yüksek desteklenen sürüm Bağlayıcısı'nı kullanır.
 
 Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+* Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/). 
 
 * Aramak istediğiniz hedef uç nokta URL'si 
 

@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 61d3256ca169952ab3dda76914293a06a044d6eb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113162"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926089"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: Kurumsal güvenlik paketi (Önizleme) ile HDInsight, Apache HBase ilkelerini yapılandırma
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Öğretici: Kurumsal güvenlik paketi ile HDInsight, Apache HBase ilkelerini yapılandırma
 
 Kurumsal güvenlik paketi (ESP) Apache HBase kümeleri için Apache Ranger ilkelerini yapılandırmayı öğrenin. ESP kümeleri bir etki alanına bağlıdır ve kullanıcıların etki alanı kimlik bilgileriyle kimlik doğrulaması yapmasına olanak sağlar. Bu öğreticide, bir HBase tablosundaki farklı sütun ailesi için erişimi kısıtlamak için iki Ranger ilkesi oluşturun.
 

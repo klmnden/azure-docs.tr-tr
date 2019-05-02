@@ -1,5 +1,5 @@
 ---
-title: "Örnek: Yüzleri - yüz tanıma API'si ekleme"
+title: "Örnek: Yüzleri bir PersonGroup - yüz tanıma API'si ekleme"
 titleSuffix: Azure Cognitive Services
 description: Görüntülere yüz eklemek için Yüz Tanıma API’sini kullanın.
 services: cognitive-services
@@ -8,31 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 722a09b782c902642b599460835151928c16c5f4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04fe9251ba124ed5d218daf915339c7f84efdeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704174"
 ---
-# <a name="example-how-to-add-faces"></a>Örnek: Yüzleri ekleme
+# <a name="how-to-add-faces-to-a-persongroup"></a>İçin bir PersonGroup yüzleri ekleme
 
-Bu kılavuzda, bir PersonGroup’a çok sayıda kişi ve yüz eklemek için en iyi uygulama gösterilmektedir.
-Aynı strateji, FaceList ve LargePersonGroup için de geçerlidir.
-Örnekler, Yüz Tanıma API’si istemci kitaplığı kullanılarak C# dilinde yazılır.
+Bu kılavuz, çok sayıda kişi ve yüz PersonGroup nesnesine eklemek için en iyi uygulamaları gösterir. Strateji LargePersonGroup FaceList ve LargeFaceList için de geçerlidir. Bu örnekte yazılan C# yüz API .NET istemci kitaplığını kullanarak.
 
 ## <a name="step-1-initialization"></a>1. Adım: Başlatma
 
-Birçok değişken bildirilir ve istekleri zamanlamak için bir yardımcı işlevi uygulanır.
+Aşağıdaki kod, birkaç değişken ve yüz zamanlamak için bir yardımcı işlevini eklemek uygulayan istekleri bildirir.
 
 - `PersonCount`, toplam kişi sayısıdır.
 - `CallLimitPerSecond`, abonelik katmanına göre saniyedeki maksimum çağrı sayısıdır.
 - `_timeStampQueue`, istek zaman damgalarını kaydetmek için kullanılan bir Kuyruktur.
 - `await WaitCallLimitPerSecondAsync()`, sonraki isteği göndermenin geçerli olmasını bekler.
 
-```CSharp
+```csharp
 const int PersonCount = 10000;
 const int CallLimitPerSecond = 10;
 static Queue<DateTime> _timeStampQueue = new Queue<DateTime>(CallLimitPerSecond);
@@ -62,20 +60,20 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>2. Adım: API çağrısı Yetkilendir
 
-Bir istemci kitaplığı kullanılırken, FaceServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örneğin:
+Bir istemci Kitaplığı kullanıldığında FaceServiceClient sınıfının oluşturucusu için abonelik anahtarınızı geçmesi gerekir. Örneğin:
 
-```CSharp
+```csharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-Abonelik anahtarı, Azure portalınızın Market sayfasından elde edilebilir. Bkz. [Abonelikler](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+Abonelik anahtarı, Azure portalınızın Market sayfasından elde edilebilir. Bkz. [Abonelikler](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## <a name="step-3-create-the-persongroup"></a>3. Adım: PersonGroup oluşturma
 
 Kişileri kaydetmek için "MyPersonGroup" adlı bir PersonGroup oluşturulur.
 Genel doğrulama sağlamak için istek süresi, `_timeStampQueue` hedefinde kuyruğa alınır.
 
-```CSharp
+```csharp
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
@@ -86,7 +84,7 @@ await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 
 Çağrı sınırının aşılmasını önlemek için kişiler eş zamanlı olarak oluşturulur ve `await WaitCallLimitPerSecondAsync()` uygulanır.
 
-```CSharp
+```csharp
 CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
@@ -102,7 +100,7 @@ Parallel.For(0, PersonCount, async i =>
 Farklı kişilere farklı yüzler ekleme işlemi eş zamanlı olarak işlenirken, tek bir kişi için bu işlem sıralı olarak gerçekleştirilir.
 İstek sıklığının sınırlama kapsamında olduğundan emin olmak için tekrar `await WaitCallLimitPerSecondAsync()` çağrılır.
 
-```CSharp
+```csharp
 Parallel.For(0, PersonCount, async i =>
 {
     Guid personId = persons[i].PersonId;

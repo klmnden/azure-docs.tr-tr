@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348188"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868118"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure veri fabrikası veri akışı arama dönüştürme eşlemesi
 
@@ -25,6 +25,10 @@ Arama, veri akışı için başka bir kaynaktan başvuru verilerini eklemek içi
 Gelen akış alanları ve başvuru kaynağı alanlar arasında eşleştirmek istediğiniz anahtar alanları seçin. Önce yeni bir kaynak sağ taraftaki arama için kullanılacak veri akışı tasarım Tuvali üzerindeki oluşturmuş olmanız gerekir.
 
 Eşleşme bulunduğunda, elde edilen satırları ve sütunları başvuru kaynaktan veri akışınıza eklenir. Havuz veri akışı sonuna dahil etmek istediğiniz ilgi alanları seçebilirsiniz.
+
+## <a name="match--no-match"></a>Eşleşen / eşleşme yok
+
+Arama dönüşümünüzü sonra sonraki dönüşümlerini ifade işlevini kullanarak her bir eşleşen satır sonuçlarını incelemek için kullanabilirsiniz `isMatch()` mantığınızı olup olmadığını arama satır eşleşmeyi veya sonuçlandı üzerinde temel seçenekler bir daha ayrıntılı yapmak.
 
 ## <a name="optimizations"></a>En iyi duruma getirme
 

@@ -1,20 +1,20 @@
 ---
-title: Azure portalı Data Box Edge dağıtımına hazırlama öğreticisi | Microsoft Docs
+title: Azure veri kutusu Edge dağıtmak için Azure portal, veri merkezi ortamındaki hazırlamak için öğretici | Microsoft Docs
 description: Azure veri kutusu Edge dağıtma hakkında daha fazla ilk öğreticide, Azure portalında hazırlanmasını içerir.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924766"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge dağıtmaya hazırlanma  
 
@@ -55,6 +55,8 @@ Veri kutusu Edge kaynağınızı, veri kutusu Edge cihazınıza ve veri merkezi 
 Başlamadan önce aşağıdakilerden emin olun:
 
 - Microsoft Azure aboneliğiniz için bir veri kutusu Edge kaynak etkinleştirilir. Kullandıkça Öde abonelikleri desteklenmez.
+- Sahibi veya katkıda bulunan aboneliğinize erişimi var.
+- Yönetici veya kullanıcı Azure Active Directory Graph API'si için erişimi var. Daha fazla bilgi için [Azure Active Directory Graph API'si](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 
 ### <a name="for-the-data-box-edge-device"></a>Data Box Edge cihazı için
@@ -87,11 +89,15 @@ Veri kutusu Edge kaynak oluşturmak için Azure portalında aşağıdaki adımla
 
 1. Oturum açmak için Microsoft Azure kimlik bilgilerinizi kullanın. 
     
-    - Azure portalında şu URL: [ https://portal.azure.com ](http://portal.azure.com).
-    - Veya, Azure kamu portalında şu URL: [https://portal.azure.us](https://portal.azure.us)
+    - Azure portalında şu URL: [ https://portal.azure.com ](https://portal.azure.com).
+    - Veya, Azure kamu portalında şu URL: [ https://portal.azure.us ](https://portal.azure.us). Daha fazla ayrıntı için [portalı kullanarak Azure kamu Bağlan](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Sol bölmede seçin **+ kaynak Oluştur**. Arama **veri kutusu Edge / veri ağ geçidi kutusunda**. Seçin **veri kutusu Edge / veri ağ geçidi kutusunda**. **Oluştur**’u seçin.
-3. Veri kutusu Edge cihazı için kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa'da kullanılabilir. Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin. İçinde **veri kutusu Edge** seçeneği için **Oluştur**.
+3. Veri kutusu Edge cihazı için kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. Bu sürümde, Doğu ABD, Güneydoğu Asya ve Batı Avrupa'da kullanılabilir. 
+
+    Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin. Bölge, yalnızca cihaz yönetimi için meta verileri depolar. Gerçek veriler herhangi bir depolama hesabında depolanır. 
+    
+    İçinde **veri kutusu Edge** seçeneği için **Oluştur**.
 
     ![Data Box Edge hizmetini arama](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

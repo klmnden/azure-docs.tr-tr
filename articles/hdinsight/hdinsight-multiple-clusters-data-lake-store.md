@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764402"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700282"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Birden çok HDInsight kümesi ile bir Azure Data Lake Storage hesabını kullanın.
 

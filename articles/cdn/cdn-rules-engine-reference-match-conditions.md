@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323833"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869522"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -28,7 +28,7 @@ Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (C
 
 Örneğin, bir eşleşme koşulu için kullanabilirsiniz:
 - Belirli bir konumdaki içerik isteklerini filtre.
-- İstek Filtreleme belirli IP adresi ya da ülke oluşturulur.
+- İstek Filtreleme belirli IP adresi ya da ülke/bölge oluşturulur.
 - Üst bilgileri tarafından istek filtreleme.
 
 ## <a name="always-match-condition"></a>Her zaman eşleşme koşulu
@@ -54,7 +54,7 @@ Ad | Amaç
 Ad | Amaç
 -----|--------
 [Sayı olarak](#as-number) | Belirli bir ağdan kaynaklanan istekler tanımlar.
-[Ülke](#country) | Belirtilen ülkelerden kökenli isteklerine tanımlar.
+[Ülke](#country) | Belirtilen ülkelerden/bölgelerden kökenli isteklerine tanımlar.
 
 ## <a name="origin-match-conditions"></a>Kaynak eşleştirme koşulları
 
@@ -235,7 +235,7 @@ Anahtar bilgileri:
 
 ---
 ### <a name="country"></a>Ülke
-Bir ülkeye, ülke kodu aracılığıyla belirtebilirsiniz. 
+Bir ülke/bölge, ülke kodu aracılığıyla belirtebilirsiniz. 
 
 **Eşleşme**/**eşleşmiyor** seçeneği ülke altında koşul eşleşen Koşullar karşılanıyorsa belirler:
 - **Eşleşme**: Belirtilen ülke kodu değerler içerecek şekilde istek gerektirir. 
@@ -260,9 +260,9 @@ Bu eşleşme koşulu özelleştirmeleri bir isteğin kaynaklandığı konumuna g
 - URL yolu joker karakter eşleşmesi: Ayarlama [URL yolu joker karakter eşleşmesi koşul](#url-path-wildcard) alınmayacaksa dizine. 
     Bu kural tarafından tüm alt öğelerini erişimi engellenir emin olmak için göreli yol sonuna bir yıldız işareti ekleyin.
 
-- Ülke eşleşme: Ülke eşleşme koşulu ülkeler istenen kümesi için ayarlayın.
-   - İzin ver: Ülke eşleşme koşulu kümesine **eşleşmiyor** URL yolu joker karakter eşleşmesi koşul tarafından tanımlanan bir konumda depolanan içeriğe yalnızca belirtilen ülke erişmesine izin vermek için.
-   - Engelleme: Ülke eşleşme koşulu kümesine **eşleşme** belirtilen ülkeleri URL yolu joker karakter eşleşmesi koşul tarafından tanımlanan bir konumda depolanan içeriğe erişimini engellemek için.
+- Ülke eşleşme: Ülke eşleşme koşulu ülkeler/bölgeler için istenen kümesi ayarlayın.
+   - İzin ver: Ülke eşleşme koşulu kümesine **eşleşmiyor** URL yolu joker karakter eşleşmesi koşul tarafından tanımlanan bir konumda depolanan içeriğe yalnızca belirtilen ülkeler/bölgeler erişmesine izin vermek için.
+   - Engelleme: Ülke eşleşme koşulu kümesine **eşleşme** belirtilen URL yolu joker karakter eşleşmesi koşul tarafından tanımlanan bir konumda depolanan içeriğe erişimini ülkeleri engellemek için.
 
 - Erişim (403) özelliği Reddet: Etkinleştirme [erişimi engelle (403) özellik](cdn-rules-engine-reference-features.md#deny-access-403) ülke filtreleme özelliği bir izin verilenler veya Engellenenler kısmı çoğaltmak için.
 

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b09e14bfee700750192c5a007cbb3140fd49d137
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7770cd5b12a14e69c00d93b1b518e5007afd9c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Öğretici: Zscaler Beta ile Azure Active Directory Tümleştirme
 
@@ -38,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD Tümleştirmesi ile Zscaler Beta yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * Zscaler Beta çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -111,11 +112,11 @@ Azure AD çoklu oturum açma ile Zscaler Beta yapılandırmak için aşağıdaki
     > [!NOTE]
     > Değer, gerçek değil. Değerini gerçek oturum açma URL ile güncelleştirin. İlgili kişi [Zscaler Beta istemci Destek ekibine](https://www.zscaler.com/company/contact) değeri alınamıyor.
 
-5. Zscaler Beta uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. Zscaler Beta uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. Yukarıdaki için ayrıca Zscaler Beta uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
     | Ad | Kaynak özniteliği | 
     | ---------------| --------------- |
@@ -152,15 +153,23 @@ Azure AD çoklu oturum açma ile Zscaler Beta yapılandırmak için aşağıdaki
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Zscaler Beta çoklu oturum açmayı yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde Zscaler Beta şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Zscaler Beta içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-2. Git **Yönetim > kimlik doğrulama > kimlik doğrulama ayarları** ve aşağıdaki adımları gerçekleştirin:
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
+
+2. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum Zscaler Beta** Zscaler Beta uygulamaya yönlendirir. Burada, Zscaler Beta oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-6 adımları otomatik hale getirin.
+
+    ![Kurulum yapılandırması](common/setup-sso.png)
+
+3. Zscaler Beta el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi ve oturum Zscaler Beta şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+4. Git **Yönetim > kimlik doğrulama > kimlik doğrulama ayarları** ve aşağıdaki adımları gerçekleştirin:
    
     ![Yönetim](./media/zscaler-beta-tutorial/ic800206.png "Yönetim")
 
@@ -168,7 +177,7 @@ Azure AD çoklu oturum açma ile Zscaler Beta yapılandırmak için aşağıdaki
 
     b. Tıklayın **SAML'yi yapılandırmak**.
 
-3. Üzerinde **Düzenle SAML** penceresinde aşağıdaki adımları gerçekleştirin: ve Kaydet'e tıklayın.  
+5. Üzerinde **Düzenle SAML** penceresinde aşağıdaki adımları gerçekleştirin: ve Kaydet'e tıklayın.  
             
     ![Kullanıcı ve kimlik doğrulaması yönetmek](./media/zscaler-beta-tutorial/ic800208.png "kullanıcı ve kimlik doğrulaması'nı yönetme")
     
@@ -188,7 +197,7 @@ Azure AD çoklu oturum açma ile Zscaler Beta yapılandırmak için aşağıdaki
 
     h. **Kaydet**’e tıklayın.
 
-4. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+6. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Yönetim](./media/zscaler-beta-tutorial/ic800207.png)
 
@@ -245,8 +254,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 

@@ -1,25 +1,18 @@
 ---
-title: Power BI uygulaması teklifi - Azure Marketi'nde yayımlama | Microsoft Docs
+title: Power BI uygulaması teklifi yayımlama | Azure Market
 description: Bir Power BI uygulaması teklif Microsoft AppSource Market'te yayımlayın.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 0e82041dab1932ed7c129b598740b2441aa59315
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725729"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943190"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Power BI uygulaması teklifi yayımlama
 

@@ -2,25 +2,25 @@
 title: Hızlı Başlangıç - Azure Application Gateway - Azure portalı ile uçtan uca SSL şifrelemesini yapılandırma | Microsoft Docs
 description: Azure Application Gateway uçtan uca SSL şifrelemesi ile oluşturmak için Azure portalını kullanmayı öğrenin.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831964"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946791"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Portal ile uygulama ağ geçidi'ni kullanarak uçtan uca SSL'yi yapılandırma
 
 Bu makalede bir uygulama ağ geçidi ile uçtan uca SSL şifrelemesini yapılandırmak için Azure portalını kullanmayı gösterir v1 SKU.  
 
 > [!NOTE]
-> Uygulama ağ geçidi v2 SKU etkinleştirme uçtan uca yapılandırma için güvenilen kök sertifika gerektirir. Güvenilen kök sertifika eklemek için portal desteği henüz mevcut değildir. Bu nedenle, V2 SKU durumunda bkz [PowerShell kullanarak uçtan uca SSL'yi yapılandırma](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Uygulama ağ geçidi v2 SKU etkinleştirme uçtan uca yapılandırma için güvenilen kök sertifika gerektirir. Güvenilen kök sertifika eklemek için portal desteği henüz mevcut değildir. Bu nedenle, durumunda v2 SKU bkz [PowerShell kullanarak uçtan uca SSL'yi yapılandırma](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -32,7 +32,7 @@ Daha fazla bilgi için bkz. [SSL sonlandırma ve uçtan uca SSL](https://docs.mi
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Uçtan uca SSL ile yeni bir uygulama ağ geçidi oluşturma
 
-Uçtan uca SSL şifrelemesi ile yeni bir uygulama ağ geçidi oluşturmak için önce yeni bir uygulama ağ geçidi oluşturulurken, SSL sonlandırma etkinleştirmeniz gerekir. Bu, istemci ve uygulama ağ geçidi arasındaki iletişim için SSL şifrelemesini etkinleştirir. Ardından, bu nedenle uçtan uca SSL şifrelemesini yerine getirmeye uygulama ağ geçidi ve arka uç sunucuları arasındaki iletişim için SSL şifrelemesini etkinleştirmek için HTTP ayarlarında arka uç sunucular için güvenilir sertifikaları için gerekir.
+Uçtan uca SSL şifrelemesi ile yeni bir uygulama ağ geçidi oluşturmak için önce yeni bir uygulama ağ geçidi oluşturulurken, SSL sonlandırma etkinleştirmeniz gerekir. Bu, istemci ve uygulama ağ geçidi arasındaki iletişim için SSL şifrelemesini etkinleştirir. Ardından, uçtan uca SSL şifrelemesini yerine getirmeye uygulama ağ geçidi ve arka uç sunucuları arasındaki iletişim için SSL şifrelemesini etkinleştirmek için HTTP ayarlarında arka uç sunucular için güvenilir sertifikaları için gerekir.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Yeni bir uygulama ağ geçidi oluşturulurken, SSL sonlandırmayı etkinleştirin
 
@@ -61,9 +61,9 @@ Anlamak için bu makaleyi okuyun nasıl [yeni bir uygulama ağ geçidi oluşturu
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Mevcut uygulama ağ geçidi için uçtan uca SSL'yi etkinleştirme
 
-Mevcut uygulama ağ geçidi ile uçtan uca SSL şifrelemesini yapılandırmak için ilk etkinleştir SSL sonlandırma, dinleyici gerekir. Bu, istemci ve uygulama ağ geçidi arasındaki iletişim için SSL şifrelemesini etkinleştirir. Ardından, bu nedenle uçtan uca SSL şifrelemesini yerine getirmeye uygulama ağ geçidi ve arka uç sunucuları arasındaki iletişim için SSL şifrelemesini etkinleştirmek için HTTP ayarlarında arka uç sunucular için güvenilir sertifikaları için gerekir.
+Mevcut uygulama ağ geçidi ile uçtan uca SSL şifrelemesini yapılandırmak için ilk etkinleştir SSL sonlandırma, dinleyici gerekir. Bu, istemci ve uygulama ağ geçidi arasındaki iletişim için SSL şifrelemesini etkinleştirir. Ardından, uçtan uca SSL şifrelemesini yerine getirmeye uygulama ağ geçidi ve arka uç sunucuları arasındaki iletişim için SSL şifrelemesini etkinleştirmek için HTTP ayarlarında arka uç sunucular için güvenilir sertifikaları için gerekir.
 
-SSL sonlandırma etkinleştirmek için bir dinleyici HTTPS protokolünü ve sertifika ile kullanmanız gerekir. Var olan bir dinleyici Protokolü değiştiremezsiniz. Bu nedenle, HTTPS protokolünü ve sertifika ile var olan bir dinleyici kullanın veya yeni dinleyici oluşturun ya da seçebilirsiniz. Önceki seçtiğiniz uyarıdaki yoksayabilirsiniz adımları aşağıda belirtilen **mevcut application Gateway'de etkinleştirme SSL sonlandırma** ve doğrudan gitme **arka uç sunucular için güvenilir sertifikaları** bölümü. İkinci seçeneği seçerseniz, aşağıdaki adımları gerçekleştirin. 
+SSL sonlandırma etkinleştirmek için bir dinleyici HTTPS protokolünü ve sertifika ile kullanmak gerekir. Var olan bir dinleyici Protokolü değiştiremezsiniz. Bu nedenle, HTTPS protokolünü ve sertifika ile var olan bir dinleyici kullanın veya yeni dinleyici oluşturun ya da seçebilirsiniz. Önceki seçtiğiniz uyarıdaki yoksayabilirsiniz adımları aşağıda belirtilen **mevcut application Gateway'de etkinleştirme SSL sonlandırma** ve doğrudan gitme **arka uç sunucular için güvenilir sertifikaları** bölümü. İkinci seçeneği seçerseniz, aşağıdaki adımları kullanın.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Mevcut uygulama ağ geçidinde SSL sonlandırmayı etkinleştirin
 

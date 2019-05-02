@@ -3,8 +3,8 @@ title: Uyarılar ve Azure işlevleri ile öngörülü ağ izleme yapmak için pa
 description: Bu makalede bir uyarı tetiklendi paket yakalama ile Azure Ağ İzleyicisi oluşturma
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048767"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711918"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uyarılar ve Azure işlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma
 
@@ -149,7 +149,7 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması içi
 
     ![PowerShell dosyaları][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Kimlik Doğrulaması
 
 PowerShell cmdlet'lerini kullanmak için kimlik doğrulaması gerekir. İşlev uygulamasında kimlik doğrulamasını yapılandırın. Kimlik doğrulamasını yapılandırmak için ortam değişkenlerini yapılandırma ve şifreli bir anahtar dosyası işlev uygulamasına yükleyin.
 

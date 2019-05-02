@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357939"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572688"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Sanal çekirdek hizmet katmanları seçin ve DTU hizmet katmanı arasından geçirme
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar. Ayrıca, donanımın seçmenize olanak sağlar:
 
 - 4-24 mantıksal CPU'lar Intel E5-2673 v3 temel kadar. nesil (Haswell) 2,4 GHz işlemcileri, sanal çekirdek = 1 bağlı PP (fiziksel çekirdek), çekirdek başına 7 GB SSD
 - 5-kadar 80 mantıksal CPU'lar Intel E5-2673 v4 temel alır. nesil (Broadwell) 2,3 GHz işlemcileri, sanal çekirdek = 1 LP (hiper iş parçacığı), çekirdek, hızlı eNVM SSD başına 5.1 GB
+
 
 Donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır.
 
@@ -40,9 +41,9 @@ Aşağıdaki tabloda, üç katmanı arasındaki farkları yardımcı olur:
 ||**Genel amaçlı**|**İş açısından kritik**|**Hiper ölçekli (Önizleme)**|
 |---|---|---|---|
 |En iyi kullanım alanı:|Çoğu iş yükü. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|Çoğu iş yükü ile yüksek düzeyde ölçeklenebilir depolama ve okuma ölçek gereksinimleri|
-|İşlem|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek|
-|Bellek|4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB | 4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB |4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB|
-|Depolama|Uzaktan Depolama kullanıyor:<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 8 TB |Yerel SSD depolama kullanır:<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 4 TB |Esnek, otomatik olarak büyütme gerektiğinde depolama. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
+|CPU|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek<br/>**Sunucusuz bilgi işlem**<br/>5. nesil: 0,5 - 4 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 1 ila 80 sanal çekirdek|
+|Bellek|**Sağlanan işlem**:<br/>4. nesil: Çekirdek başına 7 GB<br/>5. nesil: Çekirdek başına 5.1 GB<br/>**Sunucusuz bilgi işlem**<br/>5. nesil: Çekirdek başına 3 GB|**Sağlanan işlem**:<br/>4. nesil: Çekirdek başına 7 GB<br/>5. nesil: Çekirdek başına 5.1 GB |**Sağlanan işlem**:<br/>4. nesil: Çekirdek başına 7 GB<br/>5. nesil: Çekirdek başına 5.1 GB|
+|Depolama|Uzaktan Depolama kullanıyor:<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Tek veritabanı sunucusuz işlem**:<br/>5 GB - 1 TB<br/>**Yönetilen örnek**: 32 GB - 8 TB |Yerel SSD depolama kullanır:<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Yönetilen örnek**:<br/>32 GB - 4 TB |Esnek, otomatik olarak büyütme gerektiğinde depolama. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
 |GÇ verimliliği (yaklaşık)|Tek veritabanı: 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS</br>Yönetilen örnek: Bağımlı [dosya boyutu](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile|TBD|
 |Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltma, 1 [okuma ölçeği çoğaltma](sql-database-read-scale-out.md),<br/>Bölge yedekli HA|?|
 |Yedeklemeler|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|Anlık görüntü tabanlı Yedekleme Azure uzak depolama ve geri yükler, bu anlık görüntüler Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlıdır ve bir veri işlemi (dakika yerine saatler veya günler katılarak) boyutunu değildir.|
@@ -56,16 +57,18 @@ Aşağıdaki tabloda, üç katmanı arasındaki farkları yardımcı olur:
 - Genel amaçlı ve iş açısından kritik hizmet katmanları hakkında daha fazla bilgi için bkz. [genel amaçlı ve iş açısından kritik hizmet katmanlarına](sql-database-service-tiers-general-purpose-business-critical.md).
 - Hiper ölçekli bir hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli hakkında daha fazla bilgi için bkz: [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> DTU tabanlı satın alma modeli, bilgi işlem kapasitesine saatten daha az sanal çekirdek gerekiyorsa kullanın.
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
-Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
+Sağlanan bilgisayar katmanındaki sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 
-Azure karma avantajı ile SQL veritabanı altyapısı için kendi mevcut SQL Server lisansınızı kullanarak temel Azure altyapısını karşılığında Ödeme yapmalarını sağlayan seçebilirsiniz (**BasePrice**) veya her iki temel alınan altyapı için ödeme ve SQL Server Lisansı (**LicenseIncluded**). Azure portalını kullanarak ya da aşağıdaki API'leri kullanarak, lisans modeli değiştirmek ya da seçin.
+Azure karma avantajı ile SQL veritabanı altyapısı için kendi mevcut SQL Server lisansınızı kullanarak temel Azure altyapısını karşılığında Ödeme yapmalarını sağlayan seçebilirsiniz (**BasePrice**) veya her iki temel alınan altyapı için ödeme ve SQL Server Lisansı (**LicenseIncluded**).
+
+
+Azure portalını kullanarak ya da aşağıdaki API'leri kullanarak, lisans modeli değiştirmek ya da seçin.
 
 - Ayarlamak veya PowerShell kullanarak lisans türünü güncelleştirmek için:
 
@@ -130,5 +133,5 @@ DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md)
 - Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456216"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924805"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
@@ -38,7 +38,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ### <a name="new"></a>Yeni
 
 * Şimdi, sahibi ve sahip olan Grup bir ADLS Gen2 kapsayıcı, dosya veya klasör için erişim yönetirken değiştirebilirsiniz.
-* Windows üzerinde depolama Gezgini'nden ürün içinde güncelleştirmek artımlı yükleme şimdi kullanılır. Bu, daha hızlı bir güncelleştirme deneyimi neden olur. Temiz yükleme tercih sonra indirebileceğiniz [yükleyici](https://azure.microsoft.com/en-us/features/storage-explorer/) kendiniz ve el ile yükleyin. #1089
+* Windows üzerinde depolama Gezgini'nden ürün içinde güncelleştirmek artımlı yükleme şimdi kullanılır. Bu, daha hızlı bir güncelleştirme deneyimi neden olur. Temiz yükleme tercih sonra indirebileceğiniz [yükleyici](https://azure.microsoft.com/features/storage-explorer/) kendiniz ve el ile yükleyin. #1089
 
 ### <a name="preview-features"></a>Önizleme Özellikleri
 
@@ -59,7 +59,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 ### <a name="known-issues"></a>Bilinen Sorunlar
 
-* RBAC kullanırken, Depolama Gezgini depolama kaynaklarınıza erişmek için bazı yönetim katmanı izinleri gerektirir. Bkz: [sorun giderme kılavuzu](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) daha fazla bilgi için.
+* RBAC kullanırken, Depolama Gezgini depolama kaynaklarınıza erişmek için bazı yönetim katmanı izinleri gerektirir. Bkz: [sorun giderme kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) daha fazla bilgi için.
 * ADLS Gen2 BLOB'ları, bir proxy'nin arkasında erişmeye başarısız olabilir.
 * Bir blob kapsayıcısı gibi SAS URI'sini eklenen bir kaynağından ayırma doğru gösteren gelen diğer ekleri engelleyen hataya neden olabilir. Bu sorunu çözmek için yalnızca Grup düğümünü yenileyin. #537 daha fazla bilgi için bkz.
 * Bir blob kapsayıcısı gibi SAS URI'sini eklenen bir kaynağından ayırma doğru gösteren gelen diğer ekleri engelleyen hataya neden olabilir. Bu sorunu çözmek için yalnızca Grup düğümünü yenileyin. #537 daha fazla bilgi için bkz.

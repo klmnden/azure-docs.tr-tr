@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342636"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925835"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak MySQL için Azure veritabanı sağlama
 
 [MySQL REST API'si için Azure veritabanı](https://docs.microsoft.com/rest/api/mysql/) çağırıp sağlama, yapılandırma ve işlemleri yönetilen MySQL sunucularının ve veritabanlarının azure'da tümleştirme, DevOps mühendislerine sağlar.  API, MySQL hizmeti için Azure veritabanı oluşturma, numaralandırma, yönetim ve MySQL sunucuları ve veritabanlarına silinmesini sağlar.
 
-Azure Resource Manager, temel alınan bildirmek için REST API ve Azure kaynaklarını kod kavram olarak altyapısıyla hizalama ölçekli dağıtımlar için gerekli program yararlanın. Azure kaynak adı, SKU, ağ, güvenlik duvarı yapılandırması, şablon parametreleştiren ve bir oluşturulmasına izin ayarları, saat ve birden çok kez kullanıldı.  Azure Resource Manager şablonları kolayca oluşturulabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) veya [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Uygulama paketleme, Standardizasyon ve DevOps CI/CD işlem hattında tümleştirilebilir dağıtımı Otomasyonu, tanırlar.  Örneği için Azure veritabanı ile bir Web uygulaması için MySQL arka ucuna kolayca dağıtmak istiyorsanız, bunu kullanarak uçtan uca dağıtım gerçekleştirebilirsiniz [Hızlı Başlangıç şablonu](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) GitHub Galerisi.
+Azure Resource Manager, temel alınan bildirmek için REST API ve Azure kaynaklarını kod kavram olarak altyapısıyla hizalama ölçekli dağıtımlar için gerekli program yararlanın. Azure kaynak adı, SKU, ağ, güvenlik duvarı yapılandırması, şablon parametreleştiren ve bir oluşturulmasına izin ayarları, saat ve birden çok kez kullanıldı.  Azure Resource Manager şablonları kolayca oluşturulabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) veya [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Uygulama paketleme, Standardizasyon ve DevOps CI/CD işlem hattında tümleştirilebilir dağıtımı Otomasyonu, tanırlar.  Örneği için Azure veritabanı ile bir Web uygulaması için MySQL arka ucuna kolayca dağıtmak istiyorsanız, bunu kullanarak uçtan uca dağıtım gerçekleştirebilirsiniz [Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) GitHub Galerisi.
 
 Bu öğreticide, Azure Resource Manager şablonu ve diğer yardımcı programları öğrenmek için kullandığınız nasıl yapılır:
 

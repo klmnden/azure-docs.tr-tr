@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f1e2aebae88d34334200504915be4043f32013b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107388"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926613"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Geçerli sürüm](connector-azure-sql-data-warehouse.md)
 
-Bu makalede, kopyalama etkinliği Azure Data Factory'de veya Azure SQL veri ambarı veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Yapılar [kopyalama etkinliğine genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+Bu makalede, Azure SQL veri ambarı ve veri kopyalamak nasıl özetlenmektedir. Azure Data Factory hakkında bilgi edinmek için [giriş makalesi](introduction.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Azure SQL veri ambarı ' veri her desteklenen havuz veri deposuna kopyalayabilirsiniz. Ve tüm desteklenen kaynak veri deposundan Azure SQL veri ambarı'na veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları ve biçimler](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Bu Azure Blob Bağlayıcısı için aşağıdaki etkinlikleri desteklenir:
+
+- [Kopyalama etkinliği](copy-activity-overview.md) ile [desteklenen kaynak/havuz matris](copy-activity-overview.md) tablo
+- [Veri akışı eşleme](concepts-data-flow-overview.md)
+- [Arama etkinliği](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Özellikle, bu Azure SQL veri ambarı Bağlayıcısı, bu işlevler destekler:
 
@@ -136,12 +141,12 @@ Hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasını ku
 2. **[Bir Azure Active Directory Yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi, Azure AD kullanıcısı veya Azure AD grubu olabilir. Yönetilen kimlik Yönetici rolü grubuyla sağlıyorsa, 3 ve 4. adımları atlayın. Yönetici veritabanında tam erişiminiz olacaktır.
 
 3. **[Bağımsız veritabanı kullanıcılarını oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  hizmet sorumlusu için. Veri ambarından ya da en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak verileri kopyalamak istediğiniz herhangi bir kullanıcı ALTER izni. Aşağıdaki T-SQL çalıştırın:
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Hizmet sorumlusuna gerekli izinleri vermek** SQL kullanıcıları veya diğerleri için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın ya da daha fazla seçenek için başvuru [burada](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Hizmet sorumlusuna gerekli izinleri vermek** SQL kullanıcıları veya diğerleri için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın ya da daha fazla seçenek için başvuru [burada](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -186,12 +191,12 @@ Yönetilen kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 1. **[Bir Azure Active Directory Yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi, Azure AD kullanıcısı veya Azure AD grubu olabilir. Yönetilen kimlik Yönetici rolü grubuyla sağlıyorsa, 3 ve 4. adımları atlayın. Yönetici veritabanında tam erişiminiz olacaktır.
 
 2. **[Bağımsız veritabanı kullanıcılarını oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Data Factory yönetilen kimliği için. Veri ambarından ya da en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak verileri kopyalamak istediğiniz herhangi bir kullanıcı ALTER izni. Aşağıdaki T-SQL çalıştırın. 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Data Factory yönetilen kimliği gerekli izinleri vermek** SQL kullanıcılar ve diğerleri için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın ya da daha fazla seçenek için başvuru [burada](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Data Factory yönetilen kimliği gerekli izinleri vermek** SQL kullanıcılar ve diğerleri için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın ya da daha fazla seçenek için başvuru [burada](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -416,7 +421,7 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Hizmet sorumlusu kimlik doğrulaması |
     | [Azure Data Lake depolama 2. nesil](connector-azure-data-lake-storage.md) | Hesap anahtarı kimlik doğrulaması |
 
-2. **Kaynak veri kümesi biçimi** değil **ParquetFormat**, **OrcFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
+2. **Kaynak veri biçimi** değil **Parquet**, **ORC**, veya **ayrılmış metin**, aşağıdaki yapılandırmaları ile:
 
    1. `folderPath` ve `fileName` joker karakter filtresi içermiyor.
    2. `rowDelimiter` olmalıdır **\n**.
@@ -424,20 +429,6 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
    4. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
    5. `escapeChar`, `quoteChar` ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
    6. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
 
 ```json
 "activities":[
@@ -556,6 +547,10 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 NULL değerini varsayılan değer özel bir biçimidir. Sütun null ise, söz konusu sütun için BLOB giriş veri boş olabilir. Ancak, giriş veri kümesinden eksik olamaz. PolyBase, Azure SQL veri ambarı'nda eksik değerler için NULL ekler.
+
+## <a name="mapping-data-flow-properties"></a>Veri akışı özellikleri eşleme
+
+Ayrıntıları öğrenin [kaynak dönüştürme](data-flow-source.md) ve [havuz dönüştürme](data-flow-sink.md) eşleme veri akışı olarak.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için veri türü eşlemesi
 

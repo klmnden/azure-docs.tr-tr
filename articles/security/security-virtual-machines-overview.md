@@ -1,5 +1,5 @@
 ---
-title: Azure sanal makineler ile kullanılan azure güvenlik özellikleri | Microsoft Docs
+title: Güvenlik özellikleri ile Azure sanal makineler - kullanılan Azure güvenlik | Microsoft Docs
 description: Bu makalede, Azure sanal makineler ile kullanılabilir Azure güvenlik özelliklerini çekirdek genel bir bakış sağlar.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444257"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872022"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure sanal makineleri güvenliğine genel bakış
+Bu makalede, sanal makineler ile kullanılabilir Azure güvenlik özelliklerini çekirdek genel bir bakış sağlar.
 
 Azure sanal makineler, çok çeşitli bilgi işlem çözümlerini Çevik bir şekilde dağıtmak için kullanabilirsiniz. Hizmeti Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP ve Azure BizTalk Services'ı destekler. Bu nedenle, tüm iş yüklerini ve dilleri neredeyse tüm işletim sistemlerinde dağıtabilirsiniz.
 
@@ -33,9 +34,7 @@ Azure sayesinde, Gelişmiş Güvenlik uyumlu çözümler oluşturabilirsiniz:
 * Hassas verilerinizi şifreleyin.
 * Ağ trafiğinin güvenliğini sağlayın.
 * Belirlemek ve tehditleri algılar.
-* Uyumluluk gereksinimlerini karşılayın.
-
-Bu makalenin hedefi sanal makinelerle kullanılabilmesi için Azure güvenlik özellikleri çekirdek genel bir bakış sağlamaktır. Daha fazla bilgi için makalelerin bağlantıları her özelliğin ayrıntılarını verir.  
+* Uyumluluk gereksinimlerini karşılayın.  
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
 
@@ -77,14 +76,14 @@ Daha güçlü koruma için kullanmayı [Windows Defender Gelişmiş tehdit korum
 * [Yönetim ve API'ler](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft tehdit koruması](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Daha fazla bilgi edinin: 
+Daha fazla bilgi edinin:
 
 * [WDATP ile çalışmaya başlama](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [WDATP özelliklerine genel bakış](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Donanım güvenlik modülü
 
-Anahtar güvenlik artar, şifreleme ve kimlik korumaları geliştirebilirsiniz. Azure Key Vault'ta depolayarak bunları kritik gizli dizileri ve anahtarları ve Yönetimi basitleştirebilir. 
+Anahtar güvenlik artar, şifreleme ve kimlik korumaları geliştirebilirsiniz. Azure Key Vault'ta depolayarak bunları kritik gizli dizileri ve anahtarları ve Yönetimi basitleştirebilir.
 
 Key Vault, anahtarlarınızı FIPS 140-2 2. Düzey standartlarıyla sertifikalanmış olan donanım güvenlik modüllerinde (HSM'ler) depolama seçeneği sunar. SQL Server şifreleme anahtarları için yedekleme veya [saydam veri şifrelemesi](https://msdn.microsoft.com/library/bb934049.aspx) tüm anahtar Kasası'nda tüm anahtarlar veya parolalar uygulamalarınızdan depolanabilir. İçin bu korumalı öğelere izni veya erişimi aracılığıyla yönetilir [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
@@ -133,7 +132,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="virtual-networking"></a>Sanal ağ
 
-Sanal makinelerin ağ bağlantısı gerekir. Bu gereksinimi desteklemek için Azure sanal makineler, Azure sanal ağına bağlı olması gerekir. 
+Sanal makinelerin ağ bağlantısı gerekir. Bu gereksinimi desteklemek için Azure sanal makineler, Azure sanal ağına bağlı olması gerekir.
 
 Bir Azure sanal ağı, fiziksel Azure ağ dokusu üzerine oluşturulmuş mantıksal bir yapıdır. Her mantıksal Azure sanal ağ, diğer tüm Azure sanal ağlardan yalıtılır. Bu yalıtım, dağıtımlarınızı ağ trafiğini diğer Microsoft Azure müşterileri için erişilebilir değil Sigortası yardımcı olur.
 
@@ -169,14 +168,13 @@ Daha fazla bilgi edinin:
 
 ## <a name="confidential-computing"></a>Gizli bilgi işlem
 
-Gizli bilgi işlem sanal makine güvenliği teknik bir parçası değildir, ancak sanal makine güvenlik konusunda "işlem" güvenlik üst düzey bir konu aittir. Gizli bilgi işlem, "işlem" güvenlik kategoride aittir. 
+Gizli bilgi işlem sanal makine güvenliği teknik bir parçası değildir, ancak sanal makine güvenlik konusunda "işlem" güvenlik üst düzey bir konu aittir. Gizli bilgi işlem, "işlem" güvenlik kategoride aittir.
 
 Gizli bilgi işlem sağlar veriler "clear" olduğunda verimli işleme, veri için gerekli olan güvenilir bir yürütme ortamı içinde korunduğundan emin https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - kuşatma olarak da bilinir), bir örneğini aşağıdaki şekilde gösterilmiştir. .  
 
-TEEs görünüm verileri veya içinde bir hata ayıklayıcısı olsa da işlem dışarıdan, yolu bulunduğundan emin olun. Hatta yalnızca yetkili kod verilere erişmesine izin verildiğinden emin olun. Kod değiştirilmiş ya da değiştirilmiş, işlemleri reddedilir ve ortam devre dışı. TEE içindeki kod yürütmeyi boyunca bu korumalar zorlar. 
+TEEs görünüm verileri veya içinde bir hata ayıklayıcısı olsa da işlem dışarıdan, yolu bulunduğundan emin olun. Hatta yalnızca yetkili kod verilere erişmesine izin verildiğinden emin olun. Kod değiştirilmiş ya da değiştirilmiş, işlemleri reddedilir ve ortam devre dışı. TEE içindeki kod yürütmeyi boyunca bu korumalar zorlar.
 
 Daha fazla bilgi edinin:
 
 * [Azure gizli bilgi işlem ile tanışın](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure gizli bilgi işlem](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

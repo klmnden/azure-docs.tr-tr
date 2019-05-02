@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903531"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947281"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği
 
@@ -65,7 +65,9 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
 
 3. Seçin **Tamam** dönmek için **ayarları** sayfası.
 
-4. Seçin **ön uç IP yapılandırması**. Altında **ön uç IP yapılandırması**, doğrulama **IP adresi türü** ayarlanır **genel**. Altında **genel IP adresi**, doğrulama **Yeni Oluştur** seçilir. <br>Ön uç IP, genel veya özel kullanım Örneğinize göre olacak şekilde yapılandırabilirsiniz. Bu örnekte, genel bir ön uç IP seçeceğiz. 
+4. Seçin **ön uç IP yapılandırması**. Altında **ön uç IP yapılandırması**, doğrulama **IP adresi türü** ayarlanır **genel**. Altında **genel IP adresi**, doğrulama **Yeni Oluştur** seçilir. <br>Ön uç IP, genel veya özel kullanım Örneğinize göre olacak şekilde yapılandırabilirsiniz. Bu örnekte, genel bir ön uç IP seçeceğiz.
+   > [!NOTE]
+   > Application Gateway v2 SKU için yalnızca seçebilirsiniz **genel** IP yapılandırması. Özel IP yapılandırması, şu anda v2 SKU için etkinleştirilmemiş.
 
 5. Girin *myAGPublicIPAddress* için genel IP adresi adı. 
 

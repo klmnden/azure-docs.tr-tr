@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253812"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680809"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Azure Backup için genel güvenlik öznitelikleri
 
@@ -27,7 +27,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet | Depolama hesapları için depolama hizmeti şifrelemesi kullanarak. |
-| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Hayır | HTTPS kullanarak. |
+| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>VNet şifreleme</li><li>VNet-VNet şifreleme</ul>| Hayır | HTTPS kullanarak. |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Hayır |  |
 | Sütun düzeyinde şifrelemeyi (Azure Data Services)| Hayır |  |
 | Şifrelenmiş API çağrıları| Evet |  |
@@ -37,7 +37,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Hizmet uç noktası desteği| Hayır |  |
-| vNET ekleme desteği| Hayır |  |
+| VNet ekleme desteği| Hayır |  |
 | Ağ yalıtımı ve saldırısından desteği| Evet | Zorlamalı tünel VM yedeklemesi için desteklenir. Zorlamalı tünel, VM içinde çalışan iş yükleri için desteklenmiyor. |
 | Zorlamalı tünel oluşturma desteği| Hayır |  |
 

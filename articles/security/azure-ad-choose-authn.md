@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805270"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702297"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -49,7 +49,7 @@ Azure AD karma kimlik çözümleri için aşağıdaki kimlik doğrulama yönteml
 ### <a name="cloud-authentication"></a>Bulut kimlik doğrulaması
 Bu kimlik doğrulama yöntemi seçtiğinizde Azure AD kullanıcılarınızın oturum açma işlemi işler. Sorunsuz çoklu oturum açma (SSO) birlikte kullanıcılar, kimlik bilgilerini girmek zorunda kalmadan bulut uygulamalarında oturum açabilir. Bulut kimlik doğrulaması ile iki seçenekler arasından seçim yapabilirsiniz: 
 
-**Azure AD parola karması eşitleme**. Şirket içi dizin nesnelerini Azure ad kimlik doğrulamasını etkinleştirmek için en basit yolu. Kullanıcılar, aynı kullanıcı adı ve parola şirket içinde kullandıkları kullanabileceğiniz ek altyapı dağıtmak zorunda kalmadan. Seçtiğiniz ne olursa olsun hangi kimlik doğrulama yöntemi için parola karması eşitleme gibi kimlik koruması, Azure AD premium özelliklerinden bazıları gerektirir.
+**Azure AD parola karması eşitleme**. Şirket içi dizin nesnelerini Azure ad kimlik doğrulamasını etkinleştirmek için en basit yolu. Kullanıcılar, aynı kullanıcı adı ve parola şirket içinde kullandıkları kullanabileceğiniz ek altyapı dağıtmak zorunda kalmadan. Gibi bazı premium özellikler, Azure ad kimlik koruması ve [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), seçtiğiniz hangi kimlik doğrulaması yöntem ne olursa olsun, parola karma eşitlemesini gerektirir.
 
 > [!NOTE] 
 > Hiçbir zaman parolaları düz metin olarak depolanan veya Azure AD'de bir ters çevrilebilir algoritması ile şifrelenmiş. Parola Karması eşitleme gerçek işlemi hakkında daha fazla bilgi için bkz. [Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Karar sorular hakkında ayrıntılar:
 
 * **Kullanıcı deneyimi**. Kullanıcıların oturum açma deneyimini sorunsuz çoklu oturum açma Parola Karması eşitleme ile dağıtın. Sorunsuz çoklu oturum açma, kullanıcıların oturum açtığınızda gereksiz istemleri ortadan kaldırır.
 
-* **Gelişmiş senaryolar**. Kuruluşlar için seçerseniz, Azure AD Premium P2 ile Azure AD kimlik koruması raporlarla kimlikleri ınsights'tan kullanmak da mümkündür. Sızan kimlik bilgileri rapor buna bir örnektir. Windows iş için Hello sahip [parola karması eşitleme kullandığınızda belirli gereksinimleri](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Gelişmiş senaryolar**. Kuruluşlar için seçerseniz, Azure AD Premium P2 ile Azure AD kimlik koruması raporlarla kimlikleri ınsights'tan kullanmak da mümkündür. Sızan kimlik bilgileri rapor buna bir örnektir. Windows iş için Hello sahip [parola karması eşitleme kullandığınızda belirli gereksinimleri](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD etki alanı Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) sağlama kullanıcılar yönetilen etki alanında Kurumsal kimlik bilgileriyle parola karma eşitlemesini gerektirir.
 
     Parola Karması eşitleme ile çok faktörlü kimlik doğrulaması gerektiren kuruluşlar, Azure AD ile çok faktörlü kimlik doğrulaması kullanmanız gerekir. Kuruluşlar, üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemleri kullanamaz.
 

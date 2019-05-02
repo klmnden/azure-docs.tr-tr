@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760221"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925750"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>Çalışma alanını yapılandırma
 
-Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A [çalışma](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) Azure abonelik ve kaynak bilgilerini kabul eden bir sınıftır. Ayrıca, model çalıştırmalarınızı izlemeye yarayan bir bulut kaynağı oluşturur.
+Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A [çalışma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) Azure abonelik ve kaynak bilgilerini kabul eden bir sınıftır. Ayrıca, model çalıştırmalarınızı izlemeye yarayan bir bulut kaynağı oluşturur.
 
 `Workspace.from_config()`, **config.json** dosyasını okur ve ayrıntıları `ws` adlı nesneye yükler.  Bu öğreticideki kodun kalanında `ws` kullanılır.
 

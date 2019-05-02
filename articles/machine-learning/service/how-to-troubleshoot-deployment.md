@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817424"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925378"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
 
@@ -307,7 +307,7 @@ Azure Kubernetes hizmeti dağıtımları ek yükü desteklemeye eklenecek çoğa
     > [!NOTE]
     > İstek artışlarını yeni minimum çoğaltmaları işleyebileceğinden daha büyük alırsanız, 503 sn yeniden alabilirsiniz. Örneğin, trafiği, hizmet artışları için en düşük çoğaltmaları artırmak gerekebilir.
 
-Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas` için bkz: [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modül başvurusu.
+Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas` için bkz: [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modül başvurusu.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

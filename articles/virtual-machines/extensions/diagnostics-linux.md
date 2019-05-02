@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710401"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçüm ve günlükleri izlemek için Linux tanılama uzantısı kullanma
 
@@ -500,7 +500,9 @@ ReadsPerSecond | Saniye başına okuma işlemleri
 WritesPerSecond | Yazma işlemi / saniye
 TransfersPerSecond | Saniye başına okuma veya yazma işlemleri
 
-Tüm dosya sistemleri arasında toplanmış değerler elde edilebilir ayarlayarak `"condition": "IsAggregate=True"`. Gibi belirli bir bağlı dosya sistemi için değer "/ mnt", ayarlayarak alınabilir `"condition": 'Name="/mnt"'`.
+Tüm dosya sistemleri arasında toplanmış değerler elde edilebilir ayarlayarak `"condition": "IsAggregate=True"`. Gibi belirli bir bağlı dosya sistemi için değer "/ mnt", ayarlayarak alınabilir `"condition": 'Name="/mnt"'`. 
+
+**NOT**: Azure portalı yerine JSON kullanıyorsanız, doğru bir koşulu alan formun addır ='/ mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Disk sınıfı için yerleşik ölçümleri
 

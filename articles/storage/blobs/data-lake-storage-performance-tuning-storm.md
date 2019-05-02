@@ -2,18 +2,19 @@
 title: Azure Data Lake depolama Gen2 Storm performans ayarlama yönergeleri | Microsoft Docs
 description: Azure Data Lake depolama Gen2 Storm performans ayarlama yönergeleri
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392594"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939401"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 üzerinde Storm için performans ayarlama Kılavuzu
 

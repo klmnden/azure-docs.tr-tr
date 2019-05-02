@@ -2,24 +2,18 @@
 title: Azure Market ve AppSource yol haritası | Azure
 description: Market'te neler için bir yol haritası
 services: Azure, Marketplace, Compute
-documentationcenter: ''
 author: qianw211
 manager: MaggiePucciEvans
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 4a1586d965a51a3c655346994274159b99ab0a9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 881d62cd7b7b9d4434a807a2aab62b75e9a8e97b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764273"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937790"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Azure Market ve AppSource yol haritası
 

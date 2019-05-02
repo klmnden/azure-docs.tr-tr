@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683044"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699145"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS ölçümleri ve Uyarıları
 Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma DNS etki alanları için hizmetidir. Bu makalede, Ölçümler ve Uyarılar için Azure DNS hizmeti açıklanır.
@@ -36,7 +36,7 @@ Ayrıca bkz [Bu ölçümler tanımını](../azure-monitor/platform/metrics-suppo
 >[!NOTE]
 > Şu anda bu ölçümler yalnızca Azure DNS'de barındırılan bir ortak DNS bölgeleri için kullanılabilir. Azure DNS'de barındırılan özel bölgeleri varsa, bu ölçümleri veri bölgeleri için sağlamaz. Ayrıca, Ölçümler ve uyarı özelliği yalnızca desteklenir Azure genel bulutunda. Bağımsız Bulutlar için destek, daha sonraki bir zamanda izler. 
 
-Bu ölçümler için boyut parçalı düzeyde DNS bölgesidir.
+Ölçümlerini görebileceğiniz en ayrıntılı bir DNS bölgesi öğesidir. Şu an için tek kaynak kayıtları bir bölge içerisindeki ölçümleri göremez.
 
 ### <a name="query-volume"></a>Sorgu birim
 

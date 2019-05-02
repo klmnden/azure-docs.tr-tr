@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296835"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918522"
 ---
 # <a name="web-apps"></a>Web uygulamaları
 
@@ -46,7 +45,7 @@ Web tarayıcısına web uygulaması senaryoları için kod örneklere bakın. Ve
 
 ## <a name="app-registration"></a>Uygulama kaydı
 
-Bir web uygulamasını kaydetmek için bkz: [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
+Bir web uygulamasını kaydetmek için bkz: [bir uygulamayı kaydetme](quickstart-register-app.md).
 
 * Tek bir Kiracı - yalnızca kuruluşunuz için bir uygulama oluşturuyorsanız, bunu şirketinizin dizininde Azure portalını kullanarak kayıtlı olması gerekir.
 * Çok kiracılı - kuruluşunuzun dışındaki kullanıcılar tarafından kullanılabilen bir uygulama oluşturuyorsanız bunu şirketinizin dizinde kayıtlı olması gerekir, ancak da uygulamayı kullanarak her kuruluşun dizininde kayıtlı olması gerekir. Uygulamanızı directory'lerinde kullanılabilir hale getirme için uygulamanıza onay verme tanıyan müşterileriniz için bir kayıt işlemi dahil edebilirsiniz. Bunlar, uygulamanız için oturum açarken uygulama izinleri gösteren bir iletişim kutusu, ardından onay seçeneği ile sunulur. Gerekli izinlere bağlı olarak diğer kuruluştaki bir yöneticisinin izni vermek için gerekebilir. Kullanıcı veya yönetici onay verdiğinde, uygulama, dizinde kayıtlı.
@@ -59,5 +58,3 @@ Azure AD tarafından verilen belirtecin süresi dolduğunda, kullanıcının otu
 
 * Diğer hakkında daha fazla bilgi [uygulama türleri ve senaryolar](app-types.md)
 * Azure AD hakkında bilgi edinin [kimlik doğrulaması temelleri](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

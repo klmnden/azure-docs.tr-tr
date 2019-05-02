@@ -1,25 +1,18 @@
 ---
-title: Azure ve Dynamics 365 danışmanlık hizmet teklifinin - vitrin ayrıntıları girin | Microsoft Docs
-description: Bir Azure veya Dynamics 365 danışmanlık hizmet teklifinin bulut iş ortağı Portalı'nda mağaza ayrıntıları tanımlama Kılavuzu.
+title: Teklif danışmanlık için mağaza ayrıntılarını girin | Azure Market
+description: Bir Azure ya da Dynamics 365 danışmanlık hizmeti teklifte Cloud iş ortağı Portalı'nda mağaza ayrıntılarını tanımlayın.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865376"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942706"
 ---
 # <a name="storefront-details-tab"></a>StoreFront Ayrıntıları sekmesi
 
@@ -32,14 +25,16 @@ Bu makalede, mağaza için ayrıntıları girin açıklanmaktadır. **Mağaza ay
 
 ![Yeni danışmanlık hizmet teklifi - vitrin Ayrıntılar sekmesi oluşturma](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Teklif ayrıntıları
 
 **Teklif Ayrıntıları** bölümü aşağıdaki kutuları içerir:
 
--   **Teklif özeti**
--   **Teklif açıklaması**
+-   **Teklif özeti\***
+-   **Teklif açıklaması\***
 
-### <a name="offer-summary"></a>Teklif özeti
+
+### <a name="offer-summary"></a>Teklif özeti\*
 
 Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıklamasını özetidir. Düz metin teklif özeti, tüm satır sonlarını olmadan girmek için kullanın. İyi teklif özetleri karşılık gelen teklif adlarıyla birlikte verilebilir.
 
@@ -68,7 +63,8 @@ Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıkla
 -   **Teklif adı**: Dynamics ve projeleri: 3 günlük değerlendirme
 -   **Özet teklif**: Gereksinimleri toplama ve profesyonel hizmet şirketleri ve proje temelli işletmeler için tasarlanmış bir ERP çözümü için değerlendirme.
 
-### <a name="offer-description"></a>Teklif açıklaması
+
+### <a name="offer-description"></a>Teklif açıklaması\*
 
 Danışmanlık hizmet teklifi açıklaması girin **teklif açıklaması** kutusu. İyi teklif açıklaması engagement benzer ve müşteri için teslim edilebilir son hakkında tam Ayrıntılar kapsar. Açıkça müşterinin ne aldıkları anlamanıza yardımcı olacaktır. Teklifinizin, danışmanlık hizmetleri sunduğunuz Microsoft ürününe nasıl ilişkili olduğunu içerir.
 
@@ -144,6 +140,7 @@ Varsa, yeni iş ortağı merkezi Kimliğinizi girin.
 Canlı geçmeden önce appsource'ta teklifinizin önizlemesi için gizli bir anahtar girin.
 Bu tanımlayıcı, bir parola değil.
 
+
 ## <a name="listing-details"></a>Liste ayrıntıları
 
 **Danışmanlık hizmet türü**
@@ -166,7 +163,7 @@ Teklifleri aşağıdaki beş türlerini dahil edilir:
 Ülke ve bölge danışma bu hizmet teklifinin kullanılabildiği seçin. Tek bir teklif, birden çok ülkede veya bölgede yayımlanamaz. Yeni bir teklif, her bir ülke veya bölge için oluşturulmuş olması gerekir.
 
 >[!Note]
->AppSource danışmanlık hizmetleri şu anda Amerika Birleşik Devletleri, Birleşik Krallık ve Kanada canlıdır. Henüz Canlı değil bir ülke için bir teklif gönderebilir ve onu gözden geçirilebilir ve çalışmaya hazır. En az sayıda teklifler çalışmaya hazır, Canlı olmayan ülkelerde tekliflere teşvik yeni bir ülke açmak için gereklidir.
+>AppSource danışmanlık hizmetleri şu anda Amerika Birleşik Devletleri, Birleşik Krallık ve Kanada canlıdır. Henüz Canlı değil bir ülke/bölge için bir teklif gönderebilir ve onu gözden geçirilebilir ve çalışmaya hazır. En az sayıda kullanıma hazır Canlı teklifler teklifleri Canlı olmayan ülkeler/bölgeler için teşvik yeni ülke/bölge, açmak için gereklidir.
 
 **Sektörler**
 
@@ -207,6 +204,7 @@ Ayrıntılı danışmanlık hizmeti teklifinizi tanımlayan pazarlama Broşürü
 **Ekran görüntüleri (beş için sınırlı)**
 
 Teklifiniz, kendi teslim edilebilirleri ya da şirketiniz hakkında daha fazla bilgi sağlayan beş adede kadar görüntüleri karşıya yükleyin. Pazarlama broşürünüze ilgili slayttan bir sunum ya da şirket satışlarının veya uzmanlık gösteren bir resim, bir kod parçacığı bazı örnekler verilmiştir.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

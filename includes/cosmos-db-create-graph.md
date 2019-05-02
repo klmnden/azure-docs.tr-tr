@@ -2,19 +2,21 @@
 title: include dosyası
 description: include dosyası
 services: cosmos-db
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: sngun
+origin.date: 04/13/2018
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b656001c8a7d1bed21c208bc643018c5f751e09c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60891546"
 ---
+<!--Verify sucessfully-->
 Şimdi bir grafik veritabanı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
 1. **Veri Gezgini** > **Yeni Grafik**’e tıklayın.
@@ -33,3 +35,7 @@ ms.locfileid: "38733838"
     Aktarım hızı|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz.
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.
+
+<!--Verify sucessfully-->
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

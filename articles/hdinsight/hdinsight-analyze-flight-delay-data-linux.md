@@ -1,7 +1,6 @@
 ---
 title: "Öğretici: Ayıklama, dönüştürme ve yükleme (ETL) işlemleri - Azure HDInsight üzerinde Hive'ı kullanarak gerçekleştirin "
 description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Apache Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999945"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723152"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -223,7 +222,7 @@ Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. [Azure por
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Yükleme tamamlandıktan sonra SQL Veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. **serverName** değerini SQL Veritabanı sunucu adıyla değiştirin. **adminLogin** ve **adminPassword** değerini SQL Veritabanı oturum açma bilgileriyle değiştirin. **databaseName** değerini veritabanı adıyla değiştirin.
+3. Yükleme tamamlandıktan sonra SQL Veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın. **serverName** değerini SQL Veritabanı sunucusunun adıyla değiştirin. **adminLogin** ve **adminPassword** değerini SQL Veritabanı oturum açma bilgileriyle değiştirin. **databaseName** değerini veritabanı adıyla değiştirin.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
@@ -320,7 +319,7 @@ HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşa
 * [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
 * [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 * [HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
-* [HDInsight için Python akışı MapReduce programları geliştirme][hdinsight-develop-streaming]
+
 * [HDInsight ile Apache Oozie kullanma][hdinsight-use-oozie]
 * [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
 
@@ -342,7 +341,7 @@ HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşa
 [hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL

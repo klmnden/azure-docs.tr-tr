@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 857b1059df2edf34e58d38d335725e27159977a0
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 3fe6eae5f9f7d1ff318aa96bee7e1ab9a96a6870
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738814"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867928"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: Azure SQL veritabanı SQL Server ile karşılaştırması
 
@@ -48,14 +48,14 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [BACPAC dosyası (dışarı aktarma)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Evet - bkz [SQL veritabanını dışarı aktarma](sql-database-export.md) | Evet |
 | [BACPAC dosyası (içeri aktarma)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Evet - bkz [SQL veritabanı içeri aktarma](sql-database-import.md) | Evet |
 | [Yedekleme komutu](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Hayır, yalnızca sistem tarafından başlatılan otomatik yedeklemeler - bkz [otomatik yedeklemeler](sql-database-automated-backups.md) | Sistem tarafından başlatılan otomatik yedeklemeler ve kullanıcı tarafından başlatılan yalnızca kopya yedekleri - bkz [fark yedekleme](sql-database-managed-instance-transact-sql-information.md#backup) |
-| [Yerleşik işlevler](https://docs.microsoft.com/sql/t-sql/functions/functions) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Yerleşik işlevler](https://docs.microsoft.com/sql/t-sql/functions/functions) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Değişiklik verilerini yakalama](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Hayır | Evet |
 | [Değişiklik izleme](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Evet |Evet |
 | [Harmanlama - veritabanı](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Evet | Evet |
 | [Harmanlama - server/örneği](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Hayır, varsayılan `SQL_Latin1_General_CP1_CI_AS` her zaman kullanılır. | Evet, ne zaman ayarlanabilir [örneği oluşturulduğu](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) ve güncelleştirilemiyor. |
 | [Columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Evet - [Premium katman, standart katman - S3 ve üstü, genel amaçlı katmanı ve iş açısından kritik katmanları](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Evet |
 | [Ortak dil çalışma zamanı (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Hayır | Evet ancak dosya sistemi - erişim olmadan bkz [CLR farkları](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Kapsanan veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Evet | Hayır [geri yükleme-belirli bir noktaya geri yükleme gibi hata nedeniyle](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
+| [Kapsanan veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Evet | Hayır [geri yükleme-belirli bir noktaya geri yükleme gibi hata nedeniyle](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database) |
 | [Bağımsız kullanıcılar](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Evet | Evet |
 | [Denetim akışı dil anahtar sözcükleri](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Evet | Evet |
 | [Veritabanları arası sorgular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgular](sql-database-elastic-query-overview.md) | Evet, artı [esnek sorgular](sql-database-elastic-query-overview.md) |
@@ -86,7 +86,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 [Dosyalar ve dosya grupları](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Yalnızca birincil dosya grubu | Evet |
 | [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Hayır | Hayır |
 | [Tam metin araması](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Üçüncü taraf sözcük ayırıcılar desteklenmez |Üçüncü taraf sözcük ayırıcılar desteklenmez |
-| [İşlevler](https://docs.microsoft.com/sql/t-sql/functions/functions) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [İşlevler](https://docs.microsoft.com/sql/t-sql/functions/functions) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore) | Evet - tüm hiper ölçekli dışında katmanları hizmet | Evet - kullanarak [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Grafik işleme](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Evet | Evet |
 | [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium ve iş açısından kritik katmanları](sql-database-in-memory.md) | Evet - [iş yalnızca kritik katmanı](sql-database-managed-instance.md) |
@@ -137,8 +137,8 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Yalnızca işlem ve anlık görüntü çoğaltma abonesi](sql-database-single-database-migrate.md) | Evet, içinde [genel önizlemeye sunuldu](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Raporlama Hizmetleri (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Hayır - [Power BI bakın](https://docs.microsoft.com/power-bi/) | Hayır - [Power BI bakın](https://docs.microsoft.com/power-bi/) |
 | [Saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Evet | Evet |
-| [Sistem saklı işlevleri](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Sistem saklı yordamları](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Bazıları - bkz bireysel saklı yordamlar | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Sistem saklı işlevleri](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
+| [Sistem saklı yordamları](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Bazıları - bkz bireysel saklı yordamlar | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Sistem tabloları](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Bazıları - bkz tek tek tablolar | Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Sistem kataloğu görünümleri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Bazıları - bkz. tek bir görünüm | Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Geçici tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Yerel ve veritabanı kapsamlı genel geçici tablolar | Yerel ve örnek kapsamlı genel geçici tablolar |

@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396752"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919620"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
 Bu hızlı başlangıçta basit bir Python uygulaması dağıtma [Linux üzerinde App Service'te](app-service-linux-intro.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Azure komut satırı arabirimini kullanın ( [Azure CLI](/cli/azure/install-azure-cli)), izleyebilmeniz etkileşimli, tarayıcı tabanlı Azure Cloud Shell üzerinden, Mac, Linux veya Windows bilgisayarı adımları kullanın.
 
@@ -198,8 +197,6 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Linux'ta App Service hizmetindeki yerleşik Python görüntüsü şu anda Önizleme aşamasındadır ve uygulamanızı başlatmak için kullanılan komutu özelleştirebilirsiniz. Ayrıca bunun yerine özel bir kapsayıcı kullanarak üretim aşamasında Python uygulamaları oluşturabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Öğretici: PostgreSQL ile Python uygulaması](tutorial-python-postgresql-app.md)

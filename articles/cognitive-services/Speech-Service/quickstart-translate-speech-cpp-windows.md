@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9187863234dd62757efecf6f0817ff00da48064a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621352"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685539"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Hızlı Başlangıç: C++ için konuşma Speech SDK'sı ile Çevir
 

@@ -1,28 +1,20 @@
 ---
-title: API işlemi iptal | Microsoft Docs
+title: API işlemi iptal | Azure Market
 description: İşlemleri iptal edin.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625049"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935557"
 ---
-<a name="cancel-operation"></a>İşlemi iptal et 
-=================
+# <a name="cancel-operation"></a>İşlemi iptal et 
 
 Bu API, öneri şu anda devam eden bir işlem iptal eder. Kullanım [almak operations API'si](./cloud-partner-portal-api-retrieve-operations.md) almak için bir `operationId` bu API'ye geçirilecek. Mevcut bir iptal etmek için yeni bir işlem karmaşık bazı senaryolarda gerekebilir ancak iptal genellikle eşzamanlı bir işlem var. Bu durumda, HTTP yanıt gövdesi durumunu sorgulamak için kullanılması gereken işlem konumunu içerir.
 

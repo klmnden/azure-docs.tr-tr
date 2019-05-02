@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368885"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865996"
 ---
 # <a name="cross-network-connectivity"></a>Ağlar arası bağlantı
 
@@ -119,7 +119,7 @@ Global erişim yapılandırdıktan sonra eşlemesi, özel ExpressRoute, Fabrikam
 
 Bkz: [virtual network SSS][VNet-FAQ]daha ayrıntılı sorular için sanal ağ ve VNet eşlemesi. Bkz: [ExpressRoute SSS] [ ER-FAQ] başka sorunuz ExpressRoute ve sanal ağ bağlantısını için.
 
-Küresel erişim ülkeye göre ülke olarak alınır. Global erişim istediğiniz ülkede kullanılabilir olup olmadığını görmek için bkz: [ExpressRoute Global erişim][Global Reach].
+Küresel erişim ülke/bölge tarafından ülke/bölge olarak alınır. Global erişim ülkede/istediğiniz bölgede kullanılabilir olup olmadığını görmek için bkz: [ExpressRoute Global erişim][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "uygulama senaryosu"

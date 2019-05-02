@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Azure DDoS koruması standart telemetri Azure İzleyici'de bir saldırının etkilerini hafifletmek için nasıl kullanılacağını öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
-ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: kumud
+ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244528"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728352"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -47,7 +47,7 @@ Birden fazla plan oluşturulmasını çoğu kuruluş için gerekli değildir. Bi
     |Ad           | myDdosProtectionPlan                              |
     |Abonelik   | Aboneliğinizi seçin.                         |
     |Kaynak grubu | Seçin **Yeni Oluştur** girin *myResourceGroup* |
-    |Konum       | Doğu ABD                                           |
+    |Location       | Doğu ABD                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Yeni bir sanal ağ için DDoS etkinleştir
 
@@ -60,7 +60,7 @@ Birden fazla plan oluşturulmasını çoğu kuruluş için gerekli değildir. Bi
     | Ad            | myVirtualNetwork                                             |
     | Abonelik    | Aboneliğinizi seçin.                                    |
     | Kaynak grubu  | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** seçeneğini belirleyin |
-    | Konum        | Doğu ABD                                                      |
+    | Location        | Doğu ABD                                                      |
     | DDos koruması | Seçin **standart** altındaki **DDoS koruması**seçin **myDdosProtectionPlan**. Seçtiğiniz planı aynı veya farklı Abonelikteki sanal ağdan olabilir ancak her iki aboneliğin aynı Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir.|
 
 DDoS standart sanal ağ için etkinleştirildiğinde bir sanal ağ başka bir kaynak grubuna veya aboneliğe taşınamıyor. Taşımanız gerekirse, DDoS standart bir sanal ağda etkin, DDoS standart ilk devre dışı bırakın, sanal ağ taşıma ve DDoS standart'ı etkinleştirin. Taşıma sonrasında, tüm korumalı genel IP adresleri sanal ağ için otomatik olarak ayarlanmış ilke eşikler sıfırlanır.

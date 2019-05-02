@@ -2,18 +2,17 @@
 title: Betik eylemi - Azure HDInsight üzerinde Jupyter paketlerle Python yükleme
 description: Dış python paketlerini kullanmak için adım adım yönergeleri HDInsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırmak üzere betik eylemi kullanın.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097922"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574652"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek üzere betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -75,10 +74,10 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. **Oluştur**’u seçin.  Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+5. **Oluştur**’u seçin.  Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](../hdinsight-hadoop-customize-cluster-linux.md).
 
 6. Betik için bekleyin.  **Betik eylemlerini** bölmesinde durum **geçerli küme işlemi tamamlandıktan sonra yeni betik eylemleri gönderilebilir** betiği yürütülürken.  Ambari Arabiriminden bir ilerleme çubuğu görüntülenebilir **arka plan işlemleri** penceresi.
 

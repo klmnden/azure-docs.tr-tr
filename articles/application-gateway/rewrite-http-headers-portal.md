@@ -8,47 +8,44 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716257"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947159"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway - Azure portalı ile HTTP istek ve yanıt üstbilgileri yeniden yazma
 
-Bu makalede yapılandırmak için Azure portalını kullanmayı gösterir bir [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) HTTP üstbilgileri istek ve yanıtların yeniden yazma için.
-
-> [!IMPORTANT]
-> Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Bu makalede, Azure portalını yapılandırmak için kullanmayı açıklar bir [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) yeniden yazma isteklerini ve yanıtlarını HTTP üstbilgileri için örneği.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Üst bilgiyi yeniden beri özellik SKU v1 SKU için desteklenmiyor bir uygulama ağ geçidi v2 olması gerekir. V2 SKU yoksa, oluşturun bir [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) başlamadan önce.
+Bu makaledeki adımları tamamlayabilmeniz için bir uygulama ağ geçidi v2 SKU örnek olması gerekir. Üst bilgileri yeniden yazma v1 SKU'da desteklenmiyor. V2 SKU yoksa, oluşturun bir [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) başlamadan önce örneği.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>Üstbilgi yeniden yazmak için gerekli nedir
+## <a name="create-required-objects"></a>Gerekli nesnelerden oluşturma
 
-HTTP üst bilgisi yeniden yapılandırmak için ihtiyacınız:
+HTTP üst bilgisi yeniden yapılandırmak için bu adımları tamamlamak gerekir.
 
-1. Http üstbilgileri yeniden yazmak için gereken yeni nesneleri oluşturun:
+1. HTTP üst bilgisi yeniden yazmak için gerekli olan nesneleri oluşturun:
 
-   - **Eylem yeniden**: istek ve yeniden yazmak için istediğinize isteği üst bilgi alanları ve özgün üstbilgileri için yazılması gereken yeni değeri belirtmek için kullanılır. Bir veya daha fazla yeniden yazma koşulu bir yeniden yazma eylemi ile ilişkilendirilecek seçebilirsiniz.
+   - **Eylem yeniden**: İstek, yeniden yazma için istediğinize isteği üst bilgi alanları ve üst bilgileri için yeni değeri belirtmek için kullanılır. Bir ilişkilendirme veya daha fazla bir yeniden yazma eylemi koşullarla yeniden yazma.
 
-   - **Koşulu yeniden**: Bu isteğe bağlı bir yapılandırmadır. bir yeniden yazma koşul eklenirse, HTTP (S) istekleri ve yanıtları içeriğini değerlendirir. HTTP (S) istek veya yanıtı yeniden yazma koşulu ile eşleşen olmadığını yeniden yazma koşulu ile ilişkili yeniden yazma eylemi yürütme kararı bağlı olacaktır. 
+   - **Koşulu yeniden**: İsteğe bağlı yapılandırma. HTTP (S) istekleri ve yanıtları içeriğini yeniden yazma koşulları değerlendirin. HTTP (S) istek veya yanıtı yeniden yazma koşulu ile eşleşirse yeniden yazma eylemi meydana gelir.
 
-     Birden fazla koşullar ile ilişkili bir eylem, ardından eylem yalnızca tüm koşulları, yani karşılandığında yürütülecek, mantıksal bir AND işlemi gerçekleştirilir.
+     Birden fazla koşulu bir eylem ile ilişkilendirirseniz, yalnızca tüm koşulları sağlandığında eylem gerçekleşir. Diğer bir deyişle, bir mantıksal AND işlemi işlemdir.
 
-   - **Kuralı yeniden**: yeniden yazma kuralı içeren birden çok yeniden yazma eylemi - koşul birleşimleri yeniden yazın.
+   - **Kuralı yeniden**: Birden çok yeniden yazma eylemi içeriyor / koşul birleşimleri yeniden yazın.
 
-   - **Kural dizisi**:, farklı bir yeniden yazma kuralları sırayla yürütülen belirlemeye yardımcı olur. Bu, bir yeniden yazma kümesinde birden çok yeniden yazma kuralları gerektiğinde yararlıdır. Daha düşük kuralı dizisi değeri ile yeniden yazma kuralı önce yürütülen. İki yeniden yazma kuralları için aynı kural dizisi sağlarsanız, yürütme sırası belirleyici olacaktır.
+   - **Kural dizisi**: İçinde yeniden yazma kuralları yürütme sırası belirlemeye yardımcı olur. Bir yeniden yazma kümesinde birden çok yeniden yazma kuralları varsa bu yapılandırma yararlıdır. Bir alt kural sırası değerine sahip bir yeniden yazma kuralı ilk çalıştırır. Yürütme sırası, iki yeniden yazma kuralları için aynı kural dizisi değeri atarsanız, belirleyici değildir.
 
    - **Kümesi yeniden**: İstek yönlendirme kuralı ile ilişkilendirilecek birden çok yeniden yazma kuralları içerir.
 
-2. Bir yönlendirme kuralı ile yeniden eklemek için gerekli olacaktır. Yeniden yapılandırma yönlendirme kuralı aracılığıyla kaynak dinleyicisine bağlı olmasıdır. Temel bir yönlendirme kuralını kullanırken, üstbilgi yeniden yapılandırma kaynağı dinleyici ile ilişkili ve genel üstbilgi yeniden yazma. Yola dayalı kural kullanıldığında, URL yolu haritada üstbilgi yeniden yapılandırma tanımlanır. Bu nedenle, yalnızca bir sitenin belirli bir yol alanı için geçerlidir.
+2. Yönlendirme kural kümesi yeniden ekleyin. Yeniden yapılandırma, kaynak dinleyicisi aracılığıyla yönlendirme kuralı eklenir. Temel yönlendirme kuralı kullandığınızda, üstbilgi yeniden yapılandırma kaynağı dinleyici ile ilişkili ise genel üstbilgi yeniden yazma. Yola dayalı kural kullandığınızda, URL yolu haritada üstbilgi yeniden yapılandırma tanımlanır. Bu durumda, yalnızca bir sitenin belirli yolu alanını geçerlidir.
 
-Birden çok http üst bilgisi yeniden yazma kümeleri oluşturabilir ve her bir yeniden yazma kümesi birden çok dinleyici uygulanabilir. Ancak, bir yeniden yazma yalnızca belirli bir dinleyici kümesine uygulayabilirsiniz.
+Birden çok HTTP üst bilgisi yeniden yazma kümeleri oluşturabilir ve birden çok dinleyici ayarlamak her yeniden uygulayın. Ancak bir yeniden yazma yalnızca belirli bir dinleyici kümesine uygulayabilirsiniz.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -56,77 +53,82 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com/) oturum açın
 
 ## <a name="configure-header-rewrite"></a>Üstbilgi yeniden yapılandırma
 
-Bu örnekte biz location üst bilgisini arka uç uygulama tarafından gönderilen http yanıtında yazarak yeniden yönlendirme URL'sini değiştirir. 
+Bu örnekte, bir arka uç uygulama tarafından gönderilen HTTP yanıtında location üst bilgisini yazarak biz bir yeniden yönlendirme URL'si değiştireceksiniz.
 
 1. Seçin **tüm kaynakları**ve ardından uygulama ağ geçidi'ni seçin.
 
-2. Seçin **yeniden yazar** sol menüden.
+2. Seçin **yeniden yazar** sol bölmesinde.
 
-3. Tıklayarak **+ yeniden kümesi**. 
+3. Seçin **yeniden kümesi**:
 
    ![Yeniden yazma kümesi Ekle](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4. Yeniden ayarlamak için bir ad sağlayın ve yönlendirme kuralı ile ilişkilendirin:
+4. Yeniden yazma küme için bir ad girin ve yönlendirme kuralı ile ilişkilendirin:
 
-   - Kümesinde yeniden yazma adını **adı** metin.
-   - Listelenen bir veya daha fazla kuralları seçin **yönlendirme kuralları ilişkili** listesi. Diğer yeniden yazma kümeleri ile ilişkili olan bu kuralları yalnızca seçebilirsiniz. Zaten başka bir yeniden yazma kümeleri ile ilişkili olan kuralları gri.
-   - İleri'ye tıklayın.
+   - Kümesinde yeniden yazma için bir ad girin **adı** kutusu.
+   - Bir veya daha fazla listelenen kuralları seçin **yönlendirme kuralları ilişkili** listesi. Diğer yeniden yazma kümeleriyle ilişkilendirilmiş henüz kuralları seçebilirsiniz. Zaten başka bir yeniden yazma kümeleri ile ilişkili olan kurallar soluklaştırılır.
+   - **İleri**’yi seçin.
    
      ![Ad ve ilişkilendirme ekleyin](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Bir yeniden yazma kuralı oluşturun:
 
-   - Tıklayarak **+ yeniden yazma Kuralı Ekle**.![ Yeniden yazma Kuralı Ekle](media/rewrite-http-headers-portal/add-rewrite-rule.png)
-   - Yeniden yazma kuralı yeniden yazma kuralı adı metin kutusuna bir ad ve kural dizisi sağlar.![Kural adı ekleyin](media/rewrite-http-headers-portal/rule-name.png)
+   - Seçin **yeniden yazma Kuralı Ekle**.
 
-6. Yalnızca "azurewebsites.net" başvuru içeriyorsa bu örnekte biz location üst bilgisini yeniden. Bunu yapmak için azurewebsites.net yanıt location üst bilgisini içeren olup olmadığını değerlendirmek için bir koşul ekleyin:
+     ![Yeniden yazma Kuralı Ekle](media/rewrite-http-headers-portal/add-rewrite-rule.png)
 
-   - Tıklayarak **+ koşul Ekle** bölümle tıklayın **varsa** bunu genişletmek için yönergeleri![ Kural adı ekleyin](media/rewrite-http-headers-portal/add-condition.png)
+   - Yeniden yazma kuralı için bir ad girin **yeniden yazma kuralı adı** kutusu. Bir sayı girin **kural dizisi** kutusu.
 
-   - Seçin **HTTP üstbilgisi** gelen **kontrol etmek için değişken türünü** açılır. 
+     ![Yeniden yazma kuralı adı Ekle](media/rewrite-http-headers-portal/rule-name.png)
 
-   - Seçin **üstbilgi türü** olarak **yanıt**.
+6. Yalnızca bir başvuru azurewebsites.net içerdiğinde bu örnekte biz location üst bilgisini yeniden. Bunu yapmak için azurewebsites.net yanıt location üst bilgisini içeren olup olmadığını değerlendirmek için bir koşul ekleyin:
 
-   - Bu örnekte, biz, select ortak bir üstbilgi özelleştirmede konum üst bilgisi değerlendirirsiniz beri **ortak üstbilgisi** radyo düğmesi olarak **üst bilgi adı**.
+   - Seçin **koşul Ekle** seçip kutusu içeren **varsa** genişletmek için yönergeler.
 
-   - Seçin **konumu** gelen **ortak üstbilgisi** açılır.
+     ![Koşul ekle](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Seçin **Hayır** olarak **büyük/küçük harfe** ayarı.
+   - İçinde **kontrol etmek için değişken türünü** listesinden **HTTP üstbilgisi**.
 
-   - Seçin **eşittir (=)** gelen **işleci** açılır.
+   - İçinde **üstbilgi türü** listesinden **yanıt**.
 
-   - Normal ifade deseni girin. Bu örnekte, deseni kullanacağız `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Bu örnekte biz ortak bir üst bilgisi olan konum üst bilgisi değerlendiriyor çünkü seçin **ortak üstbilgisi** altında **üst bilgi adı**.
 
-   - **Tamam** düğmesine tıklayın.
+   - İçinde **ortak üstbilgisi** listesinden **konumu**.
 
-     ![Location üst bilgisini değiştirin](media/rewrite-http-headers-portal/condition.png)
+   - Altında **büyük/küçük harfe**seçin **Hayır**.
+
+   - İçinde **işleci** listesinden **eşittir (=)**.
+
+   - Bir normal ifade deseni belirtin. Bu örnekte, deseni kullanacağız `(https?):\/\/.*azurewebsites\.net(.*)$`.
+
+   - **Tamam**’ı seçin.
+
+     ![Eğer yapılandırma durumu](media/rewrite-http-headers-portal/condition.png)
 
 7. Location üst bilgisini yeniden yazma için bir eylem ekleyin:
 
-   - Seçin **ayarlamak** olarak **eylem türü**.
+   - İçinde **eylem türü** listesinden **ayarlamak**.
 
-   - Seçin **yanıt** olarak **üstbilgi türü**.
+   - İçinde **üstbilgi türü** listesinden **yanıt**.
 
-   - Seçin **ortak üstbilgisi** olarak **üst bilgi adı**.
+   - Altında **üst bilgi adı**seçin **ortak üstbilgisi**.
 
-   - Seçin **konumu** gelen **ortak üstbilgisi** açılır.
+   - İçinde **ortak üstbilgisi** listesinden **konumu**.
 
-   - Üstbilgi değeri girin. Bu örnekte, kullanacağız `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` üstbilgi değeri. Bu değiştirecek *azurewebsites.net* ile *contoso.com* konum üst bilgisi içinde.
+   - Üstbilgi değeri girin. Bu örnekte, kullanacağız `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` üstbilgi değeri. Bu değer değiştirecek *azurewebsites.net* ile *contoso.com* konum üst bilgisi içinde.
 
-   - **Tamam** düğmesine tıklayın.
+   - **Tamam**’ı seçin.
 
-     ![Location üst bilgisini değiştirin](media/rewrite-http-headers-portal/action.png)
+     ![Eylem ekleme](media/rewrite-http-headers-portal/action.png)
 
-8. Tıklayarak **Oluştur** yeniden oluşturmak için ayarlayın.
+8. Seçin **Oluştur** yeniden oluşturmak için:
 
-   ![Location üst bilgisini değiştirin](media/rewrite-http-headers-portal/create.png)
+   ![Oluştur’u seçin](media/rewrite-http-headers-portal/create.png)
 
-9. Yeniden yazma kümesi görünümüne yönlendirileceksiniz. Yukarıda oluşturduğunuz yeniden yazma kümesi yeniden yazma ayarlar listesinde var olduğundan emin olun.
+9. Yeniden ayarlama görünümü açılır. Oluşturduğunuz yeniden yazma kümesi yeniden yazma ayarlar listesinde olduğundan emin olun:
 
-   ![Location üst bilgisini değiştirin](media/rewrite-http-headers-portal/rewrite-set-list.png)
+   ![Görünümü yeniden ayarlama](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çalışmaları kullanın bazı yaygın gerçekleştirmek için gerekli yapılandırma hakkında daha fazla bilgi edinmek için [ortak üstbilgisi yeniden senaryoları](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
-
-   
+Bazı ortak kullanım durumları ayarlama hakkında daha fazla bilgi için bkz. [ortak üstbilgisi yeniden senaryoları](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

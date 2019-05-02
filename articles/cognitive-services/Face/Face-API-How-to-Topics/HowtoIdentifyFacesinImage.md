@@ -8,26 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7da146cafaf9af5c91bbbb2a3a23d8a90d49d8cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864936"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699336"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Örnek: Resimlerde yüz tanımlama
+# <a name="example-identify-faces-in-images"></a>Örnek: Resimlerdeki yüzleri belirleyin
 
 Bu kılavuzda, önceden bilinen kişilerden oluşturulan PersonGroups kullanılarak bilinmeyen yüzlerin nasıl belirleneceği gösterilmektedir. Örnekler, Yüz Tanıma API’si istemci kitaplığı kullanılarak C# dilinde yazılır.
-
-## <a name="concepts"></a>Kavramlar
-
-Bu kılavuzda yer alan aşağıdaki kavramlar hakkında bilgi sahibi değilseniz istediğiniz zaman [sözlüğümüzde](../Glossary.md) yer alan tanımlara göz atabilirsiniz:
-
-- Yüz - Algılama
-- Yüz - Belirleme
-- PersonGroup
 
 ## <a name="preparation"></a>Hazırlık
 
@@ -38,7 +30,7 @@ Bu örnekte aşağıdakileri göstereceğiz:
 
 Bu örneğin gösterimini gerçekleştirmek için bir grup resim hazırlamanız gerekir:
 
-- Kişinin yüzünü içeren birkaç fotoğraf. Anna, Bill ve Clare için [örnek fotoğrafları indirmek istiyorsanız buraya tıklayın](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data).
+- Kişinin yüzünü içeren birkaç fotoğraf. [Örnek fotoğraf Yükle](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) Anna'nın, fatura ve Clare.
 - Tanımlamayı test etmek için kullanılan, Anna, Bill veya Clare’in yüzlerini içerebilecek ya da içeremeyecek bir dizi test fotoğrafı. Yukarıdaki bağlantıdan bazı örnek görüntüleri de seçebilirsiniz.
 
 ## <a name="step-1-authorize-the-api-call"></a>1. Adım: API çağrısı Yetkilendir
@@ -187,6 +179,7 @@ Bu kılavuzda, bir PersonGroup oluşturma ve bir kişiyi belirleme işlemini ö�
 
 ## <a name="related-topics"></a>İlgili Konular
 
+- [Yüz tanıma kavramları](../concepts/face-recognition.md)
 - [Görüntüdeki Yüzleri Algılama](HowtoDetectFacesinImage.md)
 - [Yüz Ekleme](how-to-add-faces.md)
 - [Büyük ölçek özelliğini kullanma](how-to-use-large-scale.md)

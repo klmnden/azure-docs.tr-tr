@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services'i kullanarak canlı akış genel bakış | Microsoft Docs
+title: Canlı akış ile Azure Media Services v3'e genel bakış | Microsoft Docs
 description: Bu makalede, genel bir bakış Canlı Azure Media Services v3 kullanarak akış sağlar.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322497"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866336"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -26,7 +26,7 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 
 - Canlı etkinliği yakalamak için kullanılan bir kamera.<br/>Kurulum fikir edinmek için kullanıma [basit ve taşınabilir olay video dişli Kurulum]( https://link.medium.com/KNTtiN6IeT).
 
-    Bir kamera erişimi yoksa gibi araçlar [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kullanılabilir bir canlı akış video dosyasından oluşturur.
+    Bir kamera erişimi yoksa gibi araçlar [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kullanılabilir bir canlı akış video dosyasından oluşturur.
 - Media Services gönderilir akış bir katkı sinyalleri bir kamera (veya başka bir cihaz, bir dizüstü bilgisayar gibi) dönüştürür canlı bir video Kodlayıcısı. Sinyaller SCTE-35 işaretçileri gibi bir reklam ilgili katkı akışı içerebilir.<br/>Önerilen canlı akış Kodlayıcıları listesi için bkz. [Canlı Kodlayıcıları akış](recommended-on-premises-live-encoders.md). Ayrıca, bu bloguna göz atın: [Üretim OBS ile canlı akış](https://link.medium.com/ttuwHpaJeT).
 - Alabilmek için etkinleştirmek, Media Services bileşenleri Önizleme, paket, kayıt, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN için Canlı etkinlik yayını.
 
@@ -37,7 +37,7 @@ Bu makalede, bir genel bakış ve Media Services ve ilgili diğer makalelere ba�
 
 ## <a name="dynamic-packaging"></a>Dinamik paketleme
 
-Media Services sayesinde, Önizleme ve yayın Canlı akışlarınız olanak tanıyan dinamik Packaging](dynamic-packaging-overview.md) yararlanabilirsiniz [MPEG DASH, HLS ve kesintisiz akış biçimlerinde](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) katkı gelen akış hizmetine gönderir. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Kullanabileceğiniz [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) web veya mobil uygulamalar, akışınız şu protokollerin birinde sunmak için.
+Media Services ile avantajlarından yararlanabilirsiniz [dinamik paketleme](dynamic-packaging-overview.md), Önizleme ve yayın Canlı akışlarınız olanak tanıyan [MPEG DASH, HLS ve kesintisiz akış biçimlerinde](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) gelen akış katkı Bu hizmete gönderiliyor. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Kullanabileceğiniz [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) web veya mobil uygulamalar, akışınız şu protokollerin birinde sunmak için.
 
 ## <a name="dynamic-encryption"></a>Dinamik şifreleme
 
@@ -73,7 +73,7 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 
 ### <a name="general-steps"></a>Genel adımlar
 
-1. Media Services hesabınızı emin **akış uç noktası** çalışıyor. 
+1. Media Services hesabınızı emin **akış uç noktası** (kaynak) çalışıyor. 
 2. Oluşturma bir [canlı olay](live-events-outputs-concept.md). <br/>Olay oluşturulurken otomatik başlatma için bunu belirtebilirsiniz. Alternatif olarak, akış başlamaya hazır olduğunuzda olayı başlatın.<br/> Autostart canlı olay true olarak ayarlandığında oluşturulduktan sonra doğru başlatılır. Faturalandırma, canlı olay çalışmaya başladıktan hemen sonra başlar. Daha fazla faturalama durdurmak için canlı olay kaynağı durdurma açıkça çağırmanız gerekir. Daha fazla bilgi için [canlı olay durumları ve faturalandırma](live-event-states-billing.md).
 3. Alma URL'leri alma ve akış katkı göndermek için URL'yi kullanmak için şirket içi Kodlayıcı yapılandırın.<br/>Bkz: [gerçek zamanlı kodlayıcılar önerilen](recommended-on-premises-live-encoders.md).
 4. Önizleme URL'sini ve aslında kodlayıcıdan giriş alındığını doğrulamak için kullanın.
@@ -81,7 +81,7 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 6. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.<br/>**Canlı çıkış** akışa arşiv **varlık**.
 7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.<br/>İçeriğinizi şifrelemek istiyorsanız, gözden [içerik korumaya genel bakış](content-protection-overview.md).
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri almak için (Bu belirleyici).
-9. Konak adı için alma **akış uç noktası** alanından akışını yapmak istiyor.
+9. Konak adı için alma **akış uç noktası** gelen akış istediğiniz (kaynak).
 10. Ana bilgisayar adı tam URL'sini almak için 9. adım 8. adımdaki URL'yi birleştirin.
 11. Kullanımını durdurmak istiyorsanız, **canlı olay** silme ve olay akışı durdurmak zorunda görüntülenebilir, **akış Bulucu**.
 
@@ -92,6 +92,10 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 - [Canlı olay türleri özellik karşılaştırması](live-event-types-comparison.md)
 - [Durumlar ve faturalandırma](live-event-states-billing.md)
 - [Gecikme süresi](live-event-latency.md)
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

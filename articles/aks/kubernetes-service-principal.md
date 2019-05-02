@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464935"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725314"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -126,7 +126,7 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
 - Varsayılan olarak, hizmet sorumlusu kimlik bilgileri bir yıl süreyle geçerlidir. Yapabilecekleriniz [güncelleştirme veya hizmet sorumlusu kimlik bilgilerini döndürme] [ update-credentials] dilediğiniz zaman.
 - Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: *https://www.contoso.org/example*). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
 - Hizmet sorumlusu **İstemci kimliğini** belirttiğinizde `appId` değerini kullanın.
-- Kubernetes kümesinin ana ve düğüm VM’lerinde, hizmet sorumlusu kimlik bilgileri `/etc/kubernetes/azure.json` dosyasında saklanır
+- Aracı düğümde Vm'leri Kubernetes kümesinde hizmet sorumlusu kimlik bilgileri dosyasında depolanır. `/etc/kubernetes/azure.json`
 - Hizmet sorumlusunu otomatik olarak oluşturmak için [az aks create][az-aks-create] komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/aksServicePrincipal.json` dosyasına yazılır.
 - [az aks create][az-aks-create] komutu tarafından oluşturulan bir AKS kümesini sildiğinizde, otomatik olarak oluşturulan hizmet sorumlusu silinmez.
     - Sorgu kümeniz için hizmet sorumlusu silmek için *servicePrincipalProfile.clientId* ve delete ile [az ad app delete][az-ad-app-delete]. Aşağıdaki kaynak grubu ve küme adlarını kendi değerlerinizle değiştirin:

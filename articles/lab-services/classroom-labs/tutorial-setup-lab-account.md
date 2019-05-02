@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 704ad915616e4f860204783462269ec68a6e4e28
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652629"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730631"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Öğretici: Azure Lab Services ile bir laboratuvar hesabı ayarlama
 Azure Lab Services’te, bir laboratuvar hesabı, kuruluşunuzdaki laboratuvarların yönetildiği merkezi hesap olarak görev yapar. Laboratuvar hesabınızda, laboratuvar oluşturmak üzere başkalarına izin verin ve laboratuvar hesabı altındaki tüm laboratuvarlara uygulanan ilkeler ayarlayın. Bu öğreticide, laboratuvar yöneticisi olarak bir laboratuvar hesabı oluşturmayı öğrenin. 
@@ -48,9 +48,10 @@ Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nası
     2. Laboratuvar hesabı oluşturmak istediğiniz **Azure aboneliğini** seçin.
     3. **Kaynak grubu** için, **Yeni oluştur**’u seçip kaynak grubu için bir ad girin.
     4. **Konum** için, laboratuvar hesabının oluşturulmasını istediğiniz bir konumu/bölgeyi seçin. 
-    5. İçin **eş sanal ağ**, Laboratuvar ağı için bir eş sanal ağ (VNet) seçin. Bu hesap içinde oluşturduğunuz laboratuvarlar, seçilen sanal ağa bağlı ve seçili sanal ağ kaynaklara erişime sahip. 
-    6. İçin **Laboratuvar konumunu seçmek için izin Laboratuvar oluşturan** alanında, Laboratuvar için bir konum seçmek için laboratuvar creators isteyip istemediğinizi belirtin. Varsayılan olarak, seçenek devre dışıdır. Bunu devre dışı bırakıldığında, Laboratuvar creators oluşturmakta olduğunuz Laboratuvar için bir konum belirtilemez. Labs Laboratuvar hesabına en yakın coğrafi konumda oluşturulur. Etkinleştirildiğinde, Laboratuvar oluşturan bir laboratuvar oluşturma sırasında bir konum seçebilirsiniz. 
-    7. **Oluştur**’u seçin. 
+    5. Mevcut bir seçin **paylaşılan görüntü Galerisi** veya bir tane oluşturabilirsiniz. VM şablonu, başkaları tarafından kullanılabilmeleri de paylaşılan görüntü galerisinde kaydedebilirsiniz. Paylaşılan resim galerileri hakkında ayrıntılı bilgi için bkz. [Azure Lab Services paylaşılan görüntü galerisinde kullanabilecek](how-to-use-shared-image-gallery.md). 
+    6. İçin **eş sanal ağ**, Laboratuvar ağı için bir eş sanal ağ (VNet) seçin. Bu hesap içinde oluşturduğunuz laboratuvarlar, seçilen sanal ağa bağlı ve seçili sanal ağ kaynaklara erişime sahip. 
+    7. İçin **Laboratuvar konumunu seçmek için izin Laboratuvar oluşturan** alanında, Laboratuvar için bir konum seçmek için laboratuvar creators isteyip istemediğinizi belirtin. Varsayılan olarak, seçenek devre dışıdır. Bunu devre dışı bırakıldığında, Laboratuvar creators oluşturmakta olduğunuz Laboratuvar için bir konum belirtilemez. Labs Laboratuvar hesabına en yakın coğrafi konumda oluşturulur. Etkinleştirildiğinde, Laboratuvar oluşturan bir laboratuvar oluşturma sırasında bir konum seçebilirsiniz. 
+    8. **Oluştur**’u seçin. 
 
         ![Laboratuvar hesabı oluştur penceresi](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Seçin **zil simgesine** araç çubuğunda (**bildirimleri**), dağıtım başarılı oldu ve ardından onaylamak **kaynağa Git**. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324563"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869421"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN varlıkları belirteç kimlik doğrulaması ile güvenli hale getirme
 
@@ -33,7 +33,7 @@ Belirteç kimlik doğrulaması varlıklar yetkisiz istemcilerine hizmet veren Az
 
 Belirteç kimlik doğrulaması istekleri ayrı tutma istek sahibinin hakkında bilgi kodlanmış belirteci bir değer içermesi için istekleri gerektirerek tarafından güvenilen bir site oluşturulur doğrular. Yalnızca kodlanmış bilgileri gereksinimlerini karşılıyorsa içerik bir istek sahibine sunulur; Aksi takdirde istek reddedilir. Bir veya daha fazla aşağıdaki parametreleri kullanarak gereksinimleri ayarlayabilirsiniz:
 
-- Ülke: İzin verme veya reddetme tarafından belirtilen ülke kaynaklanan istekler kendi [ülke kodu](/previous-versions/azure/mt761717(v=azure.100)).
+- Ülke: İzin verme veya reddetme tarafından belirtilen ülkeler/bölgeler kaynaklanan istekler kendi [ülke kodu](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Belirtilen varlık veya yol ile eşleşen istekleri izin verir.
 - Ana bilgisayar: İzin ver veya istek üst bilgisinde belirtilen konakların kullanan isteklerini reddedin.
 - Başvuran: İzin ver veya belirtilen başvuran isteği reddet.
@@ -86,7 +86,7 @@ Aşağıdaki akış çizelgesi, CDN uç noktasında belirteci kimlik doğrulamas
 
       ![CDN belirteci kimlik doğrulaması kurulum anahtarı](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Şifreleme parametreleri ayarlayın ve bir belirteç oluşturmak için şifreleme aracını kullanın. Şifreleme aracıyla izin verebilir veya sona erme saati, ülke, başvuran, protokolü ve (herhangi bir birleşimi)'deki istemci IP göre istekleri reddetme. Sayı ve bir belirteç oluşturmak için birleştirilebilir parametre birleşimi sınır olmamasına rağmen bir belirteç toplam uzunluğu 512 karakterle sınırlıdır. 
+   4. Şifreleme parametreleri ayarlayın ve bir belirteç oluşturmak için şifreleme aracını kullanın. Şifreleme aracıyla izin verebilir veya sona erme saati, ülke/bölge, başvuran, protokolü ve (herhangi bir birleşimi)'deki istemci IP istekleri göre reddet. Sayı ve bir belirteç oluşturmak için birleştirilebilir parametre birleşimi sınır olmamasına rağmen bir belirteç toplam uzunluğu 512 karakterle sınırlıdır. 
 
       ![CDN şifreleme aracı](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ Aşağıdaki akış çizelgesi, CDN uç noktasında belirteci kimlik doğrulamas
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden kökenli isteklerine izin verir. Diğer tüm ülkelerden kaynaklanan istekler reddedilir. İki harfli kullanın [3166 ISO ülke kodu](/previous-versions/azure/mt761717(v=azure.100)) her bir ülkede ve her biri bir virgül ile ayırın; boşluk eklemeyin. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişim izin vermek istiyorsanız, girin `US,FR`.</td>
+      >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden/bölgelerden kökenli isteklerine izin verir. Tüm diğer ülkeler/bölgeler üzerinden kaynaklanan istekler reddedilir. İki harfli kullanın [3166 ISO ülke kodu](/previous-versions/azure/mt761717(v=azure.100)) her bir ülkede ve her biri bir virgül ile ayırın; boşluk eklemeyin. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişim izin vermek istiyorsanız, girin `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Bir veya daha fazla belirtilen ülkelerden kaynaklanan istekleri reddeder. Diğer tüm ülkelerden kaynaklanan isteklerine izin verilir. Uygulama ile aynı olduğu <b>ec_country_allow</b> parametresi. Bir ülke kodu hem de mevcutsa <b>ec_country_allow</b> ve <b>ec_country_deny</b> parametreleri <b>ec_country_allow</b> parametresi önceliklidir.</td>
+      >    <td>Bir veya daha fazla belirtilen ülkelerden/bölgelerden kaynaklanan istekleri reddeder. Tüm diğer ülkeler/bölgeler üzerinden kaynaklanan isteklerine izin verilir. Uygulama ile aynı olduğu <b>ec_country_allow</b> parametresi. Bir ülke kodu hem de mevcutsa <b>ec_country_allow</b> ve <b>ec_country_deny</b> parametreleri <b>ec_country_allow</b> parametresi önceliklidir.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122600"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702516"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -202,7 +202,7 @@ Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı iş
 | ProductVersion_s | Ürün sürümü |
 | FileVersion_s | Dosya sürümü |
 | CommandLine_s | Komut satırı |
-| ExecutablePath _Yanları | Yürütülebilir dosya yolu |
+| ExecutablePath_s | Yürütülebilir dosya yolu |
 | WorkingDirectory_s | Çalışma dizini |
 | UserName | Hesabın altında işlemi yürütülüyor |
 | USERDOMAIN | Etki alanı altında işlemi yürütülüyor |

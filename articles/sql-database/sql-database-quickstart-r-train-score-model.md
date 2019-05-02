@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013263"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714899"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Oluşturma ve r ile Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) ile Tahmine dayalı bir model eğitip
 
@@ -171,7 +171,7 @@ VALUES (
 
 **Sonuçlar**
 
-![Ek çıktıya sahip eğitilen model](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Ek çıktıya sahip eğitilen model](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Eğitilen modeli kullanarak yeni verileri puanlamak
 
@@ -239,7 +239,7 @@ VALUES (
 
    **Sonuçlar**
 
-   ![Durdurma mesafesini tahmin etmek için sonuç kümesi](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Durdurma mesafesini tahmin etmek için sonuç kümesi](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > Bu örnek betikte `str` r döndürülen veri şemasını denetlemek için sınama aşaması sırasında eklenen işlevi Deyimi daha sonra kaldırabilirsiniz.
@@ -248,10 +248,9 @@ VALUES (
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Machine Learning hizmetleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın. Bu makaleler bazıları için SQL Server olsa da, ilgili bilgilerin çoğunu da Machine Learning Hizmetleri (R ile) Azure SQL veritabanı için geçerlidir.
+R (Önizleme) ile Azure SQL veritabanı Machine Learning hizmetleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
 
-- [Azure SQL veritabanı Machine Learning Hizmetleri (R ile)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Öğretici: SQL Server'da R kullanarak veritabanında analizini öğrenin](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Öğretici: SQL Server verileri ile RevoScaleR R işlevlerini kullanma](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL veritabanı Machine Learning Hizmetleri ile R (Önizleme)](sql-database-machine-learning-services-overview.md)
+- [Oluşturma ve Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) basit R betikleri çalıştırma](sql-database-quickstart-r-create-script.md)
+- [Machine Learning Hizmetleri (Önizleme) kullanarak Azure SQL veritabanı içinde Gelişmiş R işlevler yazma](sql-database-machine-learning-services-functions.md)
+- [R ve SQL Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) verileri ile çalışma](sql-database-machine-learning-services-data-issues.md)

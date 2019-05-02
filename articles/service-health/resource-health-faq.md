@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620836"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924438"
 ---
 # <a name="azure-resource-health-faq"></a>Azure kaynak durumu hakkında SSS
 Azure kaynak durumu hakkında genel soruların yanıtlarını öğrenin.
@@ -50,7 +50,7 @@ Evet, kaynak kullanılamadığında, kök nedeni bu kategorilerden birini içind
 Portalda, planlı ve plansız olayları kırmızı bir uyarı simgesi kullanarak gösterilmekte iken bir mavi bildirim simgesini kullanarak kullanıcı tarafından başlatılan Eylemler gösterilir. Daha fazla ayrıntı sağlanır [kaynak durumu genel bakış](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kaynak durumu my izleme araçları ile tümleştirebilir miyim?
-Kaynak durumu sahip [Önizleme desteği](resource-health-alert-arm-template-guide.md) etkinlik günlüğü uyarıları tabanlı için. Etkinlik günlüğü uyarıları, kullanım [Eylem grupları](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) uyarı tetiklendi kullanıcılara bildirmek için. Eylem grupları, bildirim kanalları e-posta, SMS, Web kancası ve ITSM eylemleri gibi çeşitli destekler.
+Kaynak durumu sahip [Önizleme desteği](resource-health-alert-arm-template-guide.md) etkinlik günlüğü uyarıları tabanlı için. Etkinlik günlüğü uyarıları, kullanım [Eylem grupları](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) uyarı tetiklendi kullanıcılara bildirmek için. Eylem grupları, bildirim kanalları e-posta, SMS, Web kancası ve ITSM eylemleri gibi çeşitli destekler.
 
 ## <a name="where-do-i-find-resource-health"></a>Kaynak durumu nerede bulabilirim?
 Azure portalında oturum açtıktan sonra kaynak durumu erişebileceğiniz birden çok yolu vardır:

@@ -3,17 +3,16 @@ title: Azure Market ilkeleri ve koşulları | Azure
 description: Tüm Yayımcılar ve teklifleri Microsoft Azure marketi'ndeki Microsoft Azure Marketi ilkeleri ve koşulları geçerlidir.
 services: Azure, Marketplace, AppSource
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322762"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937625"
 ---
 # <a name="azure-marketplace-policies-and-terms"></a>Azure Market ilkeleri ve koşulları
 
@@ -26,9 +25,12 @@ Teklifleri Market'te bizim ilkeleri ve koşulları ile uyumlu olmalıdır. Bu il
 
 ## <a name="policies-and-terms"></a>İlkeleri ve koşulları
 
-* [Genel ve teklif liste ilkeleri](https://docs.microsoft.com/legal/marketplace/general-policies)
+* [Azure Market sertifika ilkeleri](https://docs.microsoft.com/legal/marketplace/certification-policies)
+
 * [Katılım ilkeleri](https://docs.microsoft.com/legal/marketplace/participation-policy)
+
 * [Derecelendirme ve ilkeleri gözden geçirme](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
+
 * [Azure Marketi koşulları](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>Sonraki adımlar

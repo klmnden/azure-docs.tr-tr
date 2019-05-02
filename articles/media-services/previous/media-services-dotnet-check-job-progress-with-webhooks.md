@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465703"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868178"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Kullanım Azure Media Services .NET ile iş bildirimlerini izlemek için Web kancaları 
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 İşleri çalıştırmak, genellikle iş ilerleme durumunu izlemek için bir yol gerektirir. Azure Web Kancalarını kullanarak Media Services iş bildirimlerini izlemek veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu makale Web kancaları ile çalışmayı öğrenin.
 
@@ -31,7 +34,7 @@ Bu makale hakkında
     
     Bu durumda, kodlama işinin durumu değiştiğinde Media Services tarafından Web kancası tetiklenir. İşlevi, Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandıktan sonra çıktı varlığına yayımlar. 
     
-    >[!NOTE]
+    >[!TIP]
     >Devam etmeden önce anladığınızdan emin olun nasıl [Azure işlevleri HTTP ve Web kancası bağlamaları](../../azure-functions/functions-bindings-http-webhook.md) çalışır.
     >
     

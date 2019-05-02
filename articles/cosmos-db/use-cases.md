@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 935c6ff03485c2b8e4d3e2f3df51c740ec1e8371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770286"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866873"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Yaygın Azure Cosmos DB kullanım örnekleri
 Bu makalede, Azure Cosmos DB için bazı ortak kullanım durumları için genel bir bakış sağlar.  Cosmos DB ile Uygulamanızı geliştirirken bu makaledeki önerileri bir başlangıç noktası olarak hizmet eder.   
@@ -108,7 +108,7 @@ Veya daha fazla bilgi istiyorsanız, Cosmos DB kullanan müşteriler hakkında a
 * [Citrix](https://customers.microsoft.com/story/citrix). Azure Service Fabric ve Azure Cosmos DB'yi kullanarak çoklu oturum açma çözümü Citrix geliştirir
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA'ın Devrim niteliğindeki IOT çözüm vehicle sahipleri için saat, para, doğalgaz yardımcı olur — ve büyük olasılıkla yaşar.
 * [Domino'nın Pizza](https://www.dominos.com). Domino'nın Pizza Inc. bir Amerikan pizza Restoran zinciri olur.
-* [Johnson denetimleri](https://www.johnsoncontrols.com). Johnson denetimler, genel büyük teknoloji ve çok çeşitli müşteriler 150'den fazla ülkede hizmet çok endüstriyel lider ' dir.
+* [Johnson denetimleri](https://www.johnsoncontrols.com). Johnson denetimler, genel büyük teknoloji ve çok çeşitli müşteriler 150'den fazla ülkede/bölgede hizmet çok endüstriyel lider ' dir.
 * [Microsoft Windows, Evrensel Store, Azure IOT Hub, Xbox Live ve diğer Internet ölçeğindeki Hizmetler](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Nasıl Microsoft Azure Cosmos DB'yi kullanarak yüksek düzeyde ölçeklenebilir hizmetler oluşturur.
 * [Microsoft Data ve analiz ekibi](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft'un veri ve analiz ekibi, Azure Cosmos DB ile dünya ölçeğinde büyük veri koleksiyonu sağlar
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha, müşteriler ve işletmeler Hindistan bağlanmak için Azure Cosmos DB kullanır.

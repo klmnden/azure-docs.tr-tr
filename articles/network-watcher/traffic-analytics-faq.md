@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939901"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -241,7 +241,7 @@ Trafik analizi ölçülür. Kullanım ölçümü akış günlük verisi işleme 
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Trafik analizi, verileri ne sıklıkla işleme?
 
-Başvurmak [veri toplama bölümü](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) trafik analizi şema ve veri toplama belgesi
+Başvurmak [veri toplama bölümü](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) trafik analizi şema ve veri toplama belgesi
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Trafik analizi IP kötü amaçlı olduğuna nasıl karar? 
 
@@ -253,14 +253,14 @@ Trafik analizi, uyarılar için yerleşik destek yok. Ancak, trafik analizi veri
 - Log Analytics'te trafik analizi için kısa kullanabilirsiniz. 
 - Kullanım [şema belgelenen burada](traffic-analytics-schema.md) sorgularınızı yazmak için 
 - "Yeni uyarı kuralı" bir uyarı oluşturmak için
-- Başvurmak [günlük uyarıları belgeleri](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) uyarı oluşturmak için
+- Başvurmak [günlük uyarıları belgeleri](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) uyarı oluşturmak için
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Coğrafi harita Görünümü'nde klavyeyi kullanarak nasıl gidebilirsiniz?
 
 Coğrafi harita sayfasında iki ana bölümleri içerir:
     
-- **Başlık**: Coğrafi harita üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, dağıtım, ülkelerinden trafiğini ve kötü amaçlı) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre harita üzerinde uygulanır. Örneğin, etkin düğmesini seçerseniz, harita etkin veri merkezleri, dağıtımınızdaki vurgular.
-- **Harita**: Başlığın altında harita bölümünde Azure veri merkezleri ve ülkeler arasındaki trafik dağılımı gösterilir.
+- **Başlık**: Coğrafi harita üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, dağıtım, Ülkeler/bölgelerden gelen trafik ve kötü amaçlı) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre harita üzerinde uygulanır. Örneğin, etkin düğmesini seçerseniz, harita etkin veri merkezleri, dağıtımınızdaki vurgular.
+- **Harita**: Başlığın altında harita bölümünde Azure veri merkezleri ve ülkeler/bölgeler arasında trafik dağılımı gösterilir.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Klavye ile gezinme başlığındaki
     

@@ -1,5 +1,5 @@
 ---
-title: Anomali algılayıcısı API kullanırken en iyi yöntemler
+title: Anomali Algılayıcısı API'sini kullanırken en iyi yöntemler
 description: En iyi yöntemler hakkında Anomali algılayıcısı API'siyle anomalileri tespit edilirken öğrenin.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484051"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692207"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Anomali algılayıcısı API kullanımı için en iyi uygulamalar
 
@@ -25,6 +25,29 @@ Anomali algılayıcısı API'si, bir durum bilgisi olmayan anomali algılama hiz
 * Veri noktası, API isteği sayısı. 
 
 Verileriniz için en iyi sonuçları elde API kullanımı için en iyi uygulamalar hakkında bilgi edinmek için bu makaleyi kullanın. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Batch (Tümü) veya en son ne zaman kullanılacağını (son), anomali algılama noktası
+
+Anomali algılayıcısı API'nin batch algılama uç noktası aracılığıyla tüm zaman serisi verilerini anormallikleri algılamanızı sağlar. Bu algılama modunda, tek bir istatistik model oluşturulur ve veri kümesi her noktasında uygulanır. Zaman serisi varsa özellikleri, bir API çağrısında, verilerin önizlemesini görmek için batch algılama kullanılması önerilir.
+
+* Bazen anomalileri ile dönemsel zaman serisi.
+* Ara sıra ani/DIP ile bir düz eğilim zaman serisi. 
+
+İzleme ya da özelliklere sahip olmayan bir zaman serisi verilerinde kullanarak gerçek zamanlı veriler için anomali algılama toplu kullanımı önerilmemektedir. 
+
+* Batch algılama oluşturur ve yalnızca bir modeli uygular, algılama her nokta için tüm dizileri bağlamında gerçekleştirilir. Zaman serisi verileri eğilimleri yukarı ve aşağı mevsimsellik, bazı noktalarını olmadan (dıps ve veri artış) değiştirirseniz modeli tarafından eksik olabilir. Benzer şekilde, daha az önemli olanları veri kümesindeki veriler daha sonra daha bazı noktalar değişikliğinin modele birleştirilmesi yeterince önemli olarak sayılması değil.
+
+* Batch algılama, gerçek zamanlı verileri izleme, çözümlenen noktalarının sayısı nedeniyle yaparken en son noktası durumunu anomali algılama daha yavaştır.
+
+Gerçek zamanlı verileri izleme için en son veri noktanız yalnızca anomali durumunu algılama öneririz. Sürekli olarak en son noktası algılama uygulayarak, izleme verilerini akış daha verimli ve doğru bir şekilde gerçekleştirebilirsiniz.
+
+Aşağıdaki örnekte, bu algılama modları performansı olabilir gerçekleşen etkiyi açıklamaktadır. İlk resim anomali durumu son noktası 28 önceden görülen veri noktaları boyunca sürekli olarak algılanıyor sonucunu gösterir. Kırmızı noktalar anomalileri ' dir.
+
+![En son noktası kullanarak anomali algılama gösteren görüntü](../media/last.png)
+
+Batch anomali algılama özelliğiyle aynı veri kümesi aşağıdadır. İşlem için oluşturulan model dikdörtgen tarafından işaretlenen birkaç anomalileri yoksaydı.
+
+![Anomali algılama batch yöntemi kullanılarak gösteren görüntü](../media/entire.png)
 
 ## <a name="data-preparation"></a>Veri hazırlama
 
@@ -68,7 +91,7 @@ En iyi sonuçlar için 4 sağlamak `period`kullanıcının veri noktası yanı s
 
 Akış verilerinizi bir kısa aralıklarla (örneğin, saniyeler veya dakikalar içinde) örneklenir, önerilen veri noktalarının sayısını gönderme Anomali algılayıcısı API'nin en fazla izin verilen (8640 veri noktası sayısıdır) aşabilir. Verilerinizi bir kararlı dönemsel deseni gösteriyorsa, saat gibi daha büyük bir zaman aralığı, zaman serisi verilerinin bir örnek gönderme göz önünde bulundurun. Bu şekilde, verilerinizi örnekleme, API yanıt süresi de fark edilir derecede artırabilir. 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Anomali algılayıcısı API nedir?](../overview.md)
 * [Hızlı Başlangıç: Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın](../quickstarts/detect-data-anomalies-csharp.md)

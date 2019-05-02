@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250530"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704996"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 
@@ -90,7 +90,7 @@ Varsa `NameIDPolicy` , isteğe bağlı içerebilir sağlanır `Format` özniteli
 Azure AD yoksayar `AllowCreate` özniteliği.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` Öğesi istenen kimlik doğrulama yöntemlerini belirtir. İsteğe bağlı olarak `AuthnRequest` Azure AD'ye gönderilen öğeleri. Azure AD destekleyen tek `AuthnContextClassRef` değer: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+`RequestedAuthnContext` Öğesi istenen kimlik doğrulama yöntemlerini belirtir. İsteğe bağlı olarak `AuthnRequest` Azure AD'ye gönderilen öğeleri. Azure AD destekler `AuthnContextClassRef` gibi değerler `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Kapsam belirleme
 `Scoping` Kimlik sağlayıcılarının listesi içeren bir öğesi isteğe bağlı olarak `AuthnRequest` Azure AD'ye gönderilen öğeleri.

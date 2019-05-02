@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307751"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708135"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı ile yerel Windows parola sıfırlama
 Kullanarak Azure'daki bir sanal makinenin yerel Windows parolasını sıfırlayabilir [Azure portal veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sağlanan Azure Konuk Aracısı yüklenir. Bu yöntem, bir Azure sanal makinesi için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir resim karşıya yüklendikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede, kaynak işletim sistemi sanal disk başka bir sanal makineye ekleyerek bir yerel hesap parolası sıfırlama işlemi açıklanmaktadır. Bu makalede açıklanan adımları Windows etki alanı denetleyicileri için geçerli değildir. 
@@ -106,7 +106,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
      ```
      
      ![GPT.ini oluşturma](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Oluşturma `scripts.ini` içinde `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Gizli klasörlere gösterilen emin olun. Gerekirse Oluştur `Machine` veya `Scripts` klasörleri.
+5. Oluşturma `scripts.ini` içinde `\Windows\System32\GroupPolicy\Machines\Scripts\`. Gizli klasörlere gösterilen emin olun. Gerekirse Oluştur `Machine` veya `Scripts` klasörleri.
    
    * Aşağıdaki satırları ekleyin `scripts.ini` oluşturduğunuz dosyası:
      
@@ -156,7 +156,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
     
     * %Windir%\System32
       * remove FixAzureVM.cmd
-    * From %windir%\System32\GroupPolicy\Machine\
+    * From %windir%\System32\GroupPolicy\Machine\Scripts
       * scripts.ini Kaldır
     * From %windir%\System32\GroupPolicy
       * GPT.ini (gpt.ini daha önce mevcut ve gpt.ini.bak, .bak dosyası için gpt.ini geri yeniden adlandırma için adlandırdığınız varsa) Kaldır
