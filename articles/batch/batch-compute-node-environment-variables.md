@@ -1,6 +1,6 @@
 ---
-title: İşlem düğümü ortam değişkenleri - Azure Batch | Microsoft Docs
-description: Düğüm ortam değişkeni başvurusu, Azure Batch analizi için işlem.
+title: Çalışma zamanı ortam değişkenlerini - Azure Batch görevi | Microsoft Docs
+description: Görev çalışma zamanı ortamı değişken Kılavuzu ve Azure Batch analizi için başvuru.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782240"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575566"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch işlem düğümü ortam değişkenleri
+# <a name="azure-batch-runtime-environment-variables"></a>Azure Batch çalışma zamanı ortam değişkenleri
 
 [Azure Batch hizmeti](https://azure.microsoft.com/services/batch/) işlem düğümlerinde aşağıdaki ortam değişkenlerini ayarlar. Bu ortam değişkenleri, görev komut satırlarında ve programları başvurabilir ve komut satırları tarafından betikleri çalıştırın.
 
@@ -28,6 +28,12 @@ Ortam değişkenleri Batch ile birlikte kullanma hakkında ek bilgi için bkz: [
 ## <a name="environment-variable-visibility"></a>Ortam değişkeni görünürlük
 
 Bu ortam değişkenleri yalnızca bağlamında görülebilir **görev kullanıcı**, kullanıcı hesabı altında bir görev yürütmüş düğümde. Bir işlem düğümüne Uzak Masaüstü Protokolü (RDP) veya Güvenli Kabuk (SSH) aracılığıyla [uzaktan bağlanıp](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) ortam değişkenlerini listelerseniz bunları *göremezsiniz*. Bunun nedeni, uzak bağlantı için kullanılan kullanıcı hesabının görev tarafından kullanılan hesapla aynı olmamasıdır.
+
+Bir ortam değişkeninin geçerli değerini almak için başlatma `cmd.exe` işlem düğümü üzerinde bir Windows veya `/bin/sh` Linux düğümde:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Ortam değişkenlerini komut satırı genişletme
 

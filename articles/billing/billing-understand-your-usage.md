@@ -1,93 +1,130 @@
 ---
-title: Azure ayrıntılı kullanımınızı anlayın | Microsoft Docs
-description: Okuma ve Azure aboneliğiniz için ayrıntılı kullanım CSV bölümlerini anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
+title: Ayrıntılı kullanım ve Ücret anlama | Microsoft Docs
+description: Okuma ve ayrıntılı kullanımı ve ücretleri anlamak hakkında bilgi edinin
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: micflan
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369633"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683997"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı Kullanım ücretlerinizi ilgili koşulları anlama 
+# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure kullanım ve Ücret dosyanızda koşulları anlama
 
-Ayrıntılı kullanım ücretlerini CSV dosyası, geçerli fatura dönemi için günlük ve ölçüm düzey kullanım ücretlerini içerir. 
+Ayrıntılı kullanım ve Ücret dosya belirtilen dönem için üzerinde anlaşılan oranları, satın alma işlemleri (örneğin, rezervasyonları, Market ücretleri) ve para iadesi göre günlük derecelendirilmiş kullanım içerir.
+Ücretler, KREDİLERİ, vergileri veya diğer ücretleri veya indirimleri içermez.
+Aşağıdaki tablo, her hesap türü için hangi ücretleri dahildir kapsar.
 
-Ayrıntılı kullanım dosyanız almak için bkz. [Azure faturanızı ve günlük kullanım verilerinizi edinme](billing-download-azure-invoice-daily-usage-date.md).
-Elektronik tablo uygulamasında açabileceğiniz bir virgülle ayrılmış değerler (.csv) dosya biçiminde kullanılabilir. İki sürüm varsa 2. sürümü indirin. En son dosya biçimidir.
+Hesap türü | Azure kullanımı | Market kullanım | Satın alma işlemleri | Mahsup işlemleri
+--- | --- | --- | --- | ---
+Kurumsal Anlaşma (EA) | Evet | Evet | Evet | Hayır
+Microsoft Müşteri Sözleşmesi (MCA) | Evet | Evet | Evet | Evet
+Kullandıkça Öde (PAYG) | Evet | Hayır | Hayır | Hayır
 
-Kullanım ücretleri, toplam **aylık** ücretleri bir Abonelikteki. Kullanım ücretleri, herhangi bir kredi veya indirim dikkate almaz.
+Market siparişlerini (Dış hizmetler olarak da bilinir) hakkında daha fazla bilgi için bkz: [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
 
->[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+Bkz: [Azure faturanızı ve günlük kullanım verilerinizi edinme](billing-download-azure-invoice-daily-usage-date.md) yükleme yönergeleri.
+Kullanımı ve ücretleri dosyası, bir elektronik tablo uygulamasında açabileceğiniz bir virgülle ayrılmış değerler (.csv) dosya biçiminde kullanılabilir.
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Ayrıntılı hüküm ve açıklamaları, ayrıntılı kullanım dosyası
+## <a name="list-of-terms-and-descriptions"></a>Hüküm ve açıklamalarının listesi
 
-Aşağıdaki bölümlerde ayrıntılı kullanım dosyası 2. sürümünü gösterilen önemli koşullar açıklanmaktadır.
+Aşağıdaki tabloda, Azure kullanımı ve ücretleri dosyanın en son sürümünde kullanılan önemli koşullar açıklanmaktadır.
+Liste, Kullandıkça Öde (PAYG), Kurumsal Anlaşma (EA) ve Microsoft Müşteri Sözleşmesi (MCA) hesapları kapsar.
 
-### <a name="statement"></a>Bildirim
+Sözleşme Dönemi | Hesap türü | Açıklama
+--- | --- | ---
+Hesap adı | EA | Kayıt hesabı görünen adı.
+Hesap sahibinin kimliği | EA | Kayıt hesabı için benzersiz tanımlayıcı.
+Ek bilgi | Tümü | Hizmete özgü meta veriler. Örneğin, bir sanal makine için görüntü türü.
+BillingAccountId | EA, MCA | Kök hesabı faturalama için benzersiz tanımlayıcı.
+billingAccountName | EA, MCA | Fatura hesabı adı.
+billingCurrency | EA, MCA | Fatura hesabı ile ilişkili bir para birimi.
+BillingPeriod | EA | Fatura dönemi gider.
+billingPeriodEndDate | EA, MCA | Fatura dönemi bitiş tarihi.
+billingPeriodStartDate | EA, MCA | Fatura dönemi başlangıç tarihi.
+BillingProfileId | EA, MCA | MCA profili faturalama ve EA kayıt benzersiz tanımlayıcısı.
+BillingProfileName | EA, MCA | MCA profili faturalama ve EA kayıt adı.
+chargeType | EA, MCA | Ücretlendirme, kullanım temsil edip etmediğini belirtir (**kullanım**), bir satın alma (**satın**), ya da para iadesi (**para iadesi**).
+Tüketilen miktar | PAYG | Miktar bakın.
+Tüketilen hizmet | Tümü | Ücretsiz hizmetin adını ilişkilidir.
+Maliyet | EA | See CostInBillingCurrency.
+Maliyet merkezi | EA, MCA | Maliyet merkezi maliyetlerini (yalnızca açık faturalandırma dönemleri MCA hesapları için de kullanılabilir) izlemek için abonelik için tanımlanmış.
+CostInBillingCurrency | MCA | Fatura para kredisi veya vergi önce ücret maliyeti.
+CostInPricingCurrency | MCA | Ücretsiz fiyatlandırma para kredisi veya vergi önce maliyeti.
+Para birimi | PAYG | BillingCurrency bakın.
+Tarih | EA, MCA | Kullanım veya satın alma tarihi gider.
+ExchangeRateDate | MCA | Tarih döviz kuru kuruldu.
+ExchangeRatePricingToBilling | MCA | Döviz kuru maliyeti fiyatlandırma para birimi için fatura para birimi dönüştürmek için kullanılır.
+Sıklık | EA, MCA | Bir ücret yinelemek için beklenen durum olup olmadığını gösterir. Ya da gerçekleşebilir kez ücretleri (**OneTime**), aylık veya yıllık olarak yineleme (**yinelenen**), veya kullanımıyla ilgili temel (**UsageBased**).
+includedQuantity | PAYG | Geçerli fatura döneminize ücretsiz dahil olan ölçüm miktarı.
+Örnek kimliği | PAGY | ResourceId bakın.
+Fatura kodu | EA, MCA | PDF faturada listelenen belgenin benzersiz kimliği.
+invoiceSection | MCA | InvoiceSectionName bakın.
+invoiceSectionId | EA, MCA | EA departman veya MCA fatura bölümü için benzersiz tanımlayıcı.
+invoiceSectionName | EA, MCA | EA departman veya MCA fatura bölümün adı.
+isAzureCreditEligible | EA, MCA | Ücretsiz Azure KREDİLERİ kullanımı için ödenecek uygun olup olmadığını gösterir (değerleri: TRUE, False).
+Location | EA, MCA | Kaynağın çalıştığı veri merkezi konumu.
+Ölçüm kategorisi | Tümü | Ölçüm için sınıflandırma kategorisi adı. Örneğin, *bulut Hizmetleri* ve *ağ*.
+Ölçüm kimliği | Tümü | Ölçüm için benzersiz tanımlayıcı.
+Ölçüm adı | Tümü | Ölçüm adı.
+Ölçüm bölgesi | Tümü | Konumuna göre ücretlendirilen hizmetler için veri merkezi bölgesi adı. Konum bakın.
+Ölçüm alt kategorisi | Tümü | Ölçüm subclassification kategorisi adı.
+OfferId | EA, MCA | Satın alınan teklif adı.
+PartNumber | EA | Özel ölçüm fiyatlandırma almak için kullanılan tanımlayıcı.
+PlanName | EA | Market planı adı.
+previousInvoiceId | MCA | Bu satır öğesi bir para iadesi ise özgün Fatura başvuru.
+pricingCurrency | MCA | Üzerinde anlaşılan fiyatlarına göre derecelendirme temel kullanılan para birimi.
+Product | MCA | ProductName bakın.
+Ürün kimliği | EA, MCA | Ürün için benzersiz tanımlayıcı.
+ProductName | EA | Ürün adı.
+ProductOrderId | EA, MCA | Ürün siparişi için benzersiz tanımlayıcı.
+productOrderName | EA, MCA | Ürün siparişi için benzersiz bir ad.
+PublisherName | EA, MCA | Market Hizmetleri yayımcısı.
+publisherType | EA, MCA | Yayımcı türü (değerleri: firstParty, thirdPartyReseller, thirdPartyAgency).
+Miktar | EA, MCA | Satın alınan veya kullanılan birim sayısı.
+Fiyat | PAYG | UnitPrice bakın.
+Reservationıd | EA, MCA | Satın alınan ayırmanın örneği için benzersiz tanımlayıcı.
+reservationName | EA, MCA | Satın alınan ayırmanın örneğinin adı.
+ResourceGroupId | EA, MCA | İçin benzersiz tanımlayıcı [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) içinde kaynaktır.
+ResourceGroupName | EA, MCA | Adını [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) içinde kaynaktır.
+ResourceId | EA, MCA | Benzersiz tanımlayıcısı [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) kaynak.
+Kaynak konumu | EA, MCA | Kaynağın çalıştığı veri merkezi konumu. Konum bakın.
+ResourceName | EA | Kaynağın adı.
+ResourceType | MCA | Kaynak örneği türü.
+serviceFamily | EA, MCA | Hizmetin ait olduğu hizmet ailesi.
+Hizmet bilgisi 1 | Tümü | Hizmete özgü meta veriler.
+Hizmet bilgisi 2 | Tümü | Eski alanda hizmete özgü isteğe bağlı meta verilerle.
+servicePeriodEndDate | MCA | Tanımlanan ve tüketilen veya satın alınan hizmeti için fiyatlandırma kilitli derecelendirme dönemi bitiş tarihi.
+servicePeriodStartDate | MCA | Tanımlanan ve tüketilen veya satın alınan hizmeti için fiyatlandırma kilitli derecelendirme süresi başlangıç tarihi.
+SubscriptionId | Tümü | Abonelik için benzersiz tanımlayıcı.
+Abonelik adı | Tümü | Abonelik adı.
+Etiketler | Tümü | Kaynağa atanmış etiketler. Kaynak grubu etiketleri içermez. Grup veya dahili geri ödeme maliyetleri dağıtmak için kullanılabilir. Daha fazla bilgi için [etiketlerle Azure kaynaklarınızı düzenleme](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Birim | PAYG | UnitOfMeasure bakın.
+Ölçü birimi | Tümü | Faturalama hizmeti için ölçü birimidir. Örneğin, işlem Hizmetleri, saat başına faturalandırılır.
+UnitPrice | EA | Ücretlendirme için birim fiyatı.
+UsageDate | PAYG | Tarih bakın.
 
-Ayrıntılı kullanım CSV dosyasının üst kısmında, aya ait fatura dönemi boyunca kullanılan hizmetler gösterilmektedir. Aşağıdaki tabloda, koşulları ve bu bölümde gösterilen açıklamalarını listeler.
+Bazı alanlar büyük/küçük harfleri ve hesap türleri aralık farklı olabileceğini unutmayın.
+Kullandıkça Öde kullanım dosyaların eski sürümlerini deyimi ve günlük kullanım için ayrı bölümlere sahip.
 
-| Sözleşme Dönemi | Açıklama |
-| --- | --- |
-|Fatura Dönemi |Ölçümleri kullanıldığında fatura dönemi |
-|Ölçüm Kategorisi |Kullanımı için üst düzey hizmeti belirtir |
-|Ölçüm Alt Kategorisi |Hızı etkileyen Azure hizmet türünü tanımlar |
-|Ölçüm Adı |Tüketilen ölçüm için ölçü birimini belirtir |
-|Ölçüm Bölgesi |Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir |
-|SKU |Her Azure ölçüm için benzersiz sistem tanımlayıcıyı belirtir |
-|Birim |Hizmetin ücretlendirildiği Birimi tanımlar. Örneğin GB, saat, 10.000 s. |
-|Kullanılan Miktar |Fatura dönemi boyunca kullanılan ölçüm miktarı |
-|Dahil Edilen Miktar |Geçerli fatura döneminize ücretsiz dahil olan ölçüm miktarı |
-|Kapasite Aşım Miktarı |Tüketilen Miktar dahil edilen miktar arasındaki fark gösterir. Bu miktar için faturalandırılırsınız. Kullandıkça Öde teklifleri için dahil edilen miktar ile teklif, bu toplam tüketilen miktar ile aynıdır. |
-|Taahhüt İçinde |6 veya 12 aylık teklifinizle ilişkili olan taahhüt miktarınızdan çıkartılır ölçüm ücretlerini gösterir. Ölçüm ücretleri kronolojik sırayla düşülür. |
-|Para birimi |Geçerli fatura döneminize kullanılan para birimi |
-|Kapasite Aşımı |Ölçüm ücretleri, 6 veya 12 aylık teklifinizle ilişkili olan taahhüt miktarınızı aşan gösterir |
-|Taahhüt Tarifesi |6 veya 12 aylık teklifinizle ilişkili olan toplam taahhüt miktarınıza bağlı taahhüt ücretini gösterir |
-|Fiyat |Faturalanabilir birim başına ücretlendirildiğiniz oranı |
-|Değer |Fazla kullanım miktarı sütununun ücret sütunuyla çarpılmasıyla elde edilen sonucu gösterir. Tüketilen Miktar dahil edilen miktarı aşmıyorsa, bu sütunda ücret alınmaz. |
+## <a name="ensure-that-your-charges-are-correct"></a>Ücretleriniz doğru olduğundan emin olun
 
-### <a name="daily-usage"></a>Günlük kullanım
-
-CSV dosyasının günlük kullanım bölümüne faturalandırma ücretleri etkileyen kullanım ayrıntılarını gösterir. Aşağıdaki tabloda, koşulları ve bu bölümde gösterilen açıklamalarını listeler.
-
-| Sözleşme Dönemi | Açıklama |
-| --- | --- |
-|Kullanım Tarihi |Ölçüm kullanıldığında tarihi |
-|Ölçüm Kategorisi |Bu kullanımın ait olduğu için üst düzey hizmeti belirtir |
-|Ölçüm Kimliği |Fatura kullanımını fiyatlandırmak için kullanılan Faturalanan ölçüm tanımlayıcısı |
-|Ölçüm Alt Kategorisi |Hızı etkileyen Azure hizmet türü tanımlar. |
-|Ölçüm Adı |Tüketilen ölçüm için ölçü birimini belirtir |
-|Ölçüm Bölgesi |Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir |
-|Birim |Ölçüm ücretlendirildiği birimi tanımlar. Örneğin GB, saat, 10.000 s. |
-|Kullanılan Miktar |Belirli bir günde tüketilen ölçüm miktarı |
-|Kaynak Konumu |Ölçüm çalıştığı veri merkezini tanımlar |
-|Kullanılan Hizmet |Kullandığınız bir Azure platform hizmetini |
-|Kaynak Grubu |Kaynak grubu içinde dağıtılan ölçüm çalıştığı. <br/><br/>Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|Örnek Kimliği | Ölçüm tanımlayıcısı. <br/><br/> Tanımlayıcı oluşturulduğunda, ölçüm için belirttiğiniz adı içerir. Kaynağın adını veya tam kaynak kimliği olan Daha fazla bilgi için [Azure Resource Manager API'si](https://docs.microsoft.com/rest/api/resources/resources). |
-|Etiketler | Etiket için ölçüm atayın. Fatura kayıtların gruplandırılması için etiketleri kullanın.<br/><br/>Örneğin, ölçüm kullanan departmana göre maliyetleri dağıtmak için etiketleri kullanabilirsiniz. Etiket göstermeyi destekleyen hizmetleri, sanal makineler, depolama ve Ağ Hizmetleri kullanılarak sağlanan [Azure Resource Manager API'si](https://docs.microsoft.com/rest/api/resources/resources). Daha fazla bilgi için [etiketlerle Azure kaynaklarınızı düzenleme](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Ek Bilgi |Hizmete özgü meta veriler. Örneğin, bir sanal makine için görüntü türü. |
-|Hizmet Bilgisi 1 |Aboneliğinizdeki hizmetin ait olduğu proje adı |
-|Hizmet Bilgisi 2 |İsteğe bağlı hizmete özgü meta veriler yakalanır eski alan |
-
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Ayrıntılı kullanım dosyamı ücretleri doğru olduğundan emin nasıl emin olabilirim?
-Daha fazla ayrıntı istediğiniz ayrıntılı kullanım dosyanızdaki bir ücret yoksa bkz [Microsoft Azure için faturanızı anlayın.](./billing-understand-your-bill.md)
-
-## <a name="external"></a>Dış hizmet ücretlerini hakkında neler diyeceksiniz?
-Dış hizmetlere (Market siparişlerini olarak da bilinir) bağımsız hizmeti satıcısı tarafından sağlanır ve ayrı olarak faturalandırılır. Ücretler Azure fatura üzerinde gösterme. Daha fazla bilgi için bkz. [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
+Ayrıntılı kullanım ve Ücret hakkında daha fazla bilgi edinmek için anlama hakkında bilgi için [Kullandıkça Öde](./billing-understand-your-bill.md) veya [Microsoft Müşteri sözleşmesi](billing-mca-understand-your-bill.md) fatura.
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Görüntüleyin ve Microsoft Azure faturanızı indirin](billing-download-azure-invoice.md)
+- [Microsoft Azure kullanım ve Ücret görüntülemenize ve indirmenize](billing-download-azure-daily-usage.md)

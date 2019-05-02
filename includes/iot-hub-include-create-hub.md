@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc83d94acd25914ee57473de53afbc018f310887
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346277"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575762"
 ---
 Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalında](https://portal.azure.com).
 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın. 
 
-2. Seçin +**kaynak Oluştur**, ardından **nesnelerin interneti**.
+2. Seçin +**kaynak Oluştur**, ardından *markette Ara* için **IOT hub'ı**.
 
-3. Tıklayın **IOT hub'ı** sağdaki listeden. IOT hub'ı oluşturmak için ilk ekran görürsünüz.
+3. Seçin **IOT hub'ı** tıklatıp **Oluştur** düğmesi. IOT hub'ı oluşturmak için ilk ekran görürsünüz.
 
    ![Azure portalında oluşturma](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 

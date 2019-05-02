@@ -4,16 +4,16 @@ description: IOT Central Bağlayıcısı'nı Microsoft Flow için tetikleyici i�
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693588"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -101,9 +101,12 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 
 1. Yeni bir eylem ekleyin. Arama **Azure IOT Central - bir cihaz güncelleştirmesi** eylem.
 
-1. Açılır listeden uygulamanızı seçin. Şimdi, güncelleştirmek istediğiniz var olan cihazın kimliği gerekir. IOT Central CİHAZDAN Kimliğini alabilirsiniz **Device Explorer**.
+1. Açılır listeden uygulamanızı seçin. Şimdi, güncelleştirmek istediğiniz var olan cihazın kimliği gerekir. 
 
-    ![IOT Central cihaz Gezgini cihaz kimliği](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **URL'de bulunan kimliği kullanmalıdır** güncelleştirmek istediğiniz cihazın cihaz Ayrıntıları sayfasında. Cihaz explorer'ın cihaz listesinde bulunan cihaz kimliği Microsoft Flow kullanmak için doğru olanı değil.
+
+    ![URL'den IOT Central kimliği](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. Cihaz adını güncelleştirebilirsiniz. Cihazın özellikleri ve ayarları güncelleştirmek için cihaz şablonu güncelleştirmek istediğiniz cihazı seçin **cihaz şablonu** açılır. Tüm özellikleri ve ayarları güncelleştirebilirsiniz göstermek için eylem kutucuk genişletir.
 
@@ -117,19 +120,32 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 
 ## <a name="get-device-information-in-a-workflow"></a>Bir iş akışında cihaz bilgilerini alma
 
-Cihaz bilgilerini, cihaz kimliği kullanarak alabileceğiniz **Azure IOT Central - bir aygıt alma** eylem. Cihaz adı, cihaz şablonu adı, özellik değerlerini ve iş akışınızı sonraki eylemlerde geçirilecek ayarları değerlerini gibi daha fazla bilgi edinebilirsiniz. Müşteri adı özellik değeri bir CİHAZDAN için Microsoft Teams geçirir. bir örnek iş akışı şu şekildedir.
+Kimliği kullanarak cihaz bilgilerini alabileceğiniz **Azure IOT Central - bir aygıt alma** eylem. 
+> [!NOTE] 
+> **URL'de bulunan kimliği kullanmalıdır** güncelleştirmek istediğiniz cihazın cihaz Ayrıntıları sayfasında. Cihaz explorer'ın cihaz listesinde bulunan cihaz kimliği Microsoft Flow kullanmak için doğru olanı değil.
+
+Cihaz adı, cihaz şablonu adı, özellik değerlerini ve iş akışınızı sonraki eylemlerde geçirilecek ayarları değerlerini gibi daha fazla bilgi edinebilirsiniz. Müşteri adı özellik değeri bir CİHAZDAN için Microsoft Teams geçirir. bir örnek iş akışı şu şekildedir.
 
    ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Bir komut bir iş akışında bir cihazda çalıştırma
-Kendi cihaz kimliği kullanılarak belirtilen bir cihaz üzerinde komut çalıştırabilirsiniz **Azure IOT bir komut Merkezi -** eylem. Komutu çalıştırın ve komut parametrelerinde bu eylem geçirmek için seçebilirsiniz. Microsoft Flow mobil uygulamasında bir düğmeyle cihaz yeniden başlatma komutu çalışan bir örnek iş akışı şu şekildedir.
+Kendi kimliği kullanılarak belirtilen bir cihaz üzerinde komut çalıştırabilirsiniz **Azure IOT bir komut Merkezi -** eylem. 
+
+> [!NOTE] 
+> **URL'de bulunan kimliği kullanmalıdır** güncelleştirmek istediğiniz cihazın cihaz Ayrıntıları sayfasında. Cihaz explorer'ın cihaz listesinde bulunan cihaz kimliği Microsoft Flow kullanmak için doğru olanı değil.
+    
+Komutu çalıştırın ve komut parametrelerinde bu eylem geçirmek için seçebilirsiniz. Microsoft Flow mobil uygulamasında bir düğmeyle cihaz yeniden başlatma komutu çalışan bir örnek iş akışı şu şekildedir.
 
    ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Bir iş akışında bir cihazı silme
 
-Bir cihaz, cihaz kimliği kullanarak silebilirsiniz **Azure IOT Central - bir cihazı silme** eylem. Microsoft Flow mobil uygulamasındaki bir düğmeye bir cihazda silen bir örnek iş akışı şu şekildedir.
+Bir cihaz kimliği kullanarak silebilirsiniz **Azure IOT Central - bir cihazı silme** eylem. 
+> [!NOTE] 
+> **URL'de bulunan kimliği kullanmalıdır** güncelleştirmek istediğiniz cihazın cihaz Ayrıntıları sayfasında. Cihaz explorer'ın cihaz listesinde bulunan cihaz kimliği Microsoft Flow kullanmak için doğru olanı değil.
+
+Microsoft Flow mobil uygulamasındaki bir düğmeye bir cihazda silen bir örnek iş akışı şu şekildedir.
 
    ![Akışı Sil cihaz iş akışı](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

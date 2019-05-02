@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121530"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935876"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Güvenlik çerçevesi: Yetkilendirme | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -280,7 +280,7 @@ Lütfen unutmayın, RLS olarak kullanıma hazır veritabanı özelliği yalnızc
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | StorageType - tablo |
 | **Başvuruları**              | [SAS kullanarak Azure depolama hesabınızdaki nesnelere erişim devretmek nasıl](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Adımları** | Bazı iş senaryolarında, Azure tablo depolama, farklı taraflara oluşturabilmesine olanak sağlar, hassas verileri depolamak için gerekebilir. Farklı ülkelere ilişkin örn, hassas veriler. Bir kullanıcı belirli bir Ülkeye özel veri erişerek bölüm ve satır anahtarı aralığı belirterek bu gibi durumlarda, SAS imzaları oluşturulabilir.| 
+| **Adımları** | Bazı iş senaryolarında, Azure tablo depolama, farklı taraflara oluşturabilmesine olanak sağlar, hassas verileri depolamak için gerekebilir. Farklı ülkelerde/bölgelerde ilişkin örn, hassas veriler. Bir kullanıcı belirli bir ülke/bölge belirli veri erişerek bölüm ve satır anahtarı aralığı belirterek bu gibi durumlarda, SAS imzaları oluşturulabilir.| 
 
 ## <a id="rbac-azure-manager"></a>Rol tabanlı erişim denetimi (RBAC) Azure Resource Manager kullanarak Azure depolama hesabına etkinleştir
 

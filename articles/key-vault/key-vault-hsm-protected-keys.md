@@ -2,23 +2,19 @@
 title: Oluşturma ve Azure anahtar kasası - Azure Key Vault için HSM korumalı anahtarlar Aktarım | Microsoft Docs
 description: Planlama, oluşturma ve Azure anahtar kasası ile kullanmak için kendi HSM korumalı anahtarlar'ı aktarım yardımcı olması için bu makaleyi kullanın. BYOK olarak da bilinen veya kendi anahtarınızı getirin.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522737"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573002"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
@@ -45,7 +41,7 @@ Oluşturma ve HSM korumalı bir anahtar Internet üzerinden aktarmaktan hakkınd
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Thales Hsm'leri ve Microsoft Hizmetleri hakkında daha fazla bilgi
 
-Thales e güvenlikli bir siber güvenlik çözümleri finansal hizmetler, yüksek teknoloji, üretim, kamu ve teknoloji sektörlerine veri şifreleme ve önde gelen genel sağlayıcısıdır. 40 yıllık tecrübesiyle Kurumsal ve kamu bilgi ile Thales çözümleri dört enerji ve Havacılık beş en büyük şirketleri tarafından kullanılır. Çözümleri ayrıca 22 NATO ülkeler tarafından kullanılır ve daha yüzde 80'den tüm dünyadaki ödeme işlemlerinin güvenli.
+Thales e güvenlikli bir siber güvenlik çözümleri finansal hizmetler, yüksek teknoloji, üretim, kamu ve teknoloji sektörlerine veri şifreleme ve önde gelen genel sağlayıcısıdır. 40 yıllık tecrübesiyle Kurumsal ve kamu bilgi ile Thales çözümleri dört enerji ve Havacılık beş en büyük şirketleri tarafından kullanılır. Çözümleri ayrıca 22 NATO ülkeler/bölgeler tarafından kullanılır ve daha yüzde 80'den tüm dünyadaki ödeme işlemlerinin güvenli.
 
 Microsoft, HSM'ler için resim durumu için Thales ile CISCO. Bu geliştirmeler tanımaktadır anahtarlarınızın denetimi sizin bırakmadan, barındırılan hizmetlere tipik avantajlardan yararlanmanıza olanak tanıyacak. Özellikle, bu geliştirmeler, böylece gerekmez HSM'ler Microsoft yürütebilmektedir. Bir bulut hizmeti olan Azure Key Vault, kuruluşunuzun ani artışları karşılamak üzere kullanımındaki. Aynı zamanda, anahtarınızı Microsoft'un Hsm'leri içerisinde korunur: Anahtar oluşturma ve Microsoft'un Hsm'lerine aktarmak için anahtar yaşam döngüsü denetim korur.
 

@@ -1,22 +1,28 @@
 ---
-title: Azure haritalar ' desteklenen dilleri | Microsoft Docs
+title: Yerelleştirme desteğini Azure haritalar | Microsoft Docs
 description: Azure haritalar Hizmetleri için desteklenen diller hakkında bilgi edinin
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769201"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686776"
 ---
-# <a name="azure-maps-supported-languages"></a>Azure haritalar desteklenen diller
-Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş.  Aşağıdaki tabloda, her hizmet için desteklenen dil kodlarını sağlar.  
+# <a name="localization-support-in-azure-maps"></a>Azure haritalar yerelleştirme desteği
+
+Azure haritalar, çeşitli diller ve ülke/bölgeye göre görünümleri destekler. Bu makalede, desteklenen diller ve Azure haritalar uygulamanız rehberlik edecek görünümler sağlar.
+
+
+## <a name="azure-maps-supported-languages"></a>Azure haritalar desteklenen diller
+
+Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşağıdaki tabloda, her hizmet için desteklenen dil kodlarını sağlar.  
   
 
 | Kimlik         | Ad                   |  Haritalar | Arama | Yönlendirme | Trafik olayları | JS harita denetimi | Saat dilimi |
@@ -75,3 +81,30 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş.  A�
 | tr-TR      | Türkçe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Ukrayna dili               |       |    ✓   |         |                   |                |     ✓     |
 | VI VN      | Vietnam dili             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Azure haritalar desteklenen görünümleri
+
+("Kullanıcı bölge parametre olarak" da denir) azure haritalar görünüm parametresi hangi ekleyemeyebilir kümesini belirtme, ülke/bölge için doğru eşlemeleri Kenarlıklar tartışmalı gösteren 2 harf 3166 ISO ülke kodu, etiketleri harita üzerinde görüntülenir.  Varsayılan görünüm parametre kümesine **"Birleştirilmiş"**.  Görünüm listede yer almayan ülke/bölge "Birleştirilmiş" görünümü için varsayılan olarak kullanılır. Bu, kullanıcılarınızın konumunu belirlemek ve ardından görünümü bu konum için doğru parametre sizin sorumluluğunuzdur. Azure haritalar görünümü parametresinde, ilgili yasalara uyacağınızı belirtir kullanılmalıdır, olanlar dahil olmak üzere burada haritalar, resimler ve olduğunuz diğer verileri ve üçüncü taraf içeriğini Azure haritalar erişim yetkisi ülkenin ilgili eşleme kullanılabilir hale getirilir.
+
+Aşağıdaki tabloda, desteklenen görünümler sağlar.
+
+| Görünüm         | Açıklama                            |  Haritalar | Arama | JS harita denetimi |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | Birleşik Arap Emirlikleri (Arapça görünümü)    |   ✓   |        |     ✓          |
+| AR           | Arjantin (Arjantin görünümü)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahreyn (Arapça görünümü)                 |   ✓   |        |     ✓          |
+| IN           | Hindistan (Hindistan görünümü)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Irak (Arapça görünümü)                    |   ✓   |        |     ✓          |
+| JO           | Ürdün (Arapça görünümü)                  |   ✓   |        |     ✓          |
+| KW           | Kuveyt (Arapça görünümü)                  |   ✓   |        |     ✓          |
+| LB           | Lübnan (Arapça görünümü)                 |   ✓   |        |     ✓          |
+| MA           | Fas (Fas görünümü)                |   ✓   |   ✓     |     ✓          |
+| OM           | Umman (Arapça görünümü)                    |   ✓   |        |     ✓          |
+| PK           | Pakistan (Pakistan görünümü)              |   ✓   |    ✓    |     ✓          |
+| PS           | Filistin Yönetimi (Arapça görünümü)    |   ✓   |        |     ✓          |
+| QA           | Katar (Arapça görünümü)                   |   ✓   |        |     ✓          |
+| SA           | Suudi Arabistan (Arapça görünümü)            |   ✓   |        |     ✓          |
+| SY           | Suriye (Arapça görünümü)                   |   ✓   |        |     ✓          |
+| YE           | Yemen (Arapça görünümü)                   |   ✓   |        |     ✓          |
+| Birleşik      | Birleşik görünüm (diğer)                  |   ✓   |   ✓     |     ✓          |

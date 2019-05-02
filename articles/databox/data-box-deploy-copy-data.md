@@ -1,5 +1,5 @@
 ---
-title: SMB üzerinden Microsoft Azure Data Box için veri kopyalama | Microsoft Docs
+title: Azure Data Box SMB aracılığıyla veri kopyalamak için öğretici | Microsoft Docs
 description: SMB üzerinden Azure Data Box için veri kopyalama hakkında bilgi edinin
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04f7710d95f5ce7a2b6195383c2737ff3b1fbf04
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466218"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925546"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
@@ -41,8 +41,8 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Seçilen depolama hesabına bağlı olarak, Data Box kadar oluşturur:
 - İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
-- Premium depolama için bir paylaşım. 
-- Blob depolama hesabı için bir paylaşım. 
+- Premium depolama için bir paylaşım.
+- Blob depolama hesabı için bir paylaşım.
 
 Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlıklar kapsayıcılar, ikinci düzeydeki varlıklar ise bloblardır. Azure Dosyaları paylaşımlarında birinci düzeydeki varlıklar paylaşımlar, ikinci düzeydeki varlıklar ise dosyalardır.
 
@@ -91,7 +91,7 @@ Bir Windows Server ana bilgisayar kullanıyorsanız, Kutusu'na veri bağlamak i�
 
     **Her zaman kopyalamayı düşündüğünüz dosyalar için paylaşımda bir klasör oluşturun ve ardından dosyaları bu klasöre kopyalayın**. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları veriler BLOB olarak karşıya bir kapsayıcıyı temsil eder. Dosyaları doğrudan kopyalanamıyor *kök* depolama hesabında klasör.
     
-Bir Linux istemcisi kullanıyorsanız, SMB paylaşımını bağlaması için aşağıdaki komutu kullanın. Aşağıdaki "vers" parametresi Linux konağınız destekleyen SMB sürümüdür. Aşağıdaki komutta uygun sürümünü takın. Data Box bakın destekleyen SMB sürümleri için [Linux istemcileri için desteklenen dosya sistemleri](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Bir Linux istemcisi kullanıyorsanız, SMB paylaşımını bağlaması için aşağıdaki komutu kullanın. Aşağıdaki "vers" parametresi Linux konağınız destekleyen SMB sürümüdür. Aşağıdaki komutta uygun sürümünü takın. Data Box bakın destekleyen SMB sürümleri için [Linux istemcileri için desteklenen dosya sistemleri](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ SMB paylaşımı bağlandıktan sonra veri kopyalama başlar. Verilerinizi kopya
 |/z    | Dosyaları Yeniden başlatma modunda kopyalar, kararsız ortamlarda kullanmanız önerilir. Bu işlem ek günlük kaydı nedeniyle aktarım hızını düşürür.      |
 | /zb     | Yeniden başlatma modunu kullanır. Erişim reddedilirse bu seçenek Yedekleme modunu kullanır. Bu işlem denetim noktası oluşturma nedeniyle aktarım hızını düşürür.         |
 |/efsraw     | Şifrelenmiş dosyaların tümünü EFS ham modunda kopyalar. Yalnızca şifrelenmiş dosyalarda kullanın.         |
-|log+:<LogFile>| Çıkışı var olan günlük dosyasına ekler.|    
+|Günlük +:\<günlük dosyası >| Çıkışı var olan günlük dosyasına ekler.|    
  
 Aşağıdaki örnekte dosyaları Data Box'a kopyalamak için kullanılan Robocopy komutunun çıkışı gösterilmektedir.
     

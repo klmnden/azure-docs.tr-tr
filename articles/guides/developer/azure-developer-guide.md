@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921781"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570558"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -199,7 +199,7 @@ Azure dünyanın dört bir yanındaki birçok bölgede genel kullanıma açık o
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Uygulama ve verileriniz için en iyi bir bölge seçin
 
-Azure'ı kullanmanın avantajları, dünyanın çeşitli veri merkezleri, uygulamalarınızı dağıtmadan biridir. Seçtiğiniz bölge, uygulamanızın performansını etkileyebilir. Örneğin, daha iyi ağ istek gecikme süresini azaltmak için müşterilerinize en yakın bir bölge seçin. Belirli ülkelerde uygulamanızı dağıtmak için yasal gereksinimleri karşılamak için bölgenizi seçin isteyebilirsiniz. Aynı veri merkezinde veya bir veri merkezinde uygulamanızı barındıran bir veri merkezine mümkün olduğunca uygulama verilerini depolamak için her zaman en iyi bir uygulamadır.
+Azure'ı kullanmanın avantajları, dünyanın çeşitli veri merkezleri, uygulamalarınızı dağıtmadan biridir. Seçtiğiniz bölge, uygulamanızın performansını etkileyebilir. Örneğin, daha iyi ağ istek gecikme süresini azaltmak için müşterilerinize en yakın bir bölge seçin. Belirli ülkelerde/bölgelerde uygulamanızı dağıtmak için yasal gereksinimleri karşılamak için bölgenizi seçin isteyebilirsiniz. Aynı veri merkezinde veya bir veri merkezinde uygulamanızı barındıran bir veri merkezine mümkün olduğunca uygulama verilerini depolamak için her zaman en iyi bir uygulamadır.
 
 ### <a name="multi-region-apps"></a>Çok bölgeli uygulama
 

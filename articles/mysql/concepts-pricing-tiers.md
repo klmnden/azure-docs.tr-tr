@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528303"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688623"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
@@ -40,31 +40,25 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 
 İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. Şu anda iki işlem Nesilleri, Gen 4 ve 5. nesil seçebilirsiniz. Gen 4 mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri. 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2.3 GHz işlemcileri. Gen 4 ve 5. nesil ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir.
 
-> [!IMPORTANT]
-> 12 Aralık 2018 tarihinden itibaren yeni müşteri Brezilya Güney, Kanada Orta, Kanada, Doğu Kanada, Doğu Asya, Doğu ABD 2, Orta Hindistan, Batı Hindistan, Japonya Batı, Orta Kuzey ABD, Batı ABD işlem 4. nesil sunucuları sağlamak mümkün olmayacaktır. İşlem oluşturma 4 sunucu şu bölgelerde 1 Şubat 2019 başlangıç 5. nesil işlem geçirilecek önceden oluşturulmuş.
->
-> [!IMPORTANT]
-> 15 Şubat 2019'den itibaren yeni müşteri Orta ABD, Doğu ABD, Japonya Doğu, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Batı Avrupa, işlem 4. nesil sunucuları sağlamak mümkün olmayacaktır. İşlem oluşturma 4 sunucu şu bölgelerde 1 Nisan 2019 başlangıç 5. nesil işlem geçirilecek önceden oluşturulmuş.
-
 | **Azure bölgesi** | **4. nesil** | **5. nesil** |
 |:---|:----------:|:--------------------:|
 | Orta ABD |  | X |
 | Doğu ABD |  | X |
 | Doğu ABD 2 |  | X |
 | Orta Kuzey ABD |  | X |
-| Orta Güney ABD | X | X |
+| Orta Güney ABD |  | X |
 | Batı ABD |  | X |
 | Batı ABD 2 |  | X |
 | Güney Brezilya |  | X |
 | Orta Kanada |  | X |
 | Doğu Kanada |  | X |
-| Kuzey Avrupa | X | X |
+| Kuzey Avrupa |  | X |
 | Batı Avrupa |  | X |
 | Fransa Orta |  | X |
 | Birleşik Krallık Güney |  | X |
 | Birleşik Krallık Batı |  | X |
 | Doğu Asya |  | X |
-| Güneydoğu Asya | X | X |
+| Güneydoğu Asya |  | X |
 | Avustralya Doğu |  | X |
 | Avustralya Orta |  | X |
 | Avustralya Orta 2 |  | X |
@@ -72,7 +66,7 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 | Orta Hindistan |  | X |
 | Güney Hindistan |  | X |
 | Batı Hindistan |  | X |
-| Japonya Doğu | X | X |
+| Japonya Doğu |  | X |
 | Japonya Batı |  | X |
 | Kore Orta |  | X |
 | Kore Güney |  | X |

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799560"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926108"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration uzantısı işleyicisi giriş
 
@@ -82,7 +82,7 @@ Bu bilgiler görülebilir [Azure portalında](../../automation/automation-dsc-on
 ```
 
 Düğüm yapılandırması adı için adını kullandığınızdan emin olun *düğüm yapılandırması* ve yapılandırma.
-Kullanılan komut dosyasında tanımlanmış bir yapılandırması [düğüm yapılandırması (MOF dosyası) derlemek için](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Kullanılan komut dosyasında tanımlanmış bir yapılandırması [düğüm yapılandırması (MOF dosyası) derlemek için](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Ad bir nokta yapılandırması her zaman olacak `.` ve her iki `localhost` veya belirli bir bilgisayar adı.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager şablonlarında DSC uzantısı

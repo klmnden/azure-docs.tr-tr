@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731499"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688354"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimleri almak için Web kancası uç noktaları yapılandırabilirsiniz. Web kancaları sayesinde işlem sonrası veya özel eylemler için diğer sistemlere bu bildirimleri yönlendirebilirsiniz. Bu makalede bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir.
@@ -21,6 +21,10 @@ Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı b
 Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi için bkz. nasıl [Azure etkinlik günlüğü uyarıları oluşturma](activity-log-alerts.md).
 
 Eylem grupları hakkında daha fazla bilgi için bkz. nasıl [Eylem grupları oluşturma](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> Ayrıca [ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs), Genişletilebilir tek bir avantajı sağlar ve birleşik uyarı yük boyunca tüm uyarı Hizmetleri Azure İzleyici'de, Web kancası tümleştirmeleri için. [Ortak uyarı şema tanımları hakkında bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Web kancası kimlik doğrulaması
 Web kancası, isteğe bağlı olarak kimlik doğrulaması için belirteç tabanlı yetkilendirme kullanabilirsiniz. URI kaydedildiğinde bir belirteç Kimliğiyle, örneğin, Web kancası `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.

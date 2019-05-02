@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095673"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574461"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -77,26 +77,16 @@ Azure dosya paylaşımınızı erişmek için Azure dosya eşitleme'ı kullanıy
 Azure dosyaları iki performans katmanı sunar: standart ve premium.
 
 * **Standart dosya paylaşımları** genel amaçlı dosya paylaşımları ve geliştirme/test ortamları gibi performans değişkenliğine daha az duyarlı olan g/ç iş yükleri için güvenilir bir performans sağlayan bir döngüsel sabit disk sürücülerinin (HDD'ler) tarafından desteklenir. Standart dosya paylaşımları, yalnızca Kullandıkça Öde faturalandırma modeli içinde kullanılabilir.
-* **Premium dosya paylaşımları (Önizleme)** tutarlı, yüksek performanslı ve düşük gecikme süresi, çoğu g/ç işlemleri için en yoğun g/ç iş yükleri için Tek haneli milisaniye içinde sunan katı hal diskleri (SSD'ler) tarafından desteklenir. Bu çok çeşitli veritabanları, web sitesi barındırma, geliştirme ortamları, vb. gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın. Premium dosya paylaşımı oluşturma konusunda bilgi almak istiyorsanız, konu üzerinde makalemizi bakın: [Bir premium Azure dosya depolama hesabının nasıl oluşturulacağını](storage-how-to-create-premium-fileshare.md).
+* **Premium dosya paylaşımları (Önizleme)** tutarlı, yüksek performanslı ve düşük gecikme süresi, çoğu g/ç işlemleri için en yoğun g/ç iş yükleri için Tek haneli milisaniye içinde sunan katı hal diskleri (SSD'ler) tarafından desteklenir. Bu çok çeşitli veritabanları, web sitesi barındırma, geliştirme ortamları, vb. gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın.
+
+Azure Backup, premium dosya paylaşımları için kullanılabilir ve Azure Kubernetes hizmeti premium dosya paylaşımları 1.13 sürümü ve üzerini destekler.
+
+Premium dosya paylaşımı oluşturma konusunda bilgi almak istiyorsanız, konu üzerinde makalemizi bakın: [Bir premium Azure dosya depolama hesabının nasıl oluşturulacağını](storage-how-to-create-premium-fileshare.md).
+
+Şu anda, standart dosya paylaşımı ve premium dosya paylaşımı arasında doğrudan dönüştürülemiyor. Her iki katmana geçmek istiyorsanız, bu katmanda yeni bir dosya paylaşımı oluşturma ve el ile verilerin, özgün paylaşımından oluşturduğunuz yeni paylaşıma kopyalayın. AzCopy gibi desteklenen Azure dosyaları kopyalama araçlardan herhangi birini kullanarak bunu yapabilirsiniz.
 
 > [!IMPORTANT]
-> Premium dosya paylaşımları, LRS ile yalnızca kullanılabilir Önizleme aşamasında olan ve yalnızca içinde kullanılabilir olan Azure Backup desteğiyle bölgelerin alt kümesinde kullanılabilen bölgeler seçin:
-
-|Kullanılabilir bölge  |Azure yedekleme desteği  |
-|---------|---------|
-|Doğu ABD 2      | Evet|
-|Doğu ABD       | Evet|
-|Batı ABD       | Hayır |
-|Batı ABD 2      | Hayır |
-|Orta ABD    | Hayır |
-|Kuzey Avrupa  | Hayır |
-|Batı Avrupa   | Evet|
-|Güney Doğu Asya       | Evet|
-|Doğu Asya     | Hayır |
-|Japonya Doğu    | Hayır |
-|Japonya Batı    | Hayır |
-|Kore Orta | Hayır |
-|Avustralya Doğu| Hayır |
+> Premium dosya paylaşımları hala Önizleme aşamasındadır, yalnızca LRS ile kullanılabilir ve depolama hesapları sunan birçok bölgede kullanılabilir. Premium dosya paylaşımları Bölgenizde kullanılabilir olup olmadığını öğrenmek için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=storage) Azure sayfası.
 
 ### <a name="provisioned-shares"></a>Sağlanan paylaşımlar
 
@@ -115,7 +105,9 @@ Paylaşımları 1 GiB artışlarla sağlanması gerekir. En küçük boyutu 100 
 >
 > Giriş oranı = 40 MiB/sn + 0.04 * GiB sağlandı
 
-Paylaşım boyutu, herhangi bir zamanda artırılabilir ancak yalnızca son artış itibaren 24 saat sonra azaltılabilir. Boyutu artışı olmadan 24 saat boyunca bekledikten sonra tekrar artırmak kadar birçok kez paylaşım boyutu düşürebilir. Boyutu değişiklikten sonra birkaç dakika içinde IOPS/işleme ölçek değişiklikler geçerli olacaktır.
+Paylaşım boyutu, herhangi bir zamanda artırılabilir ancak yalnızca son artış itibaren 24 saat sonra azaltılabilir. Boyutu artışı olmadan 24 saat boyunca bekledikten sonra tekrar artırmak kadar istediğiniz gibi birçok kez paylaşım boyutu düşürebilir. Boyutu değişiklikten sonra birkaç dakika içinde IOPS/işleme ölçek değişiklikler geçerli olacaktır.
+
+Aşağıda, kullanılan GiB, sağlanan paylaşım boyutunu azaltmak mümkündür. Bunu yaparsanız, verileri kaybetmez ancak yine de kullanılan boyutu için Faturalandırılacak ve kullanılan boyutunun sağlanan paylaşımının (temel IOPS, üretilen iş ve veri bloğu IOPS) performansı alırsınız.
 
 Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı örnekler gösterilmektedir:
 
@@ -141,7 +133,7 @@ Premium dosya paylaşımlarını bir faktör üç kadar kendi IOPS veri bloğu. 
 Dosya paylaşımınızın trafiği IOPS temel altında olduğunda bir veri bloğu kovada KREDİLERİ toplar. Örneğin, 100 temel IOPS bir 100 GiB paylaşımı vardır. Paylaşım gerçek trafiği için belirli 1 saniyelik aralıklarla 40 IOPS olduysa, 60 kullanılmayan IOPS için bir veri bloğu demet alacak. İşlem ' % s'temeli IOPS aşılmasına KREDİLERİ ardından daha sonra kullanılacak.
 
 > [!TIP]
-> Veri bloğu demet boyutunu Baseline_IOPS = * 2 * 3600.
+> Veri bloğu demet boyutunu temel IOPS = * 2 * 3600.
 
 Bir Paylaşımı ' % s'temeli IOPS aşıyor ve veri bloğu kovada KREDİLERİ olan her veri bloğu. Paylaşımları paylaşımları 50 TiB daha küçük bir saat süreyle veri bloğu sınırı, yalnızca kalır ancak kalan KREDİLERİ sürece veri bloğu devam edebilirsiniz. Paylaşımları 50 TiB daha büyük, teknik olarak bu bir saatlik sınırın aşılmasına neden olabilir, Yukarı ancak, bu iki saate tahakkuk eden aşırı KREDİLERİ sayısına bağlıdır. Bir kredi temel IOPS dışına her GÇ kullanır ve tüm KREDİLERİ tüketilen sonra paylaşım IOPS taban çizgisine döndürür.
 

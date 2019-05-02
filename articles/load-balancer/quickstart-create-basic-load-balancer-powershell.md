@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109806"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688373"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici ol
 
 PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure PowerShell modülü 5.4.1 veya sonraki bir sürümünü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Yük dengeleyicinizi oluşturmadan önce bir kaynak grubu oluşturmanız gerekir [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnek *EastUS* konumunda *myResourceGroupLB* adlı bir kaynak grubu oluşturur:
 
@@ -129,7 +129,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Yük dengeleyici oluştur
+### <a name="create-load-balancer"></a>Yük dengeleyici oluşturma
 
 Basic Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, önceki adımlarda oluşturduğunuz ön uç IP yapılandırmasını, arka uç havuzunu, sistem durumu araştırmasını, yük dengeleme kuralını ve NAT kurallarını kullanarak myLoadBalancer adlı genel bir Temel Yük Dengeleyici oluşturur:
 
@@ -149,7 +149,7 @@ $lb = New-AzLoadBalancer `
 
 Bazı VM’leri dağıtabilmeniz ve yük dengeleyicinizi test edebilmeniz için destekleyici ağ kaynakları (sanal ağ ve sanal NIC’ler) oluşturmanız gerekir. 
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 İle sanal ağ oluşturma [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
 
@@ -168,7 +168,7 @@ $vnet = New-AzVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluştur
+### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
 Sanal ağınıza gelen bağlantıları tanımlamak için ağ güvenlik grubu oluşturun.
 
@@ -335,7 +335,7 @@ Sonra da genel IP adresini bir web tarayıcısına girebilirsiniz. Aşağıdaki 
 
 ![Yük dengeleyiciyi test etme](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-Yük dengeleyicinin trafiği, uygulamanızı çalıştıran iki VM’ye dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
+Yük dengeleyicinin trafiği, uygulamanızı çalıştıran her iki VM’ye de dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

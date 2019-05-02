@@ -1,64 +1,60 @@
 ---
-title: Azure için bulut iş ortağı portalı sanal makine Marketi sekmesinden | Microsoft Docs
+title: Sanal makine Marketi sekmesinden, Azure Market'te bulut iş ortağı portalı
 description: Bir Azure Market VM teklifi oluşturmak için kullanılan Marketi sekmesinden açıklar.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332780"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938199"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Sanal makine Marketi sekmesi
 
-**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **Genel Bakış**, **Yapıtları pazarlama**, **sağlama Yönetim**, ve **yasal**. 
+**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **Genel Bakış**, **Yapıtları pazarlama**, **sağlama Yönetim**, ve **yasal**.
+
 
 ## <a name="overview-section"></a>Genel Bakış bölümünde
 Bu bölümde, Azure Market teklifi hakkında genel bilgileri girin.  Alan adı eklenmiş bir yıldız (*) gerekli olduğunu gösterir.
 
-![Genel Bakış bölümünde sanal makineler için yeni teklifi formdaki Market sekmenin](./media/publishvm_008.png)
+![Sanal makineler Market sekmesini bölümünü genel bakış](./media/publishvm_008.png)
 
-Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
+Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar. Gerekli alanlar yıldız (*) indicted.
 
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Başlık**                 | Teklif, genellikle uzun, biçimsel adı başlığı. Bu konu başlığı, Market'te göze çarpacak şekilde görüntülenir.  En fazla 50 karakter uzunluğunda. |
-| **Özet**               | Brief amaçlı veya çözümün işlevi.  En fazla 100 karakter uzunluğunda. |
-| **Uzun özeti**          | Amaç veya çözümün işlevi.  En fazla 256 karakter uzunluğunda. |
-| **Açıklama**           | Çözüm açıklaması.  En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler. |
-| **Microsoft CSP satıcısı kanal** | Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı. |
-| **Pazarlama tanımlayıcısı**  | Bu teklif için ilişkilendirmek için benzersiz bir URL, kuruluşunuz ve çözüm adı, en fazla uzunluğu 50 karakterden genellikle içerir.  Örneğin: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Önizleme abonelik kimlikleri** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
+| **Başlık\***                 | Teklif, genellikle uzun, biçimsel adı başlığı. Bu konu başlığı, Market'te göze çarpacak şekilde görüntülenir.  En fazla 50 karakter uzunluğunda. |
+| **Özeti\***               | Brief amaçlı veya çözümün işlevi.  En fazla 100 karakter uzunluğunda. |
+| **Uzun özeti\***          | Amaç veya çözümün işlevi.  En fazla 256 karakter uzunluğunda. |
+| **Açıklaması\***           | Çözüm açıklaması.  En fazla 3000 karakter uzunluğunda basit HTML biçimlendirmeyi destekler. |
+| **Microsoft CSP satıcısı kanal\*** | Bulut çözümü sağlayıcıları (CSP) iş ortağı kanalı katılımı kullanıma sunuldu.  Lütfen [bulut çözüm sağlayıcıları](../../cloud-solution-providers.md) teklifinizi Microsoft CSP aracılığıyla pazarlama hakkında daha fazla bilgi için iş ortağı kanalı. |
+| **Pazarlama tanımlayıcısı\***  | Bu teklif için ilişkilendirmek için benzersiz bir URL, kuruluşunuz ve çözüm adı, en fazla uzunluğu 50 karakterden genellikle içerir.  Örneğin: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Önizleme abonelik kimlikleri\*** | Bir ila 100 abonelik tanımlayıcıları nizleyicileri ekleyin. Canlı geçmeden önce yayımlandıktan sonra bu teknik listelenen abonelikler teklif erişebilir. |
 | **Faydalı bağlantılar**          | URL'leri, belgeler, sürüm notları, SSS ve benzeri ekleyin. |
-| **Önerilen kategorileri (en fazla 5)** | İş ve teknik teklif kategorilerini çoklu seçim ile ilişkili en iyi olabilir.  En fazla beş izin verilir.  |
+| **Önerilen kategorileri (en fazla 5)\*** | İş ve teknik teklif kategorilerini çoklu seçim ile ilişkili en iyi olabilir.  En fazla beş izin verilir.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Pazarlama Yapıtları bölümü
 
-Bu ikinci bölümde üç alt bölümlere ayrılmıştır: **Logo**, **ekran**, ve **videoları**. Logo yalnızca tüm için en iyi müşteri ilgi çekecek şiddetle tavsiye edilir ancak yapıtlar, pazarlama gereklidir.
+Bu ikinci bölümde üç alt bölümlere ayrılmıştır: **Logo**, **ekran**, ve **videoları**. Logo yalnızca tüm için en iyi müşteri ilgi çekecek şiddetle tavsiye edilir ancak yapıtlar, pazarlama gereklidir. 
 
 ![Sanal makineler için yeni teklifi formdaki Market sekmesinin Yapıtları bölümündeki pazarlama](./media/publishvm_009.png)
+
+Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar. Gerekli alanlar yıldız (*) indicted.
 
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logo*  |  |
-| **Küçük**                 | 40 x 40 piksel .ico bit eşlem                                                      |
-| **Orta**                | 90 x 90 piksel .ico bit eşlem                                                      |
-| **Büyük**                 | 115 x 115 piksel .ico bit eşlem                                                   |
-| **Geniş**                  | 255 x 115 piksel .ico bit eşlem                                                    |
+| **Küçük\***                 | 40 x 40 piksel .ico bit eşlem                                                      |
+| **Orta\***                | 90 x 90 piksel .ico bit eşlem                                                      |
+| **Büyük\***                 | 115 x 115 piksel .ico bit eşlem                                                   |
+| **Geniş\***                  | 255 x 115 piksel .ico bit eşlem                                                    |
 | **Hero**                  | 815 x 290 bit eşlem.  İsteğe bağlı, ancak bir kez karşıya yüklenen hero simge silinemiyor. |
 | *Ekran görüntüleri*  | İsteğe bağlı, ancak en fazla beş ekran görüntüleri başına SKU. |
 | **Ad**                  | Adı veya başlığı <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Bu ikinci bölümde üç alt bölümlere ayrılmıştır: **Logo**, **ekran**, v
 | **Ad**                  | Adı veya başlığı  <!-- TODO - max char length? -->                              |
 | **Bağlantı**                  | YouTube veya Vimeo barındırılan video URL'si                                        |
 | **Küçük resim**             | 533 x 324 bit eşlem                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Logo yönergeleri
 
@@ -105,7 +100,6 @@ Aşağıdaki görüntüde, bilgi pazarlama Microsoft Windows Server ana ürün s
 
 
 ## <a name="lead-management-section"></a>Yönetim bölümünde sağlama
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 Üçüncü bölüm müşteriler toplamanızı sağlayan Azure Marketi Teklifleriniz oluşturulan müşteri adayları. Bu müşteri adayı bilgileri için aşağıdaki depolama seçenekleri (aşağı açılan listeden) sunar.
 
@@ -122,15 +116,16 @@ Teklifinizi başarıyla yayımladıktan sonra müşteri adayı bağlantı doğru
 
 ## <a name="legal-section"></a>Yasal bölümü
 
-Bu son bölümde her teklif için gereken iki yasal belgeler girmenize olanak tanır: Gizlilik İlkesi ve kullanım koşulları.
+Bu son bölümde gerekli yasal belgeler her teklif için gerekli girmenize olanak tanır.  
 
-|  **Alan**                |     **Açıklama**                                                          |
-|  ---------                |     ---------------                                                          |
-| **Gizlilik İlkesi URL'si**    | Gizlilik ilkeniz URL'si                                            |
-| **Kullanım koşulları**          | İlke olarak basit bir HTML veya düz metin.  <!-- TODO - max char length? -->       |
+|  **Alan**                    |     **Açıklama**                                        |
+|  ---------                    |     ---------------                                        |
+| **Gizlilik İlkesi URL'si\***      | Gizlilik ilkeniz URL'si                          |
+| **Standart sözleşme kullanılsın mı?\***  |   |
+| **Kullanım koşulları\***            | İlke olarak basit bir HTML veya düz metin.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 Sonraki [Destek](./cpp-support-tab.md) sekmesi, teklifiniz için teknik ve kullanıcı Destek kaynakları sağlayacaktır.
-

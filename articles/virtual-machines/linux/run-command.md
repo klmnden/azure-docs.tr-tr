@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570587"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kabuk betikleri Linux VM'nize ile Çalıştır komutunu çalıştırın.
 
@@ -78,9 +78,9 @@ Bu tabloda, Linux Vm'leri için kullanılabilir komutların listesini gösterir.
 
 ## <a name="limiting-access-to-run-command"></a>Komutu Çalıştır erişimi sınırlandırma
 
-Çalıştırma komutları listesi veya bir komut ayrıntılarını gösteren gerektiren `Microsoft.Compute/locations/runCommands/read` izni, yerleşik [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rol ve daha yüksek.
+Çalıştırma komutları listesi veya bir komut ayrıntılarını gösteren gerektiren `Microsoft.Compute/locations/runCommands/read` abonelik düzeyinde izni, yerleşik [okuyucu](../../role-based-access-control/built-in-roles.md#reader) rol ve daha yüksek.
 
-Bir komut çalıştırmak gerektirir `Microsoft.Compute/virtualMachines/runCommand/action` izni olan [katkıda bulunan](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol ve daha yüksek.
+Bir komutu çalıştırmak gerektirir `Microsoft.Compute/virtualMachines/runCommand/action` abonelik düzeyinde izni olan [sanal makine Katılımcısı](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol ve daha yüksek.
 
 Birini kullanabilirsiniz [yerleşik](../../role-based-access-control/built-in-roles.md) rolleri veya oluşturma bir [özel](../../role-based-access-control/custom-roles.md) rol Çalıştır komutunu kullanmaktır.
 

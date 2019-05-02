@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484029"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572588"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market’teki Azure yönetilen uygulamaları
 
@@ -29,7 +29,7 @@ Bu makaleyi tamamlamak için yönetilen uygulama tanımınıza yönelik .zip dos
 
 Ek olarak birkaç iş önkoşulu bulunmaktadır. Bunlar:
 
-* Şirketinizin veya yan kuruluşunun satışların market tarafından desteklendiği bir ülkede bulunması gerekir.
+* Şirketiniz veya yan kuruluşunun satış Market tarafından desteklendiği durumlarda bir ülke/bölge bulunmalıdır.
 * Ürününüz, marketin desteklediği faturalandırma modelleriyle uyumlu olacak şekilde lisanslandırılmalıdır.
 * Teknik desteği müşterilerin erişimine ticari açıdan sorumlu bir şekilde sunun. Destek ücretsiz, ücretli veya topluluk desteği aracılığıyla olabilir.
 * Yazılımınızı ve tüm üçüncü taraf yazılım bağımlılıklarını lisanslandırın.
@@ -43,7 +43,7 @@ Azure Market’te yayımcı olmak için şunları yapmanız gerekir:
 
 1. Microsoft Kimliği oluşturma - Şirketinizin etki alanına ait olan ancak tek bir bireye ait olmayan bir e-posta adresini kullanarak Microsoft hesabınızı oluşturun. Bu e-posta adresi hem Microsoft Geliştirici Merkezi hem de Bulut İş Ortağı Portalı için kullanılır. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. [Azure Market Adaylık Formunu](https://aka.ms/ampnomination) gönderme - For **Yayımlamayı düşündüğünüz çözüm** için **Yönetilen Uygulama**’yı seçin. Form gönderildikten sonra Markete Ekleme ekibi uygulamayı gözden geçirir ve isteği doğrular. Onay süreci bir ile üç gün sürer. Adaylığınız onaylandığında geliştirici merkezine yönelik kayıt ücretinin silinmesini sağlayan bir promosyon kodu alırsınız. Market Adaylık Formunu **doldurmazsanız** 99 $ kayıt ücreti ödemeniz istenir.
-1. [Geliştirici Merkezine](https://dev.windows.com/registration?accountprogram=azure) Kaydolma - Microsoft, kuruluşunuzun kayıtlı olduğu ülkeye yönelik geçerli bir VERGİ KİMLİĞİ olan geçerli bir tüzel kişi olduğunuzu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. Kaydetmeniz [Geliştirici Merkezi](https://dev.windows.com/registration?accountprogram=azure) -Microsoft, kuruluşunuzun geçerli bir yasal varlık içinde kayıtlı ülke/bölge için geçerli bir vergi kimliğiyle olduğunu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. [Bulut İş Ortağı Portalında](https://cloudpartner.azure.com) oturum açma - Yayımcı profilinde, Geliştirici Merkezi hesabınızı Market Yayımcı Profiliyle ilişkilendirin. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulaması teklifi oluşturma
@@ -94,8 +94,8 @@ SKU, marketteki ana teklifin altında görünür. Azure portalında kendi başı
    * **Özet**: Bu SKU için kısa bir Özet girin. Bu metin başlığın altında görünür.
    * **Açıklama**: SKU hakkında ayrıntılı bir açıklama girin.
    * **SKU türü**: İzin verilen değerler *yönetilen uygulamayı* ve *çözüm şablonları*. Bu durum için *Yönetilen Uygulama*’yı seçin.
-   * **Ülke/bölge kullanılabilirliği**: Yönetilen uygulama kullanılabilir olduğu ülkeleri seçin.
-   * **Fiyatlandırma**: Uygulama Yönetimi için bir fiyat sağlar. Fiyatı ayarlamadan önce kullanılabilir ülkeleri seçin.
+   * **Ülke/bölge kullanılabilirliği**: Yönetilen uygulama kullanılabilir olduğu ülkeleri/bölgeleri seçin.
+   * **Fiyatlandırma**: Uygulama Yönetimi için bir fiyat sağlar. Fiyat ayarlamadan önce kullanılabilir ülkeleri/bölgeleri seçin.
 
 1. Yeni bir paket ekleyin. Aşağıdaki formda yer alan **Paket Ayrıntıları** bölümünü doldurun:
 

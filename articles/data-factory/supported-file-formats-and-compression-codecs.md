@@ -3,18 +3,18 @@ title: Azure Data Factory'de desteklenen dosya biçimleri | Microsoft Docs
 description: Bu konuda dosya biçimlerini ve dosya tabanlı bağlayıcı Azure Data Factory tarafından desteklenen bir sıkıştırma kodları açıklanmaktadır.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394442"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925146"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -29,9 +29,12 @@ ms.locfileid: "60394442"
 * [Avro biçimi](#avro-format)
 
 > [!TIP]
-> Kopyalama etkinliği gelen havuz için kaynak verilerinizi nasıl eşlendiğini öğrenin [şema eşleme kopyalama etkinliğindeki](copy-activity-schema-and-type-mapping.md)nasıl meta veri dosyası biçimi ayarlarınıza göre belirlenen ve ne zaman üzerinde belirtmek ipuçları dahil olmak üzere [veri kümesi `structure` ](concepts-datasets-linked-services.md#dataset-structure) bölümü.
+> Kopyalama etkinliği gelen havuz için kaynak verilerinizi nasıl eşlendiğini öğrenin [şema eşleme kopyalama etkinliğindeki](copy-activity-schema-and-type-mapping.md)nasıl meta veri dosyası biçimi ayarlarınıza göre belirlenen ve ne zaman üzerinde belirtmek ipuçları dahil olmak üzere [veri kümesi `structure` ](concepts-datasets-linked-services.md#dataset-structure-or-schema) bölümü.
 
 ## <a name="text-format"></a>Metin biçimi
+
+>[!NOTE]
+>Sunulan yeni veri fabrikası sınırlandırılmış metin biçimi datset bkz [sınırlandırılmış metin biçimi](format-delimited-text.md) ayrıntıları içeren makaleye. Dosya tabanlı verilerin depolama kümesinde aşağıdaki yapılandırmalardan olarak desteklenen hala-için geriye dönük compabitility olduğu. Bundan sonra yeni modeli kullanmak için önerilir.
 
 Bir metin dosyasından okumak veya bir metin dosyasına yazma istiyorsanız `type` özelliğinde `format` veri kümesine bölümünü **TextFormat**. İsterseniz `format` bölümünde aşağıdaki **isteğe bağlı** özellikleri de belirtebilirsiniz. Yapılandırma adımları için [TextFormat örneği](#textformat-example) bölümünü inceleyin.
 
@@ -97,7 +100,7 @@ JSON dosyalarını ayrıştırmak veya verileri JSON biçiminde yazmak istiyorsa
 | nestingSeparator |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. Varsayılan değer "." (nokta) olarak belirlenmiştir. |Hayır |
 
 >[!NOTE]
->Durumu için çapraz uygulama-veri dizideki birden çok satıra (durum 1 -> Örnek 2 [JsonFormat örnekler](#jsonformat-example)), yalnızca tek bir dizi özellik kullanarak genişletmek seçebileceğiniz `jsonNodeReference`. 
+>Durumu için çapraz uygulama-veri dizideki birden çok satıra (durum 1 -> Örnek 2 [JsonFormat örnekler](#jsonformat-example)), yalnızca tek bir dizi özellik kullanarak genişletmek seçebileceğiniz `jsonNodeReference`.
 
 ### <a name="json-file-patterns"></a>JSON dosyası desenleri
 
@@ -196,7 +199,7 @@ Kopyalama etkinliği, JSON dosyalarının şu desenlerini ayrıştırabilir:
 
 **Örnek 1: nesne ve diziden veri ayıklama**
 
-Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşleşmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:  
+Bu örnekte, bir kök JSON nesnesinin tablosal sonuçtaki tek bir kayıtla eşleşmesi beklenir. Aşağıdaki içeriğe sahip bir JSON dosyanız varsa:
 
 ```json
 {
@@ -408,6 +411,9 @@ ve aşağıdaki biçimde bir JSON nesnesi yazmak amacıyla beklediğiniz her kay
 
 ## <a name="parquet-format"></a>Parquet biçimi
 
+>[!NOTE]
+>Veri Fabrikası sunulan yeni Parquet biçimi datset bkz [Parquet biçimi](format-delimited-text.md) ayrıntıları içeren makaleye. Dosya tabanlı verilerin depolama kümesinde aşağıdaki yapılandırmalardan olarak desteklenen hala-için geriye dönük compabitility olduğu. Bundan sonra yeni modeli kullanmak için önerilir.
+
 Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak istiyorsanız `format` `type` özelliğini **ParquetFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
 
 ```json
@@ -426,13 +432,13 @@ Aşağıdaki noktalara dikkat edin:
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için Parquet dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK** IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
 
-Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için. 
+Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için.
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
 
 >[!TIP]
->Kopyalarsanız veri gönderip buralardan veri Parquet biçimi kullanılarak şirket içinde barındırılan tümleştirme çalışma zamanı ve hata bildiren isabet "java çağrılırken bir hata oluştu. ileti: **java.lang.OutOfMemoryError:Java yığın alanı**", bir ortam değişkeni ekleyebilirsiniz. `_JAVA_OPTIONS` böyle kopyalama olanağı JVM için en düşük/en yüksek yığın boyutunu ayarlamak için şirket içinde barındırılan IR barındıran makine, işlem hattını yeniden. 
+>Kopyalarsanız veri gönderip buralardan veri Parquet biçimi kullanılarak şirket içinde barındırılan tümleştirme çalışma zamanı ve hata bildiren isabet "java çağrılırken bir hata oluştu. ileti: **java.lang.OutOfMemoryError:Java yığın alanı**", bir ortam değişkeni ekleyebilirsiniz. `_JAVA_OPTIONS` böyle kopyalama olanağı JVM için en düşük/en yüksek yığın boyutunu ayarlamak için şirket içinde barındırılan IR barındıran makine, işlem hattını yeniden.
 
 ![Şirket içinde barındırılan IR üzerinde JVM öbek boyutunu Ayarla](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -483,7 +489,7 @@ Aşağıdaki noktalara dikkat edin:
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için ORC dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK**  IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
 
-İlk olarak kayıt defteri denetleyerek ORC dosya serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için. 
+İlk olarak kayıt defteri denetleyerek ORC dosya serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için.
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
@@ -538,7 +544,7 @@ Azure Data Factory kopyalama sırasında veri sıkıştırma ve sıkıştırmas�
 * FTP sunucusundan okuma .zip dosyasını içindeki dosyaları almak ve bu dosyaları Azure Data Lake Store içinde kavuşmak için açın. Bir giriş FTP veri kümesi ile tanımladığınız `compression` `type` ZipDeflate olarak özelliği.
 * Azure blobundan GZIP sıkıştırılmış veri okuma, iptal, bzıp2 kullanarak sıkıştırma ve sonuç verilerini Azure blobuna yazma. Giriş Azure Blob veri kümesi ile tanımladığınız `compression` `type` GZIP ve çıktı veri kümesi ile ayarlanan `compression` `type` bzıp2 için ayarlayın.
 
-Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aşağıdaki örnekte olduğu gibi veri kümesi JSON özelliğinde:   
+Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aşağıdaki örnekte olduğu gibi veri kümesi JSON özelliğinde:
 
 ```json
 {
@@ -579,11 +585,12 @@ Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aş
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Desteklenmeyen dosya türleri ve sıkıştırma biçimleri
 
-Desteklenmeyen dosyalarını dönüştürmek için Azure Data Factory genişletilebilirlik özelliklerini kullanabilirsiniz. İki seçenek, Azure Batch kullanarak Azure işlevleri ve özel görevleri içerir.
+Desteklenmeyen dosyalarını dönüştürmek için Azure Data Factory genişletilebilirlik özelliklerini kullanabilirsiniz.
+İki seçenek, Azure Batch kullanarak Azure işlevleri ve özel görevleri içerir.
 
 Bir Azure işlevini kullanan bir örnek gördüğünüz [tar dosyasının içeriğini ayıklayın](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Daha fazla bilgi için [Azure işlevleri etkinlik](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-Ayrıca, bu işlev bir özel dotnet etkinliği kullanarak da oluşturabilirsiniz. Daha fazla bilgi edinilebilir [burada](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+Ayrıca, bu işlev bir özel dotnet etkinliği kullanarak da oluşturabilirsiniz. Daha fazla bilgi edinilebilir [burada](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

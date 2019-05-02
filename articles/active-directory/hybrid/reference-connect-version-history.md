@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387222"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572420"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -43,12 +43,12 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 Size bu süreçte çalışırken, sürüm sürüm numarasını "1.3.X.0" - olduğu gibi alt sürüm numarası konumu "X" işareti olan bu sürüm notları bu belgedeki "1.3." ile başlayan tüm sürümler için geçerli olduğunu gösterir gösterilir. Biz de yayın işlemini sonlandırıldıktan hemen sonra yayımlanma sürümü numarasını en kısa süre önce yayımlanan sürüme güncelleştirilir ve "İndirme ve Otomatik yükseltme için serbest" yayın durumu güncelleştirilir.
 Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>Yayın durumu 
 
-3/25/2019: Beklemede
- 
+04/24/2019: İndirme için yayımlanan
+
 ### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler 
 
 - Etki alanı yenileme için destek eklendi 
@@ -64,7 +64,7 @@ Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale
 - Bir WS-Trust düzeltme için Ping çekmek ve yeni Azure örnekleri için destek eklemek için ADAL 3.19.8 yükseltme 
 - Değiştirme grubu eşitleme kurallarını samAccountName DomainNetbios ve buluta - DomainFQDN akış talep için gereken 
 - Varsayılan eşitleme kuralı işleme – daha fazla bilgi edinin değiştiren [burada](how-to-connect-fix-default-rules.md).
-- Bir windows hizmeti olarak çalışan yeni bir Aracısı eklendi. "Yönetim Aracı" adlı bu aracı, Microsoft destek talebinde bulunun ortaya çıkan sorun giderme Engineers yardımcı olmak için Azure AD Connect sunucusunun uzak daha ayrıntılı tanılama sağlar. Yönetim Aracısı hakkında daha fazla bilgiyi [burada](whatis-aadc-admin-agent.md). 
+- Bir windows hizmeti olarak çalışan yeni bir Aracısı eklendi. "Yönetim Aracı" adlı bu aracı, Microsoft destek talebinde bulunun ortaya çıkan sorun giderme Engineers yardımcı olmak için Azure AD Connect sunucusunun uzak daha ayrıntılı tanılama sağlar. Bu aracı değil yüklenir ve varsayılan olarak etkinleştirilir.  Aracıyı etkinleştirmek ve yükleme hakkında daha fazla bilgi için bkz. [Azure AD Connect yönetim Aracısı nedir?](whatis-aadc-admin-agent.md). 
 - Son Kullanıcı Lisans Sözleşmesi (EULA) güncelleştirildi 
 - Kullanıcıların oturum açma türü AD FS kullanan dağıtımlar için Otomatik yükseltme desteği eklendi.  Bu ayrıca, yükseltme işleminin bir parçası AD FS'yi Azure AD bağlı olan taraf güveni güncelleştirme gereksinimi kaldırıldı. 
 - İki seçenekler sunan bir Azure AD güven yönetim görevi ekledik: güven analiz/güncelleştir ve güvenini sıfırlama. 

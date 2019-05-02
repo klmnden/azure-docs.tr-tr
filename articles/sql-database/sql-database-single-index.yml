@@ -14,7 +14,7 @@ metadata:
   ms.author: jovanpop-msft
   ms.reviewer: carlrab
   manager: craigg
-  ms.date: 05/06/2019
+  ms.date: 04/26/2019
 abstract:
   description: 'Azure SQL veritabanı, Microsoft SQL Server Veritabanı Altyapısı''nın en son kararlı sürüme göre hizmet (DBaaS) olarak ilişkisel bir veritabanı hizmetidir. SQL veritabanı, yüksek performanslı, -kullanımı kolay, güvenilir ve altyapıyı yönetmek zorunda kalmadan yeni uygulamalar, Web siteleri ve tercih ettiğiniz programlama dilinde mikro hizmetler oluşturmak için kullanabileceğiniz güvenli bir veritabanı hizmetidir. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.'
   aside:

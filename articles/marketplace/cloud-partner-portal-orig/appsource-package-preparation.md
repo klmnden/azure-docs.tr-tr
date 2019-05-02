@@ -1,25 +1,19 @@
 ---
-title: AppSource paket Hazırlık | Microsoft Docs
+title: AppSource paket Hazırlık | Azure Market
 description: Hazırlama ve AppSource paketleri oluşturmak nasıl Explanaion.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625490"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935639"
 ---
 # <a name="appsource-package-preparation"></a>AppSource paketini hazırlama
 
@@ -117,7 +111,7 @@ AppSource paket birkaç ek dosyalar gerektirir.
 |SolutionAnchorName |Görünen ad ve açıklama çözüm varlıkları için kullanılan paket dağıtıcısı çözüm zip dosyasının adı.|
 | startDate| Bu çözüm paketine kullanılabilir olacak tarihtir. AA/GG/YYYY biçiminde olan|
 |endDate|Bu çözüm paketine kullanılabilir olmasını durduracak tarihtir. AA/GG/YYYY biçiminde olan |
-|SupportedCountries |Bu paketi görürsünüz ülkelerin virgülle ayrılmış bir listesi budur. Tüm geçerli Ülke Kodları listesi için Çevrimiçi Hizmetleri ile görüşün. Zaman bu yazılmasını listenin şöyleydi: AE, AL, AM, SANİYE BAŞINA AO, AR, AT, AU, AZ, BA, BB, BD, OLMASI, BG, BH, BM, BN, BO, BR TARAFINDAN CA, CH, CI, CL, CM, ORTAK, CR, CV, FA, CY, CZ, DE, DK,, DZ, AB, EE, ÖRN, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, İK, HU, KİMLİĞİ, IE, IL, IN, IQ, OLDUĞU GİBİ BU, JM, JO, JP, L, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, BANA, MK, MN, AY, MT, MU, MX, MY, NG, NI, NL, HAYIR, NZ, OM, PA, PE, PH , PK, PL, ÇEKME İSTEĞİ, PS, PT, KOPYALA, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, ABD, UY, UZ, KALDIR, VI, VN, ZA, ZW |
+|SupportedCountries |Bu paketi görürsünüz ülkeler/bölgeler, virgülle ayrılmış listesini budur. Tüm geçerli Ülke Kodları listesi için Çevrimiçi Hizmetleri ile görüşün. Zaman bu yazılmasını listenin şöyleydi: AE, AL, AM, SANİYE BAŞINA AO, AR, AT, AU, AZ, BA, BB, BD, OLMASI, BG, BH, BM, BN, BO, BR TARAFINDAN CA, CH, CI, CL, CM, ORTAK, CR, CV, FA, CY, CZ, DE, DK,, DZ, AB, EE, ÖRN, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, İK, HU, KİMLİĞİ, IE, IL, IN, IQ, OLDUĞU GİBİ BU, JM, JO, JP, L, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, BANA, MK, MN, AY, MT, MU, MX, MY, NG, NI, NL, HAYIR, NZ, OM, PA, PE, PH , PK, PL, ÇEKME İSTEĞİ, PS, PT, KOPYALA, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, ABD, UY, UZ, KALDIR, VI, VN, ZA, ZW |
 |LearnMoreLink | Bu paket için daha fazla bilgi sayfası URL'si. |
 |Yerel ayarlar|Bu düğüm tercih edilen çözümde UX'i desteklemek istediğiniz her bir UX dilin bir örneği Bu düğüm, yerel ayar, logo ve her bir dilin koşullarını tanımlayan alt öğeleri içerir|
 |Yerel ayarlar: PackageLocale.Code|Bu düğüm için dilin LCID. Örnek: İngilizce (ABD) 1033'tür|

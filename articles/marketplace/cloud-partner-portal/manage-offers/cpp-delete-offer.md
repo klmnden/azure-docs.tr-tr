@@ -1,25 +1,18 @@
 ---
-title: Azure Market Market teklifleri - silme | Microsoft Docs
+title: Market tekliflerini silme | Azure Market
 description: Azure ve bulut iş ortağı portalını kullanarak AppSource Marketlerden teklifler Sil
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942129"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Azure Market ve AppSource teklifler veya SKU'ları silme
 
@@ -28,7 +21,7 @@ ms.locfileid: "60825158"
 - *Teklif kaldırma* yeni müşteriler artık satın alabilir veya teklifiniz, dağıtma, sağlar ancak kim lisans sözleşmenizi ve ilgili yasalara göre desteklemelidir mevcut müşteriler hiçbir etkisi yoktur. 
 - *Teklif sonlandırma* hizmet sonlandırma ve/veya lisans sözleşmesi mevcut müşterileriniz arasındaki işlemidir. 
 
-Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560) ve [katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (bölüm [teklifi askıya alma ve kaldırma](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560) ve [katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (bölüm [teklifi askıya alma ve kaldırma](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Bu makalede Bahsediyor farklı desteklenen silme senaryoları ve her gerçekleştirmek için gerekli adımlar.  
 

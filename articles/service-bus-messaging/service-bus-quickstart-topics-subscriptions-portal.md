@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
 ms.openlocfilehash: e943dbff71fdbd98773587c8ac5a62dd081b49a2
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62739578"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698848"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Hızlı Başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portalını kullanma
 Bu hızlı başlangıçta, Service Bus konusu oluşturun ve sonra bu konuya abonelik oluşturmak için Azure portalını kullanın. 

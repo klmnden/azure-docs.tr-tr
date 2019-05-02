@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789917"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699090"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -221,7 +221,17 @@ Veri disklerinin başlatıldığından ve sonra işlemi yeniden deneyin emin olu
 
 Sorun devam ederse desteğe başvurun.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Bir veya daha fazla diskler (hata kodu 153039) koruma için kullanılabilir
+- **Olası nedeni** </br>
+  - bir veya daha fazla disklerin yakın zamanda sanal makineye sonra koruma eklenmişse. 
+  - bir veya daha fazla disklerin hazırlaması başlatılmış sanal makine korumayı daha sonra ise.
 
+### <a name="fix-the-problem"></a>Sorunu
+Diskleri korumak veya sanal Makinenin çoğaltma durumu yeniden sağlam hale getirmek için bir uyarıyı yoksaymak ya da seçebilirsiniz.</br>
+1. Disklerin korumak için. Çoğaltılan öğeler için gidin > VM > diskler > korumasız diskte tıklayın > çoğaltmayı etkinleştirme.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Uyarıyı kapatmak için. Çoğaltılan öğeler gidin > VM > Genel Bakış bölümünde Kapat uyarıyı tıklatın.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Azure VM için "çoğaltmayı etkinleştir" seçimi görülemiyor
 
  **1. neden:  Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764381"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926268"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -48,7 +48,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama hesabı anahtarı**: Bir Azure dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Hakkında bilgi edinebilirsiniz [engellenen geçici çözüm için çeşitli yollar burada 445 bağlantı noktası](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Hakkında bilgi edinebilirsiniz [engellenen geçici çözüm için çeşitli yollar burada 445 bağlantı noktası](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
     Aşağıdaki PowerShell kod varsayar Azure PowerShell Modülü yüklü, sahip olduğunuz bkz [Azure PowerShell modülü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 

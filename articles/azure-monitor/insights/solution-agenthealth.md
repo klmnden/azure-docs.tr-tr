@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596048"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571161"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure İzleyici'de aracı durumu çözümü
 Aracı durumu çözümü, Azure, tüm aracıların doğrudan Log Analytics çalışma alanını Azure İzleyici'de raporlama anlamanıza yardımcı olur veya yanıt vermeyen olduğu için Azure İzleyici, bağlı bir System Center Operations Manager yönetim grubu ve işletimsel veri gönderiliyor.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -63,7 +63,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Aracı Sürümüne Göre Dağılım | Ortamınızda yüklü olan farklı aracı sürümlerine ve her birinin sayısına ilişkin bir bölüm.|
 | Aracı Kategorisine Göre Dağılım | Sinyal olayları gönderen farklı kategorilerdeki araçlara ilişkin bir bölüm: Doğrudan aracılar, OpsMgr aracıları veya OpsMgr Management Server.|
 | Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı Operations Manager yönetim gruplarına ilişkin bir bölüm.|
-| Aracıların coğrafi konumu | Aracılarınızın bulunduğu farklı ülkelere ve her ülkede yüklü olan toplam aracı sayısına ilişkin bir bölüm.|
+| Aracıların coğrafi konumu | Aracıları ve her ülkesinde/bölgesinde yüklenmiş aracıların toplam sayısı sahip olduğunuz farklı ülkelerde/bölgelerde ilişkin bir bölüm.|
 | Yüklü Ağ Geçidi Sayısı | Log Analytics ağ geçidinin yüklü olduğu sunucular sayısı ve bu sunucuların listesi.|
 
 ![Aracı Durumu Çözüm panosu örneği](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  

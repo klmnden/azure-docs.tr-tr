@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577601"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690142"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -28,7 +28,7 @@ Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dille
 **V2 Translator API'si**
 
 > [!NOTE]
-> V2 30 Nisan 2018'de kullanım dışı bırakıldı ve 30 Nisan 2019 üzerinde durdurulacaktır.
+> V2 30 Nisan 2018'de kullanım dışı bırakıldı. Lütfen yalnızca V3 sürümünde kullanılabilir olan yeni işlevsellikten yararlanmak için V3, uygulamalarınızı geçirin.
 
 * Yalnızca istatistiksel: Sinir sistemi değildir, bu dil için kullanılabilir.
 * Sinir kullanılabilir: Sinir sistem kullanılabilir. İlgili parametreyi kullanın `category=generalnn` sinir sistemine erişebilir.
@@ -230,14 +230,17 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 | Endonezya dili|   `id`    |
 | İtalyanca      | `it`          |
 | Japonca      | `ja`          |
+|Svahili dili| `sw`    |
 | Korece      | `ko`          |
 | Letonca      | `lv`          |
 | Litvanca      | `lt`          |
+|Malgaşça|  `mg`    |
 | Norveççe      | `nb`          |
 | Lehçe      | `pl`          |
 | Portekizce      | `pt`          |
 | Rumence      | `ro`          |
 | Rusça      | `ru`          |
+|Samoaca|    `sm`    |
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |

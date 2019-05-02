@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844186"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691922"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımlama dili tetikleyicisi ve eylem türleri için başvuru
 
@@ -2301,6 +2301,7 @@ Tetikleyiciler ve Eylemler ile bu varsayılan çalışma zamanı davranışını
 | `runtimeConfiguration.concurrency.runs` | Tamsayı | Değişiklik [ *varsayılan sınırı* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) aynı anda ya da paralel iş akışı örnekleri sayısı. Bu değer, arka uç sistemlerine alma isteklerinin sayısı sınırlandırmanıza yardımcı olabilir. <p>Ayarı `runs` özelliğini `1` ayarını aynı şekilde çalışır `operationOptions` özelliğini `SingleInstance`. Ya da özellik, her ikisini de ayarlayabilirsiniz. <p>Varsayılan sınırı değiştirmek için bkz [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency) veya [tetikleme örnekleri sırayla](#sequential-trigger). | Tüm tetikleyiciler | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Tamsayı | Değişiklik [ *varsayılan sınırı* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) akışınızı zaten maksimum eşzamanlı örnek çalışırken çalıştırmak için bekleyebileceği iş akışı örnekleri sayısı. Eşzamanlılık sınırı değiştirebilirsiniz `concurrency.runs` özelliği. <p>Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | Tüm tetikleyiciler | 
 | `runtimeConfiguration.concurrency.repetitions` | Tamsayı | Değişiklik [ *varsayılan sınırı* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) sayısı "for each" döngüsü aynı anda ya da paralel yineleme. <p>Ayarı `repetitions` özelliğini `1` ayarını aynı şekilde çalışır `operationOptions` özelliğini `SingleInstance`. Ya da özellik, her ikisini de ayarlayabilirsiniz. <p>Varsayılan sınırı değiştirmek için bkz ["for each" eşzamanlılık değiştirme](#change-for-each-concurrency) veya ["for each" çalıştırma sırayla döngü](#sequential-for-each). | Eylem: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Tamsayı | Bu değer, destek ve sayfalandırma açık olan belirli eylemler için belirtir *minimum* almak için sonuç sayısı. <p>Sayfalandırma üzerinde etkinleştirmek için bkz: [toplu veri, öğeleri veya sonuçlarını sayfalandırma kullanarak elde](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Eylem: Değiştirilen |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2651,7 +2652,7 @@ Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `ClientCe
 
 İçin [Azure AD OAuth kimlik doğrulaması](../active-directory/develop/authentication-scenarios.md), tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` aşağıdaki tabloda belirtilen özellikleri içeren JSON nesnesi. Parametre değerleri çalışma zamanında erişmek için kullanabileceğiniz `@parameters('parameterName')` tarafından sağlanan ifadenin [iş akışı tanımlama dili](https://aka.ms/logicappsdocs).
 
-| Özellik | Gereklidir | Value | Açıklama |
+| Özellik | Gereklidir | Değer | Açıklama |
 |----------|----------|-------|-------------|
 | **type** | Evet | `ActiveDirectoryOAuth` | Azure AD OAuth "ActiveDirectoryOAuth" olan kullanmak için kimlik doğrulaması türü |
 | **Yetkilisi** | Hayır | <*URL-için-yetkilisi-token-yayımcısı*> | Kimlik Doğrulama belirtecini sağlar yetkilisi URL'si |

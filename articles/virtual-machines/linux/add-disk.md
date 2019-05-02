@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1915051380a514cf8143d43bddc0d0d475f43c07
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 3f33fb09a4b6c19bae3c02ecc47dae193a3a6cb0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765839"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925227"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir.
@@ -205,7 +205,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > *Nofail* seçeneği, sanal makine bile dosya sistemi bozuk ya da diskin önyükleme sırasında yok başlatılmadan sağlar. Bu seçenek olmadan davranışı açıklandığı karşılaşabilirsiniz [olamaz SSH için Linux VM'si FSTAB hataları nedeniyle](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 >
-> Bir önyükleme hatası fstab değiştirme oluşturduysa Azure sanal makine seri Konsolu sanal makinenizin konsol erişimi için kullanılabilir. Daha fazla ayrıntı bulabilirsiniz [seri Konsolu belgelerine](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
+> Bir önyükleme hatası fstab değiştirme oluşturduysa Azure sanal makine seri Konsolu sanal makinenizin konsol erişimi için kullanılabilir. Daha fazla ayrıntı bulabilirsiniz [seri Konsolu belgelerine](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure'da Linux TRIM/UNMAP desteği
 Bazı Linux çekirdeklerinin diskte kullanılmayan blokları atmak TRIM/UNMAP işlemleri destekler. Bu özellik sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek ve büyük dosyaları oluşturmak ve bunları silin, para tasarrufu yapabileceğiniz bilgilendirmek için standart depolama alanında özellikle yararlıdır.

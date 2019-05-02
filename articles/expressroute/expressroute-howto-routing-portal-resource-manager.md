@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365069"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570854"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için eşlemesi oluşturma ve değiştirme
 
@@ -91,7 +91,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 ### <a name="getmsft"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 
-Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
+Microsoft eşlemesi'ı seçerek eşleme özelliklerini görüntüleyebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ Aşağıdaki görüntüde gösterilen silme simgesini seçerek eşleme yapıland
 ## <a name="public"></a>Azure genel eşdüzey hizmet sağlama
 
 Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını silme yardımcı olur.
+
+> [!Note]
+> Azure genel eşdüzey hizmet sağlama, yeni bağlantı hatları için kullanım dışı bırakılmıştır. Daha fazla bilgi için [ExpressRoute eşdüzey hizmet sağlaması](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
 

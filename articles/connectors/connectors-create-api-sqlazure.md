@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541153"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696414"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps'ten SQL Server veya Azure SQL veritabanına bağlanma
 
@@ -116,23 +116,26 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Toplu işlem verileri
+## <a name="handle-bulk-data"></a>Toplu veri işleme
 
-Bağlayıcı aynı anda tüm sonuçlar döndürmüyor veya büyüklüğüne ve yapısına üzerinde daha iyi denetim sonucu kümeleriniz için istediğiniz kadar büyük sonuç kümeleriyle çalışırken kullanabileceğiniz *sayfalandırma*, yardımcı olan bu yönetme Sonuç olarak daha küçük ayarlar. 
+Bazı durumlarda, bağlayıcı aynı anda tüm sonuçlar döndürmüyor veya büyüklüğüne ve yapısına üzerinde daha iyi denetim sonucu kümeleriniz için istediğiniz kadar büyük sonuç kümeleri çalışmak gerekebilir. Bu büyük sonuç kümelerini işleyebilir bazı yöntemler aşağıda verilmiştir:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Sonuçları daha küçük kümeleri olarak yönetmenize yardımcı olmak için açma *sayfalandırma*. Daha fazla bilgi için [toplu veri, kayıt ve öğeleri sayfalandırma kullanarak elde](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Bir saklı yordam oluşturma
+* Sonuçlar istediğiniz şekilde düzenler bir saklı yordamı oluşturun.
 
-Alma veya birden çok satır ekleme, mantıksal uygulamanız bu öğeler arasında kullanarak yineleyebilirsiniz bir [ *until döngüsü* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) bunlar içinde [sınırları](../logic-apps/logic-apps-limits-and-config.md). Ancak, bazen mantıksal uygulamanızı binlerce veya milyonlarca, veritabanı çağrıları maliyetlerini en aza indirmek için istediğiniz satır gibi çok büyük kayıt kümeleri ile çalışma. 
+  Alma veya birden çok satır ekleme, mantıksal uygulamanız bu satırlara kullanarak yineleyebilirsiniz bir [ *until döngüsü* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) bunlar içinde [sınırları](../logic-apps/logic-apps-limits-and-config.md). 
+  Ancak kayıt kümeleri çok büyük, örneğin binlerce veya milyonlarca satır, veritabanı çağrıları kaynaklanan maliyetleri en aza indirmek istediğiniz çalışmaya olduğunda mantıksal uygulamanız gerekir.
 
-Bunun yerine, oluşturabileceğiniz bir <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank"> *saklı yordamı* </a> kullanır ve SQL örneği'nde çalışan **seçin - ORDER BY** istediğiniz şekilde sonuçları düzenlemek için deyimi. Bu çözüm, boyutu ve sonuçlarınızı yapısı üzerinde daha fazla denetim sağlar. SQL Server bağlayıcının kullanarak mantıksal uygulamanızı saklı yordam çağrıları **saklı yordam yürütme** eylem. 
+  Sonuçları, istediğiniz şekilde düzenlemek için oluşturabileceğiniz bir [ *saklı yordamı* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) kullanır ve SQL örneği'nde çalışan **seçin - ORDER BY** deyimi. 
+  Bu çözüm, boyutu ve sonuçlarınızı yapısı üzerinde daha fazla denetim sağlar. 
+  SQL Server bağlayıcının kullanarak mantıksal uygulamanızı saklı yordam çağrıları **saklı yordam yürütme** eylem.
 
-Çözüm Ayrıntılar için şu makalelere bakın:
+  Çözüm Ayrıntılar için şu makalelere bakın:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">Logic Apps ile toplu veri aktarımı için SQL sayfalandırma</a>
+  * [Logic Apps ile toplu veri aktarımı için SQL sayfalandırma](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SEÇİN - ORDER BY yan tümcesi</a>
+  * [SEÇİN - ORDER BY yan tümcesi](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
 

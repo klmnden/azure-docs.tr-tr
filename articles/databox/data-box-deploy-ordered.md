@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Data Box sipariş etme | Microsoft Docs
+title: Azure Data Box siparişi için öğretici | Microsoft Docs
 description: Dağıtım önkoşullarını ve Azure Data Box siparişi etmeyi öğrenin
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834277"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926225"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Öğretici: Azure Data Box'ı sırası
 
@@ -69,7 +69,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
     |Kaynak ülke     |   Verilerinizin bulunduğu ülkeyi seçin.         |
     |Hedef Azure bölgesi     |     Verileri aktarmak istediğiniz Azure bölgesini seçin.        |
 
-5. **Data Box**'ı seçin. Tek bir sipariş için en fazla kullanılabilir kapasite 786 TB'dir. Daha büyük veri boyutları için birden fazla sipariş oluşturabilirsiniz.
+5. **Data Box**'ı seçin. Tek bir sipariş için en fazla kullanılabilir kapasite 80 TB'dir. Daha büyük veri boyutları için birden fazla sipariş oluşturabilirsiniz.
 
       [![Data Box seçeneğini belirtin 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

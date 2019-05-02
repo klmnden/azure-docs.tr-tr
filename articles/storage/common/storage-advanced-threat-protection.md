@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484216"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926497"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure Depolama için Gelişmiş Tehdit Koruması
 
@@ -23,7 +23,7 @@ Güvenlik Uyarıları, anomalileri etkinliğinde meydana geldiğinde tetiklenir.
 
 > [!NOTE]
 > * Gelişmiş tehdit koruması için Azure depolama şu anda yalnızca Blob Depolama alanı için kullanılabilir.
-> * Fiyatlandırma ayrıntıları, 30 günlük ücretsiz deneme sürümü dahil olmak üzere bkz [Azure Güvenlik Merkezi fiyatlandırma sayfasına]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Fiyatlandırma ayrıntıları, 30 günlük ücretsiz deneme sürümü dahil olmak üzere bkz [Azure Güvenlik Merkezi fiyatlandırma sayfasına]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP Azure depolama özelliği için şu anda Azure devlet kurumları ve bağımsız bulut bölgelerinde kullanılabilir değil.
 
 Azure depolama için Gelişmiş tehdit koruması, okuma, yazma ve silme isteği tehdit algılama için Blob Depolama için tanılama günlükleri alır. Gelişmiş tehdit koruması uyarılardan araştırmak için depolama analizi günlük kaydı kullanarak ilgili depolama etkinliğini görüntüleyebilirsiniz. Daha fazla bilgi için bkz. nasıl [depolama analizi günlük tutmayı yapılandırma](storage-monitor-storage-account.md#configure-logging).

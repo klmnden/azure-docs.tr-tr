@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326590"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926177"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning Anomali algılama API'si
 
 > [!NOTE]
-> Bu öğe, bakım yapılıyor. Kullanmanızı öneriyoruz [Anomali algılayıcısı API hizmeti](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) bir Machine Learning Galerisi algoritmalar altında iş, işletimsel, anormallikleri ve IOT ölçümleri algılamak için Azure Bilişsel hizmetler tarafından desteklenir.
+> Bu öğe, bakım yapılıyor. Kullanmanızı öneriyoruz [Anomali algılayıcısı API hizmeti](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) bir Machine Learning Galerisi algoritmalar altında iş, işletimsel, anormallikleri ve IOT ölçümleri algılamak için Azure Bilişsel hizmetler tarafından desteklenir.
 
 ## <a name="overview"></a>Genel Bakış
 [Anomali algılama API'sini](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) zaman eşit aralıklı sayısal değerler ile zaman serisi verilerinde anormallikleri algılar, Azure Machine Learning ile oluşturulmuş bir örnek verilmiştir.

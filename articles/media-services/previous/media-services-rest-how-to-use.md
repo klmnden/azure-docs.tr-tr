@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60762527"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687054"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
 **Medya hizmetleri işlemlerini REST** API, işleri, varlıklar, Canlı Kanallar ve diğer kaynakları bir Media Services hesabı oluşturmak için kullanılır. Daha fazla bilgi için [Media Services işlemlerini REST API'si başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 

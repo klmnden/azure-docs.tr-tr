@@ -1,6 +1,6 @@
 ---
-title: Bir premium Azure dosya depolama hesabı oluşturma
-description: Bu makalede, bir premium Azure dosya depolama hesabı ve bir premium dosya paylaşımı oluşturma hakkında bilgi edinin.
+title: Bir Azure dosya deposundan depolama hesabı oluşturma
+description: Bu makalede, dosya deposundan (Önizleme) ve bir premium dosya paylaşımı oluşturma hakkında bilgi edinin.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844566"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574416"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Bir premium Azure dosya paylaşımı oluşturma
 

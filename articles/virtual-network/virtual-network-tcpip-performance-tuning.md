@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032460"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924785"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -304,7 +304,7 @@ Hızlandırılmış ağ gecikme süresi, aktarım hızı ve CPU kullanımı dahi
 
 Azure sanal makineler, kendilerine iliştirilmiş en az bir ağ arabirimine sahiptir. Bunlar, çeşitli olabilir. Bir sanal makineye ayrılan bant genişliği giden tüm trafiği makineye bağlı tüm ağ arabirimleri arasında toplamıdır. Diğer bir deyişle, makineye bağlı ağ arabirimleri kaç bakılmaksızın her sanal makine olarak, bant genişliği ayrılır.
 
-Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısı ayrıntılı olarak [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). En yüksek aktarım görmek için bir tür gibi seçin **genel amaçlı**ve ardından (örneğin, "Dv2 serisi") elde edilen sayfa boyutu seriyle ilgili bölümü bulun. Her bir seri olarak adlandırılmıştır son sütunda ağ özellikleri sağlayan bir tablo yok "maks NIC / beklenen ağ bant genişliği (MB/sn)."
+Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısı ayrıntılı olarak [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). En yüksek aktarım görmek için bir tür gibi seçin **genel amaçlı**ve ardından (örneğin, "Dv2 serisi") elde edilen sayfa boyutu seriyle ilgili bölümü bulun. Her bir seri olarak adlandırılmıştır son sütunda ağ özellikleri sağlayan bir tablo yok "maks NIC / beklenen ağ bant genişliği (MB/sn)."
 
 Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı bu faktörlerden etkilenir değil:
 
@@ -388,4 +388,4 @@ Yine de bu paket TCP aktarım hızı bu makalenin diğer bölümlerinde açıkla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-TCP/IP'yi Azure Vm'leri için performans ayarlama hakkında öğrendiğinize göre diğer değerlendirmeler hakkında bilgi edinmek isteyebilirsiniz [sanal ağları planlama](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) veya [bağlanma ve sanal ağları yapılandırma hakkında daha fazla bilgi edinin ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+TCP/IP'yi Azure Vm'leri için performans ayarlama hakkında öğrendiğinize göre diğer değerlendirmeler hakkında bilgi edinmek isteyebilirsiniz [sanal ağları planlama](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) veya [bağlanma ve sanal ağları yapılandırma hakkında daha fazla bilgi edinin ](https://docs.microsoft.com/azure/virtual-network/).

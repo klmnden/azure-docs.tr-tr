@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766305"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687076"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme
 Daha önce Azure Service Bus ad alanları yalnızca standart katmanında sunulur. Ad alanları, aktarım hızının düşük olmasını ve geliştirici ortamları için iyileştirilen çok kiracılı kurulumları ' dir. Premium katmanı, tahmin edilebilir gecikme süresi ve sabit bir fiyat karşılığında artan iş hacmi için ad alanı başına ayrılmış kaynaklar sunar. Premium katmanı, yüksek aktarım hızı ve ek Kurumsal özellikleri gerektiren üretim ortamları için optimize edilmiştir.
@@ -62,7 +62,7 @@ Azure CLI veya PowerShell aracını kullanarak, Service Bus standart ad alanı i
    ```
 
     >[!IMPORTANT]
-    > Geçiş sonrası adı (post_migration_dns_name) eski standart ad alanı geçiş sonrasında erişmek için kullanılır. Kuyrukları ve aboneliklerinden boşaltma için bunu kullanın ve ardından ad alanı silin.
+    > Geçiş sonrası diğer/ad (post_migration_dns_name) eski standart ad alanı geçiş sonrasında erişmek için kullanılır. Kuyrukları ve aboneliklerinden boşaltma için bunu kullanın ve ardından ad alanı silin.
 
 1. Standart ve premium ad alanları eşleştirebilir ve aşağıdaki komutu kullanarak bir eşitleme başlatın:
 

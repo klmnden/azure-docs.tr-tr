@@ -1,5 +1,5 @@
 ---
-title: Bir Azure veri kutusu Edge fiziksel cihaz yükleme Öğreticisi | Microsoft Docs
+title: Yüklemek için - öğretici Cihazınızı kutusundan çıkarma, rafa, kablo Azure veri kutusu Edge fiziksel cihaz | Microsoft Docs
 description: Azure veri kutusu Edge yükleme hakkında daha fazla ikinci öğreticide nasıl Cihazınızı kutusundan çıkarma, rafa ve fiziksel cihaz bağlama gerektirir.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758390"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924533"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge yükleyin
 
@@ -145,7 +145,8 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 
 ### <a name="engage-and-release-the-slam-latch"></a>Etkileşim kurun ve slam Mandal serbest bırakın
 
-NOT: Slam tutma ile donatılmış olmayan sistemler için bu yordamın 3. adımında açıklandığı gibi Vida, kullanarak sistem güvenliğini sağlayın.
+> [!NOTE]
+> Slam tutma ile donatılmış olmayan sistemler için bu yordamın 3. adımında açıklandığı gibi Vida, kullanarak sistem güvenliğini sağlayın.
 
 1. Öne bakan, sistem her iki tarafında slam Mandal bulun.
 2. Mandal otomatik olarak sistemi rafa gönderilir ve tutma üzerinde çekerek serbest olarak etkileşim kurun.

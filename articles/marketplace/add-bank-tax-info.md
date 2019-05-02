@@ -1,25 +1,19 @@
 ---
-title: Banka ve vergi bilgilerini eklemek | Azure
+title: Banka ve vergi bilgilerini eklemek | Azure Market
 description: Geliştirici Merkezi hesabınızda banka ve vergi bilgilerini ekleyin.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
 ms.service: marketplace
-ms.assetid: ''
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b435260edcbb132adc19f65b6bfcab7edd3afb9e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626154"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935668"
 ---
 # <a name="add-bank-and-tax-information"></a>Banka ve vergi bilgilerini ekleyin  
 Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari teklifleri için gereklidir.  

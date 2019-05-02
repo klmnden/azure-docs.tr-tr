@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418490"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924751"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -90,7 +90,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Azure İzleyici günlüklerine tüketimi için bir Log Analytics çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
 
    > [!WARNING]
-   > Log Analytics için denetimi etkinleştirme alımı ücretlerine göre ücret ödenmesini gerektirir. Lütfen bu kullanarak ilişkili maliyetini dikkat edilmesi [seçeneği](https://azure.microsoft.com/en-us/pricing/details/monitor/), veya denetim depolama, bir Azure depolama hesabında oturum göz önünde bulundurun.
+   > Log Analytics için denetimi etkinleştirme alımı ücretlerine göre ücret ödenmesini gerektirir. Lütfen bu kullanarak ilişkili maliyetini dikkat edilmesi [seçeneği](https://azure.microsoft.com/pricing/details/monitor/), veya denetim depolama, bir Azure depolama hesabında oturum göz önünde bulundurun.
 
     ![Depolama Seçenekleri](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

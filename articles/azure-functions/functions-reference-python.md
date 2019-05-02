@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021285"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571165"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 
@@ -28,7 +28,7 @@ Bu makalede, Python kullanarak Azure işlevleri geliştirmeye giriş niteliğind
 
 ## <a name="programming-model"></a>Programlama modeli
 
-Bir Azure işlevi, giriş işleyen, çıktı üretir Python betiğinizi durum bilgisi olmayan bir yöntem olmalıdır. Varsayılan olarak, çalışma zamanı adlı bir genel yöntem uygulanması için bekliyor `main()` içinde `__init__.py` dosya.
+Bir Azure işlevi, giriş işleyen, çıktı üretir Python betiğinizi durum bilgisi olmayan bir yöntem olmalıdır. Varsayılan olarak, çalışma zamanı adlı bir genel yöntem uygulanması gereken yöntemini bekliyor `main()` içinde `__init__.py` dosya.
 
 Varsayılan yapılandırma belirterek değiştirebilirsiniz `scriptFile` ve `entryPoint` özelliklerinde `function.json` dosya. Örneğin, _function.json_ aşağıda çalışma zamanı kullanmak için bildiren _customentry()_ yönteminde _main.py_ dosyası, Azure işleviniz için giriş noktası olarak.
 
@@ -109,15 +109,16 @@ Paylaşılan kod ayrı bir klasöre tutulmalıdır. Modüller SharedCode klasör
 from ..SharedCode import myFirstHelperFunction
 ```
 
-İşlevler çalışma zamanı tarafından kullanılan bağlama uzantıları içinde tanımlanmış `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-azure-functions-core-tools) Azure işlevleri çekirdek araçları kullanarak. 
+İşlevler çalışma zamanı tarafından kullanılan bağlama uzantıları içinde tanımlanmış `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) Azure işlevleri çekirdek araçları kullanarak. 
 
 İşlev uygulamanızda Azure işlevleri projesi dağıtırken, paket, ancak klasörün kendisini FunctionApp klasörün tüm içeriğini eklenmelidir.
 
-## <a name="inputs"></a>Girişler
+## <a name="triggers-and-inputs"></a>Tetikleyiciler ve girişleri
 
-Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi ve ek giriş. Farklı olsa `function.json`, kullanım Python kodunda aynıdır. Aşağıdaki kod parçacığını bir örnek olarak alalım:
+Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi ve ek giriş. Farklı olsa `function.json`, kullanım Python kodunda aynıdır.  Tetikleyici ve giriş kaynakları için bağlantı dizelerini değerleri eşlemeniz `local.settings.json` dosyasını yerel olarak ve Azure'da çalışan uygulama ayarları. Aşağıdaki kod parçacığını bir örnek olarak alalım:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici giri
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _kimliği_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.
+İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _kimliği_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.  Burada depolama hesabı bağlantı dizesi bulunursa belirtilen `AzureWebJobsStorage` işlev uygulaması için kullanılan aynı depolama hesabı olduğu.
+
 
 ## <a name="outputs"></a>Çıkışlar
 

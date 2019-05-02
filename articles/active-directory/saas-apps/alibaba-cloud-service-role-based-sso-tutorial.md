@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ab129d7b215f0f10841b13fc2835af59227198
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6b03dfa5a33850dfedf23375536278c4e08bed68
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565250"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Öğretici: Alibaba bulut hizmeti (rol tabanlı SSO) ile Azure Active Directory Tümleştirme
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma (rol tabanlı SSO) ile Alibaba bulut hizmeti yapıl
     | `https://signin.aliyun.com/saml-role/SSO` |
     | `https://signin.alibabacloud.com/saml-role/SSO` |
 
-5. Alibaba bulut hizmeti (rol tabanlı SSO) uygulaması, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+5. Alibaba bulut hizmeti (rol tabanlı SSO) uygulaması, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ Bu bölümde, Azure çoklu oturum açma Alibaba bulut hizmetine (rol tabanlı SS
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Alibaba bulut hizmeti (rol tabanlı SSO) test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Alibaba bulut hizmeti (rol tabanlı SSO) adlı bir kullanıcı oluşturun. Çalışmak [Alibaba bulut hizmeti (rol tabanlı SSO) Destek ekibine](https://www.aliyun.com/service/) Alibaba bulut hizmeti (rol tabanlı SSO) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Alibaba bulut hizmeti (rol tabanlı SSO) adlı bir kullanıcı oluşturun. Çalışmak [Alibaba bulut hizmeti (rol tabanlı SSO) Destek ekibine](https://www.aliyun.com/service/) Alibaba bulut hizmeti (rol tabanlı SSO) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

@@ -2,19 +2,19 @@
 title: "Hızlı Başlangıç: Azure Data Lake depolama Gen2 verileri yönetmek için Azure Depolama Gezgini'ni kullanma "
 description: Bu hızlı başlangıçta, Azure Depolama Gezgini bir Azure Data Lake depolama Gen2 hesabı hem de bir dizin ve dosya bir dosya sistemi oluşturmak için kullanmayı öğrenin. Ardından, dosyayı yerel bilgisayarınıza indirmek nasıl yanı sıra, bir dizindeki tüm dosyayı görüntüleme öğrenin.
 services: storage
-author: tamram
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
-ms.author: tamram
-ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.openlocfilehash: 01743eb7ec7f6650a0fd28fd9c4f090bebd524b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708772"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939354"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2 hesabındaki verileri yönetmek için Azure Depolama Gezgini'ni kullanma
 

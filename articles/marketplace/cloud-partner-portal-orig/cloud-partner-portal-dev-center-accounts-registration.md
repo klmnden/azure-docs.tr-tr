@@ -1,25 +1,18 @@
 ---
-title: Microsoft Developer hesabı oluşturma | Microsoft Docs
+title: Microsoft Developer hesabı oluşturma | Azure Market
 description: Gereksinimleri ve Microsoft Developer hesabı oluşturma adımları.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326839"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935856"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 ====================================
@@ -106,7 +99,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
    ![Ülke/bölge seçin](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Satış yapan" ülkeleri: Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık açılan listede gösterilen onaylı "satış yapan" ülkeleri birinden olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Market katılım ilkeleri daha fazla bilgi için bkz.
+    >"Satış yapan" ülkeler/bölgeler: Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık onaylı "satış yapan" açılan listesinde gösterilen ülkeleri birinden olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Market katılım ilkeleri daha fazla bilgi için bkz.
 
 5. Seçin **şirket** seçin ve "Hesap türü" olarak **sonraki**.
 

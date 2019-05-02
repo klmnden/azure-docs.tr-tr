@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034748"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575415"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -77,7 +77,7 @@ Ağ güvenlik grupları ve ağ sanal Gereçleri kullanarak bir sanal ağ içinde
 - Uygulanmış olan farklı güvenlik kuralları bir alt ağ içinde farklı Vm'lere ihtiyacınız varsa, bir veya daha fazla uygulama güvenlik grupları VM ağ arabiriminin ilişkilendirebilirsiniz. Bir güvenlik kuralı, bir uygulama güvenlik grubu, kaynak, hedef veya her ikisi de belirtebilirsiniz. Bu kural yalnızca sonra uygulama güvenlik grubuna üye olan ağ arabirimlerini uygular. Daha fazla bilgi edinin [ağ güvenlik grupları](security-overview.md) ve [uygulama güvenlik grupları](security-overview.md#application-security-groups).
 - Azure, birkaç varsayılan güvenlik kuralları her ağ güvenlik grubu içinde oluşturur. Bir varsayılan kural tüm trafiği sanal ağ içindeki tüm kaynaklar arasında akmasına izin verir. Bu davranışı geçersiz kılmak için ağ güvenliği kullanın, trafiği yönlendirmek için bir NVA veya her ikisini de Yönlendirme özel gruplar. Tüm Azure'nın planladığınızdan önerilir [varsayılan güvenlik kuralları](security-overview.md#default-security-rules) ve ağ güvenlik grubu kuralları bir kaynağa uygulanma anlayın.
 
-Azure ile kullanarak internet arasında DMZ uygulama için örnek tasarımları görüntüleyebileceğiniz bir [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) veya [ağ güvenlik grupları](virtual-networks-dmz-nsg.md).
+Kullanarak internet ile Azure arasında bir çevre ağındaki (DMZ olarak da bilinir) uygulamak için örnek tasarımları görüntüleyebileceğiniz bir [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) veya [ağ güvenlik grupları](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Trafik yönlendirme
 

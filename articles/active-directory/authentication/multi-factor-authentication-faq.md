@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357486"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570826"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -59,7 +59,7 @@ Kanada Microsoft aşağıdaki SMS kısa kodlarını kullanır:
    * 759731 
    * 673801
 
-Microsoft, tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı sayıda garanti etmez. Kullanıcılarımızın açısından Microsoft ekleyebilir veya SMS teslimat geliştirmek için rota ayarlamalar vermiyoruz kısa kodları dilediğiniz zaman kaldırabilirsiniz. Microsoft, Amerika Birleşik Devletleri ve Kanada yanı sıra ülkeler için kısa kodlarını desteklemiyor
+Microsoft, tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı sayıda garanti etmez. Kullanıcılarımızın açısından Microsoft ekleyebilir veya SMS teslimat geliştirmek için rota ayarlamalar vermiyoruz kısa kodları dilediğiniz zaman kaldırabilirsiniz. Microsoft Amerika Birleşik Devletleri ve Kanada'da yanı sıra ülkeler/bölgeler için kısa kodlarını desteklemez.
 
 ## <a name="billing"></a>Faturalandırma
 
@@ -95,7 +95,7 @@ Office 365 kullanıcıları için multi-Factor Authentication, Exchange Online v
 
 Kuruluşunuz, kullanım tabanlı faturalandırma ile tek başına bir hizmet olarak MFA satın alıyorsa, MFA sağlayıcısı oluştururken faturalama modelini seçin. MFA sağlayıcısı oluşturulduktan sonra faturalandırma modeli değiştiremezsiniz. Ancak, MFA sağlayıcısını Sil ve ardından farklı bir faturalandırma modeliyle oluşturun.
 
-MFA sağlayıcısı oluştururken bir Azure Active Directory (diğer adıyla "Azure AD kiracısı") bağlanabilir. Geçerli MFA sağlayıcısı bir Azure AD kiracısına bağlı ise, güvenli bir şekilde MFA sağlayıcısı silebilir ve aynı Azure AD kiracısına bağlı bir tane oluşturun. Alternatif olarak, MFA için etkinleştirilen tüm kullanıcıları kapsayacak sayıda MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı satın aldıysanız, MFA sağlayıcısını tamamen silebilirsiniz.
+MFA sağlayıcısı oluştururken, bir Azure Active Directory veya "Azure AD kiracısı" bağlanabilir Geçerli MFA sağlayıcısı bir Azure AD kiracısına bağlı ise, güvenli bir şekilde MFA sağlayıcısı silebilir ve aynı Azure AD kiracısına bağlı bir tane oluşturun. Alternatif olarak, MFA için etkinleştirilen tüm kullanıcıları kapsayacak sayıda MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı satın aldıysanız, MFA sağlayıcısını tamamen silebilirsiniz.
 
 MFA sağlayıcınızı ise *değil* bir Azure AD kiracısına bağlı veya yeni MFA sağlayıcısına bağlamak için farklı bir Azure AD Kiracı, kullanıcı ayarlarını ve yapılandırma seçenekleri aktarılmaz. Ayrıca, yeni MFA Sağlayıcısı ile oluşturulan etkinleştirme kimlik bilgileri kullanılarak mevcut Azure MFA Sunucularının yeniden etkinleştirilmesi gerekir. MFA Sunucularını yeni MFA Sağlayıcısına bağlamak için yeniden etkinleştirmek, telefon çağrısı ve kısa mesaj kimlik doğrulamasını etkilemez, ancak mobil uygulama etkinleştirilinceye kadar tüm kullanıcılar için mobil uygulama bildirimleri çalışmaz.
 
@@ -142,7 +142,7 @@ Kuruluşunuz eski istemciler yoksa, kullanıcılarınızın uygulama parolaları
 > [!NOTE]
 > Office 2013 istemcilerindeki için modern kimlik doğrulaması
 >
-> Uygulama parolaları yalnızca modern kimlik doğrulamayı desteklemeyen uygulamalar için gereklidir. Office 2013 istemcilerindeki modern kimlik doğrulama protokolleri destekler, ancak yapılandırılması gerekir. Artık modern kimlik doğrulaması Office 2013 için Mart 2015 veya üzeri güncelleştirme çalışan tüm müşteriler için kullanılabilir. Daha fazla bilgi için [Office 2013 modern kimlik doğrulaması genel önizlemesi Duyuruldu](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Uygulama parolaları yalnızca modern kimlik doğrulamayı desteklemeyen uygulamalar için gereklidir. Office 2013 istemcilerindeki modern kimlik doğrulama protokolleri destekler, ancak yapılandırılması gerekir. Artık modern kimlik doğrulaması Office 2013 için Mart 2015 veya üzeri güncelleştirme çalışan tüm müşteriler için kullanılabilir. Daha fazla bilgi için bkz. blog gönderisine [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **S: Kullanıcılarım bazen kısa mesajı almadığınız ya da bunlar için iki yönlü kısa mesaj yanıtlama ancak doğrulama zaman aşımına varsayalım.**
 

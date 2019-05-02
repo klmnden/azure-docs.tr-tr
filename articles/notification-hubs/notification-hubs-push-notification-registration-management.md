@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685388"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -40,7 +40,7 @@ Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketler
 
 ### <a name="installations"></a>Yüklemeleri
 
-Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı ilgili özellikler. Bunu, cihazları kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmez ([arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsanız, haritamın kullanmak anlamına gelir [Notification Hubs REST API'si](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) yüklemelerini desteklemek için bir yaklaşım. Arka uç hizmetini kullanıyorsanız, kullanılacak erişebileceğinizi [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı ilgili özellikler. Bunu, cihazları kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmez ([arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsanız, haritamın kullanmak anlamına gelir [Notification Hubs REST API'si](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) yüklemelerini desteklemek için bir yaklaşım. Arka uç hizmetini kullanıyorsanız, kullanılacak erişebileceğinizi [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
 
@@ -48,7 +48,7 @@ Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
 - Özel Etiket biçimi yükleme modelini destekler (`$InstallationId:{INSTALLATION_ID}`) söz konusu cihaz için doğrudan bildirim göndererek sağlar. Örneğin, bir yükleme kimliği, uygulamanın kodunu ayarlar `joe93developer` özel bu cihaz için bir geliştirici bu cihaz için bir bildirim gönderirken hedefleyebilirsiniz `$InstallationId:{joe93developer}` etiketi. Bu, ek bir kodlama yapmak zorunda kalmadan belirli bir cihazı hedeflemeniz sağlar.
 - Yüklemelerini kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. PATCH kullanılarak yöntemi ile kısmi güncelleştirme yüklemesinin istenen [JSON-Patch standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketleri güncelleştirmek istediğiniz durumlarda kullanışlıdır. Tüm kayıt çekin ve ardından önceki tüm etiketleri yeniden yeniden gerekmez.
 
-Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) veya [yükleme özellikleri](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ Kayıtları ve yüklemelerini her cihaz/kanal için geçerli bir PNS tanıtıcı
 
 Kullanmak istiyorsanız [şablonları](notification-hubs-templates-cross-platform-push-messages.md), cihaz yüklemesi de bu cihaz bir JSON ile ilişkili tüm şablonları tutan biçimlendirmek (Yukarıdaki örnek bakın). Şablon adları, aynı cihaza için hedef farklı şablonlar yardımcı olur.
 
-Her bir şablon adı, şablon gövdesi ve isteğe bağlı bir etiket kümesine eşler. Ayrıca, her platformun ek şablon özelliklere sahip olabilir. Windows Store (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üst kümesi şablonunun bir parçası olabilir. APNs söz konusu olduğunda, bir sabit veya şablon ifadesi bir sona erme özelliğini ayarlayabilirsiniz. Yükleme özellikleri bakın tam listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) konu.
+Her bir şablon adı, şablon gövdesi ve isteğe bağlı bir etiket kümesine eşler. Ayrıca, her platformun ek şablon özelliklere sahip olabilir. Windows Store (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üst kümesi şablonunun bir parçası olabilir. APNs söz konusu olduğunda, bir sabit veya şablon ifadesi bir sona erme özelliğini ayarlayabilirsiniz. Yükleme özellikleri bakın tam listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) konu.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Windows Store uygulamaları için ikincil kutucuk
 
@@ -120,7 +120,7 @@ CİHAZDAN kaydetme en basit yöntemdir, ancak bazı kısıtlamaları vardır:
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Bir bildirim hub'ından yükleme kullanarak bir cihazı kaydetmek için örnek kod
 
-Şu anda bu yalnızca kullanarak desteklenir [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx).
+Şu anda bu yalnızca kullanarak desteklenir [Notification Hubs REST API'si](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
 
 PATCH kullanılarak yöntemi de kullanabilirsiniz [JSON-Patch standart](https://tools.ietf.org/html/rfc6902) yükleme güncelleştirmek için.
 

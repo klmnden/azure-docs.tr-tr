@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60538007"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570613"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -145,7 +145,7 @@ Azure Hizmetleri ile ilgili ayrıntılı belgeler için bkz. [Azure hizmet belge
 
 Azure dünyanın dört bir yanındaki birçok bölgede genel kullanıma açık olan bir genel bulut platformudur. Bir hizmet, uygulama veya azure'da VM sağlarken bir bölge seçin istenir. Seçilen bölge, uygulamanızın çalıştığı speciﬁc veri merkezini temsil eder. Daha fazla bilgi için [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
-Azure kullanımının beneﬁts dünyanın çeşitli veri merkezleri, uygulamalarınızı dağıtabilirsiniz biridir. Seçtiğiniz bölge aﬀect, uygulamanızın performansı yapabilirsiniz. En iyi ağ istek gecikme süresini azaltmak için en müşterilerinizin yakın bir bölge seçin. Ayrıca, uygulamanızın belirli ülkelerde dağıtmak için yasal gereksinimleri karşılamak için bir bölge seçebilirsiniz.
+Azure kullanımının beneﬁts dünyanın çeşitli veri merkezleri, uygulamalarınızı dağıtabilirsiniz biridir. Seçtiğiniz bölge aﬀect, uygulamanızın performansı yapabilirsiniz. En iyi ağ istek gecikme süresini azaltmak için en müşterilerinizin yakın bir bölge seçin. Ayrıca, uygulamanızın belirli ülkelerde/bölgelerde dağıtmak için yasal gereksinimleri karşılamak için bir bölge seçebilirsiniz.
 
 ### <a name="azure-portal"></a>Azure portal
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199961"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572896"
 ---
 # <a name="application-security-detection-pack-preview"></a>Uygulama güvenlik algılama paketi (Önizleme)
 
@@ -29,7 +29,7 @@ Bu özellik dışında hiçbir özel kurulum gerektiren [telemetri göndermek i�
 Üç tür algılanan güvenlik sorunları vardır:
 1. Güvenli olmayan bir URL erişimi: uygulamanın bir URL HTTP ve HTTPS erişiliyor. Genellikle, HTTPS isteklerini kabul eden bir URL HTTP isteklerini kabul. Bu, uygulamanızda bir hata veya güvenlik sorununu gösterebilir.
 2. Güvenli olmayan formu: uygulamada bir form (veya başka bir "POST" istek) HTTP yerine HTTPS kullanır. HTTP kullanarak form tarafından gönderilen kullanıcı verilerini tehlikeye atabilir.
-3. Şüpheli kullanıcı etkinliğinden: yaklaşık aynı zamanda uygulama birden çok ülkelerden aynı kullanıcı tarafından erişiliyor. Örneğin, aynı kullanıcı uygulamayı İspanya ve Amerika Birleşik Devletleri aynı saat içinde erişilebilir. Bu algılama yöntemi, uygulamanızın bir kötü amaçlı olabilecek erişim girişimi gösterir.
+3. Şüpheli kullanıcı etkinliğinden: yaklaşık aynı zamanda uygulama birden çok ülkelerden/bölgelerden aynı kullanıcı tarafından erişiliyor. Örneğin, aynı kullanıcı uygulamayı İspanya ve Amerika Birleşik Devletleri aynı saat içinde erişilebilir. Bu algılama yöntemi, uygulamanızın bir kötü amaçlı olabilecek erişim girişimi gösterir.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Uygulamamı kesinlikle bir güvenlik sorunu var mı?
 Hayır, bir bildirim uygulamanızı kesinlikle bir güvenlik sorunu olduğunu anlamına gelmez. Yukarıdaki senaryoların herhangi bir algılama, çoğu durumda, bir güvenlik sorunu olduğunu gösterebilir. Ancak, algılama doğal İş Gerekçesi olabilir ve yok sayılabilir.
@@ -46,5 +46,5 @@ Hayır, bir bildirim uygulamanızı kesinlikle bir güvenlik sorunu olduğunu an
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>"Şüpheli kullanıcı etkinliğinden" algılama nasıl düzeltebilirim?
 1. **Değerlendirme.** Bildirim şüpheli davranış gösterdi farklı kullanıcı sayısını sağlar. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
-2. **Kapsam.** Hangi ülkelerde şüpheli istekleri fırsatlara? Hangi kullanıcı en şüpheli neydi? Bu bilgiler gelen bildirim elde edilebilir.
-3. **Tanılayın.** Algılama, Şüpheli kullanıcıların listesini ve sorunu daha ayrıntılı olarak tanılamaya yardımcı olmak için her kullanıcı için ülkelerin listesi sağlar.
+2. **Kapsam.** Hangi ülkeler/bölgeler üzerinden şüpheli istekleri fırsatlara? Hangi kullanıcı en şüpheli neydi? Bu bilgiler gelen bildirim elde edilebilir.
+3. **Tanılayın.** Algılama, Şüpheli kullanıcıların listesini ve ülkeler/bölgeler sorunu daha ayrıntılı olarak tanılamaya yardımcı olmak için her kullanıcı için listesini sağlar.

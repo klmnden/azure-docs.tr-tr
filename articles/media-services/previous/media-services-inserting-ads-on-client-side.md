@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484840"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687738"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>İstemci tarafına reklam ekleme
 Bu makalede, çeşitli türlerdeki istemci tarafına reklam ekleme hakkında bilgi içerir.
@@ -170,7 +170,7 @@ Application/x-shockwave-flash – kaynak bir Flash player görüntülenir.
 
 **IFrameResource** IFRAME içinde görüntülenen bir HTML kaynak açıklar. **HTMLResource** bir web sayfasına eklenen HTML kod parçasını tanımlar. **TrackingEvents** izleme olaylarını ve olay gerçekleştiğinde istemek için URI belirtin. Bu örnekte acceptInvitation ve Daralt olayları izlenir. Daha fazla bilgi için **NonLinearAds** IAB.NET/VAST öğe ve alt öğeleri için bkz. Unutmayın **TrackingEvents** öğe içinde bulunan **NonLinearAds** öğe yerine **NonLinear** öğesi.
 
-Yardımcısı reklam içinde tanımlanmış bir `<CompanionAds>` öğesi. `<CompanionAds>` Bir veya daha fazla öğe içerebilir `<Companion>` öğeleri. Her `<Companion>` öğesi Yardımcısı ad açıklar ve içerebilir bir `<StaticResource>`, `<IFrameResource>`, veya `<HTMLResource>` doğrusal bir ad olduğu gibi aynı şekilde belirtilir. Birden çok yardımcı reklamlar çok sayıda dosya içerebilir ve oynatıcı uygulaması görüntülemek için en uygun ad seçebilirsiniz. VAST hakkında daha fazla bilgi için bkz: [geniş 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Yardımcısı reklam içinde tanımlanmış bir `<CompanionAds>` öğesi. `<CompanionAds>` Bir veya daha fazla öğe içerebilir `<Companion>` öğeleri. Her `<Companion>` öğesi Yardımcısı ad açıklar ve içerebilir bir `<StaticResource>`, `<IFrameResource>`, veya `<HTMLResource>` doğrusal bir ad olduğu gibi aynı şekilde belirtilir. Birden çok yardımcı reklamlar çok sayıda dosya içerebilir ve oynatıcı uygulaması görüntülemek için en uygun ad seçebilirsiniz. VAST hakkında daha fazla bilgi için bkz: [geniş 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Birden çok Ad (VMAP) çalma listesi dosyası Dijital Video kullanma
 VMAP dosya ad sonları olduğunda, ne kadar her kesintisidir, kaç reklamları bir sonu içinde görüntülenebilir ve reklam türleri olması olabilir belirtmenizi sağlar bir sonu görüntülenir. Aşağıdaki örnek VMAP dosyasındaki tanımlayan bir tek ad sonu:
@@ -243,7 +243,7 @@ VMAP dosya ile başlayan bir `<VMAP>` birini veya daha fazlasını içeren `<AdB
 * `<AdTagURI>` başka bir sistemden ad yanıt başvuran bir URI
 * `<CustomAdData>` BÜYÜK olmayan bir yanıtı temsil eden - isteğe bağlı bir dize
 
-Bu örnekte, bir satır içi ad yanıtı ile belirtilen bir `<VASTAdData>` geniş ad yanıtını içeren öğe. Diğer öğeler hakkında daha fazla bilgi için bkz. [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Bu örnekte, bir satır içi ad yanıtı ile belirtilen bir `<VASTAdData>` geniş ad yanıtını içeren öğe. Diğer öğeler hakkında daha fazla bilgi için bkz. [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 <**AdBreak**> öğesi de içerebilir bir <**TrackingEvents**> öğesi. <**TrackingEvents**> öğesi başlangıç veya bitiş ad sonu veya olup ad sonu sırasında bir hata oluştu izlemenize olanak sağlar. <**TrackingEvents**> bir veya daha fazla öğe içeriyor <**izleme**> öğeleri, bir izleme olayı ve bir izleme URI her biri belirtir. Olası izleme olaylarını şunlardır:
 
@@ -363,7 +363,7 @@ Bir yürütülebilir ad Adobe Flash™ veya yürütülebilir bir web tarayıcıs
     </MediaFiles>
 ```
 
-Yürütülebilir bir ad kullanılarak başlatılabilir `<AdParameters>` öğesiyle `<Linear>` veya `<NonLinear>` öğeleri geniş bir yanıt. Daha fazla bilgi için `<AdParameters>` öğesi bkz [geniş 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). VPAID API'si hakkında daha fazla bilgi için bkz. [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Yürütülebilir bir ad kullanılarak başlatılabilir `<AdParameters>` öğesiyle `<Linear>` veya `<NonLinear>` öğeleri geniş bir yanıt. Daha fazla bilgi için `<AdParameters>` öğesi bkz [geniş 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). VPAID API'si hakkında daha fazla bilgi için bkz. [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Bir Windows veya Windows Phone 8 Player Ad desteği ile uygulama
 Microsoft Media platformu: Windows 8 için Player Framework ve Windows Phone 8, framework kullanarak bir video oynatıcı uygulamanın nasıl uygulanacağını gösteren örnek uygulamalar koleksiyonunu içerir. Player çerçevesi ve örneklerinden indirebilirsiniz [Windows 8 için Player Framework ve Windows Phone 8](https://playerframework.codeplex.com).

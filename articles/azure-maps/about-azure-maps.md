@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799301"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575737"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
@@ -123,7 +123,7 @@ Azure Haritalar anahtar tabanlı bir kimlik doğrulama düzeni kullanır. Hesab�
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ülkelerde kullanılabilir:
+Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ülkelerde/bölgelerde kullanılabilir:
 
 * Arjantin
 * Çin
@@ -132,7 +132,7 @@ Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ül
 * Pakistan
 * Güney Kore
 
-Geçerli IP adresinizi konumunu yukarıdaki desteklenmeyen ülkelerden birinde olmadığını doğrulayın.
+Geçerli IP adresinizi konumunu desteklenmeyen ülkeler/bölgeler yukarıdaki birinde olmadığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

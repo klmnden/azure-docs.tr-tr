@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466655"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926523"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player genel bakış
 
@@ -24,7 +24,7 @@ Azure Media Player, Microsoft Azure Media Services'den medya içeriği çok çe�
 
 Microsoft Azure Media Services içerik yürütürken HLS, DASH, kesintisiz akış biçimlerinde akış ile sunulan için içerik sağlar. Azure Media Player, aşağıdaki biçimlerde hesaba katar ve platformuna/tarayıcı özelliklerine en iyi bağlantıyı otomatik olarak yürütülür. Media Services PlayReady şifrelemesi ile varlıkları dinamik şifreleme için de tanır veya Zarf şifreleme AES-128 bit. Azure Media Player PlayReady şifre çözme için izin verir ve uygun şekilde yapılandırıldığında şifrelenmiş içerik AES 128 bit. 
 
-[Ücretsiz denemenizi başlatın](https://azure.microsoft.com/en-us/pricing/free-trial/)
+[Ücretsiz denemenizi başlatın](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Azure Media Player tanıtım sayfasını kullanın
 

@@ -1,18 +1,18 @@
 ---
 title: Azure IOT hub'ı izlemek için ölçümleri kullanma | Microsoft Docs
 description: Değerlendirmek ve IOT hub'ları genel durumunu izlemek için Azure IOT hub'ı ölçümleri kullanma
-author: nberdy
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/25/2017
-ms.author: nberdy
-ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 04/24/2019
+ms.author: jlian
+ms.openlocfilehash: 743e4c5bebefbf6727c49257551b8c958eb6f031
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692547"
 ---
 # <a name="understand-iot-hub-metrics"></a>IOT hub'ı ölçüleri anlama
 
@@ -45,7 +45,7 @@ IOT Hub, hub'ınıza bağlı cihazların toplam sayısı ve sistem durumu özeti
 |d2c<br>.telemetry<br>.ingress.<br>allProtocol|Telemetri ileti gönderme denemeleri|Sayı|Toplam|IOT hub'ınıza gönderilecek CİHAZDAN buluta telemetri iletilerini sayısı çalıştı|Boyut yok|
 |d2c<br>.telemetry<br>.ingress<br>.Success|Gönderilen telemetri iletilerini|Sayı|Toplam|Başarılı bir şekilde IOT hub'ınıza CİHAZDAN buluta telemetri ileti sayısı|Boyut yok|
 |c2d<br>.Commands<br>.egress<br>.Complete<br>.Success|Komut tamamlandı|Sayı|Toplam|Cihaz tarafından başarıyla tamamlandı bulut-cihaz komutlarının sayısı|Boyut yok|
-|c2d<br>.Commands<br>.egress<br>.Abandon<br>.Success|Terk komutları|Sayı|Toplam|Cihaz tarafından terk bulut-cihaz komutlarının sayısı|Boyut yok|
+|c2d<br>.Commands<br>.egress<br>.abandon<br>.Success|Terk komutları|Sayı|Toplam|Cihaz tarafından terk bulut-cihaz komutlarının sayısı|Boyut yok|
 |c2d<br>.Commands<br>.egress<br>.Reject<br>.Success|Reddedilen komutları|Sayı|Toplam|Cihaz tarafından reddedilen bulut-cihaz komutlarının sayısı|Boyut yok|
 |cihazlar<br>.totalDevices|(Kullanım dışı) toplam cihaz sayısı|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|Boyut yok|
 |cihazlar<br>.connectedDevices<br>.allProtocol|Bağlı cihazlar (kullanım dışı) |Sayı|Toplam|IOT hub'ınıza bağlı cihazların sayısı|Boyut yok|
@@ -65,23 +65,23 @@ IOT Hub, hub'ınıza bağlı cihazların toplam sayısı ve sistem durumu özeti
 |d2c<br>.endpoints<br>.egress<br>.Storage|Yönlendirme: depolama için ileti teslim|Sayı|Toplam|IOT hub'ı başarıyla yönlendirme depolama uç noktaları için ileti teslim sayısı.|Boyut yok|
 |d2c<br>.endpoints<br>.latency<br>.Storage|Yönlendirme: depolama gecikmesi ileti|Milisaniye|Ortalama|Ortalama gecikme süresi (milisaniye) ileti giriş IOT hub'ına telemetri iletisi giriş arasındaki içine bir depolama uç noktası.|Boyut yok|
 |d2c<br>.endpoints<br>.egress<br>.Storage<br>.bytes|Yönlendirme: veri depolama için teslim|Bayt|Toplam|Veri (bayt), IOT Hub'ın yönlendirme depolama uç noktaları için teslim.|Boyut yok|
-|d2c<br>.endpoints<br>.egress<br>.Storage<br>.BLOBS|Yönlendirme: BLOB depolama alanına teslim|Sayı|Toplam|IOT Hub'ın yönlendirme BLOB Depolama uç noktaları için teslim sayısı.|Boyut yok|
-|d2c<br>.Twin<br>.Read<br>.Success|Cihazlardan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı cihaz tarafından başlatılan çiftlerde okuma sayısı.|Boyut yok|
-|d2c<br>.Twin<br>.Read<br>.failure|Cihazlardan çiftlerde okuma başarısız oldu|Sayı|Toplam|Tüm sayısı, cihaz tarafından başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
-|d2c<br>.Twin<br>.Read<br>.size|Çiftlerde okuma cihazlardan yanıt boyutu|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm cihaz tarafından başlatılan ikizi okur.|Boyut yok|
-|d2c<br>.Twin<br>.Update<br>.Success|Cihazlardan başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı tarafından başlatılan cihaz ikizi güncelleştirmeleri sayısı.|Boyut yok|
-|d2c<br>.Twin<br>.Update<br>.failure|Cihaz ikizi güncelleştirmeleri başarısız oldu|Sayı|Toplam|Tüm sayısı tarafından başlatılan cihaz ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
-|d2c<br>.Twin<br>.Update<br>.size|Cihaz ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Cihaz tarafından başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
+|d2c<br>.endpoints<br>.egress<br>.Storage<br>.blobs|Yönlendirme: BLOB depolama alanına teslim|Sayı|Toplam|IOT Hub'ın yönlendirme BLOB Depolama uç noktaları için teslim sayısı.|Boyut yok|
+|d2c<br>.twin<br>.Read<br>.Success|Cihazlardan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı cihaz tarafından başlatılan çiftlerde okuma sayısı.|Boyut yok|
+|d2c<br>.twin<br>.Read<br>.failure|Cihazlardan çiftlerde okuma başarısız oldu|Sayı|Toplam|Tüm sayısı, cihaz tarafından başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
+|d2c<br>.twin<br>.Read<br>.size|Çiftlerde okuma cihazlardan yanıt boyutu|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm cihaz tarafından başlatılan ikizi okur.|Boyut yok|
+|d2c<br>.twin<br>.Update<br>.Success|Cihazlardan başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı tarafından başlatılan cihaz ikizi güncelleştirmeleri sayısı.|Boyut yok|
+|d2c<br>.twin<br>.Update<br>.failure|Cihaz ikizi güncelleştirmeleri başarısız oldu|Sayı|Toplam|Tüm sayısı tarafından başlatılan cihaz ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
+|d2c<br>.twin<br>.Update<br>.size|Cihaz ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Cihaz tarafından başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
 |c2d<br>.Methods<br>.Success|Başarılı bir doğrudan yöntem çağrıları|Sayı|Toplam|Tüm başarılı bir doğrudan yöntem çağrılarının sayısı.|Boyut yok|
 |c2d<br>.Methods<br>.failure|Doğrudan yöntem çağrıları başarısız oldu|Sayı|Toplam|Tüm sayısı doğrudan yöntem çağrısı başarısız oldu.|Boyut yok|
 |c2d<br>.Methods<br>.requestSize|Doğrudan yöntem çağrılarını isteği boyutu|Bayt|Ortalama|Ortalama, minimum ve maksimum başarılı olan tüm yöntemi istekleri doğrudan.|Boyut yok|
 |c2d<br>.Methods<br>.responseSize|Doğrudan yöntem çağrılarını yanıt boyutu|Bayt|Ortalama|Ortalama, en az ve en fazla doğrudan yöntem yanıtların tümü başarılı.|Boyut yok|
-|c2d<br>.Twin<br>.Read<br>.Success|Arka uçtan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı arka uç başlatılan çiftlerde okuma sayısı.|Boyut yok|
-|c2d<br>.Twin<br>.Read<br>.failure|Arka uçtan başarısız ikizi okumaları|Sayı|Toplam|Tüm sayısı, arka uç başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
-|c2d<br>.Twin<br>.Read<br>.size|Yanıt boyutu ikizinin arka ucundan okur|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm arka uç başlatılan ikizi okur.|Boyut yok|
-|c2d<br>.Twin<br>.Update<br>.Success|Arka uç başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı arka uç başlatılan ikizi güncelleştirmeleri sayısı.|Boyut yok|
-|c2d<br>.Twin<br>.Update<br>.failure|Arka uç başarısız ikizi güncelleştirmeleri|Sayı|Toplam|Tüm sayısı, arka uç başlatılan ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
-|c2d<br>.Twin<br>.Update<br>.size|Arka uç ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Arka uç başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
+|c2d<br>.twin<br>.Read<br>.Success|Arka uçtan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı arka uç başlatılan çiftlerde okuma sayısı.|Boyut yok|
+|c2d<br>.twin<br>.Read<br>.failure|Arka uçtan başarısız ikizi okumaları|Sayı|Toplam|Tüm sayısı, arka uç başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
+|c2d<br>.twin<br>.Read<br>.size|Yanıt boyutu ikizinin arka ucundan okur|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm arka uç başlatılan ikizi okur.|Boyut yok|
+|c2d<br>.twin<br>.Update<br>.Success|Arka uç başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı arka uç başlatılan ikizi güncelleştirmeleri sayısı.|Boyut yok|
+|c2d<br>.twin<br>.Update<br>.failure|Arka uç başarısız ikizi güncelleştirmeleri|Sayı|Toplam|Tüm sayısı, arka uç başlatılan ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
+|c2d<br>.twin<br>.Update<br>.size|Arka uç ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Arka uç başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
 |TwinQueries<br>.Success|Başarılı çifti sorguları|Sayı|Toplam|Tüm başarılı ikizi sorgularının sayısı.|Boyut yok|
 |TwinQueries<br>.failure|Başarısız çifti sorguları|Sayı|Toplam|Tüm başarısız ikizi sorgularının sayısı.|Boyut yok|
 |TwinQueries<br>.resultSize|İkiz sorgu sonucu boyutu|Bayt|Ortalama|Ortalama, en düşük ve en fazla sonuç boyutunun tüm başarılı çifti sorguları.|Boyut yok|

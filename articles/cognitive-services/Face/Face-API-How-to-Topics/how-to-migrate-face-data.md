@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682527"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Yüz tanıma verileriniz farklı bir yüz aboneliğe geçirme
 
 Bu kılavuz, yüz tanıma veri taşıma gösterir (kaydedilmiş gibi **PersonGroup** dikdörtgenlerini) anlık görüntü özelliğini kullanarak farklı bir yüz tanıma API'si aboneliğe. Bu sayede sürekli oluşturma ve eğitme zorunda kalmamak bir **PersonGroup** veya **FaceList** taşırken veya işlemlerinizi genişletme. Örneğin, oluşturmuş olabileceğiniz bir **PersonGroup** bir ücretsiz deneme sürümü aboneliğine kaydolup şimdi istediğiniz kullanarak Ücretli aboneliğinizi geçirmek veya büyük ölçekli işlem için bölgelere face veri eşitlemesine izin gerekebilir.
 
-Bu aynı geçiş stratejisi için de geçerlidir. **LargePersonGroup** ve **LargeFaceList** nesneleri. Bu kılavuzdaki kavramlar hakkında bilgi sahibi değilseniz, bunların tanımlarını görmek [sözlüğü](../Glossary.md). Bu kılavuz, yüz tanıma API'si .NET istemci kitaplığı ile kullanır C#.
+Bu aynı geçiş stratejisi için de geçerlidir. **LargePersonGroup** ve **LargeFaceList** nesneleri. Bu kılavuzdaki kavramlar hakkında bilgi sahibi değilseniz, bunların tanımlarını görmek [yüz tanıma kavramları](../concepts/face-recognition.md) Kılavuzu. Bu kılavuz, yüz tanıma API'si .NET istemci kitaplığı ile kullanır C#.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,15 +29,13 @@ Bu aynı geçiş stratejisi için de geçerlidir. **LargePersonGroup** ve **Larg
 - Hedef aboneliği için karşılık gelen yüz tanıma API'si abonelik kimliği dizesi (bulunan **genel bakış** Azure portalındaki dikey). 
 - [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
 
-
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesini oluşturma
 
 Bu kılavuz, yüz tanıma veri geçişi yürütmek için bir basit bir konsol uygulaması kullanır. Tam bir uygulama için bkz: [yüz tanıma API'si anlık görüntü örnek](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) GitHub üzerinde.
 
-1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **FaceApiSnapshotSample**. 
+1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **FaceApiSnapshotSample**.
 1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketi yükleyin:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Yüz tanıma istemcileri oluşturma
 
@@ -226,7 +224,9 @@ Yüz tanıma verileri geçirmeyi tamamladıktan sonra anlık görüntü nesneyi 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>İlgili Konular
+## <a name="next-steps"></a>Sonraki adımlar
+
+Ardından, anlık görüntü özelliği kullanan bir örnek uygulamayı inceleme veya belirtilen API işlemleri burada kullanmaya başlamak için bir nasıl yapılır Kılavuzu izleyin ilgili API başvuru belgelerine bakın.
 
 - [Anlık görüntü başvuru belgeleri (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Yüz tanıma API'si anlık görüntü örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

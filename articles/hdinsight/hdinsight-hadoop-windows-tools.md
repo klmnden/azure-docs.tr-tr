@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926023"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows bilgisayardan HDInsight üzerinde Apache Hadoop ekosistemindeki çalışma
 
@@ -29,11 +29,11 @@ PowerShell ile yapmak görev örnekleri:
 * [PowerShell kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md).
 * [PowerShell ile küme yönetme](hdinsight-administer-use-powershell.md).
 
-Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-az-ps) en son sürümünü almak için. Azure Resource Manager için yeni cmdlet'ler kullanmak üzere değiştirilmesi için gereken komut dosyalarınız varsa [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-az-ps) en son sürümünü almak için.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Yardımcı programlar bir tarayıcıda çalıştırabilirsiniz.
 Aşağıdaki yardımcı programlar, bir web tarayıcıda çalışan kullanıcı Arabirimi vardır:
-* **[Azure Cloud Shell (Önizleme)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  tarayıcınızda ve içinden çalışır bir etkileşimli, komut satırı kabuğu olan Azure portalı.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  tarayıcınızda ve içinden çalışır bir etkileşimli, komut satırı kabuğu olan Azure portalı.
 * **[Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md)**  yönetim ve izleme yardımcı programı gibi çeşitli işlemler yönetmek için kullanılan Azure portalında kullanılabilir:
     * [Apache Ambari REST API ile kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Görünüm Apache Ambari, Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Visual Studio'da .NET SDK'sı ile gerçekleştirebileceğiniz görevler örnekle
 * [.NET SDK kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Kullanım C# Apache Hive ve Apache Hadoop akış Apache Pig ile kullanıcı tanımlı işlevleri](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> .NET çözümlerini Windows tabanlı HDInsight kümeleriyle çalıştırıyorsanız, Linux tabanlı kümeler için bir geçiş planı için iyi bir zamandır. Daha fazla bilgi için [geçirme .NET çözüm için Linux tabanlı HDInsight için Windows tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij Idea ve Eclipse IDE için Spark kümeleri
 Her ikisi de [Intellij Idea](https://www.jetbrains.com/idea/download) ve [Eclipse IDE'yi](https://www.eclipse.org/downloads/) yapmak için kullanılabilir:
 * Geliştirin ve bir HDInsight Spark kümesi üzerinde bir Scala Spark uygulaması gönderin.
@@ -77,14 +74,17 @@ Apache Spark kümeleri, HDInsight, Apache Zeppelin not defterlerini ve Jupyter n
 * [Çekirdekler üzerinde Apache Spark kümeleri ile Jupyter not defterlerini Spark uygulamaları test etmek için nasıl kullanılacağını öğrenin](spark/apache-spark-zeppelin-notebook.md)
 * [Spark işlerini çalıştırmak için Apache Spark kümeleri üzerinde Apache Zeppelin not defterlerini kullanma hakkında bilgi edinin](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Windows üzerinde Linux tabanlı araçlar ve teknolojiler çalıştırın
 
 Burada bir aracı veya yalnızca Linux üzerinde kullanılabilir teknolojisi kullanmalıdır bir durumla karşılaşırsanız, aşağıdaki seçenekleri göz önünde bulundurun:
 
-* **Windows 10 üzerinde bash (beta)** Windows üzerinde Linux alt sistemi sağlar. Bash doğrudan adanmış bir Linux yüklemesi korumak zorunda kalmadan Linux yardımcı programları çalıştırmanıza olanak tanır. [Yükleyin ve Windows 10 üzerinde Bash beta çalıştırın](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Windows 10 üzerinde ubuntu'da bash** Windows üzerinde Linux alt sistemi sağlar. Bash doğrudan adanmış bir Linux yüklemesi korumak zorunda kalmadan Linux yardımcı programları çalıştırmanıza olanak tanır. Bkz: [Linux Yükleme Kılavuzu için Windows 10 için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/install-win10) yükleme adımları için.  Diğer [UNIX Kabukları](https://www.gnu.org/software/bash/) de çalışır.
 * **Windows için docker** çok sayıda Linux tabanlı araçlar erişim sağlar ve doğrudan Windows çalıştırılabilir. Örneğin, Beeline istemci Hive için doğrudan Windows çalıştırmak için Docker kullanabilirsiniz. Yerel Jupyter not defteri çalıştırmak için de Docker'ı kullanma ve HDInsight üzerinde Spark uzaktan bağlanın. [Docker için Windows ile çalışmaya başlama](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)**  grafiksel bir SSH bağlantısı üzerinden küme dosya sistemine göz atmanızı sağlar.
+
+## <a name="cross-platform-tools"></a>Platformlar arası araçları
+
+Azure komut satırı arabirimi (CLI), Azure kaynaklarını yönetmek için Microsoft tarafından sunulan platformlar arası komut satırı deneyimidir.  Daha fazla bilgi için [Azure komut satırı arabirimi (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Linux tabanlı kümelerde çalışmaya yeni başladıysanız aşağıdaki makalelere bakın:

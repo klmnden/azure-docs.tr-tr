@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124975"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924838"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
@@ -120,7 +120,7 @@ Site Recovery altyapı Kurulumu ayarlamadan önce aşağıdaki etmenlere ölçme
 
 ## <a name="deploy-additional-process-servers"></a>Ek işlem sunucusu dağıtma
 
-Dağıtımınız kaynak için 200 makine ötesinde ölçeği veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek işlem sunucusu eklemeniz gerekir. Ürün sağlamak 9.24 sürümünde geliştirdik [ürün Kılavuzu](vmware-azure-manage-process-server.md#process-server-selection-guidance) ne zaman bir genişleme işlem sunucusu kurma hakkında. [İşlem sunucusu kurma](vmware-azure-set-up-process-server-scale.md) yeni kaynak makineyi korumak için veya [Yük Dengelemesi](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+Dağıtımınız kaynak için 200 makine ötesinde ölçeği veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek işlem sunucusu eklemeniz gerekir. Ürün sağlamak 9.24 sürümünde geliştirdik [işlem sunucu uyarılarını](vmware-physical-azure-monitor-process-server.md#process-server-alerts) ne zaman bir genişleme işlem sunucusu kurma hakkında. [İşlem sunucusu kurma](vmware-azure-set-up-process-server-scale.md) yeni kaynak makineyi korumak için veya [Yük Dengelemesi](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Yeni işlem sunucusu kullanabilmek için makineleri geçirme
 

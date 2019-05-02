@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 48ce99bd830d2c35e5cb9703d2ef754a602d534b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790665"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926139"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
@@ -331,7 +331,7 @@ Geçişten sonra bu tür görevleri tam olarak gözden geçirdikten sonra bunlar
 
 **Daha fazla bilgi edinin:**
 - [Hakkında bilgi edinin](https://azure.microsoft.com/services/functions/) Azure işlevleri
-- [Daha fazla bilgi edinin](https://azure.microsoft.com/en-us/services/batch/) Azure Batch
+- [Daha fazla bilgi edinin](https://azure.microsoft.com/services/batch/) Azure Batch
   
 ## <a name="next-steps"></a>Sonraki adımlar 
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122685"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925273"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -52,16 +52,21 @@ Bir dosya adı sağlanmazsa, seçilen varsayılan dosya adı, kök ve alt dizinl
 
 ## <a name="cdn-and-ssl-support"></a>CDN ve SSL desteği
 
-Olun, statik Web sitesi HTTPS üzerinden kullanılabilir dosyaları için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md). Bu işlemin bir parçası olarak, gerek *CDN'NİZİN web uç noktası* blob uç noktası değil. CDN yapılandırma hemen çalıştırılmadı olarak içeriğinizi görünür hale gelmeden önce birkaç dakika beklemeniz gerekebilir.
+Statik Web sitesi dosyalarınızı, özel etki alanı hem de HTTPS üzerinden kullanılabilmesi için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md). Bu işlemin bir parçası olarak, gerek *CDN'NİZİN web uç noktası* blob uç noktası değil. CDN yapılandırma hemen çalıştırılmadı olarak içeriğinizi görünür hale gelmeden önce birkaç dakika beklemeniz gerekebilir.
 
 Statik Web sitenizi güncelleştirdiğinizde, önbelleğe alınmış içerikleri CDN uç sunucularda CDN uç noktasını Temizleme tarafından Temizle emin olun. Daha fazla bilgi için bkz. [Azure CDN uç noktasını temizleme](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS, hesap web uç noktası aracılığıyla yerel olarak desteklenir. HTTPS üzerinden özel etki alanları şu anda Azure CDN kullanımı gerektirir. 
+>
+> HTTPS üzerinden genel hesap web uç noktası: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Özel etki alanı adları
 
 Yapabilecekleriniz [Azure depolama hesabınız için bir özel etki alanı adı yapılandırma](storage-custom-domain-name.md) statik Web sitenizi özel bir etki alanını kullanılabilir hale getirmek için. Şirket etki alanınızı barındırmaya ayrıntılı bir bakış için [Azure, bkz: etki alanınızı Azure DNS'de konak](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Fiyatlandırma
-Statik Web sitesi barındırma, ek ücret alınmadan sağlanır. Azure Blob Depolama fiyatları hakkında daha fazla ayrıntı için kullanıma [Azure Blob Depolama fiyatlandırması sayfasını](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Statik Web sitesi barındırma etkinleştirme ücretsizdir. Müşteriler, kullanılan blob depolama ve işlem maliyetleri için sizden ücret alınır. Azure Blob Depolama fiyatları hakkında daha fazla ayrıntı için kullanıma [Azure Blob Depolama fiyatlandırması sayfasını](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Hızlı Başlangıç
 
@@ -159,7 +164,10 @@ Hayır, statik Web sitesi barındırma, yalnızca GPv2 standart depolama hesapla
 Evet, yeni web uç noktası, depolama hesabı için yapılandırılmış sanal ağ ve güvenlik duvarı kuralları ilişkiden.
 
 **Web uç noktası, büyük/küçük harf duyarlıdır?**  
-Evet, web uç noktası yalnızca blob uç noktası gibi büyük küçük harfe duyarlıdır. 
+Evet, web uç noktası yalnızca blob uç noktası gibi büyük küçük harfe duyarlıdır.
+
+**Web uç noktası, HTTP ve HTTPS erişilebilir?**
+Evet, web uç noktası hem HTTP hem de HTTPS erişilebilir. Ancak, depolama hesabı, HTTPS üzerinden güvenli aktarım gerektir için yapılandırılmışsa, kullanıcıların HTTPS uç noktasını kullanmanız gerekir. Daha fazla bilgi için [Azure depolamadaki güvenli aktarım gerektir](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [HTTPS üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)

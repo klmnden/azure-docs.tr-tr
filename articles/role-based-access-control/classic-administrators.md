@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709560"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924644"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure Klasik abonelik yöneticileri
 
@@ -30,7 +30,7 @@ Bu makalede, ortak yönetici ve hizmet yöneticisi rollerini ekleme veya değiş
 ## <a name="add-a-co-administrator"></a>Ortak yönetici Ekle
 
 > [!TIP]
-> Yalnızca Azure Klasik dağıtımlar kullanarak yönetmek kullanıcının erişmesi gerekiyorsa, ortak yönetici eklemek gereken [Azure Hizmet Yönetimi PowerShell Modülü](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Kullanıcı, Azure portalında Klasik kaynakları yönetmek için yalnızca kullanıyorsa, Klasik yönetici kullanıcının eklemek gerekmez.
+> Yalnızca Azure Klasik dağıtımlar kullanarak yönetmek kullanıcının erişmesi gerekiyorsa, ortak yönetici eklemek gereken [Azure Hizmet Yönetimi PowerShell Modülü](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Kullanıcı, Azure portalında Klasik kaynakları yönetmek için yalnızca kullanıyorsa, Klasik yönetici kullanıcının eklemek gerekmez.
 
 1. Oturum [Azure portalında](https://portal.azure.com) bir Hizmet Yöneticisi olarak.
 

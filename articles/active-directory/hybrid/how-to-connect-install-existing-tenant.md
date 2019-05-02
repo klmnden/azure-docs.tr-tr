@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349581"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571354"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracınız varsa
 Azure AD Connect kullanmayla ilgili konular çoğunu varsayar başlattığınız ile yeni bir Azure AD kiracısı ve kullanıcı yok veya diğer nesneleri yok. Ancak bir Azure AD kiracınız ile başlamış olması durumunda kullanıcıların ve diğer nesnelerle doldurulur ve artık bağlan, kullanmak istediğiniz sonra bu konuda size göre.
@@ -58,6 +58,15 @@ Connect yeni yükleme için pratik soft - ve eşleşme sabit arasında fark yokt
 
 ### <a name="other-objects-than-users"></a>' Den fazla kullanıcının diğer nesneleri
 Posta özellikli gruplar ve kişiler için geçici göre proxyAddresses eşleştirme. Match sabit sourceAnchor / (PowerShell kullanarak) Immutableıd kullanıcılar yalnızca yalnızca güncelleştirebilirsiniz geçerli değildir. Posta etkin olmayan gruplar için şu anda yazılımla eşleşen veya eşleşme sabit desteği yoktur.
+
+### <a name="admin-role-considerations"></a>Yönetici rolü konuları
+Güvenilmeyen şirket içi kullanıcıların herhangi bir yönetici rolüne sahip bir bulut kullanıcısı ile eşleşen dizinden önlemek için Azure AD Connect Yöneticisi rolüne sahip nesneleri ile şirket içi kullanıcı nesneleri eşleşmez. Bu, varsayılan olarak açıktır. Geçici çözüm için bu davranış, şunları yapın:
+
+1.  Yalnızca bulutta yer alan kullanıcı nesneden dizin rolü kaldırılamıyor
+2.  Bir eşitleme tetikleme
+3.  Eşleme gerçekleştikten sonra kullanıcı nesnenin bulutta isteğe bağlı olarak dizin rollerini ekleyin.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Yeni bir şirket içi Active Directory, Azure AD'de verilerden oluşturma
 Bazı müşteriler bir yalnızca bulut çözümünü Azure AD ile başlayın ve şirket içi olmayan AD. Daha sonra şirket kaynaklarının kullanılmasına ve bir şirket içi yapı istedikleri AD, Azure AD verileri temel alarak. Azure AD Connect, bu senaryo için yardımcı olamaz. Kullanıcılar şirket içi oluşturmaz ve Azure AD ile aynı şirket içi parolayı ayarlamak için hiçbir özelliği yok.

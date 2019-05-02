@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7afa815f81e2a61db8ac83623baafb97cb986b2c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888790"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925346"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>İstek birimi (RU) ücretsiz olarak Azure Cosmos DB'de bulun.
 
@@ -186,7 +186,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### <a name="use-the-mongodb-java-driver"></a>MongoDB Java sürücüsünü kullanın
 
-Kullanırken [resmi MongoDB Java sürücüsünü](http://mongodb.github.io/mongo-java-driver/) (bkz [Bu hızlı başlangıçta](create-mongodb-java.md) kullanımı ile ilgili), komutları yürütülebilir çağırarak `runCommand` metodunda bir `MongoDatabase` nesne.
+Kullanırken [resmi MongoDB Java sürücüsünü](https://mongodb.github.io/mongo-java-driver/) (bkz [Bu hızlı başlangıçta](create-mongodb-java.md) kullanımı ile ilgili), komutları yürütülebilir çağırarak `runCommand` metodunda bir `MongoDatabase` nesne.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

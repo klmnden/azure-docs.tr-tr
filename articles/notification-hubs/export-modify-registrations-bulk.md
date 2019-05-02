@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623995"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575305"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Azure Notification hubs'ı kayıtları toplu halde alma ve verme
 Hangi oluşturmak veya bir bildirim hub'ı kayıtları çok sayıda değiştirmek için gereklidir senaryo vardır. Bu senaryolardan bazıları batch hesaplamaları şu veya bildirim hub'ları kullanmak için mevcut bir anında iletme uygulamasına geçirirken etiketi güncelleştirmelerdir.
@@ -34,7 +34,7 @@ Bu bölümde, aşağıdaki varlıkların olduğunu varsayar:
 
 - Sağlanan bildirim hub.
 - Bir Azure depolama blob kapsayıcısı.
-- Başvurular [Azure depolama NuGet paketini](https://www.nuget.org/packages/windowsazure.storage/) ve [Notification Hubs NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- Başvurular [Azure depolama NuGet paketini](https://www.nuget.org/packages/windowsazure.storage/) ve [Notification Hubs NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Giriş dosyası oluşturma ve blob depolama
 Giriş dosyası kayıtları satır başına bir XML seri hale getirilmiş bir listesini içerir. Aşağıdaki kod örneği, Azure SDK'sını kullanarak, kayıtları seri hale getirmek ve bunları blob kapsayıcısına yüklemek nasıl gösterir.

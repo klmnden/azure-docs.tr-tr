@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904159"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572377"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
@@ -68,7 +68,7 @@ Varsayılan olarak çoğu arama sorguları `maxFuzzyLevel=1` performans elde edi
 
     10 "pizza" belirsiz sorgu dizesi döndürdü [ilgi sonucunun noktası](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) sonuçları kategorileri "pizza" ve "Restoran" dönülüyor. Her sonuç döndüren bir adresin enlem / boylam değerleri, bağlantı noktasını ve giriş noktası konumu için görünümü.
   
-    Sonuçları herhangi bir belirli başvuru konuma bağlı değildir, bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** potansiyel olarak gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanızın gereken kapsama, ülkelerin belirtmek için parametre.
+    Sonuçları herhangi bir belirli başvuru konuma bağlı değildir, bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** potansiyel olarak gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanızın kapsamı, gereken ülkeleri belirtmek için parametre.
 
 5. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 

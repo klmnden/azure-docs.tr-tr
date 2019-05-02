@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856140"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699434"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
@@ -217,7 +217,7 @@ Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorunun
 
 [3] [NET-DM 1.0: Adım adım veri araştırma Kılavuzu](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [büyük veri pazarlama: Müşterileriniz daha etkili bir şekilde etkileşim kurun ve değer sürücü](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [büyük veri pazarlama: Müşterileriniz daha etkili bir şekilde etkileşim kurun ve değer sürücü](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco karmaşıklığı model şablonunun](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Gallery](https://gallery.azure.ai/) 
  

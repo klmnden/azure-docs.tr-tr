@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162654"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690280"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Olay hub'ları hakkında sık sorulan sorular
 
@@ -50,6 +50,47 @@ Event Hubs standart katmanı şu anda yedi günde bir en yüksek bekletme süres
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>My Event Hubs'ı nasıl izleyebilirim?
 Olay hub'ları için kaynaklarınızın durumunu sağlayan ayrıntılı ölçümler yayan [Azure İzleyici](../azure-monitor/overview.md). Ayrıca, yalnızca ad alanı düzeyinde aynı zamanda varlık düzeyinde Event Hubs hizmeti genel durumunu değerlendirmek sağlarlar. Hangi izleme hakkında için sunulan bilgi [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Güvenlik Duvarı'nı açmak hangi bağlantı noktalarını gerekiyor? 
+Azure Service Bus ile aşağıdaki protokolleri, ileti göndermek ve almak için kullanabilirsiniz:
+
+- Gelişmiş ileti sıraya alma Protokolü (AMQP)
+- HTTP
+- Apache Kafka
+
+Azure Event Hubs ile iletişim kurmak için bu protokolleri kullanmak için açmanız giden bağlantı noktaları için aşağıdaki tabloya bakın. 
+
+| Protokol | Bağlantı Noktaları | Ayrıntılar | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 ve 5672 | Bkz: [AMQP protokol Kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Bkz: [Kafka uygulamaları Event Hubs'dan kullanın](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Hangi IP adreslerini beyaz listeye gerekiyor mu?
+Bağlantılarınız için doğru IP adreslerini beyaz listeye bulmak için aşağıdaki adımları izleyin:
+
+1. Bir komut isteminden aşağıdaki komutu çalıştırın: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Not alın, döndürülen IP adresine `Non-authoritative answer`. Bu IP adresi statiktir. Değiştirmeniz gerekir yalnızca zaman içinde ad farklı bir kümeye açın geri noktasıdır.
+
+Ad alanınız için bölge artıklığı kullanırsanız birkaç ek adımları gerçekleştirmeniz gerekir: 
+
+1. İlk olarak, nslookup ad alanı üzerinde çalıştırın.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Not alın adında **yetkili olmayan yanıt** bölümünde, aşağıdaki biçimlerden biri: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Her biri ile sonekleri s1, s2 ve s3 üç kullanılabilirlik alanında çalışan tüm üç örnek IP adreslerini almak için nslookup Çalıştır 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka tümleştirme
 

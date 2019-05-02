@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680732"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682679"
 ---
 # <a name="install-and-run-face-containers"></a>Yükleme ve yüz kapsayıcıları çalıştırma
 
@@ -34,10 +34,9 @@ Yüz tanıma API'si kapsayıcıları kullanmadan önce aşağıdaki gereksinimle
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
 |Azure `Cognitive Services` kaynak |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A _Bilişsel Hizmetler_ anahtar Azure kaynak ve ilişkili faturalama, fatura uç noktası URI'si. Her iki değer kaynağın genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir. Eklemenize gerek `face/v1.0` BILLING_ENDPOINT_URI aşağıda gösterildiği gibi uç nokta URI'si yönlendirme. <br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Özel kapsayıcı kayıt defterine erişim isteği
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>Ana bilgisayar
 
@@ -162,5 +161,4 @@ Bu makalede, kavramlar ve indirme, yükleme ve yüz tanıma API'si kapsayıcıla
 * Gözden geçirme [kapsayıcıları yapılandırma](face-resource-container-config.md) yapılandırma ayarları
 * Gözden geçirme [yüz genel bakış](Overview.md) algılama ve yüz tanımlama hakkında daha fazla bilgi edinmek için  
 * Başvurmak [yüz tanıma API'si](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) kapsayıcı tarafından desteklenen yöntemleri hakkında ayrıntılar için.
-* Başvurmak [sık sorulan sorular (SSS)](FAQ.md) yüz işlevselliği ile ilgili sorunları gidermek için.
 * Daha fazla kullanmanız [Bilişsel Hizmetleri kapsayıcıları](../cognitive-services-container-support.md)

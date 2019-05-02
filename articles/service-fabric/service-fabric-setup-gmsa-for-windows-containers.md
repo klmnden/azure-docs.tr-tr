@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo, subramar
-ms.openlocfilehash: ae8c5c8ec1e16669b3cbdde8b3eaa3d5dbb7c4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fc4edf4cb411ea2872437f4909f06e5ac2b9f622
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837468"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926364"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Service Fabric üzerinde çalışan Windows kapsayıcıları için gMSA ayarlama
 
-Bir kimlik bilgisi belirtimi dosyası gMSA ' (Grup yönetilen hizmet hesapları) ayarlamak için (`credspec`) kümedeki tüm düğümlere yerleştirilir. VM uzantısı kullanarak tüm düğümlerinde dosya kopyalanabilir.  `credspec` Dosya gMSA hesap bilgilerini içermesi gerekir. Daha fazla bilgi için `credspec` bkz [kimlik bilgisi belirtimi oluşturma](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). Kimlik bilgisi belirtimi ve `Hostname` etiketi, uygulama bildiriminde belirtilir. `Hostname` Etiketi kapsayıcısı altında çalışan gMSA hesabı adıyla eşleşmelidir.  `Hostname` Etiketi diğer Kerberos kimlik doğrulaması kullanarak etki alanı Hizmetleri'nde kendi kimliğini doğrulamak kapsayıcı sağlar.  Belirtmek için bir örnek `Hostname` ve `credspec` uygulama bildirimi aşağıdaki kod parçacığında gösterilir:
+Bir kimlik bilgisi belirtimi dosyası gMSA ' (Grup yönetilen hizmet hesapları) ayarlamak için (`credspec`) kümedeki tüm düğümlere yerleştirilir. VM uzantısı kullanarak tüm düğümlerinde dosya kopyalanabilir.  `credspec` Dosya gMSA hesap bilgilerini içermesi gerekir. Daha fazla bilgi için `credspec` bkz [kimlik bilgisi belirtimi oluşturma](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). Kimlik bilgisi belirtimi ve `Hostname` etiketi, uygulama bildiriminde belirtilir. `Hostname` Etiketi kapsayıcısı altında çalışan gMSA hesabı adıyla eşleşmelidir.  `Hostname` Etiketi diğer Kerberos kimlik doğrulaması kullanarak etki alanı Hizmetleri'nde kendi kimliğini doğrulamak kapsayıcı sağlar.  Belirtmek için bir örnek `Hostname` ve `credspec` uygulama bildirimi aşağıdaki kod parçacığında gösterilir:
 
 ```xml
 <Policies>

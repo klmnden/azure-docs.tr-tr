@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaf2d4a5a34a42867debcff4163f692431c8e0ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61052399"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573858"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB'de saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler yazma
 
@@ -48,7 +48,7 @@ Yazıldıktan sonra saklı yordamı bir koleksiyon ile kayıtlı olması gerekir
 
 ### <a id="create-an-item"></a>Saklı yordamı kullanarak bir öğe oluşturun
 
-Saklı yordamı kullanarak bir öğe oluşturduğunuzda, Azure Cosmos DB kapsayıcısı ve yeni oluşturulan öğeyi döndürdüğü için bir kimlik öğesi eklenir. Öğe oluşturmaya, zaman uyumsuz bir işlemdir ve JavaScript geri çağırma işlevlere bağlıdır. Geri çağırma işlevi iki parametre - bir işlemin başarısız olması durumunda hata nesnesi ve bir dönüş değeri için başka; yine de sahip istiyor musunuz? Bu durumda, oluşturulan nesnesi. Geri çağırma içinde özel durumu işlemek veya bir hata oluşturur. Azure Cosmos DB çalışma zamanı, bir geri çağırma sağlanmadı ve bir hata durumunda, bir hata atar. 
+Saklı yordamı kullanarak bir öğe oluşturduğunuzda, öğe Azure Cosmos DB kapsayıcıya eklenir ve yeni oluşturulan öğeyi kimliği döndürülür. Öğe oluşturmaya, zaman uyumsuz bir işlemdir ve JavaScript geri çağırma işlevlere bağlıdır. Geri çağırma işlevi iki parametre - bir işlemin başarısız olması durumunda hata nesnesi ve bir dönüş değeri için başka; yine de sahip istiyor musunuz? Bu durumda, oluşturulan nesnesi. Geri çağırma içinde özel durumu işlemek veya bir hata oluşturur. Azure Cosmos DB çalışma zamanı, bir geri çağırma sağlanmadı ve bir hata durumunda, bir hata atar. 
 
 Saklı yordamı da açıklama ayarlamak için bir parametre içerir, bir Boole değeri. Parametre ayarlandığında true ve tanımı eksik, saklı yordamı bir özel durum oluşturur. Aksi takdirde, saklı yordamın geri kalanını çalışmaya devam eder.
 

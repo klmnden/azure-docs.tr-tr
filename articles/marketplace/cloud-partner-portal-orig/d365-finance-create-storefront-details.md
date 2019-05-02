@@ -1,25 +1,18 @@
 ---
-title: Mağaza ayrıntı formu doldurun nasıl | Microsoft Docs
+title: Nasıl mağaza ayrıntı formu doldurun
 description: Mağaza ayrıntı formu yeni bir Dynamics 365 Business Central uygulaması için değerlerini açıklar.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397966"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935036"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Nasıl mağaza ayrıntı formu doldurun
 ===========================================
@@ -57,9 +50,9 @@ Müşteriler, çevrimiçi ürün Yardımı uygulamanızla ilgili yol gösteren b
 
 ### <a name="supported-countriesregions"></a>Desteklenen ülkeler/bölgeler
 
-Bu alan, teklifinizi deneme sürümünde olacaktır ülkeler/bölgeler belirler. Microsoft Dynamics 365 Business Central zaten mevcut veya Önizleme aşamasında olduğu ülkeleri yalnızca seçebilirsiniz. Geçerli bir listesi için bkz [ülke ve çevirileri desteklenen](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Bu alan, teklifinizi deneme sürümünde olacaktır ülkeler/bölgeler belirler. Microsoft Dynamics 365 Business Central zaten mevcut veya Önizleme aşamasında olduğu ülkeleri/bölgeleri yalnızca seçebilirsiniz. Geçerli bir listesi için bkz [ülkeler/bölgeler ve çevirileri desteklenen](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Ülke ve desteklenen çevirileri seçin](./media/d365-financials/image008.png)
+![Ülkeler/bölgeler ve desteklenen çevirileri seçin](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Desteklenen diller

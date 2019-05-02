@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580248"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939582"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -32,7 +32,7 @@ Veri eşitleme veri burada birkaç Azure SQL veritabanı veya SQL Server veritab
 
 - **Karma veri eşitleme:** Veri Eşitleme ile şirket içi veritabanlarınıza ve karma uygulamalar'ı etkinleştirmek için Azure SQL veritabanları arasında verileri tutabilirsiniz. Bu özellik, buluta geçiş düşünüyorsanız ve bazı uygulamalarını Azure'da koymak istediğiniz müşterileri itiraz.
 - **Dağıtılmış uygulamalar:** Çoğu durumda, farklı iş yüklerini farklı veritabanlarında ayırmak yararlıdır. Örneğin, bir büyük üretim veritabanına sahip, ancak Ayrıca bu veriler üzerinde raporlama veya Analiz iş yükü çalıştırmak gerekir, bu ek iş yükü için ikinci bir veritabanı yararlıdır. Bu yaklaşım, üretim iş yükünüz üzerindeki performans etkisini en aza indirir. Veri eşitleme, bu iki veritabanı eşitlenmiş tutmak için kullanabilirsiniz.
-- **Global olarak dağıtılmış uygulamalar:** Birçok işletme, çeşitli bölgeleri ve hatta bazı ülkelerde yayılır. Ağ gecikmesini en aza indirmek için size yakın bir bölgede verilerinizin sağlamak en iyisidir. Data Sync ile eşitlenmiş dünyanın dört bir yanındaki bölgelerdeki veritabanlarına kolayca tutabilirsiniz.
+- **Global olarak dağıtılmış uygulamalar:** Birçok işletme, çeşitli bölgeleri ve hatta bazı ülkeler/bölgeler yayılır. Ağ gecikmesini en aza indirmek için size yakın bir bölgede verilerinizin sağlamak en iyisidir. Data Sync ile eşitlenmiş dünyanın dört bir yanındaki bölgelerdeki veritabanlarına kolayca tutabilirsiniz.
 
 Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 

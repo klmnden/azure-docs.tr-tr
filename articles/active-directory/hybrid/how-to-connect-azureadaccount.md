@@ -1,34 +1,33 @@
 ---
-title: 'Azure AD Connect eşitleme: Azure AD hizmet hesabını yönetme | Microsoft Docs'
-description: Bu konuda, Azure AD hizmet hesabını geri yüklemek nasıl belgelenir.
+title: Azure AD Bağlayıcısı hesap parolası değiştirme | Microsoft Docs
+description: Bu konuda Azure AD Bağlayıcısı hesabını geri yüklemek nasıl belgelenir.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, Azure AD Connect eşitleme Bağlayıcısı hizmeti hesabı parolasını sıfırlama
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/12/2017
-ms.date: 11/08/2018
-ms.component: hybrid
-ms.author: v-junlch
-ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 04/25/2019
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571406"
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect eşitleme: Azure AD hizmet hesabını yönetme
-Azure AD Bağlayıcısı tarafından kullanılan hizmet hesabı, ücretsiz hizmet olduğu varsayılır. Kimlik bilgilerini sıfırlamanız gerekirse, bu konu, hakkındadır. Örneğin, bir genel yönetici tarafından hata varsa, PowerShell kullanarak hizmet hesabının parolasını sıfırlayın.
+# <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Bağlayıcısı hesap parolasını değiştirme
+Azure AD Bağlayıcısı hesabı, ücretsiz hizmet olduğu varsayılır. Kimlik bilgilerini sıfırlamanız gerekirse, bu konu, hakkındadır. Örneğin, bir genel yönetici tarafından hata varsa PowerShell kullanarak hesabın parolasını sıfırlayın.
 
 ## <a name="reset-the-credentials"></a>Kimlik bilgilerini Sıfırla
-Azure AD Bağlayıcısı üzerinde tanımlanan hizmet hesabı, Azure AD kimlik doğrulama sorunları nedeniyle iletişim kuramıyorsa, parolayı sıfırlayabilir.
+Azure AD Bağlayıcısı hesabı Azure AD kimlik doğrulama sorunları nedeniyle iletişim kuramazsa, parolayı sıfırlayabilir.
 
 1. Azure AD Connect eşitleme sunucusu için oturum açın ve PowerShell'i başlatın.
 2. `Add-ADSyncAADServiceAccount` öğesini çalıştırın.  
@@ -38,7 +37,7 @@ Azure AD Bağlayıcısı üzerinde tanımlanan hizmet hesabı, Azure AD kimlik d
 Bu cmdlet, hizmet hesabı parolasını sıfırlar ve hem de Azure AD eşitleme altyapısında güncelleştirin.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Bu adımları bilinen sorunları çözme
-Bu bölümde, bir kimlik bilgilerini sıfırlama Azure AD hizmet hesabı tarafından düzeltilen müşteriler tarafından bildirilen hataları listesidir.
+Bu bölümde, bir kimlik bilgilerini sıfırlama Azure AD Bağlayıcısı hesabı düzeltilmiş olan müşteriler tarafından bildirilen hataları listesidir.
 
 - - -
 Olay 6900  
@@ -53,7 +52,6 @@ AADSTS70002: Kimlik bilgileri doğrulanırken hata. AADSTS50054: Kimlik doğrula
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-- [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
-- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
-
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 

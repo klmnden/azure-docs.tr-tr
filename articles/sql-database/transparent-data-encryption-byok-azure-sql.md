@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330984"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926015"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir
 
@@ -61,6 +61,7 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
 - Hangi abonelikler gerekli kaynaklar için kullanılan karar verme – sunucusunu daha sonra farklı abonelikler arasında taşıma BYOKs ile TDE, yeni bir kurulum gerektirir. Daha fazla bilgi edinin [kaynaklar taşınıyor](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Azure anahtar kasası ile TDE yapılandırırken anahtar kasasında yinelenen sarmalama/kaydırma işlemleri tarafından yerleştirilen yük dikkate almak önemlidir. Örneğin, kasa beklenmediğini karşı çoğu anahtar işlemleri sunucu veritabanlarında olduğu gibi bir SQL veritabanı sunucusu ile ilişkili tüm veritabanlarını aynı TDE koruyucusuna kullandığından, o sunucunun bir yük devretme tetikler. Deneyimimizi üzerinde temel alır ve belgelenen [anahtar kasası hizmet sınırları](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), en fazla 500 standart ilişkilendirme öneririz / genel amaçlı veya 200 Premium / iş açısından kritik veritabanları bir Azure anahtar sağlamak için kasası ile tek bir abonelikte vault'taki TDE koruyucusuna erişilirken sürekli olarak yüksek kullanılabilirlik.
 - Önerilen: Şirket içi TDE koruyucusuna bir kopyasını tutun.  Bu, bir HSM cihazını TDE koruyucusu yerel olarak oluşturmak için ve biri sonucunda TDE koruyucusuna yerel bir kopyasını depolamak için bir anahtar emanet sistemi gerektirir.  Bilgi [bir anahtar yerel HSM'NİZDEN Azure anahtar Kasası'na aktarma](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Var olan yapılandırmalar sorunları görmek için [TDE sorunlarını giderme](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Azure anahtar Kasası'nı yapılandırma yönergeleri
 
@@ -72,7 +73,7 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
 - SQL veritabanı sunucusu, Azure Active Directory (Azure AD) kimliğini kullanarak anahtar kasası erişim.  Portal kullanıcı arabirimini kullanarak, Azure AD kimlik otomatik olarak oluşturulur ve sunucuya anahtar kasası erişim izni verilir.  BYOK ile TDE yapılandırmak için PowerShell kullanarak Azure AD kimlik oluşturulmalı ve tamamlanma doğrulanmalıdır. Bkz: [BYOK ile TDE yapılandırma](transparent-data-encryption-byok-azure-sql-configure.md) ve [yönetilen örneği için BYOK ile TDE yapılandırma](https://aka.ms/sqlmibyoktdepowershell) PowerShell kullanırken ayrıntılı adım adım yönergeler için.
 
   > [!NOTE]
-  > Varsa Azure AD kimlik **olan yanlışlıkla silinmiş veya sunucunun izinler iptal** anahtar kasasının erişim ilkesi kullanarak sunucu anahtar kasası erişimi kaybeder ve şifrelenmiş TDE veritabanlarıdır erişilemez 24 saat içinde.
+  > Varsa Azure AD kimlik **yanlışlıkla olduğu silinmiş veya sunucunun izinler iptal** anahtar kasasının erişim ilkesi kullanılarak veya yanlışlıkla sunucunun farklı bir aboneliğe taşıyarak, sunucunun anahtar kasası erişimi kaybeder ve şifrelenmiş TDE veritabanları 24 saat içinde erişilebilir durumda değil.  
 
 - Güvenlik duvarları ve sanal ağlar ile Azure Key Vault kullanırken aşağıdakileri yapılandırmanız gerekir: 
   - Güvenilen Microsoft hizmetlerinin bu güvenlik duvarını geçmesine izin ver: Evet seçti

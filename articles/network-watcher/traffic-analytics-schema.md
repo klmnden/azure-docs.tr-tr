@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799346"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691425"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Trafik analizi şema ve veri toplama işlemleri
 
@@ -35,7 +35,7 @@ Trafik analizi, bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görü
 1. Tüm "FlowIntervalStartTime_t" ve "FlowIntervalEndTime_t" arasında bir NSG akış günlükleri depolama hesabındaki bir dakikalık aralıklarla blobları olarak trafik analizi tarafından işlenmeden önce yakalanır. 
 2. Trafik analizi işleme aralığı varsayılan değer 60 dakikadır. Bu, her 60 dakikada trafik analizi için toplama depolama bloblarından seçer anlamına gelir.
 3. Akışlar aynı kaynak IP, hedef IP, hedef bağlantı noktası, NSG adı, NSG kuralı, akış yönünü ve Aktarım Protokolü (TCP veya UDP) katman (Not: Kaynak bağlantı noktası için toplama hariç) tek bir akışa göre trafik analizi clubbed
-4. Bu tek bir kayıt (bölümde ayrıntıları) düzenlenmiş ve Log analytics'te trafik analizi tarafından alınan.
+4. Bu tek düzenlenmiş (aşağıdaki bölümde ayrıntıları) ve içinde alınan günlük kaydıdır trafiği Analytics.This işlem tarafından analiz gerçekleştirebileceğiniz en fazla 1 saat maks.
 5. FlowStartTime_t alan işleme aralığı "FlowIntervalStartTime_t" ve "FlowIntervalEndTime_t" arasındaki akış günlüğü bu tür bir toplu akış (aynı dört bölütlü) ilk örneğini gösterir. 
 6. TA alanındaki herhangi bir kaynağa kullanıcı Arabiriminde belirtilen NSG tarafından görülen toplam akış akışlardır ancak günlük Anlaytics içinde yalnızca tek, azaltılmış kaydı kullanıcı görürsünüz. Tüm akışlar görmek için depolama alanından başvurulabilir blob_id alanı kullanın. Toplam akış sayısı için kayıt blob görülen tek tek akış eşleşir.
 
@@ -60,7 +60,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 | SrcIP_s | Kaynak IP adresi | AzurePublic durumunda boş olur ve ExternalPublic akışlar |
 | DestIP_s | Hedef IP adresi | AzurePublic durumunda boş olur ve ExternalPublic akışlar |
 | VMIP_s | VM'nin IP'si | AzurePublic ve ExternalPublic akışlar için kullanılan |
-| PublicIP_S | Genel IP adresleri | AzurePublic ve ExternalPublic akışlar için kullanılan |
+| PublicIP_s | Genel IP adresleri | AzurePublic ve ExternalPublic akışlar için kullanılan |
 | DestPort_d | Hedef Bağlantı Noktası | Trafiği gelen olan bağlantı noktası | 
 | L4Protocol_s  | * T <br> * U  | Aktarım Protokolü. T = TCP <br> U UDP = | 
 | L7Protocol_s  | Protokol adı | Hedef bağlantı noktasından türetilmiş |
@@ -121,6 +121,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 1. MaliciousFlow - IP adreslerinden birini ait azure sanal ağına Azure'da değil ve kötü amaçlı trafik analizi işleme aralığını için kullandığı ASC akışlardaki olarak bildirilen bir genel IP olsa da bir IP adresi" FlowIntervalStartTime_t"ve"FlowIntervalEndTime_t". 
 1. UnknownPrivate - IP adreslerinden birini ait Azure sanal ağ için bir IP adresi RFC 1918 ' tanımlanan özel IP aralığına ait ve site veya Azure sanal ağına ait bir müşteriye tarafından trafik analizi eşleştirilemedi.
 1. Bilinmiyor – IP birini eşleme yapılamıyor azure'da müşteri topolojisi ile akışlarında adresleri yanı sıra şirket içinde (site).
+1. Bazı alan adları _Yanları veya _d ile eklenir. Bu kaynak ve hedef geldiğiniz değil.
 
 ### <a name="next-steps"></a>Sonraki Adımlar
 Sık sorulan sorulara yanıtlar almak için bkz. [trafik Analizi ile ilgili SSS](traffic-analytics-faq.md) işlevleri hakkında daha fazla ayrıntı için bkz: [trafik analizi belgeleri](traffic-analytics.md)

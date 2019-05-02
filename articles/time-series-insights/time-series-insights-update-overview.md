@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: fbf347ceb3ccae4802c984a2737c2298a4e43e72
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760099"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572918"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Azure zaman serisi İçgörüler Önizleme genel bakış
+# <a name="the-azure-time-series-insights-preview"></a>Azure Time Series Insights Önizleme
 
-Azure zaman serisi öngörüleri Önizleme uçtan uca hizmet olarak platform teklifidir. İçe alma, işlem, depolama ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için kullanılır. Time Series Insights, geçici veri keşfi ve operasyonel analiz için idealdir. Time Series Insights karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir ve özelleştirilmiş hizmetidir.
+Azure zaman serisi öngörüleri Önizleme uçtan uca hizmet olarak platform teklifidir. Toplamak, işlem, depolamak, çözümlemek ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için kullanılır. Time Series Insights, geçici veri keşfi ve operasyonel analiz için idealdir. Time Series Insights karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir ve özelleştirilmiş hizmetidir.
+
+> [!TIP]
+> Özellikleri için genel kullanılabilirlik okuma [Azure zaman serisi öngörüleri GA genel bakış](time-series-insights-overview.md).
 
 ## <a name="video"></a>Video
 
-Bu videoda, Azure zaman serisi öngörüleri önizlemesi, bulut tabanlı IOT analiz platformu için genel bir bakış sunuyoruz.
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>Azure zaman serisi öngörüleri önizlemesi hakkında daha fazla bilgi edinin. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>IOT verilerini tanımlayın
 
-IOT verilerini varlık yoğun kuruluşlarda kullanılabilir olan tüm "endüstriyel" verilerdir. Oldukça gürültülü ölçümleri kayıt varlıklarından gönderildiği IOT verilerini genellikle yüksek oranda yapılandırılmamış. Bu ölçümler, sıcaklık, hareket ve nem içerir. Bu veri akışlarını Sık önemli boşlukları, bozuk bir ileti ve false okumalar tarafından belirlenir. Herhangi bir çözümlemesi gerçekleşebilmesi bu akıştaki verilerin temizlenmesi gerekir. IOT verilerini genellikle yalnızca CRM veya ERP gibi birinci taraf kaynaklardan gelen ek verisi girişleri bağlamında anlamlı olur. Giriş, ayrıca hava durumu veya konumu gibi üçüncü taraf veri kaynaklarından gelir.
+IOT verilerini varlık yoğun kuruluşlarda kullanılabilir olan tüm endüstriyel verilerdir. Oldukça gürültülü ölçümleri kayıt varlıklarından gönderildiği IOT verilerini genellikle yüksek oranda yapılandırılmamış. Bu ölçümler, sıcaklık, hareket ve nem içerir. Bu veri akışlarını Sık önemli boşlukları, bozuk bir ileti ve false okumalar tarafından belirlenir. Herhangi bir çözümlemesi gerçekleşebilmesi bu akıştaki verilerin temizlenmesi gerekir.
+
+IOT verilerini genellikle yalnızca CRM veya ERP gibi birinci taraf kaynaklardan gelen ek verisi girişleri bağlamında anlamlı olur. Giriş, ayrıca hava durumu veya konumu gibi üçüncü taraf veri kaynaklarından gelir.
 
 Sonuç olarak, veriler yalnızca bir bölümünü işlem ve işletme amacıyla kullanılır. Bu tür veriler iş raporlama ve analiz için tutarlı, kapsamlı, geçerli ve doğru bilgileri sağlar. Durumun dönüş verileri eyleme dönüştürülebilir içgörüler haline gerektirir IOT toplanır:
 
@@ -46,8 +51,8 @@ Tipik bir IOT veri akışı aşağıdaki resimde gösterilmektedir.
 
 Geçerli IOT yatay farklı. Müşteriler, üretim, otomotiv, enerji, yardımcı programlar, akıllı Binalar ve danışmanlık sektörler yayılır. Geçici veri keşfi verinin şeklini bilinmeyen olduğu senaryolar içerir. Senaryoları operasyonel analiz Operasyonel Verimliliği için şema veya açıkça Modellenen veriler üzerinde de içerir. Bu senaryolar, genellikle yan yana var ve farklı kullanım durumlarına destekler. Endüstriyel IOT kuruluşlara ve kendi dijital revolution başarısı için önemli olduğu platform özellikleri şunlardır:
 
-- Çok katmanlı depolama, hem sıcak ve soğuk. 
-- Zaman serisi verilerini tutarında yıllık Depolama olanağı. 
+- Çok katmanlı depolama, hem sıcak ve soğuk.
+- Zaman serisi verilerini tutarında yıllık Depolama olanağı.
 - Açıkça model ve varlık tabanlı operasyonel zeka sorgularını en iyi duruma getirme olanağı.
 
 Time Series Insights bir kapsamlı, uçtan uca olarak-a-IOT veri keşfi ve operasyonel içgörüler için hizmet olarak platform teklifidir ' dir. Zaman serisi görüşleri, IOT ölçekli zaman serisi verilerini analiz etmek için tam olarak yönetilen bulut hizmeti sunar.

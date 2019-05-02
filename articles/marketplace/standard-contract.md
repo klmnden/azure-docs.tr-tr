@@ -2,19 +2,17 @@
 title: Standart sözleşme | Azure
 description: Azure Market ve AppSource standart Sözleşmesi
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3c3b3c3af3dbe78bd08a0803c7fc2a37f554e4d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13f1fb79babf98673c49c417576f16d6d106f2d2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733615"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937761"
 ---
 # <a name="standard-contract"></a>Standart Sözleşme
 

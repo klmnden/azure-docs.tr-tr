@@ -2,16 +2,16 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2010
 ms.author: raynew
-ms.openlocfilehash: fa41784902c1b10d9a30cb67dec5079da565e8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83e9e584967f780532ce9b3c51bf3f41a963eabf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264197"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925592"
 ---
 1. İşlem sunucusu için yönetici olarak oturum açın.
-2. [Birleşik Kurulum](https://aka.ms/unifiedinstaller)’un en son sürümünü indirin.
+2. En son sürümünü indirin [birleştirilmiş yükleyici Kurulumu](https://aka.ms/unifiedinstaller).
 3. Güncelleştirme işlemini başlatmak için yükleyiciye çift tıklayın.
-4. Yükleyici, yüklü olan çeşitli bileşenleri algılar ve en son sürüme yükseltir.
+4. Yükleyici, yüklenen ve bunları en son sürüme yükseltir Site Recovery bileşenleri algılar.

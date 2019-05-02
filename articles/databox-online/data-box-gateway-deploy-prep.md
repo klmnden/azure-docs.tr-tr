@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620096"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686529"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Öğretici: Azure veri kutusu ağ geçidi dağıtmaya hazırlanma
 
@@ -51,6 +51,8 @@ Burada Data Box Gateway kaynağınız, Data Box Gateway cihazınız ve veri merk
 Başlamadan önce aşağıdakilerden emin olun:
 
 - Veri kutusu ağ geçidi kaynağı için Microsoft Azure aboneliğiniz desteklenmelidir. Kullandıkça Öde abonelikleri desteklenmez.
+- Sahibi veya katkıda bulunan aboneliğinize erişimi var.
+- Yönetici veya kullanıcı Azure Active Directory Graph API'si için erişimi var. Daha fazla bilgi için [Azure Active Directory Graph API'si](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 
 ### <a name="for-the-data-box-gateway-device"></a>Data Box Gateway cihazı için
@@ -85,7 +87,7 @@ Bir veri kutusu ağ geçidi kaynağı oluşturmak için Azure portalında aşağ
 
 1. Oturum açmak için Microsoft Azure kimlik bilgilerinizi kullanın:
 
-    - Azure portalında şu URL: [ https://portal.azure.com ](http://portal.azure.com).
+    - Azure portalında şu URL: [ https://portal.azure.com ](https://portal.azure.com).
     - Veya, Azure kamu portalında şu URL: [ https://portal.azure.us ](https://portal.azure.us). Daha fazla ayrıntı için [portalı kullanarak Azure kamu Bağlan](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Sol bölmede seçin **+ kaynak Oluştur**. Arama **veri kutusu Edge / veri ağ geçidi kutusunda**. Veri kutusu kenar Seç / veri ağ geçidi kutusu. **Oluştur**’u seçin.

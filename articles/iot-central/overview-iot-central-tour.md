@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678658"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688642"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central Kullanıcı Arabirimi turuna katılın
 
@@ -51,7 +51,7 @@ Sol gezinti menüsünde, uygulamanın farklı alanlara erişmek için kullanın.
 - Cihaz şablonlarını ve cihazlar için arama yapmak için girin bir **arama** değeri.
 - Kullanıcı Arabirimi dilini veya tema değiştirme tercih **ayarları** simgesi.
 - Uygulamadaki oturumunu oturum açmayı tercih **hesabı** simgesi.
-- Yardım ve destek almak için, kaynak listesinden **Yardım** açılır listesini seçin.
+- Yardım ve destek almak için, kaynak listesinden **Yardım** açılır listesini seçin. Bir deneme uygulamasında, destek kaynakları erişimini içerir. [canlı sohbet](howto-show-hide-chat.md).
 
 Kullanıcı arabirimi için açık renkli tema veya koyu renkli temayı seçebilirsiniz:
 

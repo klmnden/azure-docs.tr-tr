@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034166"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575598"
 ---
 # <a name="virtual-appliance-scenario"></a>Sanal gereç senaryosu
 Daha büyük bir Azure müşterisi arasında sık karşılaşılan bir senaryodur, Internet'e erişimi geri katmanı için bir şirket içi veri merkezlerinden verirken gösterilen iki katmanlı bir uygulama sağlamak için gerekli değildir. Bu belge aşağıdaki gereksinimleri karşılayan bir iki katmanlı ortamı dağıtmak için kullanıcı tanımlı yollar (UDR), bir VPN ağ geçidi ve ağ sanal Gereçleri kullanarak bir senaryoyu adım yol gösterir:
@@ -30,14 +30,14 @@ Daha büyük bir Azure müşterisi arasında sık karşılaşılan bir senaryodu
 * Uygulama sunucusuna giden tüm trafiği bir güvenlik duvarı sanal Gereci gitmeniz gerekir. Bu sanal gereç, arka uç sunucu erişimi ve VPN ağ geçidi aracılığıyla şirket içi ağdan gelen erişim için kullanılır.
 * Yöneticiler şirket bilgisayarlarından güvenlik duvarı sanal cihazları yönetebilir, üçüncü bir güvenlik duvarı kullanarak yalnızca yönetim amaçları için kullanılan sanal gereç.
 
-Bu, çevre ağı ve korumalı bir ağ standart bir DMZ senaryodur. Bu senaryo, Azure'da Nsg'ler, güvenlik duvarı sanal Gereçleri veya her ikisinin bir birleşimi kullanılarak oluşturulabilir. Aşağıdaki tabloda Artıları ve eksileri Nsg'ler ve güvenlik duvarı sanal Gereçleri arasında bazıları gösterilmektedir.
+Bu, bir çevre ağı ve korumalı bir ağ standart çevre ağ (Ayrıca DMZ olarak knowns) senaryodur. Bu senaryo, Azure'da Nsg'ler, güvenlik duvarı sanal Gereçleri veya her ikisinin bir birleşimi kullanılarak oluşturulabilir. Aşağıdaki tabloda Artıları ve eksileri Nsg'ler ve güvenlik duvarı sanal Gereçleri arasında bazıları gösterilmektedir.
 
 |  | Uzmanları | Simgeler |
 | --- | --- | --- |
-| NSG |Ücretsiz. <br/>Azure RBAC ile tümleşik. <br/>ARM şablonlarını kuralları oluşturulabilir. |Karmaşıklık büyük ortamlarda gösterebilir. |
+| NSG |Ücretsiz. <br/>Azure RBAC ile tümleşik. <br/>Azure Resource Manager şablonlarında kuralları oluşturulabilir. |Karmaşıklık büyük ortamlarda gösterebilir. |
 | Güvenlik duvarı |Veri düzlemi üzerinde tam denetim sağlar. <br/>Güvenlik Duvarı Konsolu aracılığıyla merkezi yönetimi. |Güvenlik Duvarı Gereci maliyeti. <br/>Azure RBAC ile tümleşik değil. |
 
-Çözüm aşağıdaki güvenlik duvarı sanal Gereçleri bir DMZ/korumalı ağ senaryoyu uygulamak için kullanır.
+Aşağıdaki çözüm, bir çevre ağındaki (DMZ) uygulamak için güvenlik duvarı sanal gereçler kullanan / ağ senaryosu korumalı.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Bugün, aşağıdaki gibi farklı özelliklerin kullanarak Azure'da yukarıda açıklanan ortam dağıtabilirsiniz.

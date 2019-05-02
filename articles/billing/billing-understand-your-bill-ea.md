@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370058"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571199"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Kurumsal Anlaşma Azure faturanızı anlama
 
@@ -29,7 +29,7 @@ Kuruluşunuzun kredi parasal taahhüdünüz içerir. Parasal taahhüt, kuruluşu
 
 ## <a name="invoices-for-most-customers"></a>Çoğu müşteri için fatura
 
-Bu bölümde, Avustralya, Japonya ve Singapur Azure müşterileri için geçerli değildir. Bu ülkeler birinde olup olmadığını görmek [diğer müşterilerin fatura](#invoices-for-other-customers).
+Bu bölümde, Avustralya, Japonya ve Singapur Azure müşterileri için geçerli değildir. Bu ülkeler/bölgelerden birinde olup olmadığını görmek [diğer müşterilerin fatura](#invoices-for-other-customers).
 
 Faturalandırma döngünüz sırasında aşağıdakilerden biri meydana geldiğinde Azure fatura alırsınız:
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578252"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926245"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki sanal makine (VM) için model barındıran SQL Server - Kullandıkça Öde, lisanslama ve kendi lisansınızı getirin (BYOL). Ve şimdi, Azure portalı, Azure CLI veya PowerShell kullanarak SQL Server VM'nize kullanan hangi lisans modeli değiştirebilirsiniz. 
@@ -33,10 +33,13 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
 
 ## <a name="remarks"></a>Açıklamalar
 
+
  - CSP müşterileri, öncelikle bir Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme AHB avantajı kullanabilir. 
  - Özel bir SQL Server VM görüntüsü kaynak sağlayıcısı ile kaydederken, lisans türü = 'AHUB' olarak belirtin. Lisans bırakarak boş olarak yazın ya da 'PAYG' belirtilmesi, kayıt başarısız olmasına neden olur. 
  - SQL Server VM kaynağınızı sürüklerseniz, yeniden görüntü sabit kodlanmış lisans ayarına geçer. 
+ - Bir SQL Server VM bir kullanılabilirlik kümesine ekleme, sanal Makineyi yeniden oluşturmayı gerektirir. Gibi tüm VM'ler için bir kullanılabilirlik eklenen olarak kümesi varsayılan bir Kullandıkça Öde lisans türü için geri gider ve AHB yeniden etkinleştirilmesi gerekir. 
  - Lisanslama modelini değiştirme özelliği, SQL VM kaynak Sağlayıcısı'nın bir özelliğidir. Bir SQL Server VM, Azure portalı üzerinden bir Market görüntüsü otomatik olarak dağıtma ile kaynak sağlayıcısını kaydeder. Bununla birlikte, müşteriler, şirket içinde SQL Server yükleme el ile gerekecektir [kendi SQL Server sanal Makinesini kaydetme](#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+ 
 
  
 ## <a name="limitations"></a>Sınırlamalar
@@ -172,7 +175,7 @@ Aşağıdaki kod parçacığı ile PowerShell kullanarak SQL Server VM kaydedin:
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Proper
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 
@@ -190,7 +193,7 @@ Bu sorunu çözmek için SQL Server VM'nize kaydedilecek çalışmadan önce SQL
   > Yükleme SQL Iaas uzantısı, SQL Server hizmetini yeniden başlatır ve yalnızca bir bakım penceresi sırasında yapılmalıdır. Daha fazla bilgi için [SQL Iaas uzantısı yükleme](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
 
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>'< Resource-group >' kaynak grubu altında ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < resource-group >' kaynağı bulunamadı. Bu nesne üzerinde ' % s'özelliği 'sqlServerLicenseType' bulunamıyor. Özelliği var ve ayarlanabilir doğrulayın.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>Kaynak ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group >' kaynak grubu altında '\<resource-group >' bulunamadı. Bu nesne üzerinde ' % s'özelliği 'sqlServerLicenseType' bulunamıyor. Özelliği var ve ayarlanabilir doğrulayın.
 SQL kaynak sağlayıcısına kayıtlı değil bir SQL Server VM üzerinde lisanslama modelini değiştirme girişimi olduğunda bu hata oluşur. İçin kaynak sağlayıcısını kaydetmeniz gerekir, [abonelik](#register-sql-vm-resource-provider-with-subscription)ve ardından SQL Server VM'nize SQL ile kaydetme [kaynak sağlayıcısı](#register-sql-server-vm-with-sql-resource-provider). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>'Sku' parametresindeki bağımsız değişken doğrulanamıyor

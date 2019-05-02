@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291656"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924583"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
@@ -34,7 +34,7 @@ Uygulama geliştirme çalışmalarınızı sorguları oluşturan kod yazma, topl
 ## <a name="sample-code-and-demo"></a>Örnek kod ve tanıtım
 Bu makalede örnek olarak bir iş araması portalını kullanır. Örneğin, bir ASP.NET MVC uygulaması uygulanır.
 
--   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](http://azjobsdemo.azurewebsites.net/).
+-   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](https://azjobsdemo.azurewebsites.net/).
 
 -   Kodu indir [github'daki Azure örnekleri deposu](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

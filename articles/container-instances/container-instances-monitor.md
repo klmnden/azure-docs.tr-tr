@@ -1,54 +1,58 @@
 ---
 title: Azure Container Instances’taki kapsayıcıları izleme
-description: Azure Container Instances'taki kapsayıcılarınızın CPU ve bellek gibi bilgi işlem kaynakları kullanımını izleme işleminin ayrıntıları.
+description: CPU ve bellek içinde Azure Container Instances, kapsayıcılarınızın tarafından gibi işlem kaynaklarının kullanımını izlemeyi öğrenin.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 04/24/2018
+ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 950d8b4b5ec1a55e2054039a01d6807915b5c714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580178"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570910"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances’taki kapsayıcı kaynaklarını izleme
 
-Azure İzleyici, kapsayıcı örnekleriniz tarafından kullanılan bilgi işlem kaynaklarıyla ilgili içgörü sağlar. Kapsayıcı gruplarının ve bunların kapsayıcılarının CPU ve bellek kullanımını izlemek için Azure İzleyici'den yararlanın. Bu kaynak kullanımı verileri, kapsayıcı gruplarınız için en iyi CPU ve bellek ayarlarını saptamanıza yardımcı olur.
+[Azure İzleyici] [ azure-monitoring] kapsayıcı örneklerinizin tarafından kullanılan işlem kaynakları hakkında Öngörüler sağlar. Bu kaynak kullanım verilerini, kapsayıcı grupları için en iyi kaynak ayarlarını belirlemenize yardımcı olur. Azure İzleyici ayrıca, kapsayıcı örneklerinizin ağ etkinliği izleyen ölçümleri sağlar.
 
-Bu belgede, hem Azure portalını hem de Azure CLI'yi kullanarak kapsayıcı örneklerinin CPU ve bellek kullanım bilgilerini toplama işleminin ayrıntıları açıklanır.
+Bu belge Azure portalı ve Azure CLI kullanarak kapsayıcı örnekleri için Azure İzleyici ölçümleri toplama ayrıntıları.
 
 > [!IMPORTANT]
-> Şu anda, yalnızca Linux kapsayıcıları için kaynak kullanım ölçümleri sağlanmaktadır.
->
+> Azure Container ınstances'da Azure İzleyici ölçümleri şu anda önizlemededir ve bazı [sınırlamalar uygulanır](#preview-limitations). Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+
+## <a name="preview-limitations"></a>Önizleme sınırlamaları
+
+Şu anda Azure İzleyici ölçümleri yalnızca Linux kapsayıcıları için kullanılabilir.
 
 ## <a name="available-metrics"></a>Mevcut ölçümler
 
-Azure İzleyici, Azure Container Instances için hem **CPU** hem de **bellek** kullanım ölçümleri sağlar. Kapsayıcı grubu ve tek tek kapsayıcılar için her iki ölçüm de sağlanır.
+Azure İzleyici, aşağıdakileri sağlar [Azure Container Instances için ölçümleri][supported-metrics]. Bu ölçümler, bir kapsayıcı grubu ve tek tek kapsayıcılar için kullanılabilir.
 
-CPU ölçümleri **millicore** cinsinden gösterilir. Bir millicore, CPU çekirdeğinin 1/1000'idir, dolayısıyla 500 millicore (veya 500 m) CPU çekirdeğinin %50 kullanımına işaret eder.
+* **CPU kullanımı** - ölçülen **millicores**. Bir millicore 1'dir / 500 millicores (veya 500 milyon) % 50 CPU Çekirdek kullanımını temsil eder. Bu nedenle bir CPU çekirdeği 1000th. Toplu olarak **ortalama kullanım** tüm çekirdekler üzerinde.
 
-Bellek ölçümleri **bayt** cinsinden gösterilir.
+* **Bellek kullanımı** - toplu olarak **ortalama bayt**.
+
+* **Saniyede alınan bayt ağ** ve **ağ bayt gönderilen / saniye** - toplu olarak **ortalama bayt / saniye**. 
 
 ## <a name="get-metrics---azure-portal"></a>Ölçümleri alma - Azure portal
 
-Kapsayıcı grubu oluşturulduğunda, Azure portalda Azure İzleyici verileri sağlanır. Kapsayıcı grubunun ölçümlerini görmek için, kaynak grubunu ve ardından kapsayıcı grubunu seçin. Burada, hem CPU hem de bellek kullanımına ilişkin olarak önceden oluşturulmuş grafikleri görebilirsiniz.
+Kapsayıcı grubu oluşturulduğunda, Azure portalda Azure İzleyici verileri sağlanır. Kapsayıcı grubu için ölçümleri görmek için Git **genel bakış** kapsayıcı grubu için sayfa. Burada her kullanılabilir ölçümler için önceden oluşturulmuş grafiklerini görebilirsiniz.
 
 ![çift grafik][dual-chart]
 
-Birden çok kapsayıcı içeren bir kapsayıcı grubunuz varsa, tek tek her kapsayıcının ölçümlerinin gösterilmesi için [boyut][monitor-dimension] kullanın. Tek bir kapsayıcının ölçümlerinin yer aldığı bir grafik oluşturmak için aşağıdaki adımları izleyin:
+Birden çok kapsayıcı içeren bir kapsayıcı grubundaki bir [boyut] [ monitor-dimension] kapsayıcı tarafından ölçümleri sunmak için. Tek bir kapsayıcının ölçümlerinin yer aldığı bir grafik oluşturmak için aşağıdaki adımları izleyin:
 
-1. Sol taraftaki gezinti menüsünde **İzleyici**'yi seçin.
-2. Bir kapsayıcı grubu ve ölçüm (CPU veya Bellek) seçin.
-3. Yeşil boyut düğmesini seçin ve sonra da **Kapsayıcı Adı**'nı seçin.
+1. İçinde **genel bakış** sayfasında, aşağıdaki gibi ölçüm grafikleri birini seçin **CPU**. 
+1. Seçin **uygulamak bölme** düğmesini ve **kapsayıcı adı**.
 
 ![boyut][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Ölçümleri alma - Azure CLI
 
-Kapsayıcı örnekleri CPU ve bellek kullanımı, Azure CLI kullanılarak da toplanabilir. Önce, aşağıdaki komutu kullanarak kapsayıcı grubunun kimliğini alın. `<resource-group>` değerini kaynak grubunuzun adıyla ve `<container-group>` değerini kapsayıcı grubunuzun adıyla değiştirin.
+Container Instances için ölçümler, Azure CLI kullanarak da toplanabilir. Önce, aşağıdaki komutu kullanarak kapsayıcı grubunun kimliğini alın. `<resource-group>` değerini kaynak grubunuzun adıyla ve `<container-group>` değerini kapsayıcı grubunuzun adıyla değiştirin.
 
 
 ```console
@@ -60,80 +64,81 @@ Aşağıdaki komutu kullanarak **CPU** kullanım ölçümlerini alın.
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:39:00  CPU Usage
-2018-04-22 04:40:00  CPU Usage
-2018-04-22 04:41:00  CPU Usage
-2018-04-22 04:42:00  CPU Usage
-2018-04-22 04:43:00  CPU Usage      0.375
-2018-04-22 04:44:00  CPU Usage      0.875
-2018-04-22 04:45:00  CPU Usage      1
-2018-04-22 04:46:00  CPU Usage      3.625
-2018-04-22 04:47:00  CPU Usage      1.5
-2018-04-22 04:48:00  CPU Usage      2.75
-2018-04-22 04:49:00  CPU Usage      1.625
-2018-04-22 04:50:00  CPU Usage      0.625
-2018-04-22 04:51:00  CPU Usage      0.5
-2018-04-22 04:52:00  CPU Usage      0.5
-2018-04-22 04:53:00  CPU Usage      0.5
+Timestamp            Name       Average
+-------------------  ---------  ---------
+2019-04-23 22:59:00  CPU Usage
+2019-04-23 23:00:00  CPU Usage
+2019-04-23 23:01:00  CPU Usage  0.0
+2019-04-23 23:02:00  CPU Usage  0.0
+2019-04-23 23:03:00  CPU Usage  0.5
+2019-04-23 23:04:00  CPU Usage  0.5
+2019-04-23 23:05:00  CPU Usage  0.5
+2019-04-23 23:06:00  CPU Usage  1.0
+2019-04-23 23:07:00  CPU Usage  0.5
+2019-04-23 23:08:00  CPU Usage  0.5
+2019-04-23 23:09:00  CPU Usage  1.0
+2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-**Bellek** kullanım ölçümlerini almak için de aşağıdaki komutu kullanın.
+Değiştirin `--metric` diğer almak için komut parametresi [ölçümleri desteklenen][supported-metrics]. Örneğin, almak için aşağıdaki komutu kullanın **bellek** kullanım ölçümleri. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:38:00  Memory Usage
-2018-04-22 04:39:00  Memory Usage
-2018-04-22 04:40:00  Memory Usage
-2018-04-22 04:41:00  Memory Usage
-2018-04-22 04:42:00  Memory Usage  6.76915e+06
-2018-04-22 04:43:00  Memory Usage  9.22061e+06
-2018-04-22 04:44:00  Memory Usage  9.83552e+06
-2018-04-22 04:45:00  Memory Usage  8.42906e+06
-2018-04-22 04:46:00  Memory Usage  8.39526e+06
-2018-04-22 04:47:00  Memory Usage  8.88013e+06
-2018-04-22 04:48:00  Memory Usage  8.89293e+06
-2018-04-22 04:49:00  Memory Usage  9.2073e+06
-2018-04-22 04:50:00  Memory Usage  9.36243e+06
-2018-04-22 04:51:00  Memory Usage  9.30509e+06
-2018-04-22 04:52:00  Memory Usage  9.2416e+06
-2018-04-22 04:53:00  Memory Usage  9.1008e+06
+Timestamp            Name          Average
+-------------------  ------------  ----------
+2019-04-23 22:59:00  Memory Usage
+2019-04-23 23:00:00  Memory Usage
+2019-04-23 23:01:00  Memory Usage  0.0
+2019-04-23 23:02:00  Memory Usage  8859648.0
+2019-04-23 23:03:00  Memory Usage  9181184.0
+2019-04-23 23:04:00  Memory Usage  9580544.0
+2019-04-23 23:05:00  Memory Usage  10280960.0
+2019-04-23 23:06:00  Memory Usage  7815168.0
+2019-04-23 23:07:00  Memory Usage  7739392.0
+2019-04-23 23:08:00  Memory Usage  8212480.0
+2019-04-23 23:09:00  Memory Usage  8159232.0
+2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Birden çok kapsayıcılı bir grup söz konusu olduğunda, kapsayıcı başına bu verileri döndürmek için `containerName` boyutu eklenebilir.
+Çok kapsayıcılı bir grup için `containerName` boyut, kapsayıcı başına ölçümler döndürülecek eklenebilir.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --dimension containerName --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
 
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
-2018-04-22 17:03:00  Memory Usage  aci-tutorial-app      1.95338e+07
-2018-04-22 17:04:00  Memory Usage  aci-tutorial-app      1.93096e+07
-2018-04-22 17:05:00  Memory Usage  aci-tutorial-app      1.91488e+07
-2018-04-22 17:06:00  Memory Usage  aci-tutorial-app      1.94335e+07
-2018-04-22 17:07:00  Memory Usage  aci-tutorial-app      1.97714e+07
-2018-04-22 17:08:00  Memory Usage  aci-tutorial-app      1.96178e+07
-2018-04-22 17:09:00  Memory Usage  aci-tutorial-app      1.93434e+07
-2018-04-22 17:10:00  Memory Usage  aci-tutorial-app      1.92614e+07
-2018-04-22 17:11:00  Memory Usage  aci-tutorial-app      1.90659e+07
-2018-04-22 16:12:00  Memory Usage  aci-tutorial-sidecar  1.35373e+06
-2018-04-22 16:13:00  Memory Usage  aci-tutorial-sidecar  1.28614e+06
-2018-04-22 16:14:00  Memory Usage  aci-tutorial-sidecar  1.31379e+06
-2018-04-22 16:15:00  Memory Usage  aci-tutorial-sidecar  1.29536e+06
-2018-04-22 16:16:00  Memory Usage  aci-tutorial-sidecar  1.38138e+06
-2018-04-22 16:17:00  Memory Usage  aci-tutorial-sidecar  1.41312e+06
-2018-04-22 16:18:00  Memory Usage  aci-tutorial-sidecar  1.49914e+06
-2018-04-22 16:19:00  Memory Usage  aci-tutorial-sidecar  1.43565e+06
-2018-04-22 16:20:00  Memory Usage  aci-tutorial-sidecar  1.408e+06
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-app      0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-app      16834560.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-app      17534976.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-app      18329600.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-app      19742720.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-app      14786560.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-app      14651392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-app      15470592.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-app      15450112.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-app      15339520.0
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-sidecar  0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-sidecar  884736.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-sidecar  831488.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-sidecar  819200.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-sidecar  843776.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-sidecar  954368.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-sidecar  868352.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-sidecar  847872.0
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure İzlemesi'ne genel bakış][azure-monitoring] bölümünde Azure İzlemesi hakkında daha fazla bilgi edinebilirsiniz.
+
+Oluşturmayı [ölçüm uyarıları] [ metric-alert] Azure Container Instances için bir ölçüm eşiği aştığında, bildirim almak için.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
@@ -141,6 +146,11 @@ Timestamp            Name          Containername             Average
 [dual-chart]: ./media/container-instances-monitor/metrics.png
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
 
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
 <!-- LINKS - Internal -->
-[azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
+[azure-monitoring]: ../azure-monitor/overview.md
+[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
 [monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups

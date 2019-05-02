@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Bilgi bir ağ arabiriminin ne olduğu ve nasıl oluşturulacağını, için ayarları değiştirin ve bir akışınızı silin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888296"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695357"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -57,7 +58,7 @@ Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için 
     |Özel IP adresi (IPv6)|Hayır| Bu onay kutusunu seçerseniz, ağ arabirimine atanmış IPv4 adresini ek olarak ağ arabiriminin IPv6 adresi atanır. Bu makalede hakkında önemli bilgiler için kullanım, IPv6 ağ arabirimine sahip IPv6 bölümüne bakın. IPv6 adresi için bir atama yöntemi seçemezsiniz. Bir IPv6 adresi atamak isterseniz, dinamik yöntem ile atanır.
     |IPv6 adı (yalnızca **özel IP adresi (IPv6)** onay kutusu işaretli) |Evet, varsa **özel IP adresi (IPv6)** onay kutusu işaretli.| Bu ad, bir ikincil ağ arabirimi IP yapılandırması için atanır. IP yapılandırması hakkında daha fazla bilgi için bkz: [ağ arabirimi ayarları görüntüle](#view-network-interface-settings).|
     |Kaynak grubu|Evet|Mevcut bir seçin [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) veya bir tane oluşturabilirsiniz. Bir ağ arabirimi, ona eklediğiniz sanal makineden aynı veya farklı bir kaynak grubunda mevcut olabilir veya sanal ağ, ona bağlanın.|
-    |Konum|Evet|Sanal makineyi bir ağ arabirimine ekleyebilir ve kendisine bağlandığınız sanal ağ aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions)de denilen bir bölge.|
+    |Location|Evet|Sanal makineyi bir ağ arabirimine ekleyebilir ve kendisine bağlandığınız sanal ağ aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions)de denilen bir bölge.|
 
 Portal, portalı ve genel IP adresi oluşturma portalı kullanarak bir sanal makine oluşturduğunuzda, bir ağ arabirimine atamak, oluşturduğunuz ağ arabirimine bir genel IP adresi atamak için seçeneği sağlamaz. Oluşturduktan sonra ağ arabirimine bir genel IP adresi ekleme konusunda bilgi edinmek için [yönetme IP adresleri](virtual-network-network-interface-addresses.md). Bir genel IP adresiyle bir ağ arabirimi oluşturmak istiyorsanız, ağ arabirimi oluşturmak için CLI veya PowerShell kullanmanız gerekir.
 

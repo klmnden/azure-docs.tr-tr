@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411700"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571095"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
 
@@ -113,7 +113,7 @@ Bir kullanıcı bir kaynağa erişim izni verilmeden önce kullanım koşulları
 
 ### <a name="custom-controls-preview"></a>Özel denetimler (önizleme)
 
-Kullanıcılarınızın daha fazla Azure Active Directory dışında gereksinimlerini karşılamak için uyumlu bir hizmete yönlendirin koşullu erişimde özel denetimler oluşturabilirsiniz. Bu, belirli harici çok faktörlü kimlik doğrulaması ve doğrulama sağlayıcıları koşullu erişim kurallarını zorunlu tutmak için ya da kendi özel hizmet oluşturmak için kullanmayı sağlar. Bu denetimi gerçekleştirmek için bir kullanıcının tarayıcı dış hizmete yönlendirilir, gerekli herhangi bir kimlik doğrulaması veya doğrulama etkinliklerini gerçekleştirir ve ardından Azure Active Directory'ye yönlendirilir. Kullanıcı başarıyla kimlik doğrulaması veya doğrulanan kullanıcı koşullu erişim akışı devam eder. 
+Kullanıcılarınızın daha fazla Azure Active Directory dışında gereksinimlerini karşılamak için uyumlu bir hizmete yönlendirin koşullu erişimde özel denetimleri ekleyebilirsiniz. Bu, belirli harici çok faktörlü kimlik doğrulaması ve doğrulama sağlayıcıları, koşullu erişim gereksinimleri belirlemenize kullanmanıza olanak sağlar. Bu denetimi gerçekleştirmek için bir kullanıcının tarayıcı dış hizmete yönlendirilir, gerekli herhangi bir kimlik doğrulaması veya doğrulama etkinliklerini gerçekleştirir ve ardından Azure Active Directory'ye yönlendirilir. Kullanıcı başarıyla kimlik doğrulaması veya doğrulanan kullanıcı koşullu erişim akışı devam eder. 
 
 ## <a name="custom-controls"></a>Özel denetimler
 
@@ -137,6 +137,8 @@ Bu hizmetler hakkında daha fazla bilgi için sağlayıcı doğrudan başvurun.
 ### <a name="creating-custom-controls"></a>Özel denetimler oluşturma
 
 Özel bir denetim oluşturmak için kullanmak istediğiniz sağlayıcıyı başvurmalısınız. Her bir Microsoft dışı sağlayıcısı, kendi işlem ve kaydolun, abone olmanızı veya aksi halde hizmetin bir parçası haline gelir ve koşullu erişim ile tümleştirmek istediğiniz belirtmek için gereksinimleri vardır. Bu noktada, sağlayıcı, JSON biçiminde bir veri bloğunu sağlayacak. Bu veri sağlayıcısı ve koşullu erişim, kiracınız için birlikte çalışmasına olanak sağlar, yeni denetimi oluşturur ve koşullu erişimi tanımlar, kullanıcılarınızın doğrulama sağlayıcısı ile başarıyla gerçekleştirdiniz varsa söyleyebilirsiniz.
+
+Özel denetimler, çok faktörlü kimlik doğrulaması gerektiren kimlik Koruması'nın Otomasyonu ile ya da rolleri Privileged Identity Manager (PIM) olarak yükseltmek için kullanılamaz.
 
 JSON verilerini kopyalayın ve ardından ilgili metin kutusuna yapıştırın. Açıkça hale getirildiği değişiklik anlamadan JSON herhangi bir değişiklik yapmayın. Herhangi bir değişiklik yapmadan, sağlayıcısı ile Microsoft arasındaki bağlantıyı kesin ve potansiyel olarak siz ve kullanıcılarınız hesaplarınızı dışında kilitleyin.
 

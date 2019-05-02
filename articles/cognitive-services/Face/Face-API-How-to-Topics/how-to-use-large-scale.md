@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 2d96a04b1287033999dd5f026dd7d8d017259eb4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52631d0b25527d204baa11a90401b60e437137a0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859055"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691035"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>Örnek: Büyük ölçekli özelliğinin nasıl kullanılacağı
 
@@ -37,7 +37,7 @@ Ancak dezavantajı, büyük ölçekli eğitime yeni geçiş sonrası tamamlanın
 
 ## <a name="concepts"></a>Kavramlar
 
-Bu kılavuzda yer alan aşağıdaki kavramlar hakkında bilgi sahibi değilseniz tanımları [sözlükte](../Glossary.md) bulabilirsiniz:
+İleriye dönük önce aşağıdaki kavramlarını tanımanız:
 
 - LargePersonGroup: 1.000.000 kadar kapasiteye sahip kişiler koleksiyonu.
 - LargeFaceList: Bir yüz koleksiyonu 1.000.000 kadar kapasiteye sahip.
@@ -233,7 +233,7 @@ Daha fazla yüz içeren LargeFaceList için, büyük bir aralık kullanıldığ�
 Zaman aralığı, beklenen LargeFaceList kapasitesine göre özelleştirilmelidir.
 
 Aynı strateji, LargePersonGroup için de geçerlidir.
-Örneğin, 1.000.000 kişinin yer aldığı bir LargePersonGroup eğitilirken `timeIntervalInMilliseconds`, 60.000 (diğer adıyla 1 dakikalık aralık) olabilir.
+Örneğin, bir LargePersonGroup 1.000.000 kişiler ile eğitimindeki `timeIntervalInMilliseconds` 60.000 (1 dakikalık aralık) olabilir.
 
 ## <a name="step-32-small-scale-buffer"></a>Adım 3.2: Küçük ölçekli arabellek
 
@@ -251,7 +251,7 @@ Ana eğitimi daha seyrek aralıklarla (örneğin, gece yarısı) ve günlük ola
 1. Arabellek koleksiyonu boyutu bir eşiğe arttığında veya sistemin boşta kalma anında yeni bir arabellek koleksiyonu oluşturun ve ana koleksiyonda eğitimi tetikleyin.
 1. Ana koleksiyonda eğitim bittikten sonra eski arabellek koleksiyonunu silin.
 
-## <a name="step-33-standalone-training"></a>Adım 3.3 Bağımsız Eğitim
+## <a name="step-33-standalone-training"></a>Adım 3.3 tek başına eğitim
 
 Nispeten uzun bir gecikme süresi kabul edilebiliyorsa, yeni veriler eklendikten hemen sonra Eğitim işleminin tetiklenmesi gerekmez.
 Bunun yerine Eğitim işlemi, ana mantıktan ayrılabilir ve düzenli olarak tetiklenebilir.
@@ -296,7 +296,9 @@ Bu kılavuzda, mevcut PersonGroup/FaceList kodunun (veri değil) LargePersonGrou
 - LargePersonGroup ve LargeFaceList, PersonGroup/FaceList’e benzer şekilde çalışır; tek istisna, LargeFaceList tarafından Eğitim işleminin gerekmesidir.
 - Büyük ölçekli veri kümesi için dinamik veri güncelleştirmesine yönelik uygun eğitim stratejisini uygulayın.
 
-## <a name="related-topics"></a>İlgili Konular
+## <a name="next-steps"></a>Sonraki adımlar
 
-- [Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md)
+Yüz için bir PersonGroup eklemek veya bir PersonGroup belirleme işlemi yürütmek hakkında bilgi edinmek için bir nasıl yapılır Kılavuzu izleyin.
+
 - [Yüz Ekleme](how-to-add-faces.md)
+- [Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md)

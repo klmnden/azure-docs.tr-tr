@@ -1,19 +1,20 @@
 ---
 title: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma | Microsoft Docs
-description: Azure portalı, Azure PowerShell veya Azure CLI'yı kullanarak Data Lake depolama Gen2'ye ile erişim yeni bir depolama hesabı oluşturmak hızlı bir şekilde öğrenin
+description: Azure portalı, Azure PowerShell veya Azure CLI'yı kullanarak Data Lake depolama Gen2'ye ile erişim yeni bir depolama hesabı oluşturmak hızlı bir şekilde öğrenin.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995685"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939416"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma
 

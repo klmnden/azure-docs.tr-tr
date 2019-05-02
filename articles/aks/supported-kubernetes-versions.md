@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
-ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031620"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684184"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ AKS, Kubernetes’in dört küçük sürümünü destekler:
 
 Örneğin, AKS sunarsa *1.12.x* bugün desteği de için sağlanan *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, *1.9.e* + *1.9F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
 
-Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru aracılığıyla yapılan [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.12.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.8.g* + *1.8.h*.
+Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 30 gün üzerinden bir duyuru yapılır [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.12.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.8.g* + *1.8.h*.
 
 Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9F*, yeni küme için varsayılan sürüm *1.11.b*.
 

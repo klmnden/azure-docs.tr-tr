@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471732"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924861"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın
 
@@ -170,7 +170,7 @@ Dağıtılmış işlemler kullanan uygulamalar için Site Recovery ile dağıtt�
 
 Bu senaryoda, SQL Server makinesinde korumak için Site Recovery çoğaltma kullanmanızı öneririz. Uygulanacak adımlar, SQL Server VM veya fiziksel sunucu ve olup Azure'a çoğaltmak istediğiniz veya ikincil bir site şirket olduğunu bağlı olacaktır. Hakkında bilgi edinin [Site Recovery senaryoları](site-recovery-overview.md).
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>SQL Server kümesini (standard edition/Windows Server 2008 R2) koruma
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>SQL Server kümesini (standard edition/SQL Server 2008 R2) koruma
 
 SQL Server Standard edition veya SQL Server 2008 R2 çalıştıran bir küme için SQL Server'ı korumak için Site Recovery çoğaltma kullanmanızı öneririz.
 

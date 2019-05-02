@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000034"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572501"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD işlem hattıyla tümleştirme
 
-Uygulamanızı Azure uygulama yapılandırması ile erişmek boyutlandırılmamışsa uzak olasılığını karşı dayanıklılığı artırabilir. Bunu yapmak için başlatma sırasında yerel olarak dağıtılan uygulamayla ve yüklenen bir dosyaya geçerli yapılandırma verilerini paketi. Bu yaklaşım, uygulamanızın en az varsayılan ayarı değerlerine sahip olacağını garanti eder. Kullanılabilir olduğunda bu değerler daha yeni bir uygulama yapılandırma deposu değişiklikler tarafından üzerine yazılır.
+Uygulamanız Azure uygulama yapılandırmasına bağlıdır ve onu ulaşamıyor çalışmayabilir. Böyle bir olay ile gerçekleştirilecek olan ancak olası dağıtılacak uygulama dayanıklılığı artırabilir. Bunu yapmak için başlatma sırasında yerel olarak dağıtılan uygulamayla ve yüklenen bir dosyaya geçerli yapılandırma verilerini paketi. Bu yaklaşım, uygulamanızın en az varsayılan ayarı değerlerine sahip olacağını garanti eder. Kullanılabilir olduğunda bu değerler daha yeni bir uygulama yapılandırma deposu değişiklikler tarafından üzerine yazılır.
 
 Kullanarak [dışarı](./howto-import-export-data.md#export-data) işlevi Azure uygulama yapılandırmasına, geçerli yapılandırma verilerini tek bir dosya olarak alma işlemini otomatik hale getirebilirsiniz. Ardından bu dosya, sürekli tümleştirme ve sürekli dağıtım (CI/CD) işlem hattı bir derleme veya dağıtım adımı ekleyin.
 
 Aşağıdaki örnek, uygulama yapılandırmalarını dahil edecek şekilde gösterilmektedir yapı olarak verileri adımı hızlı başlangıçlar, sunulan web uygulaması için. Devam etmeden önce [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) ilk.
 
-Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
+Bu öğreticideki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -48,7 +48,7 @@ Bulut derleme yapmak için Azure ile DevOps gibi emin [Azure CLI](https://docs.m
 
     Ekleme *ConnectionString* uygulama yapılandırma deponuz olarak bir ortam değişkeni ile ilişkili.
 
-2. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak ve dışarı aktarılan JSON dosyasında kullanılacak `config.AddJsonFile()` yöntemi.
+2. Açık *Program.cs*ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak ve dışarı aktarılan JSON dosyasında kullanılacak `config.AddJsonFile()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

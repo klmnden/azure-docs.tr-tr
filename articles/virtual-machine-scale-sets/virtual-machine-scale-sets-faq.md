@@ -4,7 +4,7 @@ description: Sanal makine ölçek kümeleri hakkında sık sorulan soruların ya
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/25/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620252"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689314"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -140,7 +140,7 @@ Hayır. Otomatik ölçeklendirme kurallarını ölçek kümesinin bir parçası 
 
 ## <a name="certificates"></a>Sertifikalar
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Nasıl bir sertifika VM güvenli bir şekilde sevk? Sanal makine ölçek kümesi Web sitesi için SSL sevk yerde bir Web sitesi sertifikası yapılandırmasından güvenli bir şekilde çalışmasına nasıl sağlarım? (Ortak sertifika döndürme işlemi neredeyse aynı yapılandırma güncelleştirme işlemi olması.) Bunu yapmak nasıl bir örnek var mı?
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm"></a>Nasıl bir sertifika VM güvenli bir şekilde sevk?
 
 Güvenli bir şekilde sertifika VM dağıtmayı, bir müşterinin anahtar kasası Windows sertifika deposundan doğrudan bir müşteri sertifika yükleyebilirsiniz.
 
@@ -167,14 +167,12 @@ Kodu Windows ve Linux'ı destekler.
 Daha fazla bilgi için [oluşturma veya güncelleştirme bir sanal makine ölçek kümesi](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric kümeleri için sağlanan otomatik olarak imzalanan sertifikalar örneği.
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric kümeleri için sağlanan otomatik olarak imzalanan sertifikaları nasıl kullanabilirim?
 En son örnek kullanmak için aşağıdaki azure CLI ifade azure shell içinde Service dokularını CLI modül stdout yazdırılır örnek belgeleri, okuyun:
 
 ```bash
 az sf cluster create -h
 ```
-
-Lütfen azure'daki en son desteklenen API sertifika işlemleri için keyvaults belgelerini inceleyin.
 
 Otomatik olarak imzalanan sertifikaları, sertifika yetkilisi tarafından sağlanan dağıtılmış güven için kullanılamaz ve konak Kurumsal üretim çözümleri için hedeflenen tüm Service Fabric kümesi için kullanılmamalıdır; Ek Service Fabric güvenliği yönergelerini gözden geçirmeniz [Azure Service Fabric en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) ve [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
@@ -202,9 +200,7 @@ Dahil **osProfile** şablonunuzdaki:
 }
 ```
 
-Bu JSON bloğu kullanılan [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
-
-İşletim sistemi profili de kullanılan [grelayhost.json GitHub Hızlı Başlangıç şablonu](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Bu JSON bloğu kullanılan [bu Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Daha fazla bilgi için [oluşturma veya güncelleştirme bir sanal makine ölçek kümesi](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -212,9 +208,9 @@ Daha fazla bilgi için [oluşturma veya güncelleştirme bir sanal makine ölçe
 
 Kullanım dışı sertifikalar kaldırmak için eski sertifikayı kasa sertifikalar listesinden kaldırın. Bilgisayarınızda listesinde kalmasını istediğiniz tüm sertifikaların bırakın. Bu sertifikayı tüm Vm'lerinizden kaldırmaz. Bu da sertifika sanal makine ölçek kümesinde oluşturulan yeni vm'lere eklemez.
 
-Mevcut sanal makinelerinden sertifikayı kaldırmak için sertifikaları, sertifika deposundan el ile kaldırmak için bir özel betik uzantısı'nı yazın.
+Mevcut VM'den sertifikayı kaldırmak için sertifikalar, sertifika deposundan el ile kaldırmak için bir özel betik uzantısı kullanın.
 
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Nasıl ı var olan bir SSH ortak anahtarını sanal makine ölçek kümesi SSH katmana sağlama sırasında ekleme? SSH ortak anahtarı değerleri Azure Key Vault'ta depolamak ve ardından bunları my Resource Manager şablonunda kullanmak istiyorum.
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Nasıl ı var olan bir SSH ortak anahtarını sanal makine ölçek kümesi SSH katmana sağlama sırasında ekleme?
 
 Sanal makinelerin yalnızca bir ortak SSH anahtarının ile sağlıyorsanız, ortak anahtarları Key Vault'ta put gerekmez. Ortak anahtarları, gizli değildir.
 
@@ -234,7 +230,7 @@ Bir Linux VM oluşturma sırasında SSH ortak anahtarlarını düz metin sağlay
 ```
 
 linuxConfiguration öğe adı | Gerekli | Tür | Açıklama
---- | --- | --- | --- 
+--- | --- | --- | ---
 SSH | Hayır | Koleksiyon | Bir Linux işletim sistemi için SSH anahtar yapılandırmasını belirtir
 yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika klasöründe bulunmalıdır Linux dosya yolunu belirtir
 anahtar verileri | Evet | Dize | Bir base64 kodlamalı SSH ortak anahtarını belirtir.
@@ -303,16 +299,6 @@ CRP bileşen müşteri gizli dizileri devam etmez. Çalıştırırsanız `stop d
 
 Azure Service fabric'te gizli (fabric tek kiracılı model), önbelleğe alınmış bir kopyasını olduğundan, ölçeği genişletme, bu sorunla karşılaşırsanız yok.
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Neden gerekiyor sertifika URL'sini tam konumunu belirtmek (https:\/\/\<kasa adı >.vault.azure.net:443/secrets/\<tam konum >) gösterilen gibi [Service Fabric Küme güvenliği senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
-
-Azure Key Vault belgelerindeki sürüm belirtilmezse, gizli dizi en son sürümünü Al gizli REST API döndürmesi gerektiğini belirtir.
-
-Yöntem | URL'si
---- | ---
-GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
-
-Yerine {*gizli dizi adı*} adı ile değiştirin {*gizli dizi sürümü*} almak istediğiniz gizli dizi sürümü ile. Gizli dizi sürümü hariç tutulması. Bu durumda, geçerli sürümü alınır.
-
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Key Vault kullandığımda sertifika sürümü belirtmek neden olan?
 
 Sertifika sürümü belirtmek için Key Vault gereksinimi amacı, hangi sertifika sanal makinelerindeki dağıtılır, kullanıcıya Temizle olmasını sağlamaktır.
@@ -325,7 +311,7 @@ Bir VM oluşturun ve sonra gizli anahtar Kasası'nda güncelleştirmeniz, yeni s
 
 Daha fazla bilgi için [X509Certificate.Export yöntemi (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Sertifikaları base64 dizesi olarak geçirilecek kullanıcılar için bir seçenek görmezsiniz. Diğer birçok kaynak sağlayıcıları bu seçeneği vardır.
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Base64 dize olarak nasıl Sertifikalar'da aktarılsın mı?
 
 Bir base64 dizesi olarak bir sertifika geçirme benzetmek için bir Resource Manager şablonunda en son sürümü tutulan URL ayıklayabilirsiniz. Resource Manager şablonunuzda aşağıdaki JSON özelliği ekleyin:
 
@@ -355,7 +341,7 @@ Daha fazla bilgi için bkz. [Microsoft Güven Merkezi](https://www.microsoft.com
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Mu [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/msi-overview) sanal makine ölçek kümeleri ile çalışabilir?
 
-Evet. Azure hızlı başlangıç şablonları bazı örnek MSI şablonlarında görebilirsiniz. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Evet. Azure hızlı başlangıç şablonları için bazı örnek MSI şablonlarında gördüğünüz [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) ve [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Uzantılar
@@ -378,46 +364,19 @@ ExtensionName değerini bulabilirsiniz `$vmss`.
 
 Azure İzleyici günlükleri ile tümleştirilir şablon örneği bir sanal makine ölçek kümesi için ikinci örneğe bakın [bir Azure Service Fabric kümesi dağıtmayı ve Azure İzleyici günlüklerine kullanarak izlemeyi etkinleştirin](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
-### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Sanal makine ölçek kümeleri üzerinde paralel olarak çalıştırmak için uzantıları gibi görünüyor. Bu benim özel betik uzantısı başarısız olmasına neden olur. Bu sorunu gidermek için ne yapabilirim?
-
-Sanal makine ölçek kümelerinde uzantı sıralama hakkında bilgi edinmek için bkz. [Azure sanal makine ölçek kümelerinde uzantı sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
-
-### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Nasıl miyim my sanal makine ölçek kümesindeki VM'ler için parola sıfırlama?
-
-Ölçek kümesinde sanal makineler için parolayı değiştirmek için başlıca iki yolu vardır.
-
-- Sanal makine ölçek kümesi modelinden doğrudan değiştirin. İle işlem API 2017-12-01 ve daha sonra kullanılabilir.
-
-    Doğrudan ölçek kümesi modelinde (örneğin bir Azure kaynak Gezgini, PowerShell veya CLI kullanarak) yönetici kimlik bilgilerini güncelleştirin. Ölçek kümesi sonra güncelleştirilmiş, tüm yeni Vm'lere yeni kimlik bilgilerine sahip. Bunlar başlatıldığında, var olan VM'ler yalnızca yeni kimlik bilgileri gerekir.
-
-- VM erişimi uzantılarını kullanarak parolayı sıfırlayın.
-
-    Aşağıdaki PowerShell örneğini kullanın:
-
-    ```powershell
-    $vmssName = "myvmss"
-    $vmssResourceGroup = "myvmssrg"
-    $publicConfig = @{"UserName" = "newuser"}
-    $privateConfig = @{"Password" = "********"}
-
-    $extName = "VMAccessAgent"
-    $publisher = "Microsoft.Compute"
-    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-    ```
-
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Nasıl bir uzantı tüm sanal makinelere my sanal makine ölçek kümesindeki ekleyebilirim?
 
 Güncelleştirme ilkesi ayarlanırsa **otomatik**, tüm sanal makineler yeni uzantı özellikleri ile şablonunu yeniden dağıtmadan güncelleştirir.
 
 Güncelleştirme ilkesi ayarlanırsa **el ile**önce uzantıyı güncelleştirin ve vm'lerinizde tüm örnekleri el ile güncelleştirin.
 
-### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Mevcut bir sanal makine ölçek kümesi ile ilişkili uzantıları güncelleştirdiyseniz, etkilenen VM'lerin mevcut olan? (Diğer bir deyişle, Vm'leri olacak *değil* sanal makine ölçek kümesi modelinden eşleşen?) Veya göz ardı edilir? Var olan bir makine hizmeti-taşınarak veya görüntüsü yeniden oluşturulabildiği, çalıştırılan sanal makine ölçek kümesinde şu anda yapılandırılmış ya da devre dışı olduğundan betikler VM oluşturulduğunda, yapılandırılmış betikleri kullanılır?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Mevcut bir sanal makine ölçek kümesi ile ilişkili uzantıları güncelleştirdiyseniz, etkilenen VM'lerin mevcut olan?
 
 Sanal makine ölçek genişletme tanımında ayarlarsanız modeli güncelleştirilir ve upgradePolicy özelliği **otomatik**, Vm'leri güncelleştirir. UpgradePolicy özelliği ayarlanmışsa **el ile**, uzantılar, model eşleşmeyen olarak işaretlenir.
 
-Varolan bir VM'yi bir hizmet olarak onarıldı ise, yeniden başlatma görünür ve uzantıları değil yeniden çalıştırın. Bu başlatıldığında, işletim sistemi sürücüsünü kaynak görüntü değiştirme gibi olur. En son modelinden uzantıları gibi herhangi bir uzmanlık çalıştırılır.
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Var olan bir makine görüntüsü yeniden oluşturuldu veya hizmet olarak onarıldı olduğunda uzantıları yeniden çalıştırılır?
+
+Varolan bir VM'yi bir hizmet olarak onarıldı ise, yeniden başlatma görünür ve uzantıları yeniden çalıştırılmaz. Bir VM görüntüsü yeniden oluşturulabildiği, kaynak görüntü işletim sistemi sürücüsünü değiştirme işlemi benzer. En son modelinden uzantıları gibi herhangi bir uzmanlık yeniden çalıştırılır.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Nasıl bir sanal makine ölçek kümesi bir Active Directory etki alanına katılacak mısınız?
 
@@ -450,7 +409,7 @@ Bir uzantıyı tanımlamak için JsonADDomainExtension özelliğini kullanın:
 }
 ```
 
-### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>My sanal makine ölçek kümesi uzantısını yeniden başlatma gerektiren bir sorun yüklemeye çalışıyor. Örneğin, "commandToExecute": "- ExecutionPolicy powershell.exe sınırsız Install-WindowsFeature – AD FS-Resource-Manager – Includemanagementtools"
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot"></a>My sanal makine ölçek kümesi uzantısını yeniden başlatma gerektiren bir sorun yüklemeye çalışıyor.
 
 Sanal makine ölçek kümesi uzantısını yeniden başlatma gerektiren bir sorun yüklemeye çalışan Azure Otomasyonu Desired State Configuration (Automation DSC) uzantısı kullanabilirsiniz. İşletim sistemi Windows Server 2012 R2 ise, Azure Windows Management Framework (WMF) 5.0 Kurulum, yeniden başlatmalar çeker ve ardından yapılandırma ile devam eder.
 
@@ -473,9 +432,36 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Bir özel depolama hesabında barındırılan özel bir betik yürütmek gerekir. Betik başarıyla çalıştırıldıktan depolama genel olduğunda, ancak bir paylaşılan erişim imzası (SAS) kullanmaya çalıştığınızda, başarısız olur. Bu ileti görüntülenir: "Zorunlu parametreler için geçerli paylaşılan erişim imzası eksik". Bağlantı + SAS yerel Bilgisayarım tarayıcıdan düzgün çalışır.
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Bir özel depolama hesabına nasıl barındırılan özel bir betik yürütmek?
 
-Bir özel depolama hesabında barındırılan özel bir betik yürütmek için korunan ayarları depolama hesabı anahtarı ve adı ile ayarlayın. Daha fazla bilgi için [için özel betik uzantısı Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Bir özel depolama hesabında barındırılan özel bir betik yürütmek için korunan ayarları depolama hesabı anahtarı ve adı ile ayarlayın. Daha fazla bilgi için [özel betik uzantısı](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+
+## <a name="passwords"></a>Parolalar
+
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Nasıl miyim my sanal makine ölçek kümesindeki VM'ler için parola sıfırlama?
+
+Ölçek kümesinde sanal makineler için parolayı değiştirmek için başlıca iki yolu vardır.
+
+- Sanal makine ölçek kümesi modelinden doğrudan değiştirin. API 2017-12-01 ve daha sonra kullanılabilir.
+
+    Doğrudan ölçek kümesi modelinde (örneğin bir Azure kaynak Gezgini, PowerShell veya CLI kullanarak) yönetici kimlik bilgilerini güncelleştirin. Ölçek kümesi sonra güncelleştirilmiş, tüm yeni Vm'lere yeni kimlik bilgilerine sahip. Bunlar başlatıldığında, var olan VM'ler yalnızca yeni kimlik bilgileri gerekir.
+
+- VM erişimi uzantılarını kullanarak parolayı sıfırlayın.
+
+    Aşağıdaki PowerShell örneğini kullanın:
+
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
 ## <a name="networking"></a>Ağ
 
@@ -533,10 +519,6 @@ Sanal makine ölçek kümesi IP adresi ayırma yöntemi her zaman "dinamik" olma
 
 Sanal makine ölçek kümesi için mevcut bir Azure sanal ağı dağıtmak için bkz. [bir sanal makine ölçek kümesi bir sanal ağınız Deploy](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
-### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>İlk VM IP adresini bir şablon çıktısı için bir sanal makine ölçek nasıl ekleyebilirim?
-
-Şablon çıktısı için bir sanal makine ölçek ilk VM IP adresini eklemek için bkz [Azure Resource Manager: Alma sanal makine ölçek kümeleri özel IP'ler](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
-
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Ölçek kümeleri hızlandırılmış ağ ile kullanabilir miyim?
 
 Evet. Hızlandırılmış ağ kullanmak için enableAcceleratedNetworking true olarak Networkınterfaceconfigurations ayarlarında kümenin ölçek ayarlayın. Örneğin:
@@ -580,7 +562,7 @@ Her VM için genel bir IP adresi atayan bir sanal makine ölçek kümesi oluştu
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Bir ölçek kümesi birden fazla uygulama ağ geçitleri ile çalışmak için yapılandırabilirim?
 
-Evet. Kaynak kimliği için birden fazla uygulama ağ geçidi arka uç adres havuzu ekleyebileceğiniz _applicationGatewayBackendAddressPools_ listesinde _Ipconfigurations_ bölümünü ölçek kümesi ağ profili.
+Evet. Kaynak kimlikleri için birden çok uygulama ağ geçidi arka uç adres havuzları için ekleyebilirsiniz _applicationGatewayBackendAddressPools_ listesinde _Ipconfigurations_ bölümünü ölçek kümesi ağ profili.
 
 ## <a name="scale"></a>Ölçek
 
@@ -592,7 +574,7 @@ Başka bir nedenle ikiden az VM içeren bir sanal makine ölçek kümesi oluştu
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesindeki VM sayısını nasıl değiştirebilirim?
 
-Sanal makine ölçek kümesi Azure portalında VM'lerin sayısını değiştirmek için sanal makine ölçek kümesi özellikler bölümü, "Ölçek" dikey penceresinde tıklayın ve kaydırıcı çubuğunu kullanın. Örnek sayısını değiştirmek diğer yolları için bkz. [bir sanal makine ölçek kümesi örnek sayısını değiştirmek](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Sanal makine ölçek kümesi Azure portalında VM'lerin sayısını değiştirmek için sanal makine ölçek kümesi özellikler bölümü, "Ölçek" dikey penceresinde tıklayın ve kaydırıcı çubuğunu kullanın.
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Belirli eşikleri dolduğunda özel uyarıları nasıl tanımlarım?
 
@@ -623,7 +605,7 @@ Belirtilen eşik için uyarıları nasıl işleneceğini bazı davranabilirsiniz
                 },
                 "webhooks": [
                     {
-                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "serviceUri": "<service uri>",
                         "properties": {
                             "key1": "custommetric",
                             "key2": "scalevmss"
@@ -636,7 +618,6 @@ Belirtilen eşik için uyarıları nasıl işleneceğini bazı davranabilirsiniz
 }
 ```
 
-Bir Eşiğe ulaşıldığında Bu örnekte, bir uyarı için Pagerduty.com gider.
 
 ## <a name="patching-and-operations"></a>Düzeltme eki uygulama ve işlemler
 
@@ -655,8 +636,6 @@ Sanal makine ölçek kümenizi için yeni bir görüntü güncelleştirme ve dü
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Bir VM görüntüsü değiştirmeden sıfırlamak için reimage işlemini yeniden kullanabilir miyim? (Diğer bir deyişle, bir VM yerine yeni bir görüntü fabrika ayarlarına sıfırlama istiyorum.)
 
 Evet, bir VM görüntüsü değiştirmeden sıfırlama işlemi reimage kullanabilirsiniz. Sanal makine ölçek kümesi, ancak bir platform görüntüsü ile başvuran `version = latest`, çağırdığınızda, sanal Makinenizin daha sonraki bir işletim sistemi görüntüsünü güncelleştirebilirsiniz `reimage`.
-
-Daha fazla bilgi için [bir sanal makine ölçek kümesindeki tüm sanal makineleri yönetme](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Ölçek kümeleri Azure İzleyici günlüklerine ile tümleştirmek mümkündür?
 
@@ -722,25 +701,25 @@ Bir sanal makine ölçek kümesindeki sanal Makineyi silme ve VM serbest bırak�
   - Bu senaryo ile ilgili olarak, kendi otomatik ölçeklendirme altyapısı ve daha hızlı uçtan uca ölçek istediğiniz oluşturmuş olabileceğiniz.
 - Hata etki alanları veya güncelleştirme etki alanları arasında eşit olmayan şekilde dağıtılan bir sanal makine ölçek kümesi var. Bu, seçmeli olarak Vm'leri silindi veya bulunmadığından, Vm'leri açıdan sonra silinen olabilir. Çalışan `stop deallocate` ardından `start` sanal makinede hata etki alanları veya güncelleştirme etki alanları arasında eşit olacak şekilde ölçek Vm'leri dağıtır.
 
-### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>VMSS örneğinin nasıl anlık?
-Bir VMSS bir örnekten bir anlık görüntüsünü oluşturun.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Bir sanal makine ölçek kümesi örneği anlık görüntüsünü nasıl yararlanabilir?
+Bir sanal makine ölçek kümesi bir örnekten bir anlık görüntüsünü oluşturun.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
 $vmssname = "myVMScaleSet"
 $Id = 0
 $location = "East US"
- 
+
 $vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
 $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
-``` 
- 
+```
+
 Anlık görüntüden yönetilen disk oluşturun.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
-$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')
 ```

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8a2a080ee87d48d25d7d793ca0aca463f25e52eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60808831"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573557"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory’deki ifadeler ve işlevler
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Tanımındaki JSON değerlerinin değişmez değeri ya da çalışma zamanında 
 ### <a name="examples"></a>Örnekler
 
 #### <a name="a-dataset-with-a-parameter"></a>Bir parametre ile bir veri kümesi
-Aşağıdaki örnekte, BlobDataset adlı bir parametre alan **yolu**. Değeri için bir değer ayarlamak için kullanılan **folderPath** aşağıdaki ifadeleri kullanarak özellik: `@{dataset().path}`. 
+Aşağıdaki örnekte, BlobDataset adlı bir parametre alan **yolu**. Değeri için bir değer ayarlamak için kullanılan **folderPath** ifade kullanarak özellik: `dataset().path`. 
 
 ```json
 {

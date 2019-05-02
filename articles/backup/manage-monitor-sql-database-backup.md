@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849410"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681838"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Yönetme ve İzleme SQL Server veritabanlarını desteklenir
 
@@ -31,7 +31,7 @@ Azure yedekleme el ile tetiklenen tüm işleri gösteren **yedekleme işleri** p
 > **Yedekleme işleri** portalı zamanlanan yedekleme işlerinin Göster değil. Sonraki bölümde açıklandığı gibi zamanlanmış yedekleme işleri izlemek için SQL Server Management Studio'yu kullanın.
 >
 
-İzleme senaryoları hakkında daha fazla bilgi için Git [Azure Portalı'nda izlemeyi](backup-azure-monitoring-built-in-monitor.md) ve [Azure İzleyicisi'ni kullanarak izleme](backup-azure-monitoring-use-azuremonitor.md).  
+İzleme senaryoları hakkında daha fazla bilgi için Git [Azure portalında izleme](backup-azure-monitoring-built-in-monitor.md) ve [Azure İzleyicisi'ni kullanarak izleme](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Yedekleme Uyarıları görüntüle
@@ -129,9 +129,9 @@ Bir SQL Server örneği koruma devre dışı bıraktıktan sonra ancak kasayı s
 
 3. İçinde **korumalı sunucuların**, kaydını kaldırmak için sunucuyu seçin. Kasayı silmek için tüm sunucuların kaydını silmeniz gerekir.
 
-4. Korumalı sunucuya sağ tıklayın ve seçin **Sil**.
+4. Korumalı sunucuya sağ tıklayın ve seçin **Unregister**.
 
-   ![Sil'i seçin](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Sil'i seçin](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM uzantısını yeniden kaydedin
 

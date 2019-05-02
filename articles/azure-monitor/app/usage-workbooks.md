@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373632"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569611"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure İzleyici çalışma kitapları ile etkileşimli raporlar oluşturun
 
@@ -206,7 +206,7 @@ Sonucu oluşturur:
 
 ![Application Insights çalışma kitapları bölümünde düzenleme denetimleri](./media/usage-workbooks/011-data-table.png)
 
-Bir açılan ülkeler kümesinden adına göre seçmek için daha uygun bir örnek kullanır:
+Bir açılan ülkeler/bölgeler kümesinden adına göre seçmek için daha uygun bir örnek kullanır:
 
 ```
 customEvents
