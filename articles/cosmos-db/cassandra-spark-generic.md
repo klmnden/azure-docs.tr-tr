@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893652"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark'tan Azure Cosmos DB Cassandra API'sine bağlanma
 
@@ -22,7 +22,7 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Cosmos DB Cassandra API hesabı sağlayın.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark ortam tercih ettiğiniz sağlama [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
+* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
 
 ## <a name="dependencies-for-connectivity"></a>Bağlantı için bağımlılıklar
 * **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı, Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
@@ -42,14 +42,14 @@ Aşağıdaki tablo, Azure Cosmos DB Cassandra API'si-özel bağlayıcı tarafın
 
 | **Özellik adı** | **Varsayılan değer** | **Açıklama** |
 |---------|---------|---------|
-| Spark.cassandra.output.Batch.size.Rows |  1 |Tek bir toplu iş başına satır sayısı. Bu parametre, 1 olarak ayarlayın. Bu parametre, ağır iş yükleri için daha yüksek performans sağlamak için kullanılır. |
-| Spark.cassandra.connection.connections_per_executor_max  | None | Düğüm başına Yürütücü bağlantılarının maksimum sayısı. 10 * n, n düğümlü bir Cassandra kümesi düğümü başına 10 bağlantı eşdeğerdir. 5 düğümlü Cassandra kümesi için düğüm başına Yürütücü 5 bağlantıları gerektiriyorsa, bu nedenle, daha sonra bu yapılandırma için 25 ayarlamanız gerekir. Paralellik derecesini veya spark işleriniz için yapılandırılmış olan Yürütücü sayısına göre bu değeri değiştirin.   |
+| spark.cassandra.output.batch.size.rows |  1 |Tek bir toplu iş başına satır sayısı. Bu parametre, 1 olarak ayarlayın. Bu parametre, ağır iş yükleri için daha yüksek performans sağlamak için kullanılır. |
+| spark.cassandra.connection.connections_per_executor_max  | None | Düğüm başına Yürütücü bağlantılarının maksimum sayısı. 10 * n, n düğümlü bir Cassandra kümesi düğümü başına 10 bağlantı eşdeğerdir. 5 düğümlü Cassandra kümesi için düğüm başına Yürütücü 5 bağlantıları gerektiriyorsa, bu nedenle, daha sonra bu yapılandırma için 25 ayarlamanız gerekir. Paralellik derecesini veya spark işleriniz için yapılandırılmış olan Yürütücü sayısına göre bu değeri değiştirin.   |
 | Spark.cassandra.output.Concurrent.Writes  |  100 | Yürütücü oluşabilecek paralel yazma sayısını tanımlar. "Batch.size.rows" 1 olarak ayarlandığından, bu değeri uygun şekilde ölçeklendirir emin olun. Paralellik veya iş yükünüz için elde etmek istediğiniz işleme göre bu değeri değiştirin. |
 | Spark.cassandra.Concurrent.Reads |  512 | Yürütücü oluşabilecek paralel okuma sayısını tanımlar. Paralellik veya iş yükünüz için elde etmek istediğiniz işleme göre bu değeri değiştirmek  |
-| Spark.cassandra.output.throughput_mb_per_sec  | None | Toplam yazma başına aktarım hızı Yürütücü tanımlar. Bu parametre bir üst sınırlamak için spark işi aktarım hızınızı ve Cosmos DB koleksiyonunuza sağlanan aktarım hızı temel olarak kullanılabilir.   |
-| Spark.cassandra.input.reads_per_sec| None   | Yürütücü başına toplam okuma aktarım hızı tanımlar. Bu parametre bir üst sınırlamak için spark işi aktarım hızınızı ve Cosmos DB koleksiyonunuza sağlanan aktarım hızı temel olarak kullanılabilir.  |
+| spark.cassandra.output.throughput_mb_per_sec  | None | Toplam yazma başına aktarım hızı Yürütücü tanımlar. Bu parametre bir üst sınırlamak için spark işi aktarım hızınızı ve Cosmos DB koleksiyonunuza sağlanan aktarım hızı temel olarak kullanılabilir.   |
+| spark.cassandra.input.reads_per_sec| None   | Yürütücü başına toplam okuma aktarım hızı tanımlar. Bu parametre bir üst sınırlamak için spark işi aktarım hızınızı ve Cosmos DB koleksiyonunuza sağlanan aktarım hızı temel olarak kullanılabilir.  |
 | Spark.cassandra.output.Batch.Grouping.Buffer.size |  1000  | Cassandra API'sine göndermeden önce belleğinde depolanabilir tek spark görev başına yığınların sayısını tanımlar |
-| Spark.cassandra.connection.keep_alive_ms | 60000 | Kullanılmayan bağlantıları kullanılabilir süreyi tanımlar. | 
+| spark.cassandra.connection.keep_alive_ms | 60000 | Kullanılmayan bağlantıları kullanılabilir süreyi tanımlar. | 
 
 Aktarım hızı ve spark işleriniz için beklediğiniz iş yükü ve Cosmos DB hesabınız için sağladığınız aktarım hızı temelinde Bu parametre paralellik derecesini ayarlayın.
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892475"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939512"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL veritabanı çok modelli özellikleri
 
@@ -90,7 +90,7 @@ Belge modelleri yerine ilişkisel model belli başlı bazı senaryolarda kullan�
 
 ## <a name="spatial-features"></a>Uzamsal Özellikler
 
-Uzamsal veriler fiziksel konuma ve nesneleri geometrik şeklin ilgili bilgileri temsil eder. Bu nesneler noktası konumu veya ülkeler, yolların veya bellek gibi daha karmaşık nesneler olabilir.
+Uzamsal veriler fiziksel konuma ve nesneleri geometrik şeklin ilgili bilgileri temsil eder. Bu nesneler noktası konumu veya ülkeler/bölgeler, yolların veya bellek gibi daha karmaşık nesneler olabilir.
 
 Azure SQL veritabanı, geometri veri türü ve coğrafi veriler'e yazın, iki uzamsal veri türleri - destekler.
 - Geometri türü Euclidean (düz) bir koordinat sisteminde verileri temsil eder.

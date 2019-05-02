@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60757795"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Öğretici: Vmware'de sağlama Azure veri kutusu ağ geçidi
 
@@ -145,7 +145,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
     Aynı sayfada **Add hard disk** (Sabit disk ekle) öğesine tıklayıp **Existing hard disk** (Var olan sabit disk) seçeneğini belirtin. Veri deposundaki VMDK dosyasını seçin. Bunu yaptığınızda işletim sistemi diski eklenir. 
 
-     ! Ayarlar sayfasını özelleştirme[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     !Ayarlar sayfasını özelleştirme[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     **New hard disk** (Yeni sabit disk) girişini görene kadar sayfayı kaydırın ve girişi genişleterek ayarları görüntüleyin. **Virtual Device Node** (Sanal Cihaz Düğümü) ayarını **IDE controller 0** (IDE denetleyicisi 0) olarak belirleyin.
 

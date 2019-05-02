@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903304"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application ınsights'ı Azure bulut Hizmetleri
 [Application Insights] [ start] izleyebilirsiniz [Azure cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/) kullanılabilirlik, performans, hatalar ve kullanım verileri Application Insights SDK'ları ile birleştirerek[Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) , bulut hizmetlerinden veri. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
