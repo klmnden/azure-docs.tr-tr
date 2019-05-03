@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564791"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035362"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
@@ -114,7 +114,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |İşlemin zaman damgası |
 | resourceId |dize |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>VARSAYILAN/RESOURCEGROUPS/SAĞLAYICILARI /<br/> MICROSOFT. ARAMA/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |dize |"Query.Search" |İşlem adı |
-| operationVersion |string |"2017-11-11" |Kullanılan api-version |
+| operationVersion |string |"2019-05-06" |Kullanılan api-version |
 | category |dize |"OperationLogs" |Sabit |
 | resultType |dize |"Başarılı" |Olası değerler: Başarı veya başarısızlık |
 | resultSignature |int |200 |HTTP Sonuç kodu |
@@ -126,7 +126,7 @@ Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıkla
 | Ad | Tür | Örnek | Notlar |
 | --- | --- | --- | --- |
 | Açıklama |dize |"/İndexes('content')/docs Al" |İşlemin bitiş noktası |
-| Sorgu |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Sorgu parametreleri |
+| Sorgu |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Sorgu parametreleri |
 | Belgeler |int |42 |İşlenen belge sayısı |
 | indexName |dize |"testindex" |İşlemle ilişkili dizinin adı |
 

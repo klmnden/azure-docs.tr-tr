@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd88fd85ce6d18287c700a54e42b6237a42ea5c9
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753475"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035373"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -26,15 +26,15 @@ Bu sitedeki belgelere hizmeti kullanmak ve bunları kendi durumunuza özelleşti
 
 Bu örnek not defterleri ile bir not defteri sunucusu çalıştırmak için aşağıdaki yollardan birini kullanın.  Sunucu çalıştırıldıktan sonra öğretici not defterlerinde Bul **öğreticiler** klasöründe veya farklı özellikleri keşfedin **Yardım-How-to-kullanın-azureml** klasör.
 
+## <a name="a-managed-cloud-notebook-server"></a>Yönetilen bir bulut not defteri sunucusu
 
-## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure not defterleri deneyin: Bulutta ücretsiz Jupyter Not Defterleri
+Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. Örnek Not Defteri ve [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.  
 
-Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
-  
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
+* Örnekler, Not Defteri sayfasında kullanılabilir.
 
-## <a name="use-a-data-science-virtual-machine-dsvm"></a>Bir veri bilimi sanal makinesi (DSVM) kullanın
+## <a name="a-data-science-virtual-machine-dsvm"></a>Bir veri bilimi sanal makinesi (DSVM)
 
 [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) ve not defteri sunucusu zaten yüklü ve sizin için bir DSVM üzerinde yapılandırılır. 
 
@@ -42,18 +42,23 @@ Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learni
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-
-## <a name="use-your-own-jupyter-notebook-server"></a>Kendi Jupyter notebook sunucusu kullanma
+## <a name="your-own-jupyter-notebook-server"></a>Kendi Jupyter Notebook sunucusu
 
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-Hızlı Başlangıç yönergeleri, hızlı ve öğretici not defterlerini çalıştırmak için gereken paketleri yükler.  Diğer örnek not defterleri, ek bileşen yüklenmesini gerektirebilir.  Bu bileşenler hakkında daha fazla bilgi için bkz. [Python için Azure Machine Learning SDK'sını yükleme](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Kurulum yönergelerini, hızlı ve öğretici not defterlerini çalıştırmak için gereken paketleri yükler.  Diğer örnek not defterleri, ek bileşen yüklenmesini gerektirebilir.  Bu bileşenler hakkında daha fazla bilgi için bkz. [Python için Azure Machine Learning SDK'sını yükleme](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
+## <a name="azure-notebooks"></a>Azure Notebooks
+
+Örnek Not Defterleri ve [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
+
+Kullanım [Azure portalında](https://portal.azure.com) Azure not defterleri ile kullanmaya başlamak için.  Çalışma alanını açın ve **genel bakış** bölümünden **Get Started Azure not defterlerinde**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Keşfedin [Azure Machine Learning hizmeti için GitHub not defterlerini deposu](https://aka.ms/aml-notebooks)
++ Azure Machine Learning hizmetinde bu GitHub deposundan örnek not defterleri keşfedin: https://aka.ms/aml-notebooks
 
 Bu öğreticileri deneyin:
 + [Eğitmek ve bir görüntü sınıflandırma modeli MNIST ile dağıtma](tutorial-train-models-with-aml.md)

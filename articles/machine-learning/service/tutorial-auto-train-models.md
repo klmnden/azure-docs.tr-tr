@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925750"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035465"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -54,16 +54,16 @@ Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuy
 
 Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
 
-* Kullanım [Azure Not Defterleri](#azure)
+* Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
 * Kullanım [kendi not defteri sunucusu](#server)
 
-### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
+### <a name="azure"></a>Çalışma alanınızda bir bulut not defteri sunucusu kullan
 
-Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
-
-Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 2-otomatik-ml.ipynb** Not Defteri, **Başlarken** proje.
+Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Not Defteri Web sayfası başlattıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 2-otomatik-ml.ipynb** dizüstü bilgisayar.
 
 ### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
 

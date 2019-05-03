@@ -11,18 +11,18 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b6d7f791300a970e71fda4f1d56354a45d07afd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029903"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035440"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Oluşturma ve otomatik makine öğrenimi denemelerini (Önizleme) Azure portalında keşfedin
 
- Bu makalede, oluşturma, çalıştırma ve otomatik makine öğrenimi denemelerini tek satırlık bir kod olmadan Azure portalında keşfedin öğrenin. Otomatik makine öğrenimi belirli verileriniz için hızla bir machine learning modeli oluşturmak için kullanılacak en iyi algoritmayı seçme işlemini otomatikleştirir. [Otomatik machine learning hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ Bu makalede, oluşturma, çalıştırma ve otomatik makine öğrenimi denemelerini tek satırlık bir kod olmadan Azure portalında keşfedin öğrenin. Otomatik makine öğrenimi belirli verileriniz için hızla bir machine learning modeli oluşturmak için kullanılacak en iyi algoritmayı seçme işlemini otomatikleştirir. [Otomatik machine learning hakkında daha fazla bilgi edinin](concept-automated-ml.md).
 
- Daha fazla bir kod tabanlı deneyimi tercih ediyorsanız, ayrıca [otomatik, makine öğrenimi denemelerini python'da yapılandırma](how-to-configure-auto-train.md) ile [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Daha fazla kod tabanlı bir deneyim tercih ederseniz, ayrıca [otomatik, makine öğrenimi denemelerini python'da yapılandırma](how-to-configure-auto-train.md) ile [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +40,7 @@ ms.locfileid: "65029903"
 
 ![Azure portal deneme giriş sayfası](media/how-to-create-portal-experiments/landing-page.png)
 
-Aksi takdirde, otomatik machine learning panonuzu otomatik, makine öğrenimi denemeleri ve çalışır, SDK'sını kullanarak çalıştırma dahil olmak üzere bir bakış görürsünüz. Burada filtreleyebilirsiniz ve tarihe göre çalıştırmalarınızı keşfedin, adı denemeler yapın ve çalıştırma durumu.
+Aksi takdirde, otomatik machine learning panonuzu otomatik, makine öğrenimi denemelerini, SDK'sı ile çalıştırmak da dahil olmak üzere bir bakış görürsünüz. Burada filtreleyebilirsiniz ve tarihe göre çalıştırmalarınızı keşfedin, adı denemeler yapın ve çalıştırma durumu.
 
 ![Azure portal deneme Panosu](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -148,8 +148,6 @@ Veri kümeniz ML kullanıma hazır olup olmadığını doğrulamak için veri k�
 
 * **Basıklık**: basıklığını sütun. Boş girişleri, ilgisiz türlerine sahip özellikler için görünür.
 
-Ayrıca, bu İstatistikler dahil etmek veya belirli sütunları dışlamak istediğinize karar vermek kullanabilirsiniz. Her sütunda Seçici durumu değiştirildiğinde, sütunlar arasında kullanılacak olan kapsamı, otomatik makine öğrenimi denemesi denetleyebilirsiniz.
-
 <a name="preprocess"></a>
 
 ### <a name="advanced-preprocessing"></a>Gelişmiş ön işleme
@@ -168,72 +166,24 @@ Denemelerinizi yapılandırırken, Gelişmiş ayarını etkinleştirebilirsiniz 
 |Kanıt (WoE) ağırlığı|WoE bağıntı hedef sütunu için kategorik sütunlar olarak hesaplar. Sınıfının vs sınıf olasılıklar oranını günlük olarak hesaplanır. Bu adım, bir sayısal özellik sütunu sınıfı başına çıkarır ve açıkça eksik değerleri ve aykırı işleme impute ihtiyacını ortadan kaldırır.|
 |Küme uzaklığı|Tüm sayısal sütunlarda k-ortalamaları kümeleme modeli eğitir.  Çıkışlar k yeni özellikler, her örnek için her kümenin kütle merkezi uzaklığı içeren küme başına yeni bir sayısal özellik.|
 
-## <a name="run-experiment"></a>Denemeyi çalıştırma
+## <a name="run-experiment-and-view-results"></a>Denemeyi çalıştırma ve sonuçları görüntüleme
 
-Denemeyi çalıştırmak için Başlat düğmesine tıklayın.
-  
-Denemeyi Hazırlama işlemi birkaç dakika sürer.
+Denemeyi çalıştırmak için Başlat'a tıklayın. Denemeyi Hazırlama işlemi birkaç dakika sürer.
 
-## <a name="view-results"></a>Sonuçları görüntüleme
+### <a name="view-experiment-details"></a>Deneme ayrıntılarını görüntüle
 
-Deneme Hazırlık aşaması tamamlandıktan sonra çalışma Ayrıntılar ekranını görürsünüz. Bu oluşturulan modeller tam bir listesini sağlar. Varsayılan olarak, en yüksek puanlar modeli temel alarak parametrelerinizi listenin en üstünde olacak. Daha fazla model eğitim işini çalışır gibi bunları listenin ve grafik eklenen görürsünüz.
-Şu ana kadar üretilen modelleri için hızlı ölçümler karşılaştırması almak için grafiği kullanın.
-
-![Çalıştırma ayrıntıları Panosu](media/how-to-create-portal-experiments/run-details.png)
-
-Herhangi bir performans ve dağılım grafikleri ve ölçümlerle birlikte bu modelin ayrıntılarını açar çıkış Modellerinizi üzerinde detaya gitmek kullanabilirsiniz. [Grafikler hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
-
-![Yineleme ayrıntılarını](media/how-to-create-portal-experiments/dashboard.png)
+Deneme Hazırlık aşaması tamamlandıktan sonra Çalıştır ayrıntı ekranı görürsünüz. Bu size, tam oluşturulan modellerin listesini sağlar. Varsayılan olarak, en yüksek puanlar modeli, parametrelere dayalı listesinin üstünde. Daha fazla model eğitim işini çalışır gibi grafik ve yineleme listesi eklenir. Şu ana kadar üretilen modelleri için hızlı ölçümler karşılaştırması almak için yineleme grafik kullanın.
 
 Eğitim işleri her işlem hattı çalıştırma tamamlanması biraz sürebilir.
 
-## <a name="deploy-model"></a>Model dağıtma
+![Çalıştırma ayrıntıları Panosu](media/how-to-create-portal-experiments/run-details.png)
 
-Eldeki en iyi modeli oluşturduktan sonra yeni veri tahmin etmek için bir web hizmeti olarak dağıtma zamanı geldi.
+### <a name="view-training-run-details"></a>Çalıştırma Ayrıntıları görünümünü eğitim
 
-Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
+Herhangi bir eğitim gibi performans ölçümlerini ve dağılım grafikleri çalıştırma ayrıntılarını görmek için çıkış modelleri detayına gidin. [Grafikler hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
-1. Çalıştırma özeti bölmesinde sağ taraftaki "Modeli Kaydet"'i seçin.
-
-    ![Modeli kaydetme](media/how-to-create-portal-experiments/register-model.png)
-
-1. Model kaydedildikten sonra dağıtım sırasında kullanılacak Puanlama betiği indirmek mümkün olacaktır.
-
-    ![Puanlama betiği indirin](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. Puanlama betiği aldıktan sonra "Modelleri" sayfasına gidin (sol gezinti bölmesinde altında **varlıklar**).
-
-    ![Model Gezinti Bölmesi](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Kaydettiğiniz modeli yanındaki onay kutusunu işaretleyin ve "Görüntü Oluştur" seçeneğini belirleyin.
-
-    Çalıştırma kimliği ve yineleme sayısı aşağıdaki biçimde içeren açıklamasını tarafından modeli tanımlayabilirsiniz: **< Run_ID > _ < Iteration_number > _Model**.
-
-1. Görüntü için bir ad girin ve daha önce indirdiğiniz Puanlama dosyasını karşıya yükleyin. [Puanlama komut dosyaları hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
-
-    Kendi Puanlama betiği ve Conda dosyası kullanabilirsiniz. Bir Conda dosyası yoksa, [kendi uzantınızı oluşturun](tutorial-deploy-models-with-aml.md#create-environment-file) ve kullanmak istediğiniz diğer ek dosyaları ile birlikte yükleyin.
-
-    ![Bir görüntü formu oluşturma](media/how-to-create-portal-experiments/create-image.png)
-
-1. Görüntü oluşturma işlemini başlatmak için "Oluştur" düğmesini seçin. Bu kez tamamlanması birkaç dakika sürer, üst çubukta bir ileti görürsünüz.
-
-1. "Görüntüler" sekmesine gidin, dağıtmak istediğiniz görüntüyü yanındaki onay kutusunu işaretleyin ve "dağıtım oluştur" seçeneğini belirleyin.
-
-    ![Görüntü dağıtım ekranı oluşturma](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Benzersiz dağıtım adı girin.
-
-1. (isteğe bağlı) Dağıtım için bir açıklama girin.
-
-1. Hedef işlem türünü seçin. 
-
-    ![Dağıtım formu oluşturma](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. Dağıtım işlemini başlatmak için "Oluştur" seçeneğini belirleyin, tamamlanması birkaç dakika sürer.
-
-1. İşte bu kadar! Tahminler üretmek için bir işletimsel web Hizmetim var.
+![Yineleme ayrıntılarını](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Dağıtılan bir modelde kullanma](how-to-consume-web-service.md).
-* [Üretimde modelleri için veri toplamanızı](how-to-enable-data-collection.md).
+* [Otomatik machine learning hakkında daha fazla bilgi edinin](concept-automated-ml.md) ve Azure Machine Learning.
