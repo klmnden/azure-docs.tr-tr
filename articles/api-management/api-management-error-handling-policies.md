@@ -84,8 +84,8 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 | İleti  | string | Kullanıcı tarafından okunabilen hata açıklaması.                                                                         | Evet      |
 | Kapsam    | string | Burada bir hata oluştu ve "Genel", "product", "API" veya "işlem" biri olabilir kapsamı adı | Hayır       |
 | Section  | string | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "çıkış" veya "hata".       | Hayır       |
-| Yol     | string | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / zaman [2]".                                                        | Hayır       |
-| PolicyId | string | Değeri `id` hatasının oluştuğu ilkesinde müşteri tarafından belirtilen, öznitelik             | Hayır       |
+| `Path`     | string | İç içe geçmiş ilkesi belirtir, örneğin "[3] seçin / zaman [2]".                                                        | Hayır       |
+| `PolicyId` | string | Değeri `id` hatasının oluştuğu ilkesinde müşteri tarafından belirtilen, öznitelik             | Hayır       |
 
 > [!TIP]
 > Durum kodu bağlamı erişebilir. Response.StatusCode.  

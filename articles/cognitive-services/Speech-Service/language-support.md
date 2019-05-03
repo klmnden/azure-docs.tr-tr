@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868620"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020851"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
@@ -67,124 +67,124 @@ Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destek
 > [!IMPORTANT]
 > Fiyatlandırma için standart, özel ve sinir sesleri değişir. Lütfen [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) ek bilgiler sayfası.
 
-### <a name="neural-voices-preview"></a>Sinir sesleri (Önizleme)
+### <a name="neural-voices"></a>Sinir sesleri
 
 Sinir metin okuma, konuşma sentezi derin sinir ağı tarafından desteklenen yeni bir türdür. Sinir sesli Sentezlenen konuşma neredeyse İnsan sonuçlarından ayırt olur.
 
 Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Kullanıcıların yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün.
 
-Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeleri](regions.md#neural-voices).
+Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeleri](regions.md#standard-and-neural-voices).
 
-| Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme|
-|--------|----------|--------|---------------------|
-| de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, KatjaNeural)" |
-| en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" |
-| en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaNeural)" |
-| İt-IT | İtalyanca (İtalya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, ElsaNeural)" |
-| zh-CN | Çince | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, XiaoxiaoNeural)" |
+Yerel Ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
+--------|----------|--------|---------|------------
+de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
+en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" | "en-US-GuyNeural"
+en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaNeural)" | "en-US-JessaNeural"
+İt-IT | İtalyanca (İtalya) | Kadın |"Microsoft Server Konuşma metin konuşma ses (it-IT, ElsaNeural)" | "BT BT ElsaNeural"
+zh-CN | Çince (ana kara) | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
-> [!IMPORTANT]
-> Microsoft Server Konuşma metin okuma okuma (zh-CN, XiaoxiaoNeural), yalnızca Güneydoğu Asya uç noktası aracılığıyla kullanılabilir: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
-
-> [!IMPORTANT]
-> Konuşma tanıma, sesli (de-DE, KatjaNeural) için Microsoft sunucu konuşma metin ve konuşma ses (it-IT, ElsaNeural) için Microsoft sunucu konuşma metin yalnızca Batı Avrupa uç noktası aracılığıyla kullanılabilir: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
+> [!NOTE]
+> Konuşma sentezi isteklerinizi tam hizmet adı eşlemesi ya da kısa ses adı kullanabilirsiniz.
 
 ### <a name="standard-voices"></a>Standart sesler
 
-75'den fazla standart sesleri üzerinde 45 diller ve Sentezlenen konuşmaya metin dönüştürmenize olanak sağlayan yerel ayarlar kullanılabilir. Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeleri](regions.md#standard-voices).
+75'den fazla standart sesleri üzerinde 45 diller ve Sentezlenen konuşmaya metin dönüştürmenize olanak sağlayan yerel ayarlar kullanılabilir. Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeleri](regions.md#standard-and-neural-voices).
 
-Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme
--------|----------|---------|--------------------
-ar EG\* | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
-ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"
-BG-BG | Bulgarca | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)"
-CA-ES | Katalanca | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
-cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)"
-v-DK | Danca | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)"
-de-AT | Almanca (Avusturya) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)"
-de-CH | Almanca (İsviçre) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-CH, Karsten)"
-de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, Hedda)"
-| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, HeddaRUS)"
-| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-DE, Stefan, Apollo)"
-el-GR | Yunanca | Erkek | "Microsoft Server Konuşma metin konuşma ses (el-GR, Stefanos)"
-tr-AU | İngilizce (Avustralya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, Catherine)"
-| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, HayleyRUS)"
-CA tr | İngilizce (Kanada) | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, Gamze)"
-| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, HeatherRUS)"
-en-GB | English (UK) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, Susan, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, HazelRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-GB, George, Apollo)"
-IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)"
-tr-giriş | English (India) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
-en-US | English (US) |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
-es-ES | İspanyolca (İspanya) |Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, Gamze, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, HelenaRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin okuma ses (es-ES, Pablo, Apollo)"
-es-MX | İspanyolca (Meksika) | Kadın | "Microsoft Server Konuşma metin okuma ses (es-MX, HildaRUS)"
-| | | Erkek | "Microsoft Server Konuşma metin okuma ses (es-MX, Raul Apollo)"
-FI-FI | Fince | Kadın | "Microsoft Server Konuşma metin konuşma ses (fi-FI, HeidiRUS)"
-fr-CA | Fransızca (Kanada) |Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, Caroline)"
-| | | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, HarmonieRUS)"
-FR-CH | Fransızca (İsviçre)|Erkek | "Microsoft Server Konuşma metin okuma ses (fr-CH, Guillaume)"
-fr-FR | Fransızca (Fransa)|Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, Julie, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, HortenseRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin okuma ses (fr-FR, Paul, Apollo)"
-He IL| İbranice (İsrail) | Erkek| "Microsoft Server Konuşma metin konuşma ses (he-IL, Asaf)"
-yüksek giriş | Hintçe (Hindistan) | Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba açma, Kalpana, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Kalpana)"
-| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Hemant)"
-hr-HR | Hırvatça | Erkek | "Microsoft Server Konuşma metin okuma ses (hr-HR, Matej)"
-hu-HU | Macarca | Erkek | "Microsoft Server Konuşma metin konuşma ses (hu-HU, Szabolcs)"
-ID | Endonezya dili| Erkek | "Microsoft Server Konuşma metin konuşma ses (-ID, Andika)"
-İt-IT | İtalyanca |Erkek | "Microsoft Server Konuşma metin konuşma ses (Cosimo, it-IT, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, LuciaRUS)"
-ja-JP | Japonca |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayumi, Apollo)"
-| | |Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, HarukaRUS)"
-ko-KR | Korece |Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
-ms-MY | Malay dili | Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
-NB-yok | Norveççe | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
-NL-NL | Felemenkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
-pl-PL | Lehçe | Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
-pt-BR | Portekizce (Brezilya) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
-| | |Erkek | "Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)"
-pt-PT | Portekizce (Portekiz) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-PT, HeliaRUS)"
-Ro-RO | Rumence | Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, Andrei)"
-ru-RU |Rusça| Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina, Apollo)"
-| | |Erkek | "Microsoft Server Konuşma metin okuma ses (ru-RU, Pavel, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)"
-SK-SK | Slovakça|Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
-SL SI | Slovence|Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
-sv-SE | İsveççe|Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
-Veri-ın | Tamilce (Hindistan) |Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
-metin-giriş | Telugu dili (Hindistan) |Kadın | "Microsoft Server Konuşma metin konuşma ses (metin-IN, Chitra)"
-TH TH | Tay Dili|Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
-tr-TR |Türkçe| Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
-VI VN | Vietnam dili|Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
-zh-CN | Çince (ana kara)|Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, HuihuiRUS)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Yaoyao, Apollo)"
-| | |Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Kangkang, Apollo)"
-zh-HK | Çince (Hong Kong)|Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK Tracy, Apollo)"
-| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK TracyRUS)"
-| || Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-HK Danny, Apollo)"
-zh-TW | Çince (Tayvan)|Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW Yating, Apollo)"
-| || Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW, HanHanRUS)"
-| || Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-TW Zhiwei, Apollo)"
+Yerel Ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
+-------|----------|---------|----------|----------
+ar EG\* | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)" | "ar-ÖRN-Hoda"
+ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)" | "ar-SA-Naayf"
+BG-BG | Bulgarca | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)" | "bg-BG-çalışan Ivan"
+CA-ES | Katalanca (İspanya) | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
+cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)" | "cs-CZ-Jakub"
+v-DK | Danca | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)" | "da DK HelleRUS"
+de-AT | Almanca (Avusturya) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)" | "de-AT-Michael"
+de-CH | Almanca (İsviçre) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-CH, Karsten)" | "de-CH-Karsten"
+de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, Hedda)" | "de-DE-Hedda"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, HeddaRUS)" | "de-DE-HeddaRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-DE, Stefan, Apollo)" | "de-DE-Stefan-Apollo"
+el-GR | Yunanca | Erkek | "Microsoft Server Konuşma metin konuşma ses (el-GR, Stefanos)" | "el-GR-Stefanos"
+tr-AU | İngilizce (Avustralya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, Catherine)" | "en-AU-Catherine"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
+CA tr | İngilizce (Kanada) | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, Gamze)" | "tr-CA-Gamze"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, HeatherRUS)" | "tr-CA-HeatherRUS"
+en-GB | English (UK) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, HazelRUS)" | "en-GB-HazelRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-GB, George, Apollo)" | "en-GB-George-Apollo"
+IE tr | İngilizce (İrlanda) | Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)" | "tr-IE-Sean"
+tr-giriş | English (India) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)" | "en-IN-Heera-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)" | "en-IN-Ravi-Apollo"
+en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)" | "en-US-ZiraRUS"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)" | "en-US-JessaRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)" | "en-US-Guy24kRUS"
+es-ES | İspanyolca (İspanya) |Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, Gamze, Apollo)" | "es-ES-Laura-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, HelenaRUS)" | "es-ES-HelenaRUS"
+| | | Erkek | "Microsoft Server Konuşma metin okuma ses (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo"
+es-MX | İspanyolca (Meksika) | Kadın | "Microsoft Server Konuşma metin okuma ses (es-MX, HildaRUS)" | "es-MX-HildaRUS"
+| | | Erkek | "Microsoft Server Konuşma metin okuma ses (es-MX, Raul Apollo)" | "es-MX-Raul-Apollo"
+FI-FI | Fince | Kadın | "Microsoft Server Konuşma metin konuşma ses (fi-FI, HeidiRUS)" | "fi FI HeidiRUS"
+fr-CA | Fransızca (Kanada) |Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, Caroline)" | "fr-CA-Caroline"
+| | | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS"
+FR-CH | Fransızca (İsviçre)| Erkek | "Microsoft Server Konuşma metin okuma ses (fr-CH, Guillaume)" | "fr-CH-Guillaume"
+fr-FR | Fransızca (Fransa)| Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS"
+| | | Erkek | "Microsoft Server Konuşma metin okuma ses (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo"
+He IL| İbranice (İsrail) | Erkek| "Microsoft Server Konuşma metin konuşma ses (he-IL, Asaf)" | "he IL Asaf"
+yüksek giriş | Hintçe (Hindistan) | Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba açma, Kalpana, Apollo)" | "Merhaba-IN-Kalpana-Apollo"
+| | |Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Kalpana)" | "Merhaba-IN-Kalpana"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Hemant)" | "Merhaba-IN-Hemant"
+hr-HR | Hırvatça | Erkek | "Microsoft Server Konuşma metin okuma ses (hr-HR, Matej)" | "hr-HR-Matej"
+hu-HU | Macarca | Erkek | "Microsoft Server Konuşma metin konuşma ses (hu-HU, Szabolcs)" | "hu-HU-Szabolcs"
+ID | Endonezya dili| Erkek | "Microsoft Server Konuşma metin konuşma ses (-ID, Andika)" | "kimliği kimliği Andika"
+İt-IT | İtalyanca | Erkek | "Microsoft Server Konuşma metin konuşma ses (Cosimo, it-IT, Apollo)" | "BT-BT-Cosimo-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, LuciaRUS)" | "it-IT-LuciaRUS"
+ja-JP | Japonca | Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo"
+| | | Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS"
+ko-KR | Korece | Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS"
+ms-MY | Malay dili | Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)" | "ms-MY-Rizwan"
+NB-yok | Norveççe | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)" | "NO-nb-HuldaRUS"
+NL-NL | Felemenkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)" | "nl-NL-HannaRUS"
+pl-PL | Lehçe | Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS"
+pt-BR | Portekizce (Brezilya) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS"
+| | | Erkek |"Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo"
+pt-PT | Portekizce (Portekiz) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-PT, HeliaRUS)" | "pt-PT-HeliaRUS"
+Ro-RO | Rumence | Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, Andrei)" | "ro-RO-Andrei"
+ru-RU |Rusça| Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina, Apollo)" | "ru-RU-Irina-Apollo"
+| | | Erkek | "Microsoft Server Konuşma metin okuma ses (ru-RU, Pavel, Apollo)" | "ru-RU-Pavel-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)" | RU-RU-EkaterinaRUS
+SK-SK | Slovakça | Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)" | "sk-SK-Filip"
+SL SI | Slovence | Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)" | "sl-SI-Lado"
+sv-SE | İsveççe | Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)" | "sv-SE-HedvigRUS"
+Veri-ın | Tamilce (Hindistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)" | "veri-ın-Valluvar"
+metin-giriş | Telugu dili (Hindistan) | Kadın | "Microsoft Server Konuşma metin konuşma ses (metin-IN, Chitra)" | "te-IN-Chitra"
+TH TH | Tay Dili | Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)" | "th TH Pattara"
+tr-TR | Türkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
+VI VN | Vietnam dili | Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)" | "olduğu gibi vi-VN-bir"
+zh-CN | Çince (ana kara) | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo"
+zh-HK | Çince (Hong Kong) | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK Tracy, Apollo)" | "zh-HK-Tracy-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK TracyRUS)" | "zh-HK-TracyRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-HK Danny, Apollo)" | "zh-HK-Danny-Apollo"
+zh-TW | Çince (Tayvan) | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW Yating, Apollo)" | "zh-TW-Yating-Apollo"
+| | | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
+| | | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-TW Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
 \* *ar-ÖRN Modern standart Arapça (MSA) destekler.*
 
+> [!NOTE]
+> Konuşma sentezi isteklerinizi tam hizmet adı eşlemesi ya da kısa ses adı kullanabilirsiniz.
+
 ### <a name="customization"></a>Özelleştirme
 
-Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fransızca (fr-FR), Almanca (de-DE) ve İtalyanca (it-IT) kullanılabilir.
+Ses özelleştirme, de-DE, en-GB, en-IN, en-US, es için kullanılabilir-MX, fr-FR, it-IT, pt-BR ve zh-CN. Eğitim verileri, özel sesli modeli eğitmek için sahip eşleşen doğru bir yerel ayar seçin. Örneğin, sahip olduğunuz veri kaydını İngiliz bir Vurgu ile İngilizce konuşulur, en-GB'ı seçin.  
 
 > [!NOTE]
-> Fransızca, Almanca ve İtalyanca üslup Eğitimi, bir veri kümesi ile 2000'den fazla konuşma başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
+> BI dil modeli eğitimi özel sesli, Çince-İngilizce çift dilli dışında desteklemiyoruz. İngilizce de konuşabilen Çince bir üslup eğitimi istiyorsanız 'Çince İngilizce dilli' seçin. 2000'den fazla konuşma, zh-CN herhangi bir eğitim veri boyutuna sahip başlayabileceğiniz ve en-US dışında bir veri kümesinin tüm bölgelerde üslup eğitimi başlar.
 
 ## <a name="speech-translation"></a>Konuşma çevirisi
 
