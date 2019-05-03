@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460499"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020978"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
 
-Azure konuşma konuşma metin okuma ve konuşma çevirisi birleştirmesi tek bir Azure aboneliği içine hizmetleridir. Konuşma kolaydır, uygulamaları, araçları ve cihazlarıyla etkinleştirme [Speech SDK'sı](speech-sdk-reference.md), [konuşma cihaz SDK'sı](speech-devices-sdk-qsg.md), veya [REST API'leri](rest-apis.md).
+Azure konuşma konuşma metin okuma ve konuşma çevirisi birleştirmesi tek bir Azure aboneliği içine hizmetleridir. Konuşma kolaydır, uygulamaları, araçları ve cihazlarıyla etkinleştirme [Speech SDK'sı](speech-sdk-reference.md), [konuşma cihaz SDK'sı](https://aka.ms/sdsdk-quickstart), veya [REST API'leri](rest-apis.md).
 
 > [!IMPORTANT]
 > Bing konuşma API'si, Translator konuşma çevirisi ve özel konuşma tanıma, konuşma Hizmetleri yerini almıştır. Bkz: *nasıl yapılır kılavuzları > geçiş* geçiş yönergeleri için.
@@ -30,6 +30,7 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 |---------|---------|-------------|-----|------|
 | [Konuşma metin](speech-to-text.md) | Konuşmayı metne dönüştürme | Konuşma metin, ses akışları gerçek zamanlı olarak, uygulamalar, Araçlar veya cihazları kullanma veya görüntüleme metne dönüştürür. Konuşma metin ile kullanmak [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) transcribed konuşma tanıma ve sesli komutları üzerinde işlem yapma kullanıcı hedefleri türetmek için. | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transkripsiyon](batch-transcription.md) | Batch transkripsiyonu, zaman uyumsuz metne dönüştürme konuşma transkripsiyonu büyük hacimdeki verileri sağlar. Bu özelleştirme ve model Yönetimi aynı uç noktasını kullanan bir REST tabanlı hizmetidir. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
+| | [Konuşma tanıma hizmeti](conversation-transcription-service.md) | Gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization sağlar. Yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için idealdir. | Evet | Hayır |
 | | [Özelleştirme](#customize-your-speech-experience) | Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
 | [Metin okuma](text-to-speech.md) | Metin okuma | Metin okuma, giriş metni İnsan benzeri Sentezlenen konuşmaya dönüştürür. Standart seslerle ve sinir kişilerden daha fazlasını seçin (bkz [dil desteği](language-support.md)). | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Özelleştirme](#customize-your-speech-experience) | Özel ses tipi markanız veya ürün için benzersiz oluşturun. | Hayır | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 
 İle Azure konuşma Hizmetleri yenilikleri öğrenin.
 
-* Nisan 2019 - serbest konuşma SDK 1.4.0 C++ için metin okuma (Beta) desteğiyle C#ve Windows ve Linux üzerinde Java. Ayrıca, SDK'sı artık MP3 ve geçerli/Ogg ses biçimleri için C++ destekler ve C# Linux üzerinde. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md). 
+* Konuşma 1.5.0 SDK - Mayıs 2019 yayımladı. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
+* Nisan 2019 - serbest konuşma SDK 1.4.0 C++ için metin okuma (Beta) desteğiyle C#ve Windows ve Linux üzerinde Java. Ayrıca, SDK'sı artık MP3 ve geçerli/Ogg ses biçimleri için C++ destekler ve C# Linux üzerinde. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
 * Mart 2019 - belirli bir bölgede kullanılabilir sesleri tam bir listesini döndürür (TTS) okuma için yeni bir uç noktası artık kullanılabilir. Ayrıca, yeni bölgelere TTS için artık desteklenmektedir. Daha fazla bilgi için [metin okuma API Başvurusu (REST)](rest-text-to-speech.md).
 * Şubat 2019 - serbest konuşma SDK 1.3.0 desteğiyle [Unity (beta)](quickstart-csharp-unity.md). İçin destek eklendi `AudioInput` ses akış kaynağı seçmenize olanak sağlayan sınıf. Yenilikleri ve bilinen sorunların tam listesi için bkz: [sürüm notları](releasenotes.md).
 * Aralık 2018'e - serbest konuşma SDK 1.2.0 desteğiyle [Python](quickstart-python.md) ve [Node.js](quickstart-js-node.md), Ubuntu LTS 18.04 yanı sıra. Daha fazla bilgi için [sürüm notları](releasenotes.md).

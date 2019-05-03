@@ -1,98 +1,41 @@
 ---
 title: Konuşma Cihazları SDK’sını edinme
 titleSuffix: Azure Cognitive Services
-description: Konuşma Hizmetleri çok çeşitli cihazları ve ses kaynaklar ile çalışın. Şimdi, konuşma uygulamalarınızın eşleşen donanım ve yazılım ile bir sonraki düzeye alabilir. Bu makalede konuşma cihaz SDK'sı erişin ve geliştirmeye başlayın öğreneceksiniz.
+description: Konuşma Hizmetleri çok çeşitli cihazları ve ses kaynaklar ile çalışın. Şimdi, konuşma uygulamalarınızın eşleşen donanım ve yazılım ile bir sonraki düzeye alabilir. Bu makalede, konuşma cihaz SDK'sı erişin ve geliştirmeye başlayın öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2cff23f66ec704fe7e7c44136160313c10c9c2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540122"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020587"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihaz SDK'sı Al
 
-Konuşma cihaz SDK'sı, sınırlı Önizleme aşamasındadır ve programda kaydedilmesini gerektirir. Şu anda, Microsoft bu ürüne erişim için aday olarak büyük şirketler tercih eder.
+Konuşma cihaz SDK'sı, amaca yönelik olarak tasarlanmış bir geliştirme setleri ve değişen mikrofon dizi yapılandırmaları ile çalışmak üzere tasarlanmış pretuned bir kitaplıktır.
 
-## <a name="request-access"></a>Erişim izni iste
+## <a name="choose-a-development-kit"></a>Geliştirme Seti'ni seçin
 
-Konuşma cihaz SDK'sı erişim elde etmek için:
-
-1. Microsoft konuşma cihaz SDK'sı Git [kayıt formunu](https://aka.ms/sdsdk-signup).
-1. Okuma [lisans sözleşmesini](speech-devices-sdk-license.md).
-1. Lisans sözleşmesinin koşullarını kabul ediyorsanız **kabul ediyorum**.
-1. Formda soruları yanıtlayın.
-1. Form gönderilemiyor.
-1. E-posta adresiniz zaten Azure Active Directory (Azure AD) bir parçası değilse, erişim için onaylandıklarında, aşağıdaki örnekte olduğu gibi bir davet e-posta alırsınız. E-posta adresiniz zaten Azure AD'de ise, bir e-posta iletisi Microsoft konuşma takımdan erişim onayından ve, atlayabilirsiniz aldığınız [konuşma cihaz SDK'sını indirin](#download-the-speech-devices-sdk).
-
-## <a name="approval-e-mail"></a>Onay e-postası
-
-```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
-Subject: You're invited to the Microsoft organization
-```
-
-![e-posta iletisi](media/speech-devices-sdk/get-sdk-1.png)
-
-## <a name="accept-access"></a>Erişim
-
-Kayıt sırasında sağladığınız e-posta adresiyle Azure AD'ye katılmak için aşağıdaki adımları tamamlayın. Bu işlem için konuşma cihaz SDK'sı erişiminizi [yükleme sitesine](https://shares.datatransfer.microsoft.com/).
-
-1. Aldığınız e-posta iletisinde seçin **Başlarken**. Kuruluşunuz zaten bir Office 365 müşterisi ise, oturum açmanız istenir ve İleri 7. adıma atlayabilirsiniz.
-
-2. Açılır tarayıcı penceresinde seçin **sonraki**.
-
-    ![kimlik doğrulama penceresi](media/speech-devices-sdk/get-sdk-2.png)
-
-3. Zaten yoksa, bir Microsoft hesabı oluşturun. Davet e-posta aldığınız aynı e-posta adresi girin.
-
-    ![Microsoft hesabı oluşturun](media/speech-devices-sdk/get-sdk-3.png)
-
-4. Seçin **sonraki** bir parola oluşturmak için.
-
-5. E-postanızı doğrulamak için istendiğinde, aldığınız davet e-postadan doğrulama kodunu alın.
-
-7. Yapıştırın veya e-posta iletisi güvenlik kodunu iletişim kutusuna yazın. Bu örnekte, güvenlik koddur **8406**. **İleri**’yi seçin.
-
-    ![E-postayı doğrula](media/speech-devices-sdk/get-sdk-6.png)
-
-8. Erişim paneli uygulama tarayıcıda gördüğünüzde, e-posta adresinizi Azure AD parçası olduğunu doğruladı. Artık konuşma cihaz SDK'sını indirme sitesine erişebilirsiniz.
+|Cihazlar|Belirtimi|Açıklama|Senaryolar|
+|--|--|--|--|
+|[Roobo akıllı ses Dev Seti](http://ddk.roobo.com)</br>[Kurulum](speech-devices-sdk-roobo-v1.md) / [hızlı](speech-devices-sdk-android-quickstart.md)![Roobo akıllı ses Dev Seti](media/speech-devices-sdk/device-roobo-v1.jpg)|7 MIC dizisi, ARM SOC WIFI, ses çıkış, g/ç. </br>Android|Microsoft Mic Array ve yüksek kaliteli tanıma ve konuşma senaryoları geliştirmek için SDK, işleme ön uyarlamak için ilk konuşma cihaz SDK'sı|Konuşma Transkripsiyonu, akıllı konuşmacının Ses Aracısı üstte taşınır|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|MIC dizisi RGB ve derinlik kameralar 7. </br>Windows/Linux|Gelişmiş bilgisayar görme ve konuşma modelleri oluşturmak için Gelişmiş yapay zeka (AI) sensör ile bir Geliştirme Seti. Bir video kamera ve yönlendirmesini algılayıcısı ile sınıfının en iyisi uzamsal mikrofon dizi ve derinlik kamera birleştirir — birden çok modları, seçeneklerini ve SDK'ları bir dizi uyum sağlamak için küçük bir cihazla içindeki tüm işlem türleri.|Konuşma Transkripsiyonu, robotlara ilişkin, akıllı oluşturma|
+|Roobo Smart Audio Dev Kit 2![Roobo Smart Audio Dev Kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 MIC dizisi, ARM SOC WIFI, Bluetooth, g/ç. </br>Linux|2. nesil konuşma cihaz SDK'sı, diğer işletim sistemi ve başvuru uygun maliyetli tasarımla daha fazla özellik sağlar.|Konuşma Transkripsiyonu, akıllı konuşmacının Ses Aracısı üstte taşınır|
+|URbetter T11 geliştirme Panosu![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 MIC dizisi, ARM SOC WIFI, Ethernet, HDMI, USB Kamera. </br>Linux|Bir sektör düzeyi Speech cihaz SDK'sı Microsoft Mic dizi uyum sağlar ve destekleyen g/ç HDMI veya Ethernet ve daha fazla USB çevre birimleri gibi genişletilmiş|Konuşma Transkripsiyonu, eğitim, hastaneler, Robotlar, OTT kutusu, aracı, sesli den sürücü|
 
 ## <a name="download-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sını indirin
 
-Git [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Daha önce oluşturduğunuz Microsoft hesabıyla oturum açın.
-
-![SDK indirme sitesi](media/speech-devices-sdk/get-sdk-7.png)
-
-Konuşma indirmek için ilişkili cihaz SDK'sı, örnek kod ve başvuru kaynakları:
-
-1. Tarayıcıda istendiğinde Aspera Connect aracını yükleyip yeniden açın.
-
-    ![Aspera Connect indirin](media/speech-devices-sdk/get-sdk-8.png)
-
-1. Seçin **Evet** Aspera bağlanmak için uygulamaları geçiş yapmak için.
-
-    ![Aspera bağlanmak için geçiş](media/speech-devices-sdk/get-sdk-9.png)
-
-1. Seçin **izin** Aspera Bağlan'ı kullanarak dosyaları indirme onaylamak için.
-
-    ![Aspera Bağlan'ı kullanarak indirin](media/speech-devices-sdk/get-sdk-10.png)
-
-1. Dosyaları İndirildikten sonra Aspera bağlanma aktarımları penceresini kapatın.
-
-    ![Aspera aktarımları Bağlan penceresi](media/speech-devices-sdk/get-sdk-11.png)
-
-Dosyalar varsayılan olarak, karşıdan yüklenir, **indirir** klasör. Bu site dışında artık oturum açabilir.
+İndirme [konuşma cihaz SDK'sı](https://aka.ms/sdsdk-download).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşma cihaz SDK'sı ile çalışmaya başlama](speech-devices-sdk-qsg.md)
+> [Konuşma cihaz SDK'sı ile çalışmaya başlama](https://aka.ms/sdsdk-quickstart)

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344170"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023621"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: Metni Çevir API'sini kullanarak özel bir yetenek oluşturma
 
@@ -243,7 +243,7 @@ Aşağıdaki örneğe benzer bir yanıt görmeniz gerekir:
 
 1. İzleyin ekrandaki ister. Azure hesabı, kaynak grubunu, barındırma planı ve kullanmak istediğiniz depolama hesabı belirtmeniz istenir. Bunlar zaten yoksa, yeni bir kaynak grubu, yeni bir barındırma planı ve bir depolama hesabı oluşturabilirsiniz. İşiniz bittiğinde seçin **oluştur**
 
-1. Dağıtım tamamlandıktan sonra Site URL'sini not alın. İşlev uygulamanızda Azure'nın adresidir. 
+1. Dağıtım tamamlandıktan sonra Site URL'si dikkat edin. İşlev uygulamanızda Azure'nın adresidir. 
 
 1. İçinde [Azure portalında](https://portal.azure.com), kaynak grubuna gidin ve çevirme yayımladığınız işlevi bakın. Altında **Yönet** bölümünde, ana bilgisayar anahtarları görmeniz gerekir. Seçin **kopyalama** simgesi *varsayılan* ana bilgisayar anahtarı.  
 
@@ -282,7 +282,7 @@ Yeni özel bir yetenek olduğuna göre bunu standartlarındaki şu ekleyebilirsi
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
