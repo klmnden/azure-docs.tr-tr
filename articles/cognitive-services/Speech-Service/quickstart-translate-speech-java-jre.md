@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619246"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021007"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma Çevir
 
-Bu hızlı başlangıçta, bilgisayarınızın mikrofondan gelen kullanıcı konuşma yakalar, konuşma çevirir ve gerçek zamanlı olarak komut satırında çevrilmiş metne dönüştürür basit bir Java uygulaması oluşturacaksınız. Bu uygulamayı Windows 64-bit veya 64-bit Ubuntu Linux 16.04/18.04 çalışacak şekilde tasarlanmıştır ve konuşma SDK Maven paketini ve Eclipse Java IDE ile oluşturulmuştur.
+Bu hızlı başlangıçta, bilgisayarınızın mikrofondan gelen kullanıcı konuşma yakalar, konuşma çevirir ve gerçek zamanlı olarak komut satırında çevrilmiş metne dönüştürür basit bir Java uygulaması oluşturacaksınız. Bu uygulama, Windows 64-bit veya 64-bit Linux'ta (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) veya macOS 10.13 veya sonraki bir sürümü üzerinde çalışacak şekilde tasarlanmıştır. Konuşma SDK Maven paketini ve Eclipse Java IDE ile oluşturulmuştur.
 
 Konuşma çevirisi için kullanılabilen dilleri tam bir listesi için bkz. [dil desteği](language-support.md).
 
@@ -27,17 +27,26 @@ Konuşma çevirisi için kullanılabilen dilleri tam bir listesi için bkz. [dil
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* İşletim Sistemi: Windows 64-bit veya 64-bit Ubuntu Linux 16.04/18.04
+* İşletim Sistemi: 64 bit Windows, 64-bit Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) veya macOS 10.13 veya üzeri
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) veya [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 
-Ubuntu 16.04/18.04 çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkların yüklü olduğundan emin olun.
+Linux çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkların yüklü olduğundan emin olun.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * Ubuntu üzerinde:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).

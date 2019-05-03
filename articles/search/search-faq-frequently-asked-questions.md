@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290457"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023988"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure arama - sık sorulan sorular (SSS)
 
@@ -64,7 +64,7 @@ Kısıtlama yoktur kullanılması ile ilgili çoğaltması birincil veya ikincil
 
 Hayır, bu işlem desteklenmiyor. Arama için tek bir dizinde her zaman kapsamlıdır.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>Kullanıcı kimliğine göre arama topluluğunuza erişimi kısıtlama?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Kullanıcı kimliğine göre arama dizini erişimi kısıtlama?
 
 Uygulayabileceğiniz [güvenlik filtreleri](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) ile `search.in()` filtre. Filtre ile ölçeklemesini [gibi Azure Active Directory (aad) Kimlik Yönetimi Hizmetleri](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) göre arama sonuçları kırpmak için kullanıcının grup üyeliğini tanımlanmış.
 

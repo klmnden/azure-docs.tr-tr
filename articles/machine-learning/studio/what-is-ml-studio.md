@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345575"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024211"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -29,7 +29,7 @@ Machine Learning Studio, verilerinizin veri bilimi, tahmine dayalı analiz ve bu
 
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>Machine Learning Studio etkileşimli çalışma alanı
-Tahmine dayalı bir analiz modeli geliştirmek için, genellikle bir veya daha çok kaynaktan veri kullanır, çeşitli veri işleme ve istatistik işlevleri aracılığıyla bu verileri dönüştürüp analiz eder ve bir sonuç kümesi oluşturursunuz. Bir modelin bu şekilde geliştirilmesi yinelemeli bir işlemdir. Çeşitli işlevleri ve bunların parametrelerini değiştirirken, eğitilmiş ve verimli bir model elde ettiğinizi düşüneceğiniz ana kadar sonuçlarınız yakınsanır.
+Tahmine dayalı analiz modeli geliştirmek için genellikle bir veri kullanın veya daha fazla kaynağı dönüştürme, çeşitli veri işleme ve istatistik işlevleri aracılığıyla bu verileri analiz edin ve bir sonuç kümesi oluşturur. Bir modelin bu şekilde geliştirilmesi yinelemeli bir işlemdir. Çeşitli işlevleri ve bunların parametrelerini değiştirirken, eğitilmiş ve verimli bir model elde ettiğinizi düşüneceğiniz ana kadar sonuçlarınız yakınsanır.
 
 **Azure Machine Learning Studio**, tahmine dayalı bir analiz modelini kolayca oluşturma, test etme ve yineleme amacıyla etkileşimli ve görsel bir çalışma alanı sunar. ***Veri kümelerini*** ve analiz ***modüllerini*** etkileşimli bir tuvale sürükleyip bırakır ve bunları birbirine bağlayarak Machine Learning Studio'da çalıştıracağınız bir ***deneme*** oluşturursunuz. Model tasarımınızı yinelemek için, denemeyi düzenleyin, isterseniz bir kopyasını kaydedin ve yeniden çalıştırın. Hazır olduğunuzda, ***eğitim denemenizi*** bir ***tahmine dayalı denemeye*** dönüştürebilir ve ardından modelinize başkaları tarafından erişilebilmesi için bunu bir ***web hizmeti*** olarak yayımlayabilirsiniz.
 
@@ -44,7 +44,7 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 ![Microsoft Azure Machine Learning Studio işlevlerine genel bakış](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
-[Machine Learning Studio](https://studio.azureml.net)'ya ilk girişinizde **Giriş** sayfasını görürsünüz. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
+Machine Learning Studio'da ilk girdiğinizde] (https://studio.azureml.net) gördüğünüz **giriş** sayfası. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
 
 Sol üst menüye tıkladığınızda ![Menü](./media/what-is-ml-studio/menu.png) birkaç seçenek göreceksiniz.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -87,7 +87,7 @@ Bir veri kümesi, model oluşturma işleminde kullanılabilmesi için Machine Le
 * **Meme kanseri verileri** - Meme kanseri tanılama verileri.
 * **Orman yangını verileri** - Kuzey doğu Portekiz'de orman yangını boyutları.
 
-Bir deneme oluştururken, tuval solundaki kullanılabilir veri kümesi listesinden seçebilirsiniz.
+Bir deneme oluştururken, tuvalin solundaki kullanılabilir veri kümesi listesinden seçebilirsiniz.
 
 Machine Learning Studio'ya dahil olan örnek veri kümelerinin listesi için bkz. [Azure Machine Learning Studio'daki örnek veri kümelerini kullanma](use-sample-datasets.md).
 
@@ -111,14 +111,22 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Ne Machine Learning Studio, Azure Machine Learning hizmetinden farklıdır?
 
-[Azure Machine Learning hizmeti](../service/overview-what-is-azure-ml.md) SDK'ları ve Hizmetleri hızlı bir şekilde veri hazırlama için eğitmek ve makine öğrenimi modelleri dağıtma sağlar. Otomatik ölçeklendirme bilgi işlemi ve işlem hatları ile üretkenliği ve maliyetleri geliştirin. PyTorch, TensorFlow ve scikit-learn gibi açık kaynak Python çerçeveleri aracılığıyla bu özellikleri kullanın. 
+[Azure Machine Learning hizmeti](../service/overview-what-is-azure-ml.md) hem SDK'lar sağlar **- ve -** hızla veri hazırlama için bir görsel interface(preview) eğitme ve makine öğrenimi modelleri dağıtın. Bu görsel bir arabirim (Önizleme) Studio'ya benzer bir Sürükle ve bırak deneyimi sağlar. Ancak, özel işlem platform Studio, farklı görsel arabirim kendi işlem kaynakları kullanır ve Azure Machine Learning hizmetinde tam olarak tümleşiktir.
 
-Makine öğrenimi modelleri ile hızlı ve kolay bir şekilde deneme yapmak istediğinizde ve yerleşik makine öğrenimi algoritmaları çözümleriniz için yeterli olduğunda Machine Learning Studio’yu kullanın.
+Hızlı bir karşılaştırması aşağıdadır.
 
-Bir Python ortamında çalışıyorsanız, makine öğrenimi algoritmalarınız üzerinde daha fazla denetime sahip olmak istiyorsanız veya açık kaynaklı makine öğrenimi kitaplıkları kullanmak istiyorsanız, Machine Learning hizmetini kullanın.
+|| Machine Learning Studio | Azure Machine Learning hizmeti:<br/>Görsel arabirim|
+|---| --- | --- |
+|| Genel kullanıma (GA) | Önizleme aşamasında|
+|Modüller için arabirimi| Many | İlk dizi popüler modülleri|
+|Eğitim işlem hedefleri| Özel işlem hedefi, yalnızca CPU desteği| Azure Machine Learning işlem, GPU veya CPU destekler.<br/>(Desteklenen SDK'yı diğer hesaplar)|
+|Dağıtım işlem hedefleri| Özel web hizmeti biçimi, özelleştirilemeyen | Kurumsal güvenlik seçenekleri ve Azure Kubernetes hizmeti. <br/>([Diğer hesaplar](../service/how-to-deploy-and-where.md) desteklenen SDK'sı) |
+|Otomatik model eğitiminin ve hiper parametre ayarı | Hayır | Henüz visual arabiriminde. <br/> (SDK ve Azure Portalı'nda desteklenmiyor.) | 
+
+Görsel arabirim (Önizleme) ile denemeye [hızlı başlangıç: Hazırlama ve kod yazmaya gerek kalmadan verileri görselleştirin](../service/ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> Azure Machine Learning Studio'da oluşturulan modeller dağıtılan veya Azure Machine Learning hizmeti tarafından yönetilir.
+> Modelleri Studio'da oluşturulan dağıtılmış veya Azure Machine Learning hizmeti tarafından yönetilir. Ancak, oluşturulan ve dağıtılan hizmet visual arabiriminde modelleri Azure Machine Learning hizmeti çalışma yönetilebilir.
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
 

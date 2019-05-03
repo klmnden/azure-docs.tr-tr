@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281786"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025164"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Örnek: Azure Search için eş anlamlı sözcükler eklemeC#
 
@@ -23,13 +23,15 @@ Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle e�
 Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Bu örnekte, ekleme ve mevcut dizin ile eş anlamlılar kullanmak için temel adımları kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Eşleme kuralları oluşturup göndererek eş anlamlıları etkinleştirme 
-> * Sorgu dizesinde bir eş anlamlı eşlemine başvurma
+> * Kullanarak bir eş anlamlı eşlemi oluşturabilir [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) sınıfı. 
+> * Ayarlama [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) özelliği alanlarda eş anlamlılar aracılığıyla sorgu genişletme desteklemelidir.
+
+Normalde yaptığınız gibi bir eş anlamlı etkin alanı sorgulayabilirsiniz. Eş Anlamlılar erişmek için gerekli hiçbir ek sorgu sözdizimi yoktur.
 
 Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullanılabilen hizmet genelinde kaynak olarak gönderebilir ve alan düzeyinde hangisinin kullanılacağını belirtebilirsiniz. Sorgu zamanında Azure Search, sorguda kullanılan alanlarda belirtilmişse dizinde aramaya ek olarak bir eş anlamlı eşleminde arama yapar.
 
 > [!NOTE]
-> Eş anlamlılar en son API ve SDK sürümlerinde (api-version=2017-11-11, SDK sürümü 5.0.0) desteklenir. Şu anda Azure portalı desteği yoktur. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
+> Eş Anlamlılar programlı olarak oluşturulabilir ancak Portalı'nda. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -172,7 +174,7 @@ Azure Search Hizmeti içeren kaynak grubunu silerek bir örnektir sonra temizlem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnekte gösterilen [eş anlamlılar REST API](https://aka.ms/rgm6rq) içinde C# kod eşleme kurallarını gönderin ve bir sorgu üzerindeki eş anlamlı eşlemi'ı çağırın. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
+Bu örnekte eş anlamlılar özelliğini gösterilen C# kod eşleme kurallarını gönderin ve bir sorgu üzerindeki eş anlamlı eşlemi'ı çağırın. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Search’te eş anlamlıları kullanma](search-synonyms.md)

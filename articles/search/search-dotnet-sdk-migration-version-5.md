@@ -7,17 +7,22 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 980f16680ecc65bf8ac30a49e02f39b0f18a15f6
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291716"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024110"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
+
+> [!Important]
+> Bu içerik yine de tamamlanmamıştır. Azure Search .NET SDK, sürüm 9.0, NuGet üzerinde kullanılabilir. Bu makaledeki 9.0 için yükseltme açıklamak için çalışıyoruz. 
+> 
+
 4.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.
 
 Örnekler de dahil olmak üzere SDK'sının daha genel bir kılavuz için bkz. [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md).

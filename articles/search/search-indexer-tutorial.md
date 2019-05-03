@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322225"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025078"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Öğretici: Azure Search dizin oluşturucuyu kullanarak bir Azure SQL veritabanında gezinin
 
@@ -267,7 +267,7 @@ Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-AI destekli algoritmaları dizin oluşturucu işlem hattına ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
+Bir dizin oluşturucu ardışık düzenine AI zenginleştirme algoritmaları ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Blob Depolama’da Belgelerin Dizinini Oluşturma](search-howto-indexing-azure-blob-storage.md)

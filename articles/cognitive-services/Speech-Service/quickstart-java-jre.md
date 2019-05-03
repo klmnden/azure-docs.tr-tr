@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 771168a13d7192581aae2ff4128e979b6924484a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622720"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020699"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Konuşma SDK Maven paketini ve 64-bit Windows üzerinde Eclipse Java IDE (v4.8) ile oluşturulan uygulama 64-bit Ubuntu Linux 16.04 / 18.04 veya macOS 10.13 veya üzeri. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
+Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Konuşma SDK Maven paketini ve 64-bit Windows üzerinde Eclipse Java IDE (v4.8) ile oluşturulan uygulama 64-bit Linux (Ubuntu 16.04 18.04 Ubuntu, Debian 9), veya macOS 10.13 veya üzeri. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
 
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
@@ -30,21 +30,29 @@ Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygula
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* İşletim Sistemi: (64-bit) Windows, Ubuntu Linux 16.04/18.04 (64-bit) ve macOS 10.13 veya üzeri
+* İşletim Sistemi: 64 bit Windows, 64-bit Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) veya macOS 10.13 veya üzeri
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) veya [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 
-Ubuntu 16.04/18.04 çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkların yüklü olduğundan emin olun.
+Linux çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkların yüklü olduğundan emin olun.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+* Ubuntu üzerinde:
 
-Windows (64-bit) çalıştırıyorsanız, Microsoft Visual C++ yeniden dağıtılabilir platformunuz için yüklediğinizden emin olun.
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.0 libasound2
+  ```
+
+* Debian 9:
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
+
+Windows (64-bit) çalıştırıyorsanız, Microsoft Visual yüklediğinizden emin olun C++ platformunuz için yeniden dağıtılabilir.
 * [Microsoft Visual C++ için Visual Studio 2017 yeniden dağıtılabilir'i indirin](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
 
 ## <a name="create-and-configure-project"></a>Proje oluşturma ve yapılandırma
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126761"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025150"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Örnek: Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
 
@@ -23,7 +23,7 @@ Bu makalede, kullanmayı öğrenin [önerileri](https://docs.microsoft.com/rest/
 
 + *Öneriler* önerilen sonuç her öneri şu ana kadar yazdığınız eşleşen dizinden tek bir sonuç olduğu türü olarak oluşturulur. 
 
-+ *Otomatik Tamamlama*, [bir önizleme özelliği](search-api-preview.md), "sözcük veya bir kullanıcı şu anda yazarak tümcecik tamamlandıktan". Sonuçları döndürmek yerine, bir sorgu sonuçları döndürmek için sonra yürütebilir tamamlar. Önerileriniz gibi bir tamamlanmış sözcük veya tümcecik sorguda bir eşleşen dizini içindeki predicated. Hizmet, dizin sıfır sonuçları döndüren sorgular sunmak olmaz.
++ *Otomatik Tamamlama* "sözcük veya bir kullanıcı şu anda yazarak tümcecik tamamlandıktan". Sonuçları döndürmek yerine, bir sorgu sonuçları döndürmek için sonra yürütebilir tamamlar. Önerileriniz gibi bir tamamlanmış sözcük veya tümcecik sorguda bir eşleşen dizini içindeki predicated. Hizmet, dizin sıfır sonuçları döndüren sorgular sunmak olmaz.
 
 İndirme ve örnek kodu çalıştırma **DotNetHowToAutocomplete** bu özellikler değerlendirilemedi. Örnek kod ile doldurulmuş önceden oluşturulmuş bir dizin hedefleyen [NYCJobs tanıtım verileri](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). NYCJobs dizini içeren bir [öneri aracı yapısı](index-add-suggesters.md), öneri veya otomatik tamamlama kullanma gereksinimi olan. Bir korumalı alan hizmette barındırılan hazırlanmış dizini kullanabilir veya [kendi dizininizi doldurmak](#configure-app) NYCJobs örnek çözümde bir veri yükleyici kullanılarak. 
 

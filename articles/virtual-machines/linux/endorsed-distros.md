@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 05/01/2019
 ms.author: szark
-ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db10c95c982132c41193ed1cccfdcdca6f60ba5e
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743454"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993093"
 ---
-# <a name="linux-distributions-endorsed-on-azure"></a>Azure’da desteklenen Linux dağıtımları
+# <a name="endorsed-linux-distributions-on-azure"></a>Azure'da Linux destekli dağıtımlar
 İş ortakları, Azure Market'teki Linux görüntüleri sağlar. Desteklenen dağıtım listesine daha da fazla çeşitleme katmak çeşitli Linux topluluklarıyla çalışıyoruz. Bu sırada, Market'ten mevcut olmayan dağıtımlar her zaman kendi Linux yönergeleri izleyerek getirebilir [oluşturma ve karşıya yükleme Linux işletim sistemini içeren bir sanal sabit disk](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Desteklenen dağıtımlar ve sürümler
 Aşağıdaki tabloda Linux dağıtımları ve Azure üzerinde desteklenen sürümleri listelenmiştir. Başvurmak [Microsoft azure'da Linux görüntüleri için destek](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında daha ayrıntılı bilgi için.
 
-Hyper-V ve Azure Linux Integration Services (LIS) sürücülerini Microsoft katkıda bulunan doğrudan Yukarı Akış Linux çekirdeğinin çekirdek modüllerdir.  Bazı LIS sürücüleri dağıtım'ın çekirdeğe varsayılan olarak oluşturulur. Red Hat Enterprise (RHEL) tabanlı eski dağıtımları veya CentOS ayrı bir indirme olarak kullanılabilir [Hyper-V ve Azure için Linux Tümleştirme hizmetleri sürüm 4.2](https://www.microsoft.com/en-us/download/details.aspx?id=55106). Bkz: [Linux çekirdek gereksinimleri](create-upload-generic.md#linux-kernel-requirements) LIS sürücüleri hakkında daha fazla bilgi için.
+Hyper-V ve Azure Linux Integration Services (LIS) sürücülerini Microsoft katkıda bulunan doğrudan Yukarı Akış Linux çekirdeğinin çekirdek modüllerdir.  Bazı LIS sürücüleri dağıtım'ın çekirdeğe varsayılan olarak oluşturulur. Red Hat Enterprise (RHEL) tabanlı eski dağıtımları veya CentOS ayrı bir indirme olarak kullanılabilir [Hyper-V ve Azure için Linux Tümleştirme hizmetleri sürüm 4.2](https://www.microsoft.com/download/details.aspx?id=55106). Bkz: [Linux çekirdek gereksinimleri](create-upload-generic.md#linux-kernel-requirements) LIS sürücüleri hakkında daha fazla bilgi için.
 
 Azure Linux Aracısı, Azure Market görüntüleri üzerinde önceden yüklü olan ve dağıtım ait bir paket deposundaki genellikle kullanılabilir. Kaynak kodu bulunabilir [GitHub](https://github.com/azure/walinuxagent).
 
   
 | Dağıtım | Version | Sürücüler | Aracı |
 | --- | --- | --- | --- |
-| CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS yükleme](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4+: Çekirdek |Paket: İçinde [depo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) "WALinuxAgent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS yükleme](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: Çekirdek |Paket: İçinde [depo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) "WALinuxAgent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |Çekirdek |Kaynak kodu: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7,9 +, 8.2 + |Çekirdek |Paket: Depoda "waagent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |Çekirdek |Paket: Depoda "WALinuxAgent" altında <br/>Kaynak kodu: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
@@ -44,7 +44,25 @@ Azure Linux Aracısı, Azure Market görüntüleri üzerinde önceden yüklü ol
 | openSUSE |openSUSE 42.2 + artık |Çekirdek |Paket: İçinde [bulut: Araçları](https://build.opensuse.org/project/show/Cloud:Tools) altındaki "azure-python-agent" depo <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |Çekirdek |Paket: Depoda "walinuxagent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>**  azure'da Ubuntu 12.04 için destek başvurmak için lütfen [EOL'ye bildirimi](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+  - **<sup>1</sup>**  Ubuntu 12.04 ve 14.04 yönelik genişletilmiş destek hakkında daha fazla bilgi şurada bulunabilir: [Genişletilmiş güvenlik bakımı Ubuntu](https://www.ubuntu.com/esm).
+
+
+## <a name="image-update-cadence"></a>Görüntü güncelleştirme uyumu
+Azure desteklenen Linux dağıtımları yayımcıları düzenli olarak görüntüleri Azure Market'te güvenlik düzeltmeleri, bir üç aylık ya da daha hızlı temposu ve en son düzeltme eklerinin ile güncelleştirmeniz gerekir. Güncelleştirilmiş görüntüleri Azure Market'te yeni sürümleri bir görüntü SKU otomatik olarak müşterileri tarafından kullanılabilir. Linux görüntüleri bulma hakkında daha fazla bilgi: [Linux VM görüntüleri Azure Market'te bulma](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+
+### <a name="additional-links"></a>Ek bağlantılar
+ - [SUSE genel bulut görüntü yaşam döngüsü](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
+
+## <a name="azure-tuned-kernels"></a>Azure olarak ayarlanmış çekirdekler
+
+Azure, Azure Market'te yayımlanan görüntü iyileştirmek için çeşitli desteklenen Linux dağıtımları ile yakın bir tümleştirmede çalışır. Bu işbirliği yönlerinden biri, Azure platformu için iyileştirilen ve tam olarak desteklenen Linux dağıtımı bileşenleri olarak teslim "Takipte" Linux çekirdeklerinin geliştirilmesini ' dir. Azure olarak ayarlanmış çekirdekler yeni özellikler ve performans geliştirmeleri ve daha hızlı (genellikle üç aylık) bir tempoda varsayılan veya Dağıtım noktasındaki mevcut olan genel çekirdekler karşılaştırılan.
+
+Bu nedenle Azure müşterileri bu en iyi duruma getirilmiş çekirdekler avantajı hemen erişin ve çoğu durumda varsayılan görüntüleri Azure Market'te önceden yüklenmiş bu çekirdekler bulacaksınız. Bu Azure olarak ayarlanmış çekirdekler hakkında daha fazla bilgi aşağıdaki bağlantılarda bulunabilir:
+
+ - CentOS Azure olarak ayarlanmış çekirdek - SIG - CentOS sanallaştırma kullanılabilir [daha fazla bilgi](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+ - Debian bulut çekirdek - Debian 10 ve Azure - Debian 9 "backports" görüntüde bulunan [daha fazla bilgi](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - SLES çekirdek Azure olarak ayarlanmış - [daha fazla bilgi](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+ - Ubuntu çekirdek Azure olarak ayarlanmış - [daha fazla bilgi](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 
 ## <a name="partners"></a>İş Ortakları

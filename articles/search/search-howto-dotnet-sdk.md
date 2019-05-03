@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871306"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025138"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Bir .NET uygulamasından Azure Search kullanma
+
+> [!Important]
+> Bu içerik yine de tamamlanmamıştır. Azure Search .NET SDK, sürüm 9.0, NuGet üzerinde kullanılabilir. Bu geçiş kılavuzunda en yeni sürüme yükseltme açıklayan güncelleştirmeyi çalışıyoruz. Bizi izlemeye devam edin.
+>
+
 Bu makale ile çalışmaya başlamanızı sağlayacak bir kılavuz niteliğindedir [Azure Search .NET SDK'sı](https://aka.ms/search-sdk). .NET SDK'sı, Azure Search kullanarak uygulamanızda bir zengin arama deneyimi uygulamak için kullanabilirsiniz.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Azure nedir arama SDK'sı
@@ -38,7 +42,7 @@ Sınıflar gibi çeşitli istemci kitaplıkları tanımlamak `Index`, `Field`, v
 
 Geçerli Azure Search .NET SDK'sı sürümü genel kullanıma sunulmuştur. Bir sonraki sürümünde birleştirmek bize geri bildirim sağlamak istiyorsanız, lütfen şu adresi ziyaret bizim [geri bildirim sayfası](https://feedback.azure.com/forums/263029-azure-search/).
 
-.NET SDK'sı sürümünü destekleyen `2017-11-11` , [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/). Bu sürüm, artık dizin oluşturucular için artımlı iyileştirme yanı sıra, eş anlamlılar için destek içerir. Önizleme özellikleri *değil* JSON dizileri ve CSV dosyalarını dizinleme desteği gibi bu sürüm, bir parçası olan [Önizleme](search-api-2016-09-01-preview.md) ve aracılığıyla kullanılabilen [.NET SDK'sısürümü4.0-Önizleme](https://aka.ms/search-sdk-preview).
+.NET SDK'sı sürümünü destekleyen `2017-11-11` , [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/). Bu sürüm, artık dizin oluşturucular için artımlı iyileştirme yanı sıra, eş anlamlılar için destek içerir. 
 
 Bu SDK'sı tarafından desteklenmeyen [yönetim işlemlerini](https://docs.microsoft.com/rest/api/searchmanagement/) oluşturma ve arama hizmetleri ölçeklendirme ve API anahtarlarını yönetme gibi. Bir .NET uygulamasından arama kaynaklarınızı yönetmek ihtiyacınız varsa, kullanabileceğiniz [Azure Search .NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk).
 
@@ -392,7 +396,7 @@ public partial class Hotel
 Fark edilecek ilk şey her ortak özelliği olan `Hotel` dizin tanımını, ancak çok önemli bir fark bir alana karşılık gelir: Her alanın adı küçük harfle ("ortası büyük harf"), sırasında her bir genel özelliğinin adını başlar `Hotel` büyük harfle ("Pascal harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
 
 > [!NOTE]
-> Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla ayrıntı için [JSON.NET ile özel serileştirme](#JsonDotNet).
+> Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla bilgi için [JSON.NET ile özel serileştirme](#JsonDotNet).
 > 
 > 
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914917"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024920"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -23,10 +23,24 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
+Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
+
+## <a name="2019-05-02"></a>2019-05-02
+
+### <a name="azure-portal"></a>Azure portal
+
++ Otomatik ML denemeleri portalda oluşturun.
+
 
 ## <a name="2019-04-22"></a>2019-04-22
 
 ### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine SDK için Python v1.0.30 Learning
++ **Yeni Özellikler**
+  + Veri kümeleri
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + None
+
 
 ## <a name="2019-04-17"></a>2019-04-17
 

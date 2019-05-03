@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283742"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024424"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>API anahtarları için Azure Search hizmeti oluşturma ve yönetme
 
@@ -34,7 +34,7 @@ Anahtarları iki tür arama hizmetinize erişmek için kullanılır: Yönetici (
 |Anahtar|Açıklama|Limits|  
 |---------|-----------------|------------|  
 |Yönetim Bölgesi|Hizmeti yönetme olanağı dahil olmak üzere tüm işlemler için tüm hakları verir, oluşturun ve dizin, dizin oluşturucular ve veri kaynaklarını silin.<br /><br /> Olarak iki yönetici anahtarı, adlandırılan *birincil* ve *ikincil* Portalı'ndaki anahtarları hizmet oluşturulduğunda ve ayrı ayrı isteğe bağlı olarak yeniden oluşturulur. İki anahtarın kullanılması hizmetine sürekli erişim için ikinci anahtarı kullanılırken bir anahtarını başa döndürmek sağlar.<br /><br /> Yönetici anahtarları, yalnızca HTTP istek üst bilgilerinde belirtilir. Bir yönetici API anahtarını URL'de yerleştirilemiyor.|2 hizmet başına en fazla|  
-|Sorgu|Dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.<br /><br /> Sorgu anahtarları, isteğe bağlı olarak oluşturulur. Bunları el ile portalında veya programlama aracılığıyla oluşturabilirsiniz [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Sorgu anahtarları, arama, öneri veya arama işlemi için bir HTTP istek üst bilgisinde belirtilebilir. Alternatif olarak, bir parametre olarak bir URL üzerinde bir sorgu anahtarı geçirebilirsiniz. İstemci uygulamanızı istek nasıl formulates bağlı olarak, anahtarın bir sorgu parametresi olarak geçirmek daha kolay olabilir:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|Hizmet başına 50|  
+|Sorgu|Dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.<br /><br /> Sorgu anahtarları, isteğe bağlı olarak oluşturulur. Bunları el ile portalında veya programlama aracılığıyla oluşturabilirsiniz [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Sorgu anahtarları, arama, öneri veya arama işlemi için bir HTTP istek üst bilgisinde belirtilebilir. Alternatif olarak, bir parametre olarak bir URL üzerinde bir sorgu anahtarı geçirebilirsiniz. İstemci uygulamanızı istek nasıl formulates bağlı olarak, anahtarın bir sorgu parametresi olarak geçirmek daha kolay olabilir:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|Hizmet başına 50|  
 
  Görsel olarak, bir yönetici anahtarı veya sorgu anahtarı arasında bir ayrım yoktur. Her iki anahtarı 32 rastgele oluşan dizeler alfasayısal karakter oluşturulur. Uygulamanızda ne tür bir anahtarı belirtilir, izleme kaybederseniz, şunları yapabilirsiniz [portalında anahtar değerleri kontrol](https://portal.azure.com) veya [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) anahtar türü ve değeri döndürmek için.  
 

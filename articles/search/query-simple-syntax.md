@@ -4,7 +4,7 @@ description: Azure Search'te tam metin arama sorguları için kullanılan basit 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316906"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024195"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure Search'te Basit Sorgu söz dizimi
 Azure arama, iki Lucene tabanlı sorgu dili uygular: [Basit Sorgu ayrıştırıcı](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) ve [Lucene sorgu ayrıştırıcı](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Azure Search'te belirsiz/slop seçenekleri basit sorgu söz dizimi dahil değildir.  

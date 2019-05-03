@@ -1,7 +1,7 @@
 ---
-title: Yönetme, kaydetme, dağıtma ve ML modelleri izleyin
+title: 'MLOps: Yönetme, dağıtma ve izleme ML modelleri'
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmetini dağıtmak, yönetmek ve sürekli olarak geliştirmek için Modellerinizi izleme için kullanmayı öğrenin. Yerel makinenizde veya diğer kaynaklardan Azure Machine Learning hizmeti ile eğitilmiş modeller dağıtabilirsiniz.
+description: 'Azure Machine Learning hizmeti için MLOps kullanmayı öğrenin: dağıtma, yönetme ve izleme Modellerinizi sürekli olarak iyileştirin. Yerel makinenizde veya diğer kaynaklardan Azure Machine Learning hizmeti ile eğitilmiş modeller dağıtabilirsiniz.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,101 +9,85 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 1/23/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821123"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025033"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
 Bu makalede, Azure Machine Learning hizmeti dağıtma, yönetme ve sürekli olarak geliştirmek için Modellerinizi izlemek için nasıl kullanılacağını öğrenebilirsiniz. Azure Machine Learning ile yerel makinenizde veya diğer kaynaklardan eğitilmiş modeller dağıtabilirsiniz. 
 
 Tam dağıtım iş akışı aşağıdaki diyagramda gösterilmektedir: [![Azure Machine Learning için dağıtım iş akışı](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-Dağıtım iş akışı, aşağıdaki adımları içerir:
+MLOps / dağıtımı iş akışı, aşağıdaki adımları içerir:
 1. **Modeli kaydetmeyi** , Azure Machine Learning hizmeti çalışma alanında barındırılan bir kayıt defterinde
-1. **Bir görüntüyü kaydedin** , bir model Puanlama betiğine ve taşınabilir bir kapsayıcıda bağımlılıkları ile eşleşmesini 
-1. **Dağıtma** bulutta veya uç cihazlarında bir web hizmeti olarak görüntüsü
+1. **Kullanım** bir web hizmeti bulutta, IOT cihazında veya Power BI ile analiz için model.
 1. **İzleme ve veri toplama**
 1. **Güncelleştirme** yeni görüntüyü kullanarak bir dağıtım.
 
-Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak gerçekleştirilebilir. Ayrıca, dağıtımı ile tümleştirebilirsiniz bir **CI/CD iş akışı** Bu grafikte gösterildiği gibi.
+Her adım, bağımsız olarak veya tek bir komutun parçası olarak gerçekleştirilebilir. Ayrıca, oluşturabileceğiniz bir **CI/CD iş akışı** Bu grafikte gösterildiği gibi.
 
 [!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+
+> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
 
 ## <a name="step-1-register-model"></a>1. Adım: Modeli kaydetme
 
 Model kaydı, depolamanızı ve sürüm Modellerinizi çalışma alanınızda Azure bulutunda sağlar. Model kayıt defterini düzenlemek ve eğitilen Modellerinizi izlemek kolaylaştırır.
  
-Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmetini kullanarak Python 3 yüklenen herhangi bir model destekler. 
+Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmeti yüklenen Python 3.5.2 kullanarak ya da daha yüksek olabilir herhangi bir modelini destekler.
 
-Görüntü tarafından kullanılmakta olan modeller nelze odstranit.
+Etkin bir dağıtımda kullanılmayan modelleri nelze odstranit.
 
 Daha fazla bilgi için kayıt modeli bölümüne bakın. [modelleri dağıtma](how-to-deploy-and-where.md#registermodel).
 
 Bir model pickle biçiminde depolanan kaydetme ilişkin bir örnek için bkz [Öğreticisi: Bir görüntü sınıflandırma modeli eğitme](tutorial-deploy-models-with-aml.md).
 
-ONNX modelleri kullanma hakkında daha fazla bilgi için bkz. [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
+## <a name="step-2-use-the-model"></a>2. Adım: Kullanım modeli
 
-## <a name="step-2-register-image"></a>2. Adım: Görüntüyü kaydedin
+Makine öğrenimi modelleri, Power BI gibi hizmetlerden analiz veya IOT Edge cihazlarında bir web hizmeti olarak kullanılabilir.
 
-Model kullanmak için gereken tüm bileşenler birlikte güvenilir model dağıtımı için görüntüler sağlar. Görüntü, aşağıdaki öğeleri içerir:
+### <a name="web-service"></a>Web hizmeti
 
-* Model
-* Puanlama altyapısı
-* Puanlama dosyası veya uygulama
-* Modeli Puanlama için gereken tüm bağımlılıkları
-
-Görüntü ayrıca günlüğe kaydetme ve izleme için SDK bileşenleri içerir. SDK'sı günlükleri verilerini ince ayar yapma veya giriş ve çıkış modeli de dahil olmak üzere modelinizi yeniden eğitme için kullanılabilir.
-
-Azure Machine Learning en popüler çerçeveleri destekler, ancak genel pıp'in yüklü olan herhangi bir çerçeveyi çalışabilir.
-
-Bu nedenle çalışma alanınızı oluştururken diğer birçok diğer Azure kaynakları bu çalışma alanı tarafından kullanıldı.
-Varsayılan görüntü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Ek meta veri etiketleri, görüntü oluştururken sağlayabilir. Meta veri etiketleri de görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir.
-
-Azure Container Registry'ye yüklendi ve Azure Machine Learning hizmeti tarafından kullanılan özel görüntüler de kullanabilirsiniz.
-
-Daha fazla bilgi için bkz. configure ve görüntü bölümünü kaydetmek [modelleri dağıtma](how-to-deploy-and-where.md#configureimage).
-
-## <a name="step-3-deploy-image"></a>3. Adım: Görüntüsü dağıtma
-
-Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Dağıtım işlemi modeliniz izlemek için Yük Dengeleme ve otomatik ölçeklendirme gereken tüm kaynakları oluşturur. Dağıtılan hizmetlere erişmek için sertifika tabanlı kimlik doğrulama ile güvenli hale getirilebilir dağıtım sırasında güvenlik varlıklar sağlayarak. Ayrıca, daha yeni bir görüntüyü kullanmak için mevcut bir dağıtımı yükseltebilirsiniz.
-
-Web hizmeti dağıtımları da aranabilir. Örneğin, belirli bir model veya görüntü tüm dağıtımları için arama yapabilirsiniz.
-
-[![Çıkarım hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
-
-Aşağıdaki dağıtım hedefleri bulutta görüntülerinizi dağıtabilirsiniz:
+Modellerinizi içinde kullanabileceğiniz **web Hizmetleri** hedefleri ile aşağıdaki işlem:
 
 * Azure Container Örneği
 * Azure Kubernetes Service
-* Azure FPGA makineler
-* Azure IOT Edge cihazları
 
-Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. [Hizmetinizi hakkında telemetri tutulabilir](how-to-enable-app-insights.md) çalışma alanınızla ilişkili Azure Application Insights hizmetine.
+Bir web hizmeti olarak modeli dağıtacağız için aşağıdakileri sağlamanız gerekir:
 
-Daha fazla bilgi için dağıtma bölümüne bakın. [modelleri dağıtma](how-to-deploy-and-where.md#deploy).
+* Model veya modellerin topluluğu.
+* Model kullanmak için gerekli bağımlılıkları. Örneğin, istekleri kabul eder ve çağıran conda bağımlılıklarını, modeli bir betik vb.
+* Nasıl ve nerede açıklayan bir dağıtım yapılandırması model dağıtma.
 
-## <a name="step-4-monitor-models-and-collect-data"></a>4. Adım: İzleyici modeller ve veri toplama
+Daha fazla bilgi için [modelleri dağıtma](how-to-deploy-and-where.md).
 
-Giriş, çıkış ve diğer ilgili veri modelinizden izleyebilmek model günlük ve veri yakalama için bir SDK'sı kullanılabilir. Veriler, çalışma alanınız için Azure depolama hesabındaki bir blob olarak depolanır.
+### <a name="iot-edge-devices"></a>IoT Edge cihazları
 
-Modelinizi SDK'yı kullanmak için SDK, Puanlama betik veya uygulamanızı almanız gerekir. Ardından SDK parametre sonuçları ya da giriş ayrıntıları gibi verileri günlüğe kaydetmek için de kullanabilirsiniz.
+Modeller IOT cihazları ile kullanabileceğiniz **Azure IOT Edge modülleri**. IOT Edge modülleri, cihazdaki çıkarım sağlayan donanım cihazlarının dağıtılır.
 
-Görüntüyü dağıtmak her zaman model verisi toplamayı etkinleştir karar verirseniz, kimlik bilgileri, kişisel blob mağazası gibi verilerini yakalamak için gerekli ayrıntıları otomatik olarak sağlanır.
+Daha fazla bilgi için [modelleri dağıtma](how-to-deploy-and-where.md).
 
-> [!Important]
-> Microsoft modelinizden topladığı verileri görmez. Çalışma alanınız için Azure depolama hesabına doğrudan bir veri gönderilmedi.
+### <a name="analytics"></a>Analiz
+
+Microsoft Power BI, verileri analiz için makine öğrenimi modelleri kullanarak destekler. Daha fazla bilgi için [Power BI (Önizleme) Azure Machine Learning tümleştirme](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="step-3-monitor-models-and-collect-data"></a>3. Adım: İzleyici modeller ve veri toplama
+
+İzleme, hangi veri modeliniz ve döndürdüğü Öngörüler gönderildiğini anlamanıza olanak tanır.
+
+Bu bilgiler, modelinizi nasıl kullanıldığını anlamanıza yardımcı olur. Toplanan giriş veri modelinin eğitim gelecekteki sürümlerinde yararlı olabilir.
 
 Daha fazla bilgi için [model verileri toplamayı etkinleştirme](how-to-enable-data-collection.md).
 
-## <a name="step-5-update-the-deployment"></a>5. Adım: Güncelleştirme dağıtımı
+## <a name="step-4-update-the-deployment"></a>4. Adım: Güncelleştirme dağıtımı
 
-Modelinizi güncelleştirmeleri otomatik olarak kayıtlı değil. Benzer şekilde, yeni bir görüntü kayıt otomatik olarak görüntü önceki bir sürümünden oluşturulan dağıtımlar güncelleştirmez. Bunun yerine, el ile modeli kaydedin, görüntüyü kaydetmeniz ve ardından modeli güncelleştirmek gerekir. Daha fazla bilgi için güncelleştirme bölümünü [modelleri dağıtma](how-to-deploy-and-where.md#update).
+Dağıtımları açıkça güncelleştirilmesi gerekir. Daha fazla bilgi için güncelleştirme bölümünü [modelleri dağıtma](how-to-deploy-and-where.md#update).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

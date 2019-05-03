@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753788"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023659"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench’te neler oldu?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Eski model kayıt defterinizde kayıtlı modelleri, bunları kullanmaya devam etmek istiyorsanız yeni çalışma alanınıza geçirilmelidir. Modellerinizi geçirmek için modelleri indirin ve bunları yeni çalışma alanınızda yeniden kaydedin. 
 
-Eski görüntü kayıt defterinizde oluşturduğunuz görüntüleri kullanmaya devam etmek için, bunların yeni çalışma alanında yeniden oluşturulması gerekir. Bu görüntüler aşağıdaki kullanarak yeniden oluşturabilirsiniz [yapılandırma ve görüntü oluşturma](how-to-deploy-and-where.md#configureimage) bölümler. 
+Eski görüntü kayıt defterinizde oluşturulan görüntüleri doğrudan yeni çalışma alanına geçirilemez. Çoğu durumda, model bir görüntü oluşturmaya gerek olmadan dağıtılabilir. Gerekirse, yeni bir çalışma alanında modeli için bir görüntü oluşturabilirsiniz. Daha fazla bilgi için [yönetin, kaydetme, dağıtma ve izleme makine öğrenimi modelleri](concept-model-management-and-deployment.md).
 
 ## <a name="what-about-deployed-web-services"></a>Dağıtılan web hizmetlerine ne oldu?
 

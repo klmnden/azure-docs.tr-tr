@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916987"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023375"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için CLI uzantısını kullanma
 
@@ -80,7 +80,6 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     ```
 
 + Bir çalışma alanı yapılandırması CLI bağlamsal tanıma etkinleştirmek için bir klasöre bağlayın.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Bir AKS kümesi bir işlem hedefi olarak ekleyin.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Yeni bir AMLcompute hedefi oluşturma
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Çalıştırma denemeleri
-
-+ Bir çalışma alanı yapılandırması CLI bağlamsal tanıma etkinleştirmek için bir klasöre bağlayın.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Çalıştırma denemenizi başlatın. Bu komutu kullanırken runconfig dosyasının adını belirtin (metinden önce \*dosya sisteminizin arıyorsanız .runconfig) karşı - c parametresi.
 
@@ -123,7 +110,7 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Model kaydı, profil oluşturma, dağıtım
+## <a name="model-registration-profiling--deployment"></a>Model kaydı, profil oluşturma ve dağıtım
 
 Aşağıdaki komutlar, eğitilen bir modeli kaydedin ve ardından bunu bir üretim hizmeti dağıtacağız göstermektedir:
 

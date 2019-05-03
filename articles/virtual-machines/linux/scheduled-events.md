@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924386"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993158"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -46,7 +46,7 @@ Zamanlanmış olaylar ile uygulamanız, bakım zaman ve ortaya etkisini sınırl
 
 Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 
-- Platform tarafından başlatılan Bakım (örneğin, bir konak işletim sistemi güncelleştirmesi)
+- [Platform tarafından başlatılan Bakım](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (örneğin, VM yeniden başlatma, dinamik geçiş veya ana bilgisayar güncelleştirmeleri koruma bellek)
 - Düzeyi düşürülmüş donanım
 - Kullanıcı tarafından başlatılan Bakım (örneğin, bir kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 - [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/blog/low-priority-scale-sets) içinde ölçek kümeleri
@@ -58,6 +58,7 @@ Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 ### <a name="scope"></a>Kapsam
 Zamanlanmış olaylar teslim edilir:
 
+- Tek başına sanal makineler.
 - Tüm VM'lerin bir bulut hizmetinde.
 - Tüm VM'lerin bir kullanılabilirlik kümesinde.
 - Tüm VM'lerin bir ölçek kümesi yerleştirme grubu. 
@@ -129,7 +130,7 @@ Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir.
 |Özellik  |  Açıklama |
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
+| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU ve ağ bağlantısı askıya alınabilir, ancak bellek veya açık dosyaları üzerinde etkisi yoktur.<li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
 | ResourceType | Bu olayın etkileyen kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olayın etkileyen kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır. Olay, olay sona erdiğinde artık döndürülür.

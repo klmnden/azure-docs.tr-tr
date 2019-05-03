@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637527"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021946"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Kullanım dışı Bilişsel arama yetenekleri
 
@@ -31,7 +31,7 @@ Bu belgede, kullanım dışı olarak kabul edilir bilişsel yetenekleri açıkla
 
 ### <a name="last-available-api-version"></a>Son kullanılabilir API sürümü
 
-2017-11-11-Önizleme
+2019-05-06-Önizleme
 
 ### <a name="end-of-support"></a>Destek sonu
 
@@ -43,7 +43,8 @@ Kullanım [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-
 
 Öğesine geçirmeyi [varlık tanıma beceri](cognitive-search-skill-entity-recognition.md), bir veya daha fazla yetenek tanımı aşağıdaki değişiklikleri gerçekleştirmeniz gerekecektir. Beceri tanımı kullanarak güncelleştirebilirsiniz [güncelleştirme beceri kümesi API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Not_: Şu anda, kavram olarak güvenilirlik puanı desteklenmiyor. Yakın gelecekte desteklenecektir. `minimumPrecision` Parametresi var. `EntityRecognitionSkill` ve gelecekte kullanım için geriye dönük uyumluluk.
+> [!NOTE]
+> Şu anda, kavram olarak güvenilirlik puanı desteklenmiyor. `minimumPrecision` Parametresi var. `EntityRecognitionSkill` ve gelecekte kullanım için geriye dönük uyumluluk.
 
 1. *(Gerekli)*  Değişiklik `@odata.type` gelen `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` için `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

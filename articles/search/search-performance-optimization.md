@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283596"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024560"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Dağıtım stratejilerini ve Azure Arama performansını iyileştirmek için en iyi uygulamalar
 
@@ -81,7 +81,7 @@ Kullanarak ya da oluşan dağıtılmış arama hizmetlerinizi eşitlenmiş tutma
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Birden çok hizmet içeriği güncelleştirmek için dizin oluşturucular kullanma
 
-Bir hizmette, dizin oluşturucu zaten kullanıyorsanız aynı konumdan veri çekmek aynı veri kaynağı nesnesi kullanmak için ikinci bir hizmet ikinci bir dizin oluşturucusunu yapılandırabilirsiniz. Her bölgede her hizmetin kendi dizin oluşturucu ve bir hedef dizin vardır (, arama topluluğunuza paylaşılmaz, yinelenen veriler anlamına gelir), ancak her dizin oluşturucu, aynı veri kaynağına başvuruyor.
+Bir hizmette, dizin oluşturucu zaten kullanıyorsanız aynı konumdan veri çekmek aynı veri kaynağı nesnesi kullanmak için ikinci bir hizmet ikinci bir dizin oluşturucusunu yapılandırabilirsiniz. Her bölgede her hizmetin kendi dizin oluşturucu ve bir hedef dizin vardır (search dizininizi paylaşılmaz, yinelenen veriler anlamına gelir), ancak her dizin oluşturucu, aynı veri kaynağına başvuruyor.
 
 Mimari aşağıdaki gibi görünür, üst düzey bir görseli aşağıda verilmiştir.
 

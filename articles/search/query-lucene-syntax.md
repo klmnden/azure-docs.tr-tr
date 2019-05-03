@@ -4,7 +4,7 @@ description: Azure Search ile kullanılan tam Lucene sözdizimi için başvuru.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317592"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024237"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search'te Lucene sorgu sözdizimi
 Azure arama sorguları dayalı zengin üzerinde yazma [Lucene sorgu ayrıştırıcısına](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) özel sorgu formları için söz dizimi: joker karakter, belirsiz arama, yakınlık araması, normal ifadeler birkaç örnek verilmiştir. Lucene sorgu ayrıştırıcısına sözdizimi çok [bozulmadan Azure Search'te uygulanan](search-lucene-query-architecture.md), dışında *aralığı aramaları* Azure Search ile oluşturulmuş `$filter` ifadeler. 
@@ -42,13 +42,13 @@ Aşağıdaki örnek, yetkisiz değiştirmeye karşı korumalı Lucene sorgu söz
 `searchMode=all` Parametresi, bu örnekte ilgili. Sorgu işleçleri söz konusu olduğunda, genellikle ayarlamalısınız `searchMode=all` emin olmak için *tüm* ölçütleriyle eşleşen.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  Alternatif olarak, POST kullanın:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",

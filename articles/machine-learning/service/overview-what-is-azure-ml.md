@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.reviewer: jmartens
-author: garyericson
-ms.author: garye
-ms.date: 12/04/2018
+author: j-martens
+ms.author: jmartens
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753571"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025309"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -30,53 +29,69 @@ Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha 
 
 ## <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
-Azure Machine Learning hizmeti, veri hazırlama, eğitme, test, dağıtma, yönetme ve makine öğrenimi modelleri izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar.
+Azure Machine Learning hizmeti, veri hazırlama, eğitme, test, dağıtma, yönetme ve makine öğrenimi modelleri izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar. Yerel makinenizde eğitim başlatın ve sonra ölçeği buluta genişletme. Hizmeti tamamen PyTorch, TensorFlow ve scikit gibi açık kaynak teknolojilerini destekler-bilgi edinin ve machine learning, derin öğrenme için Klasik ml ile her türlü kullanılabilir, denetimli ve Denetimsiz öğrenme. 
 
-[![Azure Machine Learning hizmeti iş akışı](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
-
-Azure Machine Learning hizmeti tamamen açık kaynak teknolojilerini destekler. Bu nedenle, makine öğrenimi bileşenleri on binlerce açık kaynak Python paketlerini kullanabilirsiniz. Örnekler PyTorch, TensorFlow ve scikit-öğrenin.
-Zengin Araçlar desteği etkileşimli olarak keşfedin ve verileri hazırlama geliştirme ve test modelleri daha kolay hale getirir. Örnekler [Jupyter not defterleri](https://jupyter.org) veya [Visual Studio Code için Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) uzantısı.
-Azure Machine Learning hizmeti ayrıca kolaylık, verimlilik ve doğrulukla modeller oluşturmanıza yardımcı olan [model oluşturma ve ayarlama işlemini otomatik hale getiren](tutorial-auto-train-models.md) özellikler içerir.
-
-Azure Machine Learning hizmetini kullanarak, yerel makinenizde eğitim başlatın ve sonra ölçeği buluta genişletme. Kullanılabilir birçok [hedefleri işlem](how-to-set-up-training-targets.md), ister Azure Machine Learning işlem ve [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)ile [Hizmetleri ayarlama hiper parametre Gelişmiş](how-to-tune-hyperparameters.md), oluşturabileceğinizi bulutun gücünü kullanarak daha hızlı bir şekilde daha iyi modelleri.
-
-Doğru modeli kullandığınızda, Docker gibi bir kapsayıcıya kolayca dağıtabilirsiniz. Bu nedenle, Azure Container Instances veya Azure Kubernetes hizmeti dağıtmak basit bir işlemdir. Veya kendi dağıtımlarda, şirket içinde veya bulutta kapsayıcı kullanabilirsiniz. Daha fazla bilgi için makaleye bakın [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md).
-
-Dağıtılan modellerinde yönetebilir ve en uygun çözümü bulmak için denerken birden çok çalıştırma izleyin.
-Modeliniz dağıtıldıktan sonra elde edilmesi de döndürebilir [gerçek zamanlı](how-to-consume-web-service.md) veya [zaman uyumsuz olarak](how-to-run-batch-predictions.md) büyük miktarlarda veri çubuğunda.
-
-İle Gelişmiş [makine öğrenimi işlem hatları](concept-ml-pipelines.md), veri hazırlama, model eğitiminin ve değerlendirme ve dağıtım tüm adımları üzerinde işbirliği yapabilirsiniz.
+Keşfedin ve veri hazırlamasını, eğitin ve test modelleri ve bunları dağıtma gibi zengin araçlar kullanarak:
++ A [görsel arabirim](ui-quickstart-run-experiment.md) , denemelerinizi oluşturmak ve ardından dağıtmak için sürükle ve bırak modüllerini yapabilecekleriniz de modeller
++ [Jupyter not defterleri](https://jupyter.org) hangi kullanma [SDK'ları](https://docs.microsoft.com/azure/machine-learning/service/#reference) gibi kendi kodunuzu yazma için [Bu örnek Not Defterleri](https://aka.ms/aml-notebooks)
++ [Visual Studio Code uzantısı](how-to-vscode-tools.md)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile neler yapabilirim?
 
-Kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">ana Python SDK'sını</a> ve <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK'sını</a> Azure Machine Learning yanı sıra açık kaynak Python paketlerini, derleme ve yüksek oranda doğru makine öğrenimi ve derin öğrenme modelleri eğitme kendiniz bir Azure Machine Learning hizmetinde çalışma alanı.
-Aşağıdaki örnekler gibi açık kaynak Python paketlerini de kullanılabilen bileşenler birçok makine arasından seçim yapabilirsiniz:
+Kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> açık kaynak Python paketlerini veya kullanarak [görsel arabirim (Önizleme)](ui-quickstart-run-experiment.md), derleme ve yüksek oranda doğru makine öğrenimi ve derin öğrenme eğitin kendiniz bir Azure Machine Learning hizmetinde çalışma alanı modeller.
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
-- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
-- <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://mxnet.io" target="_blank">MXNet</a>
+Açık kaynak Python paketlerini kullanılabilen birçok makine öğrenme bileşenler gibi seçebileceğiniz <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-öğrenme</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>ve <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Azure Machine Learning hizmeti aynı zamanda autotrain bir model ve Otomatik Ayarla bunu sizin için.
-Bir örnek için bkz. [otomatik machine learning ile bir regresyon modeli Eğitimi](tutorial-auto-train-models.md).
+Kod yazın veya görsel arabirimini kullanın yanı sıra en iyi çözüm bulmak için dağıtılan modelleri Yönet denerken birden çok çalıştırma izleyebilirsiniz.
 
-Bir modeli oluşturduktan sonra yerel olarak test etmek için dağıtılabilecek Docker gibi bir kapsayıcı oluşturmak için kullanın. Test tamamlandıktan sonra bir üretim web hizmetine veya Azure Container Instances, hem de Azure Kubernetes hizmeti olarak modeli dağıtabilirsiniz. Daha fazla bilgi için makaleye bakın [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md).
+### <a name="code-first-experience"></a>Kod öncelikli deneyimi
 
-Dağıtılan Modellerinizi kullanarak yönetebileceğiniz sonra [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) veya [Azure portalında](https://portal.azure.com/).
-Modelin denemeleri tümünü havada modeli ölçümler, retrain ve yeniden dağıtma modeli yeni sürümlerini değerlendirebilirsiniz.
+Eğitimini kullanarak, yerel makinede Başlat <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK'sı</a> ve sonra ölçeği buluta genişletme. Kullanılabilir birçok [hedefleri işlem](how-to-set-up-training-targets.md), ister Azure Machine Learning işlem ve [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)ile [Hizmetleri ayarlama hiper parametre Gelişmiş](how-to-tune-hyperparameters.md), oluşturabileceğinizi bulutun gücünü kullanarak daha hızlı bir şekilde daha iyi modelleri.
+
+Ayrıca [model eğitiminin ve ayarlama otomatikleştirmek](tutorial-auto-train-models.md) SDK'sını kullanarak.
+
+### <a name="code-free--low-code-experience"></a>Kodsuz / düşük kod deneyimi
+
+Kod gerektirmeyen eğitimi deneyin:
+
++ N-sürükle ve bırak denemek ve dağıtım için görsel arabirim
+    
+    ![Azure Machine Learning hizmeti için görsel arabirim](media/overview-what-is-azure-ml/visual-interface.png)
+
++ Azure portal seçeneği otomatik ML denemeleri
+
+### <a name="operationalization-mlops"></a>Kullanıma hazır hale getirme (MLOps)
+
+Doğru modeli kullandığınız zaman kolayca bunu IOT cihazında veya Power bı'dan bir web hizmeti kullanabilirsiniz. Daha fazla bilgi için makaleye bakın [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md). 
+
+Dağıtılan Modellerinizi kullanarak yönetebileceğiniz sonra [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) veya [Azure portalında](https://portal.azure.com/). 
+
+Bu modeller tüketilebilir ve dönüş içinde Öngörüler [gerçek zamanlı](how-to-consume-web-service.md) veya [zaman uyumsuz olarak](how-to-run-batch-predictions.md) büyük miktarlarda veri çubuğunda.
+
+İle Gelişmiş [makine öğrenimi işlem hatları](concept-ml-pipelines.md), veri hazırlama, model eğitiminin ve değerlendirme, dağıtım yoluyla her adımında işbirliği yapabilir.
 
 Azure Machine Learning hizmeti ile çalışmaya başlamak için bkz: [sonraki adımlar](#next-steps).
 
-## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Azure Machine Learning hizmetini Machine Learning Studio'dan farklı mı?
+## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Azure Machine Learning hizmeti Studio'dan farkı nedir?
 
-[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) Burada, oluşturabilir, test ve kod yazmaya gerek kalmadan, makine öğrenimi çözümleri dağıtma bir işbirliğine dayalı, sürükle ve bırak visual çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış makine öğrenimi algoritmaları ve veri işleme modüllerini kullanır.
+[Machine Learning Studio](../studio/what-is-ml-studio.md) Burada, oluşturabilir, test ve kod yazmaya gerek kalmadan, makine öğrenimi çözümleri dağıtma bir işbirliğine dayalı, sürükle ve bırak visual çalışma alanıdır. Önceden oluşturulmuş ve önceden yapılandırılmış bir makine öğrenme algoritmalarını kullanır ve bir özel yanı sıra veri işleme modülleri platform işlem.
 
-Makine öğrenimi modelleri ile hızlı ve kolay bir şekilde deneme yapmak istediğinizde ve yerleşik makine öğrenimi algoritmaları çözümleriniz için yeterli olduğunda Machine Learning Studio’yu kullanın.
+Azure Machine Learning hizmeti sağlar hem SDK'ları **- ve -** hızla veri hazırlama için bir görsel interface(preview) eğitme ve makine öğrenimi modelleri dağıtın. Bu görsel bir arabirim (Önizleme) Studio'ya benzer bir Sürükle ve bırak deneyimi sağlar. Ancak, özel işlem platform Studio, farklı görsel arabirim kendi işlem kaynakları kullanır ve Azure Machine Learning hizmetinde tam olarak tümleşiktir.
 
-Bir Python ortamında çalışıyorsanız, makine öğrenimi algoritmalarınız üzerinde daha fazla denetime sahip olmak istiyorsanız veya açık kaynaklı makine öğrenimi kitaplıkları kullanmak istiyorsanız, Machine Learning hizmetini kullanın.
+Hızlı bir karşılaştırması aşağıdadır.
+
+|| Machine Learning Studio | Azure Machine Learning hizmeti:<br/>Görsel arabirim|
+|---| --- | --- |
+|| Genel kullanıma (GA) | Önizleme aşamasında|
+|Modüller için arabirimi| Many | İlk dizi popüler modülleri|
+|Eğitim işlem hedefleri| Özel işlem hedefi, yalnızca CPU desteği| Azure Machine Learning işlem, GPU veya CPU destekler.<br/>(Desteklenen SDK'yı diğer hesaplar)|
+|Dağıtım işlem hedefleri| Özel web hizmeti biçimi, özelleştirilemeyen | Kurumsal güvenlik seçenekleri ve Azure Kubernetes hizmeti. <br/>([Diğer hesaplar](how-to-deploy-and-where.md) desteklenen SDK'sı) |
+|Otomatik model eğitiminin ve hiper parametre ayarı | Hayır | Henüz visual arabiriminde. <br/> (SDK ve Azure Portalı'nda desteklenmiyor.) | 
+
+Görsel arabirim (Önizleme) ile denemeye [hızlı başlangıç: Hazırlama ve kod yazmaya gerek kalmadan verileri görselleştirin](ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> Azure Machine Learning Studio'da oluşturulan modeller dağıtılan veya Azure Machine Learning hizmeti tarafından yönetilir.
+> Modelleri Studio'da oluşturulan dağıtılmış veya Azure Machine Learning hizmeti tarafından yönetilir. Ancak, oluşturulan ve dağıtılan hizmet visual arabiriminde modelleri Azure Machine Learning hizmeti çalışma yönetilebilir.
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
 

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: dabae62b9e308bc97850ee36fa735b8a11c4d6f0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118227"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020960"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Android'de Java konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Android Bilişsel hizmetler konuşma SDK'sı kullanmaya yönelik bir Java uygulaması geliştirme öğreneceksiniz.
-Uygulama, konuşma SDK Maven paketini, sürüm 1.4.0 ve Android Studio 3.3 temel alır.
+Uygulama, konuşma SDK Maven paketini, sürüm 1.5.0 ve Android Studio 3.3 temel alır.
 Konuşma SDK’sı şu anda 32/64 bit ARM işlemcilerine sahip Android cihazlarıyla ve Intel x86/x64 uyumlu işlemcilerle uyumludur.
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Android Studio’nun yeni Android projenizi hazırlaması biraz zaman alır. Dah
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.4.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.5.0`.
 
 Android Speech SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkları ve Android gerekli izinleri içerir.
 Https Maven deponun barındırılan:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -65,7 +65,7 @@ Konuşma SDK’sını kullanmak için projenizi ayarlayın. Android Studio menü
 
    ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Açılan pencerede Android için Konuşma SDK’mızın adını ve sürümünü (`com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`) girin. Sonra **Tamam**’ı seçin.
+1. Açılan pencerede Android için Konuşma SDK’mızın adını ve sürümünü (`com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`) girin. Sonra **Tamam**’ı seçin.
    Artık, aşağıda gösterildiği gibi Konuşma SDK’sı bağımlılıklar listesine eklenmiş olmalıdır:
 
    ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

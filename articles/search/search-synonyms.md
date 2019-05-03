@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281811"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024303"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search'te eş anlamlıları
 
@@ -23,11 +23,13 @@ Arama motorları anlamlı örtük olarak terimi aslında sağlamak zorunda kulla
 
 Azure Search'te eş anlamlı genişletme sorgu zamanında gerçekleştirilir. Eş anlamlı sözcük eşlemelerini hiçbir aksamasıyla mevcut işlemleri ile ilgili bir hizmete ekleyebilirsiniz. Ekleyebileceğiniz bir **synonymMaps** dizini yeniden oluşturmak zorunda kalmadan bir alan tanımı özelliği.
 
-## <a name="feature-availability"></a>Özellik kullanılabilirliği
+## <a name="create-synonyms"></a>Eş Anlamlılar oluşturma
 
-Eş Anlamlılar özelliğini en son api-version desteklenir (API Sürüm 2017-11-11 =). Şu anda Azure portalı desteği yoktur.
+Eş Anlamlılar oluşturmak için portalı desteği yoktur, ancak REST API'si veya .NET SDK'sını kullanabilirsiniz. REST ile çalışmaya başlamak için öneririz [Postman kullanarak](search-fiddler.md) ve bu API'yi kullanarak istekleri, oluşumunu: [Eş anlamlı haritaları](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). İçin C# geliştiriciler, başlayabilirsiniz ile [Azure arama'yı kullanarak eş anlamlılar eklemek C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Azure Search'te eş anlamlıları kullanma
+İsteğe bağlı olarak kullanıyorsanız [müşteri tarafından yönetilen anahtarlar](search-security-manage-encryption-keys.md) Hizmet tarafı şifreleme bekleyen için bu koruma, eş anlamlı eşlemi içeriğini uygulayabilirsiniz.
+
+## <a name="use-synonyms"></a>Eş anlamlıları kullanma
 
 Azure Search'te eş anlamlı sözcük desteği, tanımladıktan sonra hizmetinize karşıya eş anlamlı eşlemeleri temel alır. Bu eşlemeler (dizinlere veya veri kaynakları için gibi) bağımsız bir kaynak oluşturur ve aranabilir alanların herhangi birinde arama hizmetinizdeki herhangi bir dizinde tarafından kullanılabilir.
 
@@ -49,7 +51,7 @@ Eş anlamlı sözcük eşlemelerini, aşağıda açıklandığı Apache Solr bi�
 
 Aşağıdaki örnekte olduğu gibi HTTP POST kullanan yeni bir eş anlamlı eşlemi oluşturabilirsiniz:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Aşağıdaki örnekte olduğu gibi HTTP POST kullanan yeni bir eş anlamlı eşl
 
 Alternatif olarak, PUT kullanıp URİ'SİNDE eş anlamlı eşlemi adı belirtin. Eş anlamlı eşlemi mevcut değilse oluşturulur.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,7 +76,7 @@ Alternatif olarak, PUT kullanıp URİ'SİNDE eş anlamlı eşlemi adı belirtin.
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr eş anlamlı biçimi
 
-Solr biçimi eşdeğer ve açık bir eş anlamlı sözcük eşlemelerini destekler. Apache Solr, bu belgede açıklanan açık kaynak eş anlamlı filtre belirtimi için eşleme kurallarını uyar: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Aşağıda bir örnek için eşdeğer eş anlamlılar kuralıdır.
+Solr biçimi eşdeğer ve açık bir eş anlamlı sözcük eşlemelerini destekler. Eşleme kuralları, bu belgede açıklanan Apache Solr'ın açık kaynak eş anlamlı filtresi için belirtime: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Aşağıda bir örnek için eşdeğer eş anlamlılar kuralıdır.
 ```
 USA, United States, United States of America
 ```
@@ -88,24 +90,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste eş anlamlı hizmetinizin altında eşler.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Bir eş anlamlı eşlemi hizmetinizdeki alın.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Bir eş anlamlılar harita hizmetinizdeki silin.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Dizin tanımında eş anlamlı eşlemini kullanacak aranabilir bir alan yapılandırın.
 
 Yeni bir alan özelliği **synonymMaps** aranabilir bir alanı için kullanılacak bir eş anlamlı eşlemi belirtmek için kullanılabilir. Eş anlamlı sözcük eşlemelerini hizmet düzeyi kaynaklarıdır ve bir dizin hizmeti altındaki herhangi bir alan tarafından başvurulabilir.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

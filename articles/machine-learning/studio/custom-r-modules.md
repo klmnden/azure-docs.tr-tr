@@ -1,7 +1,7 @@
 ---
 title: Özel R modülleri tanımlayın
 titleSuffix: Azure Machine Learning Studio
-description: Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar.
+description: Bu konuda, yazar ve özel bir R Studio dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751214"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025056"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Özel R modülleri Azure Machine Learning Studio'da tanımlayın
 
-Bu konuda, yazar ve Azure Machine Learning Studio'da özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
+Bu konuda, yazar ve özel bir R Studio dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
 
 
 
@@ -225,7 +225,7 @@ Ve doğru sırada 'CustomAddRows.R' listesinde nesneleri listesini döndürür:
 ### <a name="arguments"></a>Bağımsız Değişkenler
 Ek veri içinde tanımlanan modül parametrelerini aracılığıyla R işleve geçirilebilir **bağımsız değişkenleri** öğesi. Bir modül seçildiğinde, bu parametreleri Machine Learning UI en sağdaki özellikleri bölmesinde görünür. Bağımsız değişkenler desteklenen türlerden biri olabilir veya gerektiğinde özel bir sabit listesi oluşturabilirsiniz. Benzer şekilde **bağlantı noktaları** öğeleri **bağımsız değişkenleri** öğeleri isteğe bağlı olarak olabilir **açıklama** fareyi üzerine geldiğinizde görüntülenen metni belirtir öğesi parametre adı.
 DefaultValue minValue ve maxValue gibi bir modül için isteğe bağlı özellikler olarak öznitelikleri için herhangi bir bağımsız değişken eklenebilir bir **özellikleri** öğesi. Geçerli özellikleri **özellikleri** öğesi bağımsız değişken türüne bağlıdır ve sonraki bölümde desteklenen bağımsız değişken türleriyle açıklanmıştır. Bağımsız değişkenlerle **isteğe bağlıdır** özelliğini **"true"** bir değer girmesini gerektirmez. Bağımsız değişkeni için bir değer sağlanmazsa, bağımsız değişken için giriş noktası işlevini geçirilir değil. İsteğe bağlı bağımsız değişkenleri, giriş noktası işlevini açıkça varsayılan değeri NULL giriş noktası işlev tanımında örn: atanan işlev tarafından ele alınması gerekir. İsteğe bağlı bağımsız değişken, yalnızca bir değer kullanıcı tarafından sağlanmışsa diğer bağımsız değişken kısıtlamaları, yani min veya max, zorlar.
-Giriş ve çıkışları'te olduğu gibi ile her parametrelerinin ilişkili benzersiz bir kimlik değerleri olması önemlidir. Hızlı Başlangıç örneğimizde ilişkili kimliği/parametre olduğu *takas*.
+Giriş ve çıkışları'te olduğu gibi ile her parametrelerinin ilişkili benzersiz kimliği değerler olması önemlidir. Hızlı Başlangıç örneğimizde ilişkili kimliği/parametre olduğu *takas*.
 
 ### <a name="arg-element"></a>Arg öğesi
 Bir modül parametresi kullanılarak tanımlanır **Arg** alt öğesi **bağımsız değişkenleri** XML tanım dosyasının bir bölümünde. Alt öğeleri ile **bağlantı noktaları** parametrelerinde sıralama bölümü **bağımsız değişkenleri** bölümü UX'i içinde karşılaştı düzenini tanımlar Parametreleri en üstünden aşağı XML dosyasında tanımlanan aynı sırada kullanıcı Arabiriminde görünür. Parametreler için makine öğrenimi tarafından desteklenen türleri burada listelenir. 

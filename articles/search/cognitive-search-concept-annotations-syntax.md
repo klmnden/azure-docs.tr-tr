@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344215"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023870"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Bilişsel arama standartlarındaki şu ek açıklamalarda başvuru yapma
 
@@ -36,13 +36,13 @@ Söz dizimi gözden geçirilmeden önce bu makalenin sonraki bölümlerinde sağ
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Örnek 1: Basit bir ek açıklama başvurusu
 
-Azure Blob Depolama alanında, adlandırılmış varlık tanıma ile ayıklamak istediğiniz kişilerin adları başvuruları içeren dosyaları çeşitli olduğunu varsayalım. Aşağıdaki beceri tanımındaki `"/document/content"` tüm belgeyi değerinin metinsel gösterimini ve "Kişiler" ise bir ayıklama kişileri olarak tanımlanan varlıklar için tam ad.
+Azure Blob Depolama alanında, varlık tanıma ile ayıklamak istediğiniz kişilerin adları başvuruları içeren dosyaları çeşitli olduğunu varsayalım. Aşağıdaki beceri tanımındaki `"/document/content"` tüm belgeyi değerinin metinsel gösterimini ve "Kişiler" ise bir ayıklama kişileri olarak tanımlanan varlıklar için tam ad.
 
 Varsayılan bağlamı olduğundan `"/document"`, kişilerin listesini artık olarak başvurulabilir `"/document/people"`. Bu belirli durumda `"/document/people"` artık bir alanda dizin eşlendi veya başka bir beceri aynı beceri kümesi içinde kullanılan bir ek açıklaması.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +98,7 @@ Ek açıklamalar, dizi veya dize koleksiyonları olduğunda, bir bütün olarak 
 
 Bazen belirli bir nitelik geçirilecek belli bir türdeki tüm ek açıklamaları grubu gerekir. Örnek 2'de ayıklanan son adlarından en yaygın Soyadı tanımlayan kuramsal özel bir yetenek göz önünde bulundurun. Özel nitelik yalnızca son adlar sağlamak için bağlamı olarak belirtin. `"/document"` ve giriş olarak `"/document/people/*/lastname"`.
 
-Unutmayın önem düzeyini `"/document/people/*/lastname"` belge büyük. Bu belge için yalnızca bir belge düğümü varken 10 lastname düğümü olabilir. Bu durumda, sistem bir dizi otomatik olarak oluşturur `"/document/people/*/lastname"` belgedeki tüm öğeleri içeren.
+Dikkat edin önem düzeyini `"/document/people/*/lastname"` belge büyük. Bu belge için yalnızca bir belge düğümü varken 10 lastname düğümü olabilir. Bu durumda, sistem bir dizi otomatik olarak oluşturur `"/document/people/*/lastname"` belgedeki tüm öğeleri içeren.
 
 ```json
   {

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443000"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992784"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Hızlı Başlangıç: Kullanıcılar oturum ve JavaScript tek sayfalı uygulama (SPA) bir erişim belirteci alma
 
@@ -49,7 +49,7 @@ Bu Hızlı Başlangıç için aşağıdaki Kurulum gerekir:
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 > 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
-> 1. Yeni Git [Azure Portalı - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) bölmesi.
+> 1. Yeni Git [Azure Portalı - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) bölmesi.
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'e tıklayın.
 > 1. Yönergeleri izleyerek yeni uygulamanızı tek tıkla indirin ve otomatik olarak yapılandırın.
 >
@@ -81,27 +81,32 @@ Bu Hızlı Başlangıç için aşağıdaki Kurulum gerekir:
 #### <a name="step-2-download-the-project"></a>2. Adım: Projenizi indirin
 
 Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsiniz.
-* [-Web sunucusu, Node.js gibi core proje dosyaları indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Core proje dosyaları indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip), Node.js kullanarak bir web sunucusu ile çalıştırın. Dosyaları açmaya gibi bir düzenleyici kullanın [Visual Studio Code](https://code.visualstudio.com/).
 
-Örneğin, bir yerel klasör zip dosyasını ayıklayın **C:\Azure-Samples**.
-Dosyaları klasöre açmak için gibi bir düzenleyici kullanın [Visual Studio Code](https://code.visualstudio.com/).
+* (İsteğe bağlı) [Visual Studio projeyi indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)IIS sunucusu ile çalıştırmak için. Örneğin, bir yerel klasör zip dosyasını ayıklayın **C:\Azure-Samples**.
+
+
 
 #### <a name="step-3-configure-your-javascript-app"></a>3. Adım: JavaScript uygulamanızı yapılandırın
 
 > [!div renderon="docs"]
-> Klasörü altında *JavaScriptSPA*, Düzenle `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `applicationConfig`.
+> Klasörü altında *JavaScriptSPA*, Düzenle `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `msalConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Klasörü altında *JavaScriptSPA*, Düzen `index.html` değiştirin `applicationConfig` ile:
+> Klasörü altında *JavaScriptSPA*, Düzen `index.html` değiştirin `msalConfig` ile:
 
 ```javascript
-var applicationConfig = {
-    clientID: "Enter_the_Application_Id_here",
-    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
 };
+
 ```
 > [!div renderon="docs"]
 >
@@ -110,10 +115,11 @@ var applicationConfig = {
 > - `Enter_the_Tenant_Info_Here` - aşağıdaki seçeneklerden birine ayarlanır:
 >   - Uygulamanız **Bu kuruluş dizinindeki hesapları** destekliyorsa, bu değeri **Kiracı Kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com) ile değiştirin
 >   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
->   - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesaplarını** destekliyorsa bu değeri `common` ile değiştirin
+>   - Uygulamanız destekliyorsa **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**, bu değeri ile değiştirin `common`. İçin desteği kısıtlamak için *kişisel Microsoft hesapları yalnızca*, bu değeri ile değiştirin `consumers`.
 >
 > > [!TIP]
 > > **Uygulama (istemci) Kimliği**, **Dizin (kiracı) Kimliği** ve **Desteklenen hesap türleri** değerlerini bulmak için Azure portalında uygulamanın **Genel bakış** sayfasına gidin.
+>
 
 #### <a name="step-4-run-the-project"></a>4. Adım: Projeyi çalıştırma
 
@@ -141,13 +147,16 @@ Tarayıcıda uygulama yüklendikten sonra tıklayın **oturum**.  İlk kez oturu
 MSAL, kullanıcılar ve belirteçler Microsoft kimlik platformu tarafından korunan bir API'ye erişmek için kullanılan istek imzalamak için kullanılan kitaplığıdır. Hızlı Başlangıç'ın *index.html* kitaplığına bir başvuru içerir:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
 ```
+> [!TIP]
+> Yukarıdaki sürüm altında yayımlanan en son sürümünü değiştirebilirsiniz [MSAL.js sürümleri](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Alternatif olarak, yüklü bir düğüm varsa, npm indirebilirsiniz:
+
+Alternatif olarak, yüklü düğüm varsa, npm aracılığıyla en son önizleme sürümünü indirebilirsiniz:
 
 ```batch
-npm install msal
+npm install msal@preview
 ```
 
 ### <a name="msal-initialization"></a>MSAL başlatma
@@ -155,29 +164,48 @@ npm install msal
 Hızlı Başlangıç kod ayrıca kitaplığı başlatılamıyor işlemini gösterir:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
+};
+
+var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
 > |Konum  |  |
 > |---------|---------|
 > |`ClientId`     |Azure portalına kaydedilen uygulamaya ait Uygulama Kimliği|
-> |`authority`    |Yetkilisi URL'dir. Geçirme *null* varsayılan yetkilisi ayarlar `https://login.microsoftonline.com/common`. Uygulamanız tek kiracılı (bir dizinde hedefleme hesapları) ise, bu değeri ayarlamak `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`tokenReceivedCallback`| Kimlik doğrulaması uygulamaya geri yönlendirir sonra çağrılan geri çağırma yöntemi. Burada, `acquireTokenRedirectCallBack` geçirilir. LoginPopup kullanıyorsanız bu yöntem null.|
-> |`options`  |İsteğe bağlı parametreler koleksiyonu. Bu durumda `storeAuthStateInCookie` ve `cacheLocation` isteğe bağlı bir yapılandırmadır. Bkz: [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) seçenekleri hakkında daha fazla ayrıntı için. |
+> |`authority`    | (İsteğe bağlı) Bu hesap türlerini destekleyecek şekilde yapılandırma bölümü açıklanan şekilde yetkilisi URL'dir. Varsayılan yetkilisi `https://login.microsoftonline.com/common`. |
+> |`cacheLocation`  | (İsteğe bağlı) Bu tarayıcı depolama kimlik doğrulama durumu için ayarlar. SessionStorage varsayılandır.   |
+> |`storeAuthStateInCookie`  | (İsteğe bağlı) Tarayıcı tanımlama bilgileri kimlik doğrulama akışları doğrulanması için gerekli kimlik doğrulama isteği durumu kitaplığı depolar. Bu belirli azaltmak IE ve Edge tarayıcılarda ayarlanır [bilinen sorunlar](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+
+ Bkz: [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) yapılandırılabilir seçenekleri hakkında daha fazla ayrıntı için.
 
 ### <a name="sign-in-users"></a>Kullanıcılar oturum
 
 Aşağıdaki kod parçacığı, kullanıcılarının oturumunu açmak gösterilmektedir:
 
 ```javascript
-myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
-    //Callback code here
-})
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.loginPopup(request).then(function (loginResponse) {
+    //Login Success callback code here
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Konum  |  |
 > |---------|---------|
-> | `scopes`   | (İsteğe bağlı) Oturum açma zaman kullanıcı onayı için istenen kapsamlarını içerir. Örneğin, `[ "user.read" ]` Microsoft Graph için veya `[ "<Application ID URL>/scope" ]` özel Web API'leri için (diğer bir deyişle, `api://<Application ID>/access_as_user` ). Burada, `applicationConfig.graphScopes` geçirilir. |
+> | `scopes`   | (İsteğe bağlı) Oturum açma zaman kullanıcı onayı için istenen kapsamlarını içerir. Örneğin, `[ "user.read" ]` Microsoft Graph için veya `[ "<Application ID URL>/scope" ]` özel Web API'leri için (diğer bir deyişle, `api://<Application ID>/access_as_user` ). |
 
 > [!TIP]
 > Alternatif olarak kullanmak isteyebilirsiniz `loginRedirect` geçerli sayfa bir açılan pencere yerine oturum açma sayfasına yeniden yönlendirmek için yöntemi.
@@ -191,14 +219,21 @@ MSAL belirteçlerini almak için kullanılan üç yöntem vardır: `acquireToken
 `acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginRedirect` veya `loginPopup` yöntemi ilk kez yürütüldüğünde `acquireTokenSilent` yapılan sonraki çağrılar için korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir. Veya belirteçleri yenileme isteği için çağrıları sessizce yapılır.
 
 ```javascript
-myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
     // Callback code here
-})
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Konum  |  |
 > |---------|---------|
-> | `scopes`   | API için erişim belirtecinde döndürülecek istenen kapsamlarını içerir. Örneğin, `[ "user.read" ]` Microsoft Graph için veya `[ "<Application ID URL>/scope" ]` özel Web API'leri için (diğer bir deyişle, `api://<Application ID>/access_as_user`). Burada, `applicationConfig.graphScopes` geçirilir.|
+> | `scopes`   | API için erişim belirtecinde döndürülecek istenen kapsamlarını içerir. Örneğin, `[ "user.read" ]` Microsoft Graph için veya `[ "<Application ID URL>/scope" ]` özel Web API'leri için (diğer bir deyişle, `api://<Application ID>/access_as_user`).|
 
 #### <a name="get-a-user-token-interactively"></a>Etkileşimli olarak kullanıcı belirteci alma
 
@@ -207,16 +242,22 @@ Kullanıcıları, Microsoft kimlik platformu uç ile etkileşim kurmak için ger
 * Uygulamanız, kullanıcıya onay için gereken ek kaynak kapsamlar için erişim izni isteme
 * İki faktörlü kimlik doğrulama gerektiğinde
 
-Uygulamaların çoğu için önerilen ve normal desenin çağırmaktır `acquireTokenSilent` ilk olarak, daha sonra özel durumu yakalar ve sonra çağrı `acquireTokenRedirect` (veya `acquireTokenPopup`) etkileşimli bir isteği başlatmak için.
+Uygulamaların çoğu için önerilen ve normal desenin çağırmaktır `acquireTokenSilent` ilk olarak, daha sonra özel durumu yakalar ve sonra çağrı `acquireTokenPopup` (veya `acquireTokenRedirect`) etkileşimli bir isteği başlatmak için.
 
-Çağırma `acquireTokenPopup(scope)` oturum açmak için bir açılan pencere sonuçlanıyor (veya `acquireTokenRedirect(scope)` sonuçları kullanıcılarını Microsoft kimlik platformu uç noktaya yönlendirme içinde) kullanıcılar için ya da kimlik bilgilerini onaylayarak etkileşim kurmak gereken yere onayı gerekli verme Kaynak veya iki faktörlü kimlik doğrulaması tamamlanıyor.
+Çağırma `acquireTokenPopup` oturum açmak için bir açılan pencere sonuçlanıyor (veya `acquireTokenRedirect` sonuçları kullanıcılarını Microsoft kimlik platformu uç noktaya yönlendirme içinde) kullanıcılar için ya da kimlik bilgilerini onaylayarak etkileşim kurmak gereken yere onayı gerekli verme Kaynak veya iki faktörlü kimlik doğrulaması tamamlanıyor.
 
 ```javascript
-myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
-    // Callback code here
-})
-```
+var request = {
+    scopes: ["user.read"]
+};
 
+myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+    // Callback code here
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
+```
 > [!NOTE]
 > Bu hızlı başlangıçta kullanılmaktadır `loginRedirect` ve `acquireTokenRedirect` kullanılan tarayıcı nedeni Internet Explorer olduğunda yöntemleri bir [bilinen sorun](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) açılır pencereleri işlenmesi için Internet Explorer tarayıcı tarafından ilgili.
 

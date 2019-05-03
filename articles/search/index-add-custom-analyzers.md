@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914917"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021669"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
@@ -300,7 +300,7 @@ Aşağıdaki tabloda, Apache Lucene uygulanan karakter filtreleri Lucene API bel
 |[Eşleme](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Char filtre eşlemeleri seçeneğiyle tanımlanmış eşlemeleri için geçerlidir. Eşleştirme (bir belirli noktaya kazandı doyumsuz uzun desen) değildir. Yedek, boş dize izin verilmez.<br /><br /> **Seçenekler**<br /><br /> eşlemeleri (tür: dize dizisi)-aşağıdaki biçimde eşlemeleri listesi: "bir = > b" (tüm örneklerini "a" değiştirilir "b" karakteri ile karakter). Gereklidir.|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Giriş dizesindeki bir karakter değiştirir char filtre. Değiştirilecek korumak için karakter dizileri tanımlamak için normal bir ifade ve karakter tanımlamak için bir değiştirme deseni kullanır. Örneğin, metin girişi "aa bb aa bb", = pattern="(aa)\\\s+(bb)" değiştirme = "$1 # 2$" sonuç "aa #bb aa #bb" =.<br /><br /> **Seçenekler**<br /><br /> Desen (tür: string) - gerekli.<br /><br /> değiştirme (tür: string) - gerekli.|  
 
- <sup>1</sup> filtre türleri char her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "MappingCharFilter" "#Microsoft.Azure.Search.MappingCharFilter. gerçekten belirtilecek şekilde Tablonun genişliğini azaltır, ancak gönderdiğinizden kodunuza ekleyin için önek kaldırdık. Bu char_filter_type yalnızca özelleştirilebilir filtreleri için sağlanan unutmayın. Varsa hiçbir seçenek html_strip olduğu gibi ilişkili #Microsoft.Azure.Search türü yoktur.
+ <sup>1</sup> filtre türleri char her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "MappingCharFilter" "#Microsoft.Azure.Search.MappingCharFilter. gerçekten belirtilecek şekilde Tablonun genişliğini azaltır, ancak gönderdiğinizden kodunuza ekleyin için önek kaldırdık. Bu char_filter_type yalnızca özelleştirilebilir filtreleri için sağlanan dikkat edin. Varsa hiçbir seçenek html_strip olduğu gibi ilişkili #Microsoft.Azure.Search türü yoktur.
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ Aşağıdaki tabloda, Apache Lucene kullanılarak gerçekleştirilen oluşturma 
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL'ler ve e-postaları bir belirteç olarak tokenizes.<br /><br /> **Seçenekler**<br /><br /> maxTokenLength (tür: int)-en fazla belirteç uzunluğu. Varsayılan: 255, en fazla: 300. Belirteçleri uzunluk üst sınırından daha uzun bölünür.|  
 |[Boşluk](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(türü yalnızca seçenekleri kullanılabilir olduğunda geçerlidir) |Boşlukta metin ayıran. 255 karakterden uzun belirteçleri bölünür.|  
 
- <sup>1</sup> simgeleştirici türlerini her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "ClassicTokenizer" aslında "#Microsoft.Azure.Search.ClassicTokenizer" belirtilecek şekilde. Tablonun genişliğini azaltır, ancak gönderdiğinizden kodunuza ekleyin için önek kaldırdık. Bu tokenizer_type yalnızca özelleştirilebilen oluşturma denenmeden sağlanan unutmayın. Varsa hiçbir seçenek harf simgeleştirici olduğu gibi ilişkili #Microsoft.Azure.Search türü yoktur.
+ <sup>1</sup> simgeleştirici türlerini her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "ClassicTokenizer" aslında "#Microsoft.Azure.Search.ClassicTokenizer" belirtilecek şekilde. Tablonun genişliğini azaltır, ancak gönderdiğinizden kodunuza ekleyin için önek kaldırdık. Bu tokenizer_type yalnızca özelleştirilebilen oluşturma denenmeden sağlanan dikkat edin. Varsa hiçbir seçenek harf simgeleştirici olduğu gibi ilişkili #Microsoft.Azure.Search türü yoktur.
 
 <a name="TokenFilters"></a>
 

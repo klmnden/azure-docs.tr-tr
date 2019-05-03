@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193156"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024631"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**,  **Standart**, veya **depolama için iyileştirilmiş** fiyatlandırma katmanları.
@@ -50,7 +50,10 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 | Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |10 |10 |
-| Dizin başına en fazla alanları |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Dizin başına en fazla basit alanlar |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Dizin başına en fazla karmaşık koleksiyon alanları |40 |40 |40 |40 |40 |40 |40 |40 |
+| Belge başına tüm karmaşık koleksiyonlar arasında en yüksek öğe |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Karmaşık alanlarının en büyük derinliği |10 |10 |10 |10 |10 |10 |10 |10 |
 | En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1. |1. |1. |1. |1. |1. |1 |
 | En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |8 |8 |

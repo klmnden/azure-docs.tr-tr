@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282164"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024381"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST Öğreticisi: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama
 
@@ -27,9 +27,6 @@ Bu öğreticide, [Azure Search REST API'lerini](https://docs.microsoft.com/rest/
 > * Aranabilir içeriğe sahip bir Azure Search dizini oluşturma
 > * Yapılandırma ve çalıştırma kapsayıcısını ve Azure blob depolama alanından aranabilir içeriği ayıklamak için dizin oluşturucu
 > * Oluşturduğunuz dizini arama
-
-> [!NOTE]
-> Bu öğreticide, şu anda Azure Search’te önizleme özelliği olan JSON dizisi desteğinden yararlanılmaktadır. Portalda kullanılma sunulmamıştır. Bu nedenle, API’yi çağırmak için REST istemci aracını ve bu özelliği sağlayan önizleme REST API’sini kullanıyoruz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -81,7 +78,7 @@ Bu öğreticideki her çağrı için istek yöntemi **POST**. Üst bilgi anahtar
 
 Arama hizmetinize üç API çağrısı yaparak veri kaynağı, dizin ve dizin oluşturucu oluşturmak için Postman kullanıyoruz. Veri kaynağı, depolama hesabınıza ve JSON verilerinize yönelik bir işaretçi içerir. Arama hizmetiniz, veriler yüklenirken bağlantı kurar.
 
-Sorgu dizesi API önizlemesi içermelidir (gibi **api sürümü = 2017-11-11-Preview**) ve her çağrının döndürmelidir bir **201 oluşturuldu**. Genel olarak kullanılabilir olan api sürümü henüz json’ı jsonArray olarak işleme yeteneğine sahip değildir, şu anda yalnızca önizleme api sürümü bu yeteneğe sahiptir.
+Sorgu dizeleri, bir API sürümü ve her çağrının belirtmelisiniz döndürmelidir bir **201 oluşturuldu**. Genel kullanıma sunulan API kullanarak JSON dizileri için sürümü `2019-05-06`.
 
 REST istemcinizden aşağıdaki üç API çağrısını yürütün.
 
@@ -89,7 +86,7 @@ REST istemcinizden aşağıdaki üç API çağrısını yürütün.
 
 [Veri kaynağı API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source)hangi verilerin dizininin oluşturulacağını belirtir bir Azure Search nesnesi oluşturur.
 
-Bu çağrının uç noktası: `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin. 
+Bu çağrının uç noktası: `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin. 
 
 Bu çağrı için istek gövdesi, depolama hesabı, depolama hesabı anahtarı ve blob kapsayıcısı adı adını içermelidir. Depolama hesabı anahtarı, Azure portalında depolama hesabınızın **Erişim Anahtarları** bölümünde bulunur. Aşağıdaki resimde konum gösterilmektedir:
 
@@ -132,7 +129,7 @@ Yanıt şöyle görünmelidir:
     
 İkinci çağrı [oluşturma dizini API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Search dizini oluşturma, tüm aranabilir verileri depolar. Dizin, tüm parametreleri ve parametrelerin özniteliklerini belirtir.
 
-Bu çağrının URL’si: `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
+Bu çağrının URL’si: `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
 
 İlk olarak URL’yi değiştirin. Daha sonra aşağıdaki kodu kopyalayıp gövdeye yapıştırın ve sorguyu çalıştırın.
 
@@ -222,7 +219,7 @@ Yanıt şöyle görünmelidir:
 
 Bir dizin oluşturucu veri kaynağına bağlanır, hedef search dizinine verileri alır ve isteğe bağlı olarak veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. REST API [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Bu çağrının URL’si: `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
+Bu çağrının URL’si: `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. `[service name]` değerini, arama hizmetinizin adıyla değiştirin.
 
 İlk olarak URL’yi değiştirin. Daha sonra kopyalayın ve aşağıdaki kodu kopyalayıp gövdeye yapıştırın ve istek gönderin. İstek hemen işlenir. Yanıt geri geldiğinde, tam metin dizin olacaktır aranabilir.
 
@@ -267,7 +264,7 @@ Yanıt şöyle görünmelidir:
 
 Azure portalında arama hizmeti **genel bakış** sayfasında, oluşturduğunuz dizin Bul **dizinleri** listesi.
 
-Yeni oluşturduğunuz dizin seçtiğinizden emin olun. API sürümü, preview veya genel kullanıma sunulan sürümü olabilir. JSON dizileri dizin oluşturma için yalnızca önizleme gereksinim oluştu.
+Yeni oluşturduğunuz dizin seçtiğinizden emin olun. 
 
   ![Yapılandırılmamış arama](media/search-semi-structured-data/indexespane.png)
 

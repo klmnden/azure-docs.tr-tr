@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344555"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024595"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
@@ -28,8 +28,7 @@ Bilişsel hizmetler API'leri için ilgisi olmayan beceriler işlem hattınızı 
 > [!NOTE]
 > İşlem, daha fazla belgelerin eklenmesi veya daha fazla yapay ZEKA algoritmalarının ekleme sıklığı artırarak kapsamı genişletin gibi Faturalanabilir bir Bilişsel hizmetler kaynağı eklemek gerekir. API'leri, Bilişsel hizmetler ve Azure Search'te belge çözme aşamasının bir parçası olarak görüntü ayıklama çağırırken ücretler tahakkuk. Metin ayıklama belgelerden için ücretlendirme yoktur.
 >
-> Yürütülmesini [bilişsel yerleşik yetenek](cognitive-search-predefined-skills.md) yürütme ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services), adresindeki görevi doğrudan gerçekleştirilen gibi aynı oranı. Görüntü ayıklama olan yansıtılan bir Azure Search ücret [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400).
-
+> Yerleşik yetenek yürütülmesi sırasında mevcut ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/). Görüntü ayıklama fiyatlandırma üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Ücretsiz kaynakları kullan
 
@@ -100,7 +99,7 @@ Becerilerine program aracılığıyla tanımlarken ekleme bir `cognitiveServices
 Aşağıdaki örnek, bu deseni gösterir. CognitiveServices bölümü tanımı alt kısmındaki dikkat edin.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Bilişsel arama dizinleme ile ilişkili maliyetleri tahmin etmek için bazı say
 + Sayfa (6000 görüntüleri) başına tek bir görüntü
 + Sayfa başına 3000 karakter
 
-Resim ve metin ayıklama görüntüleri, optik karakter tanıma (OCR) ile her PDF çözme ve adlandırılmış varlık tanıma, kuruluşların belge oluşan bir işlem hattı varsayılır. 
+Resim ve metin ayıklama, optik karakter tanıma (OCR) görüntüleri ile her PDF belgesi engellemelerine ve varlık tanıma, kuruluşların oluşan bir işlem hattı varsayılır. 
 
 Bu alıştırmada, işlem başına en pahalı fiyat kullanıyoruz. Gerçek maliyet kademeli fiyatlandırması nedeniyle daha düşük olabilir. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services).
 

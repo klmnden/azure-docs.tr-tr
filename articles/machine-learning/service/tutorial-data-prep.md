@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764598"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025104"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -41,18 +41,16 @@ Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuy
     * Azure Machine Learning Python için veri hazırlığı SDK'sı
 * Öğretici not defteri
 
-Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
-
-* Kullanım [Azure Not Defterleri](#azure)
+* Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
 * Kullanım [kendi not defteri sunucusu](#server)
 
-### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
+### <a name="azure"></a>Çalışma alanınızda bir bulut not defteri sunucusu kullan
 
-Azure not defterleri ile başlamak kolaydır! Azure Machine Learning veri hazırlığı SDK'sı zaten yüklü ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
-
-Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** Not Defteri, **Başlarken** proje.
+Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Not Defteri Web sayfası başlattıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** dizüstü bilgisayar.
 
 ### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
 

@@ -1,7 +1,7 @@
 ---
 title: Bir Azure Cosmos DB veri kaynağı - Azure Search dizini
 description: Bir Azure Cosmos DB veri kaynağında gezinen ve Azure Search'te tam metin arama yapılabilir bir dizin verileri alma. Dizin oluşturucular veri alımı Azure Cosmos DB gibi seçili veri kaynakları için otomatik hale getirin.
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871732"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024710"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search Dizin Oluşturucu kullanarak Cosmos DB dizinleme
 
@@ -122,9 +122,8 @@ MongoDB değerlendiriyorsanız veri kaynağını oluşturmak için REST API'sini
 
 Cosmos DB hesabınızdaki tüm belgelerin otomatik olarak dizinini koleksiyonu isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, tüm belgelerin otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı kapatabilirsiniz. Dizin oluşturmayı devre dışı bırakıldığında, belgelerin yalnızca aracılığıyla erişilebilen kendi kendine bağlantılar veya belge kullanarak sorgular tarafından kimliği Azure arama, Cosmos DB, Azure Search tarafından dizine koleksiyonda açık dizin otomatik gerektirir. 
 
-> [!NOTE]
-> Azure Cosmos DB, documentdb'nin yeni nesil olur. Ürün adı değiştirilmiş olsa da, `documentdb` söz dizimi Azure Search dizin oluşturucularında hala var için geriye dönük uyumluluk Azure arama API'leri ve portal sayfaları. Dizin oluşturucular yapılandırırken belirttiğinizden emin olun `documentdb` bu makalede anlatılan şekilde bir söz dizimi.
-
+> [!WARNING]
+> Azure Cosmos DB, documentdb'nin yeni nesil olur. API sürümü ile daha önce **2017-11-11** kullanabileceğinizi `documentdb` söz dizimi. Bu, veri kaynağı türü olarak belirtebilirsiniz geliyordu `cosmosdb` veya `documentdb`. API sürümünden itibaren **2019-05-06** yalnızca Azure arama API'leri ve Portal Destek `cosmosdb` bu makalede anlatılan şekilde bir söz dizimi. Bu veri kaynağı türü gerektiğini anlamına gelir. `cosmosdb` bir Cosmos DB uç noktasını bağlamak istiyorsanız.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - giriş istek için bir araya getirin
 
@@ -150,13 +149,13 @@ A **veri kaynağı** dizin ve kimlik bilgilerini (örneğin, değiştirilen veya
 
 Bir veri kaynağı oluşturmak için bir POST isteği düzenleme:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -171,8 +170,8 @@ Bir veri kaynağı oluşturmak için bir POST isteği düzenleme:
 
 | Alan   | Açıklama |
 |---------|-------------|
-| **Adı** | Gereklidir. Veri kaynağı nesnesinin temsil etmek için herhangi bir ad seçin. |
-|**type**| Gereklidir. Olmalıdır `documentdb`. |
+| **name** | Gereklidir. Veri kaynağı nesnesinin temsil etmek için herhangi bir ad seçin. |
+|**type**| Gereklidir. Olmalıdır `cosmosdb`. |
 |**Kimlik bilgileri** | Gereklidir. Bir Cosmos DB bağlantı dizesi olmalıdır.<br/>SQL koleksiyonlar için bağlantı dizesi bu biçimdedir: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB koleksiyonu için ekleyin **api türü MongoDb =** bağlantı dizesi:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Uç nokta URL'si bağlantı noktası numaralarını kaçının. Bağlantı noktası numarası dahil, Azure Search, Azure Cosmos DB veritabanının dizinini oluşturmak mümkün olmayacaktır.|
 | **Kapsayıcı** | Aşağıdaki öğeleri içerir: <br/>**Ad**: Gereklidir. Sıralanacak veritabanı koleksiyonu kimliği belirtin.<br/>**Sorgu**: İsteğe bağlı. Azure Search'ün dizin bir düz şemasına rastgele bir JSON belgesi düzleştirmek için sorgu belirtebilirsiniz.<br/>MongoDB koleksiyonlar, sorgular desteklenmez. |
 | **dataChangeDetectionPolicy** | Önerilir. Bkz: [değiştirilen belgeler dizin](#DataChangeDetectionPolicy) bölümü.|
@@ -193,7 +192,7 @@ Bir veri kaynağı oluşturmak için bir POST isteği düzenleme:
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 Filtre sorgusu:
@@ -219,7 +218,7 @@ Düzleştirme sorgu dizisi:
 
 [Hedef Azure Search dizini oluşturma](/rest/api/searchservice/create-index) zaten yoksa. Aşağıdaki örnek, bir kimlik ve açıklama alanı ile bir dizin oluşturur:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -263,13 +262,13 @@ Hedef dizin şemasını kaynak JSON belgelerinin şemasını veya kendi özel so
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Koleksiyondan silinen satır, normalde arama dizini de satırları silmek istedi
 
 Aşağıdaki örnek, bir veri kaynağı bir geçici silme ilkesi oluşturur:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343352"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023849"
 ---
 # <a name="custom-web-api-skill"></a>Özel Web API'si beceri
 
-**Özel Web API'si** beceri özel işlemler sağlayan bir web API'si uç noktasını çağırarak bilişsel arama genişletmenizi sağlar. Yerleşik yetenekler, benzer bir **özel Web API'si** yeteneğe sahip giriş ve çıkışları. Dizin Oluşturucu çalıştırıldığında girişleri bağlı olarak, web API'NİZİN bir JSON yükü alır ve bir başarı durum kodu ile birlikte bir yanıt olarak bir JSON yükü çıkarır. Yanıt, özel becerilerinizi tarafından belirtilen çıkışınızın beklenir. Başka bir yanıtı bir hata olarak kabul edilir ve hiçbir zenginleştirmelerinin gerçekleştirilir.
+**Özel Web API'si** beceri özel işlemler sağlayan bir Web API uç noktası çağırarak bilişsel arama genişletmenizi sağlar. Yerleşik yetenekler, benzer bir **özel Web API'si** yeteneğe sahip giriş ve çıkışları. Dizin Oluşturucu çalıştırıldığında girişleri bağlı olarak, Web API'niz bir JSON yükü alır ve bir başarı durum kodu ile birlikte bir yanıt olarak bir JSON yükü çıkarır. Yanıt, özel becerilerinizi tarafından belirtilen çıkışınızın beklenir. Başka bir yanıtı bir hata olarak kabul edilir ve hiçbir zenginleştirmelerinin gerçekleştirilir.
 
 JSON yükü yapısını daha da aşağı bu belgede açıklanan.
 
@@ -38,7 +38,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
-| uri | URI'nin Web API hangi _JSON_ yükü gönderilir. Yalnızca **https** URI şeması izin verilir |
+| uri | Web API'sine URI'sini _JSON_ yükü gönderilir. Yalnızca **https** URI şeması izin verilir |
 | HttpMethod | Yükü gönderilirken kullanılacak yöntem. İzin verilen yöntemler `PUT` veya `POST` |
 | httpHeaders | Burada anahtarları üst bilgi adları ve değerleri temsil eden anahtar-değer çiftleri koleksiyonu yükün yanı sıra Web apı'nize gönderilen üstbilgi değerlerini temsil eder. Bu koleksiyonda yüklenmesini şu Yasak: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (İsteğe bağlı) Belirtilen zaman aşımı için http İstemcisi API çağrısı yapma gösterir. Bir XSD "dayTimeDuration" değeri biçimlendirilmelidir (sınırlı bir alt kümesini bir [ISO 8601 süre](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) değeri). Örneğin, `PT60S` 60 saniye. Aksi durumda, küme, varsayılan değer 30 saniye olarak seçilir. Zaman aşımı, 90 saniyelik en fazla ve en az 1 saniye için ayarlanabilir. |
@@ -139,10 +139,10 @@ Ayrıca, bu kısıtlamaları her zaman izler:
 
 ## <a name="sample-output-json-structure"></a>Örnek çıktı JSON yapısı
 
-"Çıktı", Web'den döndürülen yanıtı karşılık gelen API. Web API yalnızca döndürmelidir bir _JSON_ Yükü (bakarak doğrulandı `Content-Type` yanıt üst bilgisi) ve aşağıdaki kısıtlamalar karşılaması gerekir:
+"Çıktı" Web API'nizi döndürülen yanıtı karşılık gelir. Web API'sini yalnızca döndürmelidir bir _JSON_ Yükü (bakarak doğrulandı `Content-Type` yanıt üst bilgisi) ve aşağıdaki kısıtlamalar karşılaması gerekir:
 
 * Adlı en üst düzey bir varlık olmalıdır `values` nesneleri içeren bir dizi olmalıdır.
-* Dizideki nesne sayısını Web'e gönderilen nesne sayısı ile aynı olmalıdır API.
+* Dizideki nesne sayısını Web API'ye gönderilen nesne sayısı ile aynı olması gerekir.
 * Her bir nesnenin sahip olmanız gerekir:
    * A `recordId` özelliği
    * A `data` alanların zenginleştirmelerinin olduğu bir nesne özelliğinin "adı" içinde eşleşen `output` ve değeri zenginleştirme olarak kabul edilir.

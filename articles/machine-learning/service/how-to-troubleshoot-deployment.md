@@ -9,20 +9,20 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925378"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023665"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
 
-Bu makalede, geçici bir çözüm veya Azure Container Instances'a (ACI) ve Azure Machine Learning hizmetini kullanarak Azure Kubernetes Service (AKS) ile ortak Docker dağıtım hatalarını çözmek öğreneceksiniz.
+Geçici çözüm veya Azure Container Instances'a (ACI) ve Azure Machine Learning hizmetini kullanarak Azure Kubernetes Service (AKS) ile ortak Docker dağıtım hatalarını çözmek öğrenin.
 
-Azure Machine Learning hizmetinde bir model dağıtımına, sistemin bir dizi görevi gerçekleştirir. Bu karmaşık bir olay dizisi ve bazen sorunları ortaya çıkar. Dağıtım görevleri şunlardır:
+Azure Machine Learning hizmetinde bir model dağıtımına, sistemin bir dizi görevi gerçekleştirir. Dağıtım görevleri şunlardır:
 
 1. Çalışma alanı model kayıt defterinde modeli kaydedin.
 
@@ -33,6 +33,9 @@ Azure Machine Learning hizmetinde bir model dağıtımına, sistemin bir dizi g�
     4. Dockerfile'ı kullanarak yeni bir Docker görüntüsü oluşturun.
     5. Çalışma alanı ile ilişkili Azure Container Registry ile Docker görüntü kaydedin.
 
+    > [!IMPORTANT]
+    > Kodunuzu bağlı olarak, görüntü oluşturma durum otomatik olarak girişinizi.
+
 3. Docker görüntüsünü Azure Container örneği (ACI) hizmetine veya Azure Kubernetes Service (AKS) dağıtın.
 
 4. Yeni bir kapsayıcı (veya kapsayıcıları) ACI veya AKS başlatın. 
@@ -41,9 +44,9 @@ Bu işlem hakkında daha fazla bilgi [Model Yönetimi](concept-model-management-
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Herhangi bir sorun çalıştırırsanız, yapılacak ilk şey dağıtım görevi bölmektir (önceki açıklanmıştır) sorunu ayırt etmek için tek tek adımlara. 
+Herhangi bir sorun çalıştırırsanız, yapılacak ilk şey dağıtım görevi bölmektir (önceki açıklanmıştır) sorunu ayırt etmek için tek tek adımlara.
 
-Kullanıyorsanız yararlıdır `Webservice.deploy` API veya `Webservice.deploy_from_model` olduğundan, bu işlevler, tek bir eyleme yukarıda sözü edilen adımları gruplamak API. Genellikle bu API'leri kullanışlıdır ancak bunları değiştirerek sorun giderme adımları kesilecek şekilde yardımcı olan API çağrılarının aşağıda.
+Dağıtım görevlerinizde iyice bozucu kullanıyorsanız yararlı [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API veya [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, Bu işlevlerden her ikisini gerçekleştirmek yukarıda sözü edilen adımlardan bir tek bir eylem. Genellikle bu API'leri kullanışlıdır ancak bunları değiştirerek sorun giderme adımları kesilecek şekilde yardımcı olan API çağrılarının aşağıda.
 
 1. Modeli kaydedin. Bazı örnek kodlar aşağıda verilmiştir:
 
@@ -86,7 +89,8 @@ Kullanıyorsanız yararlıdır `Webservice.deploy` API veya `Webservice.deploy_f
 Tek tek görevler dağıtım işlemine aşağı kıran sonra en yaygın hataların bazıları göz atabilirsiniz.
 
 ## <a name="image-building-fails"></a>Görüntü oluşturma başarısız
-Sistem, Docker görüntüsünü derleyin kaydedemediği `image.wait_for_creation()` çağrı bazı ipuçları sunduğu bazı hata iletileri ile başarısız olur. Görüntü oluşturma günlüğü hataları ile ilgili daha fazla ayrıntı bulabilirsiniz. Aşağıda bazı örnek kodlar görüntü derleme günlük URI'si bulma göstermez.
+
+Docker görüntüsünü alınamazsa [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) veya [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) çağrı bazı ipuçları sunduğu bazı hata iletileri ile başarısız olur. Görüntü oluşturma günlüğü hataları ile ilgili daha fazla ayrıntı bulabilirsiniz. Aşağıda bazı örnek kodlar görüntü derleme günlük URI'si bulma göstermez.
 
 ```python
 # if you already have the image object handy
@@ -99,13 +103,14 @@ print(ws.images['myimg'].image_build_log_uri)
 for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
+
 Görüntü günlük URI'si, Azure blob Depolama'nızda depolanan bir günlük dosyasına işaret eden bir SAS URL'si ' dir. Yalnızca kopyalama ve yapıştırma URI ve bir tarayıcı penceresi içinde indirin ve günlük dosyasını görüntüleyin.
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure anahtar kasası erişim ilkesi ve Azure Resource Manager şablonları
 
-Azure anahtar kasası erişim ilkesi ile ilgili bir sorun nedeniyle görüntü derleme de başarısız olabilir. Çalışma alanı ve ilişkili kaynakları (Azure anahtar kasası dahil), birden çok kez oluşturmak için bir Azure Resource Manager şablonu kullandığınızda, bu durum oluşabilir. Örneğin, şablon bir sürekli tümleştirme ve dağıtım işlem hattı bir parçası olarak aynı parametrelere sahip birden çok kez kullanma.
+Azure anahtar kasası erişim ilkesi ile ilgili bir sorun nedeniyle görüntü derleme de başarısız olabilir. Çalışma alanı ve ilişkili kaynakları (Azure anahtar kasası dahil), birden çok kez oluşturmak için bir Azure Resource Manager şablonu kullandığınızda, bu durum ortaya çıkabilir. Örneğin, şablon bir sürekli tümleştirme ve dağıtım işlem hattı bir parçası olarak aynı parametrelere sahip birden çok kez kullanma.
 
-Şablonlar aracılığıyla çoğu kaynak oluşturma işlemleri bir kere etkili olur, ancak anahtar kasası erişim ilkeleri şablon kullanılan her zaman temizler. Bu erişim keser kullandığı tüm mevcut bir çalışma alanı için Key vault'a. Yeni görüntüleri oluşturmaya çalıştığınızda bu hatalara neden olur. Alabileceğiniz hataların örnekleri şunlardır:
+Şablonlar aracılığıyla çoğu kaynak oluşturma işlemleri bir kere etkili olur, ancak anahtar kasası erişim ilkeleri şablon kullanılan her zaman temizler. Key Vault kullandığı tüm mevcut bir çalışma alanı için erişim ilkeleri sonları erişimi temizleniyor. Yeni görüntüleri oluşturmaya çalıştığınızda bu durum hatalara neden olur. Alabileceğiniz hataların örnekleri şunlardır:
 
 __Portal__:
 ```text
@@ -144,16 +149,81 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 Bu sorunu önlemek için aşağıdaki yaklaşımlardan birini önerilir:
 
 * Şablon, birden çok kez aynı parametreleri dağıtılmaz. Veya bunları yeniden oluşturmak için bu şablonu kullanmadan önce var olan kaynakları silin.
-* Anahtar kasası erişim ilkelerini incelemek ve bunu ayarlamak için kullanın `accessPolicies` özelliği.
+* Anahtar kasası erişim ilkelerini inceleyin ve ardından bu ilkeleri ayarlamak için `accessPolicies` özelliği.
 * Key Vault kaynağı zaten mevcut olup olmadığını denetleyin. Varsa, şablonu aracılığıyla yeniden oluşturmayın. Örneğin, zaten varsa, anahtar kasası kaynak oluşturma devre dışı bırakmanıza olanak tanıyan bir parametre ekleyin.
 
-## <a name="service-launch-fails"></a>Hizmet başlatma başarısız
-Görüntü başarıyla oluşturulduktan sonra sistem ACI veya AKS Dağıtım yapılandırmanıza bağlı olarak bir kapsayıcı başlatma girişiminde bulunur. ACI dağıtım daha basit bir tek kapsayıcı dağıtımı olduğundan ilk olarak, denemek için önerilir. Bu şekilde tüm AKS özgü sorunu çıkarabilirsiniz.
+## <a name="debug-locally"></a>Yerel olarak hata ayıklama
 
-Kapsayıcı başlatma artırma işleminin bir parçası olarak `init()` işlevi Puanlama komut dosyanızdaki sistem tarafından çağrılır. İçinde yakalanmamış istisnalar varsa `init()` görebileceğiniz işlev **CrashLoopBackOff** hata hata iletisi. Sorun gidermenize yardımcı olacak birkaç ipucu aşağıda verilmiştir.
+ACI veya AKS için bir model dağıtımına sorunlarla karşılaşırsanız, bir yerel web hizmeti olarak dağıtmayı deneyin. Bir yerel web hizmeti kullanarak, sorunlarını gidermek kolaylaştırır. Modeli içeren bir Docker görüntüsü indirilir ve yerel sisteminizde başlatıldı.
 
-### <a name="inspect-the-docker-log"></a>Docker günlüğünü inceleyin
-Hizmet nesnesinden ayrıntılı Docker altyapısı günlük iletilerini yazdırabilirsiniz.
+> [!IMPORTANT]
+> Yerel web hizmeti dağıtımları, çalışan bir yerel sisteminizde Docker yükleme gerektirir. Bir yerel web hizmetini dağıtmadan önce docker çalışıyor olması gerekir. Yükleme ve Docker'ı kullanma hakkında daha fazla bilgi için bkz: [ https://www.docker.com/ ](https://www.docker.com/).
+
+> [!WARNING]
+> Yerel web hizmeti dağıtımları üretim senaryoları için desteklenmez.
+
+Yerel olarak dağıtmak için kullanılacak kodunuzu değiştirmek `LocalWebservice.deploy_configuration()` bir dağıtım yapılandırması oluşturmak için. Ardından `Model.deploy()` hizmeti dağıtmak için. Aşağıdaki örnek bir model dağıtır (bulunan `model` değişkeni) bir yerel web hizmeti olarak:
+
+```python
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import LocalWebservice
+
+# Create inferencing configuration. This creates a docker image that contains the model.
+inference_config = InferenceConfig(runtime= "python", 
+                                   execution_script="score.py",
+                                   conda_file="myenv.yml")
+
+# Create a local deployment, using port 8890 for the web service endpoint
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+# Deploy the service
+service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+# Wait for the deployment to complete
+service.wait_for_deployment(True)
+# Display the port that the web service is available on
+print(service.port)
+```
+
+Bu noktada, normal olarak service ile çalışabilirsiniz. Örneğin, aşağıdaki kod, verileri hizmete gönderme gösterir:
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data=test_sample)
+print(prediction)
+```
+
+### <a name="update-the-service"></a>Güncelleştirme hizmeti
+
+Yerel test sırasında güncelleştirmeniz gerekebilir `score.py` dosya günlüğü ekleyip keşfettiğinize göre herhangi bir sorunu çözmeyi deneyin. Değişiklikleri yeniden `score.py` dosya, kullanın `reload()`. Örneğin, aşağıdaki kod, hizmet için komut dosyasını yeniden yükler ve verileri gönderir. Güncelleştirilmiş kullanarak verileri puanlanır `score.py` dosyası:
+
+```python
+service.reload()
+print(service.run(input_data=test_sample))
+```
+
+> [!NOTE]
+> Komut dosyası tarafından belirtilen konumda yeniden `InferenceConfig` hizmet tarafından kullanılan nesne.
+
+Model, Conda bağımlılıkları veya dağıtım yapılandırmasını değiştirmek için kullanın [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). Aşağıdaki örnek, hizmet tarafından kullanılan modelini güncelleştirir:
+
+```python
+service.update([different_model], inference_config, deployment_config)
+```
+
+### <a name="delete-the-service"></a>Hizmeti Sil
+
+Hizmeti silmek için kullanın [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+
+### <a id="dockerlog"></a> Docker günlüğünü inceleyin
+
+Hizmet nesnesinden ayrıntılı Docker altyapısı günlük iletilerini yazdırabilirsiniz. ACI, AKS ve yerel dağıtımlar için günlüğü görüntüleyebilirsiniz. Aşağıdaki örnek, günlükleri yazdırma gösterilmiştir.
 
 ```python
 # if you already have the service object handy
@@ -163,82 +233,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-### <a name="debug-the-docker-image-locally"></a>Docker görüntüsünü yerel olarak hata ayıklama
-Zamanlarda Docker günlüğünü yanlış neler hakkında yeterli bilgi vermez. Bir adım ötesine gidin ve yerleşik Docker görüntüsü çekin, yerel bir kapsayıcı başlatma ve doğrudan Canlı kapsayıcısının içinde etkileşimli olarak hata ayıklayın. Yerel bir kapsayıcı başlatma için Docker altyapısının yerel olarak çalışıyor olmalıdır ve'iniz de çok daha kolay olurdu [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yüklü.
+## <a name="service-launch-fails"></a>Hizmet başlatma başarısız
 
-İlk olarak biz görüntü konumunu bulmak gerekir:
+Görüntü başarıyla oluşturulduktan sonra sistem, Dağıtım Yapılandırması'nı kullanarak bir kapsayıcı başlatma girişiminde bulunur. Kapsayıcı başlatma artırma işleminin bir parçası olarak `init()` işlevi Puanlama komut dosyanızdaki sistem tarafından çağrılır. İçinde yakalanmamış istisnalar varsa `init()` görebileceğiniz işlev **CrashLoopBackOff** hata hata iletisi.
 
-```python
-# print image location
-print(image.image_location)
-```
-
-Görüntü konumu bu biçimdedir: `<acr-name>.azurecr.io/<image-name>:<version-number>`, gibi `myworkpaceacr.azurecr.io/myimage:3`. 
-
-Şimdi komut satırı pencerenize gidin. Azure-cli yüklü varsa, görüntünün depolandığı çalışma alanı ile ilişkili ACR (Azure Container Registry) oturum açmak için aşağıdaki komutları yazabilirsiniz. 
-
-```sh
-# log on to Azure first if you haven't done so before
-$ az login
-
-# make sure you set the right subscription in case you have access to multiple subscriptions
-$ az account set -s <subscription_name_or_id>
-
-# now let's log in to the workspace ACR
-# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
-# e.g.: az acr login -n myworkpaceacr
-$ az acr login -n <acr-name>
-```
-Azure-cli yüklü yoksa, kullanabileceğiniz `docker login` ACR oturum komutu. Ancak kullanıcı adını ve parolayı ACR, Azure portalından ilk alınması gerekir.
-
-ACR oturum açtıktan sonra Docker görüntüsünü çekme ve yerel olarak bir kapsayıcı başlatabilir ve ardından kullanarak hata ayıklama için bir bash oturumu başlatmak `docker run` komutu:
-
-```sh
-# note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
-# for example: myworkpaceacr.azurecr.io/myimage:3
-$ docker run -it <image_id> /bin/bash
-```
-
-Çalışmakta olan kapsayıcıyı bir bash oturumu başlatma sonra Puanlama betiklerinizi bulabilirsiniz `/var/azureml-app` klasör. Ardından, Puanlama betiklerinizi hatalarını ayıklamak için bir Python oturumu da başlatabilirsiniz. 
-
-```sh
-# enter the directory where scoring scripts live
-cd /var/azureml-app
-
-# find what Python packages are installed in the python environment
-pip freeze
-
-# sanity-check on score.py
-# you might want to edit the score.py to trigger init().
-# as most of the errors happen in init() when you are trying to load the model.
-python score.py
-```
-Komut dosyalarınızı değiştirmek için bir metin düzenleyicisi gerektiği durumlarda, vim, nano, Emacs veya diğer tercih ettiğiniz düzenleyiciyi yükleyebilirsiniz.
-
-```sh
-# update package index
-apt-get update
-
-# install a text editor of your choice
-apt-get install vim
-apt-get install nano
-apt-get install emacs
-
-# launch emacs (for example) to edit score.py
-emacs score.py
-
-# exit the container bash shell
-exit
-```
-
-Ayrıca, yerel olarak web hizmeti oluşturmaya başlayın ve HTTP trafiğini göndermek. Flask sunucusunu Docker kapsayıcısındaki 5001 bağlantı noktasında çalışıyor. Herhangi diğer bağlantı noktaları konak makinesi üzerinde kullanılabilir eşleyebilirsiniz.
-```sh
-# you can find the scoring API at: http://localhost:8000/score
-$ docker run -p 8000:5001 <image_id>
-```
+Bilgi kullanın [Docker günlüğünü incelemek](#dockerlog) bölümü günlüklere bakın.
 
 ## <a name="function-fails-getmodelpath"></a>İşlevi başarısız: get_model_path()
-Genellikle, `init()` Puanlama betiği işlevinde `Model.get_model_path()` işlevi, bir model dosyası veya bir model dosya klasörü kapsayıcıda bulmak için çağrılır. Model dosya veya klasörün bulunamazsa genellikle bir başarısızlık kaynağıdır, budur. Çalıştırmak için bu hata ayıklama için en kolay yolu olan Python kodu kapsayıcı Kabuğu'nda aşağıdaki:
+
+Genellikle, `init()` Puanlama betiği işlevinde [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) işlevi, bir model dosyası veya bir model dosya klasörü kapsayıcıda bulmak için çağrılır. Model dosya veya klasörün bulunamazsa, işlev başarısız olur. Çalıştırmak için bu hata ayıklama için en kolay yolu olan Python kodu kapsayıcı Kabuğu'nda aşağıdaki:
 
 ```python
 import logging
@@ -247,11 +250,12 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Bu yerel yolu yazdırır (göreli `/var/azureml-app`) burada Puanlama betiğinizi bekliyor model dosyası veya klasörü bulmak için kapsayıcıda. Ardından, dosya veya klasörün aslında burada olması beklenmektedir olup olmadığını doğrulayabilirsiniz.
+Bu örnek yerel yolu yazdırır (göreli `/var/azureml-app`) burada Puanlama betiğinizi bekliyor model dosyası veya klasörü bulmak için kapsayıcıda. Ardından, dosya veya klasörün aslında burada olması beklenmektedir olup olmadığını doğrulayabilirsiniz.
 
-Hata ayıklama için günlüğe kaydetme düzeyini ayarlama hatası tanımlanmasına yararlı olabilecek günlüğe kaydedilecek neden ek bilgi sağlayabilir.
+Hata ayıklama için günlüğe kaydetme düzeyini ayarlama hatası tanımlanmasına yararlı olabilecek günlüğe kaydedilecek ek bilgi neden olabilir.
 
 ## <a name="function-fails-runinputdata"></a>İşlevi başarısız: run(input_data)
+
 Hizmet başarıyla dağıtıldı, ancak Puanlama uç noktası veri göndermek çöküyor deyiminde yakalama hata ekleyebilirsiniz, `run(input_data)` ayrıntılı hata iletisi yerine döndürür, böylece işlev. Örneğin:
 
 ```python
@@ -266,7 +270,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Not**: Hata iletilerini döndüren `run(input_data)` sadece hata ayıklama için çağrısı yapılmalıdır. Güvenlik nedeniyle bir üretim ortamında Bunun iyi bir fikir olmayabilir.
+
+**Not**: Hata iletilerini döndüren `run(input_data)` sadece hata ayıklama için çağrısı yapılmalıdır. Güvenlik nedenleriyle, hata iletileri bu şekilde bir üretim ortamında döndürmemelidir.
 
 ## <a name="http-status-code-503"></a>HTTP durum kodu 503
 
@@ -312,7 +317,7 @@ Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autosca
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtım hakkında daha fazla bilgi edinin: 
-* [Nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md)
+Dağıtım hakkında daha fazla bilgi edinin:
 
+* [Nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md)
 * [Öğretici: Eğitim ve modelleri dağıtma](tutorial-train-models-with-aml.md)

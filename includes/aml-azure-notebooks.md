@@ -9,14 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: d90034e3de77f67ec3a74123c9655fda95b113fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba2c8b01861c0ecbc9adeebfcb184cff1b81e816
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753454"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025099"
 ---
-1. Tamamlamak [Azure Machine Learning portalı hızlı başlangıcı](../articles/machine-learning/service/quickstart-get-started.md) bir çalışma alanı oluşturma ve Azure not defterleri başlatın. Atlayabilirsiniz **not defterini kullanma** istiyorsanız bölümü.
-1. Zaten tamamladınız, [hızlı](../articles/machine-learning/service/quickstart-get-started.md), tekrar oturum [Azure not defterleri](https://notebooks.azure.com/) açın **Başlarken** proje.  
-1. Durumu Stopped proje unutmayın.
-    ![Projeyi Başlat](./media/aml-azure-notebooks/start-project.png)
+* Tamamlamak [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullanmak](../articles/machine-learning/service/quickstart-run-cloud-notebook.md) bir çalışma alanı oluşturma ve not defteri Web sayfasını başlatın. 
+

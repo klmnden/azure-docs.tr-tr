@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126972"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024402"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search API sürümleri
 Azure arama özelliği güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümü gerektirir. Yeni bir sürüm yayımlama, ne zaman ve nasıl kodunuzda arama hizmet güncelleştirmelerini tümleştirme denetlemenizi sağlar.
@@ -30,18 +29,19 @@ Aynı kural SDK güncelleştirmeleri için geçerlidir. Azure Search SDK'sı aş
 ## <a name="snapshot-of-current-versions"></a>Anlık görüntü geçerli sürümleri
 Aşağıda tüm geçerli sürümlerinde anlık görüntüsünü Azure Search için programlama arabirimi.
 
+
 | Arabirimler | En son ana sürüm | Durum |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Genel olarak kullanılabilir, yayımlanan Nisan 2018 |
-| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Önizleme, Mayıs 2017 tarihinde yayımlandı |
-| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Genel Kullanıma Sunuldu |
-| [Hizmet REST API 2017-11-11-Önizleme](search-api-2017-11-11-preview.md) |2017-11-11-Önizleme |Önizleme |
-| [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |2.0 |Genel Kullanıma Sunuldu |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Genel olarak kullanılabilir, Mayıs 2019 yayımladı. İçerik yine de tamamlanmamıştır.  |
+| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Önizleme, Nisan 2019 yayımladı. İçerik yine de tamamlanmamıştır.|
+| [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Genel Kullanıma Sunuldu |
+| [Hizmet REST API 2019-05-06-Önizleme](search-api-preview.md) |2019-05-06-Önizleme |Önizleme |
+| [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |3.0 |Genel Kullanıma Sunuldu |
 | [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel Kullanıma Sunuldu |
 
 Gibi REST API'leri için `api-version` her çağrıda gereklidir. Kullanarak `api-version` API önizlemesi gibi belirli bir sürümü hedeflemesini daha kolay hale getirir. Aşağıdaki örnekte nasıl `api-version` parametresi belirtildi:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > Her isteğin olsa da bir `api-version`, tüm API istekleri için aynı sürümü kullanmanızı öneririz. Yeni API sürümlerinde öznitelikler veya önceki sürümleri tarafından tanınmayan işlemler aldığımızda bu özellikle doğrudur. API sürümleri karıştırılması olabilir istenmeyen sonuçları ve kaçınılmalıdır.

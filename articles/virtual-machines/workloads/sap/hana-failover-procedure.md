@@ -1,5 +1,5 @@
 ---
-title: HANA (büyük örnekler) Azure üzerinde SAP HANA için olağanüstü durum siteye yük devretme yordamı | Microsoft Docs
+title: SAP hana (büyük örnekler) azure'da olağanüstü durum siteye yük devretme yordamı HANA | Microsoft Docs
 description: SAP hana (büyük örnekler) azure'da olağanüstü durum kurtarma sitesine yük devretme gerçekleştirme
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,46 +14,50 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685117"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987883"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Olağanüstü durum kurtarma yük devretme yordamı
 
 
 >[!IMPORTANT]
->Bu belge, yönetim belgeleri SAP HANA veya SAP notları hiçbir yerini almaktadır. Okuyucu düz bir anlayış ve SAP HANA yönetimi ve işlemleri, özellikle yedekleme, geri yükleme, yüksek kullanılabilirlik ve olağanüstü durum kurtarma konuları uzmanlığa sahip beklenmektedir. Bu belgede, SAP HANA Studio ekran görüntüleri gösterilmektedir. SAP HANA'dan yayın için yayın içerik, yapısı ve SAP Yönetim Araçları ve araçları ekranlar yapısını değiştirebilirsiniz.
+>Bu makalede bir ardılı yönetim belgelerine SAP HANA veya SAP notları değildir. Düz bir anlayış ve SAP HANA yönetim ve işlemler, yedekleme, geri yükleme, yüksek kullanılabilirlik ve olağanüstü durum kurtarma (DR) için özellikle uzmanlığa sahip bekliyoruz. Bu makalede, ekran görüntüleri, SAP HANA Studio gösterilmektedir. SAP HANA'dan yayın için yayın içerik, yapısı ve SAP Yönetim Araçları ve araçları ekranlar yapısını değiştirebilirsiniz.
 
-DR sitesine devretmek yaparken dikkate alınması gereken iki durum vardır:
+Ne zaman bir DR sitesine yük devretme dikkate alınması gereken iki durum vardır:
 
-- Verilerin son durumuna geri dönmek için SAP HANA veritabanı ihtiyacınız vardır. Bu durumda, bir Self Servis betiği ile Microsoft'a başvurun gerek olmadan bir yük devretme gerçekleştirebilirsiniz yoktur. Ancak yeniden çalışma için Microsoft ile çalışması gerekir.
+- Verilerin son durumuna geri dönmek için SAP HANA veritabanı ihtiyacınız vardır. Bu durumda, bir Self Servis betiği ile Microsoft'a başvurun gerek olmadan bir yük devretme gerçekleştirebilirsiniz yoktur. Yeniden çalışma için Microsoft ile çalışması gerekir.
 - Son çoğaltılmış anlık görüntü olmayan bir depolama anlık görüntüye geri yüklemek istediğiniz. Bu durumda, Microsoft ile çalışması gerekir. 
 
 >[!NOTE]
->Aşağıdaki adımları DR birimini temsil eder HANA büyük örneği biriminde yürütülmesi gerekir. 
+>Aşağıdaki adımlar, DR birimini temsil eder HANA büyük örneği biriminde yapılmalıdır. 
  
-Son çoğaltılan depolama anlık görüntüleri için geri yüklemek için bölümünde listelenen adımları **'tam DR - azure_hana_dr_failover yük devri'** belgenin [Microsoft azure'da SAP HANA için araçları snapshot ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Son çoğaltılan depolama anlık görüntüleri için geri yüklemek için "Gerçekleştirme tam DR yük devretme - azure_hana_dr_failover" adımları izleyin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-Birden çok SAP HANA örnekleri üzerinde başarısız olmasını istiyorsanız, birkaç kez azure_hana_dr_failover komutu çalıştırmak gerekir. İstendiğinde, SAP HANA, yük devretme ve geri yüklemek istediğiniz SID yazın. 
+Birden çok SAP HANA örnekleri üzerinde başarısız olmasını istiyorsanız, azure_hana_dr_failover komutu birkaç kez çalıştırın. İstendiğinde, SAP HANA, yük devretme ve geri yüklemek istediğiniz SID girin. 
 
 
-Gerçek bir çoğaltma ilişkisi etkilemeden DR yük devretmeyi de test edebilirsiniz. Yük devretme testi gerçekleştirmek için adımları izleyin. **'DR yük devretme - azure_hana_test_dr_failover test gerçekleştirmek'** belgenin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Gerçek bir çoğaltma ilişkisi etkilemeden DR yük devretmeyi de test edebilirsiniz. Yük devretme testi gerçekleştirmek için "Gerçekleştirme DR yük devretme - test azure_hana_test_dr_failover"'ndaki adımları takip edin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Yapmak *değil* üretim işlemler DR sitenin işlemi boyunca oluşturduğunuz örneğinde çalışan **bir yük devretme testi**. Bu komut azure_hana_test_dr_failover birincil siteye hiçbir ilişki bulunmayan birimleri kümesi oluşturur. Sonuç olarak, birincil siteye eşitleme olduğundan *değil* mümkün. 
+>Yapmak *değil* üretim işlemler DR sitenin işlemi boyunca oluşturduğunuz örneğinde çalışan **bir yük devretme testi**. Komut azure_hana_test_dr_failover birincil siteye hiçbir ilişki bulunmayan birimleri kümesi oluşturur. Sonuç olarak, birincil siteye eşitleme olduğundan *değil* mümkün. 
 
-Test etmek için birden çok SAP HANA örnekleri olmasını istiyorsanız, birkaç kez betiği çalıştırmak gerekir. İstendiğinde, yük devretme için test etmek istediğiniz örnek SAP HANA SID'si yazın. 
+Test etmek için birden çok SAP HANA örnekleri olmasını istiyorsanız, komut dosyası birkaç kez çalıştırın. İstendiğinde, yük devretme için test etmek istediğiniz örnek SAP HANA SID'sini girin. 
 
 >[!NOTE]
 >Daha önceki bir anlık görüntüye ayarlamak için DR birimleri saat önce silinmiş olan bazı veriler kurtarması ve DR sitesine yük devretme gerekiyorsa, bu yordamı uygular. 
 
-1. Kullanmakta olduğunuz HANA büyük örnekleri olağanüstü durum kurtarma birimi HANA üretim dışı örneğini kapatın. Önceden yüklenmiş bir etkinliği olmayan HANA üretim örneği olduğundan budur.
-1. SAP HANA işlem çalışır durumda olduğundan emin olun. Bu denetim için aşağıdaki komutu kullanın: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. Çıktı göstermesi gerekir **hdbdaemon** işlem durdurulmuş bir duruma ve bir çalışan veya başlatılan durumda diğer HANA işlem yok.
+1. Kullanmakta olduğunuz HANA büyük örnekleri olağanüstü durum kurtarma birimi HANA üretim dışı örneğini kapatın. Bir etkinliği olmayan HANA üretim örneği önceden yüklenir.
+1. SAP HANA işlem çalışır durumda olduğundan emin olun. Bu denetim için aşağıdaki komutu kullanın:
+
+      `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
+
+      Çıktı göstermesi gerekir **hdbdaemon** işlem durdurulmuş bir duruma ve bir çalışan veya başlatılan durumda diğer HANA işlem yok.
 1. Hangi anlık görüntü adı veya SAP HANA yedekleme kimliği geri olağanüstü durum kurtarma siteniz istediğinize karar verin. Gerçek bir olağanüstü durum kurtarma durumlarda, bu anlık görüntü, genellikle en son anlık görüntüsüdür. Kayıp verileri kurtarmanız gerekiyorsa, önceki bir anlık görüntü seçin.
-1. Azure desteği yüksek öncelikli destek talebi başvurun. Bu anlık görüntü (anlık görüntü tarih ve ad ile) veya DR sitesi HANA yedekleme Kimliğinde geri isteyin. İşlemleri yan/hana/veri hacmi yalnızca geri yükleyen varsayılandır. / Hana/logbackups birimleri de istiyorsanız, bu durum özellikle gerekir. */Hana/shared birime geri yüklemeyin.* Bunun yerine, belirli dosyaları global.ini tanesi gibi seçmeniz gerekir **.snapshot** dizin ve alt, / hana/yeniden bağlamak sonra paylaşılan birim PRD için. 
+1. Azure desteği yüksek öncelikli destek talebi başvurun. Bu anlık görüntünün adı ile geri yükleme ve anlık görüntü veya DR sitesi HANA yedekleme Kimliğinde tarihi isteyin. İşlemleri yan/hana/veri hacmi yalnızca geri yükleyen varsayılandır. / Hana/logbackups birimler çok olmasını istiyorsanız, bu durum özellikle gerekir. */Hana/shared birime geri yüklemeyin.* Bunun yerine, belirli dosyaları global.ini tanesi gibi seçin **.snapshot** dizin ve alt, / hana/yeniden bağlamak sonra paylaşılan birim PRD için. 
 
    İşlemleri tarafında aşağıdaki adımlardan oluşur:
 
@@ -65,15 +69,18 @@ Test etmek için birden çok SAP HANA örnekleri olmasını istiyorsanız, birka
       
 1. Olağanüstü durum kurtarma birimleri olağanüstü durum kurtarma siteniz olarak HANA büyük örneği birimine bağlayın. 
 1. Etkin olmayan SAP HANA üretim örneği başlatın.
-1. RPO süresini azaltmak için işlem günlüğü yedekleme günlükleri kopyalamak isterseniz, bu işlem günlüğü yedeklemeleri yeni oluşturulmuş DR/hana/logbackups dizine birleştirmek gerekir. Var olan yedeklerin üzerine yazmayın. En son depolama anlık görüntü çoğaltma ile çoğaltılmamış yeni yedeklemelere kopyalayın.
-1. Ayrıca, DR Azure bölgesinde /hana/shared/PRD birimine çoğaltılan anlık görüntüleri dışında tek dosyaları geri yükleyebilirsiniz.
+1. RPO süresini azaltmak için işlem günlüğü yedekleme günlüklerini kopyalamak seçerseniz, işlem günlüğü yedeklemeleri yeni oluşturulmuş DR/hana/logbackups dizine birleştirin. Var olan yedeklerin üzerine yazmayın. En son depolama anlık görüntü çoğaltma ile çoğaltılan olmayan yeni yedeklemelere kopyalayın.
+1. Ayrıca, /hana/shared/PRD birimin DR Azure bölgesinde çoğaltılmasını uygulamasında anlık görüntüleri dışında tek dosyaları geri yükleyebilirsiniz.
 
-Geri yüklenen depolama anlık görüntüleri ve mevcut işlem günlüğü yedeklemeleri dayalı SAP HANA üretim örneği kurtarma adımları dizisini içerir:
+Aşağıdaki adımlarda, geri yüklenen depolama anlık görüntüleri ve mevcut işlem günlüğü yedeklemeleri dayalı SAP HANA üretim örneği, kurtarılır gösterilmektedir.
 
 1. Yedekleme konumuna değiştirme **/hana/logbackups** SAP HANA Studio kullanarak.
+
    ![DR kurtarması için yedekleme konumu değiştirin](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA yedekleme dosyası konumları tarar ve geri yüklemek için en son işlem günlüğü yedeklemesi önerir. Tarama aşağıdakiler görünür gibi bir ekran kadar birkaç dakikayı bulabilir: ![DR kurtarması için işlem günlüğü yedeklemeleri listesi](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA yedekleme dosyası konumları tarar ve geri yüklemek için en son işlem günlüğü yedeklemesi önerir. Tarama aşağıdakiler görünür gibi bir ekran kadar birkaç dakikayı bulabilir:
+
+   ![DR kurtarması için işlem günlüğü yedeklemeleri listesi](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Varsayılan ayarlardan bazılarını ayarlayın:
 
@@ -90,25 +97,29 @@ Burada gösterildiği gibi bir ilerleme durumu penceresi görüntülenmelidir. B
 
 ![Geri yükleme ilerleme durumu](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Geri yükleme sırasında yanıt vermemesine görünüyorsa **son** ekranında ve değil ilerleme ekranı göstermek, tüm SAP HANA örnekleri çalışan düğümleri üzerinde çalıştığını doğrulayın. Gerekirse, SAP HANA örnekleri el ile başlatın.
+Geri yükleme sırasında yanıt vermemeye başlarsa **son** ekranında ve değil ilerleme ekranı göstermek, tüm SAP HANA örnekleri çalışan düğümleri üzerinde çalıştığını doğrulayın. Gerekirse, SAP HANA örnekleri el ile başlatın.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Bir DR Azure'dan bir üretim sitesine
-Bir üretim sitesini bir DR geri dönebilirsiniz. Yük devretme olağanüstü durum kurtarma siteniz olarak bir Azure bölgesine üretim sorunlarını ve kayıp veri kurtarmak için değil, gereksinimi kaynaklandı senaryo bakalım. SAP üretim iş yükünüz bir süredir olağanüstü durum kurtarma sitesinde zamandır çalışmakta olan. Üretim sitesini sorunlarını çözümlendi olarak, üretim sitede yeniden çalıştırmak istersiniz. Veri kaybına neden olduğundan, üretim sitesini adımla geri çeşitli adımları ve Kapat işbirliği yaparak Azure operasyon ekibinin üzerinde SAP HANA ile ilgilidir. Bu sorunları çözüldükten sonra üretim sitesine eşitlemeye başlamak için operasyon ekibinin tetiklemek için size aittir.
+Bir üretim sitesini bir DR geri dönebilirsiniz. Yük devretme olağanüstü durum kurtarma siteniz olarak bir Azure bölgesine üretim sorunlarını ve kayıp veri kurtarmak için değil, gereksinimi kaynaklandı senaryo bakalım. 
 
-Bu adımlar dizisi.
+SAP üretim iş yükünüz bir süredir olağanüstü durum kurtarma sitesinde çalıştırıyorsunuz. Üretim sitesini sorunlarını çözümlendi olarak, üretim sitede yeniden çalıştırmak istersiniz. Veri kaybına neden olduğundan, üretim sitesini adımla geri çeşitli adımları ve Kapat işbirliği yaparak Azure operasyon ekibinin üzerinde SAP HANA ile ilgilidir. Bu sorunları çözüldükten sonra üretim sitesine eşitlemeye başlamak için operasyon ekibinin tetiklemek için size aittir.
+
+Şu adımları uygulayın:
 
 1. Azure operasyon ekibinin üzerinde SAP HANA üretim artık üretim durumu temsil eden olağanüstü durum kurtarma depolama birimleri depolama birimlerden eşitlemek için tetikleyici alır. Bu durumda, üretim sitesini HANA büyük örneği biriminde kapatılır.
-1. Azure operasyon ekibinin üzerinde SAP HANA çoğaltma izler ve bunu size bildiren önce yakalanan emin olmanızı sağlar.
-1. Olağanüstü durum kurtarma siteniz üretim HANA örneği kullanan uygulamaları kapatın. Ardından bir HANA işlem günlüğü yedeklemesi gerçekleştirin. Ardından, olağanüstü durum kurtarma siteniz HANA büyük örneği birimleri üzerinde çalışan HANA örneği durdurun.
+1. Azure operasyon ekibinin üzerinde SAP HANA çoğaltma izler ve sizi bilgilendirmek önce yakalanan emin olmanızı sağlar.
+1. Olağanüstü durum kurtarma siteniz üretim HANA örneği kullanan uygulamaları kapatın. Ardından bir HANA işlem günlüğü yedeklemesi gerçekleştirin. Ardından, HANA büyük örneği birimleri olağanüstü durum kurtarma siteniz olarak çalışan HANA örneği durdurun.
 1. Olağanüstü durum kurtarma siteniz HANA büyük örneği biriminde çalışan HANA örneği kapattığınızda, operasyon ekibinin el ile disk birimleri yeniden eşitler.
-1. Azure operasyon ekibinin üzerinde SAP HANA, HANA büyük örneği birim üretim sitenin yeniden başlatır ve bunu size uygulamalı. SAP HANA örneği HANA büyük örneği birim başlangıç zamanında bir kapanma durumunda olduğundan emin olun.
-1. Daha önce olağanüstü durum kurtarma sitesine devretmek zaman yaptığınız gibi aynı veritabanı geri yükleme adımlarını gerçekleştirin.
+1. Azure operasyon ekibinin üzerinde SAP HANA HANA büyük örneği birim üretim sitenin yeniden başlatır. Bunlar, size teslim. SAP HANA örneği HANA büyük örneği birim başlangıç zamanında bir kapanma durumunda olduğundan emin olun.
+1. Size, daha önce olağanüstü durum kurtarma sitesine devredilen yapmış olduğunuz veritabanı geri yükleme adımları gerçekleştirin.
 
 ## <a name="monitor-disaster-recovery-replication"></a>Olağanüstü durum kurtarma çoğaltmayı izleme
 
-Betik yürüterek, depolama çoğaltma ilerleme durumunu izleyebilirsiniz `azure_hana_replication_status`. Bu komut, beklendiği gibi olağanüstü durum kurtarma konumunuz çalışan bir birimden çalıştırmanız gerekir. Komutu, çoğaltma etkin olup bağımsız olarak çalışır. Komutu her HANA büyük örneği birimine kiracınızın olağanüstü durum kurtarma konumunuz olarak çalıştırabilirsiniz. Önyükleme birimi hakkındaki ayrıntıları almak için kullanılamaz. Komut ve çıktısını ayrıntılarını okumak **'DR çoğaltma durumu - azure_hana_replication_status'Get '** belgenin [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Depolama çoğaltma ilerleme durumunu izlemek için betiği çalıştırın. `azure_hana_replication_status`. Bu komut, beklendiği gibi olağanüstü durum kurtarma konumunuz çalıştırılan bir birim çalıştırılmalıdır. Komutu, çoğaltma etkin olup bağımsız olarak çalışır. Komutu her HANA büyük örneği birimine kiracınızın olağanüstü durum kurtarma konumunuz olarak çalıştırabilirsiniz. Önyükleme birimi hakkındaki ayrıntıları almak için kullanılamaz. 
+
+İçinde "Azure_hana_replication_status DR çoğaltma durumu - Al" komutunu ve çıktısını hakkında daha fazla bilgi için bkz [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Başvurmak [izleme ve sorun giderme HANA taraftan](hana-monitor-troubleshoot.md).
+- Bkz: [izleme ve sorun giderme HANA taraftan](hana-monitor-troubleshoot.md).

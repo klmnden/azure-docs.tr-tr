@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723212"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021706"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
@@ -45,31 +45,29 @@ Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuy
 * Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
     * Azure Machine için Python SDK'sı Learning
     * `matplotlib` ve `scikit-learn`
-* Öğretici not defteri ve dosya utils.py
-* Bir machine learning çalışma alanı 
-* Not Defteri ile aynı dizinde çalışma alanı için yapılandırma dosyası 
+* Öğretici not defteri ve dosya **utils.py**
+* Bir machine learning çalışma alanı
+* Not Defteri ile aynı dizinde çalışma alanı için yapılandırma dosyası
 
 Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
  
-* Kullanım [Azure Not Defterleri](#azure) 
+* Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
 * Kullanım [kendi not defteri sunucusu](#server)
 
-### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
+### <a name="azure"></a>Çalışma alanınızda bir bulut not defteri sunucusu kullan
 
-Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
-
-Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** Not Defteri, **Başlarken** proje.
+Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Not Defteri Web sayfası başlattıktan sonra açmak **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
 
 
 ### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
 
-Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- Adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
+ Adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** kopyalanan dizininizden dizüstü bilgisayar.
 
 ## <a name="start"></a>Geliştirme ortamınızı ayarlama
 

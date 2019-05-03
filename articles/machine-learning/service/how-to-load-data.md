@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819236"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024011"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Yükleme ve Azure Machine Learning veri hazırlığı SDK'sı ile veri okuma
 Bu makalede, Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri yükleme farklı yöntemleri öğrenin. SDK için başvuru belgeleri görmek için bkz: [genel bakış](https://aka.ms/data-prep-sdk). SDK'sı dahil olmak üzere birden çok veri alımı özellikleri destekler:
 
 * Birçok dosya türünü parametre çıkarımı (kodlama, ayırıcı, üst bilgiler) ayrıştırma ile yükleme
 * Tür-dönüştürme çıkarımı kullanılarak sırasında dosya yükleniyor
 * MS SQL Server ve Azure Data Lake Storage bağlantı desteği
+
+> [!Important]
+> Yeni bir çözüm oluşturuyorsanız deneyin [Azure Machine Learning veri kümeleri](how-to-explore-prepare-data.md) (Önizleme) için bir veri keşfi ve hazırlama. Veri kümeleri, veri hazırlığı SDK'sı, yapay ZEKA çözümleri, veri kümelerini yönetmek için genişletilmiş işlevselliği sunan sonraki sürümüdür.
 
 Aşağıdaki tabloda, genel dosya türlerinden verileri yüklemek için kullanılan işlevleri seçimini gösterir.
 

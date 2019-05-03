@@ -1,7 +1,7 @@
 ---
 title: Azure Blob dizin oluşturucu için tam metin arama - Azure Search dizini belgelerden dizini BLOB'ları içeren birden çok arama
 description: Azure Search Blob Dizin Oluşturucu kullanarak metin içeriği için Azure BLOB'ları gezinin. Her blob bir veya daha fazla Azure Search dizini belge içerebilir.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871208"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024658"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Birden çok arama belge üretme bloblarını dizine ekleme
 Varsayılan olarak, bir blob dizin oluşturucu, bir blobun içeriklerini tek arama belgesi olarak değerlendirir. Belirli **parsingMode** değerleri tek tek bir blob birden çok arama belgeleri neden olduğu senaryoları destekler. Farklı türde **parsingMode** izin veren bir blobdan bir arama belge birden çok bir ayıklamak için dizin oluşturucu şunlardır:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` Ayrıştırma modu, genel Önizleme aşamasındadır ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için [REST API Sürüm 2017-11-11-Preview =](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>Bire çok belge anahtarı
 Azure Search dizini içinde gösterilir her belge benzersiz bir belge anahtar tarafından tanımlanır. 
@@ -106,7 +103,7 @@ Bir açık alan eşlemesini ayarlamak istiyorsanız, emin _sourceField_ tek tek 
 + [Azure Search'te dizin oluşturucular](search-indexer-overview.md)
 + [Azure arama ile Azure Blob Depolama dizini oluşturma](search-howto-index-json-blobs.md)
 + [Azure Search blob dizin oluşturucu ile CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
-+ [Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
++ [Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Sonraki adımlar
 * Azure arama hakkında daha fazla bilgi edinmek için [arama hizmeti sayfasını](https://azure.microsoft.com/services/search/).

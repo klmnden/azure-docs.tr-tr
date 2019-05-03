@@ -7,46 +7,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d5a3226050901f6feb17c4d9d6a6582cb622618b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336295"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020198"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
 
-Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin doğrudan yapay ZEKA veya veri bilimi becerileriniz veya bilgisi olmadan akıllı uygulamalar oluşturmasına yardımcı olmak için kullanılabilir olan. Azure Bilişsel hizmetler, geliştiricilerin kolayca duygu ve video algılama gibi bilişsel özellikler eklemenize olanak sağlar; yanı sıra yüz, konuşma ve görüntü tanıma; ve konuşma ve dil anlama – uygulamalarına. Azure Bilişsel Hizmetler'in görebilirsiniz, uygulamalar oluşturmanıza yardımcı olmaktır dinleyin, konuşurken, anlamak ve bile neden başlayın. Azure Bilişsel hizmetler içindeki Hizmetler Kataloğu beş ana yapı taşına - görme, konuşma, dil, arama ve Bilgi Bankası kategorilere ayrılabilir.
+Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin doğrudan yapay ZEKA veya veri bilimi becerileriniz veya bilgisi olmadan akıllı uygulamalar oluşturmasına yardımcı olmak için kullanılabilir olan. Azure Bilişsel hizmetler, geliştiricilerin bilişsel özelliklerini uygulamalarına kolayca eklemenize olanak sağlar. Azure Bilişsel Hizmetler'in görebilirsiniz, uygulamalar oluşturmanıza yardımcı olmaktır dinleyin, konuşurken, anlamak ve bile neden başlayın. Azure Bilişsel hizmetler içindeki Hizmetler Kataloğu beş ana yapı taşına - görme, konuşma, dil, Web araması ve karar kategorilere ayrılabilir.
 
 ## <a name="vision-apis"></a>Görsel API'ler
 
 |Hizmet Adı|Hizmet Açıklaması|
 |:-----------|:------------------|
 |[Görüntü işleme](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "görüntü işleme")|Görüntü işleme hizmeti, görüntü işleme ve bilgilerini döndürmek için gelişmiş algoritmalar erişim sağlar.|
-|[Custom Vision Service'i](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service'i") (Önizleme)|Özel görüntü işleme hizmeti, özel görüntü sınıflandırıcılar oluşturmanızı sağlar.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator, olası rahatsız edici, istenmeyen ve riskli içerik izleme sağlar.|
+|[Custom Vision Service'i](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "özel görüntü işleme hizmeti")|Özel görüntü işleme hizmeti, özel görüntü sınıflandırıcılar oluşturmanızı sağlar.|
 |[Yüz tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/face/ "yüz tanıma API'si")|Yüz tanıma API'si, yüz özniteliği algılama ve tanıma etkinleştirme, Gelişmiş yüz algoritmalarını erişim sağlar.|
-| [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer, video içgörü sağlar.|
+|[Form tanıyıcı](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form tanıyıcı") (Önizleme)|Form tanıyıcı tanımlayan ve anahtar-değer çiftleri ve tablo verilerini form belgelerden ayıklar; ardından özgün dosyayı ilişkiler dahil olmak üzere yapılandırılmış verileri çıkarır.|
+|[Mürekkep tanıyıcı](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "mürekkep tanıyıcı") (Önizleme)|Mürekkep tanıyıcı tanımak ve dijital mürekkep vuruşu veri, şekiller ve el yazısı içeriği analiz edin ve tüm bilinen varlıklar ile bir belge yapısı çıktı sağlar.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer, video içgörü sağlar.|
 
 ## <a name="speech-apis"></a>Konuşma API'leri
 
 |Hizmet Adı|Hizmet Açıklaması|
 |:-----------|:------------------|
-|[Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "konuşma hizmeti") (Önizleme)|Konuşma hizmeti, uygulamalara konuşma tanıma özellikli özellikler ekler.|
-|[Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing konuşma API'si")|Bing konuşma API'si ile uygulamalarınızda konuşma etkin özellikler oluşturmak için kolay bir yol sağlar.|
-|[Translator konuşma çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator konuşma çevirisi")|Translator konuşma çevirisi, bir makine çevirisi hizmetidir.|
+|[Konuşma Hizmetleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "konuşma Hizmetleri")|Konuşma hizmeti, uygulamalara konuşma tanıma özellikli özellikler ekler.|
 |[Konuşmacı tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Konuşmacı tanıma API'si") (Önizleme)|Konuşmacı tanıma API'si, konuşmacı tanıma ve doğrulama için algoritmalar sağlar.|
+|[Bing konuşma](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing konuşma") (devre dışı bırakma)|Bing konuşma API'si ile uygulamalarınızda konuşma etkin özellikler oluşturmak için kolay bir yol sağlar.|
+|[Translator konuşma çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator konuşma çevirisi") (devre dışı bırakma)|Translator konuşma çevirisi, bir makine çevirisi hizmetidir.|
 
 ## <a name="language-apis"></a>Dil API'leri
 
 |Hizmet Adı|Hizmet Açıklaması|
 |:-----------|:------------------|
-|[Bing yazım denetimi](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing yazım denetimi")|Bing yazım denetimi, bağlamsal dil bilgisi ve yazım denetimi sağlar.|
 |[Language Understanding'i LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "dil anlama")|Language Understanding hizmeti (LUIS), uygulamanızın ne bir kişi kendi kelimelerinizle istediği anlamak sağlar.|
+|[Soru-cevap Oluşturucu](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "soru-cevap Oluşturucu")|Soru-cevap Oluşturucu, soru oluşturmanıza ve yarı yapılandırılmış içeriğinizi hizmet yanıt verir.|
 |[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "metin analizi")|Metin analizi, doğal dil işleme yaklaşım analizi, anahtar ifade ayıklama ve dil algılama için ham metin üzerinde sağlar.|
 |[Translator metin çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator metin çevirisi")|Translator metin çevirisi, neredeyse gerçek zamanlı makine tabanlı metin çeviri için sağlar.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer, video içgörü sağlar.|
 
 ## <a name="search-apis"></a>API arama
 
@@ -61,12 +63,15 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 |[Bing resim arama](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing resim arama")|Bing resim arama kullanıcının sorgu ile ilgili belirlenen görüntüleri görüntüsünü döndürür.|
 |[Bing görsel arama](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing görsel arama")|Bing görsel arama, ürün görüntüde bulunan ve ilgili aramalar için kaynakları alışveriş görsel açıdan benzer resimler gibi bir görüntü ile ilgili döndürür Öngörüler sunar.|
 |[Bing yerel iş arama](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing yerel iş arama")| Bing yerel iş arama API'si, kişi ve konum arama sorgularına dayalı yerel işletmeler hakkında bilgi bulmak uygulamalarınızı sağlar.|
+|[Bing yazım denetimi](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing yazım denetimi")|Bing yazım denetimi, bağlamsal dil bilgisi ve yazım denetimi sağlar.|
 
-## <a name="knowledge-apis"></a>Bilgi API'leri
+## <a name="decision-apis"></a>Karar API'leri
 
 |Hizmet Adı|Hizmet Açıklaması|
 |:-----------|:------------------|
-|[Soru-cevap Oluşturucu](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "soru-cevap Oluşturucu")|Soru-cevap Oluşturucu, soru oluşturmanıza ve yarı yapılandırılmış içeriğinizi hizmet yanıt verir.|
+|[Anomali algılayıcısı](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomali algılayıcısı") (Önizleme)|Anomali algılayıcısı, izlemek ve zaman serisi verilerinizle prosesler algılamak sağlar.|
+|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator, olası rahatsız edici, istenmeyen ve riskli içerik izleme sağlar.|
+|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (Önizleme)|Personalizer, kullanıcıların gerçek zamanlı davranışından öğrenme kullanıcılarınıza göstermek için en iyi deneyimi seçmenize olanak sağlar.|
 
 ## <a name="use-free-trials"></a>Ücretsiz deneme sürümleri kullanın
 
@@ -74,11 +79,11 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="subscription-management"></a>Abonelik yönetimi
 
-Microsoft Account imzalandıktan sonra erişebileceğiniz [Aboneliklerim](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Aboneliklerim") kullanmakta olduğunuz ürünler, kalan kota ve ek ürün ekleme olanağı göstermek için aboneliğiniz için.
+Microsoft Account imzalandıktan sonra erişebileceğiniz [Aboneliklerim](https://www.microsoft.com/cognitive-services/subscriptions "Aboneliklerim") kullanmakta olduğunuz ürünler, kalan kota ve ek ürün ekleme olanağı göstermek için aboneliğiniz için.
 
 ## <a name="upgrade-to-unlock-limits"></a>Sınırları kilidini açmak için yükseltme
 
-Tüm API'ler, ücretsiz bir deneme planı sahip.  Her bir API için ücretli tekliflere kullanılabilir oldukça, Azure portalında satın alma işlemini tamamlamak için yönlendirilirsiniz.  Bulabilirsiniz *satın* bağlantılar veya deneme tamamen atlayın ve ile satın bunları zaten kullanıyorsanız, abonelikler sayfasında sağlanan bağlantıları üzerinde [fiyatlandırma](https://www.microsoft.com/cognitive-services/en-us/pricing "fiyatlandırma").  Kredi kartı ve telefon numarası ile bir Azure abonesi hesabı ayarlamanız gerekir. Özel bir gereksinim veya satış konuşmak istiyorsanız, fiyatlandırma sayfanın üstündeki "bize başvurun" düğmesine tıklayın.
+Kullanım ve aktarım hızı olan ücretsiz bir deneme planı tüm API'leri sahip sınırları.  Ücretli bir teklif kullanarak ve Azure portalında hizmet dağıtımı sırasında uygun fiyatlandırma katmanı seçeneğini belirleyerek bu limitler artırabilirsiniz. [Fırsatları hakkında daha fazla bilgi edinmek ve fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/ "teklifleri ve fiyatlandırma"). Kredi kartı ve telefon numarası ile bir Azure abonesi hesabı ayarlamanız gerekir. Özel bir gereksinim veya satış konuşmak istiyorsanız, fiyatlandırma sayfanın üstündeki "bize başvurun" düğmesine tıklayın.
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
@@ -96,11 +101,11 @@ Bir bölge için arama henüz desteklemiyoruz? Üzerinde bir özellik isteği g�
 
 ## <a name="certifications-and-compliance"></a>Sertifikaları ve uyumluluk
 
-Bilişsel hizmetler verilen sertifikaları CSA STAR sertifika, FedRAMP Orta ve HIPAA BAA gibi. 
+Bilişsel hizmetler verilen sertifikaları CSA STAR sertifika, FedRAMP Orta ve HIPAA BAA gibi.
 
-Yapabilecekleriniz [indirme](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) kendi denetimleri ve güvenlik incelemeleri için sertifikaları. 
+Yapabilecekleriniz [indirme](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) kendi denetimleri ve güvenlik incelemeleri için sertifikaları.
 
-Gizlilik ve veri yönetimi anlamak için Git [Güven Merkezi](https://servicetrust.microsoft.com/). 
+Gizlilik ve veri yönetimi anlamak için Git [Güven Merkezi](https://servicetrust.microsoft.com/).
 
 ## <a name="support"></a>Destek
 

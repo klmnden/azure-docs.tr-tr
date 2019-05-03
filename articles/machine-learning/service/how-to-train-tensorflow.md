@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817733"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023833"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow ve Keras modellerini eğitin
 
@@ -185,6 +185,10 @@ Bir kez eğitim betiğinizi yazma bitirdikten ve TensorFlow nesnesi oluşturulur
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="export-to-onnx"></a>ONNX için dışarı aktarma
+
+İle en iyi duruma getirilmiş çıkarım almak için [ONNX çalışma zamanı](concept-onnx.md), eğitilen TensorFlow modelinizi ONNX biçimine dönüştürebilirsiniz. Bkz: [örnek](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py).
 
 ## <a name="examples"></a>Örnekler
 

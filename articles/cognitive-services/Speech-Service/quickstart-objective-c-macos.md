@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f25c3801553b0ac0c725170cda95f5c1eacc3637
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620591"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020751"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Hızlı Başlangıç: Objective C'de konuşma Speech SDK'sı kullanarak Macos'ta tanıması
 
@@ -34,7 +34,7 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.4.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.5.0`.
 
 Bilişsel hizmetler konuşma SDK'sı Mac için bir çerçeve paket dağıtılır.
 Xcode projelerinde kullanılabilir bir [CocoaPod](https://cocoapods.org/), veya'ndan indirilmiş https://aka.ms/csspeech/macosbinary ve el ile bağlanır. Bu kılavuzda bir CocoaPod kullanır.
@@ -71,7 +71,7 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
     ```
     target 'helloworld' do
         platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.4.0'
+        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.0'
     end
     ```
 1. Gidin `helloworld` terminal ve şu komutu çalıştırın, dizin `pod install`. Bu oluşturacak bir `helloworld.xcworkspace` hem örnek uygulamasını ve Speech SDK'sı bağımlılık olarak içeren bir Xcode çalışma alanı. Bu çalışma alanı aşağıdaki kullanılır.

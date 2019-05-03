@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289507"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024760"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Biz şimdilik bu adımı atlayın ve doğrudan geçin **hedef dizini Özelleşti
    ![Bilişsel beceri adımını atlama](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> Azure Search'teki yeni bilişsel arama özelliğini denemek isterseniz [bilişsel arama hızlı başlangıcına](cognitive-search-quickstart-blob.md) veya [öğreticisine](cognitive-search-tutorial-blob.md) göz atabilirsiniz.
+> Yapay ZEKA dizin örneği de adım adım bir [hızlı](cognitive-search-quickstart-blob.md) veya [öğretici](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>3. adım: dizin yapılandırın
 
@@ -154,7 +154,7 @@ Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kulla
 
    ![Search gezgini komutu](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Aşağıdaki sorgular için genel kullanıma sunulan sürümü (2017-11-11) kullanın.
+2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Aşağıdaki sorgular için genel kullanıma sunulan sürümü (2019-05-06) kullanın.
 
    ![Dizin ve API komutları](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

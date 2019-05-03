@@ -4,17 +4,17 @@ description: Güvenlik filtreleri ve kullanıcı kimlikleri kullanarak Azure Sea
 ms.service: search
 ms.topic: conceptual
 services: search
-ms.date: 08/07/2017
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282402"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024360"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search sonuçlarında kırpma için güvenlik filtreleri
 
@@ -61,7 +61,7 @@ Güvenli dosyaların dizinini sunuyoruz ve her dosya farklı sayıda kullanıcı
 Dizininizin URL uç noktasına bir HTTP POST isteği göndermektir. HTTP isteğinin gövdesi eklenecek belgeleri içeren bir JSON nesnesidir:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -119,7 +119,7 @@ Bu örnek, bir POST isteği kullanarak belgelerde arama yapmak nasıl gösterdi�
 HTTP POST isteği yürütün:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
 Content-Type: application/json  
 api-key: [admin or query key]
 ```

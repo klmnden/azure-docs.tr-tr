@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817363"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023698"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Yazma ve Azure Machine Learning kullanarak verileri yapılandırma
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Yazma ve verileri Azure Machine Learning veri hazırlığı SDK ile yapılandırma
 
 Bu makalede, farklı yöntemler kullanarak veri yazmak için bilgi [Azure Machine Learning veri hazırlığı Python SDK'sı](https://aka.ms/data-prep-sdk) ve deneme için bu verilerin nasıl yapılandırılacağına ilişkin [PythoniçinAzureMachineLearningSDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Çıktı verilerini, bir veri akışı herhangi bir noktada yazılabilir. Yazma işlemleri, veri akış çalıştırmaları her zaman ortaya çıkan veri akışı için adımlar ve aşağıdaki adımları çalıştırın olarak eklenir. Veriler, paralel yazma izin vermek için birden çok bölüm dosyaya yazılır.
+
+> [!Important]
+> Yeni bir çözüm oluşturuyorsanız deneyin [Azure Machine Learning veri kümeleri](how-to-explore-prepare-data.md) (Önizleme) verileri, anlık görüntü verileri dönüştürme ve tutulan veri kümesi tanımlarını depolar. Veri kümeleri, veri hazırlığı SDK'sı, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan sonraki sürümüdür.
 
 Kaç tane adımlar bir işlem hattında vardır yazma hiçbir sınırlama olduğundan, sorun giderme için veya diğer işlem hatları için Ara sonuçlar elde etmek için ek yazma adımları kolayca ekleyebilirsiniz.
 

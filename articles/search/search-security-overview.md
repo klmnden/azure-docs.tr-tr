@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283443"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024508"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'teki güvenlik ve veri gizliliği
 
@@ -43,11 +43,8 @@ Standartlara uyum genel kullanıma sunulan özellikleri için geçerlidir. Öniz
 | Güvenlik katmanı | Açıklama |
 |----------------|-------------|
 | Aktarım sırasında şifreleme <br>(HTTPS/SSL/TLS) | Azure arama, HTTPS bağlantı noktası 443'ü dinler. Bir platform Azure hizmetlerine bağlantılar şifrelenir. <br/><br/>Tüm istemci hizmeti Azure Search etkileşimleri SSL/TLS 1.2 özellikli olan.  Hizmetinize SSL bağlantıları için TLSv1.2 kullandığınızdan emin olun.|
-| Bekleme sırasında şifreleme | Şifreleme tam dizin oluşturma işleminde, dizin oluşturma zamanı tamamlama veya dizin boyutu ölçülebilir etkilemeden internalized. Otomatik olarak tüm dizin üzerinde (Ocak 2018'den önce oluşturulan) olmayan tam olarak şifrelendiğinden bir dizin için artımlı güncelleştirmeleri dahil olmak üzere oluşur.<br><br>Dahili olarak, şifreleme dayanır [Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), 256 bit kullanarak [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-
-Şifreleme sertifikaları ve dahili olarak Microsoft tarafından yönetilen ve evrensel uygulanan şifreleme anahtarları ile Azure Search için dahili kullanım içindir. Olamaz şifreleme Aç veya Kapat, yönetme veya kendi anahtarlarınızı değiştirin veya portalı veya programlama yoluyla şifreleme ayarlarını görüntüleyin. 
-
-Bekleme sırasında şifreleme 24 Ocak 2018'de duyurulan ve paylaşılan (ücretsiz) Hizmetleri tüm bölgelerde de dahil olmak üzere tüm hizmet katmanları için geçerlidir. Tam şifreleme için bu tarihten önce oluşturulan dizinleri bırakılan ve şifrelemenin gerçekleşmesi için sırayla yeniden. Aksi takdirde, Ocak 24 sonra eklenen yalnızca yeni veriler şifrelenir.
+| Bekleme sırasında şifreleme <br>Microsoft tarafından yönetilen anahtarlar | Şifreleme tam dizin oluşturma işleminde, dizin oluşturma zamanı tamamlama veya dizin boyutu ölçülebilir etkilemeden internalized. Otomatik olarak tüm dizin üzerinde (Ocak 2018'den önce oluşturulan) olmayan tam olarak şifrelendiğinden bir dizin için artımlı güncelleştirmeleri dahil olmak üzere oluşur.<br><br>Dahili olarak, şifreleme dayanır [Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), 256 bit kullanarak [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Şifreleme sertifikaları ve dahili olarak Microsoft tarafından yönetilen ve evrensel uygulanan şifreleme anahtarları ile Azure Search için dahili kullanım içindir. Olamaz şifreleme Aç veya Kapat, yönetme veya kendi anahtarlarınızı değiştirin veya portalı veya programlama yoluyla şifreleme ayarlarını görüntüleyin.<br><br>Bekleme sırasında şifreleme 24 Ocak 2018'de duyurulan ve paylaşılan (ücretsiz) Hizmetleri tüm bölgelerde de dahil olmak üzere tüm hizmet katmanları için geçerlidir. Tam şifreleme için bu tarihten önce oluşturulan dizinleri bırakılan ve şifrelemenin gerçekleşmesi için sırayla yeniden. Aksi takdirde, Ocak 24 sonra eklenen yalnızca yeni veriler şifrelenir.|
+| Bekleme sırasında şifreleme <br>Müşteri tarafından yönetilen anahtarlar | Müşteri tarafından yönetilen anahtarlarla şifreleme bir **Önizleme** Hizmetleri ücretsiz olarak kullanılamayan bir özellik. Ücretli Hizmetleri, yalnızca arama hizmetleri oluşturma tarihi kullanılabilir veya Ocak 2019 sonra kullanarak en son Önizleme api sürümü (API sürümü = 2019-05-06-Önizleme).<br><br>Artık Azure Search dizinlerini ve eş anlamlı sözcük eşlemelerini müşteri anahtarları yönetilen anahtarları Azure Key vault'ta bekleme sırasında şifrelenebilir. Daha fazla bilgi için bkz. [Azure Search'te şifreleme anahtarlarını yönetmek](search-security-manage-encryption-keys.md).<br>Bu özellik varsayılan bekleme sırasında şifreleme değiştirerek değil, ancak bunun yerine, ek olarak uygulanır.<br>Bu özelliğin etkinleştirilmesi dizin boyutu artırın ve sorgu performansını düşürebilir. Gerçek performans, sorgu türleri ve dizin tanımını bağlı olarak farklılık gösterir ancak gözlemler tarihine bağlı olarak, sorgu süreleri % 30-%60 artış görmek bekleyebilirsiniz. Bu performans etkisi nedeniyle, yalnızca gerçekten ihtiyacınız dizinleri bu özelliği etkinleştirmenizi öneririz.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure genelinde kullanıcı erişim denetimleri
 

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729289"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987936"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -67,7 +67,7 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 
 ## <a name="automatic-upgrade-process"></a>Otomatik yükseltme işlemi
 
-Yukarıdaki kullanılabilirlik grafiğinde bağlı olarak, biz otomatik yükseltmeler Gen1 örnekleriniz için zamanlama. Veri ambarının kullanılabilirliğine herhangi beklenmeyen kesintiler önlemek için otomatik yükseltmeler sırasında bakım zamanlamanızı zamanlanacak. Zamanlama hakkında daha fazla bilgi için bkz. [bakım zamanlaması görüntüleyin](viewing-maintenance-schedule.md)
+Yukarıdaki kullanılabilirlik grafiğinde bağlı olarak, biz otomatik yükseltmeler Gen1 örnekleriniz için zamanlama. Veri ambarının kullanılabilirliğine herhangi beklenmeyen kesintiler önlemek için otomatik yükseltmeler sırasında bakım zamanlamanızı zamanlanacak. Gen2'ye otomatik yükseltilen bölgede yeni bir Gen1 örneği oluşturma özelliği devre dışı bırakılır. Zamanlama hakkında daha fazla bilgi için bkz. [bakım zamanlaması görüntüleyin](viewing-maintenance-schedule.md)
 
 Biz, veri ambarı yeniden başlatmanız gibi yükseltme işlemi bağlantısı (yaklaşık 5 dakika) kısa bir bırakma içerir.  Veri ambarınız yeniden başlatıldıktan sonra tam olarak kullanılmaya hazır olacaktır. Ancak, arka planda veri dosyalarını yükseltmek yükseltme işlemi devam ederken, aslında performansta düşüş karşılaşabilirsiniz. Performans düşüşü için toplam süreyi, veri dosyalarının boyutuna bağlı olarak değişir.
 

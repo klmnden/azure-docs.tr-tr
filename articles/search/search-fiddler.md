@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290425"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024803"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Hızlı Başlangıç: Postman kullanarak Azure Search REST API'lerini keşfetme
 > [!div class="op_single_selector"]
@@ -63,9 +63,9 @@ Bu bölümde, Azure Search bağlantı kurmak için tercih ettiğiniz web aracı 
 
 Araçtan için (GET, POST, PUT ve benzeri) bir komut seçmek için bir URL uç noktası sağlar ve bazı görevler için isteğin gövdesindeki JSON sağlar. Tam URL aşağıdaki gibi görünür:
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
 
-HTTPS ön ekini, hizmetin adı (Bu durumda, dizinler koleksiyonu), bir nesnenin adını dikkat edin ve [api sürümü](search-api-versions.md). Gerekli, küçük harf dize olarak belirtilen api-version değeri "? api sürümü 2017-11-11 =" geçerli sürümü için. API sürümleri düzenli olarak güncelleştirilir. api-version parametresini her isteğe dahil etmeniz hangisinin kullanıldığıyla ilgili tam denetim sahibi olmanızı sağlar.  
+HTTPS ön ekini, hizmetin adı (Bu durumda, dizinler koleksiyonu), bir nesnenin adını dikkat edin ve [api sürümü](search-api-versions.md). Gerekli, küçük harf dize olarak belirtilen api-version değeri `?api-version=2019-05-06` geçerli sürümü için. API sürümleri düzenli olarak güncelleştirilir. api-version parametresini her isteğe dahil etmeniz hangisinin kullanıldığıyla ilgili tam denetim sahibi olmanızı sağlar.  
 
 İstek üst bilgisi oluşturma, iki öğe, içerik türü ve Azure Search için kimliğini doğrulamak için kullanılan api anahtarını içerir:
 
@@ -85,7 +85,7 @@ URL içerecek şekilde Genişletilmiş `hotel` dizin adı.
 Postman içinde Bunu yapmak için:
 
 1. Değiştirmek için fiil **yerleştirin**
-2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
 3. (Aşağıda istek gövdesinde gösterilmiştir) dizin tanımını belirtin
 4. Tıklayın **Gönder**
 
@@ -129,7 +129,7 @@ URL içerecek şekilde Genişletilmiş `docs` koleksiyonları ve `index` işlemi
 Postman içinde Bunu yapmak için:
 
 1. Değiştirmek için fiil **sonrası**
-2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
 3. JSON belgelerini (aşağıdaki istek gövdesinde gösterilmiştir) sağlayın
 4. Tıklayın **Gönder**
 
@@ -219,7 +219,7 @@ URL, arama işleci kullanılarak belirtilen bir sorgu dizesi dahil etmek için g
 Postman içinde Bunu yapmak için:
 
 + Değiştirmek için fiil **Al**
-+ Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
 + Tıklayın **Gönder**
 
 Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını döndürür. Tıkladıktan sonra istek ve yanıt için Postman aşağıdaki ekran görüntüsüne benzer görünmelidir **Gönder**. Durum kodu 200 olmalıdır.
@@ -228,7 +228,7 @@ Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını 
 
 
 ## <a name="get-index-properties"></a>Dizin özelliklerini alma
-Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 Postman uygulamasında isteğinizin aşağıdakine benzer olması ve yanıtta belge sayısı ile kullanılan alanın bayt cinsinden değerinin belirtilmesi gerekir.
 
@@ -247,7 +247,7 @@ Bu bölümde, önceki bölümlerde, Fiddler ekran görüntüleri ve yönergeleri
 
 Aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin. Seçin **alma** fiili olarak. Fiddler `User-Agent=Fiddler` ekler. Altındaki yeni satırlara iki ek istek üst bilgisi yapıştırabilirsiniz. Hizmetinize ait yönetici erişim anahtarını kullanarak hizmetinizin içerik türünü ve API anahtarını dahil edin.
 
-Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler isteği üst bilgisi][1]
 
@@ -256,7 +256,7 @@ Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<p
 
 ### <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
+Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
 
 ![Fiddler isteği gövdesi][7]
 
@@ -272,11 +272,11 @@ Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](http
 
 **Boşluklar değiştirilmeden önce (in lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
 
 **Boşluklar + ile değiştirildikten sonra (in lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>Dizin istatistiklerini Fiddler'da görüntülemek için ipuçları
 

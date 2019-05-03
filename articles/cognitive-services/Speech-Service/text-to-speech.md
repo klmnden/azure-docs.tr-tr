@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460278"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020374"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
@@ -32,7 +32,9 @@ Standart sesleri istatistiksel parametrik sentezi ve/veya birleştirme sentezi t
 
 Sinir sesleri stres ve konuşulan dili ve konuşma birimlerinin bir bilgisayar ses synthesizing tonlama desenlerle eşleşen geleneksel metin okuma sistemlere sınırlarını üstesinden gelmek için derin sinir ağları kullanın. Standart metinden konuşmaya prosody ayrı dil analizi ve bağımsız modelleri tarafından yönetilir akustik tahmin adımları halinde ayırır. Bu muffled, buzzy ses birleştirme neden olabilir. Bizim sinir özelliği bir daha esnektir, doğal görünen ses sonuçlanır prosody öngörü ve ses sentezi eşzamanlı olarak yapar.
 
-Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün. Sinir sesleri hakkında daha fazla bilgi için bkz: [desteklenen diller](language-support.md#text-to-speech).
+Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün. 
+
+Farklı stillerde, nötr gibi ve neşeli sinir kişilerden daha fazlasını destekler. Örneğin, Jessa (en-US) ses cheerfully, normal, mutlu konuşma için optimize edilmiştir konuşabilirsiniz. Sesi, aralık, gibi ses çıkış ayarlama ve kullanma hızlandırmak [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md). Kullanılabilir seslerini tam bir listesi için bkz. [desteklenen diller](language-support.md#text-to-speech).
 
 Sinir sesleri avantajları hakkında daha fazla bilgi için bkz: [yardımcı kişi gibi konuşun makineler Microsoft'un yeni sinir metin okuma hizmeti](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 

@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç bulutta bir not defteri çalıştırma
+title: 'Hızlı Başlangıç: Bulutta bir not defteri çalıştırma'
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile çalışmaya başlama. Yönetilen notebook sunucusu bulutta çalışma alanınızı kullanın.  Çalışma alanınızda denemeler, eğitmek ve makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır.
 services: machine-learning
@@ -8,85 +8,103 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754105"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023915"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
-Bu makalede, Azure Machine Learning hizmetinde oturum kodu çalıştırmak için Azure not defterlerini kullanma [çalışma](concept-azure-machine-learning-architecture.md). Çalışma alanınızda denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
+Bir bulut tabanlı bir not defteri sunucusu oluşturmak ve ardından bunu kullanın.  Bu hızlı başlangıçta, değer'de oturum açması Python kodunu çalıştırma [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
 
-Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
+Bu hızlı başlangıçta Azure Machine Learning çalıştırmak için gereken Python ortamını ile yapılandırılmış bulut kaynağı, Azure Machine Learning çalışma alanı oluşturma işlemi gösterilmektedir. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
  
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
-* Python ile çalışma alanınızda bir Jupyter not defterine bağlanın. Not defterini pi ve günlükleri hataları her yinelemede, tahmin kodunu içerir. 
-* Oturum hata değerlerini çalışma alanınızda görüntüleyin.
+* Çalışma alanınızda yeni bir bulut tabanlı bir not defteri sunucusu oluşturma
+* Jupyter web arabirimi başlatın
+* Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
+* Not Defteri çalıştırma.
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-## <a name="prerequisite"></a>Önkoşul
+## <a name="prerequisites"></a>Önkoşullar
 
-1. [Bir Azure Machine Learning çalışma alanı oluşturma](setup-create-workspace.md#portal) tane yoksa.
+- Azure Machine Learning çalışma alanı.  [Çalışma alanınızı oluşturma](setup-create-workspace.md#portal) , yoksa, şimdi.
 
-1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).  Bkz. nasıl [çalışma alanınızı bulmak](how-to-manage-workspace.md#view).
+## <a name="create-a-cloud-based-notebook-server"></a>Bulut tabanlı bir not defteri sunucusu oluşturma
 
-## <a name="use-your-workspace"></a>Çalışma alanınızla kullanmak
+ Çalışma alanınızdan, Jupyter not defterleri ile çalışmaya başlamak için bir bulut kaynağı oluşturun. Bu kaynak, önceden yapılandırılmış Azure Machine Learning hizmeti çalıştırmak için gereken her şeyi ile bulut tabanlı bir platform sunar.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).  Çalışma alanınızı portalda bulun bilmiyorsanız, bkz. nasıl [çalışma alanınızı bulmak](how-to-manage-workspace.md#view).
 
+1. Azure portalında çalışma sayfasında, seçin **not defteri Vm'leri** soldaki.
 
+1. Seçin **+ yeni** not defteri VM oluşturmak için.
 
-Bir çalışma alanı, makine öğrenimi betiklerini yönetmenize nasıl yardımcı olduğunu öğrenin. Bu bölümde, aşağıdaki adımları uygulayın:
+     ![Yeni sanal Makineyi seçin](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-* Azure Notebooks'da bir not defteri açma.
-* Günlüğe kaydedilen bazı değerler oluşturan kodu çalıştırma.
-* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
+1. Sanal Makineniz için bir ad sağlayın. Ardından **Oluştur**’u seçin. 
 
-Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+    ![Yeni VM oluşturma](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-### <a name="open-a-notebook"></a>Not defterini açma 
+1. Yaklaşık 4-5 dakika bekleyin ve ardından **Yenile**.  Her 30 saniyede yenilemeyi deneyin veya bunu durum olana kadar **çalıştıran**.
 
-[Azure not defterleri](https://notebooks.azure.com) Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar. Çalışma alanınızda, Azure Machine Learning hizmeti çalışma alanında kullanmaya başlamak için bu platform başlatabilirsiniz.
+    ![Yenile](media/quickstart-run-cloud-notebook/refresh.png)
 
-1. Çalışma alanı genel bakış sayfasında **alma başlatıldı Azure not defterleri** ilk denemenizi Azure not defterlerinde denemek için.  Azure not defterleri, ücretsiz bulutta çalıştırmadan Jupyter Notebook sağlayan ayrı bir hizmettir.  Bu bağlantı hizmeti kullandığınızda, çalışma alanınıza bağlanma hakkında bilgi Azure not defterlerinde oluşturduğunuz kitaplığa eklenir.
+## <a name="launch-jupyter-web-interface"></a>Jupyter web arabirimi başlatın
 
-   ![Çalışma alanını keşfedin](./media/quickstart-run-cloud-notebook/explore-aml.png)
+Sanal makinenizin çalışmaya başladıktan sonra kullanın **not defteri Vm'leri** Jupyter web arabirimini açmak için bölüm.
 
-1. Azure Not Defterleri'nda oturum açın.  Azure portalında oturum açmak için kullandığınız hesapla oturum açmanız emin olun. Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
+1. Seçin **Jupyter** içinde **URI** VM'niz için sütun.  
 
-1. Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. Bu kitaplık kopyalama not defterleri ve diğer dosyaları bir dizi Azure not defterleri hesabınızda yükler.  Bu dosyaları Azure Machine Learning yeteneklerini keşfetmenize yardımcı olur.
+    ![Jupyter notebook sunucusu Başlat](./media/quickstart-run-cloud-notebook/start-server.png)
 
-1. Onay kutusunu temizleyin **genel** böylece çalışma alanı bilgilerinizi başkalarıyla paylaşmayın.
+    Bağlantı, Not Defteri sunucusu başlatır ve Jupyter notebook Web sayfasını yeni bir tarayıcı sekmesinde açılır.  Bu bağlantı, yalnızca sanal Makineyi oluşturan kişi için çalışır.
 
-1. Seçin **kopya**.
+1. Jupyter not defteri sayfasında seçin **samples/quickstart** Hızlı not defteri görmek için klasör.
 
-   ![Bir kitaplık kopyalama](./media/quickstart-run-cloud-notebook/clone.png)
+## <a name="run-the-notebook"></a>Not defterini çalıştırma
 
-1. Proje durumu durdurulduğunu görüyorsanız tıklayın **ücretsiz bilgisayarda** ücretsiz notebook sunucusu kullanmak için.
-
-    ![Proje üzerinde ücretsiz işlem çalıştırma](./media/quickstart-run-cloud-notebook/run-project.png)
-
-### <a name="run-the-notebook"></a>Not defterini çalıştırma
-
-Bu proje için dosya listesinde, gördüğünüz bir `config.json` dosya. Bu yapılandırma dosyası, çalışma alanı bilgilerini Azure portalında oluşturduğunuz içerir.  Bu dosya bağlanmak ve bilgi çalışma alanınıza eklemek için kodunuzu sağlar.
+Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çalıştırın.
 
 1. Seçin **01.run experiment.ipynb** not defterini açın.
 
-1. Durum alanı çekirdek başlatıldı kadar beklenecek söyler.  Çekirdek hazır olduğunda ileti kaybolur.
+1. Çekirdek ayarlanmamış bir ileti görebilirsiniz.  Seçin **Python 3.6 - AzureML**, ardından **ayarlamak çekirdek**.
+
+   ![Çekirdek ayarlayın](./media/quickstart-run-cloud-notebook/set-kernel.png)
+
+1. Durum alanı çekirdek başlatıldı kadar beklenecek söyler. Çekirdek hazır olduğunda ileti kaybolur.
 
     ![Çekirdek başlatmak bekle](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. Çekirdek başlatıldıktan sonra bir hücre, bir zaman kullanarak çalıştırın **Shift + Enter**. Veya **hücreleri** > **tümünü Çalıştır** tüm not defterlerini çalıştırmak için. Bir yıldız işareti gördüğünüzde __*__, hücrede yanında hücre hala çalışıyor. Hücredeki kodun çalışması tamamlandığında bir sayı görünür. 
+1.  İlk kodu hücreyi tıklatın ve seçin **çalıştırma**.
 
-1. Azure aboneliğinizin kimlik doğrulaması yapmak için not defterindeki yönergeleri izleyin.
+    > [!NOTE]
+    > Kod hücreleri önce bunları ayraçlar var. Köşeli ayraçlar boş olduğunda (__[]__), kod çalıştırılmadı. Kodu çalışırken, bir yıldız işareti görürsünüz (__[*]__). Kod tamamlandıktan sonra bir sayı **[1]** görünür.  Sayı hücreleri çalıştırıldığı sırada söyler.
+    >
+    > Kullanım **Shift girin** bir hücresini çalıştırmak için bir kısayol olarak.
 
-Not defterinde çalıştıran tüm hücreleri bitirdikten sonra çalışma alanınızda günlüğe kaydedilen değerleri görüntüleyebilirsiniz.
+    ![Birinci kod hücresini çalıştırmak](media/quickstart-run-cloud-notebook/cell1.png)
+
+1. İkinci kod hücresini çalıştırmak. Kimlik doğrulaması yapmak için yönergeleri görürseniz, kodu kopyalayın ve oturum açmak için bağlantıyı izleyin. Oturum açtıktan sonra bu ayar, tarayıcınızın hatırlanır.  
+
+    > [!TIP]
+    > Alanı koddan sonra değil kopyaladığınızdan emin olun.  
+
+    ![Kimlik doğrulaması](media/quickstart-run-cloud-notebook/authenticate.png)
+
+1. Bitirdiğinizde, hücre sayısı __[2]__ görünür.  Oturum açmak olsaydı, kimlik doğrulaması başarılı durum iletisi görürsünüz.   Oturum açmak zorunda olmadığı, bu hücre için herhangi bir çıktı görmezsiniz, yalnızca sayı hücresi başarıyla çalıştığını göstermek için görünür.
+
+    ![Başarı iletisi](media/quickstart-run-cloud-notebook/success.png)
+
+1. Kod hücreleri geri kalanını çalıştırın.  Her bir hücresinde çalışmayı tamamladıktan gibi görünen hücre sayısı görürsünüz. Yalnızca son hücreye herhangi bir çıkış görüntüler.  En büyük kodu hücreyi gördüğünüz `run.log` birden fazla yerde kullanılır. Her `run.log` çalışma alanınıza değeri ekler.
+
 
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
 
@@ -104,13 +122,35 @@ Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı değ
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
+### <a name="stop-the-notebook-vm"></a>Not defterini VM durdurma
+
+Maliyetini azaltmak için kullanmadığınızda, Not defterini VM'yi durdurun.  
+
+1. Çalışma alanınızı seçin **not defteri Vm'leri**.
+
+   ![VM sunucu stop](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. Listeden VM’yi seçin.
+
+1. Seçin **Durdur**.
+
+1. Yeniden sunucunun kullanıcı için hazır olduğunuzda, seçin **Başlat**.
+
+### <a name="delete-everything"></a>Her şeyi silin
+
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 Ayrıca, kaynak grubunu korumakla birlikte tek bir çalışma alanını silebilirsiniz. Çalışma alanı özelliklerini görüntülemek ve seçmek **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Deneme ve model dağıtımı için gerekli kaynakları oluşturdunuz. Ayrıca bir defterde bulunan bazı kodları da çalıştırdınız. Buluttaki çalışma alanınızda bu koddan gelen çalıştırma geçmişini de incelediniz.
+Bu hızlı başlangıçta, bu görevleri tamamlandı:
+
+* Not Defteri VM oluşturma
+* VM dizüstü bilgisayarınızda bir Jupyter not defteri sunucusu Başlat
+* Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
+* Not Defteri çalıştırma.
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
 
 Ayrıntılı iş akışı deneyimi için eğitmek ve model dağıtma için Machine Learning öğreticileri izleyin:  
 

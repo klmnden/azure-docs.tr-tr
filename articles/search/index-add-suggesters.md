@@ -1,7 +1,7 @@
 ---
 title: Bir dizine - Azure Search typeahead sorguları ekleme
 description: Azure Search'te yazarken tamamlanan sorgu Eylemler, öneri araçları oluşturma ve otomatik tamamlama çağırma veya sorgu terimleriyle autosuggested istekleri formulating etkinleştirin.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844442"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021889"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search'te typeahead için dizin öneri Araçları eklemek
 
@@ -39,9 +39,6 @@ Azure Search'te Bu davranışların uygulamak için bir dizin ve sorgu bileşeni
 + Bir öneri aracı dizini bileşendir. Bir öneri aracı oluşturmak için portalı, REST API'si veya .NET SDK'sını kullanabilirsiniz. 
 
 + Sorgu bileşeni belirtilen sorgu isteği (bir öneri veya otomatik tamamlama eylemini) bir eylemdir. 
-
-> [!Important]
-> Otomatik Tamamlama, Önizleme, REST API Önizleme aşamasında kullanıma ve .NET SDK'sı şu anda kullanılabilir. Üretim uygulamaları için tasarlanmamıştır. 
 
 Arama---yazarken destek alan başına temelinde etkinleştirilir. Ekran görüntüsünde gösterilen benzer bir deneyim istiyorsanız her iki typeahead davranışları aynı arama çözüm içinde uygulayabilirsiniz. Her iki istekleri hedef *belgeleri* belirli dizinini ve yanıtları koleksiyonu, bir kullanıcı en az üç karakter giriş dizesi ayarının sonra döndürülür.
 
@@ -106,7 +103,7 @@ Bir öneri aracı tanımlayan özellikleri şunlardır:
 
 |Özellik      |Açıklama      |
 |--------------|-----------------|
-|`name`        |Öneri aracı adı. Öneri aracı adını çağırırken kullanmak [önerileri REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) veya [otomatik tamamlama REST API'si (Önizleme)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |Öneri aracı adı. Öneri aracı adını çağırırken kullanmak [önerileri REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) veya [otomatik tamamlama REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Aday tümcecikleri aramak için kullanılan strateji. Şu anda desteklenen tek moddur `analyzingInfixMatching`, başında veya ortasında cümleler tümce esnek eşleştirme gerçekleştirir.|
 |`sourceFields`|Öneriler için içerik kaynağı olan bir veya daha fazla alanların listesi. Türünde alanlar `Edm.String` ve `Collection(Edm.String)` kaynaklar için önerileri olabilir. Kümesi özel bir dil Çözümleyicisi olmayan alanlar kullanılabilir.<p/>Arama çubuğu veya açılır liste tamamlanmış bir dizede olup yalnızca kendilerini bir beklenen ve uygun yanıt olarak kiralamak alanları belirtin.<p/>Duyarlık sahip olduğu bir otel adı iyi bir adaydır. Ayrıntılı açıklamaları ve yorumlarına gibi çok yoğun alanlardır. Benzer şekilde, yinelenen alanlar, kategoriler ve etiketler gibi daha az etkilidir. Örneklerde "Kategori" yine de birden çok alan içerebilir göstermek için ekliyoruz. |
 
@@ -120,7 +117,7 @@ Burada mevcut alanların dahil edilecek varolan bir dizini için bir öneri arac
 
 Daha önce belirtildiği gibi bir öneri aracı önerilen sorgular, otomatik tamamlama veya her ikisini de kullanabilirsiniz. 
 
-İstekte işlemi ile birlikte bir öneri aracı başvuruldu. Örneğin, bir GET REST araması üzerinde seçeneklerinden birini belirtin `suggest` veya `autocomplete` belge koleksiyonu. KALAN için bir öneri aracı oluşturduktan sonra kullanma [öneriler API'si](https://docs.microsoft.com/rest/api/searchservice/suggestions) veya [otomatik tamamlama API'sini (Önizleme)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) sorgu mantığınızı içinde.
+İstekte işlemi ile birlikte bir öneri aracı başvuruldu. Örneğin, bir GET REST araması üzerinde seçeneklerinden birini belirtin `suggest` veya `autocomplete` belge koleksiyonu. KALAN için bir öneri aracı oluşturduktan sonra kullanma [öneriler API'si](https://docs.microsoft.com/rest/api/searchservice/suggestions) veya [otomatik tamamlama API'sini](https://docs.microsoft.com/rest/api/searchservice/autocomplete) sorgu mantığınızı içinde.
 
 .NET için kullanma [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) veya [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

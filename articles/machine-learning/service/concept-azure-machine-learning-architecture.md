@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821264"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025229"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -68,7 +68,7 @@ Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kul
 
 Çalışma alanının bir taksonomi, aşağıdaki diyagramda gösterilmiştir:
 
-[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Deneme
 
@@ -106,6 +106,16 @@ Bir çalıştırma yapılandırma komut dosyası içinde belirtilen işlem hedef
 
 Çalışma yapılandırmaları, bkz: [seçin ve modelinizi eğitmek için bir işlem hedefine](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Veri kümesi
+
+Azure Machine Learning veri kümeleri (Önizleme) erişip ile çalışmanızı kolaylaştırır. Veri kümeleri, veri modeli eğitimi gibi çeşitli senaryolarda yönetin ve işlem hattı oluşturma. Azure Machine Learning SDK'sını kullanarak, temel alınan depolama alanına erişmek, keşfedin ve verileri hazırlama, farklı veri kümesi tanımları yaşam döngüsünü yönetme ve eğitim hem de üretim kullanılan veri kümeleri arasında karşılaştırma.
+
+Veri kümelerini kullanma gibi popüler biçimlerde verilerle çalışmak için yöntemler sağlar `from_delimited_files()` veya `to_pandas_dataframe()`.
+
+Daha fazla bilgi için [oluşturma ve Azure Machine Learning veri kümeleri kayıt](how-to-create-register-datasets.md).
+
+Veri kümelerini kullanan bir örnek için bkz: [örnek not defterleri](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Veri deposu
 
 Bir veri deposu depolama soyutlama, bir Azure depolama hesabıdır. Veri deposu Azure blob kapsayıcısı veya bir Azure dosya paylaşımı, arka uç depolama kullanabilirsiniz. Varsayılan veri deposu her çalışma alanına sahiptir ve ek veri depoları kaydedebilirsiniz.
@@ -127,7 +137,7 @@ Python SDK API'si veya Azure Machine Learning CLI depolamak ve deposundan dosyal
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Alanda programlanabilen geçit dizileri) | &nbsp; | ✓ |
+| Alanda programlanabilir kapı dizileri (FPGA) | &nbsp; | ✓ |
 
 İşlem hedefleri, bir çalışma alanına eklenir. İşlem yerel makine dışındaki hedefleri çalışma alanının kullanıcılar tarafından paylaşılır.
 
@@ -189,8 +199,6 @@ Azure Machine Learning iki tür görüntü oluşturabilirsiniz:
 * **Docker görüntüsü**: FPGA dışındaki hedef işlem dağıttığınızda kullanılır. Azure Container Instances ve Azure Kubernetes Service verilebilir.
 
 Azure Machine Learning hizmeti varsayılan olarak kullanılan bir temel görüntü sağlar. Kendi özel görüntülerinizi de sağlayabilirsiniz.
-
-Daha fazla bilgi için bkz. configure ve görüntü bölümünü kaydetmek [modelleri dağıtma](how-to-deploy-and-where.md#configureimage).
 
 Görüntü oluşturma örneği için bkz: [Azure Container ınstances'da bir görüntü sınıflandırma modeli dağıtma](tutorial-deploy-models-with-aml.md).
 

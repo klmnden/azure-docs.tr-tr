@@ -1,7 +1,7 @@
 ---
 title: Azure Blob Depolama içeriği için tam metin arama - Azure Search dizini
 description: Azure Blob Depolama dizin ve Azure Search belgelerden metni Ayıkla hakkında bilgi edinin.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871356"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024883"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -50,7 +50,7 @@ Veri kaynağı, blob dizin oluşturma işlemi için aşağıdaki gerekli özelli
 
 Bir veri kaynağı oluşturmak için:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -82,7 +82,7 @@ Bir belgede, öznitelikler, alanları dizinini belirtir ve arama şekil diğer y
 
 Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan metinleri saklamak için alan:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -101,7 +101,7 @@ Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar v
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ Dizin Oluşturucu Oluşturma API'si hakkında daha fazla ayrıntı için kullan�
 Yapılandırmanıza bağlı olarak [dizin oluşturucu yapılandırmasını](#PartsOfBlobToIndex), blob dizin oluşturucu yalnızca depolama meta verileri dizinleyebilirsiniz (yararlı hakkındaki meta veriler yalnızca sizin ve BLOB içeriğinin dizinini gerekmez), depolama ve içerik meta verileri veya hem meta veriler ve metin içeriği. Varsayılan olarak, dizin oluşturucu, hem meta veriler hem de içerik ayıklar.
 
 > [!NOTE]
-> Varsayılan olarak, JSON veya CSV gibi yapılandırılmış içeriği BLOB'ları, tek bir metin parçası dizine eklenir. Yapılandırılmış bir biçimde JSON ve CSV bloblarını dizine eklemek istiyorsanız bkz [dizin JSON BLOB'ları](search-howto-index-json-blobs.md) ve [dizin CSV BLOB'ları](search-howto-index-csv-blobs.md) Önizleme özellikleri.
+> Varsayılan olarak, JSON veya CSV gibi yapılandırılmış içeriği BLOB'ları, tek bir metin parçası dizine eklenir. Yapılandırılmış bir biçimde JSON ve CSV bloblarını dizine eklemek istiyorsanız bkz [dizin JSON BLOB'ları](search-howto-index-json-blobs.md) ve [dizin CSV BLOB'ları](search-howto-index-csv-blobs.md) daha fazla bilgi için.
 >
 > Bileşik veya katıştırılmış bir belge (örneğin, bir ZIP arşivi veya Word belgesi ekleri katıştırılmış Outlook e-posta ile), ayrıca tek bir belge olarak dizine alınır.
 
@@ -172,7 +172,7 @@ Bu örnekte, şimdi çekme `metadata_storage_name` alan belge anahtarı olarak. 
 
 Çıkarmasını ister bütün, alan eşlemelerini ekleyin ve var olan bir dizin oluşturucu için anahtarların base-64 kodlamasını etkinleştirmek nasıl şöyledir:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -198,7 +198,7 @@ Hangi BLOB'ları dizini oluşturulur ve hangi atlanır denetleyebilirsiniz.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Yalnızca belirli dosya uzantılarına sahip bloblarını dizinleme
 Yalnızca dosya adı uzantılarını kullanarak belirttiğiniz blob'larla dizinleyebilirsiniz `indexedFileNameExtensions` dizin oluşturucu yapılandırma parametresi. (Sahip, önde gelen bir nokta) dosya uzantılarının virgülle ayrılmış listesini içeren bir dize değeridir. Örneğin, yalnızca dizin için. PDF ve. DOCX BLOB'ları bu yapın:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -210,7 +210,7 @@ Yalnızca dosya adı uzantılarını kullanarak belirttiğiniz blob'larla dizinl
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Belirli dosya uzantılarını blob'larla Dışla
 Belirli dosya adı uzantıları ile BLOB'ları kullanarak dizine elmadan hariç tutabilirsiniz `excludedFileNameExtensions` yapılandırma parametresi. (Sahip, önde gelen bir nokta) dosya uzantılarının virgülle ayrılmış listesini içeren bir dize değeridir. Örneğin, tüm BLOB'ları ile hariç dizin. PNG ve. JPEG uzantıları, bu yapın:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -232,7 +232,7 @@ Hangi BLOB bölümlerinin kullanılarak dizinlenir denetleyebilirsiniz `dataToEx
 
 Örneğin, yalnızca depolama meta verileri dizine kullanın:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -255,7 +255,7 @@ Yukarıda açıklanan yapılandırma parametreleri tüm bloblara uygulanır. Baz
 
 Varsayılan olarak, blob dizin oluşturucu, bir blob desteklenmeyen bir içerik türüyle (örneğin, bir görüntü) karşılaştığında hemen durdurur. Elbette kullanabileceğiniz `excludedFileNameExtensions` belirli içerik türlerini atlama parametresi. Ancak, tüm olası içerik türlerini önceden bilmeden dizin blob'lara gerekebilir. Desteklenmeyen bir içerik türü ile karşılaşıldığında dizin oluşturma devam etmek için ayarlama `failOnUnsupportedContentType` yapılandırma parametresi `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -293,7 +293,7 @@ Belgelerini silmeyi desteklemek için "geçici silme" bir yaklaşım kullanın. 
 
 Örneğin, bir blobun bir metadata özelliğine sahip silinmesi şu ilkeyi göz önünde bulundurur `IsDeleted` değerle `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -340,7 +340,7 @@ Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri b
 
 Tüm bloblar aynı kodlamada düz metin içeriyorsa, önemli ölçüde dizin oluşturma kullanarak performansı **metni ayrıştırma modu**. Ayrıştırma modu metin kullanmak için ayarlanmış `parsingMode` yapılandırma özelliğini `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

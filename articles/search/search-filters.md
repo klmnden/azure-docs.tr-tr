@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289595"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024842"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -73,10 +73,10 @@ Aşağıdaki örnekler birkaç API Prototipik filtre tanımlarında temsil eder.
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ Her bir alanı yeniden dizine her belgenin geri kalanında dokunmadan, mevcut be
 
 ## <a name="text-filter-fundamentals"></a>Metin filtresi temelleri
 
-Metin filtreleri, bazı rastgele koleksiyonu içinde arama topluluğunuza değerlere göre belgelerin çekmek istediğiniz, dize alanları için geçerlidir.
+Metin filtreleri arama dizini içindeki değerlere göre belgelerin bazı rastgele koleksiyonu çekmek istediğiniz, dize alanları için geçerlidir.
 
 Dizeleri oluşan metin filtreleri için sözcük analizi veya yoktur sözcük bölme, bu nedenle karşılaştırmalar yalnızca tam eşleşme. Örneğin, bir alan varsayın *f* "güneşli gün" içeren `$filter=f eq 'Sunny'`eşleşmiyor, ancak `$filter=f eq 'Sunny day'` olur. 
 

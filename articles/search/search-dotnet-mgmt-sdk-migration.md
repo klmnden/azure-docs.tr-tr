@@ -8,16 +8,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.custom: seodec2018
-ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/02/2019
+ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817001"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025185"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Yönetim SDK sürüm 2 için yükseltme
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Azure Search .NET Yönetim SDK'sı sürümüne yükseltme 
+
+> [!Important]
+> Bu içerik yine de tamamlanmamıştır. Azure arama yönetimi .NET SDK'sının sürüm 3.0 NuGet üzerinde kullanılabilir. Bu geçiş kılavuzunda en yeni sürüme yükseltme açıklayan güncelleştirmeyi çalışıyoruz. 
+>
+
 Sürüm 1.0.2 kullanıyorsanız, eski veya [Azure Search .NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk), bu makalede, uygulamanızı sürüm 2 kullanacak şekilde yükseltin yardımcı olur.
 
 Azure Search .NET Yönetim SDK'sı sürüm 2, bazı değişiklikler daha önceki sürümlerin içerir. Kodunuzu değiştirmek, yalnızca en az çaba istemeniz gerekir böylece bunlar çoğunlukla küçük. Bkz: [yükseltme adımları](#UpgradeSteps) yeni SDK sürümü kullanmak kodunuzu değiştirmek konusunda yönergeler için.

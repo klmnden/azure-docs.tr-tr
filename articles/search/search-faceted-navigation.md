@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924583"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023953"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
 
  ![Azure arama iş Portal Tanıtımı][1]
 
-Çok yönlü gezinme, aramak için bir alternatif giriş noktasıdır. El ile karmaşık arama ifadeleri yazmak için uygun bir alternatif sunar. Modelleri, sıfır sonuçlar elde etmezsiniz sağlarken aradığınızı bulmanıza yardımcı olabilir. Bir geliştirici olarak, arama topluluğunuza gezinmek için kullanışlı olabilecek arama ölçütleri kullanıma özellikleri sağlar. Çevrimiçi satış uygulamalar, çok yönlü gezinme genellikle markaları, Departmanlar (çocuk shoes), boyutu, fiyat, özelliği sayesinde Popülerlik ve derecelendirmeler üzerinde oluşturulmuştur. 
+Çok yönlü gezinme, aramak için bir alternatif giriş noktasıdır. El ile karmaşık arama ifadeleri yazmak için uygun bir alternatif sunar. Modelleri, sıfır sonuçlar elde etmezsiniz sağlarken aradığınızı bulmanıza yardımcı olabilir. Bir geliştirici olarak, search dizininizi gezinme için en kullanışlı arama ölçütleri kullanıma özellikleri sağlar. Çevrimiçi satış uygulamalar, çok yönlü gezinme genellikle markaları, Departmanlar (çocuk shoes), boyutu, fiyat, özelliği sayesinde Popülerlik ve derecelendirmeler üzerinde oluşturulmuştur. 
 
 Çok yönlü navigasyon uygulamak arama teknolojilerinden farklıdır. Azure arama'yı kullanarak daha önce Şemanızda öznitelikli alanlar sorgu zamanında çok yönlü gezinme oluşturulmuştur.
 

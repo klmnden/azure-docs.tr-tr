@@ -9,15 +9,19 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d21e41ad487ad17598f2320fab5eebae02309e8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753463"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021719"
 ---
-1. Bölümündeki yönergeleri kullanın [Azure Machine Learning hizmeti çalışma alanı oluşturma](../articles/machine-learning/service/setup-create-workspace.md#portal) Miniconda ortamı oluşturmak için bir çalışma alanı oluşturma ve bir çalışma alanı yapılandırma dosyasını yazma (**aml_config/config.json**) .
-
+1. Bölümündeki yönergeleri kullanın [Azure Machine Learning hizmeti çalışma alanı oluşturma](../articles/machine-learning/service/setup-create-workspace.md#portal) için:
+    * Miniconda ortamı oluşturma
+    * Azure Machine için Python SDK'sı Learning yükleme
+    * Çalışma alanı oluşturma
+    * Bir çalışma alanı yapılandırma dosyasını yazma (**aml_config/config.json**).
+    
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
     ```
@@ -25,8 +29,14 @@ ms.locfileid: "60753463"
     ```
 
 1. Bu yöntemlerden birini kullanarak bir çalışma alanı yapılandırma dosyası ekleyin:
-    * Kopyalama **aml_config/config.json** kopyalanmış dizine önkoşul Hızlı Başlangıç'ı kullanarak oluşturduğunuz dosya.
+    * Kopyalama **aml_config/config.json** kopyalanmış dizine 1. adımda oluşturulan dosya.
+
+    * İçinde [Azure portalında](https://ms.portal.azure.com)seçin **config.json indirme** gelen **genel bakış** çalışma alanınızın bir bölümü. 
+
+    ![Config.json dosyasını indir](./media/aml-dsvm-server/download-config.png)
+
     * Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+
 1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
     
     ```shell

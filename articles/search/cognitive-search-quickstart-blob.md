@@ -1,22 +1,22 @@
 ---
-title: 'Hızlı Başlangıç: Azure portal - Azure Search, yapay ZEKA destekli bir dizin oluşturun'
+title: 'Hızlı Başlangıç: Azure portal - Azure Search AI zenginleştirilmiş bir dizinde oluşturun'
 description: Veri ayıklama, doğal dil ve görüntü işleme becerileri portalında bir Azure Search dizin oluşturma, Azure portalını kullanarak ve örnek veriler.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61345481"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022106"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel beceriler ve örnek verileri kullanarak bir yapay ZEKA dizinleme işlem hattı oluşturma
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Hızlı Başlangıç: Azure Search'te bilişsel beceriler kullanılarak bir yapay ZEKA dizinleme işlem hattı oluşturma
 
 Azure arama ile tümleştirilir [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/)unsearchable veya yapılandırılmamış içerik yapmanın, bir Azure Search dizini oluşturma ardışık düzeni içerik ayıklama, doğal dil işlemeyi (NLP) ve görüntü işleme yetenekleri ekleme aranabilir. 
 
@@ -30,12 +30,12 @@ Bu hızlı başlangıçta, ilk zenginleştirme hattınızı oluşturma [Azure po
 > * Sihirbazı çalıştırma (bir varlık becerisi, kişileri, konumu ve kuruluşları algılar)
 > * Kullanım [ **arama Gezgini** ](search-explorer.md) zenginleştirilmiş verileri sorgulamak için
 
-Bu hızlı başlangıçta ücretsiz hizmet üzerinde çalışır, ancak ücretsiz işlem sayısı günde 20 belgeleri sınırlıdır. Bu hızlı başlangıçta, aynı gün içinde birden çok kez çalıştırmak istiyorsanız, daha fazla çalıştırma sığacak şekilde ayarlamak daha küçük bir dosya kullanın.
+Bu hızlı başlangıçta ücretsiz hizmet üzerinde çalışır, ancak ücretsiz işlem sayısı günde 20 belgeleri sınırlıdır. Bu hızlı başlangıcı çalıştırın birden fazla olarak günde bir kez daha fazla çalıştırma sığacak şekilde ayarlamak daha küçük bir dosya kullanmak istiyorsanız.
 
 > [!NOTE]
-> İşlem, daha fazla belgelerin eklenmesi veya daha fazla yapay ZEKA algoritmalarının ekleme sıklığı artırarak kapsamı genişletin gibi Faturalanabilir bir Bilişsel hizmetler kaynağı eklemek gerekir. API'leri, Bilişsel hizmetler ve Azure Search'te belge çözme aşamasının bir parçası olarak görüntü ayıklama çağırırken ücretler tahakkuk. Metin ayıklama belgelerden için ücretlendirme yoktur.
+> Kapsam işleme sıklığını artırarak daha fazla belgelerin eklenmesi genişletmeniz veya daha fazla yapay ZEKA algoritmalarının eklenmesi gerekir [Faturalanabilir bir Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md). API'leri, Bilişsel hizmetler ve Azure Search'te belge çözme aşamasının bir parçası olarak görüntü ayıklama çağırırken ücretler tahakkuk. Metin ayıklama belgelerden için ücretlendirme yoktur.
 >
-> Yerleşik yetenek yürütülmesi sırasında mevcut ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma üzerinden ücretlendirilir Önizleme fiyatlandırması üzerinde açıklandığı [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). [Daha fazla bilgi](cognitive-search-attach-cognitive-services.md) edinin.
+> Yerleşik yetenek yürütülmesi sırasında mevcut ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/). Görüntü ayıklama fiyatlandırma üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

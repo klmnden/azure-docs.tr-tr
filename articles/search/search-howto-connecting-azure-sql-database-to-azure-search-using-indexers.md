@@ -1,7 +1,7 @@
 ---
 title: Bağlanmak ve Azure SQL veritabanı dizin oluşturucuları - Azure Search kullanarak içerik dizini
 description: Azure Search'te tam metin arama için dizin oluşturucuları kullanarak Azure SQL veritabanı'nda veri gezinme hakkında bilgi edinin. Bu makale, bağlantılar, dizin oluşturucu yapılandırmasını ve veri alımı kapsar.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817159"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025350"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -63,7 +63,7 @@ Verilerinize ilişkin çeşitli etkenlere bağlı olarak Azure SQL dizin oluştu
 1. Veri kaynağı oluşturun:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ Verilerinize ilişkin çeşitli etkenlere bağlı olarak Azure SQL dizin oluştu
 3. Dizin Oluşturucu, bir ad verin ve başvuru verileri kaynak ve hedef dizin oluşturma:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ Verilerinize ilişkin çeşitli etkenlere bağlı olarak Azure SQL dizin oluştu
 
 Bu şekilde oluşturulan bir dizin oluşturucu, bir zamanlamaya sahip değil. Ne zaman oluşturulduktan sonra otomatik olarak çalıştırılır. Yeniden kullanarak istediğiniz zaman çalıştırabilirsiniz bir **dizin oluşturucuyu çalıştırma** isteği:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 Dizin Oluşturucu davranışı, toplu iş boyutu ve bir dizin oluşturucu yürütme başarısız olmadan önce kaç belgeleri atlanabilir gibi çeşitli yönlerini özelleştirebilirsiniz. Daha fazla bilgi için [dizin oluşturucu API oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -104,7 +104,7 @@ Veritabanınıza bağlanmak Azure hizmetlerinin izin gerekebilir. Bkz: [Azure ba
 
 Dizin Oluşturucu durumu ve yürütme geçmişini (dizinlenmiş öğeleri, hatalar vb. sayısı) izlemek için kullanmak bir **dizin oluşturucu durumu** isteği:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 Yanıt, aşağıdakine benzer görünmelidir:
@@ -146,7 +146,7 @@ Yanıt hakkında ek bilgiler bulunabilir [dizin oluşturucu durumunu Al](https:/
 ## <a name="run-indexers-on-a-schedule"></a>Dizin oluşturucular bir zamanlamaya göre çalıştırma
 Düzenli bir zamanlamaya göre çalıştırmak için dizin oluşturucu da düzenleyebilirsiniz. Bunu yapmak için ekleme **zamanlama** oluştururken veya dizin oluşturucunun güncelleştirme özelliği. Aşağıdaki örnekte, dizin oluşturucu güncelleştirmek için PUT İsteği gösterilmektedir:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

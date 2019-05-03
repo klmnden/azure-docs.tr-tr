@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461621"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020537"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Konuşma hizmeti kullanarak bir özel Uyandırma sözcük oluşturma
 
@@ -47,29 +47,26 @@ Uyandırma word seçtiğinizde aşağıdaki yönergeleri göz önünde bulunduru
 
 ## <a name="create-your-wake-word"></a>Uyandırma Word'ün oluşturma
 
-Cihazınızda bir özel Uyandırma sözcük kullanabilmeniz için önce Microsoft özel Uyandırma Word oluşturma hizmetini kullanarak Uyandırma word oluşturmanız gerekir. Bir dosya hizmeti oluşturan bir Uyanma sözcük sağladıktan sonra Uyandırma word Cihazınızda etkinleştirmek için Geliştirme Seti dağıtın.
+Cihazınızda bir özel Uyandırma sözcük kullanabilmeniz için önce Microsoft özel Uyandırma Word oluşturma hizmeti ile bir Uyanma word oluşturmak gerekir. Bir dosya hizmeti oluşturan bir Uyanma sözcük sağladıktan sonra Uyandırma word Cihazınızda etkinleştirmek için Geliştirme Seti dağıtın.
 
-1. Git [özel konuşma hizmeti portalı](https://cris.ai/).
+1. Git [özel konuşma hizmeti portalı](https://aka.ms/sdsdk-speechportal) ve **oturum** ya da seçin bir konuşma abonelik yoksa [ **bir abonelik oluşturun**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![Özel konuşma hizmeti portalı](media/speech-devices-sdk/wake-word-4.png)
 
-1. Azure Active Directory için Davetiyesi e-posta adresiyle oturum açın.
-
-1. **Özel Uyandırma Word** kullanılamaz, ortak var. alan doğrudan bağlantı olduğundan. Özel konuşma tanıma özelliği bir Azure aboneliği gerektirir, ancak özel Uyandırma Word özelliği değil. Aldığınız varsa **Hayır abonelik bulunamadı.** hata sayfası, yalnızca Değiştir **"abonelikleri? errorMessage = yok % 20Subscriptions % 20found"** ile "**customkws**" URL'si ve isabet girin. URL, bunlardan biri olmalıdır: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws veya https://northeurope.cris.ai/customkwsbölgenizde nerede bağlı olarak.
-
-1. Tercih ettiğiniz Uyandırma sözcüğü yazın ve ardından **sözcüğü gönderme**.
+1. Konumunda [özel Uyandırma Word](https://aka.ms/sdsdk-wakewordportal) sayfa türü Uyandırma Word seçim ve tıklatın **Uyandırma sözcük Ekle**. Bazı sahip olduğumuz [yönergeleri](#choose-an-effective-wake-word) etkili bir anahtar sözcüğü seçmenizi sağlayacak. Şu anda yalnızca en-US dil destekliyoruz.
 
     ![Uyandırma sözcük girin](media/speech-devices-sdk/wake-word-5.png)
 
-1. Bu dosyaların oluşturulması birkaç dakika sürebilir. Tarayıcı pencerenizde dönen bir daire görmeniz gerekir. Kısa bir süre sonra bir bilgi çubuğu, .zip dosyasını indirmek isteyen görüntülenir.
+1. Uyandırma Word'ün üç Söyleyiş oluşturulur. İstediğiniz tüm Söyleniş seçebilirsiniz. Ardından **Gönder** Uyandırma word oluşturulacak. Söyleniş satırında geldiğinizde Uyandırma word Lütfen Kaldır var olan bir ilk olarak, değiştirmek istediğiniz Sil simgesini görünür.
 
-1. .Zip dosyasını bilgisayarınıza kaydedin. Bu dosya, geliştirme setine özel Uyandırma word dağıtmak için ihtiyacınız. Özel Uyandırma word dağıtmak için yönergeleri izleyin. [konuşma cihaz SDK'sı ile çalışmaya başlama](speech-devices-sdk-qsg.md).
+    ![Uyandırma Word'ün gözden geçirin](media/speech-devices-sdk/wake-word-6.png)
 
-1. Seçin **oturumu kapatın.**
+1. Bu model oluşturulacağını belirtmek için en fazla bir dakika sürebilir. Dosyayı karşıdan yüklemeniz istenir.
+
+    ![Uyandırma Word'ün indirin](media/speech-devices-sdk/wake-word-7.png)
+
+1. .Zip dosyasını bilgisayarınıza kaydedin. Bu dosya, özel Uyandırma word geliştirme setine dağıtmak için ihtiyacınız olacak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başlamak için alma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/) ve konuşma cihaz SDK'sı için kaydolun.
-
-> [!div class="nextstepaction"]
-> [Konuşma cihaz SDK'sı için kaydolun](get-speech-devices-sdk.md)
+Kendi özel Uyandırma word ile test [konuşma cihaz SDK'sı hızlı](https://aka.ms/sdsdk-quickstart).

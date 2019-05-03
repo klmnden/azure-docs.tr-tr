@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871123"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024772"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search için Veri Alma Sihirbazı
 
@@ -27,7 +27,7 @@ Azure portalı, Azure Search panosunda verileri bir dizine yüklemeye yönelik *
 
 Sihirbazın önceden tanımlanmış bir dizine bağlanmak veya varolan bir dizin oluşturucuyu çalıştırma, ancak sihirbaz içinde yeni bir dizin veya yapısı ve gereksinim duyduğunuz davranışları desteklemek için dizin oluşturucuyu yapılandırabilirsiniz.
 
-Azure Search'ü ilk kez mi kullanıyorsunuz? Adım adım [hızlı başlangıç: İçeri aktarma, dizin ve portal araçlarını kullanarak sorgu](search-get-started-portal.md) içeri aktarma ve dizin oluşturma kullanarak test sürüşü yapması **verileri içeri aktarma** ve yerleşik realestate örnek veri kümesi.
+Azure Search'ü ilk kez mi kullanıyorsunuz? Adım adım [hızlı başlangıç: İçeri aktarma, dizin ve portal araçlarını kullanarak sorgu](search-get-started-portal.md) içeri aktarma ve dizin oluşturma kullanarak test sürüşü yapması **verileri içeri aktarma** ve yerleşik Emlak örnek veri kümesi.
 
 ## <a name="start-importing-data"></a>Verileri içeri aktarmaya başlayın
 
@@ -77,7 +77,7 @@ Dizin ilk belgenin yüklendikten hemen sonra sorgulamaya hazırdır. Kullanabile
 * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure tablo depolama](search-howto-indexing-azure-tables.md) (için desteklenmeyen [bilişsel arama](cognitive-search-concept-intro.md) işlem hatları)
 
-Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, veritabanı görünümü veya eşdeğeri veri yapısından aktarabilirsiniz. 
+Hiyerarşik veya iç içe geçmiş substructures yapısı içerebilir ancak yalnızca tek bir tablo, veritabanı görünümü veya eşdeğeri veri yapısından aktarabilirsiniz. Daha fazla bilgi için [karmaşık türler nasıl](search-howto-complex-data-types.md).
 
 Sihirbazı çalıştırmadan önce bu veri yapısını oluşturmanız gerekir ve içerik içermesi gerekir. Çalıştırma **verileri içeri aktarma** boş veri kaynağı Sihirbazı.
 

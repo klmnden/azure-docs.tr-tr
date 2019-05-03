@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752348"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021101"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
 Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning hizmeti kullanılırken karşılaşılan hatalar yardımcı olur.
+
+## <a name="visual-interface-issues"></a>Görsel arabirimi sorunları
+
+Machine learning hizmet sorunları için görsel arabirim.
+
+### <a name="long-compute-preparation-time"></a>Uzun bir işlem hazırlık süresi
+
+Yeni işlem oluşturmak veya işlem tarafından gerçekleştirilen işlemlerin zaman bırakma evoke, birkaç dakika veya daha uzun olabilir. Takım, iyileştirme için çalışmaktadır.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Bir denemeyi çalıştırma yalnızca içeremez veri kümesi 
+
+Çalıştırmak istediğiniz bir denemeyi yalnızca veri kümesini görselleştirmenin veri kümesi içerir. Ancak, çalışmasına izin olmayan bir denemeyi yalnızca veri kümesini hemen içeren. Biz bu sorunu düzeltmeye etkin.
+ 
+Düzeltme önce herhangi bir veri dönüştürme Modülü (veri kümesi meta verileri düzenlemek, bölünmüş veri vb. Sütunları Seç) veri kümesine bağlanmak ve denemeyi çalıştırın. Ardından veri kümesini görselleştirebilirsiniz. 
+
+Aşağıdaki görüntüde nasıl: ![visulize veri](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK yükleme sorunları
 

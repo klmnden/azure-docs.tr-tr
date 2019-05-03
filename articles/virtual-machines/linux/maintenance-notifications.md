@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 860cb2bee902c6559b7851eb05fa9c5270876fe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b1764eaf3f496b52bdd73afb5489843ab15cacbd
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126979"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993053"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Planlı bakım bildirimlerini Linux sanal makineleri için işleme
 
@@ -33,7 +33,7 @@ Azure sanal makine konak altyapısının güvenilirlik, performans ve güvenliğ
 Yeniden başlatma gerektiren bir planlı bakım içinde Dalgalar zamanlanır. Her dalgada farklı kapsamı (bölge) vardır.
 
 - Bir dalga müşterilere bir bildirim ile başlar. Varsayılan olarak, abonelik sahibi ve ikincil sahipler bildirim gönderilir. Daha fazla alıcı ve e-posta, SMS ve Web kancaları gibi Mesajlaşma seçenekleri için Azure'u kullanarak bildirimleri ekleyebileceğiniz [etkinlik günlüğü uyarıları](../../azure-monitor/platform/activity-logs-overview.md).  
-- Bildirimi, anında bir *Self Servis penceresi* kullanılabilir hale getirilir. Bu pencere sırasında bu dalgada dahil olduğu sanal makinelerinizin bulabilir ve Bakım zamanlama kendi gereksinimlerine göre proaktif olarak başlat.
+- Bildirimi, anında bir *Self Servis penceresi* kullanılabilir hale getirilir. Genellikle dört hafta bu pencereyi sırasında sanal makinelerinizin içinde bu wave dahildir ve proaktif bir şekilde kendi gereksinimlerini planlama göre bakım Başlat bulabilirsiniz.
 - Sonra Self Servis penceresinde bir *zamanlanan bakım penceresinden* başlar. Belirli bir noktada bu penceresi sırasında Azure zamanlar ve gerekli bakım sanal makineniz için geçerlidir. 
 
 Bakımı Başlat ve ne zaman Azure bakım otomatik olarak başlatılacak bilerek sanal makinenizi yeniden başlatmanız yeterli süre vermek amacıyla iki pencereleri aşağıdakiler amacı olan.

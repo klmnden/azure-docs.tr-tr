@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926312"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992931"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure meta veri hizmeti: Windows Vm'leri için zamanlanmış olaylar
 
@@ -45,7 +45,7 @@ Birçok uygulama, sanal makine bakım için hazırlanmanıza zamandan yararlı o
 Zamanlanmış olaylar, uygulamanızın kullanarak bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir. Zamanlanmış olaylar etkinleştirme sanal makinenizin bakım etkinliği gerçekleştiren önce geçmesi gereken süreyi en düşük düzeyde sağlar. Ayrıntılar için olay planlama bölümüne altına bakın.
 
 Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
-- Platform tarafından başlatılan Bakım (örneğin konak işletim sistemi güncelleştirmesi)
+- [Platform tarafından başlatılan Bakım](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (örneğin, VM yeniden başlatma, dinamik geçiş veya ana bilgisayar güncelleştirmeleri koruma bellek)
 - Düzeyi düşürülmüş donanım
 - Kullanıcı tarafından başlatılan Bakım (örneğin kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 - [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/blog/low-priority-scale-sets) içinde ölçek kümeleri
@@ -119,7 +119,7 @@ DocumentIncarnation ETag ve olayları yükü son sorgu bu yana değişmişse inc
 |Özellik  |  Açıklama |
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
+| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU ve ağ bağlantısı askıya alınabilir, ancak bellek veya açık dosyaları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
 | ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olay etkiler kaynakların listesi. Bu en çok bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak UD içindeki tüm makineler içeremez. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Olay durumu | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır; olay tamamlandığında, artık olay döndürülür.
@@ -136,7 +136,8 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne dayalı. Bu sü
 | Etkisiz hale | 30 saniye |
 
 ### <a name="event-scope"></a>Olay kapsamı     
-Zamanlanmış olaylar teslim edilir:        
+Zamanlanmış olaylar teslim edilir:
+ - Tek başına sanal makineler
  - Bir bulut hizmetindeki tüm sanal makineler      
  - Bir kullanılabilirlik kümesindeki tüm sanal makineler      
  - Bir ölçek kümesi yerleştirme grubundaki tüm sanal makineler.         

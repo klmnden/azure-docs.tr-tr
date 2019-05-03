@@ -8,18 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109843"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021505"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
-Azure Bilişsel hizmetler kapsayıcı desteği sayesinde geliştiriciler, Azure'da kullanılabilen zengin API'leri kullanmak için ve nerede dağıtmak ve gelir hizmetlerini barındırmak esneklik sağlar [Docker kapsayıcıları](https://www.docker.com/what-container). Kapsayıcı desteği şu anda bir alt kümesini Azure Bilişsel bölümlerini dahil olmak üzere hizmetler için önizleme modunda [görüntü işleme](Computer-vision/Home.md), [yüz](Face/Overview.md), [metin analizi](text-analytics/overview.md)ve [ Language Understanding'i](LUIS/luis-container-howto.md) (LUIS).
+Azure Bilişsel hizmetler kapsayıcı desteği sayesinde geliştiriciler, Azure'da kullanılabilen zengin API'leri kullanmak için ve nerede dağıtmak ve gelir hizmetlerini barındırmak esneklik sağlar [Docker kapsayıcıları](https://www.docker.com/what-container). Kapsayıcı desteği şu anda bir alt kümesini Azure Bilişsel bölümlerini dahil olmak üzere hizmetler için önizleme modunda kullanılabilir:
+
+* [Anomali algılayıcısı](Anomaly-Detector/overview.md)
+* [Görüntü İşleme](Computer-vision/Home.md)
+* [Yüz tanıma](Face/Overview.md)
+* [Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding'i](LUIS/luis-container-howto.md) (LUIS)
+* [Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Metin Analizi](text-analytics/overview.md)
 
 Kapsayıcı içinde bir uygulama veya onun bağımlılıklarını & yapılandırması gibi hizmet birlikte bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtımı için bir yaklaşımdır. Çok az kayıpla veya hiç değişiklik yapmadan kapsayıcı görüntüsü, bir kapsayıcı konağı üzerinde dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -27,7 +35,7 @@ Aşağıdaki videoda, Bilişsel hizmetler kapsayıcı kullanmayı gösterir.
 
 [![Bilişsel hizmetler için kapsayıcı Tanıtımı](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-[Görüntü işleme](Computer-vision/Home.md), [yüz](Face/Overview.md), [metin analizi](text-analytics/overview.md), ve [Language Understanding (LUIS)](LUIS/what-is-luis.md) hizmetleri üzerinde [Microsoft Azure](https://azure.microsoft.com). Oturum [Azure portalında](https://portal.azure.com/) oluşturma ve bu hizmetler için Azure kaynaklarını keşfedin.
+Bilişsel hizmetler kaynakları bulunur [Microsoft Azure](https://azure.microsoft.com). Oturum [Azure portalında](https://portal.azure.com/) oluşturma ve bu hizmetler için Azure kaynaklarını keşfedin.
 
 ## <a name="features-and-benefits"></a>Özellikler ve avantajlar
 
@@ -43,14 +51,23 @@ Azure Bilişsel hizmetler kapsayıcılar, Docker kapsayıcıları, aşağıdaki 
 
 | Hizmet | Desteklenen bir fiyatlandırma katmanı | Kapsayıcı | Açıklama |
 |---------|----------|----------|-------------|
+|[Anomali algılayıcısı](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomali algılayıcısı** |Anomali algılayıcısı API'si, izleme ve machine learning ile zaman serisi verilerinizdeki prosesler algılamak sağlar.<br>[Erişim isteği](https://aka.ms/adcontainer)|
 |[Görüntü İşleme](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Metin tanıma** |Farklı yüzey ve arka planlar, giriş ve posterler kartvizitler gibi çeşitli nesne görüntülerdeki yazdırılan metin ayıklar.<br/><br/>**Önemli:** Metni Tanı kapsayıcı şu anda yalnızca İngilizce ile çalışır.<br>[Erişim isteği](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Yüz tanıma](Face/face-how-to-install-containers.md) |F0, S0|**Yüz tanıma** |Görüntülerdeki İnsan yüzlerini algılar ve yüz yer işareti (örneğin, noses ve gözler), cinsiyet, geçerlilik süresi ve diğer makine tahmin yüz özellikleri dahil olmak üzere, öznitelikleri tanımlar. Yüz algılama ek olarak, iki yüzün aynı görüntü ya da farklı görüntüleri bir güven puanı kullanarak aynı olduğundan veya bir benzeyen olmadığını görmek için bir veritabanında yüzleri karşılaştırın veya aynı yüz zaten kontrol edebilirsiniz. Bu gibi durumlarda, benzer yüzlerden de paylaşılan visual nitelikler kullanarak gruplar halinde düzenleyebilirsiniz.<br>[Erişim isteği](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2043204))|Bir eğitilen veya yayımlanmış dil anlama modeli olarak da bilinen bir LUIS uygulaması bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar. Kapsayıcıdan sorgu günlüklerini toplamak ve bu geri yükleme [LUIS portalı](https://www.luis.ai) uygulamanın tahmin doğruluğunu artırmak için.|
-|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Anahtar ifade ayıklama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018757)) |Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
-|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Dil algılama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018759)) |En fazla 120 dil için hangi dil giriş metni yazılır ve rapor istekte gönderilen her belge için bir tek dil kodu algılar. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
-|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Yaklaşım analizi** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018654)) |Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](./text-analytics/language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
+|[Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form tanıyıcı** |Formu anlama tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir.<br>[Erişim isteği](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Bir eğitilen veya yayımlanmış dil anlama modeli olarak da bilinen bir LUIS uygulaması bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar. Kapsayıcıdan sorgu günlüklerini toplamak ve bu geri yükleme [LUIS portalı](https://www.luis.ai) uygulamanın tahmin doğruluğunu artırmak için.|
+|[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Konuşmayı metne dönüştürme** |Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
+|[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Metin okuma** |Metni, doğal sesli konuşmaya dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
+|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Anahtar ifade ayıklama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
+|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Dil algılama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |En fazla 120 dil için hangi dil giriş metni yazılır ve rapor istekte gönderilen her belge için bir tek dil kodu algılar. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
+|[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Yaklaşım analizi** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](./text-analytics/language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
 
-Ayrıca, kapsayıcılar Bilişsel hizmetler desteklenen [hepsi bir arada sunan](https://azure.microsoft.com/pricing/details/cognitive-services/). Tek bir Bilişsel hizmetler hepsi bir arada kaynak oluşturabilir ve aynı faturalama anahtarının yukarıda belirtilen tüm kapsayıcı türleri için kullanın.
+Ayrıca, bazı kapsayıcıları Bilişsel hizmetler desteklenmektedir [ **hepsi bir arada sunan** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) kaynak anahtarı. Tek bir Bilişsel hizmetler hepsi bir arada kaynak oluşturabilir ve aynı faturalama anahtarının desteklenen hizmetler aşağıdaki hizmetler için kullanın:
+
+* Görüntü İşleme
+* Yüz
+* LUIS
+* Metin Analizi
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı kullanılabilirlik
 
@@ -81,7 +98,10 @@ Geliştirici Örnekleri kullanıma sunduğumuz [GitHub deposu](https://github.co
 
 Yükleme ve Azure Bilişsel hizmetler, kapsayıcılar tarafından sağlanan işlevselliği keşfedin:
 
-* [Yükleme ve görüntü işleme kapsayıcıları kullanma](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Yükleme ve yüz kapsayıcıları kullanma](Face/face-how-to-install-containers.md)
-* [Yükleme ve metin analizi kapsayıcıları kullanma](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Yükleme ve Language Understanding (LUIS) kapsayıcıları kullanma](LUIS/luis-container-howto.md)
+* [Anomali algılayıcısı kapsayıcıları](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [Bilgisayar işleme kapsayıcıları](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Yüz tanıma kapsayıcıları](Face/face-how-to-install-containers.md)
+* [Form tanıyıcı kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding (LUIS) kapsayıcıları](LUIS/luis-container-howto.md)
+* [Konuşma hizmeti API'sini kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Metin analizi kapsayıcıları](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

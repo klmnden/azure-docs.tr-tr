@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480672"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020657"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -28,9 +28,9 @@ Aboneliğiniz için bölge eşleşen uç nokta kullandığınızdan emin olun.
 
 İçinde [Speech SDK'sı](speech-sdk.md), bölgelerin bir dize olarak belirtilen (örneğin, bir parametre olarak `SpeechConfig.FromSubscription` konuşma SDK for C#).
 
-### <a name="speech-recognition-and-translation"></a>Konuşma tanıma ve çeviri
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Konuşmayı metne ve metin okuma çevirisi
 
-Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çeviri**:
+Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma**, **metin okuma**, ve **çeviri**:
 
   Bölge | Konuşma SDK parametresi | Konuşma özelleştirme portalı
  ------|-------|--------

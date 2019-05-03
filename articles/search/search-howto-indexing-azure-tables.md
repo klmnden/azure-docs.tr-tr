@@ -1,7 +1,7 @@
 ---
 title: Azure tablo depolaması için tam metin arama - Azure Search dizini içeriği
 description: Bir Azure Search Dizin Oluşturucu ile Azure tablo depolamada depolanan veriler hakkında bilgi edinin.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871243"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024792"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolama
 Bu makalede, Azure Search için Azure tablo depolamada depolanan dizin verilerini nasıl kullanılacağını gösterir.
@@ -49,7 +49,7 @@ Tablo dizin oluşturma işlemi için veri kaynağı aşağıdaki özelliklere sa
 
 Bir veri kaynağı oluşturmak için:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ Dizin alanları bir belgede, öznitelikleri belirtir ve arama şekil diğer yap�
 
 Bir dizin oluşturmak için:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar v
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya hazırsınız:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ Bir zamanlamaya göre çalıştırılacak bir tablo Dizin Oluşturucu ' ayarlad�
 
 Bazı belgeler dizinden kaldırılması gerektiğini belirtmek için bir geçici silme stratejiyi kullanabilirsiniz. Satır silme yerine silindi ve veri kaynağı bir geçici silme algılama İlkesi ayarlama olduğunu belirtmek için bir özellik ekleyin. Örneğin, şu ilkeyi satır bir özelliği varsa, bir satır silinmeden göz önünde bulundurur `IsDeleted` değerle `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

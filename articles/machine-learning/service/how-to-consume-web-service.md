@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819466"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023829"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
 Bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma, bir REST API oluşturur. Bu API için veri göndermek ve modeli tarafından döndürülen tahmin alırsınız. Bu belgede, web hizmeti istemcileri kullanarak oluşturmayı öğrenin C#, Go, Java ve Python.
 
-Görüntüyü Azure Container Instances, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıtırken bir web hizmeti oluşturun. Kayıtlı bir model ve puanlama dosyaları yansımaları oluşturun. Kullanarak bir web hizmetine erişmek için kullanılan URI'yi almak [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
+Görüntüyü Azure Container Instances, Azure Kubernetes hizmeti veya alanda programlanabilir kapı dizileri (FPGA) dağıtırken bir web hizmeti oluşturun. Kayıtlı bir model ve puanlama dosyaları yansımaları oluşturun. Kullanarak bir web hizmetine erişmek için kullanılan URI'yi almak [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
 
 Bir machine learning web hizmeti kullanan bir istemci oluşturmak için genel iş akışı şöyledir:
 

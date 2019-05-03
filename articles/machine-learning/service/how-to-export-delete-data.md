@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819424"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023967"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Dışarı aktarma veya, Machine Learning hizmeti çalışma alanı verilerini sil 
 
@@ -231,3 +231,29 @@ Modüller tarafından alınabilir:
 Veri kaynakları tarafından alınabilir:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Görsel arabirim varlığını silme
+
+Denemenizi oluşturulduğu görsel arabirim tek varlıklar silin:
+
+1. Sol tarafta, silmek istediğiniz varlık türünü seçin.
+
+    ![Varlıkları silme](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Listeden silmek için tek tek varlıkları seçin.
+
+1. Alt kısmında seçin **Sil**.
+
+## <a name="export-visual-interface-data"></a>Görsel arabirim verileri dışarı aktarma
+
+Denemenizi oluşturulduğu görsel arabirim eklediğiniz verileri dışarı aktarma:
+
+1. Sol tarafta, seçin **veri**.
+
+1. En üstte seçin **My veri kümeleri** veya **örnekleri** dışarı aktarmak istediğiniz verilerin bulunacak.
+
+    ![Veri indirin](media/how-to-export-delete-data.md/download-data.png)
+
+1. Listesinde, dışa aktarmak için tek tek veri kümesi seçin.
+
+1. Alt kısmında seçin **indirme**.

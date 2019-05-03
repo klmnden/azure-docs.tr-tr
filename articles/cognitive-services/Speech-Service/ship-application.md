@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456181"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020396"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 
@@ -49,19 +49,26 @@ Gerekli dosyaları Speech SDK'sı, uygulamanızın aynı dizinde dağıtılabili
 
 ## <a name="linux"></a>Linux
 
-Speech SDK'sı şu anda Ubuntu 16.04 ve 18.04 dağıtımları destekler.
+Speech SDK'sı şu anda Ubuntu 16.04, Ubuntu 18.04 ve Debian 9 dağıtımlarını destekler.
 Yerel bir uygulama için Speech SDK'sı kitaplığı göndermeye gerek `libMicrosoft.CognitiveServices.Speech.core.so`.
 Uygulamanızı eşleşen sürümünü (x86, x64) seçtiğinizden emin olun. Linux sürümüne göre aşağıdaki bağımlılıkları içerecek şekilde gerekebilir:
 
 * GNU C Kitaplığı'nın paylaşılan kitaplıklar (iş parçacıkları POSIX programlama kitaplığı dahil olmak üzere `libpthreads`)
-* OpenSSL kitaplığını (`libssl.so.1.0.0`)
+* OpenSSL kitaplığını (`libssl.so.1.0.0` veya `libssl.so.1.0.2`)
 * ALSA uygulamalar için paylaşılan kitaplığı (`libasound.so.2`)
 
 Ubuntu'da GNU C kitaplıklarını zaten varsayılan olarak yüklü olması gerekir. Son üç şu komutları kullanarak yüklenebilir:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Debian 9'da bu paketleri yükleyin:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

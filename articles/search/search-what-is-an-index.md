@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308254"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024437"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -54,7 +54,7 @@ Portal bir yaklaşım yerine kod yinelemeli tasarım için önerilir. Dizin tan�
 
 Schematically, Azure Search dizini aşağıdaki öğelerden oluşur. 
 
-[ *Alanlar koleksiyonunu* ](#fields-collection) genellikle burada her bir alan adlandırılır, bir dizinin en büyük bölümü yazılan ve nasıl kullanıldığını belirlemek izin verilen davranışlarla öznitelikli. Diğer öğeleri içeren [öneri Araçları](#suggesters), [Puanlama profilleri](#scoring-profiles), [Çözümleyicileri](#analyzers) özelleştirme desteklemek için bileşen parçalarına sahip ve [CORS](#cors) Seçenekler.
+[ *Alanlar koleksiyonunu* ](#fields-collection) genellikle burada her bir alan adlandırılır, bir dizinin en büyük bölümü yazılan ve nasıl kullanıldığını belirlemek izin verilen davranışlarla öznitelikli. Diğer öğeleri içeren [öneri Araçları](#suggesters), [Puanlama profilleri](#scoring-profiles), [Çözümleyicileri](#analyzers) özelleştirme desteklemek için bileşen parçalarına sahip [CORS](#cors) ve [şifreleme anahtarı](#encryption-key) seçenekleri.
 
 ```json
 {
@@ -126,6 +126,15 @@ Schematically, Azure Search dizini aşağıdaki öğelerden oluşur.
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -166,7 +175,7 @@ Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.
 
 Öznitelikleri depolama etkisi. Aşağıdaki ekran görüntüsünde özniteliklerin çeşitli birleşimleri arasından kaynaklanan dizin depolama desenleri gösterir.
 
-Dizin dayanır [yerleşik realestate örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu. Dizin şemaları gösterilmese dizin adını temel alarak öznitelikleri çıkarabilir. Örneğin, *realestate-aranabilir* dizininin **aranabilir** seçili özniteliği ve başka bir şey *realestate-alınabilir* dizininin  **alınabilir** seçili özniteliği ve hiçbir şey başka ve benzeri.
+Dizin dayanır [yerleşik Emlak örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu. Dizin şemaları gösterilmese dizin adını temel alarak öznitelikleri çıkarabilir. Örneğin, *realestate-aranabilir* dizininin **aranabilir** seçili özniteliği ve başka bir şey *realestate-alınabilir* dizininin  **alınabilir** seçili özniteliği ve hiçbir şey başka ve benzeri.
 
 ![Dizin öznitelik seçimi temel alınarak boyut](./media/search-what-is-an-index/realestate-index-size.png "dizin öznitelik seçimi temel alınarak boyutu")
 
@@ -203,6 +212,10 @@ CORS için aşağıdaki seçenekler ayarlanabilir:
   Tüm kaynaklara erişmesine izin vermek istiyorsanız, dahil `*` tek bir öğe olarak **allowedOrigins** dizisi. *Bu uygulama için üretim arama hizmetleri önerilmez* ancak genellikle geliştirme ve hata ayıklama için yararlı olur.
 
 + **Maxageınseconds** (isteğe bağlı): Tarayıcılar bu değeri önbellek CORS denetim öncesi yanıtlarını süresi (saniye) belirlemek için kullanın. Bu, negatif olmayan tamsayı olmalıdır. Bu değer büyük, daha iyi performans olacaktır ancak CORS İlkesi değişikliklerinin etkili olması alacaktır uzun. Ayarlanmazsa, varsayılan süre olan 5 dakika kullanılır.
+
+## <a name="encryption-key"></a>Şifreleme anahtarı
+
+Şifreli olarak tüm Azure search dizinlerini varsayılan olarak Microsoft tarafından yönetilen anahtarlarla şifrelenir, ancak dizin yapılandırılabilir **müşteri tarafından yönetilen anahtarlar** anahtar Kasası'nda. Daha fazla bilgi için bkz. [Azure Search'te şifreleme anahtarlarını yönetmek](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

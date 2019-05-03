@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 50e42172af6ca6b966f9f60d3e037f9ae3dc5cbe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943937"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023774"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 
@@ -72,7 +72,36 @@ Sertifika isterken, web hizmeti için kullanmayı planladığınız adresinin ta
 
 Dağıtın (veya yeniden için) SSL etkin hizmetiyle ayarlayın `ssl_enabled` parametresi `True`, uygun olan her yerde. Ayarlama `ssl_certificate` parametre değerine __sertifika__ dosya ve `ssl_key` değerine __anahtarı__ dosya.
 
-+ **Azure Kubernetes Service'i (AKS) üzerinde dağıtın**
++ **Görsel arabirim - güvenli Azure Kubernetes Service (AKS) için dağıtım oluşturma** 
+    
+    Görsel bir arabirim için güvenli dağıtma işlem oluşturmaya çalışıyorsanız bunun için bakın. AKS kümesi sağlama sırasında SSL ile ilgili parametrelerin değerlerini sağlamasını sonra yeni bir AKS oluşturun.  Kod parçacığı başvurun:
+    
+
+    > [!TIP]
+    >  Python SDK'sı ile ilgili bilgi sahibi değilseniz, başlangıç [Azure Machine Learning Python SDK'sı genel bakış.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **Azure Kubernetes Service'i (AKS) üzerinde dağıtın ve FPGA**
 
   AKS için dağıtırken, yeni bir AKS kümesi oluşturabilir veya mevcut bir paylaşımın. Kullanan yeni bir küme oluşturma [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) mevcut bir kümeye kullanırken [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Her ikisi de sahip bir yapılandırma nesnesi döndürür bir `enable_ssl` yöntemi.
 
@@ -142,6 +171,8 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
   ![Azure Machine Learning hizmeti: Web Hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şunları nasıl yapacağınızı öğrenin:
