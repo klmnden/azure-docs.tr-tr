@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 9097fef88a2c3c667416761c341a2e320c790121
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: HT
+ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919048"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993078"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+Doğrulama sırasında nerede ara sertifika ağ kısıtlamaları nedeniyle yüklenemiyor durumlarda ara sertifika sabitlenebilir. Ancak, Azure standart PKI uygulama göre sertifikaları üzerinden dökümünü yapar. Sabitlenmiş sertifika üzerinde toplama gerçekleştiğinde güncelleştirilmesi gerekir. Ara sertifikayı güncelleştirmek için bir değişiklik planlanmış her Azure blogunu güncelleştirilir ve Azure müşterileri bildirilir. Ara sertifikaları bulunabilir [burada](https://www.microsoft.com/pki/mscorp/cps/default.htm). Her bölge için Ara sertifikaların farklı olabilir.
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server Yük devretme
 
 Belirli senaryolar, örnek meta veri hizmeti Yük Devretme Kümelemesi ile sorgulanırken bir yolu yönlendirme tablosuna eklemek gereklidir.
@@ -688,11 +690,13 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ### <a name="custom-data"></a>Özel Veriler
 Örnek meta veri hizmeti VM'nin özel veri erişim olanağı sağlar. İkili verileri 64 KB'den az olmalıdır ve VM'ye base64 olarak kodlanmış biçimde sağlanır. Özel veriler içeren bir VM oluşturma hakkında daha fazla ayrıntı için bkz. [CustomData ile bir sanal makine dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
+Özel veriler VM içinde çalışan tüm işlemler için kullanılabilir. Müşteriler özel verileri gizli bilgi eklemeyin önerilir.
+
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Sanal makinede özel veri alma
 Örnek meta veri hizmeti özel verileri base64 olarak kodlanmış biçimde VM sağlar. Aşağıdaki örnek, base64 kodlamalı dizenin kodunu çözer.
 
 > [!NOTE]
-> Bu örnekte özel verileri okuyan, "Süper gizli verilerimi." bir ASCII dizesi olarak yorumlanır.
+> Bu örnekte özel verileri okuyan, "Özel verilerimi." bir ASCII dizesi olarak yorumlanır.
 
 **İstek**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **Yanıt**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM içindeki farklı dilleri kullanarak meta verileri hizmete çağrı yapma örnekleri 

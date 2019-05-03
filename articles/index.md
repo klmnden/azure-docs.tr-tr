@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b9234814404194364f775add87f865170747220a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471425"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020838"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,6 +434,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>CloudSimple tarafından sunulan Azure VMware Çözümü</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1018,6 +1024,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <p>Bing Resim Arama API’si</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <p>Açık Veri Kümeleri</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Geçiş</h3>
                                     <ul>
@@ -1254,6 +1266,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <p>Açık Veri Kümeleri</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2070,6 +2088,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>Herhangi bir ölçekte yüksek performanslı bilgi işlem (HPC) ve işlem kümeleri oluşturma, yönetme, işletme ve iyileştirme</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CloudSimple tarafından sunulan Azure VMware Çözümü</h3>
+                                                    <p>Azure’da VMware platformu çalıştırma</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3613,6 +3650,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Açık Veri Kümeleri</h3>
+                                                    <p>Makine öğrenmesi modelleri geliştirmeye yönelik seçkin genel veri kümeleri</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-netapp-files/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3785,6 +3841,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Tümüyle yönetilen, hizmet olarak arama çözümü</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Açık Veri Kümeleri</h3>
+                                                    <p>Makine öğrenmesi modelleri geliştirmeye yönelik seçkin genel veri kümeleri</p>
                                                 </div>
                                             </div>
                                         </div>
