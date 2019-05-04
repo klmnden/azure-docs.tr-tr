@@ -203,9 +203,9 @@ Application Insights da dahil olmak üzere, bir işlev uygulaması günlük davr
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Dosya günlük düzeyini etkin tanımlar.  Seçenekler `never`, `always`, `debugOnly`. |
-|LogLevel|yok|Uygulama işlevler için filtreleme günlük kategoriyi tanımlayan nesne. Sürüm 2.x günlük kategorisi filtreleme için ASP.NET Core düzenini izler. Bu sayede belirli işlevleri günlüğünü filtreleyin. Daha fazla bilgi için [günlük filtreleme](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) ASP.NET Core belgelerindeki. |
+|logLevel|yok|Uygulama işlevler için filtreleme günlük kategoriyi tanımlayan nesne. Sürüm 2.x günlük kategorisi filtreleme için ASP.NET Core düzenini izler. Bu sayede belirli işlevleri günlüğünü filtreleyin. Daha fazla bilgi için [günlük filtreleme](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) ASP.NET Core belgelerindeki. |
 |console|yok| [Konsol](#console) günlüğü ayarı. |
-|Applicationınsights|yok| [Applicationınsights](#applicationinsights) ayarı. |
+|applicationInsights|yok| [Applicationınsights](#applicationinsights) ayarı. |
 
 ## <a name="console"></a>console
 
