@@ -5,13 +5,13 @@
   expanded: false
   items:
     - name: Gelişmiş tehdit algılama
-      displayName: 'vulnerability, virus, ids, incident'
+      displayName: 'vulnerability, virus, IDs, incident'
       href: azure-threat-detection.md
     - name: Azure günlük kaydı ve denetim
       displayName: incident
       href: azure-log-audit.md
     - name: Azure ağ güvenliği
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
       href: abstract-azure-network-security.md
     - name: Azure sunucusuz platform güvenliği
       href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
         - name: IaaS VM’leri için disk şifreleme
           items:
             - name: Azure Disk Şifrelemesi hakkında
-              displayName: 'bitlocker, bek'
+              displayName: 'Bitlocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: Hızlı Başlangıçlar
               items:
@@ -141,7 +141,7 @@
           displayName: identity
           href: azure-security-global-admin.md
     - name: Ağ güvenliği
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
       href: security-network-overview.md
       items:
         - name: En iyi uygulamalar
@@ -270,6 +270,11 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: PaaS web uygulaması
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: SCCA
+      displayName: 'blueprint, privacy, certifications'
+      items:
+        - name: Güvenli Azure Bilgi İşlem Mimarisi
+          href: ./compliance/secure-azure-computing-architecture.md
     - name: TIC
       displayName: 'blueprint, privacy, certifications'
       items:
@@ -327,13 +332,13 @@
         - name: Yayınlar
           href: azure-security-threat-modeling-tool-releases.md
           items:
-            - name: Threat Modeling Tool genel kullanım sürümü 7.1.5091.2 - 12.09.2018
+            - name: Threat Modeling Tool genel kullanım sürümü 7.1.5091.2 - 12 Eylül 2018
               href: azure-security-threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.51023.1 - 01.11.2018
+            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.51023.1 - 1 Kasım 2018
               href: azure-security-threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.60126.1 - 29.1.2019
+            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.60126.1 - 29 Ocak 2019
               href: azure-security-threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.60408.1 - 09.4.2019
+            - name: Threat Modeling Tool güncelleştirme sürümü 7.1.60408.1 - 9 Nisan 2019
               href: azure-security-threat-modeling-tool-releases-71604081.md
         - name: Risk Azaltıcı Etkenler
           href: azure-security-threat-modeling-tool-mitigations.md

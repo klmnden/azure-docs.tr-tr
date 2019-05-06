@@ -18,7 +18,7 @@ sections:
       - type: markdown
         text: |-
           > [!IMPORTANT]
-          > Azure Dev Spaces şu an için önizleme sürümündedir ve yalnızca **Doğu ABD**, **Doğu ABD 2**, **Orta ABD**, **Batı ABD 2**, **Kuzey Avrupa**, **Batı Avrupa**, **Güneydoğu Asya**, **Kanada Orta** ve **Kanada Doğu** bölgelerindeki AKS kümelerinde desteklenir. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+          > Azure Dev Spaces yalnızca **Doğu ABD**, **Doğu ABD 2**, **Orta ABD**, **Batı ABD 2**, **Kuzey Avrupa**, **Batı Avrupa**, **Güneydoğu Asya**, **Kanada Orta** ve **Kanada Doğu** bölgelerindeki AKS kümelerinde desteklenir. Azure Dev Spaces, AKS üzerinde uygulamalarınızı derleyip çalıştırmak için [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) veya [Visual Studio Code](https://code.visualstudio.com/download) ile birlikte Linux, MacOS veya Windows 8 ya da sonraki sürümlerde yüklü [Azure Dev Spaces uzantısının](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) kullanılmasını gerektirir. Ayrıca, [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)’yi Web Geliştirme iş yükü ve Windows 8 veya sonraki sürümlerde yüklü [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools) ile birlikte kullanmayı destekler.
   - title: Azure Dev Spaces ile çalışmaya başlama
     items:
       - type: paragraph

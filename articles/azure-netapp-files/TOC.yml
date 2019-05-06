@@ -2,14 +2,14 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure NetApp Files'a giriş
+    - name: Azure NetApp Files nedir?
       href: azure-netapp-files-introduction.md
     - name: Depolama hiyerarşisini anlama
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Azure NetApp Files’ı ayarlama ve birim oluşturma
+    - name: Azure NetApp Files’ı ayarlama ve NFS birimi oluşturma
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Kavramlar
   items:
@@ -19,8 +19,8 @@
       href: azure-netapp-files-resource-limits.md
     - name: Azure NetApp Files için ölçümler
       href: azure-netapp-files-metrics.md
-    - name: Azure NetApp Files Kaynak Sağlayıcısı hatalarını giderme
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Azure NetApp Files için performans kıyaslamaları
+      href: azure-netapp-files-performance-benchmarks.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure NetApp Files için kaydolma
@@ -47,6 +47,8 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Azure NetApp Files Kaynak Sağlayıcısı hatalarını giderme
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Başvuru
   items:
     - name: REST

@@ -7,10 +7,15 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: AKS kümesi oluşturma - CLI
-      href: kubernetes-walkthrough.md
-    - name: AKS kümesi oluşturma - Portal
-      href: kubernetes-walkthrough-portal.md
+    - name: AKS Kümesi oluşturma
+      expanded: true
+      items:
+        - name: Azure CLI kullanma
+          href: kubernetes-walkthrough.md
+        - name: Azure portalı kullanma
+          href: kubernetes-walkthrough-portal.md
+        - name: Resource Manager şablonu kullanma
+          href: kubernetes-walkthrough-rm-template.md
     - name: Uygulama geliştirme
       expanded: true
       items:
@@ -87,7 +92,7 @@
             - name: Pod güvenliği
               href: developer-best-practices-pod-security.md
     - name: Kotalar ve bölgesel sınırlar
-      href: container-service-quotas.md
+      href: quotas-skus-regions.md
     - name: ACS’den AKS’ye geçiş
       href: acs-aks-migration.md
     - name: Desteklenen Kubernetes sürümü

@@ -107,7 +107,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: Saklama ilkesi ayarlama ve temizleme betikleri çalıştırma
               href: image-factory-set-retention-policy-cleanup.md
-        - name: Kuruluşunuzda DevTest Labs altyapısını ayarlama
+        - name: Kuruluşta DevTest Labs
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: Başvuru mimarisi

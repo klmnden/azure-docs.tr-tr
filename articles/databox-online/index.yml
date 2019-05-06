@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Box Belgeleri - Çevrimiçi Aktarım
+title: Azure Data Box belgeleri - çevrimiçi aktarım
 metadata:
-  title: Azure Data Box Belgeleri - Çevrimiçi Aktarım
-  description: 'Azure’a hızlı, ucuz ve güvenilir bir şekilde ağ üzerinden yüksek performanslı veri aktarımı gerçekleştirmek için Data Box cihazlarını kullanın.'
+  title: 'Azure’a ağ üzerinden veri aktarımı için Data Box Gateway, Data Box Edge Belgeleri'
+  description: 'Azure’a hızlı, ucuz ve güvenilir bir şekilde ağ üzerinden yüksek performanslı veri aktarımı gerçekleştirmek için Data Box Edge ve Data Box Gateway kullanın.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure''a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway hizmetini seçin.  Azure’a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>'
+  description: 'Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure''a aktarmanıza olanak tanır. Ağ üzerinden yüksek performanslı veri aktarımı için Data Box Edge ve Data Box Gateway cihazlarını kullanın.<p>Bulutta arşivleme, olağanüstü durum kurtarma veya bulut ölçeğinde işleme için verilerinizi buluta göndermek üzere Data Box Gateway hizmetini seçin.  Azure’a taşınan verilerinizi filtrelemek, analiz etmek ve dönüştürmek için Data Box Edge hizmetini kullanın.</p><p>Data Box Gateway ve Data Box Edge ile ağ tabanlı aktarım gerçekleştirmek için öğreticilerimizi inceleyin.</p>'
 sections:
   - title: Öğreticiler
     items:

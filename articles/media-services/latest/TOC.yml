@@ -47,7 +47,7 @@
       items:
         - name: Genel Bakış
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Dönüşümler ve İşler
           href: transforms-jobs-concept.md
         - name: Media Encoder Standard biçimleri
@@ -56,14 +56,19 @@
         - name: Autogen uyarlamalı bit hızı merdiveni
           href: autogen-bitrate-ladder.md
         - name: İçeriğe duyarlı kodlama
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: İş hata kodları
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Medya analizi
       items:
         - name: Genel Bakış
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: Dönüşümler ve İşler
           href: transforms-jobs-concept.md
+        - name: İş hata kodları
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 'Paketleme, teslim, koruma'
       items:
         - name: Paketleme
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: İçerik Anahtar İlkeleri
           href: content-key-policy-concept.md
+        - name: Kaynak hata kodları
+          href: origin-error-codes.md
     - name: Canlı akış
       items:
         - name: Genel Bakış
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: RBAC
           href: rbac-overview.md
+        - name: Hata kodları
+          items:
+            - name: Kaynak hata kodları
+              href: origin-error-codes.md
+            - name: İş hata kodları
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: v2’den v3’e geçiş kılavuzu
       href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager şablonu
       href: /azure/templates/microsoft.media/allversions
+    - name: Hata kodları
+      items:
+        - name: Kaynak hata kodları
+          href: origin-error-codes.md
+        - name: İş hata kodları
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: Kaynaklar
   items:
     - name: Azure Media Services topluluğu

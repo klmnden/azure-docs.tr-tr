@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: Azure AD Eşitleme hizmeti hesabı parolasını değiştirme
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Azure AD Bağlayıcısı hesabını değiştirme
+        - name: Azure AD Bağlayıcısı hesap parolasını değiştirme
           href: how-to-connect-azureadaccount.md
         - name: AD DS Bağlayıcı hesabının parolasını değiştirme
           href: how-to-connect-sync-change-addsacct-pass.md

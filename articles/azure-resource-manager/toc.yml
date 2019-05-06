@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Resource Manager ve klasik dağıtım
       href: resource-manager-deployment-model.md
+    - name: Azure ortak güvenlik öznitelikleri
+      href: azure-resource-manager-security-attributes.md
 - name: Nasıl yapılır
   items:
     - name: Şablon oluşturma
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: Etiket desteği
           href: tag-support.md
+    - name: Hizmete göre kaynak sağlayıcıları
+      href: azure-services-resource-providers.md
     - name: REST - Resource Manager
       href: /rest/api/resources/
     - name: REST - Dağıtım Yöneticisi

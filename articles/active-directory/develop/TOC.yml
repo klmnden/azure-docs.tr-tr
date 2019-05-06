@@ -14,20 +14,14 @@
         - name: Uygulama yapılandırma
           items:
             - name: Bir uygulamayı kaydetme
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: Uygulama güncelleştirme
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Uygulama kaldırma
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Uygulama kaydetme (Önizleme)
               href: quickstart-register-app.md
-            - name: Web API’lerine erişmek için uygulama yapılandırma (Önizleme)
+            - name: Web API’lerine erişmek için uygulama yapılandırma
               href: quickstart-configure-app-access-web-apis.md
-            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma (Önizleme)
+            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Bir uygulama tarafından desteklenen hesapları değiştirme (Önizleme)
+            - name: Bir uygulama tarafından desteklenen hesapları değiştirme
               href: quickstart-modify-supported-accounts.md
-            - name: Uygulama kaldırma (Önizleme)
+            - name: Uygulama kaldırma
               href: quickstart-remove-app.md
         - name: Tek sayfalı uygulamalar
           items:
@@ -243,20 +237,14 @@
         - name: Uygulama yapılandırma
           items:
             - name: Bir uygulamayı kaydetme
-              href: quickstart-v2-register-an-app.md
-            - name: Uygulama güncelleştirme
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Uygulama kaldırma
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Uygulama kaydetme (Önizleme)
               href: quickstart-register-app.md
-            - name: Web API’lerine erişmek için uygulama yapılandırma (Önizleme)
+            - name: Web API’lerine erişmek için uygulama yapılandırma
               href: quickstart-configure-app-access-web-apis.md
-            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma (Önizleme)
+            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Bir uygulama tarafından desteklenen hesapları değiştirme (Önizleme)
+            - name: Bir uygulama tarafından desteklenen hesapları değiştirme
               href: quickstart-modify-supported-accounts.md
-            - name: Uygulama kaldırma (Önizleme)
+            - name: Uygulama kaldırma
               href: quickstart-remove-app.md
         - name: Tek sayfalı uygulamalar
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: Uygulama yapılandırması
           items:
+            - name: Uygulama kayıtları eğitim kılavuzu
+              href: app-registrations-training-guide.md
             - name: Uygulamalar ve hizmet sorumluları
               href: app-objects-and-service-principals.md
             - name: Tek kiracılı ve çok kiracılı uygulamalar

@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: Öğreticiler
   items:
-    - name: Azure İşlevleri ile verileri filtreleme
-      href: tutorial-deploy-function.md
-    - name: ASA ile ortalamaları bulma
-      href: tutorial-deploy-stream-analytics.md
-    - name: Azure Machine Learning hizmetiyle verileri puanlama
-      href: tutorial-deploy-machine-learning.md
-    - name: Özel Görüntü İşleme ile görüntüleri sınıflandırma
-      href: tutorial-deploy-custom-vision.md
-    - name: SQL ile verileri yerel ortamda depolama
-      href: tutorial-store-data-sql-server.md
-    - name: Özel kod modülleri geliştirme
+    - name: 1. Geliştirme ortamı ayarlama
       items:
+        - name: Linux cihazları için geliştirme
+          href: tutorial-develop-for-linux.md
+        - name: Windows cihazları için geliştirme
+          href: tutorial-develop-for-windows.md
+    - name: 2. Özel kod modülleri geliştirme
+      items:
+        - name: C
+          items:
+            - name: Linux cihazları için C modülleri
+              href: tutorial-c-module.md
+            - name: Windows cihazları için C modülleri
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: 'Linux cihazları için C# modülleri'
+              href: tutorial-csharp-module.md
+            - name: 'Windows cihazları için C# modülleri'
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. Azure hizmetlerini modül olarak dağıtma
+      items:
+        - name: Azure İşlevleri ile verileri filtreleme
+          href: tutorial-deploy-function.md
+        - name: ASA ile ortalamaları bulma
+          href: tutorial-deploy-stream-analytics.md
+        - name: Azure Machine Learning hizmetiyle verileri puanlama
+          href: tutorial-deploy-machine-learning.md
+        - name: Özel Görüntü İşleme ile görüntüleri sınıflandırma
+          href: tutorial-deploy-custom-vision.md
+        - name: SQL ile verileri yerel ortamda depolama
+          href: tutorial-store-data-sql-server.md
 - name: Kavramlar
   items:
     - name: IoT Edge çalışma zamanı

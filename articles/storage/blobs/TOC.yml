@@ -80,6 +80,8 @@
               href: storage-create-geo-redundant-storage.md
             - name: 2 - RA-GRS depolama alanı ile hata simülasyonu
               href: storage-simulate-failure-ragrs-account-app.md
+        - name: Azure Key Vault’u kullanarak blob’ları şifreleme ve şifre çözme
+          href: storage-encrypt-decrypt-blobs-key-vault.md
         - name: Yapılandırılmamış verileri arama
           href: storage-unstructured-search.md
     - name: Örnekler
@@ -98,6 +100,10 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Güvenlik
           items:
+            - name: Güvenliğe genel bakış
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Depolama hizmeti şifrelemesi
+              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Yetkilendirme
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
@@ -109,24 +115,10 @@
                   href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Bloblara anonim erişim
                   href: storage-manage-access-to-resources.md
-            - name: Güvenlik kılavuzu
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bekleyen verilerin şifrelenmesi
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Müşteri anahtarlarıyla bekleme sırasında şifreleme
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: HTTP’ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma
-              href: storage-https-custom-domain-cdn.md
             - name: Sabit bloblar
               href: storage-blob-immutable-storage.md
-            - name: Gelişmiş Tehdit Koruması
+            - name: Gelişmiş tehdit koruması
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
-              href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Güvenli aktarım gerektir
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure ortak güvenlik öznitelikleri
               href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Veri yedekliği
@@ -289,7 +281,7 @@
           href: storage-blob-pageblob-overview.md
     - name: Nasıl yapılır
       items:
-        - name: Depolama hesapları
+        - name: Depolama hesaplarını yönetme
           items:
             - name: Blok blobu depolama hesabı oluşturma
               href: storage-blob-create-account-block-blob.md
@@ -297,7 +289,7 @@
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Depolama hesabını yükseltme
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Güvenlik
+        - name: Blob verilerinin güvenliğini sağlama
           items:
             - name: Blob verilerine erişimi yetkilendirme
               items:
@@ -305,16 +297,16 @@
                   items:
                     - name: Portal
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI veya PowerShell
+                    - name: PowerShell veya Azure CLI
                       href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: RBAC ile erişim haklarını yönetme
                   items:
                     - name: Portal
                       href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI
-                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Azure AD ile kimlik doğrulaması
                   items:
                     - name: Yönetilen kimlikle kimlik doğrulaması
@@ -324,14 +316,18 @@
                 - name: Paylaşılan Anahtar ile yetkilendirme
                   items:
                     - name: Bağlantı dizelerini yapılandırma
-                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Azure Depolama REST API’sini kullanma
                       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Azure Key Vault’u kullanarak blob’ları şifreleme ve şifre çözme
-              href: storage-encrypt-decrypt-blobs-key-vault.md
-            - name: İstemci Tarafında Şifreleme
+            - name: Müşteri tarafından yönetilen anahtarları hizmet şifrelemesi için yapılandırma
+              items:
+                - name: Portal
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: İstemci tarafında şifrelemeyi yapılandırma
               items:
                 - name: .NET
                   href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -339,10 +335,14 @@
                   href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Python
                   href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
-              href: ../common/storage-security-tls.md
-            - name: Güvenli aktarım gerektir
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Ağ güvenliğini yapılandırma
+              items:
+                - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Güvenli aktarım gerektir
+                  href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Aktarım Katmanı Güvenliğini etkinleştirme
+                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Olağanüstü durum kurtarma
           items:
             - name: Hesap yük devretmesini başlatma
@@ -355,6 +355,8 @@
           href: storage-properties-metadata.md
         - name: Statik web sitesi barındırma
           href: storage-blob-static-website.md
+        - name: HTTPS üzerinden erişim için Azure CDN’yi bir özel etki alanına eşleme
+          href: storage-https-custom-domain-cdn.md
         - name: Özel etki alanı yapılandırma
           href: storage-custom-domain-name.md
         - name: Olayları özel bir uç noktaya yönlendirme
@@ -558,11 +560,9 @@
           href: data-lake-storage-best-practices.md
         - name: Güvenlik
           items:
-            - name: Büyük veri analizi güvenlik kılavuzu
-              href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Depolama şifrelemesi
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Erişim Denetimi
+            - name: Depolama güvenliğine genel bakış
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Erişim denetimi
               href: data-lake-storage-access-control.md
     - name: Nasıl yapılır
       items:
@@ -576,16 +576,22 @@
           items:
             - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Depolama şifrelemesi için özel anahtarları yönetme
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Müşteri tarafından yönetilen anahtarları hizmet şifrelemesi için yapılandırma
+              items:
+                - name: Portal
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: RBAC ile erişim haklarını yönetme
               items:
                 - name: Portal
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Dosya ve dizin düzeyinde izinler ayarlama
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
         - name: Azure Hizmetleri ile tümleştirme

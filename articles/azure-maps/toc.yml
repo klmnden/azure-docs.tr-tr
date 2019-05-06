@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Yönlendirme kapsamı
           href: routing-coverage.md
-    - name: Desteklenen diller
+    - name: Yerelleştirme desteği
       href: supported-languages.md
     - name: Desteklenen eşleme stilleri
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Harita denetimi
           items:
-            - name: Harita denetimini kullanma
+            - name: Web harita denetimini kullanmaya başlama
               href: how-to-use-map-control.md
             - name: Harita oluşturma
               href: map-create.md
-            - name: Harita stili seçme
+            - name: Haritanın stilini değiştirme
               href: choose-map-style.md
             - name: Haritaya denetim ekleme
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Android SDK ile geliştirme
       items:
-        - name: Android harita denetimini kullanma
+        - name: Android harita denetimini kullanmaya başlama
           href: how-to-use-android-map-control-library.md
+        - name: Sembol katmanı ekleme
+          href: how-to-add-symbol-to-android-map.md
+        - name: Şekil ekleme
+          href: how-to-add-shapes-to-android-map.md
+        - name: Haritanın stilini değiştirme
+          href: set-android-map-styles.md
 - name: Başvuru
   items:
     - name: API ve parametre uzantıları

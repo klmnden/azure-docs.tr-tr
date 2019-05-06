@@ -248,8 +248,8 @@ Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş g
 
 |Özellik | Açıklama|
 |----------|----------|
-|Çağıran |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-|Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır.|
+|Caller |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+|Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır.|
 |CorrelationId | Runbook işinin bağıntı kimliği olan GUID.|
 |JobId | Runbook işinin kimliği olan GUID.|
 |operationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır.|
@@ -269,8 +269,8 @@ Otomasyon, Log Analytics çalışma alanında iki tür kayıt oluşturur: İş g
 
 |Özellik | Açıklama|
 |----------|----------|
-|Çağıran |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-|Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır.|
+|Caller |  İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+|Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır.|
 |JobId | Runbook işinin kimliği olan GUID.|
 |operationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır.|
 |ResourceGroup | Runbook işine ait kaynak grubunun adını belirtir.|

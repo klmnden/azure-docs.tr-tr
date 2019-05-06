@@ -4,7 +4,7 @@ title: Hibrit kimlik belgeleri
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Hibrit kimlik belgeleri
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: 'Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz.'
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: 'Microsoft’un kimlik çözümleri şirket içi ve bulut tabanlı çözümleri birleştirerek konumdan bağımsız olarak tüm kaynaklara kimlik doğrulaması ve yetkilendirme sağlamak üzere tek bir kullanıcı kimliği oluşturur. Buna hibrit kimlik denir.</br></br></br>Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.'
   aside:
     image:
-      alt: null
+      alt: channel 9 videosu
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Parola karması eşitlemeyi kullanarak kimliklerinizi buluta genişletmeye nasıl başlayacağınızı öğrenme</p>
             image:
+              alt: parola karması eşitleme
               src: media/index/azuread2.png
             title: Parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirme
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Geçişli kimlik doğrulaması kullanarak kimliklerinizi buluta genişletmeye nasıl başlayacağınızı öğrenin.</p>
             image:
+              alt: doğrudan kimlik doğrulama
               src: media/index/manage2.png
             title: Geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Şirket içi Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD ile Azure Active Directory (Azure AD) Connect’i federasyona eklemeyi öğrenin.</p>
             image:
+              alt: federasyon
               src: media/index/federate2.png
             title: Federasyon kullanarak tek bir AD ormanında tümleştirme
   - title: Nasıl Yapılır Kılavuzları

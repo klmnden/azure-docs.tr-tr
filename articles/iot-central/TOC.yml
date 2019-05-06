@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Tercihlerinizi yönetme
           href: howto-manage-preferences.md
+        - name: Canlı sohbeti açma/kapatma
+          href: howto-show-hide-chat.md
 - name: İlgili
   items:
     - name: Çözümler
