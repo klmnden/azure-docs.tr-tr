@@ -1,21 +1,21 @@
 ---
-title: Hızlı Başlangıç - Azure CLI kullanarak PostgreSQL için Azure Veritabanı oluşturma
-description: Azure CLI (komut satırı arabirimi) aracını kullanarak PostgreSQL için Azure Veritabanı sunucusu oluşturma ve yönetmeye yönelik hızlı başlangıç kılavuzu.
+title: Hızlı Başlangıç - - Azure CLI kullanarak tek bir sunucu PostgreSQL için Azure veritabanı oluşturma
+description: Veritabanı oluşturma ve Azure PostgreSQL - Azure CLI (komut satırı arabirimi) kullanarak tek bir sunucu yönetmeye yönelik Hızlı Başlangıç Kılavuzu'ni kullanın.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902027"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069065"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI aracını kullanarak PostgreSQL için Azure Veritabanı oluşturma
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Hızlı Başlangıç: -Azure CLI kullanarak tek bir sunucu PostgreSQL için Azure veritabanı oluşturma
 
 > [!TIP]
 > Basit kullanmayı [az postgres'kurmak](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (şu anda önizlemede) Azure CLI komutu. Denemenin [hızlı](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Yüklü sürümü görmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli). 
 
-CLI’yi yerel olarak çalıştırıyorsanız, [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) komutunu kullanarak hesabınızda oturum açmanız gerekir. Komut çıktısındaki ilgili abonelik adına karşılık gelen **id** özelliğinin değerini not edin.
+CLI'yi yerel olarak çalıştırıyorsanız, kullanarak hesabınızda oturum açmanız [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) komutu. Not **kimliği** komut çıktısındaki ilgili abonelik adına için özellik.
 ```azurecli-interactive
 az login
 ```
 
-Birden fazla aboneliğiniz varsa kaynağın faturalanacağı uygun aboneliği seçin. [az account set](/cli/azure/account) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin. Aboneliğinizin **az login** çıktısındaki **id** özelliğini abonelik kimliği yer tutucusuyla değiştirin.
+Birden fazla aboneliğiniz varsa kaynağın faturalanacağı uygun aboneliği seçin. [az account set](/cli/azure/account) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin. Yedek **kimliği** özelliğinden **az login** aboneliğinizin abonelik kimliği yer çıktı.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
@@ -58,7 +58,7 @@ sku-name | GP_Gen5_2 | Sku'nun adı. Kısaca {fiyatlandırma katmanı}\_{işlem 
 backup-retention | 7 | Yedeklemenin ne kadar süreyle tutulacağı. Birim olarak gün kullanılır. 7-35 aralığındadır. 
 geo-redundant-backup | Devre dışı | Coğrafi olarak yedekli yedeklemelerin bu sunucu için etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: Etkin, devre dışı bırakıldı.
 location | westus | Sunucu için Azure konumu.
-ssl-enforcement | Etkin | Bu sunucu için ssl'in etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: Etkin, devre dışı bırakıldı.
+ssl-enforcement | Enabled | Bu sunucu için ssl'in etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: Etkin, devre dışı bırakıldı.
 storage-size | 51200 | Sunucunun depolama kapasitesi (birim olan megabayt kullanılır). Geçerli storage-size en az 5120 MB'tır ve 1024 MB'lık artışlarla büyür. Depolama boyutu sınırları hakkında daha fazla bilgi için [fiyatlandırma katmanları](./concepts-pricing-tiers.md) belgesine bakın. 
 version | 9.6 | PostgreSQL ana sürümü.
 admin-user | myadmin | Yöneticinin oturum açma kullanıcı adı. Şu değerler kullanılamaz: **azure_superuser**, **admin**, **administrator**, **root**, **guest** veya **public**.

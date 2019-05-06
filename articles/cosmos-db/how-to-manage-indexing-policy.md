@@ -4,14 +4,14 @@ description: Azure Cosmos DB'de dizinleme ilkeleri yönetmeyi öğrenin
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054686"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068667"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri yönetme
 
@@ -162,7 +162,7 @@ response = client.ReplaceContainer(containerPath, container)
 Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçiminde gösterilen bazı örnekleri aşağıda verilmiştir. Aynı parametrelere, Azure CLI veya herhangi bir SDK ayarlanabilir.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Seçime bağlı olarak bazı özellik yolları hariç tutmak için ilke çevirme
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -193,9 +193,10 @@ Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçimin
             }
         ]
     }
+```
 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Bazı özellik yolları seçerek eklenecek kabul etme İlkesi
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -224,11 +225,12 @@ Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçimin
             }
         ]
     }
+```
 
 Not: Genel olarak kullanılması önerilir bir **çevirme** dizin oluşturma ilkesi, Azure Cosmos DB proaktif bir şekilde izin vermek için dizin modelinize eklediğiniz herhangi bir yeni özelliği.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Belirli özellik yolda yalnızca bir uzamsal dizin kullanma
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -257,11 +259,12 @@ Not: Genel olarak kullanılması önerilir bir **çevirme** dizin oluşturma ilk
         ],
         "excludedPaths": []
     }
+```
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Tüm özellik yolları hariç, ancak dizin oluşturma etkin tutma
 
 Bu ilke durumlarda kullanılabilir olduğu [özelliği için-yaşam süresi (TTL)](time-to-live.md) etkin, ancak hiçbir ikincil (saf bir anahtar-değer deposu olarak Azure Cosmos DB kullanmak üzere) dizin gereklidir.
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -269,12 +272,130 @@ Bu ilke durumlarda kullanılabilir olduğu [özelliği için-yaşam süresi (TTL
             "path": "/*"
         }]
     }
+```
 
 ### <a name="no-indexing"></a>Dizin oluşturma
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## <a name="composite-indexing-policy-examples"></a>Bileşik dizin oluşturma ilkesi örnekleri
+
+İçerir veya dışlar yolları tek tek özellikler için ek olarak, bir bileşik dizin de belirtebilirsiniz. Sahip bir sorgu gerçekleştirmek istiyorsanız bir `ORDER BY` yan tümcesi birden çok özellik için bir [bileşik dizin](index-policy.md#composite-indexes) bu özellikleri gereklidir.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Bileşik dizin (asc adı, yaşı desc) için tanımlanan:
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+Bu bir bileşik dizin aşağıdaki iki sorguları desteklemek olanağına sahip olacaktır:
+
+Sorgu #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+Sorgu #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Bileşik dizin (asc adı, yaşı asc) için tanımlanan ve (asc adı, yaşı desc):
+
+Birden çok farklı Bileşik dizinler aynı dizin oluşturma ilkesini içinde tanımlayabilirsiniz. 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Bileşik dizin (asc adı, yaşı asc) için tanımlanan:
+
+Sırayı belirtmek isteğe bağlıdır. Belirtilmezse, artan sırada.
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

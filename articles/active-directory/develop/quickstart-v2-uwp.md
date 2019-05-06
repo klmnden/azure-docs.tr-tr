@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298708"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067784"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Hızlı Başlangıç: Evrensel Windows Platformu (UWP) uygulamasından Microsoft Graph API'sini çağırma
 
@@ -51,14 +51,15 @@ Bu hızlı başlangıçta nasıl bir evrensel Windows Platformu (UWP) uygulamas�
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için şu adımları izleyin:
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 > 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
-> 1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+> 1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://aka.ms/MobileAppReg) sayfası.
 > 1. Seçin **yeni kayıt**.
 > 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 >      - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `UWP-App-calling-MsGraph`.
 >      - **Desteklenen hesap türleri** bölümünde **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları (ör. Skype, Xbox, Outlook.com)** seçeneğini belirtin.
 >      - Uygulamayı kaydetmek için **Kaydet**'i seçin.
 > 1. Uygulama sayfa listesinde **Kimlik doğrulaması**'nı seçin.
-> 1. **Yeniden yönlendirme URL'leri** bölümünde **Ortak istemciler (mobil, masaüstü) için önerilen Yeniden Yönlendirme URI'leri** altında **"urn:ietf:wg:oauth:2.0:oob** girişini seçin.
+> 1. Genişletin **Masaüstü + cihazlar** bölümü.  (Varsa **Masaüstü + cihazlar** görünür durumda değilse ilk kimlik doğrulaması deneyimi Önizleme görüntülemek için üst başlıktaki tıklayın)
+> 1. Altında **yeniden yönlendirme URI'si** bölümünden **ekleme URI**.  Tür **urn: ietf:wg:oauth:2.0:oob**.
 > 1. **Kaydet**’i seçin.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]

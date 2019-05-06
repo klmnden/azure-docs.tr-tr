@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: c350a989f23eb667923a53f6eb06dd55905b0fab
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141145"
 ---
 # <a name="media-services-packaging-errors"></a>Media Services paketleme hataları 
 
@@ -194,7 +194,7 @@ Sunucu isteklerini almak şu anda belirlenemiyor. Bu hatanın nedeni aşırı is
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Depolama işlemi hatası, HTTP sunucu meşgul hatası 503 aldı.|
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: dd6d527020bbf5e2fb510fa9605af408673e89dd
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514239"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071889"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Hızlı Başlangıç: Visual Studio Code'da (Önizleme) Azure Stream Analytics bulut işi oluşturma
 
@@ -26,23 +26,13 @@ Bu hızlı başlangıçta oluşturun ve Visual Studio Code için Azure Stream An
 
 * Yükleme [Visual Studio Code'u](https://code.visualstudio.com/).
 
-* İndirme [VS Code için Azure Stream Analytics uzantısı](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
-
 ## <a name="install-the-azure-stream-analytics-extension"></a>Azure Stream Analytics uzantıyı yükleme
-
-Azure Stream Analytics uzantısını yüklediğiniz özel VSIX paketi yükleyin.
 
 1. Visual Studio Code'u açın.
 
-2. Gelen **uzantıları** sol bölmesinde, üç nokta simgesini **(...)**  sağ üstte. Ardından **VSIX yükleme**.
+2. Gelen **uzantıları** sol bölmesinde, arama **Stream Analytics** seçip **yükleme** üzerinde **Azure Stream Analytics** uzantısı.
 
-   ![Visual Studio code'da VSIX yükleyin](./media/quick-create-vs-code/install-vsix.png)
-
-3. Bir önkoşul olarak yüklenen uzantı seçip **yükleme**.  Bu işlem birkaç saniye sürebilir.
-
-4. Yükleme başarıyla tamamlandığında, seçin **şimdi yeniden** , siz istenirse penceresi açılır.
-
-5. Doğrulayın **Azure Stream Analytics Araçları** görünür olduğundan, **uzantıları etkinleştirildiğinde**.
+3. Uzantıyı yükledikten sonra doğrulayın **Azure Stream Analytics Araçları** görünür olduğundan, **uzantıları etkinleştirildiğinde**.
 
    ![Uzantılar Visual Studio code'da altında Azure Stream Analytics araçları](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -123,7 +113,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
    ![Stream Analytics projesi dosyaları VS code'da](./media/quick-create-vs-code/asa-project-files.png)
 
-4. Asaproj.json yapılandırma dosyası, girişler, çıkışlar ve ASA işi olarak Azure'da göndermek için gereken işi yapılandırma dosyası bilgileri içerir.
+4. **Asaproj.json** yapılandırma dosyası, girişler, çıkışlar ve Azure Stream Analytics işi göndermek için gereken işi yapılandırma dosyası bilgileri içerir.
 
    ![VS code'da Stream Analytics işi yapılandırma dosyası](./media/quick-create-vs-code/job-configuration.png)
 
@@ -146,7 +136,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
 4. Giriş dosyası adıyla girin **IotHub.json**.
 
-5. Düzen **IoTHub.json** şu değerlere sahip. Aşağıda belirtilen olmayan alanlar için varsayılan değerleri koruyun. CodeLens, bir dize girin veya açılır listeden seçin yardımcı olması için kullanın.
+5. Düzen **IoTHub.json** şu değerlere sahip. Aşağıda belirtilen olmayan alanlar için varsayılan değerleri koruyun. CodeLens, bir dize girin, açılır listeden seçin veya doğrudan dosyasında metni değiştirme yardımcı olması için kullanabilirsiniz.
 
    |Ayar|Önerilen değer|Açıklama|
    |-------|---------------|-----------|
@@ -189,9 +179,9 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
    HAVING Temperature > 27
    ```
 
-## <a name="compile-script"></a>Derleme betiği
+## <a name="compile-the-script"></a>Kodu derlemek için
 
-Derleme betiği iki şey yapar: otomatik dağıtım için Azure Resource Manager şablonları oluşturmak ve sözdizimini denetleyin.
+Derleme betiği iki şey yapar: autodeployment için Azure Resource Manager şablonları oluşturmak ve sözdizimini denetleyin.
 
 Komut dosyası derleme tetiklemek için iki yolu vardır:
 
@@ -203,7 +193,9 @@ Komut dosyası derleme tetiklemek için iki yolu vardır:
 
     ![Derlemek için ASA betiğe sağ](./media/quick-create-vs-code/compile-script2.png)
 
-3. Derleme, iki oluşturulan Azure Resource Manager şablonlarında bulabilirsiniz **Dağıt** projenizin klasör. Bu iki dosyayı otomatik dağıtım için kullanılır.
+3. Derleme, iki oluşturulan Azure Resource Manager şablonlarında bulabilirsiniz **Dağıt** projenizin klasör. Bu iki dosyayı autodeployment için kullanılır.
+
+    ![Dosya Gezgini'nde Stream Analytics dağıtım şablonları](./media/quick-create-vs-code/deployment-templates.png)
 
 ## <a name="submit-a-stream-analytics-job-to-azure"></a>Stream Analytics işi azure'a Gönder
 
@@ -213,7 +205,7 @@ Komut dosyası derleme tetiklemek için iki yolu vardır:
 
 2. Açılan listeden aboneliğinizi seçin.
 
-3. Seçin **bir iş seçin**. Yeni iş oluştur öğesini seçin.
+3. İş ** seçin. Yeni iş oluştur öğesini seçin.
 
 4. Proje adınızı girin **myASAjob** ve sonra kaynak grubunu ve konumu seçmek için yönergeleri izleyin.
 
@@ -233,13 +225,15 @@ Komut dosyası derleme tetiklemek için iki yolu vardır:
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Stream Analytics işini başlatıp çıktıyı denetleyin
 
-1. Visual Studio Code'da Stream Analytics Explorer'ı açın ve işinizi bulun**myASAJob**.
+1. Açık **Stream Analytics Gezgini'nde** Visual Studio code'da ve işinizi bulun **myASAJob**.
 
 2. Proje adına sağ tıklayın. Ardından, **Başlat** bağlam menüsünden.
 
+![VS Code'da Stream Analytics işini başlatın](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+
 3. Seçin **artık** işi başlatmak için ve açılan penceredeki.
 
-4. İş durumu değişti Not **çalıştıran**. Proje adını sağ tıklatın ve seçin **portalında iş görünümünü açmak** giriş bakın ve olay ölçümleri çıktı. Bu birkaç dakika sürebilir.
+4. İş durumu değişti Not **çalıştıran**. Proje adını sağ tıklatın ve seçin **portalında iş görünümünü açmak** giriş bakın ve olay ölçümleri çıktı. Bu işlem birkaç dakika sürebilir.
 
 5. Sonuçları görüntülemek için Visual Studio Code uzantısı'nda veya Azure portalında, blob Depolama'ı açın.
 

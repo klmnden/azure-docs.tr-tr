@@ -1,21 +1,21 @@
 ---
-title: Go dilini kullanarak PostgreSQL için Azure Veritabanı’na bağlanma
-description: Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Go programlama dili örneği sağlanmıştır.
+title: -Tek bir sunucu PostgreSQL için Azure veritabanı'na bağlanmak için go dilini kullanın
+description: Bu hızlı başlangıçta, bağlanıp - tek bir sunucu PostgreSQL için Azure veritabanı'ndan veri sorgulamak için kullanabileceğiniz Go programlama dili örneği sağlanmıştır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 802d7f200f43c690978f05e2d66be81bd2635e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778475"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067329"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>PostgreSQL için Azure veritabanı: Bağlanmak ve veri sorgulamak için go dilini kullanın
+# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>PostgreSQL - tek bir sunucu için Azure veritabanı: Bağlanmak ve veri sorgulamak için go dilini kullanın
 Bu hızlı başlangıçta, [Go](https://golang.org/) dilinde (golang) yazılmış kod kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Önkoşullar

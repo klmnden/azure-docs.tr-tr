@@ -75,6 +75,7 @@ sections:
           - html: '(Önizleme) Yeni Transact-SQL dil işlevler gibi <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">approx_count_dıstınct toplama</a> ve <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">toplu içeri aktarma Azure Blob depolamadan</a>.'
           - html: '(Önizleme) Yeni SQL Server 2019 çevrimiçi <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">derleme</a> ve kümelenmiş columnstore dizin işlemleri yeniden derleyin.'
           - html: '(Önizleme) Yeni <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL veritabanı Machine Learning Hizmetleri (R ile)</a>.'
+          - html: '(Önizleme) Yeni <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">sunucusuz bilgi işlem katmanı</a> işlem otomatik ölçeklendirme ve faturalar için kullanılan işlem saniyede sağlar.'
   - title: Beş dakikalık hızlı başlangıçlar
     items:
       - type: paragraph

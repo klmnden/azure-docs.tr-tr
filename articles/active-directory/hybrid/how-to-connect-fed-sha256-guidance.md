@@ -1,5 +1,5 @@
 ---
-title: Office 365 bağlı olan taraf güveni için değişiklik imzası karma algoritması | Microsoft Docs
+title: Office 365 bağlı olan taraf güveni - Azure için değişiklik imzası karma algoritması
 description: Bu sayfa Office 365 ile federasyon güveni için SHA algoritması değiştirmeye yönelik yönergeler sağlar.
 keywords: SHA1, SHA256, O365, Federasyon, aadconnect, adfs, ad fs, değişiklik sha, federasyon güven, bağlı olan taraf güveni
 services: active-directory
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138634"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 bağlı olan taraf güveni için değişiklik imzası karma algoritması
 ## <a name="overview"></a>Genel Bakış

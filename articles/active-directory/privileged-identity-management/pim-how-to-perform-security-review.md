@@ -1,6 +1,6 @@
 ---
-title: PIM - Azure Active Directory erişim gözden geçirmesi Azure AD'ye rollerim gerçekleştirmek | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi, Azure AD rolleri gerçekleştirmeyi öğreneceksiniz.
+title: Azure AD PIM - Azure Active Directory rolleri için erişimi gözden geçir | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) rollerini Azure AD erişim gözden geçirmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287821"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140976"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD'ye rollerim gerçekleştirin
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri için erişim gözden geçirin
+
 Azure Active Directory (AD) Privileged Identity Management (PIM), kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme sürecini basitleştirir.  
 
 Bir yönetici rolüne atanırsa, kuruluşunuzun ayrıcalıklı Rol Yöneticisi yine de bu rol için işinizi gerektiğini düzenli olarak doğrulamanızı isteyebilir. Bir bağlantısını içeren bir e-posta alabilir veya doğrudan gidebilirsiniz [Azure portalında](https://portal.azure.com). Bir kendi kendini gözden geçirin, atanan rollerinin gerçekleştirmek için bu makaledeki adımları izleyin.

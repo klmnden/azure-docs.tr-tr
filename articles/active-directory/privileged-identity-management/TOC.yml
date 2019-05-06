@@ -27,12 +27,6 @@
       href: pim-deployment-plan.md
     - name: PIM kullanmaya başlama
       href: pim-getting-started.md
-    - name: Rollerimi etkinleştir
-      items:
-        - name: Azure AD rollerimi etkinleştirme
-          href: pim-how-to-activate-role.md
-        - name: Azure kaynağı rollerimi etkinleştirme
-          href: pim-resource-roles-activate-your-roles.md
     - name: PIM'yi yapılandırma
       items:
         - name: Güvenlik sihirbazı
@@ -43,6 +37,12 @@
           href: pim-how-to-give-access-to-pim.md
         - name: Tüm abonelikleri yönetmek için erişimi yükseltme
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Rollerimi etkinleştir
+      items:
+        - name: Azure AD rollerimi etkinleştirme
+          href: pim-how-to-activate-role.md
+        - name: Azure kaynağı rollerimi etkinleştirme
+          href: pim-resource-roles-activate-your-roles.md
     - name: Azure AD rollerini yönetme
       items:
         - name: Rol atama
@@ -73,21 +73,21 @@
           href: azure-pim-resource-rbac.md
         - name: Özel rolleri kullanma
           href: pim-resource-roles-custom-role-policy.md
-    - name: Erişimi gözden geçirme
+    - name: Erişim gözden geçirmeleri
       items:
         - name: Azure AD rolleri
           items:
-            - name: Azure AD rollerimi gözden geçirme
-              href: pim-how-to-perform-security-review.md
-            - name: Erişim gözden geçirmesi başlatma
+            - name: Erişim gözden geçirmesi oluşturma
               href: pim-how-to-start-security-review.md
+            - name: Erişimi gözden geçirme
+              href: pim-how-to-perform-security-review.md
             - name: Erişim gözden geçirmesi tamamlama
               href: pim-how-to-complete-review.md
         - name: Azure kaynağı rolleri
           items:
-            - name: Azure kaynağı rollerimi gözden geçirme
-              href: pim-resource-roles-perform-access-review.md
-            - name: Erişim gözden geçirmesi başlatma
+            - name: Erişim gözden geçirmesi oluşturma
               href: pim-resource-roles-start-access-review.md
+            - name: Erişimi gözden geçirme
+              href: pim-resource-roles-perform-access-review.md
             - name: Erişim gözden geçirmesi tamamlama
               href: pim-resource-roles-complete-access-review.md

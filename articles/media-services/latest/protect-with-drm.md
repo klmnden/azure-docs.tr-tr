@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services ile DRM dinamik şifreleme lisans teslim hizmetini kullanma | Microsoft Docs
+title: DRM dinamik şifreleme ve lisans teslim hizmeti, Azure Media Services ile kullanma | Microsoft Docs
 description: Azure Media Services'ı kullanarak Microsoft PlayReady, Google Widevine veya Apple FairPlay lisansları ile şifrelenmiş akışlarınızı sunabilirsiniz.
 services: media-services
 documentationcenter: ''
@@ -11,62 +11,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f53ae122e9888f3e537a3557b6ac5bd76856c2eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 066863a49abc517019785a578d2761d1c50432a7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995882"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141307"
 ---
-# <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM dinamik şifreleme ve lisans teslim hizmetini kullanma
+# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Öğretici: DRM dinamik şifreleme ve lisans teslim hizmetini kullanma
 
-Azure Media Services’ı kullanarak [PlayReady dijital hak yönetimi (DRM)](https://www.microsoft.com/playready/overview/) korumalı MPEG-DASH, Kesintisiz Akış ve HTTP Canlı Akış (HLS) akışları sunabilirsiniz. Media Services ile **Google Widevine** DRM lisanslarıyla şifrelenmiş DASH akışlarını da sunabilirsiniz. PlayReady ve Widevine, ortak şifreleme (ISO/IEC 23001-7 CENC) belirtimi uyarınca şifrelenir. Media Services ayrıca HLS içeriğinizi **Apple FairPlay** (AES-128 CBC) ile şifrelemenizi de sağlar. 
+Azure Media Services'ı kullanarak Microsoft PlayReady, Google Widevine veya Apple FairPlay lisansları ile şifrelenmiş akışlarınızı sunabilirsiniz. Ayrıntılı açıklama için bkz. [içerik koruma, dinamik şifreleme ile](content-protection-overview.md).
 
 Media Services ayrıca PlayReady, Widevine ve FairPlay DRM lisansları teslim etmek üzere bir hizmet sunar. Kullanıcı DRM korumalı içerik istediğinde, oynatıcı uygulaması Media Services lisans hizmetinden bir lisans ister. Oynatıcı uygulaması yetkiliyse Media Services lisans hizmeti tarafından oynatıcıya bir lisans verilir. Lisans, istemci oynatıcısının içeriğin şifresini çözmek ve akışını yapmak için kullanabileceği şifre çözme anahtarını içerir.
 
-Bu makalede, [DRM ile şifreleme](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) örneği kullanılmıştır. Bu örnekte diğerlerine ek olarak aşağıdaki konularla da ilgili bilgi verilmektedir:
-
-* Uyarlamalı bit hızı kodlaması için yerleşik bir ön ayar kullanan şifreleme Dönüşümü oluşturma ve doğrudan bir [HTTPs kaynak URL'sinden](job-input-from-http-how-to.md) dosya alma.
-* Belirtecinizin doğrulanması için kullanılan imzalama anahtarını ayarlama.
-* Anahtarların belirtilen yapılandırmayla teslim edilmesi için uyulması gereken içerik anahtarı ilkesi gereksinimlerini (kısıtlamalarını) belirleme. 
-
-    * Yapılandırma 
-    
-        Bu örnekte [PlayReady](playready-license-template-overview.md) ve [Widevine](widevine-license-template-overview.md) lisansları, Media Services lisans teslim hizmetiyle teslim edilebilecek şekilde yapılandırılmıştır. Bu örnek uygulamada [FairPlay](fairplay-license-overview.md) lisansı yapılandırılmıyor olsa da FairPlay yapılandırması için kullanabileceğiniz bir metot sunulmaktadır. Dilerseniz FairPlay yapılandırmasını ek bir seçenek olarak ekleyebilirsiniz.
-
-    * Kısıtlama
-
-        Uygulama, ilkeye JWT belirteci türü kısıtlaması uygular.
-
-* Belirtilen varlık için belirtilen akış ilkesi adıyla bir StreamingLocator oluşturun. Bu durumda önceden tanımlanmış ilke kullanılmaktadır. İki içerik anahtarı üzerinde StreamingLocator ayarlar: AES-128 (Zarf) ve CENC (PlayReady ve Widevine).  
-    
-    StreamingLocator oluşturulduktan sonra çıkış varlığı yayımlanır ve istemciler tarafından kayıttan yürütülebilir.
-
-    > [!NOTE]
-    > Akış yapmak istediğiniz StreamingEndpoint öğesinin Çalışıyor durumunda olduğundan emin olun.
-
-* Azure Media Player için hem DASH bildirimini hem de şifrelenmiş PlayReady içeriğini kayıttan yürütmek için gerekli olan PlayReady belirtecini içeren bir URL oluşturun. Bu örnekte belirtecin geçerlilik süresi 1 saat olarak belirlenmiştir. 
-
-    Bir tarayıcı açın ve oluşturulan URL'yi yapıştırarak URL'nin ve belirtecin sizin için doldurulmuş olduğu Azure Media Player tanıtım sayfasını açabilirsiniz.  
-
-    ![DRM ile koruma](./media/protect-with-drm/playready_encrypted_url.png)
-
-> [!NOTE]
-> Her bir varlığı birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Birlikte kullanılabilecek türler hakkında bilgi almak için bkz. [Akış protokolleri ve şifreleme türleri](content-protection-overview.md#streaming-protocols-and-encryption-types).
+Bu makalede, [DRM ile şifreleme](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) örneği kullanılmıştır. 
 
 Bu makalede anlatılan örnek aşağıdaki sonucu üretir:
 
 ![AMS DRM ile korunan video](./media/protect-with-drm/ams_player.png)
+
+Bu öğretici şunların nasıl yapıldığını gösterir:    
+
+> [!div class="checklist"]
+> * Bir kodlama dönüştürme oluşturma
+> * Belirtecinizi doğrulanması için kullanılan imzalama anahtarı ayarlayın
+> * İçerik anahtarı ilkesi gereksinimlerini ayarlayın
+> * Belirtilen akış ilke bir StreamingLocator oluşturun
+> * Oluşturma bir URL dosyanızı kayıttan yürütmek üzere kullanılan
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 * [İçerik korumaya genel bakış](content-protection-overview.md) makalesini gözden geçirin.
-* [Erişim denetimi ile birden çok DRM ile içerik koruma sistemi tasarlama](design-multi-drm-system-with-access-control.md) makalesini gözden geçirin.
+* Gözden geçirme [tasarım çoklu DRM içerik koruma sistem erişim denetimi ile](design-multi-drm-system-with-access-control.md)
 * Visual Studio Code veya Visual Studio yükleme
 * [Bu hızlı başlangıçta](create-account-cli-quickstart.md) açıklandığı gibi yeni bir Azure Media Services hesabı oluşturun.
 * [Erişim API'lerini](access-api-cli-how-to.md) kullanarak Media Services API'lerini kullanmak için gerekli kimlik bilgilerini edinin.
@@ -163,18 +144,40 @@ ContentKeyPolicy içinde kullanılan ContentKeyIdentifierClaim, anahtar teslim h
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
-## <a name="build-a-dash-streaming-url"></a>DASH akış URL'si oluşturma
+## <a name="build-a-streaming-url"></a>Bir akış URL'si oluşturmanıza
 
 Artık [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturulduğuna göre, akış URL'lerini alabilirsiniz. Bir URL derlemek için [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) konak adı ile **StreamingLocator** yolunu birleştirmeniz gerekir. Bu örnekte *varsayılan* **StreamingEndpoint** değeri kullanılır. İlk kez Media Service hesabı oluşturduğunuzda bu *varsayılan* **StreamingEndpoint** durdurulmuş durumdadır, bu nedenle **Start** çağrısı yapmanız gerekir.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
+Uygulamayı çalıştırdığınızda, aşağıdakilere bakın:
+
+![DRM ile koruma](./media/protect-with-drm/playready_encrypted_url.png)
+
+Bir tarayıcı açın ve oluşturulan URL'yi yapıştırarak URL'nin ve belirtecin sizin için doldurulmuş olduğu Azure Media Player tanıtım sayfasını açabilirsiniz. 
+ 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services hesabınızdaki kaynakları temizleme
 
 Genellikle, yeniden kullanmayı planladığınız nesneler dışında her şeyi temizlemeniz gerekir (genellikle Dönüşümleri yeniden kullanırsınız ve StreamingLocators vb. nesneleri tutarsınız). Deneme sonrasında hesabınızın temiz olmasını istiyorsanız, yeniden kullanmayı planlamadığınız kaynakları silmeniz gerekir.  Örneğin, aşağıdaki kod İşleri siler.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz. 
+
+Aşağıdaki CLI komutunu yürütün:
+
+```azurecli
+az group delete --name amsResourceGroup
+```
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
+
+Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[AES-128 ile koruma](protect-with-aes128.md) hakkında bilgi edinin
+> [!div class="nextstepaction"]
+> [AES-128 ile koruma](protect-with-aes128.md) hakkında bilgi edinin
+

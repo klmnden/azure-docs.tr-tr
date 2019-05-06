@@ -1,6 +1,6 @@
 ---
-title: Microsoft kimlik platformu hakkında | Azure
-description: Azure Active Directory kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkan Microsoft kimlik platformu hakkında bilgi edinin.
+title: Microsoft kimlik platformu - Azure evrimi
+description: Microsoft kimlik platformu, bir Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformu evrimi hakkında bilgi edinin.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,27 +12,35 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0b912b6f3fe42c724468347f9b3a7f0b4efa054
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301025"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067966"
 ---
-# <a name="about-microsoft-identity-platform"></a>Microsoft kimlik platformu hakkında
+# <a name="evolution-of-microsoft-identity-platform"></a>Microsoft kimlik platformu evrimi
 
-Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API'leri ya da geliştiricilerin derlemiş olduğu API'lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. Bu tam özellikli platform kimlik doğrulaması hizmetine, açık kaynak kitaplıklara, uygulama kaydı ve yapılandırmasına (bir geliştirici portalı ve uygulama API'si aracılığıyla), tam kapsamlı geliştirici belgelerine, kod örneklerine ve geliştiricilere yönelik diğer içeriklere sahiptir. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
+Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Kullanıcılar oturum, gibi Microsoft Graph API'leri veya geliştiricilerin geliştirdim API'leri çağırmak için belirteçleri almak uygulamalar oluşturmalarını sağlar. Bir kimlik doğrulama hizmeti, açık kaynak kitaplıkları, uygulama kaydı ve yapılandırması (aracılığıyla bir geliştirici portal ve API uygulaması) oluşan tam bir geliştirici belgeleri, hızlı başlangıç örnekleri, kod örnekleri, öğreticiler, nasıl yapılır kılavuzları, ve diğer Geliştirici içeriği. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
 
-Şimdiye kadar, geliştiricilerin çoğu Azure AD v1.0 uç noktasından belirteç isteyip Azure AD kimliklerini doğrulayarak, uygulama kaydı ve yapılandırması için Azure AD Authentication Library'yi (ADAL), Azure portalını ve programlı uygulama yapılandırması için Azure AD Graph API'sini kullanarak Azure AD v1.0 platformuyla çalışıyordu. Azure AD v1.0 platformu, kurumsal uygulamalarda kullanılmaya devam edecek, olgun bir platform teklifidir.
+Şimdiye kadar Çoğu geliştirici iş kimliğini doğrulamak ve Okul hesapları (Azure AD tarafından sağlanan) için Azure AD v1.0 platformuyla Azure AD v1.0 uç noktasından belirteç talep ederek Azure AD Authentication Library (ADAL) için Azure portalı kullanarak çalıştı Uygulama kaydı ve yapılandırması ve programlı uygulama yapılandırması için Azure AD Graph API'si.
 
-Microsoft kimlik platformunun özelliklerini genişletmek ve geliştirmek için, artık Azure AD v2.0 uç noktası olarak bilinen özelliği kullanarak daha geniş bir Microsoft kimlikleri kümesi (Azure AD kimlikleri, Microsoft hesapları (outlook.com ve hotmail.com gibi), Azure AD B2C aracılığıyla sosyal ve yerel hesaplar) için kimlik doğrulaması yapabilirsiniz. Burada, Microsoft Authentication Library'yi (MSAL) ya da herhangi bir açık kaynak OAuth2.0 veya OpenID Connect kitaplığını, uygulama kaydı ve yapılandırması için Azure portalını ve programlı uygulama yapılandırması için Microsoft Graph API'sini kullanacaksınız. Güncelleştirilmiş Microsoft kimlik platformu (özellikle de MSAL kitaplıkları ve en son Azure portalı uygulama kaydı deneyimi), geçen yıl önemli ölçüde geliştirildi. Bu sürümü sonlandırmak için, geliştiricilerin uygulamalarını geliştirir ve test ederken en son Microsoft kimlik platformunu kullanmalarını öneriyoruz.
+Microsoft kimlik platformu ile (v2.0) bu türde kullanıcılara kitlelere ulaşın:
 
-En son ADAL'ı ve en son MSAL'yi kullanan uygulamalar birbiriyle SSO yapabilecektir. ADAL'dan MSAL'ye güncelleştirilen uygulamalar kullanıcı oturum açma durumunu koruyacaktır. Geliştiriciler uygun görürlerse uygulamalarını MSAL'ye güncelleştirmeyi seçebilir, ama ADAL ile derlenmiş uygulamalar da çalışmaya ve desteklenmeye devam edecektir.
+- İş ve Okul hesaplarına (sağlanan Azure AD hesapları)
+- Kişisel hesaplar (örneğin, Outlook.com veya Hotmail.com)
+- Müşterilerinize kendi e-posta veya sosyal kimlik (örneğin, LinkedIn, Facebook, Google) aracılığıyla Azure AD B2C teklifi sunun
+
+Birleştirilmiş Microsoft kimlik platformu ile bir kez kod yazın ve herhangi bir Microsoft kimliği uygulamanıza kimlik doğrulaması. Çeşitli platformlar için Microsoft kimlik doğrulama kitaplığı (MSAL) adlı tam olarak desteklenen bir açık kaynak kitaplığı yoktur. MSAL, kullanımı basit olan, yüksek güvenilirlik ve performans elde etmek ve Microsoft Güvenli geliştirme yaşam döngüsü (SDL) kullanarak geliştirilen yardımcı olur, kullanıcılarınız için harika çoklu oturum açma (SSO) deneyimleri sağlar. API'leri çağıran, uygulamanız için daha fazla bozucu kapsamları onay isteği, çalışma zamanında bu uygulamanın kullanımı gerektirdiğini kadar gecikme olanak tanıyan artımlı onay yararlanmak için yapılandırabilirsiniz.
+
+Kaydetme ve uygulamanızı yapılandırmak için Azure portalını kullanın ve programlı uygulama yapılandırması için Microsoft Graph API'sini kullanın.
+
+Uygulamanız kendi hızınızda güncelleştirin. ADAL kitaplıklarını ile oluşturulmuş uygulamaları desteklemeye devam eder. ADAL ve MSAL kitaplıkları ile oluşturulan uygulamalar ile oluşturulmuş uygulamalar oluşan karma uygulama Portföylerini de desteklenir. Bu, en son ADAL ve en son MSAL kullanarak uygulamaları bu kitaplıklar arasında paylaşılan belirteç önbelleği tarafından sağlanan Portföyü genelinde SSO verecektir anlamına gelir. Uygulamalar için MSAL İOS'tan güncelleştirildi, yükseltme sonrasında kullanıcı oturum açma durumunu korur.
 
 ## <a name="microsoft-identity-platform-experience"></a>Microsoft kimlik platformu deneyimi
 
@@ -40,27 +48,29 @@ Aşağıdaki diyagramda, uygulama kaydı deneyimi, SDK'lar, uç noktalar ve dest
 
 ![Bugün Microsoft kimlik platformu](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
-Microsoft kimlik platformunun iki uç noktası (v1.0 ve v2.0) ve bu uç noktaları işlemek için iki istemci kitaplığı kümesi vardır. Yeni uygulama geliştirirken, uç noktaların ve kimlik doğrulama kitaplıklarının avantajlarını ve geçerli durumunu göz önünde bulundurun. Ayrıca şunları da dikkate alın:
+### <a name="app-registration-experience"></a>Uygulama kayıt deneyimi
 
-* Desteklenen platformlar
+Azure portalında **[uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908)** Microsoft kimlik platformu ile tümleşik olan tüm uygulamaları yönetmek için bir portal deneyimi deneyimidir. Uygulama kayıt portalı kullandıysanız, Azure Portalı Uygulama kaydı deneyimini kullanmayı başlatılıyor.
 
-    * [ADAL](active-directory-authentication-libraries.md) .NET, JavaScript, iOS, Android, Java, ve Python'u destekler
-    * [MSAL Önizleme](reference-v2-libraries.md) .NET, JavaScript, iOS ve Android'i destekler
-    * Her iki uç nokta da API'leri ve Oturum açma işlemini korumak için .NET ve Node.js sunucu ara yazılımını destekler. 
+(Sosyal ya da yerel kimlik doğrularken) Azure AD B2C ile tümleştirme için bir B2C kiracısında uygulamanızı kaydetmeniz gerekir. Bu deneyim ayrıca Azure portalında bir parçasıdır.
 
-* Yeniliklerin büyük bölümü, örneği dinamik onay ve artımlı onay v2.0 uç noktasında ve MSAL'de yapılmıştır ama bu arada v1.0 ile ADAL'ı desteklemeye de devam ediyoruz.
+**Microsoft Graph API uygulaması** şu anda Önizleme aşamasındadır. Bu API, uygulamalarınızı herhangi bir Microsoft kimlik doğrulama için Microsoft kimlik platformu ile tümleşik programlı bir şekilde yapılandırmak için kullanın. Ancak, bu API, genel kullanılabilirlik ulaşana kadar Azure AD Graph 1.6 API'sini ve uygulama bildirimi kullanmanız gerekir.
 
-    Azure portalında, daha önce uygulamanıza gereken tüm kapsamları statik olarak tanımlamanız gerekiyordu. v2.0 uç noktasıyla ve portalların bu uç noktayla ilişkilendirilmesiyle birlikte, aynı eskiden olduğu gibi kapsamları statik olarak tanımlayabilir veya uygulamanıza izin gerektiğinde bunları dinamik olarak isteyebilirsiniz. Dinamik yöntem isteğe bağlı bir özellik daha (artımlı onay) sağlar. Artımlı onay, kullanıcı ilk kez kimliğini doğruladığında kapsamların ihtiyacınız olan bir alt kümesini istemenize ve gerektikçe ek kapsamlar istemenize olanak tanır. 
-    
-    Örneğin mobil cihazda kamera uygulaması kullanılırken, kullanıcı uygulamanın kameraya erişmesine izin verilmesini ister ve ancak kullanıcı onay aldıktan sonra uygulamanın kameraya erişmesine ve fotoğraf çekmesine izin verilir.  Uygulama yeni fotoğrafı kaydetmeye hazır olduğunda, fotoğraf okuma/yazma izni isteyebilir. 
+### <a name="msal-libraries"></a>MSAL kitaplıkları
 
-* Olası yeni değişiklikler
+MSAL kitaplığı, tüm Microsoft kimlikleri doğrulamak uygulamalar oluşturmak için kullanabilirsiniz. . NET'te MSAL kitaplıkları genel kullanıma sunulmuştur. JavaScript, iOS ve Android için MSAL kitaplıkları vardır ve önizleme aşamasındadır ve bir üretim ortamında kullanım için uygundur. Genel kullanıma sunulan sürümleri MSAL ve ADAL yaptığımız gibi aynı üretim düzeyi desteğin MSAL Önizleme kitaplıklarında sağlıyoruz.
 
-    MSAL üretim ortamında kullanılmaya uygundur. Geçerli üretim kitaplıklarımıza sağladığımız üretim düzeyi desteğinin aynısını MSAL'ye de sağlıyoruz. Önizleme sırasında, API'de, iç önbellek biçiminde ve bu kitaplığın diğer mekanizmalarında değişiklikler yapabiliriz. Hata düzeltmeleri veya özellik geliştirmelerinin yanı sıra bu değişiklikleri de almanız gerekir. Bu durum uygulamanızı etkileyebilir. Örnek vermek gerekirse, önbellek biçiminde yapılan bir değişiklik kullanıcılarınızı etkileyebilir, örneğin yeniden oturum açmalarını gerektirebilir. Bir API değişikliğinden dolayı kodunuzu güncelleştirmeniz gerekebilir. Genel kullanım (GA) sürümünü sağladığımızda, altı ay içinde GA sürümüne güncelleştirmenizi isteyeceğiz çünkü kitaplığın önizleme sürümünü kullanarak yazılan uygulamalar bundan sonra çalışmayabilir.
+Ayrıca, uygulamanızı Azure AD B2C ile tümleştirmek için MSAL kitaplıkları da kullanabilirsiniz.
+
+Web uygulamaları ve web API'leri oluşturmak için sunucu tarafı kitaplıklar genel kullanıma sunulmuştur: [ASP.NET](https://docs.microsoft.com/aspnet/overview) ve [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
+
+### <a name="microsoft-identity-platform-endpoint"></a>Microsoft kimlik platformu uç noktası
+
+Microsoft kimlik Platformu (v2.0) uç noktası sertifikalı OIDC sunulmuştur. Microsoft kimlik doğrulama kitaplığı (MSAL) veya diğer standartlara uygun kitaplığı ile çalışır. İnsan tarafından okunabilir kapsamlar, endüstri standartlarına uygun olarak uygular.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 v1.0 ve v2.0 hakkında daha fazla bilgi edinin.
 
-* [v1.0 hakkında](v1-overview.md)
-* [v2.0 hakkında](v2-overview.md)
+* [Microsoft kimlik Platformu (v2.0) genel bakış](v2-overview.md)
+* [Azure Active Directory geliştiricilerin (v1.0) genel bakış](v1-overview.md)

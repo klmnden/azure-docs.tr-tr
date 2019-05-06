@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069263"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Öğretici: Bir utterance bağlamsal ilgili verileri ayıklayın
 
 Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir kaynak ve hedef konumların bir şehir için başka bir aktarımı için. Her iki veri parçasını gerekli olabilir ve birbiriyle ilgilidir.  
 
-Bu öğretici, daha önce hiyerarşik varlıkları kullanılarak yazılmıştır. Hiyerarşik varlık türü için gereken varlık rolleri değiştirin. Bir rol ile herhangi bir önceden oluşturulmuş veya özel varlık türü kullanılan ve örnek konuşma ve desenler kullanılır. 
+Bir rol ile herhangi bir önceden oluşturulmuş veya özel varlık türü kullanılan ve örnek konuşma ve desenler kullanılır. 
 
 **Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
@@ -117,7 +117,7 @@ Bir rolü olmalıdır yüklendiğinde varlık verilerini ayıklamak için:
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Adres çubuğundaki URL'nin sonuna gidip `Please move Carl Chamerlin from Tampa to Portland` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
+1. Adres çubuğundaki URL'nin sonuna gidip `Please move Carl Chamerlin from Tampa to Portland` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. İyi bir testtir ve döndürmelidir bu utterance etiketli konuşma hiçbirini aynı olmadığından `MoveEmployee` ayıklanan varlıkla hedefi.
 
     ```json
     {

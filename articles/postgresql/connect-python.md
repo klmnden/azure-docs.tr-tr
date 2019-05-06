@@ -1,21 +1,21 @@
 ---
-title: Python’dan PostgreSQL için Azure Veritabanı’na bağlanma
-description: Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Python kod örneği sağlanmıştır.
+title: -Tek bir sunucu PostgreSQL için Azure veritabanı'na bağlanmak için Python kullanma
+description: Bu hızlı başlangıçta, bağlanıp - tek bir sunucu PostgreSQL için Azure veritabanı'ndan veri sorgulamak için kullanabileceğiniz Python kod örneği sağlanmıştır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d7988ad590e6d57d9da37f46557f99fccaad294
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422177"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067233"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure veritabanı: Bağlanmak ve veri sorgulamak için Python kullanma
+# <a name="azure-database-for-postgresql---single-server-use-python-to-connect-and-query-data"></a>PostgreSQL - tek bir sunucu için Azure veritabanı: Bağlanmak ve veri sorgulamak için Python kullanma
 Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Önkoşullar

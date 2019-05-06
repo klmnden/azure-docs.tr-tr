@@ -1,6 +1,6 @@
 ---
-title: v2.0 Hakkında | Azure
-description: V2.0 uç noktası ve platform hakkında bilgi edinin.
+title: Microsoft kimlik Platformu (v2.0) genel bakış - Azure
+description: Microsoft kimlik Platformu (v2.0) uç noktası ve platform hakkında bilgi edinin.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,75 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6aa0af1ff5a8600f43ab92a5f2534a8e3ff253c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067661"
 ---
-# <a name="about-v20"></a>v2.0 Hakkında
+# <a name="microsoft-identity-platform-v20-overview"></a>Microsoft kimlik Platformu (v2.0) genel bakış
 
-Platform ve v2.0 uç noktası önizleme aşamasında bulunmuş ve sürekli olarak geliştirilmiştir. Günümüzde JavaScript tek sayfalı uygulama (SPA) senaryolarının tüm özellikleri tamamlanmıştır ve durumu önizlemeden genel kullanılabilirliğe değiştirebilmemiz için bize geri bildirim vermeniz amacıyla sizi MSAL.js’yi kullanarak tarayıcı tabanlı uygulamalar oluşturmaya davet ediyoruz.
+Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu, geliştiricilerin Microsoft Graph'i ya da geliştiriciler için tasarlanmış API'leri gibi Microsoft APIs çağırmak için belirteçleri almak ve tüm Microsoft kimliklerini oturum uygulamaları oluşturmalarına olanak sağlar. Microsoft kimlik platformu oluşur:
 
-> [!NOTE]
-> MSAL Android, iOS ve .NET için hala geliştirilmekte olan özellikler bulunmaktadır. Bunları kullanarak uygulamalar oluşturabilir ve bize geri bildirim gönderebilirsiniz.
+- **OAuth 2.0 ve Openıd Connect uyumlu standart kimlik doğrulama hizmeti** geliştiricilerin herhangi bir Microsoft kimliği kimlik doğrulaması sağlayan dahil olmak üzere:
+  - İş veya Okul hesapları (Azure AD sağlanan)
+  - Kişisel Microsoft hesapları (örneğin, Skype, Xbox ve Outlook.com gibi)
+  - Sosyal veya yerel hesap (aracılığıyla Azure AD B2C'de)
+- **Açık kaynak kitaplıkları**: Microsoft kimlik doğrulama kitaplığı (MSAL) ve diğer standartlarıyla uyumlu kitaplıklar için destek
+- **Yönetim Portalı'nı uygulama**: Tüm diğer Azure yönetim özelliklerinizi yanı sıra Azure portalında oluşturulan bir kayıt ve yapılandırma deneyimi.
+- **Uygulama yapılandırması API ve PowerShell**: DevOps görevleri otomatik hale getirmek için uygulamalarınızı (Microsoft Graph ve Azure Active Directory Graph 1.6) REST API ve PowerShell, program yapılandırması sağlar.
+- **Geliştirici içeriği**: kavramsal ve başvuru belgeleri, hızlı başlangıç örnekleri, kod örnekleri, öğreticileri ve nasıl yapılır kılavuzlarından.
 
-Azure portalında [uygulama kayıtları (Önizleme)](quickstart-register-app.md) deneyimini önemli ölçüde güncelleştirildi artık ADAL veya MSAL ile oluşturulmuş tüm uygulamalarınızı içerir ve kullanılabilirliği iyileştirmek için.
+Geliştiriciler için Microsoft kimlik platformu parolasız kimlik doğrulaması, kimlik doğrulamayı yükseltme ve koşullu erişim gibi kimlik ve güvenlik alanında yenilikler sorunsuz tümleştirmenin sunar.  Bu işlevselliğin kendiniz uygulamanız gerekmez: Microsoft kimlik platformu ile yerel olarak tümleşik uygulamalar gibi yeniliklerden yararlanın.
 
-Geçmişte Azure Active Directory’deki (Azure AD) hem kişisel Microsoft hesaplarını hem de iş hesaplarını desteklemek isteyen uygulama geliştiricilerinin iki farklı sistemi kullanarak tümleştirmesi gerekirdi. V2.0 uç noktası ve platformu, bu süreci basitleştiren bir kimlik doğrulaması API sürümü sağlar. Bu, tek bir tümleştirme aracılığıyla iki hesap türünden de oturum açılabilmesini sağlar. V2.0 uç noktasını kullanan uygulamalar da iki hesap türünden birini kullanarak [Microsoft Graph API](https://developer.microsoft.com/graph)’deki REST API’lerini tüketebilir.
+Microsoft kimlik platformu ile bir kez kod yazın ve herhangi bir kullanıcı ulaşın. Bir uygulama bir kez oluşturun ve sahip birçok platformlar arası çalışması ya da kaynak uygulaması (API) yanı sıra bir istemci çalışan bir uygulama oluşturabilirsiniz.
 
 ## <a name="getting-started"></a>Başlarken
 
-Tercih ettiğiniz platform Microsoft kullanarak bir uygulama oluşturmak için aşağıdaki listeden açık kaynak kitaplıkları ve çerçeveleri seçin:
+Kimlik ile çalışma, sabit olması gerekmez. Uygun bir senaryo seçin — bir hızlı başlangıç ve dakikalar içinde çalıştırmaya başlamanızı sağlayacak bir genel bakış sayfasında her senaryo yolu vardır:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [Tek sayfa uygulaması derleme](scenario-spa-overview.md)
+- [Kullanıcılar oturum açtığında bir web uygulaması derleme](scenario-web-app-sign-user-overview.md)
+- [Web API'leri çağıran bir web uygulaması derleme](scenario-web-app-call-api-overview.md)
+- [Korumalı bir web API'si oluşturma](scenario-protected-web-api-overview.md)
+- [Web API'leri çağıran bir web API'si oluşturma](scenario-web-api-call-api-overview.md)
+- [Bir masaüstü uygulaması oluşturma](scenario-desktop-overview.md)
+- [Bir arka plan programı uygulaması derleme](scenario-daemon-overview.md)
+- [Bir mobil uygulama oluşturun](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>V2.0 uç noktası ve platform hakkında bilgi edinin
+<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
 
-Azure AD v2.0 uç noktası ile yapabilecekleriniz hakkında bilgi edinin:
+The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
-* [Azure AD v2.0 uç noktası ile oluşturabileceğiniz uygulama türlerini](v2-app-types.md) keşfedin.
-* Azure AD v2.0 uç noktasının [sınırlamalarını, kısıtlamalarını ve engellerini](active-directory-v2-limitations.md) anlayın.
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## <a name="additional-resources"></a>Ek kaynaklar
+--->
 
-V2.0 hakkında ayrıntılı bilgileri keşfedin:
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Microsoft kimlik platformu hakkında](about-microsoft-identity-platform.md)
-* [v2.0 protokolleri başvurusu](active-directory-v2-protocols.md)
-* [Erişim belirteçleri başvurusu](access-tokens.md)
-* [Kimlik belirteçleri başvurusu](id-tokens.md)
-* [v2.0 kimlik doğrulama kitaplıkları başvurusu](reference-v2-libraries.md)
-* [İzinler ve onay v2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph API'si](https://developer.microsoft.com/graph)
+Temel kimlik doğrulaması kavramları hakkında daha fazla bilgi edinmek istiyorsanız, şu konularla başlattığınız öneririz:
 
-> [!NOTE]
-> Yalnızca Azure Active Directory’deki iş ve okul hesaplarında oturum açılması gerekiyorsa [Azure AD Geliştirici Kılavuzu](v1-overview.md) ile başlayın. V2.0 uç noktasını özel olarak kişisel Microsoft hesapları ile oturum açması gereken geliştiricilerin kullanması amaçlanmıştır.
+- [Kimlik doğrulaması temel bilgileri](authentication-scenarios.md)
+- [Uygulama ve hizmet sorumluları](app-objects-and-service-principals.md)
+- [İzleyiciler](v2-supported-account-types.md)
+- [İzinler ve onay](v2-permissions-and-consent.md)
+- [Kimlik belirteçlerini](id-tokens.md) ve [erişim belirteçleri](access-tokens.md)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+Çağıran bir veri açısından zengin uygulama derleme [Microsoft Graph](https://docs.microsoft.com/graph/overview).
+
+Uygulamanıza başlatmaya hazır olduğunuzda bir **üretim ortamına**, bu en iyi uygulamaları gözden geçirin:
+
+- [Günlüğe kaydetmeyi etkinleştirme](msal-logging.md) uygulamanızdaki.
+- Uygulamanızda telemetriyi etkinleştirin.
+- Etkinleştirme [proxy'leri ve HTTP istemcilerini özelleştirme](msal-net-provide-httpclient.md).
+- Tümleştirmenizi izleyerek test [Microsoft kimlik platformu tümleştirme denetim](identity-platform-integration-checklist.md).
+
+## <a name="learn-more"></a>Daha fazla bilgi edinin
+
+Sosyal ve yerel kimliklerini imzalar müşteri Internet'e yönelik bir uygulama oluşturmak Planlama olsaydı göz atın [Azure AD B2C genel bakış](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

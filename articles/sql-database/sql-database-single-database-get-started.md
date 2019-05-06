@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: b8395b5e67660f2b6fb1b671a7be6a20b4fceddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/23/2019
+ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074327"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure SQL veritabanı tek veritabanı oluşturma
 
@@ -29,67 +29,71 @@ Bu hızlı Başlangıçta tüm adımları için oturum açın [Azure portalında
 
 ## <a name="create-a-single-database"></a>Tek veritabanı oluşturma
 
-Bir dizi işlem, bellek, GÇ ve depolama kaynakları iki birini kullanarak tek bir veritabanı olan [satın alma modeli](sql-database-purchase-models.md). Tek bir veritabanı oluşturduğunuzda, aynı zamanda tanımlamış bir [SQL veritabanı sunucusu](sql-database-servers.md) yönetip içine yerleştirdiğiniz [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) belirli bir bölgede.
+Tek bir veritabanı ya da sağlanan veya sunucusuz oluşturulabilir (Önizleme) bilgi işlem katmanı.
+
+- Sağlanan işlem katmanında tek bir veritabanını önceden ayrılmış işlem kaynakları tanımlanan bir miktarda ek iki birini kullanarak, bellek ve depolama kaynakları kümesi sahiptir [satın alma modeli](sql-database-purchase-models.md).
+- Sunucusuz bilgi işlem katmanı tek bir veritabanında bir dizi otomatik-ölçeklendirilen işlem kaynakları yanı sıra belirli bir çekirdek başına bellek miktarını ve depolama kaynaklarını belirli bir miktarını ve yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli ](sql-database-service-tiers-vcore.md).
+
+Tek bir veritabanı oluşturduğunuzda, aynı zamanda tanımlamış bir [SQL veritabanı sunucusu](sql-database-servers.md) yönetip içine yerleştirdiğiniz [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) belirli bir bölgede.
+
+> [!NOTE]
+> Bu hızlı başlangıçta kullanılmaktadır [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) ve [sunucusuz](sql-database-serverless.md) katmanı, işlem ancak [DTU tabanlı satın alma modeli](sql-database-service-tiers-DTU.md) de kullanılabilir.
 
 AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için:
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.
-2. Seçin **veritabanları** seçip **SQL veritabanı** açmak için **SQL veritabanı oluşturma** sayfası. 
+2. Seçin **veritabanları** seçip **SQL veritabanı** açmak için **SQL veritabanı oluşturma** sayfası.
 
    ![Tek veritabanı oluşturma](./media/sql-database-get-started-portal/create-database-1.png)
 
-1. Üzerinde **Temelleri** sekmesinde **Project Details** bölümüne yazın veya aşağıdaki değerleri seçin:
+3. Üzerinde **Temelleri** sekmesinde **Project Details** bölümüne yazın veya aşağıdaki değerleri seçin:
 
    - **Abonelik**: Açılan menü ve görünmüyorsa doğru aboneliği seçin.
    - **Kaynak grubu**: Seçin **Yeni Oluştur**, türü `myResourceGroup`seçip **Tamam**.
 
-   ![Yeni SQL veritabanı - temel sekmesi](media/sql-database-get-started-portal/new-sql-database-basics.png)
+     ![Yeni SQL veritabanı - temel sekmesi](media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-
-1. İçinde **veritabanı ayrıntıları** bölümüne yazın veya aşağıdaki değerleri seçin: 
+4. İçinde **veritabanı ayrıntıları** bölümüne yazın veya aşağıdaki değerleri seçin:
 
    - **Veritabanı adı**: `mySampleDatabase` yazın.
-   - **Sunucu**: Seçin **Yeni Oluştur** ve aşağıdaki değerleri girin ve ardından **seçin**. 
-       - **Sunucu adı**: Tür `mysqlserver`; bazı sayılar için benzersizlik yanı sıra. 
+   - **Sunucu**: Seçin **Yeni Oluştur** ve aşağıdaki değerleri girin ve ardından **seçin**.
+       - **Sunucu adı**: Tür `mysqlserver`; bazı sayılar için benzersizlik yanı sıra.
        - **Sunucu Yöneticisi oturum açma**: `azureuser` yazın.
-       - **Parola**: Parola gereksinimlerini karşılayan bir karmaşık bir parola yazın. 
-       - **Konum**: Açılan listeden, aşağıdaki gibi bir konum seçin `West US 2`. 
+       - **Parola**: Parola gereksinimlerini karşılayan bir karmaşık bir parola yazın.
+       - **Konum**: Açılan listeden, aşağıdaki gibi bir konum seçin `West US 2`.
 
-       ![Yeni sunucu](media/sql-database-get-started-portal/new-server.png)
+         ![Yeni sunucu](media/sql-database-get-started-portal/new-server.png)
 
-        > [!IMPORTANT]
-        > Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmeyi unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
-
-      ![SQL veritabanı ayrıntıları](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **SQL esnek havuzu kullanmak istediğiniz**: Seçin **Hayır** seçeneği. 
-   - **İşlem ve depolama**: Seçin **yapılandırma veritabanı** ve bu hızlı başlangıçta **standart** Hizmet katmanını ve seçip kaydırıcıyı kullanarak **10 Dtu (S0)** ve **1** Depolama GB. **Uygula**’yı seçin. 
-
-    ![Katmanını yapılandırma](media/sql-database-get-started-portal/create-database-s1.png) 
-
-
-      > [!NOTE]
-      > Bu hızlı başlangıçta kullanılmaktadır [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), ancak [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) de kullanılabilir.
       > [!IMPORTANT]
-      > 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+      > Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmeyi unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
 
-    
+        ![SQL veritabanı ayrıntıları](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
+   - **SQL esnek havuzu kullanmak istediğiniz**: Seçin **Hayır** seçeneği.
+   - **İşlem ve depolama**: Seçin **yapılandırma veritabanı** ve bu hızlı başlangıçta **sanal çekirdek tabanlı satın alma seçenekleri**
 
+     ![vCore temelli satın alma seçenekleri](media/sql-database-get-started-portal/create-database-vcore.png)
 
-1. Seçin **ek ayarlar** sekmesi. 
-1. İçinde **veri kaynağı** bölümündeki **mevcut verilerden yararlanabilirsiniz**seçin `Sample`. 
+   - Seçin **sunucusuz**.
+
+     ![sunucusuz bilgi işlem katmanı](media/sql-database-get-started-portal/create-database-serverless.png)
+
+   - Ayarlarını gözden geçirip **en çok sanal çekirdek**, **en düşük Vcore**, **otomatik duraklatma gecikme**, ve **veri boyutu en fazla**. Bunları istediğiniz gibi değiştirin.
+   - Önizleme koşullarını kabul edin ve tıklayın **Tamam**.
+   - **Uygula**’yı seçin.
+
+5. Seçin **ek ayarlar** sekmesi. 
+6. İçinde **veri kaynağı** bölümündeki **mevcut verilerden yararlanabilirsiniz**seçin `Sample`. 
 
    ![Ek SQL veritabanı ayarları](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları kolayca izleyebilmeniz veri.
 
-1. Geri kalan değerler varsayılan ve select bırakın **gözden geçir + Oluştur** formun alt kısmındaki. 
-1. Son ayarları gözden geçirin ve seçin **Oluştur**. 
+7. Geri kalan değerler varsayılan ve select bırakın **gözden geçir + Oluştur** formun alt kısmındaki.
+8. Son ayarları gözden geçirin ve seçin **Oluştur**.
 
-8. Üzerinde **SQL veritabanı** form, select **Oluştur** dağıtma ve kaynak grubu, sunucu ve veritabanı sağlama.
-
+9. Üzerinde **SQL veritabanı** form, select **Oluştur** dağıtma ve kaynak grubu, sunucu ve veritabanı sağlama.
 
 ## <a name="query-the-database"></a>Veritabanını sorgulama
 
@@ -131,5 +135,6 @@ Bu kaynakları kullanarak tamamladığınızda, aşağıda gösterildiği gibi s
 - Bir sunucu düzeyinde güvenlik duvarı kuralı oluşturduktan sonra [bağlanma ve sorgulama](sql-database-connect-query.md) birkaç farklı araçları ve dilleri kullanarak veritabanınızı.
   - [SQL Server Management Studio kullanarak bağlanma ve sorgulama](sql-database-connect-query-ssms.md)
   - [Azure Data Studio kullanarak bağlanma ve sorgulama](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Azure CLI kullanarak tek bir veritabanı oluşturmak için bkz [Azure CLI örnekleri](sql-database-cli-samples.md).
-- Azure PowerShell kullanarak tek bir veritabanı oluşturmak için bkz [Azure PowerShell örnekleri](sql-database-powershell-samples.md).
+- Azure CLI'yı kullanarak sağlanan işlem katmanında tek bir veritabanı oluşturmak için bkz [Azure CLI örnekleri](sql-database-cli-samples.md).
+- Azure PowerShell kullanarak sağlanan işlem katmanında tek bir veritabanı oluşturmak için bkz [Azure PowerShell örnekleri](sql-database-powershell-samples.md).
+- Azure Powershell kullanarak sunucusuz işlem katmanında tek bir veritabanı oluşturmak için bkz [PowerShell kullanarak sunucusuz veritabanı oluştur](sql-database-serverless.md#create-new-database-using-powershell)

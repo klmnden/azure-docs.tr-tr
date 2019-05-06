@@ -1,20 +1,20 @@
 ---
-title: 'Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama'
-description: Bu öğretici, Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı nasıl tasarlayacağınızı gösterir.
+title: 'Öğretici: -Tek sunuculu Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama'
+description: Bu öğreticide, PostgreSQL - Azure portalını kullanarak tek bir sunucu için ilk Azure veritabanınızı tasarlama işlemi gösterilmektedir.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61092111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069174"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Öğretici: -Tek sunucu Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
 PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 
@@ -31,9 +31,6 @@ Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-[Azure Portal](https://portal.azure.com)’da oturum açın.
-
 ## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı oluşturma
 
 PostgreSQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde oluşturulur.
@@ -43,34 +40,40 @@ PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uy
 2. **Yeni** sayfasından **Veritabanları**’nı seçin ve **Veritabanları** sayfasından **PostgreSQL için Azure Veritabanı**’nı seçin.
    ![PostgreSQL için Azure Veritabanı - Veritabanı oluşturma](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Yeni sunucu ayrıntıları formunu aşağıdaki bilgilerle doldurun:
+3. Seçin **tek sunucu** dağıtım seçeneği.
 
-   ![Sunucu oluşturma](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![-Tek sunuculu dağıtım seçeneği PostgreSQL için Azure veritabanı'nı seçin](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - Sunucu adı: **demosunucum** (bir sunucu DNS adıyla eşleşir ve bu nedenle sunucunun genel olarak benzersiz olması gerekir) 
-   - Abonelik: Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin.
-   - Kaynak grubu: **myresourcegroup**
-   - Tercih ettiğiniz sunucu yöneticisi oturum açma adı ve parolası
-   - Location
-   - PostgreSQL Sürümü
+4. Doldurun **Temelleri** formunu aşağıdaki bilgilerle:
 
-   > [!IMPORTANT]
-   > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu öğreticinin sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
+    ![Sunucu oluşturma](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. Yeni sunucunuza ait fiyatlandırma katmanını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu öğreticide, seçin **genel amaçlı**, **5. nesil** işlem nesli, 2 **sanal çekirdekler**, 5 GB **depolama** ve 7 gün  **Yedekleme bekletme süresi**. Sunucunuzun otomatik yedeklemelerini coğrafi olarak yedekli depolamada depolamak için **Coğrafi Olarak Yedekli** yedekleme seçeneğini belirleyin.
-   ![PostgreSQL için Azure Veritabanı - fiyatlandırma katmanını seçme](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    Ayar|Önerilen Değer|Açıklama
+    ---|---|---
+    Abonelik|Aboneliğinizin adı|Sunucunuz için kullanmak istediğiniz Azure aboneliği. Birden fazla aboneliğiniz varsa kaynağın faturalandırıldığı aboneliği seçin.
+    Kaynak grubu|*myresourcegroup*| Yeni bir kaynak grubu adı veya aboneliğinizde var olan bir kaynak grubu.
+    Sunucu adı |*mydemoserver*|PostgreSQL için Azure Veritabanı sunucunuzu tanıtan benzersiz bir ad. Girdiğiniz sunucu adına *postgres.database.azure.com* etki alanı adı eklenir. Sunucunuz yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir. En az 3, en çok 63 karakterden oluşmalıdır.
+    Veri kaynağı | *Yok.* | Seçin *hiçbiri* sıfırdan yeni bir sunucu oluşturmak için. (Mevcut bir PostgreSQL için Azure Veritabanı sunucusunun bir coğrafi yedeğinden bir sunucu oluşturuyorsanız, *Yedek* seçeneğini belirleyin).
+    Yönetici kullanıcı adı |*myadmin*| Sunucuya bağlanırken kullanılacak kendi oturum açma hesabınız. Yönetici oturum açma adı **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** veya **public** olamaz. Bu ad **pg_** ile başlayamaz.
+    Parola |Parolanız| Sunucu yönetici hesabı için yeni bir parola. 8 ile 128 arasında karakter içermelidir. Parolanız şu kategorilerin üçünden karakterler içermelidir: İngilizce büyük harfler, İngilizce küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vs.).
+    Location|Kullanıcılarınıza en yakın bölge| Kullanıcılarınız için en yakın olan konum.
+    Version|En son ana sürüm| Belirli gereksinimleriniz olmadığı sürece, en son PostgreSQL ana sürümü.
+    İşlem ve depolama | **Genel Amaçlı**, **5. Nesil**, **2 sanal çekirdek**, **5 GB**, **7 gün**, **Coğrafi Olarak Yedekli** | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. Seçin **yapılandırma sunucusu**. Ardından, **Genel Amaçlı** sekmesini seçin. *5 gen*, *4 sanal çekirdek*, *100 GB*, ve *7 gün* için varsayılan değerler **işlem nesli**,  **Sanal çekirdek**, **depolama**, ve **yedekleme Bekletme dönemi**. Bu kaydırıcıları veya onları ayarlamanız bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
 
-5. **Tamam**’a tıklayın.
+   > [!NOTE]
+   > Temel fiyatlandırma katmanını kullanarak göz önünde bulundurun hafif işlem ve g/ç iş yükünüz için yeterli olup olmadığını. Temel fiyatlandırma katmanında oluşturulan sunucular daha sonra genel amaçlı veya bellek için iyileştirilmiş ölçeklendirilemiyor olduğunu unutmayın. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/postgresql/) daha fazla bilgi için.
+   > 
 
-6. Sunucuyu sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer.
+    !["Fiyatlandırma katmanı" bölmesi](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
-   ![PostgreSQL için Azure Veritabanı - Bildirimleri inceleme](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. Seçin **gözden + Oluştur** için yaptığınız seçimleri gözden geçirin. Sunucuyu sağlamak için **Oluştur**’u seçin. Bu işlem birkaç dakika sürebilir.
 
-   > [!TIP]
-   > Dağıtımlarınızın kolayca izlenmesini sağlamak için **Panoya sabitle** seçeneğini işaretleyin.
+6. Araç çubuğunda, dağıtım sürecini izlemek için **Bildirimler** simgesini (zil) seçin. Dağıtım tamamlandığında, bu sunucu için Azure portalı panonuzda sunucunun **Genel bakış** sayfasına bir kısayol ekleyen **Panoya sabitle** öğesini seçebilirsiniz. **Kaynağa git**’i seçmek sunucunun **Genel bakış** sayfasını açar.
 
-   Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
+    !["Bildirimler" bölmesi](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   Varsayılan olarak, sunucunuzun altında bir **postgres** veritabanı oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamaları tarafından kullanılmak üzere geliştirilmiş, varsayılan bir veritabanıdır. (Diğer varsayılan veritabanı: **azure_maintenance**. İşlevi, yönetilen hizmet işlemlerini kullanıcı eylemlerinden ayırmaktır. Bu veritabanına erişemezsiniz.)
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 

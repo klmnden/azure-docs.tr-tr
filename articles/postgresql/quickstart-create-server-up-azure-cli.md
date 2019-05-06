@@ -1,25 +1,25 @@
 ---
-title: Hızlı Başlangıç - basit bir Azure CLI komutunu - az postgres ayarlama (Önizleme) kullanarak PostgreSQL için Azure veritabanı oluşturma
-description: Azure veritabanı Azure CLI (komut satırı arabirimi) kullanarak PostgreSQL sunucusu için komutu oluşturmak için Hızlı Başlangıç Kılavuzu.
+title: 'Hızlı Başlangıç: Ayarlama - tek bir CLI komutu az postgres sunucusuyla olan PostgreSQL için Azure veritabanı oluşturma'
+description: Komutu - Azure CLI (komut satırı arabirimi) kullanarak tek bir sunucu PostgreSQL için Azure veritabanı oluşturmak için Hızlı Başlangıç Kılavuzu.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
-ms.openlocfilehash: 0db49e2c370aee37cca4181cecbe4cf0b5585c51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091659"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069086"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>Hızlı Başlangıç: Basit bir Azure CLI komutunu - az postgres ayarlama (Önizleme) kullanarak PostgreSQL için Azure veritabanı oluşturma
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Hızlı Başlangıç: -Tek bir sunucu PostgreSQL için Azure veritabanı oluşturmak için bir Azure CLI komutunu, az postgres ayarlama (Önizleme) kullanma
 
 > [!IMPORTANT]
 > [Az postgres'kurmak](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI komutunu önizlemededir.
 
-PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta nasıl kullanılacağı gösterilmektedir [az postgres'kurmak](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI kullanarak PostgreSQL için Azure veritabanı oluşturmak için komutu. Sunucu oluşturmanın yanı sıra `az postgres up` komut bir örnek veritabanı, bir kök kullanıcı veritabanında oluşturur, Azure Hizmetleri için Güvenlik Duvarı'nı açar ve varsayılan istemci bilgisayar için güvenlik duvarı kuralları oluşturur. Bu, geliştirme süreci hızlandırmak için yardımcı olur.
+PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta nasıl kullanılacağı gösterilmektedir [az postgres'kurmak](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI kullanarak PostgreSQL için Azure veritabanı oluşturmak için komutu. Sunucu oluşturmanın yanı sıra `az postgres up` komut bir örnek veritabanı, bir kök kullanıcı veritabanında oluşturur, Azure Hizmetleri için Güvenlik Duvarı'nı açar ve varsayılan istemci bilgisayar için güvenlik duvarı kuralları oluşturur. Bu varsayılanlar, geliştirme süreci hızlandırmak için yardımcı olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -27,7 +27,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Bu makalede, Azure CLI Sürüm 2.0 veya sonraki çalıştırdığınızı gerektirir. yerel olarak. Yüklü sürümü görmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-Kullanarak hesabınızda oturum açmanız gerekir [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) komutu. Komut çıktısındaki ilgili abonelik adına karşılık gelen **id** özelliğinin değerini not edin.
+Kullanarak hesabınızda oturum açmak ihtiyacınız olacak [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) komutu. Not **kimliği** komut çıktısındaki ilgili abonelik adına için özellik.
 
 ```azurecli
 az login
@@ -60,13 +60,13 @@ az postgres up
 server-name | Sistem tarafından oluşturulan | PostgreSQL için Azure Veritabanı sunucunuzu tanıtan benzersiz bir ad.
 resource-group | Sistem tarafından oluşturulan | Yeni bir Azure kaynak grubu.
 sku-name | GP_Gen5_2 | Sku'nun adı. Kısaca {fiyatlandırma katmanı}\_{işlem nesli}\_{sanal çekirdek sayısı} kuralına uyar. Bir genel amaçlı 5. nesil 2 sanal çekirdek sunucusuna varsayılandır. Bkz. bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/postgresql/) katmanları hakkında daha fazla bilgi için.
-backup-retention | 7 | Yedeklemenin ne kadar süreyle tutulacağı. Birim olarak gün kullanılır.
+backup-retention | 7 | Nasıl uzun bir yedekleme korunur. Birim olarak gün kullanılır.
 geo-redundant-backup | Devre dışı | Coğrafi olarak yedekli yedeklemelerin bu sunucu için etkinleştirilip etkinleştirilmeyeceği.
 location | westus2 | Sunucu için Azure konumu.
 ssl-enforcement | Devre dışı | Bu sunucu için ssl'in etkinleştirilip etkinleştirilmeyeceği.
 storage-size | 5120 | Sunucunun depolama kapasitesi (birim olan megabayt kullanılır).
 version | 10 | PostgreSQL ana sürümü.
-admin-user | Sistem tarafından oluşturulan | Yöneticinin oturum açma kullanıcı adı.
+admin-user | Sistem tarafından oluşturulan | Yönetici kullanıcı adı.
 admin-password | Sistem tarafından oluşturulan | Yönetici kullanıcının parolası.
 
 > [!NOTE]

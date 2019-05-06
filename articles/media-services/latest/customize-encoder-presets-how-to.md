@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/11/2019
+ms.date: 05/03/2019
 ms.author: juliako
-ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733683"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148330"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>-.NET gibi özel bir dönüşüm ile kodlama
 
@@ -32,7 +32,7 @@ Azure Media Services ile kodlama, hızlı bir şekilde gösterildiği şekilde s
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-[Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). <br/>Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun. 
+[Bir Media Services hesabı oluşturma](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
@@ -46,7 +46,7 @@ Aşağıdaki komutu kullanarak makinenize tam .NET Core örnek içeren GitHub de
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Dönüşüm özel önayarın ile oluşturma 
 
-Yeni bir oluştururken [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms), çıkış olarak üretmek için istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Aşağıdaki **TransformOutput** özel codec ve katman çıkış ayarları oluşturur.
+Yeni bir oluştururken [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms), çıkış olarak üretmek için istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Önceden** istenen oluşturmak için kullanılacak olan/video veya ses işlemleri adım adım yönergeleri açıklar **TransformOutput**. Aşağıdaki **TransformOutput** özel codec ve katman çıkış ayarları oluşturur.
 
 Bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir. Media Services v3 içinde **alma** varlıklar üzerinde yöntemleri dönüş **null** varlık (büyük/küçük harfe adına bir denetimi) yoksa.
 

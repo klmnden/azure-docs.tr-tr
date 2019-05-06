@@ -1,21 +1,21 @@
 ---
-title: PostgreSQL için Azure Veritabanı Azure CLI örnekleri
-description: Bu makalede, PostgreSQL için Azure Veritabanı sunucularıyla etkileşim kurmaya yönelik olarak sunulan çeşitli Azure CLI kod örnekleri listelenir.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı Azure CLI örnekleri
+description: Bu makalede, çeşitli Azure CLI kod örnekleri - tek bir sunucu PostgreSQL için Azure veritabanı ile etkileşim kurmaya yönelik kullanılabilir listelenmektedir.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: b2364448f7994146bf79cdb23d5573003b87076a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9b8ff3334c8e31397f68e890c15bec3e2515a1a2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091587"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073122"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı Azure CLI örnekleri 
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı Azure CLI örnekleri
 Aşağıdaki tablo, PostgreSQL için Azure Veritabanı’na yönelik örnek Azure CLI betikleri bağlantılarını içerir.
 
 | |  |

@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138348"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Nasıl yapılır: Uygulama rolleri uygulamanıza ekleyin ve bunları belirteci alma
 
@@ -51,7 +51,9 @@ Bu uygulama rolleri tanımlanan [Azure portalında](https://portal.azure.com) uy
 1. Uygulama bildirimi bularak Düzenle `appRoles` ayarlama ve tüm uygulama rolleri ekleme.
 
      > [!NOTE]
-     > Bu bildirimdeki her rol tanımı farklı bir sahip geçerli **GUID** "Id" özelliği için. `"value"` Her rolün özellik dizelerin tam olarak eşleşmelidir, uygulamadaki kodu kullanılır.
+     > Bu bildirimdeki her uygulama Rol tanımının için farklı geçerli bir GUID olmalıdır `id` özelliği. 
+     > 
+     > `value` Her uygulama Rol tanımının özelliği, uygulama kodunda kullanılan dizelerin tam olarak eşleşmelidir. `value` Özelliği, boşluk içeremez. Aşması durumunda bildirim kaydederken bir hata alırsınız.
      
 1. Bildirim kaydedin.
 

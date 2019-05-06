@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
 description: Azure Cosmos DB'de veritabanı hesaplarını yönetmeyi öğrenin
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: 57116327168a76f971a22b61144850199cb0cbae
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61057105"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068825"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı yönetme
 
-Bu makalede, Azure Cosmos hesabın nasıl yönetileceği açıklanır. Çoklu yönlendirmeyi ayarlayın, ekleme veya bir bölgeyi kaldırabilir, birden fazla yazma bölgesini yapılandırmak ve yük devretme önceliklerini ayarlamak öğreneceksiniz. 
+Bu makalede, Azure portalı, Azure PowerShell, Azure CLI ve Azure Resource Manager şablonlarını kullanarak bir Azure Cosmos hesapta çeşitli görevleri yönetmek açıklar.
 
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+## <a name="create-an-account"></a>Hesap oluşturma
 
 ### <a id="create-database-account-via-portal"></a>Azure portal
 
@@ -25,87 +25,67 @@ Bu makalede, Azure Cosmos hesabın nasıl yönetileceği açıklanır. Çoklu y�
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-```bash
+```azurecli-interactive
 # Create an account
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname' # must be lower case.
+
+az cosmosdb create \
+   --name $accountName \
+   --resource-group $resourceGroupName \
+   --kind GlobalDocumentDB \
+   --default-consistency-level Session \
+   --locations WestUS=0 EastUS=1 \
+   --enable-multiple-write-locations true
 ```
 
-## <a name="configure-clients-for-multi-homing"></a>İstemcileri birden çok giriş için yapılandırma
+### <a id="create-database-account-via-ps"></a>Azure PowerShell
+```azurepowershell-interactive
+# Create an Azure Cosmos Account for Core (SQL) API
+$resourceGroupName = "myResourceGroup"
+$location = "West US"
+$accountName = "mycosmosaccount" # must be lower case.
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK'sı v2
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
 
-```csharp
-ConnectionPolicy policy = new ConnectionPolicy
-    {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp,
-        UseMultipleWriteLocations = true
-    };
-policy.SetCurrentLocation("West US 2");
+$consistencyPolicy = @{
+    "defaultConsistencyLevel"="BoundedStaleness";
+    "maxIntervalInSeconds"=300;
+    "maxStalenessPrefix"=100000
+}
 
-// Pass the connection policy with the preferred locations on it to the client.
-DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "enableMultipleWriteLocations"="true"
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="configure-clients-multi-homing-dotnet-v3"></a>.NET SDK'sı v3 (Önizleme)
+### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager şablonu
 
-```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
-```
-
-### <a id="configure-clients-multi-homing-java-async"></a>Java Async SDK’sı
-
-```java
-ConnectionPolicy policy = new ConnectionPolicy();
-policy.setUsingMultipleWriteLocations(true);
-policy.setPreferredLocations(Collections.singletonList(region));
-
-AsyncDocumentClient client =
-    new AsyncDocumentClient.Builder()
-        .withMasterKeyOrResourceToken(this.accountKey)
-        .withServiceEndpoint(this.accountEndpoint)
-        .withConsistencyLevel(ConsistencyLevel.Eventual)
-        .withConnectionPolicy(policy).build();
-```
-
-### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
-connectionPolicy.UseMultipleWriteLocations = true;
-connectionPolicy.PreferredLocations = [region];
-
-const client = new CosmosClient({
-  endpoint: config.endpoint,
-  auth: { masterKey: config.key },
-  connectionPolicy,
-  consistencyLevel: ConsistencyLevel.Eventual
-});
-```
-
-### <a id="configure-clients-multi-homing-python"></a>Python SDK’sı
-
-```python
-connection_policy = documents.ConnectionPolicy()
-connection_policy.UseMultipleWriteLocations = True
-connection_policy.PreferredLocations = [region]
-
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
-```
+Bu Azure Resource Manager şablonu iki bölgeleri ve tutarlılık düzeyi, otomatik yük devretme ve çok yöneticili seçmek için seçenekleri ile yapılandırılmış herhangi bir desteklenen API için bir Azure Cosmos DB hesabı oluşturun. Bu şablonu dağıtmak için Benioku sayfasında azure'a Dağıt tıklayarak [oluşturma Azure Cosmos DB hesabı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Veritabanı hesabınızda bölge ekleme/çıkarma işlemi gerçekleştirme
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
+1. [Azure portalda](https://portal.azure.com) oturum açın. 
+
 1. Azure Cosmos hesabınıza gidin ve açmak **verileri genel olarak çoğaltma** menüsü.
 
-2. Bölge ekleme için ile harita üzerinde altıgenlerin seçin **+** , istenen bölgelerin karşılık gelen etiket. Alternatif olarak, bir bölge eklemek için seçin **+ Ekle bölge** seçenek ve açılan menüden bir bölge seçin.
+1. Bölge ekleme için ile harita üzerinde altıgenlerin seçin **+** , istenen bölgelerin karşılık gelen etiket. Alternatif olarak, bir bölge eklemek için seçin **+ Ekle bölge** seçenek ve açılan menüden bir bölge seçin.
 
-3. Bölge kaldırmak için onay işaretleriyle mavi altıgenlerin seçerek bir veya daha fazla bölge eşlemesinden temizleyin. Veya "Çöp" seçin (🗑) sağ taraftaki bölge yanındaki simge.
+1. Bölge kaldırmak için onay işaretleriyle mavi altıgenlerin seçerek bir veya daha fazla bölge eşlemesinden temizleyin. Veya "Çöp" seçin (🗑) sağ taraftaki bölge yanındaki simge.
 
-4. Değişikliklerinizi kaydetmek için seçmeniz **Tamam**.
+1. Değişikliklerinizi kaydetmek için seçmeniz **Tamam**.
 
    ![Ekleme veya bölgeler menü Kaldır](./media/how-to-manage-database-account/add-region.png)
 
@@ -115,34 +95,112 @@ Ekleyebilir veya en az bir bölge varsa herhangi bir bölgeyi kaldırmak yazma m
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
-```bash
+```azurecli-interactive
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
 # Create an account with 1 region
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations westus=0
 
 # Add a region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
 
 # Remove a region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0
 ```
 
-## <a name="configure-multiple-write-regions"></a>Birden fazla yazma bölgesi yapılandırma
+### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Create an account with 1 region
+$resourceGroupName = "myResourceGroup"
+$location = "West US"
+$accountName = "mycosmosaccount" # must be lower case.
+
+$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy
+}
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Add a region
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$locations = @( 
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East Us"; "failoverPriority"=1 } 
+)
+
+$account.Properties.locations = $locations
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Azure Resource Manager does not wait on the resource update
+Write-Host "Confirm region added before continuing..."
+
+# Remove a region
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
+
+$account.Properties.locations = $locations
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+## <a id="configure-multiple-write-regions"></a>Birden fazla yazma bölgesini yapılandırma
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure portal
 
-Bir veritabanı oluşturduğunuzda **Çok bölgeli yazma** ayarının etkin olduğundan emin olun.
+Açık **genel veri çoğaltma** sekmenize **etkinleştirme** çok bölgeli yazma etkinleştirmek için. Çok bölgeli yazma etkinleştirildikten sonra hesabı şu anda sahip olduğunuz tüm okuma bölgeleri okuma haline gelir ve bölgeleri yazma. 
 
-![Azure Cosmos hesap oluşturma ekran görüntüsü](./media/how-to-manage-database-account/account-create.png)
+> [!NOTE]
+> Çok bölgeli yazma etkinleştirildikten sonra devre dışı bırakılamıyor. 
+
+![Azure Cosmos hesabı çok yöneticili ekran yapılandırır.](./media/how-to-manage-database-account/single-to-multi-master.png)
+
+Lütfen ulaşın askcosmosdb@microsoft.com bu özellik hakkındaki diğer sorular için diğer ad. 
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-```bash
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+```azurecli-interactive
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
+```
+
+### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Update an Azure Cosmos Account from single to multi-master
+
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$account.Properties.enableMultipleWriteLocations = "true"
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager şablonu
 
-Aşağıdaki JSON kodunu örneğidir bir [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) şablonu. Bir Azure Cosmos hesapla dağıtmak için kullanabileceğiniz [sınırlanmış eskime durumu tutarlılık düzeyi](consistency-levels.md). En fazla eskime aralığı 5 saniye olarak ayarlanır. İzin en fazla eski istek sayısını 100 olarak ayarlanır. Resource Manager şablonu biçimini ve söz dizimi hakkında bilgi edinmek için [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Bir hesap tek ana çok asıl hesap ve ayarı oluşturmak için kullanılan Resource Manager şablonu dağıtarak geçirilebilir `enableMultipleWriteLocations: true`. Aşağıdaki Azure Resource Manager şablonu, Azure Cosmos DB hesabı SQL API'si için bir tek bölge ve çok yöneticili etkin ile dağıtan bir çıplak en düşük şablonudur.
 
 ```json
 {
@@ -153,13 +211,8 @@ Aşağıdaki JSON kodunu örneğidir bir [Azure Resource Manager](https://docs.m
             "type": "String"
         },
         "location": {
-            "type": "String"
-        },
-        "locationName": {
-            "type": "String"
-        },
-        "defaultExperience": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "[resourceGroup().location]"
         }
     },
     "resources": [
@@ -169,35 +222,129 @@ Aşağıdaki JSON kodunu örneğidir bir [Azure Resource Manager](https://docs.m
             "name": "[parameters('name')]",
             "apiVersion": "2015-04-08",
             "location": "[parameters('location')]",
-            "tags": {
-                "defaultExperience": "[parameters('defaultExperience')]"
-            },
+            "tags": {},
             "properties": {
                 "databaseAccountOfferType": "Standard",
-                "consistencyPolicy": {
-                    "defaultConsistencyLevel": "BoundedStaleness",
-                    "maxIntervalInSeconds": 5,
-                    "maxStalenessPrefix": 100
-                },
+                "consistencyPolicy": { "defaultConsistencyLevel": "Session" },
                 "locations": [
                     {
-                        "id": "[concat(parameters('name'), '-', parameters('location'))]",
-                        "failoverPriority": 0,
-                        "locationName": "[parameters('locationName')]"
+                        "locationName": "[parameters('location')]",
+                        "failoverPriority": 0
                     }
                 ],
-                "isVirtualNetworkFilterEnabled": false,
-                "enableMultipleWriteLocations": true,
-                "virtualNetworkRules": [],
-                "dependsOn": []
+                "enableMultipleWriteLocations": true
             }
         }
     ]
 }
 ```
 
+## <a id="automatic-failover"></a>Azure Cosmos DB hesabınız için otomatik yük devretmeyi etkinleştir
 
-## <a id="manual-failover"></a>Azure Cosmos hesabınız için el ile yük devretme etkinleştir
+Otomatik Yük devretme seçeneğini bir bölge kullanılamaz duruma gelmesi durumunda yük devretme önceliği en yüksek kullanıcı eylemi ile bölgeye yük devretme için Azure Cosmos DB sağlar. Otomatik Yük devretme etkinleştirildiğinde, bölge öncelik değiştirilebilir. Hesabın, otomatik yük devretmeyi etkinleştirmek için iki veya daha fazla bölgede olmalıdır.
+
+### <a id="enable-automatic-failover-via-portal"></a>Azure portal
+
+1. Azure Cosmos DB hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi.
+
+2. Bölmenin en üstünde seçin **otomatik yük devretme**.
+
+   ![Verileri genel olarak çoğaltma menüsü](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. Üzerinde **otomatik yük devretme** bölmesinde emin olun **etkinleştirmek otomatik yük devretme** ayarlanır **ON**. 
+
+4. **Kaydet**’i seçin.
+
+   ![Otomatik yük devretme portal menüsü](./media/how-to-manage-database-account/automatic-failover.png)
+
+### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Enable automatic failover on an existing account
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-automatic-failover true
+```
+
+### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$account.Properties.enableAutomaticFailover="true";
+$CosmosDBProperties = $account.Properties;
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos hesabınız için yük devretme önceliklerini ayarlayın
+
+Bir Cosmos hesabı otomatik yük devretme için yapılandırdıktan sonra Yük devretme önceliğini bölgeler için değiştirilebilir.
+
+> [!IMPORTANT]
+> Yazma bölgesi (yük devretme öncelik sıfır) değiştirilemiyor. hesap otomatik yük devretme için yapılandırıldığında. Yazma bölgesini değiştirmek için otomatik yük devretme devre dışı bırakın ve elle yük devretme yapmanız gerekir.
+
+### <a id="set-failover-priorities-via-portal"></a>Azure portal
+
+1. Azure Cosmos hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi.
+
+2. Bölmenin en üstünde seçin **otomatik yük devretme**.
+
+   ![Verileri genel olarak çoğaltma menüsü](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. Üzerinde **otomatik yük devretme** bölmesinde emin olun **etkinleştirmek otomatik yük devretme** ayarlanır **ON**.
+
+4. Yük devretme önceliğini değiştirmek için satırın üzerine geldiğinizde görüntülenen sol tarafındaki üç nokta okuma bölgeleri sürükleyin.
+
+5. **Kaydet**’i seçin.
+
+   ![Otomatik yük devretme portal menüsü](./media/how-to-manage-database-account/automatic-failover.png)
+
+### <a id="set-failover-priorities-via-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Assume region order is initially eastus=0 westus=1 southeastasia=2 on account creation
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb failover-priority-change --name $accountName --resource-group $resourceGroupName --failover-policies eastus=0 southeastasia=1 westus=2
+```
+
+### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Assume account currently has regions with priority: West US = 0, East US = 1, Southeast Asia = 2
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$failoverPolicies = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="Southeast Asia"; "failoverPriority"=1 },
+    @{ "locationName"="East US"; "failoverPriority"=2 }
+)
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+## <a id="manual-failover"></a>Bir Azure Cosmos hesapta el ile yük devretme gerçekleştirme
+
+> [!IMPORTANT]
+> Azure Cosmos hesabı bu işleminin başarılı olması el ile yük devretme için yapılandırılmış olmalıdır.
+
+Elle yük devretme gerçekleştirmek için işlem hesabın yazma bölgesini değiştirmek içerir (yük devretme öncelik = 0) hesabı için yapılandırılmış başka bir bölgeye.
+
+> [!NOTE]
+> Çok yöneticili hesapları el ile yük devredilemez. Azure Cosmos DB SDK'sını kullanan uygulamalar için SDK'sı bir bölge kullanılamaz duruma geldiğinde algılayabilir, ardından sonraki en yakın bölgeyi çok girişli API SDK'yı kullanıyorsanız, otomatik olarak yeniden yönlendirme.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
@@ -215,79 +362,43 @@ Aşağıdaki JSON kodunu örneğidir bir [Azure Resource Manager](https://docs.m
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-```bash
-# Given your account currently has regions with priority: eastus=0 westus=1
+```azurecli-interactive
+# Assume account currently has regions with priority: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
 ```
 
-## <a id="automatic-failover"></a>Azure Cosmos DB hesabınız için otomatik yük devretmeyi etkinleştir
+### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-### <a id="enable-automatic-failover-via-portal"></a>Azure portal
+```azurepowershell-interactive
+# Assume account currently has regions with priority: West US = 0, East US = 1
+# Change the priority order to trigger a failover of the write region
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
 
-1. Azure Cosmos DB hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi. 
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
 
-2. Bölmenin en üstünde seçin **otomatik yük devretme**.
+$locations = @(
+    @{ "locationName"="East US"; "failoverPriority"=0 },
+    @{ "locationName"="West US"; "failoverPriority"=1 }
+)
 
-   ![Verileri genel olarak çoğaltma menüsü](./media/how-to-manage-database-account/replicate-data-globally.png)
+$account.Properties.locations=$locations;
+$CosmosDBProperties = $account.Properties;
 
-3. Üzerinde **otomatik yük devretme** bölmesinde emin olun **etkinleştirmek otomatik yük devretme** ayarlanır **ON**. 
-
-4. **Kaydet**’i seçin.
-
-   ![Otomatik yük devretme portal menüsü](./media/how-to-manage-database-account/automatic-failover.png)
-
-Bu menüde, yük devretme önceliklerini de ayarlayabilirsiniz.
-
-### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
-
-```bash
-# Enable automatic failover on account creation
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
-
-# Enable automatic failover on an existing account
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
-
-# Disable automatic failover on an existing account
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
-```
-
-## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos hesabınız için yük devretme önceliklerini ayarlayın
-
-### <a id="set-failover-priorities-via-portal"></a>Azure portal
-
-1. Azure Cosmos hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi. 
-
-2. Bölmenin en üstünde seçin **otomatik yük devretme**.
-
-   ![Verileri genel olarak çoğaltma menüsü](./media/how-to-manage-database-account/replicate-data-globally.png)
-
-3. Üzerinde **otomatik yük devretme** bölmesinde emin olun **etkinleştirmek otomatik yük devretme** ayarlanır **ON**. 
-
-4. Yük devretme önceliğini değiştirmek için satırın üzerine geldiğinizde görüntülenen sol tarafındaki üç nokta okuma bölgeleri sürükleyin. 
-
-5. **Kaydet**’i seçin.
-
-   ![Otomatik yük devretme portal menüsü](./media/how-to-manage-database-account/automatic-failover.png)
-
-Bu menüden yazma bölgesini değiştiremezsiniz. Yazma bölgesini el ile değiştirmek için el ile yük devretme gerçekleştirmeniz gerekir.
-
-### <a id="set-failover-priorities-via-cli"></a>Azure CLI
-
-```bash
-# Assume region order is initially eastus=0 westus=1 automatic failover on account creation
-az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies westus=0 eastus=1
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makaleleri okuyun:
+Daha fazla bilgi ve Azure Cosmos hesabı hem de veritabanı ve kapsayıcıları yönetme hakkında daha fazla örnek için aşağıdaki makaleyi okuyun:
 
-* [Tutarlılık yönetme](how-to-manage-consistency.md)
-* [Bölgeler arasında çakışmalar yönetme](how-to-manage-conflicts.md)
-* [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
-* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
-* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
-
+* [Azure Cosmos DB, Azure PowerShell kullanarak yönetme](manage-with-powershell.md)
+* [Azure CLI kullanarak Azure Cosmos DB'yi yönetmeyi](manage-with-cli.md)

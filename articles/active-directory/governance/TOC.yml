@@ -68,17 +68,17 @@
               href: retrieve-access-review.md
         - name: Azure AD rolleri
           items:
-            - name: Azure AD rollerimi gözden geçirme
-              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Erişim gözden geçirmesi başlatma
+            - name: Erişim gözden geçirmesi oluşturma
               href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Erişimi gözden geçirme
+              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Erişim gözden geçirmesi tamamlama
               href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
         - name: Azure kaynağı rolleri
           items:
-            - name: Azure kaynağı rollerimi gözden geçirme
-              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Erişim gözden geçirmesi başlatma
+            - name: Erişim gözden geçirmesi oluşturma
               href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Erişimi gözden geçirme
+              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Erişim gözden geçirmesi tamamlama
               href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json

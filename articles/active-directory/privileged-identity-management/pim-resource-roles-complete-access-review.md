@@ -1,6 +1,6 @@
 ---
-title: PIM - Azure Active Directory Azure kaynak rolleri için erişim gözden geçirmesi tamamlama | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için erişim gözden geçirmesi tamamlama hakkında bilgi edinin.
+title: Azure kaynak rolleri PIM - Azure Active Directory erişim gözden geçirmesi tamamlama | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri, erişim değerlendirmesi tamamlama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288280"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141021"
 ---
-# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri için erişim değerlendirmesi tamamlama
+# <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Azure kaynak rolleri pım'de erişim değerlendirmesi tamamlama
 Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [erişim gözden geçirmesi çalışmaya](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
 
 Erişim gözden geçirmesi dönemi bittikten sonra veya tüm kullanıcılar, kendi kendini gözden bitirdikten sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.

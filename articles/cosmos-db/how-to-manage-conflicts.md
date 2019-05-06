@@ -4,14 +4,14 @@ description: Azure Cosmos DB'deki çakışmaları yönetme
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054807"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068747"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de Çakışma çözümlemesi ilkelerini yönetme
 
@@ -19,7 +19,7 @@ Birden çok istemci aynı öğeye yazdığında, çok bölgeli yazma ile çakı�
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Son yazıcı WINS çakışma çözüm ilkesi oluşturma
 
-Bu örnekler, son yazıcı WINS çakışma çözüm ilkesi içeren bir kapsayıcıya nasıl gösterir. Zaman damgası alanı varsayılan yoldur son yazıcı WINS veya `_ts` özelliği. Bu da bir sayısal tür için bir kullanıcı tanımlı yol için ayarlanabilir. İçinde bir çakışma en yüksek değer kazanır. Yolu ayarlanmamış veya geçersiz ise varsayılan `_ts`. Bu ilkeyle çözümlediği çakışma çakışması akıştaki gösterilmez. Bu ilke, tüm API'ları tarafından kullanılabilir.
+Bu örnekler, son yazıcı WINS çakışma çözüm ilkesi içeren bir kapsayıcıya nasıl gösterir. Zaman damgası alanı varsayılan yoldur son yazıcı WINS veya `_ts` özelliği. Bu da bir sayısal tür için bir kullanıcı tanımlı yol için ayarlanabilir. İçinde bir çakışma, en yüksek değer kazanır. Yolu ayarlanmamış veya geçersiz ise varsayılan `_ts`. Bu ilkeyle çözümlediği çakışma çakışması akıştaki gösterilmez. Bu ilke, tüm API'ları tarafından kullanılabilir.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -86,16 +86,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Bir saklı yordamı kullanarak bir özel çakışma çözüm ilkesi oluşturma
 
-Bu örnekler çakışmayı çözümlemek için saklı yordama içeren özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmaları, saklı yordamda hata olmadığı sürece akış çakışma görünmüyor. İlke ile kapsayıcı oluşturulduktan sonra saklı yordam oluşturmak gerekir. .NET SDK'sı aşağıdaki örnekte, bir örneği gösterilmektedir. Bu ilke yalnızca çekirdek (SQL) API desteklenir.
+Bu örnekler çakışmayı çözümlemek için saklı yordama içeren özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmaları, saklı yordamda hata olmadığı sürece akış çakışma görünmüyor. İlke ile kapsayıcı oluşturulduktan sonra saklı yordam oluşturmak gerekir. .NET SDK'sı aşağıdaki örnekte, bir örnek gösterilmektedir. Bu ilke yalnızca çekirdek (SQL) API desteklenir.
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Saklı yordamı örnek özel çakışma çözümü
 
 Aşağıda gösterilen işlev imzası kullanarak özel çakışma çözümlemesi depolanan yordamları uygulanmalıdır. İşlev adı saklı yordamı ile kapsayıcı kaydolurken kullandığınız adıyla eşleşmesi gerekmez ancak adlandırma basitleştirin. Bu saklı yordam için uygulanması gereken parametreler açıklaması aşağıda verilmiştir.
 
 - **incomingItem**: Öğe eklendiğinde veya çakışmasına neden işlemede güncelleştirildi. Silme işlemleri için null olur.
-- **existingItem**: Şu anda taahhüt öğe. Bu değer, null olmayan bir güncelleştirmede ve bir INSERT veya delete için null olur.
+- **existingItem**: Şu anda taahhüt öğe. Bu değer null olmayan bir güncelleştirmede ve ekleme için null veya siler.
 - **isTombstone**: Daha önce silinmiş bir öğeyle çakışan incomingItem olup olmadığını belirten bir Boole değeri. ExistingItem da doğru olduğunda null olur.
-- **conflictingItems**: İşlenmiş sürüm incomingItem kimliğine sahip çakışan bir kapsayıcıdaki tüm öğeleri veya diğer bir benzersiz dizin özellikleri dizisi.
+- **conflictingItems**: İşlenmiş sürüm incomingItem kimliği ile çakışan kapsayıcıdaki tüm öğelerini veya diğer bir benzersiz dizin özellikleri dizisi.
 
 > [!IMPORTANT]
 > Gibi herhangi bir saklı yordamı ile özel çakışma çözümleme yordamı aynı bölüm anahtarı ile tüm verilere erişmek ve herhangi INSERT işlemi, güncelleştirme veya silme işlemi çakışmaları çözümlemek için.
@@ -361,7 +361,7 @@ Aşağıdaki Azure Cosmos DB kavramları hakkında bilgi edinin:
 
 * [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
 * [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
-* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md).
 * [Bölümleme ve veri dağıtımı](partition-data.md)

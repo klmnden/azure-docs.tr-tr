@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 7dd469b07727e1efa326a1d92ea778bd3fb2cab1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027029"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074102"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan UWP konuşma SDK ile oluşturma
 
@@ -31,7 +31,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
-* Yapılandırılmış önceden oluşturulmuş bir bot [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+* Yapılandırılmış önceden oluşturulmuş bir bot [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
     > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
@@ -247,7 +247,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
     > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
 
     > [!NOTE]
-    > Botunuzun yapılandırma ve kanal gizli dizi alma hakkında daha fazla bilgi için Bot Framework belgelerine bakın [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+    > Botunuzun yapılandırma ve kanal gizli dizi alma hakkında daha fazla bilgi için Bot Framework belgelerine bakın [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key

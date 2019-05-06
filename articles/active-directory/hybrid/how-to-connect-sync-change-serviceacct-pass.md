@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect eşitleme:  Azure AD Connect eşitleme hizmeti hesabını değiştirme | Microsoft Docs'
+title: 'Azure AD Connect eşitleme:  ADSync hizmet hesabını değiştirme | Microsoft Docs'
 description: Bu konuda belge şifreleme anahtar ve parolalar değiştirildikten sonra iptal etmek nasıl açıklar.
 services: active-directory
 keywords: Azure AD eşitleme hizmeti hesabı, parola
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241669"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139387"
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
-Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabı parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmayacak. 
+# <a name="changing-the-adsync-service-account-password"></a>Ad eşitleme hizmeti hesabı parolasını değiştirme
+Ad eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve ADSync hizmeti hesabı parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmayacaktır. 
 
-Azure AD Connect Eşitleme hizmetlerini bir parçası olarak AD DS ve Azure AD hizmet hesaplarının parolaları depolamak için bir şifreleme anahtarı kullanır.  Bu hesapları, veritabanı içinde depolanmadan önce şifrelenir. 
+Azure AD Connect Eşitleme hizmetlerini bir parçası olarak AD DS bağlayıcı hesabı ve ADSync hizmeti hesabı parolalarını depolamak için bir şifreleme anahtarı kullanır.  Bu hesapları, veritabanı içinde depolanmadan önce şifrelenir. 
 
-Kullanılan şifreleme anahtarı kullanılarak güvenli [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI koruyan şifreleme anahtarı kullanarak **Azure AD Connect eşitleme hizmeti hesabının parolasını**. 
+Kullanılan şifreleme anahtarı kullanılarak güvenli [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI koruyan şifreleme anahtarı kullanarak **ADSync hizmeti hesabı**. 
 
-Hizmet hesabı parolasını değiştirmeniz gerekirse yordamları kullanabileceğiniz [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) bunu sağlamak için.  Şifreleme anahtarı herhangi bir nedenle iptal etmeniz gerekiyorsa bu yordamları da kullanılmalıdır.
+Hizmet hesabı parolasını değiştirmeniz gerekirse yordamları kullanabileceğiniz [ADSync hizmeti hesabı şifreleme anahtarını bırakıp](#abandoning-the-adsync-service-account-encryption-key) bunu sağlamak için.  Şifreleme anahtarı herhangi bir nedenle iptal etmeniz gerekiyorsa bu yordamları da kullanılmalıdır.
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>Parola değiştirmesini ortaya çıkan sorunları
 Hizmet hesabı parolasını değiştirdiğinizde yapılması gereken iki şey vardır.
@@ -48,9 +48,9 @@ Hataları gibi görürsünüz:
 - Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "<strong>Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve-21451857952 hizmete özgü hata koduna bakın</strong>. "
 - Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"sunucu şifreleme anahtarı erişilemez."*
 
-Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.
+Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [ADSync hizmeti hesabı şifreleme anahtarını bırakıp](#abandoning-the-adsync-service-account-encryption-key) parola değiştirme.
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Azure AD Connect Sync şifreleme anahtarını bırakıp
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Ad eşitleme hizmeti hesabı şifreleme anahtarını bırakıp
 >[!IMPORTANT]
 >Aşağıdaki yordamlar, yalnızca Azure AD Connect derleme 1.1.443.0 uygulanır veya daha eski.
 
@@ -64,9 +64,9 @@ Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD 
 
 1. [Var olan şifreleme anahtarını iptal](#abandon-the-existing-encryption-key)
 
-2. [AD DS hesap parolasını girin](#provide-the-password-of-the-ad-ds-account)
+2. [AD DS bağlayıcı hesabının parolasını girin](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [Azure AD eşitleme hesabının parolasını yeniden Başlat](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [Ad eşitleme hizmeti hesabının parolasını yeniden Başlat](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [Eşitleme Hizmeti Başlat](#start-the-synchronization-service)
 
@@ -90,8 +90,8 @@ Yeni şifreleme anahtarının oluşturulabilmesi mevcut şifreleme anahtarını 
 
 ![Azure AD Connect eşitleme şifreleme anahtarı yardımcı programı](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>AD DS hesap parolasını girin
-Veritabanı içinde depolanan mevcut parolalar artık şifresi çözülebilir gibi eşitleme hizmeti ile AD DS hesap parolasını sağlamanız gerekir. Eşitleme hizmeti yeni bir şifreleme anahtarı kullanarak parolalarını şifreler:
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>AD DS bağlayıcı hesabının parolasını girin
+Veritabanı içinde depolanan mevcut parolalar artık şifresi çözülebilir gibi eşitleme hizmeti ile AD DS bağlayıcı hesabının parolasını sağlamanız gerekir. Eşitleme hizmeti yeni bir şifreleme anahtarı kullanarak parolalarını şifreler:
 
 1. Eşitleme Hizmeti Yöneticisi'ni (Başlangıç → eşitleme hizmeti) başlatın.
 </br>![Eşitleme Hizmeti Yöneticisi](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -103,7 +103,7 @@ Veritabanı içinde depolanan mevcut parolalar artık şifresi çözülebilir gi
 7. Tıklayın **Tamam** yeni parolayı kaydedin ve açılır iletişim kutusunu kapatın.
 ![Azure AD Connect eşitleme şifreleme anahtarı yardımcı programı](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Azure AD eşitleme hesabının parolasını yeniden Başlat
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Ad eşitleme hizmeti hesabının parolasını yeniden Başlat
 Eşitleme hizmeti için Azure AD hizmet hesabı parolasını doğrudan sağlayamaz. Bunun yerine, cmdlet'ini kullanmanız gerekir **Ekle ADSyncAADServiceAccount** Azure AD hizmet hesabını yeniden başlatmak için. Cmdlet, hesap parolasını sıfırlar ve eşitleme hizmeti için kullanılabilir hale getirir:
 
 1. Azure AD Connect sunucusunda yeni bir PowerShell oturumu başlatın.

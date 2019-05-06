@@ -1,21 +1,21 @@
 ---
-title: 'Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama'
-description: Bu öğreticide Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı sunucunuzu oluşturma, yapılandırma ve sorgulama işlemleri gösterilmiştir.
+title: 'Öğretici: -Azure CLI kullanarak tek bir sunucu PostgreSQL için Azure veritabanı tasarlama'
+description: Bu öğreticide, ilk Azure veritabanınızı PostgreSQL - Azure CLI kullanarak tek bir sunucu için sorgu oluşturma ve yapılandırma gösterilmektedir.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
-ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 5/6/2019
+ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073082"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Öğretici: -Azure CLI kullanarak tek bir sunucu PostgreSQL için Azure veritabanı tasarlama 
 Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı sunucusu oluşturma
