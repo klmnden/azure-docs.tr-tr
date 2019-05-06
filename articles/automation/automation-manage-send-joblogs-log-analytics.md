@@ -99,7 +99,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
 | Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
-| Kaynak | Otomasyon hesabının adı |
+| Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook iş sonucu durumunu açıklar. Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
@@ -122,7 +122,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
 | Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
-| Kaynak | Otomasyon hesabının adı |
+| Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook’un çıktı akışını içerir. |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
