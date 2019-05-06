@@ -22,8 +22,12 @@
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme
       href: tutorial-mysql-azure-mysql-online.md
+    - name: RDS MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - name: PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme
       href: tutorial-postgresql-azure-postgresql-online.md
+    - name: RDS PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: MongoDB'yi çevrimdışı ortamda Azure Cosmos DB Mongo API'sine geçirme
       href: tutorial-mongodb-cosmos-db.md
     - name: MongoDB'yi çevrimiçi ortamda Azure Cosmos DB Mongo API'sine geçirme

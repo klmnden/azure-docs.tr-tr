@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 'Çağrı, tetikleyici veya iç içe mantıksal uygulamalar'
           href: logic-apps-http-endpoint.md
+        - name: Sayfalandırma ile toplu veri alma
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Toplu işlem iletileri
           href: logic-apps-batch-process-send-receive-messages.md
         - name: JSON tanımları yazma

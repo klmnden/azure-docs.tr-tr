@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Telemetriyi keşfetme
           items:
-            - name: PowerBI ile telemetri görselleştirme
+            - name: Power BI ile telemetri görselleştirme
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: Endüstriyel IoT nedir?
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: OPC Twin nedir?
-              href: overview-opc-twin.md
-            - name: OPC Twin Mimarisi
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: OPC Vault nedir?
-              href: overview-opc-vault.md
-        - name: Bağlı Fabrika
-          items:
-            - name: Bağlı Fabrikaya Genel Bakış
-              href: iot-accelerators-connected-factory-features.md
-            - name: Bağlı Fabrika Mimarisi
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: OPC Twin nedir?
+          href: overview-opc-twin.md
+        - name: OPC Vault nedir?
+          href: overview-opc-vault.md
+        - name: Bağlı Fabrika nedir?
+          href: iot-accelerators-connected-factory-features.md
     - name: Hızlı Başlangıçlar
       items:
         - name: Bağlı fabrika çözümünü deneyin
           href: quickstart-connected-factory-deploy.md
+    - name: Kavramlar
+      items:
+        - name: OPC Twin Mimarisi
+          href: overview-opc-twin-architecture.md
+        - name: Bağlı Fabrika Mimarisi
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Nasıl yapılır kılavuzları
       items:
         - name: Bağlı Fabrika

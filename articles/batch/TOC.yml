@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
       href: high-availability-disaster-recovery.md
+    - name: Görev çalışma zamanı ortam değişkenleri
+      href: batch-compute-node-environment-variables.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Batch hesaplarını yönetme
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: Görev başarısızlık olayı
           href: batch-task-fail-event.md
-    - name: Batch işlem düğümü ortam değişkenleri
-      href: batch-compute-node-environment-variables.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

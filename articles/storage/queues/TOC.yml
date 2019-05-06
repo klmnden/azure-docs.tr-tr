@@ -18,6 +18,10 @@
       items:
         - name: .NET
           href: storage-quickstart-queues-dotnet.md
+- name: Öğreticiler
+  items:
+    - name: Azure depolama kuyrukları ile çalışma
+      href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Örnekler
   items:
     - name: .NET

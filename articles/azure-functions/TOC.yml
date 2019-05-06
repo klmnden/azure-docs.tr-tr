@@ -19,6 +19,8 @@
       href: functions-create-first-java-maven.md
     - name: İşlev oluşturma - Python
       href: functions-create-first-function-python.md
+    - name: İşlev oluşturma - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: İşlev oluşturma - Azure CLI
       href: functions-create-first-azure-function-azure-cli.md
     - name: İşlev oluşturma - Portal
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: Depolama
+        - name: Depolama - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: Depolama - portal
           href: functions-integrate-storage-queue-output-binding.md
 - name: Öğreticiler
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: Tanılama
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: Linux işlev uygulaması oluşturma
           href: create-function-app-linux-app-service-plan.md
+        - name: Yerel PowerShell işlevlerinin hatalarını ayıklama
+          href: functions-debug-powershell-local.md
         - name: Bağlantıları yönetme
           href: manage-connections.md
         - name: Hata işleme
@@ -148,6 +156,8 @@
       items:
         - name: Sürekli dağıtım
           href: functions-continuous-deployment.md
+        - name: Azure Pipelines kullanarak derleme ve dağıtma
+          href: functions-how-to-azure-devops.md
         - name: Zip dağıtma
           href: deployment-zip-push.md
         - name: Paketten çalıştırma

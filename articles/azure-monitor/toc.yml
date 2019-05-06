@@ -129,6 +129,8 @@
           href: platform/activity-log-alerts.md
         - name: Ortak uyarı şeması
           href: platform/alerts-common-schema.md
+        - name: Eylem kuralları
+          href: platform/alerts-action-rules.md
     - name: Verileri görselleştirme
       href: visualizations.md
     - name: İş ortağı tümleştirmeleri
@@ -309,6 +311,29 @@
                   href: app/asp-net.md
                 - name: Durum İzleyicisi
                   href: app/monitor-performance-live-website-now.md
+                - name: Durum İzleyicisi v2
+                  href: app/status-monitor-v2-overview.md
+                  items:
+                    - name: Başlarken
+                      href: app/status-monitor-v2-get-started.md
+                    - name: Ayrıntılı yönergeler
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: Sorun çözümü ve bilinen sorunlar
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
                 - name: Windows hizmetleri
                   href: app/windows-services.md
                 - name: Windows masaüstü
@@ -560,6 +585,8 @@
               href: insights/containers.md
             - name: Docker uygulamalarını izleme
               href: app/docker.md
+            - name: Kubernetes için Application Insights
+              href: app/kubernetes.md
         - name: Kaynak gruplarını izleme
           href: insights/resource-group-insights.md
         - name: Veritabanlarını izleme
@@ -684,6 +711,8 @@
               href: platform/metrics-charts.md
             - name: Ölçüm grafiği örnekleri
               href: platform/metric-chart-samples.md
+            - name: Ölçüm grafikleri için sorun çözümü
+              href: platform/metrics-troubleshoot.md
         - name: Günlükler
           items:
             - name: Günlük sorguları

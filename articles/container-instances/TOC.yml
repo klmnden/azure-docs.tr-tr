@@ -45,6 +45,8 @@
       href: container-instances-region-availability.md
     - name: Düzenleyicilerle ilişki
       href: container-instances-orchestrator-relationship.md
+    - name: Güvenlikle ilgili dikkat edilmesi gerekenler
+      href: container-instances-image-security.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Dağıtma
@@ -69,6 +71,8 @@
           href: container-instances-managed-identity.md
         - name: GPU kaynaklarını kullanma (önizleme)
           href: container-instances-gpu.md
+        - name: SSL uç noktasını etkinleştirme
+          href: container-instances-container-group-ssl.md
     - name: Veri birimlerini bağlama
       items:
         - name: Azure dosya paylaşımı

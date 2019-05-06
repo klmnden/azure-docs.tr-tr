@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Yüksek oranda kullanılabilir VM’ler
       href: tutorial-availability-sets.md
-    - name: 6 - VM ölçek kümesi oluşturma
+    - name: 6 - Ölçek kümesi oluşturma
       href: tutorial-create-vmss.md
     - name: 7 - VM'ler için yük dengeleme
       href: tutorial-load-balancer.md
@@ -259,6 +259,8 @@
               href: shared-image-galleries.md
             - name: CLI kullanarak paylaşılan görüntüler oluşturma
               href: shared-images.md
+            - name: Portal
+              href: shared-images-portal.md
             - name: Paylaşılan görüntü sorunlarını giderme
               href: troubleshooting-shared-images.md
         - name: Görüntüleri bulma ve kullanma

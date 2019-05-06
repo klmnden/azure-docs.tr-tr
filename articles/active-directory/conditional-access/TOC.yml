@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: Eski kimlik doğrulamasını engelleme
       href: block-legacy-authentication.md
-    - name: Exchange Online ve SharePoint Online'a erişimi denetleme
-      href: conditional-access-for-exo-and-spo.md
     - name: Klasik ilkeleri geçirme
       href: policy-migration.md
+    - name: Oturum açma sıklığı ve tarayıcı kalıcılık denetimleri
+      href: howto-conditional-access-session-lifetime.md
     - name: Onaylı istemci uygulamaları gerektirme
       href: app-based-conditional-access.md
     - name: Uygulama koruma ilkesi gerektir

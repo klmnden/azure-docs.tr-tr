@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 'IoT Edge’i yükleyip yapılandırma, modülleri dağıtma ve Stream Analytics ile Özel Görüntü İşleme gibi Azure hizmetlerini uçta kullanma hakkında bilgi edinin.'
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: Geliştirme makinenizi ayarlayın ve <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux cihazları</a> veya <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows cihazları</a> için IoT Edge modülleri hakkında bilgi edinin.
+          - html: '<a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> veya <a href="/azure/iot-edge/tutorial-java-module">Java</a> dillerinde Linux cihazlarına yönelik özel kod modülleri geliştirin.'
+          - html: '<a href="/azure/iot-edge/tutorial-c-module-windows">C</a> veya <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a> dillerinde Windows cihazlarına yönelik özel kod modülleri geliştirin.'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure İşlevleri ile iletileri filtreleme</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics modülüyle ortalamaları bulma</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Azure Machine Learning modülüyle verileri puanlama</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Özel Görüntü İşleme hizmetiyle modül olarak görüntüleri sınıflandırma</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Verileri C# modülüyle filtreleme</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">Verileri Python modülüyle filtreleme</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">Verileri Node.js modülüyle filtreleme</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">Verileri Java modülüyle filtreleme</a>
-          - html: <a href="/azure/iot-edge/tutorial-c-module">Verileri C modülüyle filtreleme</a>
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">SQL Server ile uçta veri depolama</a>

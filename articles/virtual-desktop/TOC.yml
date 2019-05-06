@@ -44,6 +44,18 @@
       href: delegated-access-virtual-desktop.md
     - name: Ana bilgisayar havuzu yük dengeleme yöntemleri
       href: host-pool-load-balancing.md
+- name: Sorun giderme
+  items:
+    - name: 'Sorun çözümüne genel bakış, geri bildirim ve destek'
+      href: troubleshoot-set-up-overview.md
+    - name: Kiracı ve ana bilgisayar havuzu oluşturma
+      href: troubleshoot-set-up-issues.md
+    - name: Oturum ana bilgisayarı sanal makine yapılandırması
+      href: troubleshoot-vm-configuration.md
+    - name: Uzak Masaüstü istemcisi bağlantıları
+      href: troubleshoot-client-connection.md
+    - name: Windows Sanal Masaüstü PowerShell
+      href: troubleshoot-powershell.md
 - name: Başvuru
   items:
     - name: PowerShell

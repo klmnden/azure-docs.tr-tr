@@ -143,17 +143,6 @@
             - name: Dizinleme ilkeleri
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Akışı değiştirme
-          items:
-            - name: Genel Bakış
-              href: change-feed.md
-            - name: Değişiklik akışını okuma
-              href: read-change-feed.md
-            - name: Değişiklik akışı işlemcisi
-              href: change-feed-processor.md
-            - name: Azure İşlevleri'ni tetikleme
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Yaşam süresi
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Dizinleme ilkelerini yönetme
           href: how-to-manage-indexing-policy.md
+        - name: SQL alt sorgu örnekleri
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Değişiklik Akışı
       items:
         - name: Birden Fazla Azure Cosmos DB Tetikleyicisi

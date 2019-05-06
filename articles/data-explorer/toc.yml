@@ -60,16 +60,22 @@
     - name: Veri almaya genel bakış
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Zaman serisi analizi
-      href: time-series-analysis.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Başlarken
       items:
-        - name: Sorgu yazma
-          href: write-queries.md
         - name: Örnek verileri ekleme
           href: ingest-sample-data.md
+    - name: Verileri sorgulama
+      items:
+        - name: Sorgu yazma
+          href: write-queries.md
+        - name: Zaman serisi analizi
+          href: time-series-analysis.md
+        - name: Anomali algılama ve tahmin etme
+          href: anomaly-detection.md
+        - name: Makine öğrenimi
+          href: machine-learning-clustering.md
     - name: Yönetme
       items:
         - name: Veritabanı izinlerini yönetme
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Diğer araçlarla çalışma
       items:
+        - name: Apache Spark Bağlayıcısı
+          href: spark-connector.md
         - name: Python kullanarak Databricks'ten bağlanma
           href: connect-from-databricks.md
         - name: Jupyter Notebook ve Kqlmagic’te verileri analiz etme

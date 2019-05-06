@@ -93,9 +93,11 @@
           href: vmware-azure-about-disaster-recovery.md
         - name: Sık sorulan sorular
           href: vmware-azure-common-questions.md
-        - name: VMware/Fiziksel’den Azure’a destek matrisi
+        - name: VMware’dan/fizikselden Azure’a destek matrisi
           href: vmware-physical-azure-support-matrix.md
-        - name: Yapılandırma sunucusu dağıtımı için destek gereksinimleri
+        - name: Site Recovery bileşenleri (yapılandırma/işlem/ana hedef sunucu) hakkında
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Yapılandırma ve işlem sunucuları için destek gereksinimleri
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware-Azure arası mimari
           href: vmware-azure-architecture.md
@@ -113,7 +115,7 @@
           href: hyper-v-azure-architecture.md
     - name: Azure'a fiziksel sunucu olağanüstü durum kurtarma hakkında
       items:
-        - name: VMware/Fiziksel’den Azure’a destek matrisi
+        - name: VMware’dan/fizikselden Azure’a destek matrisi
           href: vmware-physical-azure-support-matrix.md
         - name: Fiziksel sunucu-Azure arası mimari
           href: physical-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: Genel bakış ve ön koşullar
                   href: site-recovery-deployment-planner.md
+                - name: Dağıtım Planlayıcısı sürüm geçmişi
+                  href: site-recovery-deployment-planner-history.md
                 - name: Dağıtım Planlayıcısı aracını çalıştırma
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Oluşturulan raporu analiz etme
@@ -319,6 +323,8 @@
               items:
                 - name: Genel bakış ve ön koşullar
                   href: hyper-v-deployment-planner-overview.md
+                - name: Dağıtım Planlayıcısı sürüm geçmişi
+                  href: site-recovery-deployment-planner-history.md
                 - name: Dağıtım Planlayıcısı aracını çalıştırma
                   href: hyper-v-deployment-planner-run.md
                 - name: Oluşturulan raporu analiz etme
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/fiziksel sunucu
       items:
+        - name: İşlem sunucularını izleme
+          href: vmware-physical-azure-monitor-process-server.md
         - name: VMware-Azure arası çoğaltma sorunlarını giderme
           href: vmware-azure-troubleshoot-replication.md
         - name: Yapılandırma sunucusu sorunlarını giderme
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: İşlem sunucuları için sorun çözümü
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: VMware VM'leri/fiziksel sunucular için Mobility hizmetinin gönderme yüklemesi sorunlarını giderme
           href: vmware-azure-troubleshoot-push-install.md
         - name: Azure'a yük devretme sorunlarını giderme
