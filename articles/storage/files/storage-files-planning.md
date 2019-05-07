@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574461"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073366"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -111,20 +111,16 @@ Aşağıda, kullanılan GiB, sağlanan paylaşım boyutunu azaltmak mümkündür
 
 Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı örnekler gösterilmektedir:
 
-(Belirtilen boyutlar tarafından bir * de sınırlı genel Önizleme)
-
 |Kapasite (GiB) | Temel IOPS | IOPS veri bloğu | Egress (MiB/s) | Giriş (MiB/sn) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | En fazla 300     | 66   | 44   |
 |500         | 500     | En fazla 1500   | 90   | 60   |
 |1,024       | 1,024   | En fazla 3.072   | 122   | 81   |
 |5,120       | 5,120   | En fazla 15.360  | 368   | 245   |
-|10,240 *     | 10,240  | En fazla 30.720  | 675 | 450   |
-|33,792 *     | 33,792  | En fazla 100.000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | En fazla 100.000 | 3,132 | 2,088   |
-|102,400 *    | 100.000 | En fazla 100.000 | 6,204 | 4,136   |
-
-Şu anda 100 TiB kadar boyutları tam sınırlı genel Önizleme erişimi istemek için sınırlı genel Önizleme sırasında 5 TiB kadar dosya paylaşımı boyutları genel önizlemede olan [bu anketi.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | En fazla 30.720  | 675 | 450   |
+|33,792      | 33,792  | En fazla 100.000 | 2,088 | 1,392   |
+|51,200      | 51,200  | En fazla 100.000 | 3,132 | 2,088   |
+|102,400     | 100.000 | En fazla 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Genişletme
 
@@ -184,7 +180,7 @@ Hangi çoğaltma seçeneği kullanmak için karar verirken, aşağıdaki noktala
 
 ## <a name="data-growth-pattern"></a>Veri büyümesi deseni
 
-Bugün, bir Azure dosya paylaşımı için boyut üst sınırı 5 TiB olduğu (100 TiB premium dosya paylaşımı sınırlı genel Önizleme). Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz.
+Bugün, bir Azure dosya paylaşımı için boyut üst sınırı 5 TiB olduğu (genel Önizleme aşamasında olan premium dosya paylaşımları için 100 tib'a kadar). Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz.
 
 Azure dosya eşitleme ile tek bir Windows dosya sunucusu için birden çok Azure dosya paylaşımları eşitlenecek mümkündür. Bu, şirket içi olabilir eski, büyük dosya paylaşımlarını Azure dosya eşitleme ile sağlanabildiğinden emin olmak sağlar. Daha fazla bilgi için [bir Azure dosya eşitleme dağıtımı planlama](storage-files-planning.md).
 

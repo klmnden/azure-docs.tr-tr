@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474711"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154148"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL veri ambarı iş yükü önem (Önizleme)
+# <a name="sql-data-warehouse-workload-importance"></a>SQL veri ambarı iş yükü önem derecesi
 
 Bu makalede, SQL veri ambarı istekler için yürütme sırasını iş yükü önem nasıl etkileyebilir açıklanmaktadır.
-
-> [!Note]
-> İş yükü Sınıflandırma, SQL veri ambarı Gen2'te önizlemesi için kullanılabilir. 9 Nisan 2019 veya sonraki bir sürüm tarihi yapılarla Önizleme iş yükü yönetimi sınıflandırma ve önem derecesi içindir.  Kullanıcılar, iş yükü yönetimi için test derlemeleri bu tarihten önceki kullanmaktan kaçınmanız gerekir.  Derleme iş yükü yönetimi özelliğine sahip olup olmadığını belirlemek için çalıştırdığınızda @ seçin@version SQL veri ambarı Örneğinize bağlandığında.
 
 ## <a name="importance"></a>Önem derecesi
 
@@ -64,4 +61,4 @@ S5 mediumrc olduğundan, iki eşzamanlılık yuvası gerektirir.  S5 iki çalı�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SQL veri ambarı iş yükü sınıflandırma hakkında daha fazla bilgi için bkz: [SQL veri ambarı iş yükü sınıflandırma](sql-data-warehouse-workload-classification.md) ve [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md). Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.
+Sınıflandırıcı oluşturmaya başlamak için bkz: [iş YÜKÜ SINIFLANDIRICI oluşturma (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  SQL veri ambarı iş yükü sınıflandırma hakkında daha fazla bilgi için bkz: [SQL veri ambarı iş yükü sınıflandırma](sql-data-warehouse-workload-classification.md).  Bu hızlı başlangıçta bir iş yükü sınıflandırıcı oluşturma konusunda bkz [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md). Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.

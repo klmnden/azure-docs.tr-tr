@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe837c4d89a59325040355e35f12c3499aee7d98
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024563"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072819"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Önizleme - oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesini yapılandırın
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
-Uygulama iş yüklerini bir Azure Kubernetes Service (AKS) kümesi içinde hızlı bir şekilde ölçeklendirmek için sanal düğümü kullanabilirsiniz. Sanal düğüm ile pod'ların hızlı sağlama sahip ve yalnızca yürütme zamanları için saniye başına ödeme yaparsınız. Ek pod'lar çalıştırmak için VM hesaplama düğümlerini dağıtmak için Kubernetes küme ölçeklendiriciyi için beklemenize gerek yoktur. Bu makalede oluşturmak ve AKS kümesi ve sanal ağ kaynaklarını yapılandırmak ve ardından sanal düğümü etkinleştirme gösterilmektedir.
+Uygulama iş yüklerini bir Azure Kubernetes Service (AKS) kümesi içinde hızlı bir şekilde ölçeklendirmek için sanal düğümü kullanabilirsiniz. Sanal düğüm ile pod'ların hızlı sağlama sahip ve yalnızca yürütme zamanları için saniye başına ödeme yaparsınız. Ek pod'lar çalıştırmak için VM hesaplama düğümlerini dağıtmak için Kubernetes küme ölçeklendiriciyi için beklemenize gerek yoktur. Sanal düğümler, yalnızca Linux pod'ların ve düğümleri ile desteklenir.
 
-> [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
->
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+Bu makalede oluşturmak ve AKS kümesi ve sanal ağ kaynaklarını yapılandırmak ve ardından sanal düğümü etkinleştirme gösterilmektedir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 Aşağıdaki bölgelerde sanal düğüm dağıtımları için desteklenir:
 
 * Avustralya Doğu (australiaeast)
+* Orta ABD (centralus)
 * Doğu ABD (myresourcegroup)
+* Doğu ABD 2 (eastus2)
+* Japonya Doğu (japaneast)
+* Kuzey Avrupa (northeurope)
+* Güneydoğu Asya (southeastasia)
 * Batı Orta ABD (westcentralus)
 * Batı Avrupa (westeurope)
 * Batı ABD (westus)
+* Batı ABD 2 (westus2)
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
 Sanal düğümler işlevleri ACI'ın özellik kümesi üzerinde bağımlılığa sahiptir. Aşağıdaki senaryolar ile sanal düğümü henüz desteklenmiyor
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> Sanal bulunamamasından düğümlü hakkında bir hata alırsanız, CLI uzantısını yüklemeniz gerekebilir 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod sanal düğümü ile kullanmak için temsilci Azure sanal ağ alt ağından iç IP adresi atanır.
 
 > [!NOTE]
-> Azure Container Registry'de depolanan görüntülerden kullanırsanız [yapılandırılır ve Kubernetes gizli][acr-aks-secrets]. Azure AD hizmet sorumlusu kimlik doğrulamasını kullanamazsınız, Önizleme aşamasında sanal düğümü geçerli bir kısıtlaması tümleşik. Gizli dizi kullanmazsanız, sanal düğümlerinde zamanlanmış pod'ları başlatmak ve hatayı bildirin başarısız `HTTP response status code 400 error code "InaccessibleImage"`.
+> Azure Container Registry'de depolanan görüntülerden kullanırsanız [yapılandırılır ve Kubernetes gizli][acr-aks-secrets]. Tümleşik Azure kullanamazsınız sanal düğümü geçerli bir kısıtlaması olduğu AD hizmet sorumlusu kimlik doğrulaması. Gizli dizi kullanmazsanız, sanal düğümlerinde zamanlanmış pod'ları başlatmak ve hatayı bildirin başarısız `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Sanal düğüm pod test
 

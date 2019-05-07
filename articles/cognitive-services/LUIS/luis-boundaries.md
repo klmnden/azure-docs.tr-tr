@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814044"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154565"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
@@ -31,9 +31,11 @@ Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LU
 | [Uygulama adı][luis-get-started-create-app] | * Max varsayılan karakter |
 | [Toplu test etme][batch-testing]| 10 veri kümeleri, veri kümesi başına 1000 konuşma|
 | Açık listesi | uygulama başına 50|
+| Dış varlıklar | sınırsız |
 | [Hedefleri][intents]|uygulama başına 500: 499 özel amaçlar ve gerekli _hiçbiri_ hedefi.<br>[Gönderim tabanlı](https://aka.ms/dispatch-tool) uygulama karşılık gelen 500 gönderme kaynaklarına sahiptir.|
 | [Varlıklar listesi](./luis-concept-entity-types.md) | Üst öğe: 50, alt: 20.000 öğeleri. Kurallı ad * varsayılan karakter maks. Eş anlamlı değerleri herhangi bir uzunluk sınırlaması vardır. |
-| [Makine öğrenilen varlıklar](./luis-concept-entity-types.md):<br> Bileşik<br>  Hiyerarşik<br> Basit|Bir sınır 100 üst varlıklar (hiyerarşik alt öğeleri dahil değil) veya 330 varlıklar (hiyerarşik alt öğeleri dahil), hangisi kullanıcı isabet önce sınırlandırın.<br><br>30 hiyerarşilerle her 10 alt hiyerarşisi örneği olacaktır.  Alt toplam 300 kullanacaktır ve hiyerarşisi öğeleriniz kalan 30 kullanacaktır. |
+| [Makine öğrenilen varlıklar + rolleri](./luis-concept-entity-types.md):<br> Bileşik<br>Basit,<br>Varlık rolü|Bir sınır 100 üst varlık veya 330 varlıkları hangisi kullanıcı isabet önce sınırlandırın. Bir rol, bu sınır için bir varlık olarak sayılır. 2 rolü olan basit bir varlık içeren bir birleşik bir örnek verilmiştir: Bileşik + 1 basit 1 + 2 rolü = 4 330 varlık.|
+| [Önizleme - dinamik listesi varlıklar](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listesi yaklaşık 1 k tahmin son nokta isteğinin sorgu başına|
 | [Desenleri](luis-concept-patterns.md)|uygulama başına 500 desenleri.<br>Deseni en fazla uzunluğu 400 karakter olabilir.<br>Deseni başına 3 Pattern.any varlıklar<br>En fazla 2 iç içe geçmiş isteğe bağlı metni deseninde|
 | [Pattern.Any](./luis-concept-entity-types.md)|uygulama başına 100 deseni başına 3 pattern.any varlıklar |
 | [İfade listesi][phrase-list]|10 tümcecik listeler, liste başına 5.000 öğeleri|

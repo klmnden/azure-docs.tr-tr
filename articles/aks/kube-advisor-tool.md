@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073767"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Kubernetes kümenizdeki en iyi uygulamaları denetleme
 
@@ -21,6 +21,8 @@ Kubernetes dağıtımlarınızı en iyi performans ve uygulamalarınız için da
 ## <a name="about-kube-advisor"></a>Kube-advisor hakkında
 
 [Kube-Danışman aracı] [ kube-advisor-github] , kümenizde çalıştırılmak üzere tasarlanan tek bir kapsayıcıdır. Bu, dağıtımları hakkında daha fazla bilgi için Kubernetes API sunucusu sorgular ve iyileştirme önerileri kümesini döndürür.
+
+Kaynak isteği ve Linux uygulamaları yanı sıra PodSpecs için Windows uygulamaları eksik sınırları kube-Danışman aracı bildirebilirsiniz, ancak kube-Danışman aracı, bir Linux pod zamanlanmalıdır. Bir pod bir düğüm havuzunu kullanarak belirli bir işletim sistemi ile çalışacak şekilde zamanlayabilirsiniz bir [düğüm Seçicisi] [ k8s-node-selector] pod'ın yapılandırması.
 
 > [!NOTE]
 > Kube-Danışman aracı, bir en iyi çaba ilkesine göre Microsoft tarafından desteklenir. Sorunları ve önerileri, Github'da Dosyalanan.
@@ -73,3 +75,4 @@ RBAC-etkin olmayan bir küme karşı araç çalıştırıyorsanız, temizlik ger
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

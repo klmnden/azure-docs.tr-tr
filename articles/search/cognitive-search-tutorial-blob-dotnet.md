@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 4e6f0317df2f0f631d2c8d3f8e5cefba06e154fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153203"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Öğretici: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -94,9 +94,9 @@ Visual Studio açılırken ve .NET Core üzerinde çalışabilen yeni bir konsol
 
 [Azure Search .NET SDK'sı](https://aka.ms/search-sdk) dizinleri, veri kaynakları, dizin oluşturucular ve olanakları, karşıya yükleme ve belgeleri yönetmek ve tüm ile uğraşmak zorunda kalmadan sorgular yürütün yönetmelerine olanak sağlayan birkaç istemci kitaplıklarını içerir HTTP ve JSON ayrıntıları. Bu istemci kitaplıklarının tümü NuGet paketleri olarak dağıtılır.
 
-Bu proje için 7.x.x önizleme sürümünü yüklemeniz gerekir `Microsoft.Azure.Search` NuGet paketi ve en son `Microsoft.Extensions.Configuration.Json` NuGet paketi.
+Bu proje için 9 sürümünü yüklemeniz gerekir `Microsoft.Azure.Search` NuGet paketi ve en son `Microsoft.Extensions.Configuration.Json` NuGet paketi.
 
-Yükleme `Microsoft.Azure.Search` NuGet paketini Visual Studio'da Paket Yöneticisi konsolu kullanarak. Paket Yöneticisi Konsolu'nu seçin açmak için **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Çalıştırılacak komut almak için gidin [Microsoft.Azure.Search NuGet paketi sayfası](https://www.nuget.org/packages/Microsoft.Azure.Search)sürüm 7.x.x-preview'ı seçin ve Paket Yöneticisi komutu kopyalayın. Paket Yöneticisi konsolunda şu komutu çalıştırın.
+Yükleme `Microsoft.Azure.Search` NuGet paketini Visual Studio'da Paket Yöneticisi konsolu kullanarak. Paket Yöneticisi Konsolu'nu seçin açmak için **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Çalıştırılacak komut almak için gidin [Microsoft.Azure.Search NuGet paketi sayfası](https://www.nuget.org/packages/Microsoft.Azure.Search), sürüm 9'i seçin ve Kopyala Paket Yöneticisi komutu. Paket Yöneticisi konsolunda şu komutu çalıştırın.
 
 Yüklenecek `Microsoft.Extensions.Configuration.Json` NuGet paketini Visual Studio'da seçim **Araçları** > **NuGet Paket Yöneticisi** > **çözüm için NuGet paketlerini Yönet...** . Gözat'ı seçin ve arama `Microsoft.Extensions.Configuration.Json` NuGet paketi. Bunu bulduktan sonra paketi seçin, projenizi seçin, sürüm en son kararlı bir sürüm olduğunu doğrulayın ve ardından Yükle'yi seçebilirsiniz.
 
@@ -137,13 +137,25 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>Bir istemci oluşturma
 
-Bir örneğini oluşturmak `SearchServiceClient` eklediğiniz verilen bilgileri kullanarak sınıf `appsettings.json`.
+Bir örneğini oluşturmak `SearchServiceClient` sınıfı.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` Yeni bir oluşturur `SearchServiceClient` (appsettings.json) uygulamanın yapılandırma dosyasında depolanan değerleri kullanarak.
+
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -197,9 +209,9 @@ Bu bölümde, verileriniz için uygulamak istediğiniz zenginleştirme adımlar�
 
 + İçeriğin dilini tanımlamak için [Dil Algılama](cognitive-search-skill-language-detection.md).
 
-+ [Metin bölme](cognitive-search-skill-textsplit.md) büyük içeriği, anahtar ifade ayıklama beceri ve adlandırılmış varlık tanıma beceri çağırmadan önce daha küçük öbeklere ayırmak için. Anahtar ifade ayıklama ve adlandırılmış varlık tanıma 50.000 karakter veya daha az girişleri kabul eder. Bu sınıra uymak için örnek dosyaların birkaç tanesinin bölünmesi gerekir.
++ [Metin bölme](cognitive-search-skill-textsplit.md) büyük içeriği, anahtar ifade ayıklama beceri ve varlık tanıma beceri çağırmadan önce daha küçük öbeklere ayırmak için. Anahtar ifade ayıklama ve varlık tanıma 50.000 karakter veya daha az girişleri kabul eder. Bu sınıra uymak için örnek dosyaların birkaç tanesinin bölünmesi gerekir.
 
-+ Blob kapsayıcıdaki içerikten kuruluşların adlarını ayıklamak için [Adlandırılmış Varlık Tanıma](cognitive-search-skill-named-entity-recognition.md).
++ [Varlık tanıma](cognitive-search-skill-entity-recognition.md) blob kapsayıcısındaki içeriğinden kuruluşların adlarını ayıklanacağı.
 
 + Üst anahtar tümcecikleri çekmek için [Anahtar İfade Ayıklama](cognitive-search-skill-keyphrases.md).
 
@@ -225,7 +237,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
@@ -279,7 +291,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "languageCode"));
 
 LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Language detection skill",
+    description: "Detect the language used in the document",
     context: "/document",
     inputs: inputMappings,
     outputs: outputMappings);
@@ -312,9 +324,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="named-entity-recognition-skill"></a>Adlandırılmış varlık tanıma beceri
+### <a name="entity-recognition-skill"></a>Varlık tanıma beceri
 
-Bu `NamedEntityRecognitionSkill` örneği kategori türü tanıması için ayarlanmış `organization`. **Adlandırılmış varlık tanıma** nitelik kategorisi türleri de algılayabilir `person` ve `location`.
+Bu `EntityRecognitionSkill` örneği kategori türü tanıması için ayarlanmış `organization`. **Varlık tanıma** nitelik kategorisi türleri de algılayabilir `person` ve `location`.
 
 "Bağlam" alanı bildirimi ```"/document/pages/*"``` yıldız işaretiyle zenginleştirme adım anlamına gelir her sayfanın altında çağrılır ```"/document/pages"```.
 
@@ -329,21 +341,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<EntityCategory>();
+entityCategory.Add(EntityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### <a name="key-phrase-extraction-skill"></a>Anahtar ifade ayıklama beceri
 
-Gibi `NamedEntityRecognitionSkill` yeni oluşturulan örneği **anahtar ifade ayıklama** yetenek, her bir belgenin sayfa için çağrılır.
+Gibi `EntityRecognitionSkill` yeni oluşturulan örneği **anahtar ifade ayıklama** yetenek, her bir belgenin sayfa için çağrılır.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -368,7 +380,7 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 
 ### <a name="build-and-create-the-skillset"></a>Derleme ve beceri kümesi oluşturma
 
-Derleme `SkillSet` oluşturmuş olduğunuz becerileri kullanarak.
+Derleme `Skillset` oluşturmuş olduğunuz becerileri kullanarak.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -376,12 +388,12 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-Skillset skillSet = new Skillset(
+Skillset skillset = new Skillset(
     name: "demoskillset",
-    description: "Demo Skillset",
+    description: "Demo skillset",
     skills: skills);
 ```
 
@@ -390,7 +402,7 @@ Arama hizmetinizde beceri kümesi oluşturun.
 ```csharp
 try
 {
-    serviceClient.Skillsets.CreateOrUpdate(skillSet);
+    serviceClient.Skillsets.CreateOrUpdate(skillset);
 }
 catch (Exception e)
 {
@@ -459,16 +471,24 @@ var index = new Index()
 };
 ```
 
-Test sırasında birden çok kez dizini oluşturmak denediğiniz bulabilirsiniz. Bu nedenle, zaten oluşturmak üzere olduğunuz dizini oluşturmak denemeden önce mevcut olup olmadığını denetleyin. 
+Test sırasında birden çok kez dizini oluşturmak denediğiniz bulabilirsiniz. Bu nedenle, zaten oluşturmak üzere olduğunuz dizini oluşturmak denemeden önce mevcut olup olmadığını denetleyin.
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
+try
 {
-    serviceClient.Indexes.Delete(index.Name);
-}
+    bool exists = serviceClient.Indexes.Exists(index.Name);
 
-serviceClient.Indexes.Create(index);
+    if (exists)
+    {
+        serviceClient.Indexes.Delete(index.Name);
+    }
+
+    serviceClient.Indexes.Create(index);
+}
+catch (Exception e)
+{
+    // Handle exception
+}
 ```
 
 Dizin tanımlama hakkında daha fazla bilgi için bkz. [Dizin Oluşturma (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
@@ -526,14 +546,15 @@ Indexer indexer = new Indexer(
     fieldMappings: fieldMappings,
     outputFieldMappings: outputMappings);
 
-bool exists = serviceClient.Indexers.Exists(indexer.Name);
-if (exists)
-{
-    serviceClient.Indexers.Delete(indexer.Name);
-}
-
 try
 {
+    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+    if (exists)
+    {
+        serviceClient.Indexers.Delete(indexer.Name);
+    }
+
     serviceClient.Indexers.Create(indexer);
 }
 catch (Exception e)
@@ -560,21 +581,29 @@ Ayrıca ```"dataToExtract"``` ayarlanır ```"contentAndMetadata"```. Bu deyim, d
 Dizin oluşturucu tanımlandıktan sonra, isteği gönderdiğinizde otomatik olarak çalıştırılır. Tanımladığınız bilişsel becerilere bağlı olarak dizin oluşturma beklediğinizden uzun sürebilir. Dizin Oluşturucu hala kullanılıp kullanılmadığını bulmak için kullanın `GetStatus` yöntemi.
 
 ```csharp
-IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-switch (demoIndexerExecutionInfo.Status)
+try
 {
-    case IndexerStatus.Error:
-        Console.WriteLine("Indexer has error status");
-        break;
-    case IndexerStatus.Running:
-        Console.WriteLine("Indexer is running");
-        break;
-    case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown");
-        break;
-    default:
-        Console.WriteLine("No indexer status information");
-        break;
+    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+    switch (demoIndexerExecutionInfo.Status)
+    {
+        case IndexerStatus.Error:
+            Console.WriteLine("Indexer has error status");
+            break;
+        case IndexerStatus.Running:
+            Console.WriteLine("Indexer is running");
+            break;
+        case IndexerStatus.Unknown:
+            Console.WriteLine("Indexer status is unknown");
+            break;
+        default:
+            Console.WriteLine("No indexer information");
+            break;
+    }
+}
+catch (Exception e)
+{
+    // Handle exception
 }
 ```
 
@@ -603,6 +632,19 @@ catch (Exception e)
 }
 ```
 
+`CreateSearchIndexClient` Yeni bir oluşturur `SearchIndexClient` (appsettings.json) uygulamanın yapılandırma dosyasında depolanan değerleri kullanarak. Arama Hizmeti sorgu API anahtarı kullanıldığını unutmayın ve yönetici anahtarı değil.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
+}
+```
+
 Çıktı, her bir alanın adını, türünü ve özniteliklerini içeren dizin şemasıdır.
 
 `organizations` gibi tek bir alanın tüm içeriklerini döndürmek için ikinci bir `"*"` sorgusu gönderin.
@@ -626,52 +668,11 @@ catch (Exception e)
 
 Ek alanlar için işlemi tekrarlayın: içeriği, languageCode, keyPhrases ve bu alıştırmada kuruluşlar. Virgülle ayrılmış bir liste kullanarak `$select` aracılığıyla birden fazla alan döndürebilirsiniz.
 
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Zenginleştirilmiş belgeye erişme
-
-Bilişsel arama, zenginleştirilmiş belgenin yapısını görmenizi sağlar. Zenginleştirilmiş belgeler, zenginleştirme sırasında oluşturulan geçici yapılardır ve işlem tamamlandığında silinir.
-
-Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belgenin anlık görüntüsünü yakalamak için dizininize ```enriched``` adlı bir alan ekleyin. Dizin oluşturucu, otomatik olarak alana, o belgenin tüm zenginleştirmelerinin dize gösteriminin dökümünü alır.
-
-```enriched``` alanı, JSON’da bellek içi zenginleştirilmiş belgenin mantıksal gösterimi olan bir dize içerir.  Ancak alan değeri geçerli bir JSON belgesidir. Tırnak işaretlerine kaçış karakteri eklenir, böylece belgeyi biçimlendirilmiş JSON olarak görüntülemek için `\"` öğesini `"` ile değiştirmeniz gerekir.  
-
-İfadelerin değerlendirildiği içeriğin mantıksal şeklini anlamanıza yardımcı olması için ```enriched``` alanı yalnızca hata ayıklama için tasarlanmıştır. Beceri kümenizi anlamak ve hatasını ayıklamak için bu faydalı bir araç olabilir.
-
-Zenginleştirilmiş belgenin içeriklerini yakalamak için bir `enriched` alanını ekleyerek önceki çalışmayı yineleyin:
-
-### <a name="request-body-syntax"></a>İstek gövdesi sözdizimi
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Sıfırlama ve yeniden çalıştırma
 
-Geliştirme Deneysel erken aşamalarında en kullanışlı tasarım yinelemeleri için Azure arama nesnelerini silin ve bunları yeniden derlemek kodunuzu izin yaklaşımdır. Kaynak adları benzersizdir. Bir nesneyi sildiğinizde, aynı adı kullanarak nesneyi yeniden oluşturabilirsiniz. 
+Geliştirme Deneysel erken aşamalarında en kullanışlı tasarım yinelemeleri için Azure arama nesnelerini silin ve bunları yeniden derlemek kodunuzu izin yaklaşımdır. Kaynak adları benzersizdir. Bir nesneyi sildiğinizde, aynı adı kullanarak nesneyi yeniden oluşturabilirsiniz.
 
 Bu öğreticide, geçen mevcut dizin oluşturucular ve dizinleri denetleniyor ve kodunuzu yeniden çalıştırabilmek için bunların zaten var, bunların silinmesi dikkat edin.
 
@@ -681,11 +682,11 @@ Kodunuz geliştikçe bir yeniden derleme stratejisini iyileştirmek isteyebilirs
 
 ## <a name="takeaways"></a>Paketler
 
-Bu öğreticide, veri kaynağı, beceri kümesi, dizin ve dizin oluşturucu gibi bileşen parçalarının oluşturulması yoluyla zenginleştirilmiş bir dizin oluşturma işlem hattı oluşturmaya yönelik temel adımlar gösterilmektedir.
+Bu öğreticinin zenginleştirilmiş dizinleme işlem hattına bileşen parçalarına oluşturulmasını aracılığıyla oluşturmaya yönelik temel adımlar gösterilmektedir: bir veri kaynağı, beceri kümesi, dizin ve dizin oluşturucu.
 
 Girişler ve çıktılar yoluyla becerileri zincirleme mekanizmalarının ve beceri kümesi tanımının yanı sıra [önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md) sunulmuştur. İşlem hattındaki zenginleştirilmiş değerleri bir Azure Search hizmetinde aranabilir bir dizine yönlendirmek için dizin oluşturucu tanımında `outputFieldMappings` gerektiğini öğrendiniz.
 
-Son olarak, daha fazla yineleme için sonuçların nasıl test edileceğini ve sistemin nasıl sıfırlanacağını öğrendiniz. Dizine karşı sorgular düzenlendiğinde, zenginleştirilmiş dizin oluşturma işlem hattı tarafından oluşturulan çıktının döndürüldüğünü öğrendiniz. Bu yayında, iç yapıları (sistem tarafından oluşturulan zenginleştirilmiş belgeler) görüntüleme mekanizması vardır. Ayrıca dizin oluşturucu durumunun nasıl denetleneceğini ve işlem hattı yeniden çalıştırılmadan önce hangi nesnelerin silineceğini de öğrendiniz.
+Son olarak, daha fazla yineleme için sonuçların nasıl test edileceğini ve sistemin nasıl sıfırlanacağını öğrendiniz. Dizine karşı sorgular düzenlendiğinde, zenginleştirilmiş dizin oluşturma işlem hattı tarafından oluşturulan çıktının döndürüldüğünü öğrendiniz. Ayrıca dizin oluşturucu durumunun nasıl denetleneceğini ve işlem hattı yeniden çalıştırılmadan önce hangi nesnelerin silineceğini de öğrendiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -2,18 +2,19 @@
 title: Azure Hızlı Başlangıç - Go kullanarak nesne depolamada blob oluşturma | Microsoft Docs
 description: Bu hızlı başlangıçta, nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Go için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
-author: seguler
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: seguler
-ms.openlocfilehash: 69895fff5e1daaf02caec54a6d38052e36ad8d49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152775"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Go kullanarak blobları Listele
 

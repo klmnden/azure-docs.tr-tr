@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf2ded7a98d608780bc447c5944e7d1f4d9b698b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153805"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Yük devretme ve bölgeleri arasında Azure Vm'lerini yeniden koruma
 
@@ -27,8 +27,10 @@ Bu öğreticide bir Azure sanal makine (VM) üzerinden yük devredebilir ile iki
 > [!NOTE]
 > Bu öğreticide, varsayılan ayarlar ve en az özelleştirme en basit yolu içerir. Daha karmaşık senaryolarda, Azure Vm'leri için 'Nasıl yapılır' altında makaleleri kullanın.
 
+
 ## <a name="prerequisites"></a>Önkoşullar
 
+- Başlamadan önce gözden [sık sorulan sorular](site-recovery-faq.md#failover) yük devretme hakkında.
 - Her şeyin beklenildiği gibi çalışıp çalışmadığını denetlemek için bir [olağanüstü durum kurtarma tatbikatını](azure-to-azure-tutorial-dr-drill.md) tamamladığınızdan emin olun.
 - Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) uymalıdır.
 

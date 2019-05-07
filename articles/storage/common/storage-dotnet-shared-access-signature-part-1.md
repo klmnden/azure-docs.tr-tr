@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001591"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154423"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -114,7 +115,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Depolama Hizmetleri sürümü |`sv=2015-04-05` |Depolama Hizmetleri sürüm 2012-02-12 ve daha sonra bu parametre kullanılacak sürümünü gösterir. |
 | Başlangıç saati |`st=2015-04-29T22%3A18%3A26Z` |UTC saati belirtilmiş. SAS hemen geçerli olmasını istiyorsanız, başlangıç zamanı atlayın. |
 | Süre sonu |`se=2015-04-30T02%3A23%3A26Z` |UTC saati belirtilmiş. |
-| Kaynak |`sr=b` |Bir blobu bir kaynaktır. |
+| Resource |`sr=b` |Bir blobu bir kaynaktır. |
 | İzinler |`sp=rw` |SAS'den izinler Read (r) içerir ve yazma (w). |
 | IP aralığı |`sip=168.1.5.60-168.1.5.70` |Bir talep kabul edilmeyecektir IP adresi aralığı. |
 | Protokol |`spr=https` |Yalnızca HTTPS kullanarak isteklerine izin verilir. |

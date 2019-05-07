@@ -3,19 +3,18 @@ title: Modüller mantıksal cihazlarınızda - Azure IOT Edge çalışma şeklin
 description: Azure IOT Edge modüllerini dağıtılabilir ve böylece IOT Edge üzerinde iş mantığını cihazlara çalıştırabilirsiniz yönetilmesine mantığı kapsayıcılı birimlerin
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.author: kgremban
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445052"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152662"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge modüllerini anlama
 
@@ -44,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Modül kimlikleri
 
 IOT Edge çalışma zamanı tarafından yeni bir modül örneği oluşturulduğunda, karşılık gelen bir modül kimliği ile ilişkili bir örneğidir. Modül kimliği IOT Hub'ında depolanan ve adresleme ve güvenlik kapsamı, tüm yerel ve bulut iletişimleri için belirli bir modül örneğinin olarak kullanılır.
+
 Cihazın kimliğini bağımlı bir modül örneği ile ilişkili kimlik hangi örneğinin çalıştığından ve çözümünüzde bu modül için yazılan adı. Örneğin, eğer `insight` ve bir Azure Stream Analytics kullanan modül dağıtma, adlı bir cihazda `Hannover01`, IOT Edge çalışma zamanı adlı karşılık gelen bir modül kimliği oluşturur `/devices/Hannover01/modules/insight`.
 
 Açıkça görülebileceği gibi senaryolarda, birden çok kez aynı cihazda, bir modül görüntüsünü dağıtmak ihtiyacınız olduğunda farklı adlar aynı görüntü birden çok kez dağıtabilirsiniz.
@@ -69,26 +69,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Çevrimdışı özellikler
 
-Azure IOT Edge, IOT Edge cihazlarınıza çevrimdışı işlemleri destekler. Şimdilik bu özellikleri sınırlıdır. Ek çevrimdışı özellikleri, genel önizlemede kullanılabilir. Daha fazla bilgi için [anlayın cihazları, modülleri ve alt cihazlar bu çevrimdışı özellikleri IOT Edge için Genişletilmiş](offline-capabilities.md).
-
-IOT Edge modülleri, aşağıdaki gereksinimlerin karşılandığından sürece uzun süreler çevrimdışı olabilir: 
-
-* **İleti yaşam süresi (TTL) süresinin geçmemiş**. İki saat ileti TTL'si için varsayılan değer olan ancak Store içinde değiştirilen daha yüksek veya düşük ve IOT Edge yapılandırmasında hub ayarları iletebilir. 
-* **Modüller, IOT Edge hub'ı ile çevrimdışı durumdayken yeniden kimlik doğrulamaya zorlayabilir gerekmez**. Modüller yalnızca, etkin bir bağlantınız bir IOT hub ile IOT Edge hub'ları ile kimlik doğrulaması yapabilir. Herhangi bir nedenle yeniden başlatıldığında yeniden kimlik doğrulamaya zorlayabilir modülleri gerekir. Kimliklerini SAS belirteci süresi dolduktan sonra modülleri hala IOT Edge hub'a iletileri gönderebilir. Bağlantı geri döndüğünde, IOT Edge hub'ı yeni bir belirteç modülün istekleri ve IOT hub'ı ile doğrular. Başarılı olursa, depoladığı modülü iletileri IOT Edge hub'ı iletir, modülün belirtecin süresi sona erdi sırada gönderilen iletileri bile. 
-* **Hata iletileri gönderilen modülü bağlantı çıktığında çevrimdışı hala çalıştığından**. IOT Hub'ına bağlanıldığında, IOT Edge hub'ı (önceki bir tarihte dolduysa) modülü iletileri iletebilir önce yeni bir modül belirteci doğrulamak gerekir. Modül yeni bir belirteç sağlamak kullanılabilir durumda değilse, IOT Edge hub'ı üzerinde depolanan iletilerinize modülün davranamaz. 
-* **IOT Edge hub'a iletileri depolamak için disk alanı olan**. Varsayılan olarak, iletileri IOT Edge hub'ı kapsayıcının dosya sistemi içinde depolanır. Bunun yerine iletileri depolamak için bir bağlı birimini belirtmek için bir yapılandırma seçeneği yoktur. Her iki durumda da var. ertelenmiş teslim IOT hub'ına iletileri depolamak kullanılabilir alan olması gerekir.  
-
+Azure IOT Edge modülleri, süresiz olarak IOT Hub ile en az bir kez eşitlemeden sonra çevrimdışı çalışabilir. IOT Edge cihazları diğer IOT cihazlarına çevrimdışı bu özellik ayrıca genişletebilirsiniz. Daha fazla bilgi için [anlayın cihazları, modülleri ve alt cihazlar bu çevrimdışı özellikleri IOT Edge için Genişletilmiş](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlama](module-development.md)
  - [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md)
 
-<!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
-[2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

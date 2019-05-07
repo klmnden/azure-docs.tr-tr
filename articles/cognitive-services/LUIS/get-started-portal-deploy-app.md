@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9a54cad9212bdb514f7742121909221863ba75e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713513"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154521"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Hızlı Başlangıç: LUIS Portalı'nda bir uygulama dağıtma
 
@@ -73,11 +73,11 @@ LUIS için yeni bir kaynak oluşturmak her durumda, LUIS uygulaması için kayna
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
 
-Uygulamayı test etmek hazır olduğunuzda eğitin. Tahmin uç nokta çalışma zamanını şuradan istemci uygulamaları için kullanılabilir olması için şu anda eğitilen sürümünü istediğiniz zaman, uygulamayı yayımlayın.
+Uygulamayı test etmek hazır olduğunuzda eğitin. Sorgu tahmin uç nokta çalışma zamanını şuradan istemci uygulamaları için kullanılabilir olması için şu anda eğitilen sürümünü istediğiniz zaman, uygulamayı yayımlayın.
 
 1. Uygulama deneyimsiz ise seçin **eğitme** sağ üst köşedeki menüden.
 
-1. Seçin **Yayımla** menüsünde. Varsayılan ortam ayarlarını kabul edin ve seçin **Yayımla**.
+1. Seçin **Yayımla** üstteki menüden. Varsayılan ortam ayarlarını kabul edin ve seçin **Yayımla**.
 
 1. Yeşil bir başarı bildirim çubuğu tarayıcı penceresinin en üstünde göründüğünde seçin **uç noktalar listesine bakın**.
 

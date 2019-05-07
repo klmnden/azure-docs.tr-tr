@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894466"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072758"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -282,27 +282,19 @@ LUIS sample'a [bölge bulma](https://github.com/Azure-Samples/cognitive-services
 
 Evet, LUIS kullanabileceğiniz [kapsayıcı](luis-container-howto.md) kullanımını ölçmek için gerekli bağlantı varsa, bu senaryolar için. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Derleme 2018 konferansta ben bir dil anlama özelliği veya tanıtım heard ancak ne çağrıldı hatırlamıyorum?
+## <a name="migrating-to-the-next-version"></a>Sonraki sürüme geçirme
 
-Aşağıdaki özellikler Build 2018 konferansında yayımlanan:
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>V3 API önizlemesini görüntülemek için nasıl geçirebilirim? 
 
-|Ad|İçerik|
-|--|--|
-|Geliştirmeler|[Normal ifade](luis-concept-data-extraction.md##regular-expression-entity-data) varlık ve [anahtar tümcecik](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) varlık
-|Desenler|Desenler [kavramı](luis-concept-patterns.md), [öğretici](luis-tutorial-pattern.md), [nasıl yapılır](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) varlık kavramı da dahil olmak üzere [açık listesi](luis-concept-patterns.md#explicit-lists) özel durumları<br>[Rolleri](luis-concept-roles.md) kavramı|
-|Tümleştirmeler|[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tümleştirilmesi [yaklaşım analizi](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Konuşma](https://docs.microsoft.com/azure/cognitive-services/speech) konuşma Hazırlama işlemi ile birlikte tümleştirilmesi [Speech SDK'sı](https://aka.ms/SpeechSDK)|
-|Dağıtım Aracı|Parçası [Botbuilder'da Araçları](https://github.com/Microsoft/botbuilder-tools), gönderme komut satırı [aracı](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) tek LUIS uygulamasına bir Bot daha iyi amaç tanıma için birden çok LUIS ve soru-cevap Oluşturucu uygulamaları birleştirmek için
+Bkz: [LUIS uygulamalar için API v2 v3 Geçiş Kılavuzu](luis-migration-api-v3.md)
 
-Ek yazma [API yolları](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) dahil edildi.
+## <a name="build-2019-conference-announcements"></a>Derleme 2019 konferans duyuruları
 
-Videolar:
-* [Azure Friday Build 2018'e en: Bilişsel hizmetler - dil (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Derleme 2018 AI Show - Language Understanding hizmeti ile yenilikler nelerdir?](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - Bot zekası, Konuşma Özellikleri ve NLU en iyi uygulamaları](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018'e - LUIS güncelleştirmeleri](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+Aşağıdaki özellikleri, derleme 2019 konferansında yayımlanan:
 
-Projeler:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) tanıtım - GitHub üzerinde kaynak kodu
+* [Geçiş Kılavuzu V3 API önizlemesi](luis-migration-api-v3.md)
+* [Gelişmiş bir analiz Panosu](luis-how-to-use-dashboard.md)
+* [Önceden oluşturulmuş etki alanları geliştirilmiş](luis-reference-prebuilt-domains.md) V2 ve V3 API'ler ile çalışma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

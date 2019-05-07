@@ -1,20 +1,20 @@
 ---
-title: PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı
-description: Bu makalede, PostgreSQL için Azure veritabanı sunucunuza için güvenlik duvarı kuralları açıklanır.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı'nda güvenlik duvarı kuralları
+description: Bu makalede, PostgreSQL - tek bir sunucu için Azure veritabanı güvenlik duvarı kuralları açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560256"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073580"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı
-PostgreSQL sunucusu güvenlik duvarı için azure veritabanı, hangi bilgisayarların izinli olduğunu belirtmenize kadar veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı her isteğin kaynak IP adresi tabanlı sunucu erişim verir.
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda güvenlik duvarı kuralları
+Hangi bilgisayarların izinli olduğunu belirtmenize kadar PostgreSQL sunucusu güvenlik duvarı için azure veritabanı, veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı her isteğin kaynak IP adresi tabanlı sunucu erişim verir.
 Güvenlik duvarınızı yapılandırmak için kabul edilebilir IP adreslerinin aralıklarını belirten güvenlik duvarı kuralları oluşturun. Sunucu düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz.
 
 **Güvenlik duvarı kuralları:** Bu kurallar, PostgreSQL sunucusu için Azure veritabanınızı tamamen erişmek başka bir deyişle, tüm aynı mantıksal sunucu içindeki veritabanlarına istemcilerin sağlar. Azure portalını kullanarak veya Azure CLI komutlarını kullanarak sunucu düzeyinde güvenlik duvarı kuralları yapılandırılabilir. Sunucu düzeyinde güvenlik duvarı kuralları oluşturma için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir.

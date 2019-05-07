@@ -2,18 +2,19 @@
 title: Azure İzleyici'de Azure depolama ölçümleri | Microsoft Docs
 description: Azure İzleyici'den sunulan yeni ölçümler hakkında bilgi edinin.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d776c67aad9f42184d8cf9ba0a437fbcf9d2c46c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101991"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154240"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -336,15 +337,15 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitesi toplamıdır. Premium depolama hesapları ve Blob Depolama hesapları için BlobCapacity ile aynı olur. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitenin toplamıdır. Premium depolama ve Blob Depolama hesapları için BlobCapacity ile aynıdır. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="blob-storage"></a>Blob depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
-| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
-| ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
+| ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | IndexCapacity     | ADLS Gen2 hiyerarşik dizin tarafından kullanılan depolama miktarı <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
@@ -352,24 +353,24 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | TableCapacity | Depolama hesabı olarak kullanılan tablo depolama miktarı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| TableCount   | Depolama hesabındaki tablolar sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| TableEntityCount | Depolama hesabındaki tablo varlıklarının sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| TableCount   | Depolama hesabındaki tablolar sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| TableEntityCount | Depolama hesabındaki tablo varlıklarının sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="queue-storage"></a>Kuyruk depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | QueueCapacity | Depolama hesabı tarafından kullanılan kuyruk depolama miktarı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| QueueCount   | Depolama hesabındaki sıraların sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| QueueMessageCount | Depolama hesabındaki süresi dolmamış kuyruk ileti sayısı. <br/><br/>Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| QueueCount   | Depolama hesabındaki sıraların sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| QueueMessageCount | Depolama hesabındaki süresi dolmamış kuyruk ileti sayısı. <br/><br/>Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="file-storage"></a>Dosya depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | FileCapacity | Depolama hesabı tarafından kullanılan dosya depolama miktarı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| FileCount   | Depolama hesabındaki dosya sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| FileShareCount | Dosya sayısı depolama hesabında paylaşır. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| FileCount   | Depolama hesabındaki dosya sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| FileShareCount | Dosya sayısı depolama hesabında paylaşır. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ## <a name="transaction-metrics"></a>İşlem ölçümleri
 
@@ -379,12 +380,12 @@ Azure depolama, Azure İzleyici'de aşağıdaki işlem ölçümlerini sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| İşlemler | Bir depolama hizmetine yapılan isteklerin veya belirtilen API işlemi sayısı. Bu sayı, başarılı ve başarısız istekleri ve hata üreten istekleri içerir. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Geçerli boyut: ResponseType, GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions))<br/> Değeri örneği: 1024 |
+| İşlemler | Bir depolama hizmetine yapılan isteklerin veya belirtilen API işlemi sayısı. Bu sayı, başarılı ve başarısız istekleri ve hata üreten istekleri içerir. <br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Geçerli boyut: ResponseType, GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions))<br/> Değeri örneği: 1024 |
 | Giriş | Giriş verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya giren ve Azure içinde giren verileri içerir. <br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | Çıkış | Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. <br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | SuccessServerLatency | Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | Başarı E2e | Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam Faturalandırılabilir isteklerin değeri ve beklenmeyen hata üreten bu istekleri dahil ilgili istek sayısına göre bölme göre hesaplanır. Beklenmeyen tüm hatalar, depolama hizmeti veya belirtilen API işlemi için kullanılabilirliğin azalmasıyla sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
+| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam faturalandırılabilir istek değerinin beklenmeyen hata üreten istekler dahil olmak üzere ilgili istek sayısına bölünmesiyle hesaplanır. Beklenmeyen tüm hatalar, depolama hizmeti veya belirtilen API işlemi için kullanılabilirliğin azalmasıyla sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 

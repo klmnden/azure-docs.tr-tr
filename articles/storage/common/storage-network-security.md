@@ -2,18 +2,19 @@
 title: Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma | Microsoft Docs
 description: Depolama hesabınız için katmanlı ağ güvenliğini yapılandırın.
 services: storage
-author: cbrooksmsft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: cbrooks
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 81904c4f205b9c5da2bb099d440e65ad63637bdc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0fa252fa2cdab7bb3790153f2d118fea13739852
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917008"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153510"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 

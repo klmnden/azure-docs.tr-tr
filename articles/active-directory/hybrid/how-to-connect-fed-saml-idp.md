@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı kullanın | Microsoft Docs'
+title: 'Azure AD Connect: Çoklu oturum açma - Azure için SAML 2.0 kimlik sağlayıcısı kullanın'
 description: Bu belgede, çoklu oturum açma için SAML 2.0 uyumlu IDP kullanma açıklanmaktadır.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350941"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138333"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -41,7 +41,7 @@ Microsoft tümleştirmesini düzgün bir şekilde yapılandırılmış, SAML 2.0
 >     - Posta istemcisi Windows 8 ve Windows 8.1 posta istemcisi
 >     - Windows 10 posta istemcisi
 
-Diğer tüm istemciler, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi ile çoklu oturum açma için yapılandırılmış, SAML 2.0 kimlik sağlayıcısı hizmette oturum açamaz değil.
+Diğer tüm istemciler, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi hizmetine çoklu oturum açma için yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile oturum açabilir değil.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 protokolü gereksinimleri
 Bu belge, SAML 2.0 kimlik sağlayıcısı oturum açma bir veya daha fazla Microsoft bulut hizmetlerine (örneğin, Office 365) etkinleştirmek için Azure AD ile federasyona eklemek için uygulamalıdır biçimlendirme ileti ve protokolü ayrıntılı gereksinimler içermektedir. Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 bağlı olan taraf (SP-STS), Azure AD.
@@ -71,8 +71,8 @@ SAML yanıtını iletisi içindeki imza düğüm iletinin dijital imza hakkında
 Bağlamaları gerekli olan aktarım ilgili bilgiler parametreleridir. Bağlamaları aşağıdaki gereksinimler geçerlidir
 
 1. Gerekli aktarım https'dir.
-2.  Azure AD oturum açma sırasında token gönderimi için HTTP POST gerektirir
-3.  Azure AD kimlik doğrulama isteğini yeniden yönlendirme ve kimlik sağlayıcısı için kimlik sağlayıcısı oturum kapatma iletiye için HTTP POST kullanın.
+2.  Azure AD oturum açma sırasında token gönderimi için HTTP POST gerektirir.
+3.  Azure AD kimlik sağlayıcısına ve yeniden yönlendirme iletisi kimlik sağlayıcısı oturum açma için kimlik doğrulama isteği için HTTP POST kullanın.
 
 ## <a name="required-attributes"></a>Gerekli öznitelikleri
 Bu tabloda belirli öznitelikler için gereksinimleri SAML 2.0 iletisinde gösterilir.
@@ -258,7 +258,7 @@ SAML 2.0 tabanlı kimlik sağlayıcınız test etmek için kullanabileceğiniz b
 2.  Başlamak için Şimdi Yükle'ye tıklayın. aracı yükleyip.
 3.  "Office 365, Azure veya Azure Active Directory kullanan diğer hizmetlerde ile Federasyon oluşturamıyorum" seçin.
 4.  Araç, indirilen ve çalışır durumdaysa, bağlantı tanılama penceresinde görürsünüz. Aracı'nı Federasyon bağlantınızı test sürecinde adım adım anlatır.
-5.  Bağlantı Çözümleyicisi'ni, oturum açma, sınamakta olduğunuz kullanıcı asıl için kimlik bilgilerini girin, SAML 2.0 IDP'yi açılır: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Bağlantı Çözümleyicisi'ni açın, SAML 2.0 IDP'yi için oturum açma, test ettiğiniz asıl kullanıcı için kimlik bilgilerini girin: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Federasyon test oturum açma penceresinde, SAML 2.0 kimlik sağlayıcınız ile federasyona eklenmesi için yapılandırılmış Azure AD kiracısı için bir hesap adı ve parola girmelisiniz. Aracı bu kimlik bilgilerini kullanarak oturum açın dener ve oturum açma denemesi sırasında gerçekleştirilen testin ayrıntılı sonuçları çıktı olarak sağlanacaktır.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Bu pencere, başarısız bir test sonucunu gösterir. Tıklayarak gözden geçirme ayrıntılı sonuçları gerçekleştirildiği her test sonuçlarıyla ilgili bilgileri gösterir. Ayrıca, bunları paylaşmak için disk sonuçlarını da kaydedebilirsiniz.
@@ -271,7 +271,7 @@ El ile doğrulama, SAML 2.0 kimlik sağlayıcısı pek çok senaryoda düzgün �
 Bu çoklu oturum açma doğru şekilde ayarlandığını gösterdiğinde doğrulamak için aşağıdaki adımları tamamlayın:
 
 
-1. Etki alanına katılmış bir bilgisayarda oturum için Kurumsal kimlik bilgilerinizi aynı oturum açma adını kullanarak bulut hizmetinizi açın.
+1. Etki alanına katılmış bir bilgisayarda oturum için Kurumsal kimlik bilgilerinizi oturum açma adının aynısını kullanarak bulut hizmetinizi açın.
 2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlanıp ayarlanmadığını parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: "Artık, oturum açmanız gereklidir &lt;şirketinizin&gt;."
 3.  Oturum açmada tıklayın &lt;şirketinizin&gt; bağlantı. Mümkünse oturum açma, tek oturum açma ayarlandığını gösterdiğinde.
 

@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711894"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153029"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.5.0: Mayıs 2019 sürüm
+
+*   Konuşma cihaz SDK'sı GA ve artık Geçitli Önizleme sunulmuştur.
+*   Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.5.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
+*   Yeni Uyandırma word teknoloji önemli kalitesi geliştirmeleri getirir, bozucu değişiklikleri görebilirsiniz.
+*   Yeni ses işleme işlem hattı için geliştirilmiş alan uzak tanıma.
+
+**Bozucu değişiklikler**
+
+*   Yeni Uyandırma word teknolojisi nedeniyle tüm Uyandırma sözcükler bizim geliştirilmiş Uyandırma word portalında yeniden oluşturulmalıdır. Tamamen kaldırmak için cihaz eski sözcüklerden eski uygulamayı kaldırın.
+    - adb com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp kaldırma
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.4.0: 2019 Apr sürüm 
 

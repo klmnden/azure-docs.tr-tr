@@ -2,18 +2,17 @@
 title: Geliştirici en iyi uygulamalar - Pod güvenlik Azure Kubernetes Hizmetleri (AKS)
 description: Geliştirici için en iyi pod'ları Azure Kubernetes Service (AKS) güvenli hale getirmeyi öğrenin
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466893"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073983"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Pod güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -32,7 +31,9 @@ Ayrıca, en iyi yöntemler için okuyabilirsiniz [küme güvenlik] [ best-practi
 
 **En iyi uygulama kılavuzunu** - farklı bir kullanıcı veya grup ve sınırı erişim temel alınan düğüm işlemleri ve hizmetleri çalıştırmak, pod güvenlik bağlamı ayarları tanımlar. En az atama ayrıcalıklarına sayısı.
 
-Uygulamalarınızın düzgün çalışması için tanımlanan kullanıcı veya grup pod'ların çalışması gerektiğini olarak değil *kök*. `securityContext` Pod ya da kapsayıcı ayarları gibi tanımlamanızı sağlar *farklıkullanıcı* veya *fsGroup* uygun izinleri varsaymak. Yalnızca gerekli kullanıcı veya grup izinleri atayın ve güvenlik bağlamı bir şekilde ek izinler varsaymak kullanmayın. Kök olmayan kullanıcı olarak çalıştırdığınızda, kapsayıcılar ayrıcalıklı bağlantı noktalarına altında 1024 bağlanamıyor. Bu senaryoda, Kubernetes Hizmetleri bir uygulamanın belirli bir bağlantı noktası üzerinde çalıştığı olgu gizlemek için kullanılabilir.
+Uygulamalarınızın düzgün çalışması için tanımlanan kullanıcı veya grup pod'ların çalışması gerektiğini olarak değil *kök*. `securityContext` Pod ya da kapsayıcı ayarları gibi tanımlamanızı sağlar *farklıkullanıcı* veya *fsGroup* uygun izinleri varsaymak. Yalnızca gerekli kullanıcı veya grup izinleri atayın ve güvenlik bağlamı bir şekilde ek izinler varsaymak kullanmayın. *Farklıkullanıcı*, ayrıcalık yükseltme ve diğer Linux özellikleri ayarları, yalnızca Linux düğümleri ve pod'ları üzerinde kullanılabilir.
+
+Kök olmayan kullanıcı olarak çalıştırdığınızda, kapsayıcılar ayrıcalıklı bağlantı noktalarına altında 1024 bağlanamıyor. Bu senaryoda, Kubernetes Hizmetleri bir uygulamanın belirli bir bağlantı noktası üzerinde çalıştığı olgu gizlemek için kullanılabilir.
 
 Pod güvenlik bağlamı da ek özellikler veya işlemleri ve Hizmetleri erişmek için izinler tanımlayabilirsiniz. Aşağıdaki ortak güvenlik bağlamı tanımları ayarlanabilir:
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ Gereksinim duyduğunuz güvenlik bağlamı ayarları belirlemek için küme işl
 
 ## <a name="limit-credential-exposure"></a>Kimlik bilgisi ifşa sınırı
 
-**En iyi uygulama kılavuzunu** -kimlik bilgileri uygulama kodunuzda tanımlama yok. Azure kaynakları için yönetilen kimlikleri pod isteği erişiminizi diğer kaynaklara izin vermek için kullanın. Azure Key Vault gibi dijital bir kasa, depolamak ve dijital anahtarlarını ve kimlik bilgilerini almak için de kullanılmalıdır.
+**En iyi uygulama kılavuzunu** -kimlik bilgileri uygulama kodunuzda tanımlama yok. Azure kaynakları için yönetilen kimlikleri pod isteği erişiminizi diğer kaynaklara izin vermek için kullanın. Azure Key Vault gibi dijital bir kasa, depolamak ve dijital anahtarlarını ve kimlik bilgilerini almak için de kullanılmalıdır. Yönetilen pod kimlikler Linux pod'ların ve kapsayıcı görüntüleri ile kullanılmak için tasarlanmıştır.
 
 Kimlik bilgileri uygulama kodunuzda maruz kalma riskini sınırlamak için sabit ya da paylaşılan kimlik bilgilerini kullanmaktan kaçının. Kimlik bilgilerine veya anahtarlara doğrudan kodunuza eklenmemelidir. Bu kimlik bilgilerinin ifşa edildiği imzalanmasını ve güncelleştirilmiş uygulama gerekir. Kendi kimlik ve kendi kimliğini doğrulamasını veya otomatik olarak dijital bir kasadan kimlik bilgilerini almak için yol pod'ların vermek daha iyi bir yaklaşımdır.
 
@@ -97,6 +98,8 @@ Bunlar dijital kasa ile iletişim kurmak uygulamaların bir kimlik bilgisi gerek
 ![Yönetilen bir pod kullanarak Key Vault'tan bir kimlik bilgisi almak için basitleştirilmiş bir iş akışı kimliği](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Key Vault ile depolayın ve kimlik bilgilerini, depolama hesabı anahtarlarını veya sertifika gibi gizli dizileri düzenli olarak döndür. Azure Key Vault bir FlexVolume kullanarak bir AKS kümesi ile tümleştirebilirsiniz. FlexVolume sürücü yerel olarak kimlik Key Vault'tan almanız ve güvenli bir şekilde yalnızca isteyen pod'u sağlayacağını AKS kümesi sağlar. Anahtar kasası FlexVol sürücü AKS düğümleri üzerine dağıtmak için küme işleci ile çalışır. Pod yönetilen kimlik, anahtar kasası erişim istemek ve FlexVolume sürücüyü gereken kimlik bilgilerini almak için kullanabilirsiniz.
+
+Azure Key Vault FlexVol ile Linux pod'ların ve düğümler üzerinde çalışan uygulama ve hizmetlere ile kullanıma yöneliktir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

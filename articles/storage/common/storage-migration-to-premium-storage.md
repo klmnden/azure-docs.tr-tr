@@ -2,18 +2,19 @@
 title: Azure Premium depolama Vm'leri geçirme | Microsoft Docs
 description: Mevcut Vm'lerinizi Azure Premium Depolama'ya geçirin. Premium depolama, Azure sanal makinelerinde çalışan g/Ç açısından yoğun iş yükleri için yüksek performanslı, düşük gecikme süreli disk desteği sunar.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372327"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153772"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -74,7 +75,7 @@ Premium depolama özellikleri hakkında daha fazla bilgi için kullanıma [Azure
 #### <a name="disk-caching-policy"></a>Diski önbelleğe alma İlkesi
 Varsayılan olarak, önbelleğe alma İlkesi disktir *salt okunur* tüm Premium veri disklerinde, ve *okuma-yazma* Premium işletim sistemi diski, VM'ye bağlı. Bu yapılandırma ayarının, uygulamanızın IOs için en iyi performans elde etmek için önerilir. (Örneğin, SQL Server günlük dosyası) yazma yoğunluklu veya salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın. Mevcut veri diskleri için önbellek ayarlarını kullanarak güncelleştirilebilir [Azure portalında](https://portal.azure.com) veya *- HostCaching* parametresinin *kümesi AzureDataDisk* cmdlet'i.
 
-#### <a name="location"></a>Konum
+#### <a name="location"></a>Location
 Azure Premium depolama kullanılabilir olduğu bir konum seçin. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumların hakkında güncel bilgi için. Depoları diskleri VM için ayrı bölge içinde olup olmadıklarını daha çok daha iyi performans sağlayabilir, depolama hesabıyla aynı bölgede yer alan VM'ler.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Diğer Azure VM yapılandırma ayarları
@@ -255,7 +256,7 @@ Yerel dizinde VHD'nizi sahip olduğunuza göre Azure Depolama'ya .vhd dosyasın�
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Bir örnek <Uri> olabilir ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Bir örnek <FileInfo> olabilir ***"C:\path\to\upload.vhd"***.
+Bir örnek \<URI > olabilir ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Bir örnek \<FileInfo > olabilir ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>2. seçenek: .Vhd dosyasını karşıya yüklemek için AzCopy kullanarak
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.

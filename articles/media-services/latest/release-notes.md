@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682159"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153072"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -34,9 +34,19 @@ ms.locfileid: "64682159"
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="may-2019"></a>Mayıs 2019
+
+### <a name="performance-improvements"></a>Performans iyileştirmeleri
+
+* İşleme için desteklenen en büyük dosya boyutu güncelleştirildi. Bkz, [kotaları ve sınırlamaları](limits-quotas-constraints.md).
+* [Kodlama hızlarını geliştirmeleri](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
 ## <a name="april-2019"></a>Nisan 2019
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) için yerleşik Çözümleyicisi hazır eklendi.
+### <a name="new-presets"></a>Yeni hazır
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) için yerleşik Çözümleyicisi hazır eklendi.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) için yerleşik Kodlayıcı hazır eklendi. Daha fazla bilgi için [içeriğe duyarlı kodlama](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Mart 2019
 
@@ -205,7 +215,7 @@ Varlıklar veya hesap filtreleri 09/28 ile 10 arasında oluşturduğunuz, / 12 i
 
 * Bir iş gönderirken HTTPS URL'leri, SAS URL'lerini veya yolları kullanarak dosyaları Azure Blob Depolama alanında bulunan kaynak videonuzu içe almak için belirtebilirsiniz. AMS v3 şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklememektedir.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

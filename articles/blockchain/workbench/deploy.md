@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154635"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -27,16 +27,16 @@ Blockchain Workbench'i bileşenleri hakkında daha fazla bilgi için bkz. [Azure
 
 Blockchain Workbench'i, ilgili Azure Hizmetleri blok zinciri tabanlı bir uygulama oluşturmak için en sık kullanılan bir dizi ile birlikte bir blok zinciri defter dağıtmanıza olanak tanır. Blockchain Workbench'i dağıtma, Azure aboneliğinizde bir kaynak grubu içinde sağlanan aşağıdaki Azure Hizmetleri ile sonuçlanır.
 
-* 1 olay Kılavuzu konusu
-* 1 Service Bus Namespace
-* 1 application Insights
-* 1 SQL veritabanı (standart S0)
-* 2 uygulama Hizmetleri (standart)
-* 2 azure anahtar kasaları
-* 2 azure depolama hesapları (standart LRS)
-* 2 sanal makine ölçek kümeleri (için Doğrulayıcı ve çalışan düğümleri)
-* (Yük dengeleyici, ağ güvenlik grubu ve her bir sanal ağ için genel IP adresi gibi) 2 sanal ağ
-* İsteğe bağlı: Azure İzleyici
+* App Service planı (standart)
+* Application Insights
+* Event Grid
+* Azure Key Vault
+* Service Bus
+* SQL veritabanı (standart S0) + SQL mantıksal sunucusu
+* Azure depolama hesabı (standart LRS)
+* Sanal makine ölçek kümesi kapasitesi 1 ile
+* Sanal ağ kaynak grubuyla (yük dengeleyici, ağ güvenlik grubu, genel IP adresi, sanal ağ)
+* İsteğe bağlı: Azure Blockchain hizmeti (temel B0 varsayılan)
 
 Oluşturulan örnek bir dağıtım verilmiştir **myblockchain** kaynak grubu.
 
@@ -44,17 +44,12 @@ Oluşturulan örnek bir dağıtım verilmiştir **myblockchain** kaynak grubu.
 
 Blockchain Workbench'i temel alınan Azure hizmetlerinin maliyetinin toplama maliyetidir. Azure Hizmetleri kullanılarak hesaplanabilir için fiyatlandırma bilgilerine [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> Bir Azure ücretsiz katman abonelik gibi düşük hizmet sınırları ile bir abonelik kullanıyorsanız, dağıtım yeterli VM çekirdek kotası nedeniyle başarısız olabilir. Dağıtımdan önce kılavuzdan kullanarak kotanızı denetleyin [sanal makine vCPU kotaları](../../virtual-machines/windows/quotas.md) makalesi. Varsayılan VM seçim 6 VM çekirdek gerektiriyor. Daha küçük bir boyut VM gibi değiştirme *standart DS1 v2* 4 çekirdek sayısını azaltır.
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını gerektirir. Azure AD yapmak seçebileceğiniz [yapılandırmalar el ile](#azure-ad-configuration) dağıtım sonrasında otomatik olarak bir komut çalıştırın veya dağıtım önce. Blockchain Workbench'i yeniden dağıtıyorsanız bkz [Azure AD Yapılandırması](#azure-ad-configuration) Azure AD'ye yapılandırmanızı doğrulamak üzere.
 
 > [!IMPORTANT]
 > Workbench olarak bir Azure AD uygulaması kaydetmek için kullandığınız aynı kiracıda dağıtılması gerekmez. Workbench kaynakları dağıtmak için yeterli izinlere sahip olduğu bir kiracıda dağıtılması gerekir. Azure AD kiracılarıyla hakkında daha fazla bilgi için bkz. [bir Active Directory kiracısı edinme](../../active-directory/develop/quickstart-create-new-tenant.md) ve [uygulamaları Azure Active Directory ile tümleştirme](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>Blockchain Workbench'i dağıtma
 
@@ -82,7 +77,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
     | Kimlik doğrulaması türü | Vm'lere bağlanmak için anahtar veya bir parola kullanmak isteyip istemediğinizi seçin. |
     | Parola | Parola, Vm'lere bağlanmak için kullanılır. |
     | SSH | RSA ortak anahtarını tek satırlı biçimde başlayarak kullanmak **ssh-rsa** veya çok satırlı PEM biçimi kullanın. Kullanarak SSH anahtarları oluşturabilirsiniz `ssh-keygen` Linux ve OS X veya Windows üzerinde puttygen araçlarını kullanarak. SSH anahtarları hakkında daha fazla bilgi [azure'da Windows ile SSH kullanma anahtarları](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Veritabanı parolası / veritabanı parolasını onaylayın | Dağıtımın bir parçası oluşturduğunuz veritabanına erişim için kullanılacak parolayı belirtin. |
+    | Veritabanı ve blok zinciri parola | Dağıtımın bir parçası oluşturduğunuz veritabanına erişim için kullanılacak parolayı belirtin. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolumn(;) |
     | Dağıtım bölgesi | Blockchain Workbench'i kaynakların dağıtılacağı yeri belirtin. En iyi kullanılabilirlik için bu eşleşmelidir **konumu** ayarı. |
     | Abonelik | Dağıtımınız için kullanmak istediğiniz Azure aboneliği belirtin. |
     | Kaynak grupları | Seçerek yeni bir kaynak grubu oluşturma **Yeni Oluştur** ve benzersiz kaynak grubu adı belirtin. |
@@ -94,15 +89,15 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
 
     İçin **Yeni Oluştur**:
 
-    *Yeni Oluştur* seçeneği, bir dizi içindeki tek bir üyenin abonelik Ethereum kavram, (PoA) yetkilisi düğümü oluşturur. 
+    *Yeni Oluştur* seçeneği bir Azure blok zinciri hizmet çekirdek muhasebe varsayılan temel sku ile dağıtır.
 
     ![Yeni blok zinciri ağ için Gelişmiş ayarları](media/deploy/advanced-blockchain-settings-new.png)
 
     | Ayar | Açıklama  |
     |---------|--------------|
-    | İzleme | Azure blockchain ağınızı izlemek izleyicisini etkinleştirmek isteyip istemediğinizi seçin |
+    | Azure Blockchain Service fiyatlandırma katmanı | Seçin **temel** veya **standart** Blockchain Workbench için kullanılan Azure blok zinciri hizmet katmanı |
     | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
-    | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. Gibi daha küçük bir VM boyutu seçin *standart DS1 v2* Azure ücretsiz katmanı gibi düşük hizmet sınırları olan bir abonelik kullanıyorsanız. |
+    | Sanal makine seçimi | Tercih edilen depolama performansı ve blok zinciri ağınız için VM boyutunu seçin. Gibi daha küçük bir VM boyutu seçin *standart DS1 v2* Azure ücretsiz katmanı gibi düşük hizmet sınırları olan bir abonelik kullanıyorsanız. |
 
     İçin **var olanı kullan**:
 
@@ -121,7 +116,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
      |---------|--------------|
      | Ethereum RPC Endpoint | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
      | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
-     | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
+     | Sanal makine seçimi | Tercih edilen depolama performansı ve blok zinciri ağınız için VM boyutunu seçin. Gibi daha küçük bir VM boyutu seçin *standart DS1 v2* Azure ücretsiz katmanı gibi düşük hizmet sınırları olan bir abonelik kullanıyorsanız. |
 
 9. Seçin **Tamam** Gelişmiş ayarlar tamamlanması.
 

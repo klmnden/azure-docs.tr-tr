@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152626"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows cihazları
 
-Windows cihazlarda güvenlik arka plan programı kaldırıp için PowerShell betiğini kullanın. Yükleme betiği otomatik olarak en son sürümünü güvenlik arka plan programı çeker. 
-
-Bir yönetici PowerShell oturumunda güvenlik arka plan programı kaldırın. 
+Windows cihazlarda güvenlik arka plan programı güncelleştirmek için PowerShell betiğini kullanın. Betik, güvenlik arka plan programı en son sürümünü otomatik olarak çeker. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Çalışan `Uninstall-SecurityDaemon` komut hiçbir parametre olmadan yalnızca kaldırır güvenlik arka plan programı cihazınızdan iki çalışma zamanı kapsayıcı görüntülerinin yanı sıra. Config.yaml dosya Moby container altyapısı verileri yanı sıra cihaz tutulur. Bağlantı dizesi veya yeniden yükleme işlemi sırasında cihazınız için cihaz sağlama hizmeti bilgilerini sağlamaları gerekmez yapılandırma bilgileri anlamına gelir kalmasını sağlar. 
+Güncelleştirme IoTEdge çalıştırarak güvenlik arka plan programı iki çalışma zamanı kapsayıcı görüntülerinin yanı sıra, bir CİHAZDAN kaldırır. (Windows kapsayıcıları kullanıyorsanız) config.yaml dosya Moby container altyapısı verileri yanı sıra cihaz tutulur. Bağlantı dizesi veya güncelleştirme işlemi sırasında yeniden cihazınız için cihaz sağlama hizmeti bilgilerini sağlamaları gerekmez yapılandırma bilgileri anlamına gelir kalmasını sağlar. 
 
-IOT Edge Cihazınızı Windows kapsayıcıları ya da Linux kapsayıcıları kullanıp bağlı olarak güvenlik daemon'ı yeniden yükleyin. Tümcecik değiştirin **\<Windows veya Linux\>** uygun bir kapsayıcı işletim sistemlerine sahip. Kullanım **- ExistingConfig** Cihazınızda mevcut config.yaml dosyasına işaret etmek için bayrak. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-Güvenlik arka plan programı belirli bir sürümünü yüklemek istiyorsanız, uygun iotedged windows.zip dosyası indirin [IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases). Ardından, `-OfflineInstallationPath` dosya konumuna işaret edecek şekilde parametresi. Daha fazla bilgi için [çevrimdışı yükleme](how-to-install-iot-edge-windows.md#offline-installation).
+Güvenlik arka plan programı belirli bir sürümünü yüklemek istiyorsanız, uygun Microsoft Azure IoTEdge.cab dosya indirme [IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases). Ardından, `-OfflineInstallationPath` dosya konumuna işaret edecek şekilde parametresi. Daha fazla bilgi için [çevrimdışı yükleme](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Çalışma zamanı kapsayıcılarındaki güncelleştir
 

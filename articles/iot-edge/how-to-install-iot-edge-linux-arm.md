@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126384"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152722"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
@@ -22,7 +22,7 @@ Azure IOT Edge çalışma zamanı, ne bir cihaz ile IOT Edge cihazı kapatır ' 
 
 IOT Edge çalışma zamanı nasıl çalıştığını ve hangi bileşenler dahildir hakkında daha fazla bilgi için bkz: [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md).
 
-Bu makalede, Azure IOT Edge çalışma zamanı Linux ARM32v7/armhf IOT Edge cihazında yüklemek için adımları listelenir. Örneğin, aşağıdaki adımları Raspberry Pi'yi cihazlar için işe yarar. Desteklenen ARM32 işletim sistemlerinin listesi için bkz. [Azure IOT Edge desteği](support.md#operating-systems). 
+Bu makalede, Azure IOT Edge çalışma zamanı Linux ARM32v7/armhf IOT Edge cihazında yüklemek için adımları listelenir. Örneğin, aşağıdaki adımları Raspberry Pi'yi cihazlar için işe yarar. Desteklenen ARM32 işletim sistemlerinin listesi için bkz. [Azure IOT Edge desteklenen sistemler](support.md#operating-systems). 
 
 >[!NOTE]
 >Linux yazılım depoları paketlerinde her pakette yer alan lisans koşullarına tabidir (/ usr/paylaşım/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.

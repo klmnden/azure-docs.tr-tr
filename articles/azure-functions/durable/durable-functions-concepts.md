@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862118"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071324"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Dayanıklı işlevler desenleri ve teknik kavramlar (Azure işlevleri)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> Geliştirirken yerel olarak JavaScript'te yöntemlerini kullanmayı `DurableOrchestrationClient`, ortam değişkenini ayarlamalıdır `WEBSITE_HOSTNAME` için `localhost:<port>` (örneğin, `localhost:7071`). Bu gereksinim hakkında daha fazla bilgi için bkz. [GitHub sorunu 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 . NET'te, [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` dayanıklı işlevler uzantısını parçası olan bağlama, çıktı. JavaScript'te çağırarak bu nesne döndürülür `df.getClient(context)`. Bu nesneler için yeni veya var olan orchestrator işlevi örnekleri başlatmak, olayları göndermek, sonlandırma ve sorgulamak için kullanabileceğiniz yöntemler sağlar.
 
 Yukarıdaki örneklerde, HTTP ile tetiklenen bir işlev alır bir `functionName` gelen URL değeri ve değerine geçirir [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) API ardından bağlama içeren bir yanıt döndürür bir `Location` üst bilgi ve örnek hakkında ek bilgiler. Kullanmaya başlama örneği durumu arayın veya örneği sonlandırmak için bilgiler daha sonra kullanabilirsiniz.
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>Desen #6: Toplayıcı'yı (Önizleme)
+
+Altıncı desendir tek, adreslenebilir bir süre içinde olay verilerini toplama hakkında *varlık*. Bu düzen toplanmakta olan verilerin birden çok kaynaklardan gelebilir, toplu olarak teslim edilebilir veya uzun-süreler dağılmış. Toplayıcı, olay verileri üzerinde ulaşır ve toplanan verileri sorgulamak dış istemcilere gerekebilir işlem gerekebilir.
+
+![Toplayıcı diyagramı](./media/durable-functions-concepts/aggregator.png)
+
+Bu düzeni ile normal uygulama çalışırken hakkında zor olan şey, durum bilgisi olmayan işlevleri, eşzamanlılık denetimi çok zor hale gelir. Yalnızca birden çok iş parçacığı aynı anda aynı verileri değiştirme hakkında endişelenmenize gerek, ayrıca Toplayıcı aynı anda yalnızca tek bir VM üzerinde çalışan sağlama hakkında endişe etmeniz gerekir.
+
+Kullanarak bir [dayanıklı Entity işlevi](durable-functions-preview.md#entity-functions), bir kolayca tek bir işlev olarak bu desen uygulayabilirsiniz.
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+İstemciler için kuyruğa *işlemleri* (diğer adıyla "sinyal") kullanarak bir varlık işlevi `orchestrationClient` bağlama.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+Benzer şekilde, istemciler üzerinde yöntemleri kullanarak bir varlık işlevi durumunu sorgulayabilir `orchestrationClient` bağlama.
+
+> [!NOTE]
+> Varlık işlevleri şu anda yalnızca bulunan [dayanıklı işlevler 2.0 Önizleme](durable-functions-preview.md).
+
 ## <a name="the-technology"></a>Teknoloji
 
 Arka planda üst kısmındaki dayanıklı işlevler uzantısını oluşturulmuştur [dayanıklı görev Framework](https://github.com/Azure/durabletask), bir açık kaynak kitaplığı github'da dayanıklı görev düzenlemeleri oluşturmak için kullanılır. Azure işlevleri, sunucusuz Azure WebJobs gelişimi, dayanıklı işlevler dayanıklı görev Framework sunucusuz gelişimi gibidir. Microsoft ve diğer kuruluşlardan dayanıklı görev Framework kritik süreçlerini otomatikleştirmek için kapsamlı bir şekilde kullanın. Bu sunucusuz Azure işlevleri ortam için uygun bir kullanımdır olur.
@@ -423,7 +477,7 @@ Depolama BLOB'ları orchestration örneklerinin genişleme birden çok VM arası
 
 ![Bir Azure Depolama Gezgini ekran görüntüsü](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > Tablo depolama yürütme geçmişini görmek kolay olsa da bu tabloda herhangi bir bağımlılığın yapmayın. Dayanıklı işlevler uzantısını geliştikçe tablo değişebilir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar

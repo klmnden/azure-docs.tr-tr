@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474836"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154203"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL veri ambarı iş yükü sınıflandırma (Önizleme)
+# <a name="sql-data-warehouse-workload-classification"></a>SQL veri ambarı iş yükü sınıflandırma
 
 Bu makalede, gelen istekleri kaynak sınıfı ve önemi atamak SQL veri ambarı iş yükü sınıflandırma işlemi açıklanmaktadır.
-
-> [!Note]
-> İş yükü Sınıflandırma, SQL veri ambarı Gen2'te önizlemesi için kullanılabilir. 9 Nisan 2019 veya sonraki bir sürüm tarihi yapılarla Önizleme iş yükü yönetimi sınıflandırma ve önem derecesi içindir.  Kullanıcılar, iş yükü yönetimi için test derlemeleri bu tarihten önceki kullanmaktan kaçınmanız gerekir.  Derleme iş yükü yönetimi özelliğine sahip olup olmadığını belirlemek için çalıştırdığınızda @ seçin@version SQL veri ambarı Örneğinize bağlandığında.
 
 ## <a name="classification"></a>Sınıflandırma
 
@@ -63,10 +60,10 @@ Sistem sınıflandırıcılar sizin adınıza oluşturulur, iş yükü sınıfla
 
 Aşağıdaki senaryoyu göz önünde bulundurun:
 
-Var olan veri ambarı •an DBAUser largerc kaynak sınıfı rolüne atanmış bir veritabanı kullanıcısı vardır. Kaynak sınıf atamasını sp_addrolemember ile yapılmaktaydı.
-•Hedef veri ambarı iş yükü yönetimi ile güncelleştirilmiştir.
-Yeni sınıflandırma söz dizimini (aynı DBAUser üyesi) DBARole bunları mediumrc ve yüksek önem derecesi için eşleme için oluşturulan bir sınıflandırıcı sahip veritabanı rolü test • tıklatın.
-•When DBAUser oturum açması ve bir sorgu çalıştırır, sorgu için largerc atanır. Bir kullanıcının bir rol üyeliği göre öncelikli olduğundan.
+- Var olan bir veri ambarı DBAUser largerc kaynak sınıfı rolüne atanmış bir veritabanı kullanıcısı vardır. Kaynak sınıf atamasını sp_addrolemember ile yapılmaktaydı.
+- Veri ambarı iş yükü yönetimi ile güncelleştirilmiştir.
+- Yeni sınıflandırma söz dizimini test etmek için veritabanı rolü (aynı DBAUser üyesi) DBARole bunları mediumrc ve yüksek önem derecesi için eşleme için oluşturulan bir sınıflandırıcı vardır.
+- DBAUser oturum açması ve bir sorgu çalıştırır, sorgu için largerc atanır. Bir kullanıcının bir rol üyeliği göre öncelikli olduğundan.
 
 Sorun giderme misclassification basitleştirmek için iş yükü sınıflandırıcılar oluştururken kaynak sınıfı rolüne eşlemeleri kaldırmanız önerilir.  Aşağıdaki kod mevcut bir kaynak sınıfı rol üyeliklerini döndürür.  Çalıştırma [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) her üye adı için karşılık gelen kaynak sınıfından döndürdü.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SQL veri ambarı iş yükü sınıflandırma ve önemi hakkında daha fazla bilgi için bkz. [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md) ve [SQL veri ambarı önem](sql-data-warehouse-workload-importance.md). Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.
+Sınıflandırıcı oluşturmaya başlamak için bkz: [iş YÜKÜ SINIFLANDIRICI oluşturma (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  SQL veri ambarı iş yükü sınıflandırma ve önemi hakkında daha fazla bilgi için bkz. [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md) ve [SQL veri ambarı önem](sql-data-warehouse-workload-importance.md). Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.

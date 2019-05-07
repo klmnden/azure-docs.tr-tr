@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926539"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154335"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -228,7 +228,7 @@ Yönetilen kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde, Azure SQL veritabanı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Ya da Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **AzureSqlTable**. Aşağıdaki özellikler desteklenir:
+Ya da Azure SQL veritabanına veri kopyalamak için aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -247,6 +247,7 @@ Ya da Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** veri
             "referenceName": "<Azure SQL Database linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -368,7 +369,7 @@ Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliğ
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır **SqlSink**. | Evet |
-| writeBatchSize | SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/> İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
+| writeBatchSize | SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/> İzin verilen değer **tamsayı** (satır sayısı). Varsayılan olarak, Data Factory dinamik olarak satır boyutuna göre uygun toplu iş boyutu belirler. | Hayır |
 | writeBatchTimeout | Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanmasını ekleyin.<br/> İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
 | preCopyScript | Azure SQL veritabanı'na veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopyalama çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
 | sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı. Upsert eder misiniz veya tarafından dönüştürmek için bir örnek verilmiştir, kendi iş mantığınızı kullanarak. <br/><br/>Bu saklı yordam **toplu iş çağrılan**. Yalnızca bir kez çalıştırın ve kaynak verilerle ilgisi yoktur işlemleri için `preCopyScript` özelliği. Örnek işlemler silmeden ve kesin. | Hayır |

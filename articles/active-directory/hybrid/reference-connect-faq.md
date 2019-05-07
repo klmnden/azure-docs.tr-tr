@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137796"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
@@ -78,6 +78,47 @@ Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Se
 
 Örneği basit tutmak için Azure AD Connect'i yükleyen kullanıcılar SQL sistem yöneticileri olmasını öneririz. Kullanım SQL yönetici temsilcisi Bununla birlikte, son yapılar ile açıklandığı gibi artık [SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme](how-to-connect-install-sql-delegation.md).
 
+**S: Bazı alanından en iyi uygulamalar nelerdir?**  
+
+Bazı en iyi yöntemler, mühendislik, destek sunan bir bilgilendirme belge verilmiştir ve Danışmanlarımız yıllar içinde geliştirdik.  Bu hızlı bir şekilde başvurulabilen bir madde işareti listede sunulur.  Bu liste kapsamlı olarak çalışır, ancak bu listede henüz yapmış olabilirsiniz değil ek iyi olabilir.
+
+- Yerel kalmalıdır sonra tam SQL kullanıyorsanız uzaktan karşılaştırması
+    - Daha az atlama
+    - Daha kolay sorun giderme
+    - Daha az karmaşıklık
+    - SQL kaynakları atamak ve Azure AD Connect ve işletim sistemi için ek yükü izin vermeniz gerekir
+- Bu tamamen mümkünse proxy atlama, emin olmanız gerekir daha sonra proxy atlama ise zaman aşımı değeri 5 dakikadan fazla olur.
+- Ara sunucu gerekliyse sonra proxy machine.config dosyasına eklemeniz gerekir
+- Yerel SQL işleri ve Bakım ve özellikle yeniden dizin oluşturma - Azure AD Connect'i nasıl etkiler unutmayın
+- Harici olarak çözümlemek için DNS daha emin olun.
+- Emin [sunucu belirtimlerini](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) öneri fiziksel veya sanal sunucular kullanmanıza olan
+- Bir sanal sunucu için gereken kaynakları ayrılmış kullanıyorsanız emin olun.
+- SQL Server için en iyi karşılayan disk yapılandırması ve disk olduğundan emin olun
+- Yükleme ve Azure AD Connect Health, izleme için yapılandırma
+- Azure AD Connect ile oluşturulan silme eşiği kullanın.
+- Tüm değişiklikleri ve eklenebilir yeni öznitelikler için hazırlıklı olmak için dikkatle gözden geçirme sürüm güncelleştirmeleri
+- Her şeyi yedekleme
+    - Yedekleme anahtarları
+    - Yedekleme eşitleme kuralları
+    - Yedekleme sunucusu yapılandırması
+    - SQL veritabanını yedekle
+- SQL VSS Yazıcı (3. taraf anlık görüntüleri içeren sanal sunucular ortak) olmadan SQL yedekleyen 3 taraf yedekleme aracı olduğundan emin olun
+- Bunlar karmaşıklığı eklerken kullanılan özel eşitleme kurallarını miktarını sınırlamak
+- Katman 0 sunucuları gibi davranma Azure AD Connect sunucuları
+- Bulut eşitleme kuralları harika anlama etkisi ve doğru iş sürücüleri olmadan değiştirilmesini leery olabilir
+- Güvenlik Duvarı bağlantı noktaları ve doğru URL'nin Azure AD Connect ve Azure AD Connect Health desteği için açık olduğundan emin olun
+- Sorun giderme ve sahte nesneler önlemek için bulut filtrelenmiş bir öznitelik yararlanın
+- Hazırlama sunucusu ile sunucu arasında tutarlılık için Azure AD Connect yapılandırma Belgeleyici'yi kullandığınızdan emin olun.
+- Hazırlama sunucuları ayrı veri merkezleri (fiziksel konumlara olmalıdır
+- Hazırlama sunucuları yüksek oranda kullanılabilirlik çözümü olması beklenmez, ancak birden çok hazırlık sunucusu olabilir.
+- Bir "Lag" hazırlama sunucuları ile tanışın hata durumunda bazı olası kapalı kalma süresini azaltmak
+- Test ve hazırlık sunucu üzerindeki tüm yükseltmelerde ilk doğrulama
+- Her zaman için hazırlama serverLeverage tam içeri aktarmalar ve tam eşitlemeler iş etkisini azaltmak hazırlık sunucusu geçmeden önce dışarı aktarmaları doğrula
+- Azure AD Connect sunucuları arasında sürüm tutarlılığı mümkün olduğunca tutun 
+
+**S: Çalışma grubu makinesinde Azure AD Bağlayıcısı hesabı oluşturmak Azure AD Connect izin ver?**
+Hayır.  Azure AD Bağlayıcısı hesabı otomatik olarak oluşturmak Azure AD Connect izin vermek üzere makine etki alanına katılmış olması gerekir.  
+
 ## <a name="network"></a>Ağ
 **S: Bir güvenlik duvarı, ağ aygıtı veya bağlantıları Ağımdaki açık kalabileceği süreyi sınırlar sorun sahibim. Azure AD Connect kullandığımda ne my istemci-tarafı zaman aşımı eşiğini olmalıdır?**  
 Tüm ağ yazılımı, fiziksel cihazlar veya başka bir şey bağlantıları açık kalabileceği en uzun süreyi sınırlayan bir eşiği en az beş dakika (300 saniye), Azure AD Connect istemcisinin yüklü olduğu sunucu arasında bağlantı kurmak için kullanmanız gerekir ve Azure Active Directory. Bu öneri, tüm daha önce yayımlanmış Microsoft Identity eşitleme araçları için de geçerlidir.
@@ -107,6 +148,9 @@ Makalede açıklanan yönergeleri kullanın [sertifikalarını yenilemesi](how-t
 ## <a name="environment"></a>Ortam
 **S: Azure AD Connect yüklendikten sonra sunucuyu yeniden adlandırmak için destekleniyor mu?**  
 Hayır. Eşitleme Altyapısı SQL veritabanı örneğine bağlanamıyor oluşturur ve sunucu adını değiştirme ve hizmet başlatılamıyor.
+
+**S: Sonraki nesil şifreleme (NGC) eşitleme kuralları FIPS etkin bir makinede destekleniyor mu?**  
+Hayır.  Desteklenmeyen bir durumdur.
 
 ## <a name="identity-data"></a>Kimlik verilerini
 **S: Neden Azure AD userPrincipalName (UPN) öznitelik, şirket içi UPN eşleşmeyen?**  

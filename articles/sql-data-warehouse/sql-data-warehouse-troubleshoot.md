@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474853"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154260"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu makalede, genel sorun giderme soru listelenmektedir.
@@ -57,8 +57,9 @@ Bu makalede, genel sorun giderme soru listelenmektedir.
 ## <a name="polybase"></a>Polybase
 | Sorun                                           | Çözüm                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Büyük satır nedeniyle yükleme başarısız                | Şu anda çok satır desteği için Polybase mevcut değildir.  Başka bir deyişle, tablo, VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) içeriyorsa, verilerinizi yüklemek için dış tablolar kullanılamaz.  Büyük satırlar yüklenirken şu anda yalnızca (BCP ile) Azure Data Factory, Azure Stream Analytics, SSIS, BCP veya .NET SQLBulkCopy sınıfı desteklenir. Büyük satır için PolyBase destek gelecek sürümlerin birinde eklenecektir. |
-| BCP yük tablonun en fazla veri türü ile başarısız oluyor | VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) Bazı senaryolarda tablonun sonuna yerleştirilmesini gerektirir, bilinen bir sorun yoktur.  En fazla sütun tablonun sonuna taşımayı deneyin. |
+| Mini tamsayı ve tarih türleriyle birlikte dışarı aktarma başarısız             | Parquet ve ORC dosya biçimleri için tarih türü değerleri 1970-01-01'arasında olmalıdır: 00:00:01 UTC ve 2038-01-19 03:14:07. Mini tamsayı türü değerleri 0-127 arasında olmalıdır.    |
+| Parquet DECIMAL türü ile ilgili sorun: Spark'tan yazma DecimalType(18,4) yazın ve double veya gerçek türünde bir sütun alma verir "hata: java.base/java.lang.Long java.base/java.lang.Float için yayımlanamıyorsa". | Bigint içeri aktarmak ve 10000 veya kullanım bölmek [Databricks] SQL DW bağlayıcı. |
+| Parquet sorun tarih türü: tarih Spark türünden yazma ve bir sütuna içeri aktarma tarihi yazın veya datetime verir "hata: java.base/java.lang.Integer parquet.io.api.Binary için yayımlanamıyorsa". | Farklı bir Spark türü (int) kullanın ve işlem tarihi veya kullanmalısınız [Databricks] SQL DW bağlayıcı. |
 
 ## <a name="differences-from-sql-database"></a>SQL veritabanı arasındaki farklar
 | Sorun                                 | Çözüm                                                   |
@@ -132,3 +133,4 @@ Sorununuz için çözüm bulma daha fazla yardım için deneyebileceğiniz bazı
 [Stack Overflow forumu]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

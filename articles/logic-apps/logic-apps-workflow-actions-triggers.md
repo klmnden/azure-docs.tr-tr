@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691922"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136612"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımlama dili tetikleyicisi ve eylem türleri için başvuru
 
@@ -804,6 +804,8 @@ Bazı yaygın olarak kullanılan eylem türleri şunlardır:
 
   * [**Yanıt** ](#response-action) isteklerini yanıtlama
 
+  * [**JavaScript kod yürütmesine** ](#run-javascript-code) JavaScript çalıştırma için kod parçacıkları
+
   * [**İşlev** ](#function-action) Azure işlevleri çağırma
 
   * Veri işlem eylemleri gibi [ **katılın**](#join-action), [ **Compose**](#compose-action), [ **tablo** ](#table-action), [ **Seçin**](#select-action)ve diğerleri oluşturan veya çeşitli giriş verileri dönüştürme
@@ -821,6 +823,7 @@ Bazı yaygın olarak kullanılan eylem türleri şunlardır:
 | Eylem türü | Açıklama | 
 |-------------|-------------| 
 | [**Oluşturan**](#compose-action) | Çeşitli türlerde olabilen girişler, tek bir çıktı oluşturur. | 
+| [**JavaScript kodu yürütme**](#run-javascript-code) | İçinde belirli bir ölçüte uyan JavaScript kod parçacıkları çalıştırın. Kod gereksinimler ve daha fazla bilgi için bkz. [ekleme ve satır içi kod ile çalışma kod parçacıkları](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**İşlevi**](#function-action) | Bir Azure işlevi çağırır. | 
 | [**HTTP**](#http-action) | Bir HTTP uç noktası çağırır. | 
 | [**Katılın**](#join-action) | Bir dizideki tüm öğeler bir dize oluşturur ve bu öğeleri ile belirtilen bir sınırlayıcı karakter ayırır. | 
@@ -1047,6 +1050,81 @@ Bu eylem tanımını içeren bir dize değişkeniyle birleştirir `abcdefg` ve i
 Bu eylem oluşturan çıktısı aşağıdaki gibidir:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>JavaScript kodu eylemi Yürüt
+
+Bu eylem bir JavaScript kod parçacığını çalıştırır ve sonuçları aracılığıyla döndürür bir `Result` sonraki eylemlerde başvurabilirsiniz belirteci.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Gerekli*
+
+| Değer | Tür | Açıklama |
+|-------|------|-------------|
+| <*JavaScript kod parçacığı*> | Değişir | Çalıştırmak istediğiniz JavaScript kodu. Kod gereksinimler ve daha fazla bilgi için bkz. [ekleme ve satır içi kod ile çalışma kod parçacıkları](../logic-apps/logic-apps-add-run-inline-code.md). <p>İçinde `code` özniteliği, kod parçacığınızı salt okunur kullanabilirsiniz `workflowContext` giriş olarak nesnesi. Bu nesne, tetikleyici ve önceki eylemlerin iş sonuçları, kod erişim vermek alt özellikleri vardır. Hakkında daha fazla bilgi için `workflowContext` nesne, bkz: [başvuru tetikleyici ve eylem sonuçlarını, kodunuzda](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*Bazı durumlarda gerekli*
+
+`explicitDependencies` Özniteliği, açıkça tetikleyici, önceki eylemlerin ya da her ikisi de kod parçacığınız için bağımlılıklar olarak sonuçları dahil etmek istediğinizi belirtir. Bu bağımlılıklar ekleme hakkında daha fazla bilgi için bkz. [parametreleri için satır içi kod eklemek](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+İçin `includeTrigger` özniteliği belirtebilirsiniz `true` veya `false` değerleri.
+
+| Değer | Tür | Açıklama |
+|-------|------|-------------|
+| <*Önceki eylemlerin*> | Dize dizisi | Belirtilen eylem adları olan bir dizi. Burada eylem adları alt çizgi (_), boşluk kullanın, iş akışı tanımı içinde görünen eylem adları kullanın (""). |
+||||
+
+*Örnek 1*
+
+Bu eylem, mantıksal uygulamanızın adını alır ve metin "< mantıksal uygulama adı > Merhaba Dünya" sonuç olarak döndüren bir kod çalıştırır. Bu örnekte, erişerek iş akışının adı koda başvuran `workflowContext.workflow.name` özelliği salt okunur üzerinden `workflowContext` nesne. Kullanma hakkında daha fazla bilgi için `workflowContext` nesne, bkz: [başvuru tetikleyici ve eylem sonuçlarını, kodunuzda](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Örnek 2*
+
+Bu eylem, bir Office 365 Outlook hesabı yeni bir e-posta tetiklenir ulaşan bir mantıksal uygulama içinde kod çalıştırır. Mantıksal uygulama onay isteği birlikte alınan e-postasındaki içeriği ileten bir gönderme onay e-posta eylemi de kullanır. 
+
+Kod tetikleyicinin e-posta adreslerini ayıklar `Body` özelliği ile birlikte bu e-posta adreslerini döndürür `SelectedOption` onay eylemi özelliği değeri. Eylem açıkça bağımlılık olarak gönder onay e-posta eylemi içeren `explicitDependencies`  >  `actions` özniteliği.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2652,7 +2730,7 @@ Bu örnekte HTTP eylemi tanımı `authentication` bölümü belirtiyor `ClientCe
 
 İçin [Azure AD OAuth kimlik doğrulaması](../active-directory/develop/authentication-scenarios.md), tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` aşağıdaki tabloda belirtilen özellikleri içeren JSON nesnesi. Parametre değerleri çalışma zamanında erişmek için kullanabileceğiniz `@parameters('parameterName')` tarafından sağlanan ifadenin [iş akışı tanımlama dili](https://aka.ms/logicappsdocs).
 
-| Özellik | Gereklidir | Değer | Açıklama |
+| Özellik | Gereklidir | Value | Açıklama |
 |----------|----------|-------|-------------|
 | **type** | Evet | `ActiveDirectoryOAuth` | Azure AD OAuth "ActiveDirectoryOAuth" olan kullanmak için kimlik doğrulaması türü |
 | **Yetkilisi** | Hayır | <*URL-için-yetkilisi-token-yayımcısı*> | Kimlik Doğrulama belirtecini sağlar yetkilisi URL'si |

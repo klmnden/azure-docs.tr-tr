@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126638"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153825"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Bir işlev uygulaması Azure App Service planı oluşturma
 
@@ -62,9 +62,6 @@ Linux’ta işlevlerinizin yürütülmesini barındıran bir işlev uygulamasın
     ![Yeni işlev uygulaması ayarlarını tanımlama](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Yeni işlev uygulamanızı görüntülemek için **Kaynağa git**’i seçin.
-
-> [!TIP]
-> Portalda işlev uygulamalarınızı bulma konusunda sorun yaşıyorsanız, [Azure portalında İşlev Uygulamalarını sık kullanılanlarınıza eklemeyi](functions-how-to-use-azure-function-app-settings.md#favorite) deneyin.
 
 Ardından, yeni işlev uygulamasında bir işlev oluşturun. İşlev uygulamanızı bile kullanılabilir olduktan sonra tam olarak başlatılması birkaç dakika sürebilir.
 
