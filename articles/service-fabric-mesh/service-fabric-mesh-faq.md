@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728584"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143284"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Soru sorun, Microsoft mühendisinin cevaplar ve raporlayın [service-fabric-kafe
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Önizlemede katılım maliyeti nedir?
 
-Şu anda uygulamaları dağıtma veya kapsayıcılar ağı Önizleme için ücretlendirme yoktur. Dağıtma ve bunları bırakmamaya kaynakları silmeniz etmenizi öneririz ancak bunları test etkin bir şekilde ettiğiniz sürece çalışıyor.
+Şu anda kafes Önizleme uygulamalar veya kapsayıcıları dağıtmak için ücretlendirme yoktur. Lütfen etkinleştirme faturalandırma için Mayıs ayında güncelleştirmeleri izleyin. Dağıtma ve bunları bırakmamaya kaynakları silmeniz etmenizi öneririz ancak bunları test etkin bir şekilde ettiğiniz sürece çalışıyor.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Çekirdek sayısını ve RAM'i kota sınırı var mı?
 
@@ -88,10 +88,15 @@ Bir Windows üzerinde geliştirme yapıyorsanız 10 Nisan 2018 Güncelleştirmes
 Aşağıdaki kapsayıcı işletim sistemi görüntüleri, hizmetleri dağıtmak için kullanılabilir:
 
 - Windows - windowsservercore ve nanoserver
-    - Windows Server 1709 sürümü
-    - Windows Server sürümü 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Hiçbir bilinen sınırlamalar
+
+> [!NOTE]
+> Visual Studio için Kafes araç, Windows Server 2019 ve 1809 kapsayıcıları dağıtma henüz desteklemiyor.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Hangi tür uygulama miyim dağıtabilir miyim? 
 
@@ -138,6 +143,10 @@ CPU kullanılabilirlik ve tüm uygulamalar arasında düzeltilmekte olan sınır
 Bir tek düğümlü kümeye birden çok uygulama dağıtılamaz. Azaltmak için:
 - Birden fazla uygulama için yerel bir küme dağıtılırken beş düğümlü bir küme kullanın.
 - Değil, şu anda sınadığınız uygulamaları kaldırın.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Windows kapsayıcıları için destek araçları VS sınırlıdır
+
+Visual Studio Araçları, yalnızca bir temel işletim sistemi sürümü Windows Server 1709 ve 1803 bugün Windows kapsayıcıları dağıtma destekler. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Özellik boşluklarına ve ilgili bilinen diğer sorunlar
 

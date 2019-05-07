@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148222"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -198,7 +198,7 @@ Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyuncula
 > [!NOTE]
 > Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

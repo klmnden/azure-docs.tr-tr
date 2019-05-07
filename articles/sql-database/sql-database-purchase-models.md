@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574099"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072699"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Sanal çekirdek ve DTU satın alma modeli arasında seçim yapma
 
 Azure SQL veritabanı, performans ve maliyet ihtiyaçlarınıza uygun veritabanı altyapısı tam olarak yönetilen PaaS kolayca satın almanızı sağlar. Azure SQL veritabanı dağıtım modeline bağlı olarak gereksinimlerinize uyan bir satın alma modeli seçebilirsiniz:
+
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) (önerilir). Bu satın alma modeli (Önizleme) sunucusuz bilgi işlem katmanı ve sağlanan işlem katmanı arasında seçim yapma sağlar. Sağlanan işlem katmanı ile iş yükünüz için her zaman sağlanan işlem tam miktarını seçin. Sunucusuz bilgi işlem katmanı ile otomatik ölçeklendirme işlem yapılandırılabilir işlem aralığında yapılandırın. Bu işlem katmanı ile aynı zamanda iş yükü etkinliklere göre veritabanı otomatik olarak duraklatıp seçeneğiniz bulunur. Zaman birimi sanal çekirdek birim fiyatı, sağlanan işlem katmanı sunucusuz bilgi işlem katmanı daha düşüktür.
+- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md). Bu satın alma modeli, yaygın iş yükleri için dengeli ile birlikte gelen işlem ve depolama paketlerini sağlar.
 
 Farklı satın alma modelleri, Azure SQL veritabanı dağıtım modellerinde kullanılabilir:
 
 - [Tek veritabanı](sql-database-single-databases-manage.md) ve [elastik havuz](sql-database-elastic-pool.md) dağıtım seçenekleri [Azure SQL veritabanı](sql-database-technical-overview.md) hem teklif [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 - [Yönetilen örnek](sql-database-managed-instance.md) yalnızca Azure SQL veritabanı'nda dağıtım seçeneği sunar [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
+
+- [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) kullanarak tek veritabanları için şu anda kullanılabilir[sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 Aşağıdaki tablo ve grafik karşılaştırın ve sanal çekirdek ve DTU satın alma modeli.
 
@@ -45,6 +50,9 @@ Aşağıdaki tablo ve grafik karşılaştırın ve sanal çekirdek ve DTU satın
 
 Sağlanan işlem katmanında işlem maliyeti uygulaması için sağlanan toplam işlem kapasitesini yansıtır.  İş kritik hizmet katmanında, biz otomatik olarak en az 3 çoğaltma ayırın. Bu ek işlem kaynakları ayrılması yansıtacak şekilde yaklaşık 2.7 x daha yüksek iş kritik hizmet katmanındaki genel amaçlı hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli fiyatına değeridir. Aynı nedenden dolayı GB başına daha yüksek depolama fiyatı iş kritik hizmet katmanındaki SSD depolama, düşük gecikme süresi ve yüksek g/ç yansıtır. Her iki durumda da bir standart depolama sınıfı kullandığımızdan aynı zamanda, yedekleme depolama maliyeti, bu iki hizmet katmanları arasında farklı değildir.
 
+### <a name="serverless-compute-costs"></a>Sunucusuz bilgi işlem maliyetleri
+
+Sunucusuz bilgi işlem katmanı için bkz: [sunucusuz SQL veritabanı (Önizleme)](sql-database-serverless.md) için işlem kapasitesi nasıl tanımlandığını açıklaması ve maliyetleri hesaplanır.
 
 ## <a name="storage-costs"></a>Depolama maliyetleri
 
@@ -56,7 +64,7 @@ Depolama fiyatları hakkında daha fazla bilgi için bkz. [fiyatlandırma](https
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, Denetim, saydamlık bireysel kaynak kullanımının ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) ve [iş açısından kritik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) hizmet katmanları için [tek veritabanları](sql-database-single-database-scale.md), [ Elastik havuzlar](sql-database-elastic-pool.md), ve [yönetilen örnekleri](sql-database-managed-instance.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli hizmet Katmanı (Önizleme)](sql-database-service-tier-hyperscale.md).
+Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, Denetim, saydamlık bireysel kaynak kullanımının ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) ve [iş açısından kritik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) hizmet katmanları için [tek veritabanları](sql-database-single-database-scale.md), [ Elastik havuzlar](sql-database-elastic-pool.md), ve [yönetilen örnekleri](sql-database-managed-instance.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md).
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarını seçin, aynı şirket içi performans ve fiyat iyileştirme sağlar. Sanal çekirdek tabanlı satın alma modeli, müşteriler için ödeme yapar:
 

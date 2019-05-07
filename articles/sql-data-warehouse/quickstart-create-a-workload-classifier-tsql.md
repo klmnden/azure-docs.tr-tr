@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475380"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150376"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Hızlı Başlangıç: T-SQL (Önizleme) kullanarak bir iş yükü sınıflandırıcı oluşturma
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak bir iş yükü sınıflandırıcı oluşturma
 
 Bu hızlı başlangıçta, CEO, kuruluşunuz için yüksek önem düzeyine sahip bir iş yükü sınıflandırıcı hızla oluşturacaksınız. Bu iş yükü sınıflandırıcı CEO sorguların diğer sorguları ile daha düşük önem sırasına göre önceliklidir izin verir.
-
-> [!Note]
-> İş yükü Sınıflandırma, SQL veri ambarı Gen2'te önizlemesi için kullanılabilir. 9 Nisan 2019 veya sonraki bir sürüm tarihi yapılarla Önizleme iş yükü yönetimi sınıflandırma ve önem derecesi içindir.  Kullanıcılar, iş yükü yönetimi için test derlemeleri bu tarihten önceki kullanmaktan kaçınmanız gerekir.  Derleme iş yükü yönetimi özelliğine sahip olup olmadığını belirlemek için çalıştırdığınızda @ seçin@version SQL veri ambarı Örneğinize bağlandığında.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 

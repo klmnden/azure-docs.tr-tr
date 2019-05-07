@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9bfe3cf78c7b8ac30088ffe6a5baa0d460d37607
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143066"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure'da bir HTTP ile tetiklenen işlev oluşturma
 
@@ -120,7 +120,7 @@ Aşağıdaki komut, Azure üzerinde aynı Azure işlevleri çalışma zamanı ku
 func host start
 ```
 
-İşlevler ana bilgisayarı başlatıldığında, kolay okunması için kırpılmış olan aşağıdaki çıktıya benzer bir şey yazar:
+İşlevleri ana bilgisayar başladığında, aşağıdakine benzer okunabilirliği artırmak için kesilmiştir aşağıdaki çıktıyı Yazar:
 
 ```output
 

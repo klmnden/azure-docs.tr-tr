@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580702"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073607"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir
 
@@ -54,7 +54,7 @@ SQL veritabanı ile birden çok kaynak türleri, hizmet katmanları ve bilgi iş
 
 ## <a name="scalable-performance-and-pools"></a>Ölçeklenebilir performans ve havuzlar
 
-- Tek veritabanları ile birbirine ve taşınabilir, her işlem, bellek ve depolama kaynakları kendi garanti edilen miktarda ile her veritabanı yalıtılır. SQL veritabanı için farklı gereksinimleri - farklı bilgi işlem, bellek ve depolama kaynakları ve yeteneği dinamik olarak sağlar [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) yukarı ve aşağı. [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) (Önizleme) 100 TB için ölçeklendirme ile hızlı yedekleme ve geri yükleme tek bir veritabanı sağlar.
+- Tek veritabanları ile birbirine ve taşınabilir, her işlem, bellek ve depolama kaynakları kendi garanti edilen miktarda ile her veritabanı yalıtılır. SQL veritabanı için farklı gereksinimleri - farklı bilgi işlem, bellek ve depolama kaynakları ve yeteneği dinamik olarak sağlar [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) yukarı ve aşağı. [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) tek veritabanı 100 TB için ölçeklendirme ile hızlı yedekleme ve geri yükleme sağlar.
 - Elastik havuzlar sayesinde yeni veritabanları oluşturabilir veya tek veritabanları kaynaklarının kullanımını en üst düzeye çıkarmak ve para - ve yeteneği dinamik olarak kaydetmek için bir kaynak havuzunun dışına taşıma [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md) yukarı ve aşağı.
 - Yönetilen örneği ile her yönetilen örnek garanti edilen kaynaklarla diğer örneklerden yalıtılır. Kaynaklar - ve yeteneği bir dizi örnek veritabanları bir yönetilen örnek içinde dinamik olarak paylaşma [yönetilen örnek kaynaklarının ölçeğini](sql-database-managed-instance-resource-limits.md) yukarı ve aşağı.
 
@@ -69,8 +69,7 @@ SQL veritabanı iki satın alma modeli sunar:
 - [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek, hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
 - [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli de kullanmanıza olanak tanır [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için. Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: [sık sorulan sorular](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) tek veritabanları için şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Kaynak kullanımını en verimli hale getirmek için elastik havuzlar
 

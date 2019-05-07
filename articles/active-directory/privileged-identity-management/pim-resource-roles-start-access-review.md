@@ -1,6 +1,6 @@
 ---
-title: Azure kaynak rolleri için erişim gözden geçirmesi PIM - Azure Active Directory başlangıç | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için erişim gözden geçirmesi başlatmayı öğrenin.
+title: PIM - Azure Active Directory erişim gözden geçirmesi Azure kaynağı rolleri oluşturun | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi Azure kaynağı rolleri oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,69 +11,67 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/02/2018
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287068"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143481"
 ---
-# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Azure kaynak rolleri için erişim gözden geçirmesi PIM'de Başlat
-Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları ile ilişkili riskini azaltmak için ayrıcalıklı rol yöneticileri düzenli olarak rolleri gözden geçirmelisiniz. Bu belge, Azure Active Directory (Azure AD) Privileged Identity Management (PIM) erişim gözden geçirmesi başlatma adımlarını kapsar.
+# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure kaynağı rolleri oluşturma
 
-PIM uygulama ana sayfadan sayfaya gidin:
+Çalışanlar için ayrıcalıklı bir Azure kaynak rolleri için erişim, zaman içinde değişir. Eski rol atamaları ile ilişkili riski azaltmak için düzenli olarak erişim gözden geçirmelisiniz. Azure kaynağı rolleri ayrıcalıklı erişim gözden geçirmeleri oluşturmak için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullanabilirsiniz. Ayrıca, otomatik olarak gerçekleşen yinelenen bir erişim gözden geçirmeleri yapılandırabilirsiniz.
 
-* **Erişim gözden geçirmeleriyle** > **Ekle**
+Bu makalede, bir veya daha fazla erişim gözden geçirmeleri ayrıcalıklı Azure kaynak rolleri için oluşturmayı açıklar.
 
-![Erişim gözden geçirmelerine ekleme](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+## <a name="prerequisites"></a>Önkoşullar
 
-Seçtiğinizde, **Ekle** düğmesi **erişim gözden geçirmesi Oluştur** dikey penceresi görünür. Bu dikey penceredeki gözden bir ad ve süre sınırı ile yapılandırın, gözden geçirin ve ardından kim gözden yapıyor karar bir rol seçin.
+- [Ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-![Erişim gözden geçirmesi oluşturma](media/azure-pim-resource-rbac/rbac-create-access-review.png)
+## <a name="open-access-reviews"></a>Açık erişim gözden geçirmeleri
 
-### <a name="configure-the-review"></a>Gözden geçirmeyi yapılandırma
-Erişim gözden geçirmesi oluşturma için ilk adlandırın ve ardından bir başlangıç ve bitiş tarihi ayarlayın.
+1. Oturum [Azure portalında](https://portal.azure.com/) ayrıcalıklı rol yöneticisi rolünün bir üyesi olan bir kullanıcı ile.
 
-![Gözden geçirme - ekran görüntüsü yapılandırma](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
+1. Açık **Azure AD Privileged Identity Management**.
 
-Gözden geçirmeyi tamamlamak, kullanıcılar için yeterince uzun uzunluğunu olun. Bitiş tarihinden önce tamamlandığında, bunlar her zaman gözden erken durdurabilirsiniz.
+1. Sol menüde **Azure kaynaklarını**.
 
-### <a name="choose-a-role-to-review"></a>Gözden geçirmek için bir rol seçin
-Her gözden geçirme, yalnızca bir rol üzerinde odaklanır. Erişim gözden geçirmesi özel rol dikey penceresinden çalışmaya sürece, bir rol artık seçmeniz gerekebilir.
+1. Bir abonelik veya yönetim grubu gibi yönetmek istediğiniz kaynağa tıklayın.
 
-1. Git **rol üyeliğini gözden geçirme**
-   
-    ![Gözden geçirme rol üyeliğini - ekran görüntüsü](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
-2. Listeden bir rol seçin.
+1. Yönet altında **erişim gözden geçirmeleriyle**.
 
-### <a name="decide-who-will-perform-the-review"></a>Kimin gözden geçirmeyi gerçekleştirip karar verin
-Bir gözden geçirme gerçekleştirmeye yönelik üç seçenek vardır. Gözden geçirmeyi tamamlamak için başka bir kişiye atayabilirsiniz, kendinize yapabileceğiniz veya her kullanıcının kendi erişimini gözden geçirebilirsiniz.
+    ![Azure kaynakları - erişim gözden geçirmeleri](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-1. Seçeneklerden birini seçin:
-   
-   * **Seçili kullanıcıları**: Erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek belirtilmişse, gözden geçirmeyi tamamlamak için bir kaynak sahibi veya grup yöneticisi atayabilirsiniz.
-   * **Atanan (kendi)**: Kullanıcılar kendi rol atamalarını gözden geçirmek için bu seçeneği kullanın.
-   
-2. Git **Gözden Geçiren seçin**.
-   
-    ![Gözden Geçiren - ekran görüntüsü seçin](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
-### <a name="start-the-review"></a>Değerlendirmesi başlatma
-Son olarak, kullanıcılar erişim onaylamak için bir neden sağlamasını gerektirir. İsterseniz, gözden geçirme açıklaması ekleyin. Ardından **Başlat**.
+[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-Kullanıcılarınız kendileri için bekleyen bir erişim gözden geçirmesi olduğunu biliyor ve bunları Göster olanak sağlayın [erişim gözden geçirmesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
+
+## <a name="start-the-access-review"></a>Erişim değerlendirmesi başlatma
+
+Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. Erişim gözden geçirmesi listenizi durumu göstergesi görünür.
+
+![Erişim incelemeleri listesi](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+
+İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [Azure kaynak rolleri için erişim gözden geçirme](pim-resource-roles-perform-access-review.md).
 
 ## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
-Gözden geçirenler, gözden geçirmeleri tamamladıkça, PIM Azure kaynakları panosunda ilerleme durumunu izleyebilirsiniz. Erişim hakları dizine kadar değişen [incelemesini tamamladı](pim-resource-roles-complete-access-review.md).
 
-Değerlendirme süresi bitene kadar gözden geçirmelerini tamamlamak için kullanıcılara hatırlatın veya erken erişim gözden geçirmeleri bölümünden gözden geçirmesini durdur.
+Gözden geçirenler, üzerinde kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **genel bakış** erişim gözden geçirmesi sayfası. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](pim-resource-roles-complete-access-review.md).
+
+![Erişim gözden geçirmeleri ilerleme durumu](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+
+Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [Azure kaynak rolleri erişim değerlendirmesi tamamlama](pim-resource-roles-complete-access-review.md) bakın ve sonuçları uygulamak için.  
+
+Bir dizi erişim yönetmek için gözden geçirmeleri erişim gözden gidin ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma.
+
+Yaptığınız seçimlere göre **tamamlama ayarlarını bağlı**, otomatik olarak Uygula incelemesinin bitiş tarihi veya el ile ne zaman gözden geçirmeyi durdurmak sonra yürütülür. Gözden geçirme durumu değiştirilecek **tamamlandı** gibi ara durumları arasında **uygulama** ve son durumuna **uygulanan**. Reddedilen kullanıcılar varsa birkaç dakika içinde rollerinden kaldırılıyor görmeyi beklemelisiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM Azure kaynak rolleri için erişim değerlendirmesi tamamlama](pim-resource-roles-complete-access-review.md)
-- [PIM hizmetinde Azure kaynak rollerimin erişim gözden geçirmesini gerçekleştirme](pim-resource-roles-perform-access-review.md)
-- [Azure AD rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)
+- [Azure kaynak rolleri için erişim gözden geçirin](pim-resource-roles-perform-access-review.md)
+- [Azure kaynak rolleri erişim değerlendirmesi tamamlama](pim-resource-roles-complete-access-review.md)
+- [Azure AD rolleri, erişim gözden geçirmesi oluştur](pim-how-to-start-security-review.md)

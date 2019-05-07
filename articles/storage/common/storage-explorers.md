@@ -2,18 +2,19 @@
 title: Azure depolama ile çalışmaya yönelik Araçlar | Microsoft Docs
 description: Görünüm/Azure depolama verilerinizle etkileşim olanak tanıyan Araçlar listesi.
 services: storage
-author: dineshmurthy
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: dineshmurthy
+ms.author: tamram
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483120"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138566"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
 Azure Depolama'nın kullanıcıların sık görünüm/bir Azure depolama istemci aracı kullanarak verileri ile etkileşemeyebilirsiniz istiyorsunuz. Aşağıdaki tablolarda, biz bunu olanak tanıyan bir dizi listeleyin. Ya da numaralandırma ve/veya veri soyutlama erişim olanağı sağlar, size her bir bloğunda bir "X" yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme sürümü yoktur, ancak tam ürün ücretsiz değil gösterir. "E/H", farklı bir sürümünü satın alınabilir olduğu sürece bir sürümünü ücretsiz olarak kullanılabilir olduğunu gösterir.

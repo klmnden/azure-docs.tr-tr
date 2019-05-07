@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306867"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146036"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -46,6 +46,50 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 Bu çözüm için runbook'ları ile çalışır bir [Azure farklı çalıştır hesabı](automation-create-runas-account.md). Sona ya da sık değişebilecek bir parola yerine sertifika doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
 
 VM Başlat/Durdur çözümü için ayrı bir Otomasyon hesabı kullanmak için önerilir. Azure modülü sürümler sık yükseltilir ve kendi parametrelerini değişebilir olduğundan budur. VM başlatma/durdurma çözüm kullandığı cmdlet'lerin daha yeni sürümleriyle çalışmayabilir şekilde aynı tempoyla yükseltilmez. Otomasyon hesabı, üretim aktarmadan önce modülü güncelleştirmeleri bir Otomasyon hesabı testinde test etmek için önerilir.
+
+### <a name="permissions-needed-to-deploy"></a>Dağıtmak için gereken izinler
+
+Bir kullanıcı, Vm'leri başlatma/durdurma sırasında saat çözümü Kapat'ı dağıtmak için gereken belirli izinleri vardır. Bu izinleri bir önceden oluşturulmuş Otomasyon hesabının ve Log Analytics çalışma alanı kullanıyorsanız farklı veya dağıtım sırasında yenilerini oluşturma.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Önceden var olan Otomasyon hesabının ve Log Analytics hesabı
+
+Vm'leri başlatma/durdurma sırasında saat çözüm kapalı bir Otomasyon hesabının ve Log Analytics çözümünü dağıtma kullanıcı üzerinde aşağıdaki izinleri gerektirir dağıtmak için **kaynak grubu**. Rolleri hakkında daha fazla bilgi edinmek için [Azure kaynakları için özel roller](../role-based-access-control/custom-roles.md).
+
+| İzin | `Scope`|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/variables/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/schedules/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/runbooks/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/connections/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/certificates/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/modules/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/modules/read | Kaynak Grubu |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/jobs/write | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/jobs/read | Kaynak Grubu |
+| Microsoft.OperationsManagement/solutions/write | Kaynak Grubu |
+| Microsoft.OperationalInsights/workspaces/* | Kaynak Grubu |
+| Microsoft.Insights/diagnosticSettings/write | Kaynak Grubu |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Kaynak Grubu |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak Grubu |
+| Microsoft.Resources/deployments/* | Kaynak Grubu |
+
+### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Yeni Otomasyon hesabı ve yeni bir Log Analytics çalışma alanı
+
+Mesai saatleri dışında başlatma/durdurma Vm'leri dağıtmak için aşağıdaki izinlerin yanı sıra önceki bölümde tanımlanan izinleri çözüme yeni bir Otomasyon hesabının ve Log Analytics çalışma alanı çözümü dağıtma kullanıcı gerekir:
+
+- Ortak yönetici - abonelikte bu Klasik farklı çalıştır hesabı oluşturmak için gereklidir
+- Parçası olarak **uygulama geliştiricisi** rol. Farklı Çalıştır hesaplarını yapılandırma hakkında ayrıntılı bilgi için bkz: [farklı çalıştır hesaplarını yapılandırmak için izinleri](manage-runas-account.md#permissions).
+
+| İzin |`Scope`|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | Abonelik |
+| Microsoft.Authorization/roleAssignments/write | Abonelik |
+| Microsoft.Automation/automationAccounts/connections/read | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/certificates/read | Kaynak Grubu |
+| Microsoft.Automation/automationAccounts/write | Kaynak Grubu |
+| Microsoft.OperationalInsights/workspaces/write | Kaynak Grubu |
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
@@ -292,8 +336,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 

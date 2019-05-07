@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870481"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146136"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
 
@@ -111,5 +111,5 @@ Not üç kimlik bilgilerini ve bunları almak için çalıştırmak için ihtiya
 
 Bu öğreticide, bir hizmet sorumlusu oluşturma ve Windows sanal masaüstü ile oturum açma öğrendiniz. Windows sanal masaüstü oturum açma hakkında daha fazla bilgi için Windows sanal masaüstü bilgi belgeleri Bağlan devam edin.
 
-- [Uzak Masaüstü İstemcisi Windows 7 ve Windows 10 bağlanma](connect-windows-7-and-10.md)
-- [Windows sanal masaüstü Önizleme web istemcisi için Bağlan](connect-web.md)
+- [Windows 10 veya Windows 7 bağlanın](connect-windows-7-and-10.md)
+- [Bir web tarayıcısından bağlanma](connect-web.md)

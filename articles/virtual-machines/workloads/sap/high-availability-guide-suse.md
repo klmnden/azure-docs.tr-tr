@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925814"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142964"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -87,6 +87,9 @@ Yüksek kullanılabilirlik elde etmek için bir NFS sunucusunun SAP NetWeaver'ı
 
 NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA veritabanı sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırılmasını gösterir SCS ve Ağıranlar yük dengeleyici.
 
+> [!IMPORTANT]
+> Azure sanal makinelerinde konuk işletim sistemi gibi çoklu SID, SAP ASCS/Ağıranlar SUSE Linux ile kümeleme **desteklenmiyor**. Çoklu SID kümeleme Pacemaker kümedeki farklı SID'lere sahip birden çok SAP ASCS/Ağıranlar örneklerinin yüklenmesini açıklar.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Ön uç yapılandırması
@@ -113,7 +116,8 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar v
   * (A) bir parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı SCS/Ağıranlar küme
 * Araştırma bağlantı noktası
   * Port 621<strong>&lt;nr&gt;</strong>
-* Yük dengeleme kuralları
+* Yük Dengeleme kuralları
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -200,7 +204,7 @@ Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablon
          1. Tamam'a tıklayın
       1. Bağlantı noktası 621**02** ASCS Ağıranlar için
          * Cıların için durum araştırması oluşturmak için yukarıdaki adımları yineleyin (örneğin 621**02** ve **nw1 aers hp**)
-   1. Yük dengeleme kuralları
+   1. Yük Dengeleme kuralları
       1. 32**00** ASCS TCP
          1. Açık yük dengeleyici, Yük Dengeleme kuralları'nı seçin ve Ekle'ye tıklayın
          1. Yeni Yük Dengeleyici kuralı adını girin (örneğin **nw1 lb 3200**)
@@ -587,7 +591,7 @@ Sıraya alma 2 sunucu mimarisi kullanıyorsanız ([ENSA2](https://help.sap.com/v
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş'lu sap notuna bakın [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş SAP bkz Not [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 

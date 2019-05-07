@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468389"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142874"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows için Azure İzleyici sanal makine uzantısı
 
@@ -32,7 +32,10 @@ Azure İzleyici günlüklerine, Bulut ve şirket içi varlıkları arasında izl
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Log Analytics Aracısı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
+Windows için Log Analytics Aracısı uzantısı, Windows işletim sistemi sürümlerini destekler:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2'de, 2016, sürüm 1709 ve 1803
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
@@ -84,6 +87,9 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
 Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Log Analytics Aracısı uzantısı çalıştırmak için kullanılabilir. VM uzantısı Log Analytics aracısını içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>Şablon, birden fazla çalışma alanı Kimliğiniz ve çalışma alanı anahtarı bir aracıyı birden çok çalışma alanına raporlama yapacak yapılandırmak istediğinizde belirtmeyi desteklemiyor. Bir aracıyı birden çok çalışma alanına raporlama yapacak yapılandırmak için bkz [ekleme veya bir çalışma alanı kaldırılıyor](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 Sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

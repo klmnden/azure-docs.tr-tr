@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119138"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145159"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Hatalarında sorun giderme, onboarding çözümleri
 
@@ -78,6 +78,36 @@ Bu hata kodu dağıtımda bir veya daha fazla ilke ihlali nedeniyle başarısız
   * Düzeltme kümesi kaynakları bu ilke reddetmek üzere yapılandırıldı.
 
 Azure portalının sağ üst köşedeki bildirimleri denetleyin veya seçin ve Otomasyon hesabını içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için Dağıtım. Azure İlkesi ziyaret hakkında daha fazla bilgi için: [Azure İlkesi'ne genel bakış](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Senaryo: Bir çalışma alanının bağlantısını Kaldır çalışılırken hatalar
+
+#### <a name="issue"></a>Sorun
+
+Bir çalışma alanının bağlantısını Kaldır çalışırken aşağıdaki hatayı alırsınız:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bağımlı bağlantılandırılan Otomasyon hesabının ve Log Analytics çalışma alanınızda etkin çalışma alanınızdaki çözümleri Log Analytics hâlâ bu hata oluşur.
+
+### <a name="resolution"></a>Çözüm
+
+Bu sorunu gidermek için bunları kullanıyorsanız aşağıdaki çözümlerin çalışma alanınızdan kaldırmak yapmanız gerekir:
+
+* Güncelleştirme Yönetimi
+* Değişiklik İzleme
+* Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma
+
+Çözümleri kaldırdıktan sonra çalışma alanınızı kesebilir. Bu çözümleri çalışma alanı ve Otomasyon hesabı var olan tüm yapılardan temizlemek önemlidir.  
+
+* Güncelleştirme Yönetimi
+  * Güncelleştirme dağıtımları (zamanlamalar) Otomasyon hesabınızdan kaldırın
+* Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma
+  * Otomasyon hesabınız kapsamında tüm çözüm bileşenlerini kilitler kaldırmak **ayarları** > **kilitleri**.
+  * Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm kaldırmak ek adımlar için bkz, [VM başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Kaldır](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA uzantısı hatalarında
 

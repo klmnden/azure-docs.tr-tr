@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071793"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Azure İzleyici kapsayıcı Aracısı'nı yönetme
 Kapsayıcılar için Azure İzleyici, Linux için Log Analytics aracısını kapsayıcı bir sürümünü kullanır. İlk dağıtımdan sonra yordamı veya yaşam döngüsü sırasında gerçekleştirmeniz gerekebilir isteğe bağlı görevleri vardır. Bu makale hakkında ayrıntılı bilgi el ile aracı yükseltme ve belirli bir kapsayıcıda ortam değişkenlerinin koleksiyonunu devre dışı bırakın. 
@@ -35,7 +35,7 @@ Aracı yükseltme işlemi, iki anlaşılır adımdan oluşur. İlk adım, Azure 
 >Bu bakım etkinliği gerçekleştiriyorsanız, kümedeki düğümler, toplanan verileri ilettiğiniz değil ve performans görünümlerine veri gösterilmez arasındaki zaman aracıyı kaldırın ve ardından yeni sürümü yükleyin. 
 >
 
-Aracısı'nın yeni sürümünü yüklemek için açıklanan adımları izleyin. [yerleşik izleme](container-insights-onboard.md?#enable-using-azure-cli) bu işlemi tamamlamak için Azure CLI kullanarak makalesi.  
+Aracısı'nın yeni sürümünü yüklemek için açıklanan adımları izleyin. [Azure CLI kullanarak izlemeyi etkinleştirin](container-insights-enable-new-cluster.md#enable-using-azure-cli), bu işlemi tamamlamak için.  
 
 İzleme yeniden etkinleştirdikten sonra bu küme için güncelleştirilmiş sistem durumu ölçümleri görmeden önce yaklaşık 15 dakika sürebilir. Aracı başarıyla yükseltildi doğrulamak için komutu çalıştırın: `kubectl logs omsagent-484hw --namespace=kube-system`
 

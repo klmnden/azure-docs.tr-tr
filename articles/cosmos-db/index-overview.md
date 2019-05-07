@@ -4,14 +4,14 @@ description: Azure Cosmos DB'de dizinleme nasıl çalıştığını anlayın.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051894"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068651"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB - genel bakış dizin oluşturma
 
@@ -66,19 +66,41 @@ Azure Cosmos DB, şu anda iki tür dizinleri destekler:
 
 **Aralığı** dizin türü için kullanılır:
 
-- Eşitlik sorguları için: `SELECT * FROM container c WHERE c.property = 'value'`
-- Aralık sorguları: `SELECT * FROM container c WHERE c.property > 'value'` (çalışır `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` sorgular: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` sorgular: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- Eşitlik sorguları için: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Aralık sorguları: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (çalışan için `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` sorgular:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` sorgular: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Aralık dizinleri skaler değerler (dize veya sayı) kullanılabilir.
 
 **Uzamsal** dizin türü için kullanılır:
 
-- Jeo-uzamsal uzaklık sorgular: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- Jeo-uzamsal sorguları içinde: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- Jeo-uzamsal uzaklık sorgular: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- Jeo-uzamsal sorguları içinde: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Uzaysal dizinler kullanılabilir üzerinde düzgün biçimlendirilmiş [GeoJSON](geospatial.md) nesneleri. Noktaları, LineStrings ve çokgenler desteklenmemektedir.
+
+**Bileşik** dizin türü için kullanılır:
+
+- `ORDER BY` birden çok özellik sorgularına: 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Dizinler ile sorgulama
 
@@ -89,7 +111,7 @@ Verileri sıralarken ayıklanan yolları sorgu işlenirken dizinini aramak kolay
 ![Bir ağaç içindeki belirli bir yol ile eşleşen](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Bir `ORDER BY` yan tümcesi *her zaman* aralığı gereken dizin ve başvurduğu yolu bir sahip değilse başarısız olur.
+> Bir `ORDER BY` tek bir özelliğe göre siparişleri yan tümcesi *her zaman* aralığı gereken dizin ve başvurduğu yolu bir sahip değilse başarısız olur. Benzer şekilde, bir çoklu `ORDER BY` sorgu *her zaman* bir bileşik dizin gerekiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

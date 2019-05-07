@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme
-description: Bu makalede Azure portalını kullanarak PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme.
+title: -Tek bir sunucu PostgreSQL için Azure veritabanı'nda bir sunucu geri yükleme
+description: Bu makalede, PostgreSQL - Azure portalını kullanarak tek bir sunucu için Azure veritabanı'nda bir sunucuya geri yüklemek açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420554"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068871"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Yedekleme ve - tek sunucu Azure portalını kullanarak PostgreSQL için Azure veritabanı'nda bir sunucu geri yükleme
 
 ## <a name="backup-happens-automatically"></a>Yedekleme otomatik olarak gerçekleşir
 Sunucuları düzenli aralıklarla geri yükleme özellikleri etkinleştirmek için yedeklenen PostgreSQL için Azure veritabanı. Bu özelliği kullanarak, sunucuyu ve tüm veritabanlarında için bir önceki-belirli bir noktaya, yeni bir sunucuya geri yükleyebilirsiniz.

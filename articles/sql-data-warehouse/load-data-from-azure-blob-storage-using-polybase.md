@@ -2,20 +2,20 @@
 title: "Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme | Microsoft Docs"
 description: Öğreticide, Azure portalı ve New York taksi verilerini genel bir Azure yük için SQL Server Management Studio'yu Azure SQL veri ambarı'na blob.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61079060"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143652"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme
 
@@ -561,6 +561,49 @@ Verileri Azure Depolama Blobu'ndan veri ambarınızdaki yeni tablolara yüklemek
 
     ![Yüklenen tabloları görüntüleme](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>(İsteğe bağlı) yüklemek için yönetilen kimlikleri kullanılarak kimlik doğrulaması
+Yönetilen kimlik doğrulama ve PolyBase kullanarak yükleme en güvenli mekanizmasıdır ve Azure depolama ile sanal ağ hizmet uç noktaları yararlanmasını sağlar. 
+
+### <a name="prerequisites"></a>Önkoşullar
+1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
+
+#### <a name="steps"></a>Adımlar
+1. PowerShell'de, **SQL veritabanı sunucunuza kaydetmek** ile Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan** SQL veritabanı sunucunuza RBAC rolü.
+
+   > [!NOTE] 
+   > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Azure depolama hesabı bağlantı Polybase:**
+    
+   1. Oluşturma, veritabanı kapsamlı kimlik bilgileri ile **Kimliği = 'Yönetilen hizmet Kimliği'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Bu mekanizma kullandığından gizlilik ile Azure depolama erişim anahtarı belirtin. gerek [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) altında kapsar.
+       > - Kimlik adı olmalıdır **'Yönetilen hizmet Kimliği'** Azure depolama hesabı ile çalışmak PolyBase bağlantı.
+    
+   1. Yönetilen hizmet kimliği ile Database Scoped CREDENTIAL belirten dış veri kaynağı oluşturun.
+        
+   1. Sorgu kullanarak normal olarak [dış tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Aşağıdaki başvuru [belgeler] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) sanal ağ hizmet uç noktalarını ayarlamak için SQL veri ambarı ayarlamak istiyorsanız. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

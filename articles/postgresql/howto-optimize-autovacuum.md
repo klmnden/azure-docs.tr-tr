@@ -1,20 +1,19 @@
 ---
-title: PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum en iyi duruma getirme
-description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum nasıl iyileştirebileceğiniz de açıklanır.
-author: WenJason
-ms.author: v-jay
+title: Azure veritabanı üzerinde autovacuum PostgreSQL - tek bir sunucu için en iyi duruma getirme
+description: Bu makalede PostgreSQL - tek bir sunucu için Azure veritabanı üzerinde autovacuum nasıl iyileştirebileceğiniz de açıklanır.
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069108"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum en iyi duruma getirme 
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure veritabanı üzerinde autovacuum PostgreSQL - tek bir sunucu için en iyi duruma getirme
 Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum etkili bir şekilde iyileştirmek açıklar.
 
 ## <a name="overview-of-autovacuum"></a>Autovacuum genel bakış

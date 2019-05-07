@@ -2,18 +2,19 @@
 title: 'Öğretici: SSL ile özel etki alanını Azure CDN - Azure depolama kullanarak statik Web sitesi üzerinde etkinleştirmek'
 description: Statik Web sitesi barındırmak için özel bir etki alanı yapılandırma konusunda bilgi edinin.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427526"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145049"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Öğretici: Statik bir Web sitesi için SSL ile özel etki alanı etkinleştirmek için Azure CDN'yi kullanma
 

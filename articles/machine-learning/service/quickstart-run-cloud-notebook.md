@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023915"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149837"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
@@ -25,11 +25,11 @@ Bu hızlı başlangıçta Azure Machine Learning çalıştırmak için gereken P
  
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
-* Çalışma alanınızda yeni bir bulut tabanlı bir not defteri sunucusu oluşturma
-* Jupyter web arabirimi başlatın
+* Çalışma alanınızda yeni bir bulut tabanlı bir not defteri sunucusu oluşturun.
+* Jupyter web arabirimi başlatın.
 * Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
 * Not Defteri çalıştırma.
-* Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin. Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
@@ -49,13 +49,15 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
      ![Yeni sanal Makineyi seçin](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Sanal Makineniz için bir ad sağlayın. Ardından **Oluştur**’u seçin. 
+1. Sanal Makineniz için bir ad sağlayın. Ardından **Oluştur**’u seçin.
+
+    > [!NOTE]
+    > Not Defteri VM adınız 2 ile 16 karakter arasında olmalıdır. Geçerli karakterler: harfler, sayılar ve ve karakter.  Adı, ayrıca Azure aboneliğinizi arasında benzersiz olmalıdır.
 
     ![Yeni VM oluşturma](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Yaklaşık 4-5 dakika bekleyin ve ardından **Yenile**.  Her 30 saniyede yenilemeyi deneyin veya bunu durum olana kadar **çalıştıran**.
+1. Yaklaşık 4-5 durum olana kadar dakika bekleyip **çalıştıran**.
 
-    ![Yenile](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter web arabirimi başlatın
 
@@ -67,7 +69,11 @@ Sanal makinenizin çalışmaya başladıktan sonra kullanın **not defteri Vm'le
 
     Bağlantı, Not Defteri sunucusu başlatır ve Jupyter notebook Web sayfasını yeni bir tarayıcı sekmesinde açılır.  Bu bağlantı, yalnızca sanal Makineyi oluşturan kişi için çalışır.
 
-1. Jupyter not defteri sayfasında seçin **samples/quickstart** Hızlı not defteri görmek için klasör.
+1. Jupyter not defteri sayfasında üst foldername sizin kullanıcı adınızdır.  Bu klasörü seçin.
+
+1. Bir sürüm numarası, örneğin örnekleri foldername içerir **örnekleri 1.0.33.1**.  Örnekleri klasörü seçin.
+
+1. Seçin **hızlı** dizüstü bilgisayar.
 
 ## <a name="run-the-notebook"></a>Not defterini çalıştırma
 
@@ -75,15 +81,7 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. Seçin **01.run experiment.ipynb** not defterini açın.
 
-1. Çekirdek ayarlanmamış bir ileti görebilirsiniz.  Seçin **Python 3.6 - AzureML**, ardından **ayarlamak çekirdek**.
-
-   ![Çekirdek ayarlayın](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. Durum alanı çekirdek başlatıldı kadar beklenecek söyler. Çekirdek hazır olduğunda ileti kaybolur.
-
-    ![Çekirdek başlatmak bekle](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  İlk kodu hücreyi tıklatın ve seçin **çalıştırma**.
+1. İlk kodu hücreyi tıklatın ve seçin **çalıştırma**.
 
     > [!NOTE]
     > Kod hücreleri önce bunları ayraçlar var. Köşeli ayraçlar boş olduğunda (__[]__), kod çalıştırılmadı. Kodu çalışırken, bir yıldız işareti görürsünüz (__[*]__). Kod tamamlandıktan sonra bir sayı **[1]** görünür.  Sayı hücreleri çalıştırıldığı sırada söyler.
@@ -94,16 +92,15 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. İkinci kod hücresini çalıştırmak. Kimlik doğrulaması yapmak için yönergeleri görürseniz, kodu kopyalayın ve oturum açmak için bağlantıyı izleyin. Oturum açtıktan sonra bu ayar, tarayıcınızın hatırlanır.  
 
-    > [!TIP]
-    > Alanı koddan sonra değil kopyaladığınızdan emin olun.  
-
     ![Kimlik doğrulaması](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. Bitirdiğinizde, hücre sayısı __[2]__ görünür.  Oturum açmak olsaydı, kimlik doğrulaması başarılı durum iletisi görürsünüz.   Oturum açmak zorunda olmadığı, bu hücre için herhangi bir çıktı görmezsiniz, yalnızca sayı hücresi başarıyla çalıştığını göstermek için görünür.
+1. Tamamlandığında, hücre sayısını __[2]__ görünür.  Oturum açmak olsaydı, kimlik doğrulaması başarılı durum iletisi görürsünüz.   Oturum açmak zorunda olmadığı, bu hücre için herhangi bir çıktı görmezsiniz, yalnızca sayı hücresi başarıyla çalıştığını göstermek için görünür.
 
     ![Başarı iletisi](media/quickstart-run-cloud-notebook/success.png)
 
-1. Kod hücreleri geri kalanını çalıştırın.  Her bir hücresinde çalışmayı tamamladıktan gibi görünen hücre sayısı görürsünüz. Yalnızca son hücreye herhangi bir çıkış görüntüler.  En büyük kodu hücreyi gördüğünüz `run.log` birden fazla yerde kullanılır. Her `run.log` çalışma alanınıza değeri ekler.
+1. Kod hücreleri geri kalanını çalıştırın.  Her bir hücresinde çalışmayı tamamladıktan gibi görünen hücre sayısı görürsünüz. Yalnızca son hücreye herhangi bir çıkış görüntüler.  
+
+    En büyük kodu hücreyi gördüğünüz `run.log` birden fazla yerde kullanılır. Her `run.log` çalışma alanınıza değeri ekler.
 
 
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
@@ -146,11 +143,13 @@ Ayrıca, kaynak grubunu korumakla birlikte tek bir çalışma alanını silebili
 
 Bu hızlı başlangıçta, bu görevleri tamamlandı:
 
-* Not Defteri VM oluşturma
-* VM dizüstü bilgisayarınızda bir Jupyter not defteri sunucusu Başlat
+* VM bir not defteri oluşturun.
+* Jupyter web arabirimi başlatın.
 * Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
 * Not Defteri çalıştırma.
 * Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+
+Jupyter not defteri Web sayfasında, diğer not defterlerinde Azure Machine Learning hizmeti hakkında daha fazla bilgi edinmek için örnekler klasörüne göz atın.
 
 Ayrıntılı iş akışı deneyimi için eğitmek ve model dağıtma için Machine Learning öğreticileri izleyin:  
 

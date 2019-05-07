@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: b83db323f6799b4677bcbb3a3d84b79329ec814a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073796"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -40,7 +40,7 @@ Bu makalede şunları öğreneceksiniz:
 
 Bu makalede ayrıntılı adımlarda bir AKS kümesi oluşturduğunuz varsayılır (Kubernetes `1.11` ve yukarıdaki RBAC ile etkin) ve yerleşik olduğu bir `kubectl` kümeyle bağlantı. Bu öğelerden herhangi birinin yardıma ihtiyacınız varsa bkz [AKS hızlı başlangıçları][aks-quickstart].
 
-İhtiyacınız olacak [Helm] [ helm] Istio yükleyip bu yönergeleri izleyin. Sürümüne sahip önerilir `2.12.2` veya daha sonra doğru yüklendiğinden ve kümenizde yapılandırılmış. Helm yükleme yardıma ihtiyacınız varsa bkz [AKS Helm yükleme yönergeleri][helm-install].
+İhtiyacınız olacak [Helm] [ helm] Istio yükleyip bu yönergeleri izleyin. Sürümüne sahip önerilir `2.12.2` veya daha sonra doğru yüklendiğinden ve kümenizde yapılandırılmış. Helm yükleme yardıma ihtiyacınız varsa bkz [AKS Helm yükleme yönergeleri][helm-install]. Tüm Istio pod'ları, ayrıca Linux düğümleri üzerinde çalışmak için zamanlanmalıdır.
 
 Bu makalede, çeşitli ayrı adımlara Istio yükleme yönergeleri ayırır. Sonuç resmi Istio yükleme yapısındaki aynıdır [Kılavuzu][istio-install-helm].
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 `istio` Helm grafiği, çok sayıda nesneleri dağıtır. Listeden çıktısını görebilirsiniz, `helm install` yukarıdaki komutu. Istio bileşenlerin dağıtımına ilişkin küme ortamınıza bağlı olarak tamamlanması 4 ila 5 dakika sürebilir.
+
+> [!NOTE]
+> Tüm Istio pod'ları, Linux düğümleri üzerinde çalışmak için zamanlanmalıdır. Kümenizde Linux düğüm havuzları yanı sıra Windows Server düğüm havuzları varsa, tüm Istio pod'ların Linux düğümleri üzerinde çalışmak üzere zamanlanmış olduğunu doğrulayın.
 
 Bu noktada, AKS kümenizi Istio dağıttınız. Biz Istio dağıtımının başarılı olmasını sağlamak için için sonraki bölüme geçelim [Istio yüklemesini doğrulamak](#validate-the-istio-installation).
 

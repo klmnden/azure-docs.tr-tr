@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483426"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147638"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 Microsoft Azure, verilerinizi bulutta erişmek ve depolamak için Azure Depolama'da birçok özellik sunar. Bu makalede, Azure dosyaları, Blobları ve diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
@@ -53,7 +53,7 @@ Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.
 ||||  
 |-|-|-|  
 |**Özniteliği**|**Azure diskleri**|**Azure dosyaları**|  
-|Kapsam|Tek bir sanal makine özel|Birden çok sanal makineye paylaşılan erişim|  
+|`Scope`|Tek bir sanal makine özel|Birden çok sanal makineye paylaşılan erişim|  
 |Anlık görüntüler ve kopyalama|Evet|Evet|  
 |Yapılandırma|Sanal makinenin başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
 |Kimlik Doğrulaması|Yerleşik|NET kullanım ile ayarlama|  

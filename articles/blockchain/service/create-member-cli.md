@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 88b0336d7be1852d1bb2ae522f3d37ebed8d1fa0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e1b7558ea83c8948a8984215e15040e4d929cb1b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026931"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141373"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir Azure blok zinciri hizmet blockchain üye oluştur
 
@@ -56,7 +56,7 @@ Blok zinciri üyesi yeni bir konsorsiyum çekirdek muhasebe Protokolü çalışa
 | **skuName** | Katman türü. S0 standart ve B0 için temel için kullanın.
 
 ```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "eastus", "properties": {"password": "strongMemberAccountPassword@1", "protocol": "Quorum", "consortium": "myConsortiumName", "consortiumManagementAccountPassword": "strongConsortiumManagementPassword@1" }, "sku": { "name": "S0" } }'
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
 ```
 
 Blockchain üye ve destekleyen kaynaklar oluşturmak için yaklaşık 10 dakika sürer.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719298"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145011"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -64,6 +64,7 @@ Hizmet uç noktalarına ağ bağlanabilirliğini izlemek için testleri oluştur
 
     * Seçin **Web** outlook.office365.com veya bing.com gibi HTTP/S istekleri, yanıt veren bir hizmet bağlantısı izlemek için.<br>
     * Seçin **ağ** TCP isteklerine yanıt verir, ancak SQL server, FTP sunucusu veya SSH bağlantı noktası gibi HTTP/S isteklerine yanıt vermiyor hizmetine bağlantıyı izlemek için. 
+    * Örneğin: Bir web testine bir blob depolama hesabı oluşturmak için Seç **Web** ve hedef olarak girin <your storageaccount>. blob.core.windows.net. Benzer şekilde, diğer tablo depolama, kuyruk depolama ve Azure dosyaları'nı kullanarak testleri oluşturabilirsiniz [Bu bağlantı.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Topoloji Bulma, ağ gecikme süresi ve paket kaybı gibi ağ ölçümlerini gerçekleştirmek istemiyorsanız Temizle **ağ ölçümlerini gerçekleştirmek** onay kutusu. En fazla özellikten faydalanmak için seçili devam eder. 
 5. İçinde **hedef**, ağ bağlantılarını izlemek istediğiniz URL/FQDN/IP adresini girin.
 6. İçinde **bağlantı noktası numarası**, hedef hizmet bağlantı noktası numarasını girin. 

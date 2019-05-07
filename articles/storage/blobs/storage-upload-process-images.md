@@ -2,19 +2,20 @@
 title: Azure Depolama ile buluta görüntü verileri yükleme | Microsoft Docs
 description: Uygulama verilerini depolamak üzere bir web uygulaması ile Azure Blob depolamayı kullanma
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242f3cb6cb9d957d13ecb133c4bfc59a01132ab1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391654"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142299"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Öğretici: Azure Depolama ile buluta görüntü verileri yükleme
 

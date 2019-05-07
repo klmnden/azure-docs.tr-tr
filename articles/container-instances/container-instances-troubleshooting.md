@@ -6,25 +6,25 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070861"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
 
-Bu makalede, Azure Container Instances'a kapsayıcıları dağıtma veya yönetmek için yaygın sorunlarını giderme gösterilmektedir.
+Bu makalede, Azure Container Instances'a kapsayıcıları dağıtma veya yönetmek için yaygın sorunlarını giderme gösterilmektedir. Ayrıca bkz: [sık sorulan sorular](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Adlandırma kuralları
 
 Kapsayıcı kuruluma tanımlarken belirli parametreleri için adlandırma kısıtlamaları bağlılığı gerektirir. Aşağıda bir kapsayıcı için belirli gereksinimler Grup Özellikleri tablodur. Azure adlandırma kuralları hakkında daha fazla bilgi için bkz. [adlandırma kuralları] [ azure-name-restrictions] Azure mimari Merkezi'ne.
 
-| Kapsam | Uzunluk | Büyük/Küçük Harf Kullanımı | Geçerli karakterler | Önerilen düzen | Örnek |
+| `Scope` | Uzunluk | Büyük/Küçük Harf Kullanımı | Geçerli karakterler | Önerilen düzen | Örnek |
 | --- | --- | --- | --- | --- | --- |
 | Kapsayıcı grubu adı | 1-64 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve kısa çizgi herhangi bir yere hariç |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Kapsayıcı adı | 1-64 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve kısa çizgi herhangi bir yere hariç |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,11 +46,7 @@ Azure Container Instances desteklemeyen, görüntü belirtirseniz bir `OsVersion
 }
 ```
 
-Bu hata, bir yarı yıllık kanal (SAC) üzerinde tabanlı dağıtımı Windows görüntüleri bıraktığınızda en sık karşılaşılır. Örneğin, Windows sürüm 1709 ve 1803 SAC sürümlerdir ve dağıtım sırasında bu hata oluşturur.
-
-Azure Container Instances, şu anda yalnızca temel Windows görüntüleri destekler **Windows Server 2016 uzun süreli bakım kanalı (LTSC)** bırakın. Windows kapsayıcıları dağıtırken bu sorunu gidermek için her zaman Windows Server 2016 LTSC tabanlı görüntüler dağıtın. Windows Server 2019 (LTSC) dayalı görüntüleri desteklenmez.
-
-Windows LTSC ve SAC sürümleri hakkında daha fazla bilgi için bkz. [Windows Server yarı yıllık kanal genel bakış][windows-sac-overview].
+Bu hata, yarı yıllık kanal tabanlı dağıtımı Windows görüntüleri 1709 veya desteklenmeyen 1803 bıraktığınızda en sık karşılaşılır. Azure Container ınstances'da desteklenen Windows görüntüleri için bkz. [sık sorulan sorular](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Çekme görüntüsü oluşturulamıyor
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ Azure Container ınstances'da kapsayıcı başlangıç zamanını katkıda iki t
 * [Görüntü boyutu](#image-size)
 * [Görüntü konumu](#image-location)
 
-Windows görüntüleri olan [ek hususlar](#cached-windows-images).
+Windows görüntüleri olan [ek hususlar](#cached-images).
 
 ### <a name="image-size"></a>Görüntü boyutu
 
@@ -176,14 +172,12 @@ Resim boyutları küçük tutmak için anahtar son görüntünüzü çalışma z
 
 Başka bir yolu, kapsayıcının başlangıç zamanında görüntü çekme etkisini azaltmak, kapsayıcı görüntüsü barındırmaktır [Azure Container Registry](/azure/container-registry/) container ınstances'a dağıtmayı planladığınız burada aynı bölgede. Bu, kapsayıcı görüntüsü seyahat gereken ağ yolunu karşıdan yükleme süresini önemli ölçüde kısaltmak kısaltır.
 
-### <a name="cached-windows-images"></a>Önbelleğe alınan Windows görüntüleri
+### <a name="cached-images"></a>Önbelleğe alınan görüntüleri
 
-Azure Container Instances, ortak Windows ve Linux görüntüleri temel alan görüntüler için kapsayıcı başlatma süresini hızlandırmak için bir önbelleğe alma mekanizması kullanır. Önbelleğe alınan görüntüleri ve etiketleri ayrıntılı listesi için kullanmak [önbelleğe alınmış görüntüleri listeleme] [ list-cached-images] API.
+Azure Container Instances genel üzerinde oluşturulan görüntüleri için kapsayıcı başlatma süresini hızlandırmak amacıyla bir önbelleğe alma mekanizması kullanır [Windows temel görüntüleri](container-instances-faq.md#what-windows-base-os-images-are-supported)de dahil olmak üzere `nanoserver:1809`, `servercore:ltsc2019`, ve `servercore:1809`. Sık kullanılan Linux görüntüleri gibi `ubuntu:1604` ve `alpine:3.6` önbelleğe alınır. Önbelleğe alınan görüntüleri ve etiketleri güncel bir listesi için kullanmaya [önbelleğe alınmış görüntüleri listeleme] [ list-cached-images] API.
 
-Windows kapsayıcı başlangıç süreye sağlamak için aşağıdakilerden birini kullanın: **en son üç** aşağıdaki sürümleri **iki görüntü** temel görüntü olarak:
-
-* [Windows Sunucu Çekirdeği 2016] [ docker-hub-windows-core] (yalnızca LTSC)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Windows Server 2019 tabanlı görüntüler Azure Container ınstances'da kullanımını Önizleme aşamasındadır.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows kapsayıcıları yavaş bir ağ hazırlığı
 

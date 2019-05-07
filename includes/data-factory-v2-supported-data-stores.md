@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/26/2019
+ms.date: 05/06/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 9cd560b2236aff723001738808a2a794d11bc31f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d99ee6fc04811e4b4991f93ad4db99bf9a5543a8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869550"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150888"
 ---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) tarafından desteklenen | [Şirket içinde barındırılan IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) tarafından desteklenen |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -81,7 +81,7 @@ ms.locfileid: "64869550"
 | &nbsp; |[Jira (Önizleme)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (Önizleme)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (Önizleme)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
-| &nbsp; |[Office 365 (Önizleme)](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
+| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (Önizleme)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (Önizleme)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle hizmet Bulutu (Önizleme)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |

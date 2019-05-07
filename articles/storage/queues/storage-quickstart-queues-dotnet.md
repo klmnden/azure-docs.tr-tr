@@ -2,18 +2,19 @@
 title: "Hızlı Başlangıç: Azure Depolama'da bir kuyruk oluşturmak için .NET kullanma"
 description: Bu hızlı başlangıçta, .NET için Azure depolama istemci kitaplığı bir kuyruk oluşturun ve iletileri eklemek için nasıl kullanılacağını öğrenin. Ardından, okuma ve kuyruktan iletileri işleme hakkında bilgi edinin.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108708"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142480"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Hızlı Başlangıç: Azure Depolama'da bir kuyruk oluşturmak için .NET kullanma
 

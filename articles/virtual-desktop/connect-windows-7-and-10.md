@@ -1,20 +1,20 @@
 ---
-title: Windows sanal masaüstü önizlemesi, Windows 7 ve Windows 10 - Azure ile bağlanma
-description: Windows 7 veya Windows 10 ile Windows sanal masaüstü Önizleme hizmetine bağlanma.
+title: Windows 10 veya Windows 7 - Azure Windows sanal masaüstü Önizleme bağlanın
+description: Windows 10 veya Windows 7 Windows sanal masaüstü önizlemesine bağlanmak nasıl.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145983"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 ve Windows 10'la bağlanma
+# <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 veya Windows 7 bağlanın
 
 > Şunlara uygulanır Windows 7 ve Windows 10.
 
@@ -25,11 +25,11 @@ ms.locfileid: "60328859"
 
 ## <a name="install-the-client"></a>İstemciyi yükleme
 
-[İndirme](https://go.microsoft.com/fwlink/?linkid=2068602) ve istemciyi yerel bilgisayarınıza yükleyin. Bu yönetici hakları gerektirir.
+[İndirme](https://go.microsoft.com/fwlink/?linkid=2068602) ve istemciyi yerel bilgisayarınıza yükleyin. Yönetici hakları gerektirir.
 
 ## <a name="subscribe-to-a-feed"></a>Bir akışa abone ol
 
-Mevcut olan kaynakların listesini için yerel Bilgisayarınızdan yöneticiniz tarafından sağlanan akışına abone olarak sahip olursunuz
+Yönetilen kaynaklar listesi için yöneticiniz tarafından sağlanan akışına abone olarak alın. Abone kaynakları yerel Bilgisayarınızda kullanılabilmesini sağlar.
 
 Bir akışa abone olmak için:
 
@@ -44,6 +44,33 @@ Kaynakları iki yöntemden birini kullanarak başlatabilirsiniz.
 - İstemcinin ana sayfadan başlatmak için bir kaynak çift tıklayın.
 - Başlat Menüsü'nden diğer uygulamalar normalde yaptığınız gibi bir kaynak başlatın.
   - Arama çubuğunda uygulamalar için arama yapabilirsiniz.
+
+Bir akışa abone sonra akış içeriği düzenli aralıklarla otomatik olarak güncelleştirilir. Kaynakları eklenmesine, değiştirilmesine veya yöneticiniz tarafından yapılan değişiklikler temel alınarak kaldırıldı.
+
+## <a name="view-the-details-of-a-feed"></a>Bir akışı ayrıntılarını görüntüleyin
+
+Abone sonra Ayrıntılar bölmesini erişerek akış hakkında daha fazla bilgi görüntüleyebilirsiniz.
+
+1. İstemcinin ana sayfasında üç noktayı seçin (**...** ) akış adının sağındaki.
+1. Açılan menüden **ayrıntıları**.
+1. Ayrıntılar bölmesini istemci sağ tarafında görünür.
+
+Ayrıntılar bölmesini akış hakkında yararlı bilgiler içerir:
+
+- Abone olmak için kullanılan kullanıcı adı ve URL
+- Uygulamalar ve Masaüstü sayısı
+- Son güncelleştirme tarih/saat
+- Son güncelleştirme durumu
+
+Gerekli olursa, el ile güncelleştirme seçerek başlayabilirsiniz **Şimdi Güncelleştir**.
+
+## <a name="unsubscribe-from-a-feed"></a>Bir akıştan aboneliği iptal et
+
+Bu bölümde bir akıştan aboneliği öğretir. Farklı bir hesapla yeniden abone ya da sistemden kaynaklarınızı kaldırmak için abonelikten çıkabilirsiniz.
+
+1. İstemcinin ana sayfasında üç noktayı seçin (**...** ) akış adının sağındaki.
+1. Açılan menüden **Unsubscribe**.
+1. Gözden geçirin ve seçin **devam** iletişim.
 
 ## <a name="update-the-client"></a>İstemci güncelleştirmesi
 

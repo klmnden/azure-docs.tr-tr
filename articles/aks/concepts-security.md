@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466751"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074029"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
 
@@ -34,9 +34,11 @@ Varsayılan olarak Kubernetes API sunucusuna bir genel IP adresini kullanır ve 
 
 ## <a name="node-security"></a>Düğüm güvenliği
 
-AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Düğümleri Moby kapsayıcı çalışma zamanı kullanılarak en iyi duruma getirilmiş bir Ubuntu Linux dağıtımını çalıştırın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
+AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Linux düğümleri Moby kapsayıcı çalışma zamanı'nı kullanarak bir en iyi duruma getirilmiş Ubuntu dağıtım çalıştırın. En iyi duruma getirilmiş bir Windows Server 2019 Windows Server düğümleri (şu anda önizlemede aks'deki), sürüm ve ayrıca Moby kapsayıcı çalışma zamanı kullanın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
 
-Azure platformunun işletim sistemi güvenlik yamaları düğümlerine gecelik temelinde otomatik olarak uygular. Bir işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet] [ aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
+Azure platformunun işletim sistemi güvenlik yamaları gecelik temelinde Linux düğümleri için otomatik olarak uygular. Bir Linux işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Linux düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet] [ aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
+
+(Şu anda önizlemede aks'deki) Windows Server düğümleri için Windows Update otomatik olarak çalıştırın ve en son güncelleştirmeleri uygulayın. Düzenli bir zamanlamaya göre Windows Güncelleştirme sürüm döngüsü ve kendi doğrulama işlemi, AKS kümenizi yükseltme üzerinde Windows Server düğüm havuzları gerçekleştirmeniz gerekir. Bu yükseltme işlemi, düzeltme ekleri ve en son Windows Server görüntüsü çalıştıran düğümlere oluşturur, ardından eski düğümleri kaldırır. Bu işlem hakkında daha fazla bilgi için bkz. [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
 
 Düğümleri atanan genel IP adresi ile bir özel sanal ağ alt ağa dağıtılır. Yönetim ve sorun giderme amacıyla SSH, varsayılan olarak etkindir. Bu SSH erişimini, yalnızca iç IP adresi kullanılarak erişilebilir.
 
@@ -50,12 +52,12 @@ Azure, güvenlik ve uyumluluk için veya en son özellikleri kullanmak için bir
 
 ### <a name="cordon-and-drain"></a>Cordon ve boşaltma
 
-Yeni pod'ları üzerinde zamanlanmış değil için yükseltme işlemi sırasında AKS düğümleri ayrı ayrı kümeden kordonlanır. Düğümleri boşaltılır ve yükseltme gibi verilmiştir:
+Yeni pod'ları üzerinde zamanlanmaz. Bu nedenle yükseltme işlemi sırasında AKS düğümleri ayrı ayrı kümeden kordonlanır. Düğümleri boşaltılır ve yükseltme gibi verilmiştir:
 
-- Mevcut pod'ların düzgün bir şekilde sonlandırıldı ve Kalan düğümlerde zamanlandı.
-- Düğüm yeniden, yükseltme işlemi tamamlandı ve ardından birleştirmeler AKS kümesine yedekleyin.
-- Pod'ları üzerinde yeniden çalışmak üzere zamanlanır.
-- Kümedeki sonraki düğüme kordonlanır ve tüm düğümleri başarıyla yükseltilene kadar aynı işlem kullanarak boşaltılır.
+- Yeni bir düğüm, düğüm havuza dağıtılır. Bu düğüm, en son işletim sistemi görüntüsü ve düzeltme eklerini çalıştırır.
+- Mevcut düğümlerinden yükseltme için tanımlanır. Bu düğümdeki pod'ların düzgün bir şekilde sonlandırıldı ve düğüm havuzdaki diğer düğümlerde zamanlanmış.
+- Var olan bu düğüm, AKS küme silinir.
+- Kümedeki sonraki düğüme kordonlanır ve tüm düğümleri başarıyla yükseltme işleminin bir parçası değiştirilir kadar aynı işlem kullanarak boşaltılır.
 
 Daha fazla bilgi için [AKS kümesini yükseltme][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ AKS kümelerinizi güvenliğini kullanmaya başlamak için bkz. [AKS kümesini y
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

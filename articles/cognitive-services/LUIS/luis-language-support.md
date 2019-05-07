@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196227"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072371"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
 
@@ -102,7 +102,7 @@ Aşağıdaki kültürler özel simgeleştirici sürümleri vardır:
 |Kültür|Version|Amaç|
 |--|--|--|
 |Almanca <br>`de-de`|1.0.0|Sözcüklerin tek bileşenleri bileşik sözcüklere bölmek için çalışan bir makine öğrenme tabanlı simgeleştirici kullanarak bunları bölerek tokenizes.<br>Bir kullanıcı girerse `Ich fahre einen krankenwagen` bir utterance açık olduğundan `Ich fahre einen kranken wagen`. İşaretleme için izin verme `kranken` ve `wagen` farklı varlıklar olarak birbirinden bağımsız olarak.|
-|Almanca <br>`de-de`|1.0.1|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
+|Almanca <br>`de-de`|1.0.2|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Simgeleştirici sürümler arasında geçiş yapma
 <!--

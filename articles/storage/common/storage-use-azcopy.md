@@ -2,18 +2,19 @@
 title: Kopyalayın veya Windows üzerinde AzCopy ile Azure depolama veri taşıma | Microsoft Docs
 description: AzCopy yardımcı programından Windows taşımak veya için veya blob, tablo ve dosya içeriği veri kopyalamak için kullanın. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ead5729496253b553ea453a9d6ce33b6b673e027
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149051"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
 

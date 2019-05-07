@@ -1,5 +1,5 @@
 ---
-title: V1.0 hakkında | Azure
+title: Azure Active Directory geliştiricilerin (v1.0) genel bakış
 description: Bu makalede genel bir bakış sağlar. Microsoft imzalama iş ve Okul hesaplarında platform ve Azure Active Directory v1.0 uç nokta kullanarak.
 services: active-directory
 author: CelesteDG
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd39ee1dc22fb6143a8d098276172c453388170b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af95d979e90f25c013f5112322d830232199a4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297182"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067659"
 ---
-# <a name="about-v10"></a>V1.0 hakkında
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory geliştiricilerin (v1.0) genel bakış
 
 Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hesabına sahip kullanıcıların güvenli şekilde oturumunu açan uygulamalar derlemesine olanak sağlayan bir bulut kimlik hizmetidir. Azure AD, tek kiracılı, iş kolu (LOB) uygulamalarını derleyen geliştiricileri ve çok kiracılı uygulamalar geliştirmek isteyen geliştiricileri destekler. Temel oturum açmaya ek olarak Azure AD, uygulamaların hem [Microsoft Graph](https://docs.microsoft.com/graph/overview) gibi Microsoft API’lerini hem de Azure AD platformunda derlenen özel API’leri çağırmasını sağlar. Bu belgeler, OAuth2.0 ve OpenID Connect gibi sektör standardı protokolleri kullanarak Azure AD desteğini uygulamanıza nasıl ekleyeceğinizi göstermektedir.
 

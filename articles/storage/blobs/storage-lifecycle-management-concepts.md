@@ -2,18 +2,19 @@
 title: Azure depolama yaşam döngüsünü yönetme
 description: Yaşam döngüsü ilkesi kuralları geçiş eskime verileri seyrek erişimli ve Arşiv katmanları için sık erişimli'den oluşturmayı öğrenin.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148311"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 

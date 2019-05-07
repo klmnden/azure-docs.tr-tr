@@ -9,27 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2a3e84de6d956e4b45945c77c11f789d4455bfe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43d0b855c25ed10b074d99b247ee56dc2ba7769b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473204"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146193"
 ---
-# <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>PhoneNumber LUIS uygulaması için önceden oluşturulmuş varlık
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Bir LUIS uygulaması için telefon numarası önceden oluşturulmuş varlık
 `phonenumber` Varlık ülke kodunu içeren telefon numaralarını çeşitli ayıklar. Bu varlık zaten eğitildi olduğundan, uygulama için örnek Konuşma ekleme gerekmez. `phonenumber` Varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
-## <a name="types-of-phonenumber"></a>Phonenumber türleri
-PhoneNumber yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub deposu
+## <a name="types-of-a-phone-number"></a>Bir telefon numarası türü
+`Phonenumber` gelen yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub deposu
 
-## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Önceden oluşturulmuş phonenumber varlık için çözümleme
+## <a name="resolution-for-this-prebuilt-entity"></a>Önceden oluşturulmuş bu varlık için çözümleme
+
+### <a name="api-version-2x"></a>API sürüm 2.x
+
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.phonenumber** varlık.
 
 ```json
 {
-  "query": "my mobile is 00 44 161 1234567",
+  "query": "my mobile is 1 (800) 642-7676",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.8448457
@@ -42,18 +45,77 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.phonenumber** var
   ],
   "entities": [
     {
-      "entity": "00 44 161 1234567",
-      "type": "builtin.phonenumber",
-      "startIndex": 13,
-      "endIndex": 29,
-      "resolution": {
-        "value": "00 44 161 1234567"
-      }
+        "entity": "1 (800) 642-7676",
+        "type": "builtin.phonenumber",
+        "startIndex": 13,
+        "endIndex": 28,
+        "resolution": {
+            "score": "1",
+            "value": "1 (800) 642-7676"
+        }
     }
   ]
 }
 ```
 
+### <a name="preview-api-version-3x"></a>Önizleme API sürümü 3.x
+
+Aşağıdaki JSON ile olan `verbose` parametresini `false`:
+
+```json
+{
+    "query": "my mobile is 1 (800) 642-7676",
+    "prediction": {
+        "normalizedQuery": "my mobile is 1 (800) 642-7676",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.592748761
+            }
+        },
+        "entities": {
+            "phonenumber": [
+                "1 (800) 642-7676"
+            ]
+        }
+    }
+}
+```
+
+Aşağıdaki JSON ile olan `verbose` parametresini `true`:
+
+```json
+{
+    "query": "my mobile is 1 (800) 642-7676",
+    "prediction": {
+        "normalizedQuery": "my mobile is 1 (800) 642-7676",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.592748761
+            }
+        },
+        "entities": {
+            "phonenumber": [
+                "1 (800) 642-7676"
+            ],
+            "$instance": {
+                "phonenumber": [
+                    {
+                        "type": "builtin.phonenumber",
+                        "text": "1 (800) 642-7676",
+                        "startIndex": 13,
+                        "length": 16,
+                        "score": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

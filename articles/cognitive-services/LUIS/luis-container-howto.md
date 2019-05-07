@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072997"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -337,19 +337,28 @@ Fatura bilgilerini azure'a, kullanarak LUIS kapsayıcı gönderen bir _Bilişsel
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Desteklenmeyen bağımlılıkları
+## <a name="supported-dependencies-for-latest-container"></a>Bağımlılıklar için desteklenen `latest` kapsayıcı
+
+2019 yayımlanan en son kapsayıcının / / derleme, destekler:
+
+* Bing yazım denetimi: Sorgu tahmin noktayla isteklerine `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` sorgu dizesi parametreleri. Kullanım [Bing yazım denetimi v7 öğretici](luis-tutorial-bing-spellcheck.md) daha fazla bilgi için. Bu özellik kullandıysanız, kapsayıcı utterance Bing yazım denetimi V7 kaynağınıza gönderir.
+* [Yeni bir önceden oluşturulmuş etki alanları](luis-reference-prebuilt-domains.md): varlıklar, örnek konuşma ve desenleri Kurumsal odaklı bu etki alanları içerir. Bu etki alanlarına kendi kullanımınız için genişletin. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Bağımlılıklar için desteklenmeyen `latest` kapsayıcı
+
+LUIS uygulamanızı bağımlılıklar desteklenmiyor, şunları yapamaz [dışarı aktarmak için kapsayıcı](#export-packaged-app-from-luis) desteklenmeyen özellikler kaldırana kadar. Kapsayıcı için dışarı aktarmak denediğinizde, kaldırmanız gereken desteklenmeyen özellikler LUIS portalı bildirir.
 
 Bir LUIS uygulaması, kullanabilir, **içermez** herhangi birini aşağıdaki bağımlılıkları:
 
 Desteklenmeyen uygulama yapılandırmaları|Ayrıntılar|
 |--|--|
-|Desteklenmeyen kapsayıcı kültürler| Almanca (de-DE)<br>Felemenkçe (nl-NL)<br>Japonca (ja-JP)<br>|
-|Desteklenmeyen etki alanları|Önceden oluşturulmuş etki alanı amaç ve varlıkları dahil olmak üzere, önceden oluşturulmuş etki alanları|
+|Desteklenmeyen kapsayıcı kültürler| Felemenkçe (nl-NL)<br>Japonca (ja-JP)<br>Almanca ile desteklenen yalnızca [1.0.1 simgeleştirici veya üzeri](luis-language-support.md#custom-tokenizer-versions).|
 |Tüm kültürler için desteklenmeyen varlıklar|[Anahtar cümlesi](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) tüm kültürler için önceden oluşturulmuş varlık|
 |İngilizce (en-US) kültürü için desteklenmeyen varlıklar|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) önceden oluşturulmuş varlıklar|
 |Konuşma Hazırlama işlemi|Dış bağımlılıklar kapsayıcıda desteklenmez.|
 |Yaklaşım analizi|Dış bağımlılıklar kapsayıcıda desteklenmez.|
-|Bing yazım denetimi|Dış bağımlılıklar kapsayıcıda desteklenmez.|
 
 ## <a name="summary"></a>Özet
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653670"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070808"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>El ile Azure Container Instances'da kapsayıcı başlatma veya durdurma
 
@@ -24,7 +24,7 @@ El ile çalıştırılan bir kapsayıcı grubu - Örneğin, kullanarak durdurun 
 
 *Kapsayıcı grubu durduruldu durumuna girdiğinde, sonlandırır ve gruptaki tüm kapsayıcıları geri dönüştürür. Kapsayıcı durumu korumaz.*
 
-Durdurulmuş kapsayıcı grubundaki kapsayıcı dönüştürülünceye rağmen [kaynakları](container-instances-container-groups.md#resource-allocation) kullanım için ayrılmış şekilde kalır. Bu nedenle, durdurulmuş kapsayıcı grubu için faturalandırma devam eder.
+Kapsayıcıları dönüştürülünceye olduğunda [kaynakları](container-instances-container-groups.md#resource-allocation) durakları kapsayıcı grubu için faturalama ve serbest bırakılır.
 
 Kapsayıcı grubu zaten sonlandırıldıysa durdurma eylemi etkiye sahip değildir (başarılı veya başarısız durumda). Örneğin, bir kapsayıcı grubu başarıyla çalıştı kez çalıştırılan kapsayıcı görevleri başarılı durumunda sonlandırır. Durum değiştirme durumu, grubun durdurmaya çalışır. 
 

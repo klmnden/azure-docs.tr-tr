@@ -1,37 +1,35 @@
 ---
-title: Ekleme ve Azure işlevleri ile Azure Logic apps'te özel kod çalıştırma | Microsoft Docs
-description: Azure işlevleri ile Azure Logic apps'te özel kod parçacıklarını çalıştırmak ve ekleme hakkında bilgi edinin
+title: Ekleme ve Azure Logic Apps ile Azure işlevleri'nde kod çalıştırma
+description: Ekleme ve Azure Logic Apps ile Azure işlevleri'nde kod çalıştırma
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687696"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142317"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Ekleme ve Azure işlevleri ile Azure Logic apps'te özel kod parçacıkları çalıştırma
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Ekleme ve Azure Logic Apps Azure işlevleri'ni kullanarak kod çalıştırma
 
-Logic apps içinde belirli bir işi yapan yeterli kodu çalıştırmak istediğinizde, kendi işlevleri ile oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet, Node.js, oluşturmanıza yardımcı olur. C#, ve F# bütün bir uygulama veya kodunuzu çalıştırmak için altyapı oluşturmak zorunda kalmamak için kod parçacıkları. Azure işlevleri, sunucusuz bilgi işlem bulutta sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
+Logic apps içinde belirli bir işi yapan kodu çalıştırmak istediğinizde, kendi işlevleri ile oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet, Node.js, oluşturmanıza yardımcı olur. C#, ve F# bütün bir uygulama veya kodunuzu çalıştırmak için altyapı oluşturmak zorunda kalmamak için kod. Ayrıca [logic apps'ten çağrı Azure işlevleri içindeki](#call-logic-app).
+Azure işlevleri, sunucusuz bilgi işlem bulutta sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
 
 * Node.js veya C# işlevleri ile mantıksal uygulamanızın davranışını genişletin.
 * Mantıksal uygulama iş akışınızı hesaplamalar gerçekleştirin.
 * Gelişmiş biçimlendirme uygulamak veya logic apps alanları işlem.
 
-Ayrıca [logic apps'ten çağrı Azure işlevleri içindeki](#call-logic-app).
+Azure işlevleri'ni oluşturmadan kod parçacıklarını çalıştırmak için bilgi nasıl [ekleme ve satır içi kod çalıştırma](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede takip etmek için bu öğeler gerekir:
-
-* Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+* Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
 * Azure işlevleri ve Azure işleviniz için bir kapsayıcı bir Azure işlev uygulaması. Bir işlev uygulaması yoksa [ilk işlev uygulamanızı oluşturmak](../azure-functions/functions-create-first-azure-function.md). İşlevinizi ya da sonra oluşturma [ayrı ayrı mantıksal uygulamanızı dışında](#create-function-external), veya [gelen mantıksal uygulamanız içinde](#create-function-designer) mantıksal Uygulama Tasarımcısı'nda.
 
@@ -58,7 +56,7 @@ Bu makalede takip etmek için bu öğeler gerekir:
 
 ## <a name="create-functions-outside-logic-apps"></a>İşlevleri dış mantıksal uygulamalar oluşturma
 
-İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal uygulamanızı aynı Azure aboneliğinde olması gerekir ve ardından Azure işlevinizi oluşturma, Azure işlev uygulaması oluşturma.
+İçinde [Azure portalında](https://portal.azure.com), mantıksal uygulamanızı aynı Azure aboneliğinde olması gerekir ve ardından Azure işlevinizi oluşturma, Azure işlev uygulaması oluşturma.
 Azure işlevleri'ni oluşturmaya yeni başlıyorsanız öğrenin nasıl [Azure portalında ilk işlevinizi oluşturma](../azure-functions/functions-create-first-azure-function.md), ancak mantıksal uygulamalardan arayabileceğiniz işlevleri oluşturmak için bu gereksinimleri dikkate alın:
 
 * Seçtiğinizden emin olun **HTTP tetikleyicisi** ya da işlev şablonu **JavaScript** veya **C#**.
@@ -116,7 +114,7 @@ Azure işlevinizi oluşturduğunuza göre nasıl adımlarını izleyin [logic Ap
 
 Mantıksal Uygulama Tasarımcısı'nda mantıksal uygulama içinde başlayarak bir Azure işlev oluşturabilmeniz için önce işlevleriniz için kapsayıcı olan bir Azure işlev uygulaması olmalıdır. Bir işlev uygulamasına sahip değilseniz, bu işlev uygulaması ilk oluşturun. Bkz: [Azure portalında ilk işlevinizi oluşturma](../azure-functions/functions-create-first-azure-function.md). 
 
-1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
+1. İçinde [Azure portalında](https://portal.azure.com), mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
 2. Oluşturma ve işlevinizi eklemek için senaryonuz için geçerli adımı izleyin:
 
@@ -176,7 +174,7 @@ Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
 Mantıksal uygulamalarınızı mevcut Azure işlevleri çağırmak için Logic App Tasarımcısı'nda Azure işlevleri gibi diğer herhangi bir eylem ekleyebilirsiniz. 
 
-1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
+1. İçinde [Azure portalında](https://portal.azure.com), mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
 2. İşlev eklemek istediğiniz adımı altında seçin **yeni adım** > **Eylem Ekle**. 
 

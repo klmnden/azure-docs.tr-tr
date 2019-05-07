@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8b446e3cfd3efc7d6f4c125747630cd3241fa804
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148076"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma
 
 Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için Azure IoT Edge bulut arabirimini kullanın. Bu görevi, ilk oluşturun ve IOT Edge cihazı çalışmak için bir Windows sanal makineyi yapılandırmak için daha sonra bir modül için dağıtabilirsiniz.
 
@@ -30,9 +30,6 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 ![Diyagram - cihaz ve buluta yönelik hızlı başlangıç mimarisi](./media/quickstart/install-edge-full.png)
 
 Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
-
-> [!NOTE]
-> Windows üzerinde IoT Edge çalışma zamanı [genel önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) sürümündedir.
 
 Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
@@ -71,6 +68,10 @@ IoT Edge cihazı:
   1. Üzerinde **RDP** sekmesinde **RDP dosyasını indir**.
 
   Windows sanal Yönetici adını ve parolasını kullanarak belirttiğiniz ile makinenize bağlanmak için Uzak Masaüstü Bağlantısı ile bu dosyayı açmak `az vm create` komutu.
+
+
+> [!NOTE]
+> Bu hızlı başlangıçta, Windows Masaüstü sanal makine kolaylık sağlamak için kullanılır. Hangi Windows işletim sistemleri üretim senaryoları için genel kullanıma sunulan daha fazla bilgi için bkz [Azure IOT Edge desteklenen sistemler](support.md).
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -130,30 +131,33 @@ Yükleme betiği, IOT Edge Cihazınızda kapsayıcı görüntülerini yönetir M
 
 Bu sanal makine şimdi Uzak Masaüstü aracılığıyla bağlanmak istediğiniz şekilde bu bölümdeki adımlarda, tüm IOT Edge Cihazınızda gerçekleşir.
 
-### <a name="prepare-your-device-for-containers"></a>Kapsayıcılar için cihazı hazırlama
-
-Cihazınızda otomatik olarak yükler Moby altyapısı IOT Edge yüklemeden önce yükleme komut dosyası. Cihazınız kapsayıcıları özelliğini etkinleştirerek hazırlayın.
-
-1. Arama Başlat çubuğunda **kapatma Windows özelliklerini aç veya Kapat** ve Denetim Masası programını açın.
-1. Bulmak ve seçmek **kapsayıcıları**.
-1. **Tamam**’ı seçin.
-
-Tamamlandığında, etkili değişiklikler için Windows yeniden başlatmanız gerekir, ancak Azure portalında sanal makine yeniden başlatmak yerine, Uzak Masaüstü oturumundan bunu yapabilirsiniz.
-
-### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge hizmetini indirme ve yükleme
+### <a name="install-and-configure-the-iot-edge-service"></a>IOT Edge hizmetini yükleme ve yapılandırma
 
 PowerShell'i kullanarak IoT Edge çalışma zamanını indirin ve yükleyin. Cihazınızı yapılandırmak için IoT Hub'dan aldığınız cihaz bağlantı dizesini kullanın.
 
-1. IoT Edge cihazınızda PowerShell'i yönetici olarak çalıştırın.
+1. Henüz yapmadıysanız, adımları [yeni bir Azure IOT Edge cihazı kaydedin](how-to-register-device-portal.md) Cihazınızı kaydedemedik ve cihaz bağlantı dizesini almak için. 
 
-2. IoT Edge hizmetini cihazınıza indirin ve yükleyin.
+2. PowerShell'i yönetici olarak çalıştırın.
+
+3. **Dağıt IoTEdge** komutu Windows makineniz üzerinde desteklenen bir sürümünü, kapsayıcıları özelliğini etkinleştirir, moby çalışma zamanı indirir ve sonra IOT Edge çalışma zamanını indirir olduğunu denetler.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. **DeviceConnectionString** istendiğinde önceki bölümde kopyaladığınız dizeyi iletin. Bağlantı dizesinin etrafındaki tırnak işaretlerini dahil etmeyin.
+4. Makinenizi otomatik olarak yeniden başlatılabilir. Yeniden Dağıt IoTEdge komutu tarafından istenirse, şimdi yapın. 
+
+5. PowerShell'i yönetici olarak yeniden çalıştırın.
+
+6. **Başlatma IoTEdge** komut, IOT Edge çalışma zamanı makinenizde yapılandırır. Komutu ile Windows kapsayıcıları el ile sağlama için varsayılan olarak kullanır. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. **DeviceConnectionString** istendiğinde önceki bölümde kopyaladığınız dizeyi iletin. Bağlantı dizesinin etrafındaki tırnak işaretlerini dahil etmeyin.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge çalışma zamanı durumunu görüntüleme
 
@@ -168,14 +172,7 @@ PowerShell'i kullanarak IoT Edge çalışma zamanını indirin ve yükleyin. Cih
 2. Hizmetle ilgili sorunları gidermeniz gerekirse hizmet günlüklerini alın.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. IoT Edge cihazınızda çalışan tüm modülleri görüntüleyin. Hizmet ilk kez başlatıldığı için yalnızca **edgeAgent** modülünün çalıştığını göreceksiniz. edgeAgent modülü varsayılan olarak çalışır ve cihazınıza dağıtmak istediğiniz ek modülleri yüklemenize ve başlatmanıza yardımcı olur.

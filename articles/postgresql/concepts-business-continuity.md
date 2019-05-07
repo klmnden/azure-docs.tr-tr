@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
+title: PostgreSQL - tek bir sunucu için Azure veritabanı'nda iş sürekliliğine genel bakış
 description: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068926"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda iş sürekliliğine genel bakış
 
 Bu genel bakışta, PostgreSQL için Azure veritabanı iş sürekliliği ve olağanüstü durum kurtarma sağlayan özellikleri açıklar. Veri kaybına neden veya veritabanı ve uygulama kullanılamaz hale gelmesine neden olaylardan kurtarmak için seçenekler hakkında bilgi edinin. Bir kullanıcı veya uygulama hatası veri bütünlüğünü etkileyen, bir Azure bölgesinde kesinti yaşandığında veya uygulamanız zaman bakıma gerek duyacağını ne yapılacağını öğrenin.
 

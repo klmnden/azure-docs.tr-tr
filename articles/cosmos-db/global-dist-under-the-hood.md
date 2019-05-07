@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071957"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB - başlık altında genel veri dağılımı
 
@@ -84,5 +84,5 @@ Cosmos DB'de beş tutarlılık modeli semantiği açıklanan [burada](consistenc
 Ardından aşağıdaki makaleleri kullanarak genel dağıtımı yapılandırma işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 * [Bölge veritabanı hesabınızdan Ekle/Kaldır](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

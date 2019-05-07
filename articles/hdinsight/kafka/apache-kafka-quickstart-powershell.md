@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c86e5faa212fb6458326e00cba02fbe2ea83c8f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/02/2019
+ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148138"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -30,40 +30,35 @@ Bu hızlı başlangıçta, Azure PowerShell kullanarak [Apache Kafka](https://ka
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Azure PowerShell. Daha fazla bilgi için [Azure PowerShell’i Yükleme ve Yapılandırma](https://docs.microsoft.com/powershell/azure/install-az-ps) belgesine bakın.
+* PowerShell [Az modül](https://docs.microsoft.com/powershell/azure/overview) yüklü.
 
-* Bir SSH istemcisi. Bu belgede yer alan adımlarda, kümeye bağlanmak için SSH kullanılır.
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    Linux, Unix ve macOS sistemlerinde varsayılan olarak `ssh` komutu sağlanır. Windows 10’da, `ssh` komutunu yüklemek için aşağıdaki yöntemlerden birini kullanın:
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-  * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)’i kullanın. Cloud shell, `ssh` komutunu sağlar ve kabuk ortamı olarak Bash veya PowerShell kullanılacak şekilde yapılandırılabilir.
+Azure aboneliğinizde oturum açın `Connect-AzAccount` cmdlet'i ve ekrandaki yönergeleri izleyin.
 
-  * [Linux için Windows Alt Sistemini yükleyin](https://docs.microsoft.com/windows/wsl/install-win10). Microsoft Store aracılığıyla kullanılabilir olan Linux dağıtımları, `ssh` komutunu sağlar.
+```azurepowershell-interactive
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-    > [!IMPORTANT]  
-    > Bu belgede yer alan adımlarda, yukarıda belirtilen SSH istemcilerinden birisini kullandığınız varsayılır. Farklı bir SSH istemcisi kullanıyorsanız ve sorunlarla karşılaşıyorsanız lütfen SSH istemciniz için belgelere başvurun.
-    >
-    > Daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
-
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
-
-`Login-AzAccount` cmdlet’i ile Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
-
-```powershell
-Login-AzAccount
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 Bir Azure kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnekte, adınız ve konumunuz istenir, daha sonra yeni bir kaynak grubu oluşturulur:
 
-```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+```azurepowershell-interactive
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -72,19 +67,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 HDInsight üzerinde Kafka, Kafka verilerini depolamak için Azure Yönetilen Diskler’i kullanırken, küme de günlükler gibi bilgileri depolamak için Azure Depolama’yı kullanır. Kullanım [yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) yeni bir depolama hesabı oluşturmak için.
 
-```powershell
+> [!IMPORTANT]  
+> Depolama hesabı türü `BlobStorage` yalnızca HDInsight kümeleri için ikincil depolama alanı olarak kullanılabilir.
+
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
-        -ResourceGroupName $resourceGroup `
-        -Name $storageName `
-        -Type Standard_LRS `
-        -Location $location
+    -ResourceGroupName $resourceGroup `
+    -Name $storageName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 ```
 
 HDInsight, depolama hesabındaki verileri bir blob kapsayıcısında depolar. Kullanım [yeni AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) yeni bir kapsayıcı oluşturmak için.
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -93,28 +93,27 @@ $storageKey = (Get-AzStorageAccountKey `
 $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka kümesi oluşturma
 
 Apache Kafka ile HDInsight kümesi oluşturmak [yeni AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
-```powershell
-# Create a Kafka 1.0 cluster
+```azurepowershell-interactive
+# Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
-$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
-    -UserName "admin"
-$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
-$clusterOS="Linux"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.0")
+$kafkaConfig.Add("kafka", "1.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ New-AzHDInsightCluster `
         -Location $location `
         -ClusterSizeInNodes $numberOfWorkerNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
@@ -336,7 +335,7 @@ Ayrıca programlı olarak üretici ve tüketici de oluşturabilirsiniz. Bu API k
 
 Artık gerekli değilse [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) HDInsight, kaynak grubunu kaldırmak için komutu ve tüm ilgili kaynakları.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

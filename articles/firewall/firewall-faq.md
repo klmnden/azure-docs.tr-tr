@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718798"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145952"
 ---
 # <a name="azure-firewall-faq"></a>Azure güvenlik duvarı ile ilgili SSS
 
@@ -123,11 +123,9 @@ Evet. Ancak, aynı sanal ağda alt ağlar arasındaki trafiği yönlendirmek iç
 
 Varsayılan olarak zorlamalı tünel desteklenmez, ancak destek yardımıyla etkinleştirilebilir.
 
-Azure güvenlik duvarı, doğrudan Internet bağlantısı olması gerekir. NextHopType değeri ayarlanmış varsayılan olarak, AzureFirewallSubnet 0.0.0.0/0 rota sahip **Internet**.
+Azure güvenlik duvarı, doğrudan Internet bağlantısı olması gerekir. Bir varsayılan yolu BGP aracılığıyla şirket içi ağınıza, AzureFirewallSubnet öğrenir, bu ile 0.0.0.0/0 UDR ile geçersiz kılmanız gerekir **NextHopType** değer kümesini olarak **Internet** doğrudan korumak için Internet bağlantısı. Varsayılan olarak, bir şirket içi ağ için zorlamalı tünel, Azure Güvenlik Duvarı'nı desteklemez.
 
-Şirket içi ExpressRoute veya VPN ağ geçidi aracılığıyla zorlamalı tünel etkinleştirirseniz, açıkça Internet olarak ayarlanan NextHopType değeri ile 0.0.0.0/0 kullanıcı tanımlı yol (UDR) yapılandırmak ve bunu, AzureFirewallSubnet ile ilişkilendirmek gerekebilir. Bu, olası varsayılan ağ geçidi, şirket içi ağınıza geri BGP reklamı geçersiz kılar.
-
-Kuruluşunuz Azure Güvenlik Duvarı'nda, varsayılan ağ geçidi trafiği şirket içi ağınız üzerinden yeniden yönlendirmek zorlamalı tünel gerektiriyorsa, desteğe başvurun. Internet bağlantısı gerekli güvenlik duvarı emin olmak için aboneliğinizi korunur bir beyaz liste şunları yapabiliriz.
+Bir şirket içi ağ için zorlamalı tünel yapılandırma gerektirir, ancak Microsoft bunu tek olay temelinde destekler. Biz durumunuzu gözden geçirmek, desteğe başvurun. Kabul ediyoruz aboneliğinizi beyaz liste göreceksiniz ve gerekli güvenlik duvarı Internet bağlantısı karşılandığından emin olun.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Kaynak grubu kısıtlaması herhangi bir güvenlik duvarı vardır?
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074193"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -30,6 +30,8 @@ Bu en iyi yöntemler makalesi Gelişmiş Kubernetes küme operatörleri için za
 **En iyi uygulama kılavuzunu** -kaynak kullanımı yoğun uygulamalar için giriş denetleyicileri gibi belirli düğümlere erişimi sınırlayın. Onları gerektiren iş yükleri için kullanılabilir düğüm kaynakları saklamak ve diğer iş yüklerinin düğümlerde zamanlama izin verme.
 
 AKS kümenizi yeniden oluşturduğunuzda, GPU desteğine veya çok sayıda güçlü CPU'lara düğümleri dağıtabilirsiniz. Bu düğümler, genellikle machine learning (ML) veya yapay zeka (AI) gibi büyük veri işleme iş yükleri için kullanılır. Bu donanım türü genellikle dağıtmak için bir pahalı düğüm kaynağı olduğundan, bu düğümlere zamanlanabilen iş yüklerinin sınırlayın. Bunun yerine, giriş hizmetleri çalıştırmak ve diğer iş yükleri önlemek için kümedeki bazı düğümler ayırmak isteyebilirsiniz.
+
+Bu destek farklı düğümleri için birden çok düğüm havuzları kullanılarak sağlanır. Bir AKS kümesi, bir veya daha fazla düğüm havuzları sağlar. Birden çok düğüm havuzları aks'deki desteği şu anda Önizleme aşamasındadır.
 
 Kubernetes Zamanlayıcı taints ve tolerations düğümler üzerinde hangi iş yüklerini çalıştırabilirsiniz kısıtlamak için kullanabilirsiniz.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Ne zaman bu pod dağıtıldığında kullanmak gibi `kubectl apply -f gpu-tolera
 Taints uyguladığınızda, uygulama geliştiriciler ve sahipleri izin vermek üzere kendi dağıtımlarda gerekli tolerations tanımlamak için çalışır.
 
 Taints ve tolerations hakkında daha fazla bilgi için bkz. [taints ve tolerations uygulama][k8s-taints-tolerations].
+
+AKS içindeki birden çok düğüm havuzları kullanma hakkında daha fazla bilgi için bkz. [oluşturun ve bir AKS kümesi için birden çok düğüm havuzları yönetme][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints ve aks'deki tolerations davranışı
 
@@ -195,3 +199,4 @@ Bu makalede, Gelişmiş Kubernetes Zamanlayıcı özelliklere odaklanan. AKS kü
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

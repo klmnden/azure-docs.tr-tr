@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148722"
 ---
 # <a name="create-entities-without-utterances"></a>Konuşma olmadan varlık oluşturma
 
@@ -66,29 +66,6 @@ Bir normal ifade varlık sağladığınız bir normal ifadeye göre utterance ve
 
     Bu normal ifade sabit karakterleriyle eşleşen `hrf-`, daha sonra 6 basamaklı bir formu temsil etmek için bir insan kaynakları form sayı.
 
-## <a name="add-hierarchical-entities"></a>Hiyerarşik bir varlık ekleme
-
-Hiyerarşik bir varlık, bağlamsal öğrenilen ve kavramsal olarak ilişkili varlıkları kategorisidir. Aşağıdaki örnekte, kaynak ve hedef konumları varlık içerir. 
-
-Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu ve Cairo hedef konumu. Her kelime sırasını ve sözcük seçenek utterance bağlamsal olarak farklı ve öğrenilen konumdur.
-
-Hiyerarşik bir varlık eklemek için aşağıdaki adımları tamamlayın: 
-
-1. Uygulamanızda seçin **varlıkları** sol gezinti ve ardından **yeni varlık Oluştur**.
-
-1. Açılan iletişim kutusuna `Location` içinde **varlık adı** kutusuna ve ardından **hiyerarşik** gelen **varlık türü** listesi.
-
-    ![Hiyerarşik varlık ekleme](./media/add-entities/hier-location-entity-creation.png)
-
-1. Seçin **alt öğe Ekle**yazıp enter `Origin` içinde **alt #1** kutusu. 
-
-1. Seçin **alt öğe Ekle**yazıp enter `Destination` içinde **alt 2** kutusu. **Done** (Bitti) öğesini seçin.
-
-    >[!CAUTION]
-    >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
-
-    Bu varlık oluşturulduktan sonra varlık içeren örnek konuşma sahip tüm hedefleri için gidin. Örnek utterance metni seçin ve metin varlık olarak işaretleyin. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Bir üst-alt ilişkisi gruplandırmak için bileşik bir varlık ekleme
@@ -137,9 +114,7 @@ Utterance içinde `Where is Request relocation from employee new to the company 
 
 Bağlama göre adlandırılmış alt rolüdür. Önceden oluşturulmuş ve makine öğrenilen varlıklar dahil olmak üzere tüm varlıkları kullanılabilir. 
 
-Kaynak ve hedef şehirler, fark hiyerarşik varlığı aynı örneği kullanarak, bir rolü kaynağı yerine bir hiyerarşik alt olarak adlandırılır olduğu. 
-
-Bir rol için söz dizimi **{Entityname:Rolename}** burada varlık adının ardından bir iki nokta üst üste sonra rol adı. Örneğin, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+Bir rol için söz dizimi **`{Entityname:Rolename}`** nerede varlık adının ardından bir iki nokta üst üste sonra rol adı. Örneğin, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Gelen **derleme** bölümünden **varlıkları** sol bölmesinde.
 

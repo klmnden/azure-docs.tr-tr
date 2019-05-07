@@ -1,19 +1,19 @@
 ---
-title: Azure Kubernetes Service'i (AKS), PostgreSQL için Azure veritabanı ile bağlanma
-description: PostgreSQL için Azure veritabanı ile Azure Kubernetes hizmeti bağlama hakkında bilgi edinin
+title: Azure Kubernetes Service'i (AKS) - tek bir sunucu PostgreSQL için Azure veritabanı ile bağlanma
+description: Azure Kubernetes hizmeti - tek bir sunucu PostgreSQL için Azure veritabanı ile bağlama hakkında bilgi edinin
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456198"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068949"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>PostgreSQL için Azure Kubernetes hizmeti ve Azure veritabanına bağlanma
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Azure Kubernetes hizmeti ve Azure veritabanı, PostgreSQL - tek bir sunucu için bağlama
 
 Azure Kubernetes Service (AKS), Azure'da kullanabileceğiniz yönetilen bir Kubernetes kümesi sağlar. Bir uygulama oluşturmak için AKS ve PostgreSQL için Azure veritabanı'nın birlikte kullanımı sırasında dikkate alınması gereken bazı seçenekler altındadır.
 

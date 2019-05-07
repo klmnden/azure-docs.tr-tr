@@ -9,18 +9,18 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: df3db534550e709e40cc94d5f951056d93a1003e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a120a59a58eb8d7a017cce0dd85c21038bdcf51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143212"
 ---
 # <a name="what-is-form-recognizer"></a>Form tanıyıcı nedir?
 
 Azure Form tanıyıcı belirleyin ve formu belgelerden anahtar-değer çiftleri ve tablo verilerini ayıklamak için makine öğrenimi teknolojisi kullanan bir bilişsel bir hizmettir. Ardından, özgün dosyada ilişkileri içeren yapılandırılmış verileri çıkarır. Özel formu tanıyıcı modelinizi, iş akışı veya uygulama kolayca tümleştirmenize ve karmaşıklığını azaltmak için basit bir REST API kullanarak çağırabilirsiniz. Yalnızca beş form belgelerine ya da boş bir formu kullanmaya başlamak için giriş malzeme olarak aynı tür gerekir. Özel içeriğinizi ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan uyarlanmış ve sonuçları hızlı bir şekilde, doğru bir şekilde kazanabilir.
 
-## <a name="request-access"></a>Erişim izni iste
+## <a name="request-access"></a>Erişim izni isteme
 Form tanıyıcı sınırlı erişim önizleme olarak kullanılabilir. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. Form, şirketiniz ve Form tanıyıcı kullanacağınız kullanıcı senaryosu hakkında bilgi ister. Azure Bilişsel hizmetler ekibi tarafından isteğiniz onaylanırsa, hizmete erişmek yönergeler içeren bir e-posta alacaksınız.
 
 ## <a name="what-it-does"></a>Ne yapar?
@@ -73,13 +73,7 @@ Keşfedin [REST API başvuru belgesini](https://aka.ms/form-recognizer/api).
 
 ## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
 
-Hizmet olarak sunulan bir [Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bir Azure hizmetinin altında [çevrimiçi hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Verilerinizin sahipliği korunur ve yalnızca, sözleşmenizde açıklandığı gibi çevrimiçi hizmetleri sağlamak için kullanırız:
-
-### <a name="processing-of-customer-data-ownership"></a>Müşteri verilerinin işlenmesini; sahipliği
-
-Müşteri verilerini kullanılan veya aksi durumda yalnızca bu hizmetleri sağlamayla uyumlu amaçlar da dahil olmak üzere çevrimiçi hizmetler müşteri için işlenir. Microsoft'un kullanın veya aksi halde müşteri verilerini işlemek veya reklam ya da benzeri ticari amaçlarla bundan bilgi. Taraflar arasında müşteri başlık tüm hak, korur ve giriş ve müşteri verilerini İlginiz dahilinde. Microsoft, müşteri verilerini, müşteriye çevrimiçi hizmetleri sağlamak için Microsoft Müşteri verir hakları dışında hiçbir hak devralır.
-
-Olarak tüm Bilişsel hizmetler ile Form tanıyıcı hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
+Hizmet olarak sunulan bir [Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bir Azure hizmetinin altında [çevrimiçi hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Olarak tüm Bilişsel hizmetler ile Form tanıyıcı hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

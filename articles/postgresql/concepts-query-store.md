@@ -1,21 +1,21 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda Query Store
-description: Bu makalede, PostgreSQL için Azure veritabanı için Query Store özelliği açıklanır.
+title: Query Store, PostgreSQL - tek bir sunucu için Azure veritabanı
+description: Bu makalede, PostgreSQL - tek bir sunucu için Azure veritabanı için Query Store özelliği açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564013"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067193"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
 
-**Şunlara uygulanır:** 9.6 ve 10 PostgreSQL için Azure veritabanı
+**Şunlara uygulanır:** -Tek bir sunucu 9.6 ve 10 olan PostgreSQL için Azure veritabanı
 
 PostgreSQL için Azure veritabanı için Query Store özelliği zaman içinde sorgu performansını izlemek için bir yol sağlar. Query Store performans sorunlarını giderme hızlı bir şekilde yardımcı olarak basitleştirir, uzun süre çalışan ve en yoğun kaynak sorgularını bulun. Query Store geçmişini sorgular ve çalışma zamanı İstatistikleri otomatik olarak yakalar ve bunları gözden geçirmeniz için saklar. Veritabanı kullanım modellerini görebilmeniz için veri zaman pencereleri tarafından ayırır. Adlı bir veritabanında depolanan tüm kullanıcılar, veritabanları ve sorgular için veri **azure_sys** örneği PostgreSQL için Azure veritabanı'nda.
 

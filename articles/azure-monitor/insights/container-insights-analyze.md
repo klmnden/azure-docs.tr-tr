@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148841"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -27,7 +27,19 @@ Bu makalede, iki perspektiften ve hızlı bir şekilde değerlendirmenize, araş
 
 Kapsayıcılar için Azure İzleyici'ı etkinleştirme hakkında daha fazla bilgi için bkz: [kapsayıcılar için yerleşik Azure İzleyici](container-insights-onboard.md).
 
-Azure İzleyici, Aboneliklerdeki kaynak grupları arasında dağıtılan tüm izlenen AKS küme sistem durumunu gösteren bir çoklu küme görünümü sağlar.  Bu çözüm tarafından izlenmeyen AKS kümeleri bulunan gösterir. Küme durumu hemen anlayabilir ve buradan, düğüm ve denetleyici performans page DOWN ayrıntıya veya küme için performans grafikleri görmek için gidin.  Bulunan ve izlenmeyen olarak tanımlanan AKS kümeler için herhangi bir zamanda bu küme için izlemeyi etkinleştirebilirsiniz.  
+> [!IMPORTANT]
+> Kapsayıcı desteği için Windows Server 2019 çalıştıran bir AKS kümesi izlemek için azure İzleyici şu anda genel Önizleme aşamasındadır.
+> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure İzleyici, Linux ve Windows Server, Aboneliklerdeki kaynak grupları arasında dağıtılan 2019'nı çalıştıran tüm izlenen AKS kümeleri sistem durumunu gösteren bir çoklu küme görünümü sağlar.  Bu çözüm tarafından izlenmeyen AKS kümeleri bulunan gösterir. Küme durumu hemen anlayabilir ve buradan, düğüm ve denetleyici performans page DOWN ayrıntıya veya küme için performans grafikleri görmek için gidin.  Bulunan ve izlenmeyen olarak tanımlanan AKS kümeler için herhangi bir zamanda bu küme için izlemeyi etkinleştirebilirsiniz.  
+
+Bir Windows Server kümesi için bir Linux kümesi karşılaştırıldığında kapsayıcılar için Azure İzleyici ile izleme temel farklar şunlardır:
+
+- Windows düğümü ve kapsayıcılar için bellek RSS ölçüm kullanılamıyor 
+- Disk depolama kapasitesi bilgileri Windows düğümleri için kullanılabilir değil
+- Canlı günlükleri desteği, Windows kapsayıcı günlüklerini hariç olmak üzere kullanılabilir.
+- Yalnızca pod ortamları izlenen, Docker ortamlarını.
+- Önizleme sürümü ile en fazla 30 Windows Server kapsayıcıları desteklenmektedir. Bu sınırlama Linux kapsayıcıları için geçerli değildir.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 [Azure Portal](https://portal.azure.com) oturum açın. 
@@ -35,7 +47,7 @@ Azure İzleyici, Aboneliklerdeki kaynak grupları arasında dağıtılan tüm iz
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Azure İzleyicisi'nden çoklu küme görüntüle 
 Dağıtılan tüm AKS küme sistem durumunu görüntülemek için seçin **İzleyici** Azure portalının sol bölmesinden.  Altında **Insights** bölümünden **kapsayıcıları**.  
 
-![Azure İzleyici çok küme Panosu örneği](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure İzleyici çok küme Panosu örneği](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 Üzerinde **izlenen kümeleri** sekmesinde tarafından aşağıdaki öğrenin:
 
@@ -128,11 +140,11 @@ Uygulayabileceğiniz [bölme](../platform/metrics-charts.md#apply-splitting-to-a
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Düğümler, denetleyicilere ve kapsayıcı durumunun analiz edin
 
-İçin değiştirdiğinizde **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** sekmesinde, otomatik olarak sağ tarafında sayfasının görüntülenmesini olan özellik bölmesi.  -Seçili öğeyi, özelliklerini, Kubernetes nesneleri düzenlemek için tanımlama etiketleri içeren gösterir. Tıklayarak **>>** bölmesinde bölmesinde view\hide için bağlantı.  
+İçin değiştirdiğinizde **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** sekmesinde, otomatik olarak sağ tarafında sayfasının görüntülenmesini olan özellik bölmesi. -Seçili öğeyi, özelliklerini, Kubernetes nesneleri düzenlemek için tanımlama etiketleri içeren gösterir. Ayrıca Linux düğümü seçildiğinde bölümünde gösterir **Yerel Disk kapasitesi** kullanılabilir disk alanı ve yüzde düğüme sunulan her disk için kullanılır. Tıklayarak **>>** bölmesinde bölmesinde view\hide için bağlantı. 
 
 ![Örnek Kubernetes Perspektifler Özellikler bölmesi](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Özellikler bölmesinde güncelleştirmeleri hiyerarşideki nesneler genişlettikçe tabanlı seçili nesne üzerinde. Bölmesinden, ayrıca önceden tanımlanmış günlük aramalarının Kubernetes olaylarıyla tıklayarak görüntüleyebilirsiniz **görünümü Kubernetes olay günlüklerini** bölmenin üstündeki bağlantısı. Kubernetes günlük verilerini görüntüleme hakkında daha fazla bilgi için bkz. [arama verileri çözümlemek için günlükleri](container-insights-log-search.md). İçindeki kapsayıcılarınızı Raporu'ndaki **kapsayıcıları** görünümü, kapsayıcı günlükleri gerçek zamanlı olarak görebilirsiniz. Bu özellik ve verme ve erişimini denetlemek için gerekli yapılandırma hakkında daha fazla bilgi için bkz: [kapsayıcılar için Azure İzleyici ile kapsayıcı günlükleri gerçek zamanlı görüntüleme](container-insights-live-logs.md). 
+Özellikler bölmesinde güncelleştirmeleri hiyerarşideki nesneler genişlettikçe tabanlı seçili nesne üzerinde. Bölmesinden, ayrıca önceden tanımlanmış günlük aramalarının Kubernetes olaylarıyla tıklayarak görüntüleyebilirsiniz **görünümü Kubernetes olay günlüklerini** bölmenin üstündeki bağlantısı. Kubernetes günlük verilerini görüntüleme hakkında daha fazla bilgi için bkz. [arama verileri çözümlemek için günlükleri](container-insights-log-search.md). Küme kaynaklarını gözden geçirirken, kapsayıcı günlüklerini ve olayları gerçek zamanlı olarak görebilirsiniz. Bu özellik ve verme ve erişimini denetlemek için gerekli yapılandırma hakkında daha fazla bilgi için bkz: [görüntüleme gerçek zamanlı kapsayıcılar için Azure İzleyici ile günlükleri](container-insights-live-logs.md). 
 
 Kullanım **+ Filtre Ekle** gruplama için sonuçları filtrelemek için sayfanın üst kısmında seçeneğinden **hizmet**, **düğüm**, **Namespace**, veya  **Düğüm havuzu** seçip filtre kapsamı seçtikten sonra gösterilen değerlerden birinden **seçin değerleri** alan.  Filtre yapılandırdıktan sonra AKS kümesinin herhangi bir perspektif görüntülerken genel olarak uygulanır.  Formül eşittir işareti yalnızca destekler.  Sonuçlarınızı daraltmak için birinci üzerine ek filtreler ekleyebilirsiniz.  Örneğin, bir filtre tarafından belirtilen **düğüm**, ikinci filtreniz yalnızca seçmenizi izin **hizmet** veya **Namespace**.  
 
@@ -143,6 +155,10 @@ Bir sekmede filtre belirtme devam başka birini seçin ve tıkladığınızda si
 Geçiş **düğümleri** sekmesi ve satır hiyerarşi izler Kubernetes nesne modeli, kümenizdeki bir düğümü başlatma. Düğümünü genişletin ve düğüm üzerinde çalışan bir veya daha fazla pod'ları görüntüleyebilirsiniz. Birden fazla kapsayıcı için bir pod gruplandırılmışsa, hiyerarşideki son satırı olarak görüntülenir. Ayrıca, ana bilgisayar işlemci veya bellek baskısı varsa kaç pod harici ilgili iş konakta çalışan görüntüleyebilirsiniz.
 
 ![Performans Görünümü'nde örnek Kubernetes düğüm hiyerarşisi](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server 2019 işletim sistemi çalıştıran Windows Server kapsayıcıları, sonra tüm Linux tabanlı düğümler listesinde gösterilir. Bir Windows sunucu düğümünü genişletin, bir veya daha fazla pod'ların ve düğüm üzerinde çalışan kapsayıcılar görüntüleyebilirsiniz. Bir düğümü seçildiğinde, sürüm bilgileri, Windows Server düğümleri bir aracı yüklü olmadığından, aracı bilgilerini hariç Özellikler bölmesinde gösterilir.  
+
+![Listelenen Windows Server düğümlerle örnek düğüm hiyerarşisi](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure kapsayıcı örnekleri sanal Linux işletim sistemini çalıştıran düğümleri sonra son AKS küme düğümü listesinde gösterilir.  ACI sanal düğümünü genişlettiğinizde, bir veya daha fazla ACI pod'ların ve düğüm üzerinde çalışan kapsayıcılar görüntüleyebilirsiniz.  Ölçümleri değil toplanır ve düğümler için yalnızca pod'ların bildirdi.
 

@@ -2,22 +2,23 @@
 title: Azure depolama hesabınız için bir özel etki alanı adı yapılandırma | Microsoft Docs
 description: Azure portalında bir Azure depolama hesabında Blob Depolama veya web uç kendi kurallı ad (CNAME) eşlemek için kullanın.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112645"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148925"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
-Azure depolama hesabınızdaki blob verilerine erişmek için özel bir etki alanı yapılandırabilirsiniz. Azure Blob Depolama için varsayılan uç nokta  *\<depolama hesabı adı >. blob.core.windows.net*. Oluşturulan web uç noktası bir parçası olarak da kullanabilirsiniz [statik Web siteleri özelliği (Önizleme)](storage-blob-static-website.md). Özel etki alanı ve alt etki alanıyla gibi eşlerseniz *www\.contoso.com*, blob veya web uç noktası için depolama hesabınız için kullanıcılarınız bu etki, depolama hesabınızdaki blob verilerine erişmek için kullanabilirsiniz.
+Azure depolama hesabınızdaki blob verilerine erişmek için özel bir etki alanı yapılandırabilirsiniz. Azure Blob Depolama için varsayılan uç nokta  *\<depolama hesabı adı >. blob.core.windows.net*. Oluşturulan web uç noktası bir parçası olarak da kullanabilirsiniz [statik Web siteleri özelliği](storage-blob-static-website.md). Özel etki alanı ve alt etki alanıyla gibi eşlerseniz *www\.contoso.com*, blob veya web uç noktası için depolama hesabınız için kullanıcılarınız bu etki, depolama hesabınızdaki blob verilerine erişmek için kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Azure depolama henüz yerel olarak HTTPS ile özel etki alanlarını desteklemiyor. Şu anda yapabilecekleriniz [HTTPS üzerinden özel etki alanları kullanarak bloblara erişmek için kullanım Azure CDN](storage-https-custom-domain-cdn.md).

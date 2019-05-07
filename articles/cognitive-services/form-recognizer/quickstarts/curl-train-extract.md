@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027267"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143232"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verilerini ayıklama
 
-Bu hızlı başlangıçta, eğitmek ve puanlamak forms için cURL ile Form tanıyıcının REST API kullanarak anahtar-değer çiftleri ve tabloları ayıklamak için kullanın.
+Bu hızlı başlangıçta, eğitmek ve anahtar-değer çiftleri ve tabloları ayıklanacak forms puanlamak için Form tanıyıcının REST API ile cURL kullanır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -90,7 +90,7 @@ Not `"modelId"` değeri; için aşağıdaki adımları gerekir.
 
 Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları buradan ayıklamak. Çağrı **Model - analiz** aşağıdaki cURL komutu yürüterek API. Komutu çalıştırmadan önce aşağıdaki değişiklikleri yapın:
 
-* Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası. Bu, formu tanıyıcı kaynak genel bakış sekmesinde bulabilirsiniz.
+* Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızı bulun **genel bakış** sekmesi.
 * Değiştirin `<modelID>` modeli eğitmek, önceki adımda aldığınız model kimliği.
 * Değiştirin `<path to your form>` formunuza dosya yolu.
 * `<subscription key>` değerini abonelik anahtarınızla değiştirin.

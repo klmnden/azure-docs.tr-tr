@@ -1,27 +1,29 @@
 ---
-title: Güncelleştirin ve düğümleri kured Azure Kubernetes Service (AKS) ile yeniden Başlat
-description: Düğümleri güncelleştirmek ve otomatik olarak kured Azure Kubernetes Service (AKS) ile yeniden hakkında bilgi edinin
+title: Güncelleştirme ve Linux düğümleri kured Azure Kubernetes Service (AKS) ile yeniden Başlat
+description: Linux düğümleri güncelleştirmek ve otomatik olarak kured Azure Kubernetes Service (AKS) ile yeniden hakkında bilgi edinin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465003"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074202"
 ---
-# <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Düğümleri Azure Kubernetes Service (AKS) için geçerli güvenlik ve çekirdek güncelleştirmeleri
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Linux düğümleri Azure Kubernetes Service (AKS) için geçerli güvenlik ve çekirdek güncelleştirmeleri
 
-Kümelerinize korumak için güvenlik güncelleştirmeleri otomatik olarak AKS düğümleri için uygulanır. Bu güncelleştirmeleri, işletim sistemi güvenlik düzeltmeleri veya çekirdek güncelleştirmeleri içerir. Bazı güncelleştirmeler, işlemi tamamlamak için bir düğümü yeniden başlatma gerektirir. AKS düğümlerini güncelleştirme işlemini tamamlamak için otomatik olarak yeniden başlatmanız değil.
+Kümelerinize korumak için güvenlik güncelleştirmeleri otomatik olarak aks'deki Linux düğümleri için uygulanır. Bu güncelleştirmeleri, işletim sistemi güvenlik düzeltmeleri veya çekirdek güncelleştirmeleri içerir. Bazı güncelleştirmeler, işlemi tamamlamak için bir düğümü yeniden başlatma gerektirir. AKS güncelleştirme işlemini tamamlamak için bu Linux düğümleri otomatik olarak yeniden değil.
 
-Bu makalede, açık kaynaklı kullanmayı gösterir [kured (KUbernetes yeniden arka plan programı)] [ kured] kullanılabilirliğiyle pod'ların ve düğümü yeniden başlatma çalıştıran, yeniden başlatma gerektiren sonra otomatik olarak düğümleri işlemek için izlemek için işlem.
+Windows Server düğümleri (şu anda önizlemede aks'deki) güncel tutmak için işlemi biraz farklıdır. Windows Server düğümler günlük güncelleştirmeleri almaz. Bunun yerine, yeni düğümlerin en son temel Windows Server görüntüsünü ve düzeltme ekleri dağıtır AKS yükseltmesi gerçekleştirin. Windows Server düğümlerini kullanma AKS kümeler için bkz: [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
+
+Bu makalede, açık kaynaklı kullanmayı gösterir [kured (KUbernetes yeniden arka plan programı)] [ kured] , yeniden başlatma gerektiren Linux düğümleri sonra otomatik olarak işlemek için pod'ların ve düğüm çalıştıran kullanılabilirliğiyle izlemek için işlemi yeniden başlatın.
 
 > [!NOTE]
-> `Kured` bir açık kaynak projesi tarafından Weaveworks ' dir. Destek aks'deki bu proje için bir en iyi çaba ilkesine göre sağlanır. Ek destek #weave topluluk slack kanalına bulunabilir,
+> `Kured` bir açık kaynak projesi tarafından Weaveworks ' dir. Destek aks'deki bu proje için bir en iyi çaba ilkesine göre sağlanır. Ek destek #weave topluluk slack kanalına bulunabilir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -35,9 +37,9 @@ Bir AKS kümesinde, Kubernetes düğümleri Azure sanal makineleri (VM'ler) olar
 
 ![AKS düğümü güncelleştirin ve kured işlemle yeniden başlatma](media/node-updates-kured/node-reboot-process.png)
 
-Çekirdek güncelleştirmeleri gibi bazı güvenlik güncelleştirmeleri işlemi sonlandırmak için bir düğümü yeniden başlatma gerektirir. Yeniden başlatma gerektiren bir düğümü adlı bir dosya oluşturur */var/run/reboot-required*. Bu yeniden başlatma işlemi otomatik olarak gerçekleşmez.
+Çekirdek güncelleştirmeleri gibi bazı güvenlik güncelleştirmeleri işlemi sonlandırmak için bir düğümü yeniden başlatma gerektirir. Yeniden başlatma gerektiren bir bir Linux düğümü adlı bir dosya oluşturur */var/run/reboot-required*. Bu yeniden başlatma işlemi otomatik olarak gerçekleşmez.
 
-Düğümü yeniden başlatma işlemlerini işlemek veya kullanmak için kendi iş akışları ve işlemleri kullanabilirsiniz `kured` işlemini düzenlemek için. İle `kured`, [DaemonSet] [ DaemonSet] dağıtılır, bir pod kümedeki her düğümünde çalıştırılır. DaemonSet bu pod'ların varlığını izleyin */var/run/reboot-required* dosyasını açın ve ardından bir işlem düğümlerini yeniden başlatmanız başlatır.
+Düğümü yeniden başlatma işlemlerini işlemek veya kullanmak için kendi iş akışları ve işlemleri kullanabilirsiniz `kured` işlemini düzenlemek için. İle `kured`, [DaemonSet] [ DaemonSet] dağıtılır, bir pod kümedeki her Linux düğümünde çalıştırılır. DaemonSet bu pod'ların varlığını izleyin */var/run/reboot-required* dosyasını açın ve ardından bir işlem düğümlerini yeniden başlatmanız başlatır.
 
 ### <a name="node-upgrades"></a>Düğümde yükseltme
 
@@ -62,7 +64,7 @@ Ek parametreler için de yapılandırabilirsiniz `kured`, Prometheus veya Slack 
 
 ## <a name="update-cluster-nodes"></a>Küme düğümlerini güncelleştirme
 
-Varsayılan olarak, güncelleştirmeleri tüm Akşam AKS düğümleri denetleyin. Beklemek istemiyorsanız, el ile denetlemek için bir güncelleştirme yapabilirsiniz `kured` düzgün çalışır. İlk olarak, adımları [AKS düğümlerinizi birinde SSH][aks-ssh]. Düğüm için bir SSH bağlantısı oluşturduktan sonra güncelleştirmeleri denetleyin ve bunları aşağıdaki gibi uygulayın:
+Varsayılan olarak, Linux düğümleri aks'deki tüm Akşam güncelleştirmeleri denetleyin. Beklemek istemiyorsanız, el ile denetlemek için bir güncelleştirme yapabilirsiniz `kured` düzgün çalışır. İlk olarak, adımları [AKS düğümlerinizi birinde SSH][aks-ssh]. Linux düğümü için bir SSH bağlantısı oluşturduktan sonra güncelleştirmeleri denetleyin ve bunları aşağıdaki gibi uygulayın:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -91,7 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede nasıl kullanılacağı ayrıntılı `kured` düğümleri güvenlik güncelleştirme işleminin bir parçası otomatik olarak yeniden başlatmak için. Kubernetes en son sürüme yükseltmek için [AKS kümenizi yükseltme][aks-upgrade].
+Bu makalede nasıl kullanılacağı ayrıntılı `kured` Linux düğümleri güvenlik güncelleştirme işleminin bir parçası olarak otomatik olarak yeniden başlatmak için. Kubernetes en son sürüme yükseltmek için [AKS kümenizi yükseltme][aks-upgrade].
+
+Windows Server düğümlerini kullanma AKS kümeler için bkz: [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
@@ -105,3 +109,4 @@ Bu makalede nasıl kullanılacağı ayrıntılı `kured` düğümleri güvenlik 
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -1,20 +1,19 @@
 ---
-title: Uç nokta genel bakış PostgreSQL sunucusu sanal ağ için Azure veritabanı hizmetleri
-description: PostgreSQL için Azure veritabanı sunucunuza için sanal ağ hizmet uç noktaları'nasıl çalıştığını öğrenin.
-author: WenJason
-ms.author: v-jay
+title: Sanal ağ (VNet) - tek bir sunucu PostgreSQL için Azure veritabanı'nda uç noktası genel bakış Hizmetleri
+description: Sanal ağ (VNet) hizmet uç noktaları için Azure veritabanı PostgreSQL - tek bir sunucu için nasıl çalıştığını öğrenin.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073474"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Sanal ağ hizmet uç noktaları ve kuralları için PostgreSQL için Azure veritabanı kullanın.
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı, PostgreSQL - tek bir sunucu kullanın.
 
 *Sanal ağ kuralları* PostgreSQL için Azure veritabanı sunucunuza belirli alt ağları sanal ağlardaki gönderildiği iletişimleri kabul edip etmeyeceğini denetleyen bir güvenlik duvarı güvenliği özelliğidir. Bu makalede, sanal ağ kuralı özellik bazen PostgreSQL için Azure veritabanı sunucunuza iletişimi güvenli bir şekilde izin vermek için en iyi seçenek olup neden açıklar.
 

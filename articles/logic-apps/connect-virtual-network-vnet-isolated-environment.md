@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150663"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
-
-> [!NOTE]
-> Bu özellik bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturun bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Bir işe ayrılmış depolama ve genel veya "Genel" Logic Apps hizmetinden ayrı tutulmasını diğer kaynakları kullanan özel ve ayrı bir ortamdır. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi bir etkisi de azaltır. İŞE olan *eklenen* uygulamasına, Azure sanal ağına, daha sonra Logic Apps hizmetinin sanal ağınıza dağıtır. Bir mantıksal uygulama veya tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Mantıksal uygulama veya tümleştirme hesabı, sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynaklar doğrudan erişebilirsiniz.
 
@@ -101,13 +98,11 @@ Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti 
 Tümleştirme hizmeti ortamı (ISE) oluşturmak için aşağıdaki adımları izleyin:
 
 1. İçinde [Azure portalında](https://portal.azure.com), ana Azure menüsünde **kaynak Oluştur**.
+Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
 
    ![Yeni kaynak oluştur](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
-Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından **Oluştur**.
-
-   !["Tümleştirme hizmeti ortamı" seçin](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. Tümleştirme hizmeti ortamı oluşturma bölmesinde **Oluştur**.
 
    !["Oluştur" öğesini seçin.](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
    | **Kaynak grubu** | Evet | <*Azure kaynak grubu adı*> | Ortamınızı oluşturmak için istediğiniz Azure kaynak grubu |
    | **Tümleştirme hizmeti ortamı adı** | Evet | <*ortam adı*> | Ortamınızı verilecek ad |
    | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri |
-   | **Ek kapasite** | Evet | 0, 1, 2, 3 | Bu işe kaynak için kullanılacak işleme birimi sayısı. Oluşturulduktan sonra Kapasite eklemek için bkz [Kapasite eklemek](#add-capacity). |
-   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Ancak, bu ilişki oluşturabilmeniz için zaten rol tabanlı erişim denetimini sanal ağınızda Azure Logic Apps için ayarladığınız emin olun. |
+   | **Ek kapasite** | Evet | 0 ile 10 | Bu işe kaynak için kullanılacak ek işleme birimi sayısı. Oluşturulduktan sonra Kapasite eklemek için bkz [ekleme ISE kapasite](#add-capacity). |
+   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa [öncelikle bir Azure sanal ağı oluşturma](../virtual-network/quick-create-portal.md). <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. |
    | **Alt ağlar** | Evet | <*alt ağ kaynak listesi*> | Bir işe dört gerektirir *boş* ortamınızda kaynakları oluşturmak için alt ağlar. Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    1. Üç daha fazla alt ağ için bu adımları yineleyin.
 
+      > [!NOTE]
+      > Alt ağlar oluşturmaya çalıştığınızda geçerli değilse, Azure portalında bir ileti gösterilir, ancak ilerleme durumunuzu engellemez.
+
 1. Azure, işe bilgilerinizi başarıyla doğruladıktan sonra seçin **Oluştur**, örneğin:
 
    ![Doğrulama başarılı olduktan sonra "Oluştur" öğesini seçin.](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    ![Dağıtım başarılı oldu](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   Aksi takdirde, dağıtım sorunlarını giderme için Azure portalı yönergeleri izleyin.
+
    > [!NOTE]
-   > Dağıtım başarısız olursa veya, Azure, işe silerseniz *olabilir* alt ağlarınızı serbest önce bir saate kadar sürebilir. Bu nedenle, bu alt ağlardan başka bir işe yeniden kullanmadan önce beklemeniz gerekebilir.
+   > Dağıtım başarısız olursa veya size, işe silerseniz, Azure alabilir bir saat önce alt ağlarınızı serbest bırakma. Bu gecikme bu alt ağlardan başka bir işe yeniden kullanmadan önce beklemeniz gerekebilir anlamına gelir. 
+   >
+   > Sanal ağınızı silerseniz, Azure Genel alt ağlarınızı serbest önce iki saat sürer, ancak bu işlem uzun sürebilir. 
+   > Sanal ağlar silerken kaynak hala bağlı olduğunuzdan emin olun. Bkz: [silme sanal ağ](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Ortamınızı görüntülemek için seçin **kaynağa Git** dağıtım tamamlandıktan sonra Azure ortamınıza otomatik olarak çıkmaz değil ise.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>Kapasite ekleyin
-
-ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa daha fazla ölçek birimi ekleyebilirsiniz. Performans ölçümleri temelinde veya bir işleme birimi sayısına göre otomatik ölçeklendirme yapabilirsiniz. Ölçümlere göre otomatik ölçeklendirme seçerseniz, çeşitli ölçütler arasından seçim yapın ve bu ölçütlerine uyan eşiği koşulları belirtin.
-
-1. Azure portalında, işe bulun.
-
-1. Performans ölçümleri, işe'nın ana menüsündeki, işe görüntülemek için seçin **genel bakış**.
-
-1. Otomatik ölçeklendirmeyi, altında ayarlanacak **ayarları**seçin **ölçeğini**. Üzerinde **yapılandırma** sekmesini, **etkinleştirmek otomatik ölçeklendirme**.
-
-1. İçinde **varsayılan** bölümünde, ya da seçin **ölçek dayalı bir ölçüme göre** veya **belirli bir örnek sayısına ölçeklendirin**.
-
-1. Örnek tabanlı seçerseniz, işleme birimlerinin sayısı 0 ile 3 arasında aralığında girin. Aksi durumda, ölçüm tabanlı izlemek için bu adımları:
-
-   1. İçinde **varsayılan** bölümünde, seçin **alınabilecek**.
-
-   1. Üzerinde **ölçek kuralı** bölmesinde, kural tetiklendiğinde gerçekleştirilecek, ölçütleri ve eylem ayarlayın.
-
-   1. İşiniz bittiğinde seçin **Ekle**.
-
-1. İşiniz bittiğinde, değişikliklerinizi kaydetmeyi unutmayın.
+Alt ağ oluşturma hakkında daha fazla bilgi için bkz. [bir sanal ağ alt ağı eklemek](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ Bir işe kullanan bir tümleştirme hesabı oluşturmak için adımları izleyin
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Destek alın
+<a name="add-capacity"></a>
 
-* Sorularınız için <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forumunu</a> ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps kullanıcı geri bildirimi sitesini</a> ziyaret edin.
+## <a name="add-ise-capacity"></a>ISE kapasite ekleyin
+
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa daha fazla ölçek birimi ekleyebilirsiniz. Performans ölçümleri temelinde veya ek işleme birimleri sayısına göre otomatik ölçeklendirme yapabilirsiniz. Ölçümlere göre otomatik ölçeklendirme seçerseniz, çeşitli ölçütler arasından seçim yapın ve bu ölçütlerine uyan eşiği koşulları belirtin.
+
+1. Azure portalında, işe bulun.
+
+1. Kullanım ve performans ölçümlerini, işe'nın ana menüsündeki, ISE için gözden geçirmek için seçin **genel bakış**.
+
+   ![ISE için kullanımını görüntüleyin](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. Otomatik ölçeklendirmeyi, altında ayarlanacak **ayarları**seçin **ölçeğini**. Üzerinde **yapılandırma** sekmesini, **etkinleştirmek otomatik ölçeklendirme**.
+
+   ![Otomatik ölçeklendirme üzerinde Aç](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. İçin **otomatik ölçeklendirme ayarı adı**, ayarınız için bir ad sağlayın.
+
+1. İçinde **varsayılan** bölümünde, ya da seçin **ölçek dayalı bir ölçüme göre** veya **belirli bir örnek sayısına ölçeklendirin**.
+
+   * Örnek tabanlı seçerseniz, işleme birimlerinin sayısı 0 ile 10 arasında aralığında girin.
+
+   * Ölçüm tabanlı seçerseniz, aşağıdaki adımları izleyin:
+
+     1. İçinde **kuralları** bölümünde, seçin **alınabilecek**.
+
+     1. Üzerinde **ölçek kuralı** bölmesinde, kural tetiklendiğinde gerçekleştirilecek, ölçütleri ve eylem ayarlayın.
+
+     1. İşiniz bittiğinde seçin **Ekle**.
+
+1. Otomatik ölçeklendirme ayarlarınızla tamamladığınızda değişikliklerinizi kaydedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -2,19 +2,20 @@
 title: Web uç noktası - Powershell için Azure Blob Depolama olayları gönderme | Microsoft Docs
 description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın.
 services: storage,event-grid
-author: david-stanford
-ms.author: dastanfo
+author: normesta
+ms.author: normesta
+ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: 3e1a482cc59d951fbe6b25fcf0bfc4a967222839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143376"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Hızlı Başlangıç: PowerShell ile web uç noktası için Depolama olaylarını yönlendirme
 

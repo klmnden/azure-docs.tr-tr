@@ -1,23 +1,23 @@
 ---
-title: PostgreSQL için Azure veritabanı sunucusu kavramları
-description: Bu makalede, konuları ve PostgreSQL sunucuları için Azure veritabanı'nı yönetme ve yapılandırma için yönergeler sağlar.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı sunucusu kavramları
+description: Bu makalede, konuları ve - tek bir sunucu PostgreSQL için Azure veritabanı'nı yönetme ve yapılandırma için yönergeler sağlar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422108"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067152"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>PostgreSQL için Azure Veritabanı sunucuları
-Bu makalede, PostgreSQL sunucuları için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
+# <a name="azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı
+Bu makalede,-tek bir sunucu PostgreSQL için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL sunucusu için Azure veritabanı nedir?
-PostgreSQL sunucusu için Azure veritabanı birden fazla veritabanı için merkezi bir yönetim noktasıdır. Bu şirket içi dünyada alışkın olabileceğiniz PostgreSQL sunucusu yapısı olur. Özellikle, PostgreSQL hizmeti yönetilir, performans garantileri sağlar, erişim ve Özellikler sunucu düzeyinde kullanıma sunar.
+Bir PostgreSQL - tek sunuculu dağıtım seçeneği için Azure veritabanı'nda birden fazla veritabanı için merkezi bir yönetim noktası sunucusudur. Bu şirket içi dünyada alışkın olabileceğiniz PostgreSQL sunucusu yapısı olur. Özellikle, PostgreSQL hizmeti yönetilir, performans garantileri sağlar, erişim ve Özellikler sunucu düzeyinde kullanıma sunar.
 
 PostgreSQL sunucusu için Azure veritabanı:
 

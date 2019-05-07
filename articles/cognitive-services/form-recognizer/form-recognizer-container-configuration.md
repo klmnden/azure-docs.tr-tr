@@ -1,7 +1,7 @@
 ---
 title: Kapsayıcı - Form tanıyıcı yapılandırın
 titleSuffix: Azure Cognitive Services
-description: Form ve tablo verilerini ayrıştırmak için Form tanıyıcı kapsayıcı kullanmayı öğrenin.
+description: Form ve tablo verilerini ayrıştırmak için Form tanıyıcı kapsayıcının nasıl yapılandırılacağını öğrenin.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027183"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147460"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form tanıyıcı kapsayıcılar'ı yapılandırma
 
@@ -70,7 +70,7 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 Kullanım bağlama okumak ve kapsayıcı gelen ve giden veri yazmak için bağlar. Bir giriş bağlama belirtin veya çıkış bağlama belirterek `--mount` seçeneğini [docker run](https://docs.docker.com/engine/reference/commandline/run/) komutu.
 
-Form tanıyıcı kapsayıcıları bir girdi ve çıktı bağlama gerektirir. Giriş bağlama salt okunur olabilir ve eğitim ve puanlama için kullanılacak olan verilere erişmek için gereklidir. Çıkış bağlama yazılabilir olması gerekir ve modelleri ve geçici verileri depolamak için kullanılır.
+Form tanıyıcı kapsayıcı bir girdi ve çıktı bağlama gerektirir. Giriş bağlama salt okunur olabilir ve eğitim ve puanlama için kullanılacak olan verilere erişmek için gereklidir. Çıkış bağlama yazılabilir olması gerekir ve modelleri ve geçici verileri depolamak için kullanılır.
 
 Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, [ana bilgisayar](form-recognizer-container-howto.md#the-host-computer)'s bağlama konumu Docker hizmet hesabı tarafından kullanılan izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir ve konak yeri izinleri bağlayın.
 

@@ -4,17 +4,17 @@ description: İstemci tarafı günlüğe kaydetme ve tanımlamak, tanılamak ve 
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146201"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullandığınızda sorunlarını giderme
 Bu makalede kullanırken yaygın sorunlar, geçici çözümler, tanılama adımları ve araçları kapsayan [Async Java SDK'sı](sql-api-sdk-async-java.md) Azure Cosmos DB SQL API hesabı olan.
@@ -57,6 +57,16 @@ Uygulamanızı Azure sanal makineler üzerinde bir genel IP adresi, varsayılan 
 
     Hizmet uç noktası etkinleştirildiğinde, istekleri artık Azure Cosmos DB'ye bir genel IP ile gönderilir. Bunun yerine, sanal ağ ve alt ağ kimlik gönderilir. Bu değişiklik, genel IP'ler izin verilir, yalnızca güvenlik duvarı bırakmaları neden olabilir. Hizmet uç noktasını etkinleştirdiğinizde, bir güvenlik duvarı kullanıyorsanız, bir alt ağ için Güvenlik Duvarı'nı kullanarak eklemek [sanal ağ ACL'leri](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Azure VM için genel bir IP atayın.
+
+##### <a name="cant-connect"></a>Hizmete erişmek - güvenlik duvarı olamaz
+``ConnectTimeoutException`` SDK hizmeti ulaşamıyor gösterir.
+Bir hata aşağıdakine benzer doğrudan modunu kullanırken karşılaşabilirsiniz:
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+Uygulama makinenizde çalışan bir güvenlik duvarınız varsa, bağlantı noktası aralığı 10.000 için doğrudan modu tarafından kullanılan 20. 000'i açın.
+Ayrıca izleyin [konak makinedeki bağlantı sınırı](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>HTTP Ara sunucusu
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 16e4bcbb1514cfd5bbddc22b663d636292095231
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025903"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072613"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Ses öncelikli sanal Yardımcıları önizleme: Sık sorulan sorular
 
@@ -29,7 +29,7 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **S: Nasıl kullanmaya başlarım?**
 
-**C:** En iyi şekilde başından itibaren bir ses öncelikli sanal asistan oluşturma başlamak olan [temel bir Bot Framework bot oluşturma](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Ardından, botunuzun için bağlama [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+**C:** En iyi şekilde başından itibaren bir ses öncelikli sanal asistan oluşturma başlamak olan [temel bir Bot Framework bot oluşturma](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Ardından, botunuzun için bağlama [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="debugging"></a>Hata ayıklama
 
@@ -41,7 +41,7 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **S: , Doğrudan satır konuşma tanıma metin geri dönebilir, ancak benim bot bir '1011 değerinin kodunu' hatası ve hiçbir şey görüyorum. Neden?**
 
-**C:** Bu hata, doğrudan satır konuşma tanıma ve bot arasında bir iletişim sorununu gösterir. Açtığınızdan emin olun [doğrudan satır konuşma kanal bağlı](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md), [akış protokolü desteği eklendi](https://aka.ms/botframework/addstreamingprotocolsupport) (desteğiyle ilgili Web yuvası) bot ve botunuzun gelen yanıt sonra onay Kanal gelen istekleri.
+**C:** Bu hata, doğrudan satır konuşma tanıma ve bot arasında bir iletişim sorununu gösterir. Açtığınızdan emin olun [doğrudan satır konuşma kanal bağlı](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [akış protokolü desteği eklendi](https://aka.ms/botframework/addstreamingprotocolsupport) (desteğiyle ilgili Web yuvası) bot ve botunuzun gelen yanıt sonra onay Kanal gelen istekleri.
 
 **S: Bu adımlar da işe yaramazsa, ve/veya bir SpeechBotConnector kullanırken farklı bir hata alıyorum ve ne yapmalıyım açık değildir. Hangi *gereken* yapabilirim?**
 

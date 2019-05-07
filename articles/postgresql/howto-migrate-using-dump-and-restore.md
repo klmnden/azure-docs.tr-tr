@@ -1,17 +1,17 @@
 ---
-title: Döküm ve PostgreSQL için Azure veritabanı'nda geri yükleme
-description: Bir PostgreSQL veritabanı dökümü dosyasına ayıklama ve PostgreSQL için Azure veritabanı'nda pg_dump oluşturan bir dosya geri yükleme işlemini açıklar.
+title: Döküm ve - tek bir sunucu PostgreSQL için Azure veritabanı'nda geri yükleme
+description: Bir PostgreSQL veritabanı dökümü dosyasına ayıklama ve - tek bir sunucu PostgreSQL için Azure veritabanı'nda pg_dump oluşturan bir dosya geri yükleme işlemini açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420351"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066978"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirme
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir döküm dosyası bir PostgreSQL veritabanı ayıklanacak ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) PostgreSQL veritabanı pg_dump tarafından oluşturulan bir arşiv dosyasını geri.

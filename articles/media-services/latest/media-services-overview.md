@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321953"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148709"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 genel bakış
 
@@ -80,7 +80,7 @@ Makaleler, bir görevin nasıl tamamlanacağını gösteren kod örnekleri içer
 * [Birden çok DRM ile - .NET dinamik olarak şifreleyin](protect-with-drm.md) 
 * [-CLI gibi özel bir dönüşüm ile kodlama](custom-preset-cli-howto.md)
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

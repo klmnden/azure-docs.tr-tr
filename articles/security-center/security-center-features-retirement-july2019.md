@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875580"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147919"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Güvenlik Merkezi özelliklerini (Temmuz 2019) devre dışı bırakma
 
@@ -155,7 +155,7 @@ Bu özellik Önizleme aşamasında olan ve kullanımdan kaldırılacaktır.
 
 ### <a name="edit-security-configurations---new-experience"></a>Güvenlik yapılandırmalarını - yeni deneyim Düzenle
 
-Güvenlik Merkezi tarafından destekleneceğinden [Konuk Aracısı](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) yakın gelecekte, çok daha zengin bir özellik kümesi - ek işletim sistemleri ve Konuk yapılandırmasıyla Azure ilkeleri (konuk tümleştirme desteği dahil olmak üzere izin verme ilkeleri). Bu, ayrıca ölçekli olarak denetleyen ve yeni kaynaklara otomatik olarak uygulama olanağı sağlayacaktır.
+Güvenlik Merkezi tarafından destekleneceğinden [Konuk yapılandırma aracısı](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) yakın gelecekte, çok daha zengin bir özellik kümesi - ek işletim sistemleri ve Azure ilkeleri (konuk yapılandırmasıyla ile tümleştirme için destek dahil olmak üzere izin verme Konuk içi ilkeleri). Bu, ayrıca ölçekli olarak denetleyen ve yeni kaynaklara otomatik olarak uygulama olanağı sağlayacaktır.
 
 ## Güvenlik ve Denetim Panosu (ilk olarak kullanılır. OMS portalında) Log Analytics çalışma alanları için<a name="menu_securityomsdashboard"></a>
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497404"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141169"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı abonelik ve aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
@@ -176,30 +176,9 @@ Günlük dosyaları, sorun giderme sırasında önemli bir kaynak olduğundan.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Olay günlükleri
 
 Veri Yönetimi ağ geçidi ve Powerbıgateway günlükleri altında bulabilirsiniz **uygulama ve hizmet günlükleri**.
-
-
-## <a name="telemetry"></a>Telemetri
-Telemetri, izleme ve sorun giderme için kullanılabilir. Varsayılan olarak
-
-**İçin telemetriyi etkinleştirin**
-
-1.  Bilgisayarda şirket içi veri ağ geçidi istemci dizini kontrol edin. Genellikle, olan **%systemdrive%\Program Files\On-premises data gateway**. Veya, Hizmetler konsolunu açın ve yürütülebilir dosya yolunu kontrol edin: Şirket içi veri ağ geçidi hizmeti özelliği.
-2.  İstemci dizinden Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config dosyası. SendTelemetry ayarını true olarak değiştirin.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Yaptığınız değişiklikleri kaydedin ve Windows hizmetini yeniden başlatın: Şirket içi veri ağ geçidi hizmeti.
-
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Şirket içi veri ağ geçidi yükleyip yapılandırmanız](analysis-services-gateway-install.md).   

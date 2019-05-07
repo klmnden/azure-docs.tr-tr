@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925146"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142362"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -412,7 +412,7 @@ ve aşağıdaki biçimde bir JSON nesnesi yazmak amacıyla beklediğiniz her kay
 ## <a name="parquet-format"></a>Parquet biçimi
 
 >[!NOTE]
->Veri Fabrikası sunulan yeni Parquet biçimi datset bkz [Parquet biçimi](format-delimited-text.md) ayrıntıları içeren makaleye. Dosya tabanlı verilerin depolama kümesinde aşağıdaki yapılandırmalardan olarak desteklenen hala-için geriye dönük compabitility olduğu. Bundan sonra yeni modeli kullanmak için önerilir.
+>Veri Fabrikası sunulan yeni Parquet biçimi datset bkz [Parquet biçimi](format-parquet.md) ayrıntıları içeren makaleye. Dosya tabanlı verilerin depolama kümesinde aşağıdaki yapılandırmalardan olarak desteklenen hala-için geriye dönük compabitility olduğu. Bundan sonra yeni modeli kullanmak için önerilir.
 
 Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak istiyorsanız `format` `type` özelliğini **ParquetFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
 

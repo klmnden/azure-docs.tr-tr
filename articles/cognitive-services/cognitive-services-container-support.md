@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021505"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147576"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -26,6 +26,7 @@ Azure Bilişsel hizmetler kapsayıcı desteği sayesinde geliştiriciler, Azure'
 * [Yüz tanıma](Face/Overview.md)
 * [Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding'i](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Metin Analizi](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Azure Bilişsel hizmetler kapsayıcılar, Docker kapsayıcıları, aşağıdaki 
 |[Yüz tanıma](Face/face-how-to-install-containers.md) |F0, S0|**Yüz tanıma** |Görüntülerdeki İnsan yüzlerini algılar ve yüz yer işareti (örneğin, noses ve gözler), cinsiyet, geçerlilik süresi ve diğer makine tahmin yüz özellikleri dahil olmak üzere, öznitelikleri tanımlar. Yüz algılama ek olarak, iki yüzün aynı görüntü ya da farklı görüntüleri bir güven puanı kullanarak aynı olduğundan veya bir benzeyen olmadığını görmek için bir veritabanında yüzleri karşılaştırın veya aynı yüz zaten kontrol edebilirsiniz. Bu gibi durumlarda, benzer yüzlerden de paylaşılan visual nitelikler kullanarak gruplar halinde düzenleyebilirsiniz.<br>[Erişim isteği](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form tanıyıcı** |Formu anlama tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir.<br>[Erişim isteği](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Bir eğitilen veya yayımlanmış dil anlama modeli olarak da bilinen bir LUIS uygulaması bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar. Kapsayıcıdan sorgu günlüklerini toplamak ve bu geri yükleme [LUIS portalı](https://www.luis.ai) uygulamanın tahmin doğruluğunu artırmak için.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer, gerçek zamanlı davranışından öğrenme kullanıcılarınıza göstermek için en iyi deneyimi seçmenize olanak tanıyan bulut tabanlı bir API hizmetidir.|
 |[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Konuşmayı metne dönüştürme** |Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
 |[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Metin okuma** |Metni, doğal sesli konuşmaya dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Anahtar ifade ayıklama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
@@ -103,5 +105,6 @@ Yükleme ve Azure Bilişsel hizmetler, kapsayıcılar tarafından sağlanan işl
 * [Yüz tanıma kapsayıcıları](Face/face-how-to-install-containers.md)
 * [Form tanıyıcı kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding (LUIS) kapsayıcıları](LUIS/luis-container-howto.md)
+* [Personalizer kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Konuşma hizmeti API'sini kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Metin analizi kapsayıcıları](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

@@ -1,21 +1,22 @@
 ---
-title: Azure kuyrukları giriş | Microsoft Docs
+title: Azure kuyrukları - giriş Azure depolama
 description: Azure kuyrukları giriş
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2019
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 2ae0d3993df54e1c9e5a9bf93619e8f9faa8a917
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 544ff9d2c624ef62bf8041afd818153c1c4bfcc8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142509"
 ---
-# <a name="what-are-azure-queues"></a>Azure kuyrukları nelerdir?
+# <a name="what-are-azure-queues"></a>Azure Kuyrukları nedir?
 
 Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir.
 

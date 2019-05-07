@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145039"
 ---
-# <a name="status-monitor-v2"></a>Durum İzleyicisi'ni v2
+# <a name="status-monitor-v2"></a>Durum İzleyicisi v2
 
 Durum İzleyicisi'ni v2, yayımlanan bir PowerShell modülü olan [PowerShellGallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) ve ardılı [Durum İzleyicisi](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). Bu modül, IIS ile barındırılan .NET web uygulamalarının kod daha az araçları sağlar.
 Telemetri gönderilecek Azure portalında gerçekleştirebileceğiniz [İzleyici](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) uygulamanızı.
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Etkinleştirme doğrulama başarılı oldu?
 
    Bu etkinleştirme başarılı olduğunu doğrulamak için size bir cmdlet yok. Kullanmanızı öneririz [Canlı ölçümleri](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) hızlı bir şekilde uygulamanızı bize telemetri gönderdiği varsa gözlemleyin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Telemetrinizi görüntüleyin:
+
+* Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
+* [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
+* Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
+* [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
+
+Daha fazla telemetri ekleyin:
+
+* [Web testleri oluşturun](monitor-web-app-availability.md) sitenizin Canlı kalması için.
+* [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için.
+* [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları
+

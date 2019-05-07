@@ -4,27 +4,53 @@ description: Bu makalede standart tanılama yetenekleri için Azure IOT Edge, bi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612248"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142856"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
-Ortamınızda Azure IoT Edge’i kullanma konusunda sorun yaşarsanız, sorun giderme ve çözümleme için kılavuz olarak bu makaleden yararlanın. 
+Ortamınızda Azure IoT Edge’i kullanma konusunda sorun yaşarsanız, sorun giderme ve çözümleme için kılavuz olarak bu makaleden yararlanın.
 
-## <a name="standard-diagnostic-steps"></a>Standart tanılama adımları 
+## <a name="run-the-iotedge-check-command"></a>'Kontrol Et komutu' iotedge çalıştırın
 
-Bir sorunla karşılaştığınızda, kapsayıcı günlükleri ve iletileri için ve CİHAZDAN gözden geçirerek IOT Edge cihazınızın durumu hakkında bilgi edinin. Bilgi toplamak için bu bölümdeki komutları ve araçları kullanın. 
+IOT Edge sorunlarını giderirken, ilk adımınız kullanılacak olmalıdır `check` koleksiyonu testleri yapılandırma ve bağlantıyla ilgili yaygın sorunları gerçekleştiren komutu. `check` Komutu kullanılabilir [1.0.7 yayın](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) ve daha sonra.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IOT Edge Güvenlik Yöneticisi'ni ve onun günlüklerini durumunu kontrol edin:
+Çalıştırabileceğiniz `check` gibi komutunu ya da dahil `--help` bayrağı seçeneklerinin tam bir listesi görmek için:
+
+* Linux üzerinde:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* Windows'da:
+
+  ```powershell
+  iotedge check
+  ```
+
+Tür denetimler tarafından aracı olarak sınıflandırılabilir:
+
+* Yapılandırması şunları denetler: Uç cihazlarına bulut ile ilgili sorunlar da dahil olmak üzere, bağlanmasını engelleyebilir ayrıntıları inceler *config.yaml* ve kapsayıcı altyapısı.
+* Bağlantıyı denetler: IOT Edge çalışma zamanı konak cihaz üzerindeki bağlantı noktalarına erişebilen ve tüm IOT Edge bileşenleri, IOT Hub'ına bağlanabilir doğrular.
+* Üretim Hazırlık Denetimleri: Cihaz sertifika yetkilisi (CA) sertifikaları ve modül günlük dosyası yapılandırmasını durumu gibi önerilen üretim en iyi yöntemler arar.
+
+Tanılama denetimleri tam bir listesi için bkz. [yerleşik işlevsellik sorunlarını giderme](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Standart tanılama adımları
+
+Bir sorunla karşılaşırsanız, kapsayıcı günlükleri ve iletileri için ve CİHAZDAN gözden geçirerek IOT Edge cihazınızın durumu hakkında daha fazla öğrenebilirsiniz. Bilgi toplamak için bu bölümdeki komutları ve araçları kullanın.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IOT Edge Güvenlik Yöneticisi'ni ve onun günlüklerini durumunu denetleyin
 
 Linux üzerinde:
 - IOT Edge Güvenlik Yöneticisi'nin durumunu görüntülemek için:
@@ -72,20 +98,13 @@ Windows'da:
 - IOT Edge Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IOT Edge Güvenlik Yöneticisi çalışmıyor, yaml yapılandırma dosyanızı doğrulayın.
 
 > [!WARNING]
-> YAML dosyaları sekmeler identation içeremez. Bunun yerine 2 alanları kullanın.
+> YAML dosyaları sekmeler girinti içeremez. Bunun yerine 2 alanları kullanın.
 
 Linux üzerinde:
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150411"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Dinamik şifreleme ile içerik koruma
 
@@ -206,7 +206,7 @@ Alırsanız `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` hata, akış uygun i
 
 İle biten hatalarıyla karşılaşırsanız `_NOT_SPECIFIED_IN_URL`, URL'de şifreleme biçimini belirttiğinizden emin olun. Örneğin, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption-types).
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f4f54273262f60dc01f78f4bb5828c8fdd2b97a9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707277"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143190"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak sanal makinelerde yük dengelemesi için Standart Yük Dengeleyici oluşturma
 
@@ -44,7 +44,7 @@ Bu bölümde, standart yük yardımcı olan sanal makinelerin yük dengelemesini
     | Abonelik               | Aboneliğinizi seçin.    |    
     | Kaynak grubu         | Seçin **Yeni Oluştur** ve türü *myResourceGroupSLB* metin kutusuna.|
     | Ad                   | *myLoadBalancer*                                   |
-    | Bölge         | **Doğu ABD**’yi seçin.                                        |
+    | Bölge         | **Batı Avrupa**'yı seçin.                                        |
     | Tür          | Seçin **genel**.                                        |
     | SKU           | Seçin **standart**.                          |
     | Genel IP adresi | **Yeni oluştur**’u seçin. |
@@ -154,10 +154,10 @@ Standart yük dengeleyici yalnızca standart IP adresleri arka uç havuzundaki V
 
     | Ayar | VM 2| VM 3|
     | ------- | ----- |---|
-    | Ad |  *myVM1* |*myVM3*|
+    | Ad |  *myVM2* |*myVM3*|
     | Kullanılabilirlik bölgesi | 2 |3|
     |Genel IP| **Standart** SKU|**Standart** SKU|
-    | Genel IP - kullanılabilirlik alanı| Bölgesel olarak yedekli |
+    | Genel IP - kullanılabilirlik alanı| **Bölgesel olarak yedekli** |**Bölgesel olarak yedekli**|
     | Ağ güvenlik grubu | Var olan *myNetworkSecurity grubu*| Var olan *myNetworkSecurity grubu*|
 
  ### <a name="create-nsg-rule"></a>NSG kuralı oluşturma

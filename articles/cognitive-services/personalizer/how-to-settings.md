@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027225"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143251"
 ---
 # <a name="personalizer-settings"></a>Personalizer ayarları
 
 Hizmet yapılandırması nasıl ödül hizmet değerlendirir, ne sıklıkta hizmet keşfediyor, modelin ne sıklıkta retrained ve ne kadar veri depolanan içerir.
 
+## <a name="create-personalizer-resource"></a>Personalizer kaynak oluştur
+
 Her geri bildirim döngüsü için Personalizer kaynak oluşturun. 
+
+1. [Azure portalda](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) oturum açın. Önceki bağlantı açılır **Oluştur** Personlizer hizmetinin sayfası. 
+1. Hizmet adınızı girin, fiyatlandırma katmanı ve kaynak grubu aboneliği konumu seçin.
+1. Onay seçip **Oluştur**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Azure portalında hizmet ayarlarını yapılandırma
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) oturum açın.
 1. Personalizer kaynağınızı bulun. 
 1. İçinde **kaynak yönetimi** bölümünden **ayarları**.
 
-    ![Azure Portal’da oturum açın. Personalizer kaynağınızı bulun. Kaynak Yönetimi bölümünde, Ayarlar'ı seçin.](media/settings/how-to-configure.png)
+    Azure portalında ayrılmadan önce kaynak anahtarlarınızdan birini kopyalayın **anahtarları** sayfası. Kullanmak için bu bilgi gerekecektir [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Geri bildirim döngüsü için ödül ayarları
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Kullanım durumunu temel alarak geri bildirim döngüsü ödül ayarlarını yapılandırma
 
 Geri bildirim döngünün kullanımını ödül için hizmetin ayarlarını yapılandırın. Aşağıdaki ayarlarda yapılan değişiklikleri geçerli Personalizer modeli sıfırlama ve verinin son 2 gün ile çağırma:
 
@@ -81,4 +87,4 @@ Bu ayarı değiştirdikten sonra seçtiğinizden emin olun **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Pekiştirmeye dayalı öğrenme](concepts-reinforcement-learning.md) 
+[Personalizer kapsayıcı kullanma](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

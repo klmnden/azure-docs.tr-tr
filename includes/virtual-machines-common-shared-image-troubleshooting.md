@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149650"
 ---
 Paylaşılan görüntü galerileri, görüntü tanımları ve görüntü sürümleri ile ilgili işlem yaparken sorunlarla karşılaşıyorsanız başarısız olan komutları hata ayıklama modunda yeniden çalıştırın. Hata ayıklama modu etkin olduğu geçirerek **-hata ayıklama** CLI ile anahtar ve **-hata ayıklama** geçiş PowerShell ile. Hataları gidermek için bu belgede, hata bulunan sonra izleyin.
 
@@ -24,7 +24,7 @@ Olası nedenler:
 
 *Galeri adı geçersiz.*
 
-Galeri adı için izin verilen karakterler büyük veya küçük harf, rakam, nokta ve dönemleri olur. Galeri adı tire içinde olamaz. Galeri adı değiştirin ve yeniden deneyin. 
+Galeri adı için izin verilen karakterler büyük veya küçük harf, rakam, nokta ve dönemleri olur. Galeri adı kısa çizgi içeremez. Galeri adı değiştirin ve yeniden deneyin. 
 
 *Galeri adı, abonelik içinde benzersiz değil.*
 
@@ -62,20 +62,7 @@ Kaynak görüntü var ve görüntü sürümü ile aynı bölgede olup olmadığ�
 
 Kaynak yönetilen bir görüntü sağlama durumu olduğundan emin olun **başarılı**.
 
-*Kaynak bölgesi henüz desteklenmiyor.*
-
-İstenen kaynak bölgede desteklenip desteklenmediğini görmek için aşağıdaki tabloyu kullanın:
-<br>
-
-| Galeride veya "kaynak bölge" oluşturun   | Sürümüne veya "hedef bölgede" çoğaltma |
-|----------------------------------------|-------------------------------------------|
-| Batı Orta ABD                        | Tüm Azure genel bulut bölgeleri            |
-| Orta Güney ABD                       |                                           |
-| Doğu ABD 2                              |                                           |
-| Güneydoğu Asya                         |                                           |
-| Batı Avrupa                            |                                           |
-
-<br>
+*Hedef bölge listesi kaynak bölge dahil değildir.*
 
 Hedef bölge listesi, görüntü sürümü Kaynak bölgesi içermesi gerekir. Kaynak bölgesi görüntü sürümünüzü çoğaltmak için Azure istediğiniz hedef bölgeler listesinden dahil emin olun.
 

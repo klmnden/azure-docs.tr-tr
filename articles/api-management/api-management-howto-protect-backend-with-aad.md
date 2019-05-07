@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657569"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141070"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ile API Management OAuth 2.0 kullanarak bir API'yi koruma
 
@@ -44,7 +44,7 @@ Adımlara hızlı genel bakış aşağıda verilmiştir:
 
 Azure AD ile bir API'yi korumak için ilk adım bir uygulama, API'yi temsil eden Azure AD'ye kaydetme sağlamaktır. 
 
-1. Azure AD kiracınıza göz atın ve ardından gözatın **uygulama kayıtları**.
+1. Azure AD kiracınıza göz atın ve ardından gözatın **uygulama kayıtları (eski)**.
 
 2. **Yeni uygulama kaydı**’nı seçin. 
 
@@ -62,7 +62,7 @@ Uygulama oluşturulduğunda, Not **uygulama kimliği**, bir sonraki adımda kull
 
 API'yi çağıran her istemci uygulaması, Azure AD'de bir uygulama olarak kaydedilmesi gerekiyor. Bu örnekte, örnek istemci uygulaması, API Management Geliştirici portalındaki Geliştirici konsoludur. Başka bir uygulama Geliştirici Konsolu temsil etmek için Azure AD'ye kaydetme açıklanmıştır.
 
-1. **Yeni uygulama kaydı**’nı seçin. 
+1. İçinde çalışırken **uygulama kayıtları (eski)** seçin **yeni uygulama kaydı**. 
 
 2. Uygulama adını sağlayın. (Bu örnekte, adı, `client-app`.)
 
@@ -86,7 +86,7 @@ Anahtar değerini not edin.
 
 API ve geliştirici Konsolu temsil etmek için iki uygulama kaydolduğundan, arka uç uygulamasını çağırmak istemci uygulaması izin vermek için izinleri vermeniz gerekir.  
 
-1. Gözat **uygulama kayıtları**. 
+1. Gözat **uygulama kayıtları (eski)**. 
 
 2. Seçin `client-app`ve Git **ayarları**.
 

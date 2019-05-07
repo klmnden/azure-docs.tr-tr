@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998626"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148113"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IOT Edge cihazları, modülleri ve alt cihazlar (Önizleme) genişletilmiş çevrimdışı özelliklerini anlama
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IOT Edge cihazları, modüller ve alt aygıtları için genişletilmiş çevrimdışı özellikleri anlama
 
 Azure IOT Edge, IOT Edge cihazlarınıza genişletilmiş çevrimdışı işlemleri destekler ve alt kenar-olmayan cihazlarda çevrimdışı işlemleri çok sağlar. IOT Edge cihazı IOT Hub'ına bağlanmak için bir fırsat dolmadığı sürece, onu ve tüm alt aygıtların aralıklı işleviyle veya internet bağlantısı yok devam edebilirsiniz. 
 
->[!NOTE]
->IOT Edge için çevrimdışı destek konusu [genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -61,24 +59,49 @@ Bir IOT Edge cihazı alt IOT cihazları, genişletilmiş çevrimdışı yetenekl
 
 ### <a name="assign-child-devices"></a>Alt cihaz atama
 
-Alt aygıtları aynı IOT Hub'ına kayıtlı herhangi bir kenar-olmayan cihaz olabilir. Üst-alt ilişkisi oluşturma yeni bir cihaz veya cihaz ayrıntıları sayfasına bir üst ya da IOT Edge cihazı veya alt IOT cihazı yönetebilir. 
+Alt aygıtları aynı IOT Hub'ına kayıtlı herhangi bir kenar-olmayan cihaz olabilir. Üst cihazları birden çok alt cihazlar olabilir, ancak alt cihaz, yalnızca bir üste sahip olabilir. Edge cihazına alt cihazları ayarlamak için üç seçenek vardır:
+
+#### <a name="option-1-iot-hub-portal"></a>1. seçenek: IOT hub'ı Portal
+
+ Üst-alt ilişkisi oluşturma yeni bir cihaz veya cihaz ayrıntıları sayfasına bir üst ya da IOT Edge cihazı veya alt IOT cihazı yönetebilir. 
 
    ![IOT Edge cihaz ayrıntıları sayfasından alt cihazları yönetme](./media/offline-capabilities/manage-child-devices.png)
 
-Üst cihazları birden çok alt cihazlar olabilir, ancak alt cihaz, yalnızca bir üste sahip olabilir.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>2. seçenek: Kullanım `az` komut satırı aracı
+
+Kullanarak [Azure komut satırı arabirimi](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ile [IOT uzantısı](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ya da daha yeni), üst alt öğe ilişkilerini ile yönetebileceğiniz [cihaz kimliği](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) alt komutları. Aşağıdaki örnekte, biz olmayan tüm IOT Edge hub'ında cihazların bir IOT Edge cihazı alt cihazlar olarak atamak için bir sorguyu yürütün. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Değiştirebileceğiniz [sorgu](../iot-hub/iot-hub-devguide-query-language.md) cihazları farklı bir alt kümesi seçin. Çok sayıda cihaz belirtirseniz komut birkaç saniye sürebilir.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Seçenek 3: IOT Hub hizmeti SDK'sını kullanma 
+
+Son olarak, üst alt öğe ilişkilerini program aracılığıyla kullanarak yönetebileceğiniz C#, Java veya Node.js IOT Hub hizmeti SDK'sı. İşte bir [alt cihaz atama örneği](https://aka.ms/set-child-iot-device-c-sharp) kullanarak C# SDK.
 
 ### <a name="specifying-dns-servers"></a>DNS sunucusu belirtme 
 
-Sağlamlığını artırmak için ortamınızda kullanılan DNS sunucusu adresleri belirtmeniz önerilir. Örneğin, Linux üzerinde güncelleştirme **/etc/docker/daemon.json** (dosya oluşturmanız gerekebilir) eklemek için:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Yerel bir DNS sunucusu kullanıyorsanız, her 1.1.1.1 de yerel DNS sunucusunun IP adresi ile değiştirin. Değişikliklerin etkili olması docker hizmeti yeniden başlatın.
-
+Sağlamlığını artırmak için ortamınızda kullanılan DNS sunucusu adresleri belirtmeniz önerilir. Lütfen [sorun giderme makalesi Bunu yapmak için iki seçenek](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>İsteğe bağlı bir çevrimdışı ayarları
 
@@ -86,7 +109,7 @@ Cihazlarınızı çevrimdışı uzun dönemlerde oluşturan tüm iletileri topla
 
 ### <a name="time-to-live"></a>Yaşam süresi
 
-Ayar yaşam süresi dolmadan önce teslim edilecek bir ileti bekleyebileceği süreyi (saniye cinsinden) ' dir. 7200 saniye (iki saat) varsayılandır. 
+Ayar yaşam süresi dolmadan önce teslim edilecek bir ileti bekleyebileceği süreyi (saniye cinsinden) ' dir. 7200 saniye (iki saat) varsayılandır. En büyük değeri yalnızca yaklaşık 2 milyar bir tamsayı değişkeninin maksimum değeri tarafından sınırlandırılır. 
 
 Bu ayar, modül ikizi içinde depolanan IOT Edge hub'ın istenen bir özelliktir. İçinde Azure Portalı'nda yapılandırabilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümünde veya doğrudan dağıtım bildirimi. 
 

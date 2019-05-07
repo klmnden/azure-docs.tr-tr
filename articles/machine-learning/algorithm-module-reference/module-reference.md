@@ -9,103 +9,41 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6602eb4bacdc3b6382c1b6873a465cdfc0632693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029348"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145146"
 ---
 # <a name="algorithm--module-reference-overview"></a>Algoritma ve modül başvurusu genel bakış
 
-Bu başvuru içeriği Teknik bilgiye her makine öğrenimi algoritmaları ve modülleri kullanılabilir Azure Machine Learning hizmeti (Önizleme) görsel arabirim sağlar. 
+Bu başvuru içeriği Teknik bilgiye her makine öğrenimi algoritmaları ve modülleri kullanılabilir Azure Machine Learning hizmeti (Önizleme) görsel arabirim sağlar.
 
-Her modülün bağımsız olarak çalıştırılabilir ve bir makine gerekli girişlere görev, öğrenme gerçekleştirmek kodu kümesini temsil eder. Bir modül belirli algoritma içerebilir veya makine öğrenimi, eksik değer değiştirme ya da istatistiki analiz gibi önemli bir görevi gerçekleştirmek. 
+Her modülün bağımsız olarak çalıştırılabilir ve bir makine gerekli girişlere görev, öğrenme gerçekleştirmek kodu kümesini temsil eder. Bir modül belirli algoritma içerebilir veya makine öğrenimi, eksik değer değiştirme ya da istatistiki analiz gibi önemli bir görevi gerçekleştirmek.
 
 > [!TIP]
 > Görsel arabirim içinde herhangi bir deneme içinde belirli bir modülle ilgili bilgileri alabilirsiniz. Modülü seçin ve ardından **daha fazla Yardım** bağlantısını **hızlı Yardım** bölmesi.
 
+## <a name="modules"></a>Modüller
+
 Modüller işlevselliğe göre düzenlenmiştir:
 
-**Veri biçimi dönüştürme**
+| İşlev | Açıklama | Modül |
+| --- |--- | ---- |
+| Veri biçimi dönüştürme | Verileri makine öğrenimi kullanılan çeşitli dosya biçimleri arasında dönüştürme, | [CSV'ye Dönüştür](convert-to-csv.md) |
+| Veri giriş ve çıkış | Verileri bulut kaynaklardan denemenize taşıyın. Sonuçları veya Ara veriler Azure depolama, SQL veritabanı veya Hive, bir denemeyi çalıştırırken yazın veya denemeler arasında veri değişimi için bulut depolama kullanın.  | [Verileri İçeri Aktar](import-data.md)<br/>[Verileri dışarı aktarma](export-data.md)<br/>[Verileri el ile girin](enter-data-manually.md) |
+| Veri dönüştürme | Machine learning, normalleştirme veya veri, özellik seçimi ve boyut düzeyi azaltma gruplama gibi benzersiz olan veriler üzerinde işlem.| [Veri kümesindeki sütunları Seç](select-columns-in-dataset.md) <br/> [Meta verilerini düzenleme](edit-metadata.md) <br/> [Eksik verileri temizleme](clean-missing-data.md) <br/> [Sütun Ekle](add-columns.md) <br/> [Satır ekleme](add-rows.md) <br/> [Yinelenen satırları Kaldır](remove-duplicate-rows.md) <br/> [Verileri bölme](split-data.md) <br/> [Veri normalleştirin](normalize-data.md) <br/> [Bölüm ve örnek](partition-and-sample.md) |
+| Python modülü | Kod yazma ve Python denemenizi ile tümleştirmek için bir modüle ekleyin. | [Python betiği yürütme](execute-python-script.md)   <br/> [Python modeli oluşturma](create-python-model.md)
+|  | **Makine öğrenimi algoritmaları**: | |
+| Sınıflandırma | Bir sınıf tahmin edin.  İkili (iki sınıflı) seçin veya çok sınıflı algoritmaları.| [Veya çoklu sınıflar karar ormanı](multiclass-decision-forest.md) <br/> [Çok sınıflı Lojistik regresyon](multiclass-logistic-regression.md)  <br/> [Çok sınıflı sinir ağı](multiclass-neural-network.md)  <br/>  [İki sınıflı Lojistik regresyon](two-class-logistic-regression.md)  <br/>[İki sınıflı Perceptron ortalaması](two-class-averaged-perceptron.md) <br/> [İki sınıflı&nbsp;artırılmış&nbsp;karar&nbsp;ağacı](two-class-boosted-decision-tree.md)  <br/> [İki sınıflı karar ormanı](two-class-decision-forest.md)  <br/> [İki sınıflı sinir ağı](two-class-neural-network.md)  <br/> [İki&#8209;sınıfı&nbsp;Destek&nbsp;vektör&nbsp;makine](two-class-support-vector-machine.md) 
+| Kümeleme | Veri gruplandırın.| [K-ortalamaları kümeleme](k-means-clustering.md)
+| Regresyon | Bir değeri tahmin edin. | [Doğrusal regresyon](linear-regression.md)  <br/> [Sinir ağı regresyon](neural-network-regression.md)  <br/> [Karar ormanı regresyon](decision-forest-regression.md)  <br/> [Artırılmış&nbsp;karar&nbsp;ağaç&nbsp;regresyon](boosted-decision-tree-regression.md)
+|  | **Yapı ve model değerlendirme**: | |
+| Eğitim   | Veri algoritması üzerinden çalıştırın. | [Modeli eğitme](train-model.md)  <br/> [Kümeleme modeli eğitme](train-clustering-model.md)    |
+| Modeli değerlendirme | Eğitilen modelin doğruluğunu ölçer. |  [Modeli değerlendirme](evaluate-model.md)
+| Puan | Yalnızca eğitilmiş modelden Öngörüler edinin. | [Dönüşüm Uygulama](apply-transformation.md)<br/>[Ata&nbsp;veri&nbsp;için&nbsp;kümeleri](assign-data-to-clusters.md) <br/>[Model Puanlama](score-model.md)
 
-  + [CSV'ye Dönüştür ](convert-to-csv.md)
+## <a name="error-messages"></a>Hata iletileri
 
-**Giriş ve çıkış veri modülleri** denemenize bulut kaynaklardan veri taşıma işlemlerini yapın. Sonuçları veya Ara veriler Azure depolama, SQL veritabanı veya Hive, bir denemeyi çalıştırırken yazma ya da denemeler arasında veri değişimi için bulut depolama kullanın.  
-
-  + [Verileri İçeri Aktar](import-data.md)
-
-  + [Verileri dışarı aktarma](export-data.md)
-
-  + [Verileri el ile girin](enter-data-manually.md)
-
-
-**Veri dönüştürme modülleri** normalleştirme veya gruplama veri, özellik seçimi ve boyut düzeyi azaltma gibi makine öğrenimine benzersiz olan veriler üzerinde işlem desteği.
-
-  + [Veri kümesindeki sütunları Seç](select-columns-in-dataset.md)
-
-  + [Meta verilerini düzenleme](edit-metadata.md)
-
-  + [Eksik verileri temizleme](clean-missing-data.md)
-
-  + [Sütun Ekle](add-columns.md)
-
-  + [Satır ekleme](add-rows.md)
-
-  + [Yinelenen satırları Kaldır](remove-duplicate-rows.md)
-
-  + [Verileri bölme](split-data.md)
-
-  + [Veri normalleştirin](normalize-data.md)
-
-  + [Bölüm ve örnek](partition-and-sample.md)
-
-
-**Makine öğrenimi algoritmaları** kümeleme, Destekli vektör makinesi veya sinir ağları gibi uygun parametrelerle machine learning görev özelleştirmenize olanak tanıyan tek tek modüllerinin içinde kullanılabilir.  
-  + [Model Puanlama](score-model.md)
-
-  + [Veri kümelerine atama ](assign-data-to-clusters.md)
-
-  + [Modeli eğitme](train-model.md)
-
-  + [Kümeleme modeli eğitme](train-clustering-model.md)
-
-  + [Modeli değerlendirme](evaluate-model.md)
-
-  + [Dönüşüm Uygulama](apply-transformation.md)
-
-  + [Doğrusal regresyon](linear-regression.md)
-
-  + [Sinir ağı regresyon](neural-network-regression.md)
-
-  + [Karar ormanı regresyon](decision-forest-regression.md)
-
-  + [Artırmalı karar ağacı regresyonu](boosted-decision-tree-regression.md)
-
-  + [İki sınıflı Artırmalı karar ağacı](two-class-boosted-decision-tree.md)
-
-  + [İki sınıflı Lojistik regresyon](two-class-logistic-regression.md)
-
-  + [Çok sınıflı Lojistik regresyon](multiclass-logistic-regression.md)
-
-  + [Çok sınıflı sinir ağı](multiclass-neural-network.md)
-
-  + [Veya çoklu sınıflar karar ormanı](multiclass-decision-forest.md)
-
-  + [İki sınıflı Perceptron ortalaması](two-class-averaged-perceptron.md)
-
-  + [İki sınıflı karar ormanı](two-class-decision-forest.md)
-
-  + [İki sınıflı sinir ağı](two-class-neural-network.md)
-
-  + [İki sınıflı destekli vektör makinesi](two-class-support-vector-machine.md)
-  
-  + [K-ortalamaları kümeleme](k-means-clustering.md)
-
-
-**Python Modülü** özel bir işlev çalıştırmayı kolaylaştırır. Kod yazma ve Python bir deneme hizmeti ile tümleştirmek için bir modül ekleyin.
-  + [Python betiği yürütme](execute-python-script.md)
-
-  + [Python modeli oluşturma](create-python-model.md)
-
-
+Hakkında bilgi edinin [hata iletileri ve özel durum kodları](machine-learning-module-error-codes.md) modüllerini kullanarak Azure Machine Learning hizmeti visual arabiriminde karşılaşabilirsiniz.

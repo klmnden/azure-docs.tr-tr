@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545104"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142836"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
 
-Bu ilke Konuk yapılandırması girişim, Linux sanal makineleri içinde belirtilen uygulamanın yüklü olduğunu denetler. Bu yerleşik girişim kimliğidir `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Bu ilke Konuk yapılandırması girişim Linux sanal makineleri içinde belirtilen uygulamaları yüklü olmayan bir denetim olayı oluşturur. Bu yerleşik girişim kimliğidir `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Tüm Konuk yapılandırma girişimleri oluşur **denetim** ve **Deployıfnotexists** ilke tanımları. Bir ilke tanımlarının neden yalnızca konuk doğru şekilde çalışmamasına yapılandırması atanıyor.
@@ -32,9 +32,9 @@ Bu örnek kullanarak atayabilirsiniz:
 
 Bu [Konuk yapılandırma](../concepts/guest-configuration.md) girişim oluşur aşağıdaki ilkeleri:
 
-- [Denetim](#audit-definition) -Linux sanal makineleri içinde bir uygulamanın yüklü olduğunu Denetim
+- [Denetim](#audit-definition) -uygulamalar içinde bir Linux VM yüklü olduğunda denetim
   - KİMLİĞİ: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [Deployıfnotexists](#deployIfNotExists-definition) -Linux sanal makineleri içinde bir uygulamanın yüklü olduğunu denetlemek için dağıtma VM uzantısı
+- [Deployıfnotexists](#deployIfNotExists-definition) -uygulamalar içinde bir Linux VM yüklü denetim dağıtma VM uzantısı
   - KİMLİĞİ: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Girişim tanımı
@@ -45,7 +45,9 @@ Girişim birleştirilerek oluşturulan **denetim** ve **Deployıfnotexists** bir
 
 ### <a name="initiative-parameters"></a>Girişim parametreleri
 
-| Ad | Tür || Açıklama | |---|---|| ---| | applicationName | Dize | Uygulama adları. Örnek: 'python', 'powershell' veya 'python, powershell' gibi bir virgülle ayrılmış listesi. Kullanım \* joker karakter eşleme, gibi ' power\*'. |
+|Ad |Tür |Açıklama |
+|---|---|---|
+|ApplicationName |String |Uygulama adları. Örnek: 'python', 'powershell' veya 'python, powershell' gibi bir virgülle ayrılmış listesi. Kullanım \* joker karakter eşleme, gibi ' power\*'. |
 
 PowerShell veya Azure CLI ile atama oluştururken parametre verileri `-PolicyParameter` (PowerShell) veya `--params` (Azure CLI) kullanılarak dize ya da dosya şeklinde JSON biçiminde iletilebilir.
 PowerShell aynı zamanda cmdlet'e bir Ad/Değer hashtable iletilmesini gereken `-PolicyParameterObject` parametresini de destekler. Burada **Ad** parametrenin adı, **Değer** ise atama sırasında iletilen tek bir değer veya değer dizisidir.

@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073349"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -74,6 +74,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Bilişsel hizmetler verileri Okuyucu (Önizleme)](#cognitive-services-data-reader-preview) | Bilişsel Hizmetler verilerini okumanıza olanak sağlar. |
 | [Bilişsel hizmetler kullanıcı](#cognitive-services-user) | Bilişsel Hizmetler anahtarlarını okumanıza ve listelemenize olanak sağlar. |
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
+| [Cosmos DB işleci](#cosmos-db-operator) | Azure Cosmos DB hesapları, ancak bunlara erişimi verileri değil yönetmenizi sağlar. Hesap anahtarları ve bağlantı dizeleri için erişimi engeller. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Bir Cosmos DB veritabanı veya bir hesaba ilişkin bir kapsayıcı için geri yükleme isteği gönderebilir |
 | [Maliyet Yönetimi katkıda bulunan](#cost-management-contributor) | Maliyetleri görüntüleyebilir ve maliyet yapılandırmasını yönetebilir (örneğin bütçeler, dışarı aktarmalar) |
 | [Maliyet Yönetimi okuyucusu](#cost-management-reader) | Maliyet verileri ve yapılandırmasını (örneğin bütçeler, dışarı aktarmalar) görüntüleyebilir |
@@ -1080,6 +1081,30 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
 > | *Yok* |  |
+> | **DataActions** |  |
+> | *Yok* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="cosmos-db-operator"></a>Cosmos DB işleci
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Cosmos DB hesapları, ancak bunlara erişimi verileri değil yönetmenizi sağlar. Hesap anahtarları ve bağlantı dizeleri için erişimi engeller. |
+> | **Kimlik** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **Eylemler** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | **NotActions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *Yok* |  |
 > | **NotDataActions** |  |

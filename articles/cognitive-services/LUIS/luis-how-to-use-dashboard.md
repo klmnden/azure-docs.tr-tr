@@ -1,7 +1,7 @@
 ---
-title: Uygulama panosu
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Uygulama Panosu, uygulamalarınızı tek bir bakışta izlemenizi sağlar görselleştirilmiş bir raporlama aracına hakkında bilgi edinin.
+title: Pano - dil anlama
+titleSuffix: Azure Cognitive Services
+description: Intents analytics Özet panosu ile görselleştirilmiş bir raporlama aracına düzeltin.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,68 +9,166 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072587"
 ---
-# <a name="model-and-usage-statistics-in-the-dashboard"></a>Panodaki modeli ve kullanım istatistikleri
-Uygulama Panosu uygulamanız tek bir bakışta izlemenizi sağlar. **Pano** uygulama adını tıklatarak bir uygulamayı açtığınızda görüntüler **uygulamalarım** seçin sayfasında **Pano** üst panelinden. 
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Uygulamanızı geliştirmek için Panoyu kullanma
 
-> [!CAUTION]
-> LUIS için en güncel ölçümleri isterseniz için gerekir:
-> * Bir LUIS'i kullanmayı [uç noktası anahtarı](luis-how-to-azure-subscription.md) Azure'da oluşturuldu
-> * LUIS dahil olmak üzere tüm uç nokta istekleri LUIS uç noktası anahtarı kullan [API](https://aka.ms/luis-endpoint-apis) Robotu
-> * Farklı uç noktası anahtarı her LUIS uygulaması için kullanın. Tek bir uç noktası anahtarı tüm uygulamalar için kullanmayın. Uç nokta, temel düzeyde, uygulama düzeyinde izlenir.  
+Bulup örnek konuşma kullanırken eğitilen uygulamanızın ıntents sorunları düzeltin. Özet Panosu, düzeltilmesi gereken hedefleri en önemli özellikleri ile genel uygulama bilgilerini görüntüler. 
 
-**Pano** sayfa size geçerli modeli de dahil olmak üzere LUIS uygulaması genel bir bakış ile birlikte durum [uç nokta](luis-glossary.md#endpoint) kullanım zaman içinde. 
-  
-## <a name="app-status"></a>Uygulama durumu
-Uygulamanın eğitim panoyu görüntüler ve eğitim ve yayımlanan uygulama en son ne zaman saat ve tarihi içeren durumu yayımlama.  
+Gözden geçirme Pano analizi değiştikçe ve modelinizin geliştirilmesine Yinelenen yinelemeli bir işlemdir.
 
-![Pano - uygulama durumu](./media/luis-how-to-use-dashboard/app-state.png)
+Bu sayfada herhangi bir örnek konuşma olarak bilinen bir amacı olmayan uygulamalar için uygun analiz olmaz _yalnızca deseni_ uygulamalar. 
 
-## <a name="model-data-statistics"></a>Model veri istatistikleri
-Pano amacı, varlıkları ve uygulamada mevcut etiketli konuşma toplam sayıda görüntüler. 
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Hangi sorunları panodan düzeltilebilir?
 
-![Uygulama verilerini istatistikleri](./media/luis-how-to-use-dashboard/app-model-count.png)
+Panoda ele üç sorunlar şunlardır:
 
-## <a name="endpoint-hits"></a>Uç noktası İsabeti
-Pano LUIS uygulaması alıp belirtmek, görüntülenecek bir süre içinde İsabetleri etkinleştirir toplam uç noktası İsabeti görüntüler. Toplam görüntülenme sayısı kullanan uç noktası İsabeti toplamıdır. bir [uç noktası anahtarı](./luis-concept-keys.md#endpoint-key) ve uç noktası kullanan isabet bir [yazma anahtar](./luis-concept-keys.md#authoring-key).
+|Sorun|Çizelge rengi|Açıklama|
+|--|--|--|
+|Veri dengesizliği|-|Bu durum, örnek konuşma miktarını önemli ölçüde değişir oluşur. Tüm hedefleri gerek _kabaca_ aynı sayıda örnek konuşma - hiçbiri hedefi dışında. Bu gibi durumlarda, % 10-%15 konuşma toplam miktarı yalnızca uygulamada olmalıdır.<br><br> Veri imbalanced ancak hedefi doğruluğu belirli bir eşiğin üstünde, bu dengesizliği bir sorun bildirilmedi.<br><br>**Başlatmak bu sorunu ile - diğer sorunların kök nedenini olabilir.**|
+|Belirsiz Öngörüler|Orange|Üst amaç ve sonraki amaç 's puanları bunlar nedeniyle sonraki eğitimle Çevir yeterince yakın olduğunda gerçekleşir [negatif örnekleme](luis-how-to-train.md#train-with-all-data) ya da daha fazla örnek konuşma ıntent'e eklendi. |
+|Yanlış tahmin|Kırmızı|Bu durum, bir örnek utterance etiketli amaç (durumda amacı) için öngörülen değil oluşur.|
 
-![Uç noktası İsabeti](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+Doğru tahminler mavi ile gösterilir.
 
-> [!NOTE] 
-> En güncel uç noktası isabet sayısı LUIS hizmetine genel bakış Azure portalında bulunmaktadır. 
- 
-### <a name="total-endpoint-hits"></a>Toplam uç noktası İsabeti
-Uç nokta isabet içinden, geçerli tarihe kadar uygulama oluşturulmasından itibaren uygulamanıza alınan toplam sayısı.
+Özet Panosu bu sorunları gösterir ve hangi ıntents etkilendiğini bildirir ve uygulamayı iyileştirmek için ne yapmanız gerektiğini önerir. 
 
-### <a name="endpoint-hits-per-period"></a>Uç noktası İsabeti dönemi başına
-İsabet sayısı günde görüntülenen son bir süre içinde aldı. Başlangıç ve bitiş tarihleri arasında noktaları bu dönemde kalan gün temsil eder. Fare işaretçisini görmek için her noktası üzerinde her gün dönemi içinde isabet sayısı. 
+## <a name="before-app-is-trained"></a>Uygulama eğitildi önce 
 
-Grafikte görüntülenecek bir süre seçmek için:
- 
-1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) nokta listesine erişmek için. Bir haftadan oluşturan bir yıla kadar uzanan dönemlerde seçebilirsiniz. 
+Uygulamayı eğitme önce Özet Panosu düzeltmeleri için herhangi bir öneri içermiyor. Bu önerileri görmek için uygulamanızı eğitin.  
 
-    ![Uç noktası İsabeti dönemi başına](./media/luis-how-to-use-dashboard/timerange.png)
+## <a name="check-your-publishing-status"></a>Yayımlama durumunuzu denetleme
 
-2. Listeden bir süre seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiğe görüntülenecek.
+**Yayımlama durumu** kart etkin hakkında bilgi içeren sürüm yayınlama son. 
 
-### <a name="key-usage"></a>Anahtar kullanımı
-Uygulamanın uç nokta anahtarından tüketilen isabet sayısı. Uç nokta anahtarları hakkında daha fazla bilgi için bkz. [LUIS anahtarlarında](luis-concept-keys.md). 
-  
-## <a name="intent-breakdown"></a>Çözümleme hedefi
-**Hedefi dökümü** ıntents etiketli konuşma veya uç noktası İsabeti göre dökümünü gösterir. Bu Özet Grafiği, her amaç göreceli önemini uygulamada gösterir. Fare işaretçisini bir dilim geldiğinizde hedefi adı ve temsil ettiği etiketli konuşma/uç noktanın isabetli okuma sayısının toplam sayısı yüzdesi bakın. 
+Etkin sürüm çözmek istediğiniz sürüm olduğundan emin olun. 
 
-![Çözümleme hedefi](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![Özet Panosu gösterilir uygulamanın dış hizmetler, bölgeler yayımlanan ve uç noktası İsabeti bir araya getirilir.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-## <a name="entity-breakdown"></a>Varlık dökümü
-Pano varlık etiketli konuşma veya uç noktası İsabeti göre dökümünü gösterir. Bu Özet Grafiği, uygulamayı her varlık göreceli önemini gösterir. Bir dilim fare işaretçisini getirdiğinizde, varlık adı ve yüzde olarak etiketlenmiş konuşma/uç noktası İsabeti bakın. 
+Bu da herhangi bir dış hizmetler, yayımlanan bölgeleri gösterir ve uç noktası isabet sayısı toplanır. 
 
-![Varlık dökümü](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+## <a name="review-training-evaluation"></a>Eğitim değerlendirme gözden geçirin
 
+**Eğitim değerlendirme** kart uygulamanızın genel doğruluğu alana göre toplanmış özetini içerir. Puan hedefi kalite gösterir. 
+
+![Eğitim değerlendirme kart, ilk alanı, uygulamanızın genel doğruluğu hakkında bilgi içerir.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+
+Grafik, doğru şekilde tahmin edilen hedefleri ve farklı renklerde sorunlu alanları gösterir. Öneriler, bu puanı artış ile uygulama geliştirme gibi. 
+
+Önerilen düzeltmeler, sorun türü tarafından ayrılmış ve uygulamanız için en önemli olan. Amaç, kullanım başına sorunlarını gözden geçirin ve tercih ediyorsanız **[hatalarla hedefleri](#intents-with-errors)** sayfanın alt kısmındaki kartını. 
+
+Her sorun alanı düzeltilmesi gereken hedefleri sahiptir. Hedefi adı seçtiğinizde **hedefi** filtre uygulanmış konuşma sayfası açılır. Bu filtre soruna neden olan konuşma üzerinde odaklanmanıza olanak verir.
+
+### <a name="compare-changes-across-versions"></a>Sürümleri arasında değişiklikleri Karşılaştır
+
+Uygulamada bir değişiklik yapmadan önce yeni bir sürümünü oluşturun. Yeni sürümünde, önerilen değişiklikleri amaç'ın örnek konuşma olun, ardından yeniden eğitin. Pano sayfasındaki 's **eğitim değerlendirme** kartında, kullanın **Show değişiklik eğitilen sürümünden** değişiklikleri karşılaştırmak için. 
+
+![Sürümleri arasında değişiklikleri Karşılaştır](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Sürüm ekleme veya örnek konuşma düzenleme ve yeniden eğitme Düzelt
+
+Uygulamanızı düzeltme birincil yöntemi ekleyin veya örnek konuşma düzenleyin ve yeniden eğitme olacaktır. Yeni veya değiştirilmiş konuşma için yönergeleri takip etmeniz [değiştirilen konuşma](luis-concept-utterance.md).
+
+Örnek Konuşma ekleme yapılmalıdır kişi tarafından kimin:
+
+* Konuşma içinde farklı hedefleri nelerdir anlamak yüksek derecede sahip
+* nasıl konuşma tek amacı, başka bir hedefle aklınızı karıştırabilir bilir.
+* sık birbiriyle karıştırılabilecek, iki amacı, tek bir hedefi daraltılmış olabilir ve farklı veri varlıklarıyla çekilen karar kuramıyor
+
+### <a name="patterns-and-phrase-lists"></a>Desenler ve ifade listeleri
+
+Ne zaman kullanılacağı analiz sayfasını göstermez [desenleri](luis-concept-patterns.md) veya [tümcecik listeleri](luis-concept-feature.md). Ekleme, hatalı veya belirsiz Öngörüler ile yardımcı olabilir ancak veri dengesizliği ile size yardımcı olmayacaktır. 
+
+### <a name="review-data-imbalance"></a>Gözden geçirme veri dengesizliği
+
+Başlatmak bu sorunu ile - diğer sorunların kök nedenini olabilir.
+
+**Veri dengesizliği** hedefi liste veri dengesizliği düzeltmek için daha fazla konuşma gereken hedefleri gösterir. 
+
+**Bu sorunu gidermek için**:
+
+* Daha fazla konuşma ıntent'e ekleme daha sonra yeniden eğitin. 
+
+Özet panosunda önerilen sürece konuşma hiçbiri hedefi eklemeyin.
+
+> [!Tip]
+> Sayfasında, üçüncü bölüm kullanmak **konuşma amacı başına** ile **konuşma (sayı)** , hedefleri daha fazla konuşma gereken hızlı görsel bir kılavuz olarak ayarlama.  
+    ![Veri dengesizliği amaçlarıyla bulmak için 'Konuşma (sayı)' kullanın.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+
+### <a name="review-incorrect-predictions"></a>Yanlış tahminleri gözden geçirin
+
+**Yanlış tahmin** amaç listesi sahip örnek olarak belirli bir amaç için kullanılır, ancak farklı amaçlar için tahmin, konuşma amacı gösterir. 
+
+**Bu sorunu gidermek için**:
+
+* Konuşma yeniden eğitme ve hedefi için daha belirgin olacak şekilde düzenleyin.
+* Konuşma çok yakın bir şekilde hizalı olup ve yeniden eğit ıntents birleştirin.
+
+### <a name="review-unclear-predictions"></a>Belirsiz Öngörüler gözden geçirin
+
+**Belirsiz tahmin** amaç listesi gösterir utterance için üst amacı nedeniyle sonraki eğitimle değişebilir, en yakın müsabık kadar yeterli şekilde olmayan tahmin puanları ile Konuşma amaçlarıyla [ Negatif örnekleme](luis-how-to-train.md#train-with-all-data).
+
+**Bu sorunu gidermek için**;
+
+* Konuşma yeniden eğitme ve hedefi için daha belirgin olacak şekilde düzenleyin.
+* Konuşma çok yakın bir şekilde hizalı olup ve yeniden eğit ıntents birleştirin.
+
+## <a name="utterances-per-intent"></a>Konuşma amacı başına
+
+Bu kart arasında amacı genel durumunu gösterir. Hedefleri ve retrain düzeltme gibi sorunlar için bu kart, genel bakış devam eder.
+
+Aşağıdaki grafikte, düzeltmek için neredeyse hiçbir sorun ile iyi dengelenmiş bir uygulaması gösterilmektedir.
+
+![Aşağıdaki grafikte, düzeltmek için neredeyse hiçbir sorun ile iyi dengelenmiş bir uygulaması gösterilmektedir.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+
+Aşağıdaki grafikte, düzeltmek için çok sayıda soruna sahip kötü dengeli bir uygulama gösterilmektedir.
+
+![Aşağıdaki grafikte, düzeltmek için neredeyse hiçbir sorun ile iyi dengelenmiş bir uygulaması gösterilmektedir.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+
+Amacı hakkında bilgi almak için her amaç'ın çubuğu üzerine gelin. 
+
+![Aşağıdaki grafikte, düzeltmek için neredeyse hiçbir sorun ile iyi dengelenmiş bir uygulaması gösterilmektedir.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+
+Kullanım **sıralama ölçütü** en sorunlu hedefleri ile bu sorun üzerinde odaklanabilirsiniz ıntents sorun türü olarak düzenlemek için özellik. 
+
+## <a name="intents-with-errors"></a>Hatalarla hedefleri
+
+Bu kart, belirli bir amaç için sorunları gözden geçirmek sağlar. Çabalarınıza odaklanmak nereye göndereceğimizi en sorunlu hedefleri bu kartın varsayılan görünümü şu şekildedir.
+
+![Hataları kartı hedefleri belirli bir amaç için sorunları gözden geçirmek sağlar. Çabalarınıza odaklanmak nereye göndereceğimizi kartın varsayılan olarak, en sorunlu hedefleri için filtrelenir.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+
+İlk halka grafik amaç sorunlar arasında üç sorun türleri gösterir. Üç sorunu türlerinde bir sorun varsa, her türü kendi grafiğin altına, tüm müsabık hedefleri birlikte sahiptir. 
+
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtre ıntents sorunu ve yüzdesi
+
+Kartın bu bölümü, hata eşiği dışında kalan örnek konuşma bulmanızı sağlar. İdeal olarak, önemli olarak doğru tahminler elde etmek istersiniz. Bu, iş ve müşteri odaklı yüzdesidir. 
+
+İşletmeniz için alışık olduğunuz eşiğini yüzde belirleyin. 
+
+Filtre belirli hedefleri bulmanıza olanak tanır:
+
+|Filtre|Önerilen yüzdesi|Amaç|
+|--|--|--|
+|En sorunlu hedefleri|-|**Buradan başlayın** -konuşma bu amaca düzeltme artıracak diğer düzeltmeleri birden çok uygulama.|
+|Aşağıya doğru tahminler|%60|Seçili amacını doğru ancak bir güven puanı eşiğin altına konuşma yüzdesidir. |
+|Yukarıdaki belirsiz Öngörüler|%15|Seçili amacı, en yakın müsabık hedefle birbiriyle karıştırılabilecek konuşma yüzdesidir.|
+|Yukarıdaki yanlış tahmin|%15|Seçili amacı, yanlış tahmin edilen konuşma yüzdesidir. |
+
+### <a name="correct-prediction-threshold"></a>Doğru tahmin eşiği
+
+Size bir başarılara tahmin güvenilirlik puanı nedir? Uygulama geliştirme başlangıcında, hedef % 60 olabilir. Kullanım **düzeltmek Öngörüler aşağıdaki** yüzde 60 oranında bir konuşma düzeltilmesi gereken seçili amaca bulmak için.
+
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Belirsiz veya yanlış tahmin eşiği
+
+Bu iki filtreleri konuşma seçili amaç, eşiğini aşan bulmak olanak sağlar. Bu iki yüzdelerini hata yüzde olarak düşünebilirsiniz. Tahminler elde etmek için 10-%15 hata oranıyla rahatça kullanabiliyorsanız, %15, bu değer yukarıdaki tüm konuşma bulmak için filtre eşik ayarlayın. 
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* [Azure kaynaklarınızı yönetme](luis-how-to-azure-subscription.md)

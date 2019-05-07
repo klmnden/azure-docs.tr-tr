@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494686"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068762"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici sorunlarını giderme
 
@@ -111,9 +111,9 @@ Kapsayıcılar için Azure İzleyicisi'ni kullanırken karşılaşabileceğiniz 
 
 | Hata iletileri  | Eylem |  
 | ---- | --- |  
-| Hata iletisi `No data for selected filters`  | Bu, yeni oluşturulan kümeleri için izleme veri akışı oluşturmak için biraz zaman alabilir. Lütfen en az veri kümeniz için görüntülenecek 10-15 dakika bekleyin. |   
-| Hata iletisi `Error retrieving data` | Azure Kubenetes Service küme sistem durumu ve performans izlemesi için devam ederken, küme ve Azure Log Analytics çalışma alanı arasında bir bağlantı kurulur. Bir Log Analytics çalışma alanı, kümeniz için tüm izleme verilerini depolamak için kullanılır. Log Analytics çalışma alanınızın silindi veya kayıp sahip olduğunda bu hata oluşabilir. Gözden geçirerek, çalışma alanınızı kullanılabilir olup olmadığını denetleyin [erişimini yönetme](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). Çalışma alanı eksikse, re-eklemek için Azure İzleyici ile kümenizi kapsayıcılar için ihtiyacınız olacak. RE-ekleme, şunları yapmanız gerekir [devre dışı](container-insights-optout.md) küme için izleme ve [etkinleştirme](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) yeniden kapsayıcılar için Azure İzleyici. |  
-| `Error retrieving data` az aks CLI aracılığıyla kapsayıcılar için Azure İzleyici ekledikten sonra | Zaman ekleme kullanarak `az aks cli`, çok az kapsayıcılar için Azure İzleyici düzgün eklenen ayarlanmamış olabilir. Eklenen çözüm olup olmadığını denetleyin. Bunu yapmak için Log Analytics çalışma alanınıza gidin ve seçerek çözüm kullanılabilir olup olmadığını **çözümleri** sol tarafındaki bölmeden. Bu sorunu çözmek için çözüm yönergeleri izleyerek tekrar dağıtmanız gerekecektir [kapsayıcılar için Azure İzleyici dağıtma](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
+| Hata iletisi `No data for selected filters`  | Bu, yeni oluşturulan kümeleri için izleme veri akışı oluşturmak için biraz zaman alabilir. En az veri kümeniz için görüntülenecek 10-15 dakika bekleyin. |   
+| Hata iletisi `Error retrieving data` | Azure Kubenetes Service küme sistem durumu ve performans izlemesi için devam ederken, küme ve Azure Log Analytics çalışma alanı arasında bir bağlantı kurulur. Bir Log Analytics çalışma alanı, kümeniz için tüm izleme verilerini depolamak için kullanılır. Log Analytics çalışma alanınızın silindi veya kayıp sahip olduğunda bu hata oluşabilir. Gözden geçirerek, çalışma alanınızı kullanılabilir olup olmadığını denetleyin [erişimini yönetme](../platform/manage-access.md#view-workspace-details). Çalışma alanı eksikse, kümenizi kapsayıcılar için Azure İzleyici ile izleme yeniden etkinleştirmeniz gerekecektir. Yeniden etkinleştirmek amacıyla şunu yapmanız gerekir [devre dışı](container-insights-optout.md) küme için izleme ve [etkinleştirme](container-insights-enable-new-cluster.md) yeniden kapsayıcılar için Azure İzleyici. |  
+| `Error retrieving data` az aks CLI aracılığıyla kapsayıcılar için Azure İzleyici ekledikten sonra | Kullanarak izlemeyi etkinleştirdiğinizde `az aks cli`, kapsayıcılar için Azure İzleyici eklenen doğru olmayabilir. Eklenen çözüm olup olmadığını denetleyin. Bunu yapmak için Log Analytics çalışma alanınıza gidin ve seçerek çözüm kullanılabilir olup olmadığını **çözümleri** sol tarafındaki bölmeden. Bu sorunu çözmek için çözüm yönergeleri izleyerek tekrar dağıtmanız gerekecektir [kapsayıcılar için Azure İzleyici dağıtma](container-insights-onboard.md) |  
 
 Sorunun tanılanmasına yardımcı olmak için kullanılabilir bir sorun giderme betik sağladık [burada](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

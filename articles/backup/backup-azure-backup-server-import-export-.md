@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648117"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143343"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM ve Azure Backup sunucusu için Çevrimdışı Yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Azure yedekleme, ilk yedekleme sıkıştırır. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskleri Azure'a sıkıştırılmış ilk yedek verileri çevrimdışı yükleme için kullanabilirsiniz.
@@ -98,7 +98,7 @@ Bu bölümdeki bilgiler, böylece verilerinizi Azure veri merkezi için sunulan 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>SATA sürücülerini hazırlayıp Azure'a
 *AzureOfflineBackupDiskPrep* yardımcı programı, en yakın Azure veri merkezine gönderilir SATA sürücüsü hazırlamak için kullanılır. Bu yardımcı program, aşağıdaki yolda kurtarma Hizmetleri Aracısı'nın yükleme dizininde bulunur:
 
-   *\Microsoft* *azure* *kurtarma* *Hizmetleri* * Agent\Utils\*
+*\\Microsoft Azure kurtarma Hizmetleri Aracısı\\Utils\\*
 
 1. Dizin ve kopya Git **AzureOfflineBackupDiskPrep** hazırlanacak SATA sürücülerini bağlandığınızdan kopyalama bilgisayara dizin. Kopya bilgisayar bakımından aşağıdakilerden emin olun:
 

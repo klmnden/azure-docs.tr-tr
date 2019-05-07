@@ -1,0 +1,73 @@
+---
+title: (Uygulama kaydı) - kullanıcılar oturum açtığında web uygulaması Microsoft kimlik platformu
+description: (Uygulama kaydı) kullanıcılar oturum açtığında bir web uygulaması oluşturmayı öğrenin
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: CelesteDG
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/07/2019
+ms.author: jmprieur
+ms.custom: aaddev
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074553"
+---
+# <a name="web-app-that-signs-in-users---app-registration"></a>Kullanıcılar - uygulama kaydı imzalar web uygulaması
+
+Bu sayfa, oturum açtığında, kullanıcıların bir web uygulaması için uygulama kaydı özellikleri açıklanmaktadır.
+
+Uygulamanızı kaydetmek için kullanabilirsiniz:
+
+- [Web uygulaması hızlı başlangıç kılavuzlarımız](#register-an-app-using-the-quickstarts) -hızlı başlangıçlar Azure portalında adlı bir düğme içeren bir uygulama oluşturma konusunda harika bir ilk deneyim olmasının yanı sıra **benim için bu değişikliği yapmak**. Bu düğme, bile var olan bir uygulama için gereken özellikleri ayarlamak için kullanabilirsiniz. Kendi çalışması için bu özelliklerin değerlerini uyum gerekecektir. Özellikle, uygulamanız için web API URL'si büyük olasılıkla farklı URI oturumunuzu da etkiler önerilen varsayılan zordur.
+- Azure portalında [el ile kaydedin](#register-an-app-using-azure-portal)
+- PowerShell ve komut satırı araçları
+
+## <a name="register-an-app-using-the-quickstarts"></a>Hızlı başlangıçları kullanarak bir uygulamayı kaydetme
+
+Bu bağlantıya gidin, web uygulamanızın oluşturulmasını önyükleme oluşturabilirsiniz:
+
+- [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
+- [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
+
+### <a name="register-an-app-using-azure-portal"></a>Azure portalını kullanarak bir uygulamayı kaydetme
+
+> [!NOTE]
+> Portalı kullanmak için Microsoft Azure ortak bulutuna veya ulusal veya bağımsız bulut uygulamanızın çalıştığı farklı bağlı değildir. Daha fazla bilgi için [Ulusal Bulutlar](./authentication-national-cloud.md#app-registration-endpoints)
+
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın. Alternatif olarak, Ulusal bulut tercih ettiğiniz Azure portalında oturum açın.
+1. Kiracı, erişmek için birden fazla Kiracı, sağ üst köşedeki hesabınızı seçin ve istenen Azure AD'ye portal oturumunuzu ayarlama, hesap sağlar.
+1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları** > **yeni kayıt**.
+1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
+   - Uygulamanız için desteklenen bir hesap türlerini seçin (bkz [desteklenen hesap türleri](./v2-supported-account-types.md))
+   - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `AspNetCore-WebApp`.
+   - İçinde **yanıt URL'si**, örneği için uygulamanız için yanıt URL'si ekleme `https://localhost:44321/`seçip **kaydetme**.
+1. Seçin **kimlik doğrulaması** menüsünü ve ardından aşağıdaki bilgileri ekleyin:
+- İçinde **yanıt URL'si**, ekleme `https://localhost:44321/signin-oidc`seçip **kaydetme**.
+- İçinde **Gelişmiş ayarlar** bölümünde, **oturum kapatma URL'si** için `https://localhost:44321/signout-oidc`.
+- Altında **örtük vermeyi**, kontrol **kimlik belirteçlerini**.
+- **Kaydet**’i seçin.
+
+### <a name="register-an-app-using-powershell"></a>PowerShell kullanarak bir uygulamayı kaydetme
+
+> [!NOTE]
+> Şu anda Azure AD PowerShell ile aşağıdaki desteklenen hesap türleri yalnızca uygulamaları oluşturur:
+>
+> - MyOrg (yalnızca kuruluş bu dizinde hesapları)
+> - AnyOrg (herhangi bir kuruluş dizini hesaplarında).
+>
+> Kişisel Microsoft Accounts (örneğin, Skype, XBox, Outlook.com) ile oturum açtığında, kullanıcıların bir uygulama oluşturmak istiyorsanız, önce çok kiracılı bir uygulama oluşturabilirsiniz (hesap türleri için desteklenen herhangi bir kurumsal dizinde hesabı =) ve ardından değiştirin `signInAudience` Azure Portalı'ndan uygulama bildiriminde özellik. Bu adımda Ayrıntılar bölümünde açıklanan [1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) ASP.NET Core Öğreticisi (ve herhangi bir dilde web uygulamaları için genelleştirilmiş).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Uygulama kodu yapılandırma](scenario-web-app-sign-user-app-configuration.md)

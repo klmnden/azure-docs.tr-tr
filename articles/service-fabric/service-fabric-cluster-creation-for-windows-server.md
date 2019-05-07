@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142687"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan tek başına küme oluşturma
 Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran bilgisayarlarda, Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Bu, dağıtmak ve Service Fabric uygulamaları Windows Server bilgisayarları birbirine bağlı bir dizi içeren herhangi bir ortamında çalıştırmak, şirket içinde veya tüm bulut sağlayıcıları ile de gösterir. Service Fabric, tek başına Windows Server paketi adlı Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.
@@ -27,7 +27,7 @@ Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran b
 Bu makalede bir Service Fabric tek başına küme oluşturma adımlarında size kılavuzluk eder.
 
 > [!NOTE]
-> Bu tek başına Windows Server paketi ticari olarak satışta olduğu ve üretim dağıtımları için kullanılabilir. Bu paket "Önizleme"aşamasında olan yeni Service Fabric özellikler içerebilir. Ekranı aşağı kaydırarak "[Önizleme özellikleri bu pakete dahil](#previewfeatures_anchor)." Önizleme özellikleri bölümüne listesi. Yapabilecekleriniz [EULA'yı bir kopyasını indirin](https://go.microsoft.com/fwlink/?LinkID=733084) şimdi.
+> Bu tek başına Windows Server paketi hiçbir ücret ödemeden ticari olarak satışta olduğu ve üretim dağıtımları için kullanılabilir. Bu paket "Önizleme"aşamasında olan yeni Service Fabric özellikler içerebilir. Ekranı aşağı kaydırarak "[Önizleme özellikleri bu pakete dahil](#previewfeatures_anchor)." Önizleme özellikleri bölümüne listesi. Yapabilecekleriniz [EULA'yı bir kopyasını indirin](https://go.microsoft.com/fwlink/?LinkID=733084) şimdi.
 > 
 > 
 

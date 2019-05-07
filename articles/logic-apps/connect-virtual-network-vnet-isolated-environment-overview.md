@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506850"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143148"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
-
-> [!NOTE]
-> Bu özellik bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bazı durumlarda, logic apps ve tümleştirme hesapları sanal makineleri (VM'ler) ve diğer sistemler veya hizmetleri gibi güvenli kaynaklara erişmeye ihtiyacınız bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu erişimi ayarlamak için [oluşturmak bir *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) logic apps ve tümleştirme hesapları çalıştırma. Bir işe oluşturduğunuzda, Azure Logic Apps hizmetinin, Azure sanal ağına bir özel ve ayrılmış örnek dağıtır. Bu özel örnek depolama gibi ayrılmış kaynaklarını kullanır ve genel "Genel" Logic Apps hizmetten ayrı olarak çalışır. Yalıtılmış özel Örneğinize ve ortak genel örnek ayırma da yardımcı olur, diğer Azure kiracılarında olarak da bilinen uygulamalarınızın performans üzerinde olabilir etkisini azaltmak ["gürültülü komşu" etkili](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
@@ -70,11 +67,6 @@ ISE ve ISE olmayan bağlayıcıları arasındaki fark tetikleyiciler ve Eylemler
 ## <a name="integration-accounts-with-ise"></a>ISE ile tümleştirme hesapları
 
 Bir tümleştirme hizmeti ortamı (ISE) içinde logic apps ile tümleştirme hesapları kullanabilirsiniz. Ancak, bu tümleştirme hesapları kullanmanız gerekir *aynı işe* bağlı mantıksal uygulamalar. Logic apps'te bir işe aynı ISE'de olan tümleştirme hesapları başvurabilirsiniz. Tümleştirme hesabı oluşturduğunuzda, işe, tümleştirme hesabı için konumu olarak seçebilirsiniz.
-
-## <a name="get-support"></a>Destek alın
-
-* Sorularınız için <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forumunu</a> ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps kullanıcı geri bildirimi sitesini</a> ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

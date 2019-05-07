@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: aecbe666814a9ae80611de7798b4ab21fe15e219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946504"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149117"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında azure'a Hyper-V olağanüstü durum kurtarma
 
@@ -120,6 +120,9 @@ Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst 
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Dağıtım planlayıcısını en son sürüme güncelleştirme
+
+Dağıtım Planlayıcısı en son güncelleştirmeleri özetlenmiştir [sürüm geçmişi](site-recovery-deployment-planner-history.md).
+
 Dağıtım planlayıcısının önceki sürümüne sahipseniz şunlardan birini yapın:
  * En son sürüm bir profil oluşturma düzeltmesi içermiyor ve profil oluşturma planlayıcının geçerli sürümünde devam ediyorsa, profil oluşturmaya devam edin.
  * En son sürüm bir profil oluşturma düzeltmesi içeriyorsa, geçerli sürümünüzde profil oluşturmayı durdurmanız ve profil oluşturma işlemini yeni sürümle yeniden başlatmanız önerilir.

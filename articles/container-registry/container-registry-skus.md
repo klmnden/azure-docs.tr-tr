@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582830"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069052"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU'ları
 
@@ -22,7 +22,7 @@ Azure Container Registry (ACR), SKU'ları bilinen birden çok hizmet katmanları
 | --- | :-------: | ----------- |
 | **Temel** | Evet | Azure Container Registry hakkında bilgi edinen geliştiriciler için düşük maliyetli bir giriş noktası. Temel kayıt defterleri, standart ve Premium aynı programlama özellikleri sahip (Azure Active Directory gibi [kimlik doğrulaması tümleştirmesinde](container-registry-authentication.md#individual-login-with-azure-ad), [görüntü silme][container-registry-delete], ve [Web kancaları][container-registry-webhook]). Ancak, görüntü işleme ve dahil edilen depolama en düşük kullanım senaryoları için uygun değildir. |
 | **Standart** | Evet | Standart kayıt defterleri temel, daha fazla dahil edilen depolama ve görüntü işleme ile aynı özellikleri sunar. Standart kayıt defterleri, çoğu üretim senaryosu gereksinimlerini karşılayabilir. |
-| **Premium** | Evet | Premium kayıt defterleri dahil edilen depolama ve yüksek hacimli senaryolar etkinleştirme eşzamanlı işlemlerin en yüksek tutarı sağlar. Daha yüksek görüntü işleme ek Premium özellikler dahil olmak üzere ekler [coğrafi çoğaltma] [ container-registry-geo-replication] tek bir kayıt defteri, birden çok bölgede yönetmek için [güven (Önizleme)İçerik](container-registry-content-trust.md) görüntü etiketi imzalama için ve [güvenlik duvarları ve sanal ağlar (Önizleme)](container-registry-vnet.md) kayıt defterine erişimi kısıtlamak için. |
+| **Premium** | Evet | Premium kayıt defterleri dahil edilen depolama ve yüksek hacimli senaryolar etkinleştirme eşzamanlı işlemlerin en yüksek tutarı sağlar. Daha yüksek görüntü işleme ek Premium özellikler dahil olmak üzere ekler [coğrafi çoğaltma] [ container-registry-geo-replication] tek bir kayıt defteri, birden çok bölgede yönetmek için [içerik güven](container-registry-content-trust.md) görüntü etiketi imzalama için ve [güvenlik duvarları ve sanal ağlar (Önizleme)](container-registry-vnet.md) kayıt defterine erişimi kısıtlamak için. |
 |  Klasik (*Nisan 2019 sonra kullanılamaz*) | Hayır | Bu SKU, Azure Azure Container Registry hizmetinde'nin ilk sürümünden etkin. Klasik kayıt defterleri, artan iş hacmi ve coğrafi çoğaltma gibi daha üst düzey özellikler sağlamak ACR becerisini sınırlandırır, aboneliğinizdeki Azure oluşturan bir depolama hesabı tarafından desteklenir. |
 
 > [!IMPORTANT]

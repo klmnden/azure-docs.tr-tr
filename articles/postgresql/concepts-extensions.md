@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL uzantıları, PostgreSQL için Azure veritabanı'nda kullanın
-description: PostgreSQL için Azure veritabanı'nda uzantılarını kullanarak veritabanınızı işlevselliğini genişletme özelliğini açıklar.
+title: PostgreSQL uzantıları - tek bir sunucu PostgreSQL için Azure veritabanı'nda kullanın.
+description: -Tek bir sunucu PostgreSQL için Azure veritabanı'nda uzantılarını kullanarak veritabanınızı işlevselliğini genişletme özelliğini açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720598"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073503"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda PostgreSQL uzantıları
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda PostgreSQL uzantıları
 PostgreSQL Uzantıları'nı kullanarak veritabanını genişletmek olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen ya da tek bir komutla veritabanından kaldırıldı tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz. [paketleme ilgili nesneleri uzantı](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL uzantıları kullanma

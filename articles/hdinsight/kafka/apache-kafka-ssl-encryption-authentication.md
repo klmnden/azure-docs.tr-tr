@@ -1,80 +1,125 @@
 ---
-title: SSL şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması kurulumu
-description: Kafka istemcileri ile Kafka aracılarına de sızmasını Kafka aracıları arasındaki iletişim için SSL şifrelemesi ayarlayın. Kurulum SSL istemci kimlik doğrulaması.
+title: SSL şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması ayarlama
+description: Kafka istemcileri ile Kafka aracılarına de sızmasını Kafka aracıları arasındaki iletişim için SSL şifrelemesi ayarlayın. SSL kimlik doğrulamasını istemcilerin ayarlama.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9d8d5e57d0dd7d7022e65a061360c8450848fb4b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e526908f5ba9feea53b1c1abebbbfc1bd9a51c54
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147960"
 ---
-# <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Güvenli Yuva Katmanı (SSL) şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması kurulumu
+# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Güvenli Yuva Katmanı (SSL) şifreleme ve Azure HDInsight, Apache Kafka için kimlik doğrulaması ayarlama
 
-Bu makalede, Apache Kafka istemcileri ve Apache Kafka aracıları arasında SSL şifrelemesini ayarlama açıklanır. Ayrıca, istemcilerin (bazen iki yönlü SSL adlandırılır) Kurulum kimlik doğrulaması için gerekli olan adımları sağlar.
+Bu makalede, Apache Kafka istemcileri ve Apache Kafka aracıları arasında SSL şifrelemesini ayarlama işlemini göstermektedir. Bu ayrıca, (bazen iki yönlü SSL adlandırılır) istemci kimlik doğrulaması ayarlama işlemini göstermektedir.
 
-## <a name="server-setup"></a>Sunucu Kurulumu
+> [!Important]
+> Kafka uygulamalar için kullanabileceğiniz iki istemcisi vardır: bir Java istemci ve bir konsol istemcisi. Java istemci `ProducerConsumer.java` SSL üreten hem tüketim için kullanabilirsiniz. Konsol üretici istemcisi `console-producer.sh` SSL ile çalışmaz.
 
-İlk adım bir anahtar deposu ve truststore her Kafka Aracısı'nın oluşturmaktır. Sertifika yetkilisi (CA) ve Aracı sertifikaları bu oluşturulduktan sonra bu depolara içeri aktarın.
+## <a name="apache-kafka-broker-setup"></a>Apache Kafka Aracısı Kurulumu
+
+Kafka SSL Aracısı kurulumu, aşağıdaki şekilde dört HDInsight kümesi Vm'lerini kullanır:
+
+* baş düğüm 0 - sertifika yetkilisi (CA)
+* çalışan düğümü 0, 1 ve 2 - aracıları
 
 > [!Note] 
 > Bu kılavuzda, otomatik olarak imzalanan sertifikaları kullanır, ancak Güvenilen CA'lar tarafından verilen sertifikaları kullanmak için en güvenli çözümüdür.
 
-Sunucu Kurulumu tamamlamak için şunları yapın:
+Aracısı Kurulum işlemi özetini aşağıdaki gibidir:
 
-1. SSL adlı bir klasör oluşturun ve sunucu parolasını bir ortam değişkeni dışarı aktarın. Bu kılavuzda kalanı için değiştirin `<server_password>` sunucunun gerçek yönetici parolası ile.
-1. Ardından, bir java keystore'un (kafka.server.keystore.jks) ve bir CA sertifikası oluşturun.
-1. Ardından, alma CA tarafından imzalanan önceki adımda oluşturulan sertifika imzalama isteği oluşturun.
-1. Şimdi, imzalama isteğini CA'ya göndermek ve otomatik olarak imzalanan bir sertifika bu alın. Biz otomatik olarak imzalanan bir sertifika kullandığından, size sertifika bizim CA kullanarak oturum `openssl` komutu.
-1. Güven deposu oluşturun ve CA sertifikasını içeri aktarın.
-1. Ortak CA sertifikası, anahtar deposu aktarın.
-1. İmzalı sertifika anahtar deposu aktarın.
+1. Aşağıdaki adımlar, her üç çalışan düğümü üzerinde yinelenir:
 
-Komutlar bu adımları tamamlamak için aşağıdaki kod parçacığında gösterilmektedir.
+    1. Bir sertifika oluşturun.
+    1. Bir sertifika imzalama isteği oluşturun.
+    1. Sertifika imzalama isteği için sertifika yetkilisi (CA) gönderin.
+    1. CA için oturum açın ve istek oturum açın.
+    1. SCP imzalı sertifika çalışan düğümüne yedekleyin.
+    1. SCP çalışan düğümüne CA ortak sertifika.
 
-```bash
-export SRVPASS=<server_password>
-mkdir ssl
-cd ssl
+1. Tüm sertifikalar sertifika deposuna yerleştirmek sertifikalarını olduğunda.
+1. Ambarı'na gidin ve yapılandırmaları değiştirin.
 
-# Create a java keystore (kafka.server.keystore.jks) and a CA certificate.
+Aracı Kurulumu tamamlamak için aşağıdaki ayrıntılı yönergeleri kullanın:
 
-keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass $SRVPASS -keypass $SRVPASS -dname "CN=wn0-umakaf.xvbseke35rbuddm4fyvhm2vz2h.cx.internal.cloudapp.net" -storetype pkcs12
+> [!Important]
+> Aşağıdaki kod parçacıkları wnX üç alt düğümlerinden biri için bir kısaltmadır ve ile değiştirilen `wn0`, `wn1` veya `wn2` uygun şekilde. `WorkerNode0_Name` ve `HeadNode0_Name` ilgili makinelerin adlarını ile gibi yerine kullanılacağını `wn0-abcxyz` veya `hn0-abcxyz`.
 
-# Create a signing request to get the certificate created in the previous step signed by the CA.
+1. İlk kurulum ' % s'rolü, sertifika yetkilisi (CA) doldurur, HDInsight baş düğümde 0, gerçekleştirin.
 
-keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass $SRVPASS -keypass $SRVPASS
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
 
-# Send the signing request to the CA and get this certificate signed.
+    # Export
+    export SRVPASS=MyServerPassword123
+    ```
 
-openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
+1. Aynı ilk kurulum her aracıları (0, 1 ve 2 çalışan düğümü) gerçekleştirin.
 
-# Create a trust store and import the certificate of the CA.
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
 
-keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    # Export
+    export MyServerPassword123=MyServerPassword123
+    ```
 
-# Import the public CA certificate into the keystore.
+1. Her çalışan düğümü üzerinde aşağıdaki kod parçacığını kullanarak aşağıdaki adımları uygulayın.
+    1. Bir anahtar deposu oluşturun ve yeni bir özel sertifika ile doldurun.
+    1. Sertifika imzalama isteği oluşturun.
+    1. SCP (headnode0) CA'ya sertifika imzalama isteği
 
-keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    ```bash
+    keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
+    keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
+    scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
+    ```
 
-# Import the signed certificate into the keystore.
+1. CA makineye değiştirmek ve tüm alınan sertifika imzalama istekleri oturum açın:
 
-keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    ```bash
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn0-cert-sign-request -out wn0-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn1-cert-sign-request -out wn1-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn2-cert-sign-request -out wn2-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
+    ```
 
-# The output should say "Certificate reply was added to keystore"
-```
+1. Otomatik imzalı sertifikaları CA'dan (headnode0) çalışan düğümlerine gönderin.
 
-İmzalı sertifika anahtar deposu alma truststore ve anahtar deposu için bir Kafka aracısını yapılandırmak için gereken son adımdır.
+    ```bash
+    scp wn0-cert-signed sshuser@WorkerNode0_Name:~/ssl/cert-signed
+    scp wn1-cert-signed sshuser@WorkerNode1_Name:~/ssl/cert-signed
+    scp wn2-cert-signed sshuser@WorkerNode2_Name:~/ssl/cert-signed
+    ```
+
+1. CA ortak sertifikasını her çalışan düğümüne gönderin.
+
+    ```bash
+    scp ca-cert sshuser@WorkerNode0_Name:~/ssl/ca-cert
+    scp ca-cert sshuser@WorkerNode1_Name:~/ssl/ca-cert
+    scp ca-cert sshuser@WorkerNode2_Name:~/ssl/ca-cert
+    ```
+
+1. Her çalışan düğümü üzerinde anahtar deposu ve truststore CA ortak sertifika ekleyin. Ardından alt düğümün kendi imzalı sertifika için anahtar deposu ekleyin
+
+    ```bash
+    keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyServerPassword123" -keypass "MyServerPassword123" -noprompt
+    keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyServerPassword123" -keypass "MyServerPassword123" -noprompt
+    keytool -keystore kafka.server.keystore.jks -import -file cert-signed -storepass "MyServerPassword123" -keypass "MyServerPassword123" -noprompt
+
+    ```
 
 ## <a name="update-kafka-configuration-to-use-ssl-and-restart-brokers"></a>SSL kullanmak ve aracıları yeniden başlatmak için Kafka yapılandırmasını güncelleştirme
 
-Artık her Kafka ile bir anahtar deposu ve truststore aracı ve doğru sertifikaların içeri Kurulumu var.  Ardından, Ambari kullanarak ilgili Kafka yapılandırma özelliklerini değiştirmek ve Kafka aracılarına yeniden başlatın. 
+Artık bir anahtar deposu ve truststore her Kafka Aracısı ayarlama ve doğru sertifikaların içeri. Ardından, Ambari kullanarak ilgili Kafka yapılandırma özelliklerini değiştirmek ve Kafka aracılarına yeniden başlatın.
 
 Yapılandırma değişikliği tamamlamak için aşağıdaki adımları uygulayın:
 
@@ -85,7 +130,7 @@ Yapılandırma değişikliği tamamlamak için aşağıdaki adımları uygulayı
 
     ![Ambari Kafka ssl yapılandırma özelliklerini düzenleme](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. Altında **özel kafka aracısını** ayarlamak **ssl.client.auth** özelliğini `required`. Bu adım yalnızca, kimlik doğrulaması yanı sıra şifreleme ayarını, gerekli.
+1. Altında **özel kafka aracısını** ayarlamak **ssl.client.auth** özelliğini `required`. Bu adım yalnızca, kimlik doğrulama ve şifreleme ayarlama, gerekli.
 
     ![Ambari kafka ssl yapılandırma özelliklerini düzenleme](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
@@ -121,12 +166,12 @@ Yapılandırma değişikliği tamamlamak için aşağıdaki adımları uygulayı
 > [!Note]
 > Yalnızca her iki SSL şifrelemeyi ayarlama ayarlıyorsanız aşağıdaki adımlar gereklidir **ve** kimlik doğrulaması. Şifrelemeyi ayarlama yalnızca ayarlıyorsanız, Lütfen devam [kimlik doğrulaması olmadan İstemci Kurulumu](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
-İstemci Kurulumu tamamlamak için aşağıdaki adımları uygulayın:
+İstemci Kurulumu tamamlamak için aşağıdaki adımları tamamlayın:
 
-1. İstemci makinesinde (hn1) oturum açın.
+1. İstemci bilgisayarın (hn1) oturum açın.
 1. İstemci parolası dışarı aktarın. Değiştirin `<client_password>` ile Kafka istemci makinede gerçek yönetici parolası.
 1. Bir java keystore'un oluşturun ve aracısı için imzalı bir sertifika alın. Ardından CA'ın çalıştırıldığı VM'ye sertifika kopyalayın.
-1. İstemci sertifikasını imzalamak için CA makineye (wn0) geçin.
+1. İstemci sertifikasını imzalamak için CA makineye (hn0) geçin.
 1. İstemci bilgisayarın (hn1) gidin ve gidin `~/ssl` klasör. İmzalı sertifika istemci bilgisayara kopyalayın.
 
 ```bash
@@ -139,15 +184,15 @@ keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CL
 
 keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS
 
-# Copy the cert to the vm where the CA is
-scp client-cert-sign-request3 sshuser@wn0-umakaf:~/tmp1/client-cert-sign-request
+# Copy the cert to the CA
+scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (wn0) to sign the client certificate.
+# Switch to the CA machine (hn0) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert to client machine
-scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/tmp1/client-cert-signed
+# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
@@ -172,7 +217,7 @@ ssl.key.password=<client_password>
 
 ## <a name="client-setup-without-authentication"></a>İstemci Kurulumu (olmadan kimlik doğrulaması)
 
-Kimlik doğrulama gerekmiyorsa, yalnızca SSL şifrelemesi ayarlama adımları şunlardır:
+Kimlik doğrulama gerekmiyorsa, yalnızca SSL şifrelemesi ayarlamak için adımları şunlardır:
 
 1. İstemci bilgisayarın (hn1) oturum açın ve gidin `~/ssl` klasörü
 1. İstemci parolası dışarı aktarın. Değiştirin `<client_password>` ile Kafka istemci makinede gerçek yönetici parolası.

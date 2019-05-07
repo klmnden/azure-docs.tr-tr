@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 488a9fe24fb8fca0b7309dea63d0640a6384f95c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d41c2b541bf80448d180a1d081c255e5bf754e5e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024091"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147325"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK sürüm 3 yükseltme
-
-> [!Important]
-> Bu içerik yine de tamamlanmamıştır. Azure Search .NET SDK, sürüm 9.0, NuGet üzerinde kullanılabilir. Bu makaledeki 9.0 için yükseltme açıklamak için çalışıyoruz. 
-> 
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -152,6 +148,6 @@ Uygulamanızın bu özelliklere sabit bir bağımlılık varsa, Azure Search .NE
 ## <a name="conclusion"></a>Sonuç
 Azure Search .NET SDK'sı kullanma hakkında daha fazla ayrıntı gerekiyorsa bkz [.NET ile ilgili nasıl yapılır](search-howto-dotnet-sdk.md).
 
-Bildirimleriniz üzerindeki SDK bizim için değerli. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Azure Search MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Bir hata bulursanız, sorunu bildirin [Azure .NET SDK'sı GitHub deposu](https://github.com/Azure/azure-sdk-for-net/issues). "[Azure Search]", bir sorun başlığı önek emin olun.
+Bildirimleriniz üzerindeki SDK bizim için değerli. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Bir hata bulursanız, sorunu bildirin [Azure .NET SDK'sı GitHub deposu](https://github.com/Azure/azure-sdk-for-net/issues). "[Azure Search]", bir sorun başlığı önek emin olun.
 
 Azure Search kullandığınız için teşekkür ederiz!

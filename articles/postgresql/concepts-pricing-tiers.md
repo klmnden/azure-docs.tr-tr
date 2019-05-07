@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL için Azure veritabanı fiyatlandırma katmanları
-description: Bu makalede fiyatlandırma katmanları için PostgreSQL için Azure veritabanı açıklanır.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı fiyatlandırma katmanları
+description: Bu makalede, PostgreSQL - tek bir sunucu için Azure veritabanı fiyatlandırma katmanları açıklanır.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073191"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı'nda fiyatlandırma katmanları
 
 PostgreSQL sunucusu için Azure veritabanı üç farklı fiyatlandırma katmanında oluşturabilirsiniz: Temel, genel amaçlı ve bellek için iyileştirilmiş. Fiyatlandırma katmanları tarafından sağlanabilen sanal çekirdek ve bellek sanal çekirdek başına verileri depolamak için kullanılan depolama teknolojisi olarak işlem miktarını ayrılır. PostgreSQL sunucu düzeyinde tüm kaynaklar sağlanır. Bir sunucu, bir veya birden çok veritabanına sahip olabilir.
 

@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda sunucu günlüklerini
-description: Bu makalede, PostgreSQL, sorgu ve Hata günlüklerini oluşturur ve saklama nasıl oturum için Azure veritabanı nasıl yapılandırıldığını açıklar.
+title: -Tek bir sunucu PostgreSQL için Azure veritabanı'nda sunucu günlüklerini
+description: Bu makalede PostgreSQL için Azure veritabanı - sorgu ve Hata günlüklerini ve günlük tutma nasıl yapılandırıldığını tek bir sunucu oluşturur.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871544"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067402"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sunucu günlüklerini 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı'nda sunucu günlüklerini
 PostgreSQL için Azure veritabanı oluşturur, sorgu ve hata günlükleri. Sorgu ve Hata günlüklerini belirlemek, sorun giderme ve yapılandırma hatalarını ve performansın onarmak için kullanılabilir. (İşlem günlükleri için erişim dahil değildir). 
 
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma 
@@ -46,11 +46,11 @@ Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Seçtiğiniz ç�
 | ResourceProvider | Kaynak sağlayıcı adı. Her zaman `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Kaynak URI'si |
-| Kaynak | Sunucusunun adı |
-| Kategori | `PostgreSQLLogs` |
+| Resource | Sunucusunun adı |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Günlüğe kaydetme düzeyi, örneğin: GÜNLÜK, HATA BİLDİRİMİ |
-| İleti | Birincil günlük iletisi | 
+| `Message` | Birincil günlük iletisi | 
 | Domain | Sunucu sürümü, örnek: postgres 10 |
 | Ayrıntı | İkincil günlük iletisi (varsa) |
 | ColumnName | (Eğer varsa) sütunun adı |

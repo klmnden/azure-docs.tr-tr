@@ -2,18 +2,17 @@
 title: Linux tabanlı Azure HDInsight, Hadoop Oozie iş akışları kullanın
 description: Linux tabanlı HDInsight, Hadoop Oozie kullanma. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 97e1836952020723c1043617d74a96471ae07aad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142821"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
 
@@ -38,13 +37,8 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 
 * **Azure SQL Database**.  Bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md).  Bu makalede adlı bir veritabanı kullanır `oozietest`.
 
-* **Depolama yapılandırması için olası bir değişiklik.**  Bkz: [depolama yapılandırması](#storage-configuration) depolama hesabı türü kullanılıyorsa `BlobStorage`.
+* [URI şeması](./hdinsight-hadoop-linux-information.md#URI-and-scheme) kümeleri birincil depolama alanı için. Bu `wasb://` Azure depolama için `abfs://` için Azure Data Lake depolama Gen2'ye veya `adl://` Azure Data Lake depolama Gen1 için. Güvenli aktarım, Azure Depolama'da veya Data Lake depolama Gen2 için etkinse, URI olacaktır `wasbs://` veya `abfss://`sırasıyla ayrıca bakın [güvenli aktarım](../storage/common/storage-require-secure-transfer.md).
 
-## <a name="storage-configuration"></a>Depolama yapılandırması
-Kullanılan depolama hesabı türü ise Eylem gerekmiyor `Storage (general purpose v1)` veya `StorageV2 (general purpose v2)`.  Makaledeki işlemi çıkış için en az üretecektir `/mapreducestaging`.  Varsayılan hadoop yapılandırma içerecek `/mapreducestaging` içinde `fs.azure.page.blob.dir` yapılandırma değişkeni `core-site.xml` hizmeti `HDFS`.  Bu yapılandırma, depolama hesabı türü için desteklenmeyen sayfa blobları olarak dizine çıkış neden olacak `BlobStorage`.  Kullanılacak `BlobStorage` kaldırmak için bu makalede, `/mapreducestaging` gelen `fs.azure.page.blob.dir` yapılandırma değişkeni.  Yapılandırma erişilebilir [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Aksi takdirde hata iletisi alırsınız: `Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> Bu makalede kullanılan depolama hesabında [güvenli aktarım](../storage/common/storage-require-secure-transfer.md) etkin ve bu nedenle `wasbs` yerine `wasb` makale boyunca kullanılır.
 
 ## <a name="example-workflow"></a>Örnek iş akışı
 
@@ -451,7 +445,7 @@ Aşağıdaki adımları Oozie komutunu gönderin ve kümede Oozie iş akışlar�
 5. Değiştirmek için aşağıdaki kodu düzenleme `<JOBID>` daha önce döndürülen Kimliğine sahip.  İşi başlatmak için aşağıdaki komutu kullanın:
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
     Bu komuttan sonra durumu denetleme, çalışır durumda olduğundan ve işin içinde eylemler için bilgi döndürülür.  İşin tamamlanması birkaç dakika sürer.

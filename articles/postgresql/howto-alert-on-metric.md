@@ -1,19 +1,19 @@
 ---
-title: Ölçüm uyarıları için Azure veritabanı PostgreSQL için Azure portalında yapılandırma
-description: Bu makalede nasıl yapılandırılacağını ve ölçüm uyarıları erişim için Azure veritabanı, PostgreSQL için Azure portalından açıklanır.
+title: PostgreSQL - Azure portalında tek bir sunucu için Azure veritabanı için ölçüm uyarıları yapılandırma
+description: Bu makalede nasıl yapılandırılacağını ve erişim ölçüm uyarıları, PostgreSQL - Azure portalında tek bir sunucu için için Azure veritabanı açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422039"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067327"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı için PostgreSQL ayarlamak için Azure portalını kullanma 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı PostgreSQL - tek bir sunucu ayarlamak için Azure portalını kullanma
 
 Bu makalede, Azure portalını kullanarak PostgreSQL uyarılar için Azure veritabanı ayarlama işlemini göstermektedir. Azure hizmetleriniz için ölçümleri izleme temel alan bir uyarı alabilirsiniz.
 
