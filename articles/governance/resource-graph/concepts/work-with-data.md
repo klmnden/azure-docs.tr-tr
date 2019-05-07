@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775906"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137868"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Büyük bir Azure kaynak veri kümeleri ile çalışma
 
@@ -67,8 +67,18 @@ Bir sonuç kümesi işleme kayıtlarını içeren daha küçük kümelerine ayı
 
 Zaman **resultTruncated** olduğu **true**, **$skipToken** özelliği, yanıt olarak ayarlanır. Bu değer aynı sorgu ve abonelik değerlerle sonraki sorguyla eşleşen kayıt kümesini almak için kullanılır.
 
+Aşağıdaki örneklerde gösterildiği nasıl **atla** ilk 3000 kayıtları ve dönüş **ilk** 1000 kayıttan sonra bu Azure CLI ve Azure PowerShell ile atlandı:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> Sorgu gerekir **proje** **kimliği** sırayla çalışması sayfalandırma alan. Sorgudan eksikse, REST API yanıtı içermez **$skipToken**.
+> Sorgu gerekir **proje** **kimliği** sırayla çalışması sayfalandırma alan. Sorgudan eksikse, yanıt içermez **$skipToken**.
 
 Bir örnek için bkz. [sonraki sayfa sorgu](/rest/api/azureresourcegraph/resources/resources#next_page_query) REST API belgeleri.
 

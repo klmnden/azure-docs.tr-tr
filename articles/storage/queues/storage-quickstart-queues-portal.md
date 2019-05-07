@@ -2,18 +2,19 @@
 title: Azure hızlı başlangıç - Azure portalını kullanarak Azure Depolama'daki bir kuyruk oluşturun | Microsoft Docs
 description: Bu hızlı başlangıçta, bir kuyruk oluşturmak için Azure portalını kullanın. Sonra bir ileti ekleyin, ileti özelliklerini görüntüleme ve iletiyi sıradan çıkar için Azure portalını kullanın.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/06/2019
-ms.author: tamram
-ms.openlocfilehash: 8a5dba5f949d5c20e0fbf752caac4125b8aecd52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138265"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Hızlı Başlangıç: Bir kuyruk oluşturun ve Azure portalıyla bir ileti ekleyin
 

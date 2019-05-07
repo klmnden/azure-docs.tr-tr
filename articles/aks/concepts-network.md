@@ -2,18 +2,17 @@
 title: Kavramlar - ağ Azure Kubernetes hizmeti (AKS)
 description: Azure Kubernetes Service (kubernetes ve Azure CNI ağ, giriş denetleyicileri, yük Dengeleyiciler ve statik IP adresleri de dahil olmak üzere AKS), ağ oluşturma hakkında bilgi edinin.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074059"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -65,7 +64,6 @@ AKS, aşağıdaki iki ağ modelleri birini kullanan bir küme dağıtabilirsiniz
 - *Kubernetes* ağ - ağ kaynaklarının genellikle oluşturulup yapılandırılması AKS kümesi dağıtılır.
 - *Azure kapsayıcı ağ arabirimi (CNI)* ağ - AKS kümesini mevcut sanal ağ kaynakları ve yapılandırmaların bağlı.
 
-<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Kubernetes (Temel) ağ
 
 *Kubernetes* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. İle *kubernetes*, düğümler, Azure sanal ağ alt ağından bir IP adresi alın. Pod'ların, düğümler Azure sanal ağ alt ağına mantıksal olarak farklı adres alanından bir IP adresi alır. Ağ adresi çevirisi (NAT), ardından pod'ları Azure sanal ağındaki kaynaklara erişebilmesi için yapılandırılır. Trafiği kaynak IP adresini, NAT düğümün birincil IP başvuracağını ' dir.
@@ -74,7 +72,6 @@ Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platfo
 
 Daha fazla bilgi için [kubernetes AKS kümesi için ağ yapılandırma][aks-configure-kubenet-networking].
 
-<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI (Gelişmiş) ağ
 
 Azure CNI her pod alt ağdan bir IP adresi alır ve doğrudan erişilebilir. Bu IP adresleri, ağ alanı benzersiz olmalıdır ve önceden hazırlıklı olmak gerekir. Her düğümü destekliyorsa pod'ların sayısı için bir yapılandırma parametresi vardır. Düğüm başına IP adreslerinin sayısı, bu düğüm için önden ayrılmıştır. Bu yaklaşım, daha fazla planlama gerektirir ve genellikle IP adresi tükenmesi veya uygulama arttıkça daha büyük bir alt ağ kümelerini yeniden gereksinimini doğurur.
@@ -111,7 +108,7 @@ Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. 
 
 Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Gelişmiş güvenlik için trafik akışını denetleyen kuralları tanımlamak isteyebilirsiniz. Arka uç uygulamaları genellikle yalnızca gerekli ön uç Hizmetleri için sunulan ve veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
 
-Ağ İlkesi şu anda önizlemede pod'ları arasındaki trafik akışını denetlemenizi sağlayan aks'deki Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ güvenlik grupları değil pod'ların AKS düğümleri için daha fazla. Ağ ilkeleri kullanımı, trafik akışını denetlemek için daha uygun, bulutta yerel bir yoludur. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir.
+Ağ İlkesi kullanılabilir pod'ları arasındaki trafik akışını denetlemenizi sağlayan aks'deki bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ güvenlik grupları değil pod'ların AKS düğümleri için daha fazla. Ağ ilkeleri kullanımı, trafik akışını denetlemek için daha uygun, bulutta yerel bir yoludur. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir.
 
 Daha fazla bilgi için [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiği][use-network-policies].
 
@@ -142,10 +139,7 @@ Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları ku
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress-tls.md
-
-<!--Mooncake : URL redirect to ingress-tls.md-->
-
+[aks-ingress-tls]: ingress.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

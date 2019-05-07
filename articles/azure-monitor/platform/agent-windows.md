@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777376"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138135"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
@@ -31,16 +31,18 @@ Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yükl
 * El ile yükleme. Kurulum, komut satırından Kurulum sihirbazını kullanarak bilgisayarı el ile çalıştırmak veya mevcut bir yazılım dağıtım aracıyla dağıtılır.
 * Azure Otomasyonu (DSC) Desired State Configuration. DSC ortamınızda dağıtılmış Windows bilgisayarlar için bir komut dosyası ile Azure Otomasyonu'nda kullanma.  
 * PowerShell Betiği.
-* Windows Şirket içi Azure Stack'te çalışan sanal makineler için Resource Manager şablonu.  
+* Windows Şirket içi Azure Stack'te çalışan sanal makineler için Resource Manager şablonu. 
 
 >[!NOTE]
 >Azure Güvenlik Merkezi (ASC) Microsoft Monitoring Agent (Log Analytics Windows aracısı olarak da bilinir) bağlıdır ve yükleyecek ve kendi dağıtımının bir parçası bir Log Analytics çalışma alanına raporlama yapacak yapılandırın. ASC, Log Analytics Windows Aracısı, aboneliğinizdeki tüm sanal makineler otomatik olarak yüklenmesini sağlar ve belirli bir çalışma alanına raporlama yapacak yapılandırır otomatik sağlama seçeneği de sunar. Bu seçenek hakkında daha fazla bilgi için bkz. [Log Analytics aracısını otomatik sağlamayı etkinleştirme](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
+Birden fazla çalışma alanına raporlama yapacak aracı yapılandırmanız gerekiyorsa, bu yalnızca daha sonra göre Denetim Masası veya PowerShell bölümünde anlatıldığı gibi güncelleştirme ayarlarını ilk kurulum sırasında gerçekleştirilemiyor [ekleme veya bir çalışma alanıkaldırma](agent-manage.md#adding-or-removing-a-workspace).  
+
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-agent.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
-Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kimliği ve anahtarına ihtiyacınız olacak Log Analytics çalışma alanınız için.  Bu bilgiler, her bir yükleme yöntemi, düzgün bir şekilde yapılandırın ve başarılı bir şekilde Azure İzleyici'de Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
+Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kimliği ve anahtarına ihtiyacınız olacak Log Analytics çalışma alanınız için.  Bu bilgiler, her bir yükleme yöntemi, düzgün bir şekilde yapılandırın ve başarılı bir şekilde Azure İzleyici'de Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir. 
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde aracının yapılandırılmasında üzerinde rapor istediğiniz çalışma alanını seçin.

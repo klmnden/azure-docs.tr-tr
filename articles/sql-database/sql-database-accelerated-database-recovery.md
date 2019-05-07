@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388752"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073461"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Hızlandırılmış veritabanı kurtarma (Önizleme)
+# <a name="accelerated-database-recovery"></a>Hızlandırılmış veritabanı kurtarma
 
 **Veritabanı kurtarma (ADR) hızlandırılmış** özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR, tek veritabanlarını havuza alınmış veritabanlarını Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için şu anda kullanılabilir. ADR başlıca yararları şunlardır:
 
@@ -128,6 +128,3 @@ Müşteriler aşağıdaki türde ADR etkinleştirme dikkate almanız gerekir:
 - Müşteriler etkin işlemler önemli oranda artma işlem günlüğünün yeri neden olan durumlarda gördünüz.  
 - Uzun süreler nedeniyle (örneğin, beklenmeyen SQL Server yeniden başlatma veya el ile işlem geri alma) kurtarma uzun süre çalışan SQL Server veritabanı kesintiler yaşamış müşteriler.
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Bu önizleme dönemi boyunca ADR etkinleştirmek için
-
-Bu özellik Önizleme dönemi boyunca, bir e-posta Gönder [ adr@microsoft.com ](mailto:adr@microsoft.com) daha fazla bilgi edinin ve hızlandırılmış veritabanı kurtarma (ADR) kullanıma deneyin. E-postada, SQL veritabanı sunucunuzun adını (için tek veritabanları ve SQL veritabanı'nda havuza alınan veritabanları ve Azure veri ambarı veritabanları) içerir. Bu bir önizleme özelliği olduğundan, test sunucunuzun bir üretim dışı sunucusu olmalıdır.

@@ -2,19 +2,20 @@
 title: .NET kullanarak azure depolama örnekleri | Microsoft Docs
 description: Görüntüleyin, indirin ve örnek kod ve Azure depolama için uygulamalar çalıştırın. Bloblar, kuyruklar, tablolar ve dosyalar için örnekleri .NET depolama istemci kitaplıklarını kullanmaya Başlarken keşfedin.
 services: storage
-author: seguler
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: seguler
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3874bf4e4b51354f14c9aa6357ee1c0d9033e545
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101402"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142549"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET kullanarak azure depolama örnekleri
 

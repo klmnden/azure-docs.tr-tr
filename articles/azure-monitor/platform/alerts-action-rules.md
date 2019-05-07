@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922761"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138124"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
 
@@ -46,7 +46,7 @@ Alternatif olarak, bir uyarı kuralını yapılandırırken bir eylem kuralı ol
 
 ![Yeni Eylem kural oluşturma akış](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Kapsam
+### <a name="scope"></a>`Scope`
 
 İlk kapsamı, diğer bir deyişle, hedef kaynak, kaynak grubu veya abonelik seçin. Yukarıdakilerin tümü (içinde tek bir abonelik) birleşimi çoklu seçim özelliği de vardır. 
 
@@ -184,8 +184,8 @@ En iyi yararlanarak günlük uyarıları için eylem kurallarla, biz ile günlü
 
 * S. İki ayrı bir eylem kurallarında izlenen bir kaynak varsa ne olur? Bir veya iki bildirim alabilir miyim? Bu senaryoda örnek 'VM2':
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     A. 'VM1' ve 'VM3' her uyarı için bir kez 'AG1' eylem grubu tetiklenen. Her uyarı için 'VM2' üzerinde 'AG1' eylem grubu iki kez tetiklenmesi (**eylem kuralları değil XML'deki yinelenen Eylemler**). 
 
@@ -198,9 +198,10 @@ En iyi yararlanarak günlük uyarıları için eylem kurallarla, biz ile günlü
 
 * S. Bir uyarı kuralı ve farklı eylem grupları çağırma aynı kaynak için tanımlanan bir eylem kuralı varsa ne olur? Örneğin, bu senaryoda ' VM1':
 
-     'AR1' eylem grubu 'AG1' ile 'VM1'in için tanımlanan ile uyarı kuralı 'Kuralı 1' üzerinde 'VM1' eylem grubu 'AG2' eylem kuralı  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    A. 'VM1' her uyarı için bir kez 'AG1' eylem grubu tetiklenen. 'Bağlanma1' uyarı kuralı tetiklendiğinde, ayrıca 'AG2' de tetikler. (**eylem kuralları ve uyarı kuralları içinde tanımlanan grupları çalışan bağımsız olarak, hiçbir yinelenenleri kaldırma ile eylem**) 
+    A. 'VM1' her uyarı için bir kez 'AG1' eylem grubu tetiklenen. 'Bağlanma1' uyarı kuralı tetiklendiğinde, ayrıca 'AG2' de tetikler. **Eylem grupları tanımlanan eylem kuralların ve uyarı kuralları işletmek bağımsız olarak, hiçbir yinelenenleri kaldırma ile**. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
