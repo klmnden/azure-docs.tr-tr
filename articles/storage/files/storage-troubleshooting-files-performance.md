@@ -2,22 +2,22 @@
 title: Azure dosyaları performans sorunlarını giderme kılavuzu
 description: Azure premium dosya paylaşımları (Önizleme) ve ilişkili geçici çözümler ile performans sorunlarını bilinir.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577923"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190045"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure dosyaları performans sorunlarını giderme
 
-Bu makalede, Microsoft Azure premium dosya paylaşımları (Önizleme) ilgili bazı yaygın sorunlar listelenir. Bu sorunları karşılaştığında olası nedenler ve geçici çözümler sağlar.
+Premium Azure dosya paylaşımları (Önizleme) ilgili bazı yaygın sorunlar bu makalede listelenmektedir. Bu sorunları karşılaştığında olası nedenler ve geçici çözümler sağlar.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Yüksek gecikme süresi, aktarım hızının düşük olmasını ve genel performans sorunları
 
@@ -27,7 +27,7 @@ Bir paylaşımı varsayılan kota (en fazla 300 veri bloğu için bir saat için
 
 Paylaşımınızın kısıtlanan, onaylamak için portalda Azure ölçümleri yararlanabilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 1. Seçin **tüm hizmetleri** bulun **ölçümleri**.
 
@@ -80,7 +80,7 @@ Müşteri tarafından kullanılmakta olan uygulamasının tek iş parçacıklı 
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>İstemci ağ tarafından desteklenen en yüksek aktarım hızı elde etmek oluşturulamıyor
 
-Olası bir nedeni, yetersiz olduğunu fo SMB çok kanal desteği. Şu anda VM istemciden sunucuya yalnızca bir bağlantı olduğundan premium dosyaları yalnızca tek bir kanal destekler. Bir çekirdek tarafından ulaşılabilir bir VM'den en yüksek aktarım bağlı şekilde tek Bu bağlantı tek bir çekirdek VM, istemci üzerinde pegged.
+Olası bir nedeni, yetersiz olduğunu fo SMB çok kanal desteği. Şu anda, Azure dosya paylaşımları, yalnızca VM istemciden sunucuya yalnızca bir bağlantı olduğundan tek bir kanal destekler. Bir çekirdek tarafından ulaşılabilir bir VM'den en yüksek aktarım bağlı şekilde tek Bu bağlantı tek bir çekirdek VM, istemci üzerinde pegged.
 
 ### <a name="workaround"></a>Geçici çözüm
 
@@ -137,7 +137,7 @@ Birden fazla g/ç derinliği CentOS/RHEL üzerinde desteklenmiyor.
 
 ### <a name="cause"></a>Nedeni
 
-Varsa DirectoryOpen/DirectoryClose çağrılarının sayısı arasında ilk API çağrıları ve birçok çağrı VM Azue istemcide yüklü virüsten koruma ile ilgili bir sorun olabilir, yapmak için istemci beklemiyoruz.
+Varsa DirectoryOpen/DirectoryClose çağrılarının sayısı arasında ilk API çağrıları ve birçok çağrı, Azure VM istemcide yüklü virüsten koruma ile ilgili bir sorun olabilir, yapmak için istemci beklemiyoruz.
 
 ### <a name="workaround"></a>Geçici çözüm
 

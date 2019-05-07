@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348833"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190820"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -76,8 +76,8 @@ Daha fazla bilgi için bkz:
 * [Active Directory saldırı yüzeyini azaltma](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect tarafından kullanılan SQL Server
-* Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Varsayılan olarak, bir SQL Server 2012 Express LocalDB'nı (SQL Server Express'in hafif bir sürüm) yüklenir. SQL Server Express yaklaşık 100.000 nesneye yönetmenize olanak sağlayan bir 10 GB boyut sınırı vardır. Dizin nesneleri daha yüksek hacimde yönetmeniz gerekiyorsa, Yükleme Sihirbazı'nı farklı bir SQL Server yüklemesine işaret edecek şekilde gerekir.
-* Ayrı bir SQL Server kullanıyorsanız, ardından bu gereksinimleri geçerlidir:
+* Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Varsayılan olarak, bir SQL Server 2012 Express LocalDB'nı (SQL Server Express'in hafif bir sürüm) yüklenir. SQL Server Express yaklaşık 100.000 nesneye yönetmenize olanak sağlayan bir 10 GB boyut sınırı vardır. Dizin nesneleri daha yüksek hacimde yönetmeniz gerekiyorsa, Yükleme Sihirbazı'nı farklı bir SQL Server yüklemesine işaret edecek şekilde gerekir. SQL Server yükleme türünü etkileyebilir [performans Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Ardından SQL Server'ın farklı bir yükleme kullanırsanız, bu gereksinimleri geçerlidir:
   * Azure AD Connect, SQL Server 2019 için Microsoft SQL Server 2008 R2 (en son hizmet paketiyle) tüm sürümlerini destekler. Microsoft Azure SQL veritabanı **desteklenmiyor** veritabanı olarak.
   * Büyük küçük harf duyarsız bir SQL harmanlaması kullanmanız gerekir. Bu harmanlamaları ile tanımlanan bir \_CI_ adında. Bu **desteklenmiyor** tarafından tanımlanan bir büyük/küçük harfe harmanlamasını kullanacak şekilde \_CS_ adında.
   * Yalnızca bir eşitleme Altyapısı SQL örneği başına olabilir. Bu **desteklenmiyor** FIM/MIM eşitleme, DirSync veya Azure AD Sync ile bir SQL örneği paylaşmak için.

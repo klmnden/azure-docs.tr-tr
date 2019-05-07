@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "60525549"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
@@ -33,9 +33,9 @@ Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Sunucu günlüğü depolama miktarı.|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Bu sunucu için en fazla sunucu günlük depolama.|
 |storage_limit|Depolama sınırı|Bayt|Bu sunucu için en fazla depolama alanı.|
-|active_connections|Etkin bağlantılar|Sayı|Sunucu için etkin bağlantı sayısı.|
-|connections_failed|Başarısız Bağlantılar|Sayı|Başarısız bağlantılar sunucu sayısı.|
-|seconds_behind_master|Saniyeler içinde çoğaltma gecikmesi|Sayı|Çoğaltma sunucusu, ana sunucu karşı geciken saniye sayısı.|
+|active_connections|Etkin bağlantılar|Count|Sunucu için etkin bağlantı sayısı.|
+|connections_failed|Başarısız Bağlantılar|Count|Başarısız bağlantılar sunucu sayısı.|
+|seconds_behind_master|Saniyeler içinde çoğaltma gecikmesi|Count|Çoğaltma sunucusu, ana sunucu karşı geciken saniye sayısı.|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 |backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|

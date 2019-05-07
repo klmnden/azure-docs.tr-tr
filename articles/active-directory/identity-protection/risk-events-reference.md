@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191535"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory kimlik koruması, risk olayları başvurusu
 
@@ -80,7 +80,9 @@ Bu risk olayı türünü etkin bir bot sunucusuyla iletişim kurmak için biline
 
 ## <a name="unfamiliar-sign-in-properties"></a>Bilinmeyen oturum açma özellikleri
 
-**Algılama türü:** Gerçek zamanlı **eski ad:** Alışılmadık konumlardan oturum açma işlemleri
+**Algılama türü:** Gerçek zamanlı  
+**Eski adı:** Alışılmadık konumlardan oturum açma işlemleri
+
 
 Bu risk olayı türünü oturum açma geçmişini göz önünde bulundurur (IP, enlem / boylam ve ASN) anormal oturum açma için aranacak. Sistem, bir kullanıcı tarafından kullanılan önceki konumları hakkında bilgi depolar ve bu "tanıdık" konumlar göz önünde bulundurur. Risk olayı bilinen konumları listesinde olmayan bir konumdan oturum açma meydana geldiğinde tetiklenir. Yeni oluşturulan kullanıcılar "öğrenme modunda", bir süre için kullanıcının davranışını algoritmalarınızı öğrenmenin yanı sıra hangi alışılmadık oturum açma özelliklerinde risk olaylarını devre dışı olması. Öğrenme modu süresi dinamiktir ve bağlıdır üzerinde ne kadar süre sürer algoritması kullanıcının oturum açma düzenleri hakkında yeterli bilgi toplayın. En düşük süre beş gündür. Bir kullanıcı modu uzun bir süre etkin olmayıp öğrenme moduna geri dönebilirsiniz. Tanıdık cihazlardan ve coğrafi olarak bilinen bir konuma yakın olan konumlardan oturum açma işlemleri de yoksayar. 
 

@@ -1,29 +1,28 @@
 ---
-title: Bir Azure dosya deposundan depolama hesabı oluşturma
-description: Bu makalede, dosya deposundan (Önizleme) ve bir premium dosya paylaşımı oluşturma hakkında bilgi edinin.
+title: Premium Azure dosya paylaşımı oluşturma
+description: Bu makalede, bir premium Azure dosya paylaşımı oluşturma işlemini öğrenin.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190106"
 ---
-# <a name="how-to-create-an-azure-premium-file-share"></a>Bir premium Azure dosya paylaşımı oluşturma
-
-Dosya deposundan (Önizleme) depolama hesabı türü, premium performans özelliklerini taşıyan dosya paylaşımları oluşturmanıza olanak sağlayan, Azure dosyaları için yeni bir katman temsil eder. Bu dosya paylaşımlarını yüksek performanslı ve yüksek aktarım hızı paylaşımları tutarlı düşük gecikme süresi ve yüksek IOPS sağlayan kurumsal ölçekli uygulamalar için tasarlanmıştır.
+# <a name="how-to-create-an-premium-azure-file-share"></a>Bir premium Azure dosya paylaşımı oluşturma
+Premium dosya paylaşımları (Önizleme), katı hal sürücüsü (SSD) depolama medyasında sunulur ve veritabanları ve yüksek performanslı bilgi işlem (HPC) barındırma gibi g/ç yoğunluklu iş yükleri için yararlıdır. Premium dosya paylaşımları adlı bir dosya deposundan hesabı bir özel amaçlı depolama hesabı türü içinde barındırılır. Premium dosya paylaşımları, yüksek performanslı ve yüksek aktarım hızı paylaşımları tutarlı düşük gecikme süresi ve yüksek IOPS sağlayan kurumsal ölçekli uygulamalar için tasarlanmıştır.
 
 Bu makalede bu hesap türü kullanarak yeni oluşturma işlemi gösterilmektedir [Azure portalında](https://portal.azure.com/), Azure PowerShell ve Azure CLI.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure depolamaya erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz zaten yoksa, oluşturup bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
+Premium Azure dosya paylaşımlarını Azure kaynaklarına erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz zaten yoksa, oluşturup bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
 
 ## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Premium, Azure portalını kullanarak bir dosya paylaşımı oluşturma
 
@@ -51,7 +50,7 @@ Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azu
 1. Seçin **hesap türü** ve **dosya (Önizleme) deposundan**.
 1. Bırakın **çoğaltma** kendi varsayılan değerine ayarlanmasından **yerel olarak yedekli depolama (LRS)**.
 
-    ![Premium dosyalar depolama hesabı oluşturma](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![Premium dosya paylaşımı için bir depolama hesabı oluşturma](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
 1. Depolama hesabı ayarlarınızı gözden geçirmek ve hesabı oluşturmak için **Gözden Geçir + Oluştur**’u seçin.
 1. **Oluştur**’u seçin.
@@ -81,9 +80,9 @@ Bu makalede oluşturulan kaynakları temizlemek isterseniz, kaynak grubunu silme
 
 Ardından, yükseltme, powershell modülü, Azure aboneliğinizde oturum açın bir kaynak grubu oluşturun ve bir depolama hesabı oluşturun.
 
-### <a name="upgrade-your-powershell-module"></a>PowerShell modülünüzü yükseltme
+### <a name="upgrade-your-powershell-module"></a>Yükseltme, PowerShell Modülü
 
-PowerShell ile premium dosyalarla etkileşim kurmak için en son Az.Storage modül yüklemeniz gerekir.
+Premium dosya paylaşımı PowerShell ile etkileşim için son Az.Storage modül yüklemeniz gerekir.
 
 Yükseltilmiş izinlere sahip bir PowerShell oturumu açarak işleme başlayın.
 
@@ -95,10 +94,10 @@ Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
-Kullanım `Login-AzAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
+Kullanım `Connect-AzAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
 
 ```powershell
-Login-AzAccount
+Connect-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
@@ -152,11 +151,9 @@ CLI yerel yüklemesinde açmak oturum açma komutunu çalıştırın:
 az login
 ```
 
-### <a name="add-the-cli-extension-for-azure-premium-files"></a>Azure premium dosyaları için CLI uzantısını ekleyin
+### <a name="add-the-preview-storage-cli-extension"></a>Önizleme depolama CLI uzantısını ekleyin
 
-CLI kullanarak premium dosyaları ile etkileşimde bulunmak üzere kabuğunuz için bir uzantı eklemek zorunda kalırsınız.
-
-Bunu yapmak için Cloud Shell veya yerel bir kabuk kullanarak aşağıdaki komutu girin: `az extension add --name storage-preview`
+Dosya paylaşımları Premium bir önizleme özelliği olduğundan, kabuğunuzun için Önizleme uzantıyı eklemek zorunda kalırsınız. Bunu yapmak için Cloud Shell veya yerel bir kabuk kullanarak aşağıdaki komutu girin: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -168,9 +165,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Dosya deposundan (Önizleme) depolama hesabı oluşturma
+### <a name="create-a-filestorage-storage-account"></a>Dosya deposundan depolama hesabı oluşturma
 
-Azure CLI üzerinden bir dosya deposundan (Önizleme) depolama hesabı oluşturmak için kullanın [az depolama hesabı oluşturma](/cli/azure/storage/account) komutu.
+Azure CLI üzerinden bir dosya deposundan depolama hesabı oluşturmak için kullanın [az depolama hesabı oluşturma](/cli/azure/storage/account) komutu.
 
 ```azurecli-interactive
 az storage account create `
@@ -216,7 +213,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir premium dosyaları depolama hesabı oluşturdunuz. Bu hesap sunar performans hakkında bilgi edinmek için Planlama Kılavuzu'nun performans katmanı bölümüne geçin.
+Bu makalede, bir premium dosya paylaşımı oluşturdunuz. Bu hesap sunar performans hakkında bilgi edinmek için Planlama Kılavuzu'nun performans katmanı bölümüne geçin.
 
 > [!div class="nextstepaction"]
 > [Dosya Paylaşımı performans katmanları](storage-files-planning.md#file-share-performance-tiers)

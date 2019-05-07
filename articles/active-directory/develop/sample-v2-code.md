@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a04dfd7009028197bee2602394a34803b1f8c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09c5bd217f852f7130888d03e3368278af8abce5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298503"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190887"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft kimlik platformu kod örnekleri (v2.0 uç noktası)
 
@@ -74,12 +74,12 @@ Aşağıdaki örnekler, Microsoft Graph API'sini veya kendi kullanıcı adını 
 
 | İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET Core 2.0 Web API'si çağıran |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Masaüstü (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Etkileşimli | [DotNet Masaüstü msgraph v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NET.png) | Tümleşik Windows Kimlik Doğrulaması | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
-| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NETcore.png) | Kullanıcı adı/parola |[dotnetcore yukarı v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Etkileşimli |[xamarin yerel v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Mobile (iOS)       | ![iOS / Objective C ya da swift'te](media/sample-v2-code/logo_iOS.png) | Etkileşimli |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
-| Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Etkileşimli |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
+| Masaüstü (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [etkileşimli](msal-authentication-flows.md#interactive)| [DotNet Masaüstü msgraph v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NET.png) | [Tümleşik Windows kimlik doğrulaması](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NETcore.png) | [Kullanıcı Adı/Parola](msal-authentication-flows.md#usernamepassword) |[dotnetcore yukarı v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [etkileşimli](msal-authentication-flows.md#interactive) |[xamarin yerel v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Mobile (iOS)       | ![iOS / Objective C ya da swift'te](media/sample-v2-code/logo_iOS.png) | [etkileşimli](msal-authentication-flows.md#interactive) |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | [etkileşimli](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
 
 ## <a name="daemon-applications"></a>Arka plan programı uygulamaları
 
@@ -87,8 +87,8 @@ Aşağıdaki örnekler, kendi kimliğiyle (kullanıcı) ile Microsoft Graph API 
 
 | İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları |
 | ------------------ | -------- | ---------- | -------------------- |
-| Konsol | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | İstemci kimlik bilgileri | [dotnetcore arka plan programı v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Web uygulaması | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | İstemci kimlik bilgileri | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Konsol | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [İstemci kimlik bilgileri](msal-authentication-flows.md#client-credentials) | [dotnetcore arka plan programı v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Web uygulaması | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [İstemci kimlik bilgileri](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Gözetimsiz uygulamalar
 
@@ -96,7 +96,7 @@ Aşağıdaki örnek, bir web tarayıcısı olmadan bir cihazda çalışan bir or
 
 | İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları |
 | ------------------ | -------- |  ----------| ---------- |
-| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NETcore.png) | Cihaz kod akışı |[dotnetcore devicecodeflow v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NETcore.png) | [Cihaz kod akışı](msal-authentication-flows.md#device-code) |[dotnetcore devicecodeflow v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 
 ## <a name="web-apis"></a>Web API'leri
 

@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352007"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190485"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -41,7 +41,7 @@ Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) özelliği s
 Bu makalede, aşina olduğunuzu varsayar [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md).
 
 > [!NOTE]
-> Windows 10 hibrit Azure AD'ye katılma Windows Server 2008 R2 için gereken en düşük etki alanı işlevsel orman işlev düzeyleri. Daha düşük sürümlerde, kullanıcı bir birincil yenileme belirteci LSA sorunları nedeniyle Windows oturum açma sırasında alamayabilir.
+> Windows 10 hibrit Azure AD'ye katılma Windows Server 2008 R2 için gereken en düşük etki alanı işlevsel orman işlev düzeyleri.
 
 ## <a name="plan-your-implementation"></a>Uygulamanızı planlama
 
@@ -121,6 +121,9 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
 
 - Kimlik doğrulaması (PTA) geçirin
 - Parola karma eşitlemesi (PHS)
+
+> [!NOTE]
+> Azure AD, yönetilen etki alanlarında akıllı kartlar veya sertifikaları desteklemez.
 
 1.1.819.0 sürümünden itibaren Azure AD Connect hibrit Azure AD'ye katılımı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, yapılandırma işlemini önemli ölçüde basitleştirebilmenizi sağlar. Daha fazla bilgi için bkz.
 

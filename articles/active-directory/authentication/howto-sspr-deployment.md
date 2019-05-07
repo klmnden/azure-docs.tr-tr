@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358008"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190363"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -32,6 +32,10 @@ Azure Active Directory (Azure AD) self servis parola sıfırlama (SSPR) işlevin
    * Kayıt için bunları URL'leri sağlanan var ve sıfırlama?
       * Kaydı:  https://aka.ms/ssprsetup
       * Sıfırlama: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Onay kutusu "kullanıcı sonraki oturumda parola değiştirmelidir Active Directory Kullanıcıları ve Bilgisayarları veya Active Directory Yönetim Merkezi gibi şirket içi Active Directory Yönetimsel Araçlar'daki değiştirmeli" kullanımı desteklenmiyor. Şirket içi, bir parola değiştirirken bu seçeneği işaretlemeyin. 
+
 1. Kullanıcılarınızı bilgilendirin.
    * Aşağıdaki bölümler bu belgenin üzerinden iletişim örnek, kayıt zorlama ve kimlik doğrulama verilerini doldurma parola portalları gidin.
    * Azure Active Directory ürün grubu, kuruluşların bir işletme durumu ve self servis parola sıfırlama dağıtımı için bir plan oluşturmak için bu sitede bulunan bilgilerle paralel olarak kullanabilecekleri bir [adım adım dağıtım planı](https://aka.ms/SSPRDeploymentPlan) oluşturmuştur.

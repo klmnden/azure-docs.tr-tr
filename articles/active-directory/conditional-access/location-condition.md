@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917672"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190190"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -56,7 +56,7 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 - **Ülkeler/bölgeler** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar.
 - **Bilinmeyen alanları dahil et** -bazı IP adreslerini belirli bir ülkeye eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
 
-Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 lamed konumlarını yapılandırabilirsiniz, her kadar 12000 IP aralıkları ile yapılandırılmış.
+Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 adlandırılmış konumlar yapılandırabilir, her kadar 12000 IP aralıkları ile yapılandırılmış.
 
 Koşullu erişim ilkesi, IPv4 ve IPv6 trafiği için geçerlidir. Şu anda adlandırılmış konumlar yapılandırılması için IPv6 aralıkları izin vermez. Bu sınırlama aşağıdaki durumlarda neden olur:
 

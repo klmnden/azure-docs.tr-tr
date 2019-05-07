@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302367"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190866"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -73,13 +73,13 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>2. Adım: ASP.NET Core projenizi indirin
 
-- [Visual Studio 2017 çözümünü indirme](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Visual Studio 2019 çözümü indirin](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
 1. Örneğin, bir yerel klasör Kök klasörde - zip dosyasını ayıklayın **C:\Azure-Samples**
-1. Visual Studio 2017 kullanırsanız, (isteğe bağlı) Visual Studio içinde çözümü açın.
-1. Düzen **appsettings.json** dosya. Bulma `ClientId` ve değerini güncelleştirin `ClientId` ile **uygulama (istemci) kimliği** yeni kaydettiğiniz uygulamayı değeri. 
+1. Visual Studio 2019 kullanırsanız, (isteğe bağlı) Visual Studio içinde çözümü açın.
+1. Düzen **appsettings.json** dosya. Bulma `ClientId` ve değerini güncelleştirin `ClientId` ile **uygulama (istemci) kimliği** kaydettiğiniz uygulamayı değeri. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu bölümde, kullanıcıların oturumunu açmak için gereken koda genel bir bakış sağlanır. Bu kod, main bağımsız değişkenleri, çalışma şeklini anlamanız yararlı olabilir ve ayrıca mevcut bir ASP.NET Core uygulamasına oturum açma eklemek istiyorsanız.
+Bu bölüm, kullanıcıların oturum açmak için gereken kodu genel bir bakış sağlar. Bu genel bakışta kodu, main bağımsız değişkenleri, çalışma şeklini anlamanız için yararlı olabilir ve ayrıca mevcut bir ASP.NET Core uygulamasına oturum açma eklemek istiyorsanız.
 
 ### <a name="startup-class"></a>Başlangıç sınıfı
 
@@ -136,9 +136,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan yanı sıra Openıd Connect için sınama kümesi tanımlama bilgisi tabanlı kimlik doğrulaması eklemek için hizmetini yapılandırır. 
+Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan tanımlama bilgisi tabanlı kimlik doğrulaması, ekleme ve Openıd Connect için sınama ayarlamak için hizmet yapılandırır. 
 
-İçeren satırda `.AddAzureAd` uygulamanıza Microsoft kimlik platformu doğrulama ekler. Ardından, Microsoft kimlik platformu uç noktayı kullanarak oturum açın şekilde yapılandırılır.
+İçeren satırda `.AddAzureAd` uygulamanıza Microsoft kimlik platformu doğrulama ekler. Ardından, Microsoft kimlik platformu uç noktayı kullanarak oturum açmanız yapılandırılır.
 
 > |Konum  |  |
 > |---------|---------|
@@ -153,13 +153,13 @@ Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan yanı sıra Open�
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Denetleyiciyi veya denetleyici yöntemini koruma
 
-Bir denetleyici veya denetleyici yöntemleri kullanarak koruyabilirsiniz `[Authorize]` özniteliği. Bu öznitelik yalnızca kimliği doğrulanmış kullanıcılar, kimlik doğrulama sınaması, herhangi bir kullanıcı kimliği doğrulanmamış denetleyici erişmeye başlatılabildiğinden yani vererek denetleyici veya yöntemleri için erişimi kısıtlar.
+Bir denetleyici veya denetleyici yöntemleri kullanarak koruyabilirsiniz `[Authorize]` özniteliği. Bu öznitelik yalnızca kimliği doğrulanmış kullanıcılar, diğer bir deyişle kullanıcının kimliği değil, denetleyici erişmek için kimlik doğrulaması sınaması başlatılabilir vererek denetleyici veya yöntemleri için erişimi kısıtlar.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yepyeni bir ASP.NET Core Web uygulaması için kimlik doğrulaması ekleme hakkında yönergeler dahil olmak üzere daha fazla bilgi için ASP.NET Core öğretici için GitHub deposunu denetleyin Microsoft Graph ve diğer Microsoft APIs çağırmak nasıl kendi API'leri çağırmak nasıl ekleme Yetkilendirme, oturum açma nasıl Ulusal bulutlarda ya da sosyal kimlikleri ve daha fazlasıyla kullanıcılar:
+Bu yepyeni bir ASP.NET Core Web uygulaması için kimlik doğrulaması ekleme hakkında yönergeler dahil olmak üzere daha fazla bilgi için ASP.NET Core öğretici için GitHub deposunu denetleyin Microsoft Graph ve diğer Microsoft APIs çağırmak nasıl kendi API'leri çağırmak nasıl ekleme Yetkilendirme, kullanıcılar Ulusal bulutlarda veya sosyal kimlikleri ve daha fazlası ile oturum açma:
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web uygulaması Öğreticisi](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992784"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190855"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Hızlı Başlangıç: Kullanıcılar oturum ve JavaScript tek sayfalı uygulama (SPA) bir erişim belirteci alma
 
@@ -37,7 +37,7 @@ Bu Hızlı Başlangıç için aşağıdaki Kurulum gerekir:
 * Node.js sunucusu ile projeyi çalıştırmak için
     * [Node.js](https://nodejs.org/en/download/)’yi yükleme
     * Yükleme [Visual Studio Code](https://code.visualstudio.com/download) proje dosyalarını düzenlemek için
-* Proje bir Visual Studio çözümü olarak çalıştırmak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Proje bir Visual Studio çözümü olarak çalıştırmak için yükleme [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Kaydolun ve hızlı başlangıç uygulamanızı indirin
@@ -147,16 +147,16 @@ Tarayıcıda uygulama yüklendikten sonra tıklayın **oturum**.  İlk kez oturu
 MSAL, kullanıcılar ve belirteçler Microsoft kimlik platformu tarafından korunan bir API'ye erişmek için kullanılan istek imzalamak için kullanılan kitaplığıdır. Hızlı Başlangıç'ın *index.html* kitaplığına bir başvuru içerir:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > Yukarıdaki sürüm altında yayımlanan en son sürümünü değiştirebilirsiniz [MSAL.js sürümleri](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Alternatif olarak, yüklü düğüm varsa, npm aracılığıyla en son önizleme sürümünü indirebilirsiniz:
+Alternatif olarak, yüklü düğüm varsa, npm aracılığıyla en son sürümünü indirebilirsiniz:
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL başlatma
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 Aşağıdaki kod parçacığı, kullanıcılarının oturumunu açmak gösterilmektedir:
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL belirteçlerini almak için kullanılan üç yöntem vardır: `acquireToken
 `acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginRedirect` veya `loginPopup` yöntemi ilk kez yürütüldüğünde `acquireTokenSilent` yapılan sonraki çağrılar için korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir. Veya belirteçleri yenileme isteği için çağrıları sessizce yapılır.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ Uygulamaların çoğu için önerilen ve normal desenin çağırmaktır `acquire
 Çağırma `acquireTokenPopup` oturum açmak için bir açılan pencere sonuçlanıyor (veya `acquireTokenRedirect` sonuçları kullanıcılarını Microsoft kimlik platformu uç noktaya yönlendirme içinde) kullanıcılar için ya da kimlik bilgilerini onaylayarak etkileşim kurmak gereken yere onayı gerekli verme Kaynak veya iki faktörlü kimlik doğrulaması tamamlanıyor.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

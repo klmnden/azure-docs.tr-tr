@@ -2,18 +2,19 @@
 title: 'Hızlı Başlangıç: Bir blob nesne depolama - Azure depolama alanında oluşturmak için .NET kullanma'
 description: Bu hızlı başlangıçta, Blob (nesne) depolama alanında bir blob ve kapsayıcı oluşturmak amacıyla .NET için Azure Depolama istemci kitaplığının nasıl kullanılacağını öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobların listesini görüntülemeyi öğreneceksiniz.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191048"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: NET'i kullanarak nesne depolamada blob oluşturma
 
@@ -152,7 +153,7 @@ Ardından, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyin.
 
 ### <a name="try-parsing-the-connection-string"></a>Bağlantı dizesini ayrıştırmayı deneyin
 
-Örneğin yaptığı ilk işlem, ortam değişkeninin depolama hesabını işaret eden bir [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) nesnesi oluşturmak üzere ayrıştırılabilecek bir bağlantı dizesi içerip içermediğini denetlemektir. Bağlantı dizesinin geçerli olup olmadığını denetlemek için [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) yöntemini kullanın. **TryParse** başarılı olursa *storageAccount* değişkenini başlatır ve **true** değerini döndürür.
+Örneğin yaptığı ilk işlem, ortam değişkeninin depolama hesabını işaret eden bir [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) nesnesi oluşturmak üzere ayrıştırılabilecek bir bağlantı dizesi içerip içermediğini denetlemektir. Bağlantı dizesinin geçerli olup olmadığını denetlemek için [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) yöntemini kullanın. **TryParse** başarılı olursa *storageAccount* değişkenini başlatır ve **true** değerini döndürür.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -184,9 +185,9 @@ else
 
 Daha sonra örnek, bir kapsayıcı oluşturur ve kapsayıcıdaki tüm blobların herkese açık olması için izinlerini ayarlar. Bir blob herkese açık ise, herhangi bir istemci tarafından anonim olarak erişilebilir.
 
-Kapsayıcıyı oluşturmak için öncelikle [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) nesnesinin depolama hesabınızdaki Blob depolama alanına işaret eden bir örneğini oluşturun. Ardından, [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) nesnesinin bir örneğini ve sonra kapsayıcıyı oluşturun.
+Kapsayıcıyı oluşturmak için öncelikle [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) nesnesinin depolama hesabınızdaki Blob depolama alanına işaret eden bir örneğini oluşturun. Ardından, [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) nesnesinin bir örneğini ve sonra kapsayıcıyı oluşturun.
 
-Bu durumda örnek, kapsayıcıyı oluşturmak için [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) yöntemini çağırır. Kapsayıcı adının benzersiz olduğundan emin olmak için kapsayıcı adına bir GUID değeri eklenir. Bir üretim ortamında kapsayıcı oluştururken, yalnızca henüz mevcut değilse ve adlandırma çakışmalarını önlemek için [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) yönteminin kullanılması tercih edilir.
+Bu durumda örnek, kapsayıcıyı oluşturmak için [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) yöntemini çağırır. Kapsayıcı adının benzersiz olduğundan emin olmak için kapsayıcı adına bir GUID değeri eklenir. Bir üretim ortamında kapsayıcı oluştururken, yalnızca henüz mevcut değilse ve adlandırma çakışmalarını önlemek için [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) yönteminin kullanılması tercih edilir.
 
 > [!IMPORTANT]
 > Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcıları ve blobları adlandırma hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -209,7 +210,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Ardından örnek, blok blobuna yerel bir dosya yükler. Kod örneği, önceki bölümde oluşturulan kapsayıcı üzerinde [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) yöntemini çağırarak bir **CloudBlockBlob** nesnesine başvuru alır. Daha sonra [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) yöntemini çağırarak seçili dosyayı bloba yükler. Bu yöntem, daha önce oluşturulmadıysa bir blob oluşturur, aksi takdirde üzerine yazar.
+Ardından örnek, blok blobuna yerel bir dosya yükler. Kod örneği, önceki bölümde oluşturulan kapsayıcı üzerinde [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) yöntemini çağırarak bir **CloudBlockBlob** nesnesine başvuru alır. Daha sonra [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) yöntemini çağırarak seçili dosyayı bloba yükler. Bu yöntem, daha önce oluşturulmadıysa bir blob oluşturur, aksi takdirde üzerine yazar.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -230,7 +231,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-Örnek, [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) yöntemini kullanarak blobları kapsayıcıda listeler. Örnek söz konusu olduğunda, kapsayıcıya yalnızca bir blob eklendiği için listeleme işlemi yalnızca bir blob döndürür.
+Örnek, [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) yöntemini kullanarak blobları kapsayıcıda listeler. Örnek söz konusu olduğunda, kapsayıcıya yalnızca bir blob eklendiği için listeleme işlemi yalnızca bir blob döndürür.
 
 Tek çağrıda döndürülecek çok fazla sayıda blob (varsayılan olarak 5000'den fazla) varsa, **ListBlobsSegmentedAsync** yöntemi toplam sonuç kümesinin bir segmentini ve bir devamlılık belirtecini döndürür. Blobların sonraki segmentini almak için, devamlılık belirteci null olana kadar önceki çağrı tarafından döndürülen devamlılık belirtecini art arda sağlayın. Null devamlılık belirteci tüm blobların alındığını gösterir. Örnek kod, en iyi uygulamalar için devamlılık belirtecinin nasıl kullanılacağını gösterir.
 
@@ -253,7 +254,7 @@ do
 
 ### <a name="download-blobs"></a>Blob’ları indirme
 
-Sonra örnek, daha önce oluşturulan blobu [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) yöntemini kullanarak yerel dosya sisteminize indirir. Örnek kod, her iki dosyayı da yerel dosya sisteminde görebilmeniz için blob adına "_DOWNLOADED" son ekini ekler.
+Sonra örnek, daha önce oluşturulan blobu [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) yöntemini kullanarak yerel dosya sisteminize indirir. Örnek kod, her iki dosyayı da yerel dosya sisteminde görebilmeniz için blob adına "_DOWNLOADED" son ekini ekler.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -265,7 +266,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Örnek, [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) ile tüm kapsayıcıyı silerek oluşturduğu kaynakları temizler. Ayrıca isterseniz yerel dosyaları silebilirsiniz.
+Örnek, [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync) ile tüm kapsayıcıyı silerek oluşturduğu kaynakları temizler. Ayrıca isterseniz yerel dosyaları silebilirsiniz.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

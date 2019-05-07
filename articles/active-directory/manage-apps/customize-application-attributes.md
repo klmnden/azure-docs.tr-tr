@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191507"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
 Microsoft Azure AD, Salesforce, G Suite ve diğerleri gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı etkinleştirin, Azure portalında öznitelik eşlemelerini öznitelik değerlerini denetler.
@@ -149,6 +149,8 @@ Sağlama hizmeti çalışırken bu seçeneğin belirlenmesi, tüm kullanıcılar
 * Öznitelik eşlemeleri güncelleştirilirken bir eşitleme döngüsü performansı etkisi vardır. Öznitelik eşlemesi yapılandırma için bir güncelleştirme hesaplanması tüm yönetilen nesneleri gerektirir. 
 
 * Önerilen en iyi yöntem en azından, öznitelik eşlemelerinde yapılan art arda kaç tutmaktır.
+
+* Fotoğraf eşitleme biçimde belirtemezsiniz gibi bir uygulamaya sağlanacak bir fotoğraf öznitelik ekleme bugün desteklenmiyor. Bir özellik talep edebilir [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

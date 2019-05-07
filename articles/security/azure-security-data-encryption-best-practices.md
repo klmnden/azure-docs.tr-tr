@@ -1,10 +1,10 @@
 ---
-title: Veri güvenliği ve şifreleme en iyi uygulamalar | Microsoft Docs
+title: Veri güvenliği ve şifreleme için en iyi yöntemler - Microsoft Azure
 description: Bu makalede bir dizi veri güvenliği için en iyi yöntemler ve şifreleme kullanılarak Azure özellikleri.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125129"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190719"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Azure veri güvenliği ve şifreleme için en iyi uygulamalar
+# <a name="azure-data-security-and-encryption-best-practices"></a>Azure veri güvenliği ve şifreleme için en iyi yöntemler
+Bu makalede, veri güvenliği ve şifreleme için en iyi uygulamaları açıklar.
 
+Bir fikrim fikir birliği üzerinde en iyi uygulamaları temel alır ve geçerli Azure platform özellikleriyle çalışma ve özellik kümeleri. Fikirlerini ve teknolojileri zamanla değişir ve bu makalede bu değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
+
+## <a name="protect-data"></a>Veri koruma
 Buluttaki verileri korumaya yardımcı olmak için verilerinizi oluşan ve bu durum için hangi denetimleri kullanılabilir durumda hesabı gerekir. Azure veri güvenliği ve şifreleme için en iyi uygulamalar aşağıdaki veri durumlarını ilgilidir:
 
 - Bekleyen: Bu, tüm bilgileri depolama nesneleri, kapsayıcılar ve statik olarak fiziksel medyada manyetik olmadığını mevcut türleri veya optik diski içerir.
 - Aktarım sırasında: Veri bileşenleri, konumları ve programlar arasında aktarıldığı Aktarımdaki olur. Örnekler arasında (şirket içinden Bulut ve karma bağlantılar ile ExpressRoute gibi dahil olmak üzere tersi,), service bus ağ üzerinden aktarım olan veya bir giriş/çıkış işlemi sırasında.
-
-Azure veri güvenliği ve şifreleme en iyi yöntemler koleksiyonu bu makalede ele alınacaktır. Bu en iyi uygulamaları, Azure veri güvenliği ve şifreleme ve deneyimler sizin gibi müşterilerin deneyimlerimizden türetilir.
-
-En iyi her uygulama için açıklayacağız:
-
-* En iyi nedir
-* Bu en iyi etkinleştirmek istediğiniz neden
-* En iyi etkinleştirme başarısız olursa ne sonuç olabilir
-* En iyi olası alternatifler
-* Nasıl en iyi etkinleştirmek bilgi edinebilirsiniz
-
-Bu makalenin yazıldığı sırada oldukları gibi bu Azure veri güvenliği ve şifreleme için en iyi yöntemler makalesi bir fikir birliğine varılmış fikrim, Azure platformu özellikleri ve özellik kümeleri üzerinde temel alır. Fikirlerini ve teknolojileri zamanla değişir ve bu makalede, bu değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
 
 ## <a name="choose-a-key-management-solution"></a>Anahtar yönetimi çözümü seçme
 
@@ -95,7 +87,7 @@ Saldırıları büyük çoğunluğu hedef için son kullanıcı, uç nokta sald�
 
 Azure depolama ve Azure SQL veritabanı bekleyen veriler varsayılan ve çoğu Hizmetleri teklif şifreleme bir seçenek olarak şifreleyin. Verilerinizi şifrelemek ve erişim anahtarları denetiminizde tutmanıza olanak Azure anahtar Kasası'nı kullanabilirsiniz. Bkz: [daha fazla bilgi için Azure kaynak sağlayıcıları şifreleme modeli desteği](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**En iyi uygulamalar**: Verilere yetkisiz erişimi ile ilgili risklerin azaltılmasına yardımcı olmak için şifreleme kullanın.
+**En iyi uygulamalar**: Verilere yetkisiz erişimi ile ilgili risklerin azaltılmasına yardımcı olmak için şifreleme kullanın.   
 **Ayrıntı**: Bunları hassas verileri yazmadan önce sürücülerinizin şifreleyin.
 
 Veri şifrelemeyi zorunlu olmayan kuruluşlar, veri gizliliği sorunları daha sunulur. Örneğin, kullanıcıların yetkisiz veya düzenleyen bir ele geçirilen hesaplar veri çalan veya açık bir biçimde kodlanmış verilere yetkisiz erişim. Şirketler, ayrıca sektör yönetmeliklerine uyum sağlamak için veri güvenliğini artırmak için dikkatli ve kullanarak doğru güvenlik denetimleri olduklarını kanıtlamaları gerekir.
@@ -118,7 +110,7 @@ Azure VPN ağ geçidi, SSL/TLS ve HTTPS kullanarak belirli en iyi uygulamalar a�
 **Ayrıntı**: Kullanım [ExpressRoute](../expressroute/expressroute-introduction.md). ExpressRoute kullanmayı seçerseniz, ayrıca uygulama düzeyinde verileri kullanarak şifreleme de yapabilirsiniz [SSL/TLS](https://support.microsoft.com/kb/257591) veya diğer protokoller için ek koruma.
 
 **En iyi yöntem**: Azure depolama ile Azure portalı üzerinden etkileşim kurun.   
-**Ayrıntı**: Tüm HTTPS gerçekleşir. Ayrıca [depolama REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx) ile etkileşim kurmak için HTTPS üzerinden [Azure depolama](https://azure.microsoft.com/services/storage/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/).
+**Ayrıntı**: Tüm HTTPS gerçekleşir. Ayrıca [depolama REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx) ile etkileşim kurmak için HTTPS üzerinden [Azure depolama](https://azure.microsoft.com/services/storage/).
 
 Aktarımdaki verileri korumak için başarısız olan kuruluşlar için daha elverişli [adam-de-adam saldırılarına](https://technet.microsoft.com/library/gg195821.aspx), [gizlice](https://technet.microsoft.com/library/gg195641.aspx)ve oturum ele geçirme. Bu tür saldırıları, gizli verilere erişimini ilk adımı olabilir.
 

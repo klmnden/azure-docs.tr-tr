@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190828"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 istemci kimlik bilgileri akışı
 
@@ -249,6 +249,10 @@ Bir hata yanıtı şuna benzer:
 | `timestamp` | Hata oluştuğunda süre. |
 | `trace_id` | Tanılama ile Yardım isteği için benzersiz bir tanımlayıcı. |
 | `correlation_id` | Tanılama ile bileşenlerinde Yardım isteği için benzersiz bir tanımlayıcı. |
+
+> [!NOTE]
+> V2 belirteci almak, uygulamanın bildirim dosyasını azure portalındaki uygulamadan güncelleştirebilirsiniz. Öznitelik ekleyebilirsiniz `accessTokenAcceptedVersion` ve değer 2 olarak için ayarlamak `"accessTokenAcceptedVersion": 2`. Makaleyi gözden geçirin [uygulama bildirimini](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) aynı daha iyi anlamak için. Varsayılan uygulama şu anda recieves v1 belirteci. Bu bildirimde bu öznitelik değeri 1 olarak varsayılan olarak, uygulama/Web API'si bildirimi içinde tanımlı değil ve bu nedenle uygulama v1 belirteci alırsınız.  
+
 
 ## <a name="use-a-token"></a>Bir belirteç kullanın
 

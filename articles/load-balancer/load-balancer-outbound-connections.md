@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591452"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190163"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -176,13 +176,13 @@ SNAT bağlantı noktaları ayırmaları olan belirli IP Aktarım Protokolü (TCP
 
 ### <a name="tcp-snat-port-release"></a>SNAT TCP bağlantı noktası sürüm
 
-- Her iki sunucu/istemci FIN/ACK gönderirse SNAT bağlantı noktası 240 saniye sonra kullanıma sunulacaktır.
+- Her iki sunucu/istemci FINACK gönderirse SNAT bağlantı noktası 240 saniye sonra kullanıma sunulacaktır.
 - Bir lk görülür, SNAT bağlantı noktası 15 saniye sonra kullanıma sunulacaktır.
-- boşta kalma zaman aşımı ulaşıldı
+- Boşta kalma zaman aşımı ulaşıldı, bağlantı noktasını serbest bırakılır.
 
 ### <a name="udp-snat-port-release"></a>SNAT UDP bağlantı noktası sürüm
 
-- boşta kalma zaman aşımı ulaşıldı
+- Boşta kalma zaman aşımı ulaşıldı, bağlantı noktasını serbest bırakılır.
 
 ## <a name="problemsolving"></a> Sorun giderme 
 

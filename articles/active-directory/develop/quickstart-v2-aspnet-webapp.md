@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190892"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -68,13 +68,13 @@ Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active
 
 #### <a name="step-2-download-your-project"></a>2. Adım: Projenizi indirin
 
-[Visual Studio 2017 çözümünü indirme](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Visual Studio 2019 çözümü indirin](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını kök klasöre yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) açın
 1. Çözümü Visual Studio’da açın (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Visual Studio sürümüne bağlı olarak projeye sağ tıklamanız gerekebilir `AppModelv2-WebApp-OpenIDConnect-DotNet` ve **geri NuGet paketleri**
+1. Visual Studio sürümüne bağlı olarak, projeye sağ tıklamanız gerekebilir `AppModelv2-WebApp-OpenIDConnect-DotNet` ve **geri NuGet paketleri**
 1. Paket Yöneticisi konsolunu açın (Görüntüle -> diğer Windows Paket Yöneticisi konsolu ->) ve çalıştırma `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. **Web.config** dosyasını düzenleyip `ClientId` ve `Tenant` parametrelerini şu şekilde değiştirin:
 
@@ -96,7 +96,7 @@ Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu bölümde, kullanıcıların oturumunu açmak için gereken koda genel bir bakış sağlanır. Hem kodun nasıl çalıştığını ve ana bağımsız değişkenleri anlamak için hem de mevcut ASP.NET uygulamasına oturum açma eklemek istediğinizde bu yararlı olabilir.
+Bu bölümde, kullanıcıların oturumunu açmak için gereken koda genel bir bakış sağlanır. Bu genel bakışta kodu, main bağımsız değişkenleri, çalışma şeklini anlamanız için yararlı olabilir ve ayrıca mevcut bir ASP.NET uygulamasına oturum açma eklemek istiyorsanız.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN ara yazılımı NuGet paketleri
 
@@ -110,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN Startup Sınıfı
 
-OWIN ara yazılımı, ana işlem başlatıldığında yürütülen *startup sınıfını* kullanır (bu hızlı başlangıç örneğinde, kök klasörde bulunan *startup.cs* dosyası). Aşağıdaki kod bu hızlı başlangıcın kullandığı parametreyi gösterir:
+OWIN ara yazılımı kullanan bir *başlangıç sınıfı* barındırma işlemi başlatıldığında çalışır. Bu hızlı başlangıçta, *startup.cs* Kök klasörde bulunan dosya. Aşağıdaki kod bu hızlı başlangıcın kullandığı parametreyi gösterir:
 
 ```csharp
 public void Configuration(IAppBuilder app)

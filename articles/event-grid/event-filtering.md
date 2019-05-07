@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187649"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -43,7 +43,7 @@ Basit konuya göre filtreleme için konu için bir başlangıç veya bitiş değ
 
 Olayları özel konular yayımlarken konularla ilgili olay ilgilenen olup olmadığını bilmek aboneleri için kolaylaştıran olaylarınızı oluşturun. Aboneleri filtre ve rota olayları konu özelliğini kullanın. Aboneler tarafından yol kesimleri süzebilirsiniz olayın gerçekleştiği için yol eklemeyi düşünün. Aboneler, sayısı azalacağından veya geniş çapta olayları filtrelemek yol sağlar. Üç segment yolu gibi sağlarsanız `/A/B/C` Bu konu, abonelerin ilk segmente göre filtreleyebilirsiniz `/A` çok sayıda olayları almak için. Bu olaylar gibi konular ile aboneleri `/A/B/C` veya `/A/D/E`. Diğer aboneler tarafından filtreleyebilirsiniz `/A/B` daha dar bir etkinlik kümesi alınamıyor.
 
-Olay türüne göre filtrelemek için JSON söz dizimi şu şekildedir:
+Konuya göre filtrelemek için JSON söz dizimi şu şekildedir:
 
 ```json
 "filter": {

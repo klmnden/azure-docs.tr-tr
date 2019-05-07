@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917604"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190061"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -145,7 +145,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="afs-os-support"></a>
   **Azure dosya eşitleme Windows Server 2008 R2, Linux veya ağa bağlı depolama (NAS) cihazımı ile kullanabilir miyim?**  
-    Azure dosya eşitleme, şu anda yalnızca Windows Server 2016 ve Windows Server 2012 R2 destekler. Şu anda, biz size paylaşabilirsiniz herhangi bir plan yok, ancak müşteri talebine göre ek platformları destek açık duyuyoruz. Bize bildirin [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) hangi platformları destekleyecek şekilde göndermemizi istediğinizi.
+    Azure dosya eşitleme, şu anda yalnızca Windows Server 2019, Windows Server 2016 ve Windows Server 2012 R2 destekler. Şu anda, biz size paylaşabilirsiniz herhangi bir plan yok, ancak müşteri talebine göre ek platformları destek açık duyuyoruz. Bize bildirin [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) hangi platformları destekleyecek şekilde göndermemizi istediğinizi.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Neden katmanlı dosyaları dışında sunucu uç noktası ad var mı?**  
@@ -222,7 +222,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 * <a id="encryption-at-rest"></a>
 **My Azure dosya paylaşımı bekleme durumundayken şifrelenir nasıl sağlayabilirsiniz?**  
 
-    Azure depolama hizmeti şifrelemesi varsayılan olarak tüm bölgelerde etkinleştiriliyor sürecinde ' dir. Bu bölgeler için şifrelemeyi etkinleştirmek için herhangi bir eylem yapmanız gerekmez. Diğer bölgeler için bkz [sunucu tarafı şifrelemesi](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Evet. Daha fazla bilgi için [Azure depolama hizmeti şifrelemesi](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Nasıl bir web tarayıcısı kullanarak ı belirli bir dosyaya erişimi verebilir misiniz?**  

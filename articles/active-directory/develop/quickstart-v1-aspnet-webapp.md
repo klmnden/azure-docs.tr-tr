@@ -1,6 +1,6 @@
 ---
 title: ASP.NET web uygulamasına Microsoft ile oturum açma özelliği ekleme | Microsoft Docs
-description: OpenID Connect standardını kullanarak web tarayıcısı tabanlı geleneksel bir uygulamayla ASP.NET çözümünde Microsoft ile oturum açma özelliği eklemeyi öğrenin.
+description: Microsoft oturum açma, Openıd Connect standardını kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile bir ASP.NET çözümü eklemeyi öğrenin.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299388"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191036"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-Bu hızlı başlangıçta OpenID Connect kullanarak web tarayıcısı tabanlı geleneksel bir uygulamaya ASP.NET MVC çözümü aracılığıyla Microsoft ile oturum açma özelliği eklemeyi öğreneceksiniz. ASP.NET uygulamanızda iş ve okul hesaplarıyla oturum açmayı etkinleştirmeyi öğreneceksiniz.
+Bu hızlı başlangıçta, oturum açma Openıd Connect'i kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET Model View Controller (MVC) çözümünü kullanarak Microsoft ile nasıl uygulanacağı öğreneceksiniz. ASP.NET uygulamanızda iş ve okul hesaplarıyla oturum açmayı etkinleştirmeyi öğreneceksiniz.
 
 Bu hızlı başlangıcın sonunda uygulamanız Azure Active Directory (Azure AD) ile tümleşik kuruluşların iş ve okul hesapları ile oturum açılmasını kabul ediyor olacak.
 
@@ -38,15 +38,15 @@ Bu hızlı başlangıcın sonunda uygulamanız Azure Active Directory (Azure AD)
 
 Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
-* Visual Studio 2015 Güncelleştirme 3 veya Visual Studio 2017 yüklü. Sizde yok mu? [Visual Studio 2017’yi ücretsiz indirin](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 güncelleştirme 3 veya Visual Studio 2019 yüklü. Sizde yok mu? [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Senaryo: ASP.NET uygulamanızı iş ve Okul hesaplarında kullanıcılardan oturum açma
 
 ![Bu kılavuz nasıl çalışır?](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-Bu senaryoda tarayıcı bir ASP.NET web sitesine erişir ve kullanıcıdan oturum açma düğmesiyle kimliğini doğrulamasını ister. Bu senaryoda web sayfasını oluşturma işlemlerinin çoğu sunucu tarafında gerçekleştirilmektedir.
+Bir tarayıcı, ASP.NET web sitesi erişir ve kullanarak bir oturum açma düğmesi Bu senaryoda, kimlik doğrulaması için bir kullanıcı ister. Bu senaryoda web sayfasını oluşturma işlemlerinin çoğu sunucu tarafında gerçekleştirilmektedir.
 
-Bu hızlı başlangıçta boş bir şablondan başlayarak kullanıcıların ASP.NET web uygulamasında oturum açmasını sağlamak için gerekli adımlar gösterilir ve oturum açma düğmesi, denetleyici ve metot ekleme gibi adımların yanı sıra bu görevlerin arkasındaki kavramlar açıklanır. Alternatif olarak [Visual Studio web şablonu](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) kullanarak ve **Kuruluş Hesapları** ile bulut seçeneklerinden birini belirleyerek Azure AD kullanıcılarının (iş ve okul hesaplarının) oturum açabileceği bir proje oluşturabilirsiniz. Bu seçenekte ek denetleyicilere, metotlara ve görünümlere sahip olan daha zengin bir şablon kullanılır.
+Hızlı kullanıcılar boş bir şablondan başlayan bir ASP.NET web uygulamasında oturum açmak nasıl bağlanacağınız gösterilmiştir. Ayrıca, bir oturum açma düğmesi ve her denetleyici ve yöntemleri ekleme gibi adımlarını içerir ve bu görevleri kavramları açıklar. Azure AD kullanıcılarının (iş ve Okul hesapları) kullanarak oturum açmak için bir proje oluşturabilirsiniz [Visual Studio web şablonu](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) seçerek **Kurumsal hesaplar** ve ardından bir bulut seçeneklerine - bu seçeneği, ek denetleyicileri, yöntemleri ve görünümler ile daha zengin bir şablon kullanır.
 
 ## <a name="libraries"></a>Kitaplıklar
 
@@ -158,7 +158,7 @@ Bu denetleyici bir denetleyiciyi koruma amacıyla `[Authorize]` özniteliğini k
 1. **MVC {sürüm} Denetleyici – Boş** girişini seçin.
 1. **Add (Ekle)** seçeneğini belirleyin.
 1. **ClaimsController** olarak adlandırın.
-1. Denetleyici sınıfınızın kodunu aşağıdaki kodla değiştirin. Bu kod sınıfa `[Authorize]` özniteliğini ekler:
+1. Bu örnek ekler, denetleyici sınıfının kodunu aşağıdaki kodla - değiştirin `[Authorize]` öznitelik sınıfı:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,29 +196,29 @@ Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek
 4. Projenin SSL URL'sini panoya kopyalayın:<br/><br/>![Proje özellikleri](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. <code>web.config</code> içinde <code>Enter_the_Redirect_URL_here</code> yerine projenizin SSL URL'sini yazın.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Uygulamanızı Azure portala kaydedin ve bilgilerini *web.config* dosyasına ekleyin.
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure portalında kaydedin, ardından kendi ilgili bilgileri *web.config*
 
 1. Uygulamanızı kaydetmek için [Microsoft Azure portal - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) sayfasına gidin.
 2. **Yeni uygulama kaydı**’nı seçin.
 3. Uygulamanız için bir ad girin.
-4. Visual Studio projesinin *SSL URL* değerini **Oturum Açma URL'si** alanına yapıştırın. Bu URL otomatik olarak kaydettiğiniz uygulamanın Yanıt URL'leri listesine de eklenir.
+4. Visual Studio projesinin *SSL URL* değerini **Oturum Açma URL'si** alanına yapıştırın. Bu URL de kaydettirmekte uygulama için yanıt URL'leri listesine otomatik olarak eklenir.
 5. Uygulamayı kaydetmek için **Oluştur** seçeneğine tıklayın. Uygulama listesi sayfasına dönersiniz.
 6. Şimdi yeni oluşturduğunuz uygulamayı arayın ve/veya seçin ve özelliklerini açın.
 7. **Uygulama Kimliği** bölümündeki GUID değerini panoya kopyalayın.
-8. Visual Studio'ya dönün ve `web.config` dosyasındaki `Enter_the_Application_Id_here` değerinin yerine yeni kaydettiğiniz uygulamanın Uygulama Kimliğini yapıştırın.
+8. Visual Studio ve içinde dönün `web.config`, değiştirin `Enter_the_Application_Id_here` kaydettiğiniz uygulamadan uygulama kimliği.
 
 > [!TIP]
 > Hesabınız birden fazla dizine erişecek şekilde yapılandırılmışsa aşağıda gösterilen şekilde Azure portalda sağ üst köşedeki hesap adına tıklayıp seçili dizini doğrulayarak uygulamanın kaydedilmesini istediğiniz kuruluş için doğru dizini seçtiğinizden emin olun:<br/>![Doğru dizini seçme](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>10. adım: Oturum açma seçeneklerini yapılandırın
 
-Uygulamanızı yalnızca kuruluşunuzun Azure AD örneğindeki kullanıcıların oturum açmasına izin verecek veya tüm kuruluşlardan kullanıcıların oturum açmasını sağlayacak şekilde yapılandırabilirsiniz. Lütfen aşağıdaki seçeneklerden birini belirleyin ve ilgili yönergeleri izleyin:
+Uygulamanızı, oturum açmak için bir kuruluşun Azure AD'ye örneğine ait olan kullanıcıların izin verecek şekilde yapılandırın ya da herhangi bir kuruluşa ait olan kullanıcıların oturum açma işlemleri kabul edin. Aşağıdaki seçeneklerden birini yönergeleri izleyin:
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Uygulamanızı tüm şirketlere veya kuruluşlara ait iş ve okul hesaplarıyla oturum açılmasına izin verecek şekilde ayarlama (çok kiracılı)
 
-Azure AD ile tümleşik şirketlerden veya kuruluşlardan iş ve okul hesaplarıyla oturum açılmasını kabul etmek için aşağıdaki adımları izleyin. Bu, *SaaS uygulamaları* için sık kullanılan bir senaryodur:
+Azure AD ile tümleşik şirketlerden veya kuruluşlardan iş ve okul hesaplarıyla oturum açılmasını kabul etmek için aşağıdaki adımları izleyin. Bu yaygın bir senaryodur *SaaS uygulamalarına*:
 
-1. [Microsoft Azure portal - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) sayfasına dönün ve az önce kaydettiğiniz uygulamayı bulun.
+1. Geri Git [Microsoft Azure Portalı - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) ve kaydettiğiniz uygulamayı bulun.
 2. **Tüm Ayarlar** bölümünde **Özellikler**'i seçin.
 3. **Çok kiracılı** özelliğini **Evet** olarak ayarlayın ve **Kaydet**'i seçin.
 
@@ -238,7 +238,7 @@ Yalnızca belirli kuruluşların kullanıcılarına izin vermek için şu adıml
 1. `ValidateIssuer` değerini true olarak ayarlayın.
 1. `ValidIssuers` parametresini kullanarak kuruluş listesi belirtin.
 
-Başka bir seçenek de *IssuerValidator* parametresini kullanarak düzenleyenleri doğrulayan özel bir metot uygulamaktır. `TokenValidationParameters` hakkında daha fazla bilgi için [bu MSDN makalesini](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN makalesi") inceleyin.
+Başka bir seçenek de *IssuerValidator* parametresini kullanarak düzenleyenleri doğrulayan özel bir metot uygulamaktır. Hakkında daha fazla bilgi için `TokenValidationParameters`, bkz: [bu MSDN makalesinde](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "tokenvalidationparameters değerini MSDN makalesi").
 
 <!--end-configure-->
 
@@ -278,7 +278,7 @@ Test için hazır olduğunuzda bir iş hesabı (Azure AD) kullanarak oturum aç�
 
 #### <a name="expected-results"></a>Beklenen sonuçlar
 
-Oturum açma işleminin ardından kullanıcı web sitenize yönlendirilir. Bu site Microsoft Uygulama Kayıt Portalında uygulama kayıt bilgilerinde belirtilen HTTPS URL'dir. Bu sayfada *Merhaba {Kullanıcı}* ifadesi ve oturumu kapatma bağlantısı ile kullanıcının taleplerini görme bağlantısı bulunur. Bu, önceki adımlarda oluşturduğunuz Authorize denetleyicisinin bağlantısıdır.
+Kullanıcı oturum açtıktan sonra kullanıcı, uygulamanızın kayıt bilgileri Microsoft uygulama kayıt Portalı'nda belirtilen HTTPS URL'si, web sitenizin, giriş sayfasına yönlendirilir. Bu sayfada *Merhaba {Kullanıcı}* ifadesi ve oturumu kapatma bağlantısı ile kullanıcının taleplerini görme bağlantısı bulunur. Bu, önceki adımlarda oluşturduğunuz Authorize denetleyicisinin bağlantısıdır.
 
 ### <a name="see-users-claims"></a>Kullanıcının taleplerini görme
 
@@ -292,7 +292,7 @@ Kullanıcının taleplerini görmek için köprüyü seçin. Bu eylem yalnızca 
 |---|---|---|
 | Ad | {User Full Name} | Kullanıcının adı ve soyadı |
 | Kullanıcı adı | <span>user@domain.com</span> | Oturum açmış kullanıcıyı tanımlamak için kullanılan kullanıcı adı |
-| Konu| {Subject} |Web üzerinde kullanıcı oturumunu benzersiz bir şekilde tanımlayan dize |
+| Konu| {Subject} |Kullanıcı oturum açma web üzerinden benzersiz şekilde tanımlamak için bir dize |
 | Kiracı Kimliği | {Guid} | Kullanıcının Azure AD kuruluşunu benzersiz bir şekilde temsil eden *guid* değeri |
 
 Ayrıca kimlik doğrulaması isteğinde bulunan tüm kullanıcı taleplerinin yer aldığı bir tablo da görürsünüz. Bir Kimlik Belirtecindeki tüm taleplerin listesi ve açıklamaları için bkz. [Kimlik belirtecindeki taleplerin listesi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

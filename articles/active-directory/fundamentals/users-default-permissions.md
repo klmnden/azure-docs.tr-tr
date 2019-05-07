@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246544"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190950"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Varsayılan kullanıcı izinleri Azure Active Directory nelerdir?
 Azure Active Directory'de (Azure AD) tüm kullanıcılara varsayılan olarak belirli izinler verilir. Bir kullanıcının erişim kullanıcı türünü oluşur, [rol atamaları](active-directory-users-assign-role-azure-portal.md)ve bunların tek tek nesnelerin sahipliğini. Bu makalede bu varsayılan izinler ve açıklanmakta ve üye ile konuk varsayılan değerleri karşılaştırılmaktadır. Varsayılan kullanıcı izinleri yalnızca kullanıcı ayarları, Azure AD'de değiştirilebilir.
@@ -49,6 +49,8 @@ Abonelikler | Tüm abonelikleri okuma<br>Hizmet Planı Üyesini etkinleştirme |
 
 İzin | Ayar açıklaması
 ---------- | ------------
+Kullanıcılar uygulama kaydedebilir | Bu seçenek Hayır olarak ayarlanırsa, kullanıcılar uygulama kayıtları oluşturmasını engeller. Özelliği, uygulama geliştiricisi rolüne ekleyerek belirli kişilere ardından verilebilir.
+Kullanıcıların iş veya okul hesabını LinkedIn'e bağlanmasına izin ver | Bu seçenek Hayır olarak ayarlanırsa, kullanıcılar uygulamaya iş veya Okul hesabı, LinkedIn hesabıyla bağlanmasını engeller.  Bkz: [LinkedIn hesabı bağlantıları veri paylaşımı ve onay](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) daha fazla bilgi için.
 Güvenlik grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar güvenlik grubu oluşturamaz. Hala genel Yöneticiler ve kullanıcı yöneticileri güvenlik grupları oluşturabilirsiniz. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
 Office 365 grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Office 365 grubu oluşturamaz. Bu seçeneğin Bazı olarak ayarlanması belirli bir kullanıcı kümesinin Office 365 grubu oluşturmasını sağlar. Genel Yöneticiler ve kullanıcı yine de Office 365 grupları oluşturmak oluşturabileceksiniz. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
 Azure AD yönetim portalına erişimi sınırlayın | Bu seçenek Hayır olarak ayarlanırsa, kullanıcılar Azure Active Directory erişmesini engeller.

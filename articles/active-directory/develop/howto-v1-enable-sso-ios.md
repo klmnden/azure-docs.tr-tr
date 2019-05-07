@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190198"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Nasıl yapılır: İOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -165,7 +165,7 @@ Aracı olmayan Yardımlı SSO için uygulamalar arasında SDK'ları SSO karmaş�
 
 Aşağıdakileri yapmanız sahip uygulamalar arasında SSO'yu etkinleştirmek için:
 
-1. Tüm uygulamalar kullanıcı aynı istemci Kimliğini veya uygulama kimliği emin olun.
+1. Tüm uygulamalarınızı aynı istemci Kimliğini veya uygulama kimliği kullandığınızdan emin olun
 2. Anahtarlıklar paylaşabileceği tüm uygulamalar aynı Apple imzalama sertifikası paylaşmadığından emin olun.
 3. Uygulamaların her biri için aynı anahtar zinciri yetkilendirmesini isteyin.
 4. SDK'ları, paylaşılan bir Anahtarlığa hakkında kullanmak istediğinizi söyleyin.
