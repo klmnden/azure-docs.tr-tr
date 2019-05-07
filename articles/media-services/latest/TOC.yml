@@ -26,8 +26,10 @@
     - name: Videonuzu analiz etme - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: AES-128 dinamik şifreleme - .NET
+    - name: AES-128 ile dinamik olarak şifreleme - .NET
       href: protect-with-aes128.md
+    - name: DRM ile dinamik olarak şifreleme - .NET
+      href: protect-with-drm.md
 - name: Örnekler
   items:
     - name: Azure kod örnekleri
@@ -56,10 +58,9 @@
         - name: Autogen uyarlamalı bit hızı merdiveni
           href: autogen-bitrate-ladder.md
         - name: İçeriğe duyarlı kodlama
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: İş hata kodları
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Medya analizi
       items:
         - name: Genel Bakış
@@ -68,7 +69,7 @@
         - name: Dönüşümler ve İşler
           href: transforms-jobs-concept.md
         - name: İş hata kodları
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Paketleme, teslim, koruma'
       items:
         - name: Paketleme
@@ -150,7 +151,7 @@
             - name: Kaynak hata kodları
               href: origin-error-codes.md
             - name: İş hata kodları
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: v2’den v3’e geçiş kılavuzu
       href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
@@ -215,8 +216,6 @@
       items:
         - name: İçerik anahtarı ilkesini edinme - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: DRM dinamik şifreleme - .NET
-          href: protect-with-drm.md
         - name: iOS için çevrimdışı FairPlay
           href: offline-fairplay-for-ios.md
         - name: Android için çevrimdışı Widevine
@@ -258,7 +257,7 @@
         - name: Kaynak hata kodları
           href: origin-error-codes.md
         - name: İş hata kodları
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Kaynaklar
   items:
     - name: Azure Media Services topluluğu

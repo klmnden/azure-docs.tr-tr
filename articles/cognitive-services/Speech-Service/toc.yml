@@ -174,8 +174,12 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Metin okuma
           items:
-            - name: Ses tipleri oluşturma (bot marka sesi)
-              href: how-to-customize-voice-font.md
+            - name: Özel Ses’i kullanmaya başlama
+              href: how-to-custom-voice.md
+            - name: Verileri hazırlama
+              href: how-to-custom-voice-prepare-data.md
+            - name: Özel Ses modelleri oluşturma ve kullanma
+              href: how-to-custom-voice-create-voice.md
             - name: Ses örnekleri kaydetme
               href: record-custom-voice-samples.md
             - name: Metin okuma çıkışı için hassas ayar yapma

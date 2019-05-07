@@ -55,7 +55,9 @@
           href: logic-apps-create-variables-store-values.md
         - name: Veri işlemleri gerçekleştirme
           href: logic-apps-perform-data-operations.md
-        - name: Azure İşlevleri ile özel kod ekleme
+        - name: Satır içi koduyla kod parçacıklarını ekleme ve çalıştırma
+          href: logic-apps-add-run-inline-code.md
+        - name: Azure İşlevleri ile kod ekleme ve çalıştırma
           href: logic-apps-azure-functions.md
         - name: Azure İşlevleri ile mantıksal uygulamaları çağırma
           href: logic-apps-scenario-function-sb-trigger.md

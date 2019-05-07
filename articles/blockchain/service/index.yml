@@ -32,11 +32,11 @@ sections:
             text: MetaMask kullanarak bağlanma
             href: /azure/blockchain/service/connect-metamask
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/cligeneric.svg
             text: Geth kullanarak bağlanma
             href: /azure/blockchain/service/connect-geth
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/code-blocks.svg
             text: Truffle kullanarak bağlanma
             href: /azure/blockchain/service/connect-truffle
   - title: Adım Adım Öğreticiler
@@ -47,3 +47,11 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/blockchain/service/send-transaction">Bir Azure Blok Zinciri Hizmeti üyesi oluşturma ve işlem gönderme</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'

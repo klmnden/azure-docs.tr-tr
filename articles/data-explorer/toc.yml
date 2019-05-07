@@ -66,6 +66,10 @@
       items:
         - name: Örnek verileri ekleme
           href: ingest-sample-data.md
+    - name: Dağıtma
+      items:
+        - name: DevOps görevi
+          href: devops.md
     - name: Verileri sorgulama
       items:
         - name: Sorgu yazma

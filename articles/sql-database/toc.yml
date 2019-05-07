@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU hizmet katmanları
           href: sql-database-service-tiers-dtu.md
+        - name: Sunucusuz işlem katmanı
+          href: sql-database-serverless.md
         - name: Ayrılmış kapasite için ön ödeme yapma
           href: sql-database-reserved-capacity.md
         - name: Premium RS hizmet katmanından geçirme

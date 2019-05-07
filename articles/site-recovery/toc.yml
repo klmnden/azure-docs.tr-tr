@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: S2D VM’ler için Azure-Azure arası çoğaltmayı etkinleştirme
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Eklenen disk için çoğaltmayı etkinleştirme
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Diskleri dışlama
               href: azure-to-azure-exclude-disks.md
             - name: Yük devretme sonrasında Azure VM'lerini yeniden koruma

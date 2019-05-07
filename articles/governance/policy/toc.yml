@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: Konuk Yapılandırması
       items:
-        - name: Linux üzerine yüklenen uygulamaları denetleme
+        - name: Linux üzerine yüklenmeyen uygulamaları denetleme
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Key Vaults

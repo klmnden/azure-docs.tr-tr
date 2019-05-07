@@ -79,37 +79,40 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Bilgi bankasını düzenleme
+      items:
+        - name: Bilgi bankası düzenleme
+          href: How-To/edit-knowledge-base.md
+        - name: İzleme bilgi istemleriyle çok devirli konuşmalar oluşturma
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: Sohbet ekleme
+          href: How-to/chit-chat-knowledge-base.md
+        - name: Güvenli bir SharePoint dosyası ekleme
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Bilgi bankasını yönetme
       items:
         - name: Bilgi bankası oluşturma ve yayımlama
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Bilgi bankasına yorum özelliği ekleme
-          href: How-to/chit-chat-knowledge-base.md
-        - name: Bilgi bankasını geçirme
-          href: Tutorials/migrate-knowledge-base.md
-        - name: Bilgi bankası düzenleme
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: Güvenli bir SharePoint dosyası ekleme
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: Bilgi bankası üzerinde birlikte çalışma
-          href: How-To/collaborate-knowledge-base.md
+        - name: Yanıt alma
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+        - name: Bilgi bankasıyla etkinleştirilen bot oluşturma
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: Farklı bir dilde bilgi bankası oluşturma
           href: How-To/language-knowledge-base.md
+        - name: Bilgi bankasını geçirme
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: Bilgi bankası üzerinde birlikte çalışma
+          href: How-To/collaborate-knowledge-base.md
         - name: Bilgi bankasını test etme
           href: How-To/test-knowledge-base.md
         - name: Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: Bilgi bankasını kullanma
-      items:
-        - name: GenerateAnswer API'si ile meta verileri kullanma
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: Bot ile
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: Hizmeti yönetme
       items:
         - name: Soru-Cevap Oluşturma hizmetini ayarlama
@@ -154,7 +157,7 @@
     - name: Örnekler
       items:
         - name: Soru-Cevap Oluşturma yardım robotu
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK’lar
       items:
         - name: 'C#'

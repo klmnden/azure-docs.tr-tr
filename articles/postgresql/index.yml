@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: 'PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu, kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.'
+  description: 'PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu, kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır. İki dağıtım seçeneğiyle sağlanır: Tek Sunucu ve Hiper Ölçek (Citus) (önizleme). Hiper Ölçek (Citus) seçeneği, parçalamayı kullanarak sorguları birden çok makine arasında yatay olarak ölçeklendirir ve daha büyük ölçek ve performans gerektiren uygulamalara hizmet verir. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.'
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
@@ -22,22 +22,33 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
+            text: Tek Sunucu Azure Portalı
             href: /azure/postgresql/quickstart-create-server-database-portal
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: Azure CLI
+            text: Tek Sunucu Azure CLI
             href: /azure/postgresql/quickstart-create-server-database-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Hiper Ölçek (Citus) Azure Portalı
+            href: /azure/postgresql/quickstart-create-hyperscale-portal
   - title: Adım Adım Öğreticiler
     items:
       - type: paragraph
-        text: 'Şunları nasıl yapacağınızı öğrenin:'
+        text: 'Tek Sunucu için:'
       - type: list
         style: ordered
         items:
           - html: 'Veritabanı Tasarlama&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portalı</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
           - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python ve CLI kullanarak bir Web Uygulaması oluşturma</a>
           - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Hizmeti izleme ve ayarlama</a>
+      - type: paragraph
+        text: 'Hiper Ölçek için (Citus) (önizleme):'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Çok kiracılı bir veritabanı tasarlama</a>
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Gerçek zamanlı bir veritabanı tasarlama</a>
   - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
       - type: list

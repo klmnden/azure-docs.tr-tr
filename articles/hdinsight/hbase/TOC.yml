@@ -148,6 +148,8 @@
             - name: Apache Ambari REST API'sini kullanma
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Hızlandırılmış Yazma İşlemleri
+          href: ../hbase/apache-hbase-accelerated-writes.md
         - name: HDInsight kümesini ölçeklendirme
           href: ../hdinsight-scaling-best-practices.md
           maintainContext: true

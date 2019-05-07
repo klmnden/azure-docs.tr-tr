@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Açık Veri Kümeleri Önizleme Belgeleri
+metadata:
+  title: 'Azure Açık Veri Kümeleri Önizleme Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Çok az hazırlık ile kullanabileceğiniz düzenlenmiş ve temizlenmiş veriler olan Azure Açık Veri Kümelerini kullanmayı öğrenin. Açık Veri Kümeleri, makine öğrenimi modellerini zenginleştiren, hava durumu, sayımlar ve tatiller gibi genel verilerdir. Öğreticiler, örneklerve API başvuru belgeleri yapmanız gerekenleri gösterir.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Çok az hazırlık ile kullanabileceğiniz düzenlenmiş ve temizlenmiş veriler olan Azure Açık Veri Kümelerini kullanmayı öğrenin. Açık Veri Kümeleri, makine öğrenimi modellerini zenginleştiren, hava durumu, sayımlar ve tatiller gibi genel verilerdir. Öğreticiler, örneklerve API başvuru belgeleri yapmanız gerekenleri gösterir.'
+sections:
+  - title: Adım Adım Öğretici
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Otomatik makine öğrenimi ile bir regresyon modeli oluşturma</a>
+  - title: Örnekler
+    items:
+      - type: paragraph
+        text: <a href="samples">Veri kümelerini zenginleştirmek için Not Defterleri</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">API başvurusu</a>'

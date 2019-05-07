@@ -12,7 +12,7 @@ metadata:
   ms.date: 12/06/2018
   ms.custom: seodec18
 abstract:
-  description: 'Tam olarak yönetilen bir işleme altyapısı olan Stream Analytics ile bulutta Internet of Things (IoT) analizleri çalıştırmayı öğrenin. Öğreticilerde ve diğer belgelerde, uygulamalardan, sensörlerden, cihazlardan, sosyal medyadan ve diğer kaynaklardan alınan verileri gerçek zamanlı olarak nasıl çözümleyebileceğiniz açıklanmıştır.'
+  description: 'Stream Analytics, uygulamalardan ve IoT cihazlarından gelen veri akışlarını gerçek zamanlı olarak analiz etmenize olanak tanıyan tam olarak yönetilen, sunucusuz bir olay işleme altyapısıdır. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure Stream Analytics''i kullanmayı öğrenin.'
   aside:
     image:
       alt: null

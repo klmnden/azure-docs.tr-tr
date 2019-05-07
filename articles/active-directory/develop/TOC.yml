@@ -1,7 +1,378 @@
 - name: Microsoft Identity Platform (Geliştiriciler için Azure Active Directory)
   href: index.yml
-- name: Microsoft Identity Platform hakkında
+- name: Microsoft Identity Platform'un gelişimi
   href: about-microsoft-identity-platform.md
+- name: v2.0
+  expanded: true
+  items:
+    - name: Genel Bakış
+      href: v2-overview.md
+    - name: Hızlı Başlangıçlar
+      items:
+        - name: Geliştirme ortamı kurma
+          href: quickstart-create-new-tenant.md
+        - name: Uygulama yapılandırma
+          items:
+            - name: Bir uygulamayı kaydetme
+              href: quickstart-register-app.md
+            - name: Web API’lerine erişmek için uygulama yapılandırma
+              href: quickstart-configure-app-access-web-apis.md
+            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma
+              href: quickstart-configure-app-expose-web-apis.md
+            - name: Bir uygulama tarafından desteklenen hesapları değiştirme
+              href: quickstart-modify-supported-accounts.md
+            - name: Uygulama kaldırma
+              href: quickstart-remove-app.md
+        - name: Tek sayfalı uygulamalar
+          items:
+            - name: JavaScript
+              href: quickstart-v2-javascript.md
+        - name: Web uygulamaları
+          items:
+            - name: ASP .NET
+              href: quickstart-v2-aspnet-webapp.md
+            - name: ASP .NET Core
+              href: quickstart-v2-aspnet-core-webapp.md
+            - name: NodeJS
+              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+        - name: Web API'leri
+          items:
+            - name: ASP .NET
+              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+            - name: ASP .NET Core
+              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+        - name: Mobil uygulamalar ve masaüstü uygulamaları
+          items:
+            - name: Android
+              href: quickstart-v2-android.md
+            - name: iOS
+              href: quickstart-v2-ios.md
+            - name: Evrensel Windows Platformu
+              href: quickstart-v2-uwp.md
+            - name: Windows Masaüstü .NET
+              href: quickstart-v2-windows-desktop.md
+        - name: Daemon uygulamaları
+          items:
+            - name: .NET Core konsolu (daemon)
+              href: quickstart-v2-netcore-daemon.md
+            - name: ASP.NET daemon Web uygulaması
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
+    - name: Öğreticiler
+      items:
+        - name: Tek sayfalı uygulamalar
+          items:
+            - name: JavaScript
+              href: tutorial-v2-javascript-spa.md
+        - name: Web uygulamaları
+          items:
+            - name: ASP .NET
+              href: tutorial-v2-asp-webapp.md
+        - name: Mobil uygulamalar ve masaüstü uygulamaları
+          items:
+            - name: Android
+              href: tutorial-v2-android.md
+            - name: iOS
+              href: tutorial-v2-ios.md
+            - name: Evrensel Windows Platformu
+              href: tutorial-v2-windows-uwp.md
+            - name: Windows Masaüstü .NET
+              href: tutorial-v2-windows-desktop.md
+    - name: Örnekler
+      href: sample-v2-code.md
+    - name: Kavramlar
+      items:
+        - name: Uygulama türleri
+          href: v2-app-types.md
+        - name: Uygulama senaryoları
+          items:
+            - name: Hedef kitlenin oturumunu açma
+              href: v2-supported-account-types.md
+            - name: Tek sayfalı uygulama
+              items:
+                - name: Genel Bakış
+                  href: scenario-spa-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-spa-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-spa-app-configuration.md
+                - name: Oturum açma ve oturumu kapatma
+                  href: scenario-spa-sign-in.md
+                - name: API için belirteç alma
+                  href: scenario-spa-acquire-token.md
+                - name: Web API çağrısı
+                  href: scenario-spa-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-spa-production.md
+            - name: Kullanıcıların oturum açtığı web uygulaması
+              items:
+                - name: Genel Bakış
+                  href: scenario-web-app-sign-user-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-web-app-sign-user-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-web-app-sign-user-app-configuration.md
+                - name: Oturum açma ve oturumu kapatma
+                  href: scenario-web-app-sign-user-sign-in.md
+                - name: Üretime taşıma
+                  href: scenario-web-app-sign-user-production.md
+            - name: Web API'lerini çağıran web uygulaması
+              items:
+                - name: Genel Bakış
+                  href: scenario-web-app-call-api-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-web-app-call-api-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-web-app-call-api-app-configuration.md
+                - name: Oturum açma
+                  href: scenario-web-app-call-api-sign-in.md
+                - name: Uygulama için belirteç alma
+                  href: scenario-web-app-call-api-acquire-token.md
+                - name: Web API çağrısı
+                  href: scenario-web-app-call-api-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-web-app-call-api-production.md
+            - name: Korumalı web API'si
+              items:
+                - name: Genel Bakış
+                  href: scenario-protected-web-api-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-protected-web-api-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-protected-web-api-app-configuration.md
+                - name: Üretime taşıma
+                  href: scenario-protected-web-api-production.md
+            - name: Web API'lerini çağıran web API'si
+              items:
+                - name: Genel Bakış
+                  href: scenario-web-api-call-api-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-web-api-call-api-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-web-api-call-api-app-configuration.md
+                - name: Belirteç alma
+                  href: scenario-web-api-call-api-acquire-token.md
+                - name: Web API çağrısı
+                  href: scenario-web-api-call-api-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-web-api-call-api-production.md
+            - name: Web API'lerini çağıran masaüstü uygulaması
+              items:
+                - name: Genel Bakış
+                  href: scenario-desktop-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-desktop-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-desktop-app-configuration.md
+                - name: Belirteç alma
+                  href: scenario-desktop-acquire-token.md
+                - name: Web API çağrısı
+                  href: scenario-desktop-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-desktop-production.md
+            - name: Daemon uygulaması
+              items:
+                - name: Genel Bakış
+                  href: scenario-daemon-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-daemon-app-registration.md
+                - name: Kod yapılandırması
+                  href: scenario-daemon-app-configuration.md
+                - name: Belirteç alma
+                  href: scenario-daemon-acquire-token.md
+                - name: Web API çağrısı
+                  href: scenario-daemon-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-daemon-production.md
+            - name: Web API'lerini çağıran mobil uygulama
+              items:
+                - name: Genel Bakış
+                  href: scenario-mobile-overview.md
+                - name: Uygulama kaydı
+                  href: scenario-mobile-app-registration.md
+                - name: Uygulama için belirteç alma
+                  href: scenario-mobile-acquire-token.md
+                - name: Web API'sini çağırma
+                  href: scenario-mobile-call-api.md
+                - name: Üretime taşıma
+                  href: scenario-mobile-production.md
+            - name: Tümleştirme denetim listesi
+              href: identity-platform-integration-checklist.md
+        - name: Microsoft Authentication Library (MSAL)
+          items:
+            - name: Genel Bakış
+              href: msal-overview.md
+            - name: Geçiş
+              items:
+                - name: MSAL.NET'e geçirme
+                  href: msal-net-migration.md
+                - name: MSAL.js'ye geçirme
+                  href: msal-compare-msal-js-and-adal-js.md
+            - name: Desteklenen kimlik doğrulama akışları
+              href: msal-authentication-flows.md
+            - name: Belirteçleri alma ve önbelleğe alma
+              items:
+                - name: Belirteçleri alma ve önbelleğe alma
+                  href: msal-acquire-cache-tokens.md
+                - name: v1.0 uygulamaları için kapsamlar
+                  href: msal-v1-app-scopes.md
+                - name: Belirteç önbelleği serileştirme (.NET)
+                  href: msal-net-token-cache-serialization.md
+            - name: İstemci uygulamaları
+              items:
+                - name: İstemci uygulamaları
+                  href: msal-client-applications.md
+                - name: Uygulama yapılandırması
+                  href: msal-client-application-configuration.md
+                - name: Uygulamaları başlatma (.NET)
+                  href: msal-net-initializing-client-applications.md
+                - name: Uygulamaları başlatma (JS)
+                  href: msal-js-initializing-client-applications.md
+            - name: Hataları ve özel durumları işleme
+              href: msal-handling-exceptions.md
+            - name: Günlüğe kaydetme
+              href: msal-logging.md
+            - name: Çoklu oturum açma (JS)
+              href: msal-js-sso.md
+            - name: Komut istemi davranışı (JS)
+              href: msal-js-prompt-behavior.md
+            - name: Kendi HttpClient değerinizi sağlama (.NET)
+              href: msal-net-provide-httpclient.md
+            - name: Platformla ilgili dikkate alınacak önemli noktalar (.NET)
+              items:
+                - name: Web tarayıcıları
+                  href: msal-net-web-browsers.md
+                - name: Xamarin Android
+                  href: msal-net-xamarin-android-considerations.md
+                - name: Android üzerinde sistem tarayıcısı
+                  href: msal-net-system-browser-android-considerations.md
+                - name: Xamarin iOS
+                  href: msal-net-xamarin-ios-considerations.md
+                - name: Evrensel Windows Platformu
+                  href: msal-net-uwp-considerations.md
+                - name: AAD B2C ilkesi uygulama
+                  href: msal-net-aad-b2c-considerations.md
+        - name: Kimlik Doğrulaması
+          items:
+            - name: Kimlik doğrulaması temel bilgileri
+              href: authentication-scenarios.md
+            - name: OAuth 2.0 ve OpenID Connect protokolleri
+              href: active-directory-v2-protocols.md
+            - name: OpenID Connect
+              href: v2-protocols-oidc.md
+            - name: OAuth 2.0 örtülü izin akışı
+              href: v2-oauth2-implicit-grant-flow.md
+            - name: OAuth 2.0 kimlik doğrulama kodu verme
+              href: v2-oauth2-auth-code-flow.md
+            - name: OAuth 2.0 on-behalf-of akışı
+              href: v2-oauth2-on-behalf-of-flow.md
+            - name: OAuth 2.0 istemci kimlik bilgileri verme
+              href: v2-oauth2-client-creds-grant-flow.md
+            - name: OAuth 2.0 cihaz kodu akışı
+              href: v2-oauth2-device-code.md
+            - name: OAuth 2.0 kaynak sahibi parola kimlik bilgilerini verme
+              href: v2-oauth-ropc.md
+            - name: İmzalama anahtarı geçiş işlemi
+              href: active-directory-signing-key-rollover.md
+            - name: Kimlik belirteçleri
+              href: id-tokens.md
+            - name: Erişim belirteçleri
+              href: access-tokens.md
+            - name: Sertifika kimlik bilgileri
+              href: active-directory-certificate-credentials.md
+        - name: Uygulama yapılandırması
+          items:
+            - name: Uygulamalar ve hizmet sorumluları
+              href: app-objects-and-service-principals.md
+            - name: Tek kiracılı ve çok kiracılı uygulamalar
+              href: single-and-multi-tenant-apps.md
+        - name: İzinler ve onay
+          displayName: Scopes
+          items:
+            - name: İzin ve onay türleri
+              href: v2-permissions-and-consent.md
+            - name: Onay çerçevesi
+              href: consent-framework.md
+            - name: Uygulama onayı deneyimleri
+              href: application-consent-experience.md
+        - name: Ulusal Bulutlar
+          items:
+            - name: Genel Bakış
+              href: authentication-national-cloud.md
+            - name: Kimlik Doğrulaması
+              href: msal-national-cloud.md
+    - name: Nasıl yapılır kılavuzları
+      items:
+        - name: Kimlik Doğrulaması
+          items:
+            - name: Rol taleplerini yapılandırma
+              href: active-directory-enterprise-app-role-management.md
+            - name: Talep özelleştirme - Portal
+              href: active-directory-saml-claims-customization.md
+            - name: Talep özelleştirme - PowerShell
+              href: active-directory-claims-mapping.md
+            - name: İsteğe bağlı talepleri yapılandırma
+              href: active-directory-optional-claims.md
+            - name: Belirteç ömrünü yapılandırma
+              href: active-directory-configurable-token-lifetimes.md
+        - name: Uygulama yapılandırması
+          items:
+            - name: Tek kiracılı bir uygulamayı çok kiracılı uygulamaya dönüştürme
+              href: howto-convert-app-to-be-multi-tenant.md
+            - name: Hizmet sorumlusu oluşturma
+              items:
+                - name: Azure PowerShell’i kullanma
+                  href: howto-authenticate-service-principal-powershell.md
+                - name: Azure portalını kullanma
+                  href: howto-create-service-principal-portal.md
+            - name: Uygulamanızı bir kullanıcı kümesiyle sınırlama
+              href: howto-restrict-your-app-to-a-set-of-users.md
+            - name: Uygulamanıza uygulama rolleri ekleme
+              href: howto-add-app-roles-in-azure-ad-apps.md
+            - name: Marka yönergeleri
+              href: howto-add-branding-in-azure-ad-apps.md
+            - name: Yayımcı etki alanı
+              href: howto-configure-publisher-domain.md
+            - name: Hizmet Koşulları ve Gizlilik Bildirimi
+              href: howto-add-terms-of-service-privacy-statement.md
+        - name: Microsoft Authentication Library ile çalışma
+          items:
+            - name: MSAL.NET
+              items:
+                - name: Önbellekten belirteç alma
+                  href: msal-net-acquire-token-silently.md
+                - name: Seçeneklerle genel istemci örneği oluşturma
+                  href: msal-net-instantiate-public-client-config-options.md
+                - name: Seçeneklerle gizli istemci örneği oluşturma
+                  href: msal-net-instantiate-confidential-client-config-options.md
+                - name: Çeşitli kaynaklar için onay alma
+                  href: msal-net-user-gets-consent-for-multiple-resources.md
+        - name: Visual Studio ile çalışma
+          items:
+            - name: Active Directory bağlı hizmetini kullanma
+              href: vs-active-directory-add-connected-service.md
+            - name: .NET MVC projelerini kullanmaya başlama
+              href: vs-active-directory-dotnet-getting-started.md
+            - name: .NET MVC projeme ne oldu?
+              href: vs-active-directory-dotnet-what-happened.md
+            - name: .NET WebAPI projelerini kullanmaya başlama
+              href: vs-active-directory-webapi-getting-started.md
+            - name: WebAPI projeme ne oldu?
+              href: vs-active-directory-webapi-what-happened.md
+            - name: Kimlik doğrulama algılama sırasında bir hata oluştu
+              href: vs-active-directory-error.md
+    - name: Başvurular
+      items:
+        - name: Kimlik doğrulama kitaplıkları
+          displayName: MSAL
+          href: reference-v2-libraries.md
+        - name: Microsoft Graph’taki API’leri tanımlama ve bunlara erişme
+          href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
+        - name: Uygulama bildirimi
+          href: reference-app-manifest.md
+        - name: Kimlik doğrulaması ve yetkilendirme hata kodları
+          href: reference-aadsts-error-codes.md
+        - name: Yeni değişiklikler
+          href: reference-breaking-changes.md
 - name: v1.0
   expanded: true
   items:
@@ -61,6 +432,8 @@
       href: sample-v1-code.md
     - name: Kavramlar
       items:
+        - name: Neden v2.0'a yükseltmeli?
+          href: azure-ad-endpoint-comparison.md
         - name: Uygulama türleri
           items:
             - name: Uygulama türleri
@@ -115,6 +488,8 @@
               href: reference-saml-tokens.md
         - name: Uygulama yapılandırması
           items:
+            - name: Uygulama kayıtları eğitim kılavuzu
+              href: app-registrations-training-guide.md
             - name: Uygulamalar ve hizmet sorumluları
               href: app-objects-and-service-principals.md
             - name: Azure AD'ye uygulamalar nasıl ve neden eklenir?
@@ -219,195 +594,6 @@
           href: active-directory-authentication-libraries.md
         - name: Azure AD Graph API
           href: active-directory-graph-api.md
-        - name: Uygulama bildirimi
-          href: reference-app-manifest.md
-        - name: Kimlik doğrulaması ve yetkilendirme hata kodları
-          href: reference-aadsts-error-codes.md
-        - name: Yeni değişiklikler
-          href: reference-breaking-changes.md
-- name: v2.0
-  expanded: true
-  items:
-    - name: Genel Bakış
-      href: v2-overview.md
-    - name: Hızlı Başlangıçlar
-      items:
-        - name: Geliştirme ortamı kurma
-          href: quickstart-create-new-tenant.md
-        - name: Uygulama yapılandırma
-          items:
-            - name: Bir uygulamayı kaydetme
-              href: quickstart-register-app.md
-            - name: Web API’lerine erişmek için uygulama yapılandırma
-              href: quickstart-configure-app-access-web-apis.md
-            - name: Web API’lerini kullanıma sunmak için uygulama yapılandırma
-              href: quickstart-configure-app-expose-web-apis.md
-            - name: Bir uygulama tarafından desteklenen hesapları değiştirme
-              href: quickstart-modify-supported-accounts.md
-            - name: Uygulama kaldırma
-              href: quickstart-remove-app.md
-        - name: Tek sayfalı uygulamalar
-          items:
-            - name: JavaScript
-              href: quickstart-v2-javascript.md
-        - name: Web uygulamaları
-          items:
-            - name: ASP .NET
-              href: quickstart-v2-aspnet-webapp.md
-            - name: ASP .NET Core
-              href: quickstart-v2-aspnet-core-webapp.md
-            - name: NodeJS
-              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-        - name: Web API'leri
-          items:
-            - name: ASP .NET
-              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-            - name: ASP .NET Core
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-        - name: Mobil uygulamalar ve masaüstü uygulamaları
-          items:
-            - name: Android
-              href: quickstart-v2-android.md
-            - name: iOS
-              href: quickstart-v2-ios.md
-            - name: Evrensel Windows Platformu
-              href: quickstart-v2-uwp.md
-            - name: Windows Masaüstü .NET
-              href: quickstart-v2-windows-desktop.md
-        - name: Daemon uygulamaları
-          items:
-            - name: .NET Core konsolu (daemon)
-              href: quickstart-v2-netcore-daemon.md
-            - name: ASP.NET daemon Web uygulaması
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
-    - name: Öğreticiler
-      items:
-        - name: Tek sayfalı uygulamalar
-          items:
-            - name: JavaScript
-              href: tutorial-v2-javascript-spa.md
-        - name: Web uygulamaları
-          items:
-            - name: ASP .NET
-              href: tutorial-v2-asp-webapp.md
-        - name: Mobil uygulamalar ve masaüstü uygulamaları
-          items:
-            - name: Android
-              href: tutorial-v2-android.md
-            - name: iOS
-              href: tutorial-v2-ios.md
-            - name: Evrensel Windows Platformu
-              href: tutorial-v2-windows-uwp.md
-            - name: Windows Masaüstü .NET
-              href: tutorial-v2-windows-desktop.md
-    - name: Örnekler
-      href: sample-v2-code.md
-    - name: Kavramlar
-      items:
-        - name: v1.0 ile v2.0 arasında seçim yapma
-          href: azure-ad-endpoint-comparison.md
-        - name: Uygulama türleri
-          href: v2-app-types.md
-        - name: Kimlik Doğrulaması
-          items:
-            - name: Kimlik doğrulaması temel bilgileri
-              href: authentication-scenarios.md
-            - name: OAuth 2.0 ve OpenID Connect protokolleri
-              href: active-directory-v2-protocols.md
-            - name: OpenID Connect
-              href: v2-protocols-oidc.md
-            - name: OAuth 2.0 örtülü izin akışı
-              href: v2-oauth2-implicit-grant-flow.md
-            - name: OAuth 2.0 kimlik doğrulama kodu verme
-              href: v2-oauth2-auth-code-flow.md
-            - name: OAuth 2.0 on-behalf-of akışı
-              href: v2-oauth2-on-behalf-of-flow.md
-            - name: OAuth 2.0 istemci kimlik bilgileri verme
-              href: v2-oauth2-client-creds-grant-flow.md
-            - name: OAuth 2.0 cihaz kodu akışı
-              href: v2-oauth2-device-code.md
-            - name: OAuth 2.0 kaynak sahibi parola kimlik bilgilerini verme
-              href: v2-oauth-ropc.md
-            - name: İmzalama anahtarı geçiş işlemi
-              href: active-directory-signing-key-rollover.md
-            - name: Kimlik belirteçleri
-              href: id-tokens.md
-            - name: Erişim belirteçleri
-              href: access-tokens.md
-            - name: Sertifika kimlik bilgileri
-              href: active-directory-certificate-credentials.md
-        - name: Uygulama yapılandırması
-          items:
-            - name: Uygulama kayıtları eğitim kılavuzu
-              href: app-registrations-training-guide.md
-            - name: Uygulamalar ve hizmet sorumluları
-              href: app-objects-and-service-principals.md
-            - name: Tek kiracılı ve çok kiracılı uygulamalar
-              href: single-and-multi-tenant-apps.md
-        - name: İzinler ve onay
-          displayName: Scopes
-          items:
-            - name: İzin ve onay türleri
-              href: v2-permissions-and-consent.md
-            - name: Onay çerçevesi
-              href: consent-framework.md
-            - name: Uygulama onayı deneyimleri
-              href: application-consent-experience.md
-        - name: Ulusal Bulutlar
-          href: authentication-national-cloud.md
-    - name: Nasıl yapılır kılavuzları
-      items:
-        - name: Kimlik Doğrulaması
-          items:
-            - name: Rol taleplerini yapılandırma
-              href: active-directory-enterprise-app-role-management.md
-            - name: Talep özelleştirme - PowerShell
-              href: active-directory-claims-mapping.md
-            - name: İsteğe bağlı talepleri yapılandırma
-              href: active-directory-optional-claims.md
-            - name: Belirteç ömrünü yapılandırma
-              href: active-directory-configurable-token-lifetimes.md
-        - name: Uygulama yapılandırması
-          items:
-            - name: Tek kiracılı bir uygulamayı çok kiracılı uygulamaya dönüştürme
-              href: howto-convert-app-to-be-multi-tenant.md
-            - name: Hizmet sorumlusu oluşturma
-              items:
-                - name: Azure PowerShell’i kullanma
-                  href: howto-authenticate-service-principal-powershell.md
-                - name: Azure portalını kullanma
-                  href: howto-create-service-principal-portal.md
-            - name: Uygulamanızı bir kullanıcı kümesiyle sınırlama
-              href: howto-restrict-your-app-to-a-set-of-users.md
-            - name: Uygulamanıza uygulama rolleri ekleme
-              href: howto-add-app-roles-in-azure-ad-apps.md
-            - name: Marka yönergeleri
-              href: howto-add-branding-in-azure-ad-apps.md
-            - name: Yayımcı etki alanı
-              href: howto-configure-publisher-domain.md
-            - name: Hizmet Koşulları ve Gizlilik Bildirimi
-              href: howto-add-terms-of-service-privacy-statement.md
-        - name: Visual Studio ile çalışma
-          items:
-            - name: Active Directory bağlı hizmetini kullanma
-              href: vs-active-directory-add-connected-service.md
-            - name: .NET MVC projelerini kullanmaya başlama
-              href: vs-active-directory-dotnet-getting-started.md
-            - name: .NET MVC projeme ne oldu?
-              href: vs-active-directory-dotnet-what-happened.md
-            - name: .NET WebAPI projelerini kullanmaya başlama
-              href: vs-active-directory-webapi-getting-started.md
-            - name: WebAPI projeme ne oldu?
-              href: vs-active-directory-webapi-what-happened.md
-            - name: Kimlik doğrulama algılama sırasında bir hata oluştu
-              href: vs-active-directory-error.md
-    - name: Başvurular
-      items:
-        - name: Kimlik doğrulama kitaplıkları
-          displayName: MSAL
-          href: reference-v2-libraries.md
-        - name: Microsoft Graph’taki API’leri tanımlama ve bunlara erişme
-          href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
         - name: Uygulama bildirimi
           href: reference-app-manifest.md
         - name: Kimlik doğrulaması ve yetkilendirme hata kodları

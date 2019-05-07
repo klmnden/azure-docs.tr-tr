@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Windows IoT Core cihazını hazırlama ve bağlama
           href: howto-connect-windowsiotcore.md
+        - name: SensorTile.box cihazını hazırlama ve bağlama
+          href: howto-connect-sensortile.md
         - name: Komut satırını kullanarak cihaz bağlantısını izleme
           href: howto-use-iotc-explorer.md
     - name: Cihazları yönetme

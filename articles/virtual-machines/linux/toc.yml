@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Diskler için yedekleme ve olağanüstü durum kurtarma
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Kısa ömürlü işletim sistemi diskleri
+          href: ephemeral-os-disks.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -253,16 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Görüntüleri Kullanma
       items:
-        - name: Paylaşılan resim galerileri (önizleme)
+        - name: Paylaşılan görüntü galerileri
           items:
             - name: Genel Bakış
               href: shared-image-galleries.md
-            - name: CLI kullanarak paylaşılan görüntüler oluşturma
+            - name: CLI
               href: shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Görüntüleri kiracılar arasında paylaşma
+              href: share-images-across-tenants.md
             - name: Paylaşılan görüntü sorunlarını giderme
               href: troubleshooting-shared-images.md
+        - name: Görüntü oluşturucu (önizleme)
+          items:
+            - name: Genel Bakış
+              href: image-builder-overview.md
+            - name: CLI’yi kullanma
+              href: image-builder.md
+            - name: Şablon başvurusu
+              href: image-builder-json.md
+            - name: Galerilerle kullanma
+              href: image-builder-gallery.md
+            - name: Görüntü sürümünü güncelleştirme
+              href: image-builder-gallery-update-image-version.md
+            - name: Sorun giderme
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Görüntüleri bulma ve kullanma
           href: cli-ps-findimage.md
         - name: Özel görüntü oluşturma

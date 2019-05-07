@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Apache Kafka için Event Hubs’da akış yapma
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Ayrılmış Event Hubs kümesi oluşturma
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Öğreticiler
   items:
     - name: Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme

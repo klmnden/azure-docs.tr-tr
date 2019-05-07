@@ -129,6 +129,8 @@
         - name: Premium depolama performansı
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Kısa ömürlü işletim sistemi diskleri
+          href: ephemeral-os-disks.md
         - name: Diskler için ölçeklenebilirlik hedefleri
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Azure CLI kullanma
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Uzantı sıralaması ile disk şifreleme
+            - name: Uzantı sıralama
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Büyük ölçek kümeleriyle çalışma
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Azure PowerShell kullanma
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Paylaşılan resim galerileri (önizleme)
-          href: shared-image-galleries.md
+        - name: Paylaşılan görüntü galerileri
           items:
+            - name: Genel Bakış
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Görüntüleri kiracılar arasında paylaşma
+              href: share-images-across-tenants.md
             - name: Paylaşılan görüntü sorunlarını giderme
               href: troubleshooting-shared-images.md
         - name: Ölçek kümesinde dikey ölçeklendirme

@@ -6,9 +6,6 @@
     - name: Azure Machine Learning hizmeti nedir?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Workbench’e ne oldu?
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Kurulum
   items:
     - name: Çalışma alanı oluşturma
@@ -92,6 +89,8 @@
     - name: Model yorumlanabilirliği
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: GPU’lar ile hızlandırma
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: FPGA’lar ile hızlandırma
       href: concept-accelerate-with-fpgas.md
     - name: ONNX ve ONNX Çalışma Zamanı ile iyileştirme
@@ -117,6 +116,7 @@
         - name: Çalışma alanları için portalı kullanma
           href: how-to-manage-workspace.md
         - name: Resource Manager şablonu kullanma
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Geliştirme ortamı ayarlama\_"
       items:
@@ -352,3 +352,6 @@
     - name: ML ürünlerimizi karşılaştırın
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Workbench’e ne oldu?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

@@ -62,7 +62,7 @@
           href: quickstart-scale-compute-tsql.md
     - name: İş Yükü Yönetimi
       items:
-        - name: İş yükü sınıflandırıcısı oluşturma (Önizleme)
+        - name: İş yükü sınıflandırıcısı oluşturma
           items:
             - name: T-SQL
               href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +72,48 @@
       items:
         - name: Genel Bakış
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Erişim denetimi
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Güvenlik duvarı kuralları
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Sanal ağ hizmet uç noktaları
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Kimlik Doğrulaması
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Oturum açma bilgileri ve kullanıcılar
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Multi-Factor Authentication
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Gelişmiş Veri Güvenliği
+          items:
+            - name: Genel Bakış
+              href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Veri Bulma ve Sınıflandırma
+              href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Güvenlik Açığı Değerlendirmesi
+              href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Gelişmiş Tehdit Koruması
+              href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Denetim
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Veri Bulma ve Sınıflandırma
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: Sütun düzeyi güvenlik
-          href: column-level-security.md
-        - name: Satır düzeyi güvenlik
-          href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json'
+        - name: Ağ Güvenliği
+          items:
+            - name: Güvenlik duvarı kuralları
+              href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Sanal ağ hizmet uç noktaları
+              href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Kimlik Doğrulaması
+          items:
+            - name: Genel Bakış
+              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Azure Active Directory
+              href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Oturum açma bilgileri ve kullanıcılar
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Multi-Factor Authentication
+              href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Erişim denetimi
+          items:
+            - name: Genel Bakış
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Sütun düzeyi güvenlik
+              href: column-level-security.md
+            - name: Satır düzeyi güvenlik
+              href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
+        - name: Veri Koruma
+          items:
+            - name: Saydam Veri Şifrelemesi (TDE) genel bakış
+              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Kendi Anahtarını Getir ile TDE
+              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Veri yükleme
       items:
         - name: Genel Bakış
@@ -158,9 +178,9 @@
       items:
         - name: Kaynak sınıfları ve iş yükü yönetimi
           href: resource-classes-for-workload-management.md
-        - name: İş Yükü Sınıflandırma (Önizleme)
+        - name: İş Yükü Sınıflandırma
           href: sql-data-warehouse-workload-classification.md
-        - name: İş Yükü Önem Düzeyi (Önizleme)
+        - name: İş Yükü Önem Düzeyi
           href: sql-data-warehouse-workload-importance.md
         - name: Bellek ve eşzamanlılık sınırları
           href: memory-and-concurrency-limits.md
@@ -204,8 +224,6 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: Şifrelemeyi etkinleştirme - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: Tehdit algılama
-          href: sql-data-warehouse-security-threat-detection.md
     - name: Veri yükleme
       items:
         - name: New York taxi cab verileri

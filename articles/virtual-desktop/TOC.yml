@@ -18,9 +18,9 @@
   items:
     - name: Windows Sanal Masaüstü kaynaklarına bağlanma
       items:
-        - name: Windows 7 ve Windows 10'la bağlanma
+        - name: Windows 10 veya Windows 7'den bağlanma
           href: connect-windows-7-and-10.md
-        - name: Web istemcisiyle bağlanma
+        - name: Web tarayıcısından bağlanma
           href: connect-web.md
     - name: Azure Resource Manager şablonuyla ana bilgisayar havuzu oluşturma
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Ana VHD görüntüsünü hazırlama ve özelleştirme
       href: set-up-customize-master-image.md
+    - name: Windows Sanal Masaüstü için GPU'yu yapılandırma
+      href: configure-vm-gpu.md
     - name: Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
       href: set-up-scaling-script.md
 - name: Kavramlar

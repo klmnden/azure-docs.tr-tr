@@ -17,6 +17,8 @@
       href: publish-service-catalog-app.md
     - name: Market uygulaması yayımlama
       href: publish-marketplace-app.md
+    - name: Özel kaynak sağlayıcısı oluşturma
+      href: create-custom-provider.md
 - name: Örnekler
   items:
     - name: Azure CLI
@@ -25,6 +27,10 @@
       href: powershell-samples.md
     - name: Yönetilen uygulama çözümleri
       href: sample-projects.md
+- name: Kavramlar
+  items:
+    - name: Özel Sağlayıcılar
+      href: custom-providers-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Yayımcılar

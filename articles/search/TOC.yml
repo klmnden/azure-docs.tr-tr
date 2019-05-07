@@ -4,8 +4,6 @@
   items:
     - name: Azure Search nedir?
       href: search-what-is-azure-search.md
-    - name: Bilişsel arama nedir?
-      href: cognitive-search-concept-intro.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -15,7 +13,7 @@
       items:
         - name: Dizini yükleme ve sorgulama
           href: search-get-started-portal.md
-        - name: AI ile zenginleştirme (bilişsel arama)
+        - name: AI ile zenginleştirme (Bilişsel Arama)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -35,8 +33,12 @@
       href: search-indexer-tutorial.md
     - name: Azure JSON bloblarını dizine ekleme
       href: search-semi-structured-data.md
-    - name: AI (Bilişsel Hizmetler) ile dizin
-      href: cognitive-search-tutorial-blob.md
+    - name: AI ile zenginleştirme (Bilişsel Arama)
+      items:
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
 - name: Örnekler
   items:
     - name: Azure kod örnekleri
@@ -51,13 +53,17 @@
       href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Kavramlar
   items:
-    - name: Tam metin araması
+    - name: Tam metin arama
       href: search-lucene-query-architecture.md
-    - name: Çoklu müşteri mimarisi için tasarım desenleri
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Bilişsel Arama
+      href: cognitive-search-concept-intro.md
+    - name: Bilgi Deposu
+      href: knowledge-store-concept-intro.md
+    - name: Yansıtmalar
+      href: knowledge-store-projection-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Kapasite planlaması
+    - name: Planlama
       items:
         - name: Katman seçme
           href: search-sku-tier.md
@@ -67,6 +73,8 @@
           href: search-capacity-planning.md
         - name: Dağıtım stratejileri ve en iyi uygulamalar
           href: search-performance-optimization.md
+        - name: Çok kiracılı mimari
+          href: search-modeling-multitenant-saas-applications.md
     - name: Güvenlik
       items:
         - name: Güvenliğe genel bakış
@@ -79,6 +87,8 @@
           href: search-security-trimming-for-azure-search.md
         - name: AAD kimlikleri üzerinde filtreleme
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Şifreleme anahtarlarını yönetme (önizleme)
+          href: search-security-manage-encryption-keys.md
     - name: Geliştirme
       items:
         - name: API sürümleri
@@ -169,26 +179,36 @@
           href: search-indexer-field-mappings.md
         - name: Genel sorunları giderme
           href: search-indexer-troubleshooting.md
-    - name: AI dizini oluşturma (bilişsel arama)
+    - name: AI ile zenginleştirme
       items:
         - name: Bilişsel Hizmetler kaynağı iliştirme
           href: cognitive-search-attach-cognitive-services.md
-        - name: Bir beceri kümesi tanımlama
-          href: cognitive-search-defining-skillset.md
-        - name: Ek açıklamaya başvurma
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Dizin alanlarına eşleme
-          href: cognitive-search-output-field-mapping.md
-        - name: Görüntülerdeki bilgileri işleme ve ayıklama
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Özel becerileri tümleştirme
-          href: cognitive-search-custom-skill-interface.md
-        - name: Örnek - özel beceriler
-          href: cognitive-search-create-custom-skill-example.md
+        - name: Beceri kümeleri
+          items:
+            - name: Bir beceri kümesi tanımlama
+              href: cognitive-search-defining-skillset.md
+            - name: Ek açıklamaya başvurma
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: Dizin alanlarına eşleme
+              href: cognitive-search-output-field-mapping.md
+            - name: Görüntülerdeki bilgileri işleme ve ayıklama
+              href: cognitive-search-concept-image-scenarios.md
+        - name: Özel beceriler
+          items:
+            - name: Özel becerileri tümleştirme
+              href: cognitive-search-custom-skill-interface.md
+            - name: Örnek - Azure İşlevleri
+              href: cognitive-search-create-custom-skill-example.md
+            - name: Örnek - Kapsayıcılar
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Sorun giderme ipuçları
           href: cognitive-search-concept-troubleshooting.md
         - name: Belge bağlantıları
           href: cognitive-search-resources-documentation.md
+    - name: Bilgi Deposu (önizleme)
+      items:
+        - name: Nasıl kullanmaya başlarım
+          href: knowledge-store-howto.md
     - name: Verileri sorgulama
       items:
         - name: Temel bir sorgu oluşturma
@@ -203,6 +223,8 @@
           href: search-query-simple-examples.md
         - name: Örnekler (tam Lucene)
           href: search-query-lucene-examples.md
+        - name: moreLikeThis (önizleme)
+          href: search-more-like-this.md
     - name: Verileri filtreleme ve sıralama
       items:
         - name: Filtrelere genel bakış
@@ -272,13 +294,15 @@
           href: cognitive-search-skill-sentiment.md
         - name: Görüntü Analizi
           href: cognitive-search-skill-image-analysis.md
-        - name: Ocr
+        - name: OCR
           href: cognitive-search-skill-ocr.md
         - name: Biçimlendirici
           href: cognitive-search-skill-shaper.md
+        - name: Koşullu
+          href: cognitive-search-skill-conditional.md
         - name: Kullanım Dışı Bırakılmış Beceriler
           href: cognitive-search-skill-deprecated.md
-    - name: Özel beceriler (Önizleme)
+    - name: Özel beceriler
       items:
         - name: Özel Web API'si
           href: cognitive-search-custom-skill-web-api.md

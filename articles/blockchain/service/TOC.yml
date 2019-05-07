@@ -47,6 +47,8 @@
       href: manage-consortium-powershell.md
 - name: Kaynaklar
   items:
+    - name: Blok Zinciri REST API
+      href: 'https://docs.microsoft.com/rest/api/blockchain/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
     - name: Azure Blok Zinciri Hizmeti Visual Studio Code uzantısı
@@ -56,7 +58,7 @@
     - name: Topluluk
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Forum
-      href: 'https://social.msdn.microsoft.com/forums/security/home?forum=AzureBlockchainService'
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain'
     - name: Ürün geri bildirimi
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Fiyatlandırma

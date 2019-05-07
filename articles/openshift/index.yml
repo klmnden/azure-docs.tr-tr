@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Red Hat OpenShift Hizmeti
+metadata:
+  document_id: null
+  title: 'Azure Red Hat OpenShift Hizmeti Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  services: container-service
+  author: tylermsft
+  manager: jeconnoc
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05-06-2019
+  ms.author: twhitney
+abstract:
+  description: 'Azure Red Hat OpenShift Azure''da Red Hat ve Microsoft tarafından desteklenen tek kiracılı, yüksek kullanılabilirliğe sahip Kubernetes kümeleri sağlar.'
+sections:
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Azure Red Hat OpenShift kümesini oluşturmayı ve yönetmeyi öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Azure Red Hat OpenShift kümesi oluşturma</a>
+          - html: <a href="/azure/openshift/tutorial-scale-cluster">Azure Red Hat OpenShift kümesini ölçeklendirme</a>
+          - html: <a href="/azure/openshift/tutorial-delete-cluster">Azure Red Hat OpenShift kümesini silme</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut satırı
+            html: <p><a href="/cli/azure/openshift">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/openshift">REST API</a></p>
+          - title: Red Hat belgeleri
+            html: '<p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Red Hat OpenShift belgeleri</a></p>'

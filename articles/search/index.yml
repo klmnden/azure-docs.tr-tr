@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 'Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Yeni bilişsel arama önizlemesi.</b></a> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynakları ve örnek verileri</a> kullanarak bilişsel aramayı keşfedin veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.'
+  description: 'Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Bilişsel Arama</b></a> üretim senaryoları tarafından desteklenen Yapay Zeka zenginleştirmeleri ile genel kullanıma sunuldu.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Bilgi Deposu (Önizleme)</b> </a> Bilişsel Arama’yı genişletir. Yapay Zeka zenginleştirmelerini, Azure Search’ün yanı sıra diğer uygulamalarda görüntüleyebileceğiniz, yeniden şekillendirebileceğiniz ve kullanabileceğiniz depolama alanına kaydedin. <a href="/azure/search/knowledge-store-howto"><b>Bugün kullanmaya başlayın</b></a>.'
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI (Bilişsel Hizmetler) ile dizin</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET ile Azure Search kullanma</a>
+          - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">İlk arama çözümünüzü yazmak için .NET’i kullanma</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI (Bilişsel Hizmetler) ile zenginleştirme</a>
           - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
           - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>
-          - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
   - title: Başvuru
     items:
       - type: list

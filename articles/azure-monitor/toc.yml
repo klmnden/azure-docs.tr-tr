@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Web Uygulaması Analiz çözümü
               href: insights/azure-web-apps-analytics.md
+            - name: Kubernetes barındırılan uygulamaları
+              href: app/kubernetes.md
         - name: Kapsayıcıları izleme
           items:
             - name: Kapsayıcılar için Azure İzleyici
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: SSS
                   href: insights/container-insights-faq.md
-                - name: Katılma
-                  href: insights/container-insights-onboard.md
+                - name: İzlemeyi etkinleştirme
+                  items:
+                    - name: İzlemeyi etkinleştirmeye genel bakış
+                      href: insights/container-insights-onboard.md
+                    - name: Yeni küme için etkinleştirme
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Mevcut küme için etkinleştirme
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Çözümleme
                   href: insights/container-insights-analyze.md
                 - name: İzlemeyi devre dışı bırakma
                   href: insights/container-insights-optout.md
-                - name: Kapsayıcı canlı günlüklerini görüntüleme
+                - name: Canlı günlükleri görüntüleme
                   href: insights/container-insights-live-logs.md
                 - name: Günlük sorgularıyla verileri çözümleme
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Docker uygulamalarını izleme
               href: app/docker.md
-            - name: Kubernetes için Application Insights
-              href: app/kubernetes.md
         - name: Kaynak gruplarını izleme
           href: insights/resource-group-insights.md
         - name: Veritabanlarını izleme

@@ -99,7 +99,7 @@
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: Uygulamanızı planlama
-      displayName: 'simple, hierarchical, composite, prebuilt, list, regex, regular expression'
+      displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
     - name: Yazar Uygulaması
       items:
@@ -116,7 +116,7 @@
         - name: Hedefler
           href: luis-concept-intent.md
         - name: Varlıklar
-          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles'
+          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
         - name: Konuşmalar
           href: luis-concept-utterance.md
@@ -218,12 +218,15 @@
                   href: luis-tutorial-bot-csharp-appinsights.md
     - name: Tahmin doğruluğunu iyileştirme
       items:
-        - name: Uç nokta konuşmasını gözden geçirme
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
+        - name: Panoyu kullanma
+          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
+          href: luis-how-to-use-dashboard.md
         - name: Tümcecik listesi ekleme
           displayName: 'synonym, interchange'
           href: luis-how-to-add-features.md
+        - name: Uç nokta ifadelerini gözden geçirme
+          displayName: active learning
+          href: luis-how-to-review-endpoint-utterances.md
         - name: Desen ekleme
           displayName: 'syntax, template, roles'
           href: luis-how-to-model-intent-pattern.md
@@ -235,14 +238,11 @@
           href: luis-interactive-test.md
         - name: Toplu işe testi
           href: luis-how-to-batch-test.md
-          displayName: import
+          displayName: 'import, export'
     - name: Yayımlama
       href: luis-how-to-publish-app.md
     - name: Uygulama yönetme
       items:
-        - name: Panoyu kullanma
-          displayName: 'analytics, usage'
-          href: luis-how-to-use-dashboard.md
         - name: LUIS uygulamanız ile abonelik anahtarlarını kullanma
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
           href: luis-how-to-azure-subscription.md
@@ -256,12 +256,17 @@
           href: luis-how-to-account-settings.md
         - name: Traffic Manager ile anahtarlar arasında uç nokta kotasını yayma
           href: luis-traffic-manager.md
-    - name: V2 REST API’ye geçiş
-      href: luis-migration-api-v1-to-v2.md
+    - name: API'yi geçirme
+      items:
+        - name: V2 REST API’ye geçiş
+          href: luis-migration-api-v1-to-v2.md
+        - name: V3 REST API'ye geçiş
+          href: luis-migration-api-v3.md
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
     - name: Kapsayıcıları kullanma
       items:
         - name: Kapsayıcıları yükleme ve çalıştırma
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
           href: luis-container-howto.md
         - name: Kapsayıcıları yapılandırma
           href: luis-container-configuration.md
@@ -269,7 +274,7 @@
   items:
     - name: Kullanıcı gizliliği
       href: luis-user-privacy.md
-    - name: Bölgeleri oluşturma ve yayımlama
+    - name: Bölgeler
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Sınırlar
@@ -284,6 +289,7 @@
           href: luis-reference-prebuilt-currency.md
         - name: DatetimeV2 varlığı
           href: luis-reference-prebuilt-datetimev2.md
+          displayName: timex
         - name: Boyut varlığı
           href: luis-reference-prebuilt-dimension.md
         - name: Kullanım dışı varlıklar
@@ -310,6 +316,7 @@
           href: luis-reference-prebuilt-url.md
     - name: Önceden derlenmiş etki alanı başvurusu
       href: luis-reference-prebuilt-domains.md
+      displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Azure CLI
       href: 'https://aka.ms/az-cli-cognitiveservices'
     - name: Azure RM PowerShell

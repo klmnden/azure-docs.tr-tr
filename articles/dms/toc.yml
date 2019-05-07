@@ -32,6 +32,8 @@
       href: tutorial-mongodb-cosmos-db.md
     - name: MongoDB'yi çevrimiçi ortamda Azure Cosmos DB Mongo API'sine geçirme
       href: tutorial-mongodb-cosmos-db-online.md
+    - name: Oracle'ı PostgreSQL çevrimiçi için Azure Veritabanı’na geçirme
+      href: tutorial-oracle-azure-postgresql-online.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: SQL Server’ı Azure SQL DB'ye geçirmek için PowerShell kullanma

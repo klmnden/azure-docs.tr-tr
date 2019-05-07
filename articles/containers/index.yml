@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Kapsayıcılar için Web App uygulamasında çok kapsayıcılı uygulama oluşturma</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Azure Container Registry Görevleri ile kapsayıcı görüntüsü oluşturma ve dağıtma</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Kapsayıcı oluşturma ve Azure Container Instances’a dağıtma</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Azure Red Hat OpenShift kümesi oluşturma</a>
   - title: Microsoft Learn ile becerilerinizi geliştirin
     items:
       - type: list
