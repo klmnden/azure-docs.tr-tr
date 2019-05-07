@@ -47,8 +47,8 @@ Aşağıdaki üst bilgiler gereklidir:
 
 |İstek üstbilgisi|Açıklama|
 |--------------------|-----------------|
-|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|
-|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Content-Type:*|Gereklidir. Kümesine `application/json`.|
+|*Authorization:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Yanıt
 
